@@ -1,69 +1,46 @@
+
+
 # Amazon SNS Extended Client Library for Java
+<a name="extended-client-library-java"></a>
 
 ## Prerequisites
+<a name="prereqs-sns-extended-client-library"></a>
 
-The following are the prerequisites for using the [Amazon SNS
-Extended Client Library for Java](https://github.com/awslabs/amazon-sns-java-extended-client-lib "https://github.com/awslabs/amazon-sns-java-extended-client-lib"):
+The following are the prerequisites for using the [Amazon SNS Extended Client Library for Java](https://github.com/awslabs/amazon-sns-java-extended-client-lib):
++ An AWS SDK. The example on this page uses the AWS Java SDK. To install and set up the SDK, see [Set up the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup-install.html) in the *AWS SDK for Java Developer Guide*.
++ An AWS account with the proper credentials. To create an AWS account, navigate to the [AWS home page](https://aws.amazon.com/), and then choose **Create an AWS Account**. Follow the instructions.
 
-- An AWS SDK. The example on this page uses the AWS Java SDK. To install
-  and set up the SDK, see [Set up
-  the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/setup-install.md "../../../sdk-for-java/latest/developer-guide/setup-install.md") in the
-  _AWS SDK for Java Developer Guide_.
-- An AWS account with the proper credentials. To create an AWS account,
-  navigate to the [AWS home page](https://aws.amazon.com/ "https://aws.amazon.com/"), and
-  then choose **Create an AWS Account**. Follow the
-  instructions.
-
-For information about credentials, see [Set up AWS Credentials and
-Region for Development](../../../sdk-for-java/latest/developer-guide/setup-credentials.md "../../../sdk-for-java/latest/developer-guide/setup-credentials.md") in the
-_AWS SDK for Java Developer Guide_.
-
-- Java 8 or better.
-- The Amazon SNS Extended Client Library for Java (also available from [Maven](https://maven.apache.org/ "https://maven.apache.org/")).
+  For information about credentials, see [Set up AWS Credentials and Region for Development](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup-credentials.html) in the *AWS SDK for Java Developer Guide*.
++ Java 8 or better. 
++ The Amazon SNS Extended Client Library for Java (also available from [Maven](https://maven.apache.org/)). 
 
 ## Configuring message storage
+<a name="large-message-configure-storage"></a>
 
-The Amazon SNS Extended Client library uses the Payload Offloading Java Common Library
-for AWS for message storage and retrieval. You can configure the following Amazon S3
-[message storage options](https://github.com/awslabs/amazon-sns-java-extended-client-lib/blob/main/src/main/java/software/amazon/sns/SNSExtendedClientConfiguration.java "https://github.com/awslabs/amazon-sns-java-extended-client-lib/blob/main/src/main/java/software/amazon/sns/SNSExtendedClientConfiguration.java"):
+The Amazon SNS Extended Client library uses the Payload Offloading Java Common Library for AWS for message storage and retrieval. You can configure the following Amazon S3 [message storage options](https://github.com/awslabs/amazon-sns-java-extended-client-lib/blob/main/src/main/java/software/amazon/sns/SNSExtendedClientConfiguration.java):
++ **Custom message sizes threshold** – Messages with payloads and attributes that exceed this size are automatically stored in Amazon S3.
++ **`alwaysThroughS3` flag** – Set this value to `true` to force all message payloads to be stored in Amazon S3. For example:
 
-- **Custom message sizes threshold** –
-  Messages with payloads and attributes that exceed this size are
-  automatically stored in Amazon S3.
-- **`alwaysThroughS3` flag**
-  – Set this value to `true` to force all message payloads
-  to be stored in Amazon S3. For example:
-
-```
-SNSExtendedClientConfiguration snsExtendedClientConfiguration = new
-SNSExtendedClientConfiguration() .withPayloadSupportEnabled(s3Client, BUCKET_NAME).withAlwaysThroughS3(true);
-```
-
-- **Custom KMS key** – The key to use
-  for server-side encryption in your Amazon S3 bucket.
-- **Bucket name** – The name of the Amazon S3
-  bucket for storing message payloads.
+  ```
+  SNSExtendedClientConfiguration snsExtendedClientConfiguration = new
+  SNSExtendedClientConfiguration() .withPayloadSupportEnabled(s3Client, BUCKET_NAME).withAlwaysThroughS3(true);
+  ```
++ **Custom KMS key** – The key to use for server-side encryption in your Amazon S3 bucket.
++ **Bucket name** – The name of the Amazon S3 bucket for storing message payloads. 
 
 ## Example: Publishing messages to Amazon SNS with payload stored in Amazon S3
+<a name="example-s3-large-payloads"></a>
 
 The following code example shows how to:
++ Create a sample topic and queue.
++ Subscribe the queue to receive messages from the topic.
++ Publish a test message.
 
-- Create a sample topic and queue.
-- Subscribe the queue to receive messages from the topic.
-- Publish a test message.
+The message payload is stored in Amazon S3 and the reference to it is published. The Amazon SQS Extended Client is used to receive the message.
 
-The message payload is stored in Amazon S3 and the reference to it is published. The
-Amazon SQS Extended Client is used to receive the message.
-
-**SDK for Java 1.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples").
-
-To publish a large message, use the Amazon SNS Extended Client Library for Java. The message that you send references an Amazon S3 object containing the actual message content.
+**SDK for Java 1.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples). 
+To publish a large message, use the Amazon SNS Extended Client Library for Java. The message that you send references an Amazon S3 object containing the actual message content.  
 
 ```
 import com.amazon.sqs.javamessaging.AmazonSQSExtendedClient;
@@ -149,20 +126,14 @@ public class Example {
                 System.out.println("Received message is " + result.getMessages().get(0).getBody());
         }
 }
-
-
 ```
 
 ## Other endpoint protocols
+<a name="large-payloads-other-protocols"></a>
 
-Both the Amazon SNS and Amazon SQS libraries use the [Payload Offloading Java Common Library for AWS](https://github.com/awslabs/payload-offloading-java-common-lib-for-aws "https://github.com/awslabs/payload-offloading-java-common-lib-for-aws") to store and retrieve
-message payloads with Amazon S3. Any Java-enabled endpoint (for example, an HTTPS
-endpoint that's implemented in Java) can use the same library to de-reference the
-message content.
+Both the Amazon SNS and Amazon SQS libraries use the [Payload Offloading Java Common Library for AWS](https://github.com/awslabs/payload-offloading-java-common-lib-for-aws) to store and retrieve message payloads with Amazon S3. Any Java-enabled endpoint (for example, an HTTPS endpoint that's implemented in Java) can use the same library to de-reference the message content.
 
-Endpoints that can't use the Payload Offloading Java Common Library for AWS can
-still publish messages with payloads stored in Amazon S3. The following is an example of
-an Amazon S3 reference that is published by the above code example:
+Endpoints that can't use the Payload Offloading Java Common Library for AWS can still publish messages with payloads stored in Amazon S3. The following is an example of an Amazon S3 reference that is published by the above code example:
 
 ```
 [

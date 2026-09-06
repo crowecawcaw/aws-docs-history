@@ -1,26 +1,21 @@
+
+
 # Amazon SNS data protection policy examples
+<a name="sns-message-data-protection-examples"></a>
 
-###### Important
+**Important**  
+Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
 
-Amazon SNS message data protection is no longer available to new customers.
-For more information and guidance on alternatives, see
-[Amazon SNS message data protection availability change](sns-message-data-protection-availability-change.md "sns-message-data-protection-availability-change.md").
-
-The following examples are data protection policies that you can use to audit and deny
-sensitive data. For a complete tutorial that includes an example application, see the [Introducing message data protection for Amazon SNS](https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/ "https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/") blog post.
+The following examples are data protection policies that you can use to audit and deny sensitive data. For a complete tutorial that includes an example application, see the [Introducing message data protection for Amazon SNS](https://aws.amazon.com/blogs/compute/introducing-message-data-protection-for-amazon-sns/) blog post.
 
 ## Example policy for auditing
+<a name="sns-message-data-protection-audit-example"></a>
 
-Audit policies allow you to audit up to 99% of inbound messages and send findings to
-[Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md"), [https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html](../../../firehose/latest/dev/what-is-this-service.md "../../../firehose/latest/dev/what-is-this-service.md"), and [Amazon S3](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md").
+Audit policies allow you to audit up to 99% of inbound messages and send findings to [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html), [https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html), and [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
 
-For example, you can create an audit policy to evaluate whether any of your systems are
-inadvertently sending or receiving sensitive data. If your audit results show that systems are
-sending credit card information to systems that don’t require it, you can implement a data
-protection policy to block the delivery of the data.
+For example, you can create an audit policy to evaluate whether any of your systems are inadvertently sending or receiving sensitive data. If your audit results show that systems are sending credit card information to systems that don’t require it, you can implement a data protection policy to block the delivery of the data.
 
-The following example audits 99% of the messages that flow through the topic by looking
-for credit card numbers and sending the findings to CloudWatch Logs, Firehose, and Amazon S3.
+The following example audits 99% of the messages that flow through the topic by looking for credit card numbers and sending the findings to CloudWatch Logs, Firehose, and Amazon S3.
 
 **Data protection policy**:
 
@@ -63,7 +58,7 @@ for credit card numbers and sending the findings to CloudWatch Logs, Firehose, a
 {
     "messageId": "...",
     "callerPrincipal": "arn:aws:sts::123456789012:assumed-role/ExampleRole",
-    "resourceArn": "arn:aws:sns:us-east-1:123456789012:ExampleArn",
+    "resourceArn": "arn:aws:sns:us-east-1:123456789012:ExampleArn", 
     "dataIdentifiers": [
         {
             "name": "CreditCardNumber",
@@ -75,13 +70,12 @@ for credit card numbers and sending the findings to CloudWatch Logs, Firehose, a
     ],
     "timestamp": "2021-04-20T00:33:40.241Z"
 }
-
 ```
 
 ## Example policy with inbound de-identify mask statement
+<a name="sns-message-data-protection-inbound-deidentify-mask-example"></a>
 
-The following example prevents a user from publishing a message to a topic with
-`CreditCardNumber` by masking the sensitive data from the message content.
+The following example prevents a user from publishing a message to a topic with `CreditCardNumber` by masking the sensitive data from the message content.
 
 ```
 {
@@ -120,10 +114,9 @@ My credit card number is ################
 ```
 
 ## Example policy with inbound de-identify redact statement
+<a name="sns-message-data-protection-inbound-deidentify-redact-example"></a>
 
-The following example prevents a user from publishing a message to a topic with
-`CreditCardNumber` by redacting the sensitive data from the message
-content.
+The following example prevents a user from publishing a message to a topic with `CreditCardNumber` by redacting the sensitive data from the message content.
 
 ```
 {
@@ -160,9 +153,9 @@ My credit card number is
 ```
 
 ## Example policy with outbound de-identify mask statement
+<a name="sns-message-data-protection-outbound-deidentify-mask-example"></a>
 
-The following example prevents a user from receiving a message with
-`CreditCardNumber` by masking the sensitive data from the message content.
+The following example prevents a user from receiving a message with `CreditCardNumber` by masking the sensitive data from the message content.
 
 ```
 {
@@ -198,14 +191,12 @@ My credit card number is 4539894458086459
 
 // delivered message
 My credit card number is ----------------
-
 ```
 
 ## Example policy with outbound de-identify redact statement
+<a name="sns-message-data-protection-outbound-deidentify-redact-example"></a>
 
-The following example prevents a user from receiving a message with
-`CreditCardNumber` by redacting the sensitive data from the message
-content.
+The following example prevents a user from receiving a message with `CreditCardNumber` by redacting the sensitive data from the message content.
 
 ```
 {
@@ -239,14 +230,12 @@ My credit card number is 4539894458086459
 
 // delivered message
 My credit card number is
-
 ```
 
 ## Example policy with inbound deny statement
+<a name="sns-message-data-protection-inbound-deny-example"></a>
 
-The following example blocks a user from publishing a message to a topic with
-`CreditCardNumber` in the message content. Denied payloads in the API response
-have a status code of "403 AuthorizationError".
+The following example blocks a user from publishing a message to a topic with `CreditCardNumber` in the message content. Denied payloads in the API response have a status code of "403 AuthorizationError".
 
 ```
 {
@@ -268,13 +257,12 @@ have a status code of "403 AuthorizationError".
     }
   ]
 }
-
 ```
 
 ## Example policy with outbound deny statement
+<a name="sns-message-data-protection-outbound-deny-example"></a>
 
-The following example blocks an AWS account from receiving messages that
-contain `CreditCardNumber`.
+The following example blocks an AWS account from receiving messages that contain `CreditCardNumber`.
 
 ```
 {

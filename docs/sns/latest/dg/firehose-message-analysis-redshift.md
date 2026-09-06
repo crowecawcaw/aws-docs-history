@@ -1,32 +1,26 @@
+
+
 # Analyzing Amazon SNS messages stored in Amazon Redshift destinations
+<a name="firehose-message-analysis-redshift"></a>
 
-This topic describes how to analyze Amazon SNS messages that are sent through delivery
-streams to Amazon Redshift destinations.
+This topic describes how to analyze Amazon SNS messages that are sent through delivery streams to Amazon Redshift destinations.
 
-###### To analyze SNS messages sent through Firehose delivery streams to Amazon Redshift destinations
+**To analyze SNS messages sent through Firehose delivery streams to Amazon Redshift destinations**
 
-1. Configure your Amazon Redshift resources. For instructions, see [Getting started with Amazon Redshift](../../../redshift/latest/gsg/getting-started.md "../../../redshift/latest/gsg/getting-started.md") in the
-   _Amazon Redshift Getting Started Guide_.
-2. Configure your delivery stream. For instructions, see [Choose Amazon Redshift for
-   Your Destination](../../../firehose/latest/dev/create-destination.md#create-destination-redshift "../../../firehose/latest/dev/create-destination.md#create-destination-redshift") in the _Amazon Data Firehose Developer Guide_.
-3. Run a query. For more information, see [Querying a database using the query editor](../../../redshift/latest/mgmt/query-editor.md "../../../redshift/latest/mgmt/query-editor.md") in the
-   _Amazon Redshift Management Guide_.
+1. Configure your Amazon Redshift resources. For instructions, see [Getting started with Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/getting-started.html) in the *Amazon Redshift Getting Started Guide*.
+
+1. Configure your delivery stream. For instructions, see [Choose Amazon Redshift for Your Destination](https://docs.aws.amazon.com/firehose/latest/dev/create-destination.html#create-destination-redshift) in the *Amazon Data Firehose Developer Guide*.
+
+1. Run a query. For more information, see [Querying a database using the query editor](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor.html) in the *Amazon Redshift Management Guide*.
 
 ## Example query
+<a name="example-rs-query"></a>
 
 For this example query, assume the following:
-
-- Messages are stored in the `notifications` table in the default
-  `public` schema.
-- The `Timestamp` property from the SNS message is stored in the table's
-  `timestamp` column with a column data type of
-  `timestamptz`.
-
-###### Note
-
-To transform the JSON metadata for the Amazon Redshift endpoint, you can use the SQL
-`COPY` command. For more information, see [Copy from JSON examples](../../../redshift/latest/dg/r_COPY_command_examples.md#r_COPY_command_examples-copy-from-json "../../../redshift/latest/dg/r_COPY_command_examples.md#r_COPY_command_examples-copy-from-json") and [Load from JSON data using the 'auto ignorecase' option](../../../redshift/latest/dg/r_COPY_command_examples.md#copy-from-json-examples-using-auto-ignorecase "../../../redshift/latest/dg/r_COPY_command_examples.md#copy-from-json-examples-using-auto-ignorecase") in the
-_Amazon Redshift Database Developer Guide_.
++ Messages are stored in the `notifications` table in the default `public` schema.
++ The `Timestamp` property from the SNS message is stored in the table's `timestamp` column with a column data type of `timestamptz`.
+**Note**  
+To transform the JSON metadata for the Amazon Redshift endpoint, you can use the SQL `COPY` command. For more information, see [Copy from JSON examples](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html#r_COPY_command_examples-copy-from-json) and [Load from JSON data using the 'auto ignorecase' option](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY_command_examples.html#copy-from-json-examples-using-auto-ignorecase) in the *Amazon Redshift Database Developer Guide*.
 
 The following query returns all SNS messages received in the specified date range:
 

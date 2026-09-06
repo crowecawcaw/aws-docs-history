@@ -1,117 +1,98 @@
-# Managing Amazon SNS phone numbers and subscriptions
 
-Amazon SNS provides several options for managing who receives SMS messages from your account.
-With a limited frequency, you can opt in phone numbers that have opted out of receiving SMS
-messages from your account. To stop sending messages to SMS subscriptions, you can remove
-subscriptions or the topics that publish to them.
+
+# Managing Amazon SNS phone numbers and subscriptions
+<a name="sms_manage"></a>
+
+Amazon SNS provides several options for managing who receives SMS messages from your account. With a limited frequency, you can opt in phone numbers that have opted out of receiving SMS messages from your account. To stop sending messages to SMS subscriptions, you can remove subscriptions or the topics that publish to them.
 
 ## Opting out of receiving SMS messages
+<a name="sms_manage_optout"></a>
 
-Where required by local laws and regulations (such as the US and Canada), SMS
-recipients can use their devices to opt-out by replying to the message with any of the
-following:
+Where required by local laws and regulations (such as the US and Canada), SMS recipients can use their devices to opt-out by replying to the message with any of the following: 
++ ARRET (French)
++ CANCEL
++ END
++ OPT-OUT
++ OPTOUT
++ QUIT
++ REMOVE
++ STOP
++ TD
++ UNSUBSCRIBE
 
-- ARRET (French)
-- CANCEL
-- END
-- OPT-OUT
-- OPTOUT
-- QUIT
-- REMOVE
-- STOP
-- TD
-- UNSUBSCRIBE
+To opt-out, the recipient must reply to the same [origination number](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers.html) that Amazon SNS used to deliver the message. After opting-out, the recipient will no longer receive SMS messages delivered from your AWS account unless you opt-in the phone number.
 
-To opt-out, the recipient must reply to the same [origination number](../../../sms-voice/latest/userguide/phone-numbers.md "../../../sms-voice/latest/userguide/phone-numbers.md") that
-Amazon SNS used to deliver the message. After opting-out, the recipient will no longer
-receive SMS messages delivered from your AWS account unless you opt-in the phone
-number.
-
-If the phone number is subscribed to an Amazon SNS topic, opting-out does not remove the
-subscription, but SMS messages will fail to deliver to that subscription unless you
-opt-in the phone number.
+If the phone number is subscribed to an Amazon SNS topic, opting-out does not remove the subscription, but SMS messages will fail to deliver to that subscription unless you opt-in the phone number.
 
 ## Managing phone numbers and subscriptions using the Amazon SNS console
+<a name="sms_manage_console"></a>
 
-You can use the Amazon SNS console to control which phone numbers receive SMS messages from
-your account.
+You can use the Amazon SNS console to control which phone numbers receive SMS messages from your account.
 
 ### Opting-in a phone number that has been opted-out the Amazon SNS console
+<a name="sms_manage_optout_console"></a>
 
-You can view which phone numbers have been opted-out of receiving SMS messages
-from your account, and you can opt-in these phone numbers to resume sending messages
-to them.
+You can view which phone numbers have been opted-out of receiving SMS messages from your account, and you can opt-in these phone numbers to resume sending messages to them.
 
 You can opt-in a phone number only once every 30 days.
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the console menu, set the region selector to a [region that supports SMS messaging](../../../general/latest/gr/end-user-messaging.md "../../../general/latest/gr/end-user-messaging.md").
-3. On the navigation panel, choose **Text messaging
-   (SMS)**.
-4. On the **Mobile text messaging (SMS)** page, in the
-   **Opted-out phone numbers** section, opted-out phone
-   numbers are displayed.
-5. Select the check box for the phone number that you want to opt-in, and
-   choose **Opt in**. The phone number is no longer opted-out
-   and will receive SMS messages that you send to it.
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
+
+1. In the console menu, set the region selector to a [region that supports SMS messaging](https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html).
+
+1. On the navigation panel, choose **Text messaging (SMS)**.
+
+1. On the **Mobile text messaging (SMS)** page, in the **Opted-out phone numbers** section, opted-out phone numbers are displayed.
+
+1. Select the check box for the phone number that you want to opt-in, and choose **Opt in**. The phone number is no longer opted-out and will receive SMS messages that you send to it.
 
 #### Deleting an SMS subscription the Amazon SNS console
+<a name="sms_manage_subscriptions_console"></a>
 
-Delete an SMS subscription to stop sending SMS messages to that phone number
-when you publish to your topics.
+Delete an SMS subscription to stop sending SMS messages to that phone number when you publish to your topics.
 
-1. On the navigation panel, choose
-   **Subscriptions**.
-2. Select the check boxes for the subscriptions that you want to delete.
-   Then choose **Actions**, and choose **Delete
-   Subscriptions**.
-3. In the **Delete** window, choose
-   **Delete**. Amazon SNS deletes the subscription and
-   displays a success message.
+1. On the navigation panel, choose **Subscriptions**.
+
+1. Select the check boxes for the subscriptions that you want to delete. Then choose **Actions**, and choose **Delete Subscriptions**.
+
+1. In the **Delete** window, choose **Delete**. Amazon SNS deletes the subscription and displays a success message.
 
 #### Deleting a topic the Amazon SNS console
+<a name="sms_manage_topic_console"></a>
 
-Delete a topic when you no longer want to publish messages to its subscribed
-endpoints.
+Delete a topic when you no longer want to publish messages to its subscribed endpoints.
 
 1. On the navigation panel, choose **Topics**.
-2. Select the check boxes for the topics that you want to delete. Then
-   choose **Actions**, and choose **Delete
-   Topics**.
-3. In the **Delete** window, choose
-   **Delete**. Amazon SNS deletes the topic and displays a
-   success message.
+
+1. Select the check boxes for the topics that you want to delete. Then choose **Actions**, and choose **Delete Topics**.
+
+1. In the **Delete** window, choose **Delete**. Amazon SNS deletes the topic and displays a success message.
 
 ### Managing phone numbers and subscriptions using the AWS SDK
+<a name="sms_manage_sdk"></a>
 
-You can use the AWS SDKs to make programmatic requests to Amazon SNS and manage which
-phone numbers can receive SMS messages from your account.
+You can use the AWS SDKs to make programmatic requests to Amazon SNS and manage which phone numbers can receive SMS messages from your account.
 
-To use an AWS SDK, you must configure it with your credentials. For more
-information, see [Shared config and credentials
-files](../../../sdkref/latest/guide/file-format.md "../../../sdkref/latest/guide/file-format.md") in the _AWS SDKs and Tools Reference Guide_.
+To use an AWS SDK, you must configure it with your credentials. For more information, see [Shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/file-format.html) in the *AWS SDKs and Tools Reference Guide*.
 
 #### Viewing all opted-out phone numbers using the AWS SDK
+<a name="sms_view_optout_sdk"></a>
 
-To view all opted-out phone numbers, submit a
-`ListPhoneNumbersOptedOut` request with the Amazon SNS API.
+To view all opted-out phone numbers, submit a `ListPhoneNumbersOptedOut` request with the Amazon SNS API.
 
 The following code examples show how to use `ListPhoneNumbersOptedOut`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list SMS message opt-outs**
-
-The following `list-phone-numbers-opted-out` example lists the phone numbers opted out of receiving SMS messages.
-
-```
-`aws sns list-phone-numbers-opted-out`
+**AWS CLI**  
+**To list SMS message opt-outs**  
+The following `list-phone-numbers-opted-out` example lists the phone numbers opted out of receiving SMS messages.  
 
 ```
-
-Output:
+aws sns list-phone-numbers-opted-out
+```
+Output:  
 
 ```
 {
@@ -120,20 +101,13 @@ Output:
     ]
 }
 ```
++  For API details, see [ListPhoneNumbersOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListPhoneNumbersOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -173,23 +147,14 @@ public class ListOptOut {
         }
     }
 }
-
-
 ```
++  For API details, see [ListPhoneNumbersOptedOut](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/ListPhoneNumbersOptedOut) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListPhoneNumbersOptedOut](../../../goto/SdkForJavaV2/sns-2010-03-31/ListPhoneNumbersOptedOut.md "../../../goto/SdkForJavaV2/sns-2010-03-31/ListPhoneNumbersOptedOut.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -218,32 +183,24 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-sending-sms.html#list-opted-out-phone-numbers). 
++  For API details, see [ListPhoneNumbersOptedOut](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/ListPhoneNumbersOptedOut) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#list-opted-out-phone-numbers "../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#list-opted-out-phone-numbers").
-- For API details, see
-  [ListPhoneNumbersOptedOut](../../../goto/SdkForPHPV3/sns-2010-03-31/ListPhoneNumbersOptedOut.md "../../../goto/SdkForPHPV3/sns-2010-03-31/ListPhoneNumbersOptedOut.md")
-  in _AWS SDK for PHP API Reference_.
+------
 
 #### Checking whether a phone number is opted-out using the AWS SDK
+<a name="sms_check_optout_sdk"></a>
 
-To check whether a phone number is opted-out, submit a
-`CheckIfPhoneNumberIsOptedOut` request with the Amazon SNS API.
+To check whether a phone number is opted-out, submit a `CheckIfPhoneNumberIsOptedOut` request with the Amazon SNS API.
 
 The following code examples show how to use `CheckIfPhoneNumberIsOptedOut`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 
 ```
     using System;
@@ -296,50 +253,34 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             }
         }
     }
+```
++  For API details, see [CheckIfPhoneNumberIsOptedOut](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To check SMS message opt-out for a phone number**  
+The following `check-if-phone-number-is-opted-out` example checks whether the specified phone number is opted out of receiving SMS messages from the current AWS account.  
 
 ```
-
-- For API details, see
-  [CheckIfPhoneNumberIsOptedOut](../../../goto/DotNetSDKV3/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut.md "../../../goto/DotNetSDKV3/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To check SMS message opt-out for a phone number**
-
-The following `check-if-phone-number-is-opted-out` example checks whether the specified phone number is opted out of receiving SMS messages from the current AWS account.
-
+aws sns check-if-phone-number-is-opted-out \
+    --phone-number {{+1555550100}}
 ```
-`aws sns check-if-phone-number-is-opted-out \
- --phone-number `+1555550100``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "isOptedOut": false
 }
 ```
++  For API details, see [CheckIfPhoneNumberIsOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/check-if-phone-number-is-opted-out.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CheckIfPhoneNumberIsOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/check-if-phone-number-is-opted-out.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/check-if-phone-number-is-opted-out.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -399,25 +340,15 @@ public class CheckOptOut {
         }
     }
 }
-
-
 ```
++  For API details, see [CheckIfPhoneNumberIsOptedOut](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CheckIfPhoneNumberIsOptedOut](../../../goto/SdkForJavaV2/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut.md "../../../goto/SdkForJavaV2/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -425,11 +356,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { CheckIfPhoneNumberIsOptedOutCommand } from "@aws-sdk/client-sns";
@@ -458,24 +386,15 @@ export const checkIfPhoneNumberIsOptedOut = async (
   // }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-sending-sms.html#sending-sms-checkifphonenumberisoptedout). 
++  For API details, see [CheckIfPhoneNumberIsOptedOut](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CheckIfPhoneNumberIsOptedOutCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-sending-sms.md#sending-sms-checkifphonenumberisoptedout "../../../sdk-for-javascript/v3/developer-guide/sns-examples-sending-sms.md#sending-sms-checkifphonenumberisoptedout").
-- For API details, see
-  [CheckIfPhoneNumberIsOptedOut](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CheckIfPhoneNumberIsOptedOutCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CheckIfPhoneNumberIsOptedOutCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -508,42 +427,32 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-sending-sms.html#check-if-a-phone-number-has-opted-out). 
++  For API details, see [CheckIfPhoneNumberIsOptedOut](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#check-if-a-phone-number-has-opted-out "../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#check-if-a-phone-number-has-opted-out").
-- For API details, see
-  [CheckIfPhoneNumberIsOptedOut](../../../goto/SdkForPHPV3/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut.md "../../../goto/SdkForPHPV3/sns-2010-03-31/CheckIfPhoneNumberIsOptedOut.md")
-  in _AWS SDK for PHP API Reference_.
+------
 
 #### Opting-in a phone number that has been opted-out using the Amazon SNS API
+<a name="sms_manage_optin_sdk"></a>
 
-To opt-in a phone number, submit an `OptInPhoneNumber` request with
-the Amazon SNS API.
+To opt-in a phone number, submit an `OptInPhoneNumber` request with the Amazon SNS API.
 
 You can opt-in a phone number only once every 30 days.
 
 #### Deleting an SMS subscription using the AWS SDK
+<a name="sms_manage_subscriptions_sdk"></a>
 
-To delete an SMS subscription from an Amazon SNS topic, get the subscription ARN by
-submitting a `ListSubscriptions` request with the Amazon SNS API, and then
-pass the ARN to an `Unsubscribe` request.
+To delete an SMS subscription from an Amazon SNS topic, get the subscription ARN by submitting a `ListSubscriptions` request with the Amazon SNS API, and then pass the ARN to an `Unsubscribe` request.
 
 The following code examples show how to use `Unsubscribe`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
-
-Unsubscribe from a topic by a subscription ARN.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
+Unsubscribe from a topic by a subscription ARN.  
 
 ```
     /// <summary>
@@ -560,23 +469,14 @@ Unsubscribe from a topic by a subscription ARN.
             });
         return unsubscribeResponse.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Unsubscribe) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [Unsubscribe](../../../goto/DotNetSDKV3/sns-2010-03-31/Unsubscribe.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Unsubscribe.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 //! Delete a subscription to an Amazon Simple Notification Service (Amazon SNS) topic.
@@ -604,43 +504,28 @@ bool AwsDoc::SNS::unsubscribe(const Aws::String &subscriptionARN,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Unsubscribe) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To unsubscribe from a topic**  
+The following `unsubscribe` example deletes the specified subscription from a topic.  
 
 ```
-
-- For API details, see
-  [Unsubscribe](../../../goto/SdkForCpp/sns-2010-03-31/Unsubscribe.md "../../../goto/SdkForCpp/sns-2010-03-31/Unsubscribe.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To unsubscribe from a topic**
-
-The following `unsubscribe` example deletes the specified subscription from a topic.
-
+aws sns unsubscribe \
+    --subscription-arn {{arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f}}
 ```
-`aws sns unsubscribe \
- --subscription-arn `arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f``
+This command produces no output.  
++  For API details, see [Unsubscribe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/unsubscribe.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-- For API details, see
-  [Unsubscribe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/unsubscribe.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/unsubscribe.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -697,25 +582,15 @@ public class Unsubscribe {
         }
     }
 }
-
-
 ```
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Unsubscribe) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Unsubscribe](../../../goto/SdkForJavaV2/sns-2010-03-31/Unsubscribe.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Unsubscribe.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -723,11 +598,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { UnsubscribeCommand } from "@aws-sdk/client-sns";
@@ -757,24 +629,15 @@ const unsubscribe = async (
   // }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.html#sns-examples-unsubscribing). 
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-unsubscribing "../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-unsubscribing").
-- For API details, see
-  [Unsubscribe](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun unSub(subscriptionArnVal: String) {
@@ -788,23 +651,14 @@ suspend fun unSub(subscriptionArnVal: String) {
         println("Subscription was removed for ${request.subscriptionArn}")
     }
 }
-
-
 ```
++  For API details, see [Unsubscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [Unsubscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -837,25 +691,15 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-subscribing-unsubscribing-topics.html#unsubscribe-from-a-topic). 
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/Unsubscribe) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-subscribing-unsubscribing-topics.md#unsubscribe-from-a-topic "../../../sdk-for-php/v3/developer-guide/sns-examples-subscribing-unsubscribing-topics.md#unsubscribe-from-a-topic").
-- For API details, see
-  [Unsubscribe](../../../goto/SdkForPHPV3/sns-2010-03-31/Unsubscribe.md "../../../goto/SdkForPHPV3/sns-2010-03-31/Unsubscribe.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
 ```
 class SnsWrapper:
@@ -879,9 +723,6 @@ class SnsWrapper:
         except ClientError:
             logger.exception("Couldn't delete subscription %s.", subscription.arn)
             raise
-
-
-
 ```
 
 ```
@@ -917,37 +758,27 @@ class SnsWrapper:
         """
         try:
             self.sns_client.unsubscribe(SubscriptionArn=subscription_arn)
-
+            
             logger.info(f"Unsubscribed: {subscription_arn}")
             return True
 
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-
+            
             if error_code == 'NotFound':
                 logger.warning(f"Subscription not found: {subscription_arn}")
                 return True  # Already unsubscribed
             else:
                 logger.error(f"Error unsubscribing: {error_code} - {e}")
                 raise
-
-
-
 ```
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Unsubscribe) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Unsubscribe](../../../goto/boto3/sns-2010-03-31/Unsubscribe.md "../../../goto/boto3/sns-2010-03-31/Unsubscribe.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     TRY.
@@ -958,23 +789,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snsinvalidparameterex.
         MESSAGE 'Subscription with "PendingConfirmation" status cannot be deleted/unsubscribed. Confirm subscription before performing unsubscribe operation.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Unsubscribe](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Unsubscribe](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
 ```
 import AWSSNS
@@ -989,33 +811,24 @@ import AWSSNS
         )
 
         print("Unsubscribed.")
-
-
 ```
++  For API details, see [Unsubscribe](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/unsubscribe(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [Unsubscribe](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/unsubscribe(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/unsubscribe(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
 #### Deleting a topic using the AWS SDK
+<a name="sms_manage_topic_sdk"></a>
 
-To delete a topic and all of its subscriptions, get the topic ARN by
-submitting a `ListTopics` request with the Amazon SNS API, and then pass
-the ARN to the `DeleteTopic` request.
+To delete a topic and all of its subscriptions, get the topic ARN by submitting a `ListTopics` request with the Amazon SNS API, and then pass the ARN to the `DeleteTopic` request.
 
 The following code examples show how to use `DeleteTopic`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
-
-Delete a topic by its topic ARN.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
+Delete a topic by its topic ARN.  
 
 ```
     /// <summary>
@@ -1032,23 +845,14 @@ Delete a topic by its topic ARN.
             });
         return deleteResponse.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic.md "../../../goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 //! Delete an Amazon Simple Notification Service (Amazon SNS) topic.
@@ -1076,46 +880,30 @@ bool AwsDoc::SNS::deleteTopic(const Aws::String &topicARN,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/DeleteTopic) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an SNS topic**  
+The following `delete-topic` example deletes the specified SNS topic.  
 
 ```
+aws sns delete-topic \
+    --topic-arn {{"arn:aws:sns:us-west-2:123456789012:my-topic"}}
+```
+This command produces no output.  
++  For API details, see [DeleteTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/SdkForCpp/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForCpp/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an SNS topic**
-
-The following `delete-topic` example deletes the specified SNS topic.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-`aws sns delete-topic \
- --topic-arn `"arn:aws:sns:us-west-2:123456789012:my-topic"``
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [DeleteTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -1143,24 +931,14 @@ func (actor SnsActions) DeleteTopic(ctx context.Context, topicArn string) error 
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -1217,25 +995,15 @@ public class DeleteTopic {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -1243,11 +1011,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { DeleteTopicCommand } from "@aws-sdk/client-sns";
@@ -1272,24 +1037,15 @@ export const deleteTopic = async (topicArn = "TOPIC_ARN") => {
   //   }
   // }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.html#sns-examples-managing-topics-deletetopic). 
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-managing-topics-deletetopic "../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-managing-topics-deletetopic").
-- For API details, see
-  [DeleteTopic](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun deleteSNSTopic(topicArnVal: String) {
@@ -1303,23 +1059,14 @@ suspend fun deleteSNSTopic(topicArnVal: String) {
         println("$topicArnVal was successfully deleted.")
     }
 }
-
-
 ```
++  For API details, see [DeleteTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -1352,24 +1099,14 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/DeleteTopic) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/SdkForPHPV3/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForPHPV3/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
 ```
 class SnsWrapper:
@@ -1393,9 +1130,6 @@ class SnsWrapper:
         except ClientError:
             logger.exception("Couldn't delete topic %s.", topic.arn)
             raise
-
-
-
 ```
 
 ```
@@ -1431,37 +1165,27 @@ class SnsWrapper:
         """
         try:
             self.sns_client.delete_topic(TopicArn=topic_arn)
-
+            
             logger.info(f"Deleted topic: {topic_arn}")
             return True
 
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-
+            
             if error_code == 'NotFound':
                 logger.warning(f"Topic not found: {topic_arn}")
                 return True  # Already deleted
             else:
                 logger.error(f"Error deleting topic: {error_code} - {e}")
                 raise
-
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/DeleteTopic) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/boto3/sns-2010-03-31/DeleteTopic.md "../../../goto/boto3/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     TRY.
@@ -1470,23 +1194,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
 ```
 import AWSSNS
@@ -1497,10 +1212,7 @@ import AWSSNS
         _ = try await snsClient.deleteTopic(
             input: DeleteTopicInput(topicArn: arn)
         )
-
-
 ```
++  For API details, see [DeleteTopic](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteTopic](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)")
-  in _AWS SDK for Swift API reference_.
+------

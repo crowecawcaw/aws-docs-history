@@ -1,50 +1,32 @@
-# Amazon SNS code examples for FIFO topics
 
-Use the following code examples to integrate the [auto
-parts price management example use case](fifo-example-use-case.md "fifo-example-use-case.md") with an Amazon SNS FIFO topic and either an Amazon SQS
-FIFO queue or a standard queue.
+
+# Amazon SNS code examples for FIFO topics
+<a name="fifo-topic-code-examples"></a>
+
+Use the following code examples to integrate the [auto parts price management example use case](fifo-example-use-case.md) with an Amazon SNS FIFO topic and either an Amazon SQS FIFO queue or a standard queue.
 
 ## Using an AWS SDK
+<a name="fifo-topic-aws-sdks"></a>
 
-Using an AWS SDK, you create an Amazon SNS FIFO topic by setting its `FifoTopic`
-attribute to `true`. You create an Amazon SQS FIFO queue by setting its
-`FifoQueue` attribute to `true`. Also, you must add the
-`.fifo` suffix to the name of each FIFO resource. After you create a
-FIFO topic or queue, you can't convert it into a standard topic or queue.
+Using an AWS SDK, you create an Amazon SNS FIFO topic by setting its `FifoTopic` attribute to **true**. You create an Amazon SQS FIFO queue by setting its `FifoQueue` attribute to **true**. Also, you must add the **.fifo** suffix to the name of each FIFO resource. After you create a FIFO topic or queue, you can't convert it into a standard topic or queue.
 
 The following code examples create these FIFO and standard queue resources:
++ The Amazon SNS FIFO topic that distributes the price updates
++ The Amazon SQS FIFO queues that provide these updates to the wholesale and retail applications
++ The Amazon SQS standard queue for the analytics application that stores records, which can be queried for business intelligence (BI)
++ The Amazon SNS FIFO subscriptions that connect the three queues to the topic
 
-- The Amazon SNS FIFO topic that distributes the price updates
-- The Amazon SQS FIFO queues that provide these updates to the wholesale and retail
-  applications
-- The Amazon SQS standard queue for the analytics application that stores records, which can
-  be queried for business intelligence (BI)
-- The Amazon SNS FIFO subscriptions that connect the three queues to the topic
+This example sets [filter policies](sns-subscription-filter-policies.md) in the subscriptions. If you test the example by publishing a message to the topic, make sure that you publish the message with the `business` attribute. Specify either `retail` or `wholesale` for the attribute value. Otherwise, the message is filtered out and not delivered to the subscribed queues. For more information, see [Amazon SNS message filtering for FIFO topics](fifo-message-filtering.md).
 
-This example sets [filter policies](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md")
-in the subscriptions. If you test the example by publishing a message to the topic, make sure
-that you publish the message with the `business` attribute. Specify either
-`retail` or `wholesale` for the attribute value. Otherwise, the
-message is filtered out and not delivered to the subscribed queues. For more information, see
-[Amazon SNS message filtering for FIFO topics](fifo-message-filtering.md "fifo-message-filtering.md").
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
-
-This example
-
-- creates an Amazon SNS FIFO topic, two Amazon SQS FIFO queues, and one Standard queue.
-- subscribes the queues to the topic and publishes a message to the topic.
-
-The [test](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java") verifies the receipt of the message to each queue. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java") also shows the addition of access policies and deletes the resources at
-the end.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
+This example  
++ creates an Amazon SNS FIFO topic, two Amazon SQS FIFO queues, and one Standard queue.
++ subscribes the queues to the topic and publishes a message to the topic.
+The [test](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/test/java/com/example/sns/PriceUpdateExampleTest.java) verifies the receipt of the message to each queue. The [complete example](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns/src/main/java/com/example/sns/PriceUpdateExample.java) also shows the addition of access policies and deletes the resources at the end.  
 
 ```
 public class PriceUpdateExample {
@@ -178,27 +160,18 @@ public class PriceUpdateExample {
             System.exit(1);
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/CreateTopic)
+  + [Publish](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Publish)
+  + [Subscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Subscribe)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [CreateTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md")
-  - [Publish](../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md")
-  - [Subscribe](../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
-
-Create an Amazon SNS FIFO topic, subscribe Amazon SQS FIFO and standard queues to the topic, and publish a message to the topic.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
+Create an Amazon SNS FIFO topic, subscribe Amazon SQS FIFO and standard queues to the topic, and publish a message to the topic.  
 
 ```
 def usage_demo():
@@ -337,7 +310,7 @@ class FifoTopicWrapper:
                 Attributes={
                     "Policy": json.dumps(
                         {
-                            "Version":"2012-10-17",
+                            "Version":"2012-10-17",		 	 	 
                             "Statement": [
                                 {
                                     "Sid": "test-sid",
@@ -424,33 +397,20 @@ class FifoTopicWrapper:
         except ClientError as error:
             logger.exception("Couldn't delete queue with URL=%s!", queue.url)
             raise error
+```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/CreateTopic)
+  + [Publish](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Publish)
+  + [Subscribe](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Subscribe)
 
+------
+#### [ SAP ABAP ]
 
-
-
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
+Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publish a message to an Amazon SNS topic.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
-
-  - [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
-  - [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
-  - [Subscribe](../../../goto/boto3/sns-2010-03-31/Subscribe.md "../../../goto/boto3/sns-2010-03-31/Subscribe.md")
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
-
-Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publish a message to an Amazon SNS topic.
-
-```
-
     " Creates a FIFO topic. "
     DATA lt_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>tt_topicattributesmap.
     DATA ls_tpc_attributes TYPE /aws1/cl_snstopicattrsmap_w=>ts_topicattributesmap_maprow.
@@ -506,50 +466,33 @@ Create a FIFO topic, subscribe an Amazon SQS FIFO queue to the topic, and publis
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for SAP ABAP API reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [Publish](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
+  + [Subscribe](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
-
-  - [CreateTopic](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [Publish](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  - [Subscribe](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
+------
 
 ### Receiving messages from FIFO subscriptions
+<a name="fifo-receiving-messages"></a>
 
-You can now receive price updates in the three subscribed applications. As shown in the
-[Amazon SNS FIFO topic example use case](fifo-example-use-case.md "fifo-example-use-case.md"), the point of entry for each consumer application
-is the Amazon SQS queue, which its corresponding AWS Lambda function can poll automatically. When
-an Amazon SQS queue is an event source for a Lambda function, Lambda scales its fleet of pollers as
-needed to efficiently consume messages.
+You can now receive price updates in the three subscribed applications. As shown in the [Amazon SNS FIFO topic example use case](fifo-example-use-case.md), the point of entry for each consumer application is the Amazon SQS queue, which its corresponding AWS Lambda function can poll automatically. When an Amazon SQS queue is an event source for a Lambda function, Lambda scales its fleet of pollers as needed to efficiently consume messages.
 
-For more information, see [Using AWS Lambda with Amazon SQS](../../../lambda/latest/dg/with-sqs.md "../../../lambda/latest/dg/with-sqs.md") in the
-_AWS Lambda Developer Guide_. For information on writing your own queue pollers,
-see [Recommendations for Amazon SQS standard and FIFO queues](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-best-practices.md#sqs-standard-fifo-queue-best-practices "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-best-practices.md#sqs-standard-fifo-queue-best-practices") in the
-_Amazon Simple Queue Service Developer Guide_ and [ReceiveMessage](../../../AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.md "../../../AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.md") in the _Amazon Simple Queue Service API Reference_.
+For more information, see [Using AWS Lambda with Amazon SQS](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html) in the *AWS Lambda Developer Guide*. For information on writing your own queue pollers, see [Recommendations for Amazon SQS standard and FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-best-practices.html#sqs-standard-fifo-queue-best-practices) in the *Amazon Simple Queue Service Developer Guide* and [ReceiveMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ReceiveMessage.html) in the *Amazon Simple Queue Service API Reference*.
 
 ## Using AWS CloudFormation
+<a name="fifo-topic-cfn"></a>
 
-CloudFormation allows you to use a template file to create and configure a collection of AWS resources together as a single unit. This section has an example template that
-creates the following:
+CloudFormation allows you to use a template file to create and configure a collection of AWS resources together as a single unit. This section has an example template that creates the following:
++ The Amazon SNS FIFO topic that distributes the price updates
++ The Amazon SQS FIFO queues that provide these updates to the wholesale and retail applications
++ The Amazon SQS standard queue for the analytics application that stores records, which can be queried for business intelligence (BI)
++ The Amazon SNS FIFO subscriptions that connect the three queues to the topic
++ A [filter policy](sns-subscription-filter-policies.md) that specifies that subscriber applications receive only the price updates that they need
 
-- The Amazon SNS FIFO topic that distributes the price updates
-- The Amazon SQS FIFO queues that provide these updates to the wholesale and retail
-  applications
-- The Amazon SQS standard queue for the analytics application that stores records, which can
-  be queried for business intelligence (BI)
-- The Amazon SNS FIFO subscriptions that connect the three queues to the topic
-- A [filter policy](sns-subscription-filter-policies.md "sns-subscription-filter-policies.md") that specifies
-  that subscriber applications receive only the price updates that they need
-
-###### Note
-
-If you test this code sample by publishing a message to the topic, make sure that you
-publish the message with the `business` attribute. Specify either
-`retail` or `wholesale` for the attribute value. Otherwise, the
-message is filtered out and not delivered to the subscribed queues.
+**Note**  
+If you test this code sample by publishing a message to the topic, make sure that you publish the message with the `business` attribute. Specify either `retail` or `wholesale` for the attribute value. Otherwise, the message is filtered out and not delivered to the subscribed queues. 
 
 ```
 {
@@ -689,5 +632,4 @@ message is filtered out and not delivered to the subscribed queues.
 }
 ```
 
-For more information about deploying AWS resources using an CloudFormation template, see [Get Started](../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md "../../../AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.md") in the
-_CloudFormation User Guide_.
+For more information about deploying AWS resources using an CloudFormation template, see [Get Started](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.html) in the *CloudFormation User Guide*.

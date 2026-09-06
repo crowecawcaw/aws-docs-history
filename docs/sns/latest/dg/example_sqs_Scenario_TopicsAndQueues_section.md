@@ -1,23 +1,20 @@
+
+
 # Publish Amazon SNS messages to Amazon SQS queues using an AWS SDK
+<a name="example_sqs_Scenario_TopicsAndQueues_section"></a>
 
 The following code examples show how to:
++ Create topic (FIFO or non-FIFO).
++ Subscribe several queues to the topic with an option to apply a filter.
++ Publish messages to the topic.
++ Poll the queues for messages received.
 
-- Create topic (FIFO or non-FIFO).
-- Subscribe several queues to the topic with an option to apply a filter.
-- Publish messages to the topic.
-- Poll the queues for messages received.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 /// <summary>
@@ -511,14 +508,10 @@ public static class TopicsAndQueues
         return defaultAnswer;
     }
 }
-
+```
+Create a class that wraps Amazon SQS operations.  
 
 ```
-
-Create a class that wraps Amazon SQS operations.
-
-```
-
 /// <summary>
 /// Wrapper for Amazon Simple Queue Service (SQS) operations.
 /// </summary>
@@ -694,14 +687,10 @@ public class SQSWrapper
         return deleteResponse.HttpStatusCode == HttpStatusCode.OK;
     }
 }
-
+```
+Create a class that wraps Amazon SNS operations.  
 
 ```
-
-Create a class that wraps Amazon SNS operations.
-
-```
-
 /// <summary>
 /// Wrapper for Amazon Simple Notification Service (SNS) operations.
 /// </summary>
@@ -851,33 +840,25 @@ public class SNSWrapper
         return deleteResponse.HttpStatusCode == HttpStatusCode.OK;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [CreateQueue](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/CreateQueue)
+  + [CreateTopic](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/CreateTopic)
+  + [DeleteMessageBatch](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch)
+  + [DeleteQueue](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/DeleteQueue)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic)
+  + [GetQueueAttributes](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/GetQueueAttributes)
+  + [Publish](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Publish)
+  + [ReceiveMessage](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/ReceiveMessage)
+  + [SetQueueAttributes](https://docs.aws.amazon.com/goto/DotNetSDKV3/sqs-2012-11-05/SetQueueAttributes)
+  + [Subscribe](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Subscribe)
+  + [Unsubscribe](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Unsubscribe)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-  - [CreateQueue](../../../goto/DotNetSDKV3/sqs-2012-11-05/CreateQueue.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/CreateQueue.md")
-  - [CreateTopic](../../../goto/DotNetSDKV3/sns-2010-03-31/CreateTopic.md "../../../goto/DotNetSDKV3/sns-2010-03-31/CreateTopic.md")
-  - [DeleteMessageBatch](../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch.md")
-  - [DeleteQueue](../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteQueue.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteQueue.md")
-  - [DeleteTopic](../../../goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic.md "../../../goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic.md")
-  - [GetQueueAttributes](../../../goto/DotNetSDKV3/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/GetQueueAttributes.md")
-  - [Publish](../../../goto/DotNetSDKV3/sns-2010-03-31/Publish.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Publish.md")
-  - [ReceiveMessage](../../../goto/DotNetSDKV3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/ReceiveMessage.md")
-  - [SetQueueAttributes](../../../goto/DotNetSDKV3/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/SetQueueAttributes.md")
-  - [Subscribe](../../../goto/DotNetSDKV3/sns-2010-03-31/Subscribe.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Subscribe.md")
-  - [Unsubscribe](../../../goto/DotNetSDKV3/sns-2010-03-31/Unsubscribe.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Unsubscribe.md")
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/cross-service/topics_and_queues#code-examples). 
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -1504,38 +1485,28 @@ Aws::String AwsDoc::TopicsAndQueues::createPolicyForQueue(const Aws::String &que
 
     return policyStream.str();
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [CreateQueue](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/CreateQueue)
+  + [CreateTopic](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/CreateTopic)
+  + [DeleteMessageBatch](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch)
+  + [DeleteQueue](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/DeleteQueue)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/DeleteTopic)
+  + [GetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/GetQueueAttributes)
+  + [Publish](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Publish)
+  + [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/ReceiveMessage)
+  + [SetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/sqs-2012-11-05/SetQueueAttributes)
+  + [Subscribe](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Subscribe)
+  + [Unsubscribe](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Unsubscribe)
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [CreateQueue](../../../goto/SdkForCpp/sqs-2012-11-05/CreateQueue.md "../../../goto/SdkForCpp/sqs-2012-11-05/CreateQueue.md")
-  - [CreateTopic](../../../goto/SdkForCpp/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForCpp/sns-2010-03-31/CreateTopic.md")
-  - [DeleteMessageBatch](../../../goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch.md")
-  - [DeleteQueue](../../../goto/SdkForCpp/sqs-2012-11-05/DeleteQueue.md "../../../goto/SdkForCpp/sqs-2012-11-05/DeleteQueue.md")
-  - [DeleteTopic](../../../goto/SdkForCpp/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForCpp/sns-2010-03-31/DeleteTopic.md")
-  - [GetQueueAttributes](../../../goto/SdkForCpp/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/SdkForCpp/sqs-2012-11-05/GetQueueAttributes.md")
-  - [Publish](../../../goto/SdkForCpp/sns-2010-03-31/Publish.md "../../../goto/SdkForCpp/sns-2010-03-31/Publish.md")
-  - [ReceiveMessage](../../../goto/SdkForCpp/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForCpp/sqs-2012-11-05/ReceiveMessage.md")
-  - [SetQueueAttributes](../../../goto/SdkForCpp/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/SdkForCpp/sqs-2012-11-05/SetQueueAttributes.md")
-  - [Subscribe](../../../goto/SdkForCpp/sns-2010-03-31/Subscribe.md "../../../goto/SdkForCpp/sns-2010-03-31/Subscribe.md")
-  - [Unsubscribe](../../../goto/SdkForCpp/sns-2010-03-31/Unsubscribe.md "../../../goto/SdkForCpp/sns-2010-03-31/Unsubscribe.md")
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
-
-Run an interactive scenario at a command prompt.
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -1838,15 +1809,10 @@ func RunTopicsAndQueuesScenario(
 	log.Println("Thanks for watching!")
 	log.Println(strings.Repeat("-", 88))
 }
-
-
+```
+Define a struct that wraps Amazon SNS actions used in this example.  
 
 ```
-
-Define a struct that wraps Amazon SNS actions used in this example.
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -1961,15 +1927,10 @@ func (actor SnsActions) Publish(ctx context.Context, topicArn string, message st
 	}
 	return err
 }
-
-
+```
+Define a struct that wraps Amazon SQS actions used in this example.  
 
 ```
-
-Define a struct that wraps Amazon SQS actions used in this example.
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -2130,15 +2091,10 @@ func (actor SqsActions) DeleteQueue(ctx context.Context, queueUrl string) error 
 	}
 	return err
 }
-
-
+```
+Clean up resources.  
 
 ```
-
-Clean up resources.
-
-```
-
 import (
 	"context"
 	"fmt"
@@ -2181,34 +2137,25 @@ func (resources Resources) Cleanup(ctx context.Context) {
 		}
 	}
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Go API Reference*.
+  + [CreateQueue](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.CreateQueue)
+  + [CreateTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic)
+  + [DeleteMessageBatch](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch)
+  + [DeleteQueue](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteQueue)
+  + [DeleteTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic)
+  + [GetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.GetQueueAttributes)
+  + [Publish](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Publish)
+  + [ReceiveMessage](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ReceiveMessage)
+  + [SetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.SetQueueAttributes)
+  + [Subscribe](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Subscribe)
+  + [Unsubscribe](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Unsubscribe)
 
-- For API details, see the following topics in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-  - [CreateQueue](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.CreateQueue "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.CreateQueue")
-  - [CreateTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic")
-  - [DeleteMessageBatch](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch")
-  - [DeleteQueue](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteQueue "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteQueue")
-  - [DeleteTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic")
-  - [GetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.GetQueueAttributes "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.GetQueueAttributes")
-  - [Publish](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Publish "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Publish")
-  - [ReceiveMessage](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ReceiveMessage "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.ReceiveMessage")
-  - [SetQueueAttributes](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.SetQueueAttributes "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.SetQueueAttributes")
-  - [Subscribe](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Subscribe "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Subscribe")
-  - [Unsubscribe](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Unsubscribe "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Unsubscribe")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/topics_and_queues#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/usecases/topics_and_queues#code-examples). 
 
 ```
 package com.example.sns;
@@ -2900,35 +2847,26 @@ public class SNSWorkflow {
         return "";
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [CreateQueue](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue)
+  + [CreateTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/CreateTopic)
+  + [DeleteMessageBatch](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch)
+  + [DeleteQueue](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/DeleteQueue)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic)
+  + [GetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes)
+  + [Publish](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Publish)
+  + [ReceiveMessage](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage)
+  + [SetQueueAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sqs-2012-11-05/SetQueueAttributes)
+  + [Subscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Subscribe)
+  + [Unsubscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Unsubscribe)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [CreateQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md")
-  - [CreateTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md")
-  - [DeleteMessageBatch](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md")
-  - [DeleteQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteQueue.md")
-  - [DeleteTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic.md")
-  - [GetQueueAttributes](../../../goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes.md")
-  - [Publish](../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md")
-  - [ReceiveMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ReceiveMessage.md")
-  - [SetQueueAttributes](../../../goto/SdkForJavaV2/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/SetQueueAttributes.md")
-  - [Subscribe](../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md")
-  - [Unsubscribe](../../../goto/SdkForJavaV2/sns-2010-03-31/Unsubscribe.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Unsubscribe.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-topics-queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-topics-queues#code-examples").
-
-This is the entry point for this scenario.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-topics-queues#code-examples). 
+This is the entry point for this scenario.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -2947,15 +2885,10 @@ export const startSnsWorkflow = () => {
 
   wkflw.start();
 };
-
-
+```
+The preceding code provides the necessary dependencies and starts the scenario. The next section contains the bulk of the example.  
 
 ```
-
-The preceding code provides the necessary dependencies and starts the scenario. The next section contains the bulk of the example.
-
-```
-
 const toneChoices = [
   { name: "cheerful", value: "cheerful" },
   { name: "funny", value: "funny" },
@@ -3355,33 +3288,25 @@ export class TopicsQueuesWkflw {
     }
   }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [CreateQueue](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/CreateQueueCommand)
+  + [CreateTopic](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand)
+  + [DeleteMessageBatch](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand)
+  + [DeleteQueue](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteQueueCommand)
+  + [DeleteTopic](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand)
+  + [GetQueueAttributes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/GetQueueAttributesCommand)
+  + [Publish](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand)
+  + [ReceiveMessage](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/ReceiveMessageCommand)
+  + [SetQueueAttributes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sqs/command/SetQueueAttributesCommand)
+  + [Subscribe](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand)
+  + [Unsubscribe](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-  - [CreateQueue](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/CreateQueueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/CreateQueueCommand.md")
-  - [CreateTopic](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand.md")
-  - [DeleteMessageBatch](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand.md")
-  - [DeleteQueue](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteQueueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteQueueCommand.md")
-  - [DeleteTopic](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand.md")
-  - [GetQueueAttributes](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/GetQueueAttributesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/GetQueueAttributesCommand.md")
-  - [Publish](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand.md")
-  - [ReceiveMessage](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/ReceiveMessageCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/ReceiveMessageCommand.md")
-  - [SetQueueAttributes](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/SetQueueAttributesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/SetQueueAttributesCommand.md")
-  - [Subscribe](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand.md")
-  - [Unsubscribe](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/UnsubscribeCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/topics_and_queues#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/usecases/topics_and_queues#code-examples). 
 
 ```
 package com.example.sns
@@ -3977,35 +3902,26 @@ suspend fun createFIFO(topicName: String?, duplication: String): String? {
         return response.topicArn
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [CreateQueue](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteMessageBatch](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteQueue](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [GetQueueAttributes](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [Publish](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ReceiveMessage](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [SetQueueAttributes](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [Subscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [Unsubscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [CreateQueue](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteMessageBatch](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteQueue](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [GetQueueAttributes](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [Publish](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ReceiveMessage](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [SetQueueAttributes](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [Subscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [Unsubscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/cross_service/topics_and_queues#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class TopicsAndQueuesScenario:
@@ -4022,7 +3938,7 @@ class TopicsAndQueuesScenario:
         """
         self.sns_wrapper = sns_wrapper
         self.sqs_wrapper = sqs_wrapper
-
+        
         # Scenario state
         self.use_fifo_topic = False
         self.use_content_based_deduplication = False
@@ -4094,19 +4010,19 @@ class TopicsAndQueuesScenario:
             print(self.DASHES)
             print("""
     Because you have chosen a FIFO topic, deduplication is supported.
-    Deduplication IDs are either set in the message or automatically generated
+    Deduplication IDs are either set in the message or automatically generated 
     from content using a hash function.
-
-    If a message is successfully published to an SNS FIFO topic, any message
-    published and determined to have the same deduplication ID,
+    
+    If a message is successfully published to an SNS FIFO topic, any message 
+    published and determined to have the same deduplication ID, 
     within the five-minute deduplication interval, is accepted but not delivered.
-
-    For more information about deduplication,
+    
+    For more information about deduplication, 
     see https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html.
             """)
 
             self.use_content_based_deduplication = q.ask(
-                "Use content-based deduplication instead of entering a deduplication ID? (y/n): ",
+                "Use content-based deduplication instead of entering a deduplication ID? (y/n): ", 
                 q.is_yesno
             )
         else:
@@ -4116,8 +4032,8 @@ class TopicsAndQueuesScenario:
 
         # Create the topic
         self.topic_arn = self.sns_wrapper.create_topic(
-            self.topic_name,
-            self.use_fifo_topic,
+            self.topic_name, 
+            self.use_fifo_topic, 
             self.use_content_based_deduplication
         )
 
@@ -4132,7 +4048,7 @@ class TopicsAndQueuesScenario:
 
         for i in range(self.queue_count):
             queue_name = q.ask(f"Enter a name for SQS queue #{i+1}: ", q.non_empty)
-
+            
             if self.use_fifo_topic and i == 0:
                 print("Because you have selected a FIFO topic, '.fifo' must be appended to the queue name.")
 
@@ -4167,7 +4083,7 @@ class TopicsAndQueuesScenario:
     def _setup_subscription_with_filter(self, queue_index: int, queue_arn: str, queue_name: str) -> str:
         """Set up subscription with optional message filtering."""
         filter_policy = None
-
+        
         if self.use_fifo_topic:
             print(self.DASHES)
             if queue_index == 0:
@@ -4181,7 +4097,7 @@ class TopicsAndQueuesScenario:
                 print("For this example, you can filter messages by a TONE attribute.")
 
             use_filter = q.ask(f"Filter messages for {queue_name}'s subscription to the topic? (y/n): ", q.is_yesno)
-
+            
             if use_filter:
                 filter_policy = self._create_filter_policy()
 
@@ -4208,7 +4124,7 @@ class TopicsAndQueuesScenario:
                 print(f"  {i}. {tone}")
 
             selection = q.ask("Your choice: ", q.is_int, q.in_range(0, len(self.tones)))
-
+            
             if selection == 0:
                 break
             elif selection > 0 and self.tones[selection - 1] not in filter_selections:
@@ -4250,7 +4166,7 @@ class TopicsAndQueuesScenario:
                     print("Enter a number for an attribute:")
                     for i, tone in enumerate(self.tones, 1):
                         print(f"  {i}. {tone}")
-
+                    
                     selection = q.ask("Your choice: ", q.is_int, q.in_range(1, len(self.tones)))
                     if 1 <= selection <= len(self.tones):
                         tone_attribute = self.tones[selection - 1]
@@ -4272,11 +4188,11 @@ class TopicsAndQueuesScenario:
         """Poll all queues for messages and display results."""
         for i, queue_url in enumerate(self.queue_urls):
             print(f"Polling queue #{i+1} at {queue_url} for messages...")
-
+            
             q.ask("Press Enter to continue...")
 
             messages = self._poll_queue_for_messages(queue_url)
-
+            
             if messages:
                 print(f"{len(messages)} message(s) were received by queue #{i+1}")
                 for j, message in enumerate(messages, 1):
@@ -4294,17 +4210,17 @@ class TopicsAndQueuesScenario:
                 print(f"Messages deleted from queue #{i+1}")
             else:
                 print(f"No messages received by queue #{i+1}")
-
+            
             print(self.DASHES)
 
     def _poll_queue_for_messages(self, queue_url: str) -> List[Dict[str, Any]]:
         """Poll a single queue for messages."""
         all_messages = []
         max_polls = 3  # Limit polling to avoid infinite loops
-
+        
         for poll_count in range(max_polls):
             messages = self.sqs_wrapper.receive_messages(queue_url, 10)
-
+            
             if messages:
                 all_messages.extend(messages)
                 print(f"  Received {len(messages)} messages in poll {poll_count + 1}")
@@ -4313,7 +4229,7 @@ class TopicsAndQueuesScenario:
             else:
                 print(f"  No messages in poll {poll_count + 1}")
                 break
-
+                
         return all_messages
 
     def _cleanup_resources(self) -> None:
@@ -4351,12 +4267,8 @@ class TopicsAndQueuesScenario:
                     print(f"Error deleting topic: {e}")
 
         print("Resource cleanup complete.")
-
-
-
 ```
-
-Create classes that wrap Amazon SNS and Amazon SQS operations for use in the scenario.
+Create classes that wrap Amazon SNS and Amazon SQS operations for use in the scenario.  
 
 ```
 class SnsWrapper:
@@ -4382,9 +4294,9 @@ class SnsWrapper:
 
 
     def create_topic(
-        self,
-        topic_name: str,
-        is_fifo: bool = False,
+        self, 
+        topic_name: str, 
+        is_fifo: bool = False, 
         content_based_deduplication: bool = False
     ) -> str:
         """
@@ -4423,9 +4335,9 @@ class SnsWrapper:
 
 
     def subscribe_queue_to_topic(
-        self,
-        topic_arn: str,
-        queue_arn: str,
+        self, 
+        topic_arn: str, 
+        queue_arn: str, 
         filter_policy: Optional[str] = None
     ) -> str:
         """
@@ -4522,13 +4434,13 @@ class SnsWrapper:
         """
         try:
             self.sns_client.unsubscribe(SubscriptionArn=subscription_arn)
-
+            
             logger.info(f"Unsubscribed: {subscription_arn}")
             return True
 
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-
+            
             if error_code == 'NotFound':
                 logger.warning(f"Subscription not found: {subscription_arn}")
                 return True  # Already unsubscribed
@@ -4547,13 +4459,13 @@ class SnsWrapper:
         """
         try:
             self.sns_client.delete_topic(TopicArn=topic_arn)
-
+            
             logger.info(f"Deleted topic: {topic_arn}")
             return True
 
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-
+            
             if error_code == 'NotFound':
                 logger.warning(f"Topic not found: {topic_arn}")
                 return True  # Already deleted
@@ -4572,10 +4484,10 @@ class SnsWrapper:
         try:
             topics = []
             paginator = self.sns_client.get_paginator('list_topics')
-
+            
             for page in paginator.paginate():
                 topics.extend([topic['TopicArn'] for topic in page.get('Topics', [])])
-
+            
             logger.info(f"Found {len(topics)} topics")
             return topics
 
@@ -4680,7 +4592,7 @@ class SqsWrapper:
         try:
             # Create policy that allows SNS to send messages to the queue
             policy = {
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [
                     {
                         "Effect": "Allow",
@@ -4769,7 +4681,7 @@ class SqsWrapper:
             batch_size = 10
             for i in range(0, len(delete_entries), batch_size):
                 batch = delete_entries[i:i + batch_size]
-
+                
                 response = self.sqs_client.delete_message_batch(
                     QueueUrl=queue_url,
                     Entries=batch
@@ -4799,13 +4711,13 @@ class SqsWrapper:
         """
         try:
             self.sqs_client.delete_queue(QueueUrl=queue_url)
-
+            
             logger.info(f"Deleted queue: {queue_url}")
             return True
 
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-
+            
             if error_code == 'AWS.SimpleQueueService.NonExistentQueue':
                 logger.warning(f"Queue not found: {queue_url}")
                 return True  # Already deleted
@@ -4825,14 +4737,14 @@ class SqsWrapper:
         try:
             queue_urls = []
             paginator = self.sqs_client.get_paginator('list_queues')
-
+            
             page_params = {}
             if queue_name_prefix:
                 page_params['QueueNamePrefix'] = queue_name_prefix
 
             for page in paginator.paginate(**page_params):
                 queue_urls.extend(page.get('QueueUrls', []))
-
+            
             logger.info(f"Found {len(queue_urls)} queues")
             return queue_urls
 
@@ -4862,7 +4774,7 @@ class SqsWrapper:
             }
 
             response = self.sqs_client.send_message(**send_params)
-
+            
             message_id = response['MessageId']
             logger.info(f"Sent message to {queue_url} with ID: {message_id}")
             return message_id
@@ -4871,34 +4783,25 @@ class SqsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error sending message: {error_code} - {e}")
             raise
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateQueue](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/CreateQueue)
+  + [CreateTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/CreateTopic)
+  + [DeleteMessageBatch](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/DeleteMessageBatch)
+  + [DeleteQueue](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/DeleteQueue)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/DeleteTopic)
+  + [GetQueueAttributes](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/GetQueueAttributes)
+  + [Publish](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Publish)
+  + [ReceiveMessage](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/ReceiveMessage)
+  + [SetQueueAttributes](https://docs.aws.amazon.com/goto/boto3/sqs-2012-11-05/SetQueueAttributes)
+  + [Subscribe](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Subscribe)
+  + [Unsubscribe](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Unsubscribe)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-  - [CreateQueue](../../../goto/boto3/sqs-2012-11-05/CreateQueue.md "../../../goto/boto3/sqs-2012-11-05/CreateQueue.md")
-  - [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
-  - [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")
-  - [DeleteQueue](../../../goto/boto3/sqs-2012-11-05/DeleteQueue.md "../../../goto/boto3/sqs-2012-11-05/DeleteQueue.md")
-  - [DeleteTopic](../../../goto/boto3/sns-2010-03-31/DeleteTopic.md "../../../goto/boto3/sns-2010-03-31/DeleteTopic.md")
-  - [GetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/GetQueueAttributes.md")
-  - [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
-  - [ReceiveMessage](../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md "../../../goto/boto3/sqs-2012-11-05/ReceiveMessage.md")
-  - [SetQueueAttributes](../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md "../../../goto/boto3/sqs-2012-11-05/SetQueueAttributes.md")
-  - [Subscribe](../../../goto/boto3/sns-2010-03-31/Subscribe.md "../../../goto/boto3/sns-2010-03-31/Subscribe.md")
-  - [Unsubscribe](../../../goto/boto3/sns-2010-03-31/Unsubscribe.md "../../../goto/boto3/sns-2010-03-31/Unsubscribe.md")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs/scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs/scenario#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sqs/scenario#code-examples). 
 
 ```
 import ArgumentParser
@@ -4924,7 +4827,7 @@ struct ExampleCommand: ParsableCommand {
     )
 
     /// Prompt for an input string. Only non-empty strings are allowed.
-    ///
+    /// 
     /// - Parameter prompt: The prompt to display.
     ///
     /// - Returns: The string input by the user.
@@ -4944,7 +4847,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Ask a yes/no question.
-    ///
+    /// 
     /// - Parameter prompt: A prompt string to print.
     ///
     /// - Returns: `true` if the user answered "Y", otherwise `false`.
@@ -4958,7 +4861,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Display a menu of options then request a selection.
-    ///
+    /// 
     /// - Parameters:
     ///   - prompt: A prompt string to display before the menu.
     ///   - options: An array of strings giving the menu options.
@@ -4994,9 +4897,9 @@ struct ExampleCommand: ParsableCommand {
             }
         } while true
     }
-
+    
     /// Ask the user too press RETURN. Accepts any input but ignores it.
-    ///
+    /// 
     /// - Parameter prompt: The text prompt to display.
     func returnRequest(prompt: String) {
         print(prompt, terminator: "")
@@ -5012,11 +4915,11 @@ struct ExampleCommand: ParsableCommand {
     ]
 
     /// Ask the user to choose one of the attribute values to use as a filter.
-    ///
+    /// 
     /// - Parameters:
     ///   - message: A message to display before the menu of values.
     ///   - attrValues: An array of strings giving the values to choose from.
-    ///
+    /// 
     /// - Returns: The string corresponding to the selected option.
     func askForFilter(message: String, attrValues: [String]) -> String? {
         print(message)
@@ -5037,7 +4940,7 @@ struct ExampleCommand: ParsableCommand {
 
     /// Prompts the user for filter terms and constructs the attribute
     /// record that specifies them.
-    ///
+    /// 
     /// - Returns: A mapping of "FilterPolicy" to a JSON string representing
     ///   the user-defined filter.
     func buildFilterAttributes() -> [String:String] {
@@ -5114,12 +5017,12 @@ struct ExampleCommand: ParsableCommand {
         guard let attributes = output.attributes else {
             return nil
         }
-
+        
         return attributes["QueueArn"]
     }
 
     /// Applies the needed policy to the specified queue.
-    ///
+    /// 
     /// - Parameters:
     ///   - sqsClient: The Amazon SQS client to use.
     ///   - queueUrl: The queue to apply the policy to.
@@ -5162,11 +5065,11 @@ struct ExampleCommand: ParsableCommand {
     /// Receive the available messages on a queue, outputting them to the
     /// screen. Returns a dictionary you pass to DeleteMessageBatch to delete
     /// all the received messages.
-    ///
+    /// 
     /// - Parameters:
     ///   - sqsClient: The Amazon SQS client to use.
     ///   - queueUrl: The SQS queue on which to receive messages.
-    ///
+    /// 
     /// - Throws: Errors from `SQSClient.receiveMessage()`
     ///
     /// - Returns: An array of SQSClientTypes.DeleteMessageBatchRequestEntry
@@ -5195,7 +5098,7 @@ struct ExampleCommand: ParsableCommand {
             print("Message ID:     \(message.messageId ?? "<unknown>")")
             print("Receipt handle: \(message.receiptHandle ?? "<unknown>")")
             print("Message JSON:   \(message.body ?? "<body missing>")")
-
+            
             if message.receiptHandle != nil {
                 deleteList.append(
                     SQSClientTypes.DeleteMessageBatchRequestEntry(
@@ -5210,7 +5113,7 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Delete all the messages in the specified list.
-    ///
+    /// 
     /// - Parameters:
     ///   - sqsClient: The Amazon SQS client to use.
     ///   - queueUrl: The SQS queue to delete messages from.
@@ -5289,7 +5192,7 @@ struct ExampleCommand: ParsableCommand {
         }
 
         var topicName = stringRequest(prompt: "Enter the name of the topic to create: ")
-
+        
         // 2. Create the topic. Append ".fifo" to the name if FIFO was
         //    requested, and set the "FifoTopic" attribute to "true" if so as
         //    well. Set the "ContentBasedDeduplication" attribute to "true" if
@@ -5331,7 +5234,7 @@ struct ExampleCommand: ParsableCommand {
               topic ARN \(topicArn)."
               """
         )
-
+        
         print(rowOfStars)
 
         // 3. Create an SQS queue. Append ".fifo" to the name if one of the
@@ -5350,7 +5253,7 @@ struct ExampleCommand: ParsableCommand {
             print("Unable to create queue 1!")
             return
         }
-
+        
         // 4. Get the SQS queue's ARN attribute using `GetQueueAttributes`.
 
         let q1Arn = try await getQueueARN(sqsClient: sqsClient, queueUrl: q1Url)
@@ -5389,7 +5292,7 @@ struct ExampleCommand: ParsableCommand {
 
             let subPrompt = """
                 Would you like to filter messages for the first queue's subscription to the
-                topic \(topicName) (Y/N)?
+                topic \(topicName) (Y/N)? 
                 """
             if (yesNoRequest(prompt: subPrompt)) {
                 q1Attributes = buildFilterAttributes()
@@ -5414,7 +5317,7 @@ struct ExampleCommand: ParsableCommand {
 
         let q2Url = try await createQueue(prompt: "Enter the name of the second queue: ",
                                 sqsClient: sqsClient, isFIFO: isFIFO)
-
+    
         guard let q2Url else {
             print("Unable to create queue 2!")
             return
@@ -5436,7 +5339,7 @@ struct ExampleCommand: ParsableCommand {
         if isFIFO {
             let subPrompt = """
                 Would you like to filter messages for the second queue's subscription to the
-                topic \(topicName) (Y/N)?
+                topic \(topicName) (Y/N)? 
                 """
             if (yesNoRequest(prompt: subPrompt)) {
                 q2Attributes = buildFilterAttributes()
@@ -5512,7 +5415,7 @@ struct ExampleCommand: ParsableCommand {
             }
 
             publishInput.messageAttributes = messageAttributes
-
+            
             // Publish the message and display its ID.
 
             let publishOutput = try await snsClient.publish(input: publishInput)
@@ -5527,7 +5430,7 @@ struct ExampleCommand: ParsableCommand {
 
             // 9. Repeat step 8 until the user says they don't want to post
             //    another.
-
+        
         } while (yesNoRequest(prompt: "Post another message (Y/N)? "))
 
         // 10. Display a list of the messages in each queue by using
@@ -5570,7 +5473,7 @@ struct ExampleCommand: ParsableCommand {
         _ = try await sqsClient.deleteQueue(
             input: DeleteQueueInput(queueUrl: q2Url)
         )
-
+        
         // 13. Delete the topic.
 
         print("Deleting the SNS topic...")
@@ -5592,26 +5495,22 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [CreateQueue](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/createqueue(input:))
+  + [CreateTopic](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:))
+  + [DeleteMessageBatch](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:))
+  + [DeleteQueue](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletequeue(input:))
+  + [DeleteTopic](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:))
+  + [GetQueueAttributes](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/getqueueattributes(input:))
+  + [Publish](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/publish(input:))
+  + [ReceiveMessage](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/receivemessage(input:))
+  + [SetQueueAttributes](https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/setqueueattributes(input:))
+  + [Subscribe](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/subscribe(input:))
+  + [Unsubscribe](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/unsubscribe(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [CreateQueue](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/createqueue(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/createqueue(input:)")
-  - [CreateTopic](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)")
-  - [DeleteMessageBatch](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)")
-  - [DeleteQueue](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletequeue(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletequeue(input:)")
-  - [DeleteTopic](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)")
-  - [GetQueueAttributes](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/getqueueattributes(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/getqueueattributes(input:)")
-  - [Publish](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/publish(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/publish(input:)")
-  - [ReceiveMessage](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/receivemessage(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/receivemessage(input:)")
-  - [SetQueueAttributes](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/setqueueattributes(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/setqueueattributes(input:)")
-  - [Subscribe](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/subscribe(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/subscribe(input:)")
-  - [Unsubscribe](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/unsubscribe(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/unsubscribe(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,48 +1,42 @@
+
+
 # Amazon SNS mobile app attributes
+<a name="sns-msg-status"></a>
 
-Amazon Simple Notification Service (Amazon SNS) provides support to log the delivery status of push notification
-messages. After you configure application attributes, log entries will be sent to CloudWatch Logs for
-messages sent from Amazon SNS to mobile endpoints. Logging message delivery status helps provide
-better operational insight, such as the following:
+Amazon Simple Notification Service (Amazon SNS) provides support to log the delivery status of push notification messages. After you configure application attributes, log entries will be sent to CloudWatch Logs for messages sent from Amazon SNS to mobile endpoints. Logging message delivery status helps provide better operational insight, such as the following: 
++ Know whether a push notification message was delivered from Amazon SNS to the push notification service.
++ Identify the response sent from the push notification service to Amazon SNS.
++ Determine the message dwell time (the time between the publish timestamp and just before handing off to a push notification service).
 
-- Know whether a push notification message was delivered from Amazon SNS to the push
-  notification service.
-- Identify the response sent from the push notification service to Amazon SNS.
-- Determine the message dwell time (the time between the publish timestamp and just
-  before handing off to a push notification service).
-  To configure application attributes for message delivery status, you can use the
-  AWS Management Console, AWS software development kits (SDKs), or query API.
+ To configure application attributes for message delivery status, you can use the AWS Management Console, AWS software development kits (SDKs), or query API. 
 
 ## Configuring message delivery status attributes using the AWS Management Console
+<a name="sns-msg-console"></a>
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. On the navigation panel, point to **Mobile**, and then choose
-   **Push notifications**.
-3. From the **Platform applications** section, choose the
-   application that contains the endpoints for which you want receive CloudWatch Logs.
-4. Choose **Application Actions** and then choose
-   **Delivery Status**.
-5. On the **Delivery Status** dialog box, choose
-   **Create IAM Roles**.
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-You will then be redirected to the IAM console. 6. Choose **Allow** to give Amazon SNS write access to use CloudWatch Logs on
-your behalf. 7. Now, back on the **Delivery Status** dialog box, enter a
-number in the **Percentage of Success to Sample (0-100)** field
-for the percentage of successful messages sent for which you want to receive
-CloudWatch Logs.
+1. On the navigation panel, point to **Mobile**, and then choose **Push notifications**.
 
-###### Note
+1. From the **Platform applications** section, choose the application that contains the endpoints for which you want receive CloudWatch Logs.
 
-After you configure application attributes for message delivery status,
-all failed message deliveries generate CloudWatch Logs. 8. Finally, choose **Save Configuration**. You will now be able
-to view and parse the CloudWatch Logs containing the message delivery status. For more
-information about using CloudWatch, see the [CloudWatch
-Documentation](https://aws.amazon.com/documentation/cloudwatch "https://aws.amazon.com/documentation/cloudwatch").
+1. Choose **Application Actions** and then choose **Delivery Status**.
+
+1. On the **Delivery Status** dialog box, choose **Create IAM Roles**.
+
+   You will then be redirected to the IAM console.
+
+1. Choose **Allow** to give Amazon SNS write access to use CloudWatch Logs on your behalf.
+
+1. Now, back on the **Delivery Status** dialog box, enter a number in the **Percentage of Success to Sample (0-100)** field for the percentage of successful messages sent for which you want to receive CloudWatch Logs.
+**Note**  
+After you configure application attributes for message delivery status, all failed message deliveries generate CloudWatch Logs.
+
+1. Finally, choose **Save Configuration**. You will now be able to view and parse the CloudWatch Logs containing the message delivery status. For more information about using CloudWatch, see the [CloudWatch Documentation](https://aws.amazon.com/documentation/cloudwatch).
 
 ## Amazon SNS message delivery status CloudWatch log examples
+<a name="sns-msg-examples"></a>
 
-After you configure message delivery status attributes for an application endpoint,
-CloudWatch Logs will be generated. Example logs, in JSON format, are shown as follows:
+After you configure message delivery status attributes for an application endpoint, CloudWatch Logs will be generated. Example logs, in JSON format, are shown as follows:
 
 **SUCCESS**
 
@@ -84,24 +78,14 @@ CloudWatch Logs will be generated. Example logs, in JSON format, are shown as fo
 }
 ```
 
-For a list of push notification service response codes, see [Platform response codes](#platform-returncodes "#platform-returncodes").
+For a list of push notification service response codes, see [Platform response codes](#platform-returncodes).
 
 ## Configuring message delivery status attributes with the AWS SDKs
+<a name="sns-msg-sdk"></a>
 
-The [AWS SDKs](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/") provide APIs in several
-languages for using message delivery status attributes with Amazon SNS.
+The [AWS SDKs](https://aws.amazon.com/tools/) provide APIs in several languages for using message delivery status attributes with Amazon SNS. 
 
-The following Java example shows how to use the
-`SetPlatformApplicationAttributes` API to configure application
-attributes for message delivery status of push notification messages. You can use the
-following attributes for message delivery status: `SuccessFeedbackRoleArn`,
-`FailureFeedbackRoleArn`, and `SuccessFeedbackSampleRate`. The
-`SuccessFeedbackRoleArn` and `FailureFeedbackRoleArn`
-attributes are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The
-`SuccessFeedbackSampleRate` attribute is for specifying the sample rate
-percentage (0-100) of successfully delivered messages. After you configure the
-`FailureFeedbackRoleArn` attribute, then all failed message deliveries
-generate CloudWatch Logs.
+The following Java example shows how to use the `SetPlatformApplicationAttributes` API to configure application attributes for message delivery status of push notification messages. You can use the following attributes for message delivery status: `SuccessFeedbackRoleArn`, `FailureFeedbackRoleArn`, and `SuccessFeedbackSampleRate`. The `SuccessFeedbackRoleArn` and `FailureFeedbackRoleArn` attributes are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `SuccessFeedbackSampleRate` attribute is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the `FailureFeedbackRoleArn` attribute, then all failed message deliveries generate CloudWatch Logs. 
 
 ```
 SetPlatformApplicationAttributesRequest setPlatformApplicationAttributesRequest = new SetPlatformApplicationAttributesRequest();
@@ -114,18 +98,19 @@ setPlatformApplicationAttributesRequest.setPlatformApplicationArn("arn:aws:sns:u
 sns.setPlatformApplicationAttributes(setPlatformApplicationAttributesRequest);
 ```
 
-For more information about the SDK for Java, see [Getting Started
-with the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md").
+For more information about the SDK for Java, see [Getting Started with the AWS SDK for Java](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/get-started.html).
 
 ## Platform response codes
+<a name="platform-returncodes"></a>
 
-The following is a list of links for the push notification service response
-codes:
+The following is a list of links for the push notification service response codes:
 
-| Push notification service                                    | Response codes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon Device Messaging (ADM)                                | See [Response Format](https://developer.amazon.com/docs/adm/send-message.html#response-format "https://developer.amazon.com/docs/adm/send-message.html#response-format") in the ADM documentation.                                                                                                                                                                                                                                                                                               |
-| Apple Push Notification Service (APNs)                       | See *HTTP/2 Response from APNs<br>• in [Communicating with APNs](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#/apple_ref/doc/uid/TP40008194-CH11-SW1 "https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#/apple_ref/doc/uid/TP40008194-CH11-SW1") in the _Local and Remote<br>Notification Programming Guide_. |
-| Firebase Cloud Messaging (FCM)                               | See [Downstream Message Error Response Codes](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes "https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes") in the Firebase<br>Cloud Messaging documentation.                                                                                                                                                                                                                                     |
-| Microsoft Push Notification Service for Windows Phone (MPNS) | See [Push Notification Service Response Codes for Windows Phone<br>8](https://msdn.microsoft.com/en-us/library/windows/apps/ff941100%28v=vs.105%29.aspx#BKMK_PushNotificationServiceResponseCodes "https://msdn.microsoft.com/en-us/library/windows/apps/ff941100%28v=vs.105%29.aspx#BKMK_PushNotificationServiceResponseCodes") in the Windows 8 Development documentation.                                                                                                                     |
-| Windows Push Notification Services (WNS)                     | See "Response codes" in [Push Notification Service Request and Response Headers (Windows<br>Runtime Apps)](https://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx "https://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx") in the Windows 8 Development<br>documentation.                                                                                                                                                                                             |
+
+
+| Push notification service | Response codes | 
+| --- | --- | 
+| Amazon Device Messaging (ADM) | See [Response Format](https://developer.amazon.com/docs/adm/send-message.html#response-format) in the ADM documentation. | 
+| Apple Push Notification Service (APNs) | See HTTP/2 Response from APNs in [Communicating with APNs](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html#/apple_ref/doc/uid/TP40008194-CH11-SW1) in the Local and Remote Notification Programming Guide. | 
+| Firebase Cloud Messaging (FCM) | See [Downstream Message Error Response Codes](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) in the Firebase Cloud Messaging documentation. | 
+| Microsoft Push Notification Service for Windows Phone (MPNS) | See [Push Notification Service Response Codes for Windows Phone 8](https://msdn.microsoft.com/en-us/library/windows/apps/ff941100%28v=vs.105%29.aspx#BKMK_PushNotificationServiceResponseCodes) in the Windows 8 Development documentation. | 
+| Windows Push Notification Services (WNS) | See "Response codes" in [Push Notification Service Request and Response Headers (Windows Runtime Apps)](https://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx) in the Windows 8 Development documentation. | 

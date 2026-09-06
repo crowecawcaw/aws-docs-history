@@ -1,78 +1,49 @@
+
+
 # HTTP/HTTPS unsubscribe confirmation JSON format
+<a name="http-unsubscribe-confirmation-json"></a>
 
-After an HTTP/HTTPS endpoint is unsubscribed from a topic, Amazon SNS sends an unsubscribe
-confirmation message to the endpoint.
+After an HTTP/HTTPS endpoint is unsubscribed from a topic, Amazon SNS sends an unsubscribe confirmation message to the endpoint.
 
-The unsubscribe confirmation message is a POST message with a message body that
-contains a JSON document with the following name-value pairs.
+The unsubscribe confirmation message is a POST message with a message body that contains a JSON document with the following name-value pairs.
 
-**`Type`**
+**`Type`**  
+The type of message. For a unsubscribe confirmation, the type is `UnsubscribeConfirmation`.
 
-The type of message. For a unsubscribe confirmation, the type is
-`UnsubscribeConfirmation`.
+**`MessageId`**  
+A Universally Unique Identifier (UUID), unique for each message published. For a message that Amazon SNS resends during a retry, the message ID of the original message is used.
 
-**`MessageId`**
+**`Token`**  
+A value you can use with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to re-confirm the subscription. Alternatively, you can simply visit the `SubscribeURL`.
 
-A Universally Unique Identifier (UUID), unique for each message published.
-For a message that Amazon SNS resends during a retry, the message ID of the
-original message is used.
+**`TopicArn`**  
+The Amazon Resource Name (ARN) for the topic that this endpoint has been unsubscribed from.
 
-**`Token`**
-
-A value you can use with the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md") action to re-confirm the
-subscription. Alternatively, you can simply visit the
-`SubscribeURL`.
-
-**`TopicArn`**
-
-The Amazon Resource Name (ARN) for the topic that this endpoint has been
-unsubscribed from.
-
-**`Message`**
-
-A string that describes the message. For unsubscribe confirmation, this
-string looks like this:
+**`Message`**  
+A string that describes the message. For unsubscribe confirmation, this string looks like this:  
 
 ```
 You have chosen to deactivate subscription arn:aws:sns:us-east-2:123456789012:MyTopic:2bcfbf39-05c3-41de-beaa-fcfcc21c8f55.\nTo cancel this operation and restore the subscription, visit the SubscribeURL included in this message.
 ```
 
-**`SubscribeURL`**
+**`SubscribeURL`**  
+The URL that you must visit in order to re-confirm the subscription. Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to re-confirm the subscription.
 
-The URL that you must visit in order to re-confirm the subscription.
-Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md") action to re-confirm the
-subscription.
-
-**`Timestamp`**
-
+**`Timestamp`**  
 The time (GMT) when the unsubscribe confirmation was sent.
 
-**`SignatureVersion`**
+**`SignatureVersion`**  
+Version of the Amazon SNS signature used.  
++ If the `SignatureVersion` is **1**, `Signature` is a Base64-encoded `SHA1withRSA` signature of the `Message`, `MessageId`, `Type`, `Timestamp`, and `TopicArn` values.
++ If the `SignatureVersion` is **2**, `Signature` is a Base64-encoded `SHA256withRSA` signature of the `Message`, `MessageId`, `Type`, `Timestamp`, and `TopicArn` values.
 
-Version of the Amazon SNS signature used.
+**`Signature`**  
+Base64-encoded `SHA1withRSA` or `SHA256withRSA` signature of the `Message`, `MessageId`, `Type`, `Timestamp`, and `TopicArn` values.
 
-- If the `SignatureVersion` is **1**, `Signature` is a Base64-encoded
-  `SHA1withRSA` signature of the `Message`,
-  `MessageId`, `Type`,
-  `Timestamp`, and `TopicArn` values.
-- If the `SignatureVersion` is **2**, `Signature` is a Base64-encoded
-  `SHA256withRSA` signature of the
-  `Message`, `MessageId`, `Type`,
-  `Timestamp`, and `TopicArn` values.
-
-**`Signature`**
-
-Base64-encoded `SHA1withRSA` or `SHA256withRSA`
-signature of the `Message`, `MessageId`,
-`Type`, `Timestamp`, and `TopicArn`
-values.
-
-**`SigningCertURL`**
-
+**`SigningCertURL`**  
 The URL to the certificate that was used to sign the message.
 
-The following HTTP POST message is an example of a
-`UnsubscribeConfirmation` message to an HTTP endpoint.
+The following HTTP POST message is an example of a `UnsubscribeConfirmation` message to an HTTP endpoint.
 
 ```
 POST / HTTP/1.1

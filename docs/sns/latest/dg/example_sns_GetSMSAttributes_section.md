@@ -1,16 +1,15 @@
+
+
 # Use `GetSMSAttributes` with an AWS SDK or CLI
+<a name="example_sns_GetSMSAttributes_section"></a>
 
 The following code examples show how to use `GetSMSAttributes`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 //! Retrieve the default settings for sending SMS messages from your AWS account by using
@@ -53,28 +52,20 @@ AwsDoc::SNS::getSMSType(const Aws::Client::ClientConfiguration &clientConfigurat
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetSMSAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/GetSMSAttributes) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list the default SMS message attributes**  
+The following `get-sms-attributes` example lists the default attributes for sending SMS messages.  
 
 ```
-
-- For API details, see
-  [GetSMSAttributes](../../../goto/SdkForCpp/sns-2010-03-31/GetSMSAttributes.md "../../../goto/SdkForCpp/sns-2010-03-31/GetSMSAttributes.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list the default SMS message attributes**
-
-The following `get-sms-attributes` example lists the default attributes for sending SMS messages.
-
+aws sns get-sms-attributes
 ```
-`aws sns get-sms-attributes`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -83,20 +74,13 @@ Output:
     }
 }
 ```
++  For API details, see [GetSMSAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/get-sms-attributes.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetSMSAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/get-sms-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/get-sms-attributes.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -164,25 +148,15 @@ public class GetSMSAtrributes {
         System.out.println("\n\nStatus was good");
     }
 }
-
-
 ```
++  For API details, see [GetSMSAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/GetSMSAttributes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetSMSAttributes](../../../goto/SdkForJavaV2/sns-2010-03-31/GetSMSAttributes.md "../../../goto/SdkForJavaV2/sns-2010-03-31/GetSMSAttributes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -190,11 +164,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { GetSMSAttributesCommand } from "@aws-sdk/client-sns";
@@ -222,24 +193,15 @@ export const getSmsAttributes = async () => {
   // }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-subscribing-unubscribing-topics.html#sns-confirm-subscription-email). 
++  For API details, see [GetSMSAttributes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/GetSMSAttributesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-subscribing-unubscribing-topics.md#sns-confirm-subscription-email "../../../sdk-for-javascript/v3/developer-guide/sns-examples-subscribing-unubscribing-topics.md#sns-confirm-subscription-email").
-- For API details, see
-  [GetSMSAttributes](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/GetSMSAttributesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/GetSMSAttributesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -270,16 +232,10 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-sending-sms.html#get-sms-attributes). 
++  For API details, see [GetSMSAttributes](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/GetSMSAttributes) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#get-sms-attributes "../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#get-sms-attributes").
-- For API details, see
-  [GetSMSAttributes](../../../goto/SdkForPHPV3/sns-2010-03-31/GetSMSAttributes.md "../../../goto/SdkForPHPV3/sns-2010-03-31/GetSMSAttributes.md")
-  in _AWS SDK for PHP API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

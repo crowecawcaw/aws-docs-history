@@ -1,23 +1,23 @@
+
+
 # Create a platform endpoint for Amazon SNS push notifications using an AWS SDK
+<a name="example_sns_CreatePlatformEndpoint_section"></a>
 
 The following code examples show how to create a platform endpoint for Amazon SNS push notifications.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create a platform application endpoint**
-
-The following `create-platform-endpoint` example creates an endpoint for the specified platform application using the specified token.
-
-```
-`aws sns create-platform-endpoint \
- --platform-application-arn `arn:aws:sns:us-west-2:123456789012:app/GCM/MyApplication` \
- --token `EXAMPLE12345...``
+**AWS CLI**  
+**To create a platform application endpoint**  
+The following `create-platform-endpoint` example creates an endpoint for the specified platform application using the specified token.  
 
 ```
-
-Output:
+aws sns create-platform-endpoint \
+    --platform-application-arn {{arn:aws:sns:us-west-2:123456789012:app/GCM/MyApplication}} \
+    --token {{EXAMPLE12345...}}
+```
+Output:  
 
 ```
 {
@@ -25,15 +25,11 @@ Output:
 }
 ```
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -66,8 +62,8 @@ public class RegistrationExample {
             Usage:     <token> <platformApplicationArn>
 
             Where:
-               token - The device token or registration ID of the mobile device. This is a unique
-               identifier provided by the device platform (e.g., Apple Push Notification Service (APNS) for iOS devices, Firebase Cloud Messaging (FCM)
+               token - The device token or registration ID of the mobile device. This is a unique 
+               identifier provided by the device platform (e.g., Apple Push Notification Service (APNS) for iOS devices, Firebase Cloud Messaging (FCM) 
                for Android devices) when the mobile app is registered to receive push notifications.
 
                platformApplicationArn - The ARN value of platform application. You can get this value from the AWS Management Console.\s
@@ -103,10 +99,8 @@ public class RegistrationExample {
         }
     }
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

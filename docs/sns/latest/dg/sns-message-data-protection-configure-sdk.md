@@ -1,25 +1,23 @@
+
+
 # Creating Amazon SNS data protection policies to secure message data using the SDK
+<a name="sns-message-data-protection-configure-sdk"></a>
 
-###### Important
+**Important**  
+Amazon SNS message data protection is no longer available to new customers. For more information and guidance on alternatives, see [Amazon SNS message data protection availability change](https://docs.aws.amazon.com/sns/latest/dg/sns-message-data-protection-availability-change.html).
 
-Amazon SNS message data protection is no longer available to new customers.
-For more information and guidance on alternatives, see
-[Amazon SNS message data protection availability change](sns-message-data-protection-availability-change.md "sns-message-data-protection-availability-change.md").
-
-The number and size of Amazon SNS resources in an AWS account are limited. For more
-information, see [Amazon Simple Notification Service
-endpoints and quotas](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md").
+The number and size of Amazon SNS resources in an AWS account are limited. For more information, see [Amazon Simple Notification Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html).
 
 ## Creating data protection policies using the AWS SDK
+<a name="create-policies-sdk"></a>
 
 Create an Amazon SNS data protection policy using the AWS SDK.
 
-###### To create a data protection policy together with an Amazon SNS topic (AWS SDK)
+**To create a data protection policy together with an Amazon SNS topic (AWS SDK)**  
+Use the following options to create a new data protection policy together with a standard Amazon SNS topic:
 
-Use the following options to create a new data protection policy together with a
-standard Amazon SNS topic:
-
-Java
+------
+#### [ Java ]
 
 ```
 /**
@@ -46,7 +44,8 @@ public static String createSNSTopicWithDataProtectionPolicy(SnsClient snsClient,
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // Import required AWS SDK clients and commands for Node.js
@@ -68,15 +67,15 @@ const run = async () => {
 run();
 ```
 
-###### To create or retrieve a data protection policy for an existing Amazon SNS topic (AWS SDK)
+------
 
-Use the following options to create or retrieve a new data protection policy
-together with a standard Amazon SNS topic:
+**To create or retrieve a data protection policy for an existing Amazon SNS topic (AWS SDK)**  
+Use the following options to create or retrieve a new data protection policy together with a standard Amazon SNS topic:
 
-Java
+------
+#### [ Java ]
 
 ```
-
 public static void putDataProtectionPolicy(SnsClient snsClient, String topicName, String dataProtectionPolicy) {
 
     try {
@@ -86,7 +85,7 @@ public static void putDataProtectionPolicy(SnsClient snsClient, String topicName
                 .build();
 
         PutDataProtectionPolicyResponse result = snsClient.putDataProtectionPolicy(request);
-        System.out.println("\n\nStatus was " + result.sdkHttpResponse().statusCode()
+        System.out.println("\n\nStatus was " + result.sdkHttpResponse().statusCode() 
                 + "\n\nTopic " + request.resourceArn()
                 + " DataProtectionPolicy " + request.dataProtectionPolicy());
     } catch (SnsException e) {
@@ -102,10 +101,10 @@ public static void getDataProtectionPolicy(SnsClient snsClient, String topicName
         GetDataProtectionPolicyRequest request = GetDataProtectionPolicyRequest.builder()
                 .resourceArn(topicName)
                 .build();
-
+        
         GetDataProtectionPolicyResponse result = snsClient.getDataProtectionPolicy(request);
-
-        System.out.println("\n\nStatus is " + result.sdkHttpResponse().statusCode()
+        
+        System.out.println("\n\nStatus is " + result.sdkHttpResponse().statusCode() 
         + "\n\nDataProtectionPolicy: \n\n" + result.dataProtectionPolicy());
     } catch (SnsException e) {
         System.err.println(e.awsErrorDetails().errorMessage());
@@ -114,7 +113,8 @@ public static void getDataProtectionPolicy(SnsClient snsClient, String topicName
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // Import required AWS SDK clients and commands for Node.js
@@ -148,5 +148,6 @@ const runGet = async () => {
   }
 };
 runGet();
-
 ```
+
+------

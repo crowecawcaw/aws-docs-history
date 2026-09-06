@@ -1,13 +1,12 @@
+
+
 # Amazon SNS notification format for delivery to HTTP destinations
+<a name="firehose-delivered-message-format-http"></a>
 
-Here’s an example of an HTTP POST request body from Amazon SNS, sent through an
-delivery stream to an HTTP endpoint. The Amazon SNS notification is encoded as a base64 payload
-within the records property.
+Here’s an example of an HTTP POST request body from Amazon SNS, sent through an delivery stream to an HTTP endpoint. The Amazon SNS notification is encoded as a base64 payload within the records property.
 
-###### Note
-
-In this example, raw message delivery is disabled for the published message. For more
-information about raw delivery, see [Amazon SNS raw message delivery](sns-large-payload-raw-message-delivery.md "sns-large-payload-raw-message-delivery.md").
+**Note**  
+In this example, raw message delivery is disabled for the published message. For more information about raw delivery, see [Amazon SNS raw message delivery](sns-large-payload-raw-message-delivery.md).
 
 ```
 "body": {

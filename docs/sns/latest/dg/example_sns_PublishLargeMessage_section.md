@@ -1,18 +1,16 @@
+
+
 # Publish a large message to Amazon SNS with Amazon S3 using an AWS SDK
+<a name="example_sns_PublishLargeMessage_section"></a>
 
 The following code example shows how to publish a large message to Amazon SNS using Amazon S3 to store the message payload.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 1.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples").
-
-To publish a large message, use the Amazon SNS Extended Client Library for Java. The message that you send references an Amazon S3 object containing the actual message content.
+**SDK for Java 1.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples). 
+To publish a large message, use the Amazon SNS Extended Client Library for Java. The message that you send references an Amazon S3 object containing the actual message content.  
 
 ```
 import com.amazon.sqs.javamessaging.AmazonSQSExtendedClient;
@@ -98,10 +96,8 @@ public class Example {
                 System.out.println("Received message is " + result.getMessages().get(0).getBody());
         }
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

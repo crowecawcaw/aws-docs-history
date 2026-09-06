@@ -1,19 +1,17 @@
+
+
 # Hello Amazon SNS
+<a name="example_sns_Hello_section"></a>
 
 The following code examples show how to get started using Amazon SNS.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
 
 ```
-
 using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
 
@@ -40,25 +38,15 @@ public static class HelloSNS
         }
     }
 }
-
-
 ```
++  For API details, see [ListTopics](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/ListTopics) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ListTopics](../../../goto/DotNetSDKV3/sns-2010-03-31/ListTopics.md "../../../goto/DotNetSDKV3/sns-2010-03-31/ListTopics.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns/hello_sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns/hello_sns#code-examples").
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns/hello_sns#code-examples). 
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -99,11 +87,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_sns.cpp source file.
+Code for the hello\_sns.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -178,26 +163,16 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return 0;
 }
+```
++  For API details, see [ListTopics](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/ListTopics) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sns#code-examples). 
 
 ```
-
-- For API details, see
-  [ListTopics](../../../goto/SdkForCpp/sns-2010-03-31/ListTopics.md "../../../goto/SdkForCpp/sns-2010-03-31/ListTopics.md")
-  in _AWS SDK for C++ API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/sns#code-examples").
-
-```
-
 package main
 
 import (
@@ -243,24 +218,14 @@ func main() {
 		}
 	}
 }
-
-
-
 ```
++  For API details, see [ListTopics](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.ListTopics) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [ListTopics](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.ListTopics "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.ListTopics")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 package com.example.sns;
@@ -293,25 +258,15 @@ public class HelloSNS {
         }
     }
 }
-
-
 ```
++  For API details, see [ListTopics](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/ListTopics) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListTopics](../../../goto/SdkForJavaV2/sns-2010-03-31/ListTopics.md "../../../goto/SdkForJavaV2/sns-2010-03-31/ListTopics.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Initialize an SNS client and and list topics in your account.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Initialize an SNS client and and list topics in your account.  
 
 ```
 import { SNSClient, paginateListTopics } from "@aws-sdk/client-sns";
@@ -340,23 +295,14 @@ export const helloSns = async () => {
   );
   console.log(topics.map((t) => `  * ${t.TopicArn}`).join("\n"));
 };
-
-
 ```
++  For API details, see [ListTopics](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/ListTopicsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ListTopics](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/ListTopicsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/ListTopicsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 import aws.sdk.kotlin.services.sns.SnsClient
@@ -385,25 +331,15 @@ suspend fun listTopicsPag() {
             }
     }
 }
-
-
 ```
++  For API details, see [ListTopics](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [ListTopics](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns/basics#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns/basics#code-examples").
-
-The Package.swift file.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns/basics#code-examples). 
+The Package.swift file.  
 
 ```
 import PackageDescription
@@ -439,11 +375,8 @@ let package = Package(
 
     ]
 )
-
-
 ```
-
-The main Swift program.
+The main Swift program.  
 
 ```
 import ArgumentParser
@@ -463,7 +396,7 @@ struct ExampleCommand: ParsableCommand {
         discussion: """
         """
     )
-
+    
     /// Called by ``main()`` to run the bulk of the example.
     func runAsync() async throws {
         let config = try await SNSClient.SNSClientConfiguration(region: region)
@@ -513,16 +446,11 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++  For API details, see [ListTopics](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/listtopics(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListTopics](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/listtopics(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/listtopics(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

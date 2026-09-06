@@ -1,24 +1,22 @@
+
+
 # Getting started with internet of things device protection
+<a name="example_iot_GettingStarted_079_section"></a>
 
 The following code example shows how to:
++ Create Required IAM Roles
++ Enable IoT Device Defender Audit Checks
++ Run an On-Demand Audit
++ Create a Mitigation Action
++ Apply Mitigation Actions to Findings
++ Set Up SNS Notifications (Optional)
++ Enable IoT Logging
 
-- Create Required IAM Roles
-- Enable IoT Device Defender Audit Checks
-- Run an On-Demand Audit
-- Create a Mitigation Action
-- Apply Mitigation Actions to Findings
-- Set Up SNS Notifications (Optional)
-- Enable IoT Logging
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/079-aws-iot-device-defender-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/079-aws-iot-device-defender-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/079-aws-iot-device-defender-gs) repository. 
 
 ```
 #!/bin/bash
@@ -94,15 +92,15 @@ create_iam_role() {
     local MANAGED_POLICY=$3
     local RETRY_COUNT=0
     local MAX_RETRIES=3
-
+    
     echo "Creating IAM role: $ROLE_NAME"
-
+    
     # Validate trust policy JSON
     if ! validate_json "$TRUST_POLICY"; then
         echo "ERROR: Invalid trust policy JSON for role $ROLE_NAME"
         return 1
     fi
-
+    
     # Check if role already exists
     if aws iam get-role --role-name "$ROLE_NAME" >/dev/null 2>&1; then
         echo "Role $ROLE_NAME already exists, skipping creation"
@@ -114,37 +112,37 @@ create_iam_role() {
         echo "Role ARN: $ROLE_ARN"
         return 0
     fi
-
+    
     # Create the role with trust policy and retry logic
     while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
         ROLE_RESULT=$(aws iam create-role \
             --role-name "$ROLE_NAME" \
             --assume-role-policy-document "$TRUST_POLICY" 2>&1) || true
-
+        
         if check_error "$ROLE_RESULT"; then
             break
         fi
-
+        
         RETRY_COUNT=$((RETRY_COUNT + 1))
         if [ $RETRY_COUNT -lt $MAX_RETRIES ]; then
             echo "Retrying role creation (attempt $((RETRY_COUNT + 1))/$MAX_RETRIES)..."
             sleep $((RETRY_COUNT * 2))
         fi
     done
-
+    
     if ! check_error "$ROLE_RESULT"; then
         echo "Failed to create role $ROLE_NAME after $MAX_RETRIES attempts"
         return 1
     fi
-
+    
     aws iam tag-role --role-name "$ROLE_NAME" --tags Key=project,Value=doc-smith Key=tutorial,Value=aws-iot-device-defender-gs 2>&1 || true
-
+    
     # For IoT logging role, create an inline policy instead of using a managed policy
     if [[ "$ROLE_NAME" == "AWSIoTLoggingRole" ]]; then
         local LOGGING_POLICY
         LOGGING_POLICY=$(cat <<'EOF'
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -163,17 +161,17 @@ create_iam_role() {
 }
 EOF
 )
-
+        
         if ! validate_json "$LOGGING_POLICY"; then
             echo "ERROR: Invalid logging policy JSON"
             return 1
         fi
-
+        
         POLICY_RESULT=$(aws iam put-role-policy \
             --role-name "$ROLE_NAME" \
             --policy-name "${ROLE_NAME}Policy" \
             --policy-document "$LOGGING_POLICY" 2>&1) || true
-
+            
         if ! check_error "$POLICY_RESULT"; then
             echo "Failed to attach inline policy to role $ROLE_NAME"
             return 1
@@ -182,7 +180,7 @@ EOF
         local MITIGATION_POLICY
         MITIGATION_POLICY=$(cat <<'EOF'
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -209,17 +207,17 @@ EOF
 }
 EOF
 )
-
+        
         if ! validate_json "$MITIGATION_POLICY"; then
             echo "ERROR: Invalid mitigation policy JSON"
             return 1
         fi
-
+        
         POLICY_RESULT=$(aws iam put-role-policy \
             --role-name "$ROLE_NAME" \
             --policy-name "${ROLE_NAME}Policy" \
             --policy-document "$MITIGATION_POLICY" 2>&1) || true
-
+            
         if ! check_error "$POLICY_RESULT"; then
             echo "Failed to attach inline policy to role $ROLE_NAME"
             return 1
@@ -230,16 +228,16 @@ EOF
             ATTACH_RESULT=$(aws iam attach-role-policy \
                 --role-name "$ROLE_NAME" \
                 --policy-arn "$MANAGED_POLICY" 2>&1) || true
-
+            
             if ! check_error "$ATTACH_RESULT"; then
                 echo "Failed to attach policy to role $ROLE_NAME"
                 return 1
             fi
         fi
     fi
-
+    
     echo "Role $ROLE_NAME created successfully"
-
+    
     # Get the role ARN with error handling
     ROLE_ARN=$(aws iam get-role --role-name "$ROLE_NAME" --query 'Role.Arn' --output text 2>/dev/null) || true
     if [ -z "$ROLE_ARN" ]; then
@@ -272,7 +270,7 @@ echo "==================================================="
 # Create IoT Device Defender Audit role
 IOT_DEFENDER_AUDIT_TRUST_POLICY=$(cat <<'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -296,7 +294,7 @@ CREATED_RESOURCES+=("IAM Role: AWSIoTDeviceDefenderAuditRole")
 # Create IoT Logging role
 IOT_LOGGING_TRUST_POLICY=$(cat <<'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -320,7 +318,7 @@ CREATED_RESOURCES+=("IAM Role: AWSIoTLoggingRole")
 # Create IoT Mitigation Action role
 IOT_MITIGATION_TRUST_POLICY=$(cat <<'EOF'
 {
-  "Version":"2012-10-17",
+  "Version":"2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -417,15 +415,15 @@ while [ "$TASK_STATUS" != "COMPLETED" ]; do
         echo "WARNING: Audit task did not complete within ${MAX_TIMEOUT} seconds, continuing..."
         break
     fi
-
+    
     sleep "$POLL_INTERVAL"
     TIMEOUT=$((TIMEOUT + POLL_INTERVAL))
-
+    
     TASK_DETAILS=$(aws iot describe-audit-task --task-id "$TASK_ID" --output json 2>&1) || true
     if validate_json "$TASK_DETAILS"; then
         TASK_STATUS=$(extract_json_value "$TASK_DETAILS" "taskStatus")
         echo "Current task status: $TASK_STATUS (elapsed: ${TIMEOUT}s)"
-
+        
         if [ "$TASK_STATUS" = "FAILED" ]; then
             echo "WARNING: Audit task failed, continuing with script..."
             FAILURE_REASON=$(extract_json_value "$TASK_DETAILS" "taskStatistics.failedChecksNotApplicable")
@@ -531,7 +529,7 @@ if [ "$HAS_FINDINGS" = true ]; then
 
     MITIGATION_TASK_ID="MitigationTask-$(date +%s)"
     echo "Starting mitigation actions task with ID: $MITIGATION_TASK_ID"
-
+    
     # Build target JSON
     TARGET_JSON=$(cat <<EOF
 {
@@ -557,7 +555,7 @@ EOF
         echo "ERROR: Invalid audit check mapping JSON"
         exit 1
     fi
-
+    
     MITIGATION_TASK_RESULT=$(aws iot start-audit-mitigation-actions-task \
       --task-id "$MITIGATION_TASK_ID" \
       --target "$TARGET_JSON" \
@@ -654,7 +652,7 @@ LOGGING_RESULT=$(aws iot set-v2-logging-options \
 
 if ! check_error "$LOGGING_RESULT"; then
     echo "V2 logging setup failed, trying v1 logging..."
-
+    
     V1_LOGGING_CONFIG=$(cat <<EOF
 {
   "roleArn": "$LOGGING_ROLE_ARN",
@@ -667,10 +665,10 @@ EOF
         echo "ERROR: Invalid v1 logging configuration JSON"
         exit 1
     fi
-
+    
     LOGGING_RESULT_V1=$(aws iot set-logging-options \
       --logging-options-payload "$V1_LOGGING_CONFIG" 2>&1) || true
-
+    
     if ! check_error "$LOGGING_RESULT_V1"; then
         echo "WARNING: Failed to set up AWS IoT logging with both v1 and v2 methods, continuing..."
     else
@@ -719,17 +717,17 @@ if check_error "$DISABLE_V2_RESULT"; then
     echo "V2 logging disabled successfully"
 else
     echo "Attempting v1 logging disable..."
-
+    
     V1_DISABLE_CONFIG=$(cat <<'EOF'
 {
   "logLevel": "DISABLED"
 }
 EOF
 )
-
+    
     DISABLE_V1_RESULT=$(aws iot set-logging-options \
       --logging-options-payload "$V1_DISABLE_CONFIG" 2>&1) || true
-
+    
     if check_error "$DISABLE_V1_RESULT"; then
         echo "V1 logging disabled successfully"
     else
@@ -759,7 +757,7 @@ echo "Cleaning up IAM roles..."
 cleanup_role() {
     local role_name=$1
     echo "Cleaning up role: $role_name"
-
+    
     if aws iam get-role --role-name "$role_name" >/dev/null 2>&1; then
         ROLE_POLICIES=$(aws iam list-role-policies --role-name "$role_name" --output json 2>&1 || echo '{"PolicyNames":[]}')
         if validate_json "$ROLE_POLICIES"; then
@@ -772,7 +770,7 @@ cleanup_role() {
                 fi
             done < <(echo "$ROLE_POLICIES" | jq -r '.PolicyNames[]' 2>/dev/null || echo "")
         fi
-
+        
         ATTACHED_POLICIES=$(aws iam list-attached-role-policies --role-name "$role_name" --output json 2>&1 || echo '{"AttachedPolicies":[]}')
         if validate_json "$ATTACHED_POLICIES"; then
             while IFS= read -r policy_arn; do
@@ -784,7 +782,7 @@ cleanup_role() {
                 fi
             done < <(echo "$ATTACHED_POLICIES" | jq -r '.AttachedPolicies[].PolicyArn' 2>/dev/null || echo "")
         fi
-
+        
         echo "  Deleting role: $role_name"
         aws iam delete-role --role-name "$role_name" 2>&1 || true
     else
@@ -801,38 +799,35 @@ echo "Cleanup completed successfully"
 echo ""
 echo "Script execution completed at $(date)"
 echo "Log file: $LOG_FILE"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [CreateMitigationAction](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/CreateMitigationAction)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/CreateTopic)
+  + [DeleteAccountAuditConfiguration](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DeleteAccountAuditConfiguration)
+  + [DeleteMitigationAction](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DeleteMitigationAction)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRolePolicy)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/DeleteTopic)
+  + [DescribeAccountAuditConfiguration](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DescribeAccountAuditConfiguration)
+  + [DescribeAuditTask](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/DescribeAuditTask)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetLoggingOptions](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/GetLoggingOptions)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [GetV2LoggingOptions](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/GetV2LoggingOptions)
+  + [ListAuditFindings](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/ListAuditFindings)
+  + [ListAuditMitigationActionsTasks](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/ListAuditMitigationActionsTasks)
+  + [ListMitigationActions](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/ListMitigationActions)
+  + [ListRolePolicies](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/ListRolePolicies)
+  + [ListTopics](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/ListTopics)
+  + [PutRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/PutRolePolicy)
+  + [SetLoggingOptions](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/SetLoggingOptions)
+  + [SetV2LoggingOptions](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/SetV2LoggingOptions)
+  + [StartAuditMitigationActionsTask](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/StartAuditMitigationActionsTask)
+  + [StartOnDemandAuditTask](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/StartOnDemandAuditTask)
+  + [UpdateAccountAuditConfiguration](https://docs.aws.amazon.com/goto/aws-cli/iot-2015-05-28/UpdateAccountAuditConfiguration)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [CreateMitigationAction](../../../goto/aws-cli/iot-2015-05-28/CreateMitigationAction.md "../../../goto/aws-cli/iot-2015-05-28/CreateMitigationAction.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateTopic](../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md "../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md")
-  - [DeleteAccountAuditConfiguration](../../../goto/aws-cli/iot-2015-05-28/DeleteAccountAuditConfiguration.md "../../../goto/aws-cli/iot-2015-05-28/DeleteAccountAuditConfiguration.md")
-  - [DeleteMitigationAction](../../../goto/aws-cli/iot-2015-05-28/DeleteMitigationAction.md "../../../goto/aws-cli/iot-2015-05-28/DeleteMitigationAction.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRolePolicy.md")
-  - [DeleteTopic](../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md "../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md")
-  - [DescribeAccountAuditConfiguration](../../../goto/aws-cli/iot-2015-05-28/DescribeAccountAuditConfiguration.md "../../../goto/aws-cli/iot-2015-05-28/DescribeAccountAuditConfiguration.md")
-  - [DescribeAuditTask](../../../goto/aws-cli/iot-2015-05-28/DescribeAuditTask.md "../../../goto/aws-cli/iot-2015-05-28/DescribeAuditTask.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetLoggingOptions](../../../goto/aws-cli/iot-2015-05-28/GetLoggingOptions.md "../../../goto/aws-cli/iot-2015-05-28/GetLoggingOptions.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [GetV2LoggingOptions](../../../goto/aws-cli/iot-2015-05-28/GetV2LoggingOptions.md "../../../goto/aws-cli/iot-2015-05-28/GetV2LoggingOptions.md")
-  - [ListAuditFindings](../../../goto/aws-cli/iot-2015-05-28/ListAuditFindings.md "../../../goto/aws-cli/iot-2015-05-28/ListAuditFindings.md")
-  - [ListAuditMitigationActionsTasks](../../../goto/aws-cli/iot-2015-05-28/ListAuditMitigationActionsTasks.md "../../../goto/aws-cli/iot-2015-05-28/ListAuditMitigationActionsTasks.md")
-  - [ListMitigationActions](../../../goto/aws-cli/iot-2015-05-28/ListMitigationActions.md "../../../goto/aws-cli/iot-2015-05-28/ListMitigationActions.md")
-  - [ListRolePolicies](../../../goto/aws-cli/iam-2010-05-08/ListRolePolicies.md "../../../goto/aws-cli/iam-2010-05-08/ListRolePolicies.md")
-  - [ListTopics](../../../goto/aws-cli/sns-2010-03-31/ListTopics.md "../../../goto/aws-cli/sns-2010-03-31/ListTopics.md")
-  - [PutRolePolicy](../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/PutRolePolicy.md")
-  - [SetLoggingOptions](../../../goto/aws-cli/iot-2015-05-28/SetLoggingOptions.md "../../../goto/aws-cli/iot-2015-05-28/SetLoggingOptions.md")
-  - [SetV2LoggingOptions](../../../goto/aws-cli/iot-2015-05-28/SetV2LoggingOptions.md "../../../goto/aws-cli/iot-2015-05-28/SetV2LoggingOptions.md")
-  - [StartAuditMitigationActionsTask](../../../goto/aws-cli/iot-2015-05-28/StartAuditMitigationActionsTask.md "../../../goto/aws-cli/iot-2015-05-28/StartAuditMitigationActionsTask.md")
-  - [StartOnDemandAuditTask](../../../goto/aws-cli/iot-2015-05-28/StartOnDemandAuditTask.md "../../../goto/aws-cli/iot-2015-05-28/StartOnDemandAuditTask.md")
-  - [UpdateAccountAuditConfiguration](../../../goto/aws-cli/iot-2015-05-28/UpdateAccountAuditConfiguration.md "../../../goto/aws-cli/iot-2015-05-28/UpdateAccountAuditConfiguration.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

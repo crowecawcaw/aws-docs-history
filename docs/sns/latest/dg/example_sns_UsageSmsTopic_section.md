@@ -1,22 +1,19 @@
+
+
 # Publish SMS messages to an Amazon SNS topic using an AWS SDK
+<a name="example_sns_UsageSmsTopic_section"></a>
 
 The following code example shows how to:
++ Create an Amazon SNS topic.
++ Subscribe phone numbers to the topic.
++ Publish SMS messages to the topic so that all subscribed phone numbers receive the message at once.
 
-- Create an Amazon SNS topic.
-- Subscribe phone numbers to the topic.
-- Publish SMS messages to the topic so that all subscribed phone numbers receive the message at once.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
-
-Create a topic and return its ARN.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
+Create a topic and return its ARN.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -77,11 +74,8 @@ public class CreateTopic {
         return "";
     }
 }
-
-
 ```
-
-Subscribe an endpoint to a topic.
+Subscribe an endpoint to a topic.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -143,12 +137,8 @@ public class SubscribeTextSMS {
         }
     }
 }
-
-
 ```
-
-Set attributes on the message, such as the ID of the sender, the maximum price, and its type.
-Message attributes are optional.
+Set attributes on the message, such as the ID of the sender, the maximum price, and its type. Message attributes are optional.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -195,11 +185,8 @@ public class SetSMSAttributes {
         }
     }
 }
-
-
 ```
-
-Publish a message to a topic. The message is sent to every subscriber.
+Publish a message to a topic. The message is sent to every subscriber.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -258,10 +245,8 @@ public class PublishTextSMS {
         }
     }
 }
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

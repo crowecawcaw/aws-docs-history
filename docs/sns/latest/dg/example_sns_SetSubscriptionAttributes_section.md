@@ -1,62 +1,49 @@
+
+
 # Use `SetSubscriptionAttributes` with an AWS SDK or CLI
+<a name="example_sns_SetSubscriptionAttributes_section"></a>
 
 The following code examples show how to use `SetSubscriptionAttributes`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To set subscription attributes**
-
-The following `set-subscription-attributes` example sets the `RawMessageDelivery` attribute to an SQS subscription.
-
-```
-`aws sns set-subscription-attributes \
- --subscription-arn `arn:aws:sns:us-east-1:123456789012:mytopic:f248de18-2cf6-578c-8592-b6f1eaa877dc` \
- --attribute-name `RawMessageDelivery` \
- --attribute-value `true``
+**AWS CLI**  
+**To set subscription attributes**  
+The following `set-subscription-attributes` example sets the `RawMessageDelivery` attribute to an SQS subscription.  
 
 ```
-
-This command produces no output.
-
-The following `set-subscription-attributes` example sets a `FilterPolicy` attribute to an SQS subscription.
+aws sns set-subscription-attributes \
+    --subscription-arn {{arn:aws:sns:us-east-1:123456789012:mytopic:f248de18-2cf6-578c-8592-b6f1eaa877dc}} \
+    --attribute-name {{RawMessageDelivery}} \
+    --attribute-value {{true}}
+```
+This command produces no output.  
+The following `set-subscription-attributes` example sets a `FilterPolicy` attribute to an SQS subscription.  
 
 ```
-`aws sns set-subscription-attributes \
- --subscription-arn `arn:aws:sns:us-east-1:123456789012:mytopic:f248de18-2cf6-578c-8592-b6f1eaa877dc` \
- --attribute-name `FilterPolicy` \
- --attribute-value "{ \"anyMandatoryKey\": [\"any\", \"of\", \"these\"] }"`
+aws sns set-subscription-attributes \
+    --subscription-arn {{arn:aws:sns:us-east-1:123456789012:mytopic:f248de18-2cf6-578c-8592-b6f1eaa877dc}} \
+    --attribute-name {{FilterPolicy}} \
+    --attribute-value "{ \"anyMandatoryKey\": [\"any\", \"of\", \"these\"] }"
+```
+This command produces no output.  
+The following `set-subscription-attributes` example removes the `FilterPolicy` attribute from an SQS subscription.  
 
 ```
-
-This command produces no output.
-
-The following `set-subscription-attributes` example removes the `FilterPolicy` attribute from an SQS subscription.
-
+aws sns set-subscription-attributes \
+    --subscription-arn {{arn:aws:sns:us-east-1:123456789012:mytopic:f248de18-2cf6-578c-8592-b6f1eaa877dc}} \
+    --attribute-name {{FilterPolicy}} \
+    --attribute-value {{"{}"}}
 ```
-`aws sns set-subscription-attributes \
- --subscription-arn `arn:aws:sns:us-east-1:123456789012:mytopic:f248de18-2cf6-578c-8592-b6f1eaa877dc` \
- --attribute-name `FilterPolicy` \
- --attribute-value `"{}"``
+This command produces no output.  
++  For API details, see [SetSubscriptionAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-subscription-attributes.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-- For API details, see
-  [SetSubscriptionAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-subscription-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-subscription-attributes.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -132,23 +119,14 @@ public class UseMessageFilterPolicy {
         }
     }
 }
-
-
 ```
++  For API details, see [SetSubscriptionAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/SetSubscriptionAttributes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SetSubscriptionAttributes](../../../goto/SdkForJavaV2/sns-2010-03-31/SetSubscriptionAttributes.md "../../../goto/SdkForJavaV2/sns-2010-03-31/SetSubscriptionAttributes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
 ```
 class SnsWrapper:
@@ -182,24 +160,14 @@ class SnsWrapper:
                 "Couldn't add filter to subscription %s.", subscription.arn
             )
             raise
-
-
-
 ```
++  For API details, see [SetSubscriptionAttributes](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/SetSubscriptionAttributes) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [SetSubscriptionAttributes](../../../goto/boto3/sns-2010-03-31/SetSubscriptionAttributes.md "../../../goto/boto3/sns-2010-03-31/SetSubscriptionAttributes.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     TRY.
@@ -211,14 +179,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Subscription does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [SetSubscriptionAttributes](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [SetSubscriptionAttributes](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

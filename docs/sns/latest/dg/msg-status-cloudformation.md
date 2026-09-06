@@ -1,16 +1,14 @@
+
+
 # Configuring delivery status logging using CloudFormation
+<a name="msg-status-cloudformation"></a>
 
-To configure `DeliveryStatusLogging` using CloudFormation, use a JSON or YAML
-template to create an CloudFormation stack. For more information, see the
-`DeliveryStatusLogging` property of the `AWS::SNS::Topic`
-resource in the CloudFormation User Guide. Below are examples of CloudFormation templates in JSON and YAML
-to create a new topic or update an existing topic with all
-`DeliveryStatusLogging` attributes for the Amazon SQS protocol.
+To configure `DeliveryStatusLogging` using CloudFormation, use a JSON or YAML template to create an CloudFormation stack. For more information, see the `DeliveryStatusLogging` property of the `AWS::SNS::Topic` resource in the CloudFormation User Guide. Below are examples of CloudFormation templates in JSON and YAML to create a new topic or update an existing topic with all `DeliveryStatusLogging` attributes for the Amazon SQS protocol.
 
-Ensure the IAM roles referenced in `SuccessFeedbackRoleArn` and
-`FailureFeedbackRoleArn` have the required CloudWatch Logs permissions.
+Ensure the IAM roles referenced in `SuccessFeedbackRoleArn` and `FailureFeedbackRoleArn` have the required CloudWatch Logs permissions.
 
-JSON
+------
+#### [ JSON ]
 
 ```
 "Resources": {
@@ -31,7 +29,8 @@ JSON
 }
 ```
 
-YAML
+------
+#### [ YAML ]
 
 ```
 Resources:
@@ -46,5 +45,6 @@ Resources:
          SuccessFeedbackSampleRate: 45
          SuccessFeedbackRoleArn: arn:aws:iam::123456789012:role/SNSSuccessFeedback_test1
          FailureFeedbackRoleArn: arn:aws:iam::123456789012:role/SNSFailureFeedback_test2
-
 ```
+
+------

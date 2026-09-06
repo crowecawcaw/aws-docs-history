@@ -1,9 +1,9 @@
-# SetTopicAttributes delivery policy JSON format
 
-If you send a request to the `SetTopicAttributes` action and set the
-`AttributeName` parameter to a value of `DeliveryPolicy`, the
-value of the `AttributeValue` parameter must be a valid JSON object. For
-example, the following example sets the delivery policy to 5 total retries.
+
+# SetTopicAttributes delivery policy JSON format
+<a name="set-topic-attributes-delivery-policy-json"></a>
+
+If you send a request to the `SetTopicAttributes` action and set the `AttributeName` parameter to a value of `DeliveryPolicy`, the value of the `AttributeValue` parameter must be a valid JSON object. For example, the following example sets the delivery policy to 5 total retries.
 
 ```
 http://sns.us-east-2.amazonaws.com/
@@ -14,8 +14,7 @@ http://sns.us-east-2.amazonaws.com/
 ...
 ```
 
-Use the following JSON format for the value of the `AttributeValue`
-parameter.
+Use the following JSON format for the value of the `AttributeValue` parameter.
 
 ```
 {
@@ -38,6 +37,4 @@ parameter.
 }
 ```
 
-For more information about the `SetTopicAttribute` action, go to [SetTopicAttributes](../api/API_SetTopicAttributes.md "../api/API_SetTopicAttributes.md") in the
-_Amazon Simple Notification Service API Reference_. For more information on the supported HTTP
-content-type headers, see [Creating an HTTP/S delivery policy](sns-message-delivery-retries.md#creating-delivery-policy "sns-message-delivery-retries.md#creating-delivery-policy").
+For more information about the `SetTopicAttribute` action, go to [SetTopicAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html) in the *Amazon Simple Notification Service API Reference*. For more information on the supported HTTP content-type headers, see [Creating an HTTP/S delivery policy](sns-message-delivery-retries.md#creating-delivery-policy).

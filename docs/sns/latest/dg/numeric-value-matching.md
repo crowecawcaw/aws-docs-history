@@ -1,18 +1,17 @@
+
+
 # Numeric value matching
+<a name="numeric-value-matching"></a>
 
-Filter messages by matching numeric values to message attribute values or to
-message body property values. Numeric values aren't enclosed in double quotation marks
-in the JSON policy. You can use the following numeric operations for filtering.
+Filter messages by matching numeric values to message attribute values or to message body property values. Numeric values aren't enclosed in double quotation marks in the JSON policy. You can use the following numeric operations for filtering.
 
-###### Note
-
-Prefixes are supported for _string_ matching only.
+**Note**  
+Prefixes are supported for *string* matching only.
 
 ## Exact matching
+<a name="numeric-exact-matching"></a>
 
-When a policy property value includes the keyword `numeric` and the
-operator `=`, it matches any message attribute or message body property
-values that have the same name and an equal numeric value.
+When a policy property value includes the keyword `numeric` and the operator `=`, it matches any message attribute or message body property values that have the same name and an equal numeric value.
 
 Consider the following policy property:
 
@@ -45,9 +44,9 @@ It also matches either of the following message bodies:
 ```
 
 ## Anything-but matching
+<a name="numeric-anything-but-matching"></a>
 
-When a policy property value includes the keyword `anything-but`, it
-matches any message attribute or message body property values that _don't_ include any of the policy property values.
+When a policy property value includes the keyword `anything-but`, it matches any message attribute or message body property values that *don't* include any of the policy property values.
 
 Consider the following policy property:
 
@@ -79,17 +78,13 @@ It also matches either of the following message bodies:
 }
 ```
 
-Moreover, it matches the following message attribute (because it contains a value
-that _isn't_
-`100` or `500`):
+Moreover, it matches the following message attribute (because it contains a value that *isn't* `100` or `500`):
 
 ```
 "price": {"Type": "Number.Array", "Value": "[100, 50]"}
 ```
 
-And it also matches the following message body (because it contains a value that
-_isn't_
-`100` or `500`):
+And it also matches the following message body (because it contains a value that *isn't* `100` or `500`):
 
 ```
 {
@@ -112,10 +107,9 @@ Nor does it match the following message body:
 ```
 
 ## Value range matching
+<a name="numeric-value-range-matching"></a>
 
-In addition to the operator `=`, a numeric policy property can include
-the following operators: `<`, `<=`, `>`,
-and `>=`.
+In addition to the operator `=`, a numeric policy property can include the following operators: `<`, `<=`, `>`, and `>=`.
 
 Consider the following policy property:
 
@@ -123,8 +117,7 @@ Consider the following policy property:
 "price_usd": [{"numeric": ["<", 0]}]
 ```
 
-It matches any message attribute or message body property with negative numeric
-values.
+It matches any message attribute or message body property with negative numeric values.
 
 Consider another message attribute:
 
@@ -132,5 +125,4 @@ Consider another message attribute:
 "price_usd": [{"numeric": [">", 0, "<=", 150]}]
 ```
 
-It matches any message attribute or message body property with positive numbers up
-to and including 150.
+It matches any message attribute or message body property with positive numbers up to and including 150.

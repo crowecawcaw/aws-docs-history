@@ -1,73 +1,56 @@
+
+
 # Deleting an Amazon SNS topic and subscription
+<a name="sns-delete-subscription-topic"></a>
 
-When a topic is deleted, its associated subscriptions are deleted asynchronously. While
-customers can still access these subscriptions, the subscriptions are no longer associated
-with the topic–even if you recreate the topic using the same name. If a publisher
-attempts to publish a message to the deleted topic, the publisher will receive an error
-message indicating that the topic doesn't exist. Similarly, any attempt to subscribe to the
-deleted topic will also result in an error message. You can't delete a subscription that's
-pending confirmation. Amazon SNS automatically deletes unconfirmed subscriptions after 48
-hours, including email and email-json subscriptions that were never confirmed or that were
-unsubscribed by the recipient. However, email and email-json subscriptions suspended by Amazon SNS
-for exceeding 10 messages per second (TPS) are retained for 30 days before deletion.
+When a topic is deleted, its associated subscriptions are deleted asynchronously. While customers can still access these subscriptions, the subscriptions are no longer associated with the topic–even if you recreate the topic using the same name. If a publisher attempts to publish a message to the deleted topic, the publisher will receive an error message indicating that the topic doesn't exist. Similarly, any attempt to subscribe to the deleted topic will also result in an error message. You can't delete a subscription that's pending confirmation. Amazon SNS automatically deletes unconfirmed subscriptions after 48 hours, including email and email-json subscriptions that were never confirmed or that were unsubscribed by the recipient. However, email and email-json subscriptions suspended by Amazon SNS for exceeding 10 messages per second (TPS) are retained for 30 days before deletion.
 
-###### Important
-
-Deleted Amazon SNS topics cannot be recovered. We recommend that you delete subscriptions before deleting a topic.
-
-Once the subscription is deleted, it cannot be recovered.
-Published notifications to the Amazon SNS topic will not be delivered to that deleted subscription.
-You will have to re-create the subscription to receive notifications.
+**Important**  
+ Deleted Amazon SNS topics cannot be recovered. We recommend that you delete subscriptions before deleting a topic.   
+ Once the subscription is deleted, it cannot be recovered. Published notifications to the Amazon SNS topic will not be delivered to that deleted subscription. You will have to re-create the subscription to receive notifications. 
 
 ## To delete an Amazon SNS topic or subscription using the AWS Management Console
+<a name="sns-delete-subscription-topic-console"></a>
 
-Deleting an Amazon SNS topic or subscription ensures efficient resource management,
-preventing unnecessary usage and keeping the Amazon SNS console organized. This step helps
-avoid potential costs from idle resources and streamlines administration by removing
-topics or subscriptions that are no longer needed.
+Deleting an Amazon SNS topic or subscription ensures efficient resource management, preventing unnecessary usage and keeping the Amazon SNS console organized. This step helps avoid potential costs from idle resources and streamlines administration by removing topics or subscriptions that are no longer needed.
 
-###### To delete a topic using the AWS Management Console
+**To delete a topic using the AWS Management Console**
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the left navigation pane, choose **Topics**.
-3. On the **Topics** page, select a topic, and then choose
-   **Delete**.
-4. In the **Delete topic** dialog box, enter `delete
- me`, and then choose **Delete**.
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-The console deletes the topic.
+1. In the left navigation pane, choose **Topics**.
 
-###### To delete a subscription using the AWS Management Console
+1. On the **Topics** page, select a topic, and then choose **Delete**.
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the left navigation pane, choose **Subscriptions**.
-3. On the **Subscriptions** page, select a subscription with a
-   status of **Confirmed**, and then choose
-   **Delete**.
-4. In the **Delete subscription** dialog box, choose
-   **Delete**.
+1. In the **Delete topic** dialog box, enter `delete me`, and then choose **Delete**.
 
-The console deletes the subscription.
+   The console deletes the topic.
+
+**To delete a subscription using the AWS Management Console**
+
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
+
+1. In the left navigation pane, choose **Subscriptions**.
+
+1. On the **Subscriptions** page, select a subscription with a status of **Confirmed**, and then choose **Delete**.
+
+1. In the **Delete subscription** dialog box, choose **Delete**.
+
+   The console deletes the subscription.
 
 ## To delete a subscription and topic using an AWS SDK
+<a name="delete-topic-aws-sdks"></a>
 
-To use an AWS SDK, you must configure it with your credentials. For more
-information, see [The shared config and credentials
-files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 
 The following code examples show how to use `DeleteTopic`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples").
-
-Delete a topic by its topic ARN.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/TopicsAndQueues#code-examples). 
+Delete a topic by its topic ARN.  
 
 ```
     /// <summary>
@@ -84,23 +67,14 @@ Delete a topic by its topic ARN.
             });
         return deleteResponse.HttpStatusCode == HttpStatusCode.OK;
     }
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic.md "../../../goto/DotNetSDKV3/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 //! Delete an Amazon Simple Notification Service (Amazon SNS) topic.
@@ -128,46 +102,30 @@ bool AwsDoc::SNS::deleteTopic(const Aws::String &topicARN,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/DeleteTopic) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an SNS topic**  
+The following `delete-topic` example deletes the specified SNS topic.  
 
 ```
+aws sns delete-topic \
+    --topic-arn {{"arn:aws:sns:us-west-2:123456789012:my-topic"}}
+```
+This command produces no output.  
++  For API details, see [DeleteTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/SdkForCpp/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForCpp/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Go ]
 
-CLI
-
-**AWS CLI**
-
-**To delete an SNS topic**
-
-The following `delete-topic` example deletes the specified SNS topic.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-`aws sns delete-topic \
- --topic-arn `"arn:aws:sns:us-west-2:123456789012:my-topic"``
-
-```
-
-This command produces no output.
-
-- For API details, see
-  [DeleteTopic](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-topic.html")
-  in _AWS CLI Command Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
-
-```
-
 import (
 	"context"
 	"encoding/json"
@@ -195,24 +153,14 @@ func (actor SnsActions) DeleteTopic(ctx context.Context, topicArn string) error 
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [DeleteTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [DeleteTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.DeleteTopic")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -269,25 +217,15 @@ public class DeleteTopic {
         }
     }
 }
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -295,11 +233,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { DeleteTopicCommand } from "@aws-sdk/client-sns";
@@ -324,24 +259,15 @@ export const deleteTopic = async (topicArn = "TOPIC_ARN") => {
   //   }
   // }
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.html#sns-examples-managing-topics-deletetopic). 
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-managing-topics-deletetopic "../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-managing-topics-deletetopic").
-- For API details, see
-  [DeleteTopic](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/DeleteTopicCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun deleteSNSTopic(topicArnVal: String) {
@@ -355,23 +281,14 @@ suspend fun deleteSNSTopic(topicArnVal: String) {
         println("$topicArnVal was successfully deleted.")
     }
 }
-
-
 ```
++  For API details, see [DeleteTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -404,24 +321,14 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/DeleteTopic) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/SdkForPHPV3/sns-2010-03-31/DeleteTopic.md "../../../goto/SdkForPHPV3/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
 ```
 class SnsWrapper:
@@ -445,9 +352,6 @@ class SnsWrapper:
         except ClientError:
             logger.exception("Couldn't delete topic %s.", topic.arn)
             raise
-
-
-
 ```
 
 ```
@@ -483,37 +387,27 @@ class SnsWrapper:
         """
         try:
             self.sns_client.delete_topic(TopicArn=topic_arn)
-
+            
             logger.info(f"Deleted topic: {topic_arn}")
             return True
 
         except ClientError as e:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
-
+            
             if error_code == 'NotFound':
                 logger.warning(f"Topic not found: {topic_arn}")
                 return True  # Already deleted
             else:
                 logger.error(f"Error deleting topic: {error_code} - {e}")
                 raise
-
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/DeleteTopic) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../goto/boto3/sns-2010-03-31/DeleteTopic.md "../../../goto/boto3/sns-2010-03-31/DeleteTopic.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     TRY.
@@ -522,23 +416,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteTopic](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteTopic](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
 ```
 import AWSSNS
@@ -549,10 +434,7 @@ import AWSSNS
         _ = try await snsClient.deleteTopic(
             input: DeleteTopicInput(topicArn: arn)
         )
-
-
 ```
++  For API details, see [DeleteTopic](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteTopic](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/deletetopic(input:)")
-  in _AWS SDK for Swift API reference_.
+------

@@ -1,28 +1,23 @@
+
+
 # Use `Subscribe` with an AWS SDK or CLI
+<a name="example_sns_Subscribe_section"></a>
 
 The following code examples show how to use `Subscribe`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a messaging topic and publish messages](example_sns_GettingStarted_048_section.md) 
++  [Create and publish to a FIFO topic](example_sns_PublishFifoTopic_section.md) 
++  [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md) 
 
-- [Create a messaging topic and publish messages](example_sns_GettingStarted_048_section.md "example_sns_GettingStarted_048_section.md")
-- [Create and publish to a FIFO topic](example_sns_PublishFifoTopic_section.md "example_sns_PublishFifoTopic_section.md")
-- [Publish messages to queues](example_sqs_Scenario_TopicsAndQueues_section.md "example_sqs_Scenario_TopicsAndQueues_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
-
         /// <summary>
         /// Creates a new subscription to a topic.
         /// </summary>
@@ -47,12 +42,8 @@ Subscribe an email address to a topic.
 
             return response;
         }
-
-
-
 ```
-
-Subscribe a queue to a topic with optional filters.
+Subscribe a queue to a topic with optional filters.  
 
 ```
     /// <summary>
@@ -79,25 +70,15 @@ Subscribe a queue to a topic with optional filters.
         var subscribeResponse = await _amazonSNSClient.SubscribeAsync(subscribeRequest);
         return subscribeResponse.SubscriptionArn;
     }
-
-
 ```
++  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Subscribe) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [Subscribe](../../../goto/DotNetSDKV3/sns-2010-03-31/Subscribe.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Subscribe.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 //! Subscribe to an Amazon Simple Notification Service (Amazon SNS) topic with delivery to an email address.
@@ -131,11 +112,8 @@ bool AwsDoc::SNS::subscribeEmail(const Aws::String &topicARN,
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Subscribe a mobile application to a topic.
+Subscribe a mobile application to a topic.  
 
 ```
 //! Subscribe to an Amazon Simple Notification Service (Amazon SNS) topic with delivery to a mobile app.
@@ -170,14 +148,10 @@ AwsDoc::SNS::subscribeApp(const Aws::String &topicARN,
 
     return outcome.IsSuccess();
 }
-
+```
+Subscribe a Lambda function to a topic.  
 
 ```
-
-Subscribe a Lambda function to a topic.
-
-```
-
 //! Subscribe to an Amazon Simple Notification Service (Amazon SNS) topic with delivery to an AWS Lambda function.
 /*!
   \param topicARN: The Amazon Resource Name (ARN) for an Amazon SNS topic.
@@ -209,11 +183,8 @@ bool AwsDoc::SNS::subscribeLambda(const Aws::String &topicARN,
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Subscribe an SQS queue to a topic.
+Subscribe an SQS queue to a topic.  
 
 ```
         Aws::Client::ClientConfiguration clientConfig;
@@ -251,11 +222,8 @@ Subscribe an SQS queue to a topic.
 
                 return false;
             }
-
-
 ```
-
-Subscribe with a filter to a topic.
+Subscribe with a filter to a topic.  
 
 ```
         static const Aws::String TONE_ATTRIBUTE("tone");
@@ -387,56 +355,39 @@ Aws::String AwsDoc::TopicsAndQueues::getFilterPolicyFromUser() {
 
     return result;
 }
+```
++  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Subscribe) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To subscribe to a topic**  
+The following `subscribe` command subscribes an email address to the specified topic.  
 
 ```
-
-- For API details, see
-  [Subscribe](../../../goto/SdkForCpp/sns-2010-03-31/Subscribe.md "../../../goto/SdkForCpp/sns-2010-03-31/Subscribe.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To subscribe to a topic**
-
-The following `subscribe` command subscribes an email address to the specified topic.
-
+aws sns subscribe \
+    --topic-arn {{arn:aws:sns:us-west-2:123456789012:my-topic}} \
+    --protocol {{email}} \
+    --notification-endpoint {{my-email@example.com}}
 ```
-`aws sns subscribe \
- --topic-arn `arn:aws:sns:us-west-2:123456789012:my-topic` \
- --protocol `email` \
- --notification-endpoint `my-email@example.com``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "SubscriptionArn": "pending confirmation"
 }
 ```
++  For API details, see [Subscribe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/subscribe.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [Subscribe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/subscribe.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/subscribe.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
-
-Subscribe a queue to a topic with optional filters.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
+Subscribe a queue to a topic with optional filters.  
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -485,26 +436,15 @@ func (actor SnsActions) SubscribeQueue(ctx context.Context, topicArn string, que
 
 	return subscriptionArn, err
 }
-
-
-
 ```
++  For API details, see [Subscribe](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Subscribe) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [Subscribe](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Subscribe "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Subscribe")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -565,11 +505,8 @@ public class SubscribeEmail {
         }
     }
 }
-
-
 ```
-
-Subscribe an HTTP endpoint to a topic.
+Subscribe an HTTP endpoint to a topic.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -631,11 +568,8 @@ public class SubscribeHTTPS {
         }
     }
 }
-
-
 ```
-
-Subscribe a Lambda function to a topic.
+Subscribe a Lambda function to a topic.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -700,25 +634,15 @@ public class SubscribeLambda {
         return "";
     }
 }
-
-
 ```
++  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Subscribe) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Subscribe](../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Subscribe.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -726,14 +650,10 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
+```
+Import the SDK and client modules and call the API.  
 
 ```
-
-Import the SDK and client modules and call the API.
-
-```
-
 import { SubscribeCommand } from "@aws-sdk/client-sns";
 import { snsClient } from "../libs/snsClient.js";
 
@@ -765,11 +685,8 @@ export const subscribeEmail = async (
   //   SubscriptionArn: 'pending confirmation'
   // }
 };
-
-
 ```
-
-Subscribe a mobile application to a topic.
+Subscribe a mobile application to a topic.  
 
 ```
 import { SubscribeCommand } from "@aws-sdk/client-sns";
@@ -805,11 +722,8 @@ export const subscribeApp = async (
   // }
   return response;
 };
-
-
 ```
-
-Subscribe a Lambda function to a topic.
+Subscribe a Lambda function to a topic.  
 
 ```
 import { SubscribeCommand } from "@aws-sdk/client-sns";
@@ -844,11 +758,8 @@ export const subscribeLambda = async (
   // }
   return response;
 };
-
-
 ```
-
-Subscribe an SQS queue to a topic.
+Subscribe an SQS queue to a topic.  
 
 ```
 import { SubscribeCommand, SNSClient } from "@aws-sdk/client-sns";
@@ -880,11 +791,8 @@ export const subscribeQueue = async (
   // }
   return response;
 };
-
-
 ```
-
-Subscribe with a filter to a topic.
+Subscribe with a filter to a topic.  
 
 ```
 import { SubscribeCommand, SNSClient } from "@aws-sdk/client-sns";
@@ -923,26 +831,16 @@ export const subscribeQueueFiltered = async (
   // }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.html#sns-examples-subscribing-email). 
++  For API details, see [Subscribe](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-subscribing-email "../../../sdk-for-javascript/v3/developer-guide/sns-examples-managing-topics.md#sns-examples-subscribing-email").
-- For API details, see
-  [Subscribe](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/SubscribeCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 suspend fun subEmail(
@@ -962,11 +860,8 @@ suspend fun subEmail(
         return result.subscriptionArn.toString()
     }
 }
-
-
 ```
-
-Subscribe a Lambda function to a topic.
+Subscribe a Lambda function to a topic.  
 
 ```
 suspend fun subLambda(
@@ -986,25 +881,15 @@ suspend fun subLambda(
         println(" The subscription Arn is ${result.subscriptionArn}")
     }
 }
-
-
 ```
++  For API details, see [Subscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [Subscribe](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 require 'vendor/autoload.php';
@@ -1042,12 +927,8 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
-
-Subscribe an HTTP endpoint to a topic.
+Subscribe an HTTP endpoint to a topic.  
 
 ```
 require 'vendor/autoload.php';
@@ -1085,26 +966,15 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/Subscribe) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [Subscribe](../../../goto/SdkForPHPV3/sns-2010-03-31/Subscribe.md "../../../goto/SdkForPHPV3/sns-2010-03-31/Subscribe.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 class SnsWrapper:
@@ -1144,12 +1014,8 @@ class SnsWrapper:
             raise
         else:
             return subscription
-
-
-
 ```
-
-Subscribe a queue to a topic with optional filters.
+Subscribe a queue to a topic with optional filters.  
 
 ```
 class SnsWrapper:
@@ -1175,9 +1041,9 @@ class SnsWrapper:
 
 
     def subscribe_queue_to_topic(
-        self,
-        topic_arn: str,
-        queue_arn: str,
+        self, 
+        topic_arn: str, 
+        queue_arn: str, 
         filter_policy: Optional[str] = None
     ) -> str:
         """
@@ -1209,26 +1075,15 @@ class SnsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error subscribing queue to topic: {error_code} - {e}")
             raise
-
-
-
 ```
++  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Subscribe) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Subscribe](../../../goto/boto3/sns-2010-03-31/Subscribe.md "../../../goto/boto3/sns-2010-03-31/Subscribe.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 require 'aws-sdk-sns'
@@ -1275,26 +1130,16 @@ if $PROGRAM_NAME == __FILE__
     exit 1
   end
 end
-
-
 ```
++  For more information, see [AWS SDK for Ruby Developer Guide](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/sns-example-create-subscription.html). 
++  For API details, see [Subscribe](https://docs.aws.amazon.com/goto/SdkForRubyV3/sns-2010-03-31/Subscribe) in *AWS SDK for Ruby API Reference*. 
 
-- For more information, see [AWS SDK for Ruby Developer Guide](../../../sdk-for-ruby/v3/developer-guide/sns-example-create-subscription.md "../../../sdk-for-ruby/v3/developer-guide/sns-example-create-subscription.md").
-- For API details, see
-  [Subscribe](../../../goto/SdkForRubyV3/sns-2010-03-31/Subscribe.md "../../../goto/SdkForRubyV3/sns-2010-03-31/Subscribe.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 async fn subscribe_and_publish(
@@ -1325,25 +1170,15 @@ async fn subscribe_and_publish(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [Subscribe](https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.subscribe) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [Subscribe](https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.subscribe "https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.subscribe")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
     TRY.
@@ -1358,25 +1193,15 @@ Subscribe an email address to a topic.
       CATCH /aws1/cx_snssubscriptionlmte00.
         MESSAGE 'Unable to create subscriptions. You have reached the maximum number of subscriptions allowed.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Subscribe](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Subscribe](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples").
-
-Subscribe an email address to a topic.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
+Subscribe an email address to a topic.  
 
 ```
 import AWSSNS
@@ -1397,13 +1222,10 @@ import AWSSNS
             print("No subscription ARN received from Amazon SNS.")
             return
         }
-
+        
         print("Subscription \(subscriptionArn) created.")
-
-
 ```
-
-Subscribe a phone number to a topic to receive notifications by SMS.
+Subscribe a phone number to a topic to receive notifications by SMS.  
 
 ```
 import AWSSNS
@@ -1424,16 +1246,11 @@ import AWSSNS
             print("No subscription ARN received from Amazon SNS.")
             return
         }
-
+        
         print("Subscription \(subscriptionArn) created.")
-
-
 ```
++  For API details, see [Subscribe](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/subscribe(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [Subscribe](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/subscribe(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/subscribe(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,70 +1,59 @@
+
+
 # Configuring Amazon SNS topic tags
+<a name="sns-tags-configuring"></a>
 
-This topic explains how to configure tags for an [Amazon SNS
-topic](sns-tags.md "sns-tags.md") using the AWS Management Console, an AWS SDK, or the AWS CLI.
+This topic explains how to configure tags for an [Amazon SNS topic](sns-tags.md) using the AWS Management Console, an AWS SDK, or the AWS CLI.
 
-###### Important
-
-Do not add personally identifiable information (PII) or other confidential or
-sensitive information in tags. Tags are accessible to other Amazon Web Services, including
-billing. Tags are not intended to be used for private or sensitive data.
+**Important**  
+Do not add personally identifiable information (PII) or other confidential or sensitive information in tags. Tags are accessible to other Amazon Web Services, including billing. Tags are not intended to be used for private or sensitive data.
 
 ## Listing, adding, and removing tags for an Amazon SNS topic using the AWS Management Console
+<a name="list-add-update-remove-tags-for-topic-aws-console"></a>
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. On the navigation panel, choose **Topics**.
-3. On the **Topics** page, choose a topic and then choose
-   **Edit**.
-4. Expand the **Tags** section.
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-The tags added to the topic are listed. 5. Modify topic tags:
+1. On the navigation panel, choose **Topics**.
 
-    * To add a tag, choose **Add tag** and enter a
-     **Key** and **Value**
-     (optional).
-    * To remove a tag, choose **Remove tag** next to a
-     key-value pair.
+1. On the **Topics** page, choose a topic and then choose **Edit**.
 
-6. Choose **Save changes**.
+1. Expand the **Tags** section.
+
+   The tags added to the topic are listed.
+
+1. Modify topic tags:
+   + To add a tag, choose **Add tag** and enter a **Key** and **Value** (optional).
+   + To remove a tag, choose **Remove tag** next to a key-value pair.
+
+1. Choose **Save changes**.
 
 ## Adding tags to a topic using an AWS SDK
+<a name="tag-resource-aws-sdks"></a>
 
-To use an AWS SDK, you must configure it with your credentials. For more
-information, see [The shared config and credentials
-files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 
 The following code examples show how to use `TagResource`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To add a tag to a topic**
-
-The following `tag-resource` example adds a metadata tag to the specified Amazon SNS topic.
-
-```
-`aws sns tag-resource \
- --resource-arn `arn:aws:sns:us-west-2:123456789012:MyTopic` \
- --tags `Key=Team,Value=Alpha``
+**AWS CLI**  
+**To add a tag to a topic**  
+The following `tag-resource` example adds a metadata tag to the specified Amazon SNS topic.  
 
 ```
+aws sns tag-resource \
+    --resource-arn {{arn:aws:sns:us-west-2:123456789012:MyTopic}} \
+    --tags {{Key=Team,Value=Alpha}}
+```
+This command produces no output.  
++  For API details, see [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Java ]
 
-- For API details, see
-  [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -138,23 +127,14 @@ public class AddTags {
         }
     }
 }
-
-
 ```
++  For API details, see [TagResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/TagResource) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [TagResource](../../../goto/SdkForJavaV2/sns-2010-03-31/TagResource.md "../../../goto/SdkForJavaV2/sns-2010-03-31/TagResource.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun addTopicTags(topicArn: String) {
@@ -185,43 +165,38 @@ suspend fun addTopicTags(topicArn: String) {
         println("Tags have been added to $topicArn")
     }
 }
-
-
 ```
++  For API details, see [TagResource](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [TagResource](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
 ## Managing tags with Amazon SNS API actions
+<a name="manage-tags-with-sns-api-actions"></a>
 
 To manage tags using the Amazon SNS API, use the following API actions:
-
-- [`ListTagsForResource`](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md")
-- [`TagResource`](../api/API_TagResource.md "../api/API_TagResource.md")
-- [`UntagResource`](../api/API_UntagResource.md "../api/API_UntagResource.md")
++ [`ListTagsForResource`](https://docs.aws.amazon.com/sns/latest/api/API_ListTagsForResource.html)
++ [`TagResource`](https://docs.aws.amazon.com/sns/latest/api/API_TagResource.html)
++ [`UntagResource`](https://docs.aws.amazon.com/sns/latest/api/API_UntagResource.html)
 
 ## API actions that support ABAC
+<a name="api-actions-that-support-abac"></a>
 
-The following is a list of API actions that support attribute-based access control
-(ABAC). For more details about ABAC, see [What is
-ABAC for AWS?](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_.
-
-- [`AddPermission`](../api/API_AddPermission.md "../api/API_AddPermission.md")
-- [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md")
-- [`DeleteTopic`](../api/API_DeleteTopic.md "../api/API_DeleteTopic.md")
-- [`GetDataProtectionPolicy`](../api/API_GetDataProtectionPolicy.md "../api/API_GetDataProtectionPolicy.md")
-- [`GetSubscriptionAttributes`](../api/API_GetSubscriptionAttributes.md "../api/API_GetSubscriptionAttributes.md")
-- [`GetTopicAttributes`](../api/API_GetTopicAttributes.md "../api/API_GetTopicAttributes.md")
-- [`ListSubscriptionsByTopic`](../api/API_ListSubscriptionsByTopic.md "../api/API_ListSubscriptionsByTopic.md")
-- [`ListTagsForResource`](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md")
-- [`Publish`](../api/API_Publish.md "../api/API_Publish.md")
-- [`PublishBatch`](../api/API_PublishBatch.md "../api/API_PublishBatch.md")
-- [`PutDataProtectionPolicy`](../api/API_PutDataProtectionPolicy.md "../api/API_PutDataProtectionPolicy.md")
-- [`RemovePermission`](../api/API_RemovePermission.md "../api/API_RemovePermission.md")
-- [`SetSubscriptionAttributes`](../api/API_SetSubscriptionAttributes.md "../api/API_SetSubscriptionAttributes.md")
-- [`SetTopicAttributes`](../api/API_SetTopicAttributes.md "../api/API_SetTopicAttributes.md")
-- [`Subscribe`](../api/API_Subscribe.md "../api/API_Subscribe.md")
-- [`TagResource`](../api/API_TagResource.md "../api/API_TagResource.md")
-- [`Unsubscribe`](../api/API_Unsubscribe.md "../api/API_Unsubscribe.md")
-- [`UntagResource`](../api/API_UntagResource.md "../api/API_UntagResource.md")
+The following is a list of API actions that support attribute-based access control (ABAC). For more details about ABAC, see [What is ABAC for AWS?](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*.
++ [`AddPermission`](https://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html)
++ [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html)
++ [`DeleteTopic`](https://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html)
++ [`GetDataProtectionPolicy`](https://docs.aws.amazon.com/sns/latest/api/API_GetDataProtectionPolicy.html)
++ [`GetSubscriptionAttributes`](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)
++ [`GetTopicAttributes`](https://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html)
++ [`ListSubscriptionsByTopic`](https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html)
++ [`ListTagsForResource`](https://docs.aws.amazon.com/sns/latest/api/API_ListTagsForResource.html)
++ [`Publish`](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html)
++ [`PublishBatch`](https://docs.aws.amazon.com/sns/latest/api/API_PublishBatch.html)
++ [`PutDataProtectionPolicy`](https://docs.aws.amazon.com/sns/latest/api/API_PutDataProtectionPolicy.html)
++ [`RemovePermission`](https://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html)
++ [`SetSubscriptionAttributes`](https://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html)
++ [`SetTopicAttributes`](https://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html)
++ [`Subscribe`](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)
++ [`TagResource`](https://docs.aws.amazon.com/sns/latest/api/API_TagResource.html)
++ [`Unsubscribe`](https://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html)
++ [`UntagResource`](https://docs.aws.amazon.com/sns/latest/api/API_UntagResource.html)

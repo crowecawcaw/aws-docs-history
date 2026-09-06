@@ -1,16 +1,15 @@
+
+
 # Use `SetSubscriptionAttributesRedrivePolicy` with an AWS SDK
+<a name="example_sns_SetSubscriptionAttributesRedrivePolicy_section"></a>
 
 The following code example shows how to use `SetSubscriptionAttributesRedrivePolicy`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 1.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples").
+**SDK for Java 1.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/java/example_code/sns#code-examples). 
 
 ```
 // Specify the ARN of the Amazon SNS subscription.
@@ -28,10 +27,8 @@ SetSubscriptionAttributesRequest request = new SetSubscriptionAttributesRequest(
     .withAttributeName("RedrivePolicy")
     .withAttributeValue(redrivePolicy);
 sns.setSubscriptionAttributes(request);
-
-
 ```
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+------
+
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

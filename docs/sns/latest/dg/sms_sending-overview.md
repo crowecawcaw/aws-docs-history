@@ -1,153 +1,112 @@
-# Sending SMS messages using Amazon SNS
 
-This section describes how to send SMS messages using Amazon SNS, including publishing to a
-topic, subscribing phone numbers to topics, setting attributes on messages, and publishing
-directly to mobile phones.
+
+# Sending SMS messages using Amazon SNS
+<a name="sms_sending-overview"></a>
+
+This section describes how to send SMS messages using Amazon SNS, including publishing to a topic, subscribing phone numbers to topics, setting attributes on messages, and publishing directly to mobile phones.
 
 ## Publishing SMS messages to an Amazon SNS topic
+<a name="sms_publish-to-topic"></a>
 
-You can publish a single SMS message to many phone numbers at once by subscribing those
-phone numbers to an Amazon SNS topic. An SNS topic is a communication channel to which you can
-add subscribers and then publish messages to all of those subscribers. A subscriber receives
-all messages published to the topic until you cancel the subscription, or until the
-subscriber opts out of receiving SMS messages from your AWS account.
+You can publish a single SMS message to many phone numbers at once by subscribing those phone numbers to an Amazon SNS topic. An SNS topic is a communication channel to which you can add subscribers and then publish messages to all of those subscribers. A subscriber receives all messages published to the topic until you cancel the subscription, or until the subscriber opts out of receiving SMS messages from your AWS account.
 
 ### Sending a message to a topic using the AWS console
+<a name="sms_publish-to-topic_console"></a>
 
-###### To create a topic
+**To create a topic**
 
-Complete the following steps if you don't already have a topic to which you want
-to send SMS messages.
+Complete the following steps if you don't already have a topic to which you want to send SMS messages.
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the console menu, choose a [region that supports SMS
-   messaging](../../../general/latest/gr/end-user-messaging.md "../../../general/latest/gr/end-user-messaging.md").
-3. In the navigation pane, choose **Topics**.
-4. On the **Topics** page, choose **Create
-   topic**.
-5. On the **Create topic** page, under
-   **Details**, do the following:
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-   1. For **Type**, choose
-      **Standard**.
-   2. For **Name**, enter a topic name.
-   3. (Optional) For **Display name**, enter a custom
-      prefix for your SMS messages. When you send a message to the topic,
-      Amazon SNS prepends the display name followed by a right angle bracket (>)
-      and a space. Display names are not case sensitive, and Amazon SNS converts
-      display names to uppercase characters. For example, if the display name
-      of a topic is `MyTopic` and the message is `Hello
-  World!`, the message appears as:
+1. In the console menu, choose a [region that supports SMS messaging](https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html).
 
-   ```
-   MYTOPIC> Hello World!
-   ```
+1. In the navigation pane, choose **Topics**.
 
-6. Choose **Create topic**. The topic's name and Amazon Resource
-   Name (ARN) appear on the **Topics** page.
+1. On the **Topics** page, choose **Create topic**.
 
-###### To create an SMS subscription
+1. On the **Create topic** page, under **Details**, do the following:
 
-You can use subscriptions to send an SMS message to multiple recipients by
-publishing the message only once to your topic.
+   1. For **Type**, choose **Standard**.
 
-###### Note
+   1. For **Name**, enter a topic name.
 
-When you start using Amazon SNS to send SMS messages, your AWS account is in the
-_SMS sandbox_. The SMS sandbox provides a safe
-environment for you to try Amazon SNS features without risking your reputation as an
-SMS sender. While your account is in the SMS sandbox, you can use all of the
-features of Amazon SNS, but you can send SMS messages only to verified destination
-phone numbers. For more information, see [Using the Amazon SNS SMS sandbox](sns-sms-sandbox.md "sns-sms-sandbox.md").
+   1. (Optional) For **Display name**, enter a custom prefix for your SMS messages. When you send a message to the topic, Amazon SNS prepends the display name followed by a right angle bracket (>) and a space. Display names are not case sensitive, and Amazon SNS converts display names to uppercase characters. For example, if the display name of a topic is `MyTopic` and the message is `Hello World!`, the message appears as:
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the navigation pane, choose **Subscriptions**.
-3. On the **Subscriptions** page, choose **Create
-   subscription**.
-4. On the **Create subscription** page, under
-   **Details**, do the following:
+      ```
+      MYTOPIC> Hello World!
+      ```
 
-   1. For **Topic ARN**, enter or choose the Amazon
-      Resource Name (ARN) of the topic to which you want to send SMS
-      messages.
-   2. For **Protocol**, choose
-      **SMS**.
-   3. For **Endpoint**, enter the phone number that you
-      want to subscribe to your topic.
+1. Choose **Create topic**. The topic's name and Amazon Resource Name (ARN) appear on the **Topics** page.
 
-5. Choose **Create subscription**. The subscription information
-   appears on the **Subscriptions** page.
+**To create an SMS subscription**
 
-To add more phone numbers, repeat these steps. You can also add other types of
-subscriptions, such as email.
+You can use subscriptions to send an SMS message to multiple recipients by publishing the message only once to your topic.
+**Note**  
+When you start using Amazon SNS to send SMS messages, your AWS account is in the *SMS sandbox*. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS, but you can send SMS messages only to verified destination phone numbers. For more information, see [Using the Amazon SNS SMS sandbox](sns-sms-sandbox.md).
 
-###### To send a message
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-When you publish a message to a topic, Amazon SNS attempts to deliver that message to
-every phone number that is subscribed to the topic.
+1. In the navigation pane, choose **Subscriptions**.
 
-1. In the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home"), on the
-   **Topics** page, choose the name of the topic to which you
-   want to send SMS messages.
-2. On the topic details page, choose **Publish message**.
-3. On the **Publish message to topic** page, under
-   **Message details**, do the following:
+1. On the **Subscriptions** page, choose **Create subscription**.
 
-   1. For **Subject**, keep the field blank unless your
-      topic contains email subscriptions and you want to publish to both email
-      and SMS subscriptions. Amazon SNS uses the **Subject** that
-      you enter as the email subject line.
-   2. (Optional) For **Time to Live (TTL)**, enter a number
-      of seconds that Amazon SNS has to send your SMS message to any mobile
-      application endpoint subscribers.
+1. On the **Create subscription** page, under **Details**, do the following:
 
-4. Under **Message body**, do the following:
+   1. For **Topic ARN**, enter or choose the Amazon Resource Name (ARN) of the topic to which you want to send SMS messages.
 
-   1. For **Message structure**, choose **Identical
-      payload for all delivery protocols** to send the same
-      message to all protocol types subscribed to your topic. Or, choose
-      **Custom payload for each delivery protocol** to
-      customize the message for subscribers of different protocol types. For
-      example, you can enter a default message for phone number subscribers
-      and a custom message for email subscribers.
-   2. For **Message body to send to the endpoint**, enter
-      your message, or your custom messages per delivery protocol.
+   1. For **Protocol**, choose **SMS**.
 
-   If your topic has a display name, Amazon SNS adds it to the message, which
-   increases the message length. The display name length is the number of
-   characters in the name plus two characters for the right angle bracket
-   (>) and the space that Amazon SNS adds.
+   1. For **Endpoint**, enter the phone number that you want to subscribe to your topic.
 
-   For information about the size quotas for SMS messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](#sms_publish-to-phone "#sms_publish-to-phone").
+1. Choose **Create subscription**. The subscription information appears on the **Subscriptions** page.
 
-5. (Optional) For **Message attributes**, add message metadata
-   such as timestamps, signatures, and IDs.
-6. Choose **Publish message**. Amazon SNS sends the SMS message and
-   displays a success message.
+   To add more phone numbers, repeat these steps. You can also add other types of subscriptions, such as email.
+
+**To send a message**
+
+When you publish a message to a topic, Amazon SNS attempts to deliver that message to every phone number that is subscribed to the topic.
+
+1. In the [Amazon SNS console](https://console.aws.amazon.com/sns/home), on the **Topics** page, choose the name of the topic to which you want to send SMS messages.
+
+1. On the topic details page, choose **Publish message**.
+
+1. On the **Publish message to topic** page, under **Message details**, do the following:
+
+   1. For **Subject**, keep the field blank unless your topic contains email subscriptions and you want to publish to both email and SMS subscriptions. Amazon SNS uses the **Subject** that you enter as the email subject line.
+
+   1. (Optional) For **Time to Live (TTL)**, enter a number of seconds that Amazon SNS has to send your SMS message to any mobile application endpoint subscribers.
+
+1. Under **Message body**, do the following:
+
+   1. For **Message structure**, choose **Identical payload for all delivery protocols** to send the same message to all protocol types subscribed to your topic. Or, choose **Custom payload for each delivery protocol** to customize the message for subscribers of different protocol types. For example, you can enter a default message for phone number subscribers and a custom message for email subscribers.
+
+   1. For **Message body to send to the endpoint**, enter your message, or your custom messages per delivery protocol.
+
+      If your topic has a display name, Amazon SNS adds it to the message, which increases the message length. The display name length is the number of characters in the name plus two characters for the right angle bracket (>) and the space that Amazon SNS adds.
+
+      For information about the size quotas for SMS messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](#sms_publish-to-phone).
+
+1. (Optional) For **Message attributes**, add message metadata such as timestamps, signatures, and IDs.
+
+1. Choose **Publish message**. Amazon SNS sends the SMS message and displays a success message.
 
 ### Sending a message to a topic using the AWS SDKs
+<a name="sms_publish-to-topic_sdk"></a>
 
-To use an AWS SDK, you must configure it with your credentials. For more
-information, see [The shared config and credentials
-files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 
 The following code example shows how to:
++ Create an Amazon SNS topic.
++ Subscribe phone numbers to the topic.
++ Publish SMS messages to the topic so that all subscribed phone numbers receive the message at once.
 
-- Create an Amazon SNS topic.
-- Subscribe phone numbers to the topic.
-- Publish SMS messages to the topic so that all subscribed phone numbers receive the message at once.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
-
-Create a topic and return its ARN.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
+Create a topic and return its ARN.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -208,11 +167,8 @@ public class CreateTopic {
         return "";
     }
 }
-
-
 ```
-
-Subscribe an endpoint to a topic.
+Subscribe an endpoint to a topic.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -274,12 +230,8 @@ public class SubscribeTextSMS {
         }
     }
 }
-
-
 ```
-
-Set attributes on the message, such as the ID of the sender, the maximum price, and its type.
-Message attributes are optional.
+Set attributes on the message, such as the ID of the sender, the maximum price, and its type. Message attributes are optional.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -326,11 +278,8 @@ public class SetSMSAttributes {
         }
     }
 }
-
-
 ```
-
-Publish a message to a topic. The message is sent to every subscriber.
+Publish a message to a topic. The message is sent to every subscriber.  
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -389,247 +338,121 @@ public class PublishTextSMS {
         }
     }
 }
-
-
 ```
 
+------
+
 ## Publishing SMS messages to a mobile phone using Amazon SNS
+<a name="sms_publish-to-phone"></a>
 
-You can use Amazon SNS to send SMS messages directly to a mobile phone without subscribing the
-phone number to an Amazon SNS topic.
+You can use Amazon SNS to send SMS messages directly to a mobile phone without subscribing the phone number to an Amazon SNS topic.
 
-###### Note
+**Note**  
+Subscribing phone numbers to a topic is useful if you want to send one message to multiple phone numbers at once. For instructions on publishing an SMS message to a topic, see [Publishing SMS messages to an Amazon SNS topic](#sms_publish-to-topic).
 
-Subscribing phone numbers to a topic is useful if you want to send one message to
-multiple phone numbers at once. For instructions on publishing an SMS message to a
-topic, see [Publishing SMS messages to an Amazon SNS topic](#sms_publish-to-topic "#sms_publish-to-topic").
+When you send a message, you can control whether the message is optimized for cost or reliable delivery. You can also specify a [sender ID or origination number](channels-sms-originating-identities.md). If you send the message programmatically using the Amazon SNS API or the AWS SDKs, you can specify a maximum price for the message delivery.
 
-When you send a message, you can control whether the message is optimized for cost or
-reliable delivery. You can also specify a [sender ID or origination number](channels-sms-originating-identities.md "channels-sms-originating-identities.md"). If
-you send the message programmatically using the Amazon SNS API or the AWS SDKs, you can specify
-a maximum price for the message delivery.
+Each SMS message can contain up to 140 bytes, and the character quota depends on the encoding scheme. For example, an SMS message can contain:
++ 160 GSM characters
++ 140 ASCII characters
++ 70 UCS-2 characters
 
-Each SMS message can contain up to 140 bytes, and the character quota depends on the
-encoding scheme. For example, an SMS message can contain:
+If you publish a message that exceeds the size quota, Amazon SNS sends it as multiple messages, each fitting within the size quota. Messages are not cut off in the middle of a word, but instead on whole-word boundaries. The total size quota for a single SMS publish action is 1,600 bytes.
 
-- 160 GSM characters
-- 140 ASCII characters
-- 70 UCS-2 characters
-
-If you publish a message that exceeds the size quota, Amazon SNS sends it as multiple messages,
-each fitting within the size quota. Messages are not cut off in the middle of a word, but
-instead on whole-word boundaries. The total size quota for a single SMS publish action is
-1,600 bytes.
-
-When you send an SMS message, you specify the phone number using the E.164 format, a
-standard phone numbering structure used for international telecommunication. Phone numbers
-that follow this format can have a maximum of 15 digits along with the prefix of a plus sign
-(+) and the country code. For example, a US phone number in E.164 format appears as
-+1XXX5550100.
+When you send an SMS message, you specify the phone number using the E.164 format, a standard phone numbering structure used for international telecommunication. Phone numbers that follow this format can have a maximum of 15 digits along with the prefix of a plus sign (\+) and the country code. For example, a US phone number in E.164 format appears as \+1XXX5550100.
 
 ### Sending a message (console)
+<a name="sms_publish_console"></a>
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the console menu, choose a [region that supports SMS
-   messaging](../../../general/latest/gr/end-user-messaging.md "../../../general/latest/gr/end-user-messaging.md").
-3. In the navigation pane, choose **Text messaging
-   (SMS)**.
-4. On the **Mobile text messaging (SMS)** page, choose
-   **Publish text message**.
-5. On the **Publish SMS message** page, for **Message
-   type**, choose one of the following:
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-   - **Promotional** – Non-critical messages, such
-     as marketing messages.
-   - **Transactional** – Critical messages that
-     support customer transactions, such as one-time passcodes for
-     multi-factor authentication.
+1. In the console menu, choose a [region that supports SMS messaging](https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html).
 
-###### Note
+1. In the navigation pane, choose **Text messaging (SMS)**.
 
-This message-level setting overrides your account-level default message
-type. You can set an account-level default message type from the
-**Text messaging preferences** section of the
-**Mobile text messaging (SMS)** page.
+1. On the **Mobile text messaging (SMS)** page, choose **Publish text message**.
 
-For pricing information for promotional and transactional messages, see [Worldwide SMS Pricing](https://aws.amazon.com/sns/sms-pricing/ "https://aws.amazon.com/sns/sms-pricing/"). 6. For **Destination phone number**, enter the phone number to
-which you want to send the message. 7. For **Message**, enter the message to send. 8. (Optional) Under **Origination identities**, specify how to
-identify yourself to your recipients:
+1. On the **Publish SMS message** page, for **Message type**, choose one of the following:
+   + **Promotional** – Non-critical messages, such as marketing messages.
+   + **Transactional** – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication.
+**Note**  
+This message-level setting overrides your account-level default message type. You can set an account-level default message type from the **Text messaging preferences** section of the **Mobile text messaging (SMS)** page.
 
-    * To specify a **Sender ID**, type a custom ID that
-     contains 3-11 alphanumeric characters, including at least one letter and
-     no spaces. The sender ID is displayed as the message sender on the
-     receiving device. For example, you can use your business brand to make
-     the message source easier to recognize.
+   For pricing information for promotional and transactional messages, see [Worldwide SMS Pricing](https://aws.amazon.com/sns/sms-pricing/).
 
+1. For **Destination phone number**, enter the phone number to which you want to send the message.
 
-    Support for sender IDs varies by country and/or region. For example,
-     messages delivered to U.S. phone numbers will not display the sender ID.
-     For the countries and regions that support sender IDs, see [Supported countries and regions for SMS messaging with
-     AWS End User Messaging SMS](../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md "../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md") in the *AWS End User Messaging SMS User
-     Guide*.
+1. For **Message**, enter the message to send.
 
+1. (Optional) Under **Origination identities**, specify how to identify yourself to your recipients:
+   + To specify a **Sender ID**, type a custom ID that contains 3-11 alphanumeric characters, including at least one letter and no spaces. The sender ID is displayed as the message sender on the receiving device. For example, you can use your business brand to make the message source easier to recognize.
 
-    If you do not specify a sender ID, one of the following is displayed
-     as the originating identity:
+     Support for sender IDs varies by country and/or region. For example, messages delivered to U.S. phone numbers will not display the sender ID. For the countries and regions that support sender IDs, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html) in the *AWS End User Messaging SMS User Guide*.
 
+     If you do not specify a sender ID, one of the following is displayed as the originating identity:
+     + In countries that support long codes, the long code is shown.
+     + In countries where only sender IDs are supported, *NOTICE* is shown.
 
+     This message-level sender ID overrides your default sender ID, which you set on the **Text messaging preferences** page.
+   + To specify an **Origination number**, enter a string of 5-14 numbers to display as the sender's phone number on the receiver's device. This string must match an origination number that is configured in your AWS account for the destination country. The origination number can be a 10DLC number, toll-free number, person-to-person long code, or short codes. For more information, see [Origination identities for Amazon SNS SMS messages](channels-sms-originating-identities.md).
 
+     If you don't specify an origination number, Amazon SNS selects an origination number to use for the SMS text message, based on your AWS account configuration.
 
-    	+ In countries that support long codes, the long code is
-    	 shown.
-    	+ In countries where only sender IDs are supported,
-    	 *NOTICE* is shown.
-    This message-level sender ID overrides your default sender ID, which
-     you set on the **Text messaging preferences**
-     page.
-    * To specify an **Origination number**, enter a string
-     of 5-14 numbers to display as the sender's phone number on the
-     receiver's device. This string must match an origination number that is
-     configured in your AWS account for the destination country. The
-     origination number can be a 10DLC number, toll-free number,
-     person-to-person long code, or short codes. For more information, see
-     [Origination identities for Amazon SNS SMS messages](channels-sms-originating-identities.md "channels-sms-originating-identities.md").
+1. If you're sending SMS messages to recipients in India, expand **Country-specific attributes**, and specify the following attributes:
+   + **Entity ID** – The entity ID or principal entity (PE) ID for sending SMS messages to recipients in India. This ID is a unique string of 1–50 characters that the Telecom Regulatory Authority of India (TRAI) provides to identify the entity that you registered with the TRAI.
+   + **Template ID** – The template ID for sending SMS messages to recipients in India. This ID is a unique, TRAI-provided string of 1–50 characters that identifies the template that you registered with the TRAI. The template ID must be associated with the sender ID that you specified for the message.
 
+   For more information on sending SMS messages to recipients in India, [India sender ID registration process](https://docs.aws.amazon.com/sms-voice/latest/userguide/registrations-sms-senderid-india.html) in the *AWS End User Messaging SMS User Guide*.
 
-    If you don't specify an origination number, Amazon SNS selects an
-     origination number to use for the SMS text message, based on your
-     AWS account configuration.
+1. Choose **Publish message**.
 
-9. If you're sending SMS messages to recipients in India, expand
-**Country-specific attributes**, and specify the following
-attributes:
-
-    * **Entity ID** – The entity ID or principal
-     entity (PE) ID for sending SMS messages to recipients in India. This ID
-     is a unique string of 1–50 characters that the Telecom Regulatory
-     Authority of India (TRAI) provides to identify the entity that you
-     registered with the TRAI.
-    * **Template ID** – The template ID for sending
-     SMS messages to recipients in India. This ID is a unique, TRAI-provided
-     string of 1–50 characters that identifies the template that you
-     registered with the TRAI. The template ID must be associated with the
-     sender ID that you specified for the message.
-
-For more information on sending SMS messages to recipients in India, [India
-sender ID registration process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md "../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md") in the _AWS End User Messaging SMS User
-Guide_. 10. Choose **Publish message**.
-
-###### Tip
-
-To send SMS messages from an origination number, you can also choose
-**Origination numbers** in the Amazon SNS console navigation panel.
-Choose an origination number that includes **SMS** in the
-**Capabilities** column, and then choose **Publish text
-message**.
+**Tip**  
+To send SMS messages from an origination number, you can also choose **Origination numbers** in the Amazon SNS console navigation panel. Choose an origination number that includes **SMS** in the **Capabilities** column, and then choose **Publish text message**.
 
 ### Sending a message (AWS SDKs)
+<a name="sms_publish_sdk"></a>
 
-To send an SMS message using one of the AWS SDKs, use the API operation in that SDK
-that corresponds to the `Publish` request in the Amazon SNS API. With this
-request, you can send an SMS message directly to a phone number. You can also use the
-`MessageAttributes` parameter to set values for the following attribute
-names:
+To send an SMS message using one of the AWS SDKs, use the API operation in that SDK that corresponds to the `Publish` request in the Amazon SNS API. With this request, you can send an SMS message directly to a phone number. You can also use the `MessageAttributes` parameter to set values for the following attribute names:
 
-**`AWS.SNS.SMS.SenderID`**
+**`AWS.SNS.SMS.SenderID`**  
+A custom ID that contains 3–11 alphanumeric characters or hyphen (-) characters, including at least one letter and no spaces. The sender ID appears as the message sender on the receiving device. For example, you can use your business brand to help make the message source easier to recognize.  
+Support for sender IDs varies by country or region. For example, messages delivered to US phone numbers don't display the sender ID. For a list of the countries or regions that support sender IDs, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html) in the *AWS End User Messaging SMS User Guide*.  
+If you don't specify a sender ID, a [long code](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request-long-code.html) appears as the sender ID in supported countries or regions. For countries or regions that require an alphabetic sender ID, *NOTICE* appears as the sender ID.  
+This message-level attribute overrides the account-level attribute `DefaultSenderID`, which you can set using the `SetSMSAttributes` request.
 
-A custom ID that contains 3–11 alphanumeric characters or hyphen
-(-) characters, including at least one letter and no spaces. The sender ID
-appears as the message sender on the receiving device. For example, you can
-use your business brand to help make the message source easier to
-recognize.
+**`AWS.MM.SMS.OriginationNumber`**  
+A custom string of 5–14 numbers, which can include an optional leading plus sign (`+`). This string of numbers appears as the sender's phone number on the receiving device. The string must match an origination number that's configured in your AWS account for the destination country. The origination number can be a 10DLC number, toll-free number, person-to-person (P2P) long code, or short code. For more information, see [Phone numbers](https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers.html) in the *AWS End User Messaging SMS User Guide*.  
+If you don't specify an origination number, Amazon SNS chooses an origination number based on your AWS account configuration.
 
-Support for sender IDs varies by country or region. For example, messages
-delivered to US phone numbers don't display the sender ID. For a list of the
-countries or regions that support sender IDs, see [Supported countries and regions for SMS messaging with AWS End User Messaging SMS](../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md "../../../sms-voice/latest/userguide/phone-numbers-sms-by-country.md")
-in the _AWS End User Messaging SMS User Guide_.
+**`AWS.SNS.SMS.MaxPrice`**  
+The maximum price in USD that you're willing to spend to send the SMS message. If Amazon SNS determines that sending the message would incur a cost that exceeds your maximum price, it doesn't send the message.  
+This attribute has no effect if your month-to-date SMS costs have already exceeded the quota set for the `MonthlySpendLimit` attribute. You can set the `MonthlySpendLimit` attribute using the `SetSMSAttributes` request.  
+If you're sending the message to an Amazon SNS topic, the maximum price applies to each message delivery to each phone number that is subscribed to the topic.
 
-If you don't specify a sender ID, a [long code](../../../sms-voice/latest/userguide/phone-numbers-request-long-code.md "../../../sms-voice/latest/userguide/phone-numbers-request-long-code.md") appears as the sender ID in supported countries or
-regions. For countries or regions that require an alphabetic sender ID,
-_NOTICE_ appears as the sender ID.
+**`AWS.SNS.SMS.SMSType`**  
+The type of message that you're sending:  
++ **`Promotional`** – Non-critical messages, such as marketing messages.
++ **`Transactional`** (default) – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication.
+This message-level attribute overrides the account-level attribute `DefaultSMSType`, which you can set using the `SetSMSAttributes` request.
 
-This message-level attribute overrides the account-level attribute
-`DefaultSenderID`, which you can set using the
-`SetSMSAttributes` request.
+**`AWS.MM.SMS.EntityId`**  
+This attribute is required only for sending SMS messages to recipients in India.  
+This is your entity ID or principal entity (PE) ID for sending SMS messages to recipients in India. This ID is a unique string of 1–50 characters that the Telecom Regulatory Authority of India (TRAI) provides to identify the entity that you registered with the TRAI.
 
-**`AWS.MM.SMS.OriginationNumber`**
-
-A custom string of 5–14 numbers, which can include an optional
-leading plus sign (`+`). This string of numbers appears as the
-sender's phone number on the receiving device. The string must match an
-origination number that's configured in your AWS account for the
-destination country. The origination number can be a 10DLC number, toll-free
-number, person-to-person (P2P) long code, or short code. For more
-information, see [Phone
-numbers](../../../sms-voice/latest/userguide/phone-numbers.md "../../../sms-voice/latest/userguide/phone-numbers.md") in the _AWS End User Messaging SMS User Guide_.
-
-If you don't specify an origination number, Amazon SNS chooses an origination
-number based on your AWS account configuration.
-
-**`AWS.SNS.SMS.MaxPrice`**
-
-The maximum price in USD that you're willing to spend to send the SMS
-message. If Amazon SNS determines that sending the message would incur a cost
-that exceeds your maximum price, it doesn't send the message.
-
-This attribute has no effect if your month-to-date SMS costs have already
-exceeded the quota set for the `MonthlySpendLimit` attribute. You
-can set the `MonthlySpendLimit` attribute using the
-`SetSMSAttributes` request.
-
-If you're sending the message to an Amazon SNS topic, the maximum price applies
-to each message delivery to each phone number that is subscribed to the
-topic.
-
-**`AWS.SNS.SMS.SMSType`**
-
-The type of message that you're sending:
-
-- **`Promotional`**
-  – Non-critical messages, such as marketing
-  messages.
-- **`Transactional`**
-  (default) – Critical messages that support customer transactions, such
-  as one-time passcodes for multi-factor authentication.
-
-This message-level attribute overrides the account-level attribute
-`DefaultSMSType`, which you can set using the
-`SetSMSAttributes` request.
-
-**`AWS.MM.SMS.EntityId`**
-
-This attribute is required only for sending SMS messages to recipients in
-India.
-
-This is your entity ID or principal entity (PE) ID for sending SMS
-messages to recipients in India. This ID is a unique string of 1–50
-characters that the Telecom Regulatory Authority of India (TRAI) provides to
-identify the entity that you registered with the TRAI.
-
-**`AWS.MM.SMS.TemplateId`**
-
-This attribute is required only for sending SMS messages to recipients in
-India.
-
-This is your template for sending SMS messages to recipients in India.
-This ID is a unique, TRAI-provided string of 1–50 characters that
-identifies the template that you registered with the TRAI. The template ID
-must be associated with the sender ID that you specified for the
-message.
+**`AWS.MM.SMS.TemplateId`**  
+This attribute is required only for sending SMS messages to recipients in India.  
+This is your template for sending SMS messages to recipients in India. This ID is a unique, TRAI-provided string of 1–50 characters that identifies the template that you registered with the TRAI. The template ID must be associated with the sender ID that you specified for the message.
 
 #### Sending a message
+<a name="sms_publish_sdks"></a>
 
 The following code examples show how to publish SMS messages using Amazon SNS.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
 
 ```
 namespace SNSMessageExample
@@ -690,38 +513,28 @@ namespace SNSMessageExample
         }
     }
 }
-
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Publish) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/DotNetSDKV3/sns-2010-03-31/Publish.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 /**
  * Publish SMS: use Amazon Simple Notification Service (Amazon SNS) to send an SMS text message to a phone number.
- * Note: This requires additional AWS configuration prior to running example.
- *
+ * Note: This requires additional AWS configuration prior to running example. 
+ * 
  *  NOTE: When you start using Amazon SNS to send SMS messages, your AWS account is in the SMS sandbox and you can only
  *  use verified destination phone numbers. See https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html.
  *  NOTE: If destination is in the US, you also have an additional restriction that you have use a dedicated
  *  origination ID (phone number). You can request an origination number using Amazon Pinpoint for a fee.
- *  See https://aws.amazon.com/blogs/compute/provisioning-and-using-10dlc-origination-numbers-with-amazon-sns/
- *  for more information.
- *
- *  <phone_number_value> input parameter uses E.164 format.
+ *  See https://aws.amazon.com/blogs/compute/provisioning-and-using-10dlc-origination-numbers-with-amazon-sns/ 
+ *  for more information. 
+ * 
+ *  <phone_number_value> input parameter uses E.164 format. 
  *  For example, in United States, this input value should be of the form: +12223334444
  */
 
@@ -756,23 +569,14 @@ bool AwsDoc::SNS::publishSms(const Aws::String &message,
 
     return outcome.IsSuccess();
 }
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Publish) in *AWS SDK for C\+\+ API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/SdkForCpp/sns-2010-03-31/Publish.md "../../../goto/SdkForCpp/sns-2010-03-31/Publish.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -831,23 +635,14 @@ public class PublishTextSMS {
         }
     }
 }
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Publish) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun pubTextSMS(
@@ -865,23 +660,14 @@ suspend fun pubTextSMS(
         println("${result.messageId} message sent.")
     }
 }
-
-
 ```
++  For API details, see [Publish](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [Publish](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -916,25 +702,15 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-sending-sms.html#publish-to-a-text-message-sms-message). 
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/Publish) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#publish-to-a-text-message-sms-message "../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#publish-to-a-text-message-sms-message").
-- For API details, see
-  [Publish](../../../goto/SdkForPHPV3/sns-2010-03-31/Publish.md "../../../goto/SdkForPHPV3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
 
 ```
 class SnsWrapper:
@@ -969,24 +745,14 @@ class SnsWrapper:
             raise
         else:
             return message_id
-
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Publish) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     " iv_phone_number = '+12065550101' - Phone number in E.164 format
@@ -998,10 +764,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Phone number does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Publish](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------

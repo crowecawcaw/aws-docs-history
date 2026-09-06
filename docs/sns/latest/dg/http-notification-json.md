@@ -1,92 +1,48 @@
+
+
 # HTTP/HTTPS notification JSON format
+<a name="http-notification-json"></a>
 
-When Amazon SNS sends a notification to a subscribed HTTP or HTTPS endpoint, the POST
-message sent to the endpoint has a message body that contains a JSON document with the
-following name-value pairs.
+When Amazon SNS sends a notification to a subscribed HTTP or HTTPS endpoint, the POST message sent to the endpoint has a message body that contains a JSON document with the following name-value pairs.
 
-**`Type`**
+**`Type`**  
+The type of message. For a notification, the type is `Notification`.
 
-The type of message. For a notification, the type is
-`Notification`.
+**`MessageId`**  
+A Universally Unique Identifier (UUID), unique for each message published. For a notification that Amazon SNS resends during a retry, the message ID of the original message is used.
 
-**`MessageId`**
+**`TopicArn`**  
+The Amazon Resource Name (ARN) for the topic that this message was published to.
 
-A Universally Unique Identifier (UUID), unique for each message published.
-For a notification that Amazon SNS resends during a retry, the message ID of the
-original message is used.
+**`Subject`**  
+The `Subject` parameter specified when the notification was published to the topic.  
+This is an optional parameter. If no `Subject` was specified, then this name-value pair does not appear in this JSON document.
 
-**`TopicArn`**
+**`Message`**  
+The `Message` value specified when the notification was published to the topic.
 
-The Amazon Resource Name (ARN) for the topic that this message was
-published to.
-
-**`Subject`**
-
-The `Subject` parameter specified when the notification was
-published to the topic.
-
-###### Note
-
-This is an optional parameter. If no `Subject` was
-specified, then this name-value pair does not appear in this JSON
-document.
-
-**`Message`**
-
-The `Message` value specified when the notification was
-published to the topic.
-
-**`Timestamp`**
-
+**`Timestamp`**  
 The time (GMT) when the notification was published.
 
-**`SignatureVersion`**
+**`SignatureVersion`**  
+Version of the Amazon SNS signature used.  
++ If the `SignatureVersion` is **1**, `Signature` is a Base64-encoded `SHA1withRSA` signature of the `Message`, `MessageId`, `Subject` (if present), `Type`, `Timestamp`, and `TopicArn` values.
++ If the `SignatureVersion` is **2**, `Signature` is a Base64-encoded `SHA256withRSA` signature of the `Message`, `MessageId`, `Subject` (if present), `Type`, `Timestamp`, and `TopicArn` values.
 
-Version of the Amazon SNS signature used.
+**`Signature`**  
+Base64-encoded `SHA1withRSA` or `SHA256withRSA` signature of the `Message`, `MessageId`, `Subject` (if present), `Type`, `Timestamp`, and `TopicArn` values.
 
-- If the `SignatureVersion` is **1**, `Signature` is a Base64-encoded
-  `SHA1withRSA` signature of the `Message`,
-  `MessageId`, `Subject` (if present),
-  `Type`, `Timestamp`, and
-  `TopicArn` values.
-- If the `SignatureVersion` is **2**, `Signature` is a Base64-encoded
-  `SHA256withRSA` signature of the
-  `Message`, `MessageId`, `Subject`
-  (if present), `Type`, `Timestamp`, and
-  `TopicArn` values.
-
-**`Signature`**
-
-Base64-encoded `SHA1withRSA` or `SHA256withRSA`
-signature of the `Message`, `MessageId`,
-`Subject` (if present), `Type`,
-`Timestamp`, and `TopicArn` values.
-
-**`SigningCertURL`**
-
+**`SigningCertURL`**  
 The URL to the certificate that was used to sign the message.
 
-**`UnsubscribeURL`**
+**`UnsubscribeURL`**  
+A URL that you can use to unsubscribe the endpoint from this topic. If you visit this URL, Amazon SNS unsubscribes the endpoint and stops sending notifications to this endpoint.
 
-A URL that you can use to unsubscribe the endpoint from this topic. If you
-visit this URL, Amazon SNS unsubscribes the endpoint and stops sending
-notifications to this endpoint.
+**`MessageAttributes`**  
+Amazon SNS represents the message attributes that you attached to the published message as a JSON object. This object maps each attribute name to an object with a `Type` and a `Value`. For more information about attribute types, see [Amazon SNS message attributes](sns-message-attributes.md).  
+`MessageAttributes` is optional. If the published message has no message attributes, this name-value pair does not appear in this JSON document.
 
-**`MessageAttributes`**
-
-Amazon SNS represents the message attributes that you attached to the
-published message as a JSON object. This object maps each attribute name to
-an object with a `Type` and a `Value`. For more
-information about attribute types, see [Amazon SNS message attributes](sns-message-attributes.md "sns-message-attributes.md").
-
-###### Note
-
-`MessageAttributes` is optional. If the published message
-has no message attributes, this name-value pair does not appear in this
-JSON document.
-
-The following HTTP POST message is an example of a `Notification` message
-to an HTTP endpoint.
+The following HTTP POST message is an example of a `Notification` message to an HTTP endpoint.
 
 ```
 POST / HTTP/1.1

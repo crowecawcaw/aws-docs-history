@@ -1,99 +1,72 @@
-# Publishing an Amazon SNS message
 
-After you [create an Amazon SNS topic](sns-create-topic.md "sns-create-topic.md") and [subscribe](sns-create-subscribe-endpoint-to-topic.md "sns-create-subscribe-endpoint-to-topic.md") an endpoint to it, you
-can _publish_ messages to the topic. When a message is published, Amazon SNS
-attempts to deliver the message to the subscribed [endpoints](sns-create-subscribe-endpoint-to-topic.md#sns-endpoints "sns-create-subscribe-endpoint-to-topic.md#sns-endpoints").
+
+# Publishing an Amazon SNS message
+<a name="sns-publishing"></a>
+
+After you [create an Amazon SNS topic](sns-create-topic.md) and [subscribe](sns-create-subscribe-endpoint-to-topic.md) an endpoint to it, you can *publish* messages to the topic. When a message is published, Amazon SNS attempts to deliver the message to the subscribed [endpoints](sns-create-subscribe-endpoint-to-topic.md#sns-endpoints). 
 
 ## To publish messages to Amazon SNS topics using the AWS Management Console
+<a name="sns-publishing-messages"></a>
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. In the left navigation pane, choose **Topics**.
-3. On the **Topics** page, select a topic, and then choose
-   **Publish message**.
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-The console opens the **Publish message to topic**
-page. 4. In the **Message details** section, do the following:
+1. In the left navigation pane, choose **Topics**.
 
-    1. (Optional) Enter a message **Subject**.
-    2. For a [FIFO topic](sns-fifo-topics.md "sns-fifo-topics.md"), enter a
-     **Message group ID**. **Message group ID**
-     is required for FIFO topics. Messages in the same message
-     group are delivered in the order that they are published.
-    3. (Optional)For a standard topic, enter a **Message group ID**.
-     This ID is forwarded to all Amazon SQS standard subscriptions and is not used for,
-     or sent to, any other endpoint types.
-    4. For a FIFO topic, enter a **Message deduplication
-     ID**. This ID is optional if you enabled the **Content-based message deduplication** setting
-     for the topic.
-    5. (Optional) For [mobile push
-     notifications](sns-ttl.md "sns-ttl.md"), enter a **Time to Live
-     (TTL)** value in seconds. This is the amount of time that a
-     push notification service—such as Apple Push Notification Service
-     (APNs) or Firebase Cloud Messaging (FCM)—has to deliver the
-     message to the endpoint.
+1. On the **Topics** page, select a topic, and then choose **Publish message**.
 
-5. In the **Message body** section, do one of the
-following:
+   The console opens the **Publish message to topic** page.
 
-    1. Choose **Identical payload for all delivery
-     protocols**, and then enter a message.
-    2. Choose **Custom payload for each delivery protocol**,
-     and then enter a JSON object to define the message to send for each
-     delivery protocol.
+1. In the **Message details** section, do the following:
 
+   1. (Optional) Enter a message **Subject**.
 
-    For more information, see [Publishing Amazon SNS notifications with platform-specific payloads](sns-send-custom-platform-specific-payloads-mobile-devices.md "sns-send-custom-platform-specific-payloads-mobile-devices.md").
+   1. For a [FIFO topic](sns-fifo-topics.md), enter a **Message group ID**. **Message group ID** is required for FIFO topics. Messages in the same message group are delivered in the order that they are published.
 
-6. In the **Message attributes** section, add any attributes
-that you want Amazon SNS to match with the subscription attribute
-`FilterPolicy` to decide whether the subscribed endpoint is
-interested in the published message.
+   1. (Optional)For a standard topic, enter a **Message group ID**. This ID is forwarded to all Amazon SQS standard subscriptions and is not used for, or sent to, any other endpoint types. 
 
-    1. For **Type**, choose an attribute type, such as
-     **String.Array**.
+   1. For a FIFO topic, enter a **Message deduplication ID**. This ID is optional if you enabled the **Content-based message deduplication** setting for the topic.
 
+   1. (Optional) For [mobile push notifications](sns-ttl.md), enter a **Time to Live (TTL)** value in seconds. This is the amount of time that a push notification service—such as Apple Push Notification Service (APNs) or Firebase Cloud Messaging (FCM)—has to deliver the message to the endpoint.
 
-    ###### Note
+1. In the **Message body** section, do one of the following:
 
-    For attribute type **String.Array**, enclose the
-     array in square brackets (`[]`). Within the array,
-     enclose string values in double quotation marks. You don't need
-     quotation marks for numbers or for the keywords `true`,
-     `false`, and `null`.
-    2. Enter an attribute **Name**, such as
-     `customer_interests`.
-    3. Enter an attribute **Value**, such as
-     `["soccer", "rugby", "hockey"]`.If the attribute type is **String**,
+   1. Choose **Identical payload for all delivery protocols**, and then enter a message.
 
-**String.Array**, or **Number**, Amazon SNS
-evaluates the message attribute against a subscription's [filter policy](sns-message-filtering.md "sns-message-filtering.md") (if present) before
-sending the message to the subscription given filter policy scope is not
-explicitly set to `MessageBody`.
+   1. Choose **Custom payload for each delivery protocol**, and then enter a JSON object to define the message to send for each delivery protocol.
 
-For more information, see [Amazon SNS message attributes](sns-message-attributes.md "sns-message-attributes.md"). 7. Choose **Publish message**.
+      For more information, see [Publishing Amazon SNS notifications with platform-specific payloads](sns-send-custom-platform-specific-payloads-mobile-devices.md).
 
-The message is published to the topic, and the console opens the topic's
-**Details** page.
+1. In the **Message attributes** section, add any attributes that you want Amazon SNS to match with the subscription attribute `FilterPolicy` to decide whether the subscribed endpoint is interested in the published message.
+
+   1. For **Type**, choose an attribute type, such as **String.Array**.
+**Note**  
+For attribute type **String.Array**, enclose the array in square brackets (`[]`). Within the array, enclose string values in double quotation marks. You don't need quotation marks for numbers or for the keywords `true`, `false`, and `null`.
+
+   1. Enter an attribute **Name**, such as `customer_interests`.
+
+   1. Enter an attribute **Value**, such as `["soccer", "rugby", "hockey"]`.
+
+   If the attribute type is **String**, **String.Array**, or **Number**, Amazon SNS evaluates the message attribute against a subscription's [filter policy](sns-message-filtering.md) (if present) before sending the message to the subscription given filter policy scope is not explicitly set to `MessageBody`.
+
+   For more information, see [Amazon SNS message attributes](sns-message-attributes.md).
+
+1. Choose **Publish message**.
+
+   The message is published to the topic, and the console opens the topic's **Details** page.
 
 ## To publish a message to a topic using an AWS SDK
+<a name="publish-to-topic-aws-sdks"></a>
 
-To use an AWS SDK, you must configure it with your credentials. For more
-information, see [The shared config and credentials
-files](../../../sdkref/latest/guide/creds-config-files.md "../../../sdkref/latest/guide/creds-config-files.md") in the _AWS SDKs and Tools Reference Guide_.
+To use an AWS SDK, you must configure it with your credentials. For more information, see [The shared config and credentials files](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html) in the *AWS SDKs and Tools Reference Guide*.
 
 The following code examples show how to use `Publish`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples").
-
-Publish a message to a topic.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/SNS#code-examples). 
+Publish a message to a topic.  
 
 ```
     using System;
@@ -140,12 +113,8 @@ Publish a message to a topic.
             Console.WriteLine($"Successfully published message ID: {response.MessageId}");
         }
     }
-
-
-
 ```
-
-Publish a message to a topic with group, duplication, and attribute options.
+Publish a message to a topic with group, duplication, and attribute options.  
 
 ```
     /// <summary>
@@ -208,11 +177,8 @@ Publish a message to a topic with group, duplication, and attribute options.
             keepSendingMessages = GetYesNoResponse("Send another message?", false);
         }
     }
-
-
 ```
-
-Apply the user's selections to the publish action.
+Apply the user's selections to the publish action.  
 
 ```
     /// <summary>
@@ -254,23 +220,14 @@ Apply the user's selections to the publish action.
         var publishResponse = await _amazonSNSClient.PublishAsync(publishRequest);
         return publishResponse.MessageId;
     }
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/DotNetSDKV3/sns-2010-03-31/Publish) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/DotNetSDKV3/sns-2010-03-31/Publish.md "../../../goto/DotNetSDKV3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
 
 ```
 //! Send a message to an Amazon Simple Notification Service (Amazon SNS) topic.
@@ -303,11 +260,8 @@ bool AwsDoc::SNS::publishToTopic(const Aws::String &message,
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Publish a message with an attribute.
+Publish a message with an attribute.  
 
 ```
         static const Aws::String TONE_ATTRIBUTE("tone");
@@ -357,79 +311,58 @@ Publish a message with an attribute.
 
             return false;
         }
+```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/Publish) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To publish a message to a topic**  
+The following `publish` example publishes the specified message to the specified SNS topic. The message comes from a text file, which enables you to include line breaks.  
 
 ```
-
-- For API details, see
-  [Publish](../../../goto/SdkForCpp/sns-2010-03-31/Publish.md "../../../goto/SdkForCpp/sns-2010-03-31/Publish.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To publish a message to a topic**
-
-The following `publish` example publishes the specified message to the specified SNS topic. The message comes from a text file, which enables you to include line breaks.
-
+aws sns publish \
+    --topic-arn {{"arn:aws:sns:us-west-2:123456789012:my-topic"}} \
+    --message {{file://message.txt}}
 ```
-`aws sns publish \
- --topic-arn `"arn:aws:sns:us-west-2:123456789012:my-topic"` \
- --message `file://message.txt``
-
-```
-
-Contents of `message.txt`:
+Contents of `message.txt`:  
 
 ```
 Hello World
 Second Line
 ```
-
-Output:
+Output:  
 
 ```
 {
     "MessageId": "123a45b6-7890-12c3-45d6-111122223333"
 }
 ```
-
-**Example 2: To publish an SMS message to a phone number**
-
-The following `publish` example publishes the message `Hello world!` to the phone number `+1-555-555-0100`.
+**Example 2: To publish an SMS message to a phone number**  
+The following `publish` example publishes the message `Hello world!` to the phone number `+1-555-555-0100`.  
 
 ```
-`aws sns publish \
- --message `"Hello world!"` \
- --phone-number `+1-555-555-0100``
-
+aws sns publish \
+    --message {{"Hello world!"}} \
+    --phone-number {{+1-555-555-0100}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "MessageId": "123a45b6-7890-12c3-45d6-333322221111"
 }
 ```
++  For API details, see [Publish](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [Publish](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Go ]
 
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples").
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/workflows/topics_and_queues#code-examples). 
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -472,24 +405,14 @@ func (actor SnsActions) Publish(ctx context.Context, topicArn string, message st
 	}
 	return err
 }
-
-
-
 ```
++  For API details, see [Publish](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Publish) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [Publish](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Publish "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.Publish")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -548,25 +471,15 @@ public class PublishTopic {
         }
     }
 }
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/Publish) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md "../../../goto/SdkForJavaV2/sns-2010-03-31/Publish.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -574,11 +487,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { PublishCommand } from "@aws-sdk/client-sns";
@@ -613,11 +523,8 @@ export const publish = async (
   // }
   return response;
 };
-
-
 ```
-
-Publish a message to a topic with group, duplication, and attribute options.
+Publish a message to a topic with group, duplication, and attribute options.  
 
 ```
   async publishMessages() {
@@ -683,24 +590,15 @@ Publish a message to a topic with group, duplication, and attribute options.
       await this.publishMessages();
     }
   }
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-publishing-messages.html). 
++  For API details, see [Publish](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-publishing-messages.md "../../../sdk-for-javascript/v3/developer-guide/sns-examples-publishing-messages.md").
-- For API details, see
-  [Publish](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/PublishCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun pubTopic(
@@ -718,23 +616,14 @@ suspend fun pubTopic(
         println("${result.messageId} message sent.")
     }
 }
-
-
 ```
++  For API details, see [Publish](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [Publish](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -769,28 +658,20 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-subscribing-unsubscribing-topics.html#publish-a-message-to-an-sns-topic). 
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/Publish) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-subscribing-unsubscribing-topics.md#publish-a-message-to-an-sns-topic "../../../sdk-for-php/v3/developer-guide/sns-examples-subscribing-unsubscribing-topics.md#publish-a-message-to-an-sns-topic").
-- For API details, see
-  [Publish](../../../goto/SdkForPHPV3/sns-2010-03-31/Publish.md "../../../goto/SdkForPHPV3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example shows publishing a message with a single MessageAttribute declared inline.**
+**Tools for PowerShell V4**  
+**Example 1: This example shows publishing a message with a single MessageAttribute declared inline.**  
 
 ```
 Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute @{'City'=[Amazon.SimpleNotificationService.Model.MessageAttributeValue]@{DataType='String'; StringValue ='AnyCity'}}
-
 ```
-
-**Example 2: This example shows publishing a message with multiple MessageAttributes declared in advance.**
+**Example 2: This example shows publishing a message with multiple MessageAttributes declared in advance.**  
 
 ```
 $cityAttributeValue = New-Object Amazon.SimpleNotificationService.Model.MessageAttributeValue
@@ -806,23 +687,16 @@ $messageAttributes.Add("City", $cityAttributeValue)
 $messageAttributes.Add("Population", $populationAttributeValue)
 
 Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute $messageAttributes
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [Publish](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example shows publishing a message with a single MessageAttribute declared inline.**
+**Tools for PowerShell V5**  
+**Example 1: This example shows publishing a message with a single MessageAttribute declared inline.**  
 
 ```
 Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute @{'City'=[Amazon.SimpleNotificationService.Model.MessageAttributeValue]@{DataType='String'; StringValue ='AnyCity'}}
-
 ```
-
-**Example 2: This example shows publishing a message with multiple MessageAttributes declared in advance.**
+**Example 2: This example shows publishing a message with multiple MessageAttributes declared in advance.**  
 
 ```
 $cityAttributeValue = New-Object Amazon.SimpleNotificationService.Model.MessageAttributeValue
@@ -838,24 +712,15 @@ $messageAttributes.Add("City", $cityAttributeValue)
 $messageAttributes.Add("Population", $populationAttributeValue)
 
 Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute $messageAttributes
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [Publish](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples").
-
-Publish a message with attributes so that a subscription can filter based on attributes.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/sns#code-examples). 
+Publish a message with attributes so that a subscription can filter based on attributes.  
 
 ```
 class SnsWrapper:
@@ -900,12 +765,8 @@ class SnsWrapper:
             raise
         else:
             return message_id
-
-
-
 ```
-
-Publish a message that takes different forms based on the protocol of the subscriber.
+Publish a message that takes different forms based on the protocol of the subscriber.  
 
 ```
 class SnsWrapper:
@@ -953,10 +814,6 @@ class SnsWrapper:
             raise
         else:
             return message_id
-
-
-
-
 ```
 
 ```
@@ -1033,24 +890,14 @@ class SnsWrapper:
             error_code = e.response.get('Error', {}).get('Code', 'Unknown')
             logger.error(f"Error publishing message to topic: {error_code} - {e}")
             raise
-
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/boto3/sns-2010-03-31/Publish) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Publish](../../../goto/boto3/sns-2010-03-31/Publish.md "../../../goto/boto3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/sns#code-examples). 
 
 ```
 # Service class for sending messages using Amazon Simple Notification Service (SNS)
@@ -1092,24 +939,15 @@ if $PROGRAM_NAME == __FILE__
     exit 1
   end
 end
-
-
 ```
++  For more information, see [AWS SDK for Ruby Developer Guide](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/sns-example-send-message.html). 
++  For API details, see [Publish](https://docs.aws.amazon.com/goto/SdkForRubyV3/sns-2010-03-31/Publish) in *AWS SDK for Ruby API Reference*. 
 
-- For more information, see [AWS SDK for Ruby Developer Guide](../../../sdk-for-ruby/v3/developer-guide/sns-example-send-message.md "../../../sdk-for-ruby/v3/developer-guide/sns-example-send-message.md").
-- For API details, see
-  [Publish](../../../goto/SdkForRubyV3/sns-2010-03-31/Publish.md "../../../goto/SdkForRubyV3/sns-2010-03-31/Publish.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/sns#code-examples). 
 
 ```
 async fn subscribe_and_publish(
@@ -1140,23 +978,14 @@ async fn subscribe_and_publish(
 
     Ok(())
 }
-
-
 ```
++  For API details, see [Publish](https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.publish) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [Publish](https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.publish "https://docs.rs/aws-sdk-sns/latest/aws_sdk_sns/client/struct.Client.html#method.publish")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/sns#code-examples). 
 
 ```
     TRY.
@@ -1167,11 +996,8 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
-
-Publish a message with attributes to a topic.
+Publish a message with attributes to a topic.  
 
 ```
     TRY.
@@ -1183,11 +1009,8 @@ Publish a message with attributes to a topic.
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
-
-Publish a multi-format message to a topic.
+Publish a multi-format message to a topic.  
 
 ```
     " Build JSON message structure for multi-format message
@@ -1203,23 +1026,14 @@ Publish a multi-format message to a topic.
       CATCH /aws1/cx_snsnotfoundexception.
         MESSAGE 'Topic does not exist.' TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [Publish](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [Publish](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/sns#code-examples). 
 
 ```
 import AWSSNS
@@ -1238,12 +1052,9 @@ import AWSSNS
             print("No message ID received from Amazon SNS.")
             return
         }
-
+        
         print("Published message with ID \(messageId)")
-
-
 ```
++  For API details, see [Publish](https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/publish(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [Publish](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/publish(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/publish(input:)")
-  in _AWS SDK for Swift API reference_.
+------

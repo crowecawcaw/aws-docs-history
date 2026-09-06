@@ -1,22 +1,20 @@
+
+
 # Create a messaging topic and publish messages
+<a name="example_sns_GettingStarted_048_section"></a>
 
 The following code example shows how to:
++ Create an Amazon SNS topic
++ Subscribe an email endpoint to the topic
++ Verify your subscription
++ Publish a message to the topic
++ Clean up resources
 
-- Create an Amazon SNS topic
-- Subscribe an email endpoint to the topic
-- Verify your subscription
-- Publish a message to the topic
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/048-amazon-simple-notification-service-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/048-amazon-simple-notification-service-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/048-amazon-simple-notification-service-gs) repository. 
 
 ```
 #!/bin/bash
@@ -48,21 +46,21 @@ handle_error() {
 # Function to clean up resources
 cleanup_resources() {
     local exit_code=$?
-
+    
     if [ -n "${SUBSCRIPTION_ARN:-}" ] && [ "$SUBSCRIPTION_ARN" != "pending confirmation" ] && [ "$SUBSCRIPTION_ARN" != "PendingConfirmation" ]; then
         echo "Deleting subscription: $SUBSCRIPTION_ARN"
         if ! aws sns unsubscribe --subscription-arn "$SUBSCRIPTION_ARN" --region "$AWS_REGION" 2>/dev/null; then
             echo "Warning: Failed to delete subscription" >&2
         fi
     fi
-
+    
     if [ -n "${TOPIC_ARN:-}" ]; then
         echo "Deleting topic: $TOPIC_ARN"
         if ! aws sns delete-topic --topic-arn "$TOPIC_ARN" --region "$AWS_REGION" 2>/dev/null; then
             echo "Warning: Failed to delete topic" >&2
         fi
     fi
-
+    
     return $exit_code
 }
 
@@ -221,18 +219,15 @@ echo ""
 echo "Tutorial completed successfully!"
 echo "$(date)"
 echo "=============================================="
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/CreateTopic)
+  + [DeleteTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/DeleteTopic)
+  + [ListSubscriptionsByTopic](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/ListSubscriptionsByTopic)
+  + [Publish](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/Publish)
+  + [Subscribe](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/Subscribe)
+  + [Unsubscribe](https://docs.aws.amazon.com/goto/aws-cli/sns-2010-03-31/Unsubscribe)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateTopic](../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md "../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md")
-  - [DeleteTopic](../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md "../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md")
-  - [ListSubscriptionsByTopic](../../../goto/aws-cli/sns-2010-03-31/ListSubscriptionsByTopic.md "../../../goto/aws-cli/sns-2010-03-31/ListSubscriptionsByTopic.md")
-  - [Publish](../../../goto/aws-cli/sns-2010-03-31/Publish.md "../../../goto/aws-cli/sns-2010-03-31/Publish.md")
-  - [Subscribe](../../../goto/aws-cli/sns-2010-03-31/Subscribe.md "../../../goto/aws-cli/sns-2010-03-31/Subscribe.md")
-  - [Unsubscribe](../../../goto/aws-cli/sns-2010-03-31/Unsubscribe.md "../../../goto/aws-cli/sns-2010-03-31/Unsubscribe.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

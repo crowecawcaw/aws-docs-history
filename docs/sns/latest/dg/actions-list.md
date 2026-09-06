@@ -1,57 +1,61 @@
+
+
 # Reference: API actions by category
+<a name="actions-list"></a>
 
 ## Common actions
-
-- [Publish](../api/API_Publish.md "../api/API_Publish.md")
-- [PublishBatch](../api/API_PublishBatch.md "../api/API_PublishBatch.md")
+<a name="actions-list-common"></a>
++ [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html)
++ [PublishBatch](https://docs.aws.amazon.com/sns/latest/api/API_PublishBatch.html)
 
 ## Application-to-application (A2A) actions
-
-- [AddPermission](../api/API_AddPermission.md "../api/API_AddPermission.md")
-- [ConfirmSubscription](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md")
-- [CreateTopic](../api/API_CreateTopic.md "../api/API_CreateTopic.md")
-- [DeleteTopic](../api/API_DeleteTopic.md "../api/API_DeleteTopic.md")
-- [GetDataProtectionPolicy](../api/API_GetDataProtectionPolicy.md "../api/API_GetDataProtectionPolicy.md")
-- [GetSubscriptionAttributes](../api/API_GetSubscriptionAttributes.md "../api/API_GetSubscriptionAttributes.md")
-- [GetTopicAttributes](../api/API_GetTopicAttributes.md "../api/API_GetTopicAttributes.md")
-- [ListSubscriptions](../api/API_ListSubscriptions.md "../api/API_ListSubscriptions.md")
-- [ListSubscriptionsByTopic](../api/API_ListSubscriptionsByTopic.md "../api/API_ListSubscriptionsByTopic.md")
-- [ListTagsForResource](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md")
-- [ListTopics](../api/API_ListTopics.md "../api/API_ListTopics.md")
-- [PutDataProtectionPolicy](../api/API_PutDataProtectionPolicy.md "../api/API_PutDataProtectionPolicy.md")
-- [RemovePermission](../api/API_RemovePermission.md "../api/API_RemovePermission.md")
-- [SetSubscriptionAttributes](../api/API_SetSubscriptionAttributes.md "../api/API_SetSubscriptionAttributes.md")
-- [SetTopicAttributes](../api/API_SetTopicAttributes.md "../api/API_SetTopicAttributes.md")
-- [Subscribe](../api/API_Subscribe.md "../api/API_Subscribe.md")
-- [TagResource](../api/API_TagResource.md "../api/API_TagResource.md")
-- [Unsubscribe](../api/API_Unsubscribe.md "../api/API_Unsubscribe.md")
-- [UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md")
+<a name="actions-list-a2a"></a>
++ [AddPermission](https://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html)
++ [ConfirmSubscription](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html)
++ [CreateTopic](https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html)
++ [DeleteTopic](https://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html)
++ [GetDataProtectionPolicy](https://docs.aws.amazon.com/sns/latest/api/API_GetDataProtectionPolicy.html)
++ [GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)
++ [GetTopicAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html)
++ [ListSubscriptions](https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html)
++ [ListSubscriptionsByTopic](https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/sns/latest/api/API_ListTagsForResource.html)
++ [ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html)
++ [PutDataProtectionPolicy](https://docs.aws.amazon.com/sns/latest/api/API_PutDataProtectionPolicy.html)
++ [RemovePermission](https://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html)
++ [SetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html)
++ [SetTopicAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html)
++ [Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)
++ [TagResource](https://docs.aws.amazon.com/sns/latest/api/API_TagResource.html)
++ [Unsubscribe](https://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html)
++ [UntagResource](https://docs.aws.amazon.com/sns/latest/api/API_UntagResource.html)
 
 ## Application-to-person (A2P) actions
+<a name="actions-list-a2p"></a>
 
 ### Mobile text messaging (SMS)
-
-- [CheckIfPhoneNumberIsOptedOut](../api/API_CheckIfPhoneNumberIsOptedOut.md "../api/API_CheckIfPhoneNumberIsOptedOut.md")
-- [CreateSMSSandboxPhoneNumber](../api/API_CreateSMSSandboxPhoneNumber.md "../api/API_CreateSMSSandboxPhoneNumber.md")
-- [DeleteSMSSandboxPhoneNumber](../api/API_DeleteSMSSandboxPhoneNumber.md "../api/API_DeleteSMSSandboxPhoneNumber.md")
-- [GetSMSAttributes](../api/API_GetSMSAttributes.md "../api/API_GetSMSAttributes.md")
-- [GetSMSSandboxAccountStatus](../api/API_GetSMSSandboxAccountStatus.md "../api/API_GetSMSSandboxAccountStatus.md")
-- [ListOriginationNumbers](../api/API_ListOriginationNumbers.md "../api/API_ListOriginationNumbers.md")
-- [ListPhoneNumbersOptedOut](../api/API_ListPhoneNumbersOptedOut.md "../api/API_ListPhoneNumbersOptedOut.md")
-- [ListSMSSandboxPhoneNumbers](../api/API_ListSMSSandboxPhoneNumbers.md "../api/API_ListSMSSandboxPhoneNumbers.md")
-- [OptInPhoneNumber](../api/API_OptInPhoneNumber.md "../api/API_OptInPhoneNumber.md")
-- [SetSMSAttributes](../api/API_SetSMSAttributes.md "../api/API_SetSMSAttributes.md")
-- [VerifySMSSandboxPhoneNumber](../api/API_VerifySMSSandboxPhoneNumber.md "../api/API_VerifySMSSandboxPhoneNumber.md")
+<a name="actions-list-a2p-sms"></a>
++ [CheckIfPhoneNumberIsOptedOut](https://docs.aws.amazon.com/sns/latest/api/API_CheckIfPhoneNumberIsOptedOut.html)
++ [CreateSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_CreateSMSSandboxPhoneNumber.html)
++ [DeleteSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_DeleteSMSSandboxPhoneNumber.html)
++ [GetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSAttributes.html)
++ [GetSMSSandboxAccountStatus](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSSandboxAccountStatus.html)
++ [ListOriginationNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListOriginationNumbers.html)
++ [ListPhoneNumbersOptedOut](https://docs.aws.amazon.com/sns/latest/api/API_ListPhoneNumbersOptedOut.html)
++ [ListSMSSandboxPhoneNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListSMSSandboxPhoneNumbers.html)
++ [OptInPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_OptInPhoneNumber.html)
++ [SetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html)
++ [VerifySMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_VerifySMSSandboxPhoneNumber.html)
 
 ### Mobile push notifications
-
-- [CreatePlatformApplication](../api/API_CreatePlatformApplication.md "../api/API_CreatePlatformApplication.md")
-- [CreatePlatformEndpoint](../api/API_CreatePlatformEndpoint.md "../api/API_CreatePlatformEndpoint.md")
-- [DeleteEndpoint](../api/API_DeleteEndpoint.md "../api/API_DeleteEndpoint.md")
-- [DeletePlatformApplication](../api/API_DeletePlatformApplication.md "../api/API_DeletePlatformApplication.md")
-- [GetEndpointAttributes](../api/API_GetEndpointAttributes.md "../api/API_GetEndpointAttributes.md")
-- [GetPlatformApplicationAttributes](../api/API_GetPlatformApplicationAttributes.md "../api/API_GetPlatformApplicationAttributes.md")
-- [ListEndpointsByPlatformApplication](../api/API_ListEndpointsByPlatformApplication.md "../api/API_ListEndpointsByPlatformApplication.md")
-- [ListPlatformApplications](../api/API_ListPlatformApplications.md "../api/API_ListPlatformApplications.md")
-- [SetEndpointAttributes](../api/API_SetEndpointAttributes.md "../api/API_SetEndpointAttributes.md")
-- [SetPlatformApplicationAttributes](../api/API_SetPlatformApplicationAttributes.md "../api/API_SetPlatformApplicationAttributes.md")
+<a name="actions-list-a2p-push"></a>
++ [CreatePlatformApplication](https://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html)
++ [CreatePlatformEndpoint](https://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html)
++ [DeleteEndpoint](https://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html)
++ [DeletePlatformApplication](https://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html)
++ [GetEndpointAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html)
++ [GetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html)
++ [ListEndpointsByPlatformApplication](https://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html)
++ [ListPlatformApplications](https://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html)
++ [SetEndpointAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html)
++ [SetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html)

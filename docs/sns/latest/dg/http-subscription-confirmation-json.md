@@ -1,85 +1,52 @@
+
+
 # HTTP/HTTPS subscription confirmation JSON format
+<a name="http-subscription-confirmation-json"></a>
 
-After you subscribe an HTTP/HTTPS endpoint, Amazon SNS sends a subscription confirmation
-message to the HTTP/HTTPS endpoint. This message contains a `SubscribeURL`
-value that you must visit to confirm the subscription (alternatively, you can use the
-`Token` value with the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md")).
+After you subscribe an HTTP/HTTPS endpoint, Amazon SNS sends a subscription confirmation message to the HTTP/HTTPS endpoint. This message contains a `SubscribeURL` value that you must visit to confirm the subscription (alternatively, you can use the `Token` value with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html)). 
 
-###### Note
+**Note**  
+Amazon SNS doesn't send notifications to this endpoint until the subscription is confirmed
 
-Amazon SNS doesn't send notifications to this endpoint until the subscription is
-confirmed
+The subscription confirmation message is a POST message with a message body that contains a JSON document with the following name-value pairs.
 
-The subscription confirmation message is a POST message with a message body that
-contains a JSON document with the following name-value pairs.
+**`Type`**  
+The type of message. For a subscription confirmation, the type is `SubscriptionConfirmation`.
 
-**`Type`**
+**`MessageId`**  
+A Universally Unique Identifier (UUID), unique for each message published. For a message that Amazon SNS resends during a retry, the message ID of the original message is used.
 
-The type of message. For a subscription confirmation, the type is
-`SubscriptionConfirmation`.
+**`Token`**  
+A value you can use with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to confirm the subscription. Alternatively, you can simply visit the `SubscribeURL`.
 
-**`MessageId`**
+**`TopicArn`**  
+The Amazon Resource Name (ARN) for the topic that this endpoint is subscribed to.
 
-A Universally Unique Identifier (UUID), unique for each message published.
-For a message that Amazon SNS resends during a retry, the message ID of the
-original message is used.
-
-**`Token`**
-
-A value you can use with the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md") action to confirm the
-subscription. Alternatively, you can simply visit the
-`SubscribeURL`.
-
-**`TopicArn`**
-
-The Amazon Resource Name (ARN) for the topic that this endpoint is
-subscribed to.
-
-**`Message`**
-
-A string that describes the message. For subscription confirmation, this
-string looks like this:
+**`Message`**  
+A string that describes the message. For subscription confirmation, this string looks like this:  
 
 ```
 You have chosen to subscribe to the topic arn:aws:sns:us-east-2:123456789012:MyTopic.\nTo confirm the subscription, visit the SubscribeURL included in this message.
 ```
 
-**`SubscribeURL`**
+**`SubscribeURL`**  
+The URL that you must visit in order to confirm the subscription. Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) action to confirm the subscription.
 
-The URL that you must visit in order to confirm the subscription.
-Alternatively, you can instead use the `Token` with the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md") action to confirm the
-subscription.
-
-**`Timestamp`**
-
+**`Timestamp`**  
 The time (GMT) when the subscription confirmation was sent.
 
-**`SignatureVersion`**
+**`SignatureVersion`**  
+Version of the Amazon SNS signature used.  
++ If the `SignatureVersion` is **1**, `Signature` is a Base64-encoded `SHA1withRSA` signature of the `Message`, `MessageId`, `Type`, `Timestamp`, and `TopicArn` values. 
++ If the `SignatureVersion` is **2**, `Signature` is a Base64-encoded `SHA256withRSA` signature of the `Message`, `MessageId`, `Type`, `Timestamp`, and `TopicArn` values.
 
-Version of the Amazon SNS signature used.
+**`Signature`**  
+Base64-encoded `SHA1withRSA` or `SHA256withRSA` signature of the `Message`, `MessageId`, `Type`, `Timestamp`, and `TopicArn` values.
 
-- If the `SignatureVersion` is **1**, `Signature` is a Base64-encoded
-  `SHA1withRSA` signature of the `Message`,
-  `MessageId`, `Type`,
-  `Timestamp`, and `TopicArn` values.
-- If the `SignatureVersion` is **2**, `Signature` is a Base64-encoded
-  `SHA256withRSA` signature of the
-  `Message`, `MessageId`, `Type`,
-  `Timestamp`, and `TopicArn` values.
-
-**`Signature`**
-
-Base64-encoded `SHA1withRSA` or `SHA256withRSA`
-signature of the `Message`, `MessageId`,
-`Type`, `Timestamp`, and `TopicArn`
-values.
-
-**`SigningCertURL`**
-
+**`SigningCertURL`**  
 The URL to the certificate that was used to sign the message.
 
-The following HTTP POST message is an example of a
-`SubscriptionConfirmation` message to an HTTP endpoint.
+The following HTTP POST message is an example of a `SubscriptionConfirmation` message to an HTTP endpoint.
 
 ```
 POST / HTTP/1.1

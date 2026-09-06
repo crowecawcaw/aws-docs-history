@@ -1,68 +1,41 @@
+
+
 # Amazon SNS Extended Client Library for Python
+<a name="extended-client-library-python"></a>
 
 ## Prerequisites
+<a name="prereqs-sns-extended-client-library-python"></a>
 
-The following are the prerequisites for using the [Amazon SNS
-Extended Client Library for Python](https://github.com/awslabs/amazon-sns-python-extended-client-lib "https://github.com/awslabs/amazon-sns-python-extended-client-lib"):
+The following are the prerequisites for using the [Amazon SNS Extended Client Library for Python](https://github.com/awslabs/amazon-sns-python-extended-client-lib):
++ An AWS SDK. The example on this page uses AWS Python SDK Boto3. To install and set up the SDK, see the [*AWS SDK for Python*](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) documentation.
++ An AWS account with the proper credentials. To create an AWS account, navigate to the [AWS home page](https://aws.amazon.com/), and then choose **Create an AWS Account**. Follow the instructions.
 
-- An AWS SDK. The example on this page uses AWS Python SDK Boto3. To
-  install and set up the SDK, see the [_AWS SDK for Python_](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html")
-  documentation.
-- An AWS account with the proper credentials. To create an AWS account,
-  navigate to the [AWS home page](https://aws.amazon.com/ "https://aws.amazon.com/"), and
-  then choose **Create an AWS Account**. Follow the
-  instructions.
-
-For information about credentials, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html") in the _AWS SDK for Python
-Developer Guide_.
-
-- Python 3.x (or later) and pip.
-- The Amazon SNS Extended Client Library for Python (also available from [PyPI](https://pypi.org/project/amazon-sns-extended-client/ "https://pypi.org/project/amazon-sns-extended-client/")).
+  For information about credentials, see [Credentials](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) in the *AWS SDK for Python Developer Guide*.
++ Python 3.x (or later) and pip.
++ The Amazon SNS Extended Client Library for Python (also available from [PyPI](https://pypi.org/project/amazon-sns-extended-client/)). 
 
 ## Configuring message storage
+<a name="large-message-configure-storage-python"></a>
 
-The below attributes are available on Boto3 Amazon SNS [Client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#client "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#client"), [Topic](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/topic/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/topic/index.html"), and [PlatformEndpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/platformendpoint/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/platformendpoint/index.html") objects to configure the Amazon S3 message storage
-options.
-
-- **`large_payload_support`**
-  – The Amazon S3 bucket name that will store large messages.
-- **`use_legacy_attribute`**
-  – If `True`, then all published messages use the Legacy
-  reserved message attribute (`SQSLargePayloadSize`) instead of the
-  current reserved message attribute
-  (`ExtendedPayloadSize`).
-- **`message_size_threshold`**
-  – The threshold for storing the message in the large messages bucket.
-  Cannot be less than `0`, or greater than `262144`. The
-  default is `262144`.
-- **`always_through_s3`** –
-  If `True`, then all messages are stored in Amazon S3. The default is
-  `False`.
-- **`s3_client`**
-  – The Boto3 Amazon S3 `client` object to use to store objects
-  to Amazon S3. Use this if you want to control the Amazon S3 client (for example,
-  custom Amazon S3 config or credentials). Defaults to
-  `boto3.client("s3")` on first use if not previously
-  set.
+The below attributes are available on Boto3 Amazon SNS [Client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#client), [Topic](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/topic/index.html), and [PlatformEndpoint](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns/platformendpoint/index.html) objects to configure the Amazon S3 message storage options.
++ **`large_payload_support`** – The Amazon S3 bucket name that will store large messages.
++ **`use_legacy_attribute`** – If `True`, then all published messages use the Legacy reserved message attribute (`SQSLargePayloadSize`) instead of the current reserved message attribute (`ExtendedPayloadSize`).
++ **`message_size_threshold`** – The threshold for storing the message in the large messages bucket. Cannot be less than `0`, or greater than `262144`. The default is `262144`.
++ **`always_through_s3`** – If `True`, then all messages are stored in Amazon S3. The default is `False`.
++ **`s3_client`** – The Boto3 Amazon S3 `client` object to use to store objects to Amazon S3. Use this if you want to control the Amazon S3 client (for example, custom Amazon S3 config or credentials). Defaults to `boto3.client("s3")` on first use if not previously set.
 
 ## Example: Publishing messages to Amazon SNS with the payload stored in Amazon S3
+<a name="example-s3-large-payloads-python"></a>
 
 The following code example shows how to:
++ Create a sample Amazon SNS topic and Amazon SQS queue.
++ Attach the policy to the Amazon SQS queue to receive the message from Amazon SNS topic.
++ Subscribe the queue to receive messages from the topic.
++ Publish a test message using the Amazon SNS extended client, Topic resource, and PlatformEndpoint resource.
++ The message payload is stored in Amazon S3, and the reference to it is published.
++ Print the published message from the queue along with the original message retrieved from Amazon S3.
 
-- Create a sample Amazon SNS topic and Amazon SQS queue.
-- Attach the policy to the Amazon SQS queue to receive the message from Amazon SNS
-  topic.
-- Subscribe the queue to receive messages from the topic.
-- Publish a test message using the Amazon SNS extended client, Topic resource,
-  and PlatformEndpoint resource.
-- The message payload is stored in Amazon S3, and the reference to it is
-  published.
-- Print the published message from the queue along with the original message
-  retrieved from Amazon S3.
-
-To publish a large message, use the Amazon SNS Extended Client Library for Python. The
-message you send references an Amazon S3 object containing the actual message
-content.
+To publish a large message, use the Amazon SNS Extended Client Library for Python. The message you send references an Amazon S3 object containing the actual message content.
 
 ```
 import boto3
@@ -75,7 +48,7 @@ QUEUE_NAME = "---QUEUE-NAME---"
 
 def allow_sns_to_write_to_sqs(topicarn, queuearn):
     policy_document = """{{
-        "Version": "2012-10-17",
+        "Version": "2012-10-17",		 	 	 
         "Statement":[
             {{
             "Sid":"MyPolicy",
@@ -113,7 +86,7 @@ def fetch_and_print_from_sqs(sqs, queue_url,sns_extended_client):
         WaitTimeSeconds=0,
         MaxNumberOfMessages=1
     ).get("Messages")[0]
-
+    
     message_body = sqs_msg.get("Body")
     print("Published Message: {}".format(message_body))
     print("Message Stored in S3 Bucket is: {}\n".format(get_msg_from_s3(message_body,sns_extended_client)))
@@ -147,7 +120,7 @@ response = sqs.set_queue_attributes(
 
 # Set the RawMessageDelivery subscription attribute to TRUE if you want to use
 # SQSExtendedClient to help with retrieving msg from S3
-sns_extended_client.subscribe(TopicArn=sns_topic_arn, Protocol="sqs",
+sns_extended_client.subscribe(TopicArn=sns_topic_arn, Protocol="sqs", 
 Endpoint=sqs_queue_arn
 , Attributes={"RawMessageDelivery":"true"}
 )

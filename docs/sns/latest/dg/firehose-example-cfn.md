@@ -1,8 +1,9 @@
-# Automating Amazon SNS message archiving with an CloudFormation template
 
-To automate the deployment of the Amazon SNS [message
-archiving and analytics example use case](firehose-example-use-case.md "firehose-example-use-case.md"), you can use the following YAML
-template:
+
+# Automating Amazon SNS message archiving with an CloudFormation template
+<a name="firehose-example-cfn"></a>
+
+To automate the deployment of the Amazon SNS [message archiving and analytics example use case](firehose-example-use-case.md), you can use the following YAML template:
 
 ```
 ---
@@ -69,7 +70,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Sid: ''
           Effect: Allow
@@ -81,7 +82,7 @@ Resources:
     Properties:
       PolicyName: FirehoseticketUploadStreamRolePolicy
       PolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Action:
@@ -100,7 +101,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
         - Effect: Allow
           Principal:
@@ -111,7 +112,7 @@ Resources:
       Policies:
       - PolicyName: SNSKinesisFirehoseAccessPolicy
         PolicyDocument:
-          Version: '2012-10-17'
+          Version: '2012-10-17		 	 	 '
           Statement:
           - Action:
             - firehose:DescribeDeliveryStream

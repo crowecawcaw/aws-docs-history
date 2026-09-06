@@ -1,15 +1,14 @@
-# String value matching
 
-Filter messages by matching string values to message attribute values or
-message body property values. String values are enclosed in double quotation marks in
-the JSON policy. You can use the following string operations to match message attributes
-or message body properties:
+
+# String value matching
+<a name="string-value-matching"></a>
+
+Filter messages by matching string values to message attribute values or message body property values. String values are enclosed in double quotation marks in the JSON policy. You can use the following string operations to match message attributes or message body properties:
 
 ## Exact matching
+<a name="string-exact-matching"></a>
 
-Exact matching occurs when a policy property value matches one or more message
-attribute values. For `String.Array` type attributes, each element in the
-array is treated as a separate string for matching purposes.
+Exact matching occurs when a policy property value matches one or more message attribute values. For `String.Array` type attributes, each element in the array is treated as a separate string for matching purposes.
 
 Consider the following policy property:
 
@@ -64,12 +63,9 @@ Nor does it match the following message body:
 ```
 
 ## Anything-but matching
+<a name="string-anything-but-matching"></a>
 
-When a policy property value includes the keyword `anything-but`, it
-matches any message attribute or message body values that _don't_ include any of the policy property values.
-`anything-but` can be combined with `"exists": false`. For
-`String.Array` type attributes, it matches if none of the array
-elements are listed in the policy property.
+When a policy property value includes the keyword `anything-but`, it matches any message attribute or message body values that *don't* include any of the policy property values. `anything-but` can be combined with `"exists": false`. For `String.Array` type attributes, it matches if none of the array elements are listed in the policy property.
 
 Consider the following policy property:
 
@@ -105,16 +101,13 @@ It also matches either of the following message bodies:
 }
 ```
 
-Moreover, it matches the following message attribute (because it contains a value
-that _isn't_
-`rugby` or `tennis`):
+Moreover, it matches the following message attribute (because it contains a value that *isn't* `rugby` or `tennis`):
 
 ```
 "customer_interests": {"Type": "String.Array", "Value": "[\"rugby\", \"baseball\"]"}
 ```
 
-And it also matches the following message body (because it contains a value that
-isn't `rugby` or `tennis`):
+And it also matches the following message body (because it contains a value that isn't `rugby` or `tennis`):
 
 ```
 {
@@ -142,9 +135,7 @@ Nor does it match the following message body:
 
 **Using a prefix with `anything-but`**
 
-For string matching, you can also use a prefix with the `anything-but`
-operator. For example, the following policy property denies the `order-`
-prefix:
+For string matching, you can also use a prefix with the `anything-but` operator. For example, the following policy property denies the `order-` prefix:
 
 ```
 "event":[{"anything-but": {"prefix": "order-"}}]
@@ -190,8 +181,7 @@ Nor does it match the following message body:
 
 **anything-but wildcard**
 
-The following policy property denies the `*ball`
-wildcard:
+The following policy property denies the `*ball` wildcard:
 
 ```
 "customer_interests" : [{ "anything-but": { "wildcard": "*ball" }}]
@@ -209,11 +199,11 @@ However, it does not match the following message attribute:
 {"customer_interests": ["baseball", "basketball"] }
 ```
 
-**anything-but suffix**
+**anything-but suffix** 
 
 The following policy property denies the `-ball`
 
-suffix:
+ suffix:
 
 ```
 "customer_interests": [ { "anything-but": { "suffix": "ball" } } ]
@@ -232,10 +222,9 @@ However, it does not match the following message attribute:
 ```
 
 ## Equals-ignore-case matching
+<a name="string-equals-ignore"></a>
 
-When a policy property includes the keyword `equals-ignore-case`, it
-will perform a case-insensitive match with any message attribute or body property
-value.
+When a policy property includes the keyword `equals-ignore-case`, it will perform a case-insensitive match with any message attribute or body property value.
 
 Consider the following policy property:
 
@@ -268,9 +257,9 @@ It also matches either of the following message bodies:
 ```
 
 ## IP address matching
+<a name="string-address-matching"></a>
 
-You can use the `cidr` operator to check whether an incoming message
-originates from a specific IP address or subnet.
+You can use the `cidr` operator to check whether an incoming message originates from a specific IP address or subnet. 
 
 Consider the following policy property:
 
@@ -317,10 +306,9 @@ Nor does it match the following message body:
 ```
 
 ## Prefix matching
+<a name="string-prefix-matching"></a>
 
-When a policy property includes the keyword `prefix`, it matches any
-message attribute or body property values that begin with the specified
-characters.
+When a policy property includes the keyword `prefix`, it matches any message attribute or body property values that begin with the specified characters.
 
 Consider the following policy property:
 
@@ -367,10 +355,9 @@ Nor does it match the following message body:
 ```
 
 ## Suffix matching
+<a name="string-suffix-matching"></a>
 
-When a policy property includes the keyword `suffix`, it matches any
-message attribute or body property values that end with the specified
-characters.
+When a policy property includes the keyword `suffix`, it matches any message attribute or body property values that end with the specified characters.
 
 Consider the following policy property:
 
@@ -417,8 +404,9 @@ Nor does it match the following message body:
 ```
 
 ## Wildcard
+<a name="string-value-wildcard"></a>
 
-You can use the wildcard character (\*) to match string values in event patterns.
+ You can use the wildcard character (\*) to match string values in event patterns. 
 
 The following policy uses the wildcard (\*) character:
 

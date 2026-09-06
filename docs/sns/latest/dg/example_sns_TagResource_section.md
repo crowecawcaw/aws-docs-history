@@ -1,37 +1,30 @@
+
+
 # Use `TagResource` with an AWS SDK or CLI
+<a name="example_sns_TagResource_section"></a>
 
 The following code examples show how to use `TagResource`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To add a tag to a topic**
-
-The following `tag-resource` example adds a metadata tag to the specified Amazon SNS topic.
-
-```
-`aws sns tag-resource \
- --resource-arn `arn:aws:sns:us-west-2:123456789012:MyTopic` \
- --tags `Key=Team,Value=Alpha``
+**AWS CLI**  
+**To add a tag to a topic**  
+The following `tag-resource` example adds a metadata tag to the specified Amazon SNS topic.  
 
 ```
+aws sns tag-resource \
+    --resource-arn {{arn:aws:sns:us-west-2:123456789012:MyTopic}} \
+    --tags {{Key=Team,Value=Alpha}}
+```
+This command produces no output.  
++  For API details, see [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html) in *AWS CLI Command Reference*. 
 
-This command produces no output.
+------
+#### [ Java ]
 
-- For API details, see
-  [TagResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/tag-resource.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -105,23 +98,14 @@ public class AddTags {
         }
     }
 }
-
-
 ```
++  For API details, see [TagResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/TagResource) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [TagResource](../../../goto/SdkForJavaV2/sns-2010-03-31/TagResource.md "../../../goto/SdkForJavaV2/sns-2010-03-31/TagResource.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/sns#code-examples). 
 
 ```
 suspend fun addTopicTags(topicArn: String) {
@@ -152,14 +136,9 @@ suspend fun addTopicTags(topicArn: String) {
         println("Tags have been added to $topicArn")
     }
 }
-
-
 ```
++  For API details, see [TagResource](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [TagResource](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,13 @@
+
+
 # Configuring the message signature version on Amazon SNS topics
+<a name="sns-verify-signature-of-message-configure-message-signature"></a>
 
-Configuring the message signature version on Amazon SNS topics allows you to enhance the
-security and compatibility of your message verification process.
+Configuring the message signature version on Amazon SNS topics allows you to enhance the security and compatibility of your message verification process.
 
-Select between `SignatureVersion`**1** (SHA1) and
-`SignatureVersion`**2** (SHA256) to control the
-hashing algorithm used for signing messages. Amazon SNS topics default to
-`SignatureVersion`**1**. You can configure this
-setting using the [`SetTopicAttributes`](../api/API_SetTopicAttributes.md "../api/API_SetTopicAttributes.md") API action.
+Select between `SignatureVersion`**1** (SHA1) and `SignatureVersion`**2** (SHA256) to control the hashing algorithm used for signing messages. Amazon SNS topics default to `SignatureVersion`**1**. You can configure this setting using the [`SetTopicAttributes`](https://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html) API action.
 
-Use the following example to set the topic attribute `SignatureVersion` using
-the AWS CLI:
+Use the following example to set the topic attribute `SignatureVersion` using the AWS CLI:
 
 ```
 aws sns set-topic-attributes \

@@ -1,166 +1,133 @@
+
+
 # Verifying the signature of an Amazon SNS message when using HTTP query-based requests
+<a name="sns-verify-signature-of-message-verify-message-signature"></a>
 
-Verifying the signature of an Amazon SNS message when using HTTP query-based requests ensures
-the message's authenticity and integrity. This process confirms that the message originates
-from Amazon SNS and has not been tampered with during transit. By parsing the message,
-constructing the correct string to sign, and validating the signature against a trusted
-public key, you safeguard your system against spoofing and unauthorized message
-alterations.
+Verifying the signature of an Amazon SNS message when using HTTP query-based requests ensures the message's authenticity and integrity. This process confirms that the message originates from Amazon SNS and has not been tampered with during transit. By parsing the message, constructing the correct string to sign, and validating the signature against a trusted public key, you safeguard your system against spoofing and unauthorized message alterations.
 
-1. Extract **key-value pairs** from the JSON document in the
-   HTTP POST request body sent by Amazon SNS. These fields are required to construct the **string to sign**.
+1. Extract **key-value pairs** from the JSON document in the HTTP POST request body sent by Amazon SNS. These fields are required to construct the **string to sign**.
+   + `Message`
+   + `Subject` (if present)
+   + `MessageId`
+   + `Timestamp`
+   + `TopicArn`
+   + `Type`
 
-   - `Message`
-   - `Subject` (if present)
-   - `MessageId`
-   - `Timestamp`
-   - `TopicArn`
-   - `Type`
-     For example:
-
-```
-MESSAGE_FILE="message.json"
-FIELDS=("Message" "MessageId" "Subject" "Timestamp" "TopicArn" "Type")
-```
-
-###### Note
-
-If any field contains escaped characters (for example, `\n`), convert
-them to their **original form** to ensure an exact
-match. 2. Locate the `SigningCertURL` field in the Amazon SNS message. This certificate
-contains the public key needed to verify the message signature. For example:
-
-```
-SIGNING_CERT_URL=$(jq -r '.SigningCertURL' "$MESSAGE_FILE")
-```
-
-3. Ensure the `SigningCertURL` is from a trusted AWS domain (for example,
-   https://sns.us-east-1.amazonaws.com). Reject any URLs **outside AWS domains** for security reasons.
-4. Download the **X.509 certificate** from the provided URL.
    For example:
 
-```
-curl -s "$SIGNING_CERT_URL" -o signing_cert.pem
-```
+   ```
+   MESSAGE_FILE="message.json"
+   FIELDS=("Message" "MessageId" "Subject" "Timestamp" "TopicArn" "Type")
+   ```
+**Note**  
+If any field contains escaped characters (for example, `\n`), convert them to their **original form** to ensure an exact match.
 
-5. Extract the **public key** from the downloaded X.509
-   certificate. The public key allows you to decrypt the message's signature and verify its
-   integrity. For example:
+1. Locate the `SigningCertURL` field in the Amazon SNS message. This certificate contains the public key needed to verify the message signature. For example:
 
-```
-openssl x509 -pubkey -noout -in signing_cert.pem > public_key.pem
-```
+   ```
+   SIGNING_CERT_URL=$(jq -r '.SigningCertURL' "$MESSAGE_FILE")
+   ```
 
-6. Different message types require different key-value pairs in the string to sign.
-   Identify the **message type** (`Type` field in the
-   Amazon SNS message) to determine which **key-value pairs** to
-   include:
+1. Ensure the `SigningCertURL` is from a trusted AWS domain (for example, https://sns.us-east-1.amazonaws.com). Reject any URLs **outside AWS domains** for security reasons.
 
-   - **Notification message** – Includes
-     `Message`, `MessageId`, `Subject` (if present),
-     `Timestamp`, `TopicArn`, and `Type`.
-   - **SubscriptionConfirmation** or **UnsubscribeConfirmation message** – Includes `Message`,
-     `MessageId`, `SubscribeURL`, `Timestamp`,
-     `Token`, `TopicArn`, and `Type`.
+1. Download the **X.509 certificate **from the provided URL. For example:
 
-7. Amazon SNS requires the string to sign to follow a strict, fixed field order for
-   verification. **Only the explicitly required fields must be
-   included**—no extra fields can be added. Optional fields, such as
-   `Subject`, must be included only if present in the message and must appear in
-   the exact position defined by the required field order. For example:
+   ```
+   curl -s "$SIGNING_CERT_URL" -o signing_cert.pem
+   ```
 
-```
-KeyNameOne\nValueOne\nKeyNameTwo\nValueTwo\n
-```
+1. Extract the **public key** from the downloaded X.509 certificate. The public key allows you to decrypt the message's signature and verify its integrity. For example:
 
-###### Important
+   ```
+   openssl x509 -pubkey -noout -in signing_cert.pem > public_key.pem
+   ```
 
-The complete string to sign ends with a single trailing newline character
-after the last field's value. Do not add any newline characters beyond that
-one.
+1. Different message types require different key-value pairs in the string to sign. Identify the **message type** (`Type` field in the Amazon SNS message) to determine which **key-value pairs** to include:
+   + **Notification message** – Includes `Message`, `MessageId`, `Subject` (if present), `Timestamp`, `TopicArn`, and `Type`.
+   + **SubscriptionConfirmation** or **UnsubscribeConfirmation message** – Includes `Message`, `MessageId`, `SubscribeURL`, `Timestamp`, `Token`, `TopicArn`, and `Type`.
 
-The example scripts on this page add the trailing newline for you. The
-shell `echo` command and the `<<<` here-string
-each append the trailing newline, so the `STRING_TO_SIGN` value
-itself omits it. If you build the string in another language, such as Python,
-Java, Go, or Rust, append the single trailing newline yourself. Otherwise,
-your code cannot verify the signature. 8. Arrange the **key-value pairs** in byte-sort order
-(alphabetical by key name). 9. Construct the **string to sign** using the following
-format example:
+1. Amazon SNS requires the string to sign to follow a strict, fixed field order for verification. **Only the explicitly required fields must be included**—no extra fields can be added. Optional fields, such as `Subject`, must be included only if present in the message and must appear in the exact position defined by the required field order. For example:
 
-```
-STRING_TO_SIGN=""
-for FIELD in "${FIELDS[@]}"; do
-    VALUE=$(jq -r --arg field "$FIELD" '.[$field]' "$MESSAGE_FILE")
-    STRING_TO_SIGN+="$FIELD\n$VALUE"
-    # Append a newline after each field except the last one
-    if [[ "$FIELD" != "Type" ]]; then
-        STRING_TO_SIGN+="\n"
-    fi
-done
-```
+   ```
+   KeyNameOne\nValueOne\nKeyNameTwo\nValueTwo\n
+   ```
+**Important**  
+The complete string to sign ends with a single trailing newline character after the last field's value. Do not add any newline characters beyond that one.  
+The example scripts on this page add the trailing newline for you. The shell `echo` command and the `<<<` here-string each append the trailing newline, so the `STRING_TO_SIGN` value itself omits it. If you build the string in another language, such as Python, Java, Go, or Rust, append the single trailing newline yourself. Otherwise, your code cannot verify the signature.
 
-**Notification message example:**
+1. Arrange the** key-value pairs** in byte-sort order (alphabetical by key name).
 
-```
-Message
-My Test Message
-MessageId
-4d4dc071-ddbf-465d-bba8-08f81c89da64
-Subject
-My subject
-Timestamp
-2019-01-31T04:37:04.321Z
-TopicArn
-arn:aws:sns:us-east-2:123456789012:s4-MySNSTopic-1G1WEFCOXTC0P
-Type
-Notification
-```
+1. Construct the **string to sign **using the following format example:
 
-**SubscriptionConfirmation example:**
+   ```
+   STRING_TO_SIGN=""
+   for FIELD in "${FIELDS[@]}"; do
+       VALUE=$(jq -r --arg field "$FIELD" '.[$field]' "$MESSAGE_FILE")
+       STRING_TO_SIGN+="$FIELD\n$VALUE"
+       # Append a newline after each field except the last one
+       if [[ "$FIELD" != "Type" ]]; then
+           STRING_TO_SIGN+="\n"
+       fi
+   done
+   ```
 
-```
-Message
-Please confirm your subscription
-MessageId
-3d891288-136d-417f-bc05-901c108273ee
-SubscribeURL
-https://sns.us-east-2.amazonaws.com/...
-Timestamp
-2024-01-01T00:00:00.000Z
-Token
-abc123...
-TopicArn
-arn:aws:sns:us-east-2:123456789012:MyTopic
-Type
-SubscriptionConfirmation
-```
+   **Notification message example:**
 
-10. The `Signature` field in the message is Base64-encoded. You need to
-    **decode** it to compare its **raw
-    binary form** with the **derived hash**. For
-    example:
+   ```
+   Message
+   My Test Message
+   MessageId
+   4d4dc071-ddbf-465d-bba8-08f81c89da64
+   Subject
+   My subject
+   Timestamp
+   2019-01-31T04:37:04.321Z
+   TopicArn
+   arn:aws:sns:us-east-2:123456789012:s4-MySNSTopic-1G1WEFCOXTC0P
+   Type
+   Notification
+   ```
 
-```
-SIGNATURE=$(jq -r '.Signature' "$MESSAGE_FILE")
-echo "$SIGNATURE" | base64 -d > signature.bin
-```
+   **SubscriptionConfirmation example:**
 
-11. Use the `SignatureVersion` field to select the hash algorithm:
+   ```
+   Message
+   Please confirm your subscription
+   MessageId
+   3d891288-136d-417f-bc05-901c108273ee
+   SubscribeURL
+   https://sns.us-east-2.amazonaws.com/...
+   Timestamp
+   2024-01-01T00:00:00.000Z
+   Token
+   abc123...
+   TopicArn
+   arn:aws:sns:us-east-2:123456789012:MyTopic
+   Type
+   SubscriptionConfirmation
+   ```
 
-    - For `SignatureVersion`**1**, use **SHA1** (for example, `-sha1`).
-    - For `SignatureVersion`**2**, use **SHA256** (for example, `-sha256`).
+1. The `Signature` field in the message is Base64-encoded. You need to **decode** it to compare its **raw binary form** with the **derived hash**. For example:
 
-12. To confirm the authenticity of the Amazon SNS message, generate a **hash** of the constructed string and verify the signature using the **public key**.
+   ```
+   SIGNATURE=$(jq -r '.Signature' "$MESSAGE_FILE")
+   echo "$SIGNATURE" | base64 -d > signature.bin
+   ```
 
-```
-openssl dgst -sha256 -verify public_key.pem -signature signature.bin <<< "$STRING_TO_SIGN"
-```
+1. Use the `SignatureVersion` field to select the hash algorithm:
+   + For `SignatureVersion`**1**, use **SHA1** (for example, `-sha1`).
+   + For `SignatureVersion`**2**, use **SHA256** (for example, `-sha256`).
 
-If the signature is valid, the output is `Verified OK`. Otherwise, the
-output is `Verification Failure`.
+1. To confirm the authenticity of the Amazon SNS message, generate a **hash** of the constructed string and verify the signature using the **public key**.
+
+   ```
+   openssl dgst -sha256 -verify public_key.pem -signature signature.bin <<< "$STRING_TO_SIGN"
+   ```
+
+   If the signature is valid, the output is `Verified OK`. Otherwise, the output is `Verification Failure`.
 
 ## Example script with error handling
+<a name="sns-verify-signature-of-message-example"></a>
 
 The following example script automates the verification process:
 

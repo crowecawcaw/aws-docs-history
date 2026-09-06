@@ -1,21 +1,21 @@
+
+
 # Use `ListPhoneNumbersOptedOut` with an AWS SDK or CLI
+<a name="example_sns_ListPhoneNumbersOptedOut_section"></a>
 
 The following code examples show how to use `ListPhoneNumbersOptedOut`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list SMS message opt-outs**
-
-The following `list-phone-numbers-opted-out` example lists the phone numbers opted out of receiving SMS messages.
-
-```
-`aws sns list-phone-numbers-opted-out`
+**AWS CLI**  
+**To list SMS message opt-outs**  
+The following `list-phone-numbers-opted-out` example lists the phone numbers opted out of receiving SMS messages.  
 
 ```
-
-Output:
+aws sns list-phone-numbers-opted-out
+```
+Output:  
 
 ```
 {
@@ -24,20 +24,13 @@ Output:
     ]
 }
 ```
++  For API details, see [ListPhoneNumbersOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListPhoneNumbersOptedOut](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/list-phone-numbers-opted-out.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -77,23 +70,14 @@ public class ListOptOut {
         }
     }
 }
-
-
 ```
++  For API details, see [ListPhoneNumbersOptedOut](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/ListPhoneNumbersOptedOut) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ListPhoneNumbersOptedOut](../../../goto/SdkForJavaV2/sns-2010-03-31/ListPhoneNumbersOptedOut.md "../../../goto/SdkForJavaV2/sns-2010-03-31/ListPhoneNumbersOptedOut.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 require 'vendor/autoload.php';
@@ -122,16 +106,10 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-sending-sms.html#list-opted-out-phone-numbers). 
++  For API details, see [ListPhoneNumbersOptedOut](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/ListPhoneNumbersOptedOut) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#list-opted-out-phone-numbers "../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#list-opted-out-phone-numbers").
-- For API details, see
-  [ListPhoneNumbersOptedOut](../../../goto/SdkForPHPV3/sns-2010-03-31/ListPhoneNumbersOptedOut.md "../../../goto/SdkForPHPV3/sns-2010-03-31/ListPhoneNumbersOptedOut.md")
-  in _AWS SDK for PHP API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

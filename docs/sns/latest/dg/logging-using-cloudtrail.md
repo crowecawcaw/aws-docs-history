@@ -1,145 +1,108 @@
+
+
 # Logging AWS SNS API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-AWS SNS is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
-that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures
-all
-API calls for SNS as events. The calls captured include calls from the SNS console
-and code calls to the SNS API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to SNS, the IP address from which the request was
-made, when it was made, and additional details.
+AWS SNS is integrated with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for SNS as events. The calls captured include calls from the SNS console and code calls to the SNS API operations. Using the information collected by CloudTrail, you can determine the request that was made to SNS, the IP address from which the request was made, when it was made, and additional details.
 
-Every event or log entry contains information about who generated the request. The identity
-information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials for a role or federated
-  user.
-- Whether the request was made by another AWS service.
-  CloudTrail is active in your AWS account when you create the account and you automatically have
-  access to the CloudTrail **Event history**. The CloudTrail **Event
-  history** provides a viewable, searchable, downloadable, and immutable record of the
-  past 90 days of recorded management events in an AWS Region. For more information, see [Working
-  with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-  charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
-**CloudTrail trails**
+**CloudTrail trails**  
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.  
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the _AWS CloudTrail User Guide_.
-
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-**CloudTrail Lake event data stores**
-
-_CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into _event data stores_, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the _AWS CloudTrail User Guide_.
-
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+**CloudTrail Lake event data stores**  
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [ Apache ORC](https://orc.apache.org/) format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) in the *AWS CloudTrail User Guide*.  
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
 ## SNS data events in CloudTrail
+<a name="cloudtrail-data-events"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, reading or writing to an Amazon S3
-object). These are also known as data
-plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
-data events. The CloudTrail **Event history** doesn't record data events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, reading or writing to an Amazon S3 object). These are also known as data plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log data events. The CloudTrail **Event history** doesn't record data events.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
-You can log data events for the SNS resource types by using the CloudTrail console, AWS CLI,
-or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
-_AWS CloudTrail User Guide_.
+You can log data events for the SNS resource types by using the CloudTrail console, AWS CLI, or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) and [Logging data events with the AWS Command Line Interface](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following table lists the SNS resource types for which you can log data events.
-The **Data event type (console)** column shows the value to
-choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type`
-value, which you would specify when configuring advanced event selectors using the AWS CLI or
-CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
-calls logged to CloudTrail for the resource type.
+The following table lists the SNS resource types for which you can log data events. The **Data event type (console)** column shows the value to choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type` value, which you would specify when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail for the resource type. 
 
-| Data event type (console) | resources.type value                                                                                                                                               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                              |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SNS topic**             | [`AWS::SNS::Topic`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md") | • [`Publish`](../api/API_Publish.md "../api/API_Publish.md")<br>• [`PublishBatch`](../api/API_PublishBatch.md "../api/API_PublishBatch.md")                                                                                                                                                                 |
-| **SNS platform endpoint** | `AWS::SNS::PlatformEndpoint`                                                                                                                                       | • [Publish](../api/API_Publish.md "../api/API_Publish.md")<br>For additional details, see [`AdvancedEventSelector`](../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md") in the AWS CloudTrail API Reference. |
 
-###### Note
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail | 
+| --- | --- | --- | 
+| SNS topic |  [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html)  | +  [`Publish`](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) <br />+  [`PublishBatch`](https://docs.aws.amazon.com/sns/latest/api/API_PublishBatch.html)  | 
+| SNS platform endpoint |  AWS::SNS::PlatformEndpoint  |  +  [Publish](https://docs.aws.amazon.com/sns/latest/api/API_Publish.html) <br />For additional details, see [`AdvancedEventSelector`](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html) in the AWS CloudTrail API Reference.   | 
 
+**Note**  
 SNS resource type `AWS::SNS::PhoneNumber` is not logged by CloudTrail.
 
-You can configure advanced event selectors to filter on the `eventName`,
-`readOnly`, and `resources.ARN` fields to log only those events that
-are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
-_AWS CloudTrail API Reference_.
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
-For information about logging data events, see Logging data events with the AWS Management Console and
-Logging data events with the AWS CLI in the CloudTrail User Guide.
+For information about logging data events, see Logging data events with the AWS Management Console and Logging data events with the AWS CLI in the CloudTrail User Guide.
 
 ## SNS management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-AWS SNS logs the following SNS control plane operations to CloudTrail as
-_management events_.
+AWS SNS logs the following SNS control plane operations to CloudTrail as *management events*.
++ `[AddPermission](https://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html)`
++ `[CheckIfPhoneNumberIsOptedOut](https://docs.aws.amazon.com/sns/latest/api/API_CheckIfPhoneNumberIsOptedOut.html)`
++ `[ConfirmSubscription](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html)`
++ `[CreatePlatformApplication](https://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html)`
++ `[CreatePlatformEndpoint](https://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformEndpoint.html)`
++ `[CreateSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_CreateSMSSandboxPhoneNumber.html)`
++ `[CreateTopic](https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html)`
++ `[DeleteEndpoint](https://docs.aws.amazon.com/sns/latest/api/API_DeleteEndpoint.html)`
++ `[DeletePlatformApplication](https://docs.aws.amazon.com/sns/latest/api/API_DeletePlatformApplication.html)`
++ `[DeleteSMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_DeleteSMSSandboxPhoneNumber.html)`
++ `[DeleteTopic](https://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html)`
++ `[GetDataProtectionPolicy](https://docs.aws.amazon.com/sns/latest/api/API_GetDataProtectionPolicy.html)`
++ `[GetEndpointAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html)`
++ `[GetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetPlatformApplicationAttributes.html)`
++ `[GetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSAttributes.html)`
++ `[GetSMSSandboxAccountStatus](https://docs.aws.amazon.com/sns/latest/api/API_GetSMSSandboxAccountStatus.html)`
++ `[GetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html)`
++ `[GetTopicAttributes](https://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html)`
++ `[ListEndpointsByPlatformApplication](https://docs.aws.amazon.com/sns/latest/api/API_ListEndpointsByPlatformApplication.html)`
++ `[ListOriginationNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListOriginationNumbers.html)`
++ `[ListPhoneNumbersOptedOut](https://docs.aws.amazon.com/sns/latest/api/API_ListPhoneNumbersOptedOut.html)`
++ `[ListPlatformApplications](https://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html)`
++ `[ListSMSSandboxPhoneNumbers](https://docs.aws.amazon.com/sns/latest/api/API_ListSMSSandboxPhoneNumbers.html)`
++ `[ListSubscriptions](https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html)`
++ `[ListSubscriptionsByTopic](https://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html)`
++ `[ListTagsForResource](https://docs.aws.amazon.com/sns/latest/api/API_ListTagsForResource.html)`
++ `[ListTopics](https://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html)`
++ `[OptInPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_OptInPhoneNumber.html)`
++ `[PutDataProtectionPolicy](https://docs.aws.amazon.com/sns/latest/api/API_PutDataProtectionPolicy.html)`
++ `[RemovePermission](https://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html)`
++ `[SetEndpointAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html)`
++ `[SetPlatformApplicationAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html)`
++ `[SetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html)`
++ `[SetSubscriptionAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html)`
++ `[SetTopicAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html)`
++ `[Subscribe](https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html)`
++ `[TagResource](https://docs.aws.amazon.com/sns/latest/api/API_TagResource.html)`
++ `[Unsubscribe](https://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html)`
++ `[UntagResource](https://docs.aws.amazon.com/sns/latest/api/API_UntagResource.html)`
++ `[VerifySMSSandboxPhoneNumber](https://docs.aws.amazon.com/sns/latest/api/API_VerifySMSSandboxPhoneNumber.html)`
 
-- `AddPermission`
-- `CheckIfPhoneNumberIsOptedOut`
-- `ConfirmSubscription`
-- `CreatePlatformApplication`
-- `CreatePlatformEndpoint`
-- `CreateSMSSandboxPhoneNumber`
-- `CreateTopic`
-- `DeleteEndpoint`
-- `DeletePlatformApplication`
-- `DeleteSMSSandboxPhoneNumber`
-- `DeleteTopic`
-- `GetDataProtectionPolicy`
-- `GetEndpointAttributes`
-- `GetPlatformApplicationAttributes`
-- `GetSMSAttributes`
-- `GetSMSSandboxAccountStatus`
-- `GetSubscriptionAttributes`
-- `GetTopicAttributes`
-- `ListEndpointsByPlatformApplication`
-- `ListOriginationNumbers`
-- `ListPhoneNumbersOptedOut`
-- `ListPlatformApplications`
-- `ListSMSSandboxPhoneNumbers`
-- `ListSubscriptions`
-- `ListSubscriptionsByTopic`
-- `ListTagsForResource`
-- `ListTopics`
-- `OptInPhoneNumber`
-- `PutDataProtectionPolicy`
-- `RemovePermission`
-- `SetEndpointAttributes`
-- `SetPlatformApplicationAttributes`
-- `SetSMSAttributes`
-- `SetSubscriptionAttributes`
-- `SetTopicAttributes`
-- `Subscribe`
-- `TagResource`
-- `Unsubscribe`
-- `UntagResource`
-- `VerifySMSSandboxPhoneNumber`
-
-###### Note
-
-When you are not logged in to Amazon Web Services (unauthenticated mode) and either the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md")
-or [`Unsubscribe`](../api/API_Unsubscribe.md "../api/API_Unsubscribe.md") actions
-are invoked, then they will not be logged to CloudTrail. Such as, when you choose the provided
-link in an email notification to confirm a pending subscription to a topic, the
-`ConfirmSubscription` action is invoked in unauthenticated mode. In this
-example, the `ConfirmSubscription` action would not be logged to CloudTrail.
+**Note**  
+When you are not logged in to Amazon Web Services (unauthenticated mode) and either the [`ConfirmSubscription`](https://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html) or [`Unsubscribe`](https://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html) actions are invoked, then they will not be logged to CloudTrail. Such as, when you choose the provided link in an email notification to confirm a pending subscription to a topic, the `ConfirmSubscription` action is invoked in unauthenticated mode. In this example, the `ConfirmSubscription` action would not be logged to CloudTrail.
 
 ## SNS event examples
+<a name="cloudtrail-event-examples"></a>
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
-The following example shows a CloudTrail event that demonstrates the **`ListTopics`**, `**CreateTopic**`, and `**DeleteTopic**` actions.
+The following example shows a CloudTrail event that demonstrates the **`ListTopics`**, `CreateTopic`, and `DeleteTopic` actions.
 
 ```
 {
@@ -225,7 +188,7 @@ The following example shows a CloudTrail event that demonstrates the **`ListTopi
 }
 ```
 
-The following example shows a CloudTrail event that demonstrates the `**Publish**` action.
+The following example shows a CloudTrail event that demonstrates the `Publish` action.
 
 ```
 {
@@ -288,7 +251,7 @@ The following example shows a CloudTrail event that demonstrates the `**Publish*
 }
 ```
 
-The following example shows a CloudTrail event that demonstrates the `**PublishBatch**` action.
+The following example shows a CloudTrail event that demonstrates the `PublishBatch` action.
 
 ```
 {
@@ -367,5 +330,4 @@ The following example shows a CloudTrail event that demonstrates the `**PublishB
 }
 ```
 
-For information about CloudTrail record contents, see [CloudTrail
-record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.

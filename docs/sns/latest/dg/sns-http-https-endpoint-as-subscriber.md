@@ -1,42 +1,20 @@
+
+
 # Fanout Amazon SNS notifications to HTTPS endpoints
+<a name="sns-http-https-endpoint-as-subscriber"></a>
 
-You can use Amazon SNS to send notification messages to one or more HTTP or HTTPS endpoints. When
-you subscribe an endpoint to a topic, you can publish a notification to the topic and Amazon SNS
-sends an HTTP POST request delivering the contents of the notification to the subscribed
-endpoint. When you subscribe the endpoint, you choose whether Amazon SNS uses HTTP or HTTPS to send
-the POST request to the endpoint. If you use HTTPS, then you can take advantage of the support
-in Amazon SNS for the following:
+You can use Amazon SNS to send notification messages to one or more HTTP or HTTPS endpoints. When you subscribe an endpoint to a topic, you can publish a notification to the topic and Amazon SNS sends an HTTP POST request delivering the contents of the notification to the subscribed endpoint. When you subscribe the endpoint, you choose whether Amazon SNS uses HTTP or HTTPS to send the POST request to the endpoint. If you use HTTPS, then you can take advantage of the support in Amazon SNS for the following: 
++ **Server Name Indication (SNI)**—This allows Amazon SNS to support HTTPS endpoints that require SNI, such as a server requiring multiple certificates for hosting multiple domains. For more information about SNI, see [Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication).
++ **Basic and Digest Access Authentication**—This allows you to specify a username and password in the HTTPS URL for the HTTP POST request, such as `https://user:password@domain.com` or `https://user@domain.com` The username and password are encrypted over the SSL connection established when using HTTPS. Only the domain name is sent in plaintext. For more information about Basic and Digest Access Authentication, see [RFC-2617](http://www.rfc-editor.org/info/rfc2617).
+**Important**  
+Amazon SNS does not currently support private HTTP(S) endpoints.  
+HTTPS URLs are only retrievable from the Amazon SNS `GetSubscriptionAttributes` API action, for principals to which you have granted API access.
+**Note**  
+ The client service must be able to support the `HTTP/1.1 401 Unauthorized` header response
 
-- **Server Name Indication (SNI)**—This allows Amazon SNS
-  to support HTTPS endpoints that require SNI, such as a server requiring multiple
-  certificates for hosting multiple domains. For more information about SNI, see [Server Name
-  Indication](http://en.wikipedia.org/wiki/Server_Name_Indication "http://en.wikipedia.org/wiki/Server_Name_Indication").
+The request contains the subject and message that were published to the topic along with metadata about the notification in a JSON document. The request will look similar to the following HTTP POST request. For details about the HTTP header and the JSON format of the request body, see [HTTP/HTTPS headers](http-header.md) and [HTTP/HTTPS notification JSON format](http-notification-json.md).
 
-- **Basic and Digest Access Authentication**—This
-  allows you to specify a username and password in the HTTPS URL for the HTTP POST request,
-  such as `https://user:password@domain.com` or
-  `https://user@domain.com` The username and password are encrypted over the SSL
-  connection established when using HTTPS. Only the domain name is sent in plaintext. For more
-  information about Basic and Digest Access Authentication, see [RFC-2617](http://www.rfc-editor.org/info/rfc2617 "http://www.rfc-editor.org/info/rfc2617").
-
-###### Important
-
-Amazon SNS does not currently support private HTTP(S) endpoints.
-
-HTTPS URLs are only retrievable from the Amazon SNS `GetSubscriptionAttributes`
-API action, for principals to which you have granted API access.
-
-###### Note
-
-The client service must be able to support the `HTTP/1.1 401 Unauthorized`
-header response
-The request contains the subject and message that were published to the topic along with
-metadata about the notification in a JSON document. The request will look similar to the
-following HTTP POST request. For details about the HTTP header and the JSON format of the
-request body, see [HTTP/HTTPS headers](http-header.md "http-header.md") and [HTTP/HTTPS notification JSON format](http-notification-json.md "http-notification-json.md").
-
-###### Note
-
+**Note**  
 Amazon SNS considers all 5XX errors and 429 (too many requests sent) errors as retryable. These errors are subject to the delivery policy. All other errors are considered as permanent failures and retries will not be attempted. However, messages that Amazon SNS self-throttles due to the `maxReceivesPerSecond` setting are not subject to the delivery retry policy. Self-throttled messages are re-queued and continue to be delivered as capacity allows, without consuming retry attempts.
 
 ```
@@ -50,7 +28,7 @@ POST / HTTP/1.1
     Host: ec2-50-17-44-49.compute-1.amazonaws.com
     Connection: Keep-Alive
     User-Agent: Amazon Simple Notification Service Agent
-
+    
 {
   "Type" : "Notification",
   "MessageId" : "da41e39f-ea4d-435a-b922-c6aae3915ebe",

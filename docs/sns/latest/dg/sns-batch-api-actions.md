@@ -1,42 +1,26 @@
+
+
 # Amazon SNS message batching
+<a name="sns-batch-api-actions"></a>
 
 ## What is message batching?
+<a name="what-is-message-batching"></a>
 
-An alternative to publishing messages to either Standard or FIFO topics in individual
-`Publish` API requests, is using the Amazon SNS `PublishBatch` API
-to publish up to 10 messages in a single API request. Sending messages in batches can
-help you reduce the costs associated with connecting distributed applications ([A2A messaging](sns-system-to-system-messaging.md "sns-system-to-system-messaging.md")) or sending
-notifications to people ([A2P messaging](sns-user-notifications.md "sns-user-notifications.md"))
-with Amazon SNS by a factor of up to 10. Amazon SNS has quotas on how many messages you can
-publish to a topic per second based on the region in which you operate. See the [Amazon SNS endpoints and
-quotas](../../../general/latest/gr/sns.md "../../../general/latest/gr/sns.md") page in the _AWS General Reference_ guide for more
-information on API quotas.
+An alternative to publishing messages to either Standard or FIFO topics in individual `Publish` API requests, is using the Amazon SNS `PublishBatch` API to publish up to 10 messages in a single API request. Sending messages in batches can help you reduce the costs associated with connecting distributed applications ([A2A messaging](sns-system-to-system-messaging.md)) or sending notifications to people ([A2P messaging](sns-user-notifications.md)) with Amazon SNS by a factor of up to 10. Amazon SNS has quotas on how many messages you can publish to a topic per second based on the region in which you operate. See the [Amazon SNS endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) page in the *AWS General Reference* guide for more information on API quotas.
 
-###### Note
-
-The total aggregate size of all messages that you send in a single
-`PublishBatch` API request can’t exceed 262,144 bytes (256
-KiB).
-
-The `PublishBatch` API uses the same `Publish` API action
-for IAM policies.
+**Note**  
+The total aggregate size of all messages that you send in a single `PublishBatch` API request can’t exceed 262,144 bytes (256 KiB).  
+The `PublishBatch` API uses the same `Publish` API action for IAM policies.
 
 ## How does message batching work?
+<a name="message-batching-how-it-works"></a>
 
-Publishing messages with the `PublishBatch` API is similar to publishing
-messages with the `Publish` API. The main difference is that each message
-within a `PublishBatch` API request needs to be assigned a unique batch ID
-(up to 80 characters). This way, Amazon SNS can return individual API responses for every
-message within a batch to confirm that each message was either published or that a
-failure occurred. For messages being published to FIFO topics, in addition to including
-assigning a unique batch ID, you still need to include a
-`MessageDeduplicationID` and `MessageGroupId` for each
-individual message.
+Publishing messages with the `PublishBatch` API is similar to publishing messages with the `Publish` API. The main difference is that each message within a `PublishBatch` API request needs to be assigned a unique batch ID (up to 80 characters). This way, Amazon SNS can return individual API responses for every message within a batch to confirm that each message was either published or that a failure occurred. For messages being published to FIFO topics, in addition to including assigning a unique batch ID, you still need to include a `MessageDeduplicationID` and `MessageGroupId` for each individual message.
 
 ## Examples
+<a name="message-batching-examples"></a>
 
-**Publishing a batch of 10 messages to a Standard
-topic**
+**Publishing a batch of 10 messages to a Standard topic**
 
 ```
 // Imports
@@ -100,8 +84,7 @@ public static void publishBatchToTopic(SnsClient snsClient, String topicArn, int
 }
 ```
 
-**Publishing a batch of 10 messages to a FIFO
-topic**
+**Publishing a batch of 10 messages to a FIFO topic**
 
 ```
 // Imports

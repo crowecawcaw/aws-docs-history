@@ -1,90 +1,60 @@
+
+
 # Setting SMS messaging preferences in Amazon SNS
+<a name="sms_preferences"></a>
 
-Use Amazon SNS to specify preferences for SMS messaging. For example, you can specify whether
-to optimize deliveries for cost or reliability, your monthly spending limit, how deliveries
-are logged, and whether to subscribe to daily SMS usage reports.
+Use Amazon SNS to specify preferences for SMS messaging. For example, you can specify whether to optimize deliveries for cost or reliability, your monthly spending limit, how deliveries are logged, and whether to subscribe to daily SMS usage reports.
 
-These preferences take effect for every SMS message that you send from your account, but
-you can override some of them when you send an individual message. For more information, see
-[Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone "sms_sending-overview.md#sms_publish-to-phone").
+These preferences take effect for every SMS message that you send from your account, but you can override some of them when you send an individual message. For more information, see [Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone).
 
 ## Setting SMS messaging preferences using the AWS Management Console
+<a name="sms_preferences_console"></a>
 
-1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-2. Choose a [region that supports SMS
-   messaging](../../../general/latest/gr/end-user-messaging.md "../../../general/latest/gr/end-user-messaging.md").
-3. On the navigation panel, choose **Mobile** and then
-   **Text messaging (SMS)**.
-4. On the **Mobile text messaging (SMS)** page, in the
-   **Text messaging preferences** section, choose
-   **Edit**.
-5. On the **Edit text messaging preferences** page, in the
-   **Details** section, do the following:
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
 
-   1. For **Default message type**, choose one of the
-      following:
+1. Choose a [region that supports SMS messaging](https://docs.aws.amazon.com/general/latest/gr/end-user-messaging.html).
 
-      - **Promotional** – Non-critical
-        messages (for example, marketing). Amazon SNS optimizes message
-        delivery to incur the lowest cost.
-      - **Transactional** (default) – Critical
-        messages that support customer transactions, such as one-time
-        passcodes for multi-factor authentication. Amazon SNS optimizes
-        message delivery to achieve the highest reliability.
-        For pricing information for promotional and transactional messages,
-        see [Global SMS
-        Pricing](https://aws.amazon.com/sns/sms-pricing/ "https://aws.amazon.com/sns/sms-pricing/").
+1. On the navigation panel, choose **Mobile** and then **Text messaging (SMS)**.
 
-   2. (Optional) For **Account spend limit**, enter the
-      amount (in USD) that you want to spend on SMS messages each calendar
-      month.
+1. On the **Mobile text messaging (SMS)** page, in the **Text messaging preferences** section, choose **Edit**.
 
-   ###### Important
+1. On the **Edit text messaging preferences** page, in the **Details** section, do the following:
 
-        * By default, the spend quota is set to 1.00 USD. If you
-         want to raise the service quota, [submit a request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns").
-        * If the amount set in the console exceeds your service
-         quota, Amazon SNS stops publishing SMS messages.
-        * Because Amazon SNS is a distributed system, it stops sending
-         SMS messages within minutes of the spend quota being
-         exceeded. During this interval, if you continue to send SMS
-         messages, you might incur costs that exceed your
-         quota.
+   1. For **Default message type**, choose one of the following:
+      + **Promotional** – Non-critical messages (for example, marketing). Amazon SNS optimizes message delivery to incur the lowest cost.
+      + **Transactional** (default) – Critical messages that support customer transactions, such as one-time passcodes for multi-factor authentication. Amazon SNS optimizes message delivery to achieve the highest reliability.
 
-6. (Optional) For **Default sender ID**, enter a custom ID, such
-   as your business brand, which is displayed as the sender of the receiving
-   device.
+      For pricing information for promotional and transactional messages, see [Global SMS Pricing](https://aws.amazon.com/sns/sms-pricing/).
 
-###### Note
+   1. (Optional) For **Account spend limit**, enter the amount (in USD) that you want to spend on SMS messages each calendar month.
+**Important**  
+By default, the spend quota is set to 1.00 USD. If you want to raise the service quota, [submit a request](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-sns).
+If the amount set in the console exceeds your service quota, Amazon SNS stops publishing SMS messages.
+Because Amazon SNS is a distributed system, it stops sending SMS messages within minutes of the spend quota being exceeded. During this interval, if you continue to send SMS messages, you might incur costs that exceed your quota.
 
-Support for sender IDs varies by country. 7. (Optional) Enter the name of the **Amazon S3 bucket name for usage
-reports**.
+1. (Optional) For **Default sender ID**, enter a custom ID, such as your business brand, which is displayed as the sender of the receiving device.
+**Note**  
+Support for sender IDs varies by country.
 
-###### Note
+1. (Optional) Enter the name of the **Amazon S3 bucket name for usage reports**.
+**Note**  
+The Amazon S3 bucket policy must grant write access to Amazon SNS.
 
-The Amazon S3 bucket policy must grant write access to Amazon SNS. 8. Choose **Save changes**.
+1. Choose **Save changes**.
 
 ## Setting preferences (AWS SDKs)
+<a name="sms_preferences_sdk"></a>
 
-To set your SMS preferences using one of the AWS SDKs, use the action in that SDK
-that corresponds to the `SetSMSAttributes` request in the Amazon SNS API. With
-this request, you assign values to the different SMS attributes, such as your monthly
-spend quota and your default SMS type (promotional or transactional). For all SMS
-attributes, see [SetSMSAttributes](../api/API_SetSMSAttributes.md "../api/API_SetSMSAttributes.md") in the _Amazon Simple Notification Service API Reference_.
+To set your SMS preferences using one of the AWS SDKs, use the action in that SDK that corresponds to the `SetSMSAttributes` request in the Amazon SNS API. With this request, you assign values to the different SMS attributes, such as your monthly spend quota and your default SMS type (promotional or transactional). For all SMS attributes, see [SetSMSAttributes](https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html) in the *Amazon Simple Notification Service API Reference*.
 
 The following code examples show how to use `SetSMSAttributes`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples").
-
-How to use Amazon SNS to set the DefaultSMSType attribute.
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/sns#code-examples). 
+How to use Amazon SNS to set the DefaultSMSType attribute.  
 
 ```
 //! Set the default settings for sending SMS messages.
@@ -114,43 +84,28 @@ bool AwsDoc::SNS::setSMSType(const Aws::String &smsType,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [SetSMSAttributes](https://docs.aws.amazon.com/goto/SdkForCpp/sns-2010-03-31/SetSMSAttributes) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To set SMS message attributes**  
+The following `set-sms-attributes` example sets the default sender ID for SMS messages to `MyName`.  
 
 ```
-
-- For API details, see
-  [SetSMSAttributes](../../../goto/SdkForCpp/sns-2010-03-31/SetSMSAttributes.md "../../../goto/SdkForCpp/sns-2010-03-31/SetSMSAttributes.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To set SMS message attributes**
-
-The following `set-sms-attributes` example sets the default sender ID for SMS messages to `MyName`.
-
+aws sns set-sms-attributes \
+    --attributes {{DefaultSenderID=MyName}}
 ```
-`aws sns set-sms-attributes \
- --attributes `DefaultSenderID=MyName``
+This command produces no output.  
++  For API details, see [SetSMSAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-sms-attributes.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-This command produces no output.
-
-- For API details, see
-  [SetSMSAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-sms-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/set-sms-attributes.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/sns#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -197,25 +152,15 @@ public class SetSMSAttributes {
         }
     }
 }
-
-
 ```
++  For API details, see [SetSMSAttributes](https://docs.aws.amazon.com/goto/SdkForJavaV2/sns-2010-03-31/SetSMSAttributes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [SetSMSAttributes](../../../goto/SdkForJavaV2/sns-2010-03-31/SetSMSAttributes.md "../../../goto/SdkForJavaV2/sns-2010-03-31/SetSMSAttributes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples").
-
-Create the client in a separate module and export it.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/sns#code-examples). 
+Create the client in a separate module and export it.  
 
 ```
 import { SNSClient } from "@aws-sdk/client-sns";
@@ -223,11 +168,8 @@ import { SNSClient } from "@aws-sdk/client-sns";
 // The AWS Region can be provided here using the `region` property. If you leave it blank
 // the SDK will default to the region set in your AWS config.
 export const snsClient = new SNSClient({});
-
-
 ```
-
-Import the SDK and client modules and call the API.
+Import the SDK and client modules and call the API.  
 
 ```
 import { SetSMSAttributesCommand } from "@aws-sdk/client-sns";
@@ -260,24 +202,15 @@ export const setSmsType = async (defaultSmsType = "Transactional") => {
   // }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/sns-examples-sending-sms.html#sending-sms-setattributes). 
++  For API details, see [SetSMSAttributes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sns/command/SetSMSAttributesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/sns-examples-sending-sms.md#sending-sms-setattributes "../../../sdk-for-javascript/v3/developer-guide/sns-examples-sending-sms.md#sending-sms-setattributes").
-- For API details, see
-  [SetSMSAttributes](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/SetSMSAttributesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/SetSMSAttributesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/sns#code-examples). 
 
 ```
 $SnSclient = new SnsClient([
@@ -297,72 +230,55 @@ try {
     // output error message if fails
     error_log($e->getMessage());
 }
-
-
-
 ```
++  For more information, see [AWS SDK for PHP Developer Guide](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/sns-examples-sending-sms.html#set-sms-attributes). 
++  For API details, see [SetSMSAttributes](https://docs.aws.amazon.com/goto/SdkForPHPV3/sns-2010-03-31/SetSMSAttributes) in *AWS SDK for PHP API Reference*. 
 
-- For more information, see [AWS SDK for PHP Developer Guide](../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#set-sms-attributes "../../../sdk-for-php/v3/developer-guide/sns-examples-sending-sms.md#set-sms-attributes").
-- For API details, see
-  [SetSMSAttributes](../../../goto/SdkForPHPV3/sns-2010-03-31/SetSMSAttributes.md "../../../goto/SdkForPHPV3/sns-2010-03-31/SetSMSAttributes.md")
-  in _AWS SDK for PHP API Reference_.
+------
 
 ## Setting SMS messaging preferences for country-specific delivery
+<a name="sms_preferences_country_specific"></a>
 
-You can manage and control your SMS traffic by sending messages only to specific
-destination countries. This ensures that your messages are sent only to approved
-countries, avoiding unwanted SMS charges. The following instructions use Amazon
-Pinpoint's Protect configuration to specify the countries you want to allow or
-block.
+You can manage and control your SMS traffic by sending messages only to specific destination countries. This ensures that your messages are sent only to approved countries, avoiding unwanted SMS charges. The following instructions use Amazon Pinpoint's Protect configuration to specify the countries you want to allow or block.
 
-1. Open the AWS SMS console at
-   [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
-2. In the navigation pane, under **Overview**, in the
-   **Quick start** section, choose **Create a protect
-   configuration**.
-3. Under **Protect configuration details**, enter a
-   **business-friendly name** for your protect configuration (for
-   example, Allow-Only-AU).
-4. Under **SMS country rules**, select the
-   **Region/Country** checkbox to block sending messages to all
-   supported countries.
-5. Deselect the checkboxes for the countries where you want to send messages. For
-   example, to allow messages only to Australia, deselect the checkbox for
-   **Australia**.
-6. In the **Protect configuration associations** section, under
-   **Association type**, select **Account
-   default**. This will ensure that the AWS End User Messaging SMS Protect configuration
-   affects all messages sent through Amazon SNS, [Amazon Cognito](../../../cognito/latest/developerguide/cognito-user-identity-pools.md "../../../cognito/latest/developerguide/cognito-user-identity-pools.md"), and the Amazon Pinpoint [`SendMessages`](../../../pinpoint/latest/developerguide/send-messages-sms.md "../../../pinpoint/latest/developerguide/send-messages-sms.md") API call.
-7. Choose **Create protect configuration** to save your
-   settings.
+1. Open the AWS SMS console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
 
-The following confirmation message is displayed:
+1. In the navigation pane, under **Overview**, in the **Quick start** section, choose **Create a protect configuration**.
 
-```
-Success Protect configuration protect-*abc0123456789* has been created.
-```
+1. Under **Protect configuration details**, enter a **business-friendly name** for your protect configuration (for example, Allow-Only-AU).
 
-8. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
-9. [Publish a message](sns-publishing.md "sns-publishing.md") to
-   one of the blocked countries, such as India.
+1. Under **SMS country rules**, select the **Region/Country** checkbox to block sending messages to all supported countries.
 
-The message will not be delivered. You can verify this in the delivery failure
-logs using [CloudWatch](sms_stats_cloudwatch.md "sms_stats_cloudwatch.md"). Search for log group
-**sns/region/AccountID/DirectPublishToPhoneNumber/Failure** for
-a response similar to the following example:
+1. Deselect the checkboxes for the countries where you want to send messages. For example, to allow messages only to Australia, deselect the checkbox for **Australia**.
 
-```
-{
-"notification": {
-"messageId": "bd59a509-XXXX-XXXX-82f8-fbdb8cb68217",
-"timestamp": "YYYY-MM-DD XX:XX:XX.XXXX“
-},
-"delivery": {
-"destination": "+91XXXXXXXXXX",
-"smsType": "Transactional",
-"providerResponse": "Cannot deliver message to the specified destination country",
-"dwellTimeMs": 85
-},
-"status": "FAILURE"
-}
-```
+1. In the **Protect configuration associations** section, under **Association type**, select **Account default**. This will ensure that the AWS End User Messaging SMS Protect configuration affects all messages sent through Amazon SNS, [Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html), and the Amazon Pinpoint [`SendMessages`](https://docs.aws.amazon.com/pinpoint/latest/developerguide/send-messages-sms.html) API call.
+
+1. Choose **Create protect configuration** to save your settings.
+
+   The following confirmation message is displayed:
+
+   ```
+   Success Protect configuration protect-abc0123456789 has been created.
+   ```
+
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home).
+
+1. [**Publish a message**](sns-publishing.md) to one of the blocked countries, such as India.
+
+   The message will not be delivered. You can verify this in the delivery failure logs using [CloudWatch](sms_stats_cloudwatch.md). Search for log group **sns/region/AccountID/DirectPublishToPhoneNumber/Failure** for a response similar to the following example:
+
+   ```
+   {
+   "notification": {
+   "messageId": "bd59a509-XXXX-XXXX-82f8-fbdb8cb68217",
+   "timestamp": "YYYY-MM-DD XX:XX:XX.XXXX“
+   },
+   "delivery": {
+   "destination": "+91XXXXXXXXXX",
+   "smsType": "Transactional",
+   "providerResponse": "Cannot deliver message to the specified destination country",
+   "dwellTimeMs": 85
+   },
+   "status": "FAILURE"
+   }
+   ```
