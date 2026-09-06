@@ -1,8 +1,10 @@
+
+
 # Best practices
+<a name="best-practices-perf"></a>
 
-###### Topics
-
-- [Selection](selection.md "selection.md")
-- [Review](review.md "review.md")
-- [Monitoring](monitoring.md "monitoring.md")
-- [Tradeoffs](tradeoffs.md "tradeoffs.md")
+**Topics**
++ [Selection](selection.md)
++ [Review](review.md)
++ [Monitoring](monitoring.md)
++ [Tradeoffs](tradeoffs.md)

@@ -1,35 +1,29 @@
+
+
 # Process and culture
+<a name="process-and-culture"></a>
 
-| CMSUS\_12: Are you using connected vehicle data to encourage the end user to be<br>more sustainable? |
-| ---------------------------------------------------------------------------------------------------- |
-|                                                                                                      |
 
-**CMSUS\_BP12.1: Adopt methods that can rapidly introduce
-sustainability improvements**
+| CMSUS\_12: Are you using connected vehicle data to encourage the end user to be more sustainable?  | 
+| --- | 
+|   | 
 
-For more details, see [SUS06-BP01](../sustainability-pillar/sus_sus_dev_a2.md "../sustainability-pillar/sus_sus_dev_a2.md")
-in the _Sustainability Pillar whitepaper_.
+**CMSUS\_BP12.1: Adopt methods that can rapidly introduce sustainability improvements** 
 
-**Prescriptive guidance:**
-
-- Help customers with efficient routing, efficient fueling mechanism, and so on.
-
-| CMSUS\_13:  Are you making use of managed device farms for testing? Are you<br>developing low-cost testing methods to enable delivery of small improvements over<br>the lifetime of the edge devices and cloud? |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                                                                                                                 |
-
-**CMSUS\_BP13.1: Use managed device farms for
-testing**
-
-For more details, see [SUS06-BP04](../sustainability-pillar/sus_sus_dev_a5.md "../sustainability-pillar/sus_sus_dev_a5.md")
-in the _Sustainability Pillar whitepaper_.
+ For more details, see [SUS06-BP01](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_dev_a2.html) in the *Sustainability Pillar whitepaper*. 
 
 **Prescriptive guidance:**
++  Help customers with efficient routing, efficient fueling mechanism, and so on. 
 
-- Establish cloud native testing practices to understand expected impact, and test
-  with customers to understand the actual impact from using your services. Device farms
-  are the second-best option.
-- Use managed device farms to help you streamline the testing process for new
-  features on a representative set of hardware. Managed device farms offer diverse device
-  types including earlier, less popular hardware, and avoid customer sustainability impact
-  from unnecessary device upgrades.
+
+| CMSUS\_13:  Are you making use of managed device farms for testing? Are you developing low-cost testing methods to enable delivery of small improvements over the lifetime of the edge devices and cloud?  | 
+| --- | 
+|   | 
+
+**CMSUS\_BP13.1: Use managed device farms for testing**
+
+For more details, see [SUS06-BP04](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_dev_a5.html) in the *Sustainability Pillar whitepaper*. 
+
+**Prescriptive guidance:**
++  Establish cloud native testing practices to understand expected impact, and test with customers to understand the actual impact from using your services. Device farms are the second-best option. 
++  Use managed device farms to help you streamline the testing process for new features on a representative set of hardware. Managed device farms offer diverse device types including earlier, less popular hardware, and avoid customer sustainability impact from unnecessary device upgrades. 
