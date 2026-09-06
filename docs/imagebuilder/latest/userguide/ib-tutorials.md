@@ -46,3 +46,11 @@ You can also use Parameter Store parameters in AMI distribution settings to stor
 output image ID, and in custom components. For more information, see
 [Create and update AMI distribution configurations](cr-upd-ami-distribution-settings.md "cr-upd-ami-distribution-settings.md") for distributions, and
 [Use Systems Manager Parameter Store parameters](toe-user-defined-variables.md#toe-ssm-parameters "toe-user-defined-variables.md#toe-ssm-parameters") for custom components.
+
+## Deploy sample projects with infrastructure as code
+
+When you're ready to define your image resources as code, the [Image Builder
+samples repository](https://github.com/aws-samples/amazon-ec2-image-builder-samples "https://github.com/aws-samples/amazon-ec2-image-builder-samples") on GitHub provides complete sample projects for
+common use cases. The samples cover scenarios such as golden AMI pipelines,
+cross-account distribution, and private VPC builds. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").

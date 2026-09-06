@@ -24,6 +24,12 @@ from scratch.
 
 You can't modify an existing workflow, but you can clone it or create a new version.
 
+###### Tip
+
+For information about deployable workflow examples, including approval gates
+and AWS Step Functions integration, see the [workflow samples](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/workflows "https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/workflows") on GitHub. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").
+
 ###### Workflow topics
 
 - [Workflow framework: Stages](#wf-stages "#wf-stages")

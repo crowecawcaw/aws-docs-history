@@ -37,6 +37,21 @@ credentials and set up individual users with AWS IAM Identity Center or AWS Iden
   provide a URL to an external server, we strongly recommend that you do not include credentials
   information in the URL to validate your request to that server.
 
+## Your responsibility for imported ISO disk images
+
+When you import a Windows ISO disk image, the ISO that you supply provides the
+operating system for the output AMI. Under the shared responsibility model,
+verifying that the media is authentic is your responsibility.
+
+The import runs in your own AWS account, on a build instance that uses the
+instance profile role from your infrastructure configuration. During the import,
+Image Builder runs executables from the ISO and the applied Windows image with SYSTEM
+privileges under that role.
+
+An ISO from an untrusted source can affect the output AMI and any instances that
+you launch from it. Obtain ISO files from Microsoft or an authorized reseller. For
+more information, see [Import verified Windows ISO disk images with Image Builder](import-iso-disk.md "import-iso-disk.md").
+
 ## Encryption and key management in Image Builder
 
 Image Builder encrypts data in transit and at rest by default with a service-owned

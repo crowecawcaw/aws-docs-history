@@ -19,6 +19,12 @@ managed resources from S3 buckets to create custom images. To grant access to th
 you must update the S3 endpoint policy to allow it. For more information, see
 [Custom policies for S3 bucket access](#vpc-endpoint-policy-s3 "#vpc-endpoint-policy-s3").
 
+###### Tip
+
+For information about a deployable private VPC build example, including the
+required endpoints and endpoint policies, see the [private VPC builds sample](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/networking/private-vpc-builds "https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/networking/private-vpc-builds") on GitHub. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").
+
 For more information about VPC endpoints, see [Interface
 VPC endpoints (AWS PrivateLink)](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _Amazon VPC User
 Guide_.

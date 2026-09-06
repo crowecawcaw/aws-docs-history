@@ -11,6 +11,30 @@ file and create a secondary volume from it. After configuration is complete, Ima
 a snapshot of the volume it created from the import and uses it to create an Amazon Machine
 Image (AMI).
 
+## Security considerations for ISO disk image import
+
+The ISO disk image that you supply provides the operating system for the output
+AMI. During the import, Image Builder mounts the ISO and applies the Windows image that it
+contains.
+
+The import process runs executables that it resolves from the ISO and from the
+applied Windows image. These executables run with SYSTEM privileges on the build
+instance, under the instance profile role from the infrastructure configuration that
+you specify for the import.
+
+Because the ISO provides the operating system, obtaining authentic media is your
+responsibility. An ISO from an untrusted source can affect the output AMI and any
+instances that you launch from it. Obtain ISO files from Microsoft or an authorized
+reseller.
+
+Permission to start an import against an infrastructure configuration includes the
+ability to run under that configuration's instance profile role. Image Builder evaluates
+`iam:PassRole` when you create the infrastructure configuration, not when
+you start the import. We recommend that you grant permission to start imports only to
+principals that you trust with the instance profile role.
+
+For more information, see [Data protection and the AWS shared responsibility model in Image Builder](data-protection.md "data-protection.md").
+
 ## Supported operating systems for ISO disk image import
 
 Image Builder supports the following Windows operating system ISO disk images:
@@ -107,7 +131,22 @@ all of the permissions needed for the import process:
     + [EC2InstanceProfileForImageBuilder](../../../aws-managed-policy/latest/reference/EC2InstanceProfileForImageBuilder.md "../../../aws-managed-policy/latest/reference/EC2InstanceProfileForImageBuilder.md")
     + [AmazonSSMManagedInstanceCore](../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md "../../../aws-managed-policy/latest/reference/AmazonSSMManagedInstanceCore.md")
 
-For more information, see [Manage Image Builder infrastructure configuration](manage-infra-config.md "manage-infra-config.md").
+The EC2InstanceProfileForImageBuilder policy includes
+the `s3:GetObject` permission that the build instance uses to
+download your ISO file. This access applies to objects that have an ISO
+file extension in your own account. As a result, you do not need to grant
+additional Amazon S3 permissions for the ISO.
+
+###### Note
+
+We recommend that you grant the instance profile role only the
+permissions that the import requires. The import process runs
+executables from the ISO and the applied Windows image with SYSTEM
+privileges under this role. Any additional permissions that you grant
+also apply to those executables.
+
+For more information, see [Manage Image Builder infrastructure configuration](manage-infra-config.md "manage-infra-config.md"), [EC2InstanceProfileForImageBuilder policy](security-iam-awsmanpol.md#sec-iam-manpol-EC2InstanceProfileForImageBuilder "security-iam-awsmanpol.md#sec-iam-manpol-EC2InstanceProfileForImageBuilder"),
+and [Security considerations for ISO disk image import](#iso-import-security "#iso-import-security").
 
 ## Optional import settings
 

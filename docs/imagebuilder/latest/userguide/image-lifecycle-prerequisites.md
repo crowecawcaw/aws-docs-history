@@ -119,7 +119,7 @@ account where Image Builder distributed the resources.
                 "StringEquals": {
                     "aws:SourceAccount": "`444455556666`"
                 },
-                "StringLike": {
+                "ArnLike": {
                     "aws:SourceArn": "arn:*:imagebuilder:*:*:image/*/*/*"
                 }
             }

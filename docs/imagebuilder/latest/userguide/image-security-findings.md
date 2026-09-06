@@ -54,8 +54,8 @@ is already activated for your account, the status shows **Enabled**. 3. Follow s
 Amazon Inspector incurs charges. For more information, see [Amazon Inspector pricing](https://aws.amazon.com/inspector/pricing/ "https://aws.amazon.com/inspector/pricing/").
 
 If you've activated scanning for your pipeline, Image Builder takes a snapshot of the findings for
-your build instance when you create a new image. This way, you can access the findings
-after Image Builder terminates the build instance.
+your test instance when you create a new image. This way, you can access the findings
+after Image Builder terminates the test instance.
 
 ###### Step 2: Configure your pipeline to save snapshots for vulnerability findings
 
@@ -169,7 +169,7 @@ The severity level of the CVE finding. Values are as follows:
 **Finding ID**
 
 The unique identifier for the CVE finding that Amazon Inspector detected
-for your image when it scanned the build instance. The ID is linked
+for your image when it scanned the test instance. The ID is linked
 to the **Security findings > By vulnerability** page.
 
 **Image ARN**

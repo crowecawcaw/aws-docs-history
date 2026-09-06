@@ -13,6 +13,9 @@ helpful considerations rather than prescriptions.
   builds.
 - Periodically apply managed AMI updates to your macOS recipes and create
   new images to launch instances that have the latest security patches.
+- When you import a Windows ISO disk image, obtain the ISO from Microsoft or
+  an authorized reseller. Also, grant the instance profile role only the permissions
+  that the import requires. For more information, see [Security considerations for ISO disk image import](import-iso-disk.md#iso-import-security "import-iso-disk.md#iso-import-security").
   We strongly recommend that you test your images to validate the security posture and
   applicable security compliance levels. Solutions such as [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/") can help validate the
   security and compliance posture of images.

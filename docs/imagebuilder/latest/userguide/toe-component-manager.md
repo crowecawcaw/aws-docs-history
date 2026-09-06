@@ -8,6 +8,12 @@ AWSTOE is a standalone application that Image Builder installs on its build and 
 create an image. You can also install it manually on EC2 instances to create your own custom components.
 It doesn't require any additional setup, and can also run on premises.
 
+###### Tip
+
+For information about component patterns and a script that validates and runs
+component documents locally, see the [AWSTOE samples](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/awstoe "https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/awstoe") on GitHub. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").
+
 ###### Contents
 
 - [AWSTOE downloads](#toe-downloads "#toe-downloads")

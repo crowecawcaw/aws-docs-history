@@ -19,6 +19,7 @@ steps. For more information, see
 - [Troubleshoot pipeline builds](#troubleshooting-pipelines "#troubleshooting-pipelines")
 - [Troubleshooting scenarios](#image-builder-troubleshooting-scenarios "#image-builder-troubleshooting-scenarios")
 - [Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md "devops-agent-troubleshooting.md")
+- [Troubleshoot builds with an AI coding agent](agent-toolkit-skill.md "agent-toolkit-skill.md")
 
 ## Troubleshoot pipeline builds
 
@@ -95,6 +96,13 @@ You can also change the instance settings with the
 `terminateInstanceOnFailure` value to `false` in the JSON file
 that the command references with the `--cli-input-json` parameter. For
 details, see [Update an infrastructure configuration](update-infra-config.md "update-infra-config.md").
+
+###### Tip
+
+For information about a sample that deploys a build that fails on purpose,
+with a walkthrough that shows where each failure class leaves evidence, see
+the [debugging sample](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/debugging "https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/debugging") on GitHub. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").
 
 ## Troubleshooting scenarios
 

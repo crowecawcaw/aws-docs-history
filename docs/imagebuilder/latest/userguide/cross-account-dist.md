@@ -5,6 +5,13 @@ AMI to other accounts that you specify.
 
 The destination account can then launch or modify the AMI, as needed.
 
+###### Tip
+
+For information about a deployable example that includes the AWS KMS key policy and the target
+account role, see the [cross-account AMIs sample](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/distribution/cross-account-amis "https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/distribution/cross-account-amis") on GitHub. The same repository includes a
+Terraform variant. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").
+
 ###### Note
 
 AWS CLI command examples in this section assume that you have previously created image recipe

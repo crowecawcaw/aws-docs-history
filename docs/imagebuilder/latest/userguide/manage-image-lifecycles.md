@@ -14,6 +14,12 @@ Enabled lifecycle policies run automatically once per day. Image Builder manages
 execution schedule. For execution details, see
 [How lifecycle policy execution works](lifecycle-policy-execution.md "lifecycle-policy-execution.md").
 
+###### Tip
+
+For information about a deployable lifecycle policy example with ready-to-use
+policy documents, see the [lifecycle sample](https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/lifecycle "https://github.com/aws-samples/amazon-ec2-image-builder-samples/tree/HEAD/lifecycle") on GitHub. For more information, see
+[Explore Image Builder sample projects on GitHub](sample-projects.md "sample-projects.md").
+
 ###### Benefits of automated lifecycle management
 
 Automated lifecycle management:
