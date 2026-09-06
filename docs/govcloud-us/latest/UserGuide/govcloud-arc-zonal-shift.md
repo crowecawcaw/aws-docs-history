@@ -4,16 +4,17 @@ Amazon Application Recovery Controller (ARC) (ARC) provides capabilities that he
 
 ## Region availability
 
-This service is available in the following AWS GovCloud (US) Regions:
+Amazon Application Recovery Controller is available in the following AWS GovCloud (US) Regions:
 
-- AWS GovCloud (US-West)
 - AWS GovCloud (US-East)
+- AWS GovCloud (US-West)
 
-## How Amazon Application Recovery Controller (ARC) differs
+## How Amazon Application Recovery Controller differs
 
-The following differences apply to Amazon Application Recovery Controller (ARC):
+The following differences apply to Amazon Application Recovery Controller:
 
-- The routing control, and readiness check features of the ARC service are not available in AWS GovCloud (US-West).
+- Readiness Checks is not available.
+- Routing Control is not available.
 
 ## Zonal Shift
 
