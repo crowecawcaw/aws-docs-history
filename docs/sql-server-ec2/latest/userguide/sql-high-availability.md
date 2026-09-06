@@ -8,12 +8,12 @@ HA configuration.
 
 ## Supported SQL Server High Availability deployments
 
-SQL HA supports two SQL Server High Availability deployments, including:
+SQL HA supports the following two SQL Server High Availability deployment types:
 
 - Always On Availability Groups
 - Always On Failover Cluster Instances
 
-For Always On Availability Groups, SQL HA identifies primary and secondary (also knows as
+For Always On Availability Groups, SQL HA identifies primary and secondary (also known as
 standby or passive) replicas and waives the SQL Server licenses on the secondary replicas (Amazon EC2
 instances) that are not actively serving read traffic. For Failover Cluster Instances, SQL HA
 recognizes which instances are active and which are standing by for failover scenarios and waives
@@ -22,10 +22,23 @@ configurations, see [Deploy SQL Server on Amazon EC2](create-sql-server-on-ec2-i
 
 ## Considerations and requirements
 
-- SQL HA supports two Amazon EC2 instances (also known as nodes) per SQL Server HA cluster.
-- The SQL HA active instance should have equal or more vCPUs than the standby
-  instance.
-- SQL HA saves license costs for SQL Server license-included only. For more information,
+- SQL HA supports two or more Amazon EC2 instances (also known as nodes) per SQL Server HA
+  cluster. Every node in the cluster must be enabled for SQL HA standby detection,
+  and all nodes must be in the same AWS account and Region.
+- All of the nodes in a SQL Server HA cluster must belong to the same set of HA clusters.
+  If any node participates in an additional availability group or failover cluster
+  instance that the other nodes are not part of, then none of the nodes in that
+  deployment receive the SQL Server license waiver.
+- At least one node in the SQL Server HA cluster must be active. If SQL HA classifies
+  every node as standby, no node receives the SQL Server license waiver.
+- An active instance can cover one or more standby instances, as long as its vCPU
+  count is equal to or greater than the total vCPUs of the standby instances that it
+  covers. For example, an active instance with 8 vCPUs can cover two standby instances
+  with 4 vCPUs each.
+- vCPUs from different active instances can't be combined to cover a single standby
+  instance. For example, two active instances with 8 vCPUs each can't cover a standby
+  instance with 16 vCPUs.
+- SQL HA saves license costs for SQL Server license-included Amazon EC2 instances only. For more information,
   see [SQL Server licensing
   options](sql-server-on-ec2-licensing.md#sql-server-on-ec2-licensing-options-included "sql-server-on-ec2-licensing.md#sql-server-on-ec2-licensing-options-included").
 - Cross-Region deployments are not supported.
