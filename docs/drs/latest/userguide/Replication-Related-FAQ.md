@@ -1,186 +1,150 @@
+
+
 # Replication related
+<a name="Replication-Related-FAQ"></a>
 
 ## Can we set specific IP addresses for the replication server or conversion server in the AWS DRS staging area?
+<a name="specific-ip-addresses"></a>
 
-You cannot specify or assign static IP addresses for the replication server or conversion server in AWS DRS. These servers are managed and maintained by the DRS service.
+You cannot specify or assign static IP addresses for the replication server or conversion server in AWS DRS. These servers are managed and maintained by the DRS service. 
 
 ## What do Lag and Backlog mean during replication?
+<a name="What-Lag-Backlog-Mean"></a>
 
-During replication you may see a server fall out of Continuous Data Protection (CDP) mode.
-This may occur for various reasons, typically related to the network throughput or
-interruption.
-
-- **Lag** – The amount of time since the server
-  was last in CDP mode.
-- **Backlog** – The amount of data that was
-  written to the disk and still needs to be replicated in order to reach CDP
-  mode.
-- **ETA** – The estimated time remaining to
-  return to CDP.
+During replication you may see a server fall out of Continuous Data Protection (CDP) mode. This may occur for various reasons, typically related to the network throughput or interruption. 
++  **Lag** – The amount of time since the server was last in CDP mode. 
++  **Backlog** – The amount of data that was written to the disk and still needs to be replicated in order to reach CDP mode. 
++  **ETA** – The estimated time remaining to return to CDP. 
 
 ## Is the replicated data encrypted?
+<a name="Is-Replication-Encrypted"></a>
 
 Elastic Disaster Recovery encrypts all the data in transit.
 
 ## How is the replication server provisioned and managed in the Staging Area?
+<a name="How-Replication-Server-Staging"></a>
 
-AWS Elastic Disaster Recovery automatically provisions replication servers in your staging area
-subnet when source servers are added. The service manages the full lifecycle of
-replication servers, including launching new servers when additional replication
-capacity is needed, removing servers that are no longer in use, and recycling
-servers every 14 days to ensure they run the latest AMI with up-to-date security
-patches. Each replication server can handle replication of volumes from multiple
-source servers. You can configure the replication server instance type and subnet
-in the [replication settings](individual-replication-settings.md#replication-server-settings "individual-replication-settings.md#replication-server-settings").
+AWS Elastic Disaster Recovery automatically provisions replication servers in your staging area subnet when source servers are added. The service manages the full lifecycle of replication servers, including launching new servers when additional replication capacity is needed, removing servers that are no longer in use, and recycling servers every 14 days to ensure they run the latest AMI with up-to-date security patches. Each replication server can handle replication of volumes from multiple source servers. You can configure the replication server instance type and subnet in the [replication settings](individual-replication-settings.md#replication-server-settings). 
 
 ## What type of replication server is utilized in the Elastic Disaster Recovery Staging Area?
+<a name="What-Replication-Server-Type-Staging"></a>
 
-AWS Elastic Disaster Recovery provisions a t3.small server by default. The typical ratio of
-volumes to replication servers is 15:1.
+AWS Elastic Disaster Recovery provisions a t3.small server by default. The typical ratio of volumes to replication servers is 15:1. 
 
 ## What happens if the configured replication server instance type is unavailable?
+<a name="What-If-Replication-Server-Type-Unavailable"></a>
 
-If the replication server instance type that you configured in your
-[replication settings](individual-replication-settings.md#replication-server-settings "individual-replication-settings.md#replication-server-settings") is
-unavailable in the staging area subnet's Availability Zone, AWS Elastic Disaster Recovery automatically
-launches the replication server using an alternative instance type. This can occur,
-for example, when the configured instance type returns an
-`InsufficientInstanceCapacity` error. This behavior allows continuous
-data replication to proceed without interruption so that your recovery point
-objective (RPO) is maintained.
+If the replication server instance type that you configured in your [replication settings](individual-replication-settings.md#replication-server-settings) is unavailable in the staging area subnet's Availability Zone, AWS Elastic Disaster Recovery automatically launches the replication server using an alternative instance type. This can occur, for example, when the configured instance type returns an `InsufficientInstanceCapacity` error. This behavior allows continuous data replication to proceed without interruption so that your recovery point objective (RPO) is maintained. 
 
-Replication servers are managed by AWS Elastic Disaster Recovery throughout their lifecycle and are
-automatically recycled approximately every 14 days. When a replication server is
-replaced, AWS Elastic Disaster Recovery provisions the new server using your current replication
-settings.
+Replication servers are managed by AWS Elastic Disaster Recovery throughout their lifecycle and are automatically recycled approximately every 14 days. When a replication server is replaced, AWS Elastic Disaster Recovery provisions the new server using your current replication settings. 
 
 ## Does AWS Elastic Disaster Recovery compress data during replication?
+<a name="Does-Data-Compress"></a>
 
-Yes, AWS Elastic Disaster Recovery utilizes LZ4 compression during transit resulting in 60-70%
-compression depending on the type of data.
+Yes, AWS Elastic Disaster Recovery utilizes LZ4 compression during transit resulting in 60-70% compression depending on the type of data. 
 
 ## Are events that are generated by the AWS Elastic Disaster Recovery servers logged in Cloudtrail in AWS?
+<a name="Are-Events-Logged-Cloudtrail"></a>
 
-Yes, AWS Elastic Disaster Recovery is integrated with AWS CloudTrail, a service
-that provides a record of actions taken by a user, role, or an AWS service in AWS Elastic Disaster Recovery (AWS DRS). CloudTrail captures all API calls for AWS DRS
-as events. The calls captured include calls from the AWS DRS console and code calls to the AWS DRS API
-operations. [Learn more about AWS DRS and
-Cloudtrail.](logging-using-cloudtrail.md#logging-using-cloudtrail- "logging-using-cloudtrail.md#logging-using-cloudtrail-")
+Yes, AWS Elastic Disaster Recovery is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in AWS Elastic Disaster Recovery (AWS DRS). CloudTrail captures all API calls for AWS DRS as events. The calls captured include calls from the AWS DRS console and code calls to the AWS DRS API operations. [Learn more about AWS DRS and Cloudtrail.](logging-using-cloudtrail.md#logging-using-cloudtrail-) 
 
 ## How many snapshots does Elastic Disaster Recovery create?
+<a name="How-Many-Snapshots"></a>
 
-Point in Time (PIT) is a disaster recovery feature which allows launching an instance
-from a snapshot captured at a specific Point In Time. As source servers are replicated,
-Point in Time states are chronicled over time, while a retention policy will determine which
-Points in Time are not required after a defined duration.
+Point in Time (PIT) is a disaster recovery feature which allows launching an instance from a snapshot captured at a specific Point In Time. As source servers are replicated, Point in Time states are chronicled over time, while a retention policy will determine which Points in Time are not required after a defined duration. 
 
 Elastic Disaster Recovery has the following PIT state schedule:
 
-- Every 10 minutes for the last hour
-- Once an hour for the last 24 hours
-- Once a day for the last 7 days (or a different retention period, as
-  configured)
 
-You can increase or decrease the default 7 day snapshot retention rate from
-anywhere between 1 day and 365 days in the replication settings. [Learn more about managing Point in Time retention.](point-in-time.md "point-in-time.md")
++ Every 10 minutes for the last hour
++ Once an hour for the last 24 hours
++ Once a day for the last 7 days (or a different retention period, as configured) 
+
+You can increase or decrease the default 7 day snapshot retention rate from anywhere between 1 day and 365 days in the replication settings. [Learn more about managing Point in Time retention. ](point-in-time.md) 
 
 ## Does Elastic Disaster Recovery delete snapshots?
+<a name="Does-Delete-Snapshots"></a>
 
-AWS Elastic Disaster Recovery automatically deletes snapshots that are no longer used (such as
-those left over after source servers have been removed from the Elastic Disaster Recovery
-Console) or those that are past the designated retention setting.
+AWS Elastic Disaster Recovery automatically deletes snapshots that are no longer used (such as those left over after source servers have been removed from the Elastic Disaster Recovery Console) or those that are past the designated retention setting. 
 
 ## How much capacity is allocated to the staging area?
+<a name="How-Much-Capacity-Staging"></a>
 
-A volume is created for each volume in the source infrastructure of the same size. The EBS
-volumes will be a 1:1 match for the source machines provisioned size.
+A volume is created for each volume in the source infrastructure of the same size. The EBS volumes will be a 1:1 match for the source machines provisioned size. 
 
 ## Why is 0.0.0.0:1500 added to inbound rules in the Staging Area?
+<a name="Why-Inbound-Rules-Staging-IP"></a>
 
-AWS Elastic Disaster Recovery uses TCP Port 1500 for replication between the source
-agents and the replication server. The connection is open for all IPs and can be
-managed by ACLs or network controls to limit inbound IPs.
+AWS Elastic Disaster Recovery uses TCP Port 1500 for replication between the source agents and the replication server. The connection is open for all IPs and can be managed by ACLs or network controls to limit inbound IPs. 
 
 ## What should I know about rescans?
+<a name="How-Long-Rescan"></a>
 
-During a rescan, the agent on the source server rereads the data on all
-replicated disks and transmits any differences from the previously replicated data.
-A rescan is similar to the initial sync but is faster because only changes are replicated.
-The rescan speed depends on factors such as the size of the source disks and disk performance.
-A rescan is functioning normally as long as it’s progressing.
+During a rescan, the agent on the source server rereads the data on all replicated disks and transmits any differences from the previously replicated data. A rescan is similar to the initial sync but is faster because only changes are replicated. The rescan speed depends on factors such as the size of the source disks and disk performance. A rescan is functioning normally as long as it’s progressing. 
 
 Causes of rescans include:
-
-- Hard reboots/crashes.
-- Adding or removing disks or modifying the size of disks on the source server.
-- The OS is not supported for the no-rescan feature. Learn more in [Supported Windows operating systems](Supported-Operating-Systems-Windows.md "Supported-Operating-Systems-Windows.md")
-  and [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").
-- Writing data to disks while the Replication Agent driver is unhooked.
++ Hard reboots/crashes.
++ Adding or removing disks or modifying the size of disks on the source server.
++ The OS is not supported for the no-rescan feature. Learn more in [Supported Windows operating systems](Supported-Operating-Systems-Windows.md) and [Supported Linux operating systems](Supported-Operating-Systems-Linux.md).
++ Writing data to disks while the Replication Agent driver is unhooked.
 
 ## How does AWS Elastic Disaster Recovery ensure that replication servers are patched and follow security best practices?
+<a name="How-Replication-Server-Patched"></a>
 
-AWS Elastic Disaster Recovery automatically recycles replication servers every 14 days. When a
-replication server reaches the end of its lifecycle, the service terminates it
-and launches a new replication server using the latest AMI, which includes the
-most recent security patches and updates. During the recycling process, you may
-observe temporary replication lag while the new replication server is launched
-and the AWS Replication Agent reconnects. Replication resumes automatically
-once the new server is ready.
+AWS Elastic Disaster Recovery automatically recycles replication servers every 14 days. When a replication server reaches the end of its lifecycle, the service terminates it and launches a new replication server using the latest AMI, which includes the most recent security patches and updates. During the recycling process, you may observe temporary replication lag while the new replication server is launched and the AWS Replication Agent reconnects. Replication resumes automatically once the new server is ready.
 
 ## Is the Elastic Disaster Recovery replication crash consistent?
+<a name="Is-Replication-Crash-Consistent"></a>
 
 Yes, AWS Elastic Disaster Recovery's replication is crash consistent.
 
 ## How can I perform an SSL connectivity and bandwidth test?
+<a name="perform-connectivity-bandwidth-test"></a>
 
-###### Note
-
-This tool is designed for AWS only.
+**Note**  
+This tool is designed for AWS only. 
 
 You can use our SSL bandwidth tool to check for replication bandwidth availability.
 
-1. In your target region, launch a c5.large test server using the public AMI
-   named CE-ssl-speedtest.
-2. Select the same subnet as the subnet used in the replication settings of
-   your source machine.
-3. Make sure that the security group allows TCP Port 1500 inbound access.
-4. On the source machine, browse to: https://{test\_server\_ip}:1500/speedtest
-5. Click **Start**.
+1. In your target region, launch a c5.large test server using the public AMI named CE-ssl-speedtest.
 
-###### Note
+1. Select the same subnet as the subnet used in the replication settings of your source machine.
 
-- Browse to the web page using the test server **public** or **private** IP
-  according to what you defined in your replication settings.
-- The following are the AMI details per region.
+1. Make sure that the security group allows TCP Port 1500 inbound access. 
 
-  - ami-00b38c08ab3506ea7 – US East (N. Virginia)
-  - ami-0bd8423a4d80563fc – US East (Ohio)
-  - ami-00b7159e9c985a8da – US West (N. California)
-  - ami-033a4924b13126a7b – US West (Oregon)
-  - ami-0bf60b09675c8d9b6 – Africa (Cape Town)
-  - ami-0f01375b50763621b – Asia Pacific (Hong Kong)
-  - ami-0b1aeb50834102c18 – Asia Pacific (Mumbai)
-  - ami-0b1aeb50834102c18 – Asia Pacific (Hyderabad)
-  - ami-044fa8034a31d7578 – Asia Pacific (Tokyo)
-  - ami-08b042df0d4c458ea – Asia Pacific (Seoul)
-  - ami-0971e46306691cd68 – Asia Pacific (Osaka)
-  - ami-0afd42552b236f9dd – Asia Pacific (Singapore)
-  - ami-04e7cc6b5d9e8ffa1 – Asia Pacific (Sydney)
-  - ami-02f31943dfd88549d – Asia Pacific (Jakarta)
-  - ami-033db317ada5abd55 – Asia Pacific (Melbourne)
-  - ami-01c24408802db503d – Canada (Central)
-  - ami-0b8643189a66159c9 – Europe (Stockholm)
-  - ami-0dd5a09d2ae8f46b3 – Europe (Ireland)
-  - ami-097fb47f3a1c2bf7e – Europe (London)
-  - ami-0a3f9008725d0b4d1 – Europe (Paris)
-  - ami-0c65965703bb0e541 – Europe (Milan)
-  - ami-01b6fcc2337f6420d – Europe (Spain)
-  - ami-07b7defb87a46bb48 – Europe (Frankfurt)
-  - ami-01b3e93b3ac0e1340 – Europe (Zurich)
-  - ami-016edc078b48f370b – Israel (Tel Aviv)
-  - ami-0c90e298af7a2e563 – Middle East (Bahrain)
-  - ami-0f7c14e62ef760768 – Middle East (UAE)
-  - ami-0edd5ecfc56804583 – South America (São Paulo)
+1. On the source machine, browse to: https://{test\_server\_ip}:1500/speedtest 
 
-- Ensure that the security groups are configured to permit connectivity
-  on inbound port 1500.
+1. Click **Start**. 
+
+**Note**  
+Browse to the web page using the test server **public** or **private** IP according to what you defined in your replication settings. 
+The following are the AMI details per region.  
+ami-00b38c08ab3506ea7 – US East (N. Virginia)
+ami-0bd8423a4d80563fc – US East (Ohio)
+ami-00b7159e9c985a8da – US West (N. California)
+ami-033a4924b13126a7b – US West (Oregon)
+ami-0bf60b09675c8d9b6 – Africa (Cape Town)
+ami-0f01375b50763621b – Asia Pacific (Hong Kong)
+ami-0b1aeb50834102c18 – Asia Pacific (Mumbai)
+ami-0b1aeb50834102c18 – Asia Pacific (Hyderabad)
+ami-044fa8034a31d7578 – Asia Pacific (Tokyo)
+ami-08b042df0d4c458ea – Asia Pacific (Seoul)
+ami-0971e46306691cd68 – Asia Pacific (Osaka)
+ami-0afd42552b236f9dd – Asia Pacific (Singapore)
+ami-04e7cc6b5d9e8ffa1 – Asia Pacific (Sydney)
+ami-02f31943dfd88549d – Asia Pacific (Jakarta)
+ami-033db317ada5abd55 – Asia Pacific (Melbourne)
+ami-01c24408802db503d – Canada (Central)
+ami-0b8643189a66159c9 – Europe (Stockholm)
+ami-0dd5a09d2ae8f46b3 – Europe (Ireland)
+ami-097fb47f3a1c2bf7e – Europe (London)
+ami-0a3f9008725d0b4d1 – Europe (Paris)
+ami-0c65965703bb0e541 – Europe (Milan)
+ami-01b6fcc2337f6420d – Europe (Spain)
+ami-07b7defb87a46bb48 – Europe (Frankfurt)
+ami-01b3e93b3ac0e1340 – Europe (Zurich)
+ami-016edc078b48f370b – Israel (Tel Aviv)
+ami-0c90e298af7a2e563 – Middle East (Bahrain)
+ami-0f7c14e62ef760768 – Middle East (UAE)
+ami-0edd5ecfc56804583 – South America (São Paulo)
+Ensure that the security groups are configured to permit connectivity on inbound port 1500. 

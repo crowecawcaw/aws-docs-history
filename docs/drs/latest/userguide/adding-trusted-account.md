@@ -1,175 +1,168 @@
+
+
 # Adding a trusted account in AWS DRS
+<a name="adding-trusted-account"></a>
 
 To add a trusted account, take the following steps:
 
 1. Click **Add trusted accounts and create roles**.
-2. Click **Add new trusted account**.
-3. Enter an account ID and choose the relevant role or roles. There are 3 available
-   options: Staging role, Network role, and Failback and in-AWS right-sizing roles.
-4. Click **Add trusted accounts and roles**. A success
-   message will appear at the top of the screen.
 
-###### Note
+1. Click **Add new trusted account**.
 
-Up to 10 accounts can be added in a single batch and up to 100 accounts for a single AWS
-DRS account.
+1. Enter an account ID and choose the relevant role or roles. There are 3 available options: Staging role, Network role, and Failback and in-AWS right-sizing roles.
+
+1. Click **Add trusted accounts and roles**. A success message will appear at the top of the screen.
+
+**Note**  
+Up to 10 accounts can be added in a single batch and up to 100 accounts for a single AWS DRS account.
 
 ## Creating the Staging role
+<a name="trusted-account-staging-role"></a>
 
-The **Staging role** is required to utilize various
-AWS Elastic Disaster Recovery capabilities, including the multi-account feature. To automatically create the
-role and the attached required policies, simply create it for a specific account via the
-**Trusted accounts** page.
+The **Staging role** is required to utilize various AWS Elastic Disaster Recovery capabilities, including the multi-account feature. To automatically create the role and the attached required policies, simply create it for a specific account via the **Trusted accounts** page.
 
-This action will create the DRSStagingAccountRole role which includes the
-AWSElasticDisasterRecoveryStagingAccountPolicy\_v2 policy and the following trust policy
-permissions:
+This action will create the DRSStagingAccountRole role which includes the AWSElasticDisasterRecoveryStagingAccountPolicy\_v2 policy and the following trust policy permissions:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "drs.amazonaws.com"
- },
- "Action": [
- "sts:AssumeRole",
- "sts:SetSourceIdentity"
- ],
- "Condition": {
- "StringLike": {
- "sts:SourceIdentity": "{{target_account}}",
- "aws:SourceAccount": "{{target_account}}"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:drs:*:*:source-server/*"
- }
- }
- }
- ]
- }`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+  {
+  "Effect": "Allow",
+  "Principal": {
+  "Service": "drs.amazonaws.com"
+  },
+  "Action": [
+  "sts:AssumeRole",
+  "sts:SetSourceIdentity"
+  ],
+  "Condition": {
+  "StringLike": {
+  "sts:SourceIdentity": "{{target_account}}",
+  "aws:SourceAccount": "{{target_account}}"
+  },
+  "ArnLike": {
+  "aws:SourceArn": "arn:aws:drs:*:*:source-server/*"
+  }
+  }
+  }
+  ]
+  }
+```
+
+------
 
 ## Creating the Network role
+<a name="trusted-accounts-network-role"></a>
 
-The **Network role** is required to utilize various
-AWS Elastic Disaster Recovery capabilities, including the network replication feature. To automatically create
-the role and the attached required policies, simply create it for a specific account via the
-**Trusted accounts** page.
+The **Network role** is required to utilize various AWS Elastic Disaster Recovery capabilities, including the network replication feature. To automatically create the role and the attached required policies, simply create it for a specific account via the **Trusted accounts** page.
 
-This action will create the DRSSourceNetworkRole role which includes the
-AWSElasticDisasterRecoverySourceNetworkPolicy policy and the following trust policy
-permissions:
+This action will create the DRSSourceNetworkRole role which includes the AWSElasticDisasterRecoverySourceNetworkPolicy policy and the following trust policy permissions:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "drs.amazonaws.com"
- },
- "Action": "sts:AssumeRole",
- "Condition": {
- "StringLike": {
- "aws:SourceAccount": "{{target_account}}"
- },
- "ArnLike": {
- "aws:SourceArn": "arn:aws:drs:*:*:source-network/*"
- }
- }
- }
- ]
- }`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+    {
+    "Effect": "Allow",
+    "Principal": {
+    "Service": "drs.amazonaws.com"
+    },
+    "Action": "sts:AssumeRole",
+    "Condition": {
+    "StringLike": {
+    "aws:SourceAccount": "{{target_account}}"
+    },
+    "ArnLike": {
+    "aws:SourceArn": "arn:aws:drs:*:*:source-network/*"
+    }
+    }
+    }
+    ]
+    }
+```
+
+------
 
 ## Creating the Failback and in-AWS right-sizing roles
+<a name="trusted-accounts-failback-role"></a>
 
-The **Failback and in-AWS right-sizing roles** are required
-to utilize various AWS Elastic Disaster Recovery capabilities, including cross account failback and in-AWS
-features. Each Trusted AWS Account will need a set of these IAM roles for functionality. You
-can automatically create these roles, and their attached policies, via the **Trusted accounts** section of the AWS Elastic Disaster Recovery console. The roles
-required are:
+The **Failback and in-AWS right-sizing roles** are required to utilize various AWS Elastic Disaster Recovery capabilities, including cross account failback and in-AWS features. Each Trusted AWS Account will need a set of these IAM roles for functionality. You can automatically create these roles, and their attached policies, via the **Trusted accounts** section of the AWS Elastic Disaster Recovery console. The roles required are:
 
 1. **DRSCrossAccountReplicationRole**
-2. **DRSCrossAccountAgentRole**
-3. **DRSCrossAccountAgentAuthorizedRole**
 
-If you intend to create these roles manually, please ensure they are placed in the
-`service-role` path, with the Role name ending in an underscore and the trusted
-Account ID, as specified below:
+1. **DRSCrossAccountAgentRole**
+
+1. **DRSCrossAccountAgentAuthorizedRole**
+
+If you intend to create these roles manually, please ensure they are placed in the `service-role` path, with the Role name ending in an underscore and the trusted Account ID, as specified below: 
 
 ```
-arn:aws:iam::`account-id`:role/service-role/DRSCrossAccountReplicationRole`_trustedAccountID`
+arn:aws:iam::{{account-id}}:role/service-role/DRSCrossAccountReplicationRole{{_trustedAccountID}}
 ```
 
 ### DRSCrossAccountReplicationRole
+<a name="trusted-accounts-DRSCrossAccountReplicationRole"></a>
 
-The **DRSCrossAccountReplicationRole** contains the
-following trust policy. If you plan to use the policy as a template, replace the
-`account-id` with the Trusted AWS Account ID.
+The **DRSCrossAccountReplicationRole** contains the following trust policy. If you plan to use the policy as a template, replace the `account-id` with the Trusted AWS Account ID.
 
-The **DRSCrossAccountReplicationRole** has the AWS
-Managed Policy **AWSElasticDisasterRecoveryCrossAccountReplicationPolicy** attached.
+The **DRSCrossAccountReplicationRole** has the AWS Managed Policy **AWSElasticDisasterRecoveryCrossAccountReplicationPolicy** attached.
 
 ### DRSCrossAccountAgentRole
+<a name="trusted-accounts-DRSCrossAccountAgentRole"></a>
 
-The **DRSCrossAccountAgentRole** contains the following
-trust policy. If you plan to use the policy as a template, replace the
-`trustedAccount` with the Trusted AWS Account ID, and replace
-`sourceAccount` with the source AWS Account ID.
+The **DRSCrossAccountAgentRole** contains the following trust policy. If you plan to use the policy as a template, replace the `trustedAccount` with the Trusted AWS Account ID, and replace `sourceAccount` with the source AWS Account ID.
 
-The **DRSCrossAccountAgentRole** has the AWS Managed
-Policy **AWSElasticDisasterRecoveryEc2InstancePolicy**
-attached.
+The **DRSCrossAccountAgentRole** has the AWS Managed Policy **AWSElasticDisasterRecoveryEc2InstancePolicy** attached.
 
 ### DRSCrossAccountAgentAuthorizedRole
+<a name="trusted-accounts-DRSCrossAccountAgentAuthorizedRole"></a>
 
-The **DRSCrossAccountAgentAuthorizedRole** contains the
-following trust policy. If you plan to use the policy as a template, replace the
-`account-id` with the Trusted AWS Account ID.
+The **DRSCrossAccountAgentAuthorizedRole** contains the following trust policy. If you plan to use the policy as a template, replace the `account-id` with the Trusted AWS Account ID.
 
-The **DRSCrossAccountAgentAuthorizedRole** has the following
-inline policy attached. If you plan to use the policy as a template, replace the
-`trustedAccount` with the Trusted AWS Account ID, and replace
-`sourceAccount` with the source AWS Account ID.
+The **DRSCrossAccountAgentAuthorizedRole** has the following inline policy attached. If you plan to use the policy as a template, replace the `trustedAccount` with the Trusted AWS Account ID, and replace `sourceAccount` with the source AWS Account ID.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "sts:AssumeRole",
- "sts:TagSession"
- ],
- "Resource": "arn:aws:iam::`111122223333`:role/service-role/DRSCrossAccountAgentRole_`sourceAccount`",
- "Effect": "Allow"
- },
- {
- "Condition": {
- "StringLike": {
- "sts:SourceIdentity": "i-*"
- }
- },
- "Action": [
- "sts:SetSourceIdentity"
- ],
- "Resource": "arn:aws:iam::`111122223333`:role/service-role/DRSCrossAccountAgentRole_`sourceAccount`",
- "Effect": "Allow"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "sts:AssumeRole",
+                "sts:TagSession"
+            ],
+            "Resource": "arn:aws:iam::{{111122223333}}:role/service-role/DRSCrossAccountAgentRole_{{sourceAccount}}",
+            "Effect": "Allow"
+        },
+        {
+            "Condition": {
+                "StringLike": {
+                    "sts:SourceIdentity": "i-*"
+                }
+            },
+            "Action": [
+                "sts:SetSourceIdentity"
+            ],
+            "Resource": "arn:aws:iam::{{111122223333}}:role/service-role/DRSCrossAccountAgentRole_{{sourceAccount}}",
+            "Effect": "Allow"
+        }
+    ]
+}
+```
+
+------

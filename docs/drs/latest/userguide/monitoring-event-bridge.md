@@ -1,16 +1,21 @@
+
+
 # Alarm events and EventBridge
+<a name="monitoring-event-bridge"></a>
+
+
 
 ## Sample events for Elastic Disaster Recovery
+<a name="monitoring-event-bridge-sample"></a>
 
 The following are sample events for Elastic Disaster Recovery:
 
 ### Source server data replication status
+<a name="monitoring-event-bridge-sample-source-server-data"></a>
 
-These events are triggered when source servers' data replication state changes from
-Stalled (replication not functioning properly) and Not Stalled (replication is functioning
-as expected).
+These events are triggered when source servers' data replication state changes from Stalled (replication not functioning properly) and Not Stalled (replication is functioning as expected). 
 
-**STALLED**
+ **STALLED** 
 
 ```
 {
@@ -28,10 +33,9 @@ as expected).
 		"state": "STALLED"
 	}
 }
-
 ```
 
-**NOT\_STALLED**
+ **NOT\_STALLED** 
 
 ```
 {
@@ -49,18 +53,18 @@ as expected).
 		"state": "NOT_STALLED"
 	}
 }
-
 ```
+
+
 
 ### Source server launch result
+<a name="monitoring-event-bridge-sample-source-server-launch"></a>
 
-These events are triggered when a drill or recovery instance is launched for a source
-server and indicate whether the launch succeeded or failed.
+These events are triggered when a drill or recovery instance is launched for a source server and indicate whether the launch succeeded or failed. 
 
-**RECOVERY\_LAUNCH\_SUCCEEDED**
+ **RECOVERY\_LAUNCH\_SUCCEEDED** 
 
 ```
-
 {
     "version": "0",
     "id": "9da9af57-9253-4406-87cb-7cc400e43465",
@@ -78,13 +82,11 @@ server and indicate whether the launch succeeded or failed.
         "is-drill": "FALSE"
     }
 }
-
 ```
 
-**RECOVERY\_LAUNCH\_FAILED**
+ **RECOVERY\_LAUNCH\_FAILED** 
 
 ```
-
 {
     "version": "0",
     "id": "9da9af57-9253-4406-87cb-7cc400e43465",
@@ -102,18 +104,16 @@ server and indicate whether the launch succeeded or failed.
         "is-drill": "FALSE"
     }
 }
-
 ```
 
 ### Recovery instance failback State Change
+<a name="monitoring-event-bridge-sample-recovery-failback-state"></a>
 
-These events are triggered as part of the failback process and indicate if failback is
-in progress, completed or failed.
+These events are triggered as part of the failback process and indicate if failback is in progress, completed or failed. 
 
-**FAILBACK\_IN\_PROGRESS**
+ **FAILBACK\_IN\_PROGRESS** 
 
 ```
-
 {
     "version": "0",
     "id": "9da9af57-9253-4406-87cb-7cc400e43465",
@@ -129,13 +129,11 @@ in progress, completed or failed.
     "state": "FAILBACK_IN_PROGRESS"
     }
 }
-
 ```
 
-**FAILBACK\_COMPLETED**
+ **FAILBACK\_COMPLETED** 
 
 ```
-
 {
     "version": "0",
     "id": "9da9af57-9253-4406-87cb-7cc400e43465",
@@ -151,13 +149,11 @@ in progress, completed or failed.
         "state": "FAILBACK_COMPLETED"
     }
 }
-
 ```
 
-**FAILBACK\_ERROR**
+ **FAILBACK\_ERROR** 
 
 ```
-
 {
     "version": "0",
     "id": "9da9af57-9253-4406-87cb-7cc400e43465",
@@ -173,18 +169,16 @@ in progress, completed or failed.
     "state": "FAILBACK_ERROR"
     }
 }
-
 ```
 
 ### PIT Snapshot Taken
+<a name="monitoring-event-bridge-sample-pit"></a>
 
-This event is triggered whenever a point in time snapshot is taken and includes its
-identifiers.
+This event is triggered whenever a point in time snapshot is taken and includes its identifiers. 
 
-**PIT Snapshot Taken**
+ **PIT Snapshot Taken** 
 
 ```
-
 {
     "account": "111122223333",
     "detail": {
@@ -201,73 +195,57 @@ identifiers.
     "time": "2016-08-22T20:12:19Z",
     "version": "0"
 }
-
 ```
 
 ## Registering event rules
+<a name="eventbridge-event-rule-drs"></a>
 
 You create EventBridge rules that capture events coming from your Elastic Disaster Recovery resources.
 
-###### Note
+**Note**  
+When you use the AWS Management Console to create an event rule, the console automatically adds the IAM permissions necessary to grant EventBridge Event permissions to call your desired target type. If you are creating an event rule using the AWS CLI, you must grant permissions explicitly. For more information, see [Event Patterns ](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) in the *Amazon EventBridge User Guide*. 
 
-When you use the AWS Management Console to create an event rule, the console automatically adds the IAM
-permissions necessary to grant EventBridge Event permissions to call your desired target type. If
-you are creating an event rule using the AWS CLI, you must grant permissions explicitly. For
-more information, see [Event Patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _Amazon EventBridge User Guide_.
+**To create Amazon EventBridge rules**
 
-###### To create Amazon EventBridge rules
+1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
-2. Using the following values, create an EventBridge rule that captures events coming from Elastic Disaster Recovery
-   resources:
+1. Using the following values, create an EventBridge rule that captures events coming from Elastic Disaster Recovery resources: 
+   + For **Rule type**, choose **Rule with an event pattern**. 
+   + For **Event source**, choose **Other**. 
+   + For **Event pattern**, choose **Custom patterns (JSON editor)**, and paste one of the following event pattern examples into the text area: 
+     + To catch all Elastic Disaster Recovery events:
 
-   - For **Rule type**, choose **Rule with an event
-     pattern**.
-   - For **Event source**, choose **Other**.
-   - For **Event pattern**, choose **Custom patterns (JSON
-     editor)**, and paste one of the following event pattern examples into the
-     text area:
+       ```
+       {
+       	"source": [
+       		"aws.drs"
+       	]
+       }
+       ```
+     + To catch all Recovery instance failback state changes:
 
-     - To catch all Elastic Disaster Recovery events:
+       ```
+       {
+       	"detail-type": [
+       		"DRS Recovery Instance Failback State Change"
+       	],
+       	"source": [
+       		"aws.drs"
+       	]
+       }
+       ```
+     + To catch all events relating to a given Source server:
 
-     ```
-     {
-     	"source": [
-     		"aws.drs"
-     	]
-     }
+       ```
+       {
+       	"source": [
+       		"aws.drs"
+       	],
+       	"resources": [
+       		"arn:aws:drs:us-west-2:111122223333:source-server/s-12345678901234567"
+       	]
+       }
+       ```
+   + For **Target types**, choose **AWS service**, and for **Select a target** choose your desired target. 
 
-     ```
-     - To catch all Recovery instance failback state changes:
-
-     ```
-     {
-     	"detail-type": [
-     		"DRS Recovery Instance Failback State Change"
-     	],
-     	"source": [
-     		"aws.drs"
-     	]
-     }
-     ```
-     - To catch all events relating to a given Source server:
-
-     ```
-     {
-     	"source": [
-     		"aws.drs"
-     	],
-     	"resources": [
-     		"arn:aws:drs:us-west-2:111122223333:source-server/s-12345678901234567"
-     	]
-     }
-     ```
-
-   - For **Target types**, choose **AWS service**, and
-     for
-     **Select a target**
-     choose your desired target.
-     For details about creating rules, see
-     [Creating Amazon EventBridge rules that react
-     to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
-     in the **Amazon EventBridge User Guide**.
+   For details about creating rules, see [Creating Amazon EventBridge rules that react to events ](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) in the **Amazon EventBridge User Guide**. 

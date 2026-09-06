@@ -1,269 +1,185 @@
+
+
 # AWS Elastic Disaster Recovery Service Release Notes
+<a name="drs-service-release-notes"></a>
 
 ## August 2026
-
-- AWS Elastic Disaster Recovery now supports **recovery plans**. With
-  recovery plans, you can recover groups of source servers in a defined order,
-  with wait times between groups. A recovery plan contains up to 20 ordered steps
-  and up to 100
-  source servers. Each server step recovers its servers in parallel and must
-  finish before the next step begins, and each server can be marked critical or
-  optional to control whether its failure stops the plan. You can run a plan as a
-  drill or as a recovery, follow its progress per step and per server, and retry,
-  skip, or cancel steps while it runs. Recovery plans are available in the
-  AWS Elastic Disaster Recovery console and through the AWS Elastic Disaster Recovery API. For more information, see
-  [Orchestrating recovery with recovery
-  plans](recovery-plans.md "recovery-plans.md").
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  We updated the AWSElasticDisasterRecoveryReadOnlyAccess policy with new
-  read-only permissions for recovery plans and recovery plan executions.
-- AWS Elastic Disaster Recovery automatically preserves Unified Extensible Firmware Interface
-  (UEFI) boot mode for Linux source servers that boot using UEFI firmware.
-  Previously, AWS Elastic Disaster Recovery converted Linux UEFI source servers to legacy
-  Basic Input/Output System (BIOS) during recovery and drill launches. With this
-  change, your recovered instances launch with the same UEFI boot mode as
-  your source servers. This eliminates the need for post-launch boot
-  configuration adjustments.
-- With AWS Elastic Disaster Recovery, you can now protect source servers that have volumes of up
-  to 64 TiB, increased from 16 TiB. To replicate a volume larger than 16 TiB,
-  choose the gp3 staging disk type.
-- For gp3 staging disks that you configure manually, you can now provision
-  up to 80,000 IOPS and 2,000 MiB/s of throughput, increased from 16,000 IOPS
-  and 1,000 MiB/s.
+<a name="release-notes-august-2026"></a>
++ AWS Elastic Disaster Recovery now supports **recovery plans**. With recovery plans, you can recover groups of source servers in a defined order, with wait times between groups. A recovery plan contains up to 20 ordered steps and up to 100 source servers. Each server step recovers its servers in parallel and must finish before the next step begins, and each server can be marked critical or optional to control whether its failure stops the plan. You can run a plan as a drill or as a recovery, follow its progress per step and per server, and retry, skip, or cancel steps while it runs. Recovery plans are available in the AWS Elastic Disaster Recovery console and through the AWS Elastic Disaster Recovery API. For more information, see [Orchestrating recovery with recovery plans](recovery-plans.md).
++ [AWS managed policy update](security-iam-awsmanpol.md) – We updated the AWSElasticDisasterRecoveryReadOnlyAccess policy with new read-only permissions for recovery plans and recovery plan executions.
++ AWS Elastic Disaster Recovery automatically preserves Unified Extensible Firmware Interface (UEFI) boot mode for Linux source servers that boot using UEFI firmware. Previously, AWS Elastic Disaster Recovery converted Linux UEFI source servers to legacy Basic Input/Output System (BIOS) during recovery and drill launches. With this change, your recovered instances launch with the same UEFI boot mode as your source servers. This eliminates the need for post-launch boot configuration adjustments.
++ With AWS Elastic Disaster Recovery, you can now protect source servers that have volumes of up to 64 TiB, increased from 16 TiB. To replicate a volume larger than 16 TiB, choose the gp3 staging disk type.
++ For gp3 staging disks that you configure manually, you can now provision up to 80,000 IOPS and 2,000 MiB/s of throughput, increased from 16,000 IOPS and 1,000 MiB/s.
 
 ## July 2026
-
-- With AWS Elastic Disaster Recovery, you can now choose a **Recovery mode** in your launch configurations. Choose **Fast** to skip the conversion process and reduce recovery time. This mode launches instances directly from replicated snapshots. Choose **Optimal** (default) to run the full conversion process before launch. To use Fast recovery mode, you must have version 6.42.20 or later of the agent. For more information, see [Editing the default AWS DRS launch settings](editing-launch-settings.md "editing-launch-settings.md").
-- AWS Elastic Disaster Recovery now preserves and passes through `VolumeInitializationRate` values set on EC2 launch template block device mappings during drill and recovery launches. This accelerates Amazon EBS volume initialization without requiring AWS Elastic Disaster Recovery configuration changes. For more information, see [Key considerations for EC2 launch templates](ec2-key-considerations.md "ec2-key-considerations.md").
-- AWS Elastic Disaster Recovery launched in the following AWS Regions: Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Taiwan), Asia Pacific (Thailand), Canada West (Calgary), and Mexico (Central).
+<a name="release-notes-july-2026"></a>
++ With AWS Elastic Disaster Recovery, you can now choose a **Recovery mode** in your launch configurations. Choose **Fast** to skip the conversion process and reduce recovery time. This mode launches instances directly from replicated snapshots. Choose **Optimal** (default) to run the full conversion process before launch. To use Fast recovery mode, you must have version 6.42.20 or later of the agent. For more information, see [Editing the default AWS DRS launch settings](editing-launch-settings.md).
++ AWS Elastic Disaster Recovery now preserves and passes through `VolumeInitializationRate` values set on EC2 launch template block device mappings during drill and recovery launches. This accelerates Amazon EBS volume initialization without requiring AWS Elastic Disaster Recovery configuration changes. For more information, see [Key considerations for EC2 launch templates](ec2-key-considerations.md).
++ AWS Elastic Disaster Recovery launched in the following AWS Regions: Asia Pacific (Malaysia), Asia Pacific (New Zealand), Asia Pacific (Taiwan), Asia Pacific (Thailand), Canada West (Calgary), and Mexico (Central).
 
 ## June 2026
-
-- Added support for Debian 12 and Debian 13 as source server operating systems. Debian 13 requires AWS Elastic Disaster Recovery Agent version 6.42.21 or later. See [Supported Linux operating systems](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md").
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updated policies AWSElasticDisasterRecoveryConsoleFullAccess\_v2 and AWSElasticDisasterRecoveryLaunchActionsPolicy to add permissions for SSM documents with the `AWSDRS-` prefix.
+<a name="release-notes-june-2026"></a>
++ Added support for Debian 12 and Debian 13 as source server operating systems. Debian 13 requires AWS Elastic Disaster Recovery Agent version 6.42.21 or later. See [Supported Linux operating systems](Supported-Operating-Systems-Linux.md).
++ [AWS managed policy update](security-iam-awsmanpol.md) – Updated policies AWSElasticDisasterRecoveryConsoleFullAccess\_v2 and AWSElasticDisasterRecoveryLaunchActionsPolicy to add permissions for SSM documents with the `AWSDRS-` prefix.
 
 ## April 2025
-
-- AWS Elastic Disaster Recovery is now authorized for Department of Defense Cloud Computing
-  Security Requirements Guide Impact Levels 4 and 5 (DoD CC SRG IL4 and IL5)
-  in the AWS GovCloud (US-East and US-West) Regions.
+<a name="release-notes-april-2025"></a>
++  AWS Elastic Disaster Recovery is now authorized for Department of Defense Cloud Computing Security Requirements Guide Impact Levels 4 and 5 (DoD CC SRG IL4 and IL5) in the AWS GovCloud (US-East and US-West) Regions. 
 
 ## February 2025
-
-- Added support for RHEL 9.5.
-- Added ability to add tags to Amazon EBS snapshots.
+<a name="release-notes-february-2025"></a>
++  Added support for RHEL 9.5. 
++ Added ability to add tags to Amazon EBS snapshots.
 
 ## October 2024
-
-- Added support for Oracle 9.0-9.4.
-- You can use AWS Elastic Disaster Recovery with workloads that require
-  FedRAMP High categorization level in the AWS GovCloud (US-East and US-West) Regions. Learn more in [Federal Risk and Authorization Management Program](https://aws.amazon.com/compliance/fedramp/ "https://aws.amazon.com/compliance/fedramp/").
+<a name="release-notes-october-2024"></a>
++ Added support for Oracle 9.0-9.4.
++ You can use AWS Elastic Disaster Recovery with workloads that require FedRAMP High categorization level in the AWS GovCloud (US-East and US-West) Regions. Learn more in [Federal Risk and Authorization Management Program](https://aws.amazon.com/compliance/fedramp/). 
 
 ## September 2024
-
-- AWS Elastic Disaster Recovery now supports recovery to AWS Local Zones.
+<a name="release-notes-september-2024"></a>
++ AWS Elastic Disaster Recovery now supports recovery to AWS Local Zones.
 
 ## July 2024
-
-- AWS Elastic Disaster Recovery now supports [Flexible Instance Types](flexible-instance-types.md "flexible-instance-types.md").
-- [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Created managed policy revisions to support FlexibleInstances feature for DRS. The following managed policies were updated:
-
-  - AWSElasticDisasterRecoveryConsoleFullAccess\_v2
-  - AWSElasticDisasterRecoveryReadOnlyAccess
+<a name="release-notes-july-2024"></a>
++ AWS Elastic Disaster Recovery now supports [Flexible Instance Types](https://docs.aws.amazon.com/drs/latest/userguide/flexible-instance-types.html). 
++ [AWS managed policy updates](security-iam-awsmanpol.md) – Created managed policy revisions to support FlexibleInstances feature for DRS. The following managed policies were updated: 
+  + AWSElasticDisasterRecoveryConsoleFullAccess\_v2
+  + AWSElasticDisasterRecoveryReadOnlyAccess
 
 ## May 2024
-
-- AWS Elastic Disaster Recovery now supports protecting Source Servers with up to 60 volumes.
+<a name="release-notes-may-2024"></a>
++ AWS Elastic Disaster Recovery now supports protecting Source Servers with up to 60 volumes. 
 
 ## April 2024
-
-- AWS Elastic Disaster Recovery now supports AWS Outposts. For more information see:
-  [Working with AWS DRS and Outposts.](outposts.md "outposts.md")
-- [Source Networks](source-networks.md "source-networks.md") –
-  Added support for replicating Security Groups with references to other Security Groups.
+<a name="release-notes-april-2024"></a>
++ AWS Elastic Disaster Recovery now supports AWS Outposts. For more information see: [ Working with AWS DRS and Outposts. ](https://docs.aws.amazon.com/drs/latest/userguide/outposts.html) 
++ [Source Networks](source-networks.md) – Added support for replicating Security Groups with references to other Security Groups. 
 
 ## January 2024
-
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updated AWSElasticDisasterRecoveryServiceRolePolicy and AWSElasticDisasterRecoveryCrossAccountReplicationPolicy policies to support replicating marketplace licenses to launched instances.
-- [Source Networks](source-networks.md "source-networks.md") –
-  Added support for replicating Security Groups with Prefix Lists.
+<a name="release-notes-january-2024"></a>
++ [AWS managed policy update](security-iam-awsmanpol.md) – Updated AWSElasticDisasterRecoveryServiceRolePolicy and AWSElasticDisasterRecoveryCrossAccountReplicationPolicy policies to support replicating marketplace licenses to launched instances. 
++ [Source Networks](source-networks.md) – Added support for replicating Security Groups with Prefix Lists. 
 
 ## November 2023
-
-- AWS Elastic Disaster Recovery is now generally available in the AWS GovCloud (US) Regions.
-  This launch gives customers in both the public and commercial sectors, as well as their partners,
-  access to AWS DRS capabilities in the AWS GovCloud (US) Regions.
-- Introduced disaster recovery drill validation automation for AWS Elastic Disaster Recovery, this allows you to automate
-  validations when launching EC2 instances for recovery and drills.
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  updated AWSElasticDisasterRecoveryReadOnlyAccess to support describing additional post-launch actions.
-- [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") – Added
-  new policy: AWSElasticDisasterRecoveryConsoleFullAccess\_v2.
-- [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Created new revisions to support DRS in AWS GovCloud and added Statement ID (SID) to managed policy
-  statements. The following managed policies were updated:
-
-  - AWSElasticDisasterRecoveryAgentPolicy
-  - AWSElasticDisasterRecoveryAgentInstallationPolicy
-  - AWSElasticDisasterRecoveryEc2InstancePolicy
-  - AWSElasticDisasterRecoveryConsoleFullAccess
-  - AWSElasticDisasterRecoveryLaunchActionsPolicy
-  - AWSElasticDisasterRecoveryNetworkReplicationPolicy
-  - AWSElasticDisasterRecoveryRecoveryInstancePolicy
-  - AWSElasticDisasterRecoveryServiceRolePolicy
-  - AWSElasticDisasterRecoveryConversionServerPolicy
-  - AWSElasticDisasterRecoveryFailbackPolicy
-  - AWSElasticDisasterRecoveryFailbackInstallationPolicy
-  - AWSElasticDisasterRecoveryStagingAccountPolicy\_v2
-  - AWSElasticDisasterRecoveryStagingAccountPolicy
-  - AWSElasticDisasterRecoveryReplicationServerPolicy
-
-- [New revision of AWSElasticDisasterRecoveryCrossAccountReplicationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryCrossAccountReplicationPolicy.md "security-iam-awsmanpol-AWSElasticDisasterRecoveryCrossAccountReplicationPolicy.md") policy to support DRS in GovCloud
+<a name="release-notes-november-2023"></a>
++ AWS Elastic Disaster Recovery is now generally available in the AWS GovCloud (US) Regions. This launch gives customers in both the public and commercial sectors, as well as their partners, access to AWS DRS capabilities in the AWS GovCloud (US) Regions.
++ Introduced disaster recovery drill validation automation for AWS Elastic Disaster Recovery, this allows you to automate validations when launching EC2 instances for recovery and drills.
++ [AWS managed policy update](security-iam-awsmanpol.md) – updated AWSElasticDisasterRecoveryReadOnlyAccess to support describing additional post-launch actions.
++ [New AWS managed policy](security-iam-awsmanpol.md) – Added new policy: AWSElasticDisasterRecoveryConsoleFullAccess\_v2.
++ [AWS managed policy updates](security-iam-awsmanpol.md) – Created new revisions to support DRS in AWS GovCloud and added Statement ID (SID) to managed policy statements. The following managed policies were updated: 
+  + AWSElasticDisasterRecoveryAgentPolicy
+  + AWSElasticDisasterRecoveryAgentInstallationPolicy
+  + AWSElasticDisasterRecoveryEc2InstancePolicy
+  + AWSElasticDisasterRecoveryConsoleFullAccess
+  + AWSElasticDisasterRecoveryLaunchActionsPolicy
+  + AWSElasticDisasterRecoveryNetworkReplicationPolicy
+  + AWSElasticDisasterRecoveryRecoveryInstancePolicy
+  + AWSElasticDisasterRecoveryServiceRolePolicy
+  + AWSElasticDisasterRecoveryConversionServerPolicy
+  + AWSElasticDisasterRecoveryFailbackPolicy
+  + AWSElasticDisasterRecoveryFailbackInstallationPolicy
+  + AWSElasticDisasterRecoveryStagingAccountPolicy\_v2
+  + AWSElasticDisasterRecoveryStagingAccountPolicy
+  + AWSElasticDisasterRecoveryReplicationServerPolicy
++ [ New revision of AWSElasticDisasterRecoveryCrossAccountReplicationPolicy](security-iam-awsmanpol-AWSElasticDisasterRecoveryCrossAccountReplicationPolicy.md) policy to support DRS in GovCloud
 
 ## October 2023
-
-- Introduced a new feature: Recover into existing instance, allowing you to set an existing EC2 instance as the target of a drill, recovery or failback launch, instead of launching a new instance.
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updated policies AWSElasticDisasterRecoveryConsoleFullAccess and AWSElasticDisasterRecoveryLaunchActionsPolicy to support launching into existing instance.
+<a name="release-notes-october-2023"></a>
++  Introduced a new feature: Recover into existing instance, allowing you to set an existing EC2 instance as the target of a drill, recovery or failback launch, instead of launching a new instance. 
++ [AWS managed policy update](security-iam-awsmanpol.md) – Updated policies AWSElasticDisasterRecoveryConsoleFullAccess and AWSElasticDisasterRecoveryLaunchActionsPolicy to support launching into existing instance.
 
 ## September 2023
-
-- Introduced a new feature: [Post-launch actions framework](post-launch-action-settings-overview.md "post-launch-action-settings-overview.md") for automating any action needed to be performed on recovery instances after launch.
-- Service launch in Israel (Tel Aviv) Region.
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  added policies [AWSElasticDisasterRecoveryRecoveryInstancePolicy](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2Fservice-role%2FAWSElasticDisasterRecoveryRecoveryInstancePolicy "https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2Fservice-role%2FAWSElasticDisasterRecoveryRecoveryInstancePolicy") and AWSElasticDisasterRecoveryLaunchActionsPolicy to support post-launch actions.
+<a name="release-notes-september-2023"></a>
++  Introduced a new feature: [Post-launch actions framework](post-launch-action-settings-overview.md) for automating any action needed to be performed on recovery instances after launch. 
++  Service launch in Israel (Tel Aviv) Region. 
++ [AWS managed policy update](security-iam-awsmanpol.md) – added policies [AWSElasticDisasterRecoveryRecoveryInstancePolicy](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2Fservice-role%2FAWSElasticDisasterRecoveryRecoveryInstancePolicy) and AWSElasticDisasterRecoveryLaunchActionsPolicy to support post-launch actions.
 
 ## August 2023
-
-- Added support for Amazon Linux 2023.
-- [Source Networks](source-networks.md "source-networks.md") –
-  Added support for replicating Route Tables.
+<a name="release-notes-august-2023"></a>
++ Added support for Amazon Linux 2023. 
++ [Source Networks](source-networks.md) – Added support for replicating Route Tables. 
 
 ## July 2023
-
-- Service launch in the following regions: Europe (Zurich), Europe (Spain),
-  Asia Pacific (Hyderabad), Australia (Melbourne), and Middle East (UAE) regions.
-- Introduced a new feature: In-AWS Right Sizing,
-  allowing you to easily replicate your EC2 instance and EBS volume types between AWS regions.
+<a name="release-notes-july-2023"></a>
++ Service launch in the following regions: Europe (Zurich), Europe (Spain), Asia Pacific (Hyderabad), Australia (Melbourne), and Middle East (UAE) regions. 
++ Introduced a new feature: In-AWS Right Sizing, allowing you to easily replicate your EC2 instance and EBS volume types between AWS regions. 
 
 ## June 2023
-
-- Introduced a new feature: [Trusted accounts](trusted-accounts.md "trusted-accounts.md"), allowing to quickly create roles
-  for multiple accounts and providing visibility into existing permissions.
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  updated AWSElasticDisasterRecoveryAgentInstallationPolicy to support network replication and recovery.
+<a name="release-notes-june-2023"></a>
++ Introduced a new feature: [Trusted accounts](trusted-accounts.md), allowing to quickly create roles for multiple accounts and providing visibility into existing permissions.
++ [AWS managed policy update](security-iam-awsmanpol.md) – updated AWSElasticDisasterRecoveryAgentInstallationPolicy to support network replication and recovery.
 
 ## May 2023
-
-- Introduced a new feature: [Network replication configurations](source-networks.md "source-networks.md"), allowing you to
-  easily replicate your existing source network configurations, saving time and resources
-  and preventing security risks.
-- [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") – Added
-  new policies: AWSElasticDisasterRecoveryCrossAccountReplicationPolicy policy and
-  AWSElasticDisasterRecoveryNetworkReplicationPolicy policy.
-- [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updated the AWSElasticDisasterRecoveryRecoveryInstancePolicy policy, the
-  AWSElasticDisasterRecoveryEc2InstancePolicy policy, the
-  AWSElasticDisasterRecoveryAgentPolicy policy, the
-  AWSElasticDisasterRecoveryServiceRolePolicy policy, and the
-  AWSElasticDisasterRecoveryConsoleFullAccess policy.
+<a name="release-notes-may-2023"></a>
++  Introduced a new feature: [Network replication configurations](source-networks.md), allowing you to easily replicate your existing source network configurations, saving time and resources and preventing security risks.
++ [New AWS managed policy](security-iam-awsmanpol.md) – Added new policies: AWSElasticDisasterRecoveryCrossAccountReplicationPolicy policy and AWSElasticDisasterRecoveryNetworkReplicationPolicy policy.
++ [AWS managed policy updates](security-iam-awsmanpol.md) – Updated the AWSElasticDisasterRecoveryRecoveryInstancePolicy policy, the AWSElasticDisasterRecoveryEc2InstancePolicy policy, the AWSElasticDisasterRecoveryAgentPolicy policy, the AWSElasticDisasterRecoveryServiceRolePolicy policy, and the AWSElasticDisasterRecoveryConsoleFullAccess policy.
 
 ## April 2023
-
-- Introducing a new feature: Launch settings management, allowing to configure default launch settings
-  that apply to newly added source servers and the ability to update multiple servers’ settings.
-- [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  AWSElasticDisasterRecoveryAgentPolicy and
-  AWSElasticDisasterRecoveryConsoleFullAccess.
+<a name="release-notes-april-2023"></a>
++ Introducing a new feature: Launch settings management, allowing to configure default launch settings that apply to newly added source servers and the ability to update multiple servers’ settings.
++ [AWS managed policy updates](security-iam-awsmanpol.md) – AWSElasticDisasterRecoveryAgentPolicy and AWSElasticDisasterRecoveryConsoleFullAccess.
 
 ## March 2023
-
-- Introduced a new feature: automated replication of new disks
-  Introduced a new feature: support for Oracle ASM Filter Driver
+<a name="release-notes-march-2023"></a>
++ Introduced a new feature: automated replication of new disks Introduced a new feature: support for Oracle ASM Filter Driver 
 
 ## February 2023
-
-- Introduced a new feature: MAP 2.0 Auto Tagging
+<a name="release-notes-february-2023"></a>
++ Introduced a new feature: MAP 2.0 Auto Tagging 
 
 ## December 2022
-
-- [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Added the AWSElasticDisasterRecoveryStagingAccountPolicy\_v2 policy.
+<a name="release-notes-december-2022"></a>
++ [New AWS managed policy](security-iam-awsmanpol.md) – Added the AWSElasticDisasterRecoveryStagingAccountPolicy\_v2 policy.
 
 ## November 2022
-
-- Added support for cross-Region failback and cross-Availability-Zone recovery.
-  Learn more about [cross-Region
-  failback](failback-failover-region-region.md "failback-failover-region-region.md") and [cross-Availability-Zone recovery](failback-failover-cross-availability-zone-failback.md "failback-failover-cross-availability-zone-failback.md").
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  updated AWSElasticDisasterRecoveryAgentInstallationPolicy for Replication Agent
-  reinstallation on recovery instance.
+<a name="release-notes-november-2022"></a>
++ Added support for cross-Region failback and cross-Availability-Zone recovery. Learn more about [cross-Region failback](failback-failover-region-region.md) and [cross-Availability-Zone recovery](failback-failover-cross-availability-zone-failback.md). 
++ [AWS managed policy update](security-iam-awsmanpol.md) – updated AWSElasticDisasterRecoveryAgentInstallationPolicy for Replication Agent reinstallation on recovery instance.
 
 ## October 2022
-
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  AWSElasticDisasterRecoveryRecoveryInstancePolicy.
+<a name="release-notes-october-2022"></a>
++ [AWS managed policy update](security-iam-awsmanpol.md) – AWSElasticDisasterRecoveryRecoveryInstancePolicy.
 
 ## September 2022
-
-- Service launch in Asia Pacific (Jakarta) Region.
+<a name="release-notes-september-2022"></a>
++ Service launch in Asia Pacific (Jakarta) Region.
 
 ## June 2022
-
-- Service launch in the following regions: US West (N. California), Africa (Cape
-  Town), Asia Pacific (Hong Kong), Asia Pacific (Mumbai), Asia Pacific (Osaka),
-  Asia Pacific (Seoul), Canada (Central), Europe (Milan), Europe (Paris), Europe
-  (Stockholm), Middle East (Bahrain), and South America (São Paulo).
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updated several policies: AWSElasticDisasterRecoveryAgentInstallationPolicy, AWSElasticDisasterRecoveryFailbackInstallationPolicy, AWSElasticDisasterRecoveryServiceRolePolicy, and AWSElasticDisasterRecoveryReplicationServerPolicy.
+<a name="release-notes-june-2022"></a>
++ Service launch in the following regions: US West (N. California), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Mumbai), Asia Pacific (Osaka), Asia Pacific (Seoul), Canada (Central), Europe (Milan), Europe (Paris), Europe (Stockholm), Middle East (Bahrain), and South America (São Paulo).
++ [AWS managed policy update](security-iam-awsmanpol.md) – Updated several policies: AWSElasticDisasterRecoveryAgentInstallationPolicy, AWSElasticDisasterRecoveryFailbackInstallationPolicy, AWSElasticDisasterRecoveryServiceRolePolicy, and AWSElasticDisasterRecoveryReplicationServerPolicy.
 
 ## May 2022
-
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updates the AWSElasticDisasterRecoveryConsoleFullAccess policy and the AWSElasticDisasterRecoveryReadOnlyAccess policy.
+<a name="release-notes-may-2022"></a>
++ [AWS managed policy update](security-iam-awsmanpol.md) – Updates the AWSElasticDisasterRecoveryConsoleFullAccess policy and the AWSElasticDisasterRecoveryReadOnlyAccess policy.
 
 ## April 2022
-
-- [AWS managed policy update](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Updates the AWSElasticDisasterRecoveryAgentPolicy policy.
+<a name="release-notes-april-2022"></a>
++ [AWS managed policy update](security-iam-awsmanpol.md) – Updates the AWSElasticDisasterRecoveryAgentPolicy policy.
 
 ## March 2022
-
-- Added support for no rescan for all Windows operating systems and certain Linux operating
-  systems.
-  [Learn more about the no-rescan feature.](Agent-Related-FAQ.md#agent-no-rescan "Agent-Related-FAQ.md#agent-no-rescan")
+<a name="release-notes-march-2022"></a>
++ Added support for no rescan for all Windows operating systems and certain Linux operating systems. [Learn more about the no-rescan feature.](Agent-Related-FAQ.md#agent-no-rescan) 
 
 ## February 2022
-
-- [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Added the AWSElasticDisasterRecoveryStagingAccountPolicy.
+<a name="release-notes-february-2022"></a>
++ [New AWS managed policy](security-iam-awsmanpol.md) – Added the AWSElasticDisasterRecoveryStagingAccountPolicy.
 
 ## January 2022
-
-- Added support for failback automation.
+<a name="release-notes-january-2022"></a>
++ Added support for failback automation. 
 
 ## November 2021
-
-- [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
-  Added several policies:
-
-  - AWSElasticDisasterRecoveryStagingAccountPolicy
-
-  - AWSElasticDisasterRecoveryAgentPolicy
-
-  - AWSElasticDisasterRecoveryConversionServerPolicy
-
-  - AWSElasticDisasterRecoveryFailbackPolicy
-
-  - AWSElasticDisasterRecoveryFailbackInstallationPolicy
-
-  - AWSElasticDisasterRecoveryConsoleFullAccess
-
-  - AWSElasticDisasterRecoveryReplicationServerPolicy
-
-  - AWSElasticDisasterRecoveryRecoveryInstancePolicy
-
-  - AWSElasticDisasterRecoveryServiceRolePolicy
+<a name="release-notes-november-2021"></a>
++ [New AWS managed policy](security-iam-awsmanpol.md) – Added several policies:
+  + AWSElasticDisasterRecoveryStagingAccountPolicy
+  + AWSElasticDisasterRecoveryAgentPolicy
+  + AWSElasticDisasterRecoveryConversionServerPolicy
+  + AWSElasticDisasterRecoveryFailbackPolicy
+  + AWSElasticDisasterRecoveryFailbackInstallationPolicy
+  + AWSElasticDisasterRecoveryConsoleFullAccess
+  + AWSElasticDisasterRecoveryReplicationServerPolicy
+  + AWSElasticDisasterRecoveryRecoveryInstancePolicy
+  + AWSElasticDisasterRecoveryServiceRolePolicy

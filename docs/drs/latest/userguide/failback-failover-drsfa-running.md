@@ -1,26 +1,29 @@
-# Running the DRSFA client
 
-Navigate to the `drs_failback_automation_client` directory, set the
-required environment variables, and run the client.
+
+# Running the DRSFA client
+<a name="failback-failover-drsfa-running"></a>
+
+Navigate to the `drs_failback_automation_client` directory, set the required environment variables, and run the client.
 
 The following table describes the environment variables:
 
-| Variable                       | Required    | Description                                                          |
-| ------------------------------ | ----------- | -------------------------------------------------------------------- |
-| `AWS_REGION`                   | Yes         | The AWS Region where your Recovery instances are located.            |
-| `AWS_ACCESS_KEY`               | Yes         | The AWS access key for the DRSFA client.                             |
-| `AWS_SECRET_ACCESS_KEY`        | Yes         | The AWS secret access key for the DRSFA client.                      |
-| `AWS_SESSION_TOKEN`            | Conditional | Required when using temporary credentials.                           |
-| `DRS_FAILBACK_CLIENT_PASSWORD` | Yes         | The password you set in the `drs_failback_automation_seed.iso` file. |
-| `VCENTER_HOST`                 | Yes         | The IP address of the vCenter host.                                  |
-| `VCENTER_PORT`                 | Yes         | The vCenter port (usually 443).                                      |
-| `VCENTER_USER`                 | Yes         | The vCenter username (for example, `admin@vsphere.local`).           |
-| `VCENTER_PASSWORD`             | Yes         | The vCenter password.                                                |
-| `VCENTER_DATASTORE`            | Yes         | The datastore where the Failback Client ISO and seed ISO are stored. |
-| `VCENTER_FAILBACK_CLIENT_PATH` | Yes         | Path to `aws-failback-livecd-64bit.iso` in the datastore.            |
-| `VCENTER_SEED_ISO_PATH`        | Yes         | Path to `drs_failback_automation_seed.iso` in the datastore.         |
-| `DISABLE_SSL_VERIFICATION`     | No          | Set to `true` to deactivate SSL verification. Active by default.     |
-| `THREAD_POOL_SIZE`             | No          | Number of servers to process concurrently. Default is 10.            |
+
+| Variable | Required | Description | 
+| --- | --- | --- | 
+| AWS\_REGION | Yes | The AWS Region where your Recovery instances are located. | 
+| AWS\_ACCESS\_KEY | Yes | The AWS access key for the DRSFA client. | 
+| AWS\_SECRET\_ACCESS\_KEY | Yes | The AWS secret access key for the DRSFA client. | 
+| AWS\_SESSION\_TOKEN | Conditional | Required when using temporary credentials. | 
+| DRS\_FAILBACK\_CLIENT\_PASSWORD | Yes | The password you set in the drs\_failback\_automation\_seed.iso file. | 
+| VCENTER\_HOST | Yes | The IP address of the vCenter host. | 
+| VCENTER\_PORT | Yes | The vCenter port (usually 443). | 
+| VCENTER\_USER | Yes | The vCenter username (for example, admin@vsphere.local). | 
+| VCENTER\_PASSWORD | Yes | The vCenter password. | 
+| VCENTER\_DATASTORE | Yes | The datastore where the Failback Client ISO and seed ISO are stored. | 
+| VCENTER\_FAILBACK\_CLIENT\_PATH | Yes | Path to aws-failback-livecd-64bit.iso in the datastore. | 
+| VCENTER\_SEED\_ISO\_PATH | Yes | Path to drs\_failback\_automation\_seed.iso in the datastore. | 
+| DISABLE\_SSL\_VERIFICATION | No | Set to true to deactivate SSL verification. Active by default. | 
+| THREAD\_POOL\_SIZE | No | Number of servers to process concurrently. Default is 10. | 
 
 You can set the variables inline or export them individually.
 
