@@ -1,19 +1,20 @@
-# IVS Chat Client Messaging SDK: React & React Native Best Practices
 
-This document describes the most important practices of using the Amazon IVS Chat Messaging
-SDK for React and React Native. This information should enable you to build typical chat
-functionality inside a React app, and give you the background you need to dive deeper into the
-more advanced parts of the IVS Chat Messaging SDK.
+
+# IVS Chat Client Messaging SDK: React & React Native Best Practices
+<a name="chat-sdk-react-best-practices"></a>
+
+This document describes the most important practices of using the Amazon IVS Chat Messaging SDK for React and React Native. This information should enable you to build typical chat functionality inside a React app, and give you the background you need to dive deeper into the more advanced parts of the IVS Chat Messaging SDK.
 
 ## Creating a ChatRoom Initializer Hook
+<a name="chatroom-initializer-hook"></a>
 
-The `ChatRoom` class contains core chat methods and listeners for managing
-connection state and listening for events like message received and message deleted. Here, we
-show how to properly store chat instances in a hook.
+The `ChatRoom` class contains core chat methods and listeners for managing connection state and listening for events like message received and message deleted. Here, we show how to properly store chat instances in a hook.
 
 ### Implementation
+<a name="chatroom-initializer-hook-implementation"></a>
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // useChatRoom.ts
@@ -28,7 +29,8 @@ export const useChatRoom = (config: ChatRoomConfig) => {
 };
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 import React from 'react';
@@ -41,14 +43,14 @@ export const useChatRoom = (config) => {
 };
 ```
 
-Note: We don't use the `dispatch` method from the `setState` hook,
-because you can't update configuration parameters on the fly. The SDK creates an instance
-once, and it is not possible to update the token provider.
+------
 
-**Important**: Use the `ChatRoom` initializer
-hook once to initialize a new chat-room instance.
+Note: We don't use the `dispatch` method from the `setState` hook, because you can't update configuration parameters on the fly. The SDK creates an instance once, and it is not possible to update the token provider.
+
+**Important**: Use the `ChatRoom` initializer hook once to initialize a new chat-room instance.
 
 ### Example
+<a name="chatroom-initializer-hook-example"></a>
 
 **TypeScript/JavaScript**:
 
@@ -73,12 +75,15 @@ const MyChatScreen = () => {
 ```
 
 ### Listening for Connection State
+<a name="chatroom-initializer-hook-connection-state"></a>
 
 Optionally, you can subscribe to connection-state updates in your chat-room hook.
 
 #### Implementation
+<a name="connection-state-implementation"></a>
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // useChatRoom.ts
@@ -115,7 +120,8 @@ export const useChatRoom = (config: ChatRoomConfig) => {
 };
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // useChatRoom.js
@@ -152,14 +158,18 @@ export const useChatRoom = (config) => {
 };
 ```
 
-## ChatRoom Instance Provider
+------
 
-To use the hook in other components (to avoid prop drilling), you can create a chat-room
-provider using React `context`.
+## ChatRoom Instance Provider
+<a name="chatroom-instance-provider"></a>
+
+To use the hook in other components (to avoid prop drilling), you can create a chat-room provider using React `context`.
 
 ### Implementation
+<a name="chatroom-instance-provider-implementation"></a>
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // ChatRoomContext.tsx
@@ -182,7 +192,8 @@ export const useChatRoomContext = () => {
 export const ChatRoomProvider = ChatRoomContext.Provider;
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // ChatRoomContext.jsx
@@ -205,15 +216,14 @@ export const useChatRoomContext = () => {
 export const ChatRoomProvider = ChatRoomContext.Provider;
 ```
 
+------
+
 ### Example
+<a name="chatroom-instance-provider-example"></a>
 
-After creating `ChatRoomProvider`, you can consume your instance with
-`useChatRoomContext`.
+After creating `ChatRoomProvider`, you can consume your instance with `useChatRoomContext`.
 
-**Important**: Put the provider in the root level only if
-you need access to the `context` between the chat screen and the other components
-in the middle, to avoid unnecessary re-renders if you are listening for connections.
-Otherwise, put the provider as close as possible to the chat screen.
+**Important**: Put the provider in the root level only if you need access to the `context` between the chat screen and the other components in the middle, to avoid unnecessary re-renders if you are listening for connections. Otherwise, put the provider as close as possible to the chat screen.
 
 **TypeScript/JavaScript**:
 
@@ -248,20 +258,17 @@ const MyChatScreen = () => {
 ```
 
 ## Creating a Message Listener
+<a name="message-listener"></a>
 
-To stay up to date with all incoming messages, you should subscribe to
-`message` and `deleteMessage` events. Here is some code that provides
-chat messages for your components.
+To stay up to date with all incoming messages, you should subscribe to `message` and `deleteMessage` events. Here is some code that provides chat messages for your components.
 
-**Important**: For performance purposes, we separate
-`ChatMessageContext` from `ChatRoomProvider`, as we may get many
-re-renders when the chat-message listener updates its message’s state. Remember to apply
-`ChatMessageContext` in components where you will use
-`ChatMessageProvider`.
+**Important**: For performance purposes, we separate `ChatMessageContext` from `ChatRoomProvider`, as we may get many re-renders when the chat-message listener updates its message’s state. Remember to apply `ChatMessageContext` in components where you will use `ChatMessageProvider`.
 
 ### Implementation
+<a name="message-listener-implementation"></a>
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // ChatMessagesContext.tsx
@@ -306,7 +313,8 @@ export const ChatMessagesProvider = ({ children }: { children: React.ReactNode }
 };
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // ChatMessagesContext.jsx
@@ -350,11 +358,12 @@ export const ChatMessagesProvider = ({ children }) => {
 };
 ```
 
-### Example in React
+------
 
-**Important**: Remember to wrap your message container with
-`ChatMessagesProvider`. The `Message` row is an example component
-that displays the content of a message.
+### Example in React
+<a name="message-listener-example-react"></a>
+
+**Important**: Remember to wrap your message container with `ChatMessagesProvider`. The `Message` row is an example component that displays the content of a message.
 
 **TypeScript/JavaScript**:
 
@@ -378,12 +387,12 @@ const MessageListContainer = () => {
 ```
 
 ### Example in React Native
+<a name="message-listener-example-react-native"></a>
 
-By default, `ChatMessage` contains `id`, which is used
-automatically as React keys in `FlatList` for each row; therefore, you don't need
-to pass `keyExtractor`.
+By default, `ChatMessage` contains `id`, which is used automatically as React keys in `FlatList` for each row; therefore, you don't need to pass `keyExtractor`.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // MessageListContainer.tsx
@@ -402,7 +411,8 @@ const MessageListContainer = () => {
 };
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // MessageListContainer.jsx
@@ -420,13 +430,15 @@ const MessageListContainer = () => {
 };
 ```
 
+------
+
 ## Multiple Chat Room Instances in an App
+<a name="multiple-chatroom-instances"></a>
 
-If you use multiple concurrent chat rooms in your app, we propose creating each provider
-for each chat and consuming it in the chat provider. In this example, we're creating a Help
-Bot and Customer Help chat. We create a provider for both.
+If you use multiple concurrent chat rooms in your app, we propose creating each provider for each chat and consuming it in the chat provider. In this example, we're creating a Help Bot and Customer Help chat. We create a provider for both.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // SupportChatProvider.tsx
@@ -464,7 +476,8 @@ export const SalesChatProvider = ({ children }: { children: React.ReactNode }) =
 };
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // SupportChatProvider.jsx
@@ -502,11 +515,12 @@ export const SalesChatProvider = ({ children }) => {
 };
 ```
 
-### Example in React
+------
 
-Now you can use different chat providers that use the same
-`ChatRoomProvider`. Later on, you can reuse the same
-`useChatRoomContext` inside each screen/view.
+### Example in React
+<a name="multiple-chatroom-instances-example-react"></a>
+
+Now you can use different chat providers that use the same `ChatRoomProvider`. Later on, you can reuse the same `useChatRoomContext` inside each screen/view.
 
 **TypeScript/JavaScript**:
 
@@ -536,6 +550,7 @@ const App = () => {
 ```
 
 ### Example in React Native
+<a name="multiple-chatroom-instances-example-react-native"></a>
 
 **TypeScript/JavaScript**:
 

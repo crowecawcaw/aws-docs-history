@@ -1,90 +1,73 @@
+
+
 # IVS Chat Client Messaging SDK: JavaScript Tutorial Part 1: Chat Rooms
+<a name="chat-sdk-js-tutorial-chat-rooms"></a>
 
-This is the first of a two-part tutorial. You will learn the essentials of working with
-the Amazon IVS Chat Client Messaging JavaScript SDK by building a fully functional app using
-JavaScript/TypeScript. We call the app _Chatterbox_.
+This is the first of a two-part tutorial. You will learn the essentials of working with the Amazon IVS Chat Client Messaging JavaScript SDK by building a fully functional app using JavaScript/TypeScript. We call the app *Chatterbox*.
 
-The intended audience is experienced developers who are new to the Amazon IVS Chat
-Messaging SDK. You should be comfortable with the JavaScript/TypeScript programming language
-and React library.
+The intended audience is experienced developers who are new to the Amazon IVS Chat Messaging SDK. You should be comfortable with the JavaScript/TypeScript programming language and React library.
 
-For brevity, we’ll refer to the Amazon IVS Chat Client Messaging JavaScript SDK as the
-Chat JS SDK.
+For brevity, we’ll refer to the Amazon IVS Chat Client Messaging JavaScript SDK as the Chat JS SDK.
 
-**Note**: In some cases, code examples for JavaScript and
-TypeScript are identical, so they are combined.
+**Note**: In some cases, code examples for JavaScript and TypeScript are identical, so they are combined.
 
 This first part of the tutorial is broken up into several sections:
 
-1. [Set Up a Local Authentication/Authorization Server](#chat-js-rooms-auth-server "#chat-js-rooms-auth-server")
-2. [Create a Chatterbox Project](#chat-js-rooms-chatterbox "#chat-js-rooms-chatterbox")
-3. [Connect to a Chat Room](#chat-js-rooms-connect "#chat-js-rooms-connect")
-4. [Build a Token Provider](#chat-js-rooms-token-provider "#chat-js-rooms-token-provider")
-5. [Observe Connection Updates](#chat-js-rooms-connection-state "#chat-js-rooms-connection-state")
-6. [Create a Send Button Component](#chat-js-rooms-send-button "#chat-js-rooms-send-button")
-7. [Create a Message Input](#chat-js-rooms-message-input "#chat-js-rooms-message-input")
-8. [Next Steps](#chat-js-rooms-next-steps "#chat-js-rooms-next-steps")
-   For full SDK documentation, start with
-   [Amazon IVS Chat Client Messaging SDK](chat-sdk.md "chat-sdk.md")
-   (here in the _Amazon IVS Chat User Guide_) and the [Chat Client
-   Messaging: SDK for JavaScript Reference](https://aws.github.io/amazon-ivs-chat-messaging-sdk-js/latest/ "https://aws.github.io/amazon-ivs-chat-messaging-sdk-js/latest/") (on GitHub).
+1. [Set Up a Local Authentication/Authorization Server](#chat-js-rooms-auth-server)
+
+1. [Create a Chatterbox Project](#chat-js-rooms-chatterbox)
+
+1. [Connect to a Chat Room](#chat-js-rooms-connect)
+
+1. [Build a Token Provider](#chat-js-rooms-token-provider)
+
+1. [Observe Connection Updates](#chat-js-rooms-connection-state)
+
+1. [Create a Send Button Component](#chat-js-rooms-send-button)
+
+1. [Create a Message Input](#chat-js-rooms-message-input)
+
+1. [Next Steps](#chat-js-rooms-next-steps)
+
+For full SDK documentation, start with [Amazon IVS Chat Client Messaging SDK](chat-sdk.md) (here in the *Amazon IVS Chat User Guide*) and the [Chat Client Messaging: SDK for JavaScript Reference](https://aws.github.io/amazon-ivs-chat-messaging-sdk-js/latest/) (on GitHub).
 
 ## Prerequisites
-
-- Be familiar with JavaScript/TypeScript and the React library. If you're
-  unfamiliar with React, learn the basics in this [Tic-Tac-Toe Tutorial](https://react.dev/learn/tutorial-tic-tac-toe "https://react.dev/learn/tutorial-tic-tac-toe").
-- Read and understand [Getting Started with Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md").
-- Create an AWS IAM user with the CreateChatToken and CreateRoom capabilities
-  defined in an existing IAM policy. (See [Getting Started with Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md").)
-- Ensure that the secret/access keys for this user are stored in an AWS
-  credentials file. For instructions, see the [AWS CLI User Guide](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") (especially [Configuration and credential file settings](../../../cli/latest/userguide/cli-configure-files.md "../../../cli/latest/userguide/cli-configure-files.md")).
-- Create a chat room and save its ARN. See [Getting Started with Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md"). (If you don’t save the ARN, you can look it up later with the console or
-  Chat API.)
-- Install the Node.js 14+ environment with the NPM or Yarn package
-  manager.
+<a name="chat-js-rooms-prerequisites"></a>
++ Be familiar with JavaScript/TypeScript and the React library. If you're unfamiliar with React, learn the basics in this [Tic-Tac-Toe Tutorial](https://react.dev/learn/tutorial-tic-tac-toe).
++ Read and understand [Getting Started with Amazon IVS Chat](getting-started-chat.md).
++ Create an AWS IAM user with the CreateChatToken and CreateRoom capabilities defined in an existing IAM policy. (See [Getting Started with Amazon IVS Chat](getting-started-chat.md).)
++ Ensure that the secret/access keys for this user are stored in an AWS credentials file. For instructions, see the [AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html) (especially [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)).
++ Create a chat room and save its ARN. See [Getting Started with Amazon IVS Chat](getting-started-chat.md). (If you don’t save the ARN, you can look it up later with the console or Chat API.)
++ Install the Node.js 14\+ environment with the NPM or Yarn package manager.
 
 ## Set Up a Local Authentication/Authorization Server
+<a name="chat-js-rooms-auth-server"></a>
 
-Your backend application is responsible for both creating chat rooms and generating
-the chat tokens that are needed for the Chat JS SDK to authenticate and authorize your
-clients for your chat rooms. You must use your own backend since you cannot securely
-store AWS keys in a mobile app; sophisticated attackers could extract these and gain
-access to your AWS account.
+Your backend application is responsible for both creating chat rooms and generating the chat tokens that are needed for the Chat JS SDK to authenticate and authorize your clients for your chat rooms. You must use your own backend since you cannot securely store AWS keys in a mobile app; sophisticated attackers could extract these and gain access to your AWS account.
 
-See [Create a Chat Token](getting-started-chat-auth.md "getting-started-chat-auth.md") in _Getting Started with Amazon IVS
-Chat_. As shown in the flowchart there, your server-side application is
-responsible for creating a chat token. This means your app must provide its own means of
-generating a chat token by requesting one from your server-side application.
+See [Create a Chat Token](getting-started-chat-auth.md) in *Getting Started with Amazon IVS Chat*. As shown in the flowchart there, your server-side application is responsible for creating a chat token. This means your app must provide its own means of generating a chat token by requesting one from your server-side application.
 
-In this section, you will learn the basics of creating a token provider in your
-backend. We use the express framework to create a live local server that manages the
-creation of chat tokens using your local AWS environment.
+In this section, you will learn the basics of creating a token provider in your backend. We use the express framework to create a live local server that manages the creation of chat tokens using your local AWS environment.
 
-Create an empty `npm` project using NPM. Create a directory to hold your
-application, and make that your working directory:
+Create an empty `npm` project using NPM. Create a directory to hold your application, and make that your working directory:
 
 ```
 $ mkdir backend & cd backend
 ```
 
-Use `npm init` to create a `package.json` file for your
-application:
+Use `npm init` to create a `package.json` file for your application:
 
 ```
 $ npm init
 ```
 
-This command prompts you for several things, including the name and version of your
-application. For now, just press **RETURN** to accept the
-defaults for most of them, with the following exception:
+This command prompts you for several things, including the name and version of your application. For now, just press **RETURN** to accept the defaults for most of them, with the following exception:
 
 ```
 entry point: (index.js)
 ```
 
-Press **RETURN** to accept the suggested default filename
-of `index.js` or enter whatever you want the name of the main file to
-be.
+Press **RETURN** to accept the suggested default filename of `index.js` or enter whatever you want the name of the main file to be.
 
 Now install required dependencies:
 
@@ -92,10 +75,7 @@ Now install required dependencies:
 $ npm install express aws-sdk cors dotenv
 ```
 
-`aws-sdk` requires configuration-environment variables, which automatically
-load from a file named `.env` located in the root directory. To configure it,
-create a new file named `.env` and fill in the missing configuration
-information:
+`aws-sdk` requires configuration-environment variables, which automatically load from a file named `.env` located in the root directory. To configure it, create a new file named `.env` and fill in the missing configuration information:
 
 ```
 # .env
@@ -113,9 +93,7 @@ AWS_ACCESS_KEY_ID=...
 AWS_SECRET_ACCESS_KEY=...
 ```
 
-Now we create an entry-point file in the root directory with the name you entered
-above in the `npm init` command. In this case, we use `index.js`,
-and import all required packages:
+Now we create an entry-point file in the root directory with the name you entered above in the `npm init` command. In this case, we use `index.js`, and import all required packages:
 
 ```
 // index.js
@@ -135,9 +113,7 @@ app.use(express.json());
 app.use(cors({ origin: ['http://127.0.0.1:5173'] }));
 ```
 
-After that you can create your first endpoint POST method for the token provider. Take
-the required parameters from the request body (`roomId`, `userId`,
-`capabilities` and `sessionDurationInMinutes`):
+After that you can create your first endpoint POST method for the token provider. Take the required parameters from the request body (`roomId`, `userId`, `capabilities` and `sessionDurationInMinutes`):
 
 ```
 app.post('/create_chat_token', (req, res) => {
@@ -158,9 +134,7 @@ app.post('/create_chat_token', (req, res) => {
 });
 ```
 
-After preparing the POST method, we integrate `createChatToken` with
-`aws-sdk` for the core functionality of
-authentication/authorization:
+After preparing the POST method, we integrate `createChatToken` with `aws-sdk` for the core functionality of authentication/authorization:
 
 ```
 app.post('/create_chat_token', (req, res) => {
@@ -202,30 +176,24 @@ $ node index.js
 **Tip**: This server accepts URL requests at https://localhost:3000.
 
 ## Create a Chatterbox Project
+<a name="chat-js-rooms-chatterbox"></a>
 
-First you create the React project called `chatterbox`. Run this
-command:
+First you create the React project called `chatterbox`. Run this command:
 
 ```
 npx create-react-app chatterbox
 ```
 
-You can integrate the Chat Client Messaging JS SDK via [Node Package Manager](https://www.npmjs.com/ "https://www.npmjs.com/") or [Yarn Package Manager](https://yarnpkg.com/ "https://yarnpkg.com/"):
-
-- Npm: `npm install amazon-ivs-chat-messaging`
-- Yarn: `yarn add amazon-ivs-chat-messaging`
+You can integrate the Chat Client Messaging JS SDK via [Node Package Manager](https://www.npmjs.com/) or [Yarn Package Manager](https://yarnpkg.com/):
++ Npm: `npm install amazon-ivs-chat-messaging`
++ Yarn: `yarn add amazon-ivs-chat-messaging`
 
 ## Connect to a Chat Room
+<a name="chat-js-rooms-connect"></a>
 
-Here you create a `ChatRoom` and connect to it using asynchronous methods.
-The `ChatRoom` class manages your user's connection to the Chat JS SDK. To
-successfully connect to a chat room, you must provide an instance of
-`ChatToken` within your React application.
+Here you create a `ChatRoom` and connect to it using asynchronous methods. The `ChatRoom` class manages your user's connection to the Chat JS SDK. To successfully connect to a chat room, you must provide an instance of `ChatToken` within your React application.
 
-Navigate to the `App` file that’s created in the default
-`chatterbox` project and delete everything between the two
-`<div>` tags. None of the pre-populated code is needed. At this point,
-our `App` is pretty empty.
+Navigate to the `App` file that’s created in the default `chatterbox` project and delete everything between the two `<div>` tags. None of the pre-populated code is needed. At this point, our `App` is pretty empty.
 
 ```
 // App.jsx / App.tsx
@@ -237,15 +205,9 @@ export default function App() {
 }
 ```
 
-Create a new `ChatRoom` instance and pass it to state using the
-`useState` hook. It requires passing `regionOrUrl` (the AWS
-region in which your chat room is hosted) and `tokenProvider` (used for the
-backend authentication/authorization flow that is created in subsequent steps).
+Create a new `ChatRoom` instance and pass it to state using the `useState` hook. It requires passing `regionOrUrl` (the AWS region in which your chat room is hosted) and `tokenProvider` (used for the backend authentication/authorization flow that is created in subsequent steps).
 
-**Important**: You must use the same AWS region as the
-one in which you created the room in [Getting Started with Amazon IVS Chat](getting-started-chat-create-room.md "getting-started-chat-create-room.md") . The API is an AWS regional service.
-For a list of supported regions and Amazon IVS Chat HTTPS service endpoints, see the
-[Amazon IVS Chat regions](../../../general/latest/gr/ivs.md#ivs_region "../../../general/latest/gr/ivs.md#ivs_region") page.
+**Important**: You must use the same AWS region as the one in which you created the room in [Getting Started with Amazon IVS Chat](getting-started-chat-create-room.md) . The API is an AWS regional service. For a list of supported regions and Amazon IVS Chat HTTPS service endpoints, see the [Amazon IVS Chat regions](https://docs.aws.amazon.com/general/latest/gr/ivs.html#ivs_region) page.
 
 ```
 // App.jsx / App.tsx
@@ -266,25 +228,16 @@ export default function App() {
 ```
 
 ## Build a Token Provider
+<a name="chat-js-rooms-token-provider"></a>
 
-As the next step, we need to build a parameterless `tokenProvider` function
-that is required by the `ChatRoom` constructor. First, we will create a
-`fetchChatToken` function that will make a POST request to the backend
-application that you set up in [Set Up a Local Authentication/Authorization Server](#chat-js-rooms-auth-server "#chat-js-rooms-auth-server"). Chat tokens
-contain the information needed for the SDK to successfully establish a chat-room
-connection. The Chat API uses these tokens as a secure way of validating a user's
-identity, capabilities within a chat room, and session duration.
+As the next step, we need to build a parameterless `tokenProvider` function that is required by the `ChatRoom` constructor. First, we will create a `fetchChatToken` function that will make a POST request to the backend application that you set up in [Set Up a Local Authentication/Authorization Server](#chat-js-rooms-auth-server). Chat tokens contain the information needed for the SDK to successfully establish a chat-room connection. The Chat API uses these tokens as a secure way of validating a user's identity, capabilities within a chat room, and session duration.
 
-In the Project navigator, create a new TypeScript/JavaScript file named
-`fetchChatToken`. Build a fetch request to the `backend`
-application and return the `ChatToken` object from the response. Add the
-request body properties needed for creating a chat token. Use the rules defined for
-[Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). These properties are documented in the [CreateChatToken](../ChatAPIReference/API_CreateChatToken.md#API_CreateChatToken_RequestBody "../ChatAPIReference/API_CreateChatToken.md#API_CreateChatToken_RequestBody") operation.
+In the Project navigator, create a new TypeScript/JavaScript file named `fetchChatToken`. Build a fetch request to the `backend` application and return the `ChatToken` object from the response. Add the request body properties needed for creating a chat token. Use the rules defined for [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html). These properties are documented in the [CreateChatToken](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateChatToken.html#API_CreateChatToken_RequestBody) operation.
 
-**Note**: The URL you're using here is the same URL that
-your local server created when you ran the backend application.
+**Note**: The URL you're using here is the same URL that your local server created when you ran the backend application.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // fetchChatToken.ts
@@ -324,7 +277,8 @@ export async function fetchChatToken(
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // fetchChatToken.js
@@ -359,10 +313,12 @@ export async function fetchChatToken(
 }
 ```
 
-## Observe Connection Updates
+------
 
-Reacting to changes in a chat room's connection state are essential parts of making a
-chat app. Let’s start with subscribing to relevant events:
+## Observe Connection Updates
+<a name="chat-js-rooms-connection-state"></a>
+
+Reacting to changes in a chat room's connection state are essential parts of making a chat app. Let’s start with subscribing to relevant events:
 
 ```
 // App.jsx / App.tsx
@@ -397,11 +353,10 @@ export default function App() {
 }
 ```
 
-Next, we need to provide the ability to read the connection state. We use our
-`useState` hook to create some local state in `App` and set
-the connection state inside each listener.
+Next, we need to provide the ability to read the connection state. We use our `useState` hook to create some local state in `App` and set the connection state inside each listener.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // App.tsx
@@ -410,7 +365,7 @@ import React, { useState, useEffect } from 'react';
 import { ChatRoom, ConnectionState } from 'amazon-ivs-chat-messaging';
 import { fetchChatToken } from './fetchChatToken';
 
-export default function App() {
+export default function App() {  
   const [room] = useState(
     () =>
       new ChatRoom({
@@ -444,7 +399,8 @@ export default function App() {
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // App.jsx
@@ -487,9 +443,9 @@ export default function App() {
 }
 ```
 
-After subscribing to the connection state, display the connection state and connect to
-the chat room using the `room.connect` method inside the
-`useEffect` hook:
+------
+
+After subscribing to the connection state, display the connection state and connect to the chat room using the `room.connect` method inside the `useEffect` hook:
 
 ```
 // App.jsx / App.tsx
@@ -532,19 +488,14 @@ return (
 You have successfully implemented a chat-room connection.
 
 ## Create a Send Button Component
+<a name="chat-js-rooms-send-button"></a>
 
-In this section you create a send button that has a different design for each
-connection state. The send button facilitates the sending of messages in a chat room. It
-also serves as a visual indicator of whether/when messages can be sent; e.g., in the
-face of dropped connections or expired chat sessions.
+In this section you create a send button that has a different design for each connection state. The send button facilitates the sending of messages in a chat room. It also serves as a visual indicator of whether/when messages can be sent; e.g., in the face of dropped connections or expired chat sessions.
 
-First, create a new file in the `src` directory of your Chatterbox project
-and name it `SendButton`. Then, create a component that will display a button
-for your chat application. Export your `SendButton` and import it to
-`App`. In the empty `<div></div>`, add
-`<SendButton />`.
+First, create a new file in the `src` directory of your Chatterbox project and name it `SendButton`. Then, create a component that will display a button for your chat application. Export your `SendButton` and import it to `App`. In the empty `<div></div>`, add `<SendButton />`.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // SendButton.tsx
@@ -578,7 +529,8 @@ return (
 );
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // SendButton.jsx
@@ -607,10 +559,9 @@ return (
 );
 ```
 
-Next, in `App` define a function named `onMessageSend` and pass
-it to the `SendButton onPress` property. Define another variable named
-`isSendDisabled` (which prevents sending messages when the room is not
-connected) and pass it to the `SendButton disabled` property.
+------
+
+Next, in `App` define a function named `onMessageSend` and pass it to the `SendButton onPress` property. Define another variable named `isSendDisabled` (which prevents sending messages when the room is not connected) and pass it to the `SendButton disabled` property.
 
 ```
 // App.jsx / App.tsx
@@ -632,24 +583,16 @@ return (
 ```
 
 ## Create a Message Input
+<a name="chat-js-rooms-message-input"></a>
 
-The Chatterbox message bar is the component that you will interact with to send
-messages to a chat room. Typically it contains a text input for composing your message
-and a button to send your message.
+The Chatterbox message bar is the component that you will interact with to send messages to a chat room. Typically it contains a text input for composing your message and a button to send your message.
 
-To create a `MessageInput` component, first create a new file in the
-`src` directory and name it `MessageInput`. Then, create a
-controlled input component that will display an input for your chat application. Export
-your `MessageInput` and import it to `App` (above the
-`<SendButton />`).
+To create a `MessageInput` component, first create a new file in the `src` directory and name it `MessageInput`. Then, create a controlled input component that will display an input for your chat application. Export your `MessageInput` and import it to `App` (above the `<SendButton />`).
 
-Create a new state named `messageToSend` using the `useState`
-hook, with an empty string as its default value. In the body of your app, pass
-`messageToSend` to the `value` of `MessageInput`
-and pass the `setMessageToSend` to the `onMessageChange`
-property:
+Create a new state named `messageToSend` using the `useState` hook, with an empty string as its default value. In the body of your app, pass `messageToSend` to the `value` of `MessageInput` and pass the `setMessageToSend` to the `onMessageChange` property:
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // MessageInput.tsx
@@ -670,7 +613,7 @@ export const MessageInput = ({ value, onValueChange }: Props) => {
 
 // App.tsx
 
-// ...
+// ...  
 
 import { MessageInput } from './MessageInput';
 
@@ -690,7 +633,8 @@ return (
 );
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // MessageInput.jsx
@@ -705,7 +649,7 @@ export const MessageInput = ({ value, onValueChange }) => {
 
 // App.jsx
 
-// ...
+// ...  
 
 import { MessageInput } from './MessageInput';
 
@@ -726,8 +670,9 @@ return (
 );
 ```
 
-## Next Steps
+------
 
-Now that you finished building a message bar for Chatterbox, proceed to Part 2 of this
-JavaScript tutorial, [Messages and
-Events](chat-sdk-js-tutorial-messages-events.md "chat-sdk-js-tutorial-messages-events.md").
+## Next Steps
+<a name="chat-js-rooms-next-steps"></a>
+
+Now that you finished building a message bar for Chatterbox, proceed to Part 2 of this JavaScript tutorial, [Messages and Events](chat-sdk-js-tutorial-messages-events.md).

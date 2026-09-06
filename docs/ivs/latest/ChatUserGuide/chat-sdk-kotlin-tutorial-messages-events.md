@@ -1,41 +1,47 @@
+
+
 # IVS Chat Client Messaging SDK: Kotlin Coroutines Tutorial Part 2: Messages and Events
+<a name="chat-sdk-kotlin-tutorial-messages-events"></a>
 
-This second (and last) part of the tutorial is broken up into several
-sections:
+This second (and last) part of the tutorial is broken up into several sections:
 
-1. [Create a UI for Sending Messages](#chat-kotlin-messages-events-ui "#chat-kotlin-messages-events-ui")
+1. [Create a UI for Sending Messages](#chat-kotlin-messages-events-ui)
 
-   1. [UI Main Layout](#chat-kotlin-messages-events-ui-main "#chat-kotlin-messages-events-ui-main")
-   2. [UI Abstracted Text Cell to Display Text Consistently](#chat-kotlin-messages-events-consistent-text "#chat-kotlin-messages-events-consistent-text")
-   3. [UI Left Chat Message](#chat-kotlin-messages-events-ui-left "#chat-kotlin-messages-events-ui-left")
-   4. [UI Right Message](#chat-kotlin-messages-events-ui-right "#chat-kotlin-messages-events-ui-right")
-   5. [UI Additional Color Values](#chat-kotlin-messages-events-additional-color "#chat-kotlin-messages-events-additional-color")
+   1. [UI Main Layout](#chat-kotlin-messages-events-ui-main)
 
-2. [Apply View Binding](#chat-kotlin-messages-events-apply-view-binding "#chat-kotlin-messages-events-apply-view-binding")
-3. [Manage Chat-Message Requests](#chat-kotlin-messages-events-chat-message "#chat-kotlin-messages-events-chat-message")
-4. [Final Steps](#chat-kotlin-messages-events-final-steps "#chat-kotlin-messages-events-final-steps")
-   For full SDK documentation, start with
-   [Amazon IVS Chat Client Messaging SDK](chat-sdk.md "chat-sdk.md") (here
-   in the _Amazon IVS Chat User Guide_) and the [Chat Client Messaging: SDK for Android
-   Reference](https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/latest/ "https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/latest/") (on GitHub).
+   1. [UI Abstracted Text Cell to Display Text Consistently](#chat-kotlin-messages-events-consistent-text)
+
+   1. [UI Left Chat Message](#chat-kotlin-messages-events-ui-left)
+
+   1. [UI Right Message](#chat-kotlin-messages-events-ui-right)
+
+   1. [UI Additional Color Values](#chat-kotlin-messages-events-additional-color)
+
+1. [Apply View Binding](#chat-kotlin-messages-events-apply-view-binding)
+
+1. [Manage Chat-Message Requests](#chat-kotlin-messages-events-chat-message)
+
+1. [Final Steps](#chat-kotlin-messages-events-final-steps)
+
+For full SDK documentation, start with [Amazon IVS Chat Client Messaging SDK](chat-sdk.md) (here in the *Amazon IVS Chat User Guide*) and the [Chat Client Messaging: SDK for Android Reference](https://aws.github.io/amazon-ivs-chat-messaging-sdk-android/latest/) (on GitHub).
 
 ## Prerequisite
+<a name="chat-kotlin-messages-events-prerequisite"></a>
 
-Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-kotlin-tutorial-chat-rooms.md "chat-sdk-kotlin-tutorial-chat-rooms.md").
+Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-kotlin-tutorial-chat-rooms.md).
 
 ## Create a UI for Sending Messages
+<a name="chat-kotlin-messages-events-ui"></a>
 
-Now that we successfully initialized the chat room connection, it’s time to send
-our first message. For this feature, a UI is needed. We will add:
-
-- `connect`/`disconnect` button
-- Message input with `send` button
-- Dynamic messages list. To build this, we use Android Jetpack [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview "https://developer.android.com/develop/ui/views/layout/recyclerview").
+Now that we successfully initialized the chat room connection, it’s time to send our first message. For this feature, a UI is needed. We will add:
++ `connect`/`disconnect` button
++ Message input with `send` button
++ Dynamic messages list. To build this, we use Android Jetpack [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview).
 
 ### UI Main Layout
+<a name="chat-kotlin-messages-events-ui-main"></a>
 
-See Android Jetpack [Layouts](https://developer.android.com/develop/ui/views/layout/declaring-layout "https://developer.android.com/develop/ui/views/layout/declaring-layout") in the Android developer
-documentation.
+See Android Jetpack [Layouts](https://developer.android.com/develop/ui/views/layout/declaring-layout) in the Android developer documentation.
 
 **XML:**
 
@@ -167,12 +173,13 @@ documentation.
 ```
 
 ### UI Abstracted Text Cell to Display Text Consistently
+<a name="chat-kotlin-messages-events-consistent-text"></a>
 
 **XML:**
 
 ```
 // ./app/src/main/res/layout/common_cell.xml
-
+   
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -218,12 +225,13 @@ documentation.
 ```
 
 ### UI Left Chat Message
+<a name="chat-kotlin-messages-events-ui-left"></a>
 
 **XML:**
 
 ```
 // ./app/src/main/res/layout/card_view_left.xml
-
+ 
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -275,15 +283,16 @@ documentation.
 ```
 
 ### UI Right Message
+<a name="chat-kotlin-messages-events-ui-right"></a>
 
 **XML:**
 
 ```
 // ./app/src/main/res/layout/card_view_right.xml
-
+ 
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"                                                   xmlns:app="http://schemas.android.com/apk/res-auto"                                                   android:layout_width="match_parent"                                                   android:layout_height="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"                                                   xmlns:app="http://schemas.android.com/apk/res-auto"                                                   android:layout_width="match_parent"                                                   android:layout_height="wrap_content" 
 android:layout_marginEnd="8dp">
 
     <androidx.cardview.widget.CardView
@@ -319,12 +328,13 @@ android:layout_marginEnd="8dp">
 ```
 
 ### UI Additional Color Values
+<a name="chat-kotlin-messages-events-additional-color"></a>
 
 **XML:**
 
 ```
 // ./app/src/main/res/values/colors.xml
-
+ 
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--    ...-->
@@ -337,10 +347,9 @@ android:layout_marginEnd="8dp">
 ```
 
 ## Apply View Binding
+<a name="chat-kotlin-messages-events-apply-view-binding"></a>
 
-We leverage the Android [View Binding](https://developer.android.com/topic/libraries/view-binding "https://developer.android.com/topic/libraries/view-binding") feature to be able to reference binding classes for our
-XML layout. To enable the feature, set the `viewBinding` build option to
-`true` in `./app/build.gradle`:
+We leverage the Android [View Binding](https://developer.android.com/topic/libraries/view-binding) feature to be able to reference binding classes for our XML layout. To enable the feature, set the `viewBinding` build option to `true` in `./app/build.gradle`:
 
 **Kotlin Script:**
 
@@ -416,8 +425,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-We also add methods to delete messages and disconnect users from the chat,
-which can be invoked using the chat-message context menu:
+We also add methods to delete messages and disconnect users from the chat, which can be invoked using the chat-message context menu:
 
 **Kotlin:**
 
@@ -457,19 +465,14 @@ class MainActivity : AppCompatActivity() {
 ```
 
 ## Manage Chat-Message Requests
+<a name="chat-kotlin-messages-events-chat-message"></a>
 
-We need a way to manage our chat-message requests through all their possible
-states:
+We need a way to manage our chat-message requests through all their possible states:
++ Pending — A message was sent to a chat room but is not yet confirmed or rejected.
++ Confirmed — A message was sent by the chat room to all users (including us).
++ Rejected — A message was rejected by the chat room with an error object.
 
-- Pending — A message was sent to a chat room but is not yet confirmed or
-  rejected.
-- Confirmed — A message was sent by the chat room to all users (including
-  us).
-- Rejected — A message was rejected by the chat room with an error
-  object.
-
-We will keep unresolved chat requests and chat messages in a [list](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html "https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html"). The list merits a separate class,
-which we call `ChatEntries.kt`:
+We will keep unresolved chat requests and chat messages in a [list](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html). The list merits a separate class, which we call `ChatEntries.kt`:
 
 **Kotlin:**
 
@@ -567,7 +570,7 @@ class ChatEntries {
 }
 ```
 
-To connect our list with the UI, we use an [Adapter](https://developer.android.com/reference/android/widget/Adapter "https://developer.android.com/reference/android/widget/Adapter"). For more information, see [Binding to Data with AdapterView](https://developer.android.com/develop/ui/views/layout/binding "https://developer.android.com/develop/ui/views/layout/binding") and [Generated binding classes](https://developer.android.com/topic/libraries/data-binding/generated-binding "https://developer.android.com/topic/libraries/data-binding/generated-binding").
+To connect our list with the UI, we use an [Adapter](https://developer.android.com/reference/android/widget/Adapter). For more information, see [Binding to Data with AdapterView](https://developer.android.com/develop/ui/views/layout/binding) and [Generated binding classes](https://developer.android.com/topic/libraries/data-binding/generated-binding).
 
 **Kotlin:**
 
@@ -679,9 +682,9 @@ class ChatListAdapter(
 ```
 
 ## Final Steps
+<a name="chat-kotlin-messages-events-final-steps"></a>
 
-It is time to hook up our new adapter, binding `ChatEntries` class to
-`MainActivity`:
+It is time to hook up our new adapter, binding `ChatEntries` class to `MainActivity`:
 
 **Kotlin**:
 
@@ -724,10 +727,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-As we already have a class responsible for keeping track of our chat requests
-(`ChatEntries`), we are ready to implement code for manipulating
-`entries` in roomListener. We will update `entries` and
-`connectionState` accordingly to the event we are responding to:
+As we already have a class responsible for keeping track of our chat requests (`ChatEntries`), we are ready to implement code for manipulating `entries` in roomListener. We will update `entries` and `connectionState` accordingly to the event we are responding to:
 
 **Kotlin:**
 
@@ -798,8 +798,4 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-Now you should be able to run your application! (See [Build
-and run your app](https://developer.android.com/studio/run#basic-build-run "https://developer.android.com/studio/run#basic-build-run").) Remember to have your backend server running when using
-the app. You can spin it up from the terminal at the root of our project with this command:
-`./gradlew :auth-server:run` or by executing the `auth-server:run` Gradle
-task directly from Android Studio.
+Now you should be able to run your application\! (See [Build and run your app](https://developer.android.com/studio/run#basic-build-run).) Remember to have your backend server running when using the app. You can spin it up from the terminal at the root of our project with this command: `./gradlew :auth-server:run` or by executing the `auth-server:run` Gradle task directly from Android Studio.

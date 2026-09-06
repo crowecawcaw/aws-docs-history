@@ -1,10 +1,8 @@
+
+
 # IVS Chat Incident Response
+<a name="security-incident-response"></a>
 
-To detect or alert for incidents, you can monitor your stream’s health via Amazon
-EventBridge events. See Using Amazon EventBridge with Amazon IVS:
-for [Low-Latency Streaming](../LowLatencyUserGuide/eventbridge.md "../LowLatencyUserGuide/eventbridge.md") and for
-[Real-Time Streaming](../RealTimeUserGuide/eventbridge.md "../RealTimeUserGuide/eventbridge.md").
+To detect or alert for incidents, you can monitor your stream’s health via Amazon EventBridge events. See Using Amazon EventBridge with Amazon IVS: for [Low-Latency Streaming](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/eventbridge.html) and for [Real-Time Streaming](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/eventbridge.html).
 
-Use the [AWS Health
-Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") for information on the overall health of Amazon IVS (by
-region).
+Use the [AWS Health Dashboard](https://health.aws.amazon.com/health/status) for information on the overall health of Amazon IVS (by region).

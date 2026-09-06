@@ -1,38 +1,43 @@
+
+
 # IVS Chat Client Messaging SDK: React Native Tutorial Part 2: Messages and Events
+<a name="chat-sdk-react-tutorial-messages-events"></a>
 
 This second (and last) part of the tutorial is broken up into several sections:
 
-1. [Subscribe to Chat Message Events](#chat-react-messages-events-subscribe "#chat-react-messages-events-subscribe")
-2. [Show Received Messages](#chat-react-messages-events-show "#chat-react-messages-events-show")
+1. [Subscribe to Chat Message Events](#chat-react-messages-events-subscribe)
 
-   1. [Creating a Message Component](#chat-react-messages-create-component "#chat-react-messages-create-component")
-   2. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize "#chat-react-messages-recognize")
-   3. [Rendering a List of Chat Messages](#chat-react-messages-render-list "#chat-react-messages-render-list")
+1. [Show Received Messages](#chat-react-messages-events-show)
 
-3. [Perform Actions in a Chat Room](#chat-react-messages-events-room-actions "#chat-react-messages-events-room-actions")
+   1.  [Creating a Message Component](#chat-react-messages-create-component)
 
-   1. [Sending a Message](#chat-react-room-actions-sending-message "#chat-react-room-actions-sending-message")
-   2. [Deleting a Message](#chat-react-room-actions-deleting-message "#chat-react-room-actions-deleting-message")
+   1. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize)
 
-4. [Next Steps](#chat-react-messages-events-next-steps "#chat-react-messages-events-next-steps")
-   **Note**: In some cases, code examples for JavaScript and
-   TypeScript are identical, so they are combined.
+   1. [Rendering a List of Chat Messages](#chat-react-messages-render-list)
+
+1. [Perform Actions in a Chat Room](#chat-react-messages-events-room-actions)
+
+   1. [Sending a Message](#chat-react-room-actions-sending-message)
+
+   1. [Deleting a Message](#chat-react-room-actions-deleting-message)
+
+1. [Next Steps](#chat-react-messages-events-next-steps)
+
+**Note**: In some cases, code examples for JavaScript and TypeScript are identical, so they are combined.
 
 ## Prerequisite
+<a name="chat-react-messages-events-prerequisite"></a>
 
-Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-react-tutorial-chat-rooms.md "chat-sdk-react-tutorial-chat-rooms.md").
+Be sure you have completed Part 1 of this tutorial, [Chat Rooms](chat-sdk-react-tutorial-chat-rooms.md).
 
 ## Subscribe to Chat Message Events
+<a name="chat-react-messages-events-subscribe"></a>
 
-The `ChatRoom` instance uses events to communicate when events occur in a chat
-room. To start implementing the chat experience, you need to show your users when others send
-a message in the room to which they're connected.
+The `ChatRoom` instance uses events to communicate when events occur in a chat room. To start implementing the chat experience, you need to show your users when others send a message in the room to which they're connected.
 
-Here, you subscribe to chat message events. Later, we’ll show you how to update a message
-list you create, which updates with every message/event.
+Here, you subscribe to chat message events. Later, we’ll show you how to update a message list you create, which updates with every message/event.
 
-In your `App`, inside the `useEffect` hook, subscribe to all message
-events:
+In your `App`, inside the `useEffect` hook, subscribe to all message events:
 
 **TypeScript/JavaScript**:
 
@@ -51,17 +56,16 @@ useEffect(() => {
 ```
 
 ## Show Received Messages
+<a name="chat-react-messages-events-show"></a>
 
-Receiving messages is a core part of the chat experience. Using the Chat JS SDK, you can
-set up your code to easily receive events from other users connected to a chat room.
+Receiving messages is a core part of the chat experience. Using the Chat JS SDK, you can set up your code to easily receive events from other users connected to a chat room.
 
-Later, we’ll show you how to perform actions in a chat room that leverage the components
-you create here.
+Later, we’ll show you how to perform actions in a chat room that leverage the components you create here.
 
-In your `App`, define a state named `messages` with a
-`ChatMessage` array type named `messages`:
+In your `App`, define a state named `messages` with a `ChatMessage` array type named `messages`:
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // App.tsx
@@ -77,7 +81,8 @@ export default function App() {
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // App.jsx
@@ -93,8 +98,9 @@ export default function App() {
 }
 ```
 
-Next, in the `message` listener function, append `message` to the
-`messages` array:
+------
+
+Next, in the `message` listener function, append `message` to the `messages` array:
 
 **TypeScript/JavaScript**:
 
@@ -112,23 +118,21 @@ const unsubscribeOnMessageReceived = room.addListener('message', (message) => {
 
 Below we step through the tasks to show received messages:
 
-1. [Creating a Message Component](#chat-react-messages-create-component "#chat-react-messages-create-component")
-2. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize "#chat-react-messages-recognize")
-3. [Rendering a List of Chat Messages](#chat-react-messages-render-list "#chat-react-messages-render-list")
+1.  [Creating a Message Component](#chat-react-messages-create-component)
+
+1. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize)
+
+1. [Rendering a List of Chat Messages](#chat-react-messages-render-list)
 
 ### Creating a Message Component
+<a name="chat-react-messages-create-component"></a>
 
-The `Message` component is responsible for rendering the contents of a
-message received by your chat room. In this section, you create a messages component for
-rendering individual chat messages in the `App`.
+The `Message` component is responsible for rendering the contents of a message received by your chat room. In this section, you create a messages component for rendering individual chat messages in the `App`.
 
-Create a new file in the `src` directory and name it `Message`.
-Pass in the `ChatMessage` type for this component, and pass the
-`content` string from `ChatMessage` properties to display message
-text received from chat-room message listeners. In the Project Navigator, go to
-`Message`.
+Create a new file in the `src` directory and name it `Message`. Pass in the `ChatMessage` type for this component, and pass the `content` string from `ChatMessage` properties to display message text received from chat-room message listeners. In the Project Navigator, go to `Message`.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // Message.tsx
@@ -167,7 +171,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // Message.jsx
@@ -201,19 +206,19 @@ const styles = StyleSheet.create({
 });
 ```
 
-**Tip**: Use this component to store different properties
-that you want to render in your message rows; for example, avatar URLs, user names, and
-timestamps of when the message was sent.
+------
+
+**Tip**: Use this component to store different properties that you want to render in your message rows; for example, avatar URLs, user names, and timestamps of when the message was sent.
 
 ### Recognizing Messages Sent by the Current User
+<a name="chat-react-messages-recognize"></a>
 
-To recognize the message sent by the current user, we modify the code and create a React
-context for storing the `userId` of the current user.
+To recognize the message sent by the current user, we modify the code and create a React context for storing the `userId` of the current user.
 
-Create a new file in the `src` directory and name it
-`UserContext`:
+Create a new file in the `src` directory and name it `UserContext`:
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // UserContext.tsx
@@ -235,7 +240,8 @@ export const useUserContext = () => {
 export const UserProvider = UserContext.Provider;
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // UserContext.jsx
@@ -257,16 +263,14 @@ export const useUserContext = () => {
 export const UserProvider = UserContext.Provider;
 ```
 
-Note: Here we used the `useState` hook to store the `userId`
-value. In the future you can use `setUserId` to change user context or for login
-purposes.
+------
 
-Next, replace `userId` in the first parameter passed to
-`tokenProvider`, using the previously created context. Make sure you add the
-`SEND_MESSAGE` capability to your token provider, as specified below; it is
-required to send messages.:
+Note: Here we used the `useState` hook to store the `userId` value. In the future you can use `setUserId` to change user context or for login purposes.
 
-TypeScript
+Next, replace `userId` in the first parameter passed to `tokenProvider`, using the previously created context. Make sure you add the `SEND_MESSAGE` capability to your token provider, as specified below; it is required to send messages.:
+
+------
+#### [ TypeScript ]
 
 ```
 // App.tsx
@@ -293,7 +297,8 @@ export default function App() {
 }
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // App.jsx
@@ -320,12 +325,12 @@ export default function App() {
 }
 ```
 
-In your `Message` component, use the `UserContext` created before,
-declare the `isMine` variable, match the sender’s `userId` with the
-`userId` from the context, and apply different styles of messages for the
-current user.
+------
 
-TypeScript
+In your `Message` component, use the `UserContext` created before, declare the `isMine` variable, match the sender’s `userId` with the `userId` from the context, and apply different styles of messages for the current user.
+
+------
+#### [ TypeScript ]
 
 ```
 // Message.tsx
@@ -373,7 +378,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // Message.jsx
@@ -417,11 +423,15 @@ const styles = StyleSheet.create({
 });
 ```
 
+------
+
 ### Rendering a List of Chat Messages
+<a name="chat-react-messages-render-list"></a>
 
 Now list messages using `FlatList` and `Message` component:
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // App.tsx
@@ -448,7 +458,8 @@ return (
 // ...
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // App.jsx
@@ -475,49 +486,31 @@ return (
 // ...
 ```
 
-All the puzzle pieces are now in place for your `App` to start rendering
-messages received by your chat room. Continue below to see how to perform actions in a chat
-room that leverage the components you have created.
+------
+
+All the puzzle pieces are now in place for your `App` to start rendering messages received by your chat room. Continue below to see how to perform actions in a chat room that leverage the components you have created.
 
 ## Perform Actions in a Chat Room
+<a name="chat-react-messages-events-room-actions"></a>
 
-Sending messages and performing moderator actions are some of the primary ways you
-interact with a chat room. Here you will learn how to use various chat request objects to
-perform common actions in Chatterbox, such as sending a message, deleting a message, and
-disconnecting other users.
+Sending messages and performing moderator actions are some of the primary ways you interact with a chat room. Here you will learn how to use various chat request objects to perform common actions in Chatterbox, such as sending a message, deleting a message, and disconnecting other users.
 
-All actions in a chat room follow a common pattern: for every action you perform in a chat
-room, there is a corresponding request object. For each request there is a corresponding
-response object that you receive on request confirmation.
+All actions in a chat room follow a common pattern: for every action you perform in a chat room, there is a corresponding request object. For each request there is a corresponding response object that you receive on request confirmation.
 
-As long as your users are granted the correct capabilities when you create a chat token,
-they can successfully perform the corresponding action(s) using the request objects to see
-what requests you can perform in a chat room.
+As long as your users are granted the correct capabilities when you create a chat token, they can successfully perform the corresponding action(s) using the request objects to see what requests you can perform in a chat room.
 
-Below, we explain how to [send a
-message](#chat-react-room-actions-sending-message "#chat-react-room-actions-sending-message") and [delete a
-message](#chat-react-room-actions-deleting-message "#chat-react-room-actions-deleting-message").
+Below, we explain how to [send a message](#chat-react-room-actions-sending-message) and [delete a message](#chat-react-room-actions-deleting-message).
 
 ### Sending a Message
+<a name="chat-react-room-actions-sending-message"></a>
 
-The `SendMessageRequest` class enables sending messages in a chat room. Here,
-you modify your `App` to send a message request using the component you created
-in [Create a Message Input](chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-message-input "chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-message-input") (in Part 1
-of this tutorial).
+The `SendMessageRequest` class enables sending messages in a chat room. Here, you modify your `App` to send a message request using the component you created in [Create a Message Input](chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-message-input) (in Part 1 of this tutorial).
 
-To start, define a new boolean property named `isSending` with the
-`useState` hook. Use this new property to toggle the disabled state of your
-`button` element, using the `isSendDisabled` constant. In the event
-handler for your `SendButton`, clear the value for `messageToSend` and
-set `isSending` to true.
+To start, define a new boolean property named `isSending` with the `useState` hook. Use this new property to toggle the disabled state of your `button` element, using the `isSendDisabled` constant. In the event handler for your `SendButton`, clear the value for `messageToSend` and set `isSending` to true.
 
-_Since you will be making an API call from this button, adding
-the `isSending` boolean helps prevent multiple API calls from occuring at the
-same time, by disabling user interactions on your `SendButton` until the
-request is complete._
+*Since you will be making an API call from this button, adding the `isSending` boolean helps prevent multiple API calls from occuring at the same time, by disabling user interactions on your `SendButton` until the request is complete.*
 
-Note: Sending messages works only if you added the `SEND_MESSAGE` capability
-to your token provider, as covered above in [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize "#chat-react-messages-recognize").
+Note: Sending messages works only if you added the `SEND_MESSAGE` capability to your token provider, as covered above in [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize).
 
 **TypeScript/JavaScript**:
 
@@ -542,11 +535,7 @@ const isSendDisabled = connectionState !== 'connected' || isSending;
 // ...
 ```
 
-Prepare the request by creating a new `SendMessageRequest` instance, passing
-message content to the constructor. After setting the `isSending` and
-`messageToSend` states, call the `sendMessage` method, which sends
-the request to the chat room. Finally, clear the `isSending` flag on receiving
-confirmation or rejection of the request.
+Prepare the request by creating a new `SendMessageRequest` instance, passing message content to the constructor. After setting the `isSending` and `messageToSend` states, call the `sendMessage` method, which sends the request to the chat room. Finally, clear the `isSending` flag on receiving confirmation or rejection of the request.
 
 **TypeScript/JavaScript**:
 
@@ -575,32 +564,18 @@ const onMessageSend = async () => {
 // ...
 ```
 
-Give Chatterbox a run: try sending a message by drafting one with your
-`MessageBar` and tapping your `SendButton`. You should see your sent
-message rendered within the `MessageList` that you created earlier.
+Give Chatterbox a run: try sending a message by drafting one with your `MessageBar` and tapping your `SendButton`. You should see your sent message rendered within the `MessageList` that you created earlier.
 
 ### Deleting a Message
+<a name="chat-react-room-actions-deleting-message"></a>
 
-To delete a message from a chat room, you need to have the proper capability.
-Capabilities are granted during the initialization of the chat token that you use when
-authenticating to a chat room. For the purposes of this section, the `ServerApp`
-from [Set Up a Local
-Authentication/Authorization Server](chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-auth-server "chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-auth-server") (in Part 1 of this tutorial) lets you specify
-moderator capabilities. This is done in your app using the `tokenProvider` object
-that you created in [Build a Token
-Provider](chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-token-provider "chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-token-provider") (also in Part 1).
+To delete a message from a chat room, you need to have the proper capability. Capabilities are granted during the initialization of the chat token that you use when authenticating to a chat room. For the purposes of this section, the `ServerApp` from [Set Up a Local Authentication/Authorization Server](chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-auth-server) (in Part 1 of this tutorial) lets you specify moderator capabilities. This is done in your app using the `tokenProvider` object that you created in [Build a Token Provider](chat-sdk-react-tutorial-chat-rooms.md#chat-react-rooms-token-provider) (also in Part 1).
 
-Here you modify your `Message` by adding a function to delete the
-message.
+Here you modify your `Message` by adding a function to delete the message.
 
-First, open the `App.tsx` and add the `DELETE_MESSAGE` capability.
-(`capabilities` is the second parameter of your `tokenProvider`
-function.)
+First, open the `App.tsx` and add the `DELETE_MESSAGE` capability. (`capabilities` is the second parameter of your `tokenProvider` function.)
 
-Note: This is how your `ServerApp` informs the IVS Chat APIs that the user
-being associated with the resulting chat token can delete messages in a chat room. In a
-real-world situation you probably will have more complex backend logic to manage user
-capabilities in your server app's infrastructure.
+Note: This is how your `ServerApp` informs the IVS Chat APIs that the user being associated with the resulting chat token can delete messages in a chat room. In a real-world situation you probably will have more complex backend logic to manage user capabilities in your server app's infrastructure.
 
 **TypeScript/JavaScript**:
 
@@ -619,14 +594,12 @@ const [room] = useState(() =>
 // ...
 ```
 
-In the next steps, you update your `Message` to display a delete
-button.
+In the next steps, you update your `Message` to display a delete button.
 
-Define a new function called `onDelete` that accepts a string as one of its
-parameters and returns `Promise`. For the string parameter, pass in your
-component message ID.
+Define a new function called `onDelete` that accepts a string as one of its parameters and returns `Promise`. For the string parameter, pass in your component message ID.
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 // Message.tsx
@@ -686,7 +659,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // Message.jsx
@@ -741,13 +715,14 @@ const styles = StyleSheet.create({
 });
 ```
 
-Next, you update your `renderItem` to reflect the latest changes to your
-`FlatList` component.
+------
 
-In `App`, define a function named `handleDeleteMessage` and pass
-it to the `MessageList onDelete` property:
+Next, you update your `renderItem` to reflect the latest changes to your `FlatList` component.
 
-TypeScript
+In `App`, define a function named `handleDeleteMessage` and pass it to the `MessageList onDelete` property:
+
+------
+#### [ TypeScript ]
 
 ```
 // App.tsx
@@ -765,7 +740,8 @@ const renderItem = useCallback<ListRenderItem<ChatMessage>>(({ item }) => {
 // ...
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // App.jsx
@@ -783,11 +759,12 @@ const renderItem = useCallback(({ item }) => {
 // ...
 ```
 
-Prepare a request by creating a new instance of `DeleteMessageRequest`,
-passing the relevant message ID to the constructor parameter, and call
-`deleteMessage` that accepts the prepared request above:
+------
 
-TypeScript
+Prepare a request by creating a new instance of `DeleteMessageRequest`, passing the relevant message ID to the constructor parameter, and call `deleteMessage` that accepts the prepared request above:
+
+------
+#### [ TypeScript ]
 
 ```
 // App.tsx
@@ -802,7 +779,8 @@ const handleDeleteMessage = async (id: string) => {
 // ...
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // App.jsx
@@ -817,17 +795,13 @@ const handleDeleteMessage = async (id) => {
 // ...
 ```
 
-Next, you update your `messages` state to reflect a new list of messages that
-omits the message you just deleted.
+------
 
-In the `useEffect` hook, listen for the `messageDelete` event and
-update your `messages` state array by deleting the message with a matching ID to
-the `message` parameter.
+Next, you update your `messages` state to reflect a new list of messages that omits the message you just deleted.
 
-Note: The `messageDelete` event might be raised for messages being deleted by
-the current user or any other user in the room. Handling it in the event handler (instead of
-next to the `deleteMessage` request) allows you to unify delete-message
-handling.
+In the `useEffect` hook, listen for the `messageDelete` event and update your `messages` state array by deleting the message with a matching ID to the `message` parameter.
+
+Note: The `messageDelete` event might be raised for messages being deleted by the current user or any other user in the room. Handling it in the event handler (instead of next to the `deleteMessage` request) allows you to unify delete-message handling.
 
 **TypeScript/JavaScript**:
 
@@ -852,6 +826,6 @@ return () => {
 You are now able to delete users from a chat room in your chat app.
 
 ## Next Steps
+<a name="chat-react-messages-events-next-steps"></a>
 
-As an experiment, try implementing other actions in a room like disconnecting another
-user.
+As an experiment, try implementing other actions in a room like disconnecting another user.

@@ -1,36 +1,26 @@
-# IVS Chat Logging
 
-The Chat Logging feature allows you to record all messages in a room to any of three
-standard locations: an Amazon S3 bucket, Amazon CloudWatch Logs, or Amazon Kinesis Data
-Firehose. Subsequently, the logs can be used for analysis or building a chat replay that
-links to a live-video session.
+
+# IVS Chat Logging
+<a name="chat-logging"></a>
+
+The Chat Logging feature allows you to record all messages in a room to any of three standard locations: an Amazon S3 bucket, Amazon CloudWatch Logs, or Amazon Kinesis Data Firehose. Subsequently, the logs can be used for analysis or building a chat replay that links to a live-video session.
 
 ## Enable Chat Logging for a Room
+<a name="chat-logging-enable"></a>
 
-Chat Logging is an advanced option that can be enabled by associating a logging
-configuration with a room. A logging configuration is a resource that allows you to
-specify a type of location (Amazon S3 bucket, Amazon CloudWatch Logs, or Amazon Kinesis
-Data Firehose) where messages of a room are logged. For details on creating and managing
-logging configurations, see [Getting Started with
-Amazon IVS Chat](getting-started-chat.md "getting-started-chat.md") and [Amazon IVS Chat API Reference](../ChatAPIReference/Welcome.md "../ChatAPIReference/Welcome.md").
+Chat Logging is an advanced option that can be enabled by associating a logging configuration with a room. A logging configuration is a resource that allows you to specify a type of location (Amazon S3 bucket, Amazon CloudWatch Logs, or Amazon Kinesis Data Firehose) where messages of a room are logged. For details on creating and managing logging configurations, see [Getting Started with Amazon IVS Chat](getting-started-chat.md) and [Amazon IVS Chat API Reference](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/Welcome.html). 
 
-You can associate up to three logging configurations with each room, either when
-creating a new room ([CreateRoom](../ChatAPIReference/API_CreateRoom.md "../ChatAPIReference/API_CreateRoom.md")) or
-updating an existing room ([UpdateRoom](../ChatAPIReference/API_UpdateRoom.md "../ChatAPIReference/API_UpdateRoom.md")). You can
-associate multiple rooms with the same logging configuration.
+You can associate up to three logging configurations with each room, either when creating a new room ([CreateRoom](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_CreateRoom.html)) or updating an existing room ([UpdateRoom](https://docs.aws.amazon.com/ivs/latest/ChatAPIReference/API_UpdateRoom.html)). You can associate multiple rooms with the same logging configuration.
 
-When at least one active logging configuration is associated with a room, every
-messaging request sent to that room via the [Amazon IVS Chat Messaging API](../chatmsgapireference/welcome.md "../chatmsgapireference/welcome.md") is
-automatically recorded to the specified location(s). These are the average propagation
-delays (from when a messaging request is sent to when it becomes available in your
-specified locations):
-
-- Amazon S3 bucket: 5 minutes
-- Amazon CloudWatch Logs or Amazon Kinesis Data Firehose: 10 seconds
+When at least one active logging configuration is associated with a room, every messaging request sent to that room via the [Amazon IVS Chat Messaging API](https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/welcome.html) is automatically recorded to the specified location(s). These are the average propagation delays (from when a messaging request is sent to when it becomes available in your specified locations):
++ Amazon S3 bucket: 5 minutes
++ Amazon CloudWatch Logs or Amazon Kinesis Data Firehose: 10 seconds
 
 ## Message Content
+<a name="chat-logging-message-content"></a>
 
 ### Format
+<a name="message-content-format"></a>
 
 ```
 {
@@ -42,93 +32,93 @@ specified locations):
 ```
 
 ### Fields
+<a name="message-content-fields"></a>
 
-| Field             | Description                                                                                                                                                                                                                                                                                                                                    |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `event_timestamp` | UTC timestamp of when the message was received by Amazon<br>IVS Chat.                                                                                                                                                                                                                                                                          |
-| `payload`         | The [Message (Subscribe)](../chatmsgapireference/actions-message-subscribe.md "../chatmsgapireference/actions-message-subscribe.md") or [Event (Subscribe)](../chatmsgapireference/actions-event-subscribe.md "../chatmsgapireference/actions-event-subscribe.md") JSON payload that clients will<br>receive from the Amazon IVS Chat service. |
-| `type`            | Type of the chat message.<br>• Valid Values: `MESSAGE`                                                                                                                                                                                                                                                                                         | <br>`EVENT` |
-| `version`         | Version of the message-content format.                                                                                                                                                                                                                                                                                                         |
+
+| Field | Description | 
+| --- | --- | 
+| `event_timestamp` | UTC timestamp of when the message was received by Amazon IVS Chat. | 
+| `payload` | The [Message (Subscribe)](https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-message-subscribe.html) or [Event (Subscribe)](https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-event-subscribe.html) JSON payload that clients will receive from the Amazon IVS Chat service. | 
+| `type` | Type of the chat message.+  Valid Values: `MESSAGE` \| `EVENT`  | 
+| `version` | Version of the message-content format. | 
 
 ## Amazon S3 Bucket
+<a name="chat-logging-s3-bucket"></a>
 
 ### Format
+<a name="s3-bucket-format"></a>
 
-Message logs are organized and stored with the following S3 prefix and file
-format:
+Message logs are organized and stored with the following S3 prefix and file format:
 
 ```
 AWSLogs/<account_id>/IVSChatLogs/<version>/<region>/room_<resource_id>/<year>/<month>/<day>/<hours>/<account_id>_IVSChatLogs_<version>_<region>_room_<resource_id>_<year><month><day><hours><minutes>_<hash>.log.gz
 ```
 
 ### Fields
+<a name="s3-bucket-fields"></a>
 
-| Field                                           | Description                                                           |
-| ----------------------------------------------- | --------------------------------------------------------------------- |
-| `<account_id>`                                  | AWS account ID from which the room is<br>created.                     |
-| `<hash>`                                        | A hash value generated by the system to ensure<br>uniqueness.         |
-| `<region>`                                      | The AWS service region where the room was<br>created.                 |
-| `<resource_id>`                                 | The resource ID part of the room ARN.                                 |
-| `<version>`                                     | Version of the message-content format.                                |
-| `<year> / <month> / <day> / <hours> / <minute>` | UTC timestamp of when the message was received by Amazon<br>IVS Chat. |
+
+| Field | Description | 
+| --- | --- | 
+| `<account_id>` | AWS account ID from which the room is created. | 
+| `<hash>` | A hash value generated by the system to ensure uniqueness. | 
+| `<region>` | The AWS service region where the room was created. | 
+| `<resource_id>` | The resource ID part of the room ARN. | 
+| `<version>` | Version of the message-content format. | 
+| `<year> / <month> / <day> / <hours> / <minute>` | UTC timestamp of when the message was received by Amazon IVS Chat. | 
 
 ### Example
+<a name="s3-bucket-example"></a>
 
 ```
 AWSLogs/123456789012/IVSChatLogs/1.0/us-west-2/room_abc123DEF456/2022/10/14/17/123456789012_IVSChatLogs_1.0_us-west-2_room_abc123DEF456_20221014T1740Z_1766dcbc.log.gz
 ```
 
 ## Amazon CloudWatch Logs
+<a name="chat-logging-cloudwatch-logs"></a>
 
 ### Format
+<a name="cloudwatch-logs-format"></a>
 
-Message logs are organized and stored with the following log-stream name
-format:
+Message logs are organized and stored with the following log-stream name format:
 
 ```
 aws/IVSChatLogs/<version>/room_<resource_id>
 ```
 
 ### Fields
+<a name="cloudwatch-logs-fields"></a>
 
-| Field           | Description                            |
-| --------------- | -------------------------------------- |
-| `<resource_id>` | Resource ID part of the room ARN.      |
-| `<version>`     | Version of the message-content format. |
+
+| Field | Description | 
+| --- | --- | 
+| `<resource_id>` | Resource ID part of the room ARN. | 
+| `<version>` | Version of the message-content format. | 
 
 ### Example
+<a name="cloudwatch-logs-example"></a>
 
 ```
 aws/IVSChatLogs/1.0/room_abc123DEF456
 ```
 
 ## Amazon Kinesis Data Firehose
+<a name="chat-logging-kinesis-firehose"></a>
 
-Message logs are sent to the delivery stream as real-time streaming data to
-destinations like Amazon Redshift, Amazon OpenSearch Service, Splunk, and any custom
-HTTP endpoint or HTTP endpoints owned by supported third-party service providers. For
-more information, see [What Is Amazon Kinesis Data Firehose](../../../firehose/latest/dev/what-is-this-service.md "../../../firehose/latest/dev/what-is-this-service.md").
+Message logs are sent to the delivery stream as real-time streaming data to destinations like Amazon Redshift, Amazon OpenSearch Service, Splunk, and any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers. For more information, see [What Is Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html?icmpid=docs_console_unmapped).
 
 ## Constraints
+<a name="chat-logging-constraints"></a>
++ You must own the logging location where messages will be stored.
++ The room, logging configuration, and logging location must be in the same AWS region.
++ Only active logging configurations are available for Chat Logging.
++ You can only delete a logging configuration that is no longer associated with any rooms.
 
-- You must own the logging location where messages will be stored.
-- The room, logging configuration, and logging location must be in the same AWS
-  region.
-- Only active logging configurations are available for Chat Logging.
-- You can only delete a logging configuration that is no longer associated with
-  any rooms.
-
-Logging messages to a location that you own requires authorization with your AWS
-credentials. To give IVS Chat the required access, a resource policy (for an Amazon S3
-bucket or CloudWatch Logs) or an AWS IAM [Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") (SLR) (for Amazon Kinesis Data Firehose) is generated
-automatically when the logging configuration is created. _Be
-cautious about any modification to the role or policies, as that can impact
-permission for chat logging._
+Logging messages to a location that you own requires authorization with your AWS credentials. To give IVS Chat the required access, a resource policy (for an Amazon S3 bucket or CloudWatch Logs) or an AWS IAM [Service-Linked Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) (SLR) (for Amazon Kinesis Data Firehose) is generated automatically when the logging configuration is created. *Be cautious about any modification to the role or policies, as that can impact permission for chat logging.*
 
 ## Monitoring Errors with Amazon CloudWatch
+<a name="chat-logging-monitor-errors"></a>
 
-You can monitor errors occurring in chat logging with Amazon CloudWatch, and you can
-create alarms or dashboards to indicate or respond to the changes of specific
-errors.
+You can monitor errors occurring in chat logging with Amazon CloudWatch, and you can create alarms or dashboards to indicate or respond to the changes of specific errors.
 
-There are several types of errors. For more information, see [Monitoring Amazon IVS Chat](chat-health.md "chat-health.md").
+There are several types of errors. For more information, see [Monitoring Amazon IVS Chat](chat-health.md).

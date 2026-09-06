@@ -1,13 +1,14 @@
+
+
 # Using the IVS Chat Client Messaging Android SDK
+<a name="chat-android-using-sdk"></a>
 
 This document takes you through the steps involved in using the Amazon IVS chat client messaging Android SDK.
 
 ## Initialize a Chat Room Instance
+<a name="chat-android-initialize-room"></a>
 
-Create an instance of the `ChatRoom` class. This requires passing
-`regionOrUrl`, which typically is the AWS region in which your chat
-room is hosted, and `tokenProvider` which is the token-fetching method
-created in the previous step.
+Create an instance of the `ChatRoom` class. This requires passing `regionOrUrl`, which typically is the AWS region in which your chat room is hosted, and `tokenProvider` which is the token-fetching method created in the previous step.
 
 ```
 val room = ChatRoom(
@@ -16,8 +17,7 @@ val room = ChatRoom(
 )
 ```
 
-Next, create a listener object that will implement handlers for chat related
-events, and assign it to the `room.listener` property:
+Next, create a listener object that will implement handlers for chat related events, and assign it to the `room.listener` property:
 
 ```
 private val roomListener = object : ChatRoomListener {
@@ -56,29 +56,23 @@ room.listener = roomListener // <- add this line
 // ...
 ```
 
-The last step of basic initialization is connecting to the specific room by
-establishing a WebSocket connection. To do this, call the `connect()`
-method within the room instance. We recommend doing so in the `onResume()` lifecycle method to make sure it keeps a connection if your app resumes from
-the background.
+The last step of basic initialization is connecting to the specific room by establishing a WebSocket connection. To do this, call the `connect()` method within the room instance. We recommend doing so in the `onResume() `lifecycle method to make sure it keeps a connection if your app resumes from the background.
 
 ```
 room.connect()
 ```
 
-The SDK will try to establish a connection to a chat room encoded in the chat
-token received from your server. If it fails, it will try to reconnect the number of
-times specified in the room instance.
+The SDK will try to establish a connection to a chat room encoded in the chat token received from your server. If it fails, it will try to reconnect the number of times specified in the room instance.
 
 ## Perform Actions in a Chat Room
+<a name="chat-android-room-actions"></a>
 
-The `ChatRoom` class has actions for sending and deleting messages and
-disconnecting other users. These actions accept an optional callback parameter that
-allows you to get request confirmation or rejection notifications.
+The `ChatRoom` class has actions for sending and deleting messages and disconnecting other users. These actions accept an optional callback parameter that allows you to get request confirmation or rejection notifications.
 
 ### Sending a Message
+<a name="chat-android-room-actions-send-message"></a>
 
-For this request, you must have the `SEND_MESSAGE` capability
-encoded in your chat token.
+For this request, you must have the `SEND_MESSAGE` capability encoded in your chat token.
 
 To trigger a send-message request:
 
@@ -87,8 +81,7 @@ val request = SendMessageRequest("Test Echo")
 room.sendMessage(request)
 ```
 
-To get a confirmation/rejection of the request, provide a callback as a second
-parameter:
+To get a confirmation/rejection of the request, provide a callback as a second parameter:
 
 ```
 room.sendMessage(request, object : SendMessageCallback {
@@ -102,9 +95,9 @@ room.sendMessage(request, object : SendMessageCallback {
 ```
 
 ### Deleting a Message
+<a name="chat-android-room-actions-delete-message"></a>
 
-For this request, you must have the DELETE\_MESSAGE capability encoded in your
-chat token.
+For this request, you must have the DELETE\_MESSAGE capability encoded in your chat token.
 
 To trigger a delete-message request:
 
@@ -113,8 +106,7 @@ val request = DeleteMessageRequest(messageId, "Some delete reason")
 room.deleteMessage(request)
 ```
 
-To get a confirmation/rejection of the request, provide a callback as a second
-parameter:
+To get a confirmation/rejection of the request, provide a callback as a second parameter:
 
 ```
 room.deleteMessage(request, object : DeleteMessageCallback {
@@ -128,9 +120,9 @@ room.deleteMessage(request, object : DeleteMessageCallback {
 ```
 
 ### Disconnecting Another User
+<a name="chat-android-room-actions-disconnect-user"></a>
 
-For this request, you must have the `DISCONNECT_USER` capability
-encoded in your chat token.
+For this request, you must have the `DISCONNECT_USER` capability encoded in your chat token.
 
 To disconnect another user for moderation purposes:
 
@@ -139,8 +131,7 @@ val request = DisconnectUserRequest(userId, "Reason for disconnecting user")
 room.disconnectUser(request)
 ```
 
-To get confirmation/rejection of the request, provide a callback as a second
-parameter:
+To get confirmation/rejection of the request, provide a callback as a second parameter:
 
 ```
 room.disconnectUser(request, object : DisconnectUserCallback {
@@ -154,18 +145,12 @@ room.disconnectUser(request, object : DisconnectUserCallback {
 ```
 
 ## Disconnect from a Chat Room
+<a name="chat-android-disconnect-room"></a>
 
-To close your connection to the chat room, call the `disconnect()`
-method on the room instance:
+To close your connection to the chat room, call the `disconnect()` method on the room instance:
 
 ```
 room.disconnect()
 ```
 
-Because the WebSocket connection will stop working after a short time when the
-application is in a background state, we recommend that you manually
-connect/disconnect when transitioning from/to a background state. To do so, match
-the `room.connect()` call in the `onResume()` lifecycle
-method, on Android `Activity` or `Fragment`, with a
-`room.disconnect()` call in the `onPause()` lifecycle
-method.
+Because the WebSocket connection will stop working after a short time when the application is in a background state, we recommend that you manually connect/disconnect when transitioning from/to a background state. To do so, match the `room.connect()` call in the `onResume()` lifecycle method, on Android `Activity` or `Fragment`, with a `room.disconnect()` call in the `onPause()` lifecycle method.
