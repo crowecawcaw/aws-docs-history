@@ -27,7 +27,7 @@ The example rule set describes a match with the following characteristics:
   values are the same. For character, the rule verifies that the values are
   different.
 - This example uses one player definition with a quantity property to create
-  both player teams. The team are assigned the following names: "player\_1" and
+  both player teams. The teams are assigned the following names: "player\_1" and
   "player\_2".
 
 ```

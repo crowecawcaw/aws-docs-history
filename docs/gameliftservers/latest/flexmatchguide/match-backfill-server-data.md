@@ -6,7 +6,7 @@ backfill requests.
 
 When Amazon GameLift Servers completes a match backfill request—successfully or not—it
 calls your game server using the callback function `onUpdateGameSession`.
-This call has three input parameters: a match backfill ticket ID, a status message , and
+This call has three input parameters: a match backfill ticket ID, a status message, and
 a GameSession object containing the most up-to-date matchmaking data including player
 information. You need to add the following code to your game server as part of your game
 server integration:

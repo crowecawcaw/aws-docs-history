@@ -27,7 +27,7 @@ tasks.
    empty player slots. You may want to tie backfill requests to specific
    circumstances, such as to fill critical character roles or balance out teams.
    You'll likely also want to limit backfilling based on a game session's age.
-   Whatever you use for a trigger, at a minimum you'll need to the following
+   Whatever you use for a trigger, at a minimum you'll need the following
    information. You can get this information from the game session object ([GameSession](../../../gamelift/latest/apireference/API_GameSession.md "../../../gamelift/latest/apireference/API_GameSession.md")) by calling
    [DescribeGameSessions](../../../gamelift/latest/apireference/API_DescribeMatchmaking.md "../../../gamelift/latest/apireference/API_DescribeMatchmaking.md") with a game session ID.
 
@@ -66,7 +66,7 @@ tasks.
      match. This information is in a game session object ([GameSession](../../../gamelift/latest/apireference/API_GameSession.md "../../../gamelift/latest/apireference/API_GameSession.md")),
      `MatchmakerData` property, under the matchmaking
      configuration ARN. The name value is the string following
-     ""matchmakingconfiguration/". (For example, in the ARN value
+     "matchmakingconfiguration/". (For example, in the ARN value
      "arn:aws:gamelift:us-west-2:111122223333:matchmakingconfiguration/MM-4v4",
      the matchmaking configuration name is "MM-4v4".)
    - **Game session ARN** — Specify the
@@ -75,12 +75,12 @@ tasks.
      you need. Matchmaking tickets ([MatchmakingTicket](../../../gamelift/latest/apireference/API_MatchmakingTicket.md "../../../gamelift/latest/apireference/API_MatchmakingTicket.md")) for backfill requests have the game
      session ID while being processed; tickets for new matchmaking requests
      do not get a game session ID until the match is placed; the presence of
-     at game session ID is one way to tell the difference between tickets for
+     a game session ID is one way to tell the difference between tickets for
      new matches and tickets for backfills.
    - **Player data** — Include player
      information ([Player](../../../gamelift/latest/apireference/API_Player.md "../../../gamelift/latest/apireference/API_Player.md"))
      for all current players in the game session you are backfilling. This
-     information allows to matchmaker to locate the best possible player
+     information allows the matchmaker to locate the best possible player
      matches for the players currently in the game session. You must include
      the team membership for every player. Do not specify a team if you are
      not using backfill. If your game server has been accurately reporting
@@ -95,7 +95,7 @@ tasks.
         `MatchmakerData` property (see [About matchmaker data](match-server.md#match-server-data "match-server.md#match-server-data"). Use the player IDs
         acquired in the previous step to get data for currently
         connected players only. Since matchmaker data is not updated
-        when players drop out, you will need extract the data for
+        when players drop out, you will need to extract the data for
         current players only.
      3. For player latency, if the matchmaker calls for latency data,
         collect new latency values from all current players and include

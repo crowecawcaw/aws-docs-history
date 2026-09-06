@@ -47,7 +47,7 @@ Before you can add client-side functionality to your game, you need to do these 
   relevant data for each player to include in your matchmaking requests. You need
   the player ID and player attribute values. If your rule set has latency rules or
   you want to use latency data when placing game sessions, collect latency data
-  for each geographic location where the player is likely be slotted into a
+  for each geographic location where the player is likely to be slotted into a
   game.
   To obtain accurate latency measurements, use Amazon GameLift Servers's
   UDP ping beacons. These endpoints enable you to measure actual UDP network latency

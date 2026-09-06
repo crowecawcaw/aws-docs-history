@@ -20,7 +20,7 @@ start a game session for the match.
 Match data includes the following information:
 
 - A unique match ID
-- The ID of the matchmaking configure that was used to create the match
+- The ID of the matchmaking configuration that was used to create the match
 - The players selected for the match
 - Team names and team assignments
 - Player attribute values that were used to form the match. Attributes might
@@ -36,8 +36,8 @@ players, such as for match backfill, we recommend getting fresh data.
 ###### Note
 
 Matchmaker data specifies the full matchmaking configuration ARN, which identifies
-the configuration name, AWS account, and Region. For games hosting with Amazon GameLift Servers, if
-you 're using match backfill, you need the configuration name only. The
+the configuration name, AWS account, and Region. For games hosted with Amazon GameLift Servers, if
+you're using match backfill, you need the configuration name only. The
 configuration name is the string that follows ":matchmakingconfiguration/". In the
 following example, the matchmaking configuration name is
 "MyMatchmakerConfig".

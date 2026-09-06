@@ -27,7 +27,7 @@ The example rule set creates a match using the following instructions:
   tend to be placed in regions where they report faster latency and not in regions
   where they report high (but acceptable) latency. At the same time, matches are
   likely to have fewer players, and the balancing criteria (number of monster
-  skills) may vary more widely.
+  kills) may vary more widely.
 - When an expansion is defined for a multi-team definition (quantity > 1), the
   expansion applies to all teams created with that definition. So by relaxing the
   hunter team minimum players setting, all ten hunter teams are affected

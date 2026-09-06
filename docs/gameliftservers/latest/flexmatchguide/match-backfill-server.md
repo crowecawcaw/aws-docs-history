@@ -52,7 +52,7 @@ tasks.
      the game session being backfilled. You can get the game session ARN by
      calling the server API [GetGameSessionId()](../../../gamelift/latest/developerguide/integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-getgamesessionid "../../../gamelift/latest/developerguide/integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-getgamesessionid"). During the matchmaking process,
      tickets for new requests do not have a game session ID, while tickets
-     for backfill requests do. The presence of at game session ID is one way
+     for backfill requests do. The presence of a game session ID is one way
      to tell the difference between tickets for new matches and tickets for
      backfills.
    - **Player data** — Include player

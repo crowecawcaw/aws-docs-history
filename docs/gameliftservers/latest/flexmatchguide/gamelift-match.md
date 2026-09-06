@@ -31,11 +31,11 @@ for Amazon GameLift Servers.
   matchmaker to use.
 - **FlexMatch matchmaking rule set** – A rule
   set contains all the information that is needed to evaluate players for a
-  potential matches and approve or reject. The rule set defines a match's team
+  potential match and approve or reject. The rule set defines a match's team
   structure, declares the player attributes that are used for evaluation, and
   provides rules that describe the criteria for an acceptable match. Rules can
   apply to individual players, teams, or the entire match. For example, a rule
-  might require that every players in the match choose the same game map, or it
+  might require that every player in the match choose the same game map, or it
   might require that all teams have similar player skill average.
 - **Amazon GameLift Servers game session queue (for FlexMatch with Amazon GameLift Servers managed
   hosting only)** – A game session queue locates available

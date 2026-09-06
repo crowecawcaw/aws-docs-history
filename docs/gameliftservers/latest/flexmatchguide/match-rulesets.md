@@ -10,7 +10,7 @@ have novice and experienced players, but the average skill of the two teams must
 10 points of each other. If no match is made after 30 seconds, gradually relax the skill
 requirements.
 
-The topics in this section describe how design and build a matchmaking rule set. When
+The topics in this section describe how to design and build a matchmaking rule set. When
 creating a rule set, you can use either the Amazon GameLift Servers console or the AWS CLI.
 
 ###### Topics

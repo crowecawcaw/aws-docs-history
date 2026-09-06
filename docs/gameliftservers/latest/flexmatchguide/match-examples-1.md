@@ -28,7 +28,7 @@ following instructions.
 - The `FairTeamSkill` rule ensures that teams are evenly matched
   based on player skill. To evaluate this rule for each new prospective player,
   FlexMatch tentatively adds the player to a team and calculates the averages. If
-  rule fails, the prospective player is not added to the match.
+  the rule fails, the prospective player is not added to the match.
 - Since both teams have identical structures, you could opt to create just one
   team definition and set the team quantity to "2". In this scenario, if you named
   the team "aliens", then your teams would be assigned the names "aliens\_1" and

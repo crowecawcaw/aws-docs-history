@@ -40,7 +40,7 @@ following instructions:
   evaluate the `FairTeamSkill` rule, FlexMatch tentatively adds the
   prospective player to a team and calculates the average skill of players in the
   team. It then compares it against the average skill of players in both teams. If
-  rule fails, the prospective player is not added to the match.
+  the rule fails, the prospective player is not added to the match.
 - The team- and match-level requirements (total number of medics) are achieved
   through a collection rule. This rule type takes a list of character attributes
   for all players and checks against the maximum counts. Use `flatten`
@@ -59,7 +59,7 @@ following instructions:
   - The matchmaker evaluates latency by region. Any region with a latency
     higher than the maximum is ignored. To be accepted for a match, a player
     must have at least one region with a latency below the maximum.
-  - If a matchmaking request omits latency data one or more players, the
+  - If a matchmaking request omits latency data for one or more players, the
     request is rejected for all matches.
 
 ```

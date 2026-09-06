@@ -19,7 +19,7 @@ cloud and security _in_ the cloud:
 - **Security in the cloud** – Your responsibility
   is determined by the AWS service that you use. You are also responsible for other
   factors including the sensitivity of your data, your company's requirements, and
-  applicable lAWS and regulations.
+  applicable laws and regulations.
   For security information related to Amazon GameLift Servers, including FlexMatch, see
   [Security in Amazon GameLift Servers](../developerguide/security.md "../developerguide/security.md").
   This documentation helps you understand how to apply the shared responsibility model when

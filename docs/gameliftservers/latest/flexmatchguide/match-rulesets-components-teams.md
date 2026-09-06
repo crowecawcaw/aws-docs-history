@@ -19,7 +19,7 @@ teams defined in the rule set.
 - _minPlayers_ (required) – Specify the
   minimum number of players to assign to the team.
 - _quantity_ (optional) – Specify the
-  number of team to make with this definition. When FlexMatch creates a match, it
+  number of teams to make with this definition. When FlexMatch creates a match, it
   gives these teams the provided name with an appended number. For example
   `Red-Team1`, `Red-Team2`, and `Red-Team3`.
   FlexMatch attempts to fill teams to the maximum player size but does create teams with

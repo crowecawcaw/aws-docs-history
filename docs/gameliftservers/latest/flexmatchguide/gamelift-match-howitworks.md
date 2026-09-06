@@ -1,7 +1,7 @@
 # FlexMatch matchmaking process
 
 This topic describes the sequence of events in a basic matchmaking scenario, including the interactions between the various
-your game components and the FlexMatch service.
+game components and the FlexMatch service.
 
 **Step 1: Request matchmaking for players**
 

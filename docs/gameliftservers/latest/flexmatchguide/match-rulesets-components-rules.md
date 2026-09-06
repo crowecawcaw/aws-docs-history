@@ -1,6 +1,6 @@
 # Set rules for player matching
 
-Create a set of rule statements that evaluate players for acceptance in to a match.
+Create a set of rule statements that evaluate players for acceptance into a match.
 Rules might set requirements that apply to individual players, teams, or an entire
 match. When Amazon GameLift Servers processes a match request, it starts with the oldest player in the
 pool of available players and builds a match around that player. For detailed help on

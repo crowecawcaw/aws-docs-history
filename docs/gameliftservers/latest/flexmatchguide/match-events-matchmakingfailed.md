@@ -1,6 +1,6 @@
 # MatchmakingFailed
 
-Matchmaking ticket has encountered an error. This may be due to the game session queue not
+Matchmaking ticket has encountered an error. This may be due to the game session queue not being
 accessible or to an internal error.
 
 **Resource:** ConfigurationArn

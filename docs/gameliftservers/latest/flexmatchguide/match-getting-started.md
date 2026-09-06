@@ -1,6 +1,6 @@
 # Getting started with FlexMatch
 
-Use the resources in this section to help you get started with buildiing a matchmaking
+Use the resources in this section to help you get started with building a matchmaking
 system with FlexMatch.
 
 ###### Topics
@@ -32,7 +32,7 @@ If you are using FlexMatch with other Amazon GameLift Servers solutions, see the
    accesses your FlexMatch resources, using the Amazon GameLift Servers console or by calling Amazon GameLift Servers APIs,
    must be given explicit access. For detailed instructions on using the console (or
    the AWS CLI or other tools) to set up user groups, see [Creating IAM Users](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md").
-3. **Attach a permissions policy to your user or user group.** Access to AWS services and resources are managed by attaching an [IAM policy](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") to a user or user
+3. **Attach a permissions policy to your user or user group.** Access to AWS services and resources is managed by attaching an [IAM policy](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") to a user or user
    group. Permissions policies specify a set of AWS services and actions a user has
    to have access to.
 

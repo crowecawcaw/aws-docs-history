@@ -49,7 +49,7 @@ Open a command line window and use the command [create-matchmaking-rule-set](../
 
 This example command creates a simple matchmaking rule set that sets up a
 single team. Be sure to create the rule set in the same AWS Region as the
-matchmaking configurations that uses it.
+matchmaking configurations that use it.
 
 ```
 aws gamelift create-matchmaking-rule-set \

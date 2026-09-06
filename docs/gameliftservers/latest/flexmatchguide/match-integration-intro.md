@@ -7,7 +7,7 @@ For more information on how FlexMatch works, see [How Amazon GameLift Servers F
 
 Matchmaking solutions require the following work:
 
-- Create a matchmaker with your custom matchmaking rules For more on creating the
+- Create a matchmaker with your custom matchmaking rules. For more on creating the
   matchmaker, see [Building a Amazon GameLift Servers FlexMatch matchmaker](matchmaker-build.md "matchmaker-build.md").
 - Update your game client to allow players to request a match.
 - For games that use Amazon GameLift Servers hosting, update your game server to manage match data and

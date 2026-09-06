@@ -7,7 +7,7 @@ creating a rule set, see [Build a FlexMatch rule set](match-rulesets.md "match-r
 
 A descriptive label for the rule set. This value is not associated with the
 name assigned to the Amazon GameLift Servers [MatchmakingRuleSet resource](../../../gamelift/latest/apireference/API_MatchmakingRuleSet.md "../../../gamelift/latest/apireference/API_MatchmakingRuleSet.md"). This value is included in the
-matchmaking data describing a completed match, but it not used by any Amazon GameLift Servers
+matchmaking data describing a completed match, but it is not used by any Amazon GameLift Servers
 processes.
 
 Allowed values: String
@@ -33,7 +33,7 @@ Required? No
 
 **`name`**
 
-A unique name for player attribute to be used by matchmaker. This
+A unique name for a player attribute to be used by a matchmaker. This
 name must match the player attribute name that is referenced in
 matchmaking requests.
 
@@ -75,7 +75,7 @@ Allowed values:
 
 - "exhaustiveSearch" – Standard matching method.
   FlexMatch forms a match around the oldest ticket in a batch by
-  evaluating other tickets in the pool based a set of custom
+  evaluating other tickets in the pool based on a set of custom
   match rules. This strategy is used for matches of 40 players
   or fewer. When using this strategy,
   `batchingPreference` should be set to either

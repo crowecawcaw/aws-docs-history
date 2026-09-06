@@ -30,7 +30,7 @@ for your game, and define a set of custom rules for creating matches and teams.
   player teams. When using Amazon GameLift Servers for hosting, also specify how to create a new
   game session for the match.
 - [DescribeMatchmakingConfigurations](../../../gamelift/latest/apireference/API_DescribeMatchmakingConfigurations.md "../../../gamelift/latest/apireference/API_DescribeMatchmakingConfigurations.md") – Retrieve matchmaking
-  configurations defined an Amazon GameLift Servers region.
+  configurations defined in an Amazon GameLift Servers region.
 - [UpdateMatchmakingConfiguration](../../../gamelift/latest/apireference/API_UpdateMatchmakingConfiguration.md "../../../gamelift/latest/apireference/API_UpdateMatchmakingConfiguration.md") – Change settings for
   matchmaking configuration. queue.
 - [DeleteMatchmakingConfiguration](../../../gamelift/latest/apireference/API_DeleteMatchmakingConfiguration.md "../../../gamelift/latest/apireference/API_DeleteMatchmakingConfiguration.md") – Remove a matchmaking

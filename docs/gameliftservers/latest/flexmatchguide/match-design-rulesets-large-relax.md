@@ -13,7 +13,7 @@ up with more game sessions than you need and players spread too thinly across th
 Best practice is to give the first step in your player count expansion a longer wait
 time, long enough for your game session to start. Since backfill requests are given
 higher priority with large matches, incoming players will be slotted into existing
-games before new game are started. You may need to experiment to find the ideal wait
+games before new games are started. You may need to experiment to find the ideal wait
 time for your game.
 
 Here's an example that gradually lowers the Yellow team's player count, with a

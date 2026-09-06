@@ -13,7 +13,7 @@ When choosing an AWS Region for your matchmaker, consider how location might imp
 performance and how it can optimize the match experience for players. We
 recommend the following best practices:
 
-- Place a matchmaker in an location that is close to your players and
+- Place a matchmaker in a location that is close to your players and
   your client service that sends FlexMatch matchmaking requests. This approach
   decreases the latency effect on your matchmaking request workflow and makes it
   more efficient.

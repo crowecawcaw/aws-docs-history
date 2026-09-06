@@ -33,6 +33,6 @@ a difference of 20.
 With matchmakers that have automatic backfill enabled, don't relax your player count
 requirements too quickly. It takes a few seconds for the new game session to start up
 and begin automatic backfill. A better approach is to start your expansion after
-automatic backfill tends to kicks in for your games. Expansion timing varies depending
+automatic backfill tends to kick in for your games. Expansion timing varies depending
 on your team composition, so do testing to find the best expansion strategy for your
 game.
