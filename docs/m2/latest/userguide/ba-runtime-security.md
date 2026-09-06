@@ -1,26 +1,19 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure security for Gapwalk applications
+<a name="ba-runtime-security"></a>
 
 The following topics describe how to secure Gapwalk applications.
 
-It is your responsibility to provide the right configuration to ensure that the use of the
-AWS Transform for mainframe framework is secure.
+It is your responsibility to provide the right configuration to ensure that the use of the AWS Transform for mainframe framework is secure.
 
-All security-related features are disabled by default. To enable authentication (and
-CSRF,XSS,CSP, and so on), set `gapwalk-application.security` to `enabled` and
-`gapwalk-application.security.identity` to `oauth`.
+All security-related features are disabled by default. To enable authentication (and CSRF,XSS,CSP, and so on), set `gapwalk-application.security` to `enabled` and `gapwalk-application.security.identity` to `oauth`.
 
-###### Topics
-
-- [Configure URI accessibility for Gapwalk applications](ba-runtime-filteringURIs.md "ba-runtime-filteringURIs.md")
-- [Configure authentication for Gapwalk applications](ba-runtime-auth.md "ba-runtime-auth.md")
-- [Configure rate limiting for AWS Transform for mainframe Runtime](ba-runtime-rate-limiting.md "ba-runtime-rate-limiting.md")
+**Topics**
++ [Configure URI accessibility for Gapwalk applications](ba-runtime-filteringURIs.md)
++ [Configure authentication for Gapwalk applications](ba-runtime-auth.md)
++ [Configure rate limiting for AWS Transform for mainframe Runtime](ba-runtime-rate-limiting.md)

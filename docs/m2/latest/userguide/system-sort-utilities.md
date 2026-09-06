@@ -1,14 +1,11 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Sort Utilities
+<a name="system-sort-utilities"></a>
 
 The sort utilities rely on datasets whose reference holds a special meaning for the utility. Hence, all the sort utilities on the modernized side share the same invokation pattern in groovy scripts:
 
@@ -18,33 +15,34 @@ mpr.withFileConfigurations(<FILE CONFIGURATIONS DETAILS>...)
    .runProgram("<SORT UTILITY ALIAS>")
 ```
 
-where `mpr` is a `MainProgramRunner` instance (see the Scripts calling programs section in [this page](ba-shared-structure.md#ba-shared-structure-run-call "ba-shared-structure.md#ba-shared-structure-run-call")). The sort utilities aliases are given in the sections below.
+where `mpr` is a `MainProgramRunner` instance (see the Scripts calling programs section in [this page](https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-structure.html#ba-shared-structure-run-call)). The sort utilities aliases are given in the sections below.
 
 The `DD` (datasets definitions) entries from the JCL script are modernized as entries in the details of the file configuration which serve as argument to the `mpr.withFileConfigurations()` method. See the samples below for illustrations of that concept.
 
 ## SORT/SYNCSORT/ICEMAN
+<a name="sort-syncsort-iceman"></a>
 
 ### Purpose
+<a name="sort-purpose"></a>
 
 This program emulates various mainframe SORT utilities, used to sort/merge/copy data from datasets, based on provided criteria. The following program aliases can be used (and match the corresponding legacy sort utility name):
-
-- `SORT`
-- `SYNCSORT`
-- `ICEMAN`
++ `SORT`
++ `SYNCSORT`
++ `ICEMAN`
 
 The details about the SORT/MERGE directives found in the control cards and the legacy sort utility features are not given here but should be fetched from the existing relevant legacy platforms documentations.
 
 ### Signature
+<a name="sort-signature"></a>
 
 The program does not take any argument but relies on specific datasets references instead:
-
-- The `SYSIN` dataset (a.k.a the "control card") holds the sort/merge control statements
-- The optional `SYMNAMES` dataset holds variable substitution directives in the SYSIN content
-- The optional `SORTXDUP` or `SORTXSUM` dataset can be used to store duplicate records
-- The datasets prefixed with `SORTIN` or `SORTDBIN` hold records to be processed (inputs)
-- The `SORTOUT` dataset holds the results from the program (output)
-- The `SORTWK` definitions for SORT WORK datasets found in some legacy jobs scripts are ignored (and not represented in the modernized call); sort work data sets will always be dynamically allocated in the modern environment
-- The two datasets whose DD starts with `SORTJN` (prefix) contain records that will be concerned by join keys directives (used to join datasets during the sort process)
++ The `SYSIN` dataset (a.k.a the "control card") holds the sort/merge control statements
++ The optional `SYMNAMES` dataset holds variable substitution directives in the SYSIN content
++ The optional `SORTXDUP` or `SORTXSUM` dataset can be used to store duplicate records
++ The datasets prefixed with `SORTIN` or `SORTDBIN` hold records to be processed (inputs)
++ The `SORTOUT` dataset holds the results from the program (output)
++ The `SORTWK` definitions for SORT WORK datasets found in some legacy jobs scripts are ignored (and not represented in the modernized call); sort work data sets will always be dynamically allocated in the modern environment
++ The two datasets whose DD starts with `SORTJN` (prefix) contain records that will be concerned by join keys directives (used to join datasets during the sort process)
 
 For instance, considering the following join keys directives:
 
@@ -54,24 +52,24 @@ JOINKEYS FILE=F2,FIELDS=(24,5,A)
 ```
 
 Here, the join key is of length 5, and starts at:
-
-- position 13 for records in dataset `SORTJNF1` (concatenation of `SORTJN` prefix and file `F1`)
-- position 24 for records in dataset `SORTJNF2` (concatenation of `SORTJN` prefix and file `F2`)
++ position 13 for records in dataset `SORTJNF1` (concatenation of `SORTJN` prefix and file `F1`)
++ position 24 for records in dataset `SORTJNF2` (concatenation of `SORTJN` prefix and file `F2`)
 
 ### Checks / Errors Handling
-
-- If the input file (`SORTIN`) has a `SHR` disposition but cannot be found, an error message is logged, the program return code is set to 1 and the program run is halted (no sort will happen, no output will be produced)
+<a name="sort-error"></a>
++ If the input file (`SORTIN`) has a `SHR` disposition but cannot be found, an error message is logged, the program return code is set to 1 and the program run is halted (no sort will happen, no output will be produced)
 
 For the following cases, a `RuntimeException` holding a dedicated message will be thrown:
-
-- If the program invokation requires connection to a database (when `SORTDBIN` dataset is used, not `SORTIN`) but not valid data source could be found
-- If the output file (`SORTOUT`) is not properly defined
-- If a command found in the control card cannot be understood or is not supported
-- If not exactly two input files are provided for a `SORT JOINKEYS` case
++ If the program invokation requires connection to a database (when `SORTDBIN` dataset is used, not `SORTIN`) but not valid data source could be found
++ If the output file (`SORTOUT`) is not properly defined
++ If a command found in the control card cannot be understood or is not supported
++ If not exactly two input files are provided for a `SORT JOINKEYS` case
 
 ### Sample Usage
+<a name="sort-sample"></a>
 
 #### MERGE Sample
+<a name="sort-merge-sample"></a>
 
 Here is a sample `ICEMAN` invokation from a job script snippet:
 
@@ -129,6 +127,7 @@ def stepPASOSO03(Object shell, Map params, Map programResults){
 ```
 
 #### Simple SORT Sample
+<a name="sort-simple-sample"></a>
 
 A simple legacy SORT step (job script snippet) with inlined control card, picked up from the carddemo sample application:
 
@@ -194,49 +193,51 @@ def stepSTEP010(Object shell, Map params, Map programResults){
 Please note that the inlined control card is used "as-is", without any modification from the legacy control card content.
 
 ## ICETOOL
+<a name="icetool"></a>
 
 ### Purpose
+<a name="icetool-purpose"></a>
 
 The ICETOOL utility is used to perform multiple operations on datasets in a single job step (data manipulation, sorting and analysis).
 
 The following core operators are being supported:
-
-- `COPY` - Copies data from input to output files
-- `SORT` - Sorts data using specified sort cards/criteria
-- `SELECT` - Filters and selects specific records based on conditions
-- `SPLICE` - Merges/joins data from multiple sources
-- `COUNT` - Counts records meeting specified criteria
-- `OCCUR` - Analyzes occurrence patterns in data
++ `COPY` - Copies data from input to output files
++ `SORT` - Sorts data using specified sort cards/criteria
++ `SELECT` - Filters and selects specific records based on conditions
++ `SPLICE` - Merges/joins data from multiple sources
++ `COUNT` - Counts records meeting specified criteria
++ `OCCUR` - Analyzes occurrence patterns in data
 
 For the SPLICE operator, the utility will use a multi-threaded approach based on data chunking strategies to ensure an optimized performance.
 
 Details about operators should be fetched from the proper legacy platform documentation.
 
 ### Signature
+<a name="icetool-signature"></a>
 
 The `ICETOOL` utility does not take any parameter, but relies on specific datasets:
-
-- `TOOLIN` dataset contains the control statements to be processed by the utility
-- `TOOLMSG` and `DFSMSG` datasets are not used by the modernized `ICETOOL` utility for now (ignored)
-- `IN` is the prefix for input datasets (records to be processed)
-- `OUT` is the prefix for output datasets (records resulting from the processing)
-- other datasets might be referenced by control statements in the control card
++ `TOOLIN` dataset contains the control statements to be processed by the utility
++ `TOOLMSG` and `DFSMSG` datasets are not used by the modernized `ICETOOL` utility for now (ignored)
++ `IN` is the prefix for input datasets (records to be processed)
++ `OUT` is the prefix for output datasets (records resulting from the processing)
++ other datasets might be referenced by control statements in the control card
 
 ### Checks / Errors Handling
+<a name="icetool-error"></a>
 
 For the following cases, a `RuntimeException` will be thrown with a related message:
-
-- If the operator used in one of the control statements is not supported
-- For any operator, if an unsupported directive is provided
++ If the operator used in one of the control statements is not supported
++ For any operator, if an unsupported directive is provided
 
 ### Sample Usage
+<a name="icetool-sample"></a>
 
 #### ICETOOL SORT Sample
+<a name="icetool-sort-sample"></a>
 
 Here is a legacy jcl sample using ICETOOL for sorting purposes:
-
-- each SORT operator control statement uses a dedicated control card, whose reference is specified through the USING keyword
-- all control cards are defined after the `TOOLIN` definition, and are inlined (see `SEL1CNTL` and following `*CNTL` entries)
++ each SORT operator control statement uses a dedicated control card, whose reference is specified through the USING keyword
++ all control cards are defined after the `TOOLIN` definition, and are inlined (see `SEL1CNTL` and following `*CNTL` entries)
 
 ```
 //SAMPLO52 EXEC PGM=ICETOOL,REGION=1024K
@@ -380,12 +381,12 @@ def stepSAMPLO52(Object shell, Map params, Map programResults){
 ```
 
 Notes:
-
-- The inlined control cards are used "as-is"; no transformation whatsoever happened, from the legacy control cards
-- `TOOLMSG` and `DFSMSG` are defined in the modernized version, but will be ignored at run time
-- Both in legacy and modernized versions, the control cards are defined with the `CNTL` suffix, but referenced without the suffix in the directives from `TOOLIN` dataset: e.g. In `SORT FROM(IN1) TO(OUT1) USING(SEL1)`, the `USING(SEL1)` refers to the `SEL1CNTL` dataset definition
++ The inlined control cards are used "as-is"; no transformation whatsoever happened, from the legacy control cards
++ `TOOLMSG` and `DFSMSG` are defined in the modernized version, but will be ignored at run time
++ Both in legacy and modernized versions, the control cards are defined with the `CNTL` suffix, but referenced without the suffix in the directives from `TOOLIN` dataset: e.g. In `SORT FROM(IN1) TO(OUT1) USING(SEL1)`, the `USING(SEL1)` refers to the `SEL1CNTL` dataset definition
 
 #### ICETOOL COPY Sample
+<a name="icetool-copy-sample"></a>
 
 Here is another ICETOOL sample, using the COPY operator. The `TOOLIN` is inlined in the jcl script snippet:
 
@@ -459,27 +460,31 @@ def stepSAMPLO51(Object shell, Map params, Map programResults){
 ```
 
 ## MFSORT
+<a name="mfsort"></a>
 
 ### Purpose
+<a name="mfsort-purpose"></a>
 
 This utility program is intended to mimic the behaviour of the sort utility named MFSORT found on Micro Focus environments (it is usually invoked from the command line or in scripts on legacy environments).
 
-Internally, the program is delegating the actual sort operations to the [SORT/SYNCSORT/ICEMAN](#sort-syncsort-iceman "#sort-syncsort-iceman") utility program.
+Internally, the program is delegating the actual sort operations to the [SORT/SYNCSORT/ICEMAN](#sort-syncsort-iceman) utility program.
 
 ### Signature
+<a name="mfsort-signature"></a>
 
 Only the following legacy syntax is being supported: `mfsort take <control card>`
 
 The direct instructions call as `mfsort <instructions>` is NOT supported.
 
-It does not take any argument; the _take_ directive is emulated using a dataset referenced as `TAKE`, that contains the commands for MFSORT to operate.
+It does not take any argument; the *take* directive is emulated using a dataset referenced as `TAKE`, that contains the commands for MFSORT to operate.
 
 ### Checks / Errors Handling
-
-- If the `TAKE` dataset is missing or invalid, a `RuntimeException` will be thrown
-- The [Checks / Errors Handling](#sort-error "#sort-error") apply here as well, given the delegation from MFSORT to SORT
+<a name="mfsort-error"></a>
++ If the `TAKE` dataset is missing or invalid, a `RuntimeException` will be thrown
++ The [Checks / Errors Handling](#sort-error) apply here as well, given the delegation from MFSORT to SORT
 
 ### Sample Usage
+<a name="mfsort-sample"></a>
 
 The following command invocation shows a sample MFSORT usage:
 

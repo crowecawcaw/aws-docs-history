@@ -1,57 +1,47 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Endpoints for Gapwalk application in AWS Transform for mainframe
+<a name="ba-endpoints-gapwalk"></a>
 
-In this topic, learn about the endpoints for the Gapwalk web application. These use the root
-path `/gapwalk-application`.
+In this topic, learn about the endpoints for the Gapwalk web application. These use the root path `/gapwalk-application`.
 
-###### Topics
-
-- [Batch jobs (modernized JCLs and alike) related endpoints](#ba-endpoints-gapwalk-batch "#ba-endpoints-gapwalk-batch")
-- [Metrics endpoints](#ba-endpoints-gapwalk-metrics "#ba-endpoints-gapwalk-metrics")
-- [Other endpoints](#ba-endpoints-gapwalk-other "#ba-endpoints-gapwalk-other")
-- [Job queues related endpoints](#ba-endpoints-gapwalk-jobq "#ba-endpoints-gapwalk-jobq")
+**Topics**
++ [Batch jobs (modernized JCLs and alike) related endpoints](#ba-endpoints-gapwalk-batch)
++ [Metrics endpoints](#ba-endpoints-gapwalk-metrics)
++ [Other endpoints](#ba-endpoints-gapwalk-other)
++ [Job queues related endpoints](#ba-endpoints-gapwalk-jobq)
 
 ## Batch jobs (modernized JCLs and alike) related endpoints
+<a name="ba-endpoints-gapwalk-batch"></a>
 
-Batch jobs can be run either synchronously or asynchronously (see details below). Batch jobs
-are being executed using groovy scripts that are the results of the modernization of legacy
-scripts (JCL).
+Batch jobs can be run either synchronously or asynchronously (see details below). Batch jobs are being executed using groovy scripts that are the results of the modernization of legacy scripts (JCL).
 
-###### Topics
-
-- [List deployed scripts](#ba-list-deployed-scripts "#ba-list-deployed-scripts")
-- [Launch a script synchronously](#ba-launch-script-synchronously "#ba-launch-script-synchronously")
-- [Launch a script asynchronously](#ba-launch-script-asynchronously "#ba-launch-script-asynchronously")
-- [Listing triggered scripts](#ba-launch-script-triggered "#ba-launch-script-triggered")
-- [Retrieving job execution details](#ba-retrieve-job-execution-details "#ba-retrieve-job-execution-details")
-- [Listing asynchronously launched scripts that can be killed](#ba-list-async-scripts "#ba-list-async-scripts")
-- [Listing synchronously launched scripts that can be killed](#ba-list-sync-scripts "#ba-list-sync-scripts")
-- [Killing a given job execution](#ba-kill-job-execution "#ba-kill-job-execution")
-- [Listing existing checkpoints for restartability](#ba-list-existing-checkpoints "#ba-list-existing-checkpoints")
-- [Restarting a job (synchronously)](#ba-restart-job-sync "#ba-restart-job-sync")
-- [Restarting a job (asynchronously)](#ba-restart-job-async "#ba-restart-job-async")
-- [Setting thread limit for asynchronous job executions](#ba-set-thread-limit "#ba-set-thread-limit")
+**Topics**
++ [List deployed scripts](#ba-list-deployed-scripts)
++ [Launch a script synchronously](#ba-launch-script-synchronously)
++ [Launch a script asynchronously](#ba-launch-script-asynchronously)
++ [Listing triggered scripts](#ba-launch-script-triggered)
++ [Retrieving job execution details](#ba-retrieve-job-execution-details)
++ [Listing asynchronously launched scripts that can be killed](#ba-list-async-scripts)
++ [Listing synchronously launched scripts that can be killed](#ba-list-sync-scripts)
++ [Killing a given job execution](#ba-kill-job-execution)
++ [Listing existing checkpoints for restartability](#ba-list-existing-checkpoints)
++ [Restarting a job (synchronously)](#ba-restart-job-sync)
++ [Restarting a job (asynchronously)](#ba-restart-job-async)
++ [Setting thread limit for asynchronous job executions](#ba-set-thread-limit)
 
 ### List deployed scripts
+<a name="ba-list-deployed-scripts"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/scripts`
-- Arguments: none
-- This endpoint returns the list of deployed groovy scripts on the server, as a String.
-  This endpoint is primarily intended to be used from a web browser, since the resulting String
-  is a HTML page, with active links (a link per launchable script -- see sample below).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/scripts`
++ Arguments: none
++ This endpoint returns the list of deployed groovy scripts on the server, as a String. This endpoint is primarily intended to be used from a web browser, since the resulting String is a HTML page, with active links (a link per launchable script -- see sample below).
 
 Sample response:
 
@@ -59,118 +49,76 @@ Sample response:
 <p><a href=./script/COMBTRAN>COMBTRAN</a></p><p><a href=./script/CREASTMT>CREASTMT</a></p><p><a href=./script/INTCALC>INTCALC</a></p><p><a href=./script/POSTTRAN>POSTTRAN</a></p><p><a href=./script/REPROC>REPROC</a></p><p><a href=./script/TRANBKP>TRANBKP</a></p><p><a href=./script/TRANREPT>TRANREPT</a></p><p><a href=./script/functions>functions</a></p>
 ```
 
-###### Note
-
+**Note**  
 The links represent the url to use to launch each listed script **synchronously**.
++ Supported method: GET / POST
 
-- Supported method: GET / POST
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/triggerscripts`
++ Arguments: none
++ This endpoint returns the list of deployed groovy scripts on the server, as a String. This endpoint is primarily intended to be used from a web browser, since the resulting String is a HTML page, with active links (a link per launch-able script -- see sample below).
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/triggerscripts`
-- Arguments: none
-- This endpoint returns the list of deployed groovy scripts on the server, as a String.
-  This endpoint is primarily intended to be used from a web browser, since the resulting String
-  is a HTML page, with active links (a link per launch-able script -- see sample below).
-
-As opposed to the previous endpoint response, the links represent the url to use to
-launch each listed script **asynchronously**.
-
-![Listing scripts sample (browser view)](images/trigger_scripts.png)
+  As opposed to the previous endpoint response, the links represent the url to use to launch each listed script **asynchronously**.  
+![Listing scripts sample (browser view)](http://docs.aws.amazon.com/m2/latest/userguide/images/trigger_scripts.png)
 
 ### Launch a script synchronously
+<a name="ba-launch-script-synchronously"></a>
 
-This endpoint has two variants with dedicated paths for GET and POST usage (see
-below).
+This endpoint has two variants with dedicated paths for GET and POST usage (see below).
++ Supported method: GET
 
-- Supported method: GET
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/script/{scriptId:.+}`
++ Supported method: POST
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/post/script/{scriptId:.+}`
++ Arguments:
+  + identifier of the script to launch **Input validation**: Script ID must not be blank, cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
+  + optionally: parameters to pass to the script, using request parameters (seen as a `Map<String,String>`). The given parameters will be automatically added to the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html) of the invoked groovy script. **Input validation**: Parameter map cannot exceed 50 entries.
++ The call executes the script (identified by scriptId) with optional parameters and waits for completion before returning a {{ResponseEntityString}} with either: 
+  + HTTP 200: "Done." or JSON success message on successful execution
+  + HTTP 200: A JSON error message with execution failure details. Additional information available in server logs.
+**Note**  
+Runtime now supports returning HTTP 500 status code for failed job executions. See [Available properties for the main application](https://docs.aws.amazon.com/m2/latest/userguide/ba-runtime-key-value.html#ba-runtime-key-value-main) to configure this response code.
+  + **Input Validation**: Invalid script ID or parameters will return HTTP 400 Bad Request with validation error details.
 
-- Path: `/script/{scriptId:.+}`
-- Supported method: POST
+    ```
+    {
+        "exitCode": -1,
+        "stepName": "STEP15",
+        "program": "CBACT04C",
+        "status": "Error"
+    }
+    ```
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
+    Looking at the server logs, we can figure out that this a deployment issue (the expected program has not been properly deployed, so it cannot be found, making job execution fail):  
+![Script execution error sample](http://docs.aws.amazon.com/m2/latest/userguide/images/script_exec_error_logs.png)
 
-- Path: `/post/script/{scriptId:.+}`
-- Arguments:
-
-  - identifier of the script to launch **Input validation**: Script ID must not be blank,
-    cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
-  - optionally: parameters to pass to the script, using request parameters (seen as a
-    `Map<String,String>`). The given parameters will be automatically added to
-    the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html "https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html") of the invoked groovy script. **Input validation**:
-    Parameter map cannot exceed 50 entries.
-
-- The call executes the script (identified by scriptId) with optional parameters and waits for completion before returning a `ResponseEntityString` with either:
-
-  - HTTP 200: "Done." or JSON success message on successful execution
-  - HTTP 200: A JSON error message with execution failure details. Additional information available in server logs.
-
-  ###### Note
-
-  Runtime now supports returning HTTP 500 status code for failed job executions. See
-  [Available
-  properties for the main application](ba-runtime-key-value.md#ba-runtime-key-value-main "ba-runtime-key-value.md#ba-runtime-key-value-main") to configure this response code.
-  - **Input Validation**: Invalid script ID or parameters will return HTTP 400 Bad Request with validation error details.
-
-  ```
-  {
-      "exitCode": -1,
-      "stepName": "STEP15",
-      "program": "CBACT04C",
-      "status": "Error"
-  }
-  ```
-
-  Looking at the server logs, we can figure out that this a deployment issue (the
-  expected program has not been properly deployed, so it cannot be found, making job execution
-  fail):
-
-  ![Script execution error sample](images/script_exec_error_logs.png)
-
-###### Note
-
-The synchronous calls should be reserved for short time running jobs. Long times running
-jobs should rather be launched asynchronously (see dedicated endpoint below).
+**Note**  
+The synchronous calls should be reserved for short time running jobs. Long times running jobs should rather be launched asynchronously (see dedicated endpoint below).
 
 ### Launch a script asynchronously
+<a name="ba-launch-script-asynchronously"></a>
++ Supported methods: GET / POST
 
-- Supported methods: GET / POST
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/triggerscript/{scriptId:.+}`
++ Arguments:
+  + identifier of the script to launch **Input validation**: Script ID must not be blank, cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
+  + optionally: parameters to pass to the script, using request parameters (seen as a `Map<String,String>`). The given parameters will be automatically added to the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html) of the invoked groovy script. **Input validation**: Parameter map cannot exceed 50 entries.
++ As opposed to the synchronous mode above, the endpoint is not waiting for the job execution to finish to send a response. The job execution is launched at once, if an available thread can be found to do so, and a response is sent immediately to caller, with the job execution id, a unique identifier representing the job execution, that can be used to query job execution status or force kill a job execution that is supposed to be malfunctioning. The format of the response is:
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
+  ```
+  Triggered script <script identifier> [unique job execution id] @ <date and time>
+  ```
++ Since the job asynchronous execution relies on a fixed limited number of threads, the job execution might not be launched if no available thread could be found. In that case, the returned message will rather look like:
 
-- Path: `/triggerscript/{scriptId:.+}`
-- Arguments:
+  ```
+  Script [<script identifier>] NOT triggered - Thread limit reached (<actual thread limit>) - Please retry later or increase thread limit.
+  ```
 
-  - identifier of the script to launch **Input validation**: Script ID must not be blank,
-    cannot exceed 255 characters, and must match the pattern: `^[a-zA-Z0-9._-]+$`
-  - optionally: parameters to pass to the script, using request parameters (seen as a
-    `Map<String,String>`). The given parameters will be automatically added to
-    the [bindings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html "https://docs.groovy-lang.org/latest/html/api/groovy/lang/Binding.html") of the invoked groovy script. **Input validation**:
-    Parameter map cannot exceed 50 entries.
-
-- As opposed to the synchronous mode above, the endpoint is not waiting for the job
-  execution to finish to send a response. The job execution is launched at once, if an available
-  thread can be found to do so, and a response is sent immediately to caller, with the job
-  execution id, a unique identifier representing the job execution, that can be used to query
-  job execution status or force kill a job execution that is supposed to be malfunctioning. The
-  format of the response is:
-
-```
-Triggered script <script identifier> [unique job execution id] @ <date and time>
-```
-
-- Since the job asynchronous execution relies on a fixed limited number of threads, the job
-  execution might not be launched if no available thread could be found. In that case, the
-  returned message will rather look like:
-
-```
-Script [<script identifier>] NOT triggered - Thread limit reached (<actual thread limit>) - Please retry later or increase thread limit.
-```
-
-See the `settriggerthreadlimit` endpoint below to learn how to increase the
-thread limit.
+  See the `settriggerthreadlimit` endpoint below to learn how to increase the thread limit.
 
 Sample response:
 
@@ -178,37 +126,24 @@ Sample response:
 Triggered script INTCALC [d43cbf46-4255-4ce2-aac2-79137573a8b4] @ 06-12-2023 16:26:15
 ```
 
-The unique job execution identifier permits to quickly retrieve related log entries in the
-server logs if required. It is also used by several other endpoints detailed below.
+The unique job execution identifier permits to quickly retrieve related log entries in the server logs if required. It is also used by several other endpoints detailed below.
 
 ### Listing triggered scripts
+<a name="ba-launch-script-triggered"></a>
++ Supported methods: GET / POST
 
-- Supported methods: GET / POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Paths: `/triggeredscripts/{status:.+}`,
-  `/triggeredscripts/{status:.+}/{namefilter}`
-- Arguments:
-
-  - Status (mandatory): the status of the triggered scripts to retrieve. **Input validation**:
-    Status must not be blank and cannot exceed 50 characters. Possibles values are:
-
-    - `all` : show all job execution details, whether the jobs are still running
-      or not.
-    - `running`: only show jobs details for jobs that are currently
-      running.
-    - `done`: only show jobs details for jobs whose execution is over.
-    - `killed`: only show jobs details for jobs whose execution has been
-      forcefully killed using the dedicated endpoint (see below).
-    - `triggered`: only show jobs details for jobs which have been triggered but
-      not yet launched.
-    - `failed`: only show jobs details for jobs whose execution has been marked
-      as failed.
-    - \_namefilter (optional)\_ : retrieve only executions for the given script
-      identifier. **Input validation**: Cannot exceed 255 characters
-
-- Returns a collection of job executions details as JSON. For more information, see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details "ba-endpoints-apx.md#job-execution-details").
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Paths: `/triggeredscripts/{status:.+}`, `/triggeredscripts/{status:.+}/{namefilter}`
++ Arguments:
+  + Status (mandatory): the status of the triggered scripts to retrieve. **Input validation**: Status must not be blank and cannot exceed 50 characters. Possibles values are:
+    + `all` : show all job execution details, whether the jobs are still running or not.
+    + `running`: only show jobs details for jobs that are currently running.
+    + `done`: only show jobs details for jobs whose execution is over. 
+    + `killed`: only show jobs details for jobs whose execution has been forcefully killed using the dedicated endpoint (see below). 
+    + `triggered`: only show jobs details for jobs which have been triggered but not yet launched.
+    + `failed`: only show jobs details for jobs whose execution has been marked as failed.
+    + \_namefilter (optional)\_ : retrieve only executions for the given script identifier. **Input validation**: Cannot exceed 255 characters
++ Returns a collection of job executions details as JSON. For more information, see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details).
 
 Sample response:
 
@@ -228,148 +163,93 @@ Sample response:
 ```
 
 ### Retrieving job execution details
+<a name="ba-retrieve-job-execution-details"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/getjobexecutioninfo/{jobexecutionid:.+}`
-- Arguments:
-
-  - jobexecutionid (mandatory): the unique job execution identifier to retrieve the
-    corresponding job execution details. **Input validation**: Job execution ID
-    must not be blank and cannot exceed 255 characters
-
-- Returns a JSON string representing a single job execution details (see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details "ba-endpoints-apx.md#job-execution-details")) or an empty response
-  if no job execution details could be found for the given identifier.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/getjobexecutioninfo/{jobexecutionid:.+}`
++ Arguments:
+  + jobexecutionid (mandatory): the unique job execution identifier to retrieve the corresponding job execution details. **Input validation**: Job execution ID must not be blank and cannot exceed 255 characters
++ Returns a JSON string representing a single job execution details (see [Job execution details message structure](ba-endpoints-apx.md#job-execution-details)) or an empty response if no job execution details could be found for the given identifier.
 
 ### Listing asynchronously launched scripts that can be killed
+<a name="ba-list-async-scripts"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/killablescripts`
-- Returns a collection of job execution identifiers of jobs which have been launched
-  asynchronously that are still currently running and can be forcefully killed (see the
-  `/kill` endpoint below).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/killablescripts`
++ Returns a collection of job execution identifiers of jobs which have been launched asynchronously that are still currently running and can be forcefully killed (see the `/kill` endpoint below).
 
 ### Listing synchronously launched scripts that can be killed
+<a name="ba-list-sync-scripts"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/killablesyncscripts`
-- Returns a collection of job execution identifiers of jobs which have been launched
-  synchronously, are still currently running and can be forcefully killed (see the
-  `/kill` endpoint below).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/killablesyncscripts`
++ Returns a collection of job execution identifiers of jobs which have been launched synchronously, are still currently running and can be forcefully killed (see the `/kill` endpoint below).
 
 ### Killing a given job execution
+<a name="ba-kill-job-execution"></a>
++ Supported method: POST
 
-- Supported method: POST
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/kill/{identifier:.+}`
++ Argument: job execution identifier (mandatory): the unique job execution identifier to point at the job execution to be forcefully killed. **Input validation**: Identifier must not be blank and cannot exceed 255 characters
++ Returns a textual message detailing the job execution kill attempt outcome; the message will contain the script identifier, the job execution unique identifier and the date and time at which the execution kill occurred. If no running job execution could be found for the given identifier, an error message will be returned instead. 
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/kill/{identifier:.+}`
-- Argument: job execution identifier (mandatory): the unique job execution identifier to
-  point at the job execution to be forcefully killed. **Input validation**:
-  Identifier must not be blank and cannot exceed 255 characters
-- Returns a textual message detailing the job execution kill attempt outcome; the message
-  will contain the script identifier, the job execution unique identifier and the date and time
-  at which the execution kill occurred. If no running job execution could be found for the given
-  identifier, an error message will be returned instead.
-
-###### Warning
-
-- The runtime makes its best effort to kill the target job execution nicely. Thus, the
-  response from the /kill endpoint might take a bit of time to reach the caller, as the AWS Transform for mainframe
-  runtime will try to minimize the business impact of killing the job.
-- Forcefully killing a job execution should not be done lightly, as it may have direct
-  business consequences, including possible data loss or corruption. It should be reserved for
-  cases where a given job execution has gone sideways and data remediation means are clearly
-  identified.
-- Killing a job should lead to further investigations (post-mortem analysis) to figure out
-  what went wrong and take proper remediations actions.
-- In any case, attempt to kill a running job will be logged in the server logs with
-  warning level messages.
+**Warning**  
+ The runtime makes its best effort to kill the target job execution nicely. Thus, the response from the /kill endpoint might take a bit of time to reach the caller, as the AWS Transform for mainframe runtime will try to minimize the business impact of killing the job.
+Forcefully killing a job execution should not be done lightly, as it may have direct business consequences, including possible data loss or corruption. It should be reserved for cases where a given job execution has gone sideways and data remediation means are clearly identified.
+Killing a job should lead to further investigations (post-mortem analysis) to figure out what went wrong and take proper remediations actions.
+In any case, attempt to kill a running job will be logged in the server logs with warning level messages.
 
 ### Listing existing checkpoints for restartability
+<a name="ba-list-existing-checkpoints"></a>
 
-Job restartability relies on the ability for the scripts to register checkpoints in the
-`CheckpointRegistry` to track down the job execution progress. If a job execution
-fails to end properly, and restart checkpoints have been registered, one can simply restart the
-job execution from the last known registered checkpoint (without having to execute the
-predecessor steps above the checkpoint).
+Job restartability relies on the ability for the scripts to register checkpoints in the `CheckpointRegistry` to track down the job execution progress. If a job execution fails to end properly, and restart checkpoints have been registered, one can simply restart the job execution from the last known registered checkpoint (without having to execute the predecessor steps above the checkpoint).
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/restarts/{scriptId}/{jobId}`
-- Arguments:
-
-  - scriptId (optional - string): the script being restarted.
-  - jobId (optional - string): the unique identifier of a job execution.
-
-- Returns a JSON formatted list of existing restart points, that can be used to restart a
-  job whose execution did not come to and end properly or trigger a delayed restart by bypassing
-  previously executed steps. If no checkpoints were registered by any scripts, the page contents
-  will be "No registered checkpoints".
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/restarts/{scriptId}/{jobId}`
++ Arguments:
+  + scriptId (optional - string): the script being restarted.
+  + jobId (optional - string): the unique identifier of a job execution.
++ Returns a JSON formatted list of existing restart points, that can be used to restart a job whose execution did not come to and end properly or trigger a delayed restart by bypassing previously executed steps. If no checkpoints were registered by any scripts, the page contents will be "No registered checkpoints".
 
 ### Restarting a job (synchronously)
+<a name="ba-restart-job-sync"></a>
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/restart/{hashcode}/{scriptId}/{skipflag}`
-- Arguments:
-
-  - hashcode (integer - mandatory): restart the most recent execution of a job, using the
-    provided hashcode as checkpoint value (see the `/restarts` endpoint above to
-    learn how to retrieve a valid checkpoint value).
-  - scriptId (optional - string): the script being restarted.
-  - skipflag (optional - boolean): skip execution of selected (checkpoint) step and issue a
-    restart from immediate successor step (if any).
-
-- Returns: see `/script` return description above.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/restart/{hashcode}/{scriptId}/{skipflag}`
++ Arguments: 
+  + hashcode (integer - mandatory): restart the most recent execution of a job, using the provided hashcode as checkpoint value (see the `/restarts` endpoint above to learn how to retrieve a valid checkpoint value).
+  + scriptId (optional - string): the script being restarted.
+  + skipflag (optional - boolean): skip execution of selected (checkpoint) step and issue a restart from immediate successor step (if any).
++ Returns: see `/script` return description above.
 
 ### Restarting a job (asynchronously)
+<a name="ba-restart-job-async"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/triggerrestart/{hashcode}/{scriptId}/{skipflag}`
-- Arguments:
-
-  - hashcode (integer - mandatory): restart the most recent execution of a job, using the
-    provided hashcode as checkpoint value (see the `/restarts` endpoint above to
-    learn how to retrieve a valid checkpoint value).
-  - scriptId (optional - string): the script being restarted.
-  - skipflag (optional - boolean): skip execution of selected (checkpoint) step and issue a
-    restart from immediate successor step (if any).
-
-- Returns: see `/triggerscript` return description above.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/triggerrestart/{hashcode}/{scriptId}/{skipflag}`
++ Arguments: 
+  + hashcode (integer - mandatory): restart the most recent execution of a job, using the provided hashcode as checkpoint value (see the `/restarts` endpoint above to learn how to retrieve a valid checkpoint value).
+  + scriptId (optional - string): the script being restarted.
+  + skipflag (optional - boolean): skip execution of selected (checkpoint) step and issue a restart from immediate successor step (if any).
++ Returns: see `/triggerscript` return description above.
 
 ### Setting thread limit for asynchronous job executions
+<a name="ba-set-thread-limit"></a>
 
-The job asynchronous execution relies on a dedicated pool of threads in the JVM. That pool
-has a fixed limit regarding the number of available threads. The used has the ability to adjust
-the limit according to the host capabilities (number of CPUs, available memory, etc...). By
-default, the thread limit is set to 5 threads.
+The job asynchronous execution relies on a dedicated pool of threads in the JVM. That pool has a fixed limit regarding the number of available threads. The used has the ability to adjust the limit according to the host capabilities (number of CPUs, available memory, etc...). By default, the thread limit is set to 5 threads.
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/settriggerthreadlimit/{threadlimit:.+}`
-- Argument (integer): the new thread limit to apply. **Input validation**:
-  Must be between 1 and 1000 inclusive.
-- Returns a message (`String`) giving the new thread limit and the previous one,
-  or en error message if the provided thread limit value is not valid (not a strictly positive
-  integer).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/settriggerthreadlimit/{threadlimit:.+}`
++ Argument (integer): the new thread limit to apply. **Input validation**: Must be between 1 and 1000 inclusive.
++ Returns a message (`String`) giving the new thread limit and the previous one, or en error message if the provided thread limit value is not valid (not a strictly positive integer).
 
 Sample response:
 
@@ -378,15 +258,12 @@ Set thread limit for Script Tower Control to 10 (previous value was 5)
 ```
 
 #### Counting currently running triggered job executions
+<a name="ba-count-current-jobs"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/countrunningtriggeredscripts`
-- Returns a message indicating the number of running jobs launched asynchronously and the
-  thread limit (that is the maximum number of triggered jobs that can run
-  simultaneously).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/countrunningtriggeredscripts`
++ Returns a message indicating the number of running jobs launched asynchronously and the thread limit (that is the maximum number of triggered jobs that can run simultaneously).
 
 Sample response:
 
@@ -394,167 +271,126 @@ Sample response:
 0 triggered script(s) running (limit =10)
 ```
 
-###### Note
-
-This can be used to check, prior to launching a job, if the thread limit has not been
-reached (which would prevent the job from being launched).
+**Note**  
+This can be used to check, prior to launching a job, if the thread limit has not been reached (which would prevent the job from being launched). 
 
 #### Purge job executions information
+<a name="ba-purge-job-info"></a>
 
-The job executions information remain in the server memory as long as the server is up. It
-might be convenient to purge oldest informations from the memory, as they are not relevant
-anymore; this is the purpose of this endpoint.
+The job executions information remain in the server memory as long as the server is up. It might be convenient to purge oldest informations from the memory, as they are not relevant anymore; this is the purpose of this endpoint.
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/purgejobinformation/{age:.+}`
-- Arguments: a strictly positive integer value representing the age in hours of
-  informations to be purged. **Input validation**:
-  Must be between 0 and 365 inclusive.
-- Returns a message with the following informations:
-
-  - Name of the purge file where purged job execution informations are being stored for
-    archiving purpose.
-  - Number of purged job execution informations.
-  - Number of remaining job execution informations in memo
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/purgejobinformation/{age:.+}`
++ Arguments: a strictly positive integer value representing the age in hours of informations to be purged. **Input validation**: Must be between 0 and 365 inclusive.
++ Returns a message with the following informations:
+  + Name of the purge file where purged job execution informations are being stored for archiving purpose.
+  + Number of purged job execution informations.
+  + Number of remaining job execution informations in memo
 
 ## Metrics endpoints
+<a name="ba-endpoints-gapwalk-metrics"></a>
 
-**Input validation**:
-All metrics endpoints validate request parameters and return HTTP 400 Bad Request for invalid values.
+**Input validation**: All metrics endpoints validate request parameters and return HTTP 400 Bad Request for invalid values.
 
 ### JVM
+<a name="ba-metrics-jvm"></a>
 
 This endpoint returns available metrics related to the JVM.
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/metrics/jvm`
-- Arguments: none
-- Returns a message with the following information:
-
-  - threadActiveCount: Number of active threads.
-  - jvmMemoryUsed: Memory actively used by the Java Virtual Machine.
-  - jvmMemoryMax: Maximum memory allowed for the Java Virtual Machine.
-  - jvmMemoryFree: Available memory not currently in use by the Java Virtual
-    Machine.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/metrics/jvm`
++ Arguments: none
++ Returns a message with the following information:
+  + threadActiveCount: Number of active threads.
+  + jvmMemoryUsed: Memory actively used by the Java Virtual Machine.
+  + jvmMemoryMax: Maximum memory allowed for the Java Virtual Machine.
+  + jvmMemoryFree: Available memory not currently in use by the Java Virtual Machine.
 
 ### Session
+<a name="ba-metrics-session"></a>
 
 This endpoint returns metrics related to currently opened HTTP sessions.
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/metrics/session`
-- Arguments: none
-- Returns a message with the following information:
-
-  - sessionCount: Number of active user sessions currently maintained by the server.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/metrics/session`
++ Arguments: none
++ Returns a message with the following information:
+  + sessionCount: Number of active user sessions currently maintained by the server.
 
 ### Batch
+<a name="ba-metrics-batch"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/metrics/batch`
-- Arguments:
-
-  - startTimestamp (optional, number): Starting timestamp for data filtering.
-    **Input validation**: Must be a valid numeric value.
-  - endTimestamp (optional, number): Ending timestamp for data filtering.
-    **Input validation**: Must be a valid numeric value.
-  - page (optional, number): Page number for pagination. **Input validation**:
-    Must be a positive integer.
-  - pageSize (optional, number): Number of items per page in pagination. **Input validation**:
-    Must be a strictly positive integer, maximum 500.
-  - **Input validation**: Parameter map cannot exceed 20 entries
-
-- Returns a message with the following information:
-
-  - content: List of batch execution metrics.
-  - pageNumber: Current page number in pagination.
-  - pageSize: Number of items displayed per page.
-  - totalPages: Total number of pages available.
-  - numberOfElements: Count of items on the current page.
-  - last: Boolean flag for the last page.
-  - first: Boolean flag for the first page.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/metrics/batch`
++ Arguments:
+  + startTimestamp (optional, number): Starting timestamp for data filtering. **Input validation**: Must be a valid numeric value.
+  + endTimestamp (optional, number): Ending timestamp for data filtering. **Input validation**: Must be a valid numeric value.
+  + page (optional, number): Page number for pagination. **Input validation**: Must be a positive integer.
+  + pageSize (optional, number): Number of items per page in pagination. **Input validation**: Must be a strictly positive integer, maximum 500.
+  + **Input validation**: Parameter map cannot exceed 20 entries
++ Returns a message with the following information:
+  + content: List of batch execution metrics.
+  + pageNumber: Current page number in pagination.
+  + pageSize: Number of items displayed per page.
+  + totalPages: Total number of pages available.
+  + numberOfElements: Count of items on the current page.
+  + last: Boolean flag for the last page.
+  + first: Boolean flag for the first page.
 
 ### Transaction
+<a name="ba-metrics-transaction"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/metrics/transaction`
-- Arguments:
-
-  - startTimestamp (optional, number): Starting timestamp for data filtering.
-    **Input validation**: Must be a valid numeric value.
-  - endTimestamp (optional, number): Ending timestamp for data filtering.
-    **Input validation**: Must be a valid numeric value.
-  - page (optional, number): Page number for pagination. **Input validation**:
-    Must be a positive integer.
-  - pageSize (optional, number): Number of items per page in pagination. **Input validation**:
-    Must be a strictly positive integer, maximum 500.
-  - **Input validation**: Parameter map cannot exceed 20 entries
-
-- Returns a message with the following information:
-
-  - content: List of transaction execution metrics.
-  - pageNumber: Current page number in pagination.
-  - pageSize: Number of items displayed per page.
-  - totalPages: Total number of pages available.
-  - numberOfElements: Count of items on the current page.
-  - last: Boolean flag for the last page.
-  - first: Boolean flag for the first page.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/metrics/transaction`
++ Arguments:
+  + startTimestamp (optional, number): Starting timestamp for data filtering. **Input validation**: Must be a valid numeric value.
+  + endTimestamp (optional, number): Ending timestamp for data filtering. **Input validation**: Must be a valid numeric value.
+  + page (optional, number): Page number for pagination. **Input validation**: Must be a positive integer.
+  + pageSize (optional, number): Number of items per page in pagination. **Input validation**: Must be a strictly positive integer, maximum 500.
+  + **Input validation**: Parameter map cannot exceed 20 entries
++ Returns a message with the following information:
+  + content: List of transaction execution metrics.
+  + pageNumber: Current page number in pagination.
+  + pageSize: Number of items displayed per page.
+  + totalPages: Total number of pages available.
+  + numberOfElements: Count of items on the current page.
+  + last: Boolean flag for the last page.
+  + first: Boolean flag for the first page.
 
 ## Other endpoints
+<a name="ba-endpoints-gapwalk-other"></a>
 
-Use these endpoints to list list registered programs or services, discover health status,
-and manage JICS transactions.
+Use these endpoints to list list registered programs or services, discover health status, and manage JICS transactions.
 
-###### Topics
-
-- [Listing registered programs](#ba-list-registered-programs "#ba-list-registered-programs")
-- [Listing registered services](#ba-list-registered-services "#ba-list-registered-services")
-- [Health status](#ba-health-status "#ba-health-status")
-- [Listing available JICS transactions](#ba-list-jics-transactions "#ba-list-jics-transactions")
-- [Launch a JICS transaction](#ba-launch-jics-transaction "#ba-launch-jics-transaction")
-- [Launch a JICS transaction (alternative)](#ba-launch-jics-transaction-alt "#ba-launch-jics-transaction-alt")
-- [List active sessions](#ba-active-session-list "#ba-active-session-list")
+**Topics**
++ [Listing registered programs](#ba-list-registered-programs)
++ [Listing registered services](#ba-list-registered-services)
++ [Health status](#ba-health-status)
++ [Listing available JICS transactions](#ba-list-jics-transactions)
++ [Launch a JICS transaction](#ba-launch-jics-transaction)
++ [Launch a JICS transaction (alternative)](#ba-launch-jics-transaction-alt)
++ [List active sessions](#ba-active-session-list)
 
 ### Listing registered programs
+<a name="ba-list-registered-programs"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/programs`
-- Returns the list of registered programs, as a html page. Each program is designated by
-  its main program identifier. Both modernized legacy programs and utility programs (IDCAMS,
-  IEBGENER, etc ...) are being returned in the list. Please note that the available utility
-  programs will depend on the utility web-applications that have been deployed on your tomcat
-  server. For instance, z/OS utility support programs might not be available for modernized
-  iSeries assets, as they are not relevant.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/programs`
++ Returns the list of registered programs, as a html page. Each program is designated by its main program identifier. Both modernized legacy programs and utility programs (IDCAMS, IEBGENER, etc ...) are being returned in the list. Please note that the available utility programs will depend on the utility web-applications that have been deployed on your tomcat server. For instance, z/OS utility support programs might not be available for modernized iSeries assets, as they are not relevant. 
 
 ### Listing registered services
+<a name="ba-list-registered-services"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/services`
-- Returns the list of registered runtime services, as a html page. The given services are
-  brought by the AWS Transform for mainframe runtime as utilities, that can be used for instance in groovy scripts.
-  Blusam load services (to create Blusam datasets from legacy datasets) fall into that
-  category.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/services`
++ Returns the list of registered runtime services, as a html page. The given services are brought by the AWS Transform for mainframe runtime as utilities, that can be used for instance in groovy scripts. Blusam load services (to create Blusam datasets from legacy datasets) fall into that category.
 
 Sample response:
 
@@ -563,24 +399,20 @@ Sample response:
 ```
 
 ### Health status
+<a name="ba-health-status"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/`
-- Returns a simple message, indicating that the gapwalk-application is up and running
-  (`Jics application is running.`)
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/`
++ Returns a simple message, indicating that the gapwalk-application is up and running (`Jics application is running.`)
 
 ### Listing available JICS transactions
+<a name="ba-list-jics-transactions"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/transactions`
-- Returns a html page listing all available JICS transactions. This only makes sense for
-  environments with JICS elements (modernization of legacy CICS elements).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/transactions`
++ Returns a html page listing all available JICS transactions. This only makes sense for environments with JICS elements (modernization of legacy CICS elements).
 
 Sample response:
 
@@ -589,137 +421,82 @@ Sample response:
 ```
 
 ### Launch a JICS transaction
+<a name="ba-launch-jics-transaction"></a>
++ Supported methods: POST
 
-- Supported methods: POST
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/jicstransrunner/{jtrans:.+}`
++ Arguments:
+  + JICS transaction identifier (string, required) : identifier of the JICS transaction to be launched (8 characters long at max.)
+  + required: additional input data to pass to the transaction, as a Map<String,Object>. The contents of this map will be used to feed the [COMMAREA](https://www.ibm.com/docs/en/cics-ts/5.4?topic=programs-commarea) that will be consumed by the JICS transaction. The map can be empty if no data is required to run the transaction.
+  + optional: Http headers entries, to customize the run environment for the given transaction. The following header keys are being supported:
+    + `jics-channel`: The name of the JICS CHANNEL to be used by the program that will be launched by this transaction launch. 
+    + `jics-container`: The name of the JICS CONTAINER to be used for this JICS transaction launch.
+    + `jics-startcode`: the STARTCODE (String, up to 2 characters) to use at JICS transaction start. See [STARTCODE](https://www.ibm.com/docs/en/cics-ts/5.5?topic=summary-assign) for possible values (browse down the page).
+    + `jicxa-xid` : The XID (X/Open transaction identifier XID structure) of a "global transaction" ([XA](https://en.wikipedia.org/wiki/X/Open_XA)), initiated by the caller, to which the current JICS transaction launch will participate. **Input validation**: XID must not be blank and cannot exceed 255 characters.
++ Returns a `com.netfective.bluage.gapwalk.rt.shared.web.TransactionResultBean` JSON serialization, representing the outcome of the JICS transaction launch.
++ **Input validation**: Invalid XID values (blank or exceeding 255 characters) will return HTTP 400 Bad Request with validation error details.
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/jicstransrunner/{jtrans:.+}`
-- Arguments:
-
-  - JICS transaction identifier (string, required) : identifier of the JICS transaction to
-    be launched (8 characters long at max.)
-  - required: additional input data to pass to the transaction, as a
-    Map<String,Object>. The contents of this map will be used to feed the [COMMAREA](https://www.ibm.com/docs/en/cics-ts/5.4?topic=programs-commarea "https://www.ibm.com/docs/en/cics-ts/5.4?topic=programs-commarea") that
-    will be consumed by the JICS transaction. The map can be empty if no data is required to run
-    the transaction.
-  - optional: Http headers entries, to customize the run environment for the given
-    transaction. The following header keys are being supported:
-
-    - `jics-channel`: The name of the JICS CHANNEL to be used by the program
-      that will be launched by this transaction launch.
-    - `jics-container`: The name of the JICS CONTAINER to be used for this JICS
-      transaction launch.
-    - `jics-startcode`: the STARTCODE (String, up to 2 characters) to use at
-      JICS transaction start. See [STARTCODE](https://www.ibm.com/docs/en/cics-ts/5.5?topic=summary-assign "https://www.ibm.com/docs/en/cics-ts/5.5?topic=summary-assign") for
-      possible values (browse down the page).
-    - `jicxa-xid` : The XID (X/Open transaction identifier XID structure) of a
-      "global transaction" ([XA](https://en.wikipedia.org/wiki/X/Open_XA "https://en.wikipedia.org/wiki/X/Open_XA")),
-      initiated by the caller, to which the current JICS transaction launch will
-      participate. **Input validation**: XID must not be blank
-      and cannot exceed 255 characters.
-
-- Returns a `com.netfective.bluage.gapwalk.rt.shared.web.TransactionResultBean`
-  JSON serialization, representing the outcome of the JICS transaction launch.
-- **Input validation**: Invalid XID values
-  (blank or exceeding 255 characters) will return HTTP 400 Bad Request with validation error details.
-
-For more information about the details of the structure, see [Transaction launch outcome structure](ba-endpoints-apx.md#transaction-outcome "ba-endpoints-apx.md#transaction-outcome").
+For more information about the details of the structure, see [Transaction launch outcome structure](ba-endpoints-apx.md#transaction-outcome).
 
 ### Launch a JICS transaction (alternative)
+<a name="ba-launch-jics-transaction-alt"></a>
++ supported methods: POST
 
-- supported methods: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- path: `/jicstransaction/{jtrans:.+}`
-- Arguments:
-
-**JICS transaction identifier (string, required)**
-
-identifier of the JICS transaction to be launched (8 characters long at max.)
-
-**required: additional input data to pass to the transaction, as a
-Map<String,Object>**
-
-The contents of this map will be used to feed the [COMMAREA](https://www.ibm.com/docs/en/cics-ts/5.4?topic=programs-commarea "https://www.ibm.com/docs/en/cics-ts/5.4?topic=programs-commarea")
-that will be consumed by the JICS transaction. The map can be empty if no data is required
-to run the transaction.
-
-**optional: Http headers entries, to customize the run environment for the given
-transaction.**
-
-The following header keys are being supported:
-
-    + `jics-channel`: The name of the JICS CHANNEL to be used by the program
-     that will be launched by this transaction launch.
-    + `jics-container`: The name of the JICS CONTAINER to be used for this JICS
-     transaction launch.
-    + `jics-startcode`: the STARTCODE (String, up to 2 characters) to use at
-     JICS transaction start. For possible values, see [STARTCODE](https://www.ibm.com/docs/en/cics-ts/5.5?topic=summary-assign "https://www.ibm.com/docs/en/cics-ts/5.5?topic=summary-assign")
-     (browse down the page).
-    + `jicxa-xid` : The XID (X/Open transaction identifier XID structure) of a
-     "global transaction" ([XA](https://en.wikipedia.org/wiki/X/Open_XA "https://en.wikipedia.org/wiki/X/Open_XA")),
-     initiated by the caller, to which the current JICS transaction launch will
-     participate. **Input validation**: XID must not be blank
-     and cannot exceed 255 characters.
-
-- Returns a `com.netfective.bluage.gapwalk.rt.shared.web.RecordHolderBean` JSON
-  serialization, representing the outcome of the JICS transaction launch. The details of the
-  structure can be found in [Transaction launch record outcome structure](ba-endpoints-apx.md#transaction-record-outcome "ba-endpoints-apx.md#transaction-record-outcome").
-- **Input validation**: Invalid XID values
-  (blank or exceeding 255 characters) will return HTTP 400 Bad Request with validation error details.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ path: `/jicstransaction/{jtrans:.+}`
++ Arguments:  
+**JICS transaction identifier (string, required)**  
+identifier of the JICS transaction to be launched (8 characters long at max.)  
+**required: additional input data to pass to the transaction, as a Map<String,Object>**  
+The contents of this map will be used to feed the [COMMAREA](https://www.ibm.com/docs/en/cics-ts/5.4?topic=programs-commarea) that will be consumed by the JICS transaction. The map can be empty if no data is required to run the transaction.  
+**optional: Http headers entries, to customize the run environment for the given transaction.**  
+The following header keys are being supported:  
+  + `jics-channel`: The name of the JICS CHANNEL to be used by the program that will be launched by this transaction launch. 
+  + `jics-container`: The name of the JICS CONTAINER to be used for this JICS transaction launch.
+  + `jics-startcode`: the STARTCODE (String, up to 2 characters) to use at JICS transaction start. For possible values, see [STARTCODE](https://www.ibm.com/docs/en/cics-ts/5.5?topic=summary-assign) (browse down the page).
+  + `jicxa-xid` : The XID (X/Open transaction identifier XID structure) of a "global transaction" ([XA](https://en.wikipedia.org/wiki/X/Open_XA)), initiated by the caller, to which the current JICS transaction launch will participate. **Input validation**: XID must not be blank and cannot exceed 255 characters.
++ Returns a `com.netfective.bluage.gapwalk.rt.shared.web.RecordHolderBean` JSON serialization, representing the outcome of the JICS transaction launch. The details of the structure can be found in [Transaction launch record outcome structure](ba-endpoints-apx.md#transaction-record-outcome). 
++ **Input validation**: Invalid XID values (blank or exceeding 255 characters) will return HTTP 400 Bad Request with validation error details.
 
 ### List active sessions
+<a name="ba-active-session-list"></a>
++ supported methods: GET
 
-- supported methods: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- path: `/activesessionlist`
-- Arguments: none
-- **Input validation**: Parameter map cannot exceed 20 entries
-- Returns a list of
-  `com.netfective.bluage.gapwalk.application.web.sessiontracker.SessionTrackerObject`
-  in JSON serialization, representing the list of active user sessions. When session tracking is
-  disabled, an empty list will be returned.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ path: `/activesessionlist`
++ Arguments: none
++ **Input validation**: Parameter map cannot exceed 20 entries
++ Returns a list of `com.netfective.bluage.gapwalk.application.web.sessiontracker.SessionTrackerObject` in JSON serialization, representing the list of active user sessions. When session tracking is disabled, an empty list will be returned.
 
 ## Job queues related endpoints
+<a name="ba-endpoints-gapwalk-jobq"></a>
 
-Job queues are the AWS Transform for mainframe support for the AS400 jobs submission mechanism. Job queues are
-used in AS400 to run job on specific thread pools. A job queue is defined by a name and a maximum
-number of threads that corresponds to the maximum number of programs that can be run
-simultaneously on that queue. If more jobs are submitted on the queue than the maximum number of
-threads, jobs will wait for a thread to be available.
+ Job queues are the AWS Transform for mainframe support for the AS400 jobs submission mechanism. Job queues are used in AS400 to run job on specific thread pools. A job queue is defined by a name and a maximum number of threads that corresponds to the maximum number of programs that can be run simultaneously on that queue. If more jobs are submitted on the queue than the maximum number of threads, jobs will wait for a thread to be available.
 
-For an exhaustive list of status for a job on a queue, see [Possible status of a job on a queue](ba-endpoints-apx.md#jobs-status "ba-endpoints-apx.md#jobs-status").
+For an exhaustive list of status for a job on a queue, see [Possible status of a job on a queue](ba-endpoints-apx.md#jobs-status).
 
-Operations on job queues are handled through the following dedicated endpoints. You can
-invoke these operations from the Gapwalk Application URL with the following root URL:
-`http://`server`:`port`/gapwalk-application/jobqueue`.
+Operations on job queues are handled through the following dedicated endpoints. You can invoke these operations from the Gapwalk Application URL with the following root URL: `http://{{server}}:{{port}}/gapwalk-application/jobqueue`.
 
-###### Topics
-
-- [List available queues](#ba-list-available-queues "#ba-list-available-queues")
-- [Start or restart a job queue](#ba-start-restart-queue "#ba-start-restart-queue")
-- [Submit a job for launch](#ba-submit-job-launch "#ba-submit-job-launch")
-- [List all submitted jobs](#ba-list-scheduled-jobs "#ba-list-scheduled-jobs")
-- [Release all jobs that are "on hold"](#ba-release-held-jobs "#ba-release-held-jobs")
-- [Release all jobs that are "on hold" for a given job name](#ba-release-held-jobs-name "#ba-release-held-jobs-name")
-- [Release a given job for a job number](#ba-release-job-number "#ba-release-job-number")
-- [Submit a job on repeating schedule](#ba-submit-job-on-repeating-schedule "#ba-submit-job-on-repeating-schedule")
-- [List all submitted repeating jobs](#ba-list-all-submitted-repeating-jobs "#ba-list-all-submitted-repeating-jobs")
-- [Cancel the scheduling of a repeating job](#ba-cancel-scheduling-of-repeating-job "#ba-cancel-scheduling-of-repeating-job")
+**Topics**
++ [List available queues](#ba-list-available-queues)
++ [Start or restart a job queue](#ba-start-restart-queue)
++ [Submit a job for launch](#ba-submit-job-launch)
++ [List all submitted jobs](#ba-list-scheduled-jobs)
++ [Release all jobs that are "on hold"](#ba-release-held-jobs)
++ [Release all jobs that are "on hold" for a given job name](#ba-release-held-jobs-name)
++ [Release a given job for a job number](#ba-release-job-number)
++ [Submit a job on repeating schedule](#ba-submit-job-on-repeating-schedule)
++ [List all submitted repeating jobs](#ba-list-all-submitted-repeating-jobs)
++ [Cancel the scheduling of a repeating job](#ba-cancel-scheduling-of-repeating-job)
 
 ### List available queues
+<a name="ba-list-available-queues"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `list-queues`
-- Returns the list of available queues along with their status, as a JSON list of
-  key-values.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `list-queues`
++ Returns the list of available queues along with their status, as a JSON list of key-values.
 
 Sample response:
 
@@ -729,180 +506,129 @@ Sample response:
 
 Possible status for a job queue are:
 
-**STAND\_BY**
-
+**STAND\_BY**  
 the job queue is waiting to be started.
 
-**STARTED**
-
+**STARTED**  
 the job queue is up and running.
 
-**UNKNOWN**
-
+**UNKNOWN**  
 the job queue status cannot be determined.
 
 ### Start or restart a job queue
+<a name="ba-start-restart-queue"></a>
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/restart/{name}`
-- Argument: the name of the queue to be started/restarted, as a String - mandatory.
-  **Input validation**: Queue name must not be blank and cannot exceed 255 characters.
-- The endpoint does not return anything but rather relies on http status to indicate the
-  outcome of the start/restart operation:
-
-**HTTP 200**
-
-the start/restart operation went well: the given job queue is now STARTED.
-
-**HTTP 404**
-
-the job queue does not exist.
-
-**HTTP 503**
-
-an exception occurred during the start/restart attempt (server logs should be
-inspected to figure out what went wrong).
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/restart/{name}`
++ Argument: the name of the queue to be started/restarted, as a String - mandatory. **Input validation**: Queue name must not be blank and cannot exceed 255 characters.
++ The endpoint does not return anything but rather relies on http status to indicate the outcome of the start/restart operation:  
+**HTTP 200**  
+the start/restart operation went well: the given job queue is now STARTED.  
+**HTTP 404**  
+the job queue does not exist.  
+**HTTP 503**  
+an exception occurred during the start/restart attempt (server logs should be inspected to figure out what went wrong).
 
 ### Submit a job for launch
+<a name="ba-submit-job-launch"></a>
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/submit`
-- Argument: mandatory as request body, a JSON serialization of a
-  `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object. For more
-  information, see [Submit job and schedule job input](ba-endpoints-apx.md#submit-job "ba-endpoints-apx.md#submit-job").
-- Returns a JSON containing the original `SubmitJobMessage` and a log indicating
-  if the job has been submitted or not.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/submit`
++ Argument: mandatory as request body, a JSON serialization of a `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object. For more information, see [Submit job and schedule job input](ba-endpoints-apx.md#submit-job).
++ Returns a JSON containing the original `SubmitJobMessage` and a log indicating if the job has been submitted or not.
 
 ### List all submitted jobs
+<a name="ba-list-scheduled-jobs"></a>
++ Supported method: GET
 
-- Supported method: GET
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path:
-  `/list-jobs?status={status}&size={size}&page={page}&sort={sort}`
-- Arguments:
-
-  - page: Page number to retrieve (default = 1)
-  - size: Size of the page (default = 50, max = 300)
-  - sort: The order of the Jobs. (default = “executionId”). “executionId” is currently the
-    only supported value
-  - status: (optional) If present, it will filter on the status.
-
-- Returns a list of all scheduled jobs, as a JSON string. For a sample response, see [List of scheduled jobs response](ba-endpoints-apx.md#list-scheduled-jobs "ba-endpoints-apx.md#list-scheduled-jobs").
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/list-jobs?status={status}&size={size}&page={page}&sort={sort}`
++ Arguments:
+  + page: Page number to retrieve (default = 1)
+  + size: Size of the page (default = 50, max = 300)
+  + sort: The order of the Jobs. (default = “executionId”). “executionId” is currently the only supported value
+  + status: (optional) If present, it will filter on the status.
++ Returns a list of all scheduled jobs, as a JSON string. For a sample response, see [List of scheduled jobs response](ba-endpoints-apx.md#list-scheduled-jobs).
 
 ### Release all jobs that are "on hold"
+<a name="ba-release-held-jobs"></a>
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/release-all`
-- Returns a message indicating the outcome for the release attempt operation. Two possible
-  cases here:
-
-  - HTTP 200 and a message "All job released with success!" if all jobs were successfully
-    released.
-  - HTTP 503 and a message "Jobs not released. An unknown error occurred. See log for more
-    details" if something went wrong with the release attempt.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/release-all`
++ Returns a message indicating the outcome for the release attempt operation. Two possible cases here:
+  + HTTP 200 and a message "All job released with success\!" if all jobs were successfully released.
+  + HTTP 503 and a message "Jobs not released. An unknown error occurred. See log for more details" if something went wrong with the release attempt.
 
 ### Release all jobs that are "on hold" for a given job name
+<a name="ba-release-held-jobs-name"></a>
 
-For a given job name, multiple jobs can be submitted, with different job numbers (the
-unicity of a job run is granted by a couple <job name, job number>). The endpoint will
-attempt to release all job submissions with the given job name, which are "on hold".
+For a given job name, multiple jobs can be submitted, with different job numbers (the unicity of a job run is granted by a couple <job name, job number>). The endpoint will attempt to release all job submissions with the given job name, which are "on hold".
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/release/{name}`
-- Arguments: the job name to look for, as a string. Mandatory.
-- Returns a message indicating the outcome for the release attempt operation. Two possible
-  cases here:
-
-  - HTTP 200 and a message "Jobs in group <name> (<number of released jobs>)
-    released with success!" jobs were successfully released.
-  - HTTP 503 and a message "Jobs in group <name> not released. An unknown error
-    occured. See log for more details" if something went wrong with the release attempt.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/release/{name}`
++ Arguments: the job name to look for, as a string. Mandatory.
++ Returns a message indicating the outcome for the release attempt operation. Two possible cases here:
+  + HTTP 200 and a message "Jobs in group <name> (<number of released jobs>) released with success\!" jobs were successfully released.
+  + HTTP 503 and a message "Jobs in group <name> not released. An unknown error occured. See log for more details" if something went wrong with the release attempt.
 
 ### Release a given job for a job number
+<a name="ba-release-job-number"></a>
 
-The endpoint will attempt to release the unique job submission which is "on hold", for the
-given couple <job name, job number>.
+The endpoint will attempt to release the unique job submission which is "on hold", for the given couple <job name, job number>.
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/release/{name}/{number}`
-- Arguments:
-
-**name**
-
-the job name to look for, as a string. Mandatory.
-
-**number**
-
-the job number to look for, as an integer. Mandatory.
-
-**returns**
-
-a message indicating the outcome for the release attempt operation. Two possible
-cases here:
-
-    + HTTP 200 and a message ""Job <name/number> released with success!" if the job was
-     successfully released.
-    + HTTP 503 and a message "Job <name/number>>not released. An unknown error
-     occured. See log for more details" if something went wrong with the release
-     attempt.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/release/{name}/{number}`
++ Arguments:  
+**name**  
+the job name to look for, as a string. Mandatory.  
+**number**  
+the job number to look for, as an integer. Mandatory.  
+**returns**  
+ a message indicating the outcome for the release attempt operation. Two possible cases here:  
+  + HTTP 200 and a message ""Job <name/number> released with success\!" if the job was successfully released.
+  + HTTP 503 and a message "Job <name/number>>not released. An unknown error occured. See log for more details" if something went wrong with the release attempt.
 
 ### Submit a job on repeating schedule
+<a name="ba-submit-job-on-repeating-schedule"></a>
 
 Schedule a job that will be executed with a repeating schedule.
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
-
-- Path: `/schedule`
-- Argument: the request body must contain a JSON serialization of a
-  `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN, ROLE\_USER
++ Path: `/schedule`
++ Argument: the request body must contain a JSON serialization of a `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object. 
 
 ### List all submitted repeating jobs
+<a name="ba-list-all-submitted-repeating-jobs"></a>
++ Supported method: GET
 
-- Supported method: GET
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/schedule/list?status={status}&size={size}&page={page}&sort={sort}`
++ Arguments:
 
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
+  1. page: Page number to retrieve (default = 1)
 
-- Path:
-  `/schedule/list?status={status}&size={size}&page={page}&sort={sort}`
-- Arguments:
+  1. size: Size of the page (default = 50, max = 300)
 
-  1.  page: Page number to retrieve (default = 1)
-  2.  size: Size of the page (default = 50, max = 300)
-  3.  sort: The order of the Jobs. (default = “id”). “id” is the only supported value for
-      now.
-  4.  status: (optional) If present, it will filter on the status. Possible values are the
-      one mentioned in section 1.
-  5.  status: (optional) If present, it will filter on the status. Possible values are the
-      one mentioned in section 1.
-  6.  Returns a list of all scheduled jobs, as a JSON string.
+  1. sort: The order of the Jobs. (default = “id”). “id” is the only supported value for now.
+
+  1. status: (optional) If present, it will filter on the status. Possible values are the one mentioned in section 1.
+
+  1. status: (optional) If present, it will filter on the status. Possible values are the one mentioned in section 1.
+
+  1. Returns a list of all scheduled jobs, as a JSON string.
 
 ### Cancel the scheduling of a repeating job
+<a name="ba-cancel-scheduling-of-repeating-job"></a>
 
-Removes a job that was created on a repeating schedule. The job scheduling status is set to
-INACTIVE.
+Removes a job that was created on a repeating schedule. The job scheduling status is set to INACTIVE.
++ Supported method: POST
 
-- Supported method: POST
-
-Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
-
-- Path: `/schedule/remove/{schedule_id}`
-- Argument: `schedule_id`, the identifier of the scheduled job to remove.
+  Requires authentication and one of the following roles: ROLE\_ADMIN, ROLE\_SUPER\_ADMIN
++ Path: `/schedule/remove/{schedule_id}`
++ Argument: `schedule_id`, the identifier of the scheduled job to remove.

@@ -1,86 +1,70 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Upgrading instructions for AWS Transform for mainframe
+<a name="ba-migration-notes"></a>
 
-This page contains instructions for upgrading the AWS Transform for mainframe version.
+This page contains instructions for upgrading the AWS Transform for mainframe version. 
 
-###### Topics
-
-- [Common upgrades](#common-upgrades "#common-upgrades")
-- [Migrating from 3.10.0 to 4.0.0](#3.10-to-4.0 "#3.10-to-4.0")
-- [Migrating from 5.85.0 to 5.125.0](#5.85-to-5.125 "#5.85-to-5.125")
+**Topics**
++ [Common upgrades](#common-upgrades)
++ [Migrating from 3.10.0 to 4.0.0](#3.10-to-4.0)
++ [Migrating from 5.85.0 to 5.125.0](#5.85-to-5.125)
 
 ## Common upgrades
+<a name="common-upgrades"></a>
 
-In most of the cases, when upgrading the AWS Transform for mainframe Runtime version, you should replace the artifacts
-(WARs, configuration files, scripts, etc.) of your previous version with the ones provided in the
-new one and restart your application. Make sure to perform extensive regression tests of your
-modernized applications once you upgrade. You may also contact your AWS Transform for mainframe delivery manager for
-specific instructions applicable to your application.
+In most of the cases, when upgrading the AWS Transform for mainframe Runtime version, you should replace the artifacts (WARs, configuration files, scripts, etc.) of your previous version with the ones provided in the new one and restart your application. Make sure to perform extensive regression tests of your modernized applications once you upgrade. You may also contact your AWS Transform for mainframe delivery manager for specific instructions applicable to your application.
 
-Some upgrades may require additional configuration to ensure compatibility. In that case,
-follow the instructions for that specific upgrade.
+Some upgrades may require additional configuration to ensure compatibility. In that case, follow the instructions for that specific upgrade.
 
 ## Migrating from 3.10.0 to 4.0.0
+<a name="3.10-to-4.0"></a>
 
-The main change in 4.0.0 is the migration from Spring Boot 2.7 to Spring Boot 3.2 and from
-Tomcat 9 to Tomcat 10.
+The main change in 4.0.0 is the migration from Spring Boot 2.7 to Spring Boot 3.2 and from Tomcat 9 to Tomcat 10.
 
 ### Code changes
+<a name="code-changes"></a>
 
-This section lists changes required to make the modernized code compatible with AWS Transform for mainframe Runtime
-4.0.0. You can skip this section if you decide to launch a new generation using the 4.0.0
-version on AWS Transform for mainframe refactor (Transformation Center).
+This section lists changes required to make the modernized code compatible with AWS Transform for mainframe Runtime 4.0.0. You can skip this section if you decide to launch a new generation using the 4.0.0 version on AWS Transform for mainframe refactor (Transformation Center).
 
 **POM changes**
 
-| Group                    | ArtifactId                       | Change                                                                      |
-| ------------------------ | -------------------------------- | --------------------------------------------------------------------------- |
-| org.slf4j                | slf4j-api                        | Remove (is a transitive dependency)                                         |
-| org.yaml                 | snakeyaml                        | Remove (is a transitive dependency)                                         |
-| org.springframework.boot | spring-boot-starter-web          | • Upgrade spring.boot.version to 3.2.4 - Remove exclusion of log4j-to-slf4j |
-| org.springframework.boot | spring-boot-starter-jta-atomikos | Change to com.atomikos:transactions-spring-boot3-starter:6.0.0              |
-| org.apache.commons       | commons-dbcp2                    | Upgrade to 2.10.0                                                           |
-| org.postgresql           | postgreql                        | Upgrade to 42.7.2                                                           |
-| com.microsoft.sqlserver  | mssql-jdbc                       | Upgrade to 12.4.2.jre11                                                     |
-| com.oracle.database.jdbc | ojdbc8                           | Change to ojdbc11 version 23.3.0.23.09                                      |
+
+| Group | ArtifactId | Change | 
+| --- | --- | --- | 
+| org.slf4j | slf4j-api | Remove (is a transitive dependency) | 
+| org.yaml | snakeyaml | Remove (is a transitive dependency) | 
+| org.springframework.boot | spring-boot-starter-web | - Upgrade spring.boot.version to 3.2.4 - Remove exclusion of log4j-to-slf4j | 
+| org.springframework.boot | spring-boot-starter-jta-atomikos | Change to com.atomikos:transactions-spring-boot3-starter:6.0.0 | 
+| org.apache.commons | commons-dbcp2 | Upgrade to 2.10.0 | 
+| org.postgresql | postgreql | Upgrade to 42.7.2 | 
+| com.microsoft.sqlserver | mssql-jdbc | Upgrade to 12.4.2.jre11 | 
+| com.oracle.database.jdbc | ojdbc8 | Change to ojdbc11 version 23.3.0.23.09 | 
 
 **Migrate from Javax to Jakarta**
 
-The tomcat upgrade comes with a migration from the Javax Java package to Jakarta.
-**Make sure to update your imports accordingly from javax.\* to
-jakarta.\***.
+The tomcat upgrade comes with a migration from the Javax Java package to Jakarta. **Make sure to update your imports accordingly from javax.\* to jakarta.\***.
 
-Nearly all the old referenced classes in the Javax package can be found in Jakarta. Known
-exceptions to this are the `javax.sql` and `javax.xml` packages, which
-are still unchanged.
+Nearly all the old referenced classes in the Javax package can be found in Jakarta. Known exceptions to this are the `javax.sql` and `javax.xml` packages, which are still unchanged.
 
 **Atomikos change**
 
-Due to the dependency change referenced above, references to
-`org.springframework.boot.jta.atomikos.AtomikosDataSourceBean` must be changed to
-`com.atomikos.spring.AtomikosDataSourceBean`.
+Due to the dependency change referenced above, references to `org.springframework.boot.jta.atomikos.AtomikosDataSourceBean` must be changed to `com.atomikos.spring.AtomikosDataSourceBean`.
 
 **PostgreSQL dialect removal**
 
-The custom class `PostgreSQLDialect.java` is removed. References to it in the
-main launcher must be removed too.
+The custom class `PostgreSQLDialect.java` is removed. References to it in the main launcher must be removed too.
 
 ### Deployment (AWS Transform for mainframe Runtime)
+<a name="deployment"></a>
 
 **Tomcat**
 
-This version is compatible with Tomcat `10.1.17`. Upgrading the Tomcat server to
-this version is required to run the AWS Transform for mainframe Runtime `4.0.0`. Make sure to port the
-old configuration changes (notably the Catalina properties).
+This version is compatible with Tomcat `10.1.17`. Upgrading the Tomcat server to this version is required to run the AWS Transform for mainframe Runtime `4.0.0`. Make sure to port the old configuration changes (notably the Catalina properties).
 
 **Shared dependencies**
 
@@ -88,14 +72,15 @@ The runtime shared folder contains the up-to-date dependencies.
 
 **Extra dependencies**
 
-If you used extra dependencies (not included on the runtime), you might need to update
-them. The readme file in the extra folder lists the supported versions.
+If you used extra dependencies (not included on the runtime), you might need to update them. The readme file in the extra folder lists the supported versions.
 
 ## Migrating from 5.85.0 to 5.125.0
+<a name="5.85-to-5.125"></a>
 
-The main change in 5.125.0 (alpha prerelease 5.86.0) ([Alpha pre-releases](ba-versioning.md#ba-versioning-alpha "ba-versioning.md#ba-versioning-alpha")) is the migration from Spring Boot 3.5.7 to Spring Boot 4.0.3+ and from Tomcat 10 to Tomcat 11+.
+The main change in 5.125.0 (alpha prerelease 5.86.0) ([Alpha pre-releases](ba-versioning.md#ba-versioning-alpha)) is the migration from Spring Boot 3.5.7 to Spring Boot 4.0.3\+ and from Tomcat 10 to Tomcat 11\+.
 
 ### Code changes
+<a name="code-changes-5.125.0"></a>
 
 This section lists changes required to make the modernized code compatible with AWS Transform for mainframe Runtime 5.125.0. You can skip this section if you decide to launch a new generation using the 5.125.0 version on AWS Transform for mainframe refactor (Transformation Center).
 
@@ -122,11 +107,11 @@ Replace `spring-boot-starter-web` with `spring-boot-starter-webmvc`:
 **Package reorganization**
 
 Due to the dependencies change referenced above, references to:
-
-- `org.springframework.boot.autoconfigure.domain.EntityScan` must be changed to `org.springframework.boot.persistence.autoconfigure.EntityScan`.
-- `org.springframework.boot.autoconfigure.jdbc.DataSourceProperties` must be changed to `org.springframework.boot.jdbc.autoconfigure.DataSourceProperties`.
++ `org.springframework.boot.autoconfigure.domain.EntityScan` must be changed to `org.springframework.boot.persistence.autoconfigure.EntityScan`.
++ `org.springframework.boot.autoconfigure.jdbc.DataSourceProperties` must be changed to `org.springframework.boot.jdbc.autoconfigure.DataSourceProperties`.
 
 ### Deployment (AWS Transform for mainframe Runtime)
+<a name="deployment-5.125.0"></a>
 
 **Tomcat**
 

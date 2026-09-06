@@ -1,84 +1,82 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime Error Codes related to Utility Programs
+<a name="ba-runtime-error-codes-u"></a>
 
 Utility pgm error codes, prefixed with `BA-U`.
 
-| Key        | Severity | Text                                                                                                                                                                                                          | Additional details |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `BA-U1001` | Warn     | Input lilian seconds scale exceeds maximum scale. Maximum scale will be used instead.                                                                                                                         |                    |
-| `BA-U2001` | Error    | Failed to process TrailerItem subclass encountered. Ensure the trailer item is supported.                                                                                                                     |                    |
-| `BA-U2002` | Error    | Failed to parse TrailerItem argument. Ensure the trailer item arguments is supported.                                                                                                                         |                    |
-| `BA-U2003` | Error    | Failed to process the DFSORT date format argument. Ensure the date format argument is supported.                                                                                                              |                    |
-| `BA-U2004` | Error    | Invalid input while extracting the Header1 from SortGrammar. Ensure Header1 string is well-formed and follows the expected structure.                                                                         |                    |
-| `BA-U2005` | Error    | Unexpected error while processing SortGrammar. Review exception details and verify input integrity and grammar parsing logic.                                                                                 |                    |
-| `BA-U2006` | Error    | Feedback code CEE2F3: Failed to retrieve current system date and time. Check system clock configuration and timezone settings.                                                                                |                    |
-| `BA-U2007` | Error    | Feedback code CEE2EC: Failed to parse the date value passed to CEEDAYS or CEESECS. Ensure the date format is supported.                                                                                       |                    |
-| `BA-U2008` | Error    | Feedback code CEE2EH: Input date/time in a CEEISEC, CEEDAYS, or CEESECS call was not within the valid range. Ensure the input date is within the supported range.                                             |                    |
-| `BA-U2009` | Error    | Feedback code CEE2EM: Failed to parse an input picture string in a call to a date/time service. Ensure the picture format is supported.                                                                       |                    |
-| `BA-U2010` | Error    | Feedback code CEE2EG: Input lilian date value was not within the valid range. Ensure the input lilian date is within the supported range.                                                                     |                    |
-| `BA-U2011` | Fatal    | Number of arguments received does not match expected number of arguments. Ensure the correct number of arguments is passed to the called program.                                                             |                    |
-| `BA-U2012` | Error    | Failed to process DFSORT TIME argument. Ensure the format of the argument is correct.                                                                                                                         |                    |
-| `BA-U2013` | Error    | Failed to process DFSORT TIMENS argument. Ensure the format of the argument is correct.                                                                                                                       |                    |
-| `BA-U2014` | Error    | OVERLAY not implemented case. Please review the OVERLAY specification or contact support for implementation assistance.                                                                                       |                    |
-| `BA-U2015` | Error    | Failed to convert Julian date. Ensure the Julian date format is valid and contains numeric values.                                                                                                            |                    |
-| `BA-U2016` | Error    | TRAILER1 Convert format could not be parsed. Ensure the TO= format specification is valid.                                                                                                                    |                    |
-| `BA-U2017` | Error    | Unhandled TRAILER1 Convert format type. Review the TO= format specification or contact support if it should be supported.                                                                                     |                    |
-| `BA-U2018` | Error    | Unsupported formatter for TRAILER1 TOTAL. Review the TRAILER1 TOTAL format specification or contact support for implementation assistance.                                                                    |                    |
-| `BA-U3001` | Error    | An error occurred while parsing SYSIN for INZUTILB programs. Verify SYSIN syntax and contact support if it should be supported.                                                                               |                    |
-| `BA-U3002` | Error    | Unable to detect database type. Defaulting to PostgreSQL. Verify database connection, driver configuration and ensure that the correct JDBC driver is loaded.                                                 |                    |
-| `BA-U3003` | Error    | INZUTILB Unload operation failed. Review SYSIN commands syntax for INZUTILB utility, verify database connectivity.                                                                                            |                    |
-| `BA-U3004` | Error    | SYSIN input is empty or contains no valid commands. Add at least one valid command (UNLOAD, SELECT, etc.) to SYSIN.                                                                                           |                    |
-| `BA-U3005` | Error    | Required parameter OUTDDN is missing. Specify output dataset using OUTDDN(ddname) command in SYSIN.                                                                                                           |                    |
-| `BA-U3006` | Error    | Database type is not supported. Use one of the supported databases: PostgreSQL, Oracle, or DB2.                                                                                                               |                    |
-| `BA-U3007` | Error    | No formatter found for the database type when running INZUTILB program. Analyze whether the type should be considered and contact support for analyze.                                                        |                    |
-| `BA-U3008` | Error    | Formatting not handled for the selected output format, DSNTIAUL format used instead. Check the output format in the control card or contact support if an implementation is needed.                           |                    |
-| `BA-U3009` | Error    | Invalid mask parameter on PIC option. Verify your control card and use a valid mask.                                                                                                                          |                    |
-| `BA-U3010` | Error    | Invalid sign parameter on PIC option. Accepted values are '-', '+', 'P' and 'V'. Verify your control card and use a valid parameter.                                                                          |                    |
-| `BA-U3012` | Error    | Unable to parse SYSIN for INZUTILB program. Check the above exception(s) and contact support for analysis.                                                                                                    |                    |
-| `BA-U3013` | Error    | INFUTILB Unload operation failed. Review SYSIN commands syntax for INFUTILB utility, verify database connectivity.                                                                                            |                    |
-| `BA-U3014` | Error    | Invalid output file type for SYSPUNCH when running INFUTILB program. Consider using one of the following types: GDGSupportConfiguration, FileSystemFileConfiguration or DummyFileConfiguration.               |                    |
-| `BA-U3015` | Error    | No formatter found for the database type when running INFUTILB program. Analyze whether the type should be considered and contact support for analyze.                                                        |                    |
-| `BA-U3016` | Error    | Missing record size for SYSPUNCH when running INFUTILB program. Set the record size in the file configuration or add it in the catalog.                                                                       |                    |
-| `BA-U3017` | Error    | Invalid output file type for SYSREC. Consider using one of the following types: GDGSupportConfiguration or FileSystemFileConfiguration.                                                                       |                    |
-| `BA-U3018` | Error    | Unsupported SQL query. Check the SQL query.                                                                                                                                                                   |                    |
-| `BA-U3019` | Error    | Unsupported column name. Check the table definition.                                                                                                                                                          |                    |
-| `BA-U3020` | Error    | DFSIGDCB option: Unable to update LRECL of the SYSREC file. Consider using type FileSystemFileConfiguration, or remove DFSIGDCB option.                                                                       |                    |
-| `BA-U3021` | Error    | Splitting unload into chunks is not supported with the current database type. Use one of the supported databases: PostgreSQL or Oracle.                                                                       |                    |
-| `BA-U4001` | Error    | IDCAMS parsing error. The SYSIN content contains invalid syntax or unsupported commands. Review the SYSIN content for syntax errors or typos. Check the error message for details about what failed to parse. |                    |
-| `BA-U5001` | Error    | Invalid POSITION option when calling DSNUTILB LOAD utility. Use a valid POSITION option.                                                                                                                      |                    |
-| `BA-U5002` | Error    | Invalid NULLIF option when calling DSNUTILB LOAD utility. Check that the specified NULLIF option is valid and contact support if it should be supported.                                                      |                    |
-| `BA-U5003` | Error    | Invalid column definition when calling DSNUTILB LOAD utility. Check the syntax and contact support if it should be supported.                                                                                 |                    |
-| `BA-U5004` | Error    | Unsupported column data type when calling DSNUTILB LOAD utility. Check that the specified data type is valid and contact support if it should be supported.                                                   |                    |
-| `BA-U5005` | Error    | Undefined or invalid dataset when calling DSNUTILB COPY utility. Check that the dataset is correctly specified.                                                                                               |                    |
-| `BA-U5006` | Error    | An error occurred while deleting a file when calling DSNUTILB COPY utility. Check the file's access rights.                                                                                                   |                    |
-| `BA-U5007` | Error    | DSNUTILB REORG: SQL execution failed. Check the database connection and verify the target table/index exists.                                                                                                 |                    |
-| `BA-U5008` | Warn     | DSNUTILB REORG: no target specified in control card — skipping. Verify the REORG control card syntax includes a valid TABLESPACE or INDEX target.                                                             |                    |
-| `BA-U5009` | Warn     | DSNUTILB REORG: no database support configured — skipping execution. This occurs in test mode only. No action required.                                                                                       |                    |
-| `BA-U5010` | Warn     | DSNUTILB REORG: LIST referenced but no LISTDEF content found. Verify the LISTDEF is defined in the same SYSIN control card before the REORG command.                                                          |                    |
-| `BA-U5011` | Warn     | DSNUTILB REORG: could not resolve owning table for index on DB2 — skipping. Verify the index exists in SYSCAT.INDEXES and the schema/index name is correct.                                                   |                    |
-| `BA-U5012` | Error    | DSNUTILB STATISTICS: SQL execution failed. Check the database connection and verify the target table exists.                                                                                                  |                    |
-| `BA-U5013` | Warn     | DSNUTILB STATISTICS: no specific targets resolved — skipping ANALYZE. Verify the preceding REORG command has a valid target or LISTDEF context.                                                               |                    |
-| `BA-U5014` | Warn     | DSNUTILB STATISTICS: no database support configured — skipping execution. This occurs in test mode only. No action required.                                                                                  |                    |
-| `BA-U7010` | Error    | DSNTIAD: SYSPRINT DD not configured. Verify SYSPRINT DD statement.                                                                                                                                            |                    |
-| `BA-U7020` | Error    | DSNTIAD: Failed to execute SQL statements. Review SQL syntax.                                                                                                                                                 |                    |
-| `BA-U7030` | Error    | DSNTIAD: I/O error during execution. Check SYSPRINT file.                                                                                                                                                     |                    |
-| `BA-U7040` | Error    | DSNTIAD: SQL statement execution failed. Review the SQL statement syntax for the target database.                                                                                                             |                    |
-| `BA-U7050` | Error    | DSNTIAD: More than n SQL errors occurred, terminating. Review SQL statements for errors.                                                                                                                      |                    |
-| `BA-U7060` | Error    | DSNTIAD: Failed to rollback after SQL error. Check database connection status.                                                                                                                                |                    |
-| `BA-U7070` | Error    | DSNTIAD: Failed to restore auto-commit setting. Check database connection status.                                                                                                                             |                    |
-| `BA-U7080` | Error    | DSNTIAD: Failed to close SYSPRINT writer. Check file system status.                                                                                                                                           |                    |
-| `BA-U7090` | Warn     | DSNTIAD: SQL conversion failed, using original SQL. Review SQL syntax for compatibility with target database.                                                                                                 |                    |
-| `BA-U7100` | Warn     | DSNTIAD: Unable to detect database type, defaulting to PostgreSQL. Verify database connection and JDBC driver configuration.                                                                                  |                    |
-| `BA-U7110` | Warn     | DSNTIAD: SELECT statement rejected. DSNTIAD does not support SELECT statements.                                                                                                                               |                    |
-| `BA-U8001` | Error    | CBL\_TOUPPER/CBL\_TOLOWER: Unexpected error. Review the input parameters passed to the utility program.                                                                                                       |                    |
-| `BA-U8002` | Error    | CBL\_TOUPPER/CBL\_TOLOWER: The input string is null. Ensure a non-null string is passed as the first argument.                                                                                                |                    |
-| `BA-U8003` | Fatal    | CBL\_TOUPPER/CBL\_TOLOWER: Invalid program name. Ensure the program name is either CBL\_TOUPPER or CBL\_TOLOWER.                                                                                              |                    |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-U1001 | Warn | Input lilian seconds scale exceeds maximum scale. Maximum scale will be used instead. |  | 
+| BA-U2001 | Error | Failed to process TrailerItem subclass encountered. Ensure the trailer item is supported. |  | 
+| BA-U2002 | Error | Failed to parse TrailerItem argument. Ensure the trailer item arguments is supported. |  | 
+| BA-U2003 | Error | Failed to process the DFSORT date format argument. Ensure the date format argument is supported. |  | 
+| BA-U2004 | Error | Invalid input while extracting the Header1 from SortGrammar. Ensure Header1 string is well-formed and follows the expected structure. |  | 
+| BA-U2005 | Error | Unexpected error while processing SortGrammar. Review exception details and verify input integrity and grammar parsing logic. |  | 
+| BA-U2006 | Error | Feedback code CEE2F3: Failed to retrieve current system date and time. Check system clock configuration and timezone settings. |  | 
+| BA-U2007 | Error | Feedback code CEE2EC: Failed to parse the date value passed to CEEDAYS or CEESECS. Ensure the date format is supported. |  | 
+| BA-U2008 | Error | Feedback code CEE2EH: Input date/time in a CEEISEC, CEEDAYS, or CEESECS call was not within the valid range. Ensure the input date is within the supported range. |  | 
+| BA-U2009 | Error | Feedback code CEE2EM: Failed to parse an input picture string in a call to a date/time service. Ensure the picture format is supported. |  | 
+| BA-U2010 | Error | Feedback code CEE2EG: Input lilian date value was not within the valid range. Ensure the input lilian date is within the supported range. |  | 
+| BA-U2011 | Fatal | Number of arguments received does not match expected number of arguments. Ensure the correct number of arguments is passed to the called program. |  | 
+| BA-U2012 | Error | Failed to process DFSORT TIME argument. Ensure the format of the argument is correct. |  | 
+| BA-U2013 | Error | Failed to process DFSORT TIMENS argument. Ensure the format of the argument is correct. |  | 
+| BA-U2014 | Error | OVERLAY not implemented case. Please review the OVERLAY specification or contact support for implementation assistance. |  | 
+| BA-U2015 | Error | Failed to convert Julian date. Ensure the Julian date format is valid and contains numeric values. |  | 
+| BA-U2016 | Error | TRAILER1 Convert format could not be parsed. Ensure the TO= format specification is valid. |  | 
+| BA-U2017 | Error | Unhandled TRAILER1 Convert format type. Review the TO= format specification or contact support if it should be supported. |  | 
+| BA-U2018 | Error | Unsupported formatter for TRAILER1 TOTAL. Review the TRAILER1 TOTAL format specification or contact support for implementation assistance. |  | 
+| BA-U3001 | Error | An error occurred while parsing SYSIN for INZUTILB programs. Verify SYSIN syntax and contact support if it should be supported. |  | 
+| BA-U3002 | Error | Unable to detect database type. Defaulting to PostgreSQL. Verify database connection, driver configuration and ensure that the correct JDBC driver is loaded. |  | 
+| BA-U3003 | Error | INZUTILB Unload operation failed. Review SYSIN commands syntax for INZUTILB utility, verify database connectivity. |  | 
+| BA-U3004 | Error | SYSIN input is empty or contains no valid commands. Add at least one valid command (UNLOAD, SELECT, etc.) to SYSIN. |  | 
+| BA-U3005 | Error | Required parameter OUTDDN is missing. Specify output dataset using OUTDDN(ddname) command in SYSIN. |  | 
+| BA-U3006 | Error | Database type is not supported. Use one of the supported databases: PostgreSQL, Oracle, or DB2. |  | 
+| BA-U3007 | Error | No formatter found for the database type when running INZUTILB program. Analyze whether the type should be considered and contact support for analyze. |  | 
+| BA-U3008 | Error | Formatting not handled for the selected output format, DSNTIAUL format used instead. Check the output format in the control card or contact support if an implementation is needed. |  | 
+| BA-U3009 | Error | Invalid mask parameter on PIC option. Verify your control card and use a valid mask. |  | 
+| BA-U3010 | Error | Invalid sign parameter on PIC option. Accepted values are '-', '\+', 'P' and 'V'. Verify your control card and use a valid parameter. |  | 
+| BA-U3012 | Error | Unable to parse SYSIN for INZUTILB program. Check the above exception(s) and contact support for analysis. |  | 
+| BA-U3013 | Error | INFUTILB Unload operation failed. Review SYSIN commands syntax for INFUTILB utility, verify database connectivity. |  | 
+| BA-U3014 | Error | Invalid output file type for SYSPUNCH when running INFUTILB program. Consider using one of the following types: GDGSupportConfiguration, FileSystemFileConfiguration or DummyFileConfiguration. |  | 
+| BA-U3015 | Error | No formatter found for the database type when running INFUTILB program. Analyze whether the type should be considered and contact support for analyze. |  | 
+| BA-U3016 | Error | Missing record size for SYSPUNCH when running INFUTILB program. Set the record size in the file configuration or add it in the catalog. |  | 
+| BA-U3017 | Error | Invalid output file type for SYSREC. Consider using one of the following types: GDGSupportConfiguration or FileSystemFileConfiguration. |  | 
+| BA-U3018 | Error | Unsupported SQL query. Check the SQL query. |  | 
+| BA-U3019 | Error | Unsupported column name. Check the table definition. |  | 
+| BA-U3020 | Error | DFSIGDCB option: Unable to update LRECL of the SYSREC file. Consider using type FileSystemFileConfiguration, or remove DFSIGDCB option. |  | 
+| BA-U3021 | Error | Splitting unload into chunks is not supported with the current database type. Use one of the supported databases: PostgreSQL or Oracle. |  | 
+| BA-U4001 | Error | IDCAMS parsing error. The SYSIN content contains invalid syntax or unsupported commands. Review the SYSIN content for syntax errors or typos. Check the error message for details about what failed to parse. |  | 
+| BA-U5001 | Error | Invalid POSITION option when calling DSNUTILB LOAD utility. Use a valid POSITION option. |  | 
+| BA-U5002 | Error | Invalid NULLIF option when calling DSNUTILB LOAD utility. Check that the specified NULLIF option is valid and contact support if it should be supported. |  | 
+| BA-U5003 | Error | Invalid column definition when calling DSNUTILB LOAD utility. Check the syntax and contact support if it should be supported. |  | 
+| BA-U5004 | Error | Unsupported column data type when calling DSNUTILB LOAD utility. Check that the specified data type is valid and contact support if it should be supported. |  | 
+| BA-U5005 | Error | Undefined or invalid dataset when calling DSNUTILB COPY utility. Check that the dataset is correctly specified. |  | 
+| BA-U5006 | Error | An error occurred while deleting a file when calling DSNUTILB COPY utility. Check the file's access rights. |  | 
+| BA-U5007 | Error | DSNUTILB REORG: SQL execution failed. Check the database connection and verify the target table/index exists. |  | 
+| BA-U5008 | Warn | DSNUTILB REORG: no target specified in control card — skipping. Verify the REORG control card syntax includes a valid TABLESPACE or INDEX target. |  | 
+| BA-U5009 | Warn | DSNUTILB REORG: no database support configured — skipping execution. This occurs in test mode only. No action required. |  | 
+| BA-U5010 | Warn | DSNUTILB REORG: LIST referenced but no LISTDEF content found. Verify the LISTDEF is defined in the same SYSIN control card before the REORG command. |  | 
+| BA-U5011 | Warn | DSNUTILB REORG: could not resolve owning table for index on DB2 — skipping. Verify the index exists in SYSCAT.INDEXES and the schema/index name is correct. |  | 
+| BA-U5012 | Error | DSNUTILB STATISTICS: SQL execution failed. Check the database connection and verify the target table exists. |  | 
+| BA-U5013 | Warn | DSNUTILB STATISTICS: no specific targets resolved — skipping ANALYZE. Verify the preceding REORG command has a valid target or LISTDEF context. |  | 
+| BA-U5014 | Warn | DSNUTILB STATISTICS: no database support configured — skipping execution. This occurs in test mode only. No action required. |  | 
+| BA-U7010 | Error | DSNTIAD: SYSPRINT DD not configured. Verify SYSPRINT DD statement. |  | 
+| BA-U7020 | Error | DSNTIAD: Failed to execute SQL statements. Review SQL syntax. |  | 
+| BA-U7030 | Error | DSNTIAD: I/O error during execution. Check SYSPRINT file. |  | 
+| BA-U7040 | Error | DSNTIAD: SQL statement execution failed. Review the SQL statement syntax for the target database. |  | 
+| BA-U7050 | Error | DSNTIAD: More than n SQL errors occurred, terminating. Review SQL statements for errors. |  | 
+| BA-U7060 | Error | DSNTIAD: Failed to rollback after SQL error. Check database connection status. |  | 
+| BA-U7070 | Error | DSNTIAD: Failed to restore auto-commit setting. Check database connection status. |  | 
+| BA-U7080 | Error | DSNTIAD: Failed to close SYSPRINT writer. Check file system status. |  | 
+| BA-U7090 | Warn | DSNTIAD: SQL conversion failed, using original SQL. Review SQL syntax for compatibility with target database. |  | 
+| BA-U7100 | Warn | DSNTIAD: Unable to detect database type, defaulting to PostgreSQL. Verify database connection and JDBC driver configuration. |  | 
+| BA-U7110 | Warn | DSNTIAD: SELECT statement rejected. DSNTIAD does not support SELECT statements. |  | 
+| BA-U8001 | Error | CBL\_TOUPPER/CBL\_TOLOWER: Unexpected error. Review the input parameters passed to the utility program. |  | 
+| BA-U8002 | Error | CBL\_TOUPPER/CBL\_TOLOWER: The input string is null. Ensure a non-null string is passed as the first argument. |  | 
+| BA-U8003 | Fatal | CBL\_TOUPPER/CBL\_TOLOWER: Invalid program name. Ensure the program name is either CBL\_TOUPPER or CBL\_TOLOWER. |  | 

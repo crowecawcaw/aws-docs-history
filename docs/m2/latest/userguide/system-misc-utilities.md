@@ -1,55 +1,55 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Other / Miscellaneous Utilities
+<a name="system-misc-utilities"></a>
 
 This section covers various utilities programs, with miscellaneous purposes, that could not be attached to existing categories
 
 In the following paragraphs, `PICTURE` is to be understood as the COBOL `PICTURE` keyword, used to describe fields data type and formats.
 
 ## CBL\_AND/CBL\_OR/CBL\_XOR/CBL\_EQ/CBL\_IMP/CBL\_NOT
+<a name="cbl-bitwise"></a>
 
 ### Purpose
+<a name="cbl-bitwise-purpose"></a>
 
 This relates to the support of bitwise logical operations on data items, found in some COBOL dialects (Micro Focus). Please note that automatic refactor with AWS Transform handles the transformation of bitwise operators usages from Cobol MF dialect to java (see sample usages below). For the modernized code to run properly, the utility application will have to be deployed alongside.
 
 Supported operators:
++ Unary Operator:
 
-- Unary Operator:
 
-| Unary Operator | details                      |
-| -------------- | ---------------------------- |
-| `CBL_NOT`      | Bitwise complement (~target) |
+| Unary Operator | details | 
+| --- | --- | 
+| CBL\_NOT | Bitwise complement (\~target) | 
++ Binary Operators:
 
-- Binary Operators:
 
-| Binary Operators | details                                  |
-| ---------------- | ---------------------------------------- |
-| `CBL_AND`        | Bitwise AND (source & target)            |
-| `CBL_OR`         | Bitwise OR (source                       | target) |
-| `CBL_XOR`        | Bitwise exclusive OR (source ^ target)   |
-| `CBL_EQ`         | Bitwise equivalence (~(source ^ target)) |
-| `CBL_IMP`        | Bitwise implication (~source             | target) |
+| Binary Operators | details | 
+| --- | --- | 
+| CBL\_AND | Bitwise AND (source & target) | 
+| CBL\_OR | Bitwise OR (source \| target) | 
+| CBL\_XOR | Bitwise exclusive OR (source ^ target) | 
+| CBL\_EQ | Bitwise equivalence (\~(source ^ target)) | 
+| CBL\_IMP | Bitwise implication (\~source \| target) | 
 
 ### Signature
+<a name="cbl-bitwise-signature"></a>
 
 Apart from CBL\_NOT which has only one operand (target), all other operations have at least two operands, which are data items. The first operand is the source, the second operand is the target. An additional optional argument (length) gives the number of bytes to process (from left to right). If the length is omitted, it defaults to the minimum of source and target sizes (in bytes). The result of the operation is stored in the target. The return code of the program is 0 (unless an exception occurs).
 
 ### Checks / Errors Handling
-
-- For each available operator, the number of required arguments is checked. If the minimal number of required argument is not met, an `IllegalArgumentException` will be thrown.
-- The optional length integer argument is checked for positivity. If the provided length is negative, a message will be displayed in the logs and the operator won't be applied.
+<a name="cbl-bitwise-error"></a>
++ For each available operator, the number of required arguments is checked. If the minimal number of required argument is not met, an `IllegalArgumentException` will be thrown.
++ The optional length integer argument is checked for positivity. If the provided length is negative, a message will be displayed in the logs and the operator won't be applied.
 
 ### Sample Usage
-
-- Unary operator sample:
+<a name="cbl-bitwise-sample"></a>
++ Unary operator sample:
 
 Here is a cobol usage of CBL\_NOT:
 
@@ -64,7 +64,7 @@ Here is a cobol usage of CBL\_NOT:
 and the corresponding java modernization:
 
 ```
-    /*
+    /* 
     TARGET:       00000101
     OPERATION:     NOT
     EXPECTED:     11111010 = 64000 dec (2nd byte unchanged - all 0) */
@@ -74,8 +74,7 @@ and the corresponding java modernization:
         .byValue(1)
         .getArguments(), ctx);
 ```
-
-- Binary operator sample:
++ Binary operator sample:
 
 See for instance the following COBOL code using CBL\_AND:
 
@@ -92,7 +91,7 @@ See for instance the following COBOL code using CBL\_AND:
 and its java modernization:
 
 ```
-    /*
+    /* 
     SOURCE:       00000011
     OPERATION:     AND
     TARGET:       00000101
@@ -107,33 +106,35 @@ and its java modernization:
 ```
 
 ## CEE3ABD
+<a name="cee3abd"></a>
 
 ### Purpose
+<a name="cee3abd-purpose"></a>
 
 This utility program mimics the behavior of the legacy program with the same name, whose role is to terminate a program with an Abend (abnormal end) code and an optional cleanup timing. The AWS transform engine handles the automatic modernization of calls to CEE3ABD. For the modernized code to run properly, the utility application will have to be deployed alongside.
 
 The program stops the current run unit, using the provided abend code. An information message is printed to the logs, specifying that an user exit has been called with the given code. For now, the timing parameter is NOT taken into account, but is present as an argument for modernization compatibility reasons.
 
 ### Signature
+<a name="cee3abd-signature"></a>
 
 The program accepts either 0 or 2 arguments. The two arguments are:
-
-- The Abend code (a data item that must be interpretable as a positive integer value)
-- The cleanup timing (a data item that must be interpretable as a positive integer value) -- ignored
++ The Abend code (a data item that must be interpretable as a positive integer value)
++ The cleanup timing (a data item that must be interpretable as a positive integer value) -- ignored
 
 When no arguments are provided, the following default values are being used:
-
-- Abend code: 0
-- Cleanup Timing: 0
++ Abend code: 0
++ Cleanup Timing: 0
 
 ### Checks / Errors Handling
-
-- Checks that either 0 or 2 arguments are being provided, otherwise an `IllegalArgumentException` will be thrown.
-- If two arguments are provided, check that: abend code is between 0 and 4095 (both included); timing is between 0 and 5 (both included)
+<a name="cee3abd-error"></a>
++ Checks that either 0 or 2 arguments are being provided, otherwise an `IllegalArgumentException` will be thrown.
++ If two arguments are provided, check that: abend code is between 0 and 4095 (both included); timing is between 0 and 5 (both included)
 
 Any failure to these tests will trigger an `IllegalArgumentException`.
 
 ### Sample Usage
+<a name="cee3abd-sample"></a>
 
 Here is a sample usage in a COBOL program, from the Carddemo application:
 
@@ -158,33 +159,36 @@ public void _9999AbendProgram(final Cbtrn03cContext ctx, final ExecutionControll
 ```
 
 ## CEEDATE
+<a name="ceedate"></a>
 
 ### Purpose
+<a name="ceedate-purpose"></a>
 
 The CEEDATE utility converts a number that represents a Lilian date (days since October 15, 1582) to a character-base date representation, using a provided format.
 
 It mimics the behaviour of the legacy system utility with the same name.
 
 ### Signature
+<a name="ceedate-signature"></a>
 
 Given its nature, the CEEDATE utility is rather intended to be called from programs.
 
 It takes three or four arguments (last argument is optional):
-
-- The mandatory first argument is a numeric data item whose value will be intepreted as a Lilian date
-- The mandatory second argument is an alphanumeric data-item holding the `PICTURE` string used for the date to characters conversion
-- The mandatory third argument is the target alphanumeric data item, holding the result of the conversion of first argument using second argument as `PICTURE`
-- The fourth optional argument is a data item used to store the feedback code from the utility
++ The mandatory first argument is a numeric data item whose value will be intepreted as a Lilian date
++ The mandatory second argument is an alphanumeric data-item holding the `PICTURE` string used for the date to characters conversion
++ The mandatory third argument is the target alphanumeric data item, holding the result of the conversion of first argument using second argument as `PICTURE`
++ The fourth optional argument is a data item used to store the feedback code from the utility
 
 ### Checks / Errors Handling
-
-- If the number of arguments passed to the utility is not three or four, a `BluageWrapperException` will be thrown
-- If the provided first number argument cannot be properly evaluated as a Lilian date (out of bounds), an error message will be logged. Optional feedback code holder, if present, will be fed with a feedback code of severity 3 and message number 2512
-- If an exception occurs during date conversion due to an invalid provided `PICTURE`, an error message will be logged. Optional feedback code holder, if present, will be fed with a feedback code of severity 3 and message number 2518
-- If, for any reason, the conversion cannot happen properly, the output data item will be filled with blanks
-- If the conversion was successfull, the optional feedback code holder will be fed with a feedback code of severity 0 (and no message)
+<a name="ceedate-error"></a>
++ If the number of arguments passed to the utility is not three or four, a `BluageWrapperException` will be thrown
++ If the provided first number argument cannot be properly evaluated as a Lilian date (out of bounds), an error message will be logged. Optional feedback code holder, if present, will be fed with a feedback code of severity 3 and message number 2512
++ If an exception occurs during date conversion due to an invalid provided `PICTURE`, an error message will be logged. Optional feedback code holder, if present, will be fed with a feedback code of severity 3 and message number 2518
++ If, for any reason, the conversion cannot happen properly, the output data item will be filled with blanks
++ If the conversion was successfull, the optional feedback code holder will be fed with a feedback code of severity 0 (and no message)
 
 ### Sample Usage
+<a name="ceedate-sample"></a>
 
 Here is a sample call from a COBOL program (the structure for the feedback code holder FC contains ellipsis, as is contains hundreds of conditions (level 88) entries not shown here):
 
@@ -215,35 +219,37 @@ Here is a sample call from a COBOL program (the structure for the feedback code 
 ```
 
 ## CEELOCT
+<a name="ceeloct"></a>
 
 ### Purpose
+<a name="ceeloct-purpose"></a>
 
 The CEELOCT utility is used to return the local date/time in three formats:
-
-- Lilian date (the number of days since 14 October 1582)
-- Lilian seconds (the number of seconds since 00:00:00 14 October 1582)
-- Gregorian character string (in the form `YYYYMMDDHHMISS999`)
++ Lilian date (the number of days since 14 October 1582)
++ Lilian seconds (the number of seconds since 00:00:00 14 October 1582)
++ Gregorian character string (in the form `YYYYMMDDHHMISS999`)
 
 It mimics the behaviour of the legacy system utility with the same name.
 
 ### Signature
+<a name="ceeloct-signature"></a>
 
 Given its nature, the CEELOCT utility is rather intended to be called from programs.
 
 It takes three or four arguments (last argument is optional):
-
-- The mandatory first argument is a data item, used to store the Lilian date
-- The mandatory second argument is a data item, used to store the Lilian seconds
-- The mandatory third argument is a data item, used to store the Gregorian date using the form given above
-- The optional fourth argument is a data item used to store the feedback code from the utility
++ The mandatory first argument is a data item, used to store the Lilian date
++ The mandatory second argument is a data item, used to store the Lilian seconds
++ The mandatory third argument is a data item, used to store the Gregorian date using the form given above
++ The optional fourth argument is a data item used to store the feedback code from the utility
 
 ### Checks / Errors Handling
-
-- If the number of arguments passed to the utility is not three or four, a `BluageWrapperException` will be thrown
-- If any exception occurs during the handling of the conversion from local date/time to any of the output formats: The first and second arguments will be set to 0 and the third argument will be left unchanged; An error message will be logged; Optionally, the feedback code holder will be fed with a feedback code of severity 3 and message number 2531
-- On success, all three arguments will be populated with the proper content and the optional feedback code will be fed with a code of severity 0
+<a name="ceeloct-error"></a>
++ If the number of arguments passed to the utility is not three or four, a `BluageWrapperException` will be thrown
++ If any exception occurs during the handling of the conversion from local date/time to any of the output formats: The first and second arguments will be set to 0 and the third argument will be left unchanged; An error message will be logged; Optionally, the feedback code holder will be fed with a feedback code of severity 3 and message number 2531
++ On success, all three arguments will be populated with the proper content and the optional feedback code will be fed with a code of severity 0
 
 ### Sample Usage
+<a name="ceeloct-sample"></a>
 
 Here is a sample COBOL snippet showing the usage of the CEELOCT utility. The feedback code holder structure FC is not given in full as it contains hundreds of conditions (level 88) entries.
 
@@ -267,42 +273,45 @@ Here is a sample COBOL snippet showing the usage of the CEELOCT utility. The fee
 ```
 
 ## CEERAN0
+<a name="ceeran0"></a>
 
 ### Purpose
+<a name="ceeran0-purpose"></a>
 
 The CEERAN0 program is called to generate pseudo-random numbers, between 0.0 and 1.0, using a specified seed. It is based on the multiplicative congruential method algorithm, which requires an user-specified seed. Using 0 as seed is triggering a specific mode where the seed is actually computed from the Greenwich mean time instead (at the time the program is being run). Otherwise, the seed is used as-is. The pseudo-random sequence is predictable.
 
 ### Signature
+<a name="ceeran0-signature"></a>
 
 The CEERAN0 program takes three parameters:
-
-- the seed (input parameter), a data item that can be interpreted as positive integer (0 included)
-- the random number (output parameter), a data item that can be interpreted as a double precision floating number (whose value will be between 0.0 and 1.0, exclusive); it's the result of the program
-- the optional feedback code (output parameter), a data item of 12 bytes, used to store the feedback from the program about the random number computation
++ the seed (input parameter), a data item that can be interpreted as positive integer (0 included)
++ the random number (output parameter), a data item that can be interpreted as a double precision floating number (whose value will be between 0.0 and 1.0, exclusive); it's the result of the program
++ the optional feedback code (output parameter), a data item of 12 bytes, used to store the feedback from the program about the random number computation
 
 ### Checks / Errors Handling
-
-- If the number of arguments is not 2 or 3, an `IllegalArgumentException` will be thrown
-- The seed value must be between 0 and 2147483646, inclusive. If the seed value is outside of these bounds, an error message will be logged and the feedback code will be set to severity 3 and mesage number to 2524. The resulting random number will be set to -1.0 (analog to legacy behaviour)
-- If the seed value is set to 0, but the system was unable to retrieve Greewich mean time (for any reason), the computation will be made using the value 1 as fallback and the feedback code will be set to severity 1 and message number to 2523. The random numbere computation will continue with the fallback seed value (analog to legacy behaviour)
+<a name="ceeran0-error"></a>
++ If the number of arguments is not 2 or 3, an `IllegalArgumentException` will be thrown
++ The seed value must be between 0 and 2147483646, inclusive. If the seed value is outside of these bounds, an error message will be logged and the feedback code will be set to severity 3 and mesage number to 2524. The resulting random number will be set to -1.0 (analog to legacy behaviour)
++ If the seed value is set to 0, but the system was unable to retrieve Greewich mean time (for any reason), the computation will be made using the value 1 as fallback and the feedback code will be set to severity 1 and message number to 2523. The random numbere computation will continue with the fallback seed value (analog to legacy behaviour)
 
 ### Sample Usage
+<a name="ceeran0-sample"></a>
 
 This a java sample demonstrating how to use the CEERAN0 program, using all parameters including the feedback code, with bits from several layers (entity, service):
 
 ```
 //Entity layer
 public class Randomin extends RecordEntity {
-    private final Group root = new Group(getData()).named("RANDOMIN");
+    private final Group root = new Group(getData()).named("RANDOMIN"); 
     private final Elementary randomin = new Elementary(root,new BinaryIntegerType(4, true),new BigDecimal("0")).named("RANDOMIN");
     ...
 
 public class Randomout extends RecordEntity {
-    private final Group root = new Group(getData()).named("RANDOMOUT");
+    private final Group root = new Group(getData()).named("RANDOMOUT"); 
     private final Elementary randomout = new Elementary(root,new DoubleFloatingPointType(),new BigDecimal("0")).named("RANDOMOUT");
     ...
 public class Returncode1 extends RecordEntity {
-    private final Group root = new Group(getData()).named("RETURNCODE");
+    private final Group root = new Group(getData()).named("RETURNCODE"); 
     private final Elementary returncode1 = new Elementary(root,new AlphanumericType(12)," ").named("RETURNCODE");
     ...
 
@@ -315,30 +324,33 @@ public class Returncode1 extends RecordEntity {
 ```
 
 ## CEESECS
+<a name="ceesecs"></a>
 
 ### Purpose
+<a name="ceesecs-purpose"></a>
 
 The CEESECS utility converts a timestamp string representation into Lilian seconds (the number of seconds since 00:00:00 14 October 1582).
 
 ### Signature
+<a name="ceesecs-signature"></a>
 
 Given its nature, the CEESECS utility is rather intended to be called from programs.
 
 It takes three or four arguments (last argument is optional):
-
-- The mandatory first argument is a data item whose value will be intepreted as a timestamp
-- The mandatory second argument is an alphanumeric data-item holding the `PICTURE` string used to specify how to interpret the first argument
-- The mandatory third argument is the data item, holding the result of the conversion of first argument using second argument as `PICTURE`
-- The fourth optional argument is a data item used to store the feedback code from the utility
++ The mandatory first argument is a data item whose value will be intepreted as a timestamp
++ The mandatory second argument is an alphanumeric data-item holding the `PICTURE` string used to specify how to interpret the first argument
++ The mandatory third argument is the data item, holding the result of the conversion of first argument using second argument as `PICTURE`
++ The fourth optional argument is a data item used to store the feedback code from the utility
 
 ### Checks / Errors Handling
-
-- If the number of arguments passed to the utility is not three or four, a `BluageWrapperException` will be thrown
-- If the timestamp passed to the utility as argument is invalid, an error message will be logged and optionally, the feedback code holder will be fed with a feedback code of severity 3 and message number 2513
-- If the picture passed to the utility as argument is invalid, an error message will be logged and optionally, the feedback code holder will be fed with a feedback code of severity 3 and message number 2518
-- If, for any reason, the lilian seconds output cannot be computed, the third argument (output) will be set to 0
+<a name="ceesecs-error"></a>
++ If the number of arguments passed to the utility is not three or four, a `BluageWrapperException` will be thrown
++ If the timestamp passed to the utility as argument is invalid, an error message will be logged and optionally, the feedback code holder will be fed with a feedback code of severity 3 and message number 2513
++ If the picture passed to the utility as argument is invalid, an error message will be logged and optionally, the feedback code holder will be fed with a feedback code of severity 3 and message number 2518
++ If, for any reason, the lilian seconds output cannot be computed, the third argument (output) will be set to 0
 
 ### Sample Usage
+<a name="ceesecs-sample"></a>
 
 Here is a sample call to CEESECS utility in a COBOL program:
 
@@ -374,22 +386,27 @@ Here is a sample call to CEESECS utility in a COBOL program:
 ```
 
 ## ILBOABN0
+<a name="ilboabn0"></a>
 
 ### Purpose
+<a name="ilboabn0-purpose"></a>
 
 The purpose of the ILBOABN0 program is to interrupt the current run unit in a controlled way, using an user-provided abend (abnormal end) code. Often used in error handling dedicated programs.
 
 The interruption of the current run unit occurs by throwing a `StopRunUnitException`.
 
 ### Signature
+<a name="ilboabn0-signature"></a>
 
 The ILBOABN0 program takes a single mandatory argument which is a data item containing the abend code (that has to be interpretable as an integer).
 
 ### Checks / Errors Handling
+<a name="ilboabn0-error"></a>
 
 While throwing the `StopRunUnitException` to interrupt the current run unit run, the program will set the return code to the value provided as first argument. In addition, an information message will be logged.
 
 ### Sample Usage
+<a name="ilboabn0-sample"></a>
 
 Here is a java sample usage of the ILBOABN0 program, resulting from a COBOL modernization through AWS transform:
 
@@ -406,7 +423,7 @@ and the matching java modernization:
 
 ```
 //Entity layer
-private final Group root = new Group(getData());
+private final Group root = new Group(getData()); 
 private final Elementary wsAbndCode = new Elementary(root,new BinaryType(4, 0, "STD", false, false, true),Short.valueOf("1234"));
 ...
 

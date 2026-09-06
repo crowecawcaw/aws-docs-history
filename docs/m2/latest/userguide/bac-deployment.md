@@ -1,49 +1,39 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Deploying the BAC
+<a name="bac-deployment"></a>
 
-The BAC is available as a secured single web application, using the web-archive format
-(.war). It is intended to be deployed alongside the AWS Transform for mainframe Gapwalk-Application, in an Apache
-Tomcat application server, but can also be deployed as a standalone application. The BAC inherits
-the access to the Blusam storage from the Gapwalk-Application configuration if present.
+The BAC is available as a secured single web application, using the web-archive format (.war). It is intended to be deployed alongside the AWS Transform for mainframe Gapwalk-Application, in an Apache Tomcat application server, but can also be deployed as a standalone application. The BAC inherits the access to the Blusam storage from the Gapwalk-Application configuration if present.
 
-The BAC has its own dedicated configuration file, named
-`application-bac.yml`. For configuration details, see [BAC dedicated configuration file](#ba-shared-bac-configuration-file "#ba-shared-bac-configuration-file").
+The BAC has its own dedicated configuration file, named `application-bac.yml`. For configuration details, see [BAC dedicated configuration file](#ba-shared-bac-configuration-file).
 
-The BAC is secured. For details about security configuration, see [Configuring security for the BAC](#ba-shared-bac-securing "#ba-shared-bac-securing").
+The BAC is secured. For details about security configuration, see [Configuring security for the BAC](#ba-shared-bac-securing).
 
 ## BAC dedicated configuration file
+<a name="ba-shared-bac-configuration-file"></a>
 
-Standalone deployment: If the BAC is deployed alone the Gapwalk-Application, the connection
-to the Blusam storage must be configured in the application-bac.yml configuration file.
+Standalone deployment: If the BAC is deployed alone the Gapwalk-Application, the connection to the Blusam storage must be configured in the application-bac.yml configuration file.
 
-Default values for data sets configuration used to browse data set records must be set in
-the configuration file. See [Browsing records from a data set](bac-usage.md#ba-shared-bac-read-dataset "bac-usage.md#ba-shared-bac-read-dataset"). The records browsing
-page can use an optional mask mechanism that makes it possible to show a structured view on a
-record's content. Some properties impact the records view when masks are used.
+Default values for data sets configuration used to browse data set records must be set in the configuration file. See [Browsing records from a data set](bac-usage.md#ba-shared-bac-read-dataset). The records browsing page can use an optional mask mechanism that makes it possible to show a structured view on a record's content. Some properties impact the records view when masks are used.
 
-The following configurable properties must set in the configuration file. The BAC
-application does not assume any default value for these properties.
+The following configurable properties must set in the configuration file. The BAC application does not assume any default value for these properties.
 
-| Key                            | Type    | Description                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `bac.crud.limit`               | integer | A positive integer value giving the maximum number of records returned when browsing<br>records. Using `0` means _unlimited_.<br>Recommended value: `10` (then adjust the value data set by data set on the<br>browsing page, to fit your needs).                                                                                                                 |
-| `bac.crud.encoding`            | string  | The default character set name, used to decode records bytes as alphanumeric content.<br>The provided charset name must be java compatible (please see the java documentation for<br>supported charsets). Recommended value: the legacy charset used on the legacy platform where<br>data sets are coming from; this will be an EBCDIC variant most of the times. |
-| `bac.crud.initCharacter`       | string  | The default character (byte) used to init data items. Two special values can be used:<br>`"LOW-VALUE"`, the 0x00 byte (recommended value) and `"HI-VALUE"`,<br>the 0xFF byte. Used when masks are applied.                                                                                                                                                        |
-| `bac.crud.defaultCharacter`    | string  | The default character (byte), as a one character string, used for padding records (on<br>the right). Recommended value: `" "` (space). Used when masks are<br>applied.                                                                                                                                                                                            |
-| `bac.crud.blankCharacter`      | string  | The default character (byte), as a one character string, used to represent blanks in<br>records.Recommended value: `" "` (space). Used when masks are applied.                                                                                                                                                                                                    |
-| `bac.crud.strictZoned`         | boolean | A flag to indicate which zoned mode is used for the record. If `true`, the<br>Strict zone mode will be used; if `false`, the Modified zoned mode will be used.<br>Recommended value: `true`. Used when masks are applied.                                                                                                                                         |
-| `bac.crud.decimalSeparator`    | string  | The character used as decimal separator in numeric edited fields (used when masks are<br>applied).                                                                                                                                                                                                                                                                |
-| `bac.crud.currencySign`        | string  | The default character, as a one character string, used to represent currency in<br>numeric edited fields, when formatting is applied (used when masks are applied).                                                                                                                                                                                               |
-| `bac.crud.pictureCurrencySign` | string  | The default character, as a one character string, used to represent currency in<br>numeric edited fields pictures (used when masks are applied).                                                                                                                                                                                                                  |
+
+| Key | Type | Description | 
+| --- | --- | --- | 
+| bac.crud.limit | integer | A positive integer value giving the maximum number of records returned when browsing records. Using 0 means unlimited. Recommended value: 10 (then adjust the value data set by data set on the browsing page, to fit your needs). | 
+| bac.crud.encoding | string | The default character set name, used to decode records bytes as alphanumeric content. The provided charset name must be java compatible (please see the java documentation for supported charsets). Recommended value: the legacy charset used on the legacy platform where data sets are coming from; this will be an EBCDIC variant most of the times. | 
+| bac.crud.initCharacter | string | The default character (byte) used to init data items. Two special values can be used: "LOW-VALUE", the 0x00 byte (recommended value) and "HI-VALUE", the 0xFF byte. Used when masks are applied. | 
+| bac.crud.defaultCharacter | string | The default character (byte), as a one character string, used for padding records (on the right). Recommended value: " " (space). Used when masks are applied. | 
+| bac.crud.blankCharacter | string | The default character (byte), as a one character string, used to represent blanks in records.Recommended value: " " (space). Used when masks are applied. | 
+| bac.crud.strictZoned | boolean | A flag to indicate which zoned mode is used for the record. If true, the Strict zone mode will be used; if false, the Modified zoned mode will be used. Recommended value: true. Used when masks are applied. | 
+| bac.crud.decimalSeparator | string | The character used as decimal separator in numeric edited fields (used when masks are applied). | 
+| bac.crud.currencySign | string | The default character, as a one character string, used to represent currency in numeric edited fields, when formatting is applied (used when masks are applied). | 
+| bac.crud.pictureCurrencySign | string | The default character, as a one character string, used to represent currency in numeric edited fields pictures (used when masks are applied). | 
 
 The following sample is a configuration file snippet.
 
@@ -60,60 +50,45 @@ bac.crud.pictureCurrencySign: "$"
 ```
 
 ## Configuring security for the BAC
+<a name="ba-shared-bac-securing"></a>
 
-Configuring security for the BAC relies on the mechanisms detailed in this documentation
-page. The authentication scheme is OAuth2, and configuration details for Amazon Cognito or Keycloak are
-provided.
+Configuring security for the BAC relies on the mechanisms detailed in this documentation page. The authentication scheme is OAuth2, and configuration details for Amazon Cognito or Keycloak are provided.
 
-While general setup can be applied, some specifics about the BAC need to be detailed here.
-The access to the BAC features is protected using a role-based policy and relies on the
-following roles.
-
-- ROLE\_USER:
-
-  - Basic user role
-  - No import, export, creation, or deletion of data sets allowed
-  - No control over caching policies
-  - No administration features allowed
-
-- ROLE\_ADMIN:
-
-  - Inherits ROLE\_USER permissions
-  - All data set operations allowed
-  - Caching policies administration allowed
+While general setup can be applied, some specifics about the BAC need to be detailed here. The access to the BAC features is protected using a role-based policy and relies on the following roles.
++ ROLE\_USER:
+  + Basic user role
+  + No import, export, creation, or deletion of data sets allowed
+  + No control over caching policies
+  + No administration features allowed
++ ROLE\_ADMIN:
+  + Inherits ROLE\_USER permissions
+  + All data set operations allowed
+  + Caching policies administration allowed
 
 ## Installing the masks
+<a name="ba-shared-bac-masks"></a>
 
-In Blusam storage, data sets records are stored in a byte array column in the database, for
-versatility and performance considerations. Having access to a structured view, using fields, of
-the business records, based on application point of view is a convenient feature of the BAC.
-This relies on the SQL masks produced during the AWS Transform for mainframe driven modernization process.
+In Blusam storage, data sets records are stored in a byte array column in the database, for versatility and performance considerations. Having access to a structured view, using fields, of the business records, based on application point of view is a convenient feature of the BAC. This relies on the SQL masks produced during the AWS Transform for mainframe driven modernization process.
 
-For the SQL masks to be generated, please make sure to set the relevant option
-(`export.SQL.masks`) in the configuration of the AWS Transform for mainframe refactor Transformation Center
-to true:
+For the SQL masks to be generated, please make sure to set the relevant option (`export.SQL.masks`) in the configuration of the AWS Transform for mainframe refactor Transformation Center to true:
 
-![Property Set with export.sql.masks highlighted, showing boolean type set to true.](images/ba-bac-bluinsights-generate-masks-option.png)
+![Property Set with export.sql.masks highlighted, showing boolean type set to true.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-bluinsights-generate-masks-option.png)
 
-The masks are part of the modernization artifacts that can be downloaded from AWS Transform for mainframe refactor
-for a given project. They are SQL scripts, organized by modernized programs, giving the
-applicative point of view on data sets records.
 
-For example, using the [AWS
-CardDemo sample application](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/tree/main/app/cbl "https://github.com/aws-samples/aws-mainframe-modernization-carddemo/tree/main/app/cbl"), you can find in the downloaded artifacts from the
-modernization result of this application, the following SQL masks for the program
-CBACT04C.cbl:
+The masks are part of the modernization artifacts that can be downloaded from AWS Transform for mainframe refactor for a given project. They are SQL scripts, organized by modernized programs, giving the applicative point of view on data sets records.
 
-![Five SQL files with names starting with cbact04c_fd, including acctfile, discrp, tran_cat_bal_record, tranfile, and xreffile.](images/ba-bac-sample-masks.png)
+For example, using the [AWS CardDemo sample application](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/tree/main/app/cbl), you can find in the downloaded artifacts from the modernization result of this application, the following SQL masks for the program CBACT04C.cbl:
 
-Each SQL mask name is the concatenation of the program name and the record structure name
-for a given data set within the program.
+![Five SQL files with names starting with cbact04c_fd, including acctfile, discrp, tran_cat_bal_record, tranfile, and xreffile.](http://docs.aws.amazon.com/m2/latest/userguide/images/ba-bac-sample-masks.png)
 
-For example, looking at the [[CBACT04C.cbl](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/app/cbl/CBACT04C.cbl "https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/app/cbl/CBACT04C.cbl") program, the given file control entry:
+
+Each SQL mask name is the concatenation of the program name and the record structure name for a given data set within the program.
+
+For example, looking at the [[CBACT04C.cbl](https://github.com/aws-samples/aws-mainframe-modernization-carddemo/blob/main/app/cbl/CBACT04C.cbl) program, the given file control entry:
 
 ```
-    FILE-CONTROL.
-        SELECT TCATBAL-FILE ASSIGN TO TCATBALF
+    FILE-CONTROL.      
+        SELECT TCATBAL-FILE ASSIGN TO TCATBALF   
                ORGANIZATION IS INDEXED
                ACCESS MODE  IS SEQUENTIAL
                RECORD KEY   IS FD-TRAN-CAT-KEY
@@ -123,19 +98,17 @@ For example, looking at the [[CBACT04C.cbl](https://github.com/aws-samples/aws-m
 is associated with the given FD record definition
 
 ```
-       FILE SECTION.
-       FD  TCATBAL-FILE.
-       01  FD-TRAN-CAT-BAL-RECORD.
-           05 FD-TRAN-CAT-KEY.
-              10 FD-TRANCAT-ACCT-ID             PIC 9(11).
+       FILE SECTION. 
+       FD  TCATBAL-FILE.  
+       01  FD-TRAN-CAT-BAL-RECORD.  
+           05 FD-TRAN-CAT-KEY.  
+              10 FD-TRANCAT-ACCT-ID             PIC 9(11).  
               10 FD-TRANCAT-TYPE-CD             PIC X(02).
-              10 FD-TRANCAT-CD                  PIC 9(04).
+              10 FD-TRANCAT-CD                  PIC 9(04).  
            05 FD-FD-TRAN-CAT-DATA               PIC X(33).
 ```
 
-The matching SQL mask named `cbact04c_fd_tran_cat_bal_record.SQL` is the
-mask that gives the point of view of the program CBACT04C.cbl on the FD record named
-`FD-TRAN-CAT-BAL-RECORD`.
+The matching SQL mask named `cbact04c_fd_tran_cat_bal_record.SQL` is the mask that gives the point of view of the program CBACT04C.cbl on the FD record named `FD-TRAN-CAT-BAL-RECORD`.
 
 Its content is:
 
@@ -151,38 +124,22 @@ INSERT INTO mask (name, length) VALUES ('cbact04c_fd_tran_cat_bal_record', 50);
 ```
 
 Masks are stored in the Blusam storage using two tables:
-
-- mask: used to identify masks. The columns of the mas table are:
-
-  - name: used to store mask identification (used as primary key, so must be unique)
-  - length: size in bytes of the record mask
-
-- mask\_item: used to store mask details. Every elementary field from a FD record definition
-  will produce a row in the mask\_item table, with details on how to interpret the given record
-  part. The columns of the mask\_item table are:
-
-  - name: name of the record field, based on the elementary name, using lowercase and
-    replacing dash with underscore
-  - c\_offset: 1-based offset of the record sub-part, used for the field content
-  - length: length in bytes of the record sub-part, used for the field content
-  - skip: flag to indicate whether the given record part should be skipped or not, in the
-    view presentation
-  - type: the field kind (based on its legacy picture clause)
-  - options: additional type options -- type-dependant
-  - mask\_fk: reference to the mask identifier to attach this item to
++ mask: used to identify masks. The columns of the mas table are: 
+  + name: used to store mask identification (used as primary key, so must be unique)
+  + length: size in bytes of the record mask
++ mask\_item: used to store mask details. Every elementary field from a FD record definition will produce a row in the mask\_item table, with details on how to interpret the given record part. The columns of the mask\_item table are: 
+  + name: name of the record field, based on the elementary name, using lowercase and replacing dash with underscore
+  + c\_offset: 1-based offset of the record sub-part, used for the field content
+  + length: length in bytes of the record sub-part, used for the field content
+  + skip: flag to indicate whether the given record part should be skipped or not, in the view presentation
+  + type: the field kind (based on its legacy picture clause)
+  + options: additional type options -- type-dependant
+  + mask\_fk: reference to the mask identifier to attach this item to
 
 Note the following:
++ SQL masks represent a point of view from a program on records from a data set: several programs might have a different point of view on a given data set; only install the masks that you find relevant for your purpose.
++ A SQL mask can also represent the point of view from a program based on a 01 data structure from the WORKING STORAGE section, not only from a FD record. The SQL masks are organized into sub-folders according to their nature:
+  + FD record based masks will be located in the sub-folder named `file`
+  + 01 data structure based masks will be located in the sub-folder named `working` 
 
-- SQL masks represent a point of view from a program on records from a data set: several
-  programs might have a different point of view on a given data set; only install the masks that
-  you find relevant for your purpose.
-- A SQL mask can also represent the point of view from a program based on a 01 data
-  structure from the WORKING STORAGE section, not only from a FD record. The SQL masks are
-  organized into sub-folders according to their nature:
-
-  - FD record based masks will be located in the sub-folder named `file`
-  - 01 data structure based masks will be located in the sub-folder named
-    `working`
-    While FD records definitions always match the record content from a data set, 01 data
-    structures might not be aligned or might only represent a subset from a data set record.
-    Before you use them, inspect the code and understands the possible shortcomings.
+  While FD records definitions always match the record content from a data set, 01 data structures might not be aligned or might only represent a subset from a data set record. Before you use them, inspect the code and understands the possible shortcomings.

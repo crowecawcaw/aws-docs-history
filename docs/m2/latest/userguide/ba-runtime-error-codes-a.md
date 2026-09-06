@@ -1,61 +1,71 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime Generic Error Codes
+<a name="ba-runtime-error-codes-a"></a>
 
 Generic error codes, prefixed with `BA-A`.
 
 ## Security Configuration Errors
+<a name="security-configuration-errors"></a>
 
 ### Global Security Settings
+<a name="global-security-settings"></a>
 
-| Key        | Severity | Text                                                                                                                                                                                                                                                                                                                                                                                                   | Additional details |
-| ---------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ |
-| `BA-A0001` | Fatal    | Invalid value for `gapwalk-application.security`. Only `enabled` or `disabled` are supported values. If not set, security is disabled by default. Set `gapwalk-application.security: enabled` to activate global security features (XSS, CORS, CSRF, OAUTH authentication), or `gapwalk-application.security: disabled` to deactivate them. Remove the property to use the default value (`disabled`). |                    |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A0001 | Fatal | Invalid value for gapwalk-application.security. Only enabled or disabled are supported values. If not set, security is disabled by default. Set gapwalk-application.security: enabled to activate global security features (XSS, CORS, CSRF, OAUTH authentication), or gapwalk-application.security: disabled to deactivate them. Remove the property to use the default value (disabled). |  | 
 
 ### Identity Configuration
+<a name="identity-configuration"></a>
 
-| Key        | Severity | Text                                                                                                                                                                                                                                                                                                                                                        | Additional details |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `BA-A0011` | Warn     | Property `gapwalk-application.security.identity` should not be set when security is disabled. Current configuration is inconsistent. Either enable security by setting `gapwalk-application.security: enabled`, or remove the `gapwalk-application.security.identity` property. The identity configuration is only applicable when security is enabled.     |                    |
-| `BA-A0012` | Fatal    | Missing required property `gapwalk-application.security.identity`. This property is mandatory when security is enabled. Set `gapwalk-application.security.identity: oauth` to use OAuth authentication (recommended), or `gapwalk-application.security.identity: json` to use JSON authentication when security is enabled.                                 |                    |
-| `BA-A0013` | Fatal    | Invalid value for `gapwalk-application.security.identity`. Only `json` or `oauth` are supported values. OAuth is the recommended authentication method. Set `gapwalk-application.security.identity: oauth` to use OAuth authentication (recommended), or `gapwalk-application.security.identity: json` to use JSON authentication when security is enabled. |                    |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A0011 | Warn | Property gapwalk-application.security.identity should not be set when security is disabled. Current configuration is inconsistent. Either enable security by setting gapwalk-application.security: enabled, or remove the gapwalk-application.security.identity property. The identity configuration is only applicable when security is enabled. |  | 
+| BA-A0012 | Fatal | Missing required property gapwalk-application.security.identity. This property is mandatory when security is enabled. Set gapwalk-application.security.identity: oauth to use OAuth authentication (recommended), or gapwalk-application.security.identity: json to use JSON authentication when security is enabled. |  | 
+| BA-A0013 | Fatal | Invalid value for gapwalk-application.security.identity. Only json or oauth are supported values. OAuth is the recommended authentication method. Set gapwalk-application.security.identity: oauth to use OAuth authentication (recommended), or gapwalk-application.security.identity: json to use JSON authentication when security is enabled. |  | 
 
 ### OAuth Configuration
+<a name="oauth-configuration"></a>
 
-| Key        | Severity | Text                                                                                                                                                                                                                                                                                                                                                                                                                          | Additional details |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `BA-A0031` | Warn     | Property `gapwalk-application.security.issuerUri` should not be set when gapwalk-application.security.identity is not `oauth`. Current configuration is inconsistent. Either set `gapwalk-application.security.identity: oauth` and configure the issuer URI, or remove the gapwalk-application.security.issuerUri property. The issuer URI configuration is only applicable when using OAuth authentication.                 |                    |
-| `BA-A0032` | Warn     | Missing required property `gapwalk-application.security.issuerUri`. This property is mandatory when using OAuth authentication. When using OAuth authentication (`gapwalk-application.security.identity: oauth`), you must set `gapwalk-application.security.issuerUri` to the URL of your identity provider (IdP).                                                                                                           |                    |
-| `BA-A0033` | Error    | Invalid URI format for `gapwalk-application.security.issuerUri`. The value must be a valid URI. Set `gapwalk-application.security.issuerUri` to a valid URI of your identity provider (IdP).                                                                                                                                                                                                                                  |                    |
-| `BA-A0041` | Warn     | Property `gapwalk-application.security.allowedOrigins` should not be set when gapwalk-application.security.identity is not `oauth`. Current configuration is inconsistent. Either set `gapwalk-application.security.identity: oauth` and configure allowed origins, or remove the gapwalk-application.security.allowedOrigins property. The allowed origins configuration is only applicable when using OAuth authentication. |                    |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A0031 | Warn | Property gapwalk-application.security.issuerUri should not be set when gapwalk-application.security.identity is not oauth. Current configuration is inconsistent. Either set gapwalk-application.security.identity: oauth and configure the issuer URI, or remove the gapwalk-application.security.issuerUri property. The issuer URI configuration is only applicable when using OAuth authentication. |  | 
+| BA-A0032 | Warn | Missing required property gapwalk-application.security.issuerUri. This property is mandatory when using OAuth authentication. When using OAuth authentication (gapwalk-application.security.identity: oauth), you must set gapwalk-application.security.issuerUri to the URL of your identity provider (IdP). |  | 
+| BA-A0033 | Error | Invalid URI format for gapwalk-application.security.issuerUri. The value must be a valid URI. Set gapwalk-application.security.issuerUri to a valid URI of your identity provider (IdP). |  | 
+| BA-A0041 | Warn | Property gapwalk-application.security.allowedOrigins should not be set when gapwalk-application.security.identity is not oauth. Current configuration is inconsistent. Either set gapwalk-application.security.identity: oauth and configure allowed origins, or remove the gapwalk-application.security.allowedOrigins property. The allowed origins configuration is only applicable when using OAuth authentication. |  | 
 
 ### URI Filtering
+<a name="uri-filtering"></a>
 
-| Key        | Severity | Text                                                                                                                                                                                                                                                                                                                                                                                         | Additional details |
-| ---------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `BA-A0101` | Fatal    | Invalid value for `gapwalk-application.security.filterURIs`. Only `enabled` or `disabled` are supported values. If not set, URI filtering will be disabled by default. Set `gapwalk-application.security.filterURIs: enabled` to activate URI filtering, or `gapwalk-application.security.filterURIs: disabled` to deactivate it. Remove the property to use the default value (`disabled`). |                    |
-| `BA-A0111` | Warn     | Property `gapwalk-application.security.blockedURIs` should not be set when URI filtering is disabled. Current configuration is inconsistent. Either enable URI filtering by setting `gapwalk-application.filterURIs: enabled`, or remove the `gapwalk-application.security.blockedURIs` property. The URI blocking configuration is only applicable when URI filtering is enabled.           |                    |
-| `BA-A0112` | Warn     | Missing or empty required property `gapwalk-application.security.blockedURIs`. This property is mandatory and must not be empty when URI filtering is enabled. Set `gapwalk-application.security.blockedURIs` with a comma-separated list of URIs to block when URI filtering is enabled. For example: `gapwalk-application.security.blockedURIs: URI-1, URI-2, URI-3`                       |                    |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A0101 | Fatal | Invalid value for gapwalk-application.security.filterURIs. Only enabled or disabled are supported values. If not set, URI filtering will be disabled by default. Set gapwalk-application.security.filterURIs: enabled to activate URI filtering, or gapwalk-application.security.filterURIs: disabled to deactivate it. Remove the property to use the default value (disabled). |  | 
+| BA-A0111 | Warn | Property gapwalk-application.security.blockedURIs should not be set when URI filtering is disabled. Current configuration is inconsistent. Either enable URI filtering by setting gapwalk-application.filterURIs: enabled, or remove the gapwalk-application.security.blockedURIs property. The URI blocking configuration is only applicable when URI filtering is enabled. |  | 
+| BA-A0112 | Warn | Missing or empty required property gapwalk-application.security.blockedURIs. This property is mandatory and must not be empty when URI filtering is enabled. Set gapwalk-application.security.blockedURIs with a comma-separated list of URIs to block when URI filtering is enabled. For example: gapwalk-application.security.blockedURIs: URI-1, URI-2, URI-3 |  | 
 
 ### OAuth Security Configuration
+<a name="oauth-security-configuration"></a>
 
-| Key        | Severity | Text                                                                                                                                                                                                                                                                                                                                    | Additional details |
-| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `BA-A1010` | Fatal    | An error occurred while configuring the OAuth security filter chain. Check your OAuth configuration, including client registration, CORS settings, and CSRF protection. Ensure that all required properties are correctly set in your application-main.yml file. Verify that your OAuth provider is accessible and properly configured. |                    |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A1010 | Fatal | An error occurred while configuring the OAuth security filter chain. Check your OAuth configuration, including client registration, CORS settings, and CSRF protection. Ensure that all required properties are correctly set in your application-main.yml file. Verify that your OAuth provider is accessible and properly configured. |  | 
 
 ## AWS Secrets Manager Configuration Errors
+<a name="aws-secrets-manager-errors"></a>
 
-| Key        | Severity | Text                                                                                                                                                                                                      | Additional details                                                                                                                             |
-| ---------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BA-A2000` | Fatal    | Can not parse the aws secret.                                                                                                                                                                             |                                                                                                                                                |
-| `BA-A2001` | Fatal    | AWS permission issue while parsing secret.                                                                                                                                                                | The error displays the underlying error. It is often related to a missing permission in the used IAM role.                                     |
-| `BA-A2002` | Fatal    | Application requires network access to AWS Secrets Manager service in order to start. This can be fixed either by using a publicly accessible environment, or by creating a PrivateLink or a NAT Gateway. | See [Access AWS Mainframe Modernization using an AWS PrivateLink interface endpoint](vpc-interface-endpoints.md "vpc-interface-endpoints.md"). |
-| `BA-A2003` | Fatal    | DB name for the database secret was passed neither in the secret nor in the yaml key. Add the database name to the configuration, either in a `dbname` field in the secret, or in the dedicated yaml key. | See [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md "ba-runtime-config-app-secrets.md").                        |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A2000 | Fatal | Can not parse the aws secret. |  | 
+| BA-A2001 | Fatal | AWS permission issue while parsing secret. | The error displays the underlying error. It is often related to a missing permission in the used IAM role. | 
+| BA-A2002 | Fatal | Application requires network access to AWS Secrets Manager service in order to start. This can be fixed either by using a publicly accessible environment, or by creating a PrivateLink or a NAT Gateway. | See [Access AWS Mainframe Modernization using an AWS PrivateLink interface endpoint](vpc-interface-endpoints.md). | 
+| BA-A2003 | Fatal | DB name for the database secret was passed neither in the secret nor in the yaml key. Add the database name to the configuration, either in a dbname field in the secret, or in the dedicated yaml key. | See [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md). | 

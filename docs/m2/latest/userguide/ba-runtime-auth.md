@@ -1,21 +1,14 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure authentication for Gapwalk applications
+<a name="ba-runtime-auth"></a>
 
-To configure OAuth2 authentication for your Gapwalk application, you need to set up an identity provider (IdP) and integrate it with your application.
-This guide covers the steps for using Amazon Cognito or Keycloak as your IdP.
-With Amazon Cognito, you can update your application's configuration file with the Cognito user pool details.
-With Keycloak, you can control access to your application's APIs and resources based on the user's assigned roles.
+To configure OAuth2 authentication for your Gapwalk application, you need to set up an identity provider (IdP) and integrate it with your application. This guide covers the steps for using Amazon Cognito or Keycloak as your IdP. With Amazon Cognito, you can update your application's configuration file with the Cognito user pool details. With Keycloak, you can control access to your application's APIs and resources based on the user's assigned roles.
 
-###### Topics
-
-- [Configure Gapwalk OAuth2 authentication with Amazon Cognito](ba-runtime-auth-cognito.md "ba-runtime-auth-cognito.md")
-- [Configure Gapwalk OAuth2 authentication with Keycloak](ba-runtime-auth-keycloak.md "ba-runtime-auth-keycloak.md")
+**Topics**
++ [Configure Gapwalk OAuth2 authentication with Amazon Cognito](ba-runtime-auth-cognito.md)
++ [Configure Gapwalk OAuth2 authentication with Keycloak](ba-runtime-auth-keycloak.md)

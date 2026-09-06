@@ -1,145 +1,117 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools in Enterprise Developer
+<a name="edit-datasets-m2"></a>
 
-You can view and edit data sets in AWS Mainframe Modernization using the Rocket Software runtime for any migrated data
-sets.  The steps in this document will guide you through the process of accessing data sets
-using Data File Tools.  This allows you to view and edit the migrated data sets as
-needed. 
+You can view and edit data sets in AWS Mainframe Modernization using the Rocket Software runtime for any migrated data sets.  The steps in this document will guide you through the process of accessing data sets using Data File Tools.  This allows you to view and edit the migrated data sets as needed. 
 
-###### Topics
-
-- [Prerequisites](#edit-datasets-m2.prereq "#edit-datasets-m2.prereq")
-- [Launch Rocket Software(formerly Micro Focus) Data File Tools](#edit-datasets-m2-launch "#edit-datasets-m2-launch")
-- [Edit VSAM data sets stored in the MFDBFH database](#edit-datasets-m2-vsam "#edit-datasets-m2-vsam")
-- [Edit non-VSAM data sets stored in the MFDBFH database](#edit-datasets-m2-nonvsam "#edit-datasets-m2-nonvsam")
-- [Edit VSAM and non-VSAM data sets stored in the File System (EFS/FSx)](#edit-datasets-m2-open "#edit-datasets-m2-open")
+**Topics**
++ [Prerequisites](#edit-datasets-m2.prereq)
++ [Launch Rocket Software(formerly Micro Focus) Data File Tools](#edit-datasets-m2-launch)
++ [Edit VSAM data sets stored in the MFDBFH database](#edit-datasets-m2-vsam)
++ [Edit non-VSAM data sets stored in the MFDBFH database](#edit-datasets-m2-nonvsam)
++ [Edit VSAM and non-VSAM data sets stored in the File System (EFS/FSx)](#edit-datasets-m2-open)
 
 ## Prerequisites
+<a name="edit-datasets-m2.prereq"></a>
 
-Before you start, you must have an application deployed with the data sets  imported
-under the AWS Mainframe Modernization service using the Rocket Software engine.
+Before you start, you must have an application deployed with the data sets  imported under the AWS Mainframe Modernization service using the Rocket Software engine.
 
-To continue with editing the data sets, you must complete the Step 1, Step 2,  and
-(optionally) Step 3 from the [View data sets as tables and columns in Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md") page  to
-configure the ODBC connection, and Micro Focus datastore (that is, `MFDBFH`).
+To continue with editing the data sets, you must complete the Step 1, Step 2,  and (optionally) Step 3 from the [View data sets as tables and columns in Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer)](view-datasets-tables-m2.md) page  to configure the ODBC connection, and Micro Focus datastore (that is, `MFDBFH`).
 
-###### Important
-
-This guide assumes that you are using Amazon Aurora Postgres as Micro Focus datastore
-(`MFDBFH`)  to store your application data.
+**Important**  
+This guide assumes that you are using Amazon Aurora Postgres as Micro Focus datastore (`MFDBFH`)  to store your application data.
 
 ## Launch Rocket Software(formerly Micro Focus) Data File Tools
+<a name="edit-datasets-m2-launch"></a>
 
-After completing the prerequisites, you launch the Micro Focus Data File Tools by setting up
-the `MFDBFH_CONFIG` environment variable to access the data sets stored in
-the database (`MFDBFH`).
+After completing the prerequisites, you launch the Micro Focus Data File Tools by setting up the `MFDBFH_CONFIG` environment variable to access the data sets stored in the database (`MFDBFH`). 
 
 To do this,
 
-1. Log in to the Micro Focus Enterprise Developer desktop, and launch the **Enterprise Developer
-   command prompt (64-bit)** from the **Start
-   Menu**.
-2. Set the `MFDBFH_CONFIG` environment variable with the full path to
-   your `MFDBCH.cfg` file.
+1. Log in to the Micro Focus Enterprise Developer desktop, and launch the **Enterprise Developer command prompt (64-bit)** from the **Start Menu**.
 
-```
-set MFDBFH_CONFIG="C:\MicroFocus\config\MFDBFH.cfg"
-```
+1. Set the `MFDBFH_CONFIG` environment variable with the full path to your `MFDBCH.cfg` file.
 
-3. Launch Micro Focus Data File Tools from the Enterprise Developer command line using the following
-   command.
+   ```
+   set MFDBFH_CONFIG="C:\MicroFocus\config\MFDBFH.cfg"
+   ```
 
-```
-mfdatatools2
-```
+1. Launch Micro Focus Data File Tools from the Enterprise Developer command line using the following command.
 
-![Enterprise Developer Command Prompt.](images/edit-mfdbfh-launch.png)
+   ```
+   mfdatatools2
+   ```  
+![Enterprise Developer Command Prompt.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-launch.png)
 
 This opens the Micro Focus Data File Tools in a separate window.
 
 ## Edit VSAM data sets stored in the MFDBFH database
+<a name="edit-datasets-m2-vsam"></a>
 
-Once you launch the Micro Focus Data File Tools, you open a VSAM data set that is stored in
-the Micro Focus datastore.
+Once you launch the Micro Focus Data File Tools, you open a VSAM data set that is stored in the Micro Focus datastore.
 
 To do this,
 
-1. From the **File menu** in the Micro Focus Data File
-   Tools window, choose **Data Explorer**.
-2. In the Data Explorer section, choose **Settings**
-   (gear icon) to configure a new connection. This opens a **Data Source Settings** window.
+1. From the **File menu** in the Micro Focus Data File Tools window, choose **Data Explorer**.
 
-![Micro Focus Data File Tools window with Data Explorer section.](images/edit-mfdbfh-data-source.png) 3. In the Data Source Settings window, choose the **MFDBFH** tab, and enter the following values:
+1. In the Data Explorer section, choose **Settings** (gear icon) to configure a new connection. This opens a **Data Source Settings** window.  
+![Micro Focus Data File Tools window with Data Explorer section.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-source.png)
 
-    * Server: `ESPACDatabase`
-    * Datastore: `VSAM`
+1. In the Data Source Settings window, choose the **MFDBFH** tab, and enter the following values:
+   + Server: `ESPACDatabase`
+   + Datastore: `VSAM`
 
-Choose **Apply** to save the
-configuration.
+   Choose **Apply** to save the configuration.  
+![Micro Focus Data File Tools window Data Source settings with MFDBFH tab.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-source-settings.png)
 
-![Micro Focus Data File Tools window Data Source settings with MFDBFH tab.](images/edit-mfdbfh-data-source-settings.png)
+    The Data Explorer now shows all data sets that are stored in `MFDBFH`.  
+![Micro Focus Data File Tools window with Data Explorer section displaying all data sets.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-datasets.png)
 
-The Data Explorer now shows all data sets that are stored in `MFDBFH`.
+1. Expand the relative path `DATA` and double click on the VSAM data set you want to open. 
 
-![Micro Focus Data File Tools window with Data Explorer section displaying all data sets.](images/edit-mfdbfh-datasets.png) 4. Expand the relative path `DATA` and double click on the VSAM data
-set you want to open. 5. In the **Open Data File** window, choose
-**Open Shared** or **Open
-Exclusive** to open the data set.
-
-![Micro Focus Data File Tools window with Data Explorer section Open Data File section to open data sets..](images/edit-mfdbfh-data-set.png)
+1. In the **Open Data File** window, choose **Open Shared** or **Open Exclusive** to open the data set.  
+![Micro Focus Data File Tools window with Data Explorer section Open Data File section to open data sets..](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-data-set.png)
 
 You can now view or edit the open data set.
 
 ## Edit non-VSAM data sets stored in the MFDBFH database
+<a name="edit-datasets-m2-nonvsam"></a>
 
-If you want to edit non-VSAM data sets, you open a non-VSAM data set that is stored in
-the Micro Focus datastore.
+If you want to edit non-VSAM data sets, you open a non-VSAM data set that is stored in the Micro Focus datastore.
 
 To do this,
 
-1. From the Enterprise Developer command prompt (64-bit) run the `dbfhdeploy data
- extract` command to download the non-VSAM data set to your local file
-   system.
+1. From the Enterprise Developer command prompt (64-bit) run the `dbfhdeploy data extract` command to download the non-VSAM data set to your local file system. 
+**Note**  
+Before running this command, make sure you have set the `MFDBFH_CONFIG` environment variable with the full path to your `MFDBFH.cfg` file.  
 
-###### Note
+   ```
+   dbfhdeploy data extract sql://ESPACDatabase/VSAM/AWS.M2.CARDDEMO.TRANSACT.BKUP.G0001V00.DAT?folder=/DATA C:\MicroFocus\data\AWS.M2.CARDDEMO.TRANSACT.BKUP.G0001V00.DAT
+   ```
 
-Before running this command, make sure you have set the `MFDBFH_CONFIG` environment
-variable with the full path to your `MFDBFH.cfg` file.
+1. Launch Micro Focus Data File Tools from the **Start Menu**.
 
-```
-dbfhdeploy data extract sql://ESPACDatabase/VSAM/AWS.M2.CARDDEMO.TRANSACT.BKUP.G0001V00.DAT?folder=/DATA C:\MicroFocus\data\AWS.M2.CARDDEMO.TRANSACT.BKUP.G0001V00.DAT
-```
+1. From the File Menu of Micro Focus Data File Tools, choose **Open**, and then choose **Data File**.
 
-2. Launch Micro Focus Data File Tools from the **Start
-   Menu**.
-3. From the File Menu of Micro Focus Data File Tools, choose **Open**, and then choose **Data
-   File**.
-4. In the Open Data File window, browse the downloaded data set in your local
-   file system. Edit the **File Details** as required.
-   Then choose **Open Shared** or **Open Exclusive** to open the data set.
-
-![Open Data Files window with local tab selected for browsing data sets.](images/edit-mfdbfh-browse.png)
+1. In the Open Data File window, browse the downloaded data set in your local file system. Edit the **File Details** as required. Then choose **Open Shared** or **Open Exclusive** to open the data set.  
+![Open Data Files window with local tab selected for browsing data sets.](http://docs.aws.amazon.com/m2/latest/userguide/images/edit-mfdbfh-browse.png)
 
 You can now view or edit the open data set.
 
-The edited or updated data sets can be imported back to the Micro Focus datastore using steps
-in [Import data sets for AWS Mainframe Modernization applications](applications-m2-dataset.md "applications-m2-dataset.md") or by using [The dbfhdeploy Command Line Utility](https://www.microfocus.com/documentation/enterprise-developer/ed90/ED-Eclipse/GUID-2A16851F-E475-42C9-B024-37567006B86D.html "https://www.microfocus.com/documentation/enterprise-developer/ed90/ED-Eclipse/GUID-2A16851F-E475-42C9-B024-37567006B86D.html").
+The edited or updated data sets can be imported back to the Micro Focus datastore using steps in [Import data sets for AWS Mainframe Modernization applications](applications-m2-dataset.md) or by using [The dbfhdeploy Command Line Utility](https://www.microfocus.com/documentation/enterprise-developer/ed90/ED-Eclipse/GUID-2A16851F-E475-42C9-B024-37567006B86D.html).
 
 ## Edit VSAM and non-VSAM data sets stored in the File System (EFS/FSx)
+<a name="edit-datasets-m2-open"></a>
 
 You can also open a data set stored in a file system.
 
 To do this,
 
 1. Mount the EFS/FSx file system in on the Enterprise Developer EC2 instance.
-2. Use the Micro Focus Data File Tools to browse, and open the data sets from the file
-   system.
+
+1. Use the Micro Focus Data File Tools to browse, and open the data sets from the file system.

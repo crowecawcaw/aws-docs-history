@@ -1,78 +1,62 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Data structures for AWS Transform for mainframe user
+<a name="ba-endpoints-apx"></a>
 
 You can learn about various data structures for AWS Transform for mainframe engine in the following section.
 
-###### Topics
-
-- [Job execution details message structure](#job-execution-details "#job-execution-details")
-- [Transaction launch outcome structure](#transaction-outcome "#transaction-outcome")
-- [Transaction launch record outcome structure](#transaction-record-outcome "#transaction-record-outcome")
-- [Possible status of a job on a queue](#jobs-status "#jobs-status")
-- [Submit job and schedule job input](#submit-job "#submit-job")
-- [List of scheduled jobs response](#list-scheduled-jobs "#list-scheduled-jobs")
-- [List of repeating jobs response](#list-on-hold-jobs "#list-on-hold-jobs")
+**Topics**
++ [Job execution details message structure](#job-execution-details)
++ [Transaction launch outcome structure](#transaction-outcome)
++ [Transaction launch record outcome structure](#transaction-record-outcome)
++ [Possible status of a job on a queue](#jobs-status)
++ [Submit job and schedule job input](#submit-job)
++ [List of scheduled jobs response](#list-scheduled-jobs)
++ [List of repeating jobs response](#list-on-hold-jobs)
 
 ## Job execution details message structure
+<a name="job-execution-details"></a>
 
 Each job execution details will have the following fields:
 
-scriptId
-
+scriptId  
 the identifier of the called script.
 
-caller
-
+caller  
 I.P. address of the caller.
 
-identifier
-
+identifier  
 unique job execution identifier.
 
-startTime
-
+startTime  
 date and time at which the job execution started.
 
-endTime
-
+endTime  
 date and time at which the job execution ended.
 
-status
+status  
+a status for the job execution. One possible value amongst:  
++ `DONE`: job execution ended normally.
++ `TRIGGERED`: job execution triggered but not launched yet.
++ `RUNNING`: job execution is running.
++ `KILLED`: job execution has been killed.
++ `FAILED`: job execution has failed.
 
-a status for the job execution. One possible value amongst:
+executionResult  
+a message to sum up the outcome of the job execution. This message can either be a simple message if the job execution is not finished yet or a JSON structure with the following fields:  
++ exitCode: numeric exit code; negative values indicate failure situations.
++ program: latest program launched by the job.
++ status: one possible value amongst:
+  + `Error`: when exitCode = -1; this corresponds to an (technical) error occurring during job execution.
+  + `Failed`: when exitcode = -2; This corresponds to a failure occurring during a service program execution (like an ABEND situation).
+  + `Succeeded`: when exitCode >= 0;
++ stepName: name of the latest step executed in the job.
 
-- `DONE`: job execution ended normally.
-- `TRIGGERED`: job execution triggered but not launched yet.
-- `RUNNING`: job execution is running.
-- `KILLED`: job execution has been killed.
-- `FAILED`: job execution has failed.
-
-executionResult
-
-a message to sum up the outcome of the job execution.
-This message can either be a simple message if the job execution is not finished yet or a JSON structure with the following fields:
-
-- exitCode: numeric exit code; negative values indicate failure situations.
-- program: latest program launched by the job.
-- status: one possible value amongst:
-
-  - `Error`: when exitCode = -1; this corresponds to an (technical) error occurring during job execution.
-  - `Failed`: when exitcode = -2; This corresponds to a failure occurring during a service program execution (like an ABEND situation).
-  - `Succeeded`: when exitCode >= 0;
-
-- stepName: name of the latest step executed in the job.
-
-executionMode
-
+executionMode  
 either SYNCHRONOUS or ASYNCHRONOUS, depending on the way the job has been launched.
 
 Sample output:
@@ -91,33 +75,26 @@ Sample output:
 ```
 
 ## Transaction launch outcome structure
+<a name="transaction-outcome"></a>
 
-The structure might contain the following fields:
+ The structure might contain the following fields:
 
-outCome
+outCome  
+a string representing the transaction execution outcome. Possible values are:  
++ `Success`: transaction execution went to the end properly.
++ `Failure`: transaction execution failed to end properly, some problem(s) were encountered.
 
-a string representing the transaction execution outcome. Possible values are:
-
-- `Success`: transaction execution went to the end properly.
-- `Failure`: transaction execution failed to end properly, some problem(s) were encountered.
-
-commarea
-
+commarea  
 a string representing the COMMAREA final value, as a byte64 encoded byte array. Might be an empty string.
 
-containerRecord
+containerRecord  
+(Optional) a string representing the CONTAINER's record content as a byte64 encoded byte array.
 
-(Optional) a string representing the CONTAINER's record content as a byte64 encoded byte
-array.
-
-serverDescription
-
+serverDescription  
 May contain information about the server which served the request (for debugging purpose). Might be an empty string.
 
-abendCode
-
-(Optional) if the program referenced by the launched transaction abended, the abend code
-value will be returned as as string in this field.
+abendCode  
+(Optional) if the program referenced by the launched transaction abended, the abend code value will be returned as as string in this field.
 
 Sample responses:
 
@@ -143,19 +120,17 @@ Failure
 ```
 
 ## Transaction launch record outcome structure
+<a name="transaction-record-outcome"></a>
 
 The structure might contain the following fields:
 
-recordContent
-
+recordContent  
 a string representing the COMMAREA's record content as a byte64 encoded byte array.
 
-containerRecord
-
+containerRecord  
 a string representing the CONTAINER's record content as a byte64 encoded byte array.
 
-serverDescription
-
+serverDescription  
 May contain information about the server which served the request (for debugging purpose). Might be an empty string.
 
 Sample responses:
@@ -170,41 +145,35 @@ Success
 ```
 
 ## Possible status of a job on a queue
+<a name="jobs-status"></a>
 
 On a queue, jobs can have the following status:
 
-ACTIVE
-
+ACTIVE  
 The job is currently being run on the queue.
 
-EXECUTION\_WAIT
-
+EXECUTION\_WAIT  
 The job is waiting for a thread to be available.
 
-SCHEDULED
-
+SCHEDULED  
 Jobs is scheduled for execution at a specific date and time.
 
-HOLD
-
+HOLD  
 Job is waiting to be released before being run.
 
-COMPLETED
-
+COMPLETED  
 Job has been executed successfully.
 
-FAILED
-
+FAILED  
 Job execution has failed.
 
-UNKNOWN
-
+UNKNOWN  
 Status is unknown.
 
 ## Submit job and schedule job input
+<a name="submit-job"></a>
 
-The submit job and schedule job input is the JSON serialization of a `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object.
-The sample input below exhibits all the fields for such a bean.
+The submit job and schedule job input is the JSON serialization of a `com.netfective.bluage.gapwalk.rt.jobqueue.SubmitJobMessage` object. The sample input below exhibits all the fields for such a bean.
 
 Sample input for submit job:
 
@@ -247,51 +216,42 @@ Sample input for schedule job:
  }
 ```
 
-jobNumber
+jobNumber  
+if the job number is 0, the job number will be automatically generated using the next number in the job number sequence. That value should be set to 0 (except for testing purpose).
 
-if the job number is 0, the job number will be automatically generated using the next number in the job number sequence.
-That value should be set to 0 (except for testing purpose).
-
-jobPriority
-
+jobPriority  
 Default job priority in AS400 is 5. Valid range is 0-9, 0 being the highest priority.
 
-jobOnHold
+jobOnHold  
+If a job is submitted on hold, it won’t be executed right away but only when somebody “releases” it. A job can be released using the REST API (/release or /release-all).
 
-If a job is submitted on hold, it won’t be executed right away but only when somebody “releases” it.
-A job can be released using the REST API (/release or /release-all).
+scheduleDate and scheduleTime  
+If these values are not null, the job will be executed at the specified date and time. 
 
-scheduleDate and scheduleTime
-
-If these values are not null, the job will be executed at the specified date and time.
-
-Date
-
+Date  
 Can be provided with format MMddyy or ddMMyyyy (size of the input will determine what format is used)
 
-Time
-
+Time  
 Can be provided with format HHmm or HHmmss (size of the input will determine what format is used)
 
-programParams
-
+programParams  
 Will be passed to the program as a map.
 
-scheduleMisfirePolicy
-
-Defines the strategy used when a trigger is misfired. The following are the possible values:
+scheduleMisfirePolicy  
+Defines the strategy used when a trigger is misfired. The following are the possible values:  
 
 1. Release the first misfire and discard the other misfires.
-2. Submit a job on hold for the first misfire and discard the other misfires.
-3. Discard the misfire.
-4. Release all misfires. The job queue will run all jobs.
+
+1. Submit a job on hold for the first misfire and discard the other misfires.
+
+1. Discard the misfire.
+
+1. Release all misfires. The job queue will run all jobs.
 
 ## List of scheduled jobs response
+<a name="list-scheduled-jobs"></a>
 
-This is the structure of the list-jobs job queue endpoint.
-The submit job message that was used to submit that job is part of the response.
-This can be used for tracking or testing / resubmitting purpose.
-When a job is completed, the start date and end date will also be populated.
+ This is the structure of the list-jobs job queue endpoint. The submit job message that was used to submit that job is part of the response. This can be used for tracking or testing / resubmitting purpose. When a job is completed, the start date and end date will also be populated.
 
 ```
 [
@@ -365,6 +325,7 @@ When a job is completed, the start date and end date will also be populated.
 ```
 
 ## List of repeating jobs response
+<a name="list-on-hold-jobs"></a>
 
 This is the structure of the /schedule/list job queue endpoint.
 

@@ -1,24 +1,22 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for mainframe Runtime Error Codes related to Blusam
+<a name="ba-runtime-error-codes-b"></a>
 
 Blusam error codes, prefixed with `BA-B`.
 
-| Key        | Severity | Text                                                                                                                                                                                                                                                              | Additional details                                                                                                                  |
-| ---------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `BA-B0001` | Warn     | Invalid value for `bluesam.disabled`. Only `true` is supported to disable Blusam. The default behavior is that Bluesam is enabled. Set `bluesam.disabled: true` in your configuration if you want to disable Bluesam. Remove the property to keep Blusam enabled. |                                                                                                                                     |
-| `BA-B0011` | Warn     | Bluesam Cache will not be enabled. Set `bluesam.cache: ehcache` to use EhCache, or `bluesam.cache: redis` to use Redis. Any other value will disable Bluesam cache.                                                                                               |                                                                                                                                     |
-| `BA-B0021` | Fatal    | Blusam is active but blusam datasource is not defined in the configuration. Set `datasource.blusamDs` configuration keys (subkeys url, username, password...) or use an AWS secret.                                                                               | See [Blusam configuration](ba-shared-blusam.md#ba-shared-blusam-configuration "ba-shared-blusam.md#ba-shared-blusam-configuration") |
-| `BA-B2000` | Error    | OutOfMemoryError while adding Index to cache. Index size may exceed serialization limits. Falling back to persistence.                                                                                                                                            |                                                                                                                                     |
-| `BA-B2001` | Error    | Could not add Index on cache. Persisting it.                                                                                                                                                                                                                      |                                                                                                                                     |
-| `BA-B2002` | Error    | Unsupported operation: Page capacity calculation not supported                                                                                                                                                                                                    | MetadataPersistence implementation does not support page capacity calculation                                                       |
-| `BA-B2003` | Error    | Couldn't commit indexes correctly on table. Verify that the persistence layer (database or Redis) is accessible and that the index table exists                                                                                                                   |                                                                                                                                     |
-| `BA-B2004` | Error    | The index was not found in persistence. Verify that the persistence layer (database or Redis) is accessible and that the index table exists                                                                                                                       |                                                                                                                                     |
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-B0001 | Warn | Invalid value for bluesam.disabled. Only true is supported to disable Blusam. The default behavior is that Bluesam is enabled. Set bluesam.disabled: true in your configuration if you want to disable Bluesam. Remove the property to keep Blusam enabled. |  | 
+| BA-B0011 | Warn | Bluesam Cache will not be enabled. Set bluesam.cache: ehcache to use EhCache, or bluesam.cache: redis to use Redis. Any other value will disable Bluesam cache. |  | 
+| BA-B0021 | Fatal | Blusam is active but blusam datasource is not defined in the configuration. Set datasource.blusamDs configuration keys (subkeys url, username, password...) or use an AWS secret. | See [Blusam configuration](ba-shared-blusam.md#ba-shared-blusam-configuration) | 
+| BA-B2000 | Error | OutOfMemoryError while adding Index to cache. Index size may exceed serialization limits. Falling back to persistence. |  | 
+| BA-B2001 | Error | Could not add Index on cache. Persisting it. |  | 
+| BA-B2002 | Error | Unsupported operation: Page capacity calculation not supported | MetadataPersistence implementation does not support page capacity calculation | 
+| BA-B2003 | Error | Couldn't commit indexes correctly on table. Verify that the persistence layer (database or Redis) is accessible and that the index table exists |  | 
+| BA-B2004 | Error | The index was not found in persistence. Verify that the persistence layer (database or Redis) is accessible and that the index table exists |  | 

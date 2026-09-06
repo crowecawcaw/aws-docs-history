@@ -1,54 +1,27 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # AWS Transform for modernizing mainframe applications
+<a name="qt-webapp-mainframe"></a>
 
-AWS Transform for mainframe empowers you to modernize legacy COBOL mainframe applications to Java
-applications faster by automating the complex, time-consuming tasks of analyzing codebases,
-planning the transformation, generate technical documentation, extracting business logic,
-decomposition of code, wave planning, and executing the refactoring and reforging. It
-reduces the cost and complexity of mainframe modernization by leveraging generative AI and
-automation, while preserving your mission-critical business logic. AWS Transform's natural language
-interface and objective-driven approach keeps you in control of the transformation––enabling
-you to focus on strategic priorities, while the automation handles the heavy lifting of the
-modernization journey.
+AWS Transform for mainframe empowers you to modernize legacy COBOL mainframe applications to Java applications faster by automating the complex, time-consuming tasks of analyzing codebases, planning the transformation, generate technical documentation, extracting business logic, decomposition of code, wave planning, and executing the refactoring and reforging. It reduces the cost and complexity of mainframe modernization by leveraging generative AI and automation, while preserving your mission-critical business logic. AWS Transform's natural language interface and objective-driven approach keeps you in control of the transformation––enabling you to focus on strategic priorities, while the automation handles the heavy lifting of the modernization journey.
 
-For more information on capabilities and key features, high-level walkthrough, and human
-involvement in inputs and processing, see [Migration and modernization of mainframe applications](../../../transform/latest/userguide/transform-app-mainframe.md "../../../transform/latest/userguide/transform-app-mainframe.md")
-in the _AWS Transform User Guide_.
+For more information on capabilities and key features, high-level walkthrough, and human involvement in inputs and processing, see [Migration and modernization of mainframe applications](https://docs.aws.amazon.com/transform/latest/userguide/transform-app-mainframe.html) in the *AWS Transform User Guide*.
 
 ## Key benefits
+<a name="qt-webapp-mainframe-benefits"></a>
 
-AWS Transform's capabilities for modernizing mainframe applications has multiple benefits.
-Some of which include:
-
-- **Accelerate mainframe modernization journey with
-  generative AI**: AWS Transform helps you to transform your COBOL code into
-  modern Java code within a few months, instead of  the traditional timeline in
-  years.
-- **Bridge knowledge gaps**: AWS Transform generates
-  comprehensive documentation for your mainframe applications, bridging the
-  knowledge gap, and enabling better-informed decisions.
-- **Preserve the critical business logic**: AWS Transform
-  preserves the critical business logic of your legacy systems while refactoring
-  them to modern, cloud-optimized Java applications.
-- **Business and technical logical domain
-  decomposition**: AWS Transform automatically decomposes the mainframe
-  codebase into distinct business domains to reduce manual effort and time
-  required for codebase analysis and decomposition.
-- **Human in the loop (HITL) capabilities**: AWS Transform
-  provides an autonomous, objective-driven approach that keeps you in control of
-  the mainframe modernization journey.
+AWS Transform's capabilities for modernizing mainframe applications has multiple benefits. Some of which include:
++ **Accelerate mainframe modernization journey with generative AI**: AWS Transform helps you to transform your COBOL code into modern Java code within a few months, instead of  the traditional timeline in years.
++ **Bridge knowledge gaps**: AWS Transform generates comprehensive documentation for your mainframe applications, bridging the knowledge gap, and enabling better-informed decisions.
++ **Preserve the critical business logic**: AWS Transform preserves the critical business logic of your legacy systems while refactoring them to modern, cloud-optimized Java applications.
++ **Business and technical logical domain decomposition**: AWS Transform automatically decomposes the mainframe codebase into distinct business domains to reduce manual effort and time required for codebase analysis and decomposition.
++ **Human in the loop (HITL) capabilities**: AWS Transform provides an autonomous, objective-driven approach that keeps you in control of the mainframe modernization journey. 
 
 ## Transformation of mainframe application console walkthrough
+<a name="qt-webapp-mainframe-console"></a>
 
-In the AWS Transform web experience, you can perform transformation of your mainframe
-applications from COBOL to Java. To understand how to use this function, follow all
-steps in the [Transformation of mainframe applications](../../../transform/latest/userguide/transform-app-mainframe-workflow.md "../../../transform/latest/userguide/transform-app-mainframe-workflow.md") page in the _AWS Transform User Guide_.
+In the AWS Transform web experience, you can perform transformation of your mainframe applications from COBOL to Java. To understand how to use this function, follow all steps in the [ Transformation of mainframe applications](https://docs.aws.amazon.com/transform/latest/userguide/transform-app-mainframe-workflow.html) page in the *AWS Transform User Guide*.

@@ -1,54 +1,41 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # What are data simplifiers in AWS Transform for mainframe
+<a name="ba-shared-data"></a>
 
-On mainframe and midrange systems (referred to in the following topic as "legacy" systems), frequently used programming languages such as COBOL, PL/I or RPG provide low-level access to memory.
-This access focuses on memory layout accessed through native types such as zoned, packed, or alphanumeric, possibly also aggregated through groups or arrays.
+On mainframe and midrange systems (referred to in the following topic as "legacy" systems), frequently used programming languages such as COBOL, PL/I or RPG provide low-level access to memory. This access focuses on memory layout accessed through native types such as zoned, packed, or alphanumeric, possibly also aggregated through groups or arrays.
 
-A mix of accesses to a given piece of memory, through both typed fields and as direct access
-to bytes (raw memory), coexists in a given program. For example, COBOL programs will pass
-arguments to callers as contiguous sets of bytes (LINKAGE), or read/write data from files in the
-same manner (records), while interpreting such memory ranges with typed fields organized in
-copybooks.
+A mix of accesses to a given piece of memory, through both typed fields and as direct access to bytes (raw memory), coexists in a given program. For example, COBOL programs will pass arguments to callers as contiguous sets of bytes (LINKAGE), or read/write data from files in the same manner (records), while interpreting such memory ranges with typed fields organized in copybooks.
 
 Such combinations of raw and structured access to memory, the reliance on precise, byte-level memory layout, and legacy types, such as zoned or packed, are features that are neither natively nor easily available in the Java programming environment.
 
-As a part of the AWS Transform for mainframe solution for modernizing legacy programs to Java, the **Data Simplifier** library provides such constructs to modernized Java programs, and exposes those in a way that is as familiar as possible to Java developers (getters/setters, byte arrays, class-based).
-It is a core dependency of the modernized Java code generated from such programs.
+As a part of the AWS Transform for mainframe solution for modernizing legacy programs to Java, the **Data Simplifier** library provides such constructs to modernized Java programs, and exposes those in a way that is as familiar as possible to Java developers (getters/setters, byte arrays, class-based). It is a core dependency of the modernized Java code generated from such programs.
 
 For simplicity, most of the following explanations are based on COBOL constructs, but you can use the same API for both PL1 and RPG data layout modernization, since most of the concepts are similar.
 
-###### Topics
-
-- [Main classes](#ba-shared-data-main-classes "#ba-shared-data-main-classes")
-- [Data binding and access](#ba-shared-data-binding-access "#ba-shared-data-binding-access")
-- [FQN of discussed Java types](#ba-shared-data-fqn "#ba-shared-data-fqn")
+**Topics**
++ [Main classes](#ba-shared-data-main-classes)
++ [Data binding and access](#ba-shared-data-binding-access)
++ [FQN of discussed Java types](#ba-shared-data-fqn)
 
 ## Main classes
+<a name="ba-shared-data-main-classes"></a>
 
-For easier reading, this document uses the Java short names of the AWS Transform for mainframe API interfaces and classes.
-For more information, see [FQN of discussed Java types](#ba-shared-data-fqn "#ba-shared-data-fqn").
+For easier reading, this document uses the Java short names of the AWS Transform for mainframe API interfaces and classes. For more information, see [FQN of discussed Java types](#ba-shared-data-fqn).
 
 ### Low level memory representation
+<a name="ba-shared-data-main-classes-memory"></a>
 
-At the lowest level, memory (a contiguous range of bytes accessible in a fast, random way) is represented by the `Record` interface.
-This interface is essentially an abstraction of a byte array of a fixed size.
-As such, it provides setters and getters able to access or modify the underlying bytes.
+ At the lowest level, memory (a contiguous range of bytes accessible in a fast, random way) is represented by the `Record` interface. This interface is essentially an abstraction of a byte array of a fixed size. As such, it provides setters and getters able to access or modify the underlying bytes.
 
 ### Structured data representation
+<a name="ba-shared-data-main-classes-structured"></a>
 
-To represent structured data, such as "01 data items", or "01 copybooks", as found in COBOL DATA DIVISION, subclasses of the `RecordEntity` class are used.
-Those are normally not written by hand, but generated by the AWS Transform for mainframe modernization tools from the corresponding legacy constructs.
-It is still useful to know about their main structure and API, so you can understand how the code in a modernized program uses them.
-In the case of COBOL, that code is Java generated from their PROCEDURE DIVISION.
+To represent structured data, such as "01 data items", or "01 copybooks", as found in COBOL DATA DIVISION, subclasses of the `RecordEntity` class are used. Those are normally not written by hand, but generated by the AWS Transform for mainframe modernization tools from the corresponding legacy constructs. It is still useful to know about their main structure and API, so you can understand how the code in a modernized program uses them. In the case of COBOL, that code is Java generated from their PROCEDURE DIVISION.
 
 Generated code represents each "01 data item" with a `RecordEntity` subclass; each elementary field or aggregate composing it is represented as a private Java field, organized as a tree (each item has a parent, except for the root one).
 
@@ -66,13 +53,13 @@ For illustration purposes, here is an example COBOL data item, followed by the c
 ```
 public class Tst2 extends RecordEntity {
 
-	   private final Group root = new Group(getData()).named("TST2");
+	   private final Group root = new Group(getData()).named("TST2"); 
 	   private final Filler filler = new Filler(root,new AlphanumericType(4));
 	   private final Elementary f1 = new Elementary(root,new ZonedType(2, 0, false),new BigDecimal("42")).named("F1");
 	   private final Filler filler1 = new Filler(root,new AlphanumericType(1));
 	   private final Filler filler2 = new Filler(root,new ZonedType(3, 0, false),new BigDecimal("123"));
 	   private final Elementary f2 = new Elementary(root,new AlphanumericType(1),"A").named("F2");
-
+	
 
 	   /**
 	    * Instantiate a new Tst2 with a default record.
@@ -142,95 +129,79 @@ public class Tst2 extends RecordEntity {
 ```
 
 #### Elementary fields
+<a name="ba-shared-data-main-classes-structured-elementary"></a>
 
-Fields of class `Elementary` (or `Filler`, when unnamed) represent a "leaf" of the legacy data structure.
-They are associated with a contiguous span of underlying bytes ("range") and commonly have a type (possibly parameterized) expressing how to interpret and modify those bytes (by respectively "decoding" and "encoding" a value from/to a byte array).
+Fields of class `Elementary` (or `Filler`, when unnamed) represent a "leaf" of the legacy data structure. They are associated with a contiguous span of underlying bytes ("range") and commonly have a type (possibly parameterized) expressing how to interpret and modify those bytes (by respectively "decoding" and "encoding" a value from/to a byte array).
 
 All elementary types are subclasses of `RangeType`. Common types are:
 
-| COBOL Type        | Data Simplifier Type |
-| ----------------- | -------------------- |
-| `PIC X(n)`        | `AlphanumericType`   |
-| `PIC 9(n)`        | `ZonedType`          |
-| `PIC 9(n) COMP-3` | `PackedType`         |
-| `PIC 9(n) COMP-5` | `BinaryType`         |
+
+| COBOL Type | Data Simplifier Type | 
+| --- | --- | 
+| `PIC X(n)` | `AlphanumericType` | 
+| `PIC 9(n)` | `ZonedType` | 
+| `PIC 9(n) COMP-3` | `PackedType` | 
+| `PIC 9(n) COMP-5` | `BinaryType` | 
 
 #### Aggregate fields
+<a name="ba-shared-data-main-classes-structured-aggregate"></a>
 
-Aggregate fields organize the memory layout of their contents (other aggregates or elementary fields).
-They do not have an elementary type themselves.
+Aggregate fields organize the memory layout of their contents (other aggregates or elementary fields). They do not have an elementary type themselves.
 
-`Group` fields represent contiguous fields in memory.
-Each of their contained fields are laid out in the same order in memory, the first field being at offset `0` with respect to the group field position in memory, the second field being at offset `0 + (size in bytes of first field)`, etc.
-They are used to represent sequences of COBOL fields under the same containing field.
+`Group` fields represent contiguous fields in memory. Each of their contained fields are laid out in the same order in memory, the first field being at offset `0` with respect to the group field position in memory, the second field being at offset `0 + (size in bytes of first field)`, etc. They are used to represent sequences of COBOL fields under the same containing field.
 
-`Union` fields represent multiples fields accessing the same memory.
-Each of their contained fields are laid out at offset `0` with respect to the union field position in memory.
-They are for example used to represent the COBOL "REDEFINES" construct (the first Union children being the redefined data item, the second children being its first redefinition, etc.).
+`Union` fields represent multiples fields accessing the same memory. Each of their contained fields are laid out at offset `0` with respect to the union field position in memory. They are for example used to represent the COBOL "REDEFINES" construct (the first Union children being the redefined data item, the second children being its first redefinition, etc.).
 
-Array fields (subclasses of `Repetition`) represent the repetition, in memory, of the layout of their child field (be it an aggregate itself or an elementary item).
-They lay out a given number of such child layouts in memory, each being at offset `index * (size in bytes of child)`.
-They are used to represent COBOL "OCCURS" constructs.
+Array fields (subclasses of `Repetition`) represent the repetition, in memory, of the layout of their child field (be it an aggregate itself or an elementary item). They lay out a given number of such child layouts in memory, each being at offset `index * (size in bytes of child)`. They are used to represent COBOL "OCCURS" constructs.
 
 #### Primitives
+<a name="ba-shared-data-main-classes-structured-primitive"></a>
 
-In some modernization cases, "Primitives" may also be used to present independent, "root"
-data items. Those are very similar in use to `RecordEntity` but don't come from it,
-nor are based on generated code. Instead they are directly provided by the AWS Transform for mainframe runtime as
-subclasses of the `Primitive` interface. Examples of such provided classes are
-`Alphanumeric` or `ZonedDecimal`.
+In some modernization cases, "Primitives" may also be used to present independent, "root" data items. Those are very similar in use to `RecordEntity` but don't come from it, nor are based on generated code. Instead they are directly provided by the AWS Transform for mainframe runtime as subclasses of the `Primitive` interface. Examples of such provided classes are `Alphanumeric` or `ZonedDecimal`.
 
 ## Data binding and access
+<a name="ba-shared-data-binding-access"></a>
 
 Association between structured data and underlying data can be done in multiple ways.
 
-An important interface for this purpose is `RecordAdaptable`, which is used to obtain a `Record` providing a "writable view" on the `RecordAdaptable` underlying data.
-As we will see below, multiple classes implement `RecordAdaptable`.
-Reciprocally, AWS Transform for mainframe APIs and code manipulating low-level memory (such as programs arguments, file I/O records, CICS comm area, allocated memory...) will often expect a `RecordAdaptable` as an handle to that memory.
+An important interface for this purpose is `RecordAdaptable`, which is used to obtain a `Record` providing a "writable view" on the `RecordAdaptable` underlying data. As we will see below, multiple classes implement `RecordAdaptable`. Reciprocally, AWS Transform for mainframe APIs and code manipulating low-level memory (such as programs arguments, file I/O records, CICS comm area, allocated memory...) will often expect a `RecordAdaptable` as an handle to that memory.
 
-In the COBOL modernization case, most data items are associated with memory which will be fixed during the life time of the corresponding program execution.
-For this purpose, `RecordEntity` subclasses are instantiated once in a generated parent object (the program Context), and will take care of instantiating their underlying `Record`, based on the `RecordEntity` byte size.
+In the COBOL modernization case, most data items are associated with memory which will be fixed during the life time of the corresponding program execution. For this purpose, `RecordEntity` subclasses are instantiated once in a generated parent object (the program Context), and will take care of instantiating their underlying `Record`, based on the `RecordEntity` byte size.
 
-In other COBOL cases, such as associating LINKAGE elements with program arguments, or modernizing the SET ADDRESS OF construct, a `RecordEntity` instance must be associated with a provided `RecordAdaptable`.
-For this purpose, two mechanisms exist:
+In other COBOL cases, such as associating LINKAGE elements with program arguments, or modernizing the SET ADDRESS OF construct, a `RecordEntity` instance must be associated with a provided `RecordAdaptable`. For this purpose, two mechanisms exist:
++ if the `RecordEntity` instance already exists, the `RecordEntity.bind(RecordAdaptable)` method (inherited from `Bindable`) can be used to make this instance "point" to this `RecordAdaptable`. Any getter or setter called on the `RecordEntity` will then be backed (bytes reading or writing) by the underlying `RecordAdaptable` bytes.
++ if the `RecordEntity` is to be instantiated, a generated constructor accepting a `RecordAdaptable` is available.
 
-- if the `RecordEntity` instance already exists, the `RecordEntity.bind(RecordAdaptable)` method (inherited from `Bindable`) can be used to make this instance "point" to this `RecordAdaptable`.
-  Any getter or setter called on the `RecordEntity` will then be backed (bytes reading or writing) by the underlying `RecordAdaptable` bytes.
-- if the `RecordEntity` is to be instantiated, a generated constructor accepting a `RecordAdaptable` is available.
+Conversely, the `Record` currently bound to structured data can be accessed. For this, `RecordEntity` implements `RecordAdaptable`, so `getRecord()` can be called on any such instance.
 
-Conversely, the `Record` currently bound to structured data can be accessed.
-For this, `RecordEntity` implements `RecordAdaptable`, so `getRecord()` can be called on any such instance.
+Finally, many COBOL or CICS verbs require access to a single field, for reading or writing purpose. The `RangeReference` class is used to represent such access. Its instances can be obtained from `RecordEntity` generated `getXXXReference()` methods (`XXX` being the accessed field), and passed to runtime methods. `RangeReference` is typically used to access whole `RecordEntity` or `Group`, while its subclass `ElementaryRangeReference` represents accesses to `Elementary` fields.
 
-Finally, many COBOL or CICS verbs require access to a single field, for reading or writing purpose.
-The `RangeReference` class is used to represent such access.
-Its instances can be obtained from `RecordEntity` generated `getXXXReference()` methods (`XXX` being the accessed field), and passed to runtime methods.
-`RangeReference` is typically used to access whole `RecordEntity` or `Group`, while its subclass `ElementaryRangeReference` represents accesses to `Elementary` fields.
-
-Note that most observations above apply to `Primitive` subclasses, since they strive at implementing similar behavior as `RecordEntity` while being provided by the AWS Transform for mainframe runtime (instead of generated code).
-For this purpose, all subclasses of `Primitive` implement `RecordAdaptable`, `ElementaryRangeReference` and `Bindable` interfaces so as to be usable in place of both `RecordEntity` subclasses and elementary fields.
+Note that most observations above apply to `Primitive` subclasses, since they strive at implementing similar behavior as `RecordEntity` while being provided by the AWS Transform for mainframe runtime (instead of generated code). For this purpose, all subclasses of `Primitive` implement `RecordAdaptable`, `ElementaryRangeReference` and `Bindable` interfaces so as to be usable in place of both `RecordEntity` subclasses and elementary fields.
 
 ## FQN of discussed Java types
+<a name="ba-shared-data-fqn"></a>
 
 The following table shows the fully qualified names of the Java types discussed in this section.
 
-| Short Name                 | Fully Qualified Name                                                           |
-| -------------------------- | ------------------------------------------------------------------------------ |
-| `Alphanumeric`             | `com.netfective.bluage.gapwalk.datasimplifier.elementary.Alphanumeric`         |
-| `AlphanumericType`         | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.AlphanumericType`  |
-| `BinaryType`               | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.BinaryType`        |
-| `Bindable`                 | `com.netfective.bluage.gapwalk.datasimplifier.data.Bindable`                   |
-| `Elementary`               | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Elementary`       |
-| `ElementaryRangeReference` | `com.netfective.bluage.gapwalk.datasimplifier.entity.ElementaryRangeReference` |
-| `Filler`                   | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Filler`           |
-| `Group`                    | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Group`            |
-| `PackedType`               | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.PackedType`        |
-| `Primitive`                | `com.netfective.bluage.gapwalk.datasimplifier.elementary.Primitive`            |
-| `RangeReference`           | `com.netfective.bluage.gapwalk.datasimplifier.entity.RangeReference`           |
-| `RangeType`                | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.RangeType`         |
-| `Record`                   | `com.netfective.bluage.gapwalk.datasimplifier.data.Record`                     |
-| `RecordAdaptable`          | `com.netfective.bluage.gapwalk.datasimplifier.data.RecordAdaptable`            |
-| `RecordEntity`             | `com.netfective.bluage.gapwalk.datasimplifier.entity.RecordEntity`             |
-| `Repetition`               | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Repetition`       |
-| `Union`                    | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Union`            |
-| `ZonedDecimal`             | `com.netfective.bluage.gapwalk.datasimplifier.elementary.ZonedDecimal`         |
-| `ZonedType`                | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.ZonedType`         |
+
+| Short Name | Fully Qualified Name | 
+| --- | --- | 
+| `Alphanumeric` | `com.netfective.bluage.gapwalk.datasimplifier.elementary.Alphanumeric` | 
+| `AlphanumericType` | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.AlphanumericType` | 
+| `BinaryType` | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.BinaryType` | 
+| `Bindable` | `com.netfective.bluage.gapwalk.datasimplifier.data.Bindable` | 
+| `Elementary` | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Elementary` | 
+| `ElementaryRangeReference` | `com.netfective.bluage.gapwalk.datasimplifier.entity.ElementaryRangeReference` | 
+| `Filler` | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Filler` | 
+| `Group` | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Group` | 
+| `PackedType` | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.PackedType` | 
+| `Primitive` | `com.netfective.bluage.gapwalk.datasimplifier.elementary.Primitive` | 
+| `RangeReference` | `com.netfective.bluage.gapwalk.datasimplifier.entity.RangeReference` | 
+| `RangeType` | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.RangeType` | 
+| `Record` | `com.netfective.bluage.gapwalk.datasimplifier.data.Record` | 
+| `RecordAdaptable` | `com.netfective.bluage.gapwalk.datasimplifier.data.RecordAdaptable` | 
+| `RecordEntity` | `com.netfective.bluage.gapwalk.datasimplifier.entity.RecordEntity` | 
+| `Repetition` | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Repetition` | 
+| `Union` | `com.netfective.bluage.gapwalk.datasimplifier.data.structure.Union` | 
+| `ZonedDecimal` | `com.netfective.bluage.gapwalk.datasimplifier.elementary.ZonedDecimal` | 
+| `ZonedType` | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.ZonedType` | 

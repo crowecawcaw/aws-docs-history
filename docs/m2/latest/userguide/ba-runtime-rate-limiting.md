@@ -1,56 +1,49 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Configure rate limiting for AWS Transform for mainframe Runtime
+<a name="ba-runtime-rate-limiting"></a>
 
-AWS Transform for mainframe Runtime includes built-in rate limiting functionality to protect gapwalk application from excessive requests and potential abuse.
-The rate limiting system uses the Token Bucket algorithm to provide both burst capacity and sustained rate limiting.
+AWS Transform for mainframe Runtime includes built-in rate limiting functionality to protect gapwalk application from excessive requests and potential abuse. The rate limiting system uses the Token Bucket algorithm to provide both burst capacity and sustained rate limiting.
 
-###### Topics
-
-- [Rate limiting overview](#ba-runtime-rate-limiting-overview "#ba-runtime-rate-limiting-overview")
-- [Configuration properties](#ba-runtime-rate-limiting-config "#ba-runtime-rate-limiting-config")
-- [Enable rate limiting](#ba-runtime-rate-limiting-enable "#ba-runtime-rate-limiting-enable")
-- [Client identification](#ba-runtime-rate-limiting-client-id "#ba-runtime-rate-limiting-client-id")
-- [Rate limit headers](#ba-runtime-rate-limiting-headers "#ba-runtime-rate-limiting-headers")
-- [Memory management](#ba-runtime-rate-limiting-memory "#ba-runtime-rate-limiting-memory")
+**Topics**
++ [Rate limiting overview](#ba-runtime-rate-limiting-overview)
++ [Configuration properties](#ba-runtime-rate-limiting-config)
++ [Enable rate limiting](#ba-runtime-rate-limiting-enable)
++ [Client identification](#ba-runtime-rate-limiting-client-id)
++ [Rate limit headers](#ba-runtime-rate-limiting-headers)
++ [Memory management](#ba-runtime-rate-limiting-memory)
 
 ## Rate limiting overview
+<a name="ba-runtime-rate-limiting-overview"></a>
 
 The rate limiting system provides the following features:
 
-**Token Bucket Algorithm**
+**Token Bucket Algorithm**  
++ Allows burst traffic up to the configured burst capacity
++ Refills tokens at a steady rate based on requests per minute
++ Provides smooth rate limiting without blocking legitimate traffic spikes
 
-- Allows burst traffic up to the configured burst capacity
-- Refills tokens at a steady rate based on requests per minute
-- Provides smooth rate limiting without blocking legitimate traffic spikes
+**Client Identification**  
++ Identifies clients by IP address with proxy support
++ Supports X-Forwarded-For and X-Real-IP headers
++ Handles load balancer and reverse proxy scenarios
 
-**Client Identification**
+**Automatic Memory Management**  
++ Automatically cleans up expired rate limit buckets
++ Configurable cleanup intervals and expiry times
++ Prevents memory leaks in long-running applications
 
-- Identifies clients by IP address with proxy support
-- Supports X-Forwarded-For and X-Real-IP headers
-- Handles load balancer and reverse proxy scenarios
-
-**Automatic Memory Management**
-
-- Automatically cleans up expired rate limit buckets
-- Configurable cleanup intervals and expiry times
-- Prevents memory leaks in long-running applications
-
-**HTTP Integration**
-
-- Returns HTTP 429 (Too Many Requests) when limits exceeded
-- Includes standard rate limit headers in responses
-- Provides retry-after information for clients
+**HTTP Integration**  
++ Returns HTTP 429 (Too Many Requests) when limits exceeded
++ Includes standard rate limit headers in responses
++ Provides retry-after information for clients
 
 ## Configuration properties
+<a name="ba-runtime-rate-limiting-config"></a>
 
 Configure rate limiting in your `application-main.yaml` file:
 
@@ -69,44 +62,37 @@ gapwalk:
 ```
 
 ### Property descriptions
+<a name="ba-runtime-rate-limiting-config-properties"></a>
 
-**enabled**
-
+**enabled**  
 Master switch to enable or disable rate limiting functionality. Default: `false`
 
-**requestsPerMinute**
-
+**requestsPerMinute**  
 Number of requests allowed per minute for sustained rate limiting. This represents the token refill rate. Default: `1000`
 
-**burstCapacity**
-
+**burstCapacity**  
 Maximum number of requests allowed in a burst before rate limiting applies. Should be higher than `requestsPerMinute` to allow traffic spikes. Default: `1500`
 
-**includeHeaders**
-
+**includeHeaders**  
 Whether to include standard rate limit headers (`X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`) in HTTP responses. Default: `true`
 
-**cleanupIntervalMinutes**
-
+**cleanupIntervalMinutes**  
 Interval in minutes between automatic cleanup of expired rate limit buckets. Helps prevent memory leaks. Default: `5`
 
-**bucketExpiryHours**
-
+**bucketExpiryHours**  
 Time in hours after which unused rate limit buckets are considered expired and eligible for cleanup. Default: `1`
 
-**errorMessage**
-
+**errorMessage**  
 Custom error message returned in the JSON response when rate limit is exceeded. Default: `"Too many requests. Try again later."`
 
-**whitelistIps**
-
+**whitelistIps**  
 Comma-separated list of IP addresses that bypass rate limiting entirely. Useful for health checks or trusted systems. Default: `empty`
 
-**perEndpointLimiting**
-
+**perEndpointLimiting**  
 Whether to apply separate rate limits per endpoint instead of per client only. Currently not implemented. Default: `false`
 
 ## Enable rate limiting
+<a name="ba-runtime-rate-limiting-enable"></a>
 
 To enable rate limiting with default settings:
 
@@ -117,21 +103,24 @@ gapwalk:
 ```
 
 ## Client identification
+<a name="ba-runtime-rate-limiting-client-id"></a>
 
 The rate limiting system identifies clients using the following priority order:
 
 1. **X-Forwarded-For header** (first IP if comma-separated)
-2. **X-Real-IP header**
-3. **Remote address** from the HTTP request
+
+1. **X-Real-IP header**
+
+1. **Remote address** from the HTTP request
 
 This ensures proper client identification when the application is behind:
-
-- Load balancers
-- Reverse proxies
-- CDNs
-- API gateways
++ Load balancers
++ Reverse proxies
++ CDNs
++ API gateways
 
 ### Example client identification
+<a name="ba-runtime-rate-limiting-client-id-example"></a>
 
 ```
 # Direct connection
@@ -147,22 +136,21 @@ Client IP: 203.0.113.45
 ```
 
 ## Rate limit headers
+<a name="ba-runtime-rate-limiting-headers"></a>
 
 When `includeHeaders` is enabled, the following headers are added to HTTP responses:
 
-**X-RateLimit-Limit**
-
+**X-RateLimit-Limit**  
 The rate limit ceiling for the client (requests per minute)
 
-**X-RateLimit-Remaining**
-
+**X-RateLimit-Remaining**  
 The number of requests remaining in the current rate limit window
 
-**X-RateLimit-Reset**
-
+**X-RateLimit-Reset**  
 The time at which the rate limit window resets (Unix timestamp)
 
 ### Example response headers
+<a name="ba-runtime-rate-limiting-headers-example"></a>
 
 ```
 X-RateLimit-Limit: 1000
@@ -171,16 +159,17 @@ X-RateLimit-Reset: 1640995200
 ```
 
 ### Rate limit exceeded response
+<a name="ba-runtime-rate-limiting-headers-exceeded"></a>
 
 When rate limit is exceeded, the system returns:
 
-**HTTP Status**
+**HTTP Status**  
 429 Too Many Requests
 
-**Content-Type**
+**Content-Type**  
 application/json
 
-**Retry-After**
+**Retry-After**  
 Number of seconds to wait before retrying
 
 ```
@@ -193,22 +182,22 @@ Number of seconds to wait before retrying
 ```
 
 ## Memory management
+<a name="ba-runtime-rate-limiting-memory"></a>
 
 The rate limiting system automatically manages memory to prevent leaks in long-running applications:
 
-**Automatic Cleanup**
+**Automatic Cleanup**  
++ Runs every `cleanupIntervalMinutes` minutes
++ Removes buckets unused for `bucketExpiryHours` hours
++ Logs cleanup activity for monitoring
 
-- Runs every `cleanupIntervalMinutes` minutes
-- Removes buckets unused for `bucketExpiryHours` hours
-- Logs cleanup activity for monitoring
-
-**Memory Efficiency**
-
-- Uses concurrent data structures for thread safety
-- Lazy bucket creation (only when needed)
-- Efficient token bucket implementation
+**Memory Efficiency**  
++ Uses concurrent data structures for thread safety
++ Lazy bucket creation (only when needed)
++ Efficient token bucket implementation
 
 ### Monitoring cleanup activity
+<a name="ba-runtime-rate-limiting-memory-monitoring"></a>
 
 Check logs for cleanup messages:
 

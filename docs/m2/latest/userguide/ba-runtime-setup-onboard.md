@@ -1,67 +1,58 @@
-**AWS Mainframe Modernization self-managed experience** is no longer open to new customers.
-For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform.
-Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For
-capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
-Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
-availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+**AWS Mainframe Modernization self-managed experience** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization self-managed experience, explore capabilities from vendor-direct offerings and from AWS Transform. Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
+
+**AWS Mainframe Modernization Service (Managed Runtime Environment experience)** is no longer open to new customers. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization availability change](https://docs.aws.amazon.com/m2/latest/userguide/mainframe-modernization-availability-change.html). 
 
 # Onboarding AWS Transform for mainframe Runtime
+<a name="ba-runtime-setup-onboard"></a>
 
-###### Note
+**Note**  
+The AWS Transform for mainframe Runtime access has transitioned from ticket-based requests to direct download through [AWS Transform for mainframe refactor](https://bluinsights.aws/). We have introduced a new and simplified way to access AWS Transform for mainframe products through the [AWS Transform for mainframe Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction) feature in AWS Transform for mainframe refactor.
 
-The AWS Transform for mainframe Runtime access has transitioned from ticket-based requests to direct download through [AWS Transform for mainframe refactor](https://bluinsights.aws/ "https://bluinsights.aws/"). We have introduced a new and simplified way to access AWS Transform for mainframe products through the [AWS Transform for mainframe Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction "https://bluinsights.aws/docs/bluage-toolbox-introduction") feature in AWS Transform for mainframe refactor.
-
-###### Note
-
-The AWS Transform for mainframe Runtime is available in two main varieties: Alpha pre-releases and Releases. To determine
-which release to use, see [AWS Transform for mainframe versioning](ba-versioning.md "ba-versioning.md"), or contact your AWS Transform for mainframe delivery
-manager.
+**Note**  
+The AWS Transform for mainframe Runtime is available in two main varieties: Alpha pre-releases and Releases. To determine which release to use, see [AWS Transform for mainframe versioning](ba-versioning.md), or contact your AWS Transform for mainframe delivery manager.
 
 ## Regions and buckets for AWS Transform for mainframe Runtime
+<a name="ba-runtime-setup-buckets"></a>
 
-We store the AWS Transform for mainframe Runtime artifacts in different Amazon S3 buckets by Region and by compute choice. To
-access the bucket for your AWS Region for AWS Transform for mainframe Runtime, use the name listed in the following
-table.
+We store the AWS Transform for mainframe Runtime artifacts in different Amazon S3 buckets by Region and by compute choice. To access the bucket for your AWS Region for AWS Transform for mainframe Runtime, use the name listed in the following table.
 
-| AWS Region                | Release bucket                                           | Alpha pre-release bucket                                     |
-| ------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
-| US East (Ohio)            | aws-bluage-runtime-artifacts-055777665268-us-east-2      | aws-bluage-runtime-artifacts-dev-055777665268-us-east-2      |
-| US East (N. Virginia)     | aws-bluage-runtime-artifacts-139023371234-us-east-1      | aws-bluage-runtime-artifacts-dev-139023371234-us-east-1      |
-| US West (N. California)   | aws-bluage-runtime-artifacts-788454048782-us-west-1      | aws-bluage-runtime-artifacts-dev-788454048782-us-west-1      |
-| US West (Oregon)          | aws-bluage-runtime-artifacts-836771190483-us-west-2      | aws-bluage-runtime-artifacts-dev-836771190483-us-west-2      |
-| Canada (Central)          | aws-bluage-runtime-artifacts-637423580979-ca-central-1   | aws-bluage-runtime-artifacts-dev-637423580979-ca-central-1   |
-| Europe (Ireland)          | aws-bluage-runtime-artifacts-925278190477-eu-west-1      | aws-bluage-runtime-artifacts-dev-925278190477-eu-west-1      |
-| Europe (London)           | aws-bluage-runtime-artifacts-767397831990-eu-west-1      | aws-bluage-runtime-artifacts-dev-767397831990-eu-west-1      |
-| Europe (Paris)            | aws-bluage-runtime-artifacts-673009995881-eu-west-3      | aws-bluage-runtime-artifacts-dev-673009995881-eu-west-3      |
-| Europe (Frankfurt)        | aws-bluage-runtime-artifacts-485196800481-eu-central-1   | aws-bluage-runtime-artifacts-dev-485196800481-eu-central-1   |
-| Europe (Stockholm)        | aws-bluage-runtime-artifacts-654654484534-eu-north-1     | aws-bluage-runtime-artifacts-dev-654654484534-eu-north-1     |
-| Europe (Milan)            | aws-bluage-runtime-artifacts-654654328338-eu-south-1     | aws-bluage-runtime-artifacts-dev-654654328338-eu-south-1     |
-| Europe (Spain)            | aws-bluage-runtime-artifacts-905417994954-eu-south-2     | aws-bluage-runtime-artifacts-dev-905417994954-eu-south-2     |
-| South America (São Paulo) | aws-bluage-runtime-artifacts-737536804457-sa-east-1      | aws-bluage-runtime-artifacts-dev-737536804457-sa-east-1      |
-| Asia Pacific (Tokyo)      | aws-bluage-runtime-artifacts-445578176276-ap-northeast-1 | aws-bluage-runtime-artifacts-dev-445578176276-ap-northeast-1 |
-| Asia Pacific (Seoul)      | aws-bluage-runtime-artifacts-381492221498-ap-northeast-2 | aws-bluage-runtime-artifacts-dev-381492221498-ap-northeast-2 |
-| Asia Pacific (Osaka)      | aws-bluage-runtime-artifacts-905418229615-ap-northeast-3 | aws-bluage-runtime-artifacts-dev-905418229615-ap-northeast-3 |
-| Asia Pacific (Singapore)  | aws-bluage-runtime-artifacts-767397774613-ap-southeast-1 | aws-bluage-runtime-artifacts-dev-767397774613-ap-southeast-1 |
-| Asia Pacific (Sydney)     | aws-bluage-runtime-artifacts-726160321909-ap-southeast-2 | aws-bluage-runtime-artifacts-dev-726160321909-ap-southeast-2 |
-| Asia Pacific (Mumbai)     | aws-bluage-runtime-artifacts-905418353577-ap-south-1     | aws-bluage-runtime-artifacts-dev-905418353577-ap-south-1     |
-| Africa (Cape Town)        | aws-bluage-runtime-artifacts-992382777663-af-south-1     | aws-bluage-runtime-artifacts-dev-992382777663-af-south-1     |
-| Israel (Tel Aviv)         | aws-bluage-runtime-artifacts-471112516508-il-central-1   | aws-bluage-runtime-artifacts-dev-471112516508-il-central-1   |
+
+| AWS Region | Release bucket | Alpha pre-release bucket | 
+| --- | --- | --- | 
+| US East (Ohio) | aws-bluage-runtime-artifacts-055777665268-us-east-2 | aws-bluage-runtime-artifacts-dev-055777665268-us-east-2 | 
+| US East (N. Virginia) | aws-bluage-runtime-artifacts-139023371234-us-east-1 | aws-bluage-runtime-artifacts-dev-139023371234-us-east-1 | 
+| US West (N. California) | aws-bluage-runtime-artifacts-788454048782-us-west-1 | aws-bluage-runtime-artifacts-dev-788454048782-us-west-1 | 
+| US West (Oregon) | aws-bluage-runtime-artifacts-836771190483-us-west-2 | aws-bluage-runtime-artifacts-dev-836771190483-us-west-2 | 
+| Canada (Central) | aws-bluage-runtime-artifacts-637423580979-ca-central-1 | aws-bluage-runtime-artifacts-dev-637423580979-ca-central-1 | 
+| Europe (Ireland) | aws-bluage-runtime-artifacts-925278190477-eu-west-1 | aws-bluage-runtime-artifacts-dev-925278190477-eu-west-1 | 
+| Europe (London) | aws-bluage-runtime-artifacts-767397831990-eu-west-1 | aws-bluage-runtime-artifacts-dev-767397831990-eu-west-1 | 
+| Europe (Paris) | aws-bluage-runtime-artifacts-673009995881-eu-west-3 | aws-bluage-runtime-artifacts-dev-673009995881-eu-west-3 | 
+| Europe (Frankfurt) | aws-bluage-runtime-artifacts-485196800481-eu-central-1 | aws-bluage-runtime-artifacts-dev-485196800481-eu-central-1 | 
+| Europe (Stockholm) | aws-bluage-runtime-artifacts-654654484534-eu-north-1 | aws-bluage-runtime-artifacts-dev-654654484534-eu-north-1 | 
+| Europe (Milan) | aws-bluage-runtime-artifacts-654654328338-eu-south-1 | aws-bluage-runtime-artifacts-dev-654654328338-eu-south-1 | 
+| Europe (Spain) | aws-bluage-runtime-artifacts-905417994954-eu-south-2 | aws-bluage-runtime-artifacts-dev-905417994954-eu-south-2 | 
+| South America (São Paulo) | aws-bluage-runtime-artifacts-737536804457-sa-east-1 | aws-bluage-runtime-artifacts-dev-737536804457-sa-east-1 | 
+| Asia Pacific (Tokyo) | aws-bluage-runtime-artifacts-445578176276-ap-northeast-1 | aws-bluage-runtime-artifacts-dev-445578176276-ap-northeast-1 | 
+| Asia Pacific (Seoul) | aws-bluage-runtime-artifacts-381492221498-ap-northeast-2 | aws-bluage-runtime-artifacts-dev-381492221498-ap-northeast-2 | 
+| Asia Pacific (Osaka) | aws-bluage-runtime-artifacts-905418229615-ap-northeast-3 | aws-bluage-runtime-artifacts-dev-905418229615-ap-northeast-3 | 
+| Asia Pacific (Singapore) | aws-bluage-runtime-artifacts-767397774613-ap-southeast-1 | aws-bluage-runtime-artifacts-dev-767397774613-ap-southeast-1 | 
+| Asia Pacific (Sydney) | aws-bluage-runtime-artifacts-726160321909-ap-southeast-2 | aws-bluage-runtime-artifacts-dev-726160321909-ap-southeast-2 | 
+| Asia Pacific (Mumbai) | aws-bluage-runtime-artifacts-905418353577-ap-south-1 | aws-bluage-runtime-artifacts-dev-905418353577-ap-south-1 | 
+| Africa (Cape Town) | aws-bluage-runtime-artifacts-992382777663-af-south-1 | aws-bluage-runtime-artifacts-dev-992382777663-af-south-1 | 
+| Israel (Tel Aviv) | aws-bluage-runtime-artifacts-471112516508-il-central-1 | aws-bluage-runtime-artifacts-dev-471112516508-il-central-1 | 
 
 ## Using the AWS CLI to list the contents of the bucket
+<a name="ba-runtime-setup-cmds"></a>
 
-After you are onboarded, you can list the contents of the bucket by running the following
-AWS CLI command in a terminal.
+After you are onboarded, you can list the contents of the bucket by running the following AWS CLI command in a terminal.
 
-`aws s3 ls `bucket-name``
+`aws s3 ls {{bucket-name}} `
 
-Replace `bucket-name` with the name of the bucket for your AWS Region from the
-previous table.
+Replace `bucket-name` with the name of the bucket for your AWS Region from the previous table.
 
-This command returns a list of folders that correspond to different versions of the AWS Transform for mainframe Runtime
-runtime, such as the following for a Release bucket:
+This command returns a list of folders that correspond to different versions of the AWS Transform for mainframe Runtime runtime, such as the following for a Release bucket:
 
 ```
 PRE 4.0.0/
@@ -75,20 +66,15 @@ PRE 4.11.0/
 PRE 4.13.0/
 ```
 
-We recommend that you use the latest version available. If that isn't possible, then use the
-runtime version that was validated during the application refactoring phase. To list the
-available frameworks for a specific version, run the following command:
+We recommend that you use the latest version available. If that isn't possible, then use the runtime version that was validated during the application refactoring phase. To list the available frameworks for a specific version, run the following command:
 
-`aws s3 ls
- s3://`bucket-name`/`version`/Framework/`
+`aws s3 ls s3://{{bucket-name}}/{{version}}/Framework/`
 
-Replace `bucket-name` with the name of the bucket for your AWS Region and
-`version` with the version you want. The following are two examples.
+Replace `bucket-name` with the name of the bucket for your AWS Region and `version` with the version you want. The following are two examples.
 
 For a release bucket:
 
-`aws s3 ls
- s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.10.0/Framework/`
+`aws s3 ls s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.10.0/Framework/`
 
 The command returns a list of zip files, such as:
 
@@ -99,8 +85,7 @@ The command returns a list of zip files, such as:
 
 For a Alpha pre-release bucket:
 
-`aws s3 ls
- s3://aws-bluage-runtime-artifacts-dev-139023371234-us-east-1/4.11.0/Framework/`
+`aws s3 ls s3://aws-bluage-runtime-artifacts-dev-139023371234-us-east-1/4.11.0/Framework/`
 
 The command returns a list of zip files, such as:
 
@@ -110,23 +95,18 @@ The command returns a list of zip files, such as:
 ```
 
 ## Download the framework
+<a name="ba-runtime-setup-download"></a>
 
-You can download the framework for example to upgrade the AWS Transform for mainframe Runtime version on an existing Amazon EC2
-instance.
+You can download the framework for example to upgrade the AWS Transform for mainframe Runtime version on an existing Amazon EC2 instance.
 
-`aws s3 cp
- s3://`bucket-name`/`version`/Framework/
- `folder-of-your-choice` --recursive`
+`aws s3 cp s3://{{bucket-name}}/{{version}}/Framework/ {{folder-of-your-choice}} --recursive `
 
 Where:
 
-folder-of-your-choice
-
+folder-of-your-choice  
 folder path where you'd like to download the framework.
 
-For example: `aws s3 cp
- s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/ .
- --recursive`
+For example: `aws s3 cp s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/ . --recursive`
 
 This command produces the following output:
 
@@ -147,8 +127,5 @@ total 230928
 -rw-rw-r-- 1 cloudshell-user cloudshell-user 176518889 Apr  8 16:11 aws-bluage-webapps-4.0.0.zip
 ```
 
-###### Note
-
-Access to artifacts may be temporarily interrupted, and versions may be removed for
-security reasons. We strongly recommend that you store the artifacts you use in your own
-account. The local version should be used for reference in your internal architectures.
+**Note**  
+Access to artifacts may be temporarily interrupted, and versions may be removed for security reasons. We strongly recommend that you store the artifacts you use in your own account. The local version should be used for reference in your internal architectures.
