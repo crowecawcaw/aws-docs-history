@@ -1,8 +1,10 @@
+
+
 # Document history for the Amazon Quick Sight Developer Guide
+<a name="doc-history"></a>
 
-The following table describes important changes in each _Quick Sight
-Developer Guide_ release.
+The following table describes important changes in each *Quick Sight Developer Guide* release. 
 
-| Change          | Description                                                 | Date             |
-| --------------- | ----------------------------------------------------------- | ---------------- |
-| Initial release | Initial release of the _Amazon Quick Sight Developer Guide_ | January 10, 2022 |
+| Change | Description | Date | 
+| --- |--- |--- |
+| [Initial release](#doc-history) | Initial release of the *Amazon Quick Sight Developer Guide* | January 10, 2022 | 
