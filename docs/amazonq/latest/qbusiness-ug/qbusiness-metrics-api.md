@@ -1,16 +1,19 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business API operation metrics
+<a name="qbusiness-metrics-api"></a>
 
 The following table shows the API operation metrics that Amazon Q Business sends to CloudWatch.
 
-| Metric name | Unit         | Description                                                                                                                                                                |
-| ----------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `success`   | Count        | The number of successful API operation calls. This metric is emitted for each successful API operation execution.<br>Valid dimensions: `MethodType`, `ApplicationId`       |
-| `failure`   | Count        | The number of failed API operation calls. This metric is emitted for each failed API operation execution.<br>Valid dimensions: `MethodType`, `ApplicationId`               |
-| `latency`   | Milliseconds | The time taken to complete an API operation call. This metric measures the response time for individual API operations.<br>Valid dimensions: `MethodType`, `ApplicationId` |
+
+| Metric name | Unit | Description | 
+| --- | --- | --- | 
+| `success` | Count | The number of successful API operation calls. This metric is emitted for each successful API operation execution.<br />Valid dimensions: `MethodType`, `ApplicationId` | 
+| `failure` | Count | The number of failed API operation calls. This metric is emitted for each failed API operation execution.<br />Valid dimensions: `MethodType`, `ApplicationId` | 
+| `latency` | Milliseconds | The time taken to complete an API operation call. This metric measures the response time for individual API operations.<br />Valid dimensions: `MethodType`, `ApplicationId` | 
 
 The `MethodType` dimension can include values such as:
-
-- `ListPlugins`
-- (Additional method types may be available depending on API usage)
++ `ListPlugins`
++ (Additional method types may be available depending on API usage)

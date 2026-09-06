@@ -1,28 +1,30 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Microsoft Exchange connector versions
+<a name="exchange-versions"></a>
 
 You can choose between two Microsoft Exchange connector versions:
 
 ## Latest Microsoft Exchange connector (Recommended)
+<a name="exchange-new-connector-overview"></a>
 
-###### Note
-
+**Note**  
 The latest connector provides improved accuracy. We recommend using the latest connector for new implementations. The legacy connector remains available if you need specific features not yet supported in the latest connector.
 
 The latest Microsoft Exchange connector offers a simplified configuration experience:
-
-- Enhanced accuracy and performance
-- Simplified filtering with Date Range options only
-- Automatic crawling of ACL and identity information
++ Enhanced accuracy and performance
++ Simplified filtering with Date Range options only
++ Automatic crawling of ACL and identity information
 
 ## Legacy Microsoft Exchange connector
+<a name="exchange-original-connector-overview"></a>
 
 The legacy Microsoft Exchange connector provides full-featured configuration with advanced options:
-
-- Complete entity type selection including Calendar, OneNotes, and Contacts
-- Advanced filtering options and regex pattern matching
-- Custom field mappings for metadata extraction
-- Configurable sync modes and VPC settings
-- Domain-based email filtering and inclusion rules
-- Manual ACL and identity crawling configuration
++ Complete entity type selection including Calendar, OneNotes, and Contacts
++ Advanced filtering options and regex pattern matching
++ Custom field mappings for metadata extraction
++ Configurable sync modes and VPC settings
++ Domain-based email filtering and inclusion rules
++ Manual ACL and identity crawling configuration

@@ -1,38 +1,38 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # GetDocumentContent Output Schema
+<a name="document-content-schema"></a>
 
-When you use the [GetDocumentContent](../api-reference/API_GetDocumentContent.md "../api-reference/API_GetDocumentContent.md") API with `outputFormat`
-set to `EXTRACTED`, the response returns extracted text content in JSON
-format. The output schema is presented in JSON format:
+When you use the [GetDocumentContent](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetDocumentContent.html) API with `outputFormat` set to `EXTRACTED`, the response returns extracted text content in JSON format. The output schema is presented in JSON format:
 
 ```
 {
    // always V1 for now
    schemaVersionId: string;
-
+   
    // always JSON for now
    outputFormat: string;
-
+   
    // content for plain-text documents
    plainTextDocumentContent: string;
-
+   
    // content for non-plaintext documents such as PDF, DOCX, PPTX, Audio, Video
    nonPlainTextDocumentContent: List<ExtractedDocumentBodyElement>;
 }
 ```
 
-The schema for non-plaintext documents includes the
-`ExtractedDocumentBodyElement` which includes:
+The schema for non-plaintext documents includes the `ExtractedDocumentBodyElement` which includes:
 
 ```
 {
    text: string;
-
+   
   // Allowed values: TEXT, ARTICLE, SECTION, DIV, IMAGE_DESCRIPTION, CODE,
   // TABLE, LIST, URL, HEADER, FOOTER, FORM, MENU, AUDIO, VIDEO
    elementType: string;
-
+   
    horizontalHeaderIndex: integer;
    verticalHeaderIndex: integer;
    htmlDocumentTitle: string;
@@ -46,17 +46,17 @@ The schema for non-plaintext documents includes the
    tableRowsCount: integer;
    tableColumnsCount: integer;
    tableId: string;
-
+   
    tokens: List<struct>;
    {
         value: string;
         startOffsets: integer;
         endOffsets: integer;
    }
-
+   
    tableType: string;
    tableSummary: string;
-
+   
    columnInfoList: List<struct>;
    {
         columnName: string;
@@ -64,46 +64,47 @@ The schema for non-plaintext documents includes the
         columnType: string;
         columnRepresentativeValues: List<string>
    }
-
+   
    // Audio/Video specific fields below
    overallSummary: string;
-
+   
    audioSummaryList: List<struct>;
    {
         summaryText: string;
         startTimeMilliseconds: string;
         endTimeMilliseconds: string;
    }
-
+   
    videoSummaryList: List<struct>;
    {
         summaryText: string;
         startTimeMilliseconds: string;
         endTimeMilliseconds: string;
    }
-
+   
    audioTranscriptList: List<struct>;
    {
         transcriptText: string;
         startTimeMilliseconds: string;
         endTimeMilliseconds: string;
    }
-
+   
    videoTranscriptList: List<struct>;
    {
         transcriptText: string;
         startTimeMilliseconds: string;
         endTimeMilliseconds: string;
-   }
+   }   
 }
 ```
 
 ## Example Output
+<a name="document-content-examples"></a>
 
 ### Plaintext Document Example
+<a name="plaintext-example"></a>
 
-For plaintext documents, the extracted content is returned in the
-`plainTextDocumentContent` field:
+For plaintext documents, the extracted content is returned in the `plainTextDocumentContent` field:
 
 ```
 {

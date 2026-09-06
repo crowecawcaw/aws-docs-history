@@ -1,20 +1,27 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Google Calendar connector overview (Preview)
+<a name="gcal-overview"></a>
 
-The following table gives an overview of the Google Calendar connector and its
-supported features.
+The following table gives an overview of the Google Calendar connector and its supported features.
 
-| Category                                                                                                                                   | Feature                                                                                                                                                                                                             | Support                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| **Security**                                                                                                                               | **Authentication type**                                                                                                                                                                                             | Google Service Account and OAuth 2.0 |
-| **Authentication credentials**                                                                                                             | **Google service account**<br>• Google service account<br>• Admin account email<br>• Client email<br>• Private key<br>OAuth 2.0<br>• Client ID<br>• Client secret<br>• Refresh token                                |
-| **[Access Control List (ACL)](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization")<br>crawling** | Yes                                                                                                                                                                                                                 |
-| **[Identity<br>crawling](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler")**            | Yes                                                                                                                                                                                                                 |
-| **[VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc")**                                                       | Yes                                                                                                                                                                                                                 |
-| **Crawl features**                                                                                                                         | **Custom metadata**                                                                                                                                                                                                 | No                                   |
-| **Entities**                                                                                                                               | Yes. The following entities are supported:<br>• Calendar<br>• Events<br>See [What is a document?](connector-doc-crawl.md "connector-doc-crawl.md") for more<br>details on what each connector crawls as a document. |
-| **[Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings")**                      | Yes. Supports default field mappings. For more information, see<br>[Field mappings](gmail-field-mappings.md "gmail-field-mappings.md").                                                                             |
-| **Filters**                                                                                                                                | Yes. The following filters are supported:<br>• Include/Exclude calendars by email address                                                                                                                           |
-| **[Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode")**                                     | Supports full and incremental sync.                                                                                                                                                                                 |
-| **[File types](doc-types.md "doc-types.md")**                                                                                              | Supports all files supported by Amazon Q.                                                                                                                                                                           |
+
+
+
+- ****Security****
+  - **Feature:** Authentication type / **Support:** Google Service Account and OAuth 2.0
+  - **Feature:** Authentication credentials / **Support:** +  Google service account <br />+  Admin account email <br />+  Client email <br />+  Private key <br />OAuth 2.0 <br />+  Client ID <br />+  Client secret <br />+  Refresh token  
+  - **Feature:** [Access Control List (ACL)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-authorization) crawling / **Support:** Yes
+  - **Feature:** [Identity crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-identity-crawler) / **Support:** Yes
+  - **Feature:** [VPC](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-vpc) / **Support:** Yes
+
+- ****Crawl features****
+  - **Feature:** Custom metadata / **Support:** No
+  - **Feature:** Entities / **Support:** Yes. The following entities are supported: +  Calendar <br />+  Events See [What is a document?](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-doc-crawl.html) for more details on what each connector crawls as a document.
+  - **Feature:** [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-field-mappings) / **Support:** Yes. Supports default field mappings. For more information, see [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/gmail-field-mappings.html).
+  - **Feature:** Filters / **Support:** Yes. The following filters are supported: +  Include/Exclude calendars by email address 
+  - **Feature:** [Sync mode](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-sync-mode) / **Support:** Supports full and incremental sync.
+  - **Feature:** [File types](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html) / **Support:** Supports all files supported by Amazon Q. 
+

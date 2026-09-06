@@ -1,36 +1,33 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Microsoft OneDrive using AWS CloudFormation
+<a name="onedrive-v2-cfn"></a>
 
-You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
-your Amazon Q application.
+You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
-Use the [`configuration`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md#cfn-qbusiness-datasource-applicationid "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md#cfn-qbusiness-datasource-applicationid") property to provide a JSON or YAML schema with the necessary
-configuration details specific to your data source connector.
+Use the [`configuration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-applicationid) property to provide a JSON or YAML schema with the necessary configuration details specific to your data source connector.
 
-To learn more about AWS CloudFormation, see
-[What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-in the _CloudFormation User Guide_.
+To learn more about AWS CloudFormation, see [What is AWS CloudFormation?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) in the *CloudFormation User Guide*.
 
-###### Topics
-
-- [Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json "#onedrive-v2-cfn-json")
-- [Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml "#onedrive-v2-cfn-yaml")
+**Topics**
++ [Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json)
++ [Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml)
 
 ## Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation
+<a name="onedrive-v2-cfn-json"></a>
 
-The following is the Microsoft OneDrive JSON schema and examples for the configuration
-property for AWS CloudFormation.
+The following is the Microsoft OneDrive JSON schema and examples for the configuration property for AWS CloudFormation.
 
-###### Topics
-
-- [Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-schema "#onedrive-v2-cfn-json-schema")
-- [Microsoft OneDrive JSON schema example for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-example "#onedrive-v2-cfn-json-example")
+**Topics**
++ [Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-schema)
++ [Microsoft OneDrive JSON schema example for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-json-example)
 
 ### Microsoft OneDrive JSON schema for using the configuration property with AWS CloudFormation
+<a name="onedrive-v2-cfn-json-schema"></a>
 
-The following is the Microsoft OneDrive JSON schema for the configuration property for
-CloudFormation.
+The following is the Microsoft OneDrive JSON schema for the configuration property for CloudFormation.
 
 ```
 {
@@ -141,7 +138,7 @@ CloudFormation.
                 },
                 "deletionProtectionThreshold": {
                     "type": "string",
-                    "description": "percentage value of range (0-100)"
+                    "description": "percentage value of range (0-100)" 
                 }
             }
         },
@@ -179,12 +176,10 @@ CloudFormation.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ### Microsoft OneDrive JSON schema example for using the configuration property with AWS CloudFormation
+<a name="onedrive-v2-cfn-json-example"></a>
 
-The following is the Microsoft OneDrive JSON example for the Configuration property for
-CloudFormation.
+The following is the Microsoft OneDrive JSON example for the Configuration property for CloudFormation.
 
 ```
 {
@@ -214,27 +209,24 @@ CloudFormation.
       "enableDeletionProtection": true,
       "deletionProtectionThreshold": "10"
     },
-    "version": "3.0.0",
+    "version": "3.0.0", 
     "identityLoggingStatus": "DISABLED"
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation
+<a name="onedrive-v2-cfn-yaml"></a>
 
-The following is the Microsoft OneDrive YAML schema and examples for the configuration
-property for AWS CloudFormation:
+The following is the Microsoft OneDrive YAML schema and examples for the configuration property for AWS CloudFormation:
 
-###### Topics
-
-- [Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-schema "#onedrive-v2-cfn-yaml-schema")
-- [Microsoft OneDrive YAML schema example for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-example "#onedrive-v2-cfn-yaml-example")
+**Topics**
++ [Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-schema)
++ [Microsoft OneDrive YAML schema example for using the configuration property with AWS CloudFormation](#onedrive-v2-cfn-yaml-example)
 
 ### Microsoft OneDrive YAML schema for using the configuration property with AWS CloudFormation
+<a name="onedrive-v2-cfn-yaml-schema"></a>
 
-The following is the Microsoft OneDrive YAML schema for the configuration property for
-CloudFormation.
+The following is the Microsoft OneDrive YAML schema for the configuration property for CloudFormation.
 
 ```
 configuration:
@@ -352,12 +344,10 @@ configuration:
     - type
 ```
 
-[Show moreShow less](# "#")
-
 ### Microsoft OneDrive YAML schema example for using the configuration property with AWS CloudFormation
+<a name="onedrive-v2-cfn-yaml-example"></a>
 
-The following is the Microsoft OneDrive YAML example for the Configuration property for
-CloudFormation:
+The following is the Microsoft OneDrive YAML example for the Configuration property for CloudFormation:
 
 ```
 configuration:
@@ -390,5 +380,3 @@ configuration:
   version: '3.0.0'
   identityLoggingStatus: DISABLED
 ```
-
-[Show moreShow less](# "#")

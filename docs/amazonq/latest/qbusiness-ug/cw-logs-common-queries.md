@@ -1,80 +1,68 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon Q Business conversation log query examples
+<a name="cw-logs-common-queries"></a>
 
-You can use [CloudWatch Logs insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") to interact
-with conversation and feedback logs from Amazon Q Business. The following are examples of common
-queries.
+You can use [CloudWatch Logs insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html) to interact with conversation and feedback logs from Amazon Q Business. The following are examples of common queries.
++ Query for all the feedback type logs.
 
-- Query for all the feedback type logs.
+  ```
+  filter log_type = "Feedback"
+  ```
++ Query for all the chat type logs.
 
-```
-filter log_type = "Feedback"
-```
+  ```
+  filter log_type = "VendedAnalyticsChat"
+  ```
++ Query for chat logs related to particular conversation.
 
-- Query for all the chat type logs.
+  ```
+  filter conversation_id = <conversation_id>
+  ```
++ Query for chat logs where customer message with certain pattern.
 
-```
-filter log_type = "VendedAnalyticsChat"
-```
+  ```
+  filter customer_message like /pattern/
+  ```
++ Query for chat logs where system response message with certain pattern.
 
-- Query for chat logs related to particular conversation.
+  ```
+  filter system_message like /pattern/
+  ```
++ Query for chat logs where system not able to provide answer.
 
-```
-filter conversation_id = <conversation_id>
-```
+  ```
+  filter system_message like /Sorry, I could not find relevant information to complete your request./
+  ```
++ Query for chat logs where system not able to provide answer.
 
-- Query for chat logs where customer message with certain pattern.
+  ```
+  filter output_metrics_is_message_with_no_answer = 1
+  ```
++ Query for chat logs where customer message was blocked.
 
-```
-filter customer_message like /pattern/
-```
+  ```
+  filter output_metrics_is_message_blocked = 1
+  ```
++ Query for all the feedback logs where system answer was marked useful.
 
-- Query for chat logs where system response message with certain pattern.
+  ```
+  filter usefulness = "USEFUL"
+  ```
++ Query for all the feedback logs where system answer was marked not useful.
 
-```
-filter system_message like /pattern/
-```
+  ```
+  filter usefulness = "NOT_USEFUL"
+  ```
++ Query for all the feedback logs where system answer was marked not useful with reason “Other”.
 
-- Query for chat logs where system not able to provide answer.
+  ```
+  filter usefulness = "NOT_USEFUL" and usefulness_reason = "OTHER"
+  ```
++ Query all feedback logs where system message was hallucinated
 
-```
-filter system_message like /Sorry, I could not find relevant information to complete your request./
-```
-
-- Query for chat logs where system not able to provide answer.
-
-```
-filter output_metrics_is_message_with_no_answer = 1
-```
-
-- Query for chat logs where customer message was blocked.
-
-```
-filter output_metrics_is_message_blocked = 1
-```
-
-- Query for all the feedback logs where system answer was marked useful.
-
-```
-filter usefulness = "USEFUL"
-```
-
-- Query for all the feedback logs where system answer was marked not useful.
-
-```
-filter usefulness = "NOT_USEFUL"
-```
-
-- Query for all the feedback logs where system answer was marked not useful with reason
-  “Other”.
-
-```
-filter usefulness = "NOT_USEFUL" and usefulness_reason = "OTHER"
-```
-
-- Query all feedback logs where system message was hallucinated
-
-```
-filter hallucinated_message != "NOT TRIGGERED" and hallucinated_message != NO HALLUCINATION DETECTED
-```
+  ```
+  filter hallucinated_message != "NOT TRIGGERED" and hallucinated_message != NO HALLUCINATION DETECTED
+  ```

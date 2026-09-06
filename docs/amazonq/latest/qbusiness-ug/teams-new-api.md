@@ -1,16 +1,18 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Microsoft Teams (new connector) using APIs
+<a name="teams-new-api"></a>
 
-You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
-Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
+You use the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) action to connect a data source to your Amazon Q application. You can also use the [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) action to modify an existing data source configuration.
 
-Then, you use the
-`configuration` parameter to provide a JSON blob that conforms the AWS-defined JSON schema.
+Then, you use the `configuration` parameter to provide a JSON blob that conforms the AWS-defined JSON schema.
 
-For an example of the API request, see [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") and [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") in the Amazon Q API Reference.
+For an example of the API request, see [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) and [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) in the Amazon Q API Reference.
 
 ## Microsoft Teams new connector JSON schema
+<a name="teams-new-json"></a>
 
 The following is the Microsoft Teams new connector JSON schema:
 
@@ -128,21 +130,21 @@ The following is the Microsoft Teams new connector JSON schema:
 }
 ```
 
-[Show moreShow less](# "#")
 The following table provides information about important JSON keys to configure for the new Microsoft Teams connector.
 
-| Configuration                     | Description                                                                                                                                                          |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                            | The type of data source. Must be `MSTEAMSV2` for the new Teams connector.                                                                                            |
-| `connectionConfiguration`         | Configuration information for connecting to the Teams data source.                                                                                                   |
-| `tenantId`                        | The Microsoft Teams tenant ID in UUID v4 format.                                                                                                                     |
-| `secretArn`                       | The Amazon Resource Name (ARN) of a Secrets Manager secret that contains the key-value pairs<br>required to connect to your Microsoft Teams.                         |
-| `dataEntityConfiguration`         | Configuration for the types of data entities to crawl from Teams.                                                                                                    |
-| `crawlChatMessages`               | A Boolean value to specify whether to crawl chat messages. Set to `true` to include chat messages in the crawl, or `false` to exclude them.                          |
-| `crawlChannelPosts`               | A Boolean value to specify whether to crawl channel posts. Set to `true` to include channel posts in the crawl, or `false` to exclude them.                          |
-| `filterConfiguration`             | Optional configuration for filtering content during the crawl process.                                                                                               |
-| `startDateFilter`                 | Specify the start date for filtering content. Only content created on or after this date will be crawled. Format: ISO 8601 date-time format.                         |
-| `endDateFilter`                   | Specify the end date for filtering content. Only content created on or before this date will be crawled. Format: ISO 8601 date-time format.                          |
-| `deletionProtectionConfiguration` | Optional configuration to protect against accidental deletion of large amounts of content.                                                                           |
-| `enableDeletionProtection`        | A Boolean value to enable deletion protection. When enabled, the connector will not delete more than the specified threshold of documents in a single sync.          |
-| `deletionProtectionThreshold`     | The maximum percentage of documents that can be deleted in a single sync when deletion protection is enabled. Specify as a string containing a number from 1 to 100. |
+
+| Configuration | Description | 
+| --- | --- | 
+| type | The type of data source. Must be MSTEAMSV2 for the new Teams connector. | 
+| connectionConfiguration | Configuration information for connecting to the Teams data source. | 
+| tenantId | The Microsoft Teams tenant ID in UUID v4 format. | 
+| secretArn | The Amazon Resource Name (ARN) of a Secrets Manager secret that contains the key-value pairs required to connect to your Microsoft Teams. | 
+| dataEntityConfiguration | Configuration for the types of data entities to crawl from Teams. | 
+| crawlChatMessages | A Boolean value to specify whether to crawl chat messages. Set to true to include chat messages in the crawl, or false to exclude them. | 
+| crawlChannelPosts | A Boolean value to specify whether to crawl channel posts. Set to true to include channel posts in the crawl, or false to exclude them. | 
+| filterConfiguration | Optional configuration for filtering content during the crawl process. | 
+| startDateFilter | Specify the start date for filtering content. Only content created on or after this date will be crawled. Format: ISO 8601 date-time format. | 
+| endDateFilter | Specify the end date for filtering content. Only content created on or before this date will be crawled. Format: ISO 8601 date-time format. | 
+| deletionProtectionConfiguration | Optional configuration to protect against accidental deletion of large amounts of content. | 
+| enableDeletionProtection | A Boolean value to enable deletion protection. When enabled, the connector will not delete more than the specified threshold of documents in a single sync. | 
+| deletionProtectionThreshold | The maximum percentage of documents that can be deleted in a single sync when deletion protection is enabled. Specify as a string containing a number from 1 to 100. | 

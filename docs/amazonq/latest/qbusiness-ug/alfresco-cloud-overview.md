@@ -1,20 +1,27 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Alfresco (Cloud) connector overview
+<a name="alfresco-cloud-overview"></a>
 
-The following table gives an overview of the Amazon Q Business
-Alfresco (Cloud) connector and its supported features.
+The following table gives an overview of the Amazon Q Business Alfresco (Cloud) connector and its supported features.
 
-| Category                                                                                                                                   | Feature                                                                                                                                                                                                               | Support                                       |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| **Security**                                                                                                                               | **Authentication type**                                                                                                                                                                                               | Basic, OAuth 2.0 with Client Credentials Flow |
-| **Authentication credentials**                                                                                                             | **Basic**<br>• Alfresco username<br>• Alfresco password<br>**OAuth 2.0, with Client Credentials<br>Flow**<br>• Client ID<br>• Client secret<br>• Token URL<br>ImportantAdmin privileges required                      |
-| **[Access Control List (ACL)](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization")<br>crawling** | Yes. For more information, see [ACL crawling](alfresco-user-management.md "alfresco-user-management.md").                                                                                                             |
-| **[Identity<br>crawling](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler")**            | Yes                                                                                                                                                                                                                   |
-| **[VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc")**                                                       | Yes                                                                                                                                                                                                                   |
-| **Crawl features**                                                                                                                         | **Custom metadata**                                                                                                                                                                                                   | Yes                                           |
-| **Entities**                                                                                                                               | Yes. The following entities are supported:<br>• Document<br>• Comments<br>See [What is a document?](connector-doc-crawl.md "connector-doc-crawl.md") for more<br>details on what each connector crawls as a document. |
-| **[Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings")**                      | Yes. Supports both default and custom field mappings. For more<br>information, see [Field mappings](alfresco-cloud-field-mappings.md "alfresco-cloud-field-mappings.md").                                             |
-| **Filters**                                                                                                                                | Yes. The following filters are supported:<br>• Include Aspects<br>• Crawl specific Alfresco site<br>• Include/exclude by file path<br>• Include/exclude by file name<br>• Include/exclude by file type                |
-| **[Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode")**                                     | Supports full and incremental sync.                                                                                                                                                                                   |
-| **[File types](doc-types.md "doc-types.md")**                                                                                              | Supports all files supported by Amazon Q.                                                                                                                                                                             |
+
+
+
+- ****Security****
+  - **Feature:** Authentication type / **Support:** Basic, OAuth 2.0 with Client Credentials Flow
+  - **Feature:** Authentication credentials / **Support:** +  Alfresco username <br />+  Alfresco password  +  Client ID <br />+  Client secret <br />+  Token URL   Admin privileges required 
+  - **Feature:** [Access Control List (ACL)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-authorization) crawling / **Support:** Yes. For more information, see [ACL crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/alfresco-user-management.html). 
+  - **Feature:** [Identity crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-identity-crawler) / **Support:** Yes
+  - **Feature:** [VPC](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-vpc) / **Support:** Yes
+
+- ****Crawl features****
+  - **Feature:** Custom metadata / **Support:** Yes
+  - **Feature:** Entities / **Support:** Yes. The following entities are supported: +  Document <br />+  Comments See [What is a document?](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-doc-crawl.html) for more details on what each connector crawls as a document.
+  - **Feature:** [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-field-mappings) / **Support:** Yes. Supports both default and custom field mappings. For more information, see [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/alfresco-cloud-field-mappings.html).
+  - **Feature:** Filters / **Support:** Yes. The following filters are supported: +  Include Aspects <br />+  Crawl specific Alfresco site <br />+  Include/exclude by file path <br />+  Include/exclude by file name <br />+  Include/exclude by file type 
+  - **Feature:** [Sync mode](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-sync-mode) / **Support:** Supports full and incremental sync.
+  - **Feature:** [File types](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html) / **Support:** Supports all files supported by Amazon Q.
+

@@ -1,41 +1,37 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Reference materials for customizing the visual theme
+<a name="customizing-web-experience-themes-reference-materials"></a>
 
-###### Topics
-
-- [Color considerations for accessibility](#customizing-web-experience-themes-color-format "#customizing-web-experience-themes-color-format")
-- [Choosing Color Values for Your Theme](#reference-materials-color-values "#reference-materials-color-values")
-- [Supported Root CSS Variables](#customizing-web-experience-themes-reference-materials-supported-css-variables "#customizing-web-experience-themes-reference-materials-supported-css-variables")
-- [Example](#customizing-web-experience-themes-examples "#customizing-web-experience-themes-examples")
+**Topics**
++ [Color considerations for accessibility](#customizing-web-experience-themes-color-format)
++ [Choosing Color Values for Your Theme](#reference-materials-color-values)
++ [Supported Root CSS Variables](#customizing-web-experience-themes-reference-materials-supported-css-variables)
++ [Example](#customizing-web-experience-themes-examples)
 
 ## Color considerations for accessibility
+<a name="customizing-web-experience-themes-color-format"></a>
 
-When customizing your Amazon Q web experience, it's crucial to prioritize
-accessibility. Ensure sufficient contrast is there between the text and background
-colors. Use tools like the [WebAIM Contrast
-Checker](https://webaim.org/resources/contrastchecker/ "https://webaim.org/resources/contrastchecker/") to verify your color choices meet Web Content Accessibility
-Guidelines (WCAG) 2.x standards.
+When customizing your Amazon Q web experience, it's crucial to prioritize accessibility. Ensure sufficient contrast is there between the text and background colors. Use tools like the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) to verify your color choices meet Web Content Accessibility Guidelines (WCAG) 2.x standards.
 
-For comprehensive accessibility guidelines, refer to the [Web Content Accessibility Guidelines
-(WCAG)](https://www.w3.org/TR/WCAG21/ "https://www.w3.org/TR/WCAG21/").
+For comprehensive accessibility guidelines, refer to the [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG21/).
 
 ## Choosing Color Values for Your Theme
+<a name="reference-materials-color-values"></a>
 
 Amazon Q supports the following color value formats:
++ Hexadecimal colors (with and without transparency)
++ RGB and RGBA colors
++ HSL and HSLA colors
++ Predefined/Cross-browser color names
 
-- Hexadecimal colors (with and without transparency)
-- RGB and RGBA colors
-- HSL and HSLA colors
-- Predefined/Cross-browser color names
-
-###### Note
-
-Amazon Q Business doesn't support `currentcolor`. For a comprehensive list
-of supported CSS color values, see [W3Schools CSS
-Colors](https://www.w3schools.com/cssref/css_colors_legal.php "https://www.w3schools.com/cssref/css_colors_legal.php")
+**Note**  
+Amazon Q Business doesn't support `currentcolor`. For a comprehensive list of supported CSS color values, see [W3Schools CSS Colors](https://www.w3schools.com/cssref/css_colors_legal.php)
 
 ## Supported Root CSS Variables
+<a name="customizing-web-experience-themes-reference-materials-supported-css-variables"></a>
 
 Only the following root CSS variables are supported:
 
@@ -83,18 +79,17 @@ Only the following root CSS variables are supported:
 --qbusiness-webexperience-logo-url
 --qbusiness-webexperience-font-url
 --qbusiness-webexperience-favicon-url
-
 ```
 
 ## Example
+<a name="customizing-web-experience-themes-examples"></a>
 
 ### CSS
+<a name="customizing-web-experience-themes-examples-css"></a>
 
-The following is an example of a valid CSS file setting the visual theme for
-Amazon Q Business.
+The following is an example of a valid CSS file setting the visual theme for Amazon Q Business.
 
 ```
-
 :root {
   --background: #FFFFFF;
   --qbusinesness-webexperience-title-color: #9013FE;
@@ -108,5 +103,4 @@ Amazon Q Business.
   --qbusiness-webexperience-font-url: "https://<bucket_name>.s3.<region>.amazonaws.com/<font_name>.ttf";
   --qbusiness-webexperience-favicon-url: "https://<bucket_name>.s3.<region>.amazonaws.com/<favicon_name>.ico";
 }
-
 ```

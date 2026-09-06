@@ -1,26 +1,25 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Google Drive using AWS CloudFormation
+<a name="googledrive-v2-cfn"></a>
 
-You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
-your Amazon Q application.
+You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
-Use the [`configuration`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md#cfn-qbusiness-datasource-applicationid "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md#cfn-qbusiness-datasource-applicationid") property to provide a JSON or YAML schema with the necessary
-configuration details specific to your data source connector.
+Use the [`configuration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-applicationid) property to provide a JSON or YAML schema with the necessary configuration details specific to your data source connector.
 
-To learn more about AWS CloudFormation, see
-[What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-in the _CloudFormation User Guide_.
+To learn more about AWS CloudFormation, see [What is AWS CloudFormation?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) in the *CloudFormation User Guide*.
 
-###### Topics
-
-- [Google Drive New CloudFormation template](#googledrive-v2-cfn-template "#googledrive-v2-cfn-template")
+**Topics**
++ [Google Drive New CloudFormation template](#googledrive-v2-cfn-template)
 
 ## Google Drive New CloudFormation template
+<a name="googledrive-v2-cfn-template"></a>
 
 The following is the Google Drive New CloudFormation template. Copy and save this template to a file on your local drive.
 
-For more information about CloudFormation templates, see [Working with CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _CloudFormation User Guide_.
+For more information about CloudFormation templates, see [Working with CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) in the *CloudFormation User Guide*.
 
 ```
 {
@@ -32,7 +31,7 @@ For more information about CloudFormation templates, see [Working with CloudForm
       "Description": "Amazon Q Business Application ID"
     },
     "IndexId": {
-      "Type": "String",
+      "Type": "String", 
       "Description": "Amazon Q Business Index ID"
     },
     "DataSourceName": {
@@ -84,5 +83,3 @@ For more information about CloudFormation templates, see [Working with CloudForm
   }
 }
 ```
-
-[Show moreShow less](# "#")

@@ -1,20 +1,27 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Google Drive connector overview
+<a name="googledrive-v1-overview-primary"></a>
 
-The following table gives an overview of the Amazon Q Business
-Google Drive connector and its supported features.
+The following table gives an overview of the Amazon Q Business Google Drive connector and its supported features.
 
-| Category                                                                                                                                   | Feature                                                                                                                                                                                                                              | Support                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- |
-| **Security**                                                                                                                               | **Authentication type**                                                                                                                                                                                                              | Google Service Account, OAuth 2.0 with Refresh Token Flow |
-| **Authentication credentials**                                                                                                             | **Google service account**<br>• Admin account email<br>• Client email<br>• Private key<br>**OAuth 2.0 with Refresh Token<br>Flow**<br>• Client ID<br>• Client secret<br>• Refresh token<br>ImportantAdmin privileges required.       |
-| **[Access Control List (ACL)](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization")<br>crawling** | Yes. For more information, see [ACL crawling](google-user-management.md "google-user-management.md").                                                                                                                                |
-| **[Identity<br>crawling](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler")**            | Yes. Supported only with Google service account<br>authentication.                                                                                                                                                                   |
-| **[VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc")**                                                       | Yes                                                                                                                                                                                                                                  |
-| **Crawl features**                                                                                                                         | **Custom metadata**                                                                                                                                                                                                                  | No                                                        |
-| **Entities**                                                                                                                               | Yes. The following entities are supported:<br>• Files<br>• Comments<br>See [What is a document?](connector-doc-crawl.md "connector-doc-crawl.md") for more<br>details on what each connector crawls as a document.                   |
-| **[Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings")**                      | Yes. Supports default field mappings. For more information, see<br>[Field mappings](google-drive-field-mappings.md "google-drive-field-mappings.md").                                                                                |
-| **Filters**                                                                                                                                | Yes. The following filters are supported:<br>• Include files based on file size<br>• Include/exclude **Shared drives**<br>• Include/exclude by mime types<br>• Include/exclude attachments by file name, file type, and<br>file path |
-| **[Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode")**                                     | Supports full and incremental sync.                                                                                                                                                                                                  |
-| **[File types](doc-types.md "doc-types.md")**                                                                                              | Supports all files supported by Amazon Q.                                                                                                                                                                                            |
+
+
+
+- ****Security****
+  - **Feature:** Authentication type / **Support:** Google Service Account, OAuth 2.0 with Refresh Token Flow
+  - **Feature:** Authentication credentials / **Support:** +  Admin account email <br />+  Client email <br />+  Private key  +  Client ID <br />+  Client secret <br />+  Refresh token   Admin privileges required. 
+  - **Feature:** [Access Control List (ACL)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-authorization) crawling / **Support:** Yes. For more information, see [ACL crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/google-user-management.html).
+  - **Feature:** [Identity crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-identity-crawler) / **Support:** Yes. Supported only with Google service account authentication.
+  - **Feature:** [VPC](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-vpc) / **Support:** Yes
+
+- ****Crawl features****
+  - **Feature:** Custom metadata / **Support:** No
+  - **Feature:** Entities / **Support:** Yes. The following entities are supported: +  Files <br />+  Comments See [What is a document?](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-doc-crawl.html) for more details on what each connector crawls as a document.
+  - **Feature:** [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-field-mappings) / **Support:** Yes. Supports default field mappings. For more information, see [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/google-drive-field-mappings.html).
+  - **Feature:** Filters / **Support:** Yes. The following filters are supported: +  Include files based on file size <br />+  Include/exclude **Shared drives** <br />+  Include/exclude by mime types <br />+  Include/exclude attachments by file name, file type, and file path 
+  - **Feature:** [Sync mode](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-sync-mode) / **Support:** Supports full and incremental sync.
+  - **Feature:** [File types](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html) / **Support:** Supports all files supported by Amazon Q.
+

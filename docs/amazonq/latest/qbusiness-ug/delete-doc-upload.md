@@ -1,47 +1,44 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Deleting documents uploaded in an Amazon Q Business application
+<a name="delete-doc-upload"></a>
 
-To delete documents that have been directly uploaded to an application environment, you can
-use the console or the [BatchDeleteDocument](../api-reference/API_BatchDeleteDociment.md "../api-reference/API_BatchDeleteDociment.md") API operation.
-You can delete specific documents or all documents.
+To delete documents that have been directly uploaded to an application environment, you can use the console or the [BatchDeleteDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchDeleteDociment.html) API operation. You can delete specific documents or all documents.
 
-The following tabs provide a procedure for the AWS Management Console and code examples for the
-AWS CLI.
+The following tabs provide a procedure for the AWS Management Console and code examples for the AWS CLI.
 
-Console
-**To delete specific directly uploaded
-documents**
+------
+#### [ Console ]
 
-1. Sign in to the AWS Management Console and open the Amazon Q Business
-   console.
-2. In **Applications**, select the name of the
-   application environment that your uploaded files belong to.
-3. From your applications page, from **Data
-   sources**, choose **Uploaded
-   files**.
-4. In **Uploaded files**, choose
-   **Document name**, and then select the
-   documents that you want to delete.
+**To delete specific directly uploaded documents** 
 
-###### Note
+1. Sign in to the AWS Management Console and open the Amazon Q Business console.
 
-You can choose up to 10 files at a time. 5. Choose **Delete files**.
+1. In **Applications**, select the name of the application environment that your uploaded files belong to.
 
-You are returned to the service console while your
-application environment is deleted. When the deletion process is complete,
-the console displays a message confirming successful
-deletion.
+1. From your applications page, from **Data sources**, choose **Uploaded files**.
 
-AWS CLI
+1. In **Uploaded files**, choose **Document name**, and then select the documents that you want to delete.
+**Note**  
+You can choose up to 10 files at a time.
+
+1. Choose **Delete files**.
+
+   You are returned to the service console while your application environment is deleted. When the deletion process is complete, the console displays a message confirming successful deletion.
+
+------
+#### [ AWS CLI ]
+
 **To delete documents**
 
 ```
-
 aws qbusiness batch-delete-document \
---application-id `application-id` \
---index-id `index-id` \
---documents `documents-to-delete` \
---data-source-sync-id `data-source-sync-id`
-
+--application-id {{application-id}} \
+--index-id {{index-id}} \
+--documents {{documents-to-delete}} \
+--data-source-sync-id {{data-source-sync-id}}
 ```
+
+------

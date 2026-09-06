@@ -1,38 +1,21 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Key concepts
+<a name="isv-key-concepts"></a>
 
-Amazon Q index
+Amazon Q index  
+A comprehensive collection of a company's data that can be queried to build enhanced application experiences. It serves as the foundation for retrieving relevant content across various enterprise data sources.  
+Organizations that are Amazon Q Business customers and would like to connect their data sources with a supported ISV can add the ISV as a *data accessor*. For more information, see [Data accessors](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/data-accessors.html).
 
-A comprehensive collection of a company's data that can be queried to
-build enhanced application experiences. It serves as the foundation for
-retrieving relevant content across various enterprise data sources.
+`SearchRelevantContent` API operation  
+This API operation enables ISVs to access the Amazon Q index. It supports keyword, semantic, and hybrid queries—allowing for flexible data retrieval options.
 
-Organizations that are Amazon Q Business customers and would like to connect
-their data sources with a supported ISV can add the ISV as a _data
-accessor_. For more information, see [Data
-accessors](data-accessors.md "data-accessors.md").
+AWS Identity and Access Management IAM Identity CenterManaged Application  
+Amazon Q Business manages end user access to a customer's Amazon Q index using IAWS Identity and Access Management IAM Identity Center.
 
-`SearchRelevantContent` API operation
+Resource-based policy  
+A resource-based policy is an IAM policy that's attached to a resource. Amazon Q Business attaches [a resource-based policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html) to an Amazon Q Business application environment during the data accessor setup. This policy grants the ISV's AWS account the necessary permissions to access content for the customer's end users from the customer's data sources through the `SearchRelevantContent` API operation. By attaching a resource-based policy to the data accessor's AWS account, it allows access to the Amazon Q index of the application environment. For more information, see [Data accessors](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/data-accessors.html).
 
-This API operation enables ISVs to access the Amazon Q index. It supports
-keyword, semantic, and hybrid queries—allowing for flexible data
-retrieval options.
-
-AWS Identity and Access Management IAM Identity CenterManaged Application
-
-Amazon Q Business manages end user access to a customer's Amazon Q index using
-IAWS Identity and Access Management IAM Identity Center.
-
-Resource-based policy
-
-A resource-based policy is an IAM policy that's attached to a resource.
-Amazon Q Business attaches [a
-resource-based policy](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") to an Amazon Q Business application environment during the
-data accessor setup. This policy grants the ISV's AWS account the
-necessary permissions to access content for the customer's end users from
-the customer's data sources through the `SearchRelevantContent`
-API operation. By attaching a resource-based policy to the data accessor's
-AWS account, it allows access to the Amazon Q index of the application environment.
-For more information, see [Data
-accessors](data-accessors.md "data-accessors.md").
+ 

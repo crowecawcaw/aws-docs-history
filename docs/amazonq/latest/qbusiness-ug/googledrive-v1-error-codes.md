@@ -1,14 +1,17 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Understand error codes in the Amazon Q Business Google Drive connector
+<a name="googledrive-v1-error-codes"></a>
 
-The following table provides information about error codes you may see for the
-Google Drive connector and suggested resolutions.
+The following table provides information about error codes you may see for the Google Drive connector and suggested resolutions.
 
-| Error code | Error message                                                                    | Suggested resolution                                                                  |
-| ---------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| GDL-5101   | The authentication credentials in your data source configuration are invalid.    | Verify your Google service account credentials or OAuth 2.0 tokens and try again.     |
-| GDL-5102   | The authentication type in your data source configuration is missing or invalid. | Enter valid authentication type (Google Service Account or OAuth 2.0) and try again.  |
-| GDL-5103   | Access denied to Google Drive API.                                               | Ensure your service account has proper domain-wide delegation and API access enabled. |
-| GDL-5104   | Rate limit exceeded for Google Drive API.                                        | Wait and retry. Consider reducing sync frequency if the issue persists.               |
-| GDL-5105   | Invalid folder or file ID specified in filters.                                  | Verify the folder or file IDs in your inclusion/exclusion filters are correct.        |
+
+| Error code | Error message | Suggested resolution | 
+| --- | --- | --- | 
+| GDL-5101 | The authentication credentials in your data source configuration are invalid. | Verify your Google service account credentials or OAuth 2.0 tokens and try again. | 
+| GDL-5102 | The authentication type in your data source configuration is missing or invalid. | Enter valid authentication type (Google Service Account or OAuth 2.0) and try again. | 
+| GDL-5103 | Access denied to Google Drive API. | Ensure your service account has proper domain-wide delegation and API access enabled. | 
+| GDL-5104 | Rate limit exceeded for Google Drive API. | Wait and retry. Consider reducing sync frequency if the issue persists. | 
+| GDL-5105 | Invalid folder or file ID specified in filters. | Verify the folder or file IDs in your inclusion/exclusion filters are correct. | 

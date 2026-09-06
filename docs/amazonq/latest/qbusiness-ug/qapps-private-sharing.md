@@ -1,53 +1,36 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Sharing Amazon Q Apps
+<a name="qapps-private-sharing"></a>
 
-Amazon Q Apps allows you to privately share your Q Apps with specific users within
-your Q Business application environment. This private sharing capability enables app
-creators to restrict app access to select users, providing more granular control over
-app visibility and usage within organizations.
+Amazon Q Apps allows you to privately share your Q Apps with specific users within your Q Business application environment. This private sharing capability enables app creators to restrict app access to select users, providing more granular control over app visibility and usage within organizations.
 
 ## Benefits
-
-- **Controlled Access**: Share your Q Apps with
-  only the intended users, maintaining privacy and security.
-- **Run-Only Mode**: Shared users can view and
-  run the Q App but cannot make structural changes. To make structural
-  changes, they will first need to duplicate it, which creates their separate,
-  editable copy of the Q App.
+<a name="w2aac31c41c43b9"></a>
++ **Controlled Access**: Share your Q Apps with only the intended users, maintaining privacy and security.
++ **Run-Only Mode**: Shared users can view and run the Q App but cannot make structural changes. To make structural changes, they will first need to duplicate it, which creates their separate, editable copy of the Q App.
 
 ## Key Concepts
+<a name="w2aac31c41c43c13"></a>
++ Owner: The owner is the user who creates and has full editing rights over the Q App. As the owner, you can:
+  + Privately share the Q App with other users by full email address.
+  + Revoke access for shared users.
+  + Edit the category for the shared Q App, which affects where it appears in the shared app user's library.
++  App User: A shared app user is a user within your organization's Q Business environment that the owner has shared the Q App with by email. As a shared user, you can: 
+  + View and run the shared Q App.
+  + Duplicate the Q App to create an editable version.
+  + Cannot directly edit the original shared Q App.
 
-- Owner: The owner is the user who creates and has full editing rights over
-  the Q App. As the owner, you can:
-
-  - Privately share the Q App with other users by full email
-    address.
-  - Revoke access for shared users.
-  - Edit the category for the shared Q App, which affects where it
-    appears in the shared app user's library.
-
-- App User: A shared app user is a user within your organization's Q
-  Business environment that the owner has shared the Q App with by email. As a
-  shared user, you can:
-
-  - View and run the shared Q App.
-  - Duplicate the Q App to create an editable version.
-  - Cannot directly edit the original shared Q App.
-
-Shared users do not receive a notification when a Q App is shared with them. You
-need to send them the link from the share modal.
+Shared users do not receive a notification when a Q App is shared with them. You need to send them the link from the share modal. 
 
 ## Prerequisites for Private Sharing
+<a name="w2aac31c41c43c17"></a>
 
-Before your web experience users can use sharing you will need to update the web
-experience IAM role to enable private sharing in the web experience. We recommend
-updating the `DescribeQAppPermissions`
-`UpdateQAppPermissions` statement of the IAM policy attached to this role
-to include the action as follows:
+ Before your web experience users can use sharing you will need to update the web experience IAM role to enable private sharing in the web experience. We recommend updating the `DescribeQAppPermissions` `UpdateQAppPermissions` statement of the IAM policy attached to this role to include the action as follows: 
 
 ```
-
 {
     "Sid": "QAppsAppOwnerPermissions",
     "Effect": "Allow",
@@ -93,66 +76,68 @@ to include the action as follows:
         }
     }
 }
-
 ```
 
 ### Sharing Amazon Q Apps
+<a name="w2aac31c41c43c17b9"></a>
 
-Web Experience
+------
+#### [ Web Experience ]
 
-###### To privately share your Q App
+**To privately share your Q App**
 
 1. Open the Q App you want to share.
-2. Choose on the "Share" button in the top right
-   corner.
-3. In the share modal, enter the email addresses of the users
-   you want to share with, or you can toggle ‘Share with all’
-   to give access to everyone in your Q Apps organization.
-4. Edit the category(s) for the shared Q App, which affects
-   where it appears in the shared user's library.
-5. (Optional) Choose the copy icon to obtain the link; this
-   can then be sent to shared users via your preferred method
-   (e.g., email or Slack).
-6. Choose "Share" to complete the sharing process.
 
-The shared users will now be able to access and run your Q App
-from the library or via the shareable link you provide them.
+1. Choose on the "Share" button in the top right corner.
 
-AWS CLI
-To privately share your Q App with AWS CLI, use the
-`DescribeQAppPermissions` command.
+1. In the share modal, enter the email addresses of the users you want to share with, or you can toggle ‘Share with all’ to give access to everyone in your Q Apps organization. 
+
+1. Edit the category(s) for the shared Q App, which affects where it appears in the shared user's library.
+
+1. (Optional) Choose the copy icon to obtain the link; this can then be sent to shared users via your preferred method (e.g., email or Slack). 
+
+1. Choose "Share" to complete the sharing process.
+
+The shared users will now be able to access and run your Q App from the library or via the shareable link you provide them.
+
+------
+#### [ AWS CLI ]
+
+ To privately share your Q App with AWS CLI, use the `DescribeQAppPermissions` command.
 
 ```
-
 aws qapps describe-q-app-permissions \
-            --instance-id `instanceId` \
-            --app-id `appId`
-
+            --instance-id {{instanceId}} \
+            --app-id {{appId}}
 ```
+
+------
 
 ## Managing Shared Users
+<a name="w2aac31c41c43c21"></a>
 
-As the owner, you can manage who has access to your shared Q App by revisiting
-the share modal:
+ As the owner, you can manage who has access to your shared Q App by revisiting the share modal: 
 
-Web Experience
+------
+#### [ Web Experience ]
 
-1. To revoke access, choose the "Remove" button next to the
-   user's email address.
-2. To grant access to new users, enter their email
-   addresses.
-3. Choose "Share" to apply the changes.
+1. To revoke access, choose the "Remove" button next to the user's email address.
 
-AWS CLI
-To manage share user access with AWS CLI, use
-`UpdateQAppPermissions`.
+1. To grant access to new users, enter their email addresses.
+
+1. Choose "Share" to apply the changes.
+
+------
+#### [ AWS CLI ]
+
+To manage share user access with AWS CLI, use `UpdateQAppPermissions`.
 
 ```
-
 aws qapps update-q-app-permissions \
-            --instance-id `instanceId` \
-            --app-id `appId` \
-            --grant-permissions `listOfPermissions to be granted` \
-            --revoke-permissions `listOfPermissions to be revoked` \
-
+            --instance-id {{instanceId}} \
+            --app-id {{appId}} \
+            --grant-permissions {{listOfPermissions to be granted}} \
+            --revoke-permissions {{listOfPermissions to be revoked}} \
 ```
+
+------

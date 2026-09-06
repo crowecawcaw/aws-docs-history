@@ -1,37 +1,36 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Checking Confluence (Cloud) connectivity
+<a name="confluence-cloud-connection-check"></a>
 
-Before you sync your Confluence (Cloud) data source connector after [configuring it](confluence-cloud-console.md "confluence-cloud-console.md"), we recommend you check the
-connection between Amazon Q Business and Confluence (Cloud). The following are the cURL
-commands you need to check Confluence (Cloud) connectivity.
+Before you sync your Confluence (Cloud) data source connector after [configuring it](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/confluence-cloud-console.html), we recommend you check the connection between Amazon Q Business and Confluence (Cloud). The following are the cURL commands you need to check Confluence (Cloud) connectivity.
 
-###### Topics
-
-- [Checking basic authentication connectivity](#confluence-cloud-connection-check-basic "#confluence-cloud-connection-check-basic")
+**Topics**
++ [Checking basic authentication connectivity](#confluence-cloud-connection-check-basic)
 
 ## Checking basic authentication connectivity
+<a name="confluence-cloud-connection-check-basic"></a>
 
-To check connectivity for a Confluence (Cloud) data source connector using
-basic authentication, use the following cURL command:
+To check connectivity for a Confluence (Cloud) data source connector using basic authentication, use the following cURL command:
 
 ```
-curl --location '`https://<confluence_host-url>/wiki/rest/api/user/current`'
---header 'Authorization: Basic <`base64(email:api_token)`>'
+curl --location '{{https://<confluence_host-url>/wiki/rest/api/user/current}}' 
+--header 'Authorization: Basic <{{base64(email:api_token)}}>'
 ```
 
-If your data source is connected as expected, the JSON response should
-resemble the following:
+If your data source is connected as expected, the JSON response should resemble the following:
 
 ```
 {
     "type": "known",
-    "accountId": "`accountId`",
+    "accountId": "{{accountId}}",
     "accountType": "atlassian",
-    "email": "`email`",
+    "email": "{{email}}",
     "publicName": "Administrator",
     "profilePicture": {
-        "path": "`/wiki/aa-avatar/<accountId>`",
+        "path": "{{/wiki/aa-avatar/<accountId>}}",
         "width": 48,
         "height": 48,
         "isDefault": false
@@ -43,18 +42,14 @@ resemble the following:
         "personalSpace": ""
     },
     "_links": {
-        "self": "`https://<host_url>/wiki/rest/api/user?accountId=<accountId>`",
-        "base": "`https://<host_url>/wiki`",
+        "self": "{{https://<host_url>/wiki/rest/api/user?accountId=<accountId>}}",
+        "base": "{{https://<host_url>/wiki}}",
         "context": "/wiki"
     }
 }
 ```
 
-If your Confluence (Cloud) connector is not connected correctly, you will see
-the following error:
+If your Confluence (Cloud) connector is not connected correctly, you will see the following error:
++ CNF-5123: The profile value is invalid. Try again after sometime.
 
-- CNF-5123: The profile value is invalid. Try again after
-  sometime.
-
-To troubleshoot the issue, check your Confluence (Cloud) URL and make sure
-it's correct.
+To troubleshoot the issue, check your Confluence (Cloud) URL and make sure it's correct.

@@ -1,45 +1,48 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Amazon S3 using APIs
+<a name="s3-v2-api"></a>
 
-You use the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") action to connect a data source to your
-Amazon Q application. You can also use the [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") action to modify an existing data source configuration.
+You use the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) action to connect a data source to your Amazon Q application. You can also use the [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) action to modify an existing data source configuration.
 
-Then, you use the
-`configuration` parameter to provide a JSON blob that conforms the AWS-defined JSON schema.
+Then, you use the `configuration` parameter to provide a JSON blob that conforms the AWS-defined JSON schema.
 
-For an example of the API request, see [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") and [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md") in the Amazon Q API Reference.
+For an example of the API request, see [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) and [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html) in the Amazon Q API Reference.
 
-###### Topics
-
-- [Amazon S3 configuration properties](#s3-v2-configuration-keys "#s3-v2-configuration-keys")
-- [Amazon S3 JSON schema](#s3-v2-api-json "#s3-v2-api-json")
-- [Amazon S3 JSON schema example](#s3-v2-api-json-example "#s3-v2-api-json-example")
+**Topics**
++ [Amazon S3 configuration properties](#s3-v2-configuration-keys)
++ [Amazon S3 JSON schema](#s3-v2-api-json)
++ [Amazon S3 JSON schema example](#s3-v2-api-json-example)
 
 ## Amazon S3 configuration properties
+<a name="s3-v2-configuration-keys"></a>
 
 The following provides information about important configuration properties required in the schema.
 
-| Configuration                     | Description                                                                                                                                                                                              | Type                                                                                                  | Required |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------- |
-| `type`                            | The type of data source. Specify `S3V2` as your data source<br>type.                                                                                                                                     | `string`<br>The only allowed value is `S3V2`.                                                         | Yes      |
-| `connectionConfiguration`         | Configuration information for the endpoint for the data<br>source.                                                                                                                                       | `object`<br>This property has sub-properties: `bucketName` and `bucketOwnerAccountId`.                | Yes      |
-| `bucketName`                      | The name of your Amazon S3 bucket. This is a sub-property for the<br>`connectionConfiguration`.                                                                                                          | `string`                                                                                              | Yes      |
-| `bucketOwnerAccountId`            | The 12-digit AWS account ID that owns the S3 bucket. This is a sub-property for the<br>`connectionConfiguration`.                                                                                        | `string`<br>Must match pattern: `^\d{12}$`                                                            | Yes      |
-| `filterConfiguration`             | Configuration for filtering which files to include or exclude from indexing.                                                                                                                             | `object`<br>This property has sub-properties for patterns, prefixes, and file size limits.            | No       |
-| `inclusionPatterns`               | File patterns to include during indexing . This is a sub-property for the<br>`filterConfiguration`.                                                                                                      | `array` of `string`                                                                                   | No       |
-| `exclusionPatterns`               | File patterns to exclude during indexing. This is a sub-property for the<br>`filterConfiguration`.                                                                                                       | `array` of `string`                                                                                   | No       |
-| `inclusionPrefixes`               | S3 key prefixes to include during indexing (e.g., documents/, reports/). This is a sub-property for the<br>`filterConfiguration`.                                                                        | `array` of `string`                                                                                   | No       |
-| `exclusionPrefixes`               | S3 key prefixes to exclude during indexing (e.g., temp/, cache/). This is a sub-property for the<br>`filterConfiguration`.                                                                               | `array` of `string`                                                                                   | No       |
-| `maxFileSizeInMegaBytes`          | Maximum file size in megabytes to index. Files larger than this will be skipped. This is a sub-property for the<br>`filterConfiguration`.                                                                | `number`<br>Minimum: 0, Maximum: 10240                                                                | No       |
-| `accessControlConfiguration`      | Configuration for access control and permissions.                                                                                                                                                        | `object`<br>This property has sub-properties for ACL configuration and default access type.           | No       |
-| `aclConfigurationFilePath`        | Path to the ACL configuration file in your S3 bucket. This is a sub-property for the<br>`accessControlConfiguration`.                                                                                    | `string`<br>Length: 1-1024 characters                                                                 | No       |
-| `deletionProtectionConfiguration` | Configuration for deletion protection to prevent accidental bulk deletions.                                                                                                                              | `object`<br>This property has sub-properties for enabling deletion protection and setting thresholds. | No       |
-| `enableDeletionProtection`        | Whether to enable deletion protection. This is a sub-property for the<br>`deletionProtectionConfiguration`.                                                                                              | `boolean`                                                                                             | No       |
-| `deletionProtectionThreshold`     | Percentage threshold for deletion protection. If more than this percentage of documents would be deleted, the sync will be blocked. This is a sub-property for the<br>`deletionProtectionConfiguration`. | `number`<br>Default: 15                                                                               | No       |
-| `metadataFilesPrefix`             | S3 key prefix where metadata files are stored for enhanced document processing.                                                                                                                          | `string`<br>Length: 1-1024 characters                                                                 | No       |
+
+| Configuration | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| `type` | The type of data source. Specify `S3V2` as your data source type. | `string`<br />The only allowed value is `S3V2`. | Yes | 
+| `connectionConfiguration` | Configuration information for the endpoint for the data source. | `object`<br />This property has sub-properties: `bucketName` and `bucketOwnerAccountId`. | Yes | 
+| `bucketName` | The name of your Amazon S3 bucket. This is a sub-property for the `connectionConfiguration`. | `string` | Yes | 
+| `bucketOwnerAccountId` | The 12-digit AWS account ID that owns the S3 bucket. This is a sub-property for the `connectionConfiguration`. | `string`<br />Must match pattern: `^\d{12}$` | Yes | 
+| `filterConfiguration` | Configuration for filtering which files to include or exclude from indexing. | `object`<br />This property has sub-properties for patterns, prefixes, and file size limits. | No | 
+| `inclusionPatterns` | File patterns to include during indexing . This is a sub-property for the `filterConfiguration`. | `array` of `string` | No | 
+| `exclusionPatterns` | File patterns to exclude during indexing. This is a sub-property for the `filterConfiguration`. | `array` of `string` | No | 
+| `inclusionPrefixes` | S3 key prefixes to include during indexing (e.g., documents/, reports/). This is a sub-property for the `filterConfiguration`. | `array` of `string` | No | 
+| `exclusionPrefixes` | S3 key prefixes to exclude during indexing (e.g., temp/, cache/). This is a sub-property for the `filterConfiguration`. | `array` of `string` | No | 
+| `maxFileSizeInMegaBytes` | Maximum file size in megabytes to index. Files larger than this will be skipped. This is a sub-property for the `filterConfiguration`. | `number`<br />Minimum: 0, Maximum: 10240 | No | 
+| `accessControlConfiguration` | Configuration for access control and permissions. | `object`<br />This property has sub-properties for ACL configuration and default access type. | No | 
+| `aclConfigurationFilePath` | Path to the ACL configuration file in your S3 bucket. This is a sub-property for the `accessControlConfiguration`. | `string`<br />Length: 1-1024 characters | No | 
+| `deletionProtectionConfiguration` | Configuration for deletion protection to prevent accidental bulk deletions. | `object`<br />This property has sub-properties for enabling deletion protection and setting thresholds. | No | 
+| `enableDeletionProtection` | Whether to enable deletion protection. This is a sub-property for the `deletionProtectionConfiguration`. | `boolean` | No | 
+| `deletionProtectionThreshold` | Percentage threshold for deletion protection. If more than this percentage of documents would be deleted, the sync will be blocked. This is a sub-property for the `deletionProtectionConfiguration`. | `number`<br />Default: 15 | No | 
+| `metadataFilesPrefix` | S3 key prefix where metadata files are stored for enhanced document processing. | `string`<br />Length: 1-1024 characters | No | 
 
 ## Amazon S3 JSON schema
+<a name="s3-v2-api-json"></a>
 
 The following is the Amazon S3 JSON schema with simplified configuration structure:
 
@@ -133,9 +136,8 @@ The following is the Amazon S3 JSON schema with simplified configuration structu
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## Amazon S3 JSON schema example
+<a name="s3-v2-api-json-example"></a>
 
 The following is the Amazon S3 JSON schema example with simplified configuration:
 
@@ -161,5 +163,3 @@ The following is the Amazon S3 JSON schema example with simplified configuration
   "metadataFilesPrefix": "metadata/"
 }
 ```
-
-[Show moreShow less](# "#")

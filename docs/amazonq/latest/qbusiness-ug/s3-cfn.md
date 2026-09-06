@@ -1,62 +1,60 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Connecting Amazon Q Business to Amazon S3 using AWS CloudFormation
+<a name="s3-cfn"></a>
 
-You use the [`AWS::QBusiness::DataSource`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md") resource to connect a data source to
-your Amazon Q application.
+You use the [`AWS::QBusiness::DataSource`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html) resource to connect a data source to your Amazon Q application.
 
-Use the [`configuration`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md#cfn-qbusiness-datasource-applicationid "../../../AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.md#cfn-qbusiness-datasource-applicationid") property to provide a JSON or YAML schema with the necessary
-configuration details specific to your data source connector.
+Use the [`configuration`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html#cfn-qbusiness-datasource-applicationid) property to provide a JSON or YAML schema with the necessary configuration details specific to your data source connector.
 
-To learn more about AWS CloudFormation, see
-[What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-in the _CloudFormation User Guide_.
+To learn more about AWS CloudFormation, see [What is AWS CloudFormation?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) in the *CloudFormation User Guide*.
 
-###### Topics
-
-- [Amazon S3 configuration properties](#s3-configuration-keys "#s3-configuration-keys")
-- [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-cfn-json "#s3-cfn-json")
-- [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-cfn-yaml "#s3-cfn-yaml")
+**Topics**
++ [Amazon S3 configuration properties](#s3-configuration-keys)
++ [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-cfn-json)
++ [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-cfn-yaml)
 
 ## Amazon S3 configuration properties
+<a name="s3-configuration-keys"></a>
 
-The following provides information about important configuration properties required in the
-schema.
+The following provides information about important configuration properties required in the schema.
 
-| Configuration                                                                                                                                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Type                                                                                                                                                                                                                                                                                                                                          | Required |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `type`                                                                                                                                                                     | The type of data source. Specify `S3` as your data source<br>type.                                                                                                                                                                                                                                                                                                                                                                                                                                        | `string`<br>The only allowed value is `S3`.                                                                                                                                                                                                                                                                                                   | Yes      |
-| `syncMode`                                                                                                                                                                 | Specify whether Amazon Q should update your index by syncing all<br>documents or only new, modified, and deleted documents.                                                                                                                                                                                                                                                                                                                                                                               | `string`<br>You can choose from the following options:<br>• Use `FORCED_FULL_CRAWL` to freshly re-crawl all content and replace<br>existing content each time your data source syncs with your index<br>• Use `FULL_CRAWL` to incrementally crawl only new, modified, and<br>deleted content each time your data source syncs with your index | Yes      |
-| `connectionConfiguration`                                                                                                                                                  | Configuration information for the endpoint for the data<br>source.                                                                                                                                                                                                                                                                                                                                                                                                                                        | `object`<br>This property has a sub-property called<br>`repositoryEndpointMetadata`.                                                                                                                                                                                                                                                          | Yes      |
-| `repositoryEndpointMetadata`                                                                                                                                               | This is the endpoint information for the data source. This is a sub-property<br>for the `connectionConfiguration`.                                                                                                                                                                                                                                                                                                                                                                                        | `object`<br>This property has a sub-property called `BucketName`.                                                                                                                                                                                                                                                                             | Yes      |
-| `BucketName`                                                                                                                                                               | The name of your Amazon S3 bucket. This is a sub-property for the<br>`repositoryEndpointMetadata`.                                                                                                                                                                                                                                                                                                                                                                                                        | `string`                                                                                                                                                                                                                                                                                                                                      | Yes      |
-| `repositoryConfigurations`                                                                                                                                                 | Configuration information for the content of the data source. For example,<br>configuring specific types of content and field mappings.                                                                                                                                                                                                                                                                                                                                                                   | `object`<br>This property has a sub-property called `document`.                                                                                                                                                                                                                                                                               | Yes      |
-| `document`                                                                                                                                                                 | This property has information related to the document.                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `object`This property has a sub-property called<br>`fieldMappings`.                                                                                                                                                                                                                                                                           | Yes      |
-| `fieldMappings`                                                                                                                                                            | This property has information related to the document.                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `array`This property has the following<br>sub-properties.<br>• `indexFieldName`<br>• `indexFieldType`<br>• `dataSourceFieldName`                                                                                                                                                                                                              | Yes      |
-| `indexFieldName`                                                                                                                                                           | The name of the index field. This is a sub-property for the<br>`fieldMappings`.                                                                                                                                                                                                                                                                                                                                                                                                                           | `string`                                                                                                                                                                                                                                                                                                                                      | Yes      |
-| `indexFieldType`                                                                                                                                                           | The type of the index field. This is a sub-property for the<br>`fieldMappings`.                                                                                                                                                                                                                                                                                                                                                                                                                           | `string`<br>The only allowed value is `STRING`.                                                                                                                                                                                                                                                                                               | Yes      |
-| `dataSourceFieldName`                                                                                                                                                      | The field name of the data source. This is a sub-property for the<br>`fieldMappings`.                                                                                                                                                                                                                                                                                                                                                                                                                     | `string`                                                                                                                                                                                                                                                                                                                                      | Yes      |
-| `additionalProperties`                                                                                                                                                     | Additional configuration options for your content in your data<br>source.                                                                                                                                                                                                                                                                                                                                                                                                                                 | `object`This property has the following<br>sub-properties that are not required<br>• `aclConfigurationFilePath`<br>• `metadataFilesPrefix`.<br>• `maxFileSizeInMegaBytes`<br>• `inclusionPatterns`<br>• `exclusionPatterns`<br>• `inclusionPrefixes`<br>• `exclusionPrefixes`                                                                 | No       |
-| `aclConfigurationFilePath`                                                                                                                                                 | The path to the file that controls access control information for your<br>documents in an Amazon Q index. This is a sub-property of<br>`additionalProperties`.                                                                                                                                                                                                                                                                                                                                            | `string`                                                                                                                                                                                                                                                                                                                                      | No       |
-| `metadataFilesPrefix`                                                                                                                                                      | The location, in your Amazon S3 bucket, of your document metadata<br>files. This is a sub-property of `additionalProperties`.                                                                                                                                                                                                                                                                                                                                                                             | `string`                                                                                                                                                                                                                                                                                                                                      | No       |
-| `maxFileSizeInMegaBytes`                                                                                                                                                   | Specify the maximum single file size limit in MBs that Amazon Q will crawl.<br>Amazon Q will crawl only the files within the size limit you define. The<br>default file size is 50MB. The maximum file size should be greater than 0MB and less<br>than or equal to 50MB. You can go up to 10 GB (10240 MB) if you enable *_Video<br>files_<br>• in *_Multi-media content_<br>• configuration, and up<br>to 2 GB (2048 MB) if you enable *_Audio files_<br>• in<br>**Multi-media content configuration**. | `string`<br>You can enter a value between `0` and<br>`10240`.                                                                                                                                                                                                                                                                                 | No       |
-| All of these following are sub-properties of<br>`additionalProperties`<br>• `inclusionPatterns`<br>• `exclusionPatterns`<br>• `inclusionPrefixes`<br>• `exclusionPrefixes` | A list of regular expression patterns to include or exclude specific files in<br>your Amazon S3 data source. Files that match the patterns are included in the<br>index. Files that don't match the patterns are excluded from the index. If a file<br>matches both an inclusion and exclusion pattern, the exclusion pattern takes<br>precedence and the file isn't included in the index.                                                                                                               | `array`                                                                                                                                                                                                                                                                                                                                       | No       |
-| `version`                                                                                                                                                                  | The version of the template that's supported.                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `string`<br>The default value is `1.0.0`.                                                                                                                                                                                                                                                                                                     | No       |
+
+| Configuration | Description | Type | Required | 
+| --- | --- | --- | --- | 
+| `type` | The type of data source. Specify `S3` as your data source type. | `string`<br />The only allowed value is `S3`. | Yes | 
+| `syncMode` | Specify whether Amazon Q should update your index by syncing all documents or only new, modified, and deleted documents. | `string`<br />You can choose from the following options: +  Use `FORCED_FULL_CRAWL` to freshly re-crawl all content and replace existing content each time your data source syncs with your index <br />+  Use `FULL_CRAWL` to incrementally crawl only new, modified, and deleted content each time your data source syncs with your index  | Yes | 
+| `connectionConfiguration` | Configuration information for the endpoint for the data source. | `object`<br />This property has a sub-property called `repositoryEndpointMetadata`. | Yes | 
+| `repositoryEndpointMetadata` | This is the endpoint information for the data source. This is a sub-property for the `connectionConfiguration`. | `object`<br />This property has a sub-property called `BucketName`. | Yes | 
+| `BucketName` | The name of your Amazon S3 bucket. This is a sub-property for the `repositoryEndpointMetadata`. | `string` | Yes | 
+| `repositoryConfigurations` | Configuration information for the content of the data source. For example, configuring specific types of content and field mappings. | `object`<br />This property has a sub-property called `document`. | Yes | 
+| `document` | This property has information related to the document. | `object`<br />This property has a sub-property called `fieldMappings`. | Yes | 
+| `fieldMappings` | This property has information related to the document. | `array`<br />This property has the following sub-properties.+  `indexFieldName` <br />+  `indexFieldType` <br />+  `dataSourceFieldName`  | Yes | 
+| `indexFieldName` | The name of the index field. This is a sub-property for the `fieldMappings`. | `string` | Yes | 
+| `indexFieldType` | The type of the index field. This is a sub-property for the `fieldMappings`. | `string`<br />The only allowed value is `STRING`. | Yes | 
+| `dataSourceFieldName` | The field name of the data source. This is a sub-property for the `fieldMappings`. | `string` | Yes | 
+| `additionalProperties` | Additional configuration options for your content in your data source. | `object`<br />This property has the following sub-properties that are not required+  `aclConfigurationFilePath` <br />+  `metadataFilesPrefix`. <br />+  `maxFileSizeInMegaBytes` <br />+  `inclusionPatterns` <br />+  `exclusionPatterns` <br />+  `inclusionPrefixes` <br />+  `exclusionPrefixes`  | No | 
+| `aclConfigurationFilePath` | The path to the file that controls access control information for your documents in an Amazon Q index. This is a sub-property of `additionalProperties`. | `string` | No | 
+| `metadataFilesPrefix` | The location, in your Amazon S3 bucket, of your document metadata files. This is a sub-property of `additionalProperties`. | `string` | No | 
+| `maxFileSizeInMegaBytes` | Specify the maximum single file size limit in MBs that Amazon Q will crawl. Amazon Q will crawl only the files within the size limit you define. <br />The default file size is 50MB. The maximum file size should be greater than 0MB and less than or equal to 50MB. You can go up to 10 GB (10240 MB) if you enable **Video files** in **Multi-media content** configuration, and up to 2 GB (2048 MB) if you enable **Audio files** in **Multi-media content configuration**. | `string`<br />You can enter a value between `0 ` and `10240`. | No | 
+| All of these following are sub-properties of `additionalProperties`+  `inclusionPatterns` <br />+  `exclusionPatterns` <br />+  `inclusionPrefixes` <br />+  `exclusionPrefixes`  | A list of regular expression patterns to include or exclude specific files in your Amazon S3 data source. Files that match the patterns are included in the index. Files that don't match the patterns are excluded from the index. If a file matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the file isn't included in the index. | `array` | No | 
+| `version` | The version of the template that's supported. | `string`<br />The default value is `1.0.0`. | No | 
 
 ## Amazon S3 JSON schema for using the configuration property with AWS CloudFormation
+<a name="s3-cfn-json"></a>
 
-The following is the Amazon S3 JSON schema and examples for the configuration
-property for AWS CloudFormation.
+The following is the Amazon S3 JSON schema and examples for the configuration property for AWS CloudFormation.
 
-###### Topics
-
-- [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-cfn-json-schema "#s3-cfn-json-schema")
-- [Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation](#s3-cfn-json-example "#s3-cfn-json-example")
+**Topics**
++ [Amazon S3 JSON schema for using the configuration property with AWS CloudFormation](#s3-cfn-json-schema)
++ [Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation](#s3-cfn-json-example)
 
 ### Amazon S3 JSON schema for using the configuration property with AWS CloudFormation
+<a name="s3-cfn-json-schema"></a>
 
-The following is the Amazon S3 JSON schema for the configuration property for
-CloudFormation.
+The following is the Amazon S3 JSON schema for the configuration property for CloudFormation.
 
 ```
 {
@@ -181,12 +179,10 @@ CloudFormation.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ### Amazon S3 JSON schema example for using the configuration property with AWS CloudFormation
+<a name="s3-cfn-json-example"></a>
 
-The following is the Amazon S3 JSON example for the Configuration property for
-CloudFormation.
+The following is the Amazon S3 JSON example for the Configuration property for CloudFormation.
 
 ```
 {
@@ -235,22 +231,19 @@ CloudFormation.
 }
 ```
 
-[Show moreShow less](# "#")
-
 ## Amazon S3 YAML schema for using the configuration property with AWS CloudFormation
+<a name="s3-cfn-yaml"></a>
 
-The following is the Amazon S3 YAML schema and examples for the configuration
-property for AWS CloudFormation:
+The following is the Amazon S3 YAML schema and examples for the configuration property for AWS CloudFormation:
 
-###### Topics
-
-- [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-cfn-yaml-schema "#s3-cfn-yaml-schema")
-- [Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation](#s3-cfn-yaml-example "#s3-cfn-yaml-example")
+**Topics**
++ [Amazon S3 YAML schema for using the configuration property with AWS CloudFormation](#s3-cfn-yaml-schema)
++ [Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation](#s3-cfn-yaml-example)
 
 ### Amazon S3 YAML schema for using the configuration property with AWS CloudFormation
+<a name="s3-cfn-yaml-schema"></a>
 
-The following is the Amazon S3 YAML schema for the configuration property for
-CloudFormation.
+The following is the Amazon S3 YAML schema for the configuration property for CloudFormation.
 
 ```
 type: object
@@ -340,12 +333,10 @@ required:
   - repositoryConfigurations
 ```
 
-[Show moreShow less](# "#")
-
 ### Amazon S3 YAML schema example for using the configuration property with AWS CloudFormation
+<a name="s3-cfn-yaml-example"></a>
 
-The following is the Amazon S3 YAML example for the Configuration property for
-CloudFormation:
+The following is the Amazon S3 YAML example for the Configuration property for CloudFormation:
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -384,5 +375,3 @@ Resources:
           metadataFilesPrefix: "/metadata/"
           maxFileSizeInMegaBytes: "50"
 ```
-
-[Show moreShow less](# "#")

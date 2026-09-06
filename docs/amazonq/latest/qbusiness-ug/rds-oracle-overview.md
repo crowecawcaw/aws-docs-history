@@ -1,21 +1,28 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Amazon RDS (Oracle) connector overview
+<a name="rds-oracle-overview"></a>
 
-The following table gives an overview of the Amazon Q Business
-Amazon RDS (Oracle) connector and its supported features.
+The following table gives an overview of the Amazon Q Business Amazon RDS (Oracle) connector and its supported features.
 
-| Category                                                                                                                                   | Feature                                                                                                                                                                                                                                                                                       | Support |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| **Security**                                                                                                                               | **Authentication type**                                                                                                                                                                                                                                                                       | Basic   |
-| **Authentication credentials**                                                                                                             | • Username of database user<br>• Password of database user                                                                                                                                                                                                                                    |
-| **[Access Control List (ACL)](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization")<br>crawling** | Yes.<br>For more information, see [ACL crawling](rds-oracle-user-management.md "rds-oracle-user-management.md").                                                                                                                                                                              |
-| **Driver version**                                                                                                                         | Oracle – 21.1.0.0                                                                                                                                                                                                                                                                             |
-| **Data source version**                                                                                                                    | Oracle Database 12c, 19c, 21c                                                                                                                                                                                                                                                                 |
-| **[Identity<br>crawling](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler")**            | No                                                                                                                                                                                                                                                                                            |
-| **[VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc")**                                                       | Yes                                                                                                                                                                                                                                                                                           |
-| **Crawl features**                                                                                                                         | **Custom metadata**                                                                                                                                                                                                                                                                           | Yes     |
-| **Entities**                                                                                                                               | Yes. The following entities are supported:<br>• Document<br>NoteEach database row is considered an individual<br>searchable Amazon Q document.<br>See [What is a document?](connector-doc-crawl.md "connector-doc-crawl.md") for more<br>details on what each connector crawls as a document. |
-| **[Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings")**                      | Yes. Supports both default and custom field mappings. For more<br>information, see [Field mappings](rds-oracle-field-mappings.md "rds-oracle-field-mappings.md").                                                                                                                             |
-| **[Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode")**                                     | Supports full and incremental sync.                                                                                                                                                                                                                                                           |
-| **[File types](doc-types.md "doc-types.md")**                                                                                              | Supports all files supported by Amazon Q.                                                                                                                                                                                                                                                     |
+
+
+
+- ****Security****
+  - **Feature:** Authentication type / **Support:** Basic
+  - **Feature:** Authentication credentials / **Support:** +  Username of database user <br />+  Password of database user 
+  - **Feature:** [Access Control List (ACL)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-authorization) crawling / **Support:** Yes. For more information, see [ACL crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/rds-oracle-user-management.html).
+  - **Feature:** Driver version / **Support:** Oracle – 21.1.0.0
+  - **Feature:** Data source version / **Support:** Oracle Database 12c, 19c, 21c
+  - **Feature:** [Identity crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-identity-crawler) / **Support:** No
+  - **Feature:** [VPC](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-vpc) / **Support:** Yes
+
+- ****Crawl features****
+  - **Feature:** Custom metadata / **Support:** Yes
+  - **Feature:** Entities / **Support:** Yes. The following entities are supported: +  Document  Each database row is considered an individual searchable Amazon Q document.  See [What is a document?](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-doc-crawl.html) for more details on what each connector crawls as a document.
+  - **Feature:** [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-field-mappings) / **Support:** Yes. Supports both default and custom field mappings. For more information, see [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/rds-oracle-field-mappings).
+  - **Feature:** [Sync mode](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-sync-mode) / **Support:** Supports full and incremental sync.
+  - **Feature:** [File types](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html) / **Support:** Supports all files supported by Amazon Q.
+

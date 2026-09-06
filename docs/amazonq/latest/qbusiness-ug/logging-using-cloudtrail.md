@@ -1,235 +1,186 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Logging Amazon Q Business API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon Q Business is integrated with AWS CloudTrail, a service that provides a record of
-actions taken by a user, role, or an AWS service in Amazon Q Business. CloudTrail captures all
-API calls for Amazon Q Business as events. The calls captured include calls from the
-Amazon Q console and code calls to the Amazon Q Business API operations. A
-_trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. If you create
-a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events
-for Amazon Q Business. If you don't configure a trail, you can still view the most recent
-events in the CloudTrail console in **Event history**. Using the information
-collected by CloudTrail, you can determine the request that was made to Amazon Q Business, the
-IP address from which the request was made, who made the request, when it was made, and
-additional details.
+Amazon Q Business is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Q Business. CloudTrail captures all API calls for Amazon Q Business as events. The calls captured include calls from the Amazon Q console and code calls to the Amazon Q Business API operations. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Q Business. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Amazon Q Business, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-For more information about CloudTrail, including how to configure and activate it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+For more information about CloudTrail, including how to configure and activate it, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Amazon Q Business information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is activated on your AWS account when you create the account. When activity occurs
-in Amazon Q Business, that activity is recorded in a CloudTrail event along with other
-AWS service events in **Event history**. You can view, search, and download
-recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+CloudTrail is activated on your AWS account when you create the account. When activity occurs in Amazon Q Business, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*.
 
-For an ongoing record of events in your AWS account, including events for Amazon Q, create a trail. A _trail_ enables CloudTrail to deliver log files
-to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers
-the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other
-AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more
-information, see the following topics:
-
-- [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+For an ongoing record of events in your AWS account, including events for Amazon Q, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following topics:
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
 ## Control plane events in CloudTrail
+<a name="service-name-control-plane-events-cloudtrail"></a>
 
-CloudTrail supports logging the following Amazon Q Business actions documented in the
-[Amazon Q Business API Reference](../api-reference/Welcome.md "../api-reference/Welcome.md"):
+CloudTrail supports logging the following Amazon Q Business actions documented in the [Amazon Q Business API Reference](https://docs.aws.amazon.com/amazonq/latest/api-reference/Welcome.html):
++ [CreateApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateApplication.html)
++ [DeleteApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteApplication.html)
++ [GetApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetApplication.html)
++ [ListApplications](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListApplications.html)
++ [UpdateApplication](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateApplication.html)
++ [DeleteChatControlsConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteChatControlsConfiguration.html)
++ [GetChatControlsConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetChatControlsConfiguration.html)
++ [UpdateChatControlsConfiguration](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateChatControlsConfiguration.html)
++ [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateApplication.html)
++ [DeleteDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteDataSource.html)
++ [GetDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataSources.html)
++ [ListDataSources](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataSources.html)
++ [UpdateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateDataSource.html)
++ [CreateWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateWebExperience.html)
++ [DeleteWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteWebExperience.html)
++ [ListWebExperiences](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListTagsForResource.html)
++ [UpdateWebExperience](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateWebExperience.html)
++ [CreateIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateIndex.html)
++ [DeleteIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteIndex.html)
++ [GetIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetIndex.html)
++ [ListIndices](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListIndices.html)
++ [UpdateIndex](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html)
++ [CreatePlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreatePlugin.html)
++ [DeletePlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteIndex.html)
++ [GetPlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetPlugin.html)
++ [ListPlugins](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetPlugin.html)
++ [UpdatePlugin](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html)
++ [CreateRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreatePlugin.html)
++ [DeleteRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteRetriever.html)
++ [GetRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetRetriever.html)
++ [ListRetrievers](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListRetrievers.html)
++ [UpdateRetriever](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateRetriever.html)
++ [ListTagsForResource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListTagsForResource.html)
++ [TagResource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_TagResource.html)
++ [UntagResource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_TagResource.html)
 
-- [CreateApplication](../api-reference/API_CreateApplication.md "../api-reference/API_CreateApplication.md")
-- [DeleteApplication](../api-reference/API_DeleteApplication.md "../api-reference/API_DeleteApplication.md")
-- [GetApplication](../api-reference/API_GetApplication.md "../api-reference/API_GetApplication.md")
-- [ListApplications](../api-reference/API_ListApplications.md "../api-reference/API_ListApplications.md")
-- [UpdateApplication](../api-reference/API_UpdateApplication.md "../api-reference/API_UpdateApplication.md")
-- [DeleteChatControlsConfiguration](../api-reference/API_DeleteChatControlsConfiguration.md "../api-reference/API_DeleteChatControlsConfiguration.md")
-- [GetChatControlsConfiguration](../api-reference/API_GetChatControlsConfiguration.md "../api-reference/API_GetChatControlsConfiguration.md")
-- [UpdateChatControlsConfiguration](../api-reference/API_UpdateChatControlsConfiguration.md "../api-reference/API_UpdateChatControlsConfiguration.md")
-- [CreateDataSource](../api-reference/API_CreateApplication.md "../api-reference/API_CreateApplication.md")
-- [DeleteDataSource](../api-reference/API_DeleteDataSource.md "../api-reference/API_DeleteDataSource.md")
-- [GetDataSource](../api-reference/API_ListDataSources.md "../api-reference/API_ListDataSources.md")
-- [ListDataSources](../api-reference/API_ListDataSources.md "../api-reference/API_ListDataSources.md")
-- [UpdateDataSource](../api-reference/API_UpdateDataSource.md "../api-reference/API_UpdateDataSource.md")
-- [CreateWebExperience](../api-reference/API_CreateWebExperience.md "../api-reference/API_CreateWebExperience.md")
-- [DeleteWebExperience](../api-reference/API_DeleteWebExperience.md "../api-reference/API_DeleteWebExperience.md")
-- [ListWebExperiences](../api-reference/API_ListTagsForResource.md "../api-reference/API_ListTagsForResource.md")
-- [UpdateWebExperience](../api-reference/API_UpdateWebExperience.md "../api-reference/API_UpdateWebExperience.md")
-- [CreateIndex](../api-reference/API_CreateIndex.md "../api-reference/API_CreateIndex.md")
-- [DeleteIndex](../api-reference/API_DeleteIndex.md "../api-reference/API_DeleteIndex.md")
-- [GetIndex](../api-reference/API_GetIndex.md "../api-reference/API_GetIndex.md")
-- [ListIndices](../api-reference/API_ListIndices.md "../api-reference/API_ListIndices.md")
-- [UpdateIndex](../api-reference/API_UpdateIndex.md "../api-reference/API_UpdateIndex.md")
-- [CreatePlugin](../api-reference/API_CreatePlugin.md "../api-reference/API_CreatePlugin.md")
-- [DeletePlugin](../api-reference/API_DeleteIndex.md "../api-reference/API_DeleteIndex.md")
-- [GetPlugin](../api-reference/API_GetPlugin.md "../api-reference/API_GetPlugin.md")
-- [ListPlugins](../api-reference/API_GetPlugin.md "../api-reference/API_GetPlugin.md")
-- [UpdatePlugin](../api-reference/API_UpdateIndex.md "../api-reference/API_UpdateIndex.md")
-- [CreateRetriever](../api-reference/API_CreatePlugin.md "../api-reference/API_CreatePlugin.md")
-- [DeleteRetriever](../api-reference/API_DeleteRetriever.md "../api-reference/API_DeleteRetriever.md")
-- [GetRetriever](../api-reference/API_GetRetriever.md "../api-reference/API_GetRetriever.md")
-- [ListRetrievers](../api-reference/API_ListRetrievers.md "../api-reference/API_ListRetrievers.md")
-- [UpdateRetriever](../api-reference/API_UpdateRetriever.md "../api-reference/API_UpdateRetriever.md")
-- [ListTagsForResource](../api-reference/API_ListTagsForResource.md "../api-reference/API_ListTagsForResource.md")
-- [TagResource](../api-reference/API_TagResource.md "../api-reference/API_TagResource.md")
-- [UntagResource](../api-reference/API_TagResource.md "../api-reference/API_TagResource.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md") in the _AWS CloudTrail User Guide_.
+For more information, see [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html) in the *AWS CloudTrail User Guide*.
 
 ## Data plane events in CloudTrail
+<a name="service-name-data-plane-events-cloudtrail"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
-resource (for example, reading or writing to an Amazon S3 object). These are also known as
-_data plane operations_. By default, CloudTrail doesn't log data
-events.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, reading or writing to an Amazon S3 object). These are also known as *data plane operations*. By default, CloudTrail doesn't log data events.
 
-The following table shows the Amazon Q Business API operations logged to CloudTrail as
-_data events_. The **Data event type
-(console)** column shows the appropriate selection in the CloudTrail console. The
-**Amazon Q Business resource types** column shows the
-`resources.type` value that you would specify to log data events for the
-resource.
+The following table shows the Amazon Q Business API operations logged to CloudTrail as *data events*. The **Data event type (console)** column shows the appropriate selection in the CloudTrail console. The **Amazon Q Business resource types** column shows the `resources.type` value that you would specify to log data events for the resource.
 
-| Data event type (console)           | Amazon Q Business resource types | Supported data events                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Amazon Q Business application**   | `AWS::QBusiness::Application`    | • [ListDataSourceSyncJobs](../api-reference/API_ListDataSourceSyncJobs.md "../api-reference/API_ListDataSourceSyncJobs.md")<br>• [StartDataSourceSyncJob](../api-reference/API_StartDataSourceSyncJob.md "../api-reference/API_StartDataSourceSyncJob.md")<br>• [StopDataSourceSyncJob](../api-reference/API_StartDataSourceSyncJob.md "../api-reference/API_StartDataSourceSyncJob.md")<br>• [BatchPutDocument](../api-reference/API_BatchPutDocument.md "../api-reference/API_BatchPutDocument.md")<br>• [BatchDeleteDocument](../api-reference/API_BatchDeleteDocument.md "../api-reference/API_BatchDeleteDocument.md")<br>• [PutFeedback](../api-reference/API_PutFeedback.md "../api-reference/API_PutFeedback.md")<br>• [ChatSync](../api-reference/API_ChatSync.md "../api-reference/API_ChatSync.md")<br>• [Chat](../api-reference/API_Chat.md "../api-reference/API_Chat.md")<br>• [DeleteConversation](../api-reference/API_DeleteConversation.md "../api-reference/API_DeleteConversation.md")<br>• [ListConversations](../api-reference/API_ListConversations.md "../api-reference/API_ListConversations.md")<br>• [ListMessages](../api-reference/API_ListMessages.md "../api-reference/API_ListMessages.md")<br>• [ListGroups](../api-reference/API_ListGroups.md "../api-reference/API_ListGroups.md")<br>• [DeleteGroup](../api-reference/API_DeleteGroup.md "../api-reference/API_DeleteGroup.md")<br>• [GetGroup](../api-reference/API_GetGroup.md "../api-reference/API_GetGroup.md")<br>• [PutGroup](../api-reference/API_PutGroup.md "../api-reference/API_PutGroup.md")<br>• [CreateUser](../api-reference/API_CreateUser.md "../api-reference/API_CreateUser.md")<br>• [DeleteUser](../api-reference/API_DeleteUser.md "../api-reference/API_DeleteUser.md")<br>• [GetUser](../api-reference/API_GetUser.md "../api-reference/API_GetUser.md")<br>• [UpdateUser](../api-reference/API_UpdateUser.md "../api-reference/API_UpdateUser.md")<br>• [ListDocuments](../api-reference/API_ListDocuments.md "../api-reference/API_ListDocuments.md") |
-| **Amazon Q Business data resource** | `AWS::QBusiness::DataSource`     | • [ListDataSourceSyncJobs](../api-reference/API_ListDataSourceSyncJobs.md "../api-reference/API_ListDataSourceSyncJobs.md")<br>• [StartDataSourceSyncJob](../api-reference/API_StartDataSourceSyncJob.md "../api-reference/API_StartDataSourceSyncJob.md")<br>• [StopDataSourceSyncJob](../api-reference/API_StartDataSourceSyncJob.md "../api-reference/API_StartDataSourceSyncJob.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Amazon Q Business index**         | `AWS::QBusiness::Index`          | • [DeleteGroup](../api-reference/API_DeleteGroup.md "../api-reference/API_DeleteGroup.md")<br>• [GetGroup](../api-reference/API_GetGroup.md "../api-reference/API_GetGroup.md")<br>• [PutGroup](../api-reference/API_PutGroup.md "../api-reference/API_PutGroup.md")<br>• [ListGroups](../api-reference/API_ListGroups.md "../api-reference/API_ListGroups.md")<br>• [ListDocuments](../api-reference/API_ListDocuments.md "../api-reference/API_ListDocuments.md")<br>• [BatchPutDocument](../api-reference/API_BatchPutDocument.md "../api-reference/API_BatchPutDocument.md")<br>• [BatchDeleteDocument](../api-reference/API_BatchDeleteDocument.md "../api-reference/API_BatchDeleteDocument.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-You can log these API operations by configuring advanced event selectors to record data
-events for the Amazon Q Business resource types:
-`AWS::QBusiness::Application`, `AWS::QBusiness::DataSource`, and
-`AWS::QBusiness::Index`. To configure advanced event selectors, you can use
-either the CloudTrail console or the AWS CLI:
+| Data event type (console) | Amazon Q Business resource types | Supported data events | 
+| --- | --- | --- | 
+| Amazon Q Business application |  AWS::QBusiness::Application  |  +  [ListDataSourceSyncJobs](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataSourceSyncJobs.html) <br />+  [StartDataSourceSyncJob](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartDataSourceSyncJob.html) <br />+  [StopDataSourceSyncJob](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartDataSourceSyncJob.html) <br />+  [BatchPutDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html) <br />+  [BatchDeleteDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchDeleteDocument.html) <br />+  [PutFeedback](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PutFeedback.html) <br />+  [ChatSync](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ChatSync.html) <br />+  [Chat](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_Chat.html) <br />+  [DeleteConversation](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteConversation.html) <br />+  [ListConversations](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListConversations.html) <br />+  [ListMessages](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListMessages.html) <br />+  [ListGroups](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListGroups.html) <br />+  [DeleteGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteGroup.html) <br />+  [GetGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetGroup.html) <br />+  [PutGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PutGroup.html) <br />+  [CreateUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateUser.html) <br />+  [DeleteUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteUser.html) <br />+  [GetUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetUser.html) <br />+  [UpdateUser](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateUser.html) <br />+  [ListDocuments](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDocuments.html)   | 
+| Amazon Q Business data resource |  AWS::QBusiness::DataSource  |  +  [ListDataSourceSyncJobs](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDataSourceSyncJobs.html) <br />+  [StartDataSourceSyncJob](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartDataSourceSyncJob.html) <br />+  [StopDataSourceSyncJob](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_StartDataSourceSyncJob.html)   | 
+| Amazon Q Business index |  AWS::QBusiness::Index  |  +  [DeleteGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DeleteGroup.html) <br />+  [GetGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_GetGroup.html) <br />+  [PutGroup](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_PutGroup.html) <br />+  [ListGroups](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListGroups.html) <br />+  [ListDocuments](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_ListDocuments.html) <br />+  [BatchPutDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html) <br />+  [BatchDeleteDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchDeleteDocument.html)   | 
 
-- From the CloudTrail console, choose the **Data event type** for which you
-  want to log data events. Additionally, you can filter on the `eventName` and
-  `resources.ARN` fields by choosing a custom log selector template. For more
-  information, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") in the _AWS CloudTrail
-  User Guide_.
-- From the AWS CLI, specify the `resources.type` value for which you want to
-  log data events and set the `eventCategory` equal to `Data`. For
-  more information, see [Logging data events with the AWS CLI](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the _AWS CloudTrail
-  User Guide_.
+You can log these API operations by configuring advanced event selectors to record data events for the Amazon Q Business resource types: `AWS::QBusiness::Application`, `AWS::QBusiness::DataSource`, and `AWS::QBusiness::Index`. To configure advanced event selectors, you can use either the CloudTrail console or the AWS CLI:
++ From the CloudTrail console, choose the **Data event type** for which you want to log data events. Additionally, you can filter on the `eventName` and `resources.ARN` fields by choosing a custom log selector template. For more information, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events-console) in the *AWS CloudTrail User Guide*.
++ From the AWS CLI, specify the `resources.type` value for which you want to log data events and set the `eventCategory` equal to `Data`. For more information, see [ Logging data events with the AWS CLI](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI) in the *AWS CloudTrail User Guide*.
 
-The following example shows how to configure a trail to log all Amazon Q Business data events for all Amazon Q Business resource types.
+  The following example shows how to configure a trail to log all Amazon Q Business data events for all Amazon Q Business resource types.
 
-```
-aws cloudtrail put-event-selectors --trail-name `trailName` \
---advanced-event-selectors \
-'[
-  {
-    "Name": "Log all data events on an Amazon Q Business application",
-    "FieldSelectors": [
-      { "Field": "eventCategory", "Equals": ["Data"] },
-      { "Field": "resources.type", "Equals": ["AWS::QBusiness::Application"] }
-    ]
-  },
-  {
-    "Name": "Log all data events on an Amazon Q Business data source",
-    "FieldSelectors": [
-      { "Field": "eventCategory", "Equals": ["Data"] },
-      { "Field": "resources.type", "Equals": ["AWS::QBusiness::DataSource"] }
-    ]
-  },
-  {
-    "Name": "Log all data events on an Amazon Q Business index",
-    "FieldSelectors": [
-      { "Field": "eventCategory", "Equals": ["Data"] },
-      { "Field": "resources.type", "Equals": ["AWS::QBusiness::Index"] }
-    ]
-  }
-]'
-```
+  ```
+  aws cloudtrail put-event-selectors --trail-name {{trailName}} \
+  --advanced-event-selectors \
+  '[
+    {
+      "Name": "Log all data events on an Amazon Q Business application",
+      "FieldSelectors": [
+        { "Field": "eventCategory", "Equals": ["Data"] },
+        { "Field": "resources.type", "Equals": ["AWS::QBusiness::Application"] }
+      ]
+    },
+    {
+      "Name": "Log all data events on an Amazon Q Business data source",
+      "FieldSelectors": [
+        { "Field": "eventCategory", "Equals": ["Data"] },
+        { "Field": "resources.type", "Equals": ["AWS::QBusiness::DataSource"] }
+      ]
+    },
+    {
+      "Name": "Log all data events on an Amazon Q Business index",
+      "FieldSelectors": [
+        { "Field": "eventCategory", "Equals": ["Data"] },
+        { "Field": "resources.type", "Equals": ["AWS::QBusiness::Index"] }
+      ]
+    }
+  ]'
+  ```
 
-You can additionally filter on the `eventName` and
-`resources.ARN` fields. For more information about configuring these fields,
-see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API
-Reference_.
+  You can additionally filter on the `eventName` and `resources.ARN` fields. For more information about configuring these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see
-[AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
 ## Amazon Q Business management events in CloudTrail
+<a name="service-name-management-events-cloudtrail"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are
-performed on resources in your AWS account. These management events are also known as
-_control plane operations_. CloudTrail logs management event API
-operations by default.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These management events are also known as *control plane operations*. CloudTrail logs management event API operations by default.
 
-Amazon Q Business logs the remainder of Amazon Q Business API operations as
-management events. For a list of the Amazon Q Business API operations that Amazon Q logs to CloudTrail, see the [Amazon Q Business API
-Reference](../api-reference/Welcome.md "../api-reference/Welcome.md").
+Amazon Q Business logs the remainder of Amazon Q Business API operations as management events. For a list of the Amazon Q Business API operations that Amazon Q logs to CloudTrail, see the [Amazon Q Business API Reference](https://docs.aws.amazon.com/amazonq/latest/api-reference/Welcome.html).
 
 ## Understanding Amazon Q Business log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateApplication` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateApplication` action.
 
 ```
 {
     "eventVersion": "1.08",
     "userIdentity": {
-        "type": "`AssumedRole`",
-        "principalId": "`principal ID`",
-        "arn": "`ARN`",
-        "accountId": "`account ID`",
-        "accessKeyId": "`access key ID`",
+        "type": "{{AssumedRole}}",
+        "principalId": "{{principal ID}}",
+        "arn": "{{ARN}}",
+        "accountId": "{{account ID}}",
+        "accessKeyId": "{{access key ID}}",
         "sessionContext": {
             "sessionIssuer": {
                 "type": "Role",
-                "principalId": "`principal ID`",
-                "arn": "`ARN`",
-                "accountId": "`account ID`",
-                "userName": "`user name`"
+                "principalId": "{{principal ID}}",
+                "arn": "{{ARN}}",
+                "accountId": "{{account ID}}",
+                "userName": "{{user name}}"
             },
             "webIdFederationData": {},
             "attributes": {
-                "creationDate": "`yyyy-mm-ddThh:mm:ssZ`",
+                "creationDate": "{{yyyy-mm-ddThh:mm:ssZ}}",
                 "mfaAuthenticated": "false"
             }
         }
     },
-    "eventTime": "`yyyy-mm-ddThh:mm:ssZ`",
+    "eventTime": "{{yyyy-mm-ddThh:mm:ssZ}}",
     "eventSource": "qbusiness.amazonaws.com",
-    "eventName": "`CreateApplication`",
-    "awsRegion": "`region`",
-    "sourceIPAddress": "`region`",
-    "userAgent": "`user agent`",
+    "eventName": "{{CreateApplication}}",
+    "awsRegion": "{{region}}",
+    "sourceIPAddress": "{{region}}",
+    "userAgent": "{{user agent}}",
     "requestParameters": {
-        "name": "`name`",
-        "roleArn": "`description`",
-        "clientToken": "`client token`"
+        "name": "{{name}}",
+        "roleArn": "{{description}}",
+        "clientToken": "{{client token}}"
     },
     "responseElements": {
-        "applicationId": "`application ID`"
+        "applicationId": "{{application ID}}"
     },
-    "requestID": "`request ID`",
-    "eventID": "`event ID`",
+    "requestID": "{{request ID}}",
+    "eventID": "{{event ID}}",
     "readOnly": false,
     "eventType": "AwsApiCall",
     "managementEvent": true,
-    "recipientAccountId": "`account ID`",
+    "recipientAccountId": "{{account ID}}",
     "eventCategory": "Management",
     "tlsDetails": {
-        "tlsVersion": "`TLS version`",
-        "cipherSuite":  "`cipher suite`",
+        "tlsVersion": "{{TLS version}}",
+        "cipherSuite":  "{{cipher suite}}",
         "clientProvidedHostHeader": "qbusiness.us-west-2.api.aws"
     }
 }

@@ -1,170 +1,145 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Using basic operations for Amazon Q Business document enrichment
+<a name="cde-basic-operations"></a>
 
-With document enrichment, you can use basic operations to manipulate document
-attributes. For example, you can remove document attribute values, modify attribute
-values using conditions, or create document attributes.
+With document enrichment, you can use basic operations to manipulate document attributes. For example, you can remove document attribute values, modify attribute values using conditions, or create document attributes.
 
-###### Note
+**Note**  
+Amazon Q Business can't create a target document attribute field if it isn't already created as an index field. 
 
-Amazon Q Business can't create a target document attribute field if it
-isn't already created as an index field.
-
-###### Topics
-
-- [Basic operations using the Amazon Q Business API](#cde-basic-operations-api "#cde-basic-operations-api")
-- [Basic operations using the Amazon Q Business console](#cde-basic-operations-console "#cde-basic-operations-console")
-- [Use cases for basic operations](#cde-basic-operations-examples "#cde-basic-operations-examples")
-- [Code examples of basic operations](#cde-basic-operations-code-samples "#cde-basic-operations-code-samples")
+**Topics**
++ [Basic operations using the Amazon Q Business API](#cde-basic-operations-api)
++ [Basic operations using the Amazon Q Business console](#cde-basic-operations-console)
++ [Use cases for basic operations](#cde-basic-operations-examples)
++ [Code examples of basic operations](#cde-basic-operations-code-samples)
 
 ## Basic operations using the Amazon Q Business API
+<a name="cde-basic-operations-api"></a>
 
-To apply basic logic, you specify your document attribute configuration using
-the [DocumentAttributeTarget](../api-reference/API_DocumentAttributeTarget.md "../api-reference/API_DocumentAttributeTarget.md") object
-when you use either the [BatchPutDocument](../api-reference/API_BatchPutDocument.md "../api-reference/API_BatchPutDocument.md") API operation or the [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md") operation. Use
-the following parameters to create your configuration:
+To apply basic logic, you specify your document attribute configuration using the [DocumentAttributeTarget](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) object when you use either the [BatchPutDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html) API operation or the [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html) operation. Use the following parameters to create your configuration:
++ `key` – The target field that you want to manipulate. For example, the key `Department` is a field or attribute that holds all the department names associated with the documents. 
++ `value` – The target value for your target attribute.
++ `attributeValueOperator` – To delete an existing target value, set to `DELETE`. The default value for this parameter is `UPDATE`. 
 
-- `key` – The target field that you want to
-  manipulate. For example, the key `Department` is a field or
-  attribute that holds all the department names associated with the
-  documents.
-- `value` – The target value for your target
-  attribute.
-- `attributeValueOperator` – To delete an existing
-  target value, set to `DELETE`. The default value for this
-  parameter is `UPDATE`.
+If a specific condition is met, you can also specify a value to use in the target field. Set the condition using the [DocumentAttributeCondition](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html) object. For example, if the `_source_uri` field contains `financial` in its URI value, you can choose to pre-fill the target field `department` with the target value `finance` for the document.
 
-If a specific condition is met, you can also specify a value to use in the
-target field. Set the condition using the [DocumentAttributeCondition](../api-reference/API_DocumentAttributeCondition.md "../api-reference/API_DocumentAttributeCondition.md")
-object. For example, if the `_source_uri` field contains
-`financial` in its URI value, you can choose to pre-fill the
-target field `department` with the target value `finance`
-for the document.
-
-For more information, see the following topics in the _Amazon Q Business API Reference_:
-
-- [BatchPutDocument](../api-reference/API_BatchPutDocument.md "../api-reference/API_BatchPutDocument.md")
-- [CreateDataSource](../api-reference/API_CreateDataSource.md "../api-reference/API_CreateDataSource.md")
-- [DocumentAttributeTarget](../api-reference/API_DocumentAttributeTarget.md "../api-reference/API_DocumentAttributeTarget.md")
-- [DocumentAttributeCondition](../api-reference/API_DocumentAttributeCondition.md "../api-reference/API_DocumentAttributeCondition.md")
+For more information, see the following topics in the *Amazon Q Business API Reference*:
++ [BatchPutDocument](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html)
++ [CreateDataSource](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html)
++ [DocumentAttributeTarget](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html)
++ [DocumentAttributeCondition](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html)
 
 ## Basic operations using the Amazon Q Business console
+<a name="cde-basic-operations-console"></a>
 
-###### To apply basic logic using the console
+**To apply basic logic using the console**
 
-1. Sign in to the AWS Management Console and open the Amazon Q Business
-   console.
-2. In **Applications**, select the name of your
-   application environment from the list of applications.
-3. From the left navigation menu, choose
-   **Enhancements**, and then choose **Document enrichments**.
-4. In **Document enrichments**, choose **Add
-   document enrichment**.
-5. In **Configure basic operations**, for **Document enrichment source**, choose a data source
-   connected to your application environment.
-6. To apply basic manipulations to your document fields and content, go
-   to **Configure basic operations** .
-7. Choose **Next** to save your configuration.
+1. Sign in to the AWS Management Console and open the Amazon Q Business console.
+
+1. In **Applications**, select the name of your application environment from the list of applications.
+
+1. From the left navigation menu, choose **Enhancements**, and then choose ** Document enrichments**.
+
+1. In **Document enrichments**, choose ** Add document enrichment**.
+
+1. In **Configure basic operations**, for ** Document enrichment source**, choose a data source connected to your application environment.
+
+1. To apply basic manipulations to your document fields and content, go to **Configure basic operations** .
+
+1. Choose **Next** to save your configuration.
 
 ## Use cases for basic operations
+<a name="cde-basic-operations-examples"></a>
 
 This section provides two examples of basic operations.
 
-**Example 1: Removing customer identification numbers
-associated with the documents**
+**Example 1: Removing customer identification numbers associated with the documents**
 
-The following is an example of using a basic operation to remove all customer
-identification numbers in the document field called
-`customer_id`.
+The following is an example of using a basic operation to remove all customer identification numbers in the document field called `customer_id`.
 
-The following table shows the data before basic manipulation is
-applied.
+The following table shows the data before basic manipulation is applied.
 
-| **\_document\_id** | **\_document\_body** | **customer\_id** |
-| ------------------ | -------------------- | ---------------- |
-| 1                  | Example text         | CID1234          |
-| 2                  | Example text         | CID1235          |
-| 3                  | Example text         | CID1236          |
+
+| **\_document\_id** | **\_document\_body** | **customer\_id** | 
+| --- | --- | --- | 
+| 1 | Example text | CID1234 | 
+| 2 | Example text | CID1235 | 
+| 3 | Example text | CID1236 | 
 
 The following table shows the data after basic manipulation is applied.
 
-| **\_document\_id** | **\_document\_body** | **customer\_id** |
-| ------------------ | -------------------- | ---------------- |
-| 1                  | Example text         |                  |
-| 2                  | Example text         |                  |
-| 3                  | Example text         |                  |
 
-**Example 2: Creating and pre-filling the
-Department field with department names associated with
-the documents using a condition**
+| **\_document\_id** | **\_document\_body** | **customer\_id** | 
+| --- | --- | --- | 
+| 1 | Example text |   | 
+| 2 | Example text |   | 
+| 3 | Example text |   | 
 
-The following is an example of using basic logic to create a field called
-`Department` and pre-filling the field with the department names
-based on information from the `_source_uri` field. This example uses
-the condition that, if the `_source_uri` field contains
-`financial` in its URI value, then the target field
-`department` is pre-filled with the target value
-`finance` for the document.
+**Example 2: Creating and pre-filling the Department field with department names associated with the documents using a condition**
 
-The following table shows the data before basic manipulation is
-applied.
+The following is an example of using basic logic to create a field called `Department` and pre-filling the field with the department names based on information from the `_source_uri` field. This example uses the condition that, if the `_source_uri` field contains `financial` in its URI value, then the target field `department` is pre-filled with the target value `finance` for the document.
 
-| **\_document\_id** | **document\_body** | **\_source\_uri** |
-| ------------------ | ------------------ | ----------------- |
-| 1                  | Example text       | financial/1       |
-| 2                  | Example text       | financial/2       |
-| 3                  | Example text       | financial/3       |
+The following table shows the data before basic manipulation is applied.
+
+
+| **\_document\_id** | **document\_body** | **\_source\_uri** | 
+| --- | --- | --- | 
+| 1 | Example text | financial/1 | 
+| 2 | Example text | financial/2 | 
+| 3 | Example text | financial/3 | 
 
 The following table shows the data after basic manipulation is applied.
 
-| **\_document\_id** | **\_document\_body** | **\_source\_uri** | **department** |
-| ------------------ | -------------------- | ----------------- | -------------- |
-| 1                  | Example text         | financial/1       | Finance        |
-| 2                  | Example text         | financial/2       | Finance        |
-| 3                  | Example text         | financial/3       | Finance        |
+
+| **\_document\_id** | **\_document\_body** | **\_source\_uri** | **department** | 
+| --- | --- | --- | --- | 
+| 1 | Example text | financial/1 | Finance | 
+| 2 | Example text | financial/2 | Finance | 
+| 3 | Example text | financial/3 | Finance | 
 
 ## Code examples of basic operations
+<a name="cde-basic-operations-code-samples"></a>
 
-The following instructions give examples of configuring basic data
-manipulation to remove customer identification numbers associated with the
-documents.
+The following instructions give examples of configuring basic data manipulation to remove customer identification numbers associated with the documents.
 
-Console
-**To configure basic data manipulation to
-remove customer identification numbers**
+------
+#### [ Console ]
+
+**To configure basic data manipulation to remove customer identification numbers** 
 
 1. Sign in to the AWS Management Console and open the Amazon Q Business console.
-2. From the left navigation pane, select **Document
-   enrichments** and then select **Add
-   document enrichment**.
-3. On the **Configure basic operations**
-   page, choose from the data source that you want to alter
-   document fields and content in.
-4. Select the document field name
-   **Customer\_ID** from the dropdown menu,
-   and then select the target action
-   **Delete**.
-5. Select **Add basic operation**.
 
-AWS CLI
-**To configure basic data manipulation to
-remove customer identification numbers**
+1. From the left navigation pane, select **Document enrichments** and then select **Add document enrichment**.
+
+1. On the **Configure basic operations** page, choose from the data source that you want to alter document fields and content in. 
+
+1. Select the document field name **Customer\_ID** from the dropdown menu, and then select the target action **Delete**. 
+
+1. Select **Add basic operation**. 
+
+------
+#### [ AWS CLI ]
+
+**To configure basic data manipulation to remove customer identification numbers** 
 
 ```
 aws qbusiness create-data-source \
- --name `data-source-name` \
- --application-id `application-id` \
- --index-id `index-id` \
- --role-arn `arn:aws:iam::account-id:role/role-name` \
+ --name {{data-source-name}} \
+ --application-id {{application-id}} \
+ --index-id {{index-id}} \
+ --role-arn {{arn:aws:iam::account-id:role/role-name}} \
  --type S3 \
- --configuration '{"S3Configuration":{"BucketName":"`S3-bucket-name`"}}' \
+ --configuration '{"S3Configuration":{"BucketName":"{{S3-bucket-name}}"}}' \
  --document-enrichment-configuration '{"InlineDocumentEnrichmentConfiguration":[{"Target":{"key":"Customer_ID", "attributeValueOperator": "DELETE"}}]}'
 ```
 
-Python
-**To configure basic data manipulation to
-remove customer identification numbers**
+------
+#### [ Python ]
+
+**To configure basic data manipulation to remove customer identification numbers** 
 
 ```
 import boto3
@@ -179,7 +154,7 @@ print("Create a data source with customizations")
 # Provide the name of the data source
 name = "data-source-name"
 # Provide the application environment ID for the data source
-application_id = "`application-id`"
+application_id = "{{application-id}}"
 # Provide the index ID for the data source
 index_id = "index-id"
 # Provide the IAM role ARN required for data sources
@@ -264,9 +239,10 @@ except  ClientError as e:
 print("Program ends.")
 ```
 
-Java
-**To configure basic data manipulation to
-remove customer identification numbers**
+------
+#### [ Java ]
+
+**To configure basic data manipulation to remove customer identification numbers** 
 
 ```
 package com.amazonaws.qbusiness;
@@ -296,15 +272,15 @@ public class CreateDataSourceWithCustomizationsExample {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Create a data source with customizations");
-
+        
         String dataSourceName = "data-source-name";
-        String applicationId = "`application-id`";
+        String applicationId = "{{application-id}}";
         String indexId = "index-id";
         String dataSourceRoleArn = "arn:aws:iam::account-id:role/role-name";
         String s3BucketName = "S3-bucket-name"
 
         QBusinessClient qbusiness = QBusinessClient.builder().build();
-
+        
         CreateDataSourceRequest createDataSourceRequest = CreateDataSourceRequest
             .builder()
             .name(dataSourceName)
@@ -337,7 +313,7 @@ public class CreateDataSourceWithCustomizationsExample {
                                     .build())
                             .build()
                     )).build();
-
+        
         CreateDataSourceResponse createDataSourceResponse = qbusiness.createDataSource(createDataSourceRequest);
         System.out.println(String.format("Response of creating data source: %s", createDataSourceResponse));
 
@@ -395,3 +371,5 @@ public class CreateDataSourceWithCustomizationsExample {
     }
 }
 ```
+
+------

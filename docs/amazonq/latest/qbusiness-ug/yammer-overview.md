@@ -1,20 +1,27 @@
-Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](qbusiness-availability-change.md "qbusiness-availability-change.md").
+
+
+Amazon Q Business is no longer open to new customers. For capabilities similar to Q Business, explore Amazon Quick. [Learn more](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/qbusiness-availability-change.html).
 
 # Microsoft Yammer connector overview
+<a name="yammer-overview"></a>
 
-The following table gives an overview of the Microsoft Yammer connector and its
-supported features.
+The following table gives an overview of the Microsoft Yammer connector and its supported features.
 
-| Category                                                                                                                                | Feature                                                                                                                                                                                                                                         | Support                                     |
-| --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
-| **Security**                                                                                                                            | **Authentication type**                                                                                                                                                                                                                         | OAuth 2.0 with Resource Owner Password Flow |
-| **Authentication credentials**                                                                                                          | • Microsoft Yammer username<br>• Microsoft Yammer password<br>• Microsoft Yammer Client ID<br>• Microsoft Yammer Client secret                                                                                                                  |
-| **[Access Control List (ACL)](connector-concepts.md#connector-authorization "connector-concepts.md#connector-authorization") crawling** | Yes. For more information, see [ACL crawling](yammer-user-management.md "yammer-user-management.md").                                                                                                                                           |
-| **[Identity crawling](connector-concepts.md#connector-identity-crawler "connector-concepts.md#connector-identity-crawler")**            | Yes                                                                                                                                                                                                                                             |
-| **[VPC](connector-concepts.md#connector-vpc "connector-concepts.md#connector-vpc")**                                                    | Yes                                                                                                                                                                                                                                             |
-| **Crawl features**                                                                                                                      | **Custom metadata**                                                                                                                                                                                                                             | Yes                                         |
-| **Entities**                                                                                                                            | Yes. The following entities are supported:<br>• Message<br>• Attachment<br>• User<br>• Community<br>See [What is a document?](connector-doc-crawl.md "connector-doc-crawl.md") for more details on what each<br>connector crawls as a document. |
-| **[Field mappings](connector-concepts.md#connector-field-mappings "connector-concepts.md#connector-field-mappings")**                   | Yes. Supports both default and custom field mappings. For more information, see<br>[Field mappings](yammer-field-mappings.md "yammer-field-mappings.md").                                                                                       |
-| **Filters**                                                                                                                             | Yes. The following filters are supported:<br>• Community names<br>• Public messages<br>• Attachments<br>• Inbox private messages<br>• Crawl content beginning from a date<br>• Including and excluding content by file type                     |
-| **[Sync mode](connector-concepts.md#connector-sync-mode "connector-concepts.md#connector-sync-mode")**                                  | Supports full and incremental sync.                                                                                                                                                                                                             |
-| **[File types](doc-types.md "doc-types.md")**                                                                                           | Supports all files supported by Amazon Q.                                                                                                                                                                                                       |
+
+
+
+- ****Security****
+  - **Feature:** Authentication type / **Support:** OAuth 2.0 with Resource Owner Password Flow
+  - **Feature:** Authentication credentials / **Support:** +  Microsoft Yammer username <br />+  Microsoft Yammer password <br />+  Microsoft Yammer Client ID <br />+  Microsoft Yammer Client secret 
+  - **Feature:** [Access Control List (ACL)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-authorization) crawling / **Support:** Yes. For more information, see [ACL crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/yammer-user-management.html). 
+  - **Feature:** [Identity crawling](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-identity-crawler) / **Support:** Yes
+  - **Feature:** [VPC](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-vpc) / **Support:** Yes
+
+- ****Crawl features****
+  - **Feature:** Custom metadata / **Support:** Yes
+  - **Feature:** Entities / **Support:** Yes. The following entities are supported: +  Message <br />+  Attachment <br />+  User <br />+  Community See [What is a document?](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-doc-crawl.html) for more details on what each connector crawls as a document.
+  - **Feature:** [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-field-mappings) / **Support:** Yes. Supports both default and custom field mappings. For more information, see [Field mappings](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/yammer-field-mappings.html).
+  - **Feature:** Filters / **Support:** Yes. The following filters are supported: +  Community names <br />+  Public messages <br />+  Attachments <br />+  Inbox private messages <br />+  Crawl content beginning from a date <br />+  Including and excluding content by file type 
+  - **Feature:** [Sync mode](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/connector-concepts.html#connector-sync-mode) / **Support:** Supports full and incremental sync.
+  - **Feature:** [File types](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/doc-types.html) / **Support:** Supports all files supported by Amazon Q.
+
