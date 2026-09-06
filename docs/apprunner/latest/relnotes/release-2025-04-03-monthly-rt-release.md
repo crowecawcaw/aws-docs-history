@@ -1,26 +1,41 @@
-AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use
-App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS App Runner availability
-change](../dg/apprunner-availability-change.md "../dg/apprunner-availability-change.md").
+
+
+AWS App Runner will no longer be open to new customers starting April 30, 2026. If you would like to use App Runner, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [AWS App Runner availability change](https://docs.aws.amazon.com/apprunner/latest/dg/apprunner-availability-change.html).
 
 # Release: App Runner runtime updates on April 3, 2025
+<a name="release-2025-04-03-monthly-rt-release"></a>
 
-This release provides minor version updates for the Node.js and PHP language runtimes.
-
-It also provides package updates to the Ruby platform.
+This release provides minor version updates for the Node.js and PHP language runtimes. It also provides package updates to the Ruby platform. 
 
 **Release date:** April 3, 2025
 
 ## App Runner managed platforms
+<a name="release-2025-04-03-monthly-rt-release.managed-platforms"></a>
 
-App Runner provides convenient platform-specific managed runtimes. When you use a managed runtime, App Runner starts with a managed runtime base image to build a
-container image from your source code. For more information, see [App Runner managed platforms](../dg/service-source-code.md#service-source-code.managed-platforms "../dg/service-source-code.md#service-source-code.managed-platforms") in the
-_AWS App Runner Developer Guide_.
+App Runner provides convenient platform-specific managed runtimes. When you use a managed runtime, App Runner starts with a managed runtime base image to build a container image from your source code. For more information, see [ App Runner managed platforms](https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code.html#service-source-code.managed-platforms) in the *AWS App Runner Developer Guide*.
 
 ## Changes
+<a name="release-2025-04-03-monthly-rt-release.changes"></a>
 
 The following table lists the changes included in this release.
 
-| **Category**                  | **Description**                           |
-| ----------------------------- | ----------------------------------------- |
-| **Platform-specific updates** | Made these platform-specific updates:<br> | *_Platform_<br>• | *_Update_<br>• | <br> | --<br>• | --<br>• | <br> | **Node.js**<br>[Supported runtimes](../dg/service-source-code-nodejs-releases.md "../dg/service-source-code-nodejs-releases.md") | Updated Node.js 18 to version 18.20.8.<br>No tools updates. | <br> | **PHP**<br>[Supported runtimes](../dg/service-source-code-php-releases.md "../dg/service-source-code-php-releases.md") | Updated PHP 8.1 to version 8.1.32.<br>No package updates. | <br> | **Ruby**<br>[Supported runtimes](../dg/service-source-code-ruby-releases.md "../dg/service-source-code-ruby-releases.md") | No updates to language versions.<br>Package updates:<br>• Updated SQLite to version 3.49.1. |     |
+
+<table>
+<thead>
+  <tr><th><b>Category</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Platform-specific updates</b></td><td>Made these platform-specific updates:
+<table>
+<thead>
+  <tr><th><b>Platform</b></th><th><b>Update</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Node.js</b><br /><a href="https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code-nodejs-releases.html">Supported runtimes </a></td><td>Updated Node.js 18 to version 18.20.8.<br />No tools updates.</td></tr>
+  <tr><td><b>PHP</b><br /><a href="https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code-php-releases.html">Supported runtimes </a></td><td>Updated PHP 8.1 to version 8.1.32.<br />No package updates.</td></tr>
+  <tr><td><b>Ruby</b><br /><a href="https://docs.aws.amazon.com/apprunner/latest/dg/service-source-code-ruby-releases.html">Supported runtimes </a></td><td>No updates to language versions.<br />Package updates:<ul><li> Updated SQLite to version 3.49.1. </li></ul></td></tr>
+</tbody>
+</table>
+</td></tr>
+</tbody>
+</table>
