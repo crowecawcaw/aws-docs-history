@@ -1,23 +1,21 @@
+
+
 # Transcribe audio and get job data with Amazon Transcribe using an AWS SDK
+<a name="example_transcribe_Scenario_GettingStartedTranscriptionJobs_section"></a>
 
 The following code examples show how to:
++ Start a transcription job with Amazon Transcribe.
++ Wait for the job to complete.
++ Get the URI where the transcript is stored.
 
-- Start a transcription job with Amazon Transcribe.
-- Wait for the job to complete.
-- Get the URI where the transcript is stored.
-  For more information, see [Getting started with Amazon Transcribe](getting-started.md "getting-started.md").
+For more information, see [Getting started with Amazon Transcribe](https://docs.aws.amazon.com/transcribe/latest/dg/getting-started.html).
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/transcribe#code-examples").
-
-Transcribes a PCM file.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/transcribe#code-examples). 
+Transcribes a PCM file.  
 
 ```
 /**
@@ -194,11 +192,8 @@ public class TranscribeStreamingDemoFile {
         }
     }
 }
-
-
 ```
-
-Transcribes streaming audio from your computer's microphone.
+Transcribes streaming audio from your computer's microphone.  
 
 ```
 public class TranscribeStreamingDemoApp {
@@ -278,7 +273,7 @@ public class TranscribeStreamingDemoApp {
                 .build();
     }
 
-
+    
     private static class AudioStreamPublisher implements Publisher<AudioStream> {
         private static Subscription currentSubscription;
         private final InputStream inputStream;
@@ -370,24 +365,16 @@ public class TranscribeStreamingDemoApp {
         }
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [GetTranscriptionJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/GetTranscriptionJob)
+  + [StartTranscriptionJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-  - [GetTranscriptionJob](../../../goto/SdkForJavaV2/transcribe-2017-10-26/GetTranscriptionJob.md "../../../goto/SdkForJavaV2/transcribe-2017-10-26/GetTranscriptionJob.md")
-  - [StartTranscriptionJob](../../../goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob.md")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
 ```
 import time
@@ -428,15 +415,11 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [GetTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetTranscriptionJob)
+  + [StartTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [GetTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/GetTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/GetTranscriptionJob.md")
-  - [StartTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

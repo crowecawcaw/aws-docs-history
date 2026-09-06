@@ -1,23 +1,20 @@
+
+
 # Create and refine an Amazon Transcribe custom vocabulary using an AWS SDK
+<a name="example_transcribe_Scenario_CustomVocabulary_section"></a>
 
 The following code example shows how to:
++ Upload an audio file to Amazon S3.
++ Run an Amazon Transcribe job to transcribe the file and get the results.
++ Create and refine a custom vocabulary to improve transcription accuracy.
++ Run jobs with custom vocabularies and get the results.
 
-- Upload an audio file to Amazon S3.
-- Run an Amazon Transcribe job to transcribe the file and get the results.
-- Create and refine a custom vocabulary to improve transcription accuracy.
-- Run jobs with custom vocabularies and get the results.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples").
-
-Transcribe an audio file that contains a reading of Jabberwocky by Lewis Carroll. Start by creating functions that wrap Amazon Transcribe actions.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
+Transcribe an audio file that contains a reading of Jabberwocky by Lewis Carroll. Start by creating functions that wrap Amazon Transcribe actions.  
 
 ```
 def start_job(
@@ -230,13 +227,8 @@ def delete_vocabulary(vocabulary_name, transcribe_client):
     except ClientError:
         logger.exception("Couldn't delete vocabulary %s.", vocabulary_name)
         raise
-
-
-
-
 ```
-
-Call the wrapper functions to transcribe audio without a custom vocabulary and then with different versions of a custom vocabulary to see improved results.
+Call the wrapper functions to transcribe audio without a custom vocabulary and then with different versions of a custom vocabulary to see improved results.  
 
 ```
 def usage_demo():
@@ -395,23 +387,17 @@ def usage_demo():
     bucket.objects.delete()
     bucket.delete()
     print("Thanks for watching!")
-
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateVocabulary)
+  + [DeleteTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob)
+  + [DeleteVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/DeleteVocabulary)
+  + [GetTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetTranscriptionJob)
+  + [GetVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/GetVocabulary)
+  + [ListVocabularies](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/ListVocabularies)
+  + [StartTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob)
+  + [UpdateVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/UpdateVocabulary)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateVocabulary](../../../goto/boto3/transcribe-2017-10-26/CreateVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/CreateVocabulary.md")
-  - [DeleteTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob.md")
-  - [DeleteVocabulary](../../../goto/boto3/transcribe-2017-10-26/DeleteVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/DeleteVocabulary.md")
-  - [GetTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/GetTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/GetTranscriptionJob.md")
-  - [GetVocabulary](../../../goto/boto3/transcribe-2017-10-26/GetVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/GetVocabulary.md")
-  - [ListVocabularies](../../../goto/boto3/transcribe-2017-10-26/ListVocabularies.md "../../../goto/boto3/transcribe-2017-10-26/ListVocabularies.md")
-  - [StartTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md")
-  - [UpdateVocabulary](../../../goto/boto3/transcribe-2017-10-26/UpdateVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/UpdateVocabulary.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

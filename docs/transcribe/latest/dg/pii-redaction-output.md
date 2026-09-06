@@ -1,20 +1,14 @@
+
+
 # Example PII redaction and identification output
+<a name="pii-redaction-output"></a>
 
-The following examples show redacted output from batch and streaming jobs, and PII
-identification from a streaming job.
+The following examples show redacted output from batch and streaming jobs, and PII identification from a streaming job.
 
-Transcription jobs using content redaction generate two types of
-`confidence` values. The Automatic Speech Recognition (ASR) confidence
-indicates the items that have the `type` of `pronunciation` or
-`punctuation` is a specific utterance. In the following transcript output, the word
-`Good` has a `confidence` of `1.0`. This confidence
-value indicates that Amazon Transcribe is 100 percent confident that the word uttered in this transcript is
-'Good'. The `confidence` value for a `[PII]` tag is the
-confidence that the speech it flagged for redaction is truly PII. In the following transcript
-output, the `confidence` of `0.9999` indicates that Amazon Transcribe is
-99.99 percent confident that the entity it redacted in the transcript is PII.
+Transcription jobs using content redaction generate two types of `confidence` values. The Automatic Speech Recognition (ASR) confidence indicates the items that have the `type` of `pronunciation` or `punctuation` is a specific utterance. In the following transcript output, the word `Good` has a `confidence` of `1.0`. This confidence value indicates that Amazon Transcribe is 100 percent confident that the word uttered in this transcript is 'Good'. The `confidence` value for a `[PII]` tag is the confidence that the speech it flagged for redaction is truly PII. In the following transcript output, the `confidence` of `0.9999` indicates that Amazon Transcribe is 99.99 percent confident that the entity it redacted in the transcript is PII.
 
 ## Example redacted output (batch)
+<a name="pii-redaction-output-batch"></a>
 
 ```
 {
@@ -25,9 +19,9 @@ output, the `confidence` of `0.9999` indicates that Amazon Transcribe is
         "transcripts": [
             {
                 "transcript": "Good morning, everybody. My name is [PII], and today I feel like
-                sharing a whole lot of personal information with you. Let's start with my Social
+                sharing a whole lot of personal information with you. Let's start with my Social 
                 Security number [PII]. My credit card number is [PII] and my C V V code is [PII].
-                I hope that Amazon Transcribe is doing a good job at redacting that personal
+                I hope that Amazon Transcribe is doing a good job at redacting that personal 
                 information away. Let's check."
             }
         ],
@@ -44,7 +38,7 @@ output, the `confidence` of `0.9999` indicates that Amazon Transcribe is
                 ],
                 "type": "pronunciation"
             },
-            `Items removed for brevity`
+            {{Items removed for brevity}}
             {
                 "id": 8,
                 "start_time": "5.56",
@@ -63,7 +57,7 @@ output, the `confidence` of `0.9999` indicates that Amazon Transcribe is
                 ],
                 "type": "pronunciation"
             },
-            `Items removed for brevity`
+            {{Items removed for brevity}}
         ],
     },
     "status": "COMPLETED"
@@ -74,16 +68,16 @@ Here's the unredacted transcript for comparison:
 
 ```
 {
-    "jobName": "`job id`",
+    "jobName": "{{job id}}",
     "accountId": "111122223333",
     "isRedacted": false,
     "results": {
         "transcripts": [
             {
                 "transcript": "Good morning, everybody. My name is Mike, and today I feel like
-                sharing a whole lot of personal information with you. Let's start with my Social
-                Security number 000000000. My credit card number is 5555555555555555
-                and my C V V code is 000. I hope that Amazon Transcribe is doing a good job
+                sharing a whole lot of personal information with you. Let's start with my Social 
+                Security number 000000000. My credit card number is 5555555555555555 
+                and my C V V code is 000. I hope that Amazon Transcribe is doing a good job 
                 at redacting that personal information away. Let's check."
             }
         ],
@@ -100,7 +94,7 @@ Here's the unredacted transcript for comparison:
                 ],
                 "type": "pronunciation"
             },
-            `Items removed for brevity`
+            {{Items removed for brevity}}
             {
                 "id": 8,
                 "start_time": "5.56",
@@ -109,11 +103,11 @@ Here's the unredacted transcript for comparison:
                     {
                         "confidence": "0.9999",
                         "content": "Mike",
-                     {
+                     {                        
                 ],
                 "type": "pronunciation"
             },
-            `Items removed for brevity`
+            {{Items removed for brevity}}
         ],
     },
     "status": "COMPLETED"
@@ -121,6 +115,7 @@ Here's the unredacted transcript for comparison:
 ```
 
 ## Example redacted streaming output
+<a name="pii-redaction-output-stream"></a>
 
 ```
 {
@@ -183,10 +178,9 @@ Here's the unredacted transcript for comparison:
 ```
 
 ## Example PII identification output
+<a name="pii-redaction-output-id"></a>
 
-PII identification is an additional feature that you can use with your streaming
-transcription job. The identified PII is listed in each segment's `Entities`
-section.
+PII identification is an additional feature that you can use with your streaming transcription job. The identified PII is listed in each segment's `Entities` section.
 
 ```
 {
@@ -221,7 +215,7 @@ section.
                                         "Content": "mike",
                                         "EndTime": 0.9199375,
                                         "StartTime": 0.7999375,
-                                        "Type": "pronunciation"
+                                        "Type": "pronunciation"                                    
                                     }
                                 ],
                                 "Entities": [

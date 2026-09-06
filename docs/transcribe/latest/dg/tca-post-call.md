@@ -1,104 +1,66 @@
+
+
 # Post-call analytics with real-time transcriptions
+<a name="tca-post-call"></a>
 
-Post-call analytics is an optional feature available with real-time Call Analytics
-transcriptions. In addition to the standard [real-time
-analytics insights](call-analytics-streaming.md#call-analytics-insights-streaming "call-analytics-streaming.md#call-analytics-insights-streaming"), post-call analytics provides you with the following:
+Post-call analytics is an optional feature available with real-time Call Analytics transcriptions. In addition to the standard [real-time analytics insights](call-analytics-streaming.md#call-analytics-insights-streaming), post-call analytics provides you with the following:
++ **Action items**: Lists any action items identified in the call
++ **Interruptions**: Measures if and when one participant cuts off the other participant midsentence
++ **Issues**: Provides the issues identified in the call
++ **Loudness**: Measures the volume at which each participant is speaking
++ **Non-talk time**: Measures periods of time that do not contain speech
++ **Outcomes**: Provides the outcome, or resolution, identified in the call
++ **Talk speed**: Measures the speed at which both participants are speaking
++ **Talk time**: Measures the amount of time (in milliseconds) each participant spoke during the call
 
-- **Action items**: Lists any action items identified in the call
-- **Interruptions**: Measures if and when one participant cuts off
-  the other participant midsentence
-- **Issues**: Provides the issues identified in the call
-- **Loudness**: Measures the volume at which each participant is
-  speaking
-- **Non-talk time**: Measures periods of time that do not
-  contain speech
-- **Outcomes**: Provides the outcome, or resolution, identified in
-  the call
-- **Talk speed**: Measures the speed at which both participants
-  are speaking
-- **Talk time**: Measures the amount of time (in milliseconds)
-  each participant spoke during the call
-  When enabled, post-call analytics from an audio stream produces a transcript similar to a
-  [post-call analytics from an audio file](call-analytics-batch.md "call-analytics-batch.md") and stores it
-  in the Amazon S3 bucket specified in `OutputLocation`. Additionally,
-  post-call analytics records your audio stream and saves it as an audio file (`WAV`
-  format) in the same Amazon S3 bucket. If you enable redaction, a redacted transcript and
-  a redacted audio file are also stored in the specified Amazon S3 bucket. Enabling
-  post-call analytics with your audio stream produces between two and four files, as described
-  here:
+When enabled, post-call analytics from an audio stream produces a transcript similar to a [post-call analytics from an audio file](call-analytics-batch.md) and stores it in the Amazon S3 bucket specified in `OutputLocation`. Additionally, post-call analytics records your audio stream and saves it as an audio file (`WAV` format) in the same Amazon S3 bucket. If you enable redaction, a redacted transcript and a redacted audio file are also stored in the specified Amazon S3 bucket. Enabling post-call analytics with your audio stream produces between two and four files, as described here:
++ If redaction is **not** enabled, your output files are:
 
-- If redaction is **not** enabled, your output files are:
+  1. An unredacted transcript
 
-  1.  An unredacted transcript
-  2.  An unredacted audio file
+  1. An unredacted audio file
++ If redaction is enabled **without** the unredacted option (`redacted`), your output files are:
 
-- If redaction is enabled **without** the unredacted option
-  (`redacted`), your output files are:
+  1. A redacted transcript
 
-  1.  A redacted transcript
-  2.  A redacted audio file
+  1. A redacted audio file
++ If redaction is enabled **with** the unredacted option (`redacted_and_unredacted`), your output files are:
 
-- If redaction is enabled **with** the unredacted option
-  (`redacted_and_unredacted`), your output files are:
+  1. A redacted transcript
 
-  1.  A redacted transcript
-  2.  A redacted audio file
-  3.  An unredacted transcript
-  4.  An unredacted audio file
-      Note that if you enable post-call analytics ([`PostCallAnalyticsSettings`](../APIReference/API_streaming_PostCallAnalyticsSettings.md "../APIReference/API_streaming_PostCallAnalyticsSettings.md"))
-      with your request, and you're using `FLAC` or `OPUS-OGG` media, you
-      **do not** get `loudnessScore` in your transcript and no audio
-      recordings of your stream are created. Transcribe may also not be able to provide post-call analytics for
-      long-running audio streams lasting longer than 90 minutes.
+  1. A redacted audio file
 
-For more information on the insights available with post-call analytics for audio streams, refer to
-the [post-call analytics insights](call-analytics-batch.md#call-analytics-insights-batch "call-analytics-batch.md#call-analytics-insights-batch")
-section.
+  1. An unredacted transcript
 
-###### Tip
+  1. An unredacted audio file
 
-If you enable post-call analytics with your real-time Call Analytics request, all of your
-`POST_CALL` and `REAL-TIME` categories are applied to
-your post-call analytics transcription.
+Note that if you enable post-call analytics ([`PostCallAnalyticsSettings`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_PostCallAnalyticsSettings.html)) with your request, and you're using `FLAC` or `OPUS-OGG` media, you **do not** get `loudnessScore` in your transcript and no audio recordings of your stream are created. Transcribe may also not be able to provide post-call analytics for long-running audio streams lasting longer than 90 minutes.
+
+For more information on the insights available with post-call analytics for audio streams, refer to the [post-call analytics insights](call-analytics-batch.md#call-analytics-insights-batch) section.
+
+**Tip**  
+If you enable post-call analytics with your real-time Call Analytics request, all of your `POST_CALL` and `REAL-TIME` categories are applied to your post-call analytics transcription.
 
 ## Enabling post-call analytics
+<a name="tca-post-call-enable"></a>
 
-To enable post-call analytics, you must include the [`PostCallAnalyticsSettings`](../APIReference/API_streaming_PostCallAnalyticsSettings.md "../APIReference/API_streaming_PostCallAnalyticsSettings.md")
-parameter in your real-time Call Analytics request. The following parameters must be included when
-`PostCallAnalyticsSettings` is enabled:
+To enable post-call analytics, you must include the [`PostCallAnalyticsSettings`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_PostCallAnalyticsSettings.html) parameter in your real-time Call Analytics request. The following parameters must be included when `PostCallAnalyticsSettings` is enabled:
++ `OutputLocation`: The Amazon S3 bucket where you want your post-call transcript stored.
++ `DataAccessRoleArn`: The Amazon Resource Name (ARN) of the Amazon S3 role that has permissions to access the specified Amazon S3 bucket. Note that you must also use the [Trust policy for real-time analytics](security_iam_id-based-policy-examples.md#trust-policy).
 
-- `OutputLocation`: The Amazon S3 bucket where you want your
-  post-call transcript stored.
-- `DataAccessRoleArn`: The Amazon Resource Name (ARN) of the
-  Amazon S3 role that has permissions to access the specified Amazon S3
-  bucket. Note that you must also use the [Trust policy for real-time
-  analytics](security_iam_id-based-policy-examples.md#trust-policy "security_iam_id-based-policy-examples.md#trust-policy").
+If you want a redacted version of your transcript, you can include `ContentRedactionOutput` or `ContentRedactionType` in your request. For more information on these parameters, see [`StartCallAnalyticsStreamTranscription`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartCallAnalyticsStreamTranscription.html) in the API Reference.
 
-If you want a redacted version of your transcript, you can include
-`ContentRedactionOutput` or `ContentRedactionType` in your
-request. For more information on these parameters, see [`StartCallAnalyticsStreamTranscription`](../APIReference/API_streaming_StartCallAnalyticsStreamTranscription.md "../APIReference/API_streaming_StartCallAnalyticsStreamTranscription.md") in the API Reference.
+To start a real-time Call Analytics transcription with post-call analytics enabled, you can use the **AWS Management Console** (demo only), **HTTP/2**, or **WebSockets**. For examples, see [Starting a real-time Call Analytics transcription](tca-start-stream.md).
 
-To start a real-time Call Analytics transcription with post-call analytics enabled, you can use the
-**AWS Management Console** (demo only), **HTTP/2**, or
-**WebSockets**. For examples, see [Starting a real-time Call Analytics transcription](tca-start-stream.md "tca-start-stream.md").
-
-###### Important
-
-Currently, the AWS Management Console only offers a demo for real-time Call Analytics with
-pre-loaded audio examples. If you want to use your own audio, you must use the API (HTTP/2,
-WebSockets, or an SDK).
+**Important**  
+Currently, the AWS Management Console only offers a demo for real-time Call Analytics with pre-loaded audio examples. If you want to use your own audio, you must use the API (HTTP/2, WebSockets, or an SDK).
 
 ## Example post-call analytics output
+<a name="tca-output-post-call"></a>
 
-Post-call transcripts are displayed in a turn-by-turn format by segment. They include call
-characteristics, sentiment, call summarization, issue detection, and (optionally) PII redaction. If any of your
-post-call categories are a match to the audio content, these are also present in your output.
+Post-call transcripts are displayed in a turn-by-turn format by segment. They include call characteristics, sentiment, call summarization, issue detection, and (optionally) PII redaction. If any of your post-call categories are a match to the audio content, these are also present in your output.
 
-To increase accuracy and further customize your transcripts to your use case, such as including
-industry-specific terms, add [custom vocabularies](custom-vocabulary.md "custom-vocabulary.md") or
-[custom language models](custom-language-models.md "custom-language-models.md") to your Call Analytics request.
-To mask, remove, or tag words you don't want in your transcription results, such as profanity, add
-[vocabulary filtering](vocabulary-filtering.md "vocabulary-filtering.md").
+To increase accuracy and further customize your transcripts to your use case, such as including industry-specific terms, add [custom vocabularies](custom-vocabulary.md) or [custom language models](custom-language-models.md) to your Call Analytics request. To mask, remove, or tag words you don't want in your transcription results, such as profanity, add [vocabulary filtering](vocabulary-filtering.md).
 
 Here is a compiled post-call analytics output example:
 
@@ -110,7 +72,7 @@ Here is a compiled post-call analytics output example:
     "Channel": "VOICE",
     "Participants": [{
         "ParticipantRole": "AGENT"
-    },
+    }, 
     {
         "ParticipantRole": "CUSTOMER"
     }],
@@ -307,6 +269,6 @@ Here is a compiled post-call analytics output example:
             "TotalTimeMillis": 50760
         }
     },
-    `...`
+    {{...}}
 }
 ```

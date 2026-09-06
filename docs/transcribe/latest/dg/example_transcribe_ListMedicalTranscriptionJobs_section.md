@@ -1,19 +1,17 @@
+
+
 # Use `ListMedicalTranscriptionJobs` with an AWS SDK or CLI
+<a name="example_transcribe_ListMedicalTranscriptionJobs_section"></a>
 
 The following code examples show how to use `ListMedicalTranscriptionJobs`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
 ```
-
     /// <summary>
     /// List medical transcription jobs, optionally with a name filter.
     /// </summary>
@@ -29,29 +27,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.MedicalTranscriptionJobSummaries;
     }
+```
++  For API details, see [ListMedicalTranscriptionJobs](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/ListMedicalTranscriptionJobs) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To list your medical transcription jobs**  
+The following `list-medical-transcription-jobs` example lists the medical transcription jobs associated with your AWS account and Region. To get more information about a particular transcription job, copy the value of a MedicalTranscriptionJobName parameter in the transcription output, and specify that value for the `MedicalTranscriptionJobName` option of the `get-medical-transcription-job` command. To see more of your transcription jobs, copy the value of the NextToken parameter, run the `list-medical-transcription-jobs` command again, and specify that value in the `--next-token` option.  
 
 ```
-
-- For API details, see
-  [ListMedicalTranscriptionJobs](../../../goto/DotNetSDKV3/transcribe-2017-10-26/ListMedicalTranscriptionJobs.md "../../../goto/DotNetSDKV3/transcribe-2017-10-26/ListMedicalTranscriptionJobs.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To list your medical transcription jobs**
-
-The following `list-medical-transcription-jobs` example lists the medical transcription jobs associated with your AWS account and Region. To get more information about a particular transcription job, copy the value of a MedicalTranscriptionJobName parameter in the transcription output, and specify that value for the `MedicalTranscriptionJobName` option of the `get-medical-transcription-job` command. To see more of your transcription jobs, copy the value of the NextToken parameter, run the `list-medical-transcription-jobs` command again, and specify that value in the `--next-token` option.
-
+aws transcribe list-medical-transcription-jobs
 ```
-`aws transcribe list-medical-transcription-jobs`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -115,24 +104,15 @@ Output:
     ]
 }
 ```
+For more information, see https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html> in the *Amazon Transcribe Developer Guide*.  
++  For API details, see [ListMedicalTranscriptionJobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/list-medical-transcription-jobs.html) in *AWS CLI Command Reference*. 
 
-For more information, see https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html> in the _Amazon Transcribe Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [ListMedicalTranscriptionJobs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/list-medical-transcription-jobs.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/list-medical-transcription-jobs.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples").
-
-Create the client.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
+Create the client.  
 
 ```
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
@@ -141,11 +121,8 @@ const REGION = "REGION"; //e.g. "us-east-1"
 // Create an Amazon Transcribe service client object.
 const transcribeClient = new TranscribeClient({ region: REGION });
 export { transcribeClient };
-
-
 ```
-
-List medical transcription jobs.
+List medical transcription jobs.  
 
 ```
 // Import the required AWS SDK clients and commands for Node.js
@@ -180,15 +157,10 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.html#transcribe-list-medical-jobs). 
++  For API details, see [ListMedicalTranscriptionJobs](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListMedicalTranscriptionJobsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.md#transcribe-list-medical-jobs "../../../sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.md#transcribe-list-medical-jobs").
-- For API details, see
-  [ListMedicalTranscriptionJobs](../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListMedicalTranscriptionJobsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/ListMedicalTranscriptionJobsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

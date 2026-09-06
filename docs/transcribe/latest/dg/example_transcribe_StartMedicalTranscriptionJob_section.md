@@ -1,19 +1,17 @@
+
+
 # Use `StartMedicalTranscriptionJob` with an AWS SDK or CLI
+<a name="example_transcribe_StartMedicalTranscriptionJob_section"></a>
 
 The following code examples show how to use `StartMedicalTranscriptionJob`.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
 ```
-
     /// <summary>
     /// Start a medical transcription job for a media file. This method returns
     /// as soon as the job is started.
@@ -48,30 +46,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.MedicalTranscriptionJob;
     }
+```
++  For API details, see [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartMedicalTranscriptionJob) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To transcribe a medical dictation stored as an audio file**  
+The following `start-medical-transcription-job` example transcribes an audio file. You specify the location of the transcription output in the `OutputBucketName` parameter.  
 
 ```
-
-- For API details, see
-  [StartMedicalTranscriptionJob](../../../goto/DotNetSDKV3/transcribe-2017-10-26/StartMedicalTranscriptionJob.md "../../../goto/DotNetSDKV3/transcribe-2017-10-26/StartMedicalTranscriptionJob.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To transcribe a medical dictation stored as an audio file**
-
-The following `start-medical-transcription-job` example transcribes an audio file. You specify the location of the transcription output in the `OutputBucketName` parameter.
-
+aws transcribe start-medical-transcription-job \
+    --cli-input-json {{file://myfile.json}}
 ```
-`aws transcribe start-medical-transcription-job \
- --cli-input-json `file://myfile.json``
-
-```
-
-Contents of `myfile.json`:
+Contents of `myfile.json`:  
 
 ```
 {
@@ -85,8 +74,7 @@ Contents of `myfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -104,20 +92,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Batch Transcription Overview](batch-med-transcription.md "batch-med-transcription.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 2: To transcribe a clinician-patient dialogue stored as an audio file**
-
-The following `start-medical-transcription-job` example transcribes an audio file containing a clinician-patient dialogue. You specify the location of the transcription output in the OutputBucketName parameter.
+For more information, see [Batch Transcription Overview](https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 2: To transcribe a clinician-patient dialogue stored as an audio file**  
+The following `start-medical-transcription-job` example transcribes an audio file containing a clinician-patient dialogue. You specify the location of the transcription output in the OutputBucketName parameter.  
 
 ```
-`aws transcribe start-medical-transcription-job \
- --cli-input-json `file://mysecondfile.json``
-
+aws transcribe start-medical-transcription-job \
+    --cli-input-json {{file://mysecondfile.json}}
 ```
-
-Contents of `mysecondfile.json`:
+Contents of `mysecondfile.json`:  
 
 ```
 {
@@ -131,8 +114,7 @@ Contents of `mysecondfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -150,20 +132,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Batch Transcription Overview](batch-med-transcription.md "batch-med-transcription.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 3: To transcribe a multichannel audio file of a clinician-patient dialogue**
-
-The following `start-medical-transcription-job` example transcribes the audio from each channel in the audio file and merges the separate transcriptions from each channel into a single transcription output. You specify the location of the transcription output in the `OutputBucketName` parameter.
+For more information, see [Batch Transcription Overview](https://docs.aws.amazon.com/transcribe/latest/dg/batch-med-transcription.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 3: To transcribe a multichannel audio file of a clinician-patient dialogue**  
+The following `start-medical-transcription-job` example transcribes the audio from each channel in the audio file and merges the separate transcriptions from each channel into a single transcription output. You specify the location of the transcription output in the `OutputBucketName` parameter.  
 
 ```
-`aws transcribe start-medical-transcription-job \
- --cli-input-json `file://mythirdfile.json``
-
+aws transcribe start-medical-transcription-job \
+    --cli-input-json {{file://mythirdfile.json}}
 ```
-
-Contents of `mythirdfile.json`:
+Contents of `mythirdfile.json`:  
 
 ```
 {
@@ -180,8 +157,7 @@ Contents of `mythirdfile.json`:
         }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -202,20 +178,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Channel Identification](how-channel-id-med.md "how-channel-id-med.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 4: To transcribe an audio file of a clinician-patient dialogue and identify the speakers in the transcription output**
-
-The following `start-medical-transcription-job` example transcribes an audio file and labels the speech of each speaker in the transcription output. You specify the location of the transcription output in the `OutputBucketName` parameter.
+For more information, see [Channel Identification](https://docs.aws.amazon.com/transcribe/latest/dg/how-channel-id-med.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 4: To transcribe an audio file of a clinician-patient dialogue and identify the speakers in the transcription output**  
+The following `start-medical-transcription-job` example transcribes an audio file and labels the speech of each speaker in the transcription output. You specify the location of the transcription output in the `OutputBucketName` parameter.  
 
 ```
-`aws transcribe start-medical-transcription-job \
- --cli-input-json `file://myfourthfile.json``
-
+aws transcribe start-medical-transcription-job \
+    --cli-input-json {{file://myfourthfile.json}}
 ```
-
-Contents of `myfourthfile.json`:
+Contents of `myfourthfile.json`:  
 
 ```
 {
@@ -233,8 +204,7 @@ Contents of `myfourthfile.json`:
         }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -256,20 +226,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Identifying Speakers](diarization-med.md "diarization-med.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 5: To transcribe a medical conversation stored as an audio file with up to two transcription alternatives**
-
-The following `start-medical-transcription-job` example creates up to two alternative transcriptions from a single audio file. Every transcriptions has a level of confidence associated with it. By default, Amazon Transcribe returns the transcription with the highest confidence level. You can specify that Amazon Transcribe return additional transcriptions with lower confidence levels. You specify the location of the transcription output in the `OutputBucketName` parameter.
+For more information, see [Identifying Speakers](https://docs.aws.amazon.com/transcribe/latest/dg/diarization-med.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 5: To transcribe a medical conversation stored as an audio file with up to two transcription alternatives**  
+The following `start-medical-transcription-job` example creates up to two alternative transcriptions from a single audio file. Every transcriptions has a level of confidence associated with it. By default, Amazon Transcribe returns the transcription with the highest confidence level. You can specify that Amazon Transcribe return additional transcriptions with lower confidence levels. You specify the location of the transcription output in the `OutputBucketName` parameter.  
 
 ```
-`aws transcribe start-medical-transcription-job \
- --cli-input-json `file://myfifthfile.json``
-
+aws transcribe start-medical-transcription-job \
+    --cli-input-json {{file://myfifthfile.json}}
 ```
-
-Contents of `myfifthfile.json`:
+Contents of `myfifthfile.json`:  
 
 ```
 {
@@ -287,8 +252,7 @@ Contents of `myfifthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -310,20 +274,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Alternative Transcriptions](how-alternatives-med.md "how-alternatives-med.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 6: To transcribe an audio file of a medical dictation with up to two alternative transcriptions**
-
-The following `start-medical-transcription-job` example transcribes an audio file and uses a vocabulary filter to mask any unwanted words. You specify the location of the transcription output in the OutputBucketName parameter.
+For more information, see [Alternative Transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives-med.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 6: To transcribe an audio file of a medical dictation with up to two alternative transcriptions**  
+The following `start-medical-transcription-job` example transcribes an audio file and uses a vocabulary filter to mask any unwanted words. You specify the location of the transcription output in the OutputBucketName parameter.  
 
 ```
-`aws transcribe start-medical-transcription-job \
- --cli-input-json `file://mysixthfile.json``
-
+aws transcribe start-medical-transcription-job \
+    --cli-input-json {{file://mysixthfile.json}}
 ```
-
-Contents of `mysixthfile.json`:
+Contents of `mysixthfile.json`:  
 
 ```
 {
@@ -341,8 +300,7 @@ Contents of `mysixthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -364,20 +322,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Alternative Transcriptions](how-alternatives-med.md "how-alternatives-med.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 7: To transcribe an audio file of a medical dictation with increased accuracy by using a custom vocabulary**
-
-The following `start-medical-transcription-job` example transcribes an audio file and uses a medical custom vocabulary you've previously created to increase the transcription accuracy. You specify the location of the transcription output in the `OutputBucketName` parameter.
+For more information, see [Alternative Transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/how-alternatives-med.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 7: To transcribe an audio file of a medical dictation with increased accuracy by using a custom vocabulary**  
+The following `start-medical-transcription-job` example transcribes an audio file and uses a medical custom vocabulary you've previously created to increase the transcription accuracy. You specify the location of the transcription output in the `OutputBucketName` parameter.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myseventhfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myseventhfile.json}}
 ```
-
-Contents of `mysixthfile.json`:
+Contents of `mysixthfile.json`:  
 
 ```
 {
@@ -394,8 +347,7 @@ Contents of `mysixthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -416,24 +368,15 @@ Output:
     }
 }
 ```
+For more information, see [Medical Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary-med.html) in the *Amazon Transcribe Developer Guide*.  
++  For API details, see [StartMedicalTranscriptionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-transcription-job.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Medical Custom Vocabularies](how-vocabulary-med.md "how-vocabulary-med.md") in the _Amazon Transcribe Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [StartMedicalTranscriptionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-transcription-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-transcription-job.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples").
-
-Create the client.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
+Create the client.  
 
 ```
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
@@ -442,11 +385,8 @@ const REGION = "REGION"; //e.g. "us-east-1"
 // Create an Amazon Transcribe service client object.
 const transcribeClient = new TranscribeClient({ region: REGION });
 export { transcribeClient };
-
-
 ```
-
-Start a medical transcription job.
+Start a medical transcription job.  
 
 ```
 // Import the required AWS SDK clients and commands for Node.js
@@ -481,15 +421,10 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.html#transcribe-start-medical-transcription). 
++  For API details, see [StartMedicalTranscriptionJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartMedicalTranscriptionJobCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.md#transcribe-start-medical-transcription "../../../sdk-for-javascript/v3/developer-guide/transcribe-medical-examples-section.md#transcribe-start-medical-transcription").
-- For API details, see
-  [StartMedicalTranscriptionJob](../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartMedicalTranscriptionJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartMedicalTranscriptionJobCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,4 +1,7 @@
+
+
 # Example diarization output (batch)
+<a name="diarization-output-batch"></a>
 
 Here's an output example for a batch transcription with diarization enabled.
 
@@ -20,7 +23,7 @@ Here's an output example for a batch transcription with diarization enabled.
                     "start_time": "4.87",
                     "speaker_label": "spk_0",
                     "end_time": "6.88",
-                    "items": [
+                    "items": [                                                 
                         {
                             "start_time": "4.87",
                             "speaker_label": "spk_0",
@@ -45,7 +48,7 @@ Here's an output example for a batch transcription with diarization enabled.
                             "start_time": "5.64",
                             "speaker_label": "spk_0",
                             "end_time": "5.84"
-                        },
+                        },                     
                         {
                             "start_time": "6.11",
                             "speaker_label": "spk_0",
@@ -77,12 +80,12 @@ Here's an output example for a batch transcription with diarization enabled.
                             "start_time": "9.05",
                             "speaker_label": "spk_1",
                             "end_time": "9.24"
-                        }
+                        }                                           
                     ]
                 }
             ]
         },
-        "items": [
+        "items": [            
             {
                 "id": 0,
                 "start_time": "4.87",
@@ -147,7 +150,7 @@ Here's an output example for a batch transcription with diarization enabled.
                     }
                 ],
                 "type": "pronunciation"
-            },
+            },      
             {
                 "id": 5,
                 "start_time": "6.11",

@@ -1,4 +1,7 @@
+
+
 # Example channel identification output (batch)
+<a name="channel-id-output-batch"></a>
 
 Here's an output example for a batch transcription with channel identification enabled.
 
@@ -16,7 +19,7 @@ Here's an output example for a batch transcription with channel identification e
             "channels": [
                 {
                     "channel_label": "ch_0",
-                    "items": [
+                    "items": [                                      
                         {
                             "channel_label": "ch_0",
                             "start_time": "4.86",
@@ -76,7 +79,7 @@ Here's an output example for a batch transcription with channel identification e
                                 }
                             ],
                             "type": "pronunciation"
-                        },
+                        },              
                         {
                             "channel_label": "ch_0",
                             "start_time": "6.1",
@@ -100,7 +103,7 @@ Here's an output example for a batch transcription with channel identification e
                                 }
                             ],
                             "type": "pronunciation"
-                        },
+                        },                      
                         {
                             "channel_label": "ch_0",
                             "language_code": "en-US",
@@ -111,10 +114,10 @@ Here's an output example for a batch transcription with channel identification e
                                 }
                             ],
                             "type": "punctuation"
-                        }
+                        }                      
                     ]
                 },
-                {
+                {                
                 "channel_label": "ch_1",
                     "items": [
                         {
@@ -162,13 +165,13 @@ Here's an output example for a batch transcription with channel identification e
                                 }
                             ],
                             "type": "punctuation"
-                        }
+                        }                     
                     ]
                 }
             ],
             "number_of_channels": 2
         },
-        "items": [
+        "items": [            
             {
                 "id": 0,
                 "channel_label": "ch_0",
@@ -233,7 +236,7 @@ Here's an output example for a batch transcription with channel identification e
                     }
                 ],
                 "type": "pronunciation"
-            },
+            },            
             {
                 "id": 5,
                 "channel_label": "ch_0",

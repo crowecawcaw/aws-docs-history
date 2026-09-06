@@ -1,24 +1,20 @@
+
+
 # Use `CreateVocabulary` with an AWS SDK or CLI
+<a name="example_transcribe_CreateVocabulary_section"></a>
 
 The following code examples show how to use `CreateVocabulary`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md) 
 
-- [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md "example_transcribe_Scenario_CustomVocabulary_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
 ```
-
     /// <summary>
     /// Create a custom vocabulary using a list of phrases. Custom vocabularies
     /// improve transcription accuracy for one or more specific words.
@@ -39,32 +35,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.VocabularyState;
     }
+```
++  For API details, see [CreateVocabulary](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabulary) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To create a custom vocabulary**  
+The following `create-vocabulary` example creates a custom vocabulary. To create a custom vocabulary, you must have created a text file with all the terms that you want to transcribe more accurately. For vocabulary-file-uri, specify the Amazon Simple Storage Service (Amazon S3) URI of that text file. For language-code, specify a language code corresponding to the language of your custom vocabulary. For vocabulary-name, specify what you want to call your custom vocabulary.  
 
 ```
-
-- For API details, see
-  [CreateVocabulary](../../../goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabulary.md "../../../goto/DotNetSDKV3/transcribe-2017-10-26/CreateVocabulary.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a custom vocabulary**
-
-The following `create-vocabulary` example creates a custom vocabulary. To create a custom vocabulary, you must have created a text file with all the terms that you want to transcribe more accurately. For vocabulary-file-uri, specify the Amazon Simple Storage Service (Amazon S3) URI of that text file. For language-code, specify a language code corresponding to the language of your custom vocabulary. For vocabulary-name, specify what you want to call your custom vocabulary.
-
+aws transcribe create-vocabulary \
+    --{{language-code}} language-code \
+    --vocabulary-name {{cli-vocab-example}} \
+    --vocabulary-file-uri {{s3://amzn-s3-demo-bucket/Amazon-S3-prefix/the-text-file-for-the-custom-vocabulary.txt}}
 ```
-`aws transcribe create-vocabulary \
- --`language-code` language-code \
- --vocabulary-name `cli-vocab-example` \
- --vocabulary-file-uri `s3://amzn-s3-demo-bucket/Amazon-S3-prefix/the-text-file-for-the-custom-vocabulary.txt``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -73,22 +60,14 @@ Output:
     "VocabularyState": "PENDING"
 }
 ```
+For more information, see [Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html) in the *Amazon Transcribe Developer Guide*.  
++  For API details, see [CreateVocabulary](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-vocabulary.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Custom Vocabularies](how-vocabulary.md "how-vocabulary.md") in the _Amazon Transcribe Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [CreateVocabulary](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-vocabulary.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/create-vocabulary.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
 ```
 def create_vocabulary(
@@ -122,25 +101,14 @@ def create_vocabulary(
         raise
     else:
         return response
-
-
-
-
 ```
++  For API details, see [CreateVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/CreateVocabulary) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateVocabulary](../../../goto/boto3/transcribe-2017-10-26/CreateVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/CreateVocabulary.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
 ```
     TRY.
@@ -169,14 +137,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_conflict_ex TYPE 'I'.
         RAISE EXCEPTION lo_conflict_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateVocabulary](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateVocabulary](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

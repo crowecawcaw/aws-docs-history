@@ -1,24 +1,20 @@
+
+
 # Use `DeleteTranscriptionJob` with an AWS SDK or CLI
+<a name="example_transcribe_DeleteTranscriptionJob_section"></a>
 
 The following code examples show how to use `DeleteTranscriptionJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md) 
 
-- [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md "example_transcribe_Scenario_CustomVocabulary_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
 ```
-
     /// <summary>
     /// Delete a transcription job. Also deletes the transcript associated with the job.
     /// </summary>
@@ -33,48 +29,30 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.HttpStatusCode == HttpStatusCode.OK;
     }
+```
++  For API details, see [DeleteTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/DeleteTranscriptionJob) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To delete one of your transcription jobs**  
+The following `delete-transcription-job` example deletes one of your transcription jobs.  
 
 ```
-
-- For API details, see
-  [DeleteTranscriptionJob](../../../goto/DotNetSDKV3/transcribe-2017-10-26/DeleteTranscriptionJob.md "../../../goto/DotNetSDKV3/transcribe-2017-10-26/DeleteTranscriptionJob.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete one of your transcription jobs**
-
-The following `delete-transcription-job` example deletes one of your transcription jobs.
-
+aws transcribe delete-transcription-job \
+    --transcription-job-name {{your-transcription-job}}
 ```
-`aws transcribe delete-transcription-job \
- --transcription-job-name `your-transcription-job``
+This command produces no output.  
+For more information, see [DeleteTranscriptionJob](https://docs.aws.amazon.com/transcribe/latest/dg/API_DeleteTranscriptionJob.html) in the *Amazon Transcribe Developer Guide*.  
++  For API details, see [DeleteTranscriptionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/delete-transcription-job.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-This command produces no output.
-
-For more information, see [DeleteTranscriptionJob](API_DeleteTranscriptionJob.md "API_DeleteTranscriptionJob.md") in the _Amazon Transcribe Developer Guide_.
-
-- For API details, see
-  [DeleteTranscriptionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/delete-transcription-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/delete-transcription-job.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples").
-
-Delete a transcription job.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
+Delete a transcription job.  
 
 ```
 // Import the required AWS SDK clients and commands for Node.js
@@ -98,12 +76,8 @@ export const run = async () => {
   }
 };
 run();
-
-
-
 ```
-
-Create the client.
+Create the client.  
 
 ```
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
@@ -112,24 +86,15 @@ const REGION = "REGION"; //e.g. "us-east-1"
 // Create an Amazon Transcribe service client object.
 const transcribeClient = new TranscribeClient({ region: REGION });
 export { transcribeClient };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/transcribe-examples-section.html#transcribe-delete-job). 
++  For API details, see [DeleteTranscriptionJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteTranscriptionJobCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/transcribe-examples-section.md#transcribe-delete-job "../../../sdk-for-javascript/v3/developer-guide/transcribe-examples-section.md#transcribe-delete-job").
-- For API details, see
-  [DeleteTranscriptionJob](../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteTranscriptionJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/DeleteTranscriptionJobCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
 ```
 def delete_job(job_name, transcribe_client):
@@ -146,25 +111,14 @@ def delete_job(job_name, transcribe_client):
     except ClientError:
         logger.exception("Couldn't delete job %s.", job_name)
         raise
-
-
-
-
 ```
++  For API details, see [DeleteTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
 ```
     TRY.
@@ -180,14 +134,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_internal_ex TYPE 'I'.
         RAISE EXCEPTION lo_internal_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteTranscriptionJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteTranscriptionJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

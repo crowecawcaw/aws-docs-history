@@ -1,47 +1,51 @@
+
+
 # Amazon Transcribe features
+<a name="feature-matrix"></a>
 
-To help you decide which Amazon Transcribe solution best fits your use case, the following
-table offers a feature comparison.
+To help you decide which Amazon Transcribe solution best fits your use case, the following table offers a feature comparison.
 
-Note that 'batch' and 'post-call' refer to transcribing a file that is located in an
-Amazon S3 bucket and 'streaming' and 'real-time' refer to transcribing media in
-real time.
+Note that 'batch' and 'post-call' refer to transcribing a file that is located in an Amazon S3 bucket and 'streaming' and 'real-time' refer to transcribing media in real time.
 
-| Feature                                                                                                                                          | Amazon Transcribe | [Amazon Transcribe Medical](transcribe-medical.md "transcribe-medical.md")1 | [Amazon Transcribe Call Analytics](call-analytics.md "call-analytics.md") |
-| ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| _Configuration options_                                                                                                                          |
-| [Alternative transcriptions](alternatives.md "alternatives.md")                                                                                  | batch, streaming  | batch, streaming                                                            | no                                                                        |
-| [Channel identification](channel-id.md "channel-id.md")                                                                                          | batch, streaming  | batch, streaming                                                            | post-call, real-time                                                      |
-| [Job queueing](job-queueing.md "job-queueing.md")                                                                                                | batch             | no                                                                          | post-call                                                                 |
-| [Language identification](lang-id.md "lang-id.md")                                                                                               | batch, streaming  | no                                                                          | post-call                                                                 |
-| [Multi-language identification](lang-id-batch.md#lang-id-batch-multi-language "lang-id-batch.md#lang-id-batch-multi-language")                   | batch, streaming  | no                                                                          | no                                                                        |
-| [Speaker diarization](diarization.md "diarization.md")                                                                                           | batch, streaming  | batch, streaming                                                            | post-call                                                                 |
-| [Transcribing<br>digits](how-numbers.md "how-numbers.md")2                                                                                       | batch, streaming  | batch, streaming                                                            | post-call, real-time                                                      |
-| _Conversation analytics_                                                                                                                         |
-| [Call characteristics](call-analytics-batch.md#tca-characteristics-batch "call-analytics-batch.md#tca-characteristics-batch")                    | no                | no                                                                          | post-call                                                                 |
-| [Call<br>summarization](call-analytics-batch.md#tca-summarization-batch "call-analytics-batch.md#tca-summarization-batch")2                      | no                | no                                                                          | post-call                                                                 |
-| [Custom categorization](call-analytics-batch.md#tca-categorization-batch "call-analytics-batch.md#tca-categorization-batch")                     | no                | no                                                                          | post-call                                                                 |
-| [Real-time category<br>events](call-analytics-streaming.md#tca-category-events-stream "call-analytics-streaming.md#tca-category-events-stream")  | no                | no                                                                          | real-time                                                                 |
-| [Real-time issue<br>detection](call-analytics-streaming.md#tca-issue-detection-stream "call-analytics-streaming.md#tca-issue-detection-stream")2 | no                | no                                                                          | real-time                                                                 |
-| [Real-time speaker sentiment](call-analytics-streaming.md#tca-sentiment-stream "call-analytics-streaming.md#tca-sentiment-stream")               | no                | no                                                                          | real-time                                                                 |
-| [Speaker sentiment](call-analytics-batch.md#tca-sentiment-batch "call-analytics-batch.md#tca-sentiment-batch")                                   | no                | no                                                                          | post-call                                                                 |
-| _Language customization_                                                                                                                         |
-| [Custom language models](custom-language-models.md "custom-language-models.md")2                                                                 | batch, streaming  | no                                                                          | post-call, real-time                                                      |
-| [Custom vocabularies](custom-vocabulary.md "custom-vocabulary.md")                                                                               | batch, streaming  | batch, streaming                                                            | post-call, real-time                                                      |
-| _Resource organization_                                                                                                                          |
-| [Tagging](tagging.md "tagging.md")                                                                                                               | batch             | batch                                                                       | post-call                                                                 |
-| _Sensitive data_                                                                                                                                 |
-| [Identifying personal health<br>information](phi-id.md "phi-id.md")2                                                                             | no                | batch, streaming                                                            | no                                                                        |
-| [Identifying personally identifiable<br>information](pii-redaction-stream.md "pii-redaction-stream.md")2                                         | streaming         | no                                                                          | real-time                                                                 |
-| [Redacting<br>audio](call-analytics-batch.md#tca-pii-redact-batch "call-analytics-batch.md#tca-pii-redact-batch")2                               | no                | no                                                                          | post-call, real-time                                                      |
-| [Redacting<br>transcripts](pii-redaction.md "pii-redaction.md")2                                                                                 | batch, streaming  | no                                                                          | post-call, real-time                                                      |
-| [Vocabulary filtering](vocabulary-filtering.md "vocabulary-filtering.md")                                                                        | batch, streaming  | no                                                                          | post-call, real-time                                                      |
-| _Video_                                                                                                                                          |
-| [Subtitles](subtitles.md "subtitles.md")                                                                                                         | batch             | no                                                                          | no                                                                        |
+<a name="table-feature-matrix"></a>
+<table>
+<thead>
+  <tr><th>Feature</th><th>Amazon Transcribe</th><th><a href="transcribe-medical.md">Amazon Transcribe Medical</a>1</th><th><a href="call-analytics.md">Amazon Transcribe Call Analytics</a></th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="4"><i>Configuration options</i></td></tr>
+  <tr><td><a href="alternatives.md">Alternative transcriptions</a></td><td>batch, streaming</td><td>batch, streaming</td><td>no</td></tr>
+  <tr><td><a href="channel-id.md">Channel identification</a></td><td>batch, streaming</td><td>batch, streaming</td><td>post-call, real-time</td></tr>
+  <tr><td><a href="job-queueing.md">Job queueing</a></td><td>batch</td><td>no</td><td>post-call</td></tr>
+  <tr><td><a href="lang-id.md">Language identification</a></td><td>batch, streaming</td><td>no</td><td>post-call</td></tr>
+  <tr><td><a href="lang-id-batch.md#lang-id-batch-multi-language">Multi-language identification</a></td><td>batch, streaming</td><td>no</td><td>no</td></tr>
+  <tr><td><a href="diarization.md">Speaker diarization</a></td><td>batch, streaming</td><td>batch, streaming</td><td>post-call</td></tr>
+  <tr><td><a href="how-numbers.md">Transcribing digits</a>2</td><td>batch, streaming</td><td>batch, streaming</td><td>post-call, real-time</td></tr>
+  <tr><td colspan="4"><i>Conversation analytics</i></td></tr>
+  <tr><td><a href="call-analytics-batch.md#tca-characteristics-batch">Call characteristics</a></td><td>no</td><td>no</td><td>post-call</td></tr>
+  <tr><td><a href="call-analytics-batch.md#tca-summarization-batch">Call summarization</a>2</td><td>no</td><td>no</td><td>post-call</td></tr>
+  <tr><td><a href="call-analytics-batch.md#tca-categorization-batch">Custom categorization</a></td><td>no</td><td>no</td><td>post-call</td></tr>
+  <tr><td><a href="call-analytics-streaming.md#tca-category-events-stream">Real-time category events</a></td><td>no</td><td>no</td><td>real-time</td></tr>
+  <tr><td><a href="call-analytics-streaming.md#tca-issue-detection-stream">Real-time issue detection</a>2</td><td>no</td><td>no</td><td>real-time</td></tr>
+  <tr><td><a href="call-analytics-streaming.md#tca-sentiment-stream">Real-time speaker sentiment</a></td><td>no</td><td>no</td><td>real-time</td></tr>
+  <tr><td><a href="call-analytics-batch.md#tca-sentiment-batch">Speaker sentiment</a></td><td>no</td><td>no</td><td>post-call</td></tr>
+  <tr><td colspan="4"><i>Language customization</i></td></tr>
+  <tr><td><a href="custom-language-models.md">Custom language models</a>2</td><td>batch, streaming</td><td>no</td><td>post-call, real-time</td></tr>
+  <tr><td><a href="custom-vocabulary.md">Custom vocabularies</a></td><td>batch, streaming</td><td>batch, streaming</td><td>post-call, real-time</td></tr>
+  <tr><td colspan="4"><i>Resource organization</i></td></tr>
+  <tr><td><a href="tagging.md">Tagging</a></td><td>batch</td><td>batch</td><td>post-call</td></tr>
+  <tr><td colspan="4"><i>Sensitive data</i></td></tr>
+  <tr><td><a href="phi-id.md">Identifying personal health information</a>2</td><td>no</td><td>batch, streaming</td><td>no</td></tr>
+  <tr><td><a href="pii-redaction-stream.md">Identifying personally identifiable information</a>2</td><td>streaming</td><td>no</td><td>real-time</td></tr>
+  <tr><td><a href="call-analytics-batch.md#tca-pii-redact-batch">Redacting audio</a>2</td><td>no</td><td>no</td><td>post-call, real-time</td></tr>
+  <tr><td><a href="pii-redaction.md">Redacting transcripts</a>2</td><td>batch, streaming</td><td>no</td><td>post-call, real-time</td></tr>
+  <tr><td><a href="vocabulary-filtering.md">Vocabulary filtering</a></td><td>batch, streaming</td><td>no</td><td>post-call, real-time</td></tr>
+  <tr><td colspan="4"><i>Video</i></td></tr>
+  <tr><td><a href="subtitles.md">Subtitles</a></td><td>batch</td><td>no</td><td>no</td></tr>
+</tbody>
+</table>
 
-######
 
-1 Amazon Transcribe Medical is only available in US English.
-
-2 This feature is not available for all languages; review the
-[Supported languages and language-specific features](supported-languages.md "supported-languages.md") table for more details.
+****  
+1 Amazon Transcribe Medical is only available in US English.  
+2 This feature is not available for all languages; review the [Supported languages and language-specific features](supported-languages.md) table for more details.

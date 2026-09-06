@@ -1,25 +1,21 @@
+
+
 # Use `StartTranscriptionJob` with an AWS SDK or CLI
+<a name="example_transcribe_StartTranscriptionJob_section"></a>
 
 The following code examples show how to use `StartTranscriptionJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md) 
++  [Transcribe audio and get job data](example_transcribe_Scenario_GettingStartedTranscriptionJobs_section.md) 
 
-- [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md "example_transcribe_Scenario_CustomVocabulary_section.md")
-- [Transcribe audio and get job data](example_transcribe_Scenario_GettingStartedTranscriptionJobs_section.md "example_transcribe_Scenario_GettingStartedTranscriptionJobs_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
 ```
-
     /// <summary>
     /// Start a transcription job for a media file. This method returns
     /// as soon as the job is started.
@@ -50,30 +46,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.TranscriptionJob;
     }
+```
++  For API details, see [StartTranscriptionJob](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**Example 1: To transcribe an audio file**  
+The following `start-transcription-job` example transcribes your audio file.  
 
 ```
-
-- For API details, see
-  [StartTranscriptionJob](../../../goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/DotNetSDKV3/transcribe-2017-10-26/StartTranscriptionJob.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To transcribe an audio file**
-
-The following `start-transcription-job` example transcribes your audio file.
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myfile.json}}
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myfile.json``
-
-```
-
-Contents of `myfile.json`:
+Contents of `myfile.json`:  
 
 ```
 {
@@ -84,20 +71,15 @@ Contents of `myfile.json`:
     }
 }
 ```
-
-For more information, see [Getting Started (AWS Command Line Interface)](getting-started-cli.md "getting-started-cli.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 2: To transcribe a multi-channel audio file**
-
-The following `start-transcription-job` example transcribes your multi-channel audio file.
+For more information, see [Getting Started (AWS Command Line Interface)](https://docs.aws.amazon.com/transcribe/latest/dg/getting-started-cli.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 2: To transcribe a multi-channel audio file**  
+The following `start-transcription-job` example transcribes your multi-channel audio file.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://mysecondfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://mysecondfile.json}}
 ```
-
-Contents of `mysecondfile.json`:
+Contents of `mysecondfile.json`:  
 
 ```
 {
@@ -111,8 +93,7 @@ Contents of `mysecondfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -131,20 +112,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Transcribing Multi-Channel Audio](channel-id.md "channel-id.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 3: To transcribe an audio file and identify the different speakers**
-
-The following `start-transcription-job` example transcribes your audio file and identifies the speakers in the transcription output.
+For more information, see [Transcribing Multi-Channel Audio](https://docs.aws.amazon.com/transcribe/latest/dg/channel-id.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 3: To transcribe an audio file and identify the different speakers**  
+The following `start-transcription-job` example transcribes your audio file and identifies the speakers in the transcription output.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://mythirdfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://mythirdfile.json}}
 ```
-
-Contents of `mythirdfile.json`:
+Contents of `mythirdfile.json`:  
 
 ```
 {
@@ -159,8 +135,7 @@ Contents of `mythirdfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -180,20 +155,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Identifying Speakers](diarization.md "diarization.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 4: To transcribe an audio file and mask any unwanted words in the transcription output**
-
-The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.
+For more information, see [Identifying Speakers](https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 4: To transcribe an audio file and mask any unwanted words in the transcription output**  
+The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myfourthfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myfourthfile.json}}
 ```
-
-Contents of `myfourthfile.json`:
+Contents of `myfourthfile.json`:  
 
 ```
 {
@@ -208,8 +178,7 @@ Contents of `myfourthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -229,20 +198,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Filtering Transcriptions](filter-transcriptions.md "filter-transcriptions.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 5: To transcribe an audio file and remove any unwanted words in the transcription output**
-
-The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.
+For more information, see [Filtering Transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/filter-transcriptions.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 5: To transcribe an audio file and remove any unwanted words in the transcription output**  
+The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myfifthfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myfifthfile.json}}
 ```
-
-Contents of `myfifthfile.json`:
+Contents of `myfifthfile.json`:  
 
 ```
 {
@@ -257,8 +221,7 @@ Contents of `myfifthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -278,20 +241,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Filtering Transcriptions](filter-transcriptions.md "filter-transcriptions.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 6: To transcribe an audio file with increased accuracy using a custom vocabulary**
-
-The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.
+For more information, see [Filtering Transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/filter-transcriptions.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 6: To transcribe an audio file with increased accuracy using a custom vocabulary**  
+The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://mysixthfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://mysixthfile.json}}
 ```
-
-Contents of `mysixthfile.json`:
+Contents of `mysixthfile.json`:  
 
 ```
 {
@@ -305,8 +263,7 @@ Contents of `mysixthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -325,20 +282,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Filtering Transcriptions](filter-transcriptions.md "filter-transcriptions.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 7: To identify the language of an audio file and transcribe it**
-
-The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.
+For more information, see [Filtering Transcriptions](https://docs.aws.amazon.com/transcribe/latest/dg/filter-transcriptions.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 7: To identify the language of an audio file and transcribe it**  
+The following `start-transcription-job` example transcribes your audio file and uses a vocabulary filter you've previously created to mask any unwanted words.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myseventhfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myseventhfile.json}}
 ```
-
-Contents of `myseventhfile.json`:
+Contents of `myseventhfile.json`:  
 
 ```
 {
@@ -349,8 +301,7 @@ Contents of `myseventhfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -366,20 +317,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Identifying the Language](auto-lang-id.md "auto-lang-id.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 8: To transcribe an audio file with personally identifiable information redacted**
-
-The following `start-transcription-job` example transcribes your audio file and redacts any personally identifiable information in the transcription output.
+For more information, see [Identifying the Language](https://docs.aws.amazon.com/transcribe/latest/dg/auto-lang-id.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 8: To transcribe an audio file with personally identifiable information redacted**  
+The following `start-transcription-job` example transcribes your audio file and redacts any personally identifiable information in the transcription output.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myeighthfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myeighthfile.json}}
 ```
-
-Contents of `myeigthfile.json`:
+Contents of `myeigthfile.json`:  
 
 ```
 {
@@ -394,8 +340,7 @@ Contents of `myeigthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -415,20 +360,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Automatic Content Redaction](content-redaction.md "content-redaction.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 9: To generate a transcript with personally identifiable information (PII) redacted and an unredacted transcript**
-
-The following `start-transcription-job` example generates two transcrptions of your audio file, one with the personally identifiable information redacted, and the other without any redactions.
+For more information, see [Automatic Content Redaction](https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 9: To generate a transcript with personally identifiable information (PII) redacted and an unredacted transcript**  
+The following `start-transcription-job` example generates two transcrptions of your audio file, one with the personally identifiable information redacted, and the other without any redactions.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://myninthfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://myninthfile.json}}
 ```
-
-Contents of `myninthfile.json`:
+Contents of `myninthfile.json`:  
 
 ```
 {
@@ -443,8 +383,7 @@ Contents of `myninthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -464,20 +403,15 @@ Output:
     }
 }
 ```
-
-For more information, see [Automatic Content Redaction](content-redaction.md "content-redaction.md") in the _Amazon Transcribe Developer Guide_.
-
-**Example 10: To use a custom language model you've previously created to transcribe an audio file.**
-
-The following `start-transcription-job` example transcribes your audio file with a custom language model you've previously created.
+For more information, see [Automatic Content Redaction](https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html) in the *Amazon Transcribe Developer Guide*.  
+**Example 10: To use a custom language model you've previously created to transcribe an audio file.**  
+The following `start-transcription-job` example transcribes your audio file with a custom language model you've previously created.  
 
 ```
-`aws transcribe start-transcription-job \
- --cli-input-json `file://mytenthfile.json``
-
+aws transcribe start-transcription-job \
+    --cli-input-json {{file://mytenthfile.json}}
 ```
-
-Contents of `mytenthfile.json`:
+Contents of `mytenthfile.json`:  
 
 ```
 {
@@ -491,8 +425,7 @@ Contents of `mytenthfile.json`:
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -511,24 +444,15 @@ Output:
     }
 }
 ```
+For more information, see [Improving Domain-Specific Transcription Accuracy with Custom Language Models](https://docs.aws.amazon.com/transcribe/latest/dg/custom-language-models.html) in the *Amazon Transcribe Developer Guide*.  
++  For API details, see [StartTranscriptionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Improving Domain-Specific Transcription Accuracy with Custom Language Models](custom-language-models.md "custom-language-models.md") in the _Amazon Transcribe Developer Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [StartTranscriptionJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples").
-
-Start a transcription job.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/transcribe#code-examples). 
+Start a transcription job.  
 
 ```
 // Import the required AWS SDK clients and commands for Node.js
@@ -559,11 +483,8 @@ export const run = async () => {
   }
 };
 run();
-
-
 ```
-
-Create the client.
+Create the client.  
 
 ```
 import { TranscribeClient } from "@aws-sdk/client-transcribe";
@@ -572,24 +493,15 @@ const REGION = "REGION"; //e.g. "us-east-1"
 // Create an Amazon Transcribe service client object.
 const transcribeClient = new TranscribeClient({ region: REGION });
 export { transcribeClient };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/transcribe-examples-section.html#transcribe-start-transcription). 
++  For API details, see [StartTranscriptionJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartTranscriptionJobCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../sdk-for-javascript/v3/developer-guide/transcribe-examples-section.md#transcribe-start-transcription "../../../sdk-for-javascript/v3/developer-guide/transcribe-examples-section.md#transcribe-start-transcription").
-- For API details, see
-  [StartTranscriptionJob](../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartTranscriptionJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/transcribe/command/StartTranscriptionJobCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
 ```
 def start_job(
@@ -634,25 +546,14 @@ def start_job(
         raise
     else:
         return job
-
-
-
-
 ```
++  For API details, see [StartTranscriptionJob](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/StartTranscriptionJob) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [StartTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
 ```
     TRY.
@@ -683,14 +584,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_conflict_ex TYPE 'I'.
         RAISE EXCEPTION lo_conflict_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [StartTranscriptionJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [StartTranscriptionJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

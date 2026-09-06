@@ -1,43 +1,44 @@
+
+
 # Starting an AWS HealthScribe transcription job
+<a name="starting-health-scribe-job"></a>
 
 You can start an AWS HealthScribe job using the AWS CLI or AWS SDKs.
 
-This example uses the [start-medical-scribe-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-scribe-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-scribe-job.html") command. For more information, see [StartMedicalScribeJob](../APIReference/API_StartMedicalScribeJob.md "../APIReference/API_StartMedicalScribeJob.md").
+## AWS CLI
+<a name="health-scribe-cli-batch"></a>
+
+ This example uses the [start-medical-scribe-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-scribe-job.html) command. For more information, see [StartMedicalScribeJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalScribeJob.html). 
 
 ```
-
 aws transcribe start-medical-scribe-job \
---region `us-west-2` \
---medical-scribe-job-name `my-first-medical-scribe-job` \
---media MediaFileUri=`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac` \
---output-bucket-name `amzn-s3-demo-bucket` \
---DataAccessRoleArn=`arn:aws:iam::111122223333:role/ExampleRole` \
+--region {{us-west-2}} \
+--medical-scribe-job-name {{my-first-medical-scribe-job}} \
+--media MediaFileUri={{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}} \
+--output-bucket-name {{amzn-s3-demo-bucket}} \
+--DataAccessRoleArn={{arn:aws:iam::111122223333:role/ExampleRole}} \
 --settings ShowSpeakerLabels=false,ChannelIdentification=true \
 --channel-definitions ChannelId=0,ParticipantRole=CLINICIAN ChannelId=1,ParticipantRole=PATIENT
-
 ```
 
-Here is another example using the [start-medical-scribe-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-scribe-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-scribe-job.html") command, and a request body with additional settings.
+Here is another example using the [start-medical-scribe-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-scribe-job.html) command, and a request body with additional settings.
 
 ```
-
 aws transcribe start-medical-scribe-job \
---region `us-west-2` \
---cli-input-json `file://filepath/my-first-medical-scribe-job.json`
-
+--region {{us-west-2}} \
+--cli-input-json {{file://filepath/my-first-medical-scribe-job.json}}
 ```
 
 The file `my-first-medical-scribe-job.json` contains the following request body.
 
 ```
-
 {
-  "MedicalScribeJobName": "`my-first-medical-scribe-job`",
+  "MedicalScribeJobName": "{{my-first-medical-scribe-job}}",  
   "Media": {
-    "MediaFileUri": "`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac`"
+    "MediaFileUri": "{{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}}"
    },
-  "OutputBucketName": "`amzn-s3-demo-bucket`",
-  "DataAccessRoleArn": "`arn:aws:iam::111122223333:role/ExampleRole`",
+  "OutputBucketName": "{{amzn-s3-demo-bucket}}", 
+  "DataAccessRoleArn": "{{arn:aws:iam::111122223333:role/ExampleRole}}",
   "Settings": {
     "ShowSpeakerLabels": false,
     "ChannelIdentification": true
@@ -52,34 +53,35 @@ The file `my-first-medical-scribe-job.json` contains the following request body.
     }
   ]
 }
-
 ```
 
-The following example uses the AWS SDK for Python (Boto3) to make a [start\_medical\_scribe\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html") request. For more information, see [StartMedicalScribeJob](../APIReference/API_StartMedicalScribeJob.md "../APIReference/API_StartMedicalScribeJob.md").
+## AWS SDK for Python (Boto3)
+<a name="health-scribe-python-batch"></a>
+
+ The following example uses the AWS SDK for Python (Boto3) to make a [start\_medical\_scribe\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe/client/start_medical_scribe_job.html) request. For more information, see [StartMedicalScribeJob](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartMedicalScribeJob.html). 
 
 ```
-
 from __future__ import print_functionimport timeimport boto3
-transcribe = boto3.client('transcribe', '`us-west-2`')
-job_name = "`my-first-medical-scribe-job`"
-job_uri = "`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac`"
+transcribe = boto3.client('transcribe', '{{us-west-2}}')
+job_name = "{{my-first-medical-scribe-job}}"
+job_uri = "{{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}}"
 transcribe.start_medical_scribe_job(
     MedicalScribeJobName = job_name,
     Media = {
       'MediaFileUri': job_uri
     },
-    OutputBucketName = '`amzn-s3-demo-bucket`',
-    DataAccessRoleArn = '`arn:aws:iam::111122223333:role/ExampleRole`',
+    OutputBucketName = '{{amzn-s3-demo-bucket}}',
+    DataAccessRoleArn = '{{arn:aws:iam::111122223333:role/ExampleRole}}',
     Settings = {
       'ShowSpeakerLabels': false,
       'ChannelIdentification': true
     },
     ChannelDefinitions = [
       {
-        'ChannelId': 0,
+        'ChannelId': 0, 
         'ParticipantRole': 'CLINICIAN'
       }, {
-        'ChannelId': 1,
+        'ChannelId': 1, 
         'ParticipantRole': 'PATIENT'
       }
     ]
@@ -89,30 +91,28 @@ while True:
     if status['MedicalScribeJob']['MedicalScribeJobStatus'] in ['COMPLETED', 'FAILED']:
         break
     print("Not ready yet...")
-    time.sleep(5)
+    time.sleep(5)    
 print(status)
-
 ```
 
-###### Note
-
+**Note**  
 The AWS Management Console does not currently support AWS HealthScribe jobs.
 
 ## Transcription job output examples
+<a name="health-scribe-output-example"></a>
 
-In addition to a transcript, `StartMedicalScribeJob`
-requests generate a separate clinical documentation file. Both files are in JSON format and
-are stored in the output location you specify in your request. Here are examples of each
-output type:
+In addition to a transcript, `StartMedicalScribeJob` requests generate a separate clinical documentation file. Both files are in JSON format and are stored in the output location you specify in your request. Here are examples of each output type:
 
-An AWS HealthScribe transcript file (from a `StartMedicalScribeJob` request) has the following format:
+### Example transcript output
+<a name="health-scribe-transcript-output"></a>
+
+ An AWS HealthScribe transcript file (from a `StartMedicalScribeJob` request) has the following format: 
 
 ```
-
 {
   "Conversation": {
-    "ConversationId": "`sampleConversationUUID`",
-    "JobName": "`sampleJobName`",
+    "ConversationId": "{{sampleConversationUUID}}",
+    "JobName": "{{sampleJobName}}",
     "JobType": "ASYNC",
     "LanguageCode": "en-US",
     "ClinicalInsights": [
@@ -397,30 +397,26 @@ An AWS HealthScribe transcript file (from a `StartMedicalScribeJob` request) has
     ]
   }
 }
-
 ```
 
-Here is another example using the [start-medical-scribe-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-conversation-intelligence-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-conversation-intelligence-job.html") command, and a request body with additional settings.
+Here is another example using the [start-medical-scribe-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-medical-conversation-intelligence-job.html) command, and a request body with additional settings.
 
 ```
-
 aws transcribe start-medical-scribe-job \
---region `us-west-2` \
---cli-input-json `file://filepath/my-first-medical-scribe-job.json`
-
+--region {{us-west-2}} \
+--cli-input-json {{file://filepath/my-first-medical-scribe-job.json}}
 ```
 
 The file `my-first-medical-scribe-job.json` contains the following request body.
 
 ```
-
 {
-  "MedicalScribeJobName": "`my-first-medical-scribe-job`",
+  "MedicalScribeJobName": "{{my-first-medical-scribe-job}}",  
   "Media": {
-    "MediaFileUri": "`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac`"
+    "MediaFileUri": "{{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}}"
    },
-  "OutputBucketName": "`amzn-s3-demo-bucket`",
-  "DataAccessRoleArn": "`arn:aws:iam::111122223333:role/ExampleRole`",
+  "OutputBucketName": "{{amzn-s3-demo-bucket}}", 
+  "DataAccessRoleArn": "{{arn:aws:iam::111122223333:role/ExampleRole}}",
   "Settings": {
     "ShowSpeakerLabels": false,
     "ChannelIdentification": true
@@ -435,13 +431,14 @@ The file `my-first-medical-scribe-job.json` contains the following request body.
     }
   ]
 }
-
 ```
 
-A documentation insights file (from a `StartMedicalScribeJob` request) has the following format:
+### Example clinical documentation output
+<a name="health-scribe-insights-output"></a>
+
+ A documentation insights file (from a `StartMedicalScribeJob` request) has the following format: 
 
 ```
-
 {
   "ClinicalDocumentation": {
     "Sections": [
@@ -635,5 +632,4 @@ A documentation insights file (from a `StartMedicalScribeJob` request) has the f
     ]
   }
 }
-
 ```

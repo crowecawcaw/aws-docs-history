@@ -1,16 +1,18 @@
+
+
 # Starting AWS HealthScribe streaming transcription
+<a name="health-scribe-streaming-setting-up"></a>
 
 The following code example shows how to set up a AWS HealthScribe streaming transcription using the AWS SDKs.
 
-###### Topics
-
-- [SDK for Java 2.x](#health-scribe-java-stream "#health-scribe-java-stream")
-- [Streaming transcription output examples](#health-scribe-streaming-output-example "#health-scribe-streaming-output-example")
+**Topics**
++ [SDK for Java 2.x](#health-scribe-java-stream)
++ [Streaming transcription output examples](#health-scribe-streaming-output-example)
 
 ## SDK for Java 2.x
+<a name="health-scribe-java-stream"></a>
 
-The following example uses the SDK for Java 2.x to set up streaming and make a [StartMedicalScribeStream](../APIReference/API_streaming_StartMedicalScribeStream.md "../APIReference/API_streaming_StartMedicalScribeStream.md")
-request.
+ The following example uses the SDK for Java 2.x to set up streaming and make a [StartMedicalScribeStream](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_streaming_StartMedicalScribeStream.html) request. 
 
 ```
 package org.example;
@@ -57,9 +59,9 @@ public class HealthScribeStreamingDemoApp {
     private static final int CHUNK_SIZE_IN_BYTES = 6400;
     private static final int SAMPLE_RATE = 16000;
     private static final Region REGION = Region.US_EAST_1;
-    private static final String sessionId = "`1234abcd-12ab-34cd-56ef-123456SAMPLE`";
-    private static final String bucketName = "`amzn-s3-demo-bucket`";
-    private static final String resourceAccessRoleArn = "`arn:aws:iam::123456789012:role/resource-access-role`";
+    private static final String sessionId = "{{1234abcd-12ab-34cd-56ef-123456SAMPLE}}";
+    private static final String bucketName = "{{amzn-s3-demo-bucket}}";
+    private static final String resourceAccessRoleArn = "{{arn:aws:iam::123456789012:role/resource-access-role}}";
     private static TranscribeStreamingAsyncClient client;
 
     public static void main(String args[]) {
@@ -235,12 +237,14 @@ public class HealthScribeStreamingDemoApp {
 ```
 
 ## Streaming transcription output examples
+<a name="health-scribe-streaming-output-example"></a>
 
-After streaming is complete, AWS HealthScribe analyzes the stream contents and produces a transcript JSON file and a clinical note JSON file.
-Here are examples of each
-output type:
+ After streaming is complete, AWS HealthScribe analyzes the stream contents and produces a transcript JSON file and a clinical note JSON file. Here are examples of each output type:
 
-The following is an example of a AWS HealthScribe transcript file from a streaming session.
+### Example transcript output
+<a name="health-scribe-streaming-transcript-output"></a>
+
+ The following is an example of a AWS HealthScribe transcript file from a streaming session. 
 
 ```
 {
@@ -248,7 +252,7 @@ The following is an example of a AWS HealthScribe transcript file from a streami
         "ClinicalInsights": [{
             "Attributes": [],
             "Category": "MEDICAL_CONDITION",
-            "InsightId": "`insightUUID1`",
+            "InsightId": "{{insightUUID1}}",
             "InsightType": "ClinicalEntity",
             "Spans": [{
                 "BeginCharacterOffset": 12,
@@ -260,7 +264,7 @@ The following is an example of a AWS HealthScribe transcript file from a streami
         }, {
             "Attributes": [],
             "Category": "TEST_TREATMENT_PROCEDURE",
-            "InsightId": "`insightUUID2`",
+            "InsightId": "{{insightUUID2}}",
             "InsightType": "ClinicalEntity",
             "Spans": [{
                 "BeginCharacterOffset": 4,
@@ -272,7 +276,7 @@ The following is an example of a AWS HealthScribe transcript file from a streami
         }, {
             "Attributes": [],
             "Category": "TEST_TREATMENT_PROCEDURE",
-            "InsightId": "`insightUUID3`",
+            "InsightId": "{{insightUUID3}}",
             "InsightType": "ClinicalEntity",
             "Spans": [{
                 "BeginCharacterOffset": 15,
@@ -284,7 +288,7 @@ The following is an example of a AWS HealthScribe transcript file from a streami
         }, {
             "Attributes": [],
             "Category": "MEDICATION",
-            "InsightId": "`insightUUID4`",
+            "InsightId": "{{insightUUID4}}",
             "InsightType": "ClinicalEntity",
             "Spans": [{
                 "BeginCharacterOffset": 28,
@@ -305,7 +309,7 @@ The following is an example of a AWS HealthScribe transcript file from a streami
                 "Type": "TEST_VALUE"
             }],
             "Category": "TEST_TREATMENT_PROCEDURE",
-            "InsightId": "`insightUUID5`",
+            "InsightId": "{{insightUUID5}}",
             "InsightType": "ClinicalEntity",
             "Spans": [{
                 "BeginCharacterOffset": 14,
@@ -317,7 +321,7 @@ The following is an example of a AWS HealthScribe transcript file from a streami
         }, {
             "Attributes": [],
             "Category": "ANATOMY",
-            "InsightId": "`insightUUID6`",
+            "InsightId": "{{insightUUID6}}",
             "InsightType": "ClinicalEntity",
             "Spans": [{
                 "BeginCharacterOffset": 60,
@@ -327,9 +331,9 @@ The following is an example of a AWS HealthScribe transcript file from a streami
             }],
             "Type": "SYSTEM_ORGAN_SITE"
         }],
-        "ConversationId": "`sampleConversationUUID`",
+        "ConversationId": "{{sampleConversationUUID}}",
         "LanguageCode": "en-US",
-        "SessionId": "`sampleSessionUUID`",
+        "SessionId": "{{sampleSessionUUID}}",
         "TranscriptItems": [{
             "Alternatives": [{
                 "Confidence": 0.7925,
@@ -483,7 +487,10 @@ The following is an example of a AWS HealthScribe transcript file from a streami
 }
 ```
 
-The following is an example of a AWS HealthScribe clinical documentation insights file from a streaming session.
+### Example Clinical Documentation output
+<a name="health-scribe-streaming-insights-output"></a>
+
+ The following is an example of a AWS HealthScribe clinical documentation insights file from a streaming session. 
 
 ```
 {
@@ -677,7 +684,7 @@ The following is an example of a AWS HealthScribe clinical documentation insight
         ]
       }
     ],
-    "SessionId": "`sampleSessionUUID`"
+    "SessionId": "{{sampleSessionUUID}}"
   }
 }
 ```

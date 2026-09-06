@@ -1,24 +1,20 @@
+
+
 # Use `UpdateVocabulary` with an AWS SDK or CLI
+<a name="example_transcribe_UpdateVocabulary_section"></a>
 
 The following code examples show how to use `UpdateVocabulary`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md) 
 
-- [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md "example_transcribe_Scenario_CustomVocabulary_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Transcribe#code-examples). 
 
 ```
-
     /// <summary>
     /// Update a custom vocabulary with new values. Update overwrites all existing information.
     /// </summary>
@@ -38,32 +34,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             });
         return response.VocabularyState;
     }
+```
++  For API details, see [UpdateVocabulary](https://docs.aws.amazon.com/goto/DotNetSDKV3/transcribe-2017-10-26/UpdateVocabulary) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To update a custom vocabulary with new terms.**  
+The following `update-vocabulary` example overwrites the terms used to create a custom vocabulary with the new ones that you provide. Prerequisite: to replace the terms in a custom vocabulary, you need a file with new terms.  
 
 ```
-
-- For API details, see
-  [UpdateVocabulary](../../../goto/DotNetSDKV3/transcribe-2017-10-26/UpdateVocabulary.md "../../../goto/DotNetSDKV3/transcribe-2017-10-26/UpdateVocabulary.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To update a custom vocabulary with new terms.**
-
-The following `update-vocabulary` example overwrites the terms used to create a custom vocabulary with the new ones that you provide. Prerequisite: to replace the terms in a custom vocabulary, you need a file with new terms.
-
+aws transcribe update-vocabulary \
+    --vocabulary-file-uri {{s3://amzn-s3-demo-bucket/Amazon-S3-Prefix/custom-vocabulary.txt}} \
+    --vocabulary-name {{custom-vocabulary}} \
+    --{{language-code}} language-code
 ```
-`aws transcribe update-vocabulary \
- --vocabulary-file-uri `s3://amzn-s3-demo-bucket/Amazon-S3-Prefix/custom-vocabulary.txt` \
- --vocabulary-name `custom-vocabulary` \
- --`language-code` language-code`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -72,22 +59,14 @@ Output:
     "VocabularyState": "PENDING"
 }
 ```
+For more information, see [Custom Vocabularies](https://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary.html) in the *Amazon Transcribe Developer Guide*.  
++  For API details, see [UpdateVocabulary](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/update-vocabulary.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Custom Vocabularies](how-vocabulary.md "how-vocabulary.md") in the _Amazon Transcribe Developer Guide_.
+------
+#### [ Python ]
 
-- For API details, see
-  [UpdateVocabulary](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/update-vocabulary.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/update-vocabulary.html")
-  in _AWS CLI Command Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/transcribe#code-examples). 
 
 ```
 def update_vocabulary(
@@ -115,25 +94,14 @@ def update_vocabulary(
     except ClientError:
         logger.exception("Couldn't update custom vocabulary %s.", vocabulary_name)
         raise
-
-
-
-
 ```
++  For API details, see [UpdateVocabulary](https://docs.aws.amazon.com/goto/boto3/transcribe-2017-10-26/UpdateVocabulary) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [UpdateVocabulary](../../../goto/boto3/transcribe-2017-10-26/UpdateVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/UpdateVocabulary.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/tnb#code-examples). 
 
 ```
     TRY.
@@ -163,14 +131,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         MESSAGE lo_conflict_ex TYPE 'I'.
         RAISE EXCEPTION lo_conflict_ex.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateVocabulary](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [UpdateVocabulary](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section "getting-started-sdk.md#sdk-general-information-section").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](getting-started-sdk.md#sdk-general-information-section). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,88 +1,95 @@
+
+
 # Using toxic speech detection
+<a name="toxicity-using"></a>
 
 ## Using toxic speech detection in a batch transcription
+<a name="toxicity-using-batch"></a>
 
 To use toxic speech detection with a batch transcription, see the following for examples:
 
-1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/ "https://console.aws.amazon.com/transcribe/").
-2. In the navigation pane, choose **Transcription jobs**, then select
-   **Create job** (top right). This opens the **Specify job
-   details** page.
+### AWS Management Console
+<a name="toxicity-using-console-batch"></a>
 
-![Amazon Transcribe console screenshot: the 'specify job details' page.](images/toxicity-batch-details-1.png) 3. On the **Specify job details** page, you can also enable PII redaction if you want. Note that the other listed options are not supported with Toxicity detection. Select **Next**. This takes you to the **Configure job - optional** page.
-In the **Audio settings** panel, select **Toxicity detection**.
+1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/transcribe/).
 
-![Amazon Transcribe console screenshot: the 'configure job' page.](images/toxicity-batch-details-2.png) 4. Select **Create job** to run your transcription job. 5. Once your transcription job is complete, you can download your transcript from the **Download** drop-down menu in the transcription job's detail page.
-This example uses the [start-transcription-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html") command and `ToxicityDetection` parameter. For more information, see
-[`StartTranscriptionJob`](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md") and
-[`ToxicityDetection`](../APIReference/API_ToxicityDetection.md "../APIReference/API_ToxicityDetection.md").
+1. In the navigation pane, choose **Transcription jobs**, then select **Create job** (top right). This opens the **Specify job details** page.  
+![Amazon Transcribe console screenshot: the 'specify job details' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/toxicity-batch-details-1.png)
+
+1.  On the **Specify job details** page, you can also enable PII redaction if you want. Note that the other listed options are not supported with Toxicity detection. Select **Next**. This takes you to the **Configure job - optional** page. In the **Audio settings** panel, select **Toxicity detection**.   
+![Amazon Transcribe console screenshot: the 'configure job' page.](http://docs.aws.amazon.com/transcribe/latest/dg/images/toxicity-batch-details-2.png)
+
+1. Select **Create job** to run your transcription job.
+
+1. Once your transcription job is complete, you can download your transcript from the **Download** drop-down menu in the transcription job's detail page.
+
+### AWS CLI
+<a name="toxicity-using-cli-batch"></a>
+
+This example uses the [start-transcription-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command and `ToxicityDetection` parameter. For more information, see [`StartTranscriptionJob`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [`ToxicityDetection`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_ToxicityDetection.html). 
 
 ```
-
 aws transcribe start-transcription-job \
---region `us-west-2` \
---transcription-job-name `my-first-transcription-job` \
---media MediaFileUri=`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac` \
---output-bucket-name `amzn-s3-demo-bucket` \
---output-key `my-output-files/` \
+--region {{us-west-2}} \
+--transcription-job-name {{my-first-transcription-job}} \
+--media MediaFileUri={{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}} \
+--output-bucket-name {{amzn-s3-demo-bucket}} \
+--output-key {{my-output-files/}} \
 --language-code en-US \
 --toxicity-detection ToxicityCategories=ALL
-
 ```
 
-Here's another example using the [start-transcription-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html") command, and a request body that includes toxicity detection.
+Here's another example using the [start-transcription-job](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/transcribe/start-transcription-job.html) command, and a request body that includes toxicity detection.
 
 ```
-
 aws transcribe start-transcription-job \
---region `us-west-2` \
---cli-input-json `file://filepath/my-first-toxicity-job.json`
-
+--region {{us-west-2}} \
+--cli-input-json {{file://filepath/my-first-toxicity-job.json}}
 ```
 
-The file _my-first-toxicity-job.json_ contains the following request body.
+The file *my-first-toxicity-job.json* contains the following request body.
 
 ```
-
 {
-  "TranscriptionJobName": "`my-first-transcription-job`",
+  "TranscriptionJobName": "{{my-first-transcription-job}}",
   "Media": {
-        "MediaFileUri": "`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac`"
+        "MediaFileUri": "{{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}}"
   },
-  "OutputBucketName": "`amzn-s3-demo-bucket`",
-  "OutputKey": "`my-output-files/`",
+  "OutputBucketName": "{{amzn-s3-demo-bucket}}",
+  "OutputKey": "{{my-output-files/}}", 
   "LanguageCode": "en-US",
-  "ToxicityDetection": [
-      {
+  "ToxicityDetection": [ 
+      { 
          "ToxicityCategories": [ "ALL" ]
       }
    ]
 }
-
 ```
 
-This example uses the AWS SDK for Python (Boto3) to enable `ToxicityDetection` for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job") method. For more information, see [`StartTranscriptionJob`](../APIReference/API_StartTranscriptionJob.md "../APIReference/API_StartTranscriptionJob.md") and [`ToxicityDetection`](../APIReference/Welcome.md "../APIReference/Welcome.md").
+### AWS SDK for Python (Boto3)
+<a name="toxicity-using-python-batch"></a>
 
-For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md "service_code_examples.md") chapter.
+ This example uses the AWS SDK for Python (Boto3) to enable `ToxicityDetection` for the [start\_transcription\_job](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transcribe.html#TranscribeService.Client.start_transcription_job) method. For more information, see [`StartTranscriptionJob`](https://docs.aws.amazon.com/transcribe/latest/APIReference/API_StartTranscriptionJob.html) and [`ToxicityDetection`](https://docs.aws.amazon.com/transcribe/latest/APIReference/Welcome.html). 
+
+For additional examples using the AWS SDKs, including feature-specific, scenario, and cross-service examples, refer to the [Code examples for Amazon Transcribe using AWS SDKs](service_code_examples.md) chapter.
 
 ```
-
 from __future__ import print_function
 import time
 import boto3
-transcribe = boto3.client('transcribe', '`us-west-2`')
-job_name = "`my-first-transcription-job`"
-job_uri = "`s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac`"
+transcribe = boto3.client('transcribe', '{{us-west-2}}')
+job_name = "{{my-first-transcription-job}}"
+job_uri = "{{s3://amzn-s3-demo-bucket/my-input-files/my-media-file.flac}}"
 transcribe.start_transcription_job(
     TranscriptionJobName = job_name,
     Media = {
         'MediaFileUri': job_uri
     },
-    OutputBucketName = '`amzn-s3-demo-bucket`',
-    OutputKey = '`my-output-files/`',
-    LanguageCode = 'en-US',
-    ToxicityDetection = [
-        {
+    OutputBucketName = '{{amzn-s3-demo-bucket}}',
+    OutputKey = '{{my-output-files/}}', 
+    LanguageCode = 'en-US', 
+    ToxicityDetection = [ 
+        { 
             'ToxicityCategories': ['ALL']
         }
     ]
@@ -95,24 +102,22 @@ while True:
     print("Not ready yet...")
     time.sleep(5)
 print(status)
-
 ```
 
 ## Example output
+<a name="toxicity-using-output"></a>
 
-Toxic speech is tagged and categorized in your transcription output. Each instance of toxic
-speech is categorized and assigned a confidence score (a value between 0 and 1). A larger
-confidence value indicates a greater likelihood that the content is toxic speech within the
-specified category.
+ Toxic speech is tagged and categorized in your transcription output. Each instance of toxic speech is categorized and assigned a confidence score (a value between 0 and 1). A larger confidence value indicates a greater likelihood that the content is toxic speech within the specified category. 
 
-The following is an example output in JSON format showing categorized toxic speech with
-associated confidence scores.
+### Example output (JSON)
+<a name="toxicity-using-output-json"></a>
+
+ The following is an example output in JSON format showing categorized toxic speech with associated confidence scores. 
 
 ```
-
 {
-    "jobName": "`my-toxicity-job`",
-    "accountId": "`111122223333`",
+    "jobName": "{{my-toxicity-job}}",
+    "accountId": "{{111122223333}}",
     "results": {
         "transcripts": [...],
         "items":[...],
@@ -153,5 +158,4 @@ associated confidence scores.
     ...
     "status": "COMPLETED"
 }
-
 ```
