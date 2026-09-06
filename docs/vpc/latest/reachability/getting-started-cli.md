@@ -1,29 +1,26 @@
+
+
 # Getting started with Reachability Analyzer using the AWS CLI
+<a name="getting-started-cli"></a>
 
-You can use Reachability Analyzer to determine whether a destination resource in your virtual private cloud
-(VPC) is reachable from a source resource. To get started, you specify a source and a
-destination. For example, you can run a reachability analysis between two network interfaces
-or between a network interface and a gateway. If there is a reachable path between the
-source and destination, Reachability Analyzer displays the details. Otherwise, Reachability Analyzer identifies the blocking
-component.
+You can use Reachability Analyzer to determine whether a destination resource in your virtual private cloud (VPC) is reachable from a source resource. To get started, you specify a source and a destination. For example, you can run a reachability analysis between two network interfaces or between a network interface and a gateway. If there is a reachable path between the source and destination, Reachability Analyzer displays the details. Otherwise, Reachability Analyzer identifies the blocking component.
 
-###### Tasks
-
-- [Step 1: Create a path](#create-path-cli "#create-path-cli")
-- [Step 2: Analyze the path](#analyze-path-cli "#analyze-path-cli")
-- [Step 3: Get the results of the path analysis](#view-results-cli "#view-results-cli")
-- [Step 4: Delete the path](#delete-path-cli "#delete-path-cli")
+**Topics**
++ [Step 1: Create a path](#create-path-cli)
++ [Step 2: Analyze the path](#analyze-path-cli)
++ [Step 3: Get the results of the path analysis](#view-results-cli)
++ [Step 4: Delete the path](#delete-path-cli)
 
 ## Step 1: Create a path
+<a name="create-path-cli"></a>
 
-Use the following [create-network-insights-path](../../../cli/latest/reference/ec2/create-network-insights-path.md "../../../cli/latest/reference/ec2/create-network-insights-path.md") command to create a path. In this example, the source
-is an internet gateway and the destination is an EC2 instance.
+Use the following [create-network-insights-path](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-network-insights-path.html) command to create a path. In this example, the source is an internet gateway and the destination is an EC2 instance.
 
 ```
-aws ec2 create-network-insights-path
-    --source `igw-0797cccdc9d73b0e5`
-    --destination `i-0495d385ad28331c7`
-    --protocol `TCP`
+aws ec2 create-network-insights-path 
+    --source {{igw-0797cccdc9d73b0e5}} 
+    --destination {{i-0495d385ad28331c7}} 
+    --protocol {{TCP}}
     --filter-at-source file://source-filter.json
 ```
 
@@ -32,8 +29,8 @@ The following is an example `source-filter.json`.
 ```
 {
     "DestinationPortRange": {
-        "FromPort": `22`,
-        "ToPort": `22`
+        "FromPort": {{22}},
+        "ToPort": {{22}}
     }
 }
 ```
@@ -55,14 +52,12 @@ The following is example output.
 }
 ```
 
-To specify an IP address as the destination resource, omit the
-`--destination` parameter and filter on the destination address as
-follows.
+To specify an IP address as the destination resource, omit the `--destination` parameter and filter on the destination address as follows.
 
 ```
-aws ec2 create-network-insights-path
-    --source `igw-0797cccdc9d73b0e5`
-    --protocol `TCP`
+aws ec2 create-network-insights-path 
+    --source {{igw-0797cccdc9d73b0e5}} 
+    --protocol {{TCP}}
     --filter-at-source file://source-filter.json
 ```
 
@@ -70,22 +65,21 @@ The following is an example of `source-filter.json`.
 
 ```
 {
-    "DestinationAddress": "`34.230.71.227`",
+    "DestinationAddress": "{{34.230.71.227}}",
     "DestinationPortRange": {
-        "FromPort": `22`,
-        "ToPort": `22`
+        "FromPort": {{22}},
+        "ToPort": {{22}}
     }
 }
 ```
 
 ## Step 2: Analyze the path
+<a name="analyze-path-cli"></a>
 
-Use the following [start-network-insights-analysis](../../../cli/latest/reference/ec2/start-network-insights-analysis.md "../../../cli/latest/reference/ec2/start-network-insights-analysis.md") command to determine whether the destination is
-reachable using the protocol and port that you specified for the path. The analysis can
-take a few minutes to complete.
+Use the following [start-network-insights-analysis](https://docs.aws.amazon.com/cli/latest/reference/ec2/start-network-insights-analysis.html) command to determine whether the destination is reachable using the protocol and port that you specified for the path. The analysis can take a few minutes to complete.
 
 ```
-aws ec2 start-network-insights-analysis --network-insights-path-id `nip-0abc123def456789`
+aws ec2 start-network-insights-analysis --network-insights-path-id {{nip-0abc123def456789}}
 ```
 
 The following is example output.
@@ -103,23 +97,16 @@ The following is example output.
 ```
 
 ## Step 3: Get the results of the path analysis
+<a name="view-results-cli"></a>
 
-After the path analysis completes, you can view the results using the [describe-network-insights-analyses](../../../cli/latest/reference/ec2/describe-network-insights-analyses.md "../../../cli/latest/reference/ec2/describe-network-insights-analyses.md")
-command.
+After the path analysis completes, you can view the results using the [describe-network-insights-analyses](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-insights-analyses.html) command.
 
 ```
-aws ec2 describe-network-insights-analyses --network-insights-analysis-ids `nia-0abc123def456789`
+aws ec2 describe-network-insights-analyses --network-insights-analysis-ids {{nia-0abc123def456789}}
 ```
 
-###### Example 1: Not reachable
-
-The following is example output where the path is not reachable. When a path is
-not reachable, `NetworkPathFound` is `false` and
-`ExplanationCode` contains an explanation code. For descriptions of
-the explanation codes, see [Reachability Analyzer explanation codes](explanation-codes.md "explanation-codes.md"). In this example,
-`ENI_SG_RULES_MISMATCH`, indicates that the security group does not
-allow the traffic. After you add a rule to the security group to allow the traffic,
-you can reanalyze the same path and confirm that it is reachable.
+**Example 1: Not reachable**  
+The following is example output where the path is not reachable. When a path is not reachable, `NetworkPathFound` is `false` and `ExplanationCode` contains an explanation code. For descriptions of the explanation codes, see [Reachability Analyzer explanation codes](explanation-codes.md). In this example, `ENI_SG_RULES_MISMATCH`, indicates that the security group does not allow the traffic. After you add a rule to the security group to allow the traffic, you can reanalyze the same path and confirm that it is reachable.
 
 ```
 {
@@ -283,13 +270,8 @@ you can reanalyze the same path and confirm that it is reachable.
 }
 ```
 
-###### Example 2: Reachable
-
-The following is example output where the path is reachable. When a path is reachable,
-`NetworkPathFound` is `true`, `ForwardPathComponents` contains
-component-by-component details about the shortest reachable path from source to destination, and
-`ReturnPathComponents` contains component-by-component details about the shortest
-reachable path from destination to source.
+**Example 2: Reachable**  
+The following is example output where the path is reachable. When a path is reachable, `NetworkPathFound` is `true`, `ForwardPathComponents` contains component-by-component details about the shortest reachable path from source to destination, and `ReturnPathComponents` contains component-by-component details about the shortest reachable path from destination to source.
 
 ```
 {
@@ -510,7 +492,7 @@ reachable path from destination to source.
                         "SourcePortRanges": [{
                             "From": 22,
                             "To": 22
-                        }]
+                        }]                    
                     },
                     "Vpc": {
                         "Id": "vpc-f1663d98ad28331c7",
@@ -527,23 +509,22 @@ reachable path from destination to source.
 ```
 
 ## Step 4: Delete the path
+<a name="delete-path-cli"></a>
 
-If you no longer need the path, you can delete it. Before you can delete the path, you
-must delete its analyses.
+If you no longer need the path, you can delete it. Before you can delete the path, you must delete its analyses.
 
-###### To delete the path
+**To delete the path**
 
-1. Use the following [delete-network-insights-analysis](../../../cli/latest/reference/ec2/delete-network-insights-analysis.md "../../../cli/latest/reference/ec2/delete-network-insights-analysis.md") command to delete the path analysis.
+1. Use the following [delete-network-insights-analysis](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-network-insights-analysis.html) command to delete the path analysis.
 
-```
-aws ec2 delete-network-insights-analysis --network-insights-analysis-id `nia-02207aa13eb480c7a`
-```
+   ```
+   aws ec2 delete-network-insights-analysis --network-insights-analysis-id {{nia-02207aa13eb480c7a}}
+   ```
 
-2. Use the following [delete-network-insights-path](../../../cli/latest/reference/ec2/delete-network-insights-path.md "../../../cli/latest/reference/ec2/delete-network-insights-path.md") to delete the path.
+1. Use the following [delete-network-insights-path](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-network-insights-path.html) to delete the path.
 
-```
-aws ec2 delete-network-insights-path --network-insights-path-id `nip-0b26f224f1d131fa8`
-```
+   ```
+   aws ec2 delete-network-insights-path --network-insights-path-id {{nip-0b26f224f1d131fa8}}
+   ```
 
-If you keep the path, note that Reachability Analyzer will automatically delete the analysis 120
-days after its creation date.
+If you keep the path, note that Reachability Analyzer will automatically delete the analysis 120 days after its creation date.
