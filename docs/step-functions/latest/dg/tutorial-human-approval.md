@@ -1,115 +1,117 @@
+
+
 # Deploying a workflow that waits for human approval in Step Functions
+<a name="tutorial-human-approval"></a>
 
-This tutorial shows you how to deploy a human approval project that allows an AWS Step Functions
-execution to pause during a task, and wait for a user to respond to an email. The workflow
-progresses to the next state once the user has approved the task to proceed.
+This tutorial shows you how to deploy a human approval project that allows an AWS Step Functions execution to pause during a task, and wait for a user to respond to an email. The workflow progresses to the next state once the user has approved the task to proceed. 
 
-Deploying the CloudFormation stack included in this tutorial will create all necessary resources,
-including:
+Deploying the CloudFormation stack included in this tutorial will create all necessary resources, including:
++ Amazon API Gateway resources
++ An AWS Lambda functions
++ An AWS Step Functions state machine
++ An Amazon Simple Notification Service email topic
++ Related AWS Identity and Access Management roles and permissions
 
-- Amazon API Gateway resources
-- An AWS Lambda functions
-- An AWS Step Functions state machine
-- An Amazon Simple Notification Service email topic
-- Related AWS Identity and Access Management roles and permissions
-
-###### Note
-
+**Note**  
 You will need to provide a valid email address that you have access to when you create the CloudFormation stack.
 
-For more information, see [Working with
-CloudFormation Templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") and the `AWS::StepFunctions::StateMachine` resource in the
-_AWS CloudFormation User Guide_.
+For more information, see [Working with CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html) and the `[AWS::StepFunctions::StateMachine](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html)` resource in the *AWS CloudFormation User Guide*.
 
 ## Step 1: Create an CloudFormation template
+<a name="human-approval-deploy"></a>
 
-1. Copy the example code from the [CloudFormation Template Source Code](#human-approval-yaml "#human-approval-yaml") section.
-2. Paste the source of the CloudFormation template into a file on your local machine.
+1. Copy the example code from the [CloudFormation Template Source Code](#human-approval-yaml) section.
 
-For this example the file is called `human-approval.yaml`.
+1. Paste the source of the CloudFormation template into a file on your local machine.
+
+   For this example the file is called `human-approval.yaml`.
 
 ## Step 2: Create a stack
+<a name="human-approval-create-stack"></a>
 
-1. Log into the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
-2. Choose **Create Stack**, and then choose **With new resources (standard)**.
-3. On the **Create stack** page, do the following:
+1. Log into the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home).
+
+1. Choose **Create Stack**, and then choose **With new resources (standard)**.
+
+1. On the **Create stack** page, do the following:
 
    1. In the **Prerequisite - Prepare template** section, make sure **Template is ready** is selected.
-   2. In the **Specify template** section, choose **Upload a template file** and then choose **Choose file** to
-      upload the `human-approval.yaml` file you created earlier that includes the [template source
-      code](#human-approval-yaml "#human-approval-yaml").
 
-4. Choose **Next**.
-5. On the **Specify stack details** page, do the following:
+   1. In the **Specify template** section, choose **Upload a template file** and then choose **Choose file** to upload the `human-approval.yaml` file you created earlier that includes the [template source code](#human-approval-yaml).
+
+1. Choose **Next**.
+
+1. On the **Specify stack details** page, do the following:
 
    1. For **Stack name**, enter a name for your stack.
-   2. Under **Parameters**, enter a valid email address. You'll use this email address to subscribe to the Amazon SNS topic.
 
-6. Choose **Next**, and then choose **Next** again.
-7. On the **Review** page, choose **I acknowledge that CloudFormation might create IAM resources** and then choose
-   **Create**.
+   1. Under **Parameters**, enter a valid email address. You'll use this email address to subscribe to the Amazon SNS topic.
 
-CloudFormation begins to create your stack and displays the **CREATE\_IN\_PROGRESS** status. When the process is complete, CloudFormation displays the
-**CREATE\_COMPLETE** status. 8. (Optional) To display the resources in your stack, select the stack and choose the **Resources** tab.
+1. Choose **Next**, and then choose **Next** again.
+
+1. On the **Review** page, choose **I acknowledge that CloudFormation might create IAM resources** and then choose **Create**.
+
+   CloudFormation begins to create your stack and displays the **CREATE\_IN\_PROGRESS** status. When the process is complete, CloudFormation displays the **CREATE\_COMPLETE** status.
+
+1. (Optional) To display the resources in your stack, select the stack and choose the **Resources** tab.
 
 ## Step 3: Approve the Amazon SNS subscription
+<a name="human-approval-approve-sub"></a>
 
-Once the Amazon SNS topic is created, you will receive an email requesting that you confirm
-subscription.
+Once the Amazon SNS topic is created, you will receive an email requesting that you confirm subscription.
 
 1. Open the email account you provided when you created the CloudFormation stack.
-2. Open the message **AWS Notification - Subscription Confirmation**
-   from **no-reply@sns.amazonaws.com**
 
-The email will list the Amazon Resource Name for the Amazon SNS topic, and a confirmation link. 3. Choose the **confirm subscription** link.
+1. Open the message **AWS Notification - Subscription Confirmation** from **no-reply@sns.amazonaws.com**
 
-![Illustrative screenshot of a subscription confirmation email.](images/tutorial-human-approval-sub-conf.png)
+   The email will list the Amazon Resource Name for the Amazon SNS topic, and a confirmation link.
+
+1. Choose the **confirm subscription** link.  
+![Illustrative screenshot of a subscription confirmation email.](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-sub-conf.png)
 
 ## Step 4: Run the state machine
+<a name="human-approval-run"></a>
 
 1. On the **HumanApprovalLambdaStateMachine** page, choose **Start execution**.
 
-The **Start execution** dialog box is displayed. 2. In the **Start execution** dialog box, do the following:
+   The **Start execution** dialog box is displayed.
 
-    1. (Optional) Enter a custom execution name to override the generated default.
+1. In the **Start execution** dialog box, do the following:
 
-     ###### Non-ASCII names and logging
+   1. (Optional) Enter a custom execution name to override the generated default.
+**Non-ASCII names and logging**  
+Step Functions accepts names for state machines, executions, activities, and labels that contain non-ASCII characters. Because such characters will prevent Amazon CloudWatch from logging data, we recommend using only ASCII characters so you can track Step Functions metrics.
 
-    Step Functions accepts names for state machines, executions, activities, and labels that contain non-ASCII characters. Because such characters will prevent Amazon CloudWatch from logging data, we recommend using only ASCII characters so you can track Step Functions metrics.
-    2. In the **Input** box, enter the following JSON input to run your workflow.
+   1. In the **Input** box, enter the following JSON input to run your workflow.
 
+      ```
+      {
+          "Comment": "Testing the human approval tutorial."
+      }
+      ```
 
+   1. Choose **Start execution**.
 
-    ```
-    {
-        "Comment": "Testing the human approval tutorial."
-    }
-    ```
-    3. Choose **Start execution**.
+      The **ApprovalTest** state machine execution starts, and pauses at the **Lambda Callback** task.
 
+   1. The Step Functions console directs you to a page that's titled with your execution ID. This page is known as the *Execution Details* page. On this page, you can review the execution results as the execution progresses or after it's complete.
 
-    The **ApprovalTest** state machine execution starts, and pauses at the **Lambda Callback** task.
-    4. The Step Functions console directs you to a page that's titled with your execution ID. This page is known as the *Execution Details* page. On this page, you can review the execution results as the execution progresses or after it's complete.
+      To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details) pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the *Execution Details* page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview).  
+![Execution waiting for callback](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-pause.png)
 
+1. In the email account you used for the Amazon SNS topic earlier, open the message with the subject **Required approval from AWS Step Functions**. 
 
-    To review the execution results, choose individual states on the **Graph view**, and then choose the individual tabs on the [Step details](concepts-view-execution-details.md#exec-details-intf-step-details "concepts-view-execution-details.md#exec-details-intf-step-details") pane to view each state's details including input, output, and definition respectively. For details about the execution information you can view on the *Execution Details* page, see [Execution details overview](concepts-view-execution-details.md#exec-details-interface-overview "concepts-view-execution-details.md#exec-details-interface-overview").
+   The message includes separate URLs for **Approve** and **Reject**.
 
+1. Choose the **Approve** URL.
 
-
-    ![Execution waiting for callback](images/tutorial-human-approval-pause.png)
-
-3. In the email account you used for the Amazon SNS topic earlier, open the message with the subject **Required approval from AWS Step Functions**.
-
-The message includes separate URLs for **Approve** and **Reject**. 4. Choose the **Approve** URL.
-
-The workflow continues based on your choice.
-
-![Execution waiting for callback](images/tutorial-human-approval-continue.png)
+   The workflow continues based on your choice.  
+![Execution waiting for callback](http://docs.aws.amazon.com/step-functions/latest/dg/images/tutorial-human-approval-continue.png)
 
 ## CloudFormation Template Source Code
+<a name="human-approval-yaml"></a>
 
-Use this AWS CloudFormation template to deploy an example of a human approval process
-workflow.
+Use this AWS CloudFormation template to deploy an example of a human approval process workflow.
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -170,7 +172,7 @@ Resources:
                 "$queryParam": "$util.escapeJavaScript($input.params().querystring.get($queryParam))" #if($foreach.hasNext),#end
 
                 #end
-              }
+              }  
             }
       ResourceId: !Ref ExecutionResource
       RestApiId: !Ref ExecutionApi
@@ -183,12 +185,12 @@ Resources:
     Type: 'AWS::ApiGateway::Account'
     Properties:
       CloudWatchRoleArn: !GetAtt "ApiGatewayCloudWatchLogsRole.Arn"
-
+  
   ApiGatewayCloudWatchLogsRole:
     Type: 'AWS::IAM::Role'
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -309,7 +311,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Action:
               - "sts:AssumeRole"
@@ -391,7 +393,7 @@ Resources:
         -
            Endpoint: !Sub ${Email}
            Protocol: email
-
+  
   LambdaHumanApprovalSendEmailFunction:
     Type: "AWS::Lambda::Function"
     Properties:
@@ -439,7 +441,7 @@ Resources:
                 emailMessage += 'Approve ' + approveEndpoint + '\n\n'
                 emailMessage += 'Reject ' + rejectEndpoint + '\n\n'
                 emailMessage += 'Thanks for using Step functions!'
-
+                
                 const sns = new SNS();
                 var params = {
                   Message: emailMessage,
@@ -462,7 +464,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -482,7 +484,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -514,5 +516,3 @@ Outputs:
   StateMachineHumanApprovalArn:
     Value: !Ref HumanApprovalLambdaStateMachine
 ```
-
-[Show moreShow less](# "#")

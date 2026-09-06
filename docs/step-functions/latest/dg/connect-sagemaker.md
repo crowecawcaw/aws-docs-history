@@ -1,41 +1,36 @@
+
+
 # Create and manage Amazon SageMaker AI jobs with Step Functions
+<a name="connect-sagemaker"></a>
 
-Learn how to use Step Functions to create and manage jobs on SageMaker AI. This page lists the supported SageMaker AI API actions and provides example
-`Task` states to create SageMaker AI transform, training, labeling, and processing jobs.
+Learn how to use Step Functions to create and manage jobs on SageMaker AI. This page lists the supported SageMaker AI API actions and provides example `Task` states to create SageMaker AI transform, training, labeling, and processing jobs.
 
-To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md "integrate-services.md") and [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md").
+To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md) and [Passing parameters to a service API in Step Functions](connect-parameters.md).
 
-###### Key features of Optimized SageMaker AI integration
-
-- The [Run a Job (.sync)](connect-to-resource.md#connect-sync "connect-to-resource.md#connect-sync") integration
-  pattern is supported.
-- There are no specific optimizations for the [Request Response](connect-to-resource.md#connect-default "connect-to-resource.md#connect-default") integration pattern.
-- The [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token "connect-to-resource.md#connect-wait-token")
-  integration pattern is not supported.
+**Key features of Optimized SageMaker AI integration**  
+The [Run a Job (.sync)](connect-to-resource.md#connect-sync) integration pattern is supported.
+There are no specific optimizations for the [Request Response](connect-to-resource.md#connect-default) integration pattern.
+The [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token) integration pattern is not supported.
 
 ## Optimized SageMaker AI APIs
+<a name="connect-sagemaker-api"></a>
++ [`CreateEndpoint`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html)
++ [`CreateEndpointConfig`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html)
++ [`CreateHyperParameterTuningJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateHyperParameterTuningJob.html) - Supports the `.sync` integration pattern.
++ [`CreateLabelingJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateLabelingJob.html) - Supports the `.sync` integration pattern.
++ [`CreateModel`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateModel.html)
++ [`CreateProcessingJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateProcessingJob.html) - Supports the `.sync` integration pattern.
++ [`CreateTrainingJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTrainingJob.html) - Supports the `.sync` integration pattern.
++ [`CreateTransformJob`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateTransformJob.html) - Supports the `.sync` integration pattern.
++ [`UpdateEndpoint`](https://docs.aws.amazon.com/sagemaker/latest/dg/API_UpdateEndpoint.html)
 
-- [`CreateEndpoint`](../../../sagemaker/latest/dg/API_CreateEndpoint.md "../../../sagemaker/latest/dg/API_CreateEndpoint.md")
-- [`CreateEndpointConfig`](../../../sagemaker/latest/dg/API_CreateEndpointConfig.md "../../../sagemaker/latest/dg/API_CreateEndpointConfig.md")
-- [`CreateHyperParameterTuningJob`](../../../sagemaker/latest/dg/API_CreateHyperParameterTuningJob.md "../../../sagemaker/latest/dg/API_CreateHyperParameterTuningJob.md") - Supports the `.sync` integration pattern.
-- [`CreateLabelingJob`](../../../sagemaker/latest/dg/API_CreateLabelingJob.md "../../../sagemaker/latest/dg/API_CreateLabelingJob.md") - Supports the `.sync` integration pattern.
-- [`CreateModel`](../../../sagemaker/latest/dg/API_CreateModel.md "../../../sagemaker/latest/dg/API_CreateModel.md")
-- [`CreateProcessingJob`](../../../sagemaker/latest/dg/API_CreateProcessingJob.md "../../../sagemaker/latest/dg/API_CreateProcessingJob.md") - Supports the `.sync` integration pattern.
-- [`CreateTrainingJob`](../../../sagemaker/latest/dg/API_CreateTrainingJob.md "../../../sagemaker/latest/dg/API_CreateTrainingJob.md") - Supports the `.sync` integration pattern.
-- [`CreateTransformJob`](../../../sagemaker/latest/dg/API_CreateTransformJob.md "../../../sagemaker/latest/dg/API_CreateTransformJob.md") - Supports the `.sync` integration pattern.
-- [`UpdateEndpoint`](../../../sagemaker/latest/dg/API_UpdateEndpoint.md "../../../sagemaker/latest/dg/API_UpdateEndpoint.md")
-
-###### Note
-
-AWS Step Functions will not automatically create a policy for
-`CreateTransformJob`. You must attach an inline policy to the
-created role. For more information, see this example IAM policy: [CreateTrainingJob](#sagemaker-iam-createtrainingjob "#sagemaker-iam-createtrainingjob").
+**Note**  
+AWS Step Functions will not automatically create a policy for `CreateTransformJob`. You must attach an inline policy to the created role. For more information, see this example IAM policy: [`CreateTrainingJob`](#sagemaker-iam-createtrainingjob).
 
 ## SageMaker AI Transform Job Example
+<a name="sagemaker-example-transform"></a>
 
-The following includes a `Task` state that creates an Amazon SageMaker AI transform
-job, specifying the Amazon S3 location for `DataSource` and
-`TransformOutput`.
+The following includes a `Task` state that creates an Amazon SageMaker AI transform job, specifying the Amazon S3 location for `DataSource` and `TransformOutput`.
 
 ```
 {
@@ -68,23 +63,23 @@ job, specifying the Amazon S3 location for `DataSource` and
 ```
 
 ## SageMaker AI Training Job Example
+<a name="sagemaker-example-training"></a>
 
-The following includes a `Task` state that creates an Amazon SageMaker AI training
-job.
+The following includes a `Task` state that creates an Amazon SageMaker AI training job.
 
 ```
-{
-   "SageMaker CreateTrainingJob":{
+{  
+   "SageMaker CreateTrainingJob":{  
       "Type":"Task",
       "Resource":"arn:aws:states:::sagemaker:createTrainingJob.sync",
-      "Arguments":{
+      "Arguments":{  
          "TrainingJobName":"search-model",
-         "ResourceConfig":{
+         "ResourceConfig":{  
             "InstanceCount":4,
             "InstanceType":"ml.c4.8xlarge",
             "VolumeSizeInGB":20
          },
-         "HyperParameters":{
+         "HyperParameters":{  
             "mode":"batch_skipgram",
             "epochs":"5",
             "min_count":"5",
@@ -95,22 +90,22 @@ job.
             "negative_samples":"5",
             "batch_size":"11"
          },
-         "AlgorithmSpecification":{
+         "AlgorithmSpecification":{  
             "TrainingImage":"...",
             "TrainingInputMode":"File"
          },
-         "OutputDataConfig":{
+         "OutputDataConfig":{  
             "S3OutputPath":"s3://amzn-s3-demo-destination-bucket1/doc-search/model"
          },
-         "StoppingCondition":{
+         "StoppingCondition":{  
             "MaxRuntimeInSeconds":100000
          },
-         "RoleArn":"arn:aws:iam::`account-id`:role/docsearch-stepfunction-iam-role",
-         "InputDataConfig":[
-            {
+         "RoleArn":"arn:aws:iam::{{account-id}}:role/docsearch-stepfunction-iam-role",
+         "InputDataConfig":[  
+            {  
                "ChannelName":"train",
-               "DataSource":{
-                  "S3DataSource":{
+               "DataSource":{  
+                  "S3DataSource":{  
                      "S3DataType":"S3Prefix",
                      "S3Uri":"s3://amzn-s3-demo-destination-bucket1/doc-search/interim-data/training-data/",
                      "S3DataDistributionType":"FullyReplicated"
@@ -119,25 +114,25 @@ job.
             }
          ]
       },
-      "Retry":[
-         {
-            "ErrorEquals":[
+      "Retry":[  
+         {  
+            "ErrorEquals":[  
                "SageMaker.AmazonSageMakerException"
             ],
             "IntervalSeconds":1,
             "MaxAttempts":100,
             "BackoffRate":1.1
          },
-         {
-            "ErrorEquals":[
+         {  
+            "ErrorEquals":[  
                "SageMaker.ResourceLimitExceededException"
             ],
             "IntervalSeconds":60,
             "MaxAttempts":5000,
             "BackoffRate":1
          },
-         {
-            "ErrorEquals":[
+         {  
+            "ErrorEquals":[  
                "States.Timeout"
             ],
             "IntervalSeconds":1,
@@ -145,9 +140,9 @@ job.
             "BackoffRate":1
          }
       ],
-      "Catch":[
-         {
-            "ErrorEquals":[
+      "Catch":[  
+         {  
+            "ErrorEquals":[  
                "States.ALL"
             ],
             "Next":"Sagemaker Training Job Error"
@@ -156,15 +151,12 @@ job.
       "Next":"Delete Interim Data Job"
    }
 }
-
-
-
 ```
 
 ## SageMaker AI Labeling Job Example
+<a name="sagemaker-example-labeling"></a>
 
-The following includes a `Task` state that creates an Amazon SageMaker AI labeling
-job.
+The following includes a `Task` state that creates an Amazon SageMaker AI labeling job.
 
 ```
 {
@@ -177,10 +169,10 @@ job.
       "Arguments": {
         "HumanTaskConfig": {
           "AnnotationConsolidationConfig": {
-            "AnnotationConsolidationLambdaArn": "arn:aws:lambda:`region`:123456789012:function:ACS-TextMultiClass"
+            "AnnotationConsolidationLambdaArn": "arn:aws:lambda:{{region}}:123456789012:function:ACS-TextMultiClass"
           },
           "NumberOfHumanWorkersPerDataObject": 1,
-          "PreHumanTaskLambdaArn": "arn:aws:lambda:`region`:123456789012:function:PRE-TextMultiClass",
+          "PreHumanTaskLambdaArn": "arn:aws:lambda:{{region}}:123456789012:function:PRE-TextMultiClass",
           "TaskDescription": "Classify the following text",
           "TaskKeywords": [
             "tc",
@@ -191,7 +183,7 @@ job.
           "UiConfig": {
             "UiTemplateS3Uri": "s3://amzn-s3-demo-bucket/TextClassification.template"
           },
-          "WorkteamArn": "arn:aws:sagemaker:`region`:123456789012:workteam/private-crowd/ExampleTesting"
+          "WorkteamArn": "arn:aws:sagemaker:{{region}}:123456789012:workteam/private-crowd/ExampleTesting"
         },
         "InputConfig": {
           "DataAttributes": {
@@ -240,13 +232,12 @@ job.
         }
     }
 }
-
 ```
 
 ## SageMaker AI Processing Job Example
+<a name="sagemaker-example-processing"></a>
 
-The following includes a `Task` state that creates an Amazon SageMaker AI processing
-job.
+The following includes a `Task` state that creates an Amazon SageMaker AI processing job.
 
 ```
 {
@@ -267,7 +258,7 @@ job.
             "VolumeSizeInGB": 10
           }
         },
-        "RoleArn": "arn:aws:iam::`account-id`:role/SM-003-CreateProcessingJobAPIExecutionRole",
+        "RoleArn": "arn:aws:iam::{{account-id}}:role/SM-003-CreateProcessingJobAPIExecutionRole",
         "ProcessingJobName.$": "$.id"
       },
       "Next": "ValidateOutput"
@@ -295,438 +286,457 @@ job.
     }
   }
 }
-
 ```
 
 ## IAM policies for calling Amazon SageMaker AI
+<a name="sagemaker-iam"></a>
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md) and [Discover service integration patterns in Step Functions](connect-to-resource.md).
 
-###### Note
-
-For these examples, `roleArn` refers to the
-Amazon Resource Name (ARN) of the IAM role that SageMaker AI uses to access model artifacts and docker images
-for deployment on ML compute instances, or for batch transform jobs. For more information, see
-[Amazon SageMaker Roles](../../../sagemaker/latest/dg/sagemaker-roles.md "../../../sagemaker/latest/dg/sagemaker-roles.md").
+**Note**  
+For these examples, `{{roleArn}}` refers to the Amazon Resource Name (ARN) of the IAM role that SageMaker AI uses to access model artifacts and docker images for deployment on ML compute instances, or for batch transform jobs. For more information, see [Amazon SageMaker Roles](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html).
 
 ### `CreateTrainingJob`
+<a name="sagemaker-iam-createtrainingjob"></a>
 
-_Static resources_
+*Static resources*
 
-Run a Job (.sync)
+------
+#### [ Run a Job (.sync) ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTrainingJob",
- "sagemaker:DescribeTrainingJob",
- "sagemaker:StopTrainingJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:training-job/myJobName*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForSageMakerTrainingJobsRule"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response and Callback (.waitForTaskToken)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTrainingJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:training-job/myJobName*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- }
- ]
-}`
-
-```
-
-_Dynamic resources_
-
-.sync or .waitForTaskToken
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTrainingJob",
- "sagemaker:DescribeTrainingJob",
- "sagemaker:StopTrainingJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:training-job/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForSageMakerTrainingJobsRule"
- ]
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTrainingJob",
+        "sagemaker:DescribeTrainingJob",
+        "sagemaker:StopTrainingJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:training-job/myJobName*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "events:PutTargets",
+        "events:PutRule",
+        "events:DescribeRule"
+      ],
+      "Resource": [
+        "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/StepFunctionsGetEventsForSageMakerTrainingJobsRule"
+      ]
+    }
+  ]
+}
 ```
 
-Request Response and Callback (.waitForTaskToken)
+------
+#### [ Request Response and Callback (.waitForTaskToken) ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTrainingJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:training-job/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- }
- ]
-}`
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTrainingJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:training-job/myJobName*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+------
+
+*Dynamic resources*
+
+------
+#### [ .sync or .waitForTaskToken ]
+
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTrainingJob",
+        "sagemaker:DescribeTrainingJob",
+        "sagemaker:StopTrainingJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:training-job/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "events:PutTargets",
+        "events:PutRule",
+        "events:DescribeRule"
+      ],
+      "Resource": [
+        "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/StepFunctionsGetEventsForSageMakerTrainingJobsRule"
+      ]
+    }
+  ]
+}
+```
+
+------
+#### [ Request Response and Callback (.waitForTaskToken) ]
+
+****  
+
+```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTrainingJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:training-job/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+------
 
 ### `CreateTransformJob`
+<a name="sagemaker-iam-createtransformjob"></a>
 
-###### Note
+**Note**  
+AWS Step Functions will not automatically create a policy for `CreateTransformJob` when you create a state machine that integrates with SageMaker AI. You must attach an inline policy to the created role based on one of the following IAM examples.
 
-AWS Step Functions will not automatically create a policy for `CreateTransformJob`
-when you create a state machine that integrates with SageMaker AI. You must attach an inline policy
-to the created role based on one of the following IAM examples.
+*Static resources*
 
-_Static resources_
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTransformJob",
- "sagemaker:DescribeTransformJob",
- "sagemaker:StopTransformJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:transform-job/myJobName*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForSageMakerTransformJobsRule"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response and Callback (.waitForTaskToken)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTransformJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:transform-job/myJobName*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- }
- ]
-}`
-
-```
-
-_Dynamic resources_
-
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTransformJob",
- "sagemaker:DescribeTransformJob",
- "sagemaker:StopTransformJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:transform-job/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForSageMakerTransformJobsRule"
- ]
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTransformJob",
+        "sagemaker:DescribeTransformJob",
+        "sagemaker:StopTransformJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:transform-job/myJobName*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "events:PutTargets",
+        "events:PutRule",
+        "events:DescribeRule"
+      ],
+      "Resource": [
+        "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/StepFunctionsGetEventsForSageMakerTransformJobsRule"
+      ]
+    }
+  ]
+}
 ```
 
-Request Response and Callback (.waitForTaskToken)
+------
+#### [ Request Response and Callback (.waitForTaskToken) ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:CreateTransformJob"
- ],
- "Resource": [
- "arn:aws:sagemaker:`us-east-1`:`123456789012`:transform-job/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "sagemaker:ListTags",
- "sagemaker:AddTags"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/`MyExampleRole`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "sagemaker.amazonaws.com"
- }
- }
- }
- ]
-}`
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTransformJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:transform-job/myJobName*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+------
+
+*Dynamic resources*
+
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTransformJob",
+        "sagemaker:DescribeTransformJob",
+        "sagemaker:StopTransformJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:transform-job/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "events:PutTargets",
+        "events:PutRule",
+        "events:DescribeRule"
+      ],
+      "Resource": [
+        "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/StepFunctionsGetEventsForSageMakerTransformJobsRule"
+      ]
+    }
+  ]
+}
+```
+
+------
+#### [ Request Response and Callback (.waitForTaskToken) ]
+
+****  
+
+```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:CreateTransformJob"
+      ],
+      "Resource": [
+        "arn:aws:sagemaker:{{us-east-1}}:{{123456789012}}:transform-job/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sagemaker:ListTags",
+        "sagemaker:AddTags"
+      ],
+      "Resource": [
+        "*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "arn:aws:iam::123456789012:role/{{MyExampleRole}}"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "sagemaker.amazonaws.com"
+        }
+      }
+    }
+  ]
+}
+```
+
+------

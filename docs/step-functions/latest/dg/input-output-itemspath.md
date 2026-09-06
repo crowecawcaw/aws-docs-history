@@ -1,29 +1,20 @@
+
+
 # ItemsPath (Map, JSONPath only)
+<a name="input-output-itemspath"></a>
 
-###### Managing state and transforming data
+**Managing state and transforming data**  
+This page refers to JSONPath. Step Functions recently added variables and JSONata to manage state and transform data.  
+Learn about [Passing data with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
 
-This page refers to JSONPath. Step Functions recently added variables and JSONata to manage state and transform data.
+In JSONPath-based states, use the `ItemsPath` field to select an array or object within a JSON input provided to a `Map` state. By default, the `Map` state sets `ItemsPath` to `$`, which selects the entire input. 
++  If the input to the `Map` state is a JSON array, it runs an iteration for each item in the array, passing that item to the iteration as input 
++  If the input to the `Map` state is a JSON object, it runs an iteration for each key-value pair in the object, passing the pair to the iteration as input 
 
-Learn about [Passing data with variables](workflow-variables.md "workflow-variables.md") and [Transforming data with JSONata](transforming-data.md "transforming-data.md").
+**Note**  
+You can use `ItemsPath` in the *Distributed Map state* only if you use a JSON input passed from a previous state in the workflow.
 
-In JSONPath-based states, use the `ItemsPath` field to select an array or object within a JSON input provided to a `Map` state.
-By default, the `Map` state sets `ItemsPath` to `$`, which selects the entire input.
-
-- If the input to the `Map` state is a JSON array, it runs
-  an iteration for each item in the array, passing that item to the iteration as input
-- If the input to the `Map` state is a JSON object, it runs
-  an iteration for each key-value pair in the object, passing the pair to the iteration as input
-
-###### Note
-
-You can use `ItemsPath` in the _Distributed Map state_
-only
-if you use a JSON input passed from a previous state in the
-workflow.
-
-The value of `ItemsPath` must be a [Reference Path](amazon-states-language-paths.md#amazon-states-language-reference-paths "amazon-states-language-paths.md#amazon-states-language-reference-paths"), and
-that path must evaluate to a JSON array or object. For instance, consider input to a
-`Map` state that includes two arrays, like the following example.
+The value of `ItemsPath` must be a [Reference Path](amazon-states-language-paths.md#amazon-states-language-reference-paths), and that path must evaluate to a JSON array or object. For instance, consider input to a `Map` state that includes two arrays, like the following example.
 
 ```
 {
@@ -55,16 +46,7 @@ that path must evaluate to a JSON array or object. For instance, consider input 
 }
 ```
 
-In this case, you could specify which array to use for `Map` state
-iterations by selecting
-it
-with `ItemsPath`. The following state machine definition specifies the
-`ThingsPiratesSay` array in the input using
-`ItemsPath`.It
-then
-runs
-an iteration of the `SayWord` pass state for each item in the
-`ThingsPiratesSay` array.
+In this case, you could specify which array to use for `Map` state iterations by selecting it with `ItemsPath`. The following state machine definition specifies the `ThingsPiratesSay` array in the input using `ItemsPath`.It then runs an iteration of the `SayWord` pass state for each item in the `ThingsPiratesSay` array.
 
 ```
 {
@@ -130,20 +112,10 @@ To iterate over the web servers object, you would set `ItemsPath` to `$.servers.
 }
 ```
 
-When processing input,
-the
-`Map` state applies
-`ItemsPath`
-after [InputPath](input-output-inputpath-params.md#input-output-inputpath "input-output-inputpath-params.md#input-output-inputpath"). It operates
-on the effective input to the
-state after
-`InputPath`
-filters
-the input.
+When processing input, the `Map` state applies `ItemsPath` after [`InputPath`](input-output-inputpath-params.md#input-output-inputpath). It operates on the effective input to the state after `InputPath` filters the input.
 
 For more information on `Map` states, see the following:
-
-- [Map state](state-map.md "state-map.md")
-- [Map state processing modes](state-map.md#concepts-map-process-modes "state-map.md#concepts-map-process-modes")
-- [Repeat actions with Inline Map](tutorial-map-inline.md "tutorial-map-inline.md")
-- [Inline Map state input and output processing](state-map-inline.md#inline-map-state-output "state-map-inline.md#inline-map-state-output")
++  [Map state](state-map.md) 
++ [Map state processing modes](state-map.md#concepts-map-process-modes)
++ [Repeat actions with Inline Map](tutorial-map-inline.md)
++ [Inline `Map` state input and output processing](state-map-inline.md#inline-map-state-output)

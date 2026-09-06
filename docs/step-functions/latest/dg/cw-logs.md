@@ -1,190 +1,166 @@
+
+
 # Using CloudWatch Logs to log execution history in Step Functions
+<a name="cw-logs"></a>
 
-Standard Workflows record execution history in AWS Step Functions, although you can optionally
-configure logging to Amazon CloudWatch Logs.
+Standard Workflows record execution history in AWS Step Functions, although you can optionally configure logging to Amazon CloudWatch Logs.
 
-Unlike Standard Workflows, Express Workflows don't record execution history in AWS Step Functions. To
-see execution history and results for an Express Workflow, you must configure logging to
-Amazon CloudWatch Logs. Publishing logs doesn't block or slow down executions.
+Unlike Standard Workflows, Express Workflows don't record execution history in AWS Step Functions. To see execution history and results for an Express Workflow, you must configure logging to Amazon CloudWatch Logs. Publishing logs doesn't block or slow down executions.
 
-###### Log delivery guarantees
-
+**Log delivery guarantees**  
 Amazon CloudWatch Logs are delivered on a best-effort basis. The completeness and timeliness of log entries are not guaranteed. If you require guaranteed workflow history in Express Workflows, we recommend that you implement workflow steps to record data in an appropriate data storage service such as Amazon DynamoDB. Alternatively, you might consider using **Standard Workflows** for guaranteed execution history.
 
-###### Pricing information
-
-When you configure logging, [CloudWatch Logs charges](https://aws.amazon.com/cloudwatch/pricing "https://aws.amazon.com/cloudwatch/pricing") will apply and you will be billed at the vended logs rate. For more information, see **Vended Logs** under the **Logs** tab on the CloudWatch Pricing page.
+**Pricing information**  
+When you configure logging, [CloudWatch Logs charges](https://aws.amazon.com/cloudwatch/pricing) will apply and you will be billed at the vended logs rate. For more information, see **Vended Logs** under the **Logs** tab on the CloudWatch Pricing page.
 
 ## Configure logging
+<a name="monitoring-logging-configure"></a>
 
-When you create a Standard Workflow using the Step Functions console, that state machine will **not** be configured to send logs to CloudWatch Logs. When you create an Express Workflow using the Step Functions console, that state machine will by default
-be configured to send logs to CloudWatch Logs.
+When you create a Standard Workflow using the Step Functions console, that state machine will **not** be configured to send logs to CloudWatch Logs. When you create an Express Workflow using the Step Functions console, that state machine will by default be configured to send logs to CloudWatch Logs. 
 
-For Express workflows, Step Functions can create a role with the necessary AWS Identity and Access Management (IAM) policy
-for CloudWatch Logs. If you create a Standard Workflow, or an Express Workflow using the API, CLI, or
-CloudFormation, Step Functions will not enable logging by default, and you will need ensure your role has the
-necessary permissions.
+For Express workflows, Step Functions can create a role with the necessary AWS Identity and Access Management (IAM) policy for CloudWatch Logs. If you create a Standard Workflow, or an Express Workflow using the API, CLI, or CloudFormation, Step Functions will not enable logging by default, and you will need ensure your role has the necessary permissions.
 
-For each execution started from the console, Step Functions provides a link to CloudWatch Logs, configured
-with the correct filter to fetch log events specific for that execution.
+For each execution started from the console, Step Functions provides a link to CloudWatch Logs, configured with the correct filter to fetch log events specific for that execution. 
 
-You can optionally configure customer managed AWS KMS keys to encrypt your logs. See [Data at rest encryption](encryption-at-rest.md "encryption-at-rest.md") for details and permission settings.
+You can optionally configure customer managed AWS KMS keys to encrypt your logs. See [Data at rest encryption](encryption-at-rest.md) for details and permission settings.
 
-To configure logging, you can pass the [LoggingConfiguration](../apireference/API_LoggingConfiguration.md "../apireference/API_LoggingConfiguration.md") parameter when using [CreateStateMachine](../apireference/API_CreateStateMachine.md "../apireference/API_CreateStateMachine.md") or [UpdateStateMachine](../apireference/API_UpdateStateMachine.md "../apireference/API_UpdateStateMachine.md"). You can further analyze your data in CloudWatch Logs by using CloudWatch Logs
-Insights. For more information see [Analyzing Log Data with CloudWatch
-Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md").
+To configure logging, you can pass the [LoggingConfiguration](https://docs.aws.amazon.com/step-functions/latest/apireference/API_LoggingConfiguration.html) parameter when using [CreateStateMachine](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) or [UpdateStateMachine](https://docs.aws.amazon.com/step-functions/latest/apireference/API_UpdateStateMachine.html). You can further analyze your data in CloudWatch Logs by using CloudWatch Logs Insights. For more information see [Analyzing Log Data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html).
 
 ## CloudWatch Logs payloads
+<a name="cloudwatch-payload"></a>
 
-Execution history events may contain properties such as `input`,
-`output`, and `assignedVariables`, which contain escaped data from your
-execution. If the combined size of these fields is too large, then the data is truncated to avoid
-exceeding CloudWatch Logs quotas.
-
-- You can determine whether a payload has been truncated by reviewing the `inputDetails`,
-  `outputDetails`, and `assignedVariablesDetails` properties. For more
-  information, see the [`HistoryEventExecutionDataDetails` Data Type](../apireference/API_HistoryEventExecutionDataDetails.md "../apireference/API_HistoryEventExecutionDataDetails.md").
-- For Standard Workflows, you can see the full execution history by using [`GetExecutionHistory`](../apireference/API_GetExecutionHistory.md "../apireference/API_GetExecutionHistory.md").
-- `GetExecutionHistory` is not available for Express Workflows. If you want to
-  see the full input and output, you can use Amazon S3 ARNs. For more information, see [Using Amazon S3 ARNs instead of passing large payloads in Step Functions](sfn-best-practices.md#avoid-exec-failures "sfn-best-practices.md#avoid-exec-failures").
+Execution history events may contain properties such as `input`, `output`, and `assignedVariables`, which contain escaped data from your execution. If the combined size of these fields is too large, then the data is truncated to avoid exceeding CloudWatch Logs quotas.
++  You can determine whether a payload has been truncated by reviewing the `inputDetails`, `outputDetails`, and `assignedVariablesDetails` properties. For more information, see the [`HistoryEventExecutionDataDetails` Data Type](https://docs.aws.amazon.com/step-functions/latest/apireference/API_HistoryEventExecutionDataDetails.html). 
++  For Standard Workflows, you can see the full execution history by using [`GetExecutionHistory`](https://docs.aws.amazon.com/step-functions/latest/apireference/API_GetExecutionHistory.html). 
++  `GetExecutionHistory` is not available for Express Workflows. If you want to see the full input and output, you can use Amazon S3 ARNs. For more information, see [Using Amazon S3 ARNs instead of passing large payloads in Step Functions](sfn-best-practices.md#avoid-exec-failures). 
 
 ## IAM Policies for logging to CloudWatch Logs
+<a name="cloudwatch-iam-policy"></a>
 
 You will also need to configure your state machine's execution IAM role to have the proper permission to log to CloudWatch Logs as shown in the following example.
 
-###### IAM policy example
+**IAM policy example**  
+The following is an example policy you can use to configure your permissions. As shown in the following example, you need to specify **\*** in the `Resource` field. CloudWatch API actions, such as CreateLogDelivery and DescribeLogGroups, do not support [Resource types defined by Amazon CloudWatch Logs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-resources-for-iam-policies). For more information, see [Actions defined by Amazon CloudWatch Logs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatchlogs.html#amazoncloudwatchlogs-actions-as-permissions).
++ For information about CloudWatch resources, see [CloudWatch Logs resources and operations](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html#CWL_ARN_Format) in the *Amazon CloudWatch User Guide*.
++ For information about the permissions you need to set up sending logs to CloudWatch Logs, see [User permissions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-CWL) in the section titled *Logs sent to CloudWatch Logs*.
 
-The following is an example policy you can use to configure your permissions. As shown in the following example, you need to specify **\*** in the `Resource` field. CloudWatch API actions, such as CreateLogDelivery and DescribeLogGroups, do not support [Resource types defined by Amazon CloudWatch Logs](../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md#amazoncloudwatchlogs-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md#amazoncloudwatchlogs-resources-for-iam-policies"). For more information, see [Actions defined by Amazon CloudWatch Logs](../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md#amazoncloudwatchlogs-actions-as-permissions "../../../service-authorization/latest/reference/list_amazoncloudwatchlogs.md#amazoncloudwatchlogs-actions-as-permissions").
-
-- For information about CloudWatch resources, see [CloudWatch Logs resources and operations](../../../AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.md#CWL_ARN_Format "../../../AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.md#CWL_ARN_Format") in the _Amazon CloudWatch User Guide_.
-- For information about the permissions you need to set up sending logs to CloudWatch Logs, see [User permissions](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL") in the section titled _Logs sent to CloudWatch Logs_.
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "logs:CreateLogDelivery",
- "logs:CreateLogStream",
- "logs:GetLogDelivery",
- "logs:UpdateLogDelivery",
- "logs:DeleteLogDelivery",
- "logs:ListLogDeliveries",
- "logs:PutLogEvents",
- "logs:PutResourcePolicy",
- "logs:DescribeResourcePolicies",
- "logs:DescribeLogGroups"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogDelivery",
+                "logs:CreateLogStream",
+                "logs:GetLogDelivery",
+                "logs:UpdateLogDelivery",
+                "logs:DeleteLogDelivery",
+                "logs:ListLogDeliveries",
+                "logs:PutLogEvents",
+                "logs:PutResourcePolicy",
+                "logs:DescribeResourcePolicies",
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
 ## Log levels for Step Functions execution events
+<a name="cloudwatch-log-level"></a>
 
 Log levels range from `ALL` to `ERROR` to `FATAL` to `OFF`. All event types are logged for `ALL`, no event types are logged when set to `OFF`. For `ERROR` and `FATAL`, see the following table.
 
-For more information about the execution data displayed for Express Workflow executions based on these **Log levels**, see
-[Standard and Express console experience differences](concepts-view-execution-details.md#console-exp-differences "concepts-view-execution-details.md#console-exp-differences").
+For more information about the execution data displayed for Express Workflow executions based on these **Log levels**, see [Standard and Express console experience differences](concepts-view-execution-details.md#console-exp-differences).
 
-| Event Type                   | `ALL`  | `ERROR`      | `FATAL`      | `OFF`        |
-| ---------------------------- | ------ | ------------ | ------------ | ------------ |
-| ChoiceStateEntered           | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ChoiceStateExited            | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ExecutionAborted             | Logged | Logged       | Logged       | _Not logged_ |
-| ExecutionFailed              | Logged | Logged       | Logged       | _Not logged_ |
-| ExecutionStarted             | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ExecutionSucceeded           | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ExecutionTimedOut            | Logged | Logged       | Logged       | _Not logged_ |
-| FailStateEntered             | Logged | Logged       | _Not logged_ | _Not logged_ |
-| LambdaFunctionFailed         | Logged | Logged       | _Not logged_ | _Not logged_ |
-| LambdaFunctionScheduled      | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| LambdaFunctionScheduleFailed | Logged | Logged       | _Not logged_ | _Not logged_ |
-| LambdaFunctionStarted        | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| LambdaFunctionStartFailed    | Logged | Logged       | _Not logged_ | _Not logged_ |
-| LambdaFunctionSucceeded      | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| LambdaFunctionTimedOut       | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapIterationAborted          | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapIterationFailed           | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapIterationStarted          | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| MapIterationSucceeded        | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| MapRunAborted                | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapRunFailed                 | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapStateAborted              | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapStateEntered              | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| MapStateExited               | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| MapStateFailed               | Logged | Logged       | _Not logged_ | _Not logged_ |
-| MapStateStarted              | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| MapStateSucceeded            | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ParallelStateAborted         | Logged | Logged       | _Not logged_ | _Not logged_ |
-| ParallelStateEntered         | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ParallelStateExited          | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ParallelStateFailed          | Logged | Logged       | _Not logged_ | _Not logged_ |
-| ParallelStateStarted         | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| ParallelStateSucceeded       | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| PassStateEntered             | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| PassStateExited              | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| SucceedStateEntered          | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| SucceedStateExited           | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskFailed                   | Logged | Logged       | _Not logged_ | _Not logged_ |
-| TaskScheduled                | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskStarted                  | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskStartFailed              | Logged | Logged       | _Not logged_ | _Not logged_ |
-| TaskStateAborted             | Logged | Logged       | _Not logged_ | _Not logged_ |
-| TaskStateEntered             | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskStateExited              | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskSubmitFailed             | Logged | Logged       | _Not logged_ | _Not logged_ |
-| TaskSubmitted                | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskSucceeded                | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| TaskTimedOut                 | Logged | Logged       | _Not logged_ | _Not logged_ |
-| WaitStateAborted             | Logged | Logged       | _Not logged_ | _Not logged_ |
-| WaitStateEntered             | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| WaitStateExited              | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
+
+| Event Type | `ALL` | `ERROR` | `FATAL` | `OFF` | 
+| --- | --- | --- | --- | --- | 
+| ChoiceStateEntered | Logged | Not logged | Not logged | Not logged | 
+| ChoiceStateExited | Logged | Not logged | Not logged | Not logged | 
+| ExecutionAborted | Logged | Logged | Logged | Not logged | 
+| ExecutionFailed | Logged | Logged | Logged | Not logged | 
+| ExecutionStarted | Logged | Not logged | Not logged | Not logged | 
+| ExecutionSucceeded | Logged | Not logged | Not logged | Not logged | 
+| ExecutionTimedOut | Logged | Logged | Logged | Not logged | 
+| FailStateEntered | Logged | Logged | Not logged | Not logged | 
+| LambdaFunctionFailed | Logged | Logged | Not logged | Not logged | 
+| LambdaFunctionScheduled | Logged | Not logged | Not logged | Not logged | 
+| LambdaFunctionScheduleFailed | Logged | Logged | Not logged | Not logged | 
+| LambdaFunctionStarted | Logged | Not logged | Not logged | Not logged | 
+| LambdaFunctionStartFailed | Logged | Logged | Not logged | Not logged | 
+| LambdaFunctionSucceeded | Logged | Not logged | Not logged | Not logged | 
+| LambdaFunctionTimedOut | Logged | Logged | Not logged | Not logged | 
+| MapIterationAborted | Logged | Logged | Not logged | Not logged | 
+| MapIterationFailed | Logged | Logged | Not logged | Not logged | 
+| MapIterationStarted | Logged | Not logged | Not logged | Not logged | 
+| MapIterationSucceeded | Logged | Not logged | Not logged | Not logged | 
+| MapRunAborted | Logged | Logged | Not logged | Not logged | 
+| MapRunFailed | Logged | Logged | Not logged | Not logged | 
+| MapStateAborted | Logged | Logged | Not logged | Not logged | 
+| MapStateEntered | Logged | Not logged | Not logged | Not logged | 
+| MapStateExited | Logged | Not logged | Not logged | Not logged | 
+| MapStateFailed | Logged | Logged | Not logged | Not logged | 
+| MapStateStarted | Logged | Not logged | Not logged | Not logged | 
+| MapStateSucceeded | Logged | Not logged | Not logged | Not logged | 
+| ParallelStateAborted | Logged | Logged | Not logged | Not logged | 
+| ParallelStateEntered | Logged | Not logged | Not logged | Not logged | 
+| ParallelStateExited | Logged | Not logged | Not logged | Not logged | 
+| ParallelStateFailed | Logged | Logged | Not logged | Not logged | 
+| ParallelStateStarted | Logged | Not logged | Not logged | Not logged | 
+| ParallelStateSucceeded | Logged | Not logged | Not logged | Not logged | 
+| PassStateEntered | Logged | Not logged | Not logged | Not logged | 
+| PassStateExited | Logged | Not logged | Not logged | Not logged | 
+| SucceedStateEntered | Logged | Not logged | Not logged | Not logged | 
+| SucceedStateExited | Logged | Not logged | Not logged | Not logged | 
+| TaskFailed | Logged | Logged | Not logged | Not logged | 
+| TaskScheduled | Logged | Not logged | Not logged | Not logged | 
+| TaskStarted | Logged | Not logged | Not logged | Not logged | 
+| TaskStartFailed | Logged | Logged | Not logged | Not logged | 
+| TaskStateAborted | Logged | Logged | Not logged | Not logged | 
+| TaskStateEntered | Logged | Not logged | Not logged | Not logged | 
+| TaskStateExited | Logged | Not logged | Not logged | Not logged | 
+| TaskSubmitFailed | Logged | Logged | Not logged | Not logged | 
+| TaskSubmitted | Logged | Not logged | Not logged | Not logged | 
+| TaskSucceeded | Logged | Not logged | Not logged | Not logged | 
+| TaskTimedOut | Logged | Logged | Not logged | Not logged | 
+| WaitStateAborted | Logged | Logged | Not logged | Not logged | 
+| WaitStateEntered | Logged | Not logged | Not logged | Not logged | 
+| WaitStateExited | Logged | Not logged | Not logged | Not logged | 
 
 ## Troubleshooting logging to CloudWatch Logs
+<a name="cloudwatch-log-troubleshooting"></a><a name="troubleshooting-logging-to-cloudwatch"></a>
 
-If your state machine cannot send logs to CloudWatch Logs or you receive the error:
-"`AccessDeniedException : The state machine IAM Role is not authorized to access
- the Log Destination`", try the following steps:
+If your state machine cannot send logs to CloudWatch Logs or you receive the error: "`AccessDeniedException : The state machine IAM Role is not authorized to access the Log Destination`", try the following steps:
 
 1. Verify your state machine's execution role has permission to log to CloudWatch Logs.
 
-When you call [CreateStateMachine](../apireference/API_CreateStateMachine.md "../apireference/API_CreateStateMachine.md") or
-[UpdateStateMachine](../apireference/API_UpdateStateMachine.md "../apireference/API_UpdateStateMachine.md") API endpoints, make sure the IAM role specified in the `roleArn` parameter provides the necessary permissions, shown in the preceding IAM policy example. 2. Verify the CloudWatch Logs resource policy does not exceed the 5,120 character limit.
+   When you call [CreateStateMachine](https://docs.aws.amazon.com/step-functions/latest/apireference/API_CreateStateMachine.html) or [UpdateStateMachine](https://docs.aws.amazon.com/step-functions/latest/apireference/API_UpdateStateMachine.html) API endpoints, make sure the IAM role specified in the `roleArn` parameter provides the necessary permissions, shown in the preceding IAM policy example.
 
-If the policy exceeds the character limit, prefix your log group names with
-`/aws/vendedlogs/states` to grant permissions to your state machines
-and avoid the limit.
+1. Verify the CloudWatch Logs resource policy does not exceed the 5,120 character limit.
 
-When you create a log group in the Step Functions console, the suggested log group
-names are already prefixed with `/aws/vendedlogs/states`. For more
-information on logging best practices, see [Avoiding CloudWatch resource policy size limits](sfn-best-practices.md#bp-cwl "sfn-best-practices.md#bp-cwl"). 3. Verify the number of CloudWatch Logs log resource policies in the account is less than
-**ten**.
+   If the policy exceeds the character limit, prefix your log group names with `/aws/vendedlogs/states` to grant permissions to your state machines and avoid the limit. 
 
-CloudWatch Logs has a quota of ten resource policies per region, per account. If you try
-to enable logging on a state machine that already has ten resource policies, the
-state machine will not be created nor updated, and you will receive an error.
-For more information about logging quotas, see [CloudWatch Logs quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md")
+   When you create a log group in the Step Functions console, the suggested log group names are already prefixed with `/aws/vendedlogs/states`. For more information on logging best practices, see [Avoiding CloudWatch resource policy size limits](sfn-best-practices.md#bp-cwl).
 
-To verify the problem, check the number of resource policies using the CLI
-command:
+1. Verify the number of CloudWatch Logs log resource policies in the account is less than **ten**.
 
-[`aws logs describe-resource-policies`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html")
+   CloudWatch Logs has a quota of ten resource policies per region, per account. If you try to enable logging on a state machine that already has ten resource policies, the state machine will not be created nor updated, and you will receive an error. For more information about logging quotas, see [CloudWatch Logs quotas](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.html)
 
-To resolve the problem, modify your existing resource policies.
+   To verify the problem, check the number of resource policies using the CLI command:
 
-First, back up the existing policies. Then, join similar actions or resources
-into a new policy and use the following CLI command to create a new delivery
-source in the account:
+    [`aws logs describe-resource-policies`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html)
 
-[`aws logs put-delivery-source`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html")
+   To resolve the problem, modify your existing resource policies.
 
-After backing up and updating the policies, remove any unused policies with
-the following command:
+   First, back up the existing policies. Then, join similar actions or resources into a new policy and use the following CLI command to create a new delivery source in the account: 
 
-[`aws logs delete-resource-policy --policy-name
- <PolicyNameToBeDeleted>`](../../../cli/latest/reference/logs/delete-resource-policy.md "../../../cli/latest/reference/logs/delete-resource-policy.md")
+   [`aws logs put-delivery-source`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html)
+
+   After backing up and updating the policies, remove any unused policies with the following command:
+
+    [`aws logs delete-resource-policy --policy-name <PolicyNameToBeDeleted>`](https://docs.aws.amazon.com/cli/latest/reference/logs/delete-resource-policy.html)

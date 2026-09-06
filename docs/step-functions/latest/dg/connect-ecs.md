@@ -1,39 +1,33 @@
+
+
 # Run Amazon ECS or Fargate tasks with Step Functions
+<a name="connect-ecs"></a>
 
-Learn how to integrate Step Functions with Amazon ECS or Fargate to run and manage tasks. In Amazon ECS, a task is the fundamental unit of computation.
-Tasks are defined by a task definition that specifies how a Docker container should be run, including the container image, CPU and memory
-limits, network configuration, and other parameters. This page lists the available Amazon ECS API actions and provides instructions on how to
-pass data to an Amazon ECS task using Step Functions.
+Learn how to integrate Step Functions with Amazon ECS or Fargate to run and manage tasks. In Amazon ECS, a task is the fundamental unit of computation. Tasks are defined by a task definition that specifies how a Docker container should be run, including the container image, CPU and memory limits, network configuration, and other parameters. This page lists the available Amazon ECS API actions and provides instructions on how to pass data to an Amazon ECS task using Step Functions.
 
-To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md "integrate-services.md") and [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md").
+To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md) and [Passing parameters to a service API in Step Functions](connect-parameters.md).
 
-###### Key features of Optimized Amazon ECS/Fargate integration
-
-- The [Run a Job (.sync)](connect-to-resource.md#connect-sync "connect-to-resource.md#connect-sync") integration pattern is supported.
-- `ecs:runTask` can return an HTTP 200 response, but have a non-empty `Failures` field as follows:
-
-  - **Request Response**: Return the response and do not fail the task, which is the same as non-optimized integrations.
-  - **Run a Job or Task Token**: If a non-empty `Failures` field is encountered, the task is failed with an `AmazonECS.Unknown` error.
+**Key features of Optimized Amazon ECS/Fargate integration**  
+The [Run a Job (.sync)](connect-to-resource.md#connect-sync) integration pattern is supported.
+`ecs:runTask` can return an HTTP 200 response, but have a non-empty `Failures` field as follows:  
+**Request Response**: Return the response and do not fail the task, which is the same as non-optimized integrations.
+**Run a Job or Task Token**: If a non-empty `Failures` field is encountered, the task is failed with an `AmazonECS.Unknown` error.
 
 ## Optimized Amazon ECS/Fargate APIs
+<a name="connect-ecs-api"></a>
++ [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) starts a new task using the specified task definition.
 
-- [`RunTask`](../../../AmazonECS/latest/APIReference/API_RunTask.md "../../../AmazonECS/latest/APIReference/API_RunTask.md") starts a
-  new task using the specified task definition.
-
-###### Parameters in Step Functions are expressed in PascalCase
-
+**Parameters in Step Functions are expressed in PascalCase**  
 Even if the native service API is in camelCase, for example the API action `startSyncExecution`, you specify parameters in PascalCase, such as: `StateMachineArn`.
 
 ## Passing Data to an Amazon ECS Task
+<a name="connect-ecs-pass-to"></a>
 
-To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md "integrate-services.md") and [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md").
+To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md) and [Passing parameters to a service API in Step Functions](connect-parameters.md).
 
-You can use `overrides` to override the default
-command for a container, and pass input to your Amazon ECS tasks. See [`ContainerOverride`](../../../AmazonECS/latest/APIReference/API_ContainerOverride.md "../../../AmazonECS/latest/APIReference/API_ContainerOverride.md"). In the example, we have used JsonPath to pass
-values to the `Task` from the input to the `Task` state.
+You can use `overrides` to override the default command for a container, and pass input to your Amazon ECS tasks. See [`ContainerOverride`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerOverride.html). In the example, we have used JsonPath to pass values to the `Task` from the input to the `Task` state.
 
-The following includes a `Task` state that runs an Amazon ECS task and waits for
-it to complete.
+The following includes a `Task` state that runs an Amazon ECS task and waits for it to complete.
 
 ```
 {
@@ -43,13 +37,13 @@ it to complete.
      "Type": "Task",
      "Resource": "arn:aws:states:::ecs:runTask.sync",
      "Arguments": {
-                "Cluster": "`cluster-arn`",
-                "TaskDefinition": "`job-id`",
+                "Cluster": "{{cluster-arn}}",
+                "TaskDefinition": "{{job-id}}",
                 "Overrides": {
                     "ContainerOverrides": [
                         {
-                            "Name": "`container-name`",
-                            "Command": "{% $state.input.commands %}"
+                            "Name": "{{container-name}}",
+                            "Command": "{% $state.input.commands %}" 
                         }
                     ]
                 }
@@ -58,11 +52,9 @@ it to complete.
     }
   }
 }
-
 ```
 
-The `Command` line in `ContainerOverrides`
-passes the commands from the state input to the container.
+The `Command` line in `ContainerOverrides` passes the commands from the state input to the container.
 
 In the previous example state machine, given the following input, each of the commands would be passed as a container override:
 
@@ -76,27 +68,26 @@ In the previous example state machine, given the following input, each of the co
 }
 ```
 
-The following includes a `Task` state that runs an Amazon ECS task, and then
-waits for the task token to be returned. See [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token "connect-to-resource.md#connect-wait-token").
+The following includes a `Task` state that runs an Amazon ECS task, and then waits for the task token to be returned. See [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token).
 
 ```
-{
+{  
    "StartAt":"Manage ECS task",
-   "States":{
-      "Manage ECS task":{
+   "States":{  
+      "Manage ECS task":{  
          "Type":"Task",
-         "Resource":"arn:aws:states:::ecs:runTask**.waitForTaskToken**",
-         "Arguments":{
+         "Resource":"arn:aws:states:::ecs:runTask.waitForTaskToken",
+         "Arguments":{  
             "LaunchType":"FARGATE",
-            "Cluster":"`cluster-arn`",
-            "TaskDefinition":"`job-id`",
-            "Overrides":{
-               "ContainerOverrides":[
-                  {
-                     "Name":"`container-name`",
-                     "Environment":[
-                        {
-                           "Name" : "`TASK_TOKEN_ENV_VARIABLE`",
+            "Cluster":"{{cluster-arn}}",
+            "TaskDefinition":"{{job-id}}",
+            "Overrides":{  
+               "ContainerOverrides":[  
+                  {  
+                     "Name":"{{container-name}}",
+                     "Environment":[  
+                        {  
+                           "Name" : "{{TASK_TOKEN_ENV_VARIABLE}}",
                            "Value" : "{% $states.context.Task.Token %}"
                         }
                      ]
@@ -111,23 +102,23 @@ waits for the task token to be returned. See [Wait for a Callback with Task Toke
 ```
 
 ## IAM policies for calling Amazon ECS/AWS Fargate
+<a name="ecs-iam"></a>
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md) and [Discover service integration patterns in Step Functions](connect-to-resource.md).
 
-Because the value for `TaskId` is not known until the task is submitted, Step Functions
-creates a more privileged `"Resource": "*"` policy.
+Because the value for `TaskId` is not known until the task is submitted, Step Functions creates a more privileged `"Resource": "*"` policy.
 
-###### Note
+**Note**  
+You can only stop Amazon Elastic Container Service (Amazon ECS) tasks that were started by Step Functions, despite the `"*"` IAM policy.
 
-You can only stop Amazon Elastic Container Service (Amazon ECS) tasks that were started by Step Functions, despite the
-`"*"` IAM policy.
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-_Static resources_
+*Static resources*
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -135,8 +126,8 @@ _Static resources_
                 "ecs:RunTask"
             ],
             "Resource": [
-                "arn:aws:ecs:`region`:
-`account-id`:task-definition/`taskDefinition`:`revisionNumber`"
+                "arn:aws:ecs:{{region}}:
+{{account-id}}:task-definition/{{taskDefinition}}:{{revisionNumber}}"
             ]
         },
         {
@@ -155,21 +146,19 @@ _Static resources_
                 "events:DescribeRule"
             ],
             "Resource": [
-               "arn:aws:events:`region`:
-`account-id`:rule/StepFunctionsGetEventsForECSTaskRule"
+               "arn:aws:events:{{region}}:
+{{account-id}}:rule/StepFunctionsGetEventsForECSTaskRule"
             ]
         }
     ]
 }
-
-
 ```
 
-_Dynamic resources_
+*Dynamic resources*
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -188,20 +177,22 @@ _Dynamic resources_
                 "events:DescribeRule"
             ],
             "Resource": [
-               "arn:aws:events:`region`:
-`account-id`:rule/StepFunctionsGetEventsForECSTaskRule"
+               "arn:aws:events:{{region}}:
+{{account-id}}:rule/StepFunctionsGetEventsForECSTaskRule"
             ]
         }
     ]
 }
 ```
 
-Request Response and Callback (.waitForTaskToken)
-_Static resources_
+------
+#### [ Request Response and Callback (.waitForTaskToken) ]
+
+*Static resources*
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -209,32 +200,33 @@ _Static resources_
                 "ecs:RunTask"
             ],
             "Resource": [
-                "arn:aws:ecs:`region`:
-`account-id`:task-definition/`taskDefinition`:`revisionNumber`"
+                "arn:aws:ecs:{{region}}:
+{{account-id}}:task-definition/{{taskDefinition}}:{{revisionNumber}}"
             ]
         }
     ]
 }
-
 ```
 
-_Dynamic resources_
+*Dynamic resources*
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ecs:RunTask"
- ],
- "Resource": "*"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:RunTask"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
 ```
 
-If your scheduled Amazon ECS tasks require the use of a task execution role, a task role, or a task role override, then you must add `iam:PassRole` permissions for each task
-execution role, task role, or task role override to the CloudWatch Events IAM role of the calling entity, which in this case is Step Functions.
+------
+
+If your scheduled Amazon ECS tasks require the use of a task execution role, a task role, or a task role override, then you must add `iam:PassRole` permissions for each task execution role, task role, or task role override to the CloudWatch Events IAM role of the calling entity, which in this case is Step Functions.

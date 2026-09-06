@@ -1,20 +1,19 @@
+
+
 # Accessing execution data from the Context object in Step Functions
+<a name="input-output-contextobject"></a>
 
-###### Managing state and transforming data
+**Managing state and transforming data**  
+Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
 
-Learn about [Passing data between states with variables](workflow-variables.md "workflow-variables.md") and [Transforming data with JSONata](transforming-data.md "transforming-data.md").
-
-The Context object is an internal JSON structure that is available during an execution,
-and contains information about your state machine and execution. The context provides your
-workflows information about their specific execution. Your workflows can reference the
-Context object in a JSONata expression with `$states.context`.
+The Context object is an internal JSON structure that is available during an execution, and contains information about your state machine and execution. The context provides your workflows information about their specific execution. Your workflows can reference the Context object in a JSONata expression with `$states.context`.
 
 ## Accessing the Context object
+<a name="contextobject-access"></a>
 
 **To access the Context object in JSONata**
 
-To access the Context object in JSONata states, use `$states.context` in a
-JSONata expression.
+To access the Context object in JSONata states, use `$states.context` in a JSONata expression. 
 
 ```
 {
@@ -24,80 +23,66 @@ JSONata expression.
 
 **To access the Context object in JSONPath**
 
-To access the Context object in JSONPath, you first append `.$` to the end of
-the key to indicate the value is a path. Then, prepend the value with `$$.`
-to select a node in the Context object.
+To access the Context object in JSONPath, you first append `.$` to the end of the key to indicate the value is a path. Then, prepend the value with `$$.` to select a node in the Context object.
 
 ```
 {
-  "ExecutionID**.$**": "**$$.Execution.Id**"
+  "ExecutionID.$": "$$.Execution.Id"
 }
 ```
 
-JSONPath states can refer to the context (`$$.`) from the following JSONPath
-fields:
-
-- `InputPath`
-- `OutputPath`
-- `ItemsPath` (in Map states)
-- `Variable` (in Choice states)
-- `ResultSelector`
-- `Parameters`
-- Variable to variable comparison operators
+JSONPath states can refer to the context (`$$.`) from the following JSONPath fields:
++ `InputPath`
++ `OutputPath`
++ `ItemsPath` (in Map states)
++ `Variable` (in Choice states)
++ `ResultSelector`
++ `Parameters`
++ Variable to variable comparison operators
 
 ## Context object fields
+<a name="contextobject-format"></a>
 
-The Context object includes information about the state machine, state, execution, and
-task. The Context JSON object includes nodes for each type of data in the following
-format:
+The Context object includes information about the state machine, state, execution, and task. The Context JSON object includes nodes for each type of data in the following format:
 
 ```
 {
     "Execution": {
-        "Id": "`String`",
+        "Id": "{{String}}",
         "Input": {},
-        "Name": "`String`",
-        "RoleArn": "`String`",
-        "StartTime": "`Format: ISO 8601`",
-        "RedriveCount": `Number`,
-        "RedriveTime": "`Format: ISO 8601`"
+        "Name": "{{String}}",
+        "RoleArn": "{{String}}",
+        "StartTime": "{{Format: ISO 8601}}",
+        "RedriveCount": {{Number}},
+        "RedriveTime": "{{Format: ISO 8601}}"
     },
     "State": {
-        "EnteredTime": "`Format: ISO 8601`",
-        "Name": "`String`",
-        "RetryCount": `Number`
+        "EnteredTime": "{{Format: ISO 8601}}",
+        "Name": "{{String}}",
+        "RetryCount": {{Number}}
     },
     "StateMachine": {
-        "Id": "`String`",
-        "Name": "`String`"
+        "Id": "{{String}}",
+        "Name": "{{String}}"
     },
     "Task": {
-        "Token": "`String`"
+        "Token": "{{String}}"
     }
 }
 ```
 
-During an execution, the Context object is populated with relevant data.
+During an execution, the Context object is populated with relevant data. 
 
-Occasionally, new fields are added to the context. If you are processing the JSON
-context directly, we recommend crafting code that can gracefully handle new unknown
-fields. For example, if using the Jackson library for unmarshalling JSON, we recommend
-setting `FAIL_ON_UNKNOWN_PROPERTIES` to `false` in your
-`ObjectMapper` to prevent an
-`UnrecognizedPropertyException`.
+Occasionally, new fields are added to the context. If you are processing the JSON context directly, we recommend crafting code that can gracefully handle new unknown fields. For example, if using the Jackson library for unmarshalling JSON, we recommend setting `FAIL_ON_UNKNOWN_PROPERTIES` to `false` in your `ObjectMapper` to prevent an `UnrecognizedPropertyException`.
 
-`RedriveTime` Context object is only available if you've
-redriven an execution. If you've [redriven a Map Run](redrive-map-run.md "redrive-map-run.md"), the `RedriveTime` context
-object is only available for child workflows of type Standard. For a
-redriven Map Run with child workflows of type Express,
-`RedriveTime` isn't available.
+ `RedriveTime` Context object is only available if you've redriven an execution. If you've [redriven a Map Run](redrive-map-run.md), the `RedriveTime` context object is only available for child workflows of type Standard. For a redriven Map Run with child workflows of type Express, `RedriveTime` isn't available.
 
-Content from a running execution includes specifics in the following format:
+Content from a running execution includes specifics in the following format: 
 
 ```
 {
     "Execution": {
-        "Id": "arn:aws:states:`region`:123456789012:execution:stateMachineName:executionName",
+        "Id": "arn:aws:states:{{region}}:123456789012:execution:stateMachineName:executionName",
         "Input": {
            "key": "value"
         },
@@ -111,7 +96,7 @@ Content from a running execution includes specifics in the following format:
         "RetryCount": 3
     },
     "StateMachine": {
-        "Id": "arn:aws:states:`region`:123456789012:stateMachine:stateMachineName",
+        "Id": "arn:aws:states:{{region}}:123456789012:stateMachine:stateMachineName",
         "Name": "stateMachineName"
     },
     "Task": {
@@ -120,52 +105,39 @@ Content from a running execution includes specifics in the following format:
 }
 ```
 
-###### Timestamp format with fractional seconds
-
-Step Functions follows the ISO8601 specification which states that output can be zero, three,
-six or nine digits as necessary. When a timestamp has zero fractional seconds, Step Functions
-removes the trailing zeros rather than pad the output.
-
+**Timestamp format with fractional seconds**  
+Step Functions follows the ISO8601 specification which states that output can be zero, three, six or nine digits as necessary. When a timestamp has zero fractional seconds, Step Functions removes the trailing zeros rather than pad the output.   
 If you create code that consumes Step Functions timestamps, your code must be able to process a variable number of fractional seconds.
 
 ## Context object data for Map states
+<a name="contextobject-map"></a>
 
-###### Managing state and transforming data
+**Managing state and transforming data**  
+Learn about [Passing data between states with variables](workflow-variables.md) and [Transforming data with JSONata](transforming-data.md).
 
-Learn about [Passing data between states with variables](workflow-variables.md "workflow-variables.md") and [Transforming data with JSONata](transforming-data.md "transforming-data.md").
+When processing a [`Map` state](state-map.md), the context will also contain `Index`, `Value`, and `Source`. 
 
-When processing a [Map state](state-map.md "state-map.md"), the context
-will also contain `Index`, `Value`, and `Source`.
+For each `Map` state iteration, `Index` contains the index number for the array item that is being currently processed, `Value` contains the array item being processed, and `Source` will be the InputType of `CSV`, `JSON`, `JSONL`, or `PARQUET`.
 
-For each `Map` state iteration, `Index` contains the index
-number for the array item that is being currently processed, `Value` contains
-the array item being processed, and `Source` will be the InputType of
-`CSV`, `JSON`, `JSONL`, or `PARQUET`.
-
-Within a `Map` state, the Context object includes the following
-data:
+Within a `Map` state, the Context object includes the following data:
 
 ```
 "Map": {
    "Item": {
-      "Index" : `Number`,
-      "Key"   : "`String`", // Only valid for JSON objects
-      "Value" : "`String`",
-      "Source": "`String`"
+      "Index" : {{Number}},
+      "Key"   : "{{String}}", // Only valid for JSON objects
+      "Value" : "{{String}}",
+      "Source": "{{String}}"
    }
 }
 ```
 
 These are available only in a `Map` state, and can be specified in the `ItemSelector (Map)` field.
 
-###### Note
+**Note**  
+You must define parameters from the Context object in the `ItemSelector` block of the main `Map` state, not within the states included in the `ItemProcessor` section.
 
-You must define parameters from the Context object in the `ItemSelector`
-block of the main `Map` state, not within the states included in the
-`ItemProcessor` section.
-
-Given a state machine using a **JSONPath** `Map`
-state, you can inject information from the Context object as follows.
+Given a state machine using a **JSONPath** `Map` state, you can inject information from the Context object as follows.
 
 ```
 {
@@ -173,11 +145,11 @@ state, you can inject information from the Context object as follows.
   "States": {
     "ExampleMapState": {
       "Type": "Map",
-      **"ItemSelector": {
- "ContextIndex.$": "$$.Map.Item.Index",
- "ContextValue.$": "$$.Map.Item.Value",
- "ContextSource.$": "$$.Map.Item.Source"
- }**,
+      "ItemSelector": {
+        "ContextIndex.$": "$$.Map.Item.Index",
+        "ContextValue.$": "$$.Map.Item.Value",
+        "ContextSource.$": "$$.Map.Item.Source"
+      },
       "ItemProcessor": {
         "ProcessorConfig": {
           "Mode": "INLINE"
@@ -196,8 +168,7 @@ state, you can inject information from the Context object as follows.
 }
 ```
 
-For JSONata, the additional Map state context information can be accessed from the
-`$states.context` variable:
+For JSONata, the additional Map state context information can be accessed from the `$states.context` variable:
 
 ```
 {
@@ -205,11 +176,11 @@ For JSONata, the additional Map state context information can be accessed from t
   "States": {
     "ExampleMapState": {
       "Type": "Map",
-      **"ItemSelector": {
- "ContextIndex": "{% $states.context.Map.Item.Index %}",
- "ContextValue": "{% $states.context.Map.Item.Value %}",
- "ContextSource": "{% $states.context.Map.Item.Source %}"
- }**,
+      "ItemSelector": {
+        "ContextIndex": "{% $states.context.Map.Item.Index %}",
+        "ContextValue": "{% $states.context.Map.Item.Value %}",
+        "ContextSource": "{% $states.context.Map.Item.Source %}"
+      },
       "ItemProcessor": {
         "ProcessorConfig": {
           "Mode": "INLINE"
@@ -228,8 +199,9 @@ For JSONata, the additional Map state context information can be accessed from t
 }
 ```
 
-If you execute the previous state machine with the following input, `Index`
-and `Value` are inserted in the output.
+
+
+If you execute the previous state machine with the following input, `Index` and `Value` are inserted in the output.
 
 ```
 [
@@ -254,30 +226,27 @@ The output for the execution returns the values of `Index` and `Value` items for
     "ContextValue": {
       "who": "bob"
     },
-    "ContextSource" : "STATE_DATA"
+    "ContextSource" : "STATE_DATA" 
   },
   {
     "ContextIndex": 1,
     "ContextValue": {
       "who": "meg"
     },
-    "ContextSource" : "STATE_DATA"
+    "ContextSource" : "STATE_DATA" 
   },
   {
-
+    
     "ContextIndex": 2,
     "ContextValue": {
       "who": "joe"
     },
-    "ContextSource" : "STATE_DATA"
+    "ContextSource" : "STATE_DATA" 
   }
 ]
 ```
 
-Note that `$states.context.Map.Item.Source` will be one of the
-following:
-
-- For state input, the value will be : `STATE_DATA`
-- For `Amazon S3 LIST_OBJECTS_V2` with `Transformation=NONE`, the value will show the S3 URI for the bucket. For example: `S3://bucket-name`.
-- For all the other input types, the value will be the Amazon S3 URI. For example:
-  `S3://bucket-name/object-key`.
+Note that `$states.context.Map.Item.Source` will be one of the following:
++ For state input, the value will be : `STATE_DATA`
++ For `Amazon S3 LIST_OBJECTS_V2` with `Transformation=NONE`, the value will show the S3 URI for the bucket. For example: `S3://bucket-name`. 
++ For all the other input types, the value will be the Amazon S3 URI. For example: `S3://bucket-name/object-key`.

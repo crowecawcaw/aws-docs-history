@@ -1,60 +1,64 @@
-# Perform gradual deployment of state machine versions in Step Functions
 
-A rolling deployment is a deployment strategy that slowly replaces previous versions of an
-application with new versions of an application. To perform a rolling deployment of a state
-machine
-version,
-gradually send an increasing amount of execution traffic to the new version. The amount of
-traffic and rate of increase are parameters that
-you
-configure.
+
+# Perform gradual deployment of state machine versions in Step Functions
+<a name="version-rolling-deployment"></a>
+
+A rolling deployment is a deployment strategy that slowly replaces previous versions of an application with new versions of an application. To perform a rolling deployment of a state machine version, gradually send an increasing amount of execution traffic to the new version. The amount of traffic and rate of increase are parameters that you configure.
 
 You can perform rolling deployment of a version using one of the following options:
++ [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/) – Create an alias that points to two versions of the same state machine. For this alias, you configure the routing configuration to shift traffic between the two versions. For more information about using the console to roll out versions, see [Versions](concepts-state-machine-version.md) and [Aliases](concepts-state-machine-alias.md).
++ **Scripts for AWS CLI and SDK** – Create a shell script using the AWS CLI or the AWS SDK. For more information, see the following sections for using AWS CLI and AWS SDK.
++ **AWS CloudFormation templates** – Use the `[AWS::StepFunctions::StateMachineVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html)` and `[AWS::StepFunctions::StateMachineAlias](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html)` resources to publish multiple state machine versions and create an alias to point to one or two of these versions.
 
-- [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/") – Create an alias that points to two versions of the same state machine. For this alias, you configure the routing configuration to shift traffic between the two versions. For more information about using the console to roll out versions, see [Versions](concepts-state-machine-version.md "concepts-state-machine-version.md") and [Aliases](concepts-state-machine-alias.md "concepts-state-machine-alias.md").
-- **Scripts for AWS CLI and SDK** – Create a shell script using the AWS CLI or the AWS SDK. For more information, see the following sections for using AWS CLI and AWS SDK.
-- **AWS CloudFormation templates** – Use the `AWS::StepFunctions::StateMachineVersion` and `AWS::StepFunctions::StateMachineAlias` resources to publish multiple state machine versions and create an alias to point to one or two of these versions.
-  The example script in this section shows how you can use the AWS CLI to gradually shift traffic from a previous state machine version to a new state machine version. You can either use this example script or update it according to your requirements.
+## Use the AWS CLI to deploy a new state machine version
+<a name="version-canary-deploy-cli"></a>
+
+The example script in this section shows how you can use the AWS CLI to gradually shift traffic from a previous state machine version to a new state machine version. You can either use this example script or update it according to your requirements.
 
 This script shows a Canary deployment for deploying a new state machine version using an alias. The following steps outline the tasks that the script performs:
 
-1. If the `publish_revision` parameter is set to true, publish the most recent [revision](concepts-cd-aliasing-versioning.md#statemachinerev "concepts-cd-aliasing-versioning.md#statemachinerev") as the next version of the state machine. This version becomes the new, live version if the deployment succeeds.
+1. If the `publish_revision` parameter is set to true, publish the most recent [revision](concepts-cd-aliasing-versioning.md#statemachinerev) as the next version of the state machine. This version becomes the new, live version if the deployment succeeds.
 
-If you set the `publish_revision` parameter to false, the script deploys the last published version of the state machine. 2. Create an alias if it doesn't exist yet. If the alias doesn't exist, point 100 percent of traffic for this alias to the new version, and then exit the script. 3. Update the routing configuration of the alias to shift a small percentage of traffic from the previous version to the new version. You set this canary percentage with the `canary_percentage` parameter. 4. By default, monitor the configurable CloudWatch alarms every 60 seconds. If any of
-these alarms
-set
-off, rollback the deployment immediately by pointing 100
-percent of traffic to the previous version.
+   If you set the `publish_revision` parameter to false, the script deploys the last published version of the state machine.
 
-After every time interval, in seconds, defined in `alarm_polling_interval`, continue monitoring the alarms. Continue monitoring until the time interval defined in `canary_interval_seconds` has passed. 5. If no alarms were
-set
-off during `canary_interval_seconds`, shift 100
-percent of traffic to the new version. 6. If the new version deploys successfully, delete any versions older than the number specified in the `history_max` parameter.
+1. Create an alias if it doesn't exist yet. If the alias doesn't exist, point 100 percent of traffic for this alias to the new version, and then exit the script.
+
+1. Update the routing configuration of the alias to shift a small percentage of traffic from the previous version to the new version. You set this canary percentage with the `canary_percentage` parameter.
+
+1. By default, monitor the configurable CloudWatch alarms every 60 seconds. If any of these alarms set off, rollback the deployment immediately by pointing 100 percent of traffic to the previous version.
+
+   After every time interval, in seconds, defined in `alarm_polling_interval`, continue monitoring the alarms. Continue monitoring until the time interval defined in `canary_interval_seconds` has passed.
+
+1. If no alarms were set off during `canary_interval_seconds`, shift 100 percent of traffic to the new version.
+
+1. If the new version deploys successfully, delete any versions older than the number specified in the `history_max` parameter.
+
+
 
 ```
 #!/bin/bash
-#
+# 
 # AWS StepFunctions example showing how to create a canary deployment with a
 # State Machine Alias and versions.
-#
+# 
 # Requirements: AWS CLI installed and credentials configured.
-#
+# 
 # A canary deployment deploys the new version alongside the old version, while
 # routing only a small fraction of the overall traffic to the new version to
 # see if there are any errors. Only once the new version has cleared a testing
 # period will it start receiving 100% of traffic.
-#
+# 
 # For a Blue/Green or All at Once style deployment, you can set the
 # canary_percentage to 100. The script will immediately shift 100% of traffic
 # to the new version, but keep on monitoring the alarms (if any) during the
 # canary_interval_seconds time interval. If any alarms raise during this period,
 # the script will automatically rollback to the previous version.
-#
+# 
 # Step Functions allows you to keep a maximum of 1000 versions in version history
 # for a state machine. This script has a version history deletion mechanism at
 # the end, where it will delete any versions older than the limit specified.
-#
-# For an example that also demonstrates linear (or rolling) deployments, see the following:
+# 
+# For an example that also demonstrates linear (or rolling) deployments, see the following: 
 # https://github.com/aws-samples/aws-stepfunctions-examples/blob/main/gradual-deploy/sfndeploy.py
 
 set -euo pipefail
@@ -98,10 +102,10 @@ history_max=0
 
 #######################################
 # Update alias routing configuration.
-#
+# 
 # If you don't specify version 2 details, will only create 1 routing entry. In
 # this case the routing entry weight must be 100.
-#
+# 
 # Globals:
 #   alias_arn
 # Arguments:
@@ -119,7 +123,7 @@ function update_routing() {
     echo "You have to call update_routing with either 2 or 4 input arguments." >&2
     exit 1
   fi
-
+  
   ${aws} update-state-machine-alias --state-machine-alias-arn ${alias_arn} --routing-configuration "${routing_config}"
 }
 
@@ -170,7 +174,7 @@ if [[ "${alias_arn_expected}" == "${alias_arn}" ]]; then
   ${aws} describe-state-machine-alias --state-machine-alias-arn "${alias_arn}" --query routingConfiguration
 else
   echo Alias does not exist. Creating alias ${alias_arn_expected} and routing 100% traffic to new version ${new_version}
-
+  
   ${aws} create-state-machine-alias --name "${alias_name}" --routing-configuration "[{\"stateMachineVersionArn\": \"${new_version}\", \"weight\":100}]"
 
   echo Done!
@@ -184,7 +188,7 @@ if [[ -z "${old_version}" ]]; then
   if [[ "${force}" = true ]]; then
     echo Force setting is true. Will force update to routing config for alias to point 100% to new version.
     update_routing "${new_version}" 100
-
+    
     echo Alias ${alias_arn} now pointing 100% to ${new_version}.
     echo Done!
     exit 0
@@ -227,7 +231,7 @@ else
       echo Rolled back to ${old_version}
       exit 1
     fi
-
+  
     echo Monitoring alarms...no alarms have triggered.
     sleep ${alarm_polling_interval}
     now=$(date +%s)
@@ -265,40 +269,26 @@ done <<< "${version_history}"
 echo Done!
 ```
 
-The example script at [aws-stepfunctions-examples](https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/gradual-deploy "https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/gradual-deploy") shows how
-to
-use the AWS SDK for Python to gradually shift traffic from a previous version to a new
-version of a state machine. You can either use this example script or update it
-according to your requirements.
+## Use the AWS SDK to deploy a new state machine version
+<a name="version-deploy-sdk"></a>
+
+The example script at [aws-stepfunctions-examples](https://github.com/aws-samples/aws-stepfunctions-examples/tree/main/gradual-deploy) shows how to use the AWS SDK for Python to gradually shift traffic from a previous version to a new version of a state machine. You can either use this example script or update it according to your requirements.
 
 The script shows the following deployment strategies:
++ **Canary** – Shifts traffic in two increments.
 
-- **Canary** – Shifts traffic in two increments.
+  In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The switch to the new version for the remaining traffic takes place only if no CloudWatch alarms are set off during the specified time interval.
++  **Linear or Rolling** – Shifts traffic to the new version in equal increments with an equal number of seconds between each increment.
 
-In the first increment, a small percentage of traffic, for example, 10
-percent is shifted to the new version. In the second increment, before a
-specified time interval in seconds gets over, the remaining traffic is
-shifted to the new version. The switch to the new version for the remaining
-traffic takes place only if no CloudWatch alarms are
-set
-off during the specified time interval.
+  For example, if you specify the increment percent as **20** with an `--interval` of **600** seconds, this deployment increases traffic by 20 percent every 600 seconds until the new version receives 100 percent of the traffic.
 
-- **Linear or Rolling** – Shifts traffic to the new version in equal increments with an equal number of seconds between each increment.
+  This deployment immediately rolls back the new version if any CloudWatch alarms are set off.
++ **All at Once or Blue/Green** – Shifts 100 percent of traffic to the new version immediately. This deployment monitors the new version and rolls it back automatically to the previous version if any CloudWatch alarms are set off.
 
-For example, if you specify the increment percent as `20` with an `--interval` of `600` seconds, this deployment increases traffic by 20 percent every 600 seconds until the new version receives 100 percent of the traffic.
+## Use AWS CloudFormation to deploy a new state machine version
+<a name="version-deploy-cfn"></a>
 
-This deployment immediately rolls back the new version if any CloudWatch alarms
-are
-set
-off.
-
-- **All at Once or Blue/Green** – Shifts
-  100 percent of traffic to the new version immediately. This deployment
-  monitors the new version and rolls it back automatically to the previous
-  version if any CloudWatch alarms are
-  set
-  off.
-  The following CloudFormation template example publishes two versions of a state machine named `MyStateMachine`. It creates an alias named `PROD`, which points to both these versions, and then deploys the version `2`.
+The following CloudFormation template example publishes two versions of a state machine named `{{MyStateMachine}}`. It creates an alias named `{{PROD}}`, which points to both these versions, and then deploys the version `2`.
 
 In this example, 10 percent of traffic is shifted to the version `2` every five minutes until this version receives 100 percent of the traffic. This example also shows how you can set CloudWatch alarms. If any of the alarms you set go into the `ALARM` state, the deployment fails and rolls back immediately.
 
@@ -308,7 +298,7 @@ MyStateMachine:
   Properties:
     Type: STANDARD
     StateMachineName: MyStateMachine
-    RoleArn: arn:aws:iam::`account-id`:role/myIamRole
+    RoleArn: arn:aws:iam::{{account-id}}:role/myIamRole
     Definition:
       StartAt: PassState
       States:
@@ -343,5 +333,4 @@ PROD:
         # A list of alarms that you want to monitor. If any of these alarms trigger, rollback the deployment immediately by pointing 100 percent of traffic to the previous version.
         - !Ref CloudWatchAlarm1
         - !Ref CloudWatchAlarm2
-
 ```

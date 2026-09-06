@@ -1,73 +1,69 @@
+
+
 # Create and manage Amazon EMR Serverless applications with Step Functions
+<a name="connect-emr-serverless"></a>
 
-Learn how to create, start, stop, and delete applications on EMR Serverless using Step Functions. This page lists the supported APIs and provides
-example `Task` states to perform common use cases.
+Learn how to create, start, stop, and delete applications on EMR Serverless using Step Functions. This page lists the supported APIs and provides example `Task` states to perform common use cases.
 
-To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md "integrate-services.md") and [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md").
+To learn about integrating with AWS services in Step Functions, see [Integrating services](integrate-services.md) and [Passing parameters to a service API in Step Functions](connect-parameters.md).
 
-###### Key features of Optimized EMR Serverless integration
-
-- The Optimized EMR Serverless service integration has a
-  customized set of [APIs](#connect-emr-serverless-custom-apis "#connect-emr-serverless-custom-apis")
-  that wrap the underlying EMR Serverless APIs. Because of this
-  customization, the optimized EMR Serverless integration differs
-  significantly from the AWS SDK service integration.
-- In addition, the optimized EMR Serverless integration supports
-  [Run a Job (.sync)](connect-to-resource.md#connect-sync "connect-to-resource.md#connect-sync") integration
-  pattern.
-- The [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token "connect-to-resource.md#connect-wait-token")
-  integration pattern is **not** supported.
+**Key features of Optimized EMR Serverless integration**  
+ The Optimized EMR Serverless service integration has a customized set of [APIs](#connect-emr-serverless-custom-apis) that wrap the underlying EMR Serverless APIs. Because of this customization, the optimized EMR Serverless integration differs significantly from the AWS SDK service integration. 
+In addition, the optimized EMR Serverless integration supports [Run a Job (.sync)](connect-to-resource.md#connect-sync) integration pattern.
+The [Wait for a Callback with Task Token](connect-to-resource.md#connect-wait-token) integration pattern is **not** supported.
 
 ## EMR Serverless service integration APIs
+<a name="connect-emr-serverless-custom-apis"></a>
 
 To integrate AWS Step Functions with EMR Serverless, you can use the following six EMR Serverless service integration APIs. These service integration APIs are similar to the corresponding EMR Serverless APIs, with some differences in the fields that are passed and in the responses that are returned.
 
 The following table describes the differences between each EMR Serverless service integration API and its corresponding EMR Serverless API.
 
-| EMR Serverless service integration API                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Corresponding EMR Serverless API                                                                                                                                 | Differences                                                                                                                                                                                                                                                                                    |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _createApplication_<br>Creates an application.<br>EMR Serverless is linked to a unique type of IAM role known as a service-linked role. For `createApplication` and `createApplication.sync` to work, you must have configured the necessary permissions to create the service-linked role `AWSServiceRoleForAmazonEMRServerless`. For more information about this, including a statement you can add to your IAM permissions policy, see [Using service-linked roles for EMR Serverless](../../../emr/latest/EMR-Serverless-UserGuide/using-service-linked-roles.md "../../../emr/latest/EMR-Serverless-UserGuide/using-service-linked-roles.md"). | [CreateApplication](../../../emr-serverless/latest/APIReference/API_CreateApplication.md "../../../emr-serverless/latest/APIReference/API_CreateApplication.md") | None                                                                                                                                                                                                                                                                                           |
-| _createApplication.sync_<br>Creates an application.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [CreateApplication](../../../emr-serverless/latest/APIReference/API_CreateApplication.md "../../../emr-serverless/latest/APIReference/API_CreateApplication.md") | No differences between the requests and responses of the EMR Serverless API and EMR Serverless service integration API. However, *createApplication.sync<br>• waits for the application to reach the `CREATED` state.                                                                          |
-| _startApplication_<br>Starts a specified application and initializes the application's initial capacity if configured.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [StartApplication](../../../emr-serverless/latest/APIReference/API_StartApplication.md "../../../emr-serverless/latest/APIReference/API_StartApplication.md")    | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<br>`<br>{<br>"ApplicationId": "string"<br>}<br>`                                                                                                |
-| _startApplication.sync_<br>Starts a specified application and initializes the initial capacity if configured.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [StartApplication](../../../emr-serverless/latest/APIReference/API_StartApplication.md "../../../emr-serverless/latest/APIReference/API_StartApplication.md")    | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<br>`<br>{<br>"ApplicationId": "string"<br>}<br>`<br>Also, *startApplication.sync<br>• waits for the application to reach the `STARTED` state.   |
-| _stopApplication_<br>Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application.                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [StopApplication](../../../emr-serverless/latest/APIReference/API_StopApplication.md "../../../emr-serverless/latest/APIReference/API_StopApplication.md")       | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<br>`<br>{<br>"ApplicationId": "string"<br>}<br>`                                                                                                |
-| _stopApplication.sync_<br>Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application.                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [StopApplication](../../../emr-serverless/latest/APIReference/API_StopApplication.md "../../../emr-serverless/latest/APIReference/API_StopApplication.md")       | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<br>`<br>{<br>"ApplicationId": "string"<br>}<br>`<br>Also, *stopApplication.sync<br>• waits for the application to reach the `STOPPED` state.    |
-| _deleteApplication_<br>Deletes an application. An application must be in the `STOPPED` or `CREATED` state in order to be deleted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [DeleteApplication](../../../emr-serverless/latest/APIReference/API_DeleteApplication.md "../../../emr-serverless/latest/APIReference/API_DeleteApplication.md") | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<br>`<br>{<br>"ApplicationId": "string"<br>}<br>`                                                                                                |
-| _deleteApplication.sync_<br>Deletes an application. An application must be in the `STOPPED` or `CREATED` state in order to be deleted.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [DeleteApplication](../../../emr-serverless/latest/APIReference/API_DeleteApplication.md "../../../emr-serverless/latest/APIReference/API_DeleteApplication.md") | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<br>`<br>{<br>"ApplicationId": "string"<br>}<br>`<br>Also, *stopApplication.sync<br>• waits for the application to reach the `TERMINATED` state. |
-| _startJobRun_<br>Starts a job run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [StartJobRun](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../emr-serverless/latest/APIReference/API_StartJobRun.md")                   | None                                                                                                                                                                                                                                                                                           |
-| _startJobRun.sync_<br>Starts a job run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | [StartJobRun](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../emr-serverless/latest/APIReference/API_StartJobRun.md")                   | No differences between the requests and responses of the EMR Serverless API and EMR Serverless service integration API. However, *startJobRun.sync<br>• waits for the application to reach the `SUCCESS` state.                                                                                |
-| _cancelJobRun_<br>Cancels a job run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | [CancelJobRun](../../../emr-serverless/latest/APIReference/API_CancelJobRun.md "../../../emr-serverless/latest/APIReference/API_CancelJobRun.md")                | None                                                                                                                                                                                                                                                                                           |
-| _cancelJobRun.sync_<br>Cancels a job run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | [CancelJobRun](../../../emr-serverless/latest/APIReference/API_CancelJobRun.md "../../../emr-serverless/latest/APIReference/API_CancelJobRun.md")                | No differences between the requests and responses of the EMR Serverless API and EMR Serverless service integration API. However, *cancelJobRun.sync<br>• waits for the application to reach the `CANCELLED` state.                                                                             |
+
+| EMR Serverless service integration API | Corresponding EMR Serverless API | Differences | 
+| --- | --- | --- | 
+| *createApplication*<br />Creates an application.<br />EMR Serverless is linked to a unique type of IAM role known as a service-linked role. For `createApplication` and `createApplication.sync` to work, you must have configured the necessary permissions to create the service-linked role `AWSServiceRoleForAmazonEMRServerless`. For more information about this, including a statement you can add to your IAM permissions policy, see [Using service-linked roles for EMR Serverless](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-service-linked-roles.html). |  [CreateApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CreateApplication.html)  | None | 
+| *createApplication.sync*<br />Creates an application. |  [CreateApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CreateApplication.html)  | No differences between the requests and responses of the EMR Serverless API and EMR Serverless service integration API. However, *createApplication.sync* waits for the application to reach the `CREATED` state. | 
+| *startApplication*<br />Starts a specified application and initializes the application's initial capacity if configured. |  [StartApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StartApplication.html)  | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<pre>{<br />  "ApplicationId": "string"<br />}</pre> | 
+| *startApplication.sync*<br />Starts a specified application and initializes the initial capacity if configured. |  [StartApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StartApplication.html)  | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<pre>{<br />  "ApplicationId": "string"<br />}</pre><br />Also, *startApplication.sync* waits for the application to reach the `STARTED` state. | 
+| *stopApplication*<br />Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application. |  [StopApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StopApplication.html)  | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<pre>{<br />  "ApplicationId": "string"<br />}</pre> | 
+| *stopApplication.sync*<br />Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application. |  [StopApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StopApplication.html)  | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<pre>{<br />  "ApplicationId": "string"<br />}</pre><br />Also, *stopApplication.sync* waits for the application to reach the `STOPPED` state. | 
+| *deleteApplication*<br />Deletes an application. An application must be in the `STOPPED` or `CREATED` state in order to be deleted. |  [DeleteApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_DeleteApplication.html)  | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<pre>{<br />  "ApplicationId": "string"<br />}</pre> | 
+| *deleteApplication.sync*<br />Deletes an application. An application must be in the `STOPPED` or `CREATED` state in order to be deleted. |  [DeleteApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_DeleteApplication.html)  | The EMR Serverless API response doesn't contain any data, but the EMR Serverless service integration API response includes the following data.<pre>{<br />  "ApplicationId": "string"<br />}</pre><br />Also, *stopApplication.sync* waits for the application to reach the `TERMINATED` state. | 
+| *startJobRun*<br />Starts a job run. |  [StartJobRun](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StartJobRun.html)  | None | 
+| *startJobRun.sync*<br />Starts a job run. |  [StartJobRun](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StartJobRun.html)  | No differences between the requests and responses of the EMR Serverless API and EMR Serverless service integration API. However, *startJobRun.sync* waits for the application to reach the `SUCCESS` state. | 
+| *cancelJobRun*<br />Cancels a job run. |  [CancelJobRun](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CancelJobRun.html)  | None | 
+| *cancelJobRun.sync*<br />Cancels a job run. |  [CancelJobRun](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_CancelJobRun.html)  | No differences between the requests and responses of the EMR Serverless API and EMR Serverless service integration API. However, *cancelJobRun.sync* waits for the application to reach the `CANCELLED` state. | 
 
 ## EMR Serverless integration use cases
+<a name="connect-emr-serverless-use-cases"></a>
 
-For the Optimized EMR Serverless service integration, we recommend that you create a single application, and then use that application to run multiple jobs. For example, in a single state machine, you can include multiple [startJobRun](../../../emr-serverless/latest/APIReference/API_StartJobRun.md "../../../emr-serverless/latest/APIReference/API_StartJobRun.md") requests, all of which use the same application. The following [Task workflow state](state-task.md "state-task.md") state examples show use cases to integrate EMR Serverless APIs with Step Functions. For information about other use cases of EMR Serverless, see [What is Amazon EMR Serverless](../../../emr/latest/EMR-Serverless-UserGuide/emr-serverless.md "../../../emr/latest/EMR-Serverless-UserGuide/emr-serverless.md").
+For the Optimized EMR Serverless service integration, we recommend that you create a single application, and then use that application to run multiple jobs. For example, in a single state machine, you can include multiple [startJobRun](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_StartJobRun.html) requests, all of which use the same application. The following [Task workflow state](state-task.md) state examples show use cases to integrate EMR Serverless APIs with Step Functions. For information about other use cases of EMR Serverless, see [What is Amazon EMR Serverless](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/emr-serverless.html).
 
-###### Tip
+**Tip**  
+To deploy an example of a state machine that integrates with EMR Serverless for running multiple jobs;, see [Run an EMR Serverless job](sample-emr-serverless-job.md).
++ [Create an application](#connect-emr-serverless-task-state-createapp)
++ [Start an application](#connect-emr-serverless-task-state-startapp)
++ [Stop an application](#connect-emr-serverless-task-state-stopapp)
++ [Delete an application](#connect-emr-serverless-task-state-deleteapp)
++ [Start a job in an application](#connect-emr-serverless-task-state-startjobrun)
++ [Cancel a job in an application](#connect-emr-serverless-task-state-canceljobrun)
 
-To deploy an example of a state machine that integrates with EMR Serverless for running multiple jobs;, see [Run an EMR Serverless job](sample-emr-serverless-job.md "sample-emr-serverless-job.md").
+To learn about configuring IAM permissions when using Step Functions with other AWS services, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md).
 
-- [Create an application](#connect-emr-serverless-task-state-createapp "#connect-emr-serverless-task-state-createapp")
-- [Start an application](#connect-emr-serverless-task-state-startapp "#connect-emr-serverless-task-state-startapp")
-- [Stop an application](#connect-emr-serverless-task-state-stopapp "#connect-emr-serverless-task-state-stopapp")
-- [Delete an application](#connect-emr-serverless-task-state-deleteapp "#connect-emr-serverless-task-state-deleteapp")
-- [Start a job in an application](#connect-emr-serverless-task-state-startjobrun "#connect-emr-serverless-task-state-startjobrun")
-- [Cancel a job in an application](#connect-emr-serverless-task-state-canceljobrun "#connect-emr-serverless-task-state-canceljobrun")
-
-To learn about configuring IAM permissions when using Step Functions with other AWS services, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md").
-
-In the examples shown in the following use cases, replace the `italicized` text with your resource-specific information. For example, replace `yourApplicationId` with the ID of your EMR Serverless application, such as `00yv7iv71inak893`.
+In the examples shown in the following use cases, replace the {{italicized}} text with your resource-specific information. For example, replace {{yourApplicationId}} with the ID of your EMR Serverless application, such as `00yv7iv71inak893`.
 
 ### Create an application
+<a name="connect-emr-serverless-task-state-createapp"></a>
 
-The following Task state example creates an application using the _createApplication.sync_ service integration API.
+The following Task state example creates an application using the *createApplication.sync* service integration API.
 
 ```
 "Create_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:createApplication.sync",
     "Arguments": {
-        "Name": "`MyApplication`",
+        "Name": "{{MyApplication}}",
         "ReleaseLabel": "emr-6.9.0",
         "Type": "SPARK"
     },
@@ -76,64 +72,68 @@ The following Task state example creates an application using the _createApplica
 ```
 
 ### Start an application
+<a name="connect-emr-serverless-task-state-startapp"></a>
 
-The following Task state example starts an application using the _startApplication.sync_ service integration API.
+The following Task state example starts an application using the *startApplication.sync* service integration API.
 
 ```
 "Start_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:startApplication.sync",
     "Arguments": {
-        "ApplicationId": "`yourApplicationId`"
+        "ApplicationId": "{{yourApplicationId}}"
     },
     "End": true
 }
 ```
 
 ### Stop an application
+<a name="connect-emr-serverless-task-state-stopapp"></a>
 
-The following Task state example stops an application using the _stopApplication.sync_ service integration API.
+The following Task state example stops an application using the *stopApplication.sync* service integration API.
 
 ```
 "Stop_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:stopApplication.sync",
     "Arguments": {
-        "ApplicationId": "`yourApplicationId`"
+        "ApplicationId": "{{yourApplicationId}}"
     },
     "End": true
 }
 ```
 
 ### Delete an application
+<a name="connect-emr-serverless-task-state-deleteapp"></a>
 
-The following Task state example deletes an application using the _deleteApplication.sync_ service integration API.
+The following Task state example deletes an application using the *deleteApplication.sync* service integration API.
 
 ```
 "Delete_Application": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:deleteApplication.sync",
     "Arguments": {
-        "ApplicationId": "`yourApplicationId`"
+        "ApplicationId": "{{yourApplicationId}}"
     },
     "End": true
 }
 ```
 
 ### Start a job in an application
+<a name="connect-emr-serverless-task-state-startjobrun"></a>
 
-The following Task state example starts a job in an application using the _startJobRun.sync_ service integration API.
+The following Task state example starts a job in an application using the *startJobRun.sync* service integration API.
 
 ```
 "Start_Job": {
     "Type": "Task",
     "Resource": "arn:aws:states:::emr-serverless:startJobRun.sync",
     "Arguments": {
-        "ApplicationId": "`yourApplicationId`",
-        "ExecutionRoleArn": "arn:aws:iam::`account-id`:role/`myEMRServerless-execution-role`",
+        "ApplicationId": "{{yourApplicationId}}",
+        "ExecutionRoleArn": "arn:aws:iam::{{account-id}}:role/{{myEMRServerless-execution-role}}",
         "JobDriver": {
             "SparkSubmit": {
-                "EntryPoint": "s3://`<amzn-s3-demo-bucket>`/`sample.py`",
+                "EntryPoint": "s3://{{<amzn-s3-demo-bucket>}}/{{sample.py}}",
                 "EntryPointArguments": ["1"],
                 "SparkSubmitParameters": "--conf spark.executor.cores=4 --conf spark.executor.memory=4g --conf spark.driver.cores=2 --conf spark.driver.memory=4g --conf spark.executor.instances=1"
             }
@@ -144,8 +144,9 @@ The following Task state example starts a job in an application using the _start
 ```
 
 ### Cancel a job in an application
+<a name="connect-emr-serverless-task-state-canceljobrun"></a>
 
-The following Task state example cancels a job in an application using the _cancelJobRun.sync_ service integration API.
+The following Task state example cancels a job in an application using the *cancelJobRun.sync* service integration API.
 
 ```
 "Cancel_Job": {
@@ -160,742 +161,804 @@ The following Task state example cancels a job in an application using the _canc
 ```
 
 ## IAM policies for calling Amazon EMR Serverless
+<a name="emr-serverless-iam"></a>
 
 When you create a state machine using the console, Step Functions automatically creates an execution role for your state machine with the least privileges required. These automatically generated IAM roles are valid for the AWS Region in which you create the state machine.
 
-The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md) and [Discover service integration patterns in Step Functions](connect-to-resource.md).
 
 We recommend that when you create IAM policies, do not include wildcards in the policies. As a security best practice, you should scope your policies down as much as possible. You should use dynamic policies only when certain input parameters are not known during runtime.
 
 Further, administrator users should be careful when granting non-administrator users execution roles for running the state machines. We recommend that you include passRole policies in the execution roles if you're creating policies on your own. We also recommend that you add the `aws:SourceARN` and `aws:SourceAccount` context keys in the execution roles.
 
 ### IAM policy examples for EMR Serverless integration with Step Functions
-
-- [IAM policy example for CreateApplication](#emr-serverless-policy-createapp "#emr-serverless-policy-createapp")
-- [IAM policy example for StartApplication](#emr-serverless-policy-startapp "#emr-serverless-policy-startapp")
-- [IAM policy example for StopApplication](#emr-serverless-policy-stopapp "#emr-serverless-policy-stopapp")
-- [IAM policy example for DeleteApplication](#emr-serverless-policy-deleteapp "#emr-serverless-policy-deleteapp")
-- [IAM policy example for StartJobRun](#emr-serverless-policy-startjobrun "#emr-serverless-policy-startjobrun")
-- [IAM policy example for CancelJobRun](#emr-serverless-policy-canceljobrun "#emr-serverless-policy-canceljobrun")
+<a name="emr-serverless-iam-policy-eg"></a>
++ [IAM policy example for CreateApplication](#emr-serverless-policy-createapp)
++ [IAM policy example for StartApplication](#emr-serverless-policy-startapp)
++ [IAM policy example for StopApplication](#emr-serverless-policy-stopapp)
++ [IAM policy example for DeleteApplication](#emr-serverless-policy-deleteapp)
++ [IAM policy example for StartJobRun](#emr-serverless-policy-startjobrun)
++ [IAM policy example for CancelJobRun](#emr-serverless-policy-canceljobrun)
 
 #### IAM policy example for CreateApplication
+<a name="emr-serverless-policy-createapp"></a>
 
-The following is an IAM policy example for a state machine with a CreateApplication [Task workflow state](state-task.md "state-task.md") state.
+The following is an IAM policy example for a state machine with a CreateApplication [Task workflow state](state-task.md) state.
 
-###### Note
-
-You need to specify the CreateServiceLinkedRole permissions in your IAM policies during the creation of the first ever application in your account. Thereafter, you need not add this permission. For information about CreateServiceLinkedRole, see [CreateServiceLinkedRole](../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md "../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md") in the https://docs.aws.amazon.com/IAM/latest/APIReference/.
+**Note**  
+You need to specify the CreateServiceLinkedRole permissions in your IAM policies during the creation of the first ever application in your account. Thereafter, you need not add this permission. For information about CreateServiceLinkedRole, see [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) in the https://docs.aws.amazon.com/IAM/latest/APIReference/.
 
 Static and dynamic resources for the following policies are the same.
 
-Run a Job (.sync)
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:CreateApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:GetApplication",
- "emr-serverless:DeleteApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForEMRServerlessApplicationRule"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::`123456789012`:role/aws-service-role/ops.emr-serverless.amazonaws.com/`AWSServiceRoleForAmazonEMRServerless`*",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "ops.emr-serverless.amazonaws.com"
- }
- }
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "emr-serverless:CreateApplication"
+            ],
+            "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "emr-serverless:GetApplication",
+                "emr-serverless:DeleteApplication"
+            ],
+            "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/StepFunctionsGetEventsForEMRServerlessApplicationRule"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "arn:aws:iam::{{123456789012}}:role/aws-service-role/ops.emr-serverless.amazonaws.com/{{AWSServiceRoleForAmazonEMRServerless}}*",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "ops.emr-serverless.amazonaws.com"
+                }
+            }
+        }
+   ]
+}
 ```
 
-Request Response
+------
+#### [ Request Response ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
-
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:CreateApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:CreateServiceLinkedRole",
- "Resource": "arn:aws:iam::`123456789012`:role/aws-service-role/ops.emr-serverless.amazonaws.com/`AWSServiceRoleForAmazonEMRServerless`*",
- "Condition": {
- "StringLike": {
- "iam:AWSServiceName": "ops.emr-serverless.amazonaws.com"
- }
- }
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   
+   "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "emr-serverless:CreateApplication"
+            ],
+            "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:CreateServiceLinkedRole",
+            "Resource": "arn:aws:iam::{{123456789012}}:role/aws-service-role/ops.emr-serverless.amazonaws.com/{{AWSServiceRoleForAmazonEMRServerless}}*",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "ops.emr-serverless.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
 ```
+
+------
 
 #### IAM policy example for StartApplication
+<a name="emr-serverless-policy-startapp"></a>
 
-###### Static resources
+**Static resources**  
+The following are IAM policy examples for static resources when you use a state machine with a StartApplication [Task workflow state](state-task.md) state.
 
-The following are IAM policy examples for static resources when you use a state machine with a StartApplication [Task workflow state](state-task.md "state-task.md") state.
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartApplication",
- "emr-serverless:GetApplication",
- "emr-serverless:StopApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessApplicationRule`"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- }
- ]
-}`
-
-```
-
-###### Dynamic resources
-
-The following are IAM policy examples for dynamic resources when you use a state machine with a StartApplication [Task workflow state](state-task.md "state-task.md") state.
-
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartApplication",
- "emr-serverless:GetApplication",
- "emr-serverless:StopApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessApplicationRule`"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartApplication",
+               "emr-serverless:GetApplication",
+               "emr-serverless:StopApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessApplicationRule}}"
+            ]
+        }
+    ]
+}
 ```
 
-Request Response
+------
+#### [ Request Response ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- }
- ]
-}`
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+
+**Dynamic resources**  
+The following are IAM policy examples for dynamic resources when you use a state machine with a StartApplication [Task workflow state](state-task.md) state.
+
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartApplication",
+               "emr-serverless:GetApplication",
+               "emr-serverless:StopApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessApplicationRule}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Request Response ]
+
+****  
+
+```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        }
+    ]
+}
+```
+
+------
 
 #### IAM policy example for StopApplication
+<a name="emr-serverless-policy-stopapp"></a>
 
-###### Static resources
+**Static resources**  
+The following are IAM policy examples for static resources when you use a state machine with a StopApplication [Task workflow state](state-task.md) state.
 
-The following are IAM policy examples for static resources when you use a state machine with a StopApplication [Task workflow state](state-task.md "state-task.md") state.
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StopApplication",
- "emr-serverless:GetApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessApplicationRule`"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StopApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- }
- ]
-}`
-
-```
-
-###### Dynamic resources
-
-The following are IAM policy examples for dynamic resources when you use a state machine with a StopApplication [Task workflow state](state-task.md "state-task.md") state.
-
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StopApplication",
- "emr-serverless:GetApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessApplicationRule`"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StopApplication",
+               "emr-serverless:GetApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessApplicationRule}}"
+            ]
+        }
+    ]
+}
 ```
 
-Request Response
+------
+#### [ Request Response ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StopApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- }
- ]
-}`
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StopApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+
+**Dynamic resources**  
+The following are IAM policy examples for dynamic resources when you use a state machine with a StopApplication [Task workflow state](state-task.md) state.
+
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StopApplication",
+               "emr-serverless:GetApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessApplicationRule}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Request Response ]
+
+****  
+
+```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StopApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        }
+    ]
+}
+```
+
+------
 
 #### IAM policy example for DeleteApplication
+<a name="emr-serverless-policy-deleteapp"></a>
 
-###### Static resources
+**Static resources**  
+The following are IAM policy examples for static resources when you use a state machine with a DeleteApplication [Task workflow state](state-task.md) state.
 
-The following are IAM policy examples for static resources when you use a state machine with a DeleteApplication [Task workflow state](state-task.md "state-task.md") state.
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:DeleteApplication",
- "emr-serverless:GetApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessApplicationRule`"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:DeleteApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- }
- ]
-}`
-
-```
-
-###### Dynamic resources
-
-The following are IAM policy examples for dynamic resources when you use a state machine with a DeleteApplication [Task workflow state](state-task.md "state-task.md") state.
-
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:DeleteApplication",
- "emr-serverless:GetApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessApplicationRule`"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:DeleteApplication",
+               "emr-serverless:GetApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessApplicationRule}}"
+            ]
+        }
+    ]
+}
 ```
 
-Request Response
+------
+#### [ Request Response ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:DeleteApplication"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- }
- ]
-}`
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:DeleteApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+
+**Dynamic resources**  
+The following are IAM policy examples for dynamic resources when you use a state machine with a DeleteApplication [Task workflow state](state-task.md) state.
+
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:DeleteApplication",
+               "emr-serverless:GetApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessApplicationRule}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Request Response ]
+
+****  
+
+```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:DeleteApplication"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        }
+    ]
+}
+```
+
+------
 
 #### IAM policy example for StartJobRun
+<a name="emr-serverless-policy-startjobrun"></a>
 
-###### Static resources
+**Static resources**  
+The following are IAM policy examples for static resources when you use a state machine with a StartJobRun [Task workflow state](state-task.md) state.
 
-The following are IAM policy examples for static resources when you use a state machine with a StartJobRun [Task workflow state](state-task.md "state-task.md") state.
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": [
- "arn:aws:iam::123456789012:role/`jobExecutionRoleArn`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "emr-serverless.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:GetJobRun",
- "emr-serverless:CancelJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`/jobruns/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessJobRule`"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": [
- "arn:aws:iam::123456789012:role/`jobExecutionRoleArn`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "emr-serverless.amazonaws.com"
- }
- }
- }
- ]
-}`
-
-```
-
-###### Dynamic resources
-
-The following are IAM policy examples for dynamic resources when you use a state machine with a StartJobRun [Task workflow state](state-task.md "state-task.md") state.
-
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartJobRun",
- "emr-serverless:GetJobRun",
- "emr-serverless:CancelJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": [
- "arn:aws:iam::123456789012:role/`jobExecutionRoleArn`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "emr-serverless.amazonaws.com"
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessJobRule`"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::123456789012:role/{{jobExecutionRoleArn}}"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "emr-serverless.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "emr-serverless:GetJobRun",
+                "emr-serverless:CancelJobRun"
+            ],
+            "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}/jobruns/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessJobRule}}"
+            ]
+        }
+    ]
+}
 ```
 
-Request Response
+------
+#### [ Request Response ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:StartJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": [
- "arn:aws:iam::123456789012:role/`jobExecutionRoleArn`"
- ],
- "Condition": {
- "StringEquals": {
- "iam:PassedToService": "emr-serverless.amazonaws.com"
- }
- }
- }
- ]
-}`
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::123456789012:role/{{jobExecutionRoleArn}}"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "emr-serverless.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
+
+**Dynamic resources**  
+The following are IAM policy examples for dynamic resources when you use a state machine with a StartJobRun [Task workflow state](state-task.md) state.
+
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartJobRun",
+               "emr-serverless:GetJobRun",
+               "emr-serverless:CancelJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::123456789012:role/{{jobExecutionRoleArn}}"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "emr-serverless.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessJobRule}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Request Response ]
+
+****  
+
+```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:StartJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": [
+                "arn:aws:iam::123456789012:role/{{jobExecutionRoleArn}}"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "emr-serverless.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+------
 
 #### IAM policy example for CancelJobRun
+<a name="emr-serverless-policy-canceljobrun"></a>
 
-###### Static resources
+**Static resources**  
+The following are IAM policy examples for static resources when you use a state machine with a CancelJobRun [Task workflow state](state-task.md) state.
 
-The following are IAM policy examples for static resources when you use a state machine with a CancelJobRun [Task workflow state](state-task.md "state-task.md") state.
+------
+#### [ Run a Job (.sync) ]
 
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:CancelJobRun",
- "emr-serverless:GetJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`/jobruns/`jobRunId`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessJobRule`"
- ]
- }
- ]
-}`
+****  
 
 ```
-
-Request Response
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:CancelJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/`applicationId`/jobruns/`jobRunId`"
- ]
- }
- ]
-}`
-
-```
-
-###### Dynamic resources
-
-The following are IAM policy examples for dynamic resources when you use a state machine with a CancelJobRun [Task workflow state](state-task.md "state-task.md") state.
-
-Run a Job (.sync)
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:CancelJobRun",
- "emr-serverless:GetJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:`123456789012`:rule/`StepFunctionsGetEventsForEMRServerlessJobRule`"
- ]
- }
- ]
-}`
-
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:CancelJobRun",
+               "emr-serverless:GetJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}/jobruns/{{jobRunId}}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessJobRule}}"
+            ]
+        }
+    ]
+}
 ```
 
-Request Response
+------
+#### [ Request Response ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "emr-serverless:CancelJobRun"
- ],
- "Resource": [
- "arn:aws:emr-serverless:`us-east-1`:`123456789012`:/applications/*"
- ]
- }
- ]
-}`
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:CancelJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/{{applicationId}}/jobruns/{{jobRunId}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+
+**Dynamic resources**  
+The following are IAM policy examples for dynamic resources when you use a state machine with a CancelJobRun [Task workflow state](state-task.md) state.
+
+------
+#### [ Run a Job (.sync) ]
+
+****  
 
 ```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:CancelJobRun",
+               "emr-serverless:GetJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+                "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{StepFunctionsGetEventsForEMRServerlessJobRule}}"
+            ]
+        }
+    ]
+}
+```
+
+------
+#### [ Request Response ]
+
+****  
+
+```
+{
+   "Version":"2012-10-17",		 	 	 
+   "Statement": [
+        {
+           "Effect": "Allow",
+           "Action": [
+               "emr-serverless:CancelJobRun"
+            ],
+           "Resource": [
+                "arn:aws:emr-serverless:{{us-east-1}}:{{123456789012}}:/applications/*"
+            ]
+        }
+    ]
+}
+```
+
+------
