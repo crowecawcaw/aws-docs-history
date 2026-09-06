@@ -1,34 +1,30 @@
+
+
 # Outgoing webhook action using ADK
+<a name="outgoing-webhook-action"></a>
 
-The outgoing webhook action can initiate an outgoing webhook (OW) and make a POST
-request to a provided URL. With the action, you can
-bridge
-Amazon CodeCatalyst workflows with predefined web services like
-status
-reporting and sharing artifacts.
+The outgoing webhook action can initiate an outgoing webhook (OW) and make a POST request to a provided URL. With the action, you can bridge Amazon CodeCatalyst workflows with predefined web services like status reporting and sharing artifacts. 
 
-###### Topics
-
-- [Prerequisites](#prerequisites-outgoing-webhook "#prerequisites-outgoing-webhook")
-- [Update the action definition](#update-action-definition-outgoing-webhook "#update-action-definition-outgoing-webhook")
-- [Update the action code](#update-action-code-outgoing-webhook "#update-action-code-outgoing-webhook")
-- [Validate the action within the CodeCatalyst workflow](#validate-action-outgoing-webhook "#validate-action-outgoing-webhook")
+**Topics**
++ [Prerequisites](#prerequisites-outgoing-webhook)
++ [Update the action definition](#update-action-definition-outgoing-webhook)
++ [Update the action code](#update-action-code-outgoing-webhook)
++ [Validate the action within the CodeCatalyst workflow](#validate-action-outgoing-webhook)
 
 ## Prerequisites
+<a name="prerequisites-outgoing-webhook"></a>
 
-Complete all of the steps in [Getting started with the Action Development Kit](getting-started.md "getting-started.md") before
-moving on with developing the action.
+Complete all of the steps in [Getting started with the Action Development Kit](getting-started.md) before moving on with developing the action.
 
 ### Languages and toolchains
+<a name="languages-and-toolchains-outgoing-webhook"></a>
 
 In this example, we'll develop an action using npm and TypeScript.
 
 ## Update the action definition
+<a name="update-action-definition-outgoing-webhook"></a>
 
-Update the action definition (`action.yml`) that was generated
-in [Step 3: Initialize your action project](getting-started.md#initialize-action-workspace "getting-started.md#initialize-action-workspace") with the following
-`WebhookRequestURL` and `WebhookRequestHeaders` input
-parameters, in addition to `WebhookRequestBody` (optional):
+Update the action definition (`action.yml`) that was generated in [Step 3: Initialize your action project](getting-started.md#initialize-action-workspace) with the following `WebhookRequestURL` and `WebhookRequestHeaders` input parameters, in addition to `WebhookRequestBody` (optional):
 
 ```
 SchemaVersion: '1.0'
@@ -36,7 +32,7 @@ SchemaVersion: '1.0'
     Version: '0.1.0'
     Description: 'Outgoing Webhook Action allows user to send messages within workflow to an arbitrary web server using HTTP request'
     Configuration:
-      WebhookRequestURL:
+      WebhookRequestURL: 
         Description: 'Outgoing webhook URL from an arbitrary web server'
         Required: true
         DisplayName: 'Request URL'
@@ -45,9 +41,9 @@ SchemaVersion: '1.0'
         Description: 'The JSON that you want to provide to add HTTP request headers. '
         Required: false
         DisplayName: 'Request Headers'
-        Type: string
+        Type: string 
         Default: false
-      WebhookRequestBody:
+      WebhookRequestBody: 
         Description: 'The JSON that you want to provide to add HTTP request body. '
         Required: false
         DisplayName: 'Request Body'
@@ -60,20 +56,14 @@ SchemaVersion: '1.0'
       Main: 'dist/index.js'
 ```
 
-This action invokes the AWS Command Line Interface (AWS CLI), which is preinstalled on the action's runtime environment image within CodeCatalyst.
-The output of the CLI command is streamed to the console using stdout.
+This action invokes the AWS Command Line Interface (AWS CLI), which is preinstalled on the action's runtime environment image within CodeCatalyst. The output of the CLI command is streamed to the console using stdout.
 
 ## Update the action code
+<a name="update-action-code-outgoing-webhook"></a>
 
-The outgoing webhook action contains several source files under the
-`lib/` folder. This example code provides configuration of
-the entry point and the action itself. Update the
-entry
-point code in the `lib/index.ts` file that was
-generated in [Step 4: Bootstrap the action code](getting-started.md#bootstrap-action-code "getting-started.md#bootstrap-action-code").
+The outgoing webhook action contains several source files under the `lib/` folder. This example code provides configuration of the entry point and the action itself. Update the entry point code in the `lib/index.ts` file that was generated in [Step 4: Bootstrap the action code](getting-started.md#bootstrap-action-code).
 
-While building your action, you can also catch errors by setting summary run messages. For more information, see
-[Handling errors](troubleshooting.md#handling-errors "troubleshooting.md#handling-errors").
+While building your action, you can also catch errors by setting summary run messages. For more information, see [Handling errors](troubleshooting.md#handling-errors).
 
 ```
 // @ts-ignore
@@ -83,21 +73,21 @@ While building your action, you can also catch errors by setting summary run mes
     import { runOutgoingWebhookAction } from './action';
     import { OutgoingWebhookInput } from './constants/types';
     import { getBodyInput, getHeadersInput } from './utils/input-util';
-
+    
     export function main(): void {
         try {
             // Get inputs from the action
             const webhookUrl: string = core.getInput('WebhookRequestURL'); // Outgoing webhook URL from an arbitrary web server
             const headers: Map<string, string> | undefined = getHeadersInput(); // The JSON that you want to provide to add HTTP request headers.
             const body: string | undefined = getBodyInput(); // The JSON that you want to provide to add HTTP request body.
-
+    
             const actionInput: OutgoingWebhookInput = {
                 webhookUrl,
                 headers,
                 body
             };
-
-            // Run the webhook action
+    
+            // Run the webhook action 
             runOutgoingWebhookAction(actionInput);
         } catch (error) {
             console.log(`Action Failed, reason: ${error}`);
@@ -105,20 +95,13 @@ While building your action, you can also catch errors by setting summary run mes
             core.setFailed(`Action Failed, reason: ${error}`);
         }
     }
-
+    
     if (require.main === module) {
         main();
     }
 ```
 
-The action first gets the inputs using the `core.getInput()` ADK API to
-initialize required and optional variables. The action then calls the
-`runOutgoingWebhookAction()` function to send the HTTP POST request
-with the earlier provided input. The source code of the
-`runOutgoingWebhookAction()` function is implemented in the
-`action.ts` source file. The following code example validates user
-input, constructs an executable shell command using `code.command()`, and
-logs the result:
+The action first gets the inputs using the `core.getInput()` ADK API to initialize required and optional variables. The action then calls the `runOutgoingWebhookAction()` function to send the HTTP POST request with the earlier provided input. The source code of the `runOutgoingWebhookAction()` function is implemented in the `action.ts` source file. The following code example validates user input, constructs an executable shell command using `code.command()`, and logs the result:
 
 ```
 // @ts-ignore
@@ -126,7 +109,7 @@ logs the result:
     import { OUTGOING_WEBHOOK_ERROR } from './constants';
     import { OutgoingWebhookInput } from './constants/types';
     import { validateActionInputs } from './validation/validation';
-
+    
     export function runOutgoingWebhookAction(input: OutgoingWebhookInput): void {
         validateActionInputs(input);
         const shell_command = webhookRequestCommand(input);
@@ -136,16 +119,16 @@ logs the result:
             console.log(stderr);
             throw new Error(OUTGOING_WEBHOOK_ERROR);
         }
-
+    
         console.log('Outgoing Webhook command was successful');
     }
-
+    
     export function webhookRequestCommand(input: OutgoingWebhookInput): string {
         const headersCommand = constructHeadersCommand(input.headers);
         const bodyCommand = input.body === undefined ? undefined : `-d '${input.body}' `;
         return constructRequestCommand(input.webhookUrl, headersCommand, bodyCommand);
     }
-
+    
     export function constructRequestCommand(url: string, headerCommand: string | undefined, bodyCommand: string | undefined): string {
         let command = 'curl -X POST ';
         if (headerCommand) {
@@ -157,7 +140,7 @@ logs the result:
         command += url;
         return command;
     }
-
+    
     export function constructHeadersCommand(headers: Map<string, string> | undefined | string): string | undefined {
         let headerCommand = '';
         if (headers == undefined) return undefined;
@@ -168,23 +151,21 @@ logs the result:
     }
 ```
 
-This action invokes the AWS Command Line Interface (AWS CLI), which is preinstalled on the action's runtime environment image within CodeCatalyst.
-The output of the CLI command is streamed to the console using stdout.
+This action invokes the AWS Command Line Interface (AWS CLI), which is preinstalled on the action's runtime environment image within CodeCatalyst. The output of the CLI command is streamed to the console using stdout.
 
-After bootstrapping and updating the action code, continue with [Step 4: Bootstrap the action code](getting-started.md#bootstrap-action-code "getting-started.md#bootstrap-action-code")
-to complete the local build.
+After bootstrapping and updating the action code, continue with [Step 4: Bootstrap the action code](getting-started.md#bootstrap-action-code) to complete the local build.
 
 ## Validate the action within the CodeCatalyst workflow
+<a name="validate-action-outgoing-webhook"></a>
 
-After
-[Testing an action](testing-action.md "testing-action.md"),
-validate
-the action.
+After [Testing an action](testing-action.md), validate the action.
 
 **To validate the action**
 
-1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
-2. Navigate to your project.
-3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
-4. Choose the workflow with the action that you want to validate, then view
-   **Logs** to confirm a successful run.
+1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/).
+
+1. Navigate to your project.
+
+1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
+
+1. Choose the workflow with the action that you want to validate, then view **Logs** to confirm a successful run.
