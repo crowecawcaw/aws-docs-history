@@ -1,52 +1,37 @@
+
+
 # Logging Multi-party approval API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Multi-party approval works with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service that provides a record of actions taken by a user, role, or an
-AWS service. CloudTrail captures all
-API calls for Multi-party approval as events. The calls captured include calls from the Multi-party approval console
-and code calls to the Multi-party approval API operations. Using the information collected by CloudTrail, you can
-determine the request that was made to Multi-party approval, the IP address from which the request was
-made, when it was made, and additional details.
+Multi-party approval works with [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html), a service that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures all API calls for Multi-party approval as events. The calls captured include calls from the Multi-party approval console and code calls to the Multi-party approval API operations. Using the information collected by CloudTrail, you can determine the request that was made to Multi-party approval, the IP address from which the request was made, when it was made, and additional details.
 
-Every event or log entry contains information about who generated the request. The identity
-information helps you determine the following:
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-- Whether the request was made with root user or user credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials for a role or federated
-  user.
-- Whether the request was made by another AWS service.
-  CloudTrail is active in your AWS account when you create the account and you automatically have
-  access to the CloudTrail **Event history**. The CloudTrail **Event
-  history** provides a viewable, searchable, downloadable, and immutable record of the
-  past 90 days of recorded management events in an AWS Region. For more information, see [Working
-  with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_. There are no CloudTrail
-  charges for viewing the **Event history**.
+CloudTrail is active in your AWS account when you create the account and you automatically have access to the CloudTrail **Event history**. The CloudTrail **Event history** provides a viewable, searchable, downloadable, and immutable record of the past 90 days of recorded management events in an AWS Region. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*. There are no CloudTrail charges for viewing the **Event history**.
 
-For an ongoing record of events in your AWS account past 90 days, create a trail or a
-[CloudTrail
-Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+For an ongoing record of events in your AWS account past 90 days, create a trail or a [CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) event data store.
 
-**CloudTrail trails**
+**CloudTrail trails**  
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) and [Creating a trail for an organization](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-trail-organization.html) in the *AWS CloudTrail User Guide*.  
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
-A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the _AWS CloudTrail User Guide_.
-
-You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
-
-**CloudTrail Lake event data stores**
-
-_CloudTrail Lake_ lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into _event data stores_, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the _AWS CloudTrail User Guide_.
-
-CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+**CloudTrail Lake event data stores**  
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to [ Apache ORC](https://orc.apache.org/) format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-concepts.html#adv-event-selectors). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html) in the *AWS CloudTrail User Guide*.  
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html#cloudtrail-lake-manage-costs-pricing-option) you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
 ## Multi-party approval management events in CloudTrail
+<a name="cloudtrail-management-events"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
 
-Multi-party approval logs all Multi-party approval control plane operations as management events. For a list
-of the Multi-party approval control plane operations that Multi-party approval logs to CloudTrail, see the
-[Multi-party approval API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+Multi-party approval logs all Multi-party approval control plane operations as management events. For a list of the Multi-party approval control plane operations that Multi-party approval logs to CloudTrail, see the [Multi-party approval API Reference](https://docs.aws.amazon.com/mpa/latest/APIReference/Welcome.html).
 
 ## Multi-party approval event examples
+<a name="cloudtrail-event-examples"></a>
 
 An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
 
@@ -54,7 +39,9 @@ An event represents a single request from any source and includes information ab
 
 The following tabbed list displays some examples for approval teams.
 
-ASYNC\_DELETION\_APPROVAL\_FAILURE [DELETE]
+------
+#### [ ASYNC\_DELETION\_APPROVAL\_FAILURE [DELETE] ]
+
 The following example shows a CloudTrail event for an asynchronous deletion approval failure:
 
 ```
@@ -92,7 +79,9 @@ The following example shows a CloudTrail event for an asynchronous deletion appr
 }
 ```
 
-ASYNC\_DELETION\_APPROVAL\_SUCCESS [DELETE]
+------
+#### [ ASYNC\_DELETION\_APPROVAL\_SUCCESS [DELETE] ]
+
 The following example shows a CloudTrail event for an asynchronous deletion approval success:
 
 ```
@@ -105,7 +94,9 @@ The following example shows a CloudTrail event for an asynchronous deletion appr
 }
 ```
 
-ASYNC\_UPDATE\_ACTIVATION\_FAILURE [UPDATE]
+------
+#### [ ASYNC\_UPDATE\_ACTIVATION\_FAILURE [UPDATE] ]
+
 The following example shows a CloudTrail event for an asynchronous update activation failure:
 
 ```
@@ -118,7 +109,9 @@ The following example shows a CloudTrail event for an asynchronous update activa
 }
 ```
 
-ASYNC\_UPDATE\_ACTIVATION\_SUCCESS [UPDATE]
+------
+#### [ ASYNC\_UPDATE\_ACTIVATION\_SUCCESS [UPDATE] ]
+
 The following example shows a CloudTrail event for an asynchronous update activation success:
 
 ```
@@ -130,7 +123,9 @@ The following example shows a CloudTrail event for an asynchronous update activa
 }
 ```
 
-ASYNC\_UPDATE\_APPROVAL\_FAILURE [UPDATE]
+------
+#### [ ASYNC\_UPDATE\_APPROVAL\_FAILURE [UPDATE] ]
+
 The following example shows a CloudTrail event for an asynchronous update approval failure:
 
 ```
@@ -144,7 +139,9 @@ The following example shows a CloudTrail event for an asynchronous update approv
 }
 ```
 
-ASYNC\_UPDATE\_APPROVAL\_SUCCESS [UPDATE]
+------
+#### [ ASYNC\_UPDATE\_APPROVAL\_SUCCESS [UPDATE] ]
+
 The following example shows a CloudTrail event for an asynchronous update approval success:
 
 ```
@@ -158,7 +155,9 @@ The following example shows a CloudTrail event for an asynchronous update approv
 }
 ```
 
-ASYNC\_VALIDATION\_FAILURE [UPDATE]
+------
+#### [ ASYNC\_VALIDATION\_FAILURE [UPDATE] ]
+
 The following example shows a CloudTrail event for an asynchronous validation failure during an update:
 
 ```
@@ -171,7 +170,9 @@ The following example shows a CloudTrail event for an asynchronous validation fa
 }
 ```
 
-ASYNC\_VALIDATION\_SUCCESS [UPDATE]
+------
+#### [ ASYNC\_VALIDATION\_SUCCESS [UPDATE] ]
+
 The following example shows a CloudTrail event for an asynchronous validation success during an update:
 
 ```
@@ -185,7 +186,9 @@ The following example shows a CloudTrail event for an asynchronous validation su
 }
 ```
 
-ASYNC\_ACTIVATION\_SUCCESS [CREATE]
+------
+#### [ ASYNC\_ACTIVATION\_SUCCESS [CREATE] ]
+
 The following example shows a CloudTrail event for an asynchronous activation success during creation:
 
 ```
@@ -197,7 +200,9 @@ The following example shows a CloudTrail event for an asynchronous activation su
 }
 ```
 
-ASYNC\_ACTIVATION\_FAILURE [CREATE]
+------
+#### [ ASYNC\_ACTIVATION\_FAILURE [CREATE] ]
+
 The following example shows a CloudTrail event for an asynchronous activation failure during creation:
 
 ```
@@ -210,7 +215,9 @@ The following example shows a CloudTrail event for an asynchronous activation fa
 }
 ```
 
-ASYNC\_VALIDATION\_FAILURE [CREATE]
+------
+#### [ ASYNC\_VALIDATION\_FAILURE [CREATE] ]
+
 The following example shows a CloudTrail event for an asynchronous validation failure during creation:
 
 ```
@@ -223,7 +230,9 @@ The following example shows a CloudTrail event for an asynchronous validation fa
 }
 ```
 
-ASYNC\_VALIDATION\_SUCCESS [CREATE]
+------
+#### [ ASYNC\_VALIDATION\_SUCCESS [CREATE] ]
+
 The following example shows a CloudTrail event for an asynchronous validation success during creation:
 
 ```
@@ -236,9 +245,13 @@ The following example shows a CloudTrail event for an asynchronous validation su
 }
 ```
 
+------
+
 The following tabbed list displays some examples for approval sessions.
 
-ASYNC\_EXPIRED [EXPIRATION]
+------
+#### [ ASYNC\_EXPIRED [EXPIRATION] ]
+
 The following example shows a CloudTrail event for an asynchronous session expiration:
 
 ```
@@ -278,7 +291,9 @@ The following example shows a CloudTrail event for an asynchronous session expir
 }
 ```
 
-ASYNC\_CANCELLED\_TEAM\_CONFIGURATION\_CHANGED [CANCELATION]
+------
+#### [ ASYNC\_CANCELLED\_TEAM\_CONFIGURATION\_CHANGED [CANCELATION] ]
+
 The following example shows a CloudTrail event for a session cancellation due to team configuration changes:
 
 ```
@@ -294,7 +309,9 @@ The following example shows a CloudTrail event for a session cancellation due to
 }
 ```
 
-ASYNC\_CANCELLED\_TEAM\_DELETED [CANCELATION]
+------
+#### [ ASYNC\_CANCELLED\_TEAM\_DELETED [CANCELATION] ]
+
 The following example shows a CloudTrail event for a session cancellation due to team deletion:
 
 ```
@@ -310,7 +327,9 @@ The following example shows a CloudTrail event for a session cancellation due to
 }
 ```
 
-ASYNC\_CANCELLED\_BY\_USER [CANCELATION]
+------
+#### [ ASYNC\_CANCELLED\_BY\_USER [CANCELATION] ]
+
 The following example shows a CloudTrail event for a user-initiated session cancellation:
 
 ```
@@ -326,7 +345,9 @@ The following example shows a CloudTrail event for a user-initiated session canc
 }
 ```
 
-ASYNC\_VALIDATION\_SUCCESS [VALIDATION]
+------
+#### [ ASYNC\_VALIDATION\_SUCCESS [VALIDATION] ]
+
 The following example shows a CloudTrail event for an asynchronous validation success:
 
 ```
@@ -338,7 +359,9 @@ The following example shows a CloudTrail event for an asynchronous validation su
 }
 ```
 
-ASYNC\_SESSION\_APPROVED [APPROVAL]
+------
+#### [ ASYNC\_SESSION\_APPROVED [APPROVAL] ]
+
 The following example shows a CloudTrail event for an approved session:
 
 ```
@@ -353,7 +376,9 @@ The following example shows a CloudTrail event for an approved session:
 }
 ```
 
-ASYNC\_SESSION\_REJECTED [REJECTION]
+------
+#### [ ASYNC\_SESSION\_REJECTED [REJECTION] ]
+
 The following example shows a CloudTrail event for a rejected session:
 
 ```
@@ -369,18 +394,22 @@ The following example shows a CloudTrail event for a rejected session:
 }
 ```
 
+------
+
 **Events**
 
 The following tabbed list displays some examples for standard success flow.
 
-CancelSession (Success)
+------
+#### [ CancelSession (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `CancelSession` operation.
 
 ```
 {
   "eventVersion": "1.10",
   "userIdentity": {
-    "type": "AssumedRole",
+    "type": "AssumedRole", 
     "principalId": "AROA123456789EXAMPLE:ExampleRole-mpa",
     "arn": "arn:aws:sts::111122223333:assumed-role/ExampleRole/ExampleRole-mpa",
     "accountId": "111122223333",
@@ -400,7 +429,7 @@ The following example shows a CloudTrail event that demonstrates the `CancelSess
     }
   },
   "eventTime": "2025-03-11T00:07:31Z",
-  "eventSource": "multi-party-approval.amazonaws.com",
+  "eventSource": "multi-party-approval.amazonaws.com", 
   "eventName": "CancelSession",
   "awsRegion": "us-east-1",
   "sourceIPAddress": "192.0.2.0",
@@ -414,14 +443,14 @@ The following example shows a CloudTrail event that demonstrates the `CancelSess
   "readOnly": false,
   "resources": [
     {
-      "accountId": "111122223333",
+      "accountId": "111122223333", 
       "type": "AWS::MPA::ApprovalTeam",
       "ARN": "arn:aws:mpa:us-east-1:111122223333:approval-team/ExampleTest-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
     },
     {
       "accountId": "111122223333",
       "type": "AWS::MPA::Session",
-      "ARN": "arn:aws:mpa:us-east-1:111122223333:session/ExampleTest-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+      "ARN": "arn:aws:mpa:us-east-1:111122223333:session/ExampleTest-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" 
     }
   ],
   "eventType": "AwsApiCall",
@@ -436,7 +465,9 @@ The following example shows a CloudTrail event that demonstrates the `CancelSess
 }
 ```
 
-CreateApprovalTeam (Success)
+------
+#### [ CreateApprovalTeam (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `CreateApprovalTeam` operation.
 
 ```
@@ -522,7 +553,9 @@ The following example shows a CloudTrail event that demonstrates the `CreateAppr
 }
 ```
 
-CreateIdentitySource (Success)
+------
+#### [ CreateIdentitySource (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `CreateIdentitySource` operation.
 
 ```
@@ -583,7 +616,9 @@ The following example shows a CloudTrail event that demonstrates the `CreateIden
 }
 ```
 
-DeleteIdentitySource (Success)
+------
+#### [ DeleteIdentitySource (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `DeleteIdentitySource` operation.
 
 ```
@@ -641,7 +676,9 @@ The following example shows a CloudTrail event that demonstrates the `DeleteIden
 }
 ```
 
-DeleteInactiveApprovalTeamVersion (Success)
+------
+#### [ DeleteInactiveApprovalTeamVersion (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `DeleteInactiveApprovalTeamVersion` operation.
 
 ```
@@ -700,7 +737,9 @@ The following example shows a CloudTrail event that demonstrates the `DeleteInac
 }
 ```
 
-DeleteResourcePolicy (Success)
+------
+#### [ DeleteResourcePolicy (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `DeleteResourcePolicy` operation.
 
 ```
@@ -760,7 +799,9 @@ The following example shows a CloudTrail event that demonstrates the `DeleteReso
 }
 ```
 
-GetApprovalTeam (Success)
+------
+#### [ GetApprovalTeam (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `GetApprovalTeam` operation.
 
 ```
@@ -818,7 +859,9 @@ The following example shows a CloudTrail event that demonstrates the `GetApprova
 }
 ```
 
-GetIdentitySource (Success)
+------
+#### [ GetIdentitySource (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `GetIdentitySource` operation.
 
 ```
@@ -876,7 +919,9 @@ The following example shows a CloudTrail event that demonstrates the `GetIdentit
 }
 ```
 
-GetPolicyVersion (Success)
+------
+#### [ GetPolicyVersion (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `GetPolicyVersion` operation.
 
 ```
@@ -927,7 +972,9 @@ The following example shows a CloudTrail event that demonstrates the `GetPolicyV
 }
 ```
 
-GetResourcePolicy (Success)
+------
+#### [ GetResourcePolicy (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `GetResourcePolicy` operation.
 
 ```
@@ -987,7 +1034,9 @@ The following example shows a CloudTrail event that demonstrates the `GetResourc
 }
 ```
 
-GetSession (Success)
+------
+#### [ GetSession (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `GetSession` operation.
 
 ```
@@ -1050,7 +1099,9 @@ The following example shows a CloudTrail event that demonstrates the `GetSession
 }
 ```
 
-ListApprovalTeams (Success)
+------
+#### [ ListApprovalTeams (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListApprovalTeams` operation.
 
 ```
@@ -1101,7 +1152,9 @@ The following example shows a CloudTrail event that demonstrates the `ListApprov
 }
 ```
 
-ListIdentitySources (Success)
+------
+#### [ ListIdentitySources (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListIdentitySources` operation.
 
 ```
@@ -1150,7 +1203,9 @@ The following example shows a CloudTrail event that demonstrates the `ListIdenti
 }
 ```
 
-ListPolicies (Success)
+------
+#### [ ListPolicies (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListPolicies` operation.
 
 ```
@@ -1199,7 +1254,9 @@ The following example shows a CloudTrail event that demonstrates the `ListPolici
 }
 ```
 
-ListPolicyVersions (Success)
+------
+#### [ ListPolicyVersions (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListPolicyVersions` operation.
 
 ```
@@ -1250,7 +1307,9 @@ The following example shows a CloudTrail event that demonstrates the `ListPolicy
 }
 ```
 
-ListResourcePolicies (Success)
+------
+#### [ ListResourcePolicies (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListResourcePolicies` operation.
 
 ```
@@ -1312,7 +1371,9 @@ The following example shows a CloudTrail event that demonstrates the `ListResour
 }
 ```
 
-ListSessions (Success)
+------
+#### [ ListSessions (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListSessions` operation.
 
 ```
@@ -1378,7 +1439,9 @@ The following example shows a CloudTrail event that demonstrates the `ListSessio
 }
 ```
 
-ListTagsForResource (Success)
+------
+#### [ ListTagsForResource (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `ListTagsForResource` operation.
 
 ```
@@ -1429,7 +1492,9 @@ The following example shows a CloudTrail event that demonstrates the `ListTagsFo
 }
 ```
 
-PutResourcePolicy (Success)
+------
+#### [ PutResourcePolicy (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `PutResourcePolicy` operation.
 
 ```
@@ -1492,7 +1557,9 @@ The following example shows a CloudTrail event that demonstrates the `PutResourc
 }
 ```
 
-StartActiveApprovalTeamDeletion (Success)
+------
+#### [ StartActiveApprovalTeamDeletion (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `StartActiveApprovalTeamDeletion` operation.
 
 ```
@@ -1552,7 +1619,9 @@ The following example shows a CloudTrail event that demonstrates the `StartActiv
 }
 ```
 
-StartSession (Success)
+------
+#### [ StartSession (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `StartSession` operation.
 
 ```
@@ -1622,7 +1691,9 @@ The following example shows a CloudTrail event that demonstrates the `StartSessi
 }
 ```
 
-TagResource (Success)
+------
+#### [ TagResource (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `TagResource` operation.
 
 ```
@@ -1674,7 +1745,9 @@ The following example shows a CloudTrail event that demonstrates the `TagResourc
 }
 ```
 
-UntagResource (Success)
+------
+#### [ UntagResource (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `UntagResource` operation.
 
 ```
@@ -1726,7 +1799,9 @@ The following example shows a CloudTrail event that demonstrates the `UntagResou
 }
 ```
 
-UpdateApprovalTeam (Success)
+------
+#### [ UpdateApprovalTeam (Success) ]
+
 The following example shows a CloudTrail event that demonstrates the `UpdateApprovalTeam` operation.
 
 ```
@@ -1786,9 +1861,13 @@ The following example shows a CloudTrail event that demonstrates the `UpdateAppr
 }
 ```
 
+------
+
 The following tabbed list displays some examples the access denied flow.
 
-CreateIdentitySource (Error)
+------
+#### [ CreateIdentitySource (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `CreateIdentitySource` operation due to insufficient permissions.
 
 ```
@@ -1839,7 +1918,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-GetIdentitySource (Error)
+------
+#### [ GetIdentitySource (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `GetIdentitySource` operation due to insufficient permissions.
 
 ```
@@ -1890,7 +1971,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-DeleteIdentitySource (Error)
+------
+#### [ DeleteIdentitySource (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `DeleteIdentitySource` operation due to insufficient permissions.
 
 ```
@@ -1941,7 +2024,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListIdentitySources (Error)
+------
+#### [ ListIdentitySources (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListIdentitySources` operation due to insufficient permissions.
 
 ```
@@ -1992,7 +2077,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-CreateApprovalTeam (Error)
+------
+#### [ CreateApprovalTeam (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `CreateApprovalTeam` operation due to insufficient permissions.
 
 ```
@@ -2043,7 +2130,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-UpdateApprovalTeam (Error)
+------
+#### [ UpdateApprovalTeam (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `UpdateApprovalTeam` operation due to insufficient permissions.
 
 ```
@@ -2094,7 +2183,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-GetApprovalTeam (Error)
+------
+#### [ GetApprovalTeam (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `GetApprovalTeam` operation due to insufficient permissions.
 
 ```
@@ -2145,7 +2236,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListApprovalTeams (Error)
+------
+#### [ ListApprovalTeams (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListApprovalTeams` operation due to insufficient permissions.
 
 ```
@@ -2196,7 +2289,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-StartActiveApprovalTeamDeletion (Error)
+------
+#### [ StartActiveApprovalTeamDeletion (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `StartActiveApprovalTeamDeletion` operation due to insufficient permissions.
 
 ```
@@ -2247,7 +2342,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-DeleteInactiveApprovalTeamVersion (Error)
+------
+#### [ DeleteInactiveApprovalTeamVersion (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `DeleteInactiveApprovalTeamVersion` operation due to insufficient permissions.
 
 ```
@@ -2298,7 +2395,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-GetSession (Error)
+------
+#### [ GetSession (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `GetSession` operation due to an explicit deny in an identity-based policy.
 
 ```
@@ -2349,7 +2448,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListSessions (Error)
+------
+#### [ ListSessions (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListSessions` operation due to insufficient permissions.
 
 ```
@@ -2400,7 +2501,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-CancelSession (Error)
+------
+#### [ CancelSession (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `CancelSession` operation due to insufficient permissions.
 
 ```
@@ -2451,7 +2554,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-StartSession (Error)
+------
+#### [ StartSession (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `StartSession` operation due to insufficient permissions.
 
 ```
@@ -2502,7 +2607,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-GetPolicyVersion (Error)
+------
+#### [ GetPolicyVersion (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `GetPolicyVersion` operation due to insufficient permissions.
 
 ```
@@ -2553,7 +2660,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListPolicies (Error)
+------
+#### [ ListPolicies (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListPolicies` operation due to insufficient permissions.
 
 ```
@@ -2604,7 +2713,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListPolicyVersions (Error)
+------
+#### [ ListPolicyVersions (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListPolicyVersions` operation due to insufficient permissions.
 
 ```
@@ -2655,7 +2766,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListResourcePolicies (Error)
+------
+#### [ ListResourcePolicies (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListResourcePolicies` operation due to insufficient permissions.
 
 ```
@@ -2706,7 +2819,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-GetResourcePolicy (Error)
+------
+#### [ GetResourcePolicy (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `GetResourcePolicy` operation due to insufficient permissions.
 
 ```
@@ -2757,7 +2872,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-PutResourcePolicy (Error)
+------
+#### [ PutResourcePolicy (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `PutResourcePolicy` operation due to insufficient permissions.
 
 ```
@@ -2808,7 +2925,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-DeleteResourcePolicy (Error)
+------
+#### [ DeleteResourcePolicy (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `DeleteResourcePolicy` operation due to insufficient permissions.
 
 ```
@@ -2859,7 +2978,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-ListTagsForResource (Error)
+------
+#### [ ListTagsForResource (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `ListTagsForResource` operation due to insufficient permissions.
 
 ```
@@ -2910,7 +3031,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-TagResource (Error)
+------
+#### [ TagResource (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `TagResource` operation due to insufficient permissions.
 
 ```
@@ -2961,7 +3084,9 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
-UntagResource (Error)
+------
+#### [ UntagResource (Error) ]
+
 The following example shows a CloudTrail event that demonstrates an unsuccessful `UntagResource` operation due to insufficient permissions.
 
 ```
@@ -3012,9 +3137,13 @@ The following example shows a CloudTrail event that demonstrates an unsuccessful
 }
 ```
 
+------
+
 The following tabbed list displays some examples for the Multi-party approval integration with AWS IAM Identity Center.
 
-CreateApplication
+------
+#### [ CreateApplication ]
+
 The following example shows a CloudTrail event that demonstrates the `CreateApplication` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3082,7 +3211,9 @@ The following example shows a CloudTrail event that demonstrates the `CreateAppl
 }
 ```
 
-DescribeInstance
+------
+#### [ DescribeInstance ]
+
 The following example shows a CloudTrail event that demonstrates the `DescribeInstance` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3129,7 +3260,9 @@ The following example shows a CloudTrail event that demonstrates the `DescribeIn
 }
 ```
 
-PutApplicationAuthenticationMethod
+------
+#### [ PutApplicationAuthenticationMethod ]
+
 The following example shows a CloudTrail event that demonstrates the `PutApplicationAuthenticationMethod` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3168,7 +3301,7 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
     "authenticationMethod": {
       "iam": {
         "actorPolicy": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Effect": "Allow",
@@ -3213,7 +3346,9 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
 }
 ```
 
-DescribeInstance
+------
+#### [ DescribeInstance ]
+
 The following example shows a CloudTrail event that demonstrates the `DescribeInstance` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3260,7 +3395,9 @@ The following example shows a CloudTrail event that demonstrates the `DescribeIn
 }
 ```
 
-PutApplicationAuthenticationMethod
+------
+#### [ PutApplicationAuthenticationMethod ]
+
 The following example shows a CloudTrail event that demonstrates the `PutApplicationAuthenticationMethod` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3299,7 +3436,7 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
     "authenticationMethod": {
       "iam": {
         "actorPolicy": {
-          "Version": "2012-10-17",
+          "Version": "2012-10-17",		 	 	 
           "Statement": [
             {
               "Effect": "Allow",
@@ -3344,7 +3481,9 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
 }
 ```
 
-PutApplicationGrant
+------
+#### [ PutApplicationGrant ]
+
 The following example shows a CloudTrail event that demonstrates the `PutApplicationGrant` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3407,7 +3546,9 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
 }
 ```
 
-PutApplicationAccessScope
+------
+#### [ PutApplicationAccessScope ]
+
 The following example shows a CloudTrail event that demonstrates the `PutApplicationAccessScope` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3467,7 +3608,9 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
 }
 ```
 
-PutApplicationAssignmentConfiguration
+------
+#### [ PutApplicationAssignmentConfiguration ]
+
 The following example shows a CloudTrail event that demonstrates the `PutApplicationAssignmentConfiguration` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3527,7 +3670,9 @@ The following example shows a CloudTrail event that demonstrates the `PutApplica
 }
 ```
 
-Authenticate
+------
+#### [ Authenticate ]
+
 The following example shows a CloudTrail event that demonstrates the `Authenticate` operation for the Multi-party approval integration with IAM Identity Center.
 
 ```
@@ -3562,5 +3707,6 @@ The following example shows a CloudTrail event that demonstrates the `Authentica
 }
 ```
 
-For information about CloudTrail record contents, see [CloudTrail
-record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+------
+
+For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.
