@@ -1,116 +1,71 @@
+
+
 # Logging AWS Elemental MediaConvert API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-AWS Elemental MediaConvert integrates with AWS CloudTrail, a service that provides a record of operations taken
-by a user, role, or an AWS service. CloudTrail captures all operations (API calls) you perform,
-including those from the MediaConvert Console, as events. Events contain information about requests
-to MediaConvert, including the IP address, who made the request, when it was made, the MediaConvert
-operation, and additional details. For more information about CloudTrail events, see [What are CloudTrail events?](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-events "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md#cloudtrail-concepts-events")
+AWS Elemental MediaConvert integrates with AWS CloudTrail, a service that provides a record of operations taken by a user, role, or an AWS service. CloudTrail captures all operations (API calls) you perform, including those from the MediaConvert Console, as events. Events contain information about requests to MediaConvert, including the IP address, who made the request, when it was made, the MediaConvert operation, and additional details. For more information about CloudTrail events, see [What are CloudTrail events?](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html#cloudtrail-concepts-events)
 
-A few examples of what CloudTrail can help you find include: when you submitted a create job
-request, who deleted a queue, or what tags were added to a resource.
+A few examples of what CloudTrail can help you find include: when you submitted a create job request, who deleted a queue, or what tags were added to a resource.
 
-For a complete list of all MediaConvert operations you can perform, see the [MediaConvert API Reference](../apireference/resources.md "../apireference/resources.md").
+For a complete list of all MediaConvert operations you can perform, see the [MediaConvert API Reference](https://docs.aws.amazon.com/mediaconvert/latest/apireference/resources.html).
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
-###### Topics
-
-- [Finding information about MediaConvert in CloudTrail](#service-name-info-in-cloudtrail "#service-name-info-in-cloudtrail")
-- [Understanding CloudTrail management events for MediaConvert](#understanding-service-name-entries "#understanding-service-name-entries")
+**Topics**
++ [Finding information about MediaConvert in CloudTrail](#service-name-info-in-cloudtrail)
++ [Understanding CloudTrail management events for MediaConvert](#understanding-service-name-entries)
 
 ## Finding information about MediaConvert in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-You can view, search, and download events from the last 90 days in [Event
-history](https://console.aws.amazon.com/cloudtrailv2/home?region=us-west-2#/events "https://console.aws.amazon.com/cloudtrailv2/home?region=us-west-2#/events") in the CloudTrail console. For more information, see [Working with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+You can view, search, and download events from the last 90 days in [Event history](https://console.aws.amazon.com/cloudtrailv2/home?region=us-west-2#/events) in the CloudTrail console. For more information, see [Working with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of CloudTrail events beyond the last 90 days, you must create a CloudTrail
-_trail_ or CloudTrail Lake event data store.
+For an ongoing record of CloudTrail events beyond the last 90 days, you must create a CloudTrail *trail* or CloudTrail Lake event data store. 
 
-**CloudTrail trails**
+**CloudTrail trails**  
+With CloudTrail trails, CloudTrail delivers log files for events to an Amazon S3 bucket. Additionally, you can configure other AWS services to [further analyze and act upon the event data](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html) collected. When you create a trail, CloudTrail [also emits each event to Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html). For more information about CloudTrail trails, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-getting-started.html).
 
-With CloudTrail trails, CloudTrail delivers log files for events to an Amazon S3 bucket.
-Additionally, you can configure other AWS services to [further analyze and act upon the event data](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md") collected. When you
-create a trail, CloudTrail [also emits each event to Amazon EventBridge](../../../eventbridge/latest/userguide/eb-service-event.md "../../../eventbridge/latest/userguide/eb-service-event.md"). For more
-information about CloudTrail trails, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-getting-started.md "../../../awscloudtrail/latest/userguide/cloudtrail-getting-started.md").
-
-**CloudTrail Lake event data stores**
-
-With CloudTrail Lake event data stores, CloudTrail provides a searchable store of
-event data. For more information, see [Working with
-CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md").
+**CloudTrail Lake event data stores**  
+With CloudTrail Lake event data stores, CloudTrail provides a searchable store of event data. For more information, see [Working with CloudTrail Lake](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake.html).
 
 ## Understanding CloudTrail management events for MediaConvert
+<a name="understanding-service-name-entries"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are
-performed on resources in your AWS account. These are also known as control plane
-operations, or MediaConvert operations. By default, CloudTrail logs all management events.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations, or MediaConvert operations. By default, CloudTrail logs all management events.
 
-CloudTrail management events represent a single request from any source. They include
-information about where a request originated, who made the request, when the request was
-made, the MediaConvert operation, and other important details.
+CloudTrail management events represent a single request from any source. They include information about where a request originated, who made the request, when the request was made, the MediaConvert operation, and other important details. 
 
-For details about the contents of these events, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md").
+For details about the contents of these events, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html). 
 
-**Origin**
+**Origin**  
+Events include the source IP address under `sourceIPAddress`, AWS Region under `awsRegion`, and user agent (browser or client info) under `userAgent` to help you find where a request originated.
 
-Events include the source IP address under `sourceIPAddress`,
-AWS Region under `awsRegion`, and user agent (browser or client
-info) under `userAgent` to help you find where a request
-originated.
+**Identity**  
+Events include identity information, under `userIdentity`, to help you find who made the request. You can use this information to determine the following:  
++ Whether the request was made with root user or user credentials.
++ Whether the request was made on behalf of an IAM Identity Center user.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
+For more information, including a list of relevant fields, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
-**Identity**
+**Time**  
+Events include a time stamp, under `eventTime`. 
 
-Events include identity information, under `userIdentity`, to
-help you find who made the request. You can use this information to
-determine the following:
+**MediaConvert operation**  
+Events include the MediaConvert operation under `eventName`. For example, `CreateJob` when you submit a new job, or `CreateQueue` when you request a new Queue.
 
-- Whether the request was made with root user or user
-  credentials.
-- Whether the request was made on behalf of an IAM Identity Center user.
-- Whether the request was made with temporary security credentials
-  for a role or federated user.
-- Whether the request was made by another AWS service.
+**Other important details**  
+Some events include specific details about your MediaConvert request under `requestParameters`, as well as MediaConvert's response under `responseElements`.   
+For example, if you submit a `CreateJob` request, the `requestParameters` field will include the JSON for the job settings that you submitted. If successful, the event also includes the complete and validated job settings JSON, as well as the job ID, under `responseElements`.  
+For another example, if you submit a `CreateQueue` request, the `requestParameters` field will include the the queue settings that you submitted. If successful, the event will also include the queue ARN under `responseElements`.
 
-For more information, including a list of relevant fields, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
-
-**Time**
-
-Events include a time stamp, under `eventTime`.
-
-**MediaConvert operation**
-
-Events include the MediaConvert operation under `eventName`. For
-example, `CreateJob` when you submit a new job, or
-`CreateQueue` when you request a new Queue.
-
-**Other important details**
-
-Some events include specific details about your MediaConvert request under
-`requestParameters`, as well as MediaConvert's response under
-`responseElements`.
-
-For example, if you submit a `CreateJob` request, the
-`requestParameters` field will include the JSON for the job
-settings that you submitted. If successful, the event also includes the
-complete and validated job settings JSON, as well as the job ID, under
-`responseElements`.
-
-For another example, if you submit a `CreateQueue` request, the
-`requestParameters` field will include the the queue settings
-that you submitted. If successful, the event will also include the queue ARN
-under `responseElements`.
-
-###### Note
-
-MediaConvert only supports recording management events in CloudTrail, it does not support data
-events. For details about these event types, and their differences, see [CloudTrail
-concepts](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md").
+**Note**  
+MediaConvert only supports recording management events in CloudTrail, it does not support data events. For details about these event types, and their differences, see [CloudTrail concepts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html).
 
 ### Example events
+<a name="example-cloudtrail-events"></a>
 
-The following examples show a CloudTrail event for the `CreateJob`,
-`CreateQueue`, `DeleteQueue`, and `TagResource`
-operations. CloudTrail also records all other [MediaConvert operations](../apireference/resources.md "../apireference/resources.md"), though they are not shown here.
+The following examples show a CloudTrail event for the `CreateJob`, `CreateQueue`, `DeleteQueue`, and `TagResource` operations. CloudTrail also records all other [MediaConvert operations](https://docs.aws.amazon.com/mediaconvert/latest/apireference/resources.html), though they are not shown here.
 
 **Example event: CreateJob**
 

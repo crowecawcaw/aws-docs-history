@@ -1,50 +1,36 @@
+
+
 # Working with default MXF profiles
+<a name="default-automatic-selection-of-mxf-profiles"></a>
 
-When you choose MXF as your output video container and keep **MXF
-profile** out of your job settings, MediaConvert automatically chooses
-your MXF profile for you and creates your output accordingly. How MediaConvert makes
-the MXF profile selection depends on your output video codec.
+When you choose MXF as your output video container and keep **MXF profile** out of your job settings, MediaConvert automatically chooses your MXF profile for you and creates your output accordingly. How MediaConvert makes the MXF profile selection depends on your output video codec.
 
-###### Note
+**Note**  
+MediaConvert supports more MXF profiles through automatic profile selection than it does with manual selection.
 
-MediaConvert supports more MXF profiles through automatic profile selection than
-it does with manual selection.
+**AVC (H.264), AVC Intra, and VC-3**  
+For AVC (H.264), AVC Intra, and VC-3, MediaConvert selects the Generic OP1a profile, without regard for your output encoding settings.
 
-###### AVC (H.264), AVC Intra, and VC-3
-
-For AVC (H.264), AVC Intra, and VC-3, MediaConvert selects the Generic OP1a profile, without
-regard for your output encoding settings.
-
-###### XAVC
-
+**XAVC**  
 For XAVC, MediaConvert selects the XAVC profile, without regard for your output encode settings.
 
-###### MPEG-2
+**MPEG-2**  
+For MPEG-2, MediaConvert chooses SMPTE-386 D10 when your output encoding characteristics conform to the D10 specification. Otherwise, MediaConvert selects the XDCAM RDD9 profile. The following table details the relevant encoding settings and the values that you must set to have MediaConvert automatically select the D10 profile.
 
-For MPEG-2, MediaConvert chooses SMPTE-386 D10 when your output encoding
-characteristics conform to the D10 specification. Otherwise, MediaConvert selects
-the XDCAM RDD9 profile. The following table details the relevant encoding settings
-and the values that you must set to have MediaConvert automatically select the D10
-profile.
+**Note**  
+For your output resolution and frame rate, you can specify an allowed value explicitly with the settings **Resolution** and **Frame rate**, or you can choose the value **Follow source** and use an input that has an allowed value.
 
-###### Note
 
-For your output resolution and frame rate, you can specify an allowed value
-explicitly with the settings **Resolution** and **Frame
-rate**, or you can choose the value **Follow source**
-and use an input that has an allowed value.
+| Setting | Allowed values for D10 profile | 
+| --- | --- | 
+| Combination of:<br />**Resolution** (wxh), **Frame rate**, **Interlace mode** | Allowed combinations:+  720x512, 29.97, interlaced <br />+  720x486, 29.97, interlaced <br />+  720x486, 29.97, interlaced <br />+  720x608, 25, interlaced <br />+  720x576, 25, interlaced  | 
+| **GOP size** | 1 frame | 
+| **Profile**, for your video codec | 4:2:2 | 
+| **Syntax**<br />This setting is visible on the MediaConvert console when you choose MXF for your container, MPEG-2 for your video codec, and 4:2:2 for your codec profile. | D10 | 
+| Number of audio tracks<br />Each output track is represented on the MediaConvert console as one **Audio** tab and in your JSON job specification as a direct child of `AudioDescriptions`. |  +  0 (no audio) <br />+  1   | 
+| Captions type<br />You specify this on the MediaConvert console with the setting **Destination type**. |  +  Burn in <br />+  Embedded   | 
 
-| Setting                                                                                                                                                                                               | Allowed values for D10 profile                                                                                                                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Combination of:<br>*_Resolution_<br>• (wxh), **Frame<br>rate**, **Interlace mode**                                                                                                                    | Allowed combinations:<br>• 720x512, 29.97, interlaced<br>• 720x486, 29.97, interlaced<br>• 720x486, 29.97, interlaced<br>• 720x608, 25, interlaced<br>• 720x576, 25, interlaced |
-| **GOP size**                                                                                                                                                                                          | 1 frame                                                                                                                                                                         |
-| **Profile**, for your video codec                                                                                                                                                                     | 4:2:2                                                                                                                                                                           |
-| **Syntax**<br>This setting is visible on the MediaConvert console when you choose MXF for<br>your container, MPEG-2 for your video codec, and 4:2:2 for your<br>codec profile.                        | D10                                                                                                                                                                             |
-| Number of audio tracks<br>Each output track is represented on the MediaConvert console as one<br>*_Audio_<br>• tab and in your JSON job<br>specification as a direct child of<br>`AudioDescriptions`. | • 0 (no audio)<br>• 1                                                                                                                                                           |
-| Captions type<br>You specify this on the MediaConvert console with the setting<br>**Destination type**.                                                                                               | • Burn in<br>• Embedded                                                                                                                                                         |
-
-This excerpt from a JSON job specification shows the same settings as you would submit
-them programmatically:
+This excerpt from a JSON job specification shows the same settings as you would submit them programmatically:
 
 ```
 {

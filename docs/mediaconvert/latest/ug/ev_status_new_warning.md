@@ -1,22 +1,17 @@
+
+
 # Events with NEW\_WARNING status
+<a name="ev_status_new_warning"></a>
 
-MediaConvert sends an event for `NEW_WARNING` when a warning condition
-arises. A warning condition doesn't stop the job from running. It contains the
-submission queue ARN, the job ID, and a warning message. Warning messages inform you
-about conditions that don't stop the job but might indicate that the job is not
-progressing as you planned.
+MediaConvert sends an event for `NEW_WARNING` when a warning condition arises. A warning condition doesn't stop the job from running. It contains the submission queue ARN, the job ID, and a warning message. Warning messages inform you about conditions that don't stop the job but might indicate that the job is not progressing as you planned.
 
-For example, a job that you set up to hop queues reaches the wait time that you
-specified, but can't hop.
+For example, a job that you set up to hop queues reaches the wait time that you specified, but can't hop.
 
-`NEW_WARNING` only contains the most recent warning message. It doesn't
-report previous warnings, even if those warning conditions are still in
-effect.
+`NEW_WARNING` only contains the most recent warning message. It doesn't report previous warnings, even if those warning conditions are still in effect.
 
-For more information about warning messages, see [Warning codes](warning_codes.md "warning_codes.md").
+For more information about warning messages, see [Warning codes](warning_codes.md).
 
-The following JSON is an example event containing the `NEW_WARNING`
-status for a job.
+The following JSON is an example event containing the `NEW_WARNING` status for a job.
 
 ```
 {
@@ -41,8 +36,7 @@ status for a job.
 }
 ```
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `NEW_WARNING`.
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `NEW_WARNING`.
 
 ```
 {

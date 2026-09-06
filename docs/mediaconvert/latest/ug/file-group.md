@@ -1,8 +1,9 @@
-# File group
 
-The following is an Amazon EventBridge sample event for a job with a
-`COMPLETE` status. The example includes output file path
-information for a file group.
+
+# File group
+<a name="file-group"></a>
+
+The following is an Amazon EventBridge sample event for a job with a `COMPLETE` status. The example includes output file path information for a file group.
 
 ```
 {
@@ -62,7 +63,5 @@ information for a file group.
 }
 ```
 
-###### Note
-
-QVBR statistics are only available when your video output uses
-Quality-Defined Variable Bitrate (QVBR) rate control.
+**Note**  
+QVBR statistics are only available when your video output uses Quality-Defined Variable Bitrate (QVBR) rate control.

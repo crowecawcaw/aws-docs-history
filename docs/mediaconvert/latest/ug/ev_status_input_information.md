@@ -1,14 +1,13 @@
+
+
 # Events with INPUT\_INFORMATION status
+<a name="ev_status_input_information"></a>
 
-MediaConvert sends the event for `INPUT_INFORMATION` after a job
-begins processing and after MediaConvert reads information about your input. The
-event primarily contains media information about your input, such as frame height
-and width, frame rate, and codec.
+MediaConvert sends the event for `INPUT_INFORMATION` after a job begins processing and after MediaConvert reads information about your input. The event primarily contains media information about your input, such as frame height and width, frame rate, and codec.
 
-MediaConvert includes information about all of your inputs in a single event.
+ MediaConvert includes information about all of your inputs in a single event.
 
-The following JSON is an example event containing the
-`INPUT_INFORMATION` status for a job with a single input.
+The following JSON is an example event containing the `INPUT_INFORMATION` status for a job with a single input.
 
 ```
 {
@@ -63,8 +62,7 @@ The following JSON is an example event containing the
 }
 ```
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `INPUT_INFORMATION`.
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `INPUT_INFORMATION`.
 
 ```
 {

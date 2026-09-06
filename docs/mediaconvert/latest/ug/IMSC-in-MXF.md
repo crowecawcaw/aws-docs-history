@@ -1,34 +1,28 @@
+
+
 # IMSC input captions (as part of an IMF source)
+<a name="IMSC-in-MXF"></a>
 
-AWS Elemental MediaConvert supports IMSC as an input captions format either as a sidecar file or as
-part of an IMF source. If your input IMSC captions are in a sidecar file, see [IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input captions](sidecar-input.md "sidecar-input.md").
+AWS Elemental MediaConvert supports IMSC as an input captions format either as a sidecar file or as part of an IMF source. If your input IMSC captions are in a sidecar file, see [IMSC, SCC, SMPTE-TT, SRT, STL, TTML (sidecar) input captions](sidecar-input.md).
 
-When your input IMSC captions are part of an IMF source, you don't specify the source file
-for IMSC captions. That information is in the CPL file that you specify for your job input. For
-restrictions on IMSC support, see [IMSC requirements](imsc-captions-support.md "imsc-captions-support.md").
+When your input IMSC captions are part of an IMF source, you don't specify the source file for IMSC captions. That information is in the CPL file that you specify for your job input. For restrictions on IMSC support, see [IMSC requirements](imsc-captions-support.md).
 
-###### Number of captions selectors for IMSC
-
+**Number of captions selectors for IMSC**  
 Create one captions selector per track.
 
-###### Track number
+**Track number**  
+Specify which captions you want by providing a track number. The track numbers correspond to the order that the tracks appear in the CPL file. For example, if your CPL file lists your French captions first, set **Track number** to **1** to specify the French captions.
 
-Specify which captions you want by providing a track number. The track numbers correspond
-to the order that the tracks appear in the CPL file. For example, if your CPL file lists your
-French captions first, set **Track number** to **1** to
-specify the French captions.
-
-###### In your JSON job specification
-
+**In your JSON job specification**  
 If you use the API or an SDK, you can find these settings in the JSON file of your job. These settings are under `Inputs`, as in the following example:
 
 ```
 "Inputs": [
 
-
+ 
       {
         ...
-
+        		
         "CaptionSelectors": {
           "Captions Selector 1": {
             "SourceSettings": {
@@ -48,5 +42,4 @@ If you use the API or an SDK, you can find these settings in the JSON file of yo
             }
           },
           ...
-
 ```

@@ -1,39 +1,21 @@
+
+
 # File group with a frame capture output
+<a name="file-group-with-frame-capture-output"></a>
 
-This guide provides an Amazon EventBridge example event for a job with a
-`COMPLETE` status. It also shows output file path information
-for a file group with a frame capture output.
+This guide provides an Amazon EventBridge example event for a job with a `COMPLETE` status. It also shows output file path information for a file group with a frame capture output. 
 
-A _frame capture output_ is an output that you set up
-to create still images of video. You set it up similar to a regular
-**File group** output group. However, you remove the
-audio component, choose **No container** for the container,
-and then choose **Frame capture to JPEG** for the video
-codec.
+A *frame capture output* is an output that you set up to create still images of video. You set it up similar to a regular **File group** output group. However, you remove the audio component, choose **No container** for the container, and then choose **Frame capture to JPEG** for the video codec.
 
-###### Note
+**Note**  
+You can create frame capture outputs only in jobs that also have a regular audio and video output. MediaConvert doesn't support jobs that consist only of a frame capture output.
 
-You can create frame capture outputs only in jobs that also have a
-regular audio and video output. MediaConvert doesn't support jobs that
-consist only of a frame capture output.
+When you create a frame capture output, the `COMPLETE` status includes the `outputFilePaths` property. This tells you the file name and path of the final captured image. 
 
-When you create a frame capture output, the `COMPLETE` status
-includes the `outputFilePaths` property. This tells you the file
-name and path of the final captured image.
+**Tip**  
+Because the service includes automatic numbering in the frame capture file names, you can infer all the image names from the final one. For example, if your `outputFilePaths` value is `s3://amzn-s3-demo-bucket/frameoutput/file.0000036.jpg`, you can infer that there are 35 other images in the same location, named `file.0000001`, `file.0000002`, and so on.
 
-###### Tip
-
-Because the service includes automatic numbering in the frame capture
-file names, you can infer all the image names from the final one. For
-example, if your `outputFilePaths` value is
-`s3://amzn-s3-demo-bucket/frameoutput/file.0000036.jpg`,
-you can infer that there are 35 other images in the same location, named
-`file.0000001`,
-`file.0000002`, and so on.
-
-The following is an EventBridge sample event for a job with a
-`COMPLETE` status. It includes output file path information
-for a file group with a frame capture output.
+The following is an EventBridge sample event for a job with a `COMPLETE` status. It includes output file path information for a file group with a frame capture output. 
 
 ```
 {
@@ -110,7 +92,5 @@ for a file group with a frame capture output.
 }
 ```
 
-###### Note
-
-Quality-Defined Variable Bitrate (QVBR) statistics are only available
-when your video output uses QVBR rate control.
+**Note**  
+Quality-Defined Variable Bitrate (QVBR) statistics are only available when your video output uses QVBR rate control.

@@ -1,12 +1,11 @@
+
+
 # Events with ERROR status
+<a name="ev_status_error"></a>
 
-MediaConvert sends the event for `ERROR` when at least one output has
-an error. It contains the error code or codes, messages, and warnings or other
-ephemeral job information about the job's error status. For more information about
-error codes, see [Error codes](mediaconvert_error_codes.md "mediaconvert_error_codes.md").
+MediaConvert sends the event for `ERROR` when at least one output has an error. It contains the error code or codes, messages, and warnings or other ephemeral job information about the job's error status. For more information about error codes, see [Error codes](mediaconvert_error_codes.md).
 
-The following JSON is an example event containing the `ERROR` status
-for a job.
+The following JSON is an example event containing the `ERROR` status for a job.
 
 ```
 {
@@ -31,8 +30,7 @@ for a job.
 }
 ```
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `ERROR`.
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `ERROR`.
 
 ```
 {

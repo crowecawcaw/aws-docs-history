@@ -1,32 +1,19 @@
+
+
 # Example accelerated transcoding job settings JSON
+<a name="sample-acceleration-job-settings-in-json"></a>
 
-The following example JSON job converts an MP4 file to another MP4 file that is 720p
-encoded with H.265. To use this example, replace the settings with your values. At
-minimum, you must provide values for the following settings:
+The following example JSON job converts an MP4 file to another MP4 file that is 720p encoded with H.265. To use this example, replace the settings with your values. At minimum, you must provide values for the following settings:
++ `Role`: This is the AWS Identity and Access Management (IAM) role that you set up to give AWS Elemental MediaConvert permission to access your input and output Amazon S3 buckets and to access Amazon API Gateway on your behalf. For information about setting up this role, see [Set up IAM permissions](https://docs.aws.amazon.com/mediaconvert/latest/ug/iam-role.html) in the *AWS Elemental MediaConvert User Guide*.
++ `Destination`: The Amazon S3 bucket where you want MediaConvert to store your output file. Make sure to include a trailing backslash, as in the example.
++ `InputClippings`: Define the clips that you want transcoded by specifying sets of values for `StartTimecode` and `EndTimecode`. Alternatively, you can remove `InputClippings` entirely to transcode the entire asset.
++ **`FileInput`**: Specify the file name and location for your input file. Your file input can be an Amazon S3 object or an HTTP URL.
 
-- `**Role**`: This is the AWS Identity and Access Management
-  (IAM) role that you set up to give AWS Elemental MediaConvert permission to access your
-  input and output Amazon S3 buckets and to access Amazon API Gateway on your behalf. For
-  information about setting up this role, see [Set up IAM permissions](iam-role.md "iam-role.md") in the
-  _AWS Elemental MediaConvert User Guide_.
-- `**Destination**`: The Amazon S3 bucket
-  where you want MediaConvert to store your output file. Make sure to include a
-  trailing backslash, as in the example.
-- `**InputClippings**`: Define the clips
-  that you want transcoded by specifying sets of values for
-  `StartTimecode` and `EndTimecode`. Alternatively, you
-  can remove `InputClippings` entirely to transcode the entire
-  asset.
-- **`FileInput`**: Specify the file name
-  and location for your input file. Your file input can be an Amazon S3 object or an
-  HTTP URL.
-
-Accelerated transcoding is supported with jobs that have only a single input;
-you can't do input stitching.
+  Accelerated transcoding is supported with jobs that have only a single input; you can't do input stitching.
 
 ```
 {
-  "Role": "`arn:aws:iam::123456789012:role/MediaConvert_Role`",
+  "Role": "{{arn:aws:iam::123456789012:role/MediaConvert_Role}}",
   "AccelerationSettings" : {
     "Mode" : "ENABLED"
   },
@@ -135,7 +122,7 @@ you can't do input stitching.
         "OutputGroupSettings": {
           "Type": "FILE_GROUP_SETTINGS",
           "FileGroupSettings": {
-            "Destination": "`s3://amzn-s3-demo-bucket1/accelerated/`"
+            "Destination": "{{s3://amzn-s3-demo-bucket1/accelerated/}}"
           }
         }
       }
@@ -145,8 +132,8 @@ you can't do input stitching.
       {
         "InputClippings": [
           {
-            "EndTimecode": "`01:00:00:00`",
-            "StartTimecode": "`00:00:00:00`"
+            "EndTimecode": "{{01:00:00:00}}",
+            "StartTimecode": "{{00:00:00:00}}"
           }
         ],
         "AudioSelectors": {
@@ -165,7 +152,7 @@ you can't do input stitching.
         "DeblockFilter": "DISABLED",
         "DenoiseFilter": "DISABLED",
         "TimecodeSource": "ZEROBASED",
-        "FileInput": "`s3://amzn-s3-demo-bucket/SampleVideo_h264_StereoAudio.mp4`"
+        "FileInput": "{{s3://amzn-s3-demo-bucket/SampleVideo_h264_StereoAudio.mp4}}"
       }
     ]
   }

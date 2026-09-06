@@ -1,14 +1,16 @@
+
+
 # Verifying C2PA manifests
+<a name="c2pa-manifest-verification"></a>
 
 After creating MP4 outputs with C2PA manifests, you can verify the manifests using C2PA-compatible tools. These tools can extract and validate the manifest, including checking the digital signature and asset hash.
 
 A properly validated C2PA manifest confirms that:
++ The manifest was signed by the specified certificate
++ The content has not been modified since the manifest was created
++ The actions and assertions in the manifest are intact
 
-- The manifest was signed by the specified certificate
-- The content has not been modified since the manifest was created
-- The actions and assertions in the manifest are intact
-  For more information about C2PA and available verification tools, see the [C2PA website](https://c2pa.org "https://c2pa.org"). You can use the open-source [c2patool](https://github.com/contentauth/c2pa-rs/tree/main/cli "https://github.com/contentauth/c2pa-rs/tree/main/cli") to verify C2PA manifests in
-  your media files. For example:
+For more information about C2PA and available verification tools, see the [C2PA website](https://c2pa.org). You can use the open-source [c2patool](https://github.com/contentauth/c2pa-rs/tree/main/cli) to verify C2PA manifests in your media files. For example:
 
 ```
 c2patool example.mp4 --info
@@ -24,8 +26,7 @@ Validated
 One manifest
 ```
 
-For more detailed information about the manifest contents, use the `--detailed`
-flag:
+For more detailed information about the manifest contents, use the `--detailed` flag:
 
 ```
 c2patool example.mp4 --detailed
@@ -34,7 +35,6 @@ c2patool example.mp4 --detailed
 The following is an example output from c2patool:
 
 ```
-
 $ c2patool example.mp4 --detailed
 {
  "active_manifest": "urn:uuid:0b3bd0b6-9783-4adc-9609-fb29fff858da",

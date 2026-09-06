@@ -1,7 +1,9 @@
-# Example ESAM XML signal processing notification
 
-This ESAM XML block generates two 30-second ad breaks, one at 10 seconds in and
-the other at 75 seconds in.
+
+# Example ESAM XML signal processing notification
+<a name="example-esam-xml"></a>
+
+This ESAM XML block generates two 30-second ad breaks, one at 10 seconds in and the other at 75 seconds in.
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -33,7 +35,7 @@ the other at 75 seconds in.
       </sig:SCTE35PointDescriptor>
     </ResponseSignal>
     <ConditioningInfo acquisitionSignalIDRef="3" startOffset="PT75S" duration="PT30S"/>
-
+    
     <ResponseSignal acquisitionPointIdentity="ExampleESAM" acquisitionSignalID="4" signalPointID="105.00" action="create">
       <sig:NPTPoint nptPoint="105.00" />
       <sig:SCTE35PointDescriptor spliceCommandType="06">
@@ -42,5 +44,4 @@ the other at 75 seconds in.
     </ResponseSignal>
 
 </SignalProcessingNotification>
-
 ```

@@ -1,12 +1,11 @@
+
+
 # Events with CANCELED status
+<a name="ev_status_canceled"></a>
 
-MediaConvert sends the event for `CANCELED` when the job is canceled.
-It contains basic job details including `timestamp`,
-`accountID`, `queue`, `jobId`, and
-`userMetadata`.
+MediaConvert sends the event for `CANCELED` when the job is canceled. It contains basic job details including `timestamp`, `accountID`, `queue`, `jobId`, and `userMetadata`.
 
-The following JSON is an example event containing the `CANCELED` status
-for a job.
+The following JSON is an example event containing the `CANCELED` status for a job.
 
 ```
 {
@@ -29,8 +28,7 @@ for a job.
 }
 ```
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `CANCELED`.
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `CANCELED`.
 
 ```
 {

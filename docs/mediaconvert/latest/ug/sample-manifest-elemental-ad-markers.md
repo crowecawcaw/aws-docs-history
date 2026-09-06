@@ -1,11 +1,11 @@
-# Sample manifest: Elemental ad markers
 
-To generate the following sample manifest, choose **Apple HLS group
-settings**, **Advanced**, **Ad
-markers**, **Elemental**:
+
+# Sample manifest: Elemental ad markers
+<a name="sample-manifest-elemental-ad-markers"></a>
+
+To generate the following sample manifest, choose **Apple HLS group settings**, **Advanced**, **Ad markers**, **Elemental**:
 
 ```
-
 #EXTM3U
 #EXT-X-VERSION:3
 #EXT-X-TARGETDURATION:12

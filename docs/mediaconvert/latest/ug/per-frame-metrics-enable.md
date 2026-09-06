@@ -1,26 +1,37 @@
-# Generating per-frame metric reports
 
-Configure per-frame metric reports at either the output group level or the individual
-output level.
+
+# Generating per-frame metric reports
+<a name="per-frame-metrics-enable"></a>
+
+Configure per-frame metric reports at either the output group level or the individual output level.
+
+## MediaConvert console
+<a name="collapsible-section-1"></a>
 
 To enable per-frame metrics for an output group by using the MediaConvert console:
 
 1. Select an **Output group**.
-2. In the **Output group settings** section, enable
-   **Per-frame metrics**.
-3. Under **Per-frame metrics**, select one or more metrics.
-   To enable per-frame metrics for an individual output by using the MediaConvert
-   console:
 
-4. Select an **Output group**.
-5. Select an individual video output.
-6. In the video output's **Encoding settings** section, expand
-   **Per-frame metrics**.
-7. Enable **Per-frame metrics**.
-8. Under **Per-frame metrics**, select one or more metrics.
-   To **enable Per-frame metrics** by using the API, SDK, or AWS Command Line Interface
-   (AWS CLI), include the `perFrameMetrics` array in your output group settings or
-   individual output settings.
+1. In the **Output group settings** section, enable **Per-frame metrics**.
+
+1. Under **Per-frame metrics**, select one or more metrics.
+
+To enable per-frame metrics for an individual output by using the MediaConvert console:
+
+1. Select an **Output group**.
+
+1. Select an individual video output.
+
+1. In the video output's **Encoding settings** section, expand **Per-frame metrics**.
+
+1. Enable **Per-frame metrics**.
+
+1. Under **Per-frame metrics**, select one or more metrics.
+
+## API, SDK, or AWS Command Line Interface (AWS CLI)
+<a name="collapsible-section-2"></a>
+
+To **enable Per-frame metrics** by using the API, SDK, or AWS Command Line Interface (AWS CLI), include the `perFrameMetrics` array in your output group settings or individual output settings.
 
 The following is an excerpt of a job settings JSON that specifies per-frame metrics at the output group level:
 
@@ -48,28 +59,26 @@ The following is an excerpt of a job settings JSON that specifies per-frame metr
 ```
 
 ## Output files
+<a name="per-frame-metrics-output"></a>
 
-When you generate per-frame metrics, MediaConvert writes CSV files to your Amazon S3 output
-destination. Filenames use the following pattern:
+When you generate per-frame metrics, MediaConvert writes CSV files to your Amazon S3 output destination. Filenames use the following pattern:
 
 ```
 [outputname]_[metric].csv
 ```
 
 For example:
-
-- `outputname_PSNR.csv`
-- `outputname_SSIM.csv`
-- `outputname_VMAF.csv`
++ `outputname_PSNR.csv`
++ `outputname_SSIM.csv`
++ `outputname_VMAF.csv`
 
 Each CSV file contains frame-by-frame metrics with the following columns:
 
 1. Frame number
-2. Metric value
 
-The files also include summary statistics at the end, showing the average, minimum, and
-maximum values across all frames. Import the data into spreadsheet applications or data
-analysis tools for further processing and visualization.
+1. Metric value
+
+The files also include summary statistics at the end, showing the average, minimum, and maximum values across all frames. Import the data into spreadsheet applications or data analysis tools for further processing and visualization.
 
 The following is an example PSNR per-frame metric:
 

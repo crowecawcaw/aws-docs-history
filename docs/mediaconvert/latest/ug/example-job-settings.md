@@ -1,44 +1,30 @@
+
+
 # Example job settings JSONs
+<a name="example-job-settings"></a>
 
-The job settings in these examples represent the simplest valid jobs you can run. They
-work well for experimenting with the service. When you want to perform more complex
-transcodes or create different outputs, use the console to set up your job and to generate
-your JSON job specification. To do so, in the **Job** pane on the left,
-under **Job settings**, choose **Show job JSON**.
+The job settings in these examples represent the simplest valid jobs you can run. They work well for experimenting with the service. When you want to perform more complex transcodes or create different outputs, use the console to set up your job and to generate your JSON job specification. To do so, in the **Job** pane on the left, under **Job settings**, choose **Show job JSON**.
 
-For more information about submitting your job programmatically, see one of the
-introductory topics of the _AWS Elemental MediaConvert API
-Reference_:
+For more information about submitting your job programmatically, see one of the introductory topics of the *AWS Elemental MediaConvert API Reference*:
++ [Getting started with AWS Elemental MediaConvert using the AWS SDKs or the AWS CLI](https://docs.aws.amazon.com/mediaconvert/latest/apireference/custom-endpoints.html)
++ [Getting started with AWS Elemental MediaConvert using the API](https://docs.aws.amazon.com/mediaconvert/latest/apireference/getting-started.html)
 
-- [Getting started with
-  AWS Elemental MediaConvert using the AWS SDKs or the AWS CLI](../apireference/custom-endpoints.md "../apireference/custom-endpoints.md")
-- [Getting started with
-  AWS Elemental MediaConvert using the API](../apireference/getting-started.md "../apireference/getting-started.md")
-
-###### Important
-
-We recommend that you use the MediaConvert console to generate your production JSON
-job specification.
-
-Your job specification must conform to validation by the transcoding engine. The
-transcoding engine validations represent complex dependencies among groups of settings
-and dependencies between your transcoding settings and properties of your input files.
-The MediaConvert console functions as an interactive job builder to make it easy to
-create valid job JSON specifications. You can use [job templates](using-a-job-template.md "using-a-job-template.md") and [output presets](using-a-preset-to-specify-a-job-output.md "using-a-preset-to-specify-a-job-output.md") to get started quickly.
+**Important**  
+We recommend that you use the MediaConvert console to generate your production JSON job specification.  
+Your job specification must conform to validation by the transcoding engine. The transcoding engine validations represent complex dependencies among groups of settings and dependencies between your transcoding settings and properties of your input files. The MediaConvert console functions as an interactive job builder to make it easy to create valid job JSON specifications. You can use [job templates](using-a-job-template.md) and [output presets](using-a-preset-to-specify-a-job-output.md) to get started quickly.
 
 To use these examples, replace the following placeholder values with actual values:
++ ROLE ARN
++ s3://amzn-s3-demo-bucket
++ s3://amzn-s3-demo-bucket1
 
-- ROLE ARN
-- s3://amzn-s3-demo-bucket
-- s3://amzn-s3-demo-bucket1
-
-###### Examples
-
-- [Example: MP4 output](#mp4-example "#mp4-example")
-- [Example: ABR output](#HLS-ABR-example "#HLS-ABR-example")
-- [Example: Automated ABR](#auto-abr-example "#auto-abr-example")
+**Topics**
++ [Example: MP4 output](#mp4-example)
++ [Example: ABR output](#HLS-ABR-example)
++ [Example: Automated ABR](#auto-abr-example)
 
 ## Example: MP4 output
+<a name="mp4-example"></a>
 
 ```
 {
@@ -177,7 +163,10 @@ To use these examples, replace the following placeholder values with actual valu
 }
 ```
 
+
+
 ## Example: ABR output
+<a name="HLS-ABR-example"></a>
 
 ```
 {
@@ -560,17 +549,17 @@ To use these examples, replace the following placeholder values with actual valu
 }
 ```
 
+
+
 ## Example: Automated ABR
+<a name="auto-abr-example"></a>
 
-This example JSON job specification specifies an automated ABR stack in Apple HLS. In
-addition to specifying the automated ABR settings, it explicitly sets these
-values:
+This example JSON job specification specifies an automated ABR stack in Apple HLS. In addition to specifying the automated ABR settings, it explicitly sets these values:
++ Accelerated transcoding `Mode` to `PREFERRED`
++ `rateControlMode` to `QVBR`
++ `qualityTuningLevel` to `MULTI_PASS_HQ`
 
-- Accelerated transcoding `Mode` to `PREFERRED`
-- `rateControlMode` to `QVBR`
-- `qualityTuningLevel` to `MULTI_PASS_HQ`
-
-For information about the automated ABR settings, see [Automated ABR](auto-abr.md "auto-abr.md").
+For information about the automated ABR settings, see [Automated ABR](auto-abr.md).
 
 ```
 {
@@ -794,3 +783,4 @@ For information about the automated ABR settings, see [Automated ABR](auto-abr.m
   "Priority": 0
 }
 ```
+

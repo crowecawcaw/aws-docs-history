@@ -1,14 +1,13 @@
+
+
 # Events with QUEUE\_HOP status
+<a name="ev_status_queue_hop"></a>
 
-MediaConvert sends the `QUEUE_HOP` event when a job hops queues. It
-contains the ARNs for both queues and the job's priority within the queues.
+MediaConvert sends the `QUEUE_HOP` event when a job hops queues. It contains the ARNs for both queues and the job's priority within the queues.
 
-Both `priority` and `previousPriority` will be the same
-unless the queue hopping configuration specifies a new priority to give to the job
-as it hops queues.
+Both `priority` and `previousPriority` will be the same unless the queue hopping configuration specifies a new priority to give to the job as it hops queues.
 
-The following JSON is an example event containing the `QUEUE_HOP`
-status for a job.
+The following JSON is an example event containing the `QUEUE_HOP` status for a job.
 
 ```
 {
@@ -34,8 +33,7 @@ status for a job.
 }
 ```
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `QUEUE_HOP`.
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `QUEUE_HOP`.
 
 ```
 {

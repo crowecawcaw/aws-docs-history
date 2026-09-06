@@ -1,16 +1,14 @@
+
+
 # Events with PROGRESSING status
+<a name="ev_status_progressing"></a>
 
-MediaConvert sends the event for `PROGRESSING` when a job moves from
-the `SUBMITTED` state to the `PROGRESSING` state.
+MediaConvert sends the event for `PROGRESSING` when a job moves from the `SUBMITTED` state to the `PROGRESSING` state.
 
-###### Note
+**Note**  
+After a job has been in the `PROGRESSING` status for 48 hours, the service puts it into an `ERROR` state and stops working on it. You are not billed for jobs that end in an `ERROR` state.
 
-After a job has been in the `PROGRESSING` status for 48 hours, the
-service puts it into an `ERROR` state and stops working on it. You
-are not billed for jobs that end in an `ERROR` state.
-
-The following JSON is an example event containing the `PROGRESSING`
-status for a job.
+The following JSON is an example event containing the `PROGRESSING` status for a job.
 
 ```
 {
@@ -35,8 +33,7 @@ status for a job.
 }
 ```
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `PROGRESSING`.
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `PROGRESSING`.
 
 ```
 {

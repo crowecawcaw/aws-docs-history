@@ -1,11 +1,11 @@
+
+
 # Events with COMPLETE status
+<a name="ev_status_complete"></a>
 
-MediaConvert sends the event for `COMPLETE` when all outputs are
-written to Amazon S3 without errors. It contains both warnings and output information for
-the completed job. For more information about output file names and paths, see [Output file names and paths](output-file-names-and-paths.md "output-file-names-and-paths.md").
+MediaConvert sends the event for `COMPLETE` when all outputs are written to Amazon S3 without errors. It contains both warnings and output information for the completed job. For more information about output file names and paths, see [Output file names and paths](output-file-names-and-paths.md).
 
-The following JSON is an example event containing the `COMPLETE` status
-for a job.
+The following JSON is an example event containing the `COMPLETE` status for a job.
 
 ```
 {
@@ -66,25 +66,25 @@ for a job.
 }
 ```
 
-`COMPLETE` events contain additional information about your job and
-outputs. The following table lists and describes the different properties available
-in job event message details.
+`COMPLETE` events contain additional information about your job and outputs. The following table lists and describes the different properties available in job event message details.
 
-COMPLETE event message details| Property | Data type | Details |
-| --- | --- | --- |
-| `paddingInserted` | integer | The total duration of blank frames MediaConvert inserted<br>across all outputs in your job, in milliseconds.<br>Video padding inserts blank frames to help keep audio and<br>video durations aligned. Large `paddingInserted`<br>values show that more blank frames were inserted. These values<br>also show to what extend your input audio tracks start late, or<br>end early, or both. |
-| `qvbrAvgQuality` | float | The average video quality of your Quality-Defined Variable<br>Bitrate (QVBR) output.<br>Included for QVBR outputs only. |
-| `qvbrMinQuality` | float | The minimum video quality detected in your QVBR output.<br>Included for QVBR outputs only. |
-| `qvbrMaxQuality` | float | The maximum video quality detected in your QVBR output.<br>Included for QVBR outputs only. |
-| `qvbrMinQualityLocation` | integer | The location in your output where `qvbrMinQuality`<br>was detected, in milliseconds.<br>You can use `qvbrMinQualityLocation` while<br>reviewing your output video quality and bandwidth usage.<br>Included for QVBR outputs only. |
-| `qvbrMaxQualityLocation` | integer | The location in your output where `qvbrMaxQuality`<br>was detected, in milliseconds.<br>You can use `qvbrMaxQualityLocation` while<br>reviewing your output video quality and bandwidth usage.<br>Included for QVBR outputs only. |
-| `warnings`<br>code<br>count | array<br>integer<br>integer | Any warning codes seen in the job and the number of times they<br>occurred.<br>For more information, see [Warning codes](warning_codes.md "warning_codes.md"). |
-| `blackVideoDetected` | integer | The total duration of black video frames in your outputs that<br>are also present in your inputs, in milliseconds.<br>`blackVideoDetected` does not include any black<br>frames inserted by MediaConvert. |
-| `blackVideoSegments`<br>`start`<br>`end` | array<br>integer<br>integer | The location or locations in your output where black video<br>frames were detected.<br>Each segment of black video in your output is shown with its<br>own start and end.<br>`blackVideoSegments` does not include any black<br>frames inserted by MediaConvert. |
-| `averageBitrate` | integer | The average bitrate of your video output, calculated by<br>dividing the duration by the total bits. |
 
-You can use the following sample JSON to create an EventBridge event pattern for jobs
-with a status of `COMPLETE`.
+**COMPLETE event message details**  
+
+| Property | Data type | Details | 
+| --- | --- | --- | 
+| `paddingInserted` | integer | The total duration of blank frames MediaConvert inserted across all outputs in your job, in milliseconds.<br />Video padding inserts blank frames to help keep audio and video durations aligned. Large `paddingInserted` values show that more blank frames were inserted. These values also show to what extend your input audio tracks start late, or end early, or both. | 
+| `qvbrAvgQuality` | float | The average video quality of your Quality-Defined Variable Bitrate (QVBR) output.<br />Included for QVBR outputs only. | 
+| `qvbrMinQuality` | float | The minimum video quality detected in your QVBR output. <br />Included for QVBR outputs only. | 
+| `qvbrMaxQuality` | float | The maximum video quality detected in your QVBR output.<br />Included for QVBR outputs only. | 
+| `qvbrMinQualityLocation` | integer | The location in your output where `qvbrMinQuality` was detected, in milliseconds.<br />You can use `qvbrMinQualityLocation` while reviewing your output video quality and bandwidth usage.<br />Included for QVBR outputs only. | 
+| `qvbrMaxQualityLocation` | integer | The location in your output where `qvbrMaxQuality` was detected, in milliseconds.<br />You can use `qvbrMaxQualityLocation` while reviewing your output video quality and bandwidth usage.<br />Included for QVBR outputs only. | 
+| `warnings`<br /> code<br /> count | array<br />integer<br />integer | Any warning codes seen in the job and the number of times they occurred.<br />For more information, see [Warning codes](warning_codes.md). | 
+| `blackVideoDetected` | integer | The total duration of black video frames in your outputs that are also present in your inputs, in milliseconds.<br />`blackVideoDetected` does not include any black frames inserted by MediaConvert. | 
+| `blackVideoSegments`<br /> `start`<br /> `end` | array<br />integer<br />integer | The location or locations in your output where black video frames were detected.<br />Each segment of black video in your output is shown with its own start and end.<br />`blackVideoSegments` does not include any black frames inserted by MediaConvert. | 
+| `averageBitrate` | integer | The average bitrate of your video output, calculated by dividing the duration by the total bits. | 
+
+You can use the following sample JSON to create an EventBridge event pattern for jobs with a status of `COMPLETE`.
 
 ```
 {

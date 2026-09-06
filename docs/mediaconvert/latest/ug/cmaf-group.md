@@ -1,8 +1,9 @@
-# CMAF group
 
-The following is an EventBridge sample event for a job with a
-`COMPLETE` status. It includes output file path information
-for a CMAF group.
+
+# CMAF group
+<a name="cmaf-group"></a>
+
+The following is an EventBridge sample event for a job with a `COMPLETE` status. It includes output file path information for a CMAF group.
 
 ```
 {
@@ -65,7 +66,5 @@ for a CMAF group.
 }
 ```
 
-###### Note
-
-Quality-Defined Variable Bitrate (QVBR) statistics are only available
-when your video output uses QVBR rate control.
+**Note**  
+Quality-Defined Variable Bitrate (QVBR) statistics are only available when your video output uses QVBR rate control.

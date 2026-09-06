@@ -1,8 +1,9 @@
-# DASH ISO group
 
-The following is an Amazon EventBridge sample event for a job with a
-`COMPLETE` status. It includes output file path information
-for a DASH ISO group.
+
+# DASH ISO group
+<a name="dash-iso-group"></a>
+
+The following is an Amazon EventBridge sample event for a job with a `COMPLETE` status. It includes output file path information for a DASH ISO group.
 
 ```
 {
@@ -64,7 +65,5 @@ for a DASH ISO group.
 }
 ```
 
-###### Note
-
-Quality-Defined Variable Bitrate (QVBR) statistics are only available
-when your video output uses QVBR rate control.
+**Note**  
+Quality-Defined Variable Bitrate (QVBR) statistics are only available when your video output uses QVBR rate control.
