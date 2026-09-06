@@ -59,8 +59,10 @@ devices as verified destination numbers. You can add test devices using the
 AWS End User Messaging console or the `CreateVerifiedDestinationNumber` API.
 
 Console
-In the console, test devices are added as part of the AWS RCS Agent
-creation workflow. For step-by-step console instructions, see
+In the console, test devices are managed on the
+**RBM tester management** sub-tab
+within the **Testing** tab of your
+AWS RCS Agent. For step-by-step console instructions, see
 [Step 2: Add a test device](rcs-getting-started.md#rcs-getting-started-add-test-device "rcs-getting-started.md#rcs-getting-started-add-test-device").
 
 AWS CLI
@@ -101,9 +103,10 @@ API.
 Console
 To view your registered test devices in the console, navigate to the
 details page for your AWS RCS Agent and choose the
-**Testing** tab. The tab displays all
-verified destination numbers associated with the agent, including their
-verification status and phone number.
+**Testing** tab. Choose the
+**RBM tester management** sub-tab to
+see all verified destination numbers associated with the agent,
+including their verification status and phone number.
 
 AWS CLI
 Use the `describe-verified-destination-numbers` command

@@ -375,3 +375,60 @@ When a registration is denied, AWS End User Messaging provides a denial reason c
 explains why the registration was not approved. For the complete list of
 denial reason codes with descriptions and recommended actions, see
 [RCS registration denial reasons](rcs-compliance-denial-reasons.md "rcs-compliance-denial-reasons.md").
+
+### API registration requirements not handled by the console
+
+The AWS End User Messaging console automatically populates registration fields from
+the previous version and manages agent associations. If you use the
+API to submit registrations, you must handle these steps yourself.
+The keyword-match validation applies to both the console and the API,
+but the console pre-fills values from your previous submission.
+
+#### Keyword configuration must match the RCS agent
+
+When you submit a country launch registration, the
+`complianceKeywords.stopResponse` and
+`complianceKeywords.helpResponse` field values must
+exactly match the STOP and HELP keyword responses that are currently
+configured on your RCS agent. If a custom keyword has been set on the
+agent and the registration values do not match, the registration is
+denied with `Invalid field value`. To avoid this, either
+leave the keyword response fields empty to keep the existing keyword
+configuration, or set them to the exact values already configured on
+the agent.
+
+To view the current keyword configuration for your RCS agent, call
+`DescribeKeywords` using the RCS agent ID as the origination
+identity. To update a keyword before submitting the registration, call
+`PutKeyword` using the RCS agent ID as the origination
+identity.
+
+#### Resubmitting a denied registration via the API
+
+After a registration is denied, you can create a new version and
+resubmit. When you use the API, calling
+`CreateRegistrationVersion` opens a blank version with no
+field values. You must call `PutRegistrationFieldValue` for
+every required field before calling
+`SubmitRegistrationVersion`. If any required fields are
+missing, the submission fails with `Missing required field`.
+The AWS End User Messaging console handles this automatically by re-populating the
+full form when you resubmit.
+
+To identify which fields caused the denial, call
+`DescribeRegistrationFieldValues` on the denied version.
+The response includes a `DeniedReason` for each field that
+failed validation. You can then correct only the affected fields
+while ensuring all other required fields remain populated.
+
+#### Associating an RCS agent before submission
+
+Before you can submit a country launch registration via the API,
+the registration must be associated with an RCS agent. Call
+`CreateRegistrationAssociation` to associate the
+registration with your RCS agent ID before calling
+`SubmitRegistrationVersion`. Without this association,
+the submission fails with
+`SUBMIT_REGISTRATION_VERSION_NOT_ALLOWED`. The AWS End User Messaging
+console creates this association automatically as part of the
+guided workflow.

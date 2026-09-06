@@ -172,10 +172,12 @@ Console
 
 1. In the AWS End User Messaging console, navigate to your AWS RCS Agent and
    choose the **Testing** tab.
-2. Choose **Add test device**.
-3. Enter the phone number of your test device in E.164 format (for
+2. Choose the **RBM tester management**
+   sub-tab.
+3. Choose **Add RBM tester**.
+4. Enter the phone number of your test device in E.164 format (for
    example, `+12065550100`).
-4. Choose **Add**.
+5. Choose **Send verification code**.
 
 AWS CLI
 Use the `CreateVerifiedDestinationNumber` API with

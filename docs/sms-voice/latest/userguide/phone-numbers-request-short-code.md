@@ -33,7 +33,7 @@ short code is based. If your use case requires you to use short codes in more th
 country, you must request a separate short code for each country that your recipients are
 located in.
 
-Countries support through console and APIs:
+Countries supported through the console and APIs:
 
 - Chile (CL)
 - Finland (FI)
@@ -46,71 +46,80 @@ Countries support through console and APIs:
 
 ## Step 1: Open a support case
 
-The first step in requesting a short code is to open a Service Limit Increase case in
+The first step in requesting a short code is to open a support case in
 the Support Center Console.
 
 ###### To request a short code
 
-1. Create an AWS Support case at [https://support.console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase").
-2. On the **Create Case** page, complete the following:
+1. Open the Support Center Console at [https://console.aws.amazon.com/support/home](https://console.aws.amazon.com/support/home "https://console.aws.amazon.com/support/home") and choose
+   **Create case**.
+2. Choose **Service limit increase** or
+   **Account and billing**, depending on the options available
+   in your console.
 
-   - Select **Account and Billing**.
-   - For **Service**, choose **Service
+###### Note
+
+If the Support Center Console presents a conversational interface, describe
+your request as a short code request for AWS End User Messaging SMS. You can also go directly to the
+service limit increase form at [https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase"). 3. Provide the following information for your short code request:
+
+    * For **Service**, choose **Service
      Quotas**.
-   - For **Category** choose either
+    * For **Category** choose either
      **AWS End User Messaging SMS (Pinpoint)** or
      **AWS End User Messaging Voice (Pinpoint)**, depending on your
      request.
-   - For **Severity**, choose **General
+    * For **Severity**, choose **General
      Limits**.
 
-3. In the **Requests** section, do the following:
+4. In the **Requests** section, do the following:
 
-   - For the **Region**, choose the AWS Region that you
+    * For the **Region**, choose the AWS Region that you
      plan to send messages from.
 
-   ###### Note
 
-   The Region is required in the **Requests**
-   section. Even if you provided this information in the **Case
-   details** section you must also include it here.
-   - For **Resource Type**, choose **Dedicated SMS
+    ###### Note
+
+    The Region is required in the **Requests**
+     section. Even if you provided this information in the **Case
+     details** section you must also include it here.
+    * For **Resource Type**, choose **Dedicated SMS
      Short Codes**.
-   - For **Quota**, choose the message type that you
+    * For **Quota**, choose the message type that you
      plan to send using your short code.
 
-     - **One Time Password/Two-Factor Authentication** – Messages that
-       provide passwords that your customers use to authenticate with
-       your website or application.
-     - **Promotional/Marketing** – Noncritical messages
-       that promote your business or service, such as special offers or
-       announcements.
-     - **Transactional** – Important
-       informational messages that support customer transactions, such
-       as order confirmations or account alerts. Transactional messages
-       must not contain promotional or marketing content.
-     - **Transactional/Notifications/OTP/2FA** – All message types.
 
-   - For **New quota value**, enter the number of short
+
+    	+ **One Time Password/Two-Factor Authentication** – Messages that
+    	 provide passwords that your customers use to authenticate with
+    	 your website or application.
+    	+ **Promotional/Marketing** – Noncritical messages
+    	 that promote your business or service, such as special offers or
+    	 announcements.
+    	+ **Transactional** – Important
+    	 informational messages that support customer transactions, such
+    	 as order confirmations or account alerts. Transactional messages
+    	 must not contain promotional or marketing content.
+    	+ **Transactional/Notifications/OTP/2FA** – All message types.
+    * For **New quota value**, enter the number of short
      codes that you want to purchase for the target country and use
      case.
 
-   ###### Note
 
-   If you want to request a short code for a different country, or
-   for a separate use case in the same country, open a separate case in
-   the Support Center Console. By creating separate cases, all communications
-   for a particular country or use case are restricted to a single
-   Support case, which reduces the potential for
-   miscommunications.
+    ###### Note
 
-4. Under **Case description**, for **Use case
-   description**, provide details about your use case.
-5. Choose **Next Step: Solve now or Contact us**. For
-   **Preferred contact language**, choose whether you want to
-   receive communications for this case in **English** or
-   **Japanese**.
-6. When you finish, choose **Submit**.
+    If you want to request a short code for a different country, or
+     for a separate use case in the same country, open a separate case in
+     the Support Center Console. By creating separate cases, all communications
+     for a particular country or use case are restricted to a single
+     Support case, which reduces the potential for
+     miscommunications.
+
+5. Under **Case description**, for **Use case
+description**, provide details about your use case. 6. Choose **Next Step: Solve now or Contact us**. For
+**Preferred contact language**, choose whether you want to
+receive communications for this case in **English** or
+**Japanese**. 7. When you finish, choose **Submit**.
 
 Support acknowledges your request within 24 hours of receipt. If we're able to provide
 you with a short code, we provide you with a short code registration form as an

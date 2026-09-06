@@ -73,3 +73,5 @@ configuration for Notify. For more information, see
   metrics](filter-and-monitor-messages-monitor.md "filter-and-monitor-messages-monitor.md")
 - [Phone number override
   rules](protect-rule-override.md "protect-rule-override.md")
+- [Managing unexpected
+  blocks](protect-unexpected-blocks.md "protect-unexpected-blocks.md")
