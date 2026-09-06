@@ -5,7 +5,7 @@ with managed EC2 fleets, see also [Debug Amazon GameLift Servers fleet issues](.
 
 **Zombie game sessions: They start and run a game, but they never end.**
 
-You might observe this issues as any of the following scenarios:
+You might observe these issues as any of the following scenarios:
 
 - Script updates are not picked up by the fleet's Realtime
   servers.
@@ -18,7 +18,7 @@ goes active and game sessions are started, there is no method for stopping
 them. As a result, the Realtime server that is running the game session is
 never freed up to start a new one, and new game sessions can only start when
 new Realtime servers are spun up. In addition, updates to the Realtime
-script do not impact already- running game sessions, only ones.
+script do not impact already-running game sessions, only ones.
 
 To prevent this from happening, scripts need to provide a mechanism to
 trigger a `processEnding` call. As illustrated in the [Amazon GameLift Servers Realtime script example](realtime-script.md#realtime-script-examples "realtime-script.md#realtime-script-examples"), one way is to program an
@@ -46,7 +46,7 @@ the problem is:
   then this may be the quickest method. See
   [Remotely connect to Amazon GameLift Servers fleet instances](../developerguide/fleets-remote-access.md "../developerguide/fleets-remote-access.md").
 
-If you opt not to include way to call `processEnding` in your Realtime
+If you opt not to include a way to call `processEnding` in your Realtime
 script, there are a couple of tricky situations that might occur even when the fleet
 goes active and game sessions are started. First, a running game session does not end.
 As a result, the server process that is running that game session is never free to start

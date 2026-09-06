@@ -155,7 +155,7 @@ these fleet settings at any time.
    instance in the fleet. You can change a fleet's runtime
    configuration at any time after deployment.
 
-   1. Enter the **Launch path** to an
+   1. Enter the **Launch path** to
       your Realtime script file. Realtime servers run
       on Linux instances, so the path to the server script
       is always `/local/game`. Example:
@@ -196,7 +196,7 @@ these fleet settings at any time.
 3. Open **EC2 port settings** to allow
    inbound traffic to access server processes on the fleet.
    These settings aren't required to create a fleet, but you do
-   need set them before players can connect to game sessions on
+   need to set them before players can connect to game sessions on
    the fleet.
 
 For each port setting, choose the
@@ -226,7 +226,7 @@ time after deployment.
 5. Choose **Next** to continue the
 workflow.
 
-**Step 5 Review and create**
+**Step 4 Review and create**
 
 Review your settings before creating the fleet. Although some
 settings can be updated later (see
@@ -249,7 +249,7 @@ fleet and go to the **Events** tab.
 
 You can adjust a fleet's hosting capacity after the fleet reaches
 ACTIVE status. Amazon GameLift Servers initially deploys a fleet with a single
-instance in each fleet location. and you adjust capacity by adding
+instance in each fleet location, and you adjust capacity by adding
 instances to each location. For more information, see
 [Scaling game hosting capacity with Amazon GameLift Servers](../developerguide/fleets-manage-capacity.md "../developerguide/fleets-manage-capacity.md").
 

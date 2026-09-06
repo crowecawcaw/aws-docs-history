@@ -26,7 +26,7 @@ onMessage(gameMessage)
 ## onHealthCheck
 
 Invoked to set the status of the game session health. By default, health status is
-healthy (or `true`. This callback can be implemented to perform custom health
+healthy (or `true`). This callback can be implemented to perform custom health
 checks and return a status.
 
 ### Syntax

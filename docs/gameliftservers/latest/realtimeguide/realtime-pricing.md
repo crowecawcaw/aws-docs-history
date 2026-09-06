@@ -5,7 +5,7 @@ There's no additional charge for use of the Realtime servers themselves.
 
 For information about Amazon GameLift Servers hosting pricing and cost planning for managed EC2 hosting, see
 [.
-Pricing for Amazon GameLift Servers](../developerguide/gamelift-intro-pricing.md "../developerguide/gamelift-intro-pricing.md"). For details pricing information, including example pricing scenarios
+Pricing for Amazon GameLift Servers](../developerguide/gamelift-intro-pricing.md "../developerguide/gamelift-intro-pricing.md"). For detailed pricing information, including example pricing scenarios
 and pricing tools, see [Amazon GameLift Servers
 Pricing](https://aws.amazon.com/gamelift/pricing/ "https://aws.amazon.com/gamelift/pricing/").
 

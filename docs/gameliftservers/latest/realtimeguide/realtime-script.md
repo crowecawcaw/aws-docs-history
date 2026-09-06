@@ -1,7 +1,7 @@
 # Customize an Amazon GameLift Servers Realtime script
 
 To use Amazon GameLift Servers Realtime servers for your game, you need to provide a script (in the form of
-JavaScript code) to configure and optionally customize how the Amazon GameLift Servers Realtime server run and interact
+JavaScript code) to configure and optionally customize how the Amazon GameLift Servers Realtime server runs and interacts
 with your game clients. When your script is ready, upload it to the Amazon GameLift Servers service (see
 [Upload a script for Amazon GameLift Servers Realtime servers](realtime-script-uploading.md "realtime-script-uploading.md"))
 and use it to create a fleet of game server hosts.

@@ -18,9 +18,9 @@ and reserve space for players in a game by creating player sessions.
 
 ###### Important
 
-As a best practice, we highly recommend that your create a backend service to make
+As a best practice, we highly recommend that you create a backend service to make
 all direct requests to the Amazon GameLift Servers service. Set up game client actions that initiate
-the backent service to make requests and then relay relevant responses back to the game client.
+the backend service to make requests and then relay relevant responses back to the game client.
 For more information about setting up a backend service, see
 [Design your backend service for Amazon GameLift Servers](../developerguide/gamelift_quickstart_customservers_designbackend.md "../developerguide/gamelift_quickstart_customservers_designbackend.md").
 

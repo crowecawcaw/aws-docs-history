@@ -94,7 +94,7 @@ The output in the log files indicates the type of message (`DEBUG`,
 
 When a game session ends, Amazon GameLift Servers automatically stores the logs in Amazon S3 and retains them
 for 14 days. You can use the [GetGameSessionLogUrl API call](../../../gamelift/latest/apireference/API_GetGameSessionLogUrl.md "../../../gamelift/latest/apireference/API_GetGameSessionLogUrl.md") to get the location of the logs for a game
-session. Use URL returned by the API call to download the logs.
+session. Use the URL returned by the API call to download the logs.
 
 ## Adjusting the logging level
 

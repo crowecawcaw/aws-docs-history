@@ -50,7 +50,7 @@ Required: Yes
 
 Developer-defined information to be communicated to the Realtime
 server on connection. This includes any arbitrary data that might be
-used for a custom sign-in mechanism. For examples, a payload may provide
+used for a custom sign-in mechanism. For example, a payload may provide
 authentication information to be processed by the Realtime server
 script before allowing a client to connect.
 
@@ -213,7 +213,7 @@ Enums defined for the client SDK for Amazon GameLift Servers Realtime are defin
 - CONNECTED\_SEND\_AND\_RECEIVE\_FAST – Game client is connected
   to the Realtime server with a TCP and a UDP connection. The game
   client can send and receive messages using either TCP or UDP.
-- CONNECTING Game client has sent a connection request and the
+- CONNECTING – Game client has sent a connection request and the
   Realtime server is processing it.
 - DISCONNECTED\_CLIENT\_CALL – Game client was disconnected
   from the Realtime server in response to a [Disconnect()](realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-disconnect "realtime-sdk-csharp-ref-actions.md#realtime-sdk-csharp-ref-actions-disconnect")request from the game client.

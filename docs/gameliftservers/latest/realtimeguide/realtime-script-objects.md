@@ -138,7 +138,7 @@ rtSession.sendReliableMessage(gameMessage, targetPlayer)
 
 Sends a message, created using `newTextGameMessage` or
 `newBinaryGameMessage`, from the Realtime server to all players in a
-player group using the TCP channel. Group IDs which must be a positive integer or "-1"
+player group using the TCP channel. Group IDs must be a positive integer or "-1"
 to indicate all groups. See [Amazon GameLift Servers Realtime script example](realtime-script.md#realtime-script-examples "realtime-script.md#realtime-script-examples") for an example of user-defined group
 IDs.
 
@@ -181,7 +181,7 @@ Access player-related information.
 ### player.peerId
 
 Unique ID that is assigned to a game client when it connects to the Realtime
-server and joined the game session.
+server and joins the game session.
 
 ### player.playerSessionId
 

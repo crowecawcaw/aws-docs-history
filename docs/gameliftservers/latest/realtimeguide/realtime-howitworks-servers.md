@@ -12,7 +12,7 @@ deploying it to a managed EC2 hosting fleet. The Realtime script is a custom
 configuration for your game. Amazon GameLift Servers uses the script's instructions to manage the tasks of
 setting up and running game servers for your players.
 
-The default Realtime script is a set of JavaScript code. You configuration it for
+The default Realtime script is a set of JavaScript code. You configure it for
 use with your game client. Amazon GameLift Servers defines a set of server-side callbacks for Realtime
 scripts. Implement these callbacks to add event-driven functionality to your server. For
 example, you can:

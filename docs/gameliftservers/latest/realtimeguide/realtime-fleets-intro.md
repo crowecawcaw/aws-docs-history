@@ -13,7 +13,7 @@ involves several phases as Amazon GameLift Servers prepares your Realtime server
 provisions EC2 instances and deploys the server code, and prepares to host game servers on each instance.
 You can monitor a fleet's status in the console or using the AWS Command Line Interface (AWS CLI). A
 fleet is ready to host game sessions when its status reaches `ACTIVE`. For more
-guidance about creating a managed EC2 fleet, , see the following topics in the _Amazon GameLift Servers Hosting Guide_:
+guidance about creating a managed EC2 fleet, see the following topics in the _Amazon GameLift Servers Hosting Guide_:
 
 - [Amazon GameLift Servers managed EC2 fleets](../developerguide/fleets-intro-managed.md "../developerguide/fleets-intro-managed.md")
 - [Customize your Amazon GameLift Servers managed EC2 fleets](../developerguide/fleets-design.md "../developerguide/fleets-design.md")
