@@ -1,55 +1,47 @@
+
+
 # UpdateSessionPermissions
+<a name="UpdateSessionPermissions"></a>
 
 Updates the user permissions for a specific Amazon DCV session.
 
-###### Topics
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`SessionId`**
-
-The ID of the session for which to change the permissions.
-
-Type: String
-
+**`SessionId`**  
+The ID of the session for which to change the permissions.  
+Type: String  
 Required: Yes
 
-**`Owner`**
-
-The owner of the session for which to change the permissions.
-
-Type: String
-
+**`Owner`**  
+The owner of the session for which to change the permissions.  
+Type: String  
 Required: Yes
 
-**`PermissionFile`**
-
-The Base64-encoded content of the permissions file to use. For more information, see
-[Configuring Amazon DCV Authorization](../adminguide/security-authorization.md "../adminguide/security-authorization.md") in the
-_Amazon DCV Administrator Guide_.
-
-Type: String
-
+**`PermissionFile`**  
+The Base64-encoded content of the permissions file to use. For more information, see [ Configuring Amazon DCV Authorization](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization.html) in the *Amazon DCV Administrator Guide*.  
+Type: String  
 Required: Yes
 
 ## Response parameters
+<a name="response"></a>
 
-**`SessionId`**
-
+**`SessionId`**  
 The ID of the session.
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
-The following example sets new permissions for a session with a session ID of
-`SessionId1897`.
+**Request**  
+The following example sets new permissions for a session with a session ID of `SessionId1897`.
 
 ```
 from swagger_client.models.update_session_permissions_request_data import UpdateSessionPermissionsRequestData
@@ -72,8 +64,7 @@ def main():
     update_session_permissions([('SessionId1897', 'an owner 1890', 'file_base64_encoded')])
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -87,3 +78,5 @@ The following is the sample output.
     'unsuccessful_list': []
 }
 ```
+
+------

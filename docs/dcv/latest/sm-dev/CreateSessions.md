@@ -1,262 +1,163 @@
+
+
 # CreateSessions
+<a name="CreateSessions"></a>
 
 Creates a new Amazon DCV session with the specified details.
 
-###### API actions
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`Name`**
-
-The name for the session.
-
-Type: String
-
+**`Name`**  
+The name for the session.  
+Type: String  
 Required: Yes
 
-**`Owner`**
-
-The name of the session owner. This must be the name of an existing user on the target Amazon DCV server.
-
-Type: String
-
+**`Owner`**  
+The name of the session owner. This must be the name of an existing user on the target Amazon DCV server.  
+Type: String  
 Required: Yes
 
-**`Type`**
-
-The session type. For more information about the types of sessions, see [Introduction to Amazon DCV Sessions](../adminguide/managing-sessions.md "../adminguide/managing-sessions.md") in the
-_Amazon DCV Administrator Guide_.
-
-Valid values: CONSOLE | VIRTUAL
-
-Type: String
-
+**`Type`**  
+The session type. For more information about the types of sessions, see [Introduction to Amazon DCV Sessions](https://docs.aws.amazon.com/dcv/latest/adminguide/managing-sessions.html) in the *Amazon DCV Administrator Guide*.  
+Valid values: CONSOLE \| VIRTUAL  
+Type: String  
 Required: Yes
 
-**`InitFile`**
-
-Supported with virtual sessions on Linux Amazon DCV servers. It is not supported with console
-sessions on Windows and Linux Amazon DCV servers. The path to custom script on the Amazon DCV server to run
-for initializing the session when it is created. The file path is relative to the init directory
-specified for the `agent.init_folder` Agent configuration parameter. If the file is in
-the specified init directory, specify the file name only. If the file is not in the specified init
-directory, specify the relative path. For more information, see [Agent configuration file](../sm-admin/agent-file.md "../sm-admin/agent-file.md") in the _Amazon DCV Session Manager
-Administrator Guide_.
-
-Type: String
-
+**`InitFile`**  
+Supported with virtual sessions on Linux Amazon DCV servers. It is not supported with console sessions on Windows and Linux Amazon DCV servers. The path to custom script on the Amazon DCV server to run for initializing the session when it is created. The file path is relative to the init directory specified for the `agent.init_folder` Agent configuration parameter. If the file is in the specified init directory, specify the file name only. If the file is not in the specified init directory, specify the relative path. For more information, see [Agent configuration file](https://docs.aws.amazon.com/dcv/latest/sm-admin/agent-file.html) in the *Amazon DCV Session Manager Administrator Guide*.  
+Type: String  
 Required: No
 
-**`MaxConcurrents`**
-
-The maximum number of concurrent Amazon DCV clients.
-
-Type: Integer
-
+**`MaxConcurrents`**  
+The maximum number of concurrent Amazon DCV clients.  
+Type: Integer  
 Required: No
 
-**`DcvGlEnabled`**
-
-Indicates whether the virtual session is configured to use hardware-based OpenGL.
-Supported with virtual sessions only. This parameter is not supported with Windows
-Amazon DCV servers.
-
-Valid values: true | false
-
-Type: Boolean
-
+**`DcvGlEnabled`**  
+Indicates whether the virtual session is configured to use hardware-based OpenGL. Supported with virtual sessions only. This parameter is not supported with Windows Amazon DCV servers.  
+Valid values: true \| false  
+Type: Boolean  
 Required: No
 
-**`PermissionsFile`**
-
-The Base64-encoded contents of the permissions file. Defaults to the server defaults if omitted.
-For more information, see [Configuring Amazon DCV
-Authorization](../adminguide/security-authorization.md "../adminguide/security-authorization.md") in the _Amazon DCV Administrator Guide_.
-
-Type: String
-
+**`PermissionsFile`**  
+The Base64-encoded contents of the permissions file. Defaults to the server defaults if omitted. For more information, see [Configuring Amazon DCV Authorization](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization.html) in the *Amazon DCV Administrator Guide*.  
+Type: String  
 Required: No
 
-**`EnqueueRequest`**
-
-Indicates whether to queue the request if it can't be immediately fulfilled.
-
-Type: Boolean
-
-Default: false
-
+**`EnqueueRequest`**  
+Indicates whether to queue the request if it can't be immediately fulfilled.  
+Type: Boolean  
+Default: false  
 Required: No
 
-**`AutorunFile`**
-
-Supported with console sessions on Windows Amazon DCV servers and virtual sessions
-on Linux Amazon DCV servers. It is not supported with console sessions on Linux Amazon DCV
-servers.
-
-The path to a file on the host server that is to be run inside the
-session. The file path is relative to the autorun directory specified for the
-`agent.autorun_folder` Agent configuration parameter. If the file is
-in the specified autorun directory, specify the file name only. If the file is not
-in the specified autorun directory, specify the relative path. For more information,
-see [Agent
-configuration file](../sm-admin/agent-file.md "../sm-admin/agent-file.md") in the _Amazon DCV Session Manager Administrator
-Guide_.
-
-The file is run on behalf of the specified **Owner**.
-The specified owner must have permission to run the file on the server. On Windows
-Amazon DCV servers, the file is run when the owner logs into the session. On Linux Amazon DCV
-servers, the file is run when the session is created.
-
-Type: String
-
+**`AutorunFile`**  
+Supported with console sessions on Windows Amazon DCV servers and virtual sessions on Linux Amazon DCV servers. It is not supported with console sessions on Linux Amazon DCV servers.  
+The path to a file on the host server that is to be run inside the session. The file path is relative to the autorun directory specified for the `agent.autorun_folder` Agent configuration parameter. If the file is in the specified autorun directory, specify the file name only. If the file is not in the specified autorun directory, specify the relative path. For more information, see [Agent configuration file](https://docs.aws.amazon.com/dcv/latest/sm-admin/agent-file.html) in the *Amazon DCV Session Manager Administrator Guide*.  
+The file is run on behalf of the specified **Owner**. The specified owner must have permission to run the file on the server. On Windows Amazon DCV servers, the file is run when the owner logs into the session. On Linux Amazon DCV servers, the file is run when the session is created.   
+Type: String  
 Required: No
 
-**`AutorunFileArguments`**
-
-Supported with virtual sessions on Linux Amazon DCV servers. It is not supported in console
-sessions on Windows and Linux Amazon DCV servers. Command-line arguments passed to **AutorunFile** upon its execution inside the session. Arguments are passed in
-the order they appear into the given array. Maximum allowed number of arguments and maximum allowed
-length of each argument can be configured. For more information, see [Broker configuration file](../sm-admin/broker-file.md "../sm-admin/broker-file.md") in the _Amazon DCV Session Manager
-Administrator Guide_.
-
-Type: Array of strings
-
+**`AutorunFileArguments`**  
+Supported with virtual sessions on Linux Amazon DCV servers. It is not supported in console sessions on Windows and Linux Amazon DCV servers. Command-line arguments passed to **AutorunFile** upon its execution inside the session. Arguments are passed in the order they appear into the given array. Maximum allowed number of arguments and maximum allowed length of each argument can be configured. For more information, see [Broker configuration file](https://docs.aws.amazon.com/dcv/latest/sm-admin/broker-file.html) in the *Amazon DCV Session Manager Administrator Guide*.   
+Type: Array of strings  
 Required: No
 
-**`DisableRetryOnFailure`**
-
-Indicates whether to not retry the create session request after it fails on a Amazon DCV host
-for any reason. For more information about create session retry mechanism, see [Broker configuration file](../sm-admin/broker-file.md "../sm-admin/broker-file.md") in
-the _Amazon DCV Session Manager Administrator Guide_.
-
-Type: Boolean
-
-Default: false
-
+**`DisableRetryOnFailure`**  
+Indicates whether to not retry the create session request after it fails on a Amazon DCV host for any reason. For more information about create session retry mechanism, see [Broker configuration file](https://docs.aws.amazon.com/dcv/latest/sm-admin/broker-file.html) in the *Amazon DCV Session Manager Administrator Guide*.   
+Type: Boolean  
+Default: false  
 Required: No
 
-**`Requirements`**
-
-The requirements that the server must satisfy in order to place the session. The requirements
-can include server tags and/or server properties, both server tags and server properties are
-retrieved by calling the **DescribeServers** API.
-
-Requirements condition expressions:
-
-- `a` **!=** `b` true if `a` is not equal to `b`
-- `a` **=** `b` true if `a` is equal to `b`
-- `a` **>** `b` true if `a` is greater than `b`
-- `a` **>=** `b` true if `a` is greater than or equal to `b`
-- `a` **<** `b` true if `a` is less than `b`
-- `a` **<=** `b` true if `a` is less than or equal to `b`
-- `a` **:=** `b` true if `a` contains the string `b`
-
-Requirements boolean operators:
-
-- `a` **and**
-  `b` true if `a` and `b`
-  are true
-- `a` **or**
-  `b` true if `a` or `b`
-  are true
-- **not** `a` true if
-  `a` is false
-
-The tag keys must be prefixed by `tag:`, the server properties must be prefixed by
-`server:`.The requirements expressions supports parenthesis `()`.
-
-Requirements examples:
-
-- `tag:color = 'pink' and (server:Host.Os.Family = 'windows' or tag:color := 'red')`
-- `"server:Host.Aws.Ec2InstanceType := 't2' and server:Host.CpuInfo.NumberOfCpus >= 2"`
-
-Numerical values can be specified using the exponential notation, for example:
-`"server:Host.Memory.TotalBytes > 1024E6"`.
-
-The supported server properties are:
-
-- `Id`
-- `Hostname`
-- `Version`
-- `SessionManagerAgentVersion`
-- `Host.Os.BuildNumber`
-- `Host.Os.Family`
-- `Host.Os.KernelVersion`
-- `Host.Os.Name`
-- `Host.Os.Version`
-- `Host.Memory.TotalBytes`
-- `Host.Memory.UsedBytes`
-- `Host.Swap.TotalBytes`
-- `Host.Swap.UsedBytes`
-- `Host.CpuLoadAverage.OneMinute`
-- `Host.CpuLoadAverage.FiveMinutes`
-- `Host.CpuLoadAverage.FifteenMinutes`
-- `Host.Aws.Ec2InstanceId`
-- `Host.Aws.Ec2InstanceType`
-- `Host.Aws.Region`
-- `Host.Aws.Ec2ImageId`
-- `Host.CpuInfo.Architecture`
-- `Host.CpuInfo.ModelName`
-- `Host.CpuInfo.NumberOfCpus`
-- `Host.CpuInfo.PhysicalCoresPerCpu`
-- `Host.CpuInfo.Vendor`
-
-Type: String
-
+**`Requirements`**  
+The requirements that the server must satisfy in order to place the session. The requirements can include server tags and/or server properties, both server tags and server properties are retrieved by calling the **DescribeServers** API.   
+Requirements condition expressions:  
++ {{a}} **\!=** {{b}} true if {{a}} is not equal to {{b}}
++ {{a}} **=** {{b}} true if {{a}} is equal to {{b}}
++ {{a}} **>** {{b}} true if {{a}} is greater than {{b}}
++ {{a}} **>=** {{b}} true if {{a}} is greater than or equal to {{b}}
++ {{a}} **<** {{b}} true if {{a}} is less than {{b}}
++ {{a}} **<=** {{b}} true if {{a}} is less than or equal to {{b}}
++ {{a}} **:=** {{b}} true if {{a}} contains the string {{b}}
+Requirements boolean operators:  
++ {{a}} **and** {{b}} true if {{a}} and {{b}} are true
++ {{a}} **or** {{b}} true if {{a}} or {{b}} are true
++ **not** {{a}} true if {{a}} is false
+The tag keys must be prefixed by `tag:`, the server properties must be prefixed by `server:`.The requirements expressions supports parenthesis `()`.  
+Requirements examples:  
++ `tag:color = 'pink' and (server:Host.Os.Family = 'windows' or tag:color := 'red')`
++ `"server:Host.Aws.Ec2InstanceType := 't2' and server:Host.CpuInfo.NumberOfCpus >= 2"`
+Numerical values can be specified using the exponential notation, for example: `"server:Host.Memory.TotalBytes > 1024E6"`.  
+The supported server properties are:  
++ `Id`
++ `Hostname`
++ `Version`
++ `SessionManagerAgentVersion`
++ `Host.Os.BuildNumber`
++ `Host.Os.Family`
++ `Host.Os.KernelVersion`
++ `Host.Os.Name`
++ `Host.Os.Version`
++ `Host.Memory.TotalBytes`
++ `Host.Memory.UsedBytes`
++ `Host.Swap.TotalBytes`
++ `Host.Swap.UsedBytes`
++ `Host.CpuLoadAverage.OneMinute`
++ `Host.CpuLoadAverage.FiveMinutes`
++ `Host.CpuLoadAverage.FifteenMinutes`
++ `Host.Aws.Ec2InstanceId`
++ `Host.Aws.Ec2InstanceType`
++ `Host.Aws.Region`
++ `Host.Aws.Ec2ImageId`
++ `Host.CpuInfo.Architecture`
++ `Host.CpuInfo.ModelName`
++ `Host.CpuInfo.NumberOfCpus`
++ `Host.CpuInfo.PhysicalCoresPerCpu`
++ `Host.CpuInfo.Vendor`
+Type: String  
 Required: No
 
-**`StorageRoot`**
-
-Specifies the path to the folder used for session storage. For more information about the
-Amazon DCV session storage, see [Enabling Session Storage](../adminguide/manage-storage.md "../adminguide/manage-storage.md") in the
-_Amazon DCV Administrator Guide_.
-
-Type: String
-
+**`StorageRoot`**  
+Specifies the path to the folder used for session storage. For more information about the Amazon DCV session storage, see [Enabling Session Storage](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-storage.html) in the *Amazon DCV Administrator Guide*.  
+Type: String  
 Required: No
 
 ## Response parameters
+<a name="response"></a>
 
-**`Id`**
-
+**`Id`**  
 The unique ID of the session.
 
-**`Name`**
-
+**`Name`**  
 The session name.
 
-**`Owner`**
-
+**`Owner`**  
 The session owner.
 
-**`Type`**
-
+**`Type`**  
 The type of session.
 
-**`State`**
+**`State`**  
+The state of the session. If the request completes successfully, the session enters the `CREATING` state.
 
-The state of the session. If the request completes successfully, the session enters the
-`CREATING` state.
-
-**`Substate`**
-
-The substate of the session. If the request completes successfully, the substate enters the
-`SESSION_PLACING` substate.
+**`Substate`**  
+The substate of the session. If the request completes successfully, the substate enters the `SESSION_PLACING` substate.
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
+**Request**  
 The following example creates three sessions.
 
 ```
-
 from swagger_client.models.create_session_request_data import CreateSessionRequestData
 
 def get_sessions_api():
@@ -287,8 +188,7 @@ def main():
 ])
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -321,3 +221,5 @@ The following is the sample output.
     ]
 }
 ```
+
+------

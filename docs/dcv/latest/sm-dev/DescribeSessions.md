@@ -1,161 +1,112 @@
+
+
 # DescribeSessions
+<a name="DescribeSessions"></a>
 
 Describes one or more Amazon DCV sessions.
 
-###### Topics
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`SessionIds`**
-
-The IDs of the sessions to describe.
-
-Type: String
-
+**`SessionIds`**  
+The IDs of the sessions to describe.   
+Type: String  
 Required: No
 
-**`NextToken`**
-
-The token to use to retrieve the next page of results.
-
-Type: String
-
+**`NextToken`**  
+The token to use to retrieve the next page of results.  
+Type: String  
 Required: No
 
-**`Filters`**
-
-Additional filters to apply to the request. Supported filters include:
-
-- tag:key—The tags assigned to the session.
-- owner—The session owner.
-
-Type: String
-
+**`Filters`**  
+Additional filters to apply to the request. Supported filters include:  
++ tag:key—The tags assigned to the session.
++ owner—The session owner.
+Type: String  
 Required: No
 
 ## Response parameters
+<a name="response"></a>
 
-**`Id`**
-
+**`Id`**  
 The unique ID of the session.
 
-**`Name`**
-
+**`Name`**  
 The name of the session.
 
-**`Owner`**
-
+**`Owner`**  
 The owner of the session.
 
-**`Server`**
-
-Information about the server on which the session is running. This data structure includes the following
-nested response parameters:
-
-**`Ip`**
-
-The IP address of the Amazon DCV server host.
-
-**`Hostname`**
-
-The hostname of the Amazon DCV server host.
-
-**`Port`**
-
-The port over which the Amazon DCV server communicates with Amazon DCV clients.
-
-**`Endpoints`**
-
-Information about the Amazon DCV server endpoints. This data structure includes
-the following nested response parameters:
-
-**`IpAddress`**
-
-The IP address of the server endpoint.
-
-**`Port`**
-
-The port of the server endpoint.
-
-**`Protocol`**
-
-The protocol used by the server endpoint. Possible values include:
-
-- `HTTP` — The endpoint uses the WebSocket (TCP) protocol.
-- `QUIC` — The endpoint uses the QUIC (UDP) protocol.
-
-**`WebUrlPath`**
-
-The web URL path of the server endpoint. Available for the HTTP protocol only.
-
-**`Tags`**
-
-The tags assigned to the server. This data structure includes the following nested response parameters:
-
-**`Key`**
-
-The tag key.
-
-**`Value`**
-
+**`Server`**  
+Information about the server on which the session is running. This data structure includes the following nested response parameters:    
+**`Ip`**  
+The IP address of the Amazon DCV server host.  
+**`Hostname`**  
+The hostname of the Amazon DCV server host.  
+**`Port`**  
+The port over which the Amazon DCV server communicates with Amazon DCV clients.  
+**`Endpoints`**  
+Information about the Amazon DCV server endpoints. This data structure includes the following nested response parameters:    
+**`IpAddress`**  
+The IP address of the server endpoint.  
+**`Port`**  
+The port of the server endpoint.  
+**`Protocol`**  
+The protocol used by the server endpoint. Possible values include:  
++ `HTTP` — The endpoint uses the WebSocket (TCP) protocol.
++ `QUIC` — The endpoint uses the QUIC (UDP) protocol.  
+**`WebUrlPath`**  
+The web URL path of the server endpoint. Available for the HTTP protocol only.  
+**`Tags`**  
+The tags assigned to the server. This data structure includes the following nested response parameters:    
+**`Key`**  
+The tag key.  
+**`Value`**  
 The tag value.
 
-**`Type`**
-
+**`Type`**  
 The type of session.
 
-**`State`**
+**`State`**  
+The current state of the session. Possible values are:  
++ `CREATING` - the Broker is in the process of creating the session.
++ `READY` - the session is ready to accept client connections.
++ `DELETING` - the session is being deleted.
++ `DELETED` - the session has been deleted.
++ `UNKNOWN` - unable to determine the session's state. The Broker and the Agent might be unable to communicate.
 
-The current state of the session. Possible values are:
+**`Substate`**  
+The current substate of the session. Possible values are:  
++ `SESSION_PLACING` - the session is waiting to be placed on an available DCV Server.
++ `PENDING_PREPARATION` - the session is created but not usable; linked to a DCV Server.
 
-- `CREATING` - the Broker is in the process of creating the session.
-- `READY` - the session is ready to accept client connections.
-- `DELETING` - the session is being deleted.
-- `DELETED` - the session has been deleted.
-- `UNKNOWN` - unable to determine the session's state. The Broker and the
-  Agent might be unable to communicate.
-
-**`Substate`**
-
-The current substate of the session. Possible values are:
-
-- `SESSION_PLACING` - the session is waiting to be placed on an available DCV Server.
-- `PENDING_PREPARATION` - the session is created but not usable; linked to a DCV Server.
-
-**`CreationTime`**
-
+**`CreationTime`**  
 The date and time the session was created.
 
-**`LastDisconnectionTime`**
-
+**`LastDisconnectionTime`**  
 The date and time of the last client disconnection.
 
-**`NumOfConnections`**
-
+**`NumOfConnections`**  
 The number of active client connections.
 
-**`StorageRoot`**
-
-Specifies the path to the folder used for session storage. For more information about the
-Amazon DCV session storage, see [Enabling Session Storage](../adminguide/manage-storage.md "../adminguide/manage-storage.md") in the
-_Amazon DCV Administrator Guide_.
-
-Type: String
-
+**`StorageRoot`**  
+Specifies the path to the folder used for session storage. For more information about the Amazon DCV session storage, see [Enabling Session Storage](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-storage.html) in the *Amazon DCV Administrator Guide*.  
+Type: String  
 Required: No
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
-The following example describes sessions that are owned by `user1` and have a tag
-of `os=windows`.
+**Request**  
+The following example describes sessions that are owned by `user1` and have a tag of `os=windows`.
 
 ```
 from swagger_client.models.describe_sessions_request_data import DescribeSessionsRequestData
@@ -188,8 +139,7 @@ def main():
         tags=[{'Key': 'os', 'Value': 'windows'}])
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -290,3 +240,5 @@ The following is the sample output.
     ]
 }
 ```
+
+------

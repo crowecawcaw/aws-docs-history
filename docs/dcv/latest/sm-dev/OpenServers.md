@@ -1,70 +1,53 @@
+
+
 # OpenServers
+<a name="OpenServers"></a>
 
-Opens one or more Amazon DCV servers. Before you can create Amazon DCV sessions on a Amazon DCV server,
-you must change the server's state to _open_. After the Amazon DCV server is
-_open_, you can create Amazon DCV sessions on the server.
+Opens one or more Amazon DCV servers. Before you can create Amazon DCV sessions on a Amazon DCV server, you must change the server's state to *open*. After the Amazon DCV server is *open*, you can create Amazon DCV sessions on the server.
 
-###### Topics
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`ServerId`**
-
-The ID of the server to open.
-
-Type: String
-
+**`ServerId`**  
+The ID of the server to open.  
+Type: String  
 Required: Yes
 
 ## Response parameters
+<a name="response"></a>
 
-**`RequestId`**
-
+**`RequestId`**  
 The unique ID of the request.
 
-**`SuccessfulList`**
-
-Information about the Amazon DCV servers that were successfully opened. This data structure
-includes the following nested response parameter:
-
-**`ServerId`**
-
+**`SuccessfulList`**  
+Information about the Amazon DCV servers that were successfully opened. This data structure includes the following nested response parameter:    
+**`ServerId`**  
 The ID of the server that was successfully opened.
 
-**`UnsuccessfulList`**
-
-Information about the Amazon DCV servers that could not be opened. This data structure
-includes the following nested response parameters:
-
-**`OpenServerRequestData`**
-
-Information about the original request that failed. This data structure
-includes the following nested response parameter:
-
-**`ServerId`**
-
-The ID of the Amazon DCV server that could not be opened.
-
-**`FailureCode`**
-
-The code of the failure.
-
-**`FailureReason`**
-
+**`UnsuccessfulList`**  
+Information about the Amazon DCV servers that could not be opened. This data structure includes the following nested response parameters:    
+**`OpenServerRequestData`**  
+Information about the original request that failed. This data structure includes the following nested response parameter:    
+**`ServerId`**  
+The ID of the Amazon DCV server that could not be opened.  
+**`FailureCode`**  
+The code of the failure.  
+**`FailureReason`**  
 The reason for the failure.
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
-The following example opens two Amazon DCV servers (`serverId1` and
-`serverId2`).
+**Request**  
+The following example opens two Amazon DCV servers (`serverId1` and `serverId2`).
 
 ```
 from swagger_client.models import OpenServerRequestData
@@ -86,8 +69,7 @@ def main():
     open_servers(["serverId1", "serverId2"])
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -109,3 +91,5 @@ The following is the sample output.
     ]
 }
 ```
+
+------

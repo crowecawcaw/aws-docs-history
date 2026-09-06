@@ -1,139 +1,85 @@
+
+
 # GetSessionScreenshots
+<a name="GetSessionScreenshots"></a>
 
 Gets screenshots of one or more Amazon DCV sessions.
 
-To modify the image format, configure the `session-screenshot-format`
-parameter on the Session Manager Broker configuration. See
-[Broker configuration file](../sm-admin/broker-file.md "../sm-admin/broker-file.md")
-in the _Amazon DCV Session Manager Administrator Guide_.
+To modify the image format, configure the `session-screenshot-format` parameter on the Session Manager Broker configuration. See [Broker configuration file](https://docs.aws.amazon.com/dcv/latest/sm-admin/broker-file.html) in the *Amazon DCV Session Manager Administrator Guide*.
 
-When the `MaxWidth` or `MaxHeight` parameters of the
-`GetSessionScreenshots` request are not specified, the
-`session-screenshot-max-width` and `session-screenshot-max-height`
-values set in the Session Manager Broker configuration file will be used. To
-modify those parameters, also see [Broker configuration file](../sm-admin/broker-file.md "../sm-admin/broker-file.md")
-in the _Amazon DCV Session Manager Administrator Guide_.
+When the `MaxWidth` or `MaxHeight` parameters of the `GetSessionScreenshots` request are not specified, the `session-screenshot-max-width` and `session-screenshot-max-height` values set in the Session Manager Broker configuration file will be used. To modify those parameters, also see [Broker configuration file](https://docs.aws.amazon.com/dcv/latest/sm-admin/broker-file.html) in the *Amazon DCV Session Manager Administrator Guide*.
 
-The upper value for the screenshot resolution is limited to the remote session resolution. If the
-`MaxWidth` and `MaxHeight` parameters are set to values higher than the current
-remote session resolution, the resulting screenshot will be limited to the actual session resolution.
+The upper value for the screenshot resolution is limited to the remote session resolution. If the `MaxWidth` and `MaxHeight` parameters are set to values higher than the current remote session resolution, the resulting screenshot will be limited to the actual session resolution.
 
-###### Note
+**Note**  
+To modify these values from the Access Console, see the [Web Client configuration file](https://docs.aws.amazon.com/dcv/latest/access-console/web-client-config-files.html) in the *Amazon DCV Access Console Administrator Guide*. To modify these values with the Session Manager CLI, see `get-session-screenshots` in the *Amazon DCV CLI Guide*.
 
-To modify these values from the Access Console, see the
-[Web Client configuration file](../access-console/web-client-config-files.md "../access-console/web-client-config-files.md")
-in the _Amazon DCV Access Console Administrator Guide_.
-To modify these values with the Session Manager CLI, see `get-session-screenshots` in the _Amazon DCV CLI Guide_.
-
-###### Topics
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`SessionId`**
-
-The ID of the Amazon DCV session from which to get the screenshot.
-
-Type: String
-
+**`SessionId`**  
+The ID of the Amazon DCV session from which to get the screenshot.  
+Type: String  
 Required: Yes
 
-**`MaxWidth`**
-
-The maximum width, in pixels, of session screenshots. If not specified,
-the values from the Session Manager Broker configuration will apply. If
-provided, this must be a number greater than 0.
-
-Type: Integer
-
+**`MaxWidth`**  
+The maximum width, in pixels, of session screenshots. If not specified, the values from the Session Manager Broker configuration will apply. If provided, this must be a number greater than 0.   
+Type: Integer  
 Required: No
 
-**`MaxHeight`**
-
-The maximum height, in pixels, of session screenshots. If not specified,
-the values from the Session Manager Broker configuration will apply. If provided, this must
-be a number greater than 0.
-
-Type: Integer
-
+**`MaxHeight`**  
+The maximum height, in pixels, of session screenshots. If not specified, the values from the Session Manager Broker configuration will apply. If provided, this must be a number greater than 0.  
+Type: Integer  
 Required: Yes
 
 ## Response parameters
+<a name="response"></a>
 
-**`RequestId`**
-
+**`RequestId`**  
 The unique ID of the request.
 
-**`SuccessfulList`**
+**`SuccessfulList`**  
+Information about the successful screenshots. This data structure includes the following nested response parameters:    
+**`SessionScreenshot`**  
+Information about the screenshots. This data structure includes the following nested response parameters:    
+**`SessionId`**  
+The ID of the Amazon DCV session from which the screenshot was taken.  
+**`Images`**  
+Information about the images. This data structure includes the following nested response parameters:    
+**`Format`**  
+The format of the image. Possible values include: `jpeg` and `png`.  
+**`Data`**  
+The screenshot image base64 encoded format.  
+**`CreationTime`**  
+The date and time the screenshot was taken.  
+**`Primary`**  
+Indicates whether the screenshot is of the Amazon DCV session's primary display.
 
-Information about the successful screenshots. This data structure includes the following
-nested response parameters:
-
-**`SessionScreenshot`**
-
-Information about the screenshots. This data structure includes the following
-nested response parameters:
-
-**`SessionId`**
-
-The ID of the Amazon DCV session from which the screenshot was taken.
-
-**`Images`**
-
-Information about the images. This data structure includes the following
-nested response parameters:
-
-**`Format`**
-
-The format of the image. Possible values include: `jpeg`
-and `png`.
-
-**`Data`**
-
-The screenshot image base64 encoded format.
-
-**`CreationTime`**
-
-The date and time the screenshot was taken.
-
-**`Primary`**
-
-Indicates whether the screenshot is of the Amazon DCV session's primary
-display.
-
-**`UnsuccessfulList`**
-
-Information about the unsuccessful screenshots. This data structure includes the following
-nested response parameters:
-
-**`GetSesionScreenshotRequestData`**
-
-The original request that failed.
-
-**`SessionId`**
-
-The ID of the Amazon DCV session from which the screenshot was to be taken.
-
-**`FailureReason`**
-
+**`UnsuccessfulList`**  
+Information about the unsuccessful screenshots. This data structure includes the following nested response parameters:    
+**`GetSesionScreenshotRequestData`**  
+The original request that failed.    
+**`SessionId`**  
+The ID of the Amazon DCV session from which the screenshot was to be taken.  
+**`FailureReason`**  
 The reason for the failure.
 
-**`GetSessionScreenshotRequestData`**
-
+**`GetSessionScreenshotRequestData`**  
 The original request that failed.
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
-The following example gets screenshots from two sessions (`sessionId1` and
-`sessionId2`) with the max width set at 800 and the max height set at 600. Session
-`sessionId2` doesn't exist and results in a failure.
+**Request**  
+The following example gets screenshots from two sessions (`sessionId1` and `sessionId2`) with the max width set at 800 and the max height set at 600. Session `sessionId2` doesn't exist and results in a failure.
 
 ```
 from swagger_client.models.describe_servers_request_data import GetSessionScreenshotRequestData
@@ -154,8 +100,7 @@ def main():
     get_session_screenshots(["sessionId1", "sessionId2"]), 800, 600)
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -186,3 +131,5 @@ The following is the sample output.
     ]
 }
 ```
+
+------

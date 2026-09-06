@@ -1,303 +1,164 @@
+
+
 # DescribeServers
+<a name="DescribeServers"></a>
 
 Describes one or more Amazon DCV servers.
 
-###### Topics
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`ServerIds`**
-
-The IDs of the Amazon DCV servers to describe. If no IDs are specified, all servers are
-returned in paginated output.
-
-Type: Array of strings
-
+**`ServerIds`**  
+The IDs of the Amazon DCV servers to describe. If no IDs are specified, all servers are returned in paginated output.  
+Type: Array of strings  
 Required: No
 
-**`NextToken`**
-
-The token to use to retrieve the next page of results.
-
-Type: String
-
+**`NextToken`**  
+The token to use to retrieve the next page of results.  
+Type: String  
 Required: No
 
-**`MaxResults`**
-
-The maximum number of results to be returned by the request in paginated output. When
-this parameter is used, the request returns only the specified number of
-results in a single page along with a `NextToken` response
-element. The remaining results of the initial request can be seen by
-sending another request with the returned `NextToken`
-value.
-
-Valid range: 1 - 1000
-
-Default: 1000
-
-Type: Integer
-
+**`MaxResults`**  
+The maximum number of results to be returned by the request in paginated output. When this parameter is used, the request returns only the specified number of results in a single page along with a `NextToken` response element. The remaining results of the initial request can be seen by sending another request with the returned `NextToken` value.  
+Valid range: 1 - 1000  
+Default: 1000  
+Type: Integer  
 Required: No
 
 ## Response parameters
+<a name="response"></a>
 
-**`RequestId`**
-
+**`RequestId`**  
 The unique ID of the request.
 
-**`Servers`**
-
-Information about the Amazon DCV servers. This data structure includes the following
-nested response parameters:
-
-**`Id`**
-
-The unique ID of the Amazon DCV server.
-
-**`Ip`**
-
-The IP address of the Amazon DCV server.
-
-**`Hostname`**
-
-The hostname of the Amazon DCV server.
-
-**`Endpoints`**
-
-Information about the Amazon DCV server endpoints. This data structure includes
-the following nested response parameters:
-
-**`IpAddress`**
-
-The IP address of the server endpoint.
-
-**`Port`**
-
-The port of the server endpoint.
-
-**`Protocol`**
-
-The protocol used by the server endpoint. Possible values include:
-
-- `HTTP` — The endpoint uses the WebSocket (TCP) protocol.
-- `QUIC` — The endpoint uses the QUIC (UDP) protocol.
-
-**`WebUrlPath`**
-
-The web URL path of the server endpoint. Available for the HTTP protocol only.
-
-**`Version`**
-
-The version of the Amazon DCV server.
-
-**`SessionManagerAgentVersion`**
-
-The version Session Manager Agent running on the Amazon DCV server.
-
-**`Availability`**
-
-The availability of the Amazon DCV server. Possible values include:
-
-- `AVAILABLE` — The server is available and ready for session
-  placement.
-- `UNAVAILABLE` — The server is unavailable and can't accept
-  session placement.
-
-**`UnavailabilityReason`**
-
-The reason for the Amazon DCV server's unavailability. Possible values include:
-
-- `SERVER_FULL` — The Amazon DCV server has reached the maximum number of
-  concurrent sessions that it can run.
-- `SERVER_CLOSED` — The Amazon DCV server has been made unavailable using the
-  **CloseServer** API.
-- `UNREACHABLE_AGENT` — The Session Manager Broker can't communicate with the
-  Session Manager Agent on the Amazon DCV server.
-- `UNHEALTHY_DCV_SERVER` — The Session Manager Agent can't communicate with
-  the Amazon DCV server.
-- `EXISTING_LOGGED_IN_USER` — (Windows Amazon DCV servers only) A user
-  is currently logged in to the Amazon DCV server using RDP.
-- `UNKNOWN` — The Session Manager Broker is unable to determine the reason.
-
-**`ConsoleSessionCount`**
-
-The number of console sessions on the Amazon DCV server.
-
-**`VirtualSessionCount`**
-
-The number of virtual sessions on the Amazon DCV server.
-
-**`Host`**
-
-Information about the host server on which the Amazon DCV server is running. This data structure
-includes the following nested response parameters:
-
-**`Os`**
-
-Information about host server's operating system. This data structure includes
-the following nested response parameters:
-
-**`Family`**
-
-The operating system family. Possible values include:
-
-- `windows` — The host server is running a
-  Windows operating system.
-- `linux` — The host server is running a
-  Linux operating system.
-
-**`Name`**
-
-The name of the operating system.
-
-**`Version`**
-
-The version of the operating system.
-
-**`KernelVersion`**
-
-(Linux only) The kernel version of the operating system.
-
-**`BuildNumber`**
-
-(Windows only) The build number of the operating system.
-
-**`Memory`**
-
-Information about the host server's memory. This data structure includes the
-following nested response parameters:
-
-**`TotalBytes`**
-
-The total memory, in bytes, on the host server.
-
-**`UsedBytes`**
-
-The used memory, in bytes, on the host server.
-
-**`Swap`**
-
-Information about the host server's swap file. This data structure includes the
-following nested response parameters:
-
-**`TotalBytes`**
-
-The total swap file size, in bytes, on the host server.
-
-**`UsedBytes`**
-
-The used swap file size, in bytes, on the host server.
-
-**`Aws`**
-
-Only for Amazon DCV servers running on an Amazon EC2 instance. AWS-specific information.
-This data structure includes the following nested response parameters:
-
-**`Region`**
-
-The AWS Region of the Amazon EC2 instance.
-
-**`Ec2InstanceType`**
-
-The type of Amazon EC2 instance.
-
-**`Ec2InstanceId`**
-
-The ID of the Amazon EC2 instance.
-
-**`Ec2ImageId`**
-
-The ID of the Amazon EC2 image.
-
-**`CpuInfo`**
-
-Information about the host server's CPUs. This data structure includes the following
-nested response parameters:
-
-**`Vendor`**
-
-The vendor of the host server's CPU.
-
-**`ModelName`**
-
-The model name of the host server's CPU.
-
-**`Architecture`**
-
-The architecture of the host server's CPU.
-
-**`NumberOfCpus`**
-
-The number of CPUs on the host server.
-
-**`PhysicalCorePerCpu`**
-
-The number of CPU cores per CPU.
-
-**`CpuLoadAverage`**
-
-Information about the host server's CPU load. This data structure includes the
-following nested response parameters:
-
-**`OneMinute`**
-
-The average CPU load over the last 1-minute period.
-
-**`FiveMinutes`**
-
-The average CPU load over the last 5-minute period.
-
-**`FifteenMinutes`**
-
-The average CPU load over the last 15-minute period.
-
-**`Gpus`**
-
-Information about the host server's GPUs. This data structure includes the following
-nested response parameters:
-
-**`Vendor`**
-
-The vendor of the host server's GPU.
-
-**`ModelName`**
-
-The model name of the host server's GPU.
-
-**`LoggedInUsers`**
-
-The users that are currently logged in to the host server. This data structure includes the
-following nested response parameter:
-
-**`Username`**
-
-The user name of the logged in user.
-
-**`Tags`**
-
-The tags assigned to the server. This data structure includes the following nested response parameters:
-
-**`Key`**
-
-The tag key.
-
-**`Value`**
-
+**`Servers`**  
+Information about the Amazon DCV servers. This data structure includes the following nested response parameters:    
+**`Id`**  
+The unique ID of the Amazon DCV server.  
+**`Ip`**  
+The IP address of the Amazon DCV server.  
+**`Hostname`**  
+The hostname of the Amazon DCV server.  
+**`Endpoints`**  
+Information about the Amazon DCV server endpoints. This data structure includes the following nested response parameters:    
+**`IpAddress`**  
+The IP address of the server endpoint.  
+**`Port`**  
+The port of the server endpoint.  
+**`Protocol`**  
+The protocol used by the server endpoint. Possible values include:  
++ `HTTP` — The endpoint uses the WebSocket (TCP) protocol.
++ `QUIC` — The endpoint uses the QUIC (UDP) protocol.  
+**`WebUrlPath`**  
+The web URL path of the server endpoint. Available for the HTTP protocol only.  
+**`Version`**  
+The version of the Amazon DCV server.  
+**`SessionManagerAgentVersion`**  
+The version Session Manager Agent running on the Amazon DCV server.  
+**`Availability`**  
+The availability of the Amazon DCV server. Possible values include:  
++ `AVAILABLE` — The server is available and ready for session placement.
++ `UNAVAILABLE` — The server is unavailable and can't accept session placement.  
+**`UnavailabilityReason`**  
+The reason for the Amazon DCV server's unavailability. Possible values include:  
++ `SERVER_FULL` — The Amazon DCV server has reached the maximum number of concurrent sessions that it can run.
++ `SERVER_CLOSED` — The Amazon DCV server has been made unavailable using the **CloseServer** API.
++ `UNREACHABLE_AGENT` — The Session Manager Broker can't communicate with the Session Manager Agent on the Amazon DCV server.
++ `UNHEALTHY_DCV_SERVER` — The Session Manager Agent can't communicate with the Amazon DCV server.
++ `EXISTING_LOGGED_IN_USER` — (Windows Amazon DCV servers only) A user is currently logged in to the Amazon DCV server using RDP.
++ `UNKNOWN` — The Session Manager Broker is unable to determine the reason.  
+**`ConsoleSessionCount`**  
+The number of console sessions on the Amazon DCV server.  
+**`VirtualSessionCount`**  
+The number of virtual sessions on the Amazon DCV server.  
+**`Host`**  
+Information about the host server on which the Amazon DCV server is running. This data structure includes the following nested response parameters:    
+**`Os`**  
+Information about host server's operating system. This data structure includes the following nested response parameters:    
+**`Family`**  
+The operating system family. Possible values include:  
++ `windows` — The host server is running a Windows operating system.
++ `linux` — The host server is running a Linux operating system.  
+**`Name`**  
+The name of the operating system.  
+**`Version`**  
+The version of the operating system.  
+**`KernelVersion`**  
+(Linux only) The kernel version of the operating system.  
+**`BuildNumber`**  
+(Windows only) The build number of the operating system.  
+**`Memory`**  
+Information about the host server's memory. This data structure includes the following nested response parameters:    
+**`TotalBytes`**  
+The total memory, in bytes, on the host server.  
+**`UsedBytes`**  
+The used memory, in bytes, on the host server.  
+**`Swap`**  
+Information about the host server's swap file. This data structure includes the following nested response parameters:    
+**`TotalBytes`**  
+The total swap file size, in bytes, on the host server.  
+**`UsedBytes`**  
+The used swap file size, in bytes, on the host server.  
+**`Aws`**  
+Only for Amazon DCV servers running on an Amazon EC2 instance. AWS-specific information. This data structure includes the following nested response parameters:    
+**`Region`**  
+The AWS Region of the Amazon EC2 instance.  
+**`Ec2InstanceType`**  
+The type of Amazon EC2 instance.  
+**`Ec2InstanceId`**  
+The ID of the Amazon EC2 instance.  
+**`Ec2ImageId`**  
+The ID of the Amazon EC2 image.  
+**`CpuInfo`**  
+Information about the host server's CPUs. This data structure includes the following nested response parameters:    
+**`Vendor`**  
+The vendor of the host server's CPU.  
+**`ModelName`**  
+The model name of the host server's CPU.  
+**`Architecture`**  
+The architecture of the host server's CPU.  
+**`NumberOfCpus`**  
+The number of CPUs on the host server.  
+**`PhysicalCorePerCpu`**  
+The number of CPU cores per CPU.  
+**`CpuLoadAverage`**  
+Information about the host server's CPU load. This data structure includes the following nested response parameters:    
+**`OneMinute`**  
+The average CPU load over the last 1-minute period.  
+**`FiveMinutes`**  
+The average CPU load over the last 5-minute period.  
+**`FifteenMinutes`**  
+The average CPU load over the last 15-minute period.  
+**`Gpus`**  
+Information about the host server's GPUs. This data structure includes the following nested response parameters:    
+**`Vendor`**  
+The vendor of the host server's GPU.  
+**`ModelName`**  
+The model name of the host server's GPU.  
+**`LoggedInUsers`**  
+The users that are currently logged in to the host server. This data structure includes the following nested response parameter:    
+**`Username`**  
+The user name of the logged in user.  
+**`Tags`**  
+The tags assigned to the server. This data structure includes the following nested response parameters:    
+**`Key`**  
+The tag key.  
+**`Value`**  
 The tag value.
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
-The following example describes all available Amazon DCV servers. The results are paginated
-to show two results per page.
+**Request**  
+The following example describes all available Amazon DCV servers. The results are paginated to show two results per page.
 
 ```
 from swagger_client.models.describe_servers_request_data import DescribeServersRequestData
@@ -318,8 +179,7 @@ def main():
     describe_servers(max_results=2)
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -497,3 +357,5 @@ The following is the sample output.
     ]
 }
 ```
+
+------

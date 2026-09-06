@@ -1,85 +1,60 @@
+
+
 # CloseServers
+<a name="CloseServers"></a>
 
-Closes one or more Amazon DCV servers. When you close a Amazon DCV server, you make it
-unavailable for Amazon DCV session placement. You cannot create Amazon DCV sessions on
-_closed_ servers. Closing a server ensures that no sessions
-are running on it and that users cannot create new sessions on it.
+Closes one or more Amazon DCV servers. When you close a Amazon DCV server, you make it unavailable for Amazon DCV session placement. You cannot create Amazon DCV sessions on *closed* servers. Closing a server ensures that no sessions are running on it and that users cannot create new sessions on it.
 
-###### Topics
-
-- [Request parameters](#request "#request")
-- [Response parameters](#response "#response")
-- [Example](#example "#example")
+**Topics**
++ [Request parameters](#request)
++ [Response parameters](#response)
++ [Example](#example)
 
 ## Request parameters
+<a name="request"></a>
 
-**`ServerId`**
-
-The ID of the server to close.
-
-Type: String
-
+**`ServerId`**  
+The ID of the server to close.  
+Type: String  
 Required: Yes
 
-**`Force`**
-
-Forces the close operation. If you specify `true`, the server is closed even
-if it has running sessions. The sessions continue to run.
-
-Type: Boolean
-
+**`Force`**  
+Forces the close operation. If you specify `true`, the server is closed even if it has running sessions. The sessions continue to run.  
+Type: Boolean  
 Required: No
 
 ## Response parameters
+<a name="response"></a>
 
-**`RequestId`**
-
+**`RequestId`**  
 The unique ID of the request.
 
-**`SuccessfulList`**
-
-Information about the Amazon DCV servers that were successfully closed. This data structure
-includes the following nested response parameter:
-
-**`ServerId`**
-
+**`SuccessfulList`**  
+Information about the Amazon DCV servers that were successfully closed. This data structure includes the following nested response parameter:    
+**`ServerId`**  
 The ID of the server that was successfully closed.
 
-**`UnsuccessfulList`**
-
-Information about the Amazon DCV servers that could not be closed. This data structure
-includes the following nested response parameters:
-
-**`CloseServerRequestData`**
-
-Information about the original request that failed. This data structure
-includes the following nested response parameter:
-
-**`ServerId`**
-
-The ID of the Amazon DCV server that could not be closed.
-
-**`Force`**
-
-The requested force parameter.
-
-**`FailureCode`**
-
-The code of the failure.
-
-**`FailureReason`**
-
+**`UnsuccessfulList`**  
+Information about the Amazon DCV servers that could not be closed. This data structure includes the following nested response parameters:    
+**`CloseServerRequestData`**  
+Information about the original request that failed. This data structure includes the following nested response parameter:    
+**`ServerId`**  
+The ID of the Amazon DCV server that could not be closed.  
+**`Force`**  
+The requested force parameter.  
+**`FailureCode`**  
+The code of the failure.  
+**`FailureReason`**  
 The reason for the failure.
 
 ## Example
+<a name="example"></a>
 
-Python
+------
+#### [ Python ]
 
-###### Request
-
-The following example closes two Amazon DCV servers (`serverId1` and
-`serverId2`). Server `serverId2` doesn't
-exist and results in a failure.
+**Request**  
+The following example closes two Amazon DCV servers (`serverId1` and `serverId2`). Server `serverId2` doesn't exist and results in a failure.
 
 ```
 from swagger_client.models import CloseServerRequestData
@@ -101,8 +76,7 @@ def main():
     close_servers(["serverId1", "serverId2"])
 ```
 
-###### Response
-
+**Response**  
 The following is the sample output.
 
 ```
@@ -124,3 +98,5 @@ The following is the sample output.
     ]
 }
 ```
+
+------
