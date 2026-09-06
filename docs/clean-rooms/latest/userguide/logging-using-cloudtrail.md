@@ -56,6 +56,12 @@ request from any source and includes information about the requested action, the
 of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
 the public API calls, so they don't appear in any specific order.
 
+###### Note
+
+AWS Clean Rooms redacts only certain request parameters that its API defines. If you include additional fields that aren't part of the API, CloudTrail records them
+exactly as you sent them and doesn't redact them. Don't include passwords or other sensitive
+information in fields that aren't part of the API.
+
 ## Example AWS Clean Rooms CloudTrail events
 
 The following examples demonstrate CloudTrail events for:
