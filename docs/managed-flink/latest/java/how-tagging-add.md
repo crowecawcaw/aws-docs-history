@@ -1,7 +1,9 @@
-# Add or update tags for an existing application
 
-You add tags to an application using the [TagResource](../apiv2/API_TagResource.md "../apiv2/API_TagResource.md") action. You cannot add tags to an application using the
-[UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action.
+
+# Add or update tags for an existing application
+<a name="how-tagging-add"></a>
+
+You add tags to an application using the [TagResource](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_TagResource.html) action. You cannot add tags to an application using the [UpdateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html) action.
 
 To update an existing tag, add a tag with the same key of the existing tag.
 
@@ -10,12 +12,12 @@ The following example request for the `TagResource` action adds new tags or upda
 ```
 {
    "ResourceARN": "string",
-   "Tags": [
-      {
+   "Tags": [ 
+      { 
          "Key": "NewTagKey",
          "Value": "NewTagValue"
       },
-      {
+      { 
          "Key": "ExistingKeyOfTagToUpdate",
          "Value": "NewValueForExistingTag"
       }

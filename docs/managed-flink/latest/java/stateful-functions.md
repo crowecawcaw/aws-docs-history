@@ -1,17 +1,16 @@
+
+
 # Apache Flink stateful functions
+<a name="stateful-functions"></a>
 
-[Stateful Functions](https://nightlies.apache.org/flink/flink-statefun-docs-stable/ "https://nightlies.apache.org/flink/flink-statefun-docs-stable/") is an API that simplifies building distributed stateful applications. It’s based on functions with persistent state
-that can interact dynamically with strong consistency guarantees.
+[Stateful Functions](https://nightlies.apache.org/flink/flink-statefun-docs-stable/) is an API that simplifies building distributed stateful applications. It’s based on functions with persistent state that can interact dynamically with strong consistency guarantees.
 
-A Stateful Functions application is basically just an Apache Flink Application and hence can be deployed to Managed Service for Apache Flink. However,
-there are a couple of differences between packaging Stateful Functions for a Kubernetes cluster and for Managed Service for Apache Flink.
-The most important aspect of a Stateful Functions application is the [module configuration](https://nightlies.apache.org/flink/flink-statefun-docs-master/docs/deployment/module/ "https://nightlies.apache.org/flink/flink-statefun-docs-master/docs/deployment/module/") contains all necessary runtime
-information to configure the Stateful Functions runtime. This configuration is usually packaged into a Stateful Functions specific container
-and deployed on Kubernetes. But that is not possible with Managed Service for Apache Flink.
+A Stateful Functions application is basically just an Apache Flink Application and hence can be deployed to Managed Service for Apache Flink. However, there are a couple of differences between packaging Stateful Functions for a Kubernetes cluster and for Managed Service for Apache Flink. The most important aspect of a Stateful Functions application is the [module configuration](https://nightlies.apache.org/flink/flink-statefun-docs-master/docs/deployment/module/) contains all necessary runtime information to configure the Stateful Functions runtime. This configuration is usually packaged into a Stateful Functions specific container and deployed on Kubernetes. But that is not possible with Managed Service for Apache Flink.
 
 Following is an adaptation of the StateFun Python example for Managed Service for Apache Flink:
 
 ## Apache Flink application template
+<a name="stateful-functions-template"></a>
 
 Instead of using a customer container for the Stateful Functions runtime, customers can compile a Flink application jar that just invokes the Stateful Functions runtime and contains the required dependencies. For Flink 1.13, the required dependencies look similar to this:
 
@@ -50,11 +49,11 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-Note that these components are generic and independent of the logic that is implemented in the Stateful Function.
+Note that these components are generic and independent of the logic that is implemented in the Stateful Function. 
 
 ## Location of the module configuration
+<a name="stateful-functions-module-configuration"></a>
 
-The Stateful Functions module configuration needs to be included in the class path to be discoverable for the Stateful Functions runtime.
-It's best to include it in the resources folder of the Flink application and package it into the jar file.
+The Stateful Functions module configuration needs to be included in the class path to be discoverable for the Stateful Functions runtime. It's best to include it in the resources folder of the Flink application and package it into the jar file.
 
 Similar to a common Apache Flink application, you can then use maven to create an uber jar file and deploy that on Managed Service for Apache Flink.

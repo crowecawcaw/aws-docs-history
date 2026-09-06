@@ -1,59 +1,57 @@
+
+
 # Amazon Managed Service for Apache Flink 1.20
+<a name="flink-1-20"></a>
 
-Managed Service for Apache Flink now supports Apache Flink version 1.20.5. This section introduces you to
-the key new features and changes introduced with Managed Service for Apache Flink support of Apache Flink
-1.20.5. Apache Flink 1.20 is expected to be the last 1.x release and a Flink long-term
-support (LTS) version. For more information, see [FLIP-458: Long-Term Support for the Final Release of Apache Flink 1.x
-Line](https://cwiki.apache.org/confluence/display/FLINK/FLIP-458%3A+Long-Term+Support+for+the+Final+Release+of+Apache+Flink+1.x+Line "https://cwiki.apache.org/confluence/display/FLINK/FLIP-458%3A+Long-Term+Support+for+the+Final+Release+of+Apache+Flink+1.x+Line").
+Managed Service for Apache Flink now supports Apache Flink version 1.20.5. This section introduces you to the key new features and changes introduced with Managed Service for Apache Flink support of Apache Flink 1.20.5. Apache Flink 1.20 is expected to be the last 1.x release and a Flink long-term support (LTS) version. For more information, see [FLIP-458: Long-Term Support for the Final Release of Apache Flink 1.x Line](https://cwiki.apache.org/confluence/display/FLINK/FLIP-458%3A+Long-Term+Support+for+the+Final+Release+of+Apache+Flink+1.x+Line).
 
-###### Note
-
-If you are using an earlier supported version of Apache Flink and want to upgrade
-your existing applications to Apache Flink 1.20.5, you can do so using in-place
-Apache Flink version upgrades. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md "how-in-place-version-upgrades.md"). With in-place version upgrades,
-you retain application traceability against a single ARN across Apache Flink
-versions, including snapshots, logs, metrics, tags, Flink configurations, and more.
+**Note**  
+If you are using an earlier supported version of Apache Flink and want to upgrade your existing applications to Apache Flink 1.20.5, you can do so using in-place Apache Flink version upgrades. For more information, see [Use in-place version upgrades for Apache Flink](how-in-place-version-upgrades.md). With in-place version upgrades, you retain application traceability against a single ARN across Apache Flink versions, including snapshots, logs, metrics, tags, Flink configurations, and more. 
 
 ## Supported features
+<a name="flink-1-20-0-supported-features"></a>
 
-Apache Flink 1.20.5 introduces improvements in the SQL APIs, in the DataStream
-APIs, and in the Flink dashboard.
+Apache Flink 1.20.5 introduces improvements in the SQL APIs, in the DataStream APIs, and in the Flink dashboard.
 
-Supported features and related documentation| Supported features | Description | Apache Flink documentation reference |
-| --- | --- | --- |
-| Add DISTRIBUTED BY clause | Many SQL engines expose the concepts of `Partitioning`,<br>`Bucketing`, or `Clustering`. Flink 1.20<br>introduces the concept of `Bucketing` to Flink. | [FLIP-376: Add DISTRIBUTED BY clause](https://cwiki.apache.org/confluence/display/FLINK/FLIP-376%3A+Add+DISTRIBUTED+BY+clause "https://cwiki.apache.org/confluence/display/FLINK/FLIP-376%3A+Add+DISTRIBUTED+BY+clause") |
-| DataStream API: Support Full Partition Proessing | Flink 1.20 introduces built-in support for aggregations on non-keyed<br>streams through the `FullPartitionWindow` API. | [FLIP-380: Support Full Partition Processing on Non-keyed DataStream](https://cwiki.apache.org/confluence/display/FLINK/FLIP-380%3A+Support+Full+Partition+Processing+On+Non-keyed+DataStream "https://cwiki.apache.org/confluence/display/FLINK/FLIP-380%3A+Support+Full+Partition+Processing+On+Non-keyed+DataStream") |
-| Show data skew score on Flink Dashboard | The Flink 1.20 dashboard now shows data skew infrmation. Each<br>operator on the Flink job graph UI shows an additional data skew<br>score. | [FLIP-418: Show data skew score on Flink Dashboard](https://cwiki.apache.org/confluence/display/FLINK/FLIP-418%3A+Show+data+skew+score+on+Flink+Dashboard "https://cwiki.apache.org/confluence/display/FLINK/FLIP-418%3A+Show+data+skew+score+on+Flink+Dashboard") |
 
-For the Apache Flink 1.20.5 release documentation, see [Apache Flink
-Documentation v1.20.5](https://nightlies.apache.org/flink/flink-docs-stable/ "https://nightlies.apache.org/flink/flink-docs-stable/") on the Apache Flink website. For Flink 1.20 release notes, see [Release notes - Flink 1.20](https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/ "https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/")
+**Supported features and related documentation**  
+
+| Supported features | Description | Apache Flink documentation reference  | 
+| --- | --- | --- | 
+| Add DISTRIBUTED BY clause | Many SQL engines expose the concepts of Partitioning, Bucketing, or Clustering. Flink 1.20 introduces the concept of Bucketing to Flink.  | [FLIP-376: Add DISTRIBUTED BY clause](https://cwiki.apache.org/confluence/display/FLINK/FLIP-376%3A+Add+DISTRIBUTED+BY+clause) | 
+| DataStream API: Support Full Partition Proessing  | Flink 1.20 introduces built-in support for aggregations on non-keyed streams through the FullPartitionWindow API.  | [FLIP-380: Support Full Partition Processing on Non-keyed DataStream](https://cwiki.apache.org/confluence/display/FLINK/FLIP-380%3A+Support+Full+Partition+Processing+On+Non-keyed+DataStream) | 
+| Show data skew score on Flink Dashboard | The Flink 1.20 dashboard now shows data skew infrmation. Each operator on the Flink job graph UI shows an additional data skew score.  | [FLIP-418: Show data skew score on Flink Dashboard](https://cwiki.apache.org/confluence/display/FLINK/FLIP-418%3A+Show+data+skew+score+on+Flink+Dashboard) | 
+
+For the Apache Flink 1.20.5 release documentation, see [ Apache Flink Documentation v1.20.5](https://nightlies.apache.org/flink/flink-docs-stable/) on the Apache Flink website. For Flink 1.20 release notes, see [Release notes - Flink 1.20](https://nightlies.apache.org/flink/flink-docs-release-1.20/release-notes/flink-1.20/)
 
 ## Components
+<a name="flink-1-20-0-components"></a>
 
-Flink 1.20 components| Component | Version |
-| --- | --- |
-| Java | 11 (recommended) |
-| Python | 3.11 |
-| Kinesis Data Analytics Flink Runtime (aws-kinesisanalytics-runtime) | 1.2.0 |
-| Connectors | For information about available connectors, see [Apache<br>Flink connectors](how-flink-connectors.md "how-flink-connectors.md"). |
-| [Apache Beam (Beam applications only)](https://aws.amazon.com/developer/language/python/ "https://aws.amazon.com/developer/language/python/") | From version 2.70.0. For<br>more information, see [Flink Version Compatibility](https://beam.apache.org/documentation/runners/flink/#flink-version-compatibility "https://beam.apache.org/documentation/runners/flink/#flink-version-compatibility"). |
+
+**Flink 1.20 components**  
+
+| Component | Version | 
+| --- | --- | 
+| Java  | 11 (recommended) | 
+| Python | 3.11 | 
+| Kinesis Data Analytics Flink Runtime (aws-kinesisanalytics-runtime) | 1.2.0 | 
+| Connectors | For information about available connectors, see [Apache Flink connectors](https://docs.aws.amazon.com/managed-flink/latest/java/how-flink-connectors.html). | 
+| [Apache Beam (Beam applications only)](https://aws.amazon.com/developer/language/python/) | From version 2.70.0. For more information, see [Flink Version Compatibility](https://beam.apache.org/documentation/runners/flink/#flink-version-compatibility). | 
 
 ## Known issues
+<a name="flink-1-20-0-known-issues"></a>
 
 **Amazon Managed Service for Apache Flink Studio**
 
-Amazon Managed Service for Apache Flink Studio uses Apache Zeppelin notebooks to provide a single-interface
-development experience for developing, debugging code, and running Apache Flink
-stream processing applications. An upgrade is required to Zeppelin's Flink
-Interpreter to enable support of Flink 1.20. This work is scheduled with the
-Zeppelin community. We will update these notes when that work is complete. You can
-continue to use Flink 1.15 with Amazon Managed Service for Apache Flink Studio. For more information, see [Creating a Studio notebook](how-zeppelin-creating.md "how-zeppelin-creating.md").
+Amazon Managed Service for Apache Flink Studio uses Apache Zeppelin notebooks to provide a single-interface development experience for developing, debugging code, and running Apache Flink stream processing applications. An upgrade is required to Zeppelin's Flink Interpreter to enable support of Flink 1.20. This work is scheduled with the Zeppelin community. We will update these notes when that work is complete. You can continue to use Flink 1.15 with Amazon Managed Service for Apache Flink Studio. For more information, see [Creating a Studio notebook](https://docs.aws.amazon.com/managed-flink/latest/java/how-zeppelin-creating.html).
 
 **Backported bug fixes**
 
-Amazon Managed Service for Apache Flink backports fixes from the Flink community for critical issues. Following
-is a list of bug fixes that we have backported:
+Amazon Managed Service for Apache Flink backports fixes from the Flink community for critical issues. Following is a list of bug fixes that we have backported:
 
-Backported bug fixes| Apache Flink JIRA link | Description |
-| --- | --- |
-| [FLINK-35886](https://issues.apache.org/jira/browse/FLINK-35886 "https://issues.apache.org/jira/browse/FLINK-35886") | This fix addresses an issue causing incorrect accounting of<br>watermark idleness timeouts when a subtask is<br>backpressured/blocked. |
+
+**Backported bug fixes**  
+
+| Apache Flink JIRA link | Description | 
+| --- | --- | 
+| [FLINK-35886](https://issues.apache.org/jira/browse/FLINK-35886) | This fix addresses an issue causing incorrect accounting of watermark idleness timeouts when a subtask is backpressured/blocked. | 

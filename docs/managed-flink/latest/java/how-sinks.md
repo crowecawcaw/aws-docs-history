@@ -1,43 +1,42 @@
+
+
 # Write data using sinks in Managed Service for Apache Flink
+<a name="how-sinks"></a>
 
-In your application code, you can use any [Apache Flink sink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/overview/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/overview/") connector to write into external systems, including
-AWS services, such as Kinesis Data Streams and DynamoDB.
+In your application code, you can use any [Apache Flink sink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/overview/) connector to write into external systems, including AWS services, such as Kinesis Data Streams and DynamoDB.
 
-Apache Flink also provides sinks for files and sockets, and you can implement custom
-sinks. Among the several supported sinks, the following are frequently used:
+Apache Flink also provides sinks for files and sockets, and you can implement custom sinks. Among the several supported sinks, the following are frequently used:
 
 ## Use Kinesis data streams
+<a name="sinks-streams"></a>
 
-Apache Flink provides information about the [Kinesis Data Streams Connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/kinesis/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/kinesis/") in the Apache Flink documentation.
+Apache Flink provides information about the [Kinesis Data Streams Connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/kinesis/) in the Apache Flink documentation.
 
-For an example of an application that uses a Kinesis data stream for input and output, see
-[Tutorial: Get started using the DataStream API
-in Managed Service for Apache Flink](getting-started.md "getting-started.md").
+For an example of an application that uses a Kinesis data stream for input and output, see [Tutorial: Get started using the DataStream API in Managed Service for Apache Flink](getting-started.md).
 
 ## Use Apache Kafka and Amazon Managed Streaming for Apache Kafka (MSK)
+<a name="sinks-MSK"></a>
 
-The [Apache Flink Kafka connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/kafka/#kafka-sink "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/kafka/#kafka-sink") provides extensive support for publishing
-data to Apache Kafka and Amazon MSK, including exactly once guarantees. To learn how to
-write to Kafka, see [Kafka Connectors examples](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConnectors "https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConnectors") in the Apache Flink documentation.
+The [Apache Flink Kafka connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/kafka/#kafka-sink) provides extensive support for publishing data to Apache Kafka and Amazon MSK, including exactly once guarantees. To learn how to write to Kafka, see [Kafka Connectors examples](https://github.com/aws-samples/amazon-managed-service-for-apache-flink-examples/tree/main/java/KafkaConnectors) in the Apache Flink documentation.
 
 ## Use Amazon S3
+<a name="sinks-s3"></a>
 
 You can use the Apache Flink `StreamingFileSink` to write objects to an Amazon S3 bucket.
 
-For an example about how to write objects to S3, see [Example: Writing to an Amazon S3 bucket](earlier.md#examples-s3 "earlier.md#examples-s3").
+For an example about how to write objects to S3, see [Example: Writing to an Amazon S3 bucket](earlier.md#examples-s3). 
 
 ## Use Firehose
+<a name="sinks-firehose"></a>
 
-The `FlinkKinesisFirehoseProducer` is a reliable, scalable Apache Flink
-sink for storing application output using the [Firehose](../../../firehose/latest/dev.md "../../../firehose/latest/dev.md") service. This section describes how to set up a Maven project to
-create and use a `FlinkKinesisFirehoseProducer`.
+The `FlinkKinesisFirehoseProducer` is a reliable, scalable Apache Flink sink for storing application output using the [Firehose](https://docs.aws.amazon.com/firehose/latest/dev/) service. This section describes how to set up a Maven project to create and use a `FlinkKinesisFirehoseProducer`.
 
-###### Topics
-
-- [Create a FlinkKinesisFirehoseProducer](#sinks-firehose-create "#sinks-firehose-create")
-- [FlinkKinesisFirehoseProducer Code Example](#sinks-firehose-sample "#sinks-firehose-sample")
+**Topics**
++ [Create a `FlinkKinesisFirehoseProducer`](#sinks-firehose-create)
++ [`FlinkKinesisFirehoseProducer` Code Example](#sinks-firehose-sample)
 
 ### Create a `FlinkKinesisFirehoseProducer`
+<a name="sinks-firehose-create"></a>
 
 The following code example demonstrates creating a `FlinkKinesisFirehoseProducer`:
 
@@ -49,13 +48,12 @@ FlinkKinesisFirehoseProducer<String> sink = new FlinkKinesisFirehoseProducer<>(o
 ```
 
 ### `FlinkKinesisFirehoseProducer` Code Example
+<a name="sinks-firehose-sample"></a>
 
-The following code example demonstrates how to create and configure a
-`FlinkKinesisFirehoseProducer` and send data from an Apache Flink
-data stream to the Firehose service.
+The following code example demonstrates how to create and configure a `FlinkKinesisFirehoseProducer` and send data from an Apache Flink data stream to the Firehose service.
 
 ```
-
+ 
 package com.amazonaws.services.kinesisanalytics;
 
 import com.amazonaws.services.kinesisanalytics.flink.connectors.config.ProducerConfigConstants;
@@ -146,8 +144,6 @@ public class StreamingJob {
 		env.execute("Flink Streaming Java API Skeleton");
 	}
 }
-
-
 ```
 
-For a complete tutorial about how to use the Firehose sink, see [Example: Writing to Firehose](earlier.md#get-started-exercise-fh "earlier.md#get-started-exercise-fh").
+For a complete tutorial about how to use the Firehose sink, see [Example: Writing to Firehose](earlier.md#get-started-exercise-fh).

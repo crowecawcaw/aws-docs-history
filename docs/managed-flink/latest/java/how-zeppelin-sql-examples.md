@@ -1,31 +1,31 @@
+
+
 # View example queries to analyza data in a Studio notebook
+<a name="how-zeppelin-sql-examples"></a>
 
-###### The following example queries demonstrate how to analyze data using window queries in a Studio notebook.
+**Topics**
++ [Create tables with Amazon MSK/Apache Kafka](#how-zeppelin-examples-creating-tables)
++ [Create tables with Kinesis](#how-zeppelin-examples-creating-tables-with-kinesis)
++ [Query a tumbling window](#how-zeppelin-examples-tumbling)
++ [Query a sliding window](#how-zeppelin-examples-sliding)
++ [Use interactive SQL](#how-zeppelin-examples-interactive-sql)
++ [Use the BlackHole SQL connector](#how-zeppelin-examples-blackhole-connector-sql)
++ [Use Scala to generate sample data](#notebook-example-data-generator)
++ [Use interactive Scala](#notebook-example-interactive-scala)
++ [Use interactive Python](#notebook-example-interactive-python)
++ [Use a combination of interactive Python, SQL, and Scala](#notebook-example-interactive-pythonsqlscala)
++ [Use a cross-account Kinesis data stream](#notebook-example-crossaccount-kds)
 
-- [Create tables with Amazon MSK/Apache Kafka](#how-zeppelin-examples-creating-tables "#how-zeppelin-examples-creating-tables")
-- [Create tables with Kinesis](#how-zeppelin-examples-creating-tables-with-kinesis "#how-zeppelin-examples-creating-tables-with-kinesis")
-- [Query a tumbling window](#how-zeppelin-examples-tumbling "#how-zeppelin-examples-tumbling")
-- [Query a sliding window](#how-zeppelin-examples-sliding "#how-zeppelin-examples-sliding")
-- [Use interactive SQL](#how-zeppelin-examples-interactive-sql "#how-zeppelin-examples-interactive-sql")
-- [Use the BlackHole SQL connector](#how-zeppelin-examples-blackhole-connector-sql "#how-zeppelin-examples-blackhole-connector-sql")
-- [Use Scala to generate sample data](#notebook-example-data-generator "#notebook-example-data-generator")
-- [Use interactive Scala](#notebook-example-interactive-scala "#notebook-example-interactive-scala")
-- [Use interactive Python](#notebook-example-interactive-python "#notebook-example-interactive-python")
-- [Use a combination of interactive Python, SQL, and Scala](#notebook-example-interactive-pythonsqlscala "#notebook-example-interactive-pythonsqlscala")
-- [Use a cross-account Kinesis data stream](#notebook-example-crossaccount-kds "#notebook-example-crossaccount-kds")
-  For information about Apache Flink SQL query settings, see [Flink on Zeppelin Notebooks for Interactive Data Analysis](https://flink.apache.org/ecosystem/2020/06/23/flink-on-zeppelin-part2.html "https://flink.apache.org/ecosystem/2020/06/23/flink-on-zeppelin-part2.html").
+For information about Apache Flink SQL query settings, see [ Flink on Zeppelin Notebooks for Interactive Data Analysis](https://flink.apache.org/ecosystem/2020/06/23/flink-on-zeppelin-part2.html).
 
-To view your application in the Apache Flink dashboard, choose **FLINK JOB** in your application's
-**Zeppelin Note** page.
+To view your application in the Apache Flink dashboard, choose **FLINK JOB** in your application's **Zeppelin Note** page.
 
-For more information about window queries, see
-[Windows](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/operators/windows.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/operators/windows.html")
-in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/").
+For more information about window queries, see [Windows](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/stream/operators/windows.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/).
 
-For more examples of Apache Flink Streaming SQL queries, see [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html") in the [Apache Flink
-documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/").
+For more examples of Apache Flink Streaming SQL queries, see [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html) in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/).
 
 ## Create tables with Amazon MSK/Apache Kafka
+<a name="how-zeppelin-examples-creating-tables"></a>
 
 You can use the Amazon MSK Flink connector with Managed Service for Apache Flink Studio to authenticate your connection with Plaintext, SSL, or IAM authentication. Create your tables using the specific properties per your requirements.
 
@@ -79,9 +79,10 @@ CREATE TABLE your_table (
 );
 ```
 
-You can combine these with other properties at [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kafka/ "https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kafka/").
+You can combine these with other properties at [Apache Kafka SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kafka/).
 
 ## Create tables with Kinesis
+<a name="how-zeppelin-examples-creating-tables-with-kinesis"></a>
 
 In the following example, you create a table using Kinesis:
 
@@ -103,12 +104,12 @@ WITH (
 );
 ```
 
-For more information on other properties you can use, see [Amazon Kinesis Data Streams SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kinesis/ "https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kinesis/").
+For more information on other properties you can use, see [Amazon Kinesis Data Streams SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.14/docs/connectors/table/kinesis/).
 
 ## Query a tumbling window
+<a name="how-zeppelin-examples-tumbling"></a>
 
-The following Flink Streaming SQL query selects the highest price in each five-second tumbling window from the `ZeppelinTopic`
-table:
+The following Flink Streaming SQL query selects the highest price in each five-second tumbling window from the `ZeppelinTopic` table:
 
 ```
 %flink.ssql(type=update)
@@ -118,9 +119,9 @@ GROUP BY ticker, TUMBLE(event_time, INTERVAL '5' SECOND)
 ```
 
 ## Query a sliding window
+<a name="how-zeppelin-examples-sliding"></a>
 
-The following Apache Flink Streaming SQL query selects the highest price in each
-five-second sliding window from the `ZeppelinTopic` table:
+The following Apache Flink Streaming SQL query selects the highest price in each five-second sliding window from the `ZeppelinTopic` table:
 
 ```
 %flink.ssql(type=update)
@@ -130,12 +131,9 @@ GROUP BY HOP(event_time, INTERVAL '3' SECOND, INTERVAL '5' SECOND)
 ```
 
 ## Use interactive SQL
+<a name="how-zeppelin-examples-interactive-sql"></a>
 
-This example prints the max of event time and processing time and the sum of
-values from the key-values table. Ensure that you have the sample data generation
-script from the [Use Scala to generate sample data](#notebook-example-data-generator "#notebook-example-data-generator") running. To try
-other SQL queries such as filtering and joins in your Studio notebook, see the Apache
-Flink documentation: [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html") in the Apache Flink documentation.
+This example prints the max of event time and processing time and the sum of values from the key-values table. Ensure that you have the sample data generation script from the [Use Scala to generate sample data](#notebook-example-data-generator) running. To try other SQL queries such as filtering and joins in your Studio notebook, see the Apache Flink documentation: [Queries](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/sql/queries.html) in the Apache Flink documentation.
 
 ```
 %flink.ssql(type=single, parallelism=4, refreshInterval=1000, template=<h1>{2}</h1> records seen until <h1>Processing Time: {1}</h1> and <h1>Event Time: {0}</h1>)
@@ -166,11 +164,9 @@ GROUP BY
 ```
 
 ## Use the BlackHole SQL connector
+<a name="how-zeppelin-examples-blackhole-connector-sql"></a>
 
-The BlackHole SQL connector doesn't require that you create a Kinesis data stream
-or an Amazon MSK cluster to test your queries. For information about the BlackHole
-SQL connector, see [BlackHole SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/blackhole.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/blackhole.html") in the Apache Flink documentation. In this
-example, the default catalog is an in-memory catalog.
+The BlackHole SQL connector doesn't require that you create a Kinesis data stream or an Amazon MSK cluster to test your queries. For information about the BlackHole SQL connector, see [BlackHole SQL Connector](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/connectors/blackhole.html) in the Apache Flink documentation. In this example, the default catalog is an in-memory catalog.
 
 ```
 %flink.ssql
@@ -213,6 +209,7 @@ WHERE
 ```
 
 ## Use Scala to generate sample data
+<a name="notebook-example-data-generator"></a>
 
 This example uses Scala to generate sample data. You can use this sample data to test various queries. Use the create table statement to create the key-values table.
 
@@ -223,7 +220,7 @@ import org.apache.flink.streaming.api.scala.DataStream
 
 import java.sql.Timestamp
 
-// ad-hoc convenience methods to be defined on Table
+// ad-hoc convenience methods to be defined on Table 
 implicit class TableOps[T](table: DataStream[T]) {
     def asView(name: String): DataStream[T] = {
       if (stenv.listTemporaryViews.contains(name)) {
@@ -257,9 +254,9 @@ FROM
 ```
 
 ## Use interactive Scala
+<a name="notebook-example-interactive-scala"></a>
 
-This is the Scala translation of the [Use interactive SQL](#how-zeppelin-examples-interactive-sql "#how-zeppelin-examples-interactive-sql"). For more Scala examples, see
-[Table API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html") in the Apache Flink documentation.
+This is the Scala translation of the [Use interactive SQL](#how-zeppelin-examples-interactive-sql). For more Scala examples, see [Table API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html) in the Apache Flink documentation.
 
 ```
 %flink
@@ -323,9 +320,9 @@ SELECT * FROM `query02`
 ```
 
 ## Use interactive Python
+<a name="notebook-example-interactive-python"></a>
 
-This is the Python translation of the [Use interactive SQL](#how-zeppelin-examples-interactive-sql "#how-zeppelin-examples-interactive-sql"). For more Python examples, see
-[Table API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html") in the Apache Flink documentation.
+This is the Python translation of the [Use interactive SQL](#how-zeppelin-examples-interactive-sql). For more Python examples, see [Table API](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/table/tableApi.html) in the Apache Flink documentation. 
 
 ```
 %flink.pyflink
@@ -386,10 +383,9 @@ SELECT * FROM `query02`
 ```
 
 ## Use a combination of interactive Python, SQL, and Scala
+<a name="notebook-example-interactive-pythonsqlscala"></a>
 
-You can use any combination of SQL, Python, and Scala in your notebook for interactive analysis.
-In a Studio notebook that you plan to deploy as an application with durable state, you can use a combination of SQL and Scala.
-This example shows you the sections that are ignored and those that get deployed in the application with durable state.
+You can use any combination of SQL, Python, and Scala in your notebook for interactive analysis. In a Studio notebook that you plan to deploy as an application with durable state, you can use a combination of SQL and Scala. This example shows you the sections that are ignored and those that get deployed in the application with durable state.
 
 ```
 %flink.ssql
@@ -476,17 +472,11 @@ print("42!")
 ```
 
 ## Use a cross-account Kinesis data stream
+<a name="notebook-example-crossaccount-kds"></a>
 
-To use a Kinesis data stream that's in an account other than the account that has
-your Studio notebook, create a service execution role in the account where your
-Studio notebook is running and a role trust policy in the account that has the
-data stream. Use `aws.credentials.provider`,
-`aws.credentials.role.arn`, and
-`aws.credentials.role.sessionName` in the Kinesis connector in your
-create table DDL statement to create a table against the data stream.
+To use a Kinesis data stream that's in an account other than the account that has your Studio notebook, create a service execution role in the account where your Studio notebook is running and a role trust policy in the account that has the data stream. Use `aws.credentials.provider`, `aws.credentials.role.arn`, and `aws.credentials.role.sessionName` in the Kinesis connector in your create table DDL statement to create a table against the data stream.
 
-Use the following service execution role for the Studio notebook
-account.
+Use the following service execution role for the Studio notebook account.
 
 ```
 {
@@ -497,27 +487,30 @@ account.
 }
 ```
 
-Use the `AmazonKinesisFullAccess` policy and the following role
-trust policy for the data stream account.
+Use the `AmazonKinesisFullAccess` policy and the following role trust policy for the data stream account.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:root"
- },
- "Action": "sts:AssumeRole",
- "Condition": {}
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{123456789012}}:root"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {}
+        }
+    ]
+}
+```
+
+------
 
 Use the following paragraph for the create table statement.
 
@@ -531,7 +524,7 @@ age BIGINT
 'stream' = 'stream-assume-role-test',
 'aws.region' = 'us-east-1',
 'aws.credentials.provider' = 'ASSUME_ROLE',
-'aws.credentials.role.arn' = 'arn:aws:iam::`<accountID>`:role/stream-assume-role-test-role',
+'aws.credentials.role.arn' = 'arn:aws:iam::{{<accountID>}}:role/stream-assume-role-test-role',
 'aws.credentials.role.sessionName' = 'stream-assume-role-test-session',
 'scan.stream.initpos' = 'TRIM_HORIZON',
 'format' = 'json'

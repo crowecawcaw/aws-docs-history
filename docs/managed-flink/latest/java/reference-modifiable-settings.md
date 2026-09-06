@@ -1,15 +1,14 @@
-# Modifiable Flink configuration properties
 
-Following are Flink configuration settings that you can modify using a [support case](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). You can modify more than one
-property at a time, and for multiple applications at the same time by specifying the
-application prefix. If there are other Flink configuration properties outside this list
-you want to modify, specify the exact property in your case.
+
+# Modifiable Flink configuration properties
+<a name="reference-modifiable-settings"></a>
+
+Following are Flink configuration settings that you can modify using a [support case](https://console.aws.amazon.com/support/home#/). You can modify more than one property at a time, and for multiple applications at the same time by specifying the application prefix. If there are other Flink configuration properties outside this list you want to modify, specify the exact property in your case. 
 
 ## Restart strategy
+<a name="reference-modifiable-settings-fault-tolerance"></a>
 
-From Flink 1.19 and later, we use the `exponential-delay` restart
-strategy by default. All previous versions use the `fixed-delay` restart
-strategy by default.
+From Flink 1.19 and later, we use the `exponential-delay` restart strategy by default. All previous versions use the `fixed-delay` restart strategy by default.
 
 `restart-strategy:`
 
@@ -24,6 +23,7 @@ strategy by default.
 `restart-strategy.exponential-delay.reset-backoff-threshold:`
 
 ## Checkpoints and state backends
+<a name="reference-modifiable-settings-checkpoints-state-backends"></a>
 
 `state.backend.type:`
 
@@ -32,6 +32,7 @@ strategy by default.
 `state.backend.incremental:`
 
 ## Checkpointing
+<a name="reference-modifiable-settings-checkpointing"></a>
 
 `execution.checkpointing.unaligned:`
 
@@ -42,13 +43,11 @@ strategy by default.
 `execution.checkpointing.unaligned.recover-output-on-downstream.enabled:`
 
 ## RocksDB native metrics
+<a name="reference-modifiable-settings-rocksdb"></a>
 
-RocksDB Native Metrics are not shipped to CloudWatch. Once enabled, these metrics can be accessed either from the Flink dashboard or the
-Flink REST API with custom tooling.
+RocksDB Native Metrics are not shipped to CloudWatch. Once enabled, these metrics can be accessed either from the Flink dashboard or the Flink REST API with custom tooling.
 
-Managed Service for Apache Flink enables customers to access the latest Flink [REST API](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/rest_api/ "https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/rest_api/") (or
-the supported version you are using) in read-only mode using the [CreateApplicationPresignedUrl](../apiv2/API_CreateApplicationPresignedUrl.md "../apiv2/API_CreateApplicationPresignedUrl.md") API.
-This API is used by Flink’s own dashboard, but it can also be used by custom monitoring tools.
+Managed Service for Apache Flink enables customers to access the latest Flink [REST API](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/rest_api/) (or the supported version you are using) in read-only mode using the [CreateApplicationPresignedUrl](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_CreateApplicationPresignedUrl.html) API. This API is used by Flink’s own dashboard, but it can also be used by custom monitoring tools. 
 
 `state.backend.rocksdb.metrics.actual-delayed-write-rate:`
 
@@ -101,6 +100,7 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 `state.backend.rocksdb.metrics.size-all-mem-tables:`
 
 ## RocksDB options
+<a name="reference-modifiable-settings-rocksdb-options"></a>
 
 `state.backend.rocksdb.compaction.style:`
 
@@ -109,10 +109,12 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 `state.backend.rocksdb.thread.num:`
 
 ## Advanced state backends options
+<a name="reference-modifiable-settings-advanced-state-backends-options"></a>
 
 `state.storage.fs.memory-threshold:`
 
 ## Full TaskManager options
+<a name="reference-modifiable-settings-full-task-manager-options"></a>
 
 `task.cancellation.timeout:`
 
@@ -139,6 +141,7 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 `taskmanager.network.memory.buffer-debloat.threshold-percentages:`
 
 ## Memory configuration
+<a name="reference-modifiable-settings-memory-configuration"></a>
 
 `taskmanager.memory.jvm-metaspace.size:`
 
@@ -159,6 +162,7 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 `taskmanager.memory.task.off-heap.size:`
 
 ## RPC / Akka
+<a name="reference-modifiable-settings-RPC-Akka"></a>
 
 `akka.ask.timeout:`
 
@@ -171,16 +175,19 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 `akka.tcp.timeout:`
 
 ## Client
+<a name="reference-modifiable-settings-client"></a>
 
 `client.timeout:`
 
 ## Advanced cluster options
+<a name="reference-modifiable-settings-advanced-cluster-options"></a>
 
 `cluster.intercept-user-system-exit:`
 
 `cluster.processes.halt-on-fatal-error:`
 
 ## Filesystem configurations
+<a name="reference-modifiable-settings-advanced-filesystem-configurations"></a>
 
 `fs.s3.connection.maximum:`
 
@@ -191,33 +198,40 @@ This API is used by Flink’s own dashboard, but it can also be used by custom m
 `s3.upload.max.concurrent.uploads:`
 
 ## Advanced fault tolerance options
+<a name="reference-modifiable-settings-advanced-fault-tolerance-options"></a>
 
 `heartbeat.timeout:`
 
 `jobmanager.execution.failover-strategy:`
 
 ## Memory configuration
+<a name="reference-modifiable-settings-memory-configuration"></a>
 
 `jobmanager.memory.heap.size:`
 
 ## Metrics
+<a name="reference-modifiable-settings-metrics"></a>
 
 `metrics.latency.interval:`
 
 ## Advanced options for the REST endpoint and client
+<a name="reference-modifiable-settings-rest"></a>
 
 `rest.flamegraph.enabled:`
 
 `rest.server.numThreads:`
 
 ## Advanced SSL security options
+<a name="reference-modifiable-settings-ssl"></a>
 
 `security.ssl.internal.handshake-timeout:`
 
 ## Advanced scheduling options
+<a name="reference-modifiable-settings-scheduling"></a>
 
 `slot.request.timeout:`
 
 ## Advanced options for Flink web UI
+<a name="reference-modifiable-settings-webui"></a>
 
 `web.timeout:`

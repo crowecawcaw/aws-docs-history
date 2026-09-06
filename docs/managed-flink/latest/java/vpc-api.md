@@ -1,10 +1,14 @@
-# Use the Managed Service for Apache Flink VPC API
 
-Use the following Managed Service for Apache Flink API operations to manage VPCs for your application. For information on using the Managed Service for Apache Flink API, see [Managed Service for Apache Flink API example code](api-examples.md "api-examples.md").
+
+# Use the Managed Service for Apache Flink VPC API
+<a name="vpc-api"></a>
+
+Use the following Managed Service for Apache Flink API operations to manage VPCs for your application. For information on using the Managed Service for Apache Flink API, see [Managed Service for Apache Flink API example code](api-examples.md).
 
 ## Create application
+<a name="vpc-api-create"></a>
 
-Use the [CreateApplication](../apiv2/API_CreateApplication.md "../apiv2/API_CreateApplication.md") action to add a VPC configuration to your application during creation.
+Use the [CreateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_CreateApplication.html) action to add a VPC configuration to your application during creation.
 
 The following example request code for the `CreateApplication` action includes a VPC configuration when the application is created:
 
@@ -33,19 +37,20 @@ The following example request code for the `CreateApplication` action includes a
         "AutoScalingEnabled":true
       }
     },
-  `"VpcConfigurations": [
- {
- "SecurityGroupIds": [ "sg-0123456789abcdef0" ],
- "SubnetIds": [ "subnet-0123456789abcdef0" ]
- }
- ]`
+  {{"VpcConfigurations": [ 
+         { 
+            "SecurityGroupIds": [ "sg-0123456789abcdef0" ],
+            "SubnetIds": [ "subnet-0123456789abcdef0" ]
+         }
+      ]}}
   }
 }
 ```
 
 ## AddApplicationVpcConfiguration
+<a name="vpc-api-add"></a>
 
-Use the [AddApplicationVpcConfiguration](../apiv2/API_AddApplicationVpcConfiguration.md "../apiv2/API_AddApplicationVpcConfiguration.md") action to add a VPC configuration to your application after it has been created.
+Use the [AddApplicationVpcConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_AddApplicationVpcConfiguration.html) action to add a VPC configuration to your application after it has been created.
 
 The following example request code for the `AddApplicationVpcConfiguration` action adds a VPC configuration to an existing application:
 
@@ -53,17 +58,17 @@ The following example request code for the `AddApplicationVpcConfiguration` acti
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 9,
-   "VpcConfiguration": {
+   "VpcConfiguration": { 
       "SecurityGroupIds": [ "sg-0123456789abcdef0" ],
       "SubnetIds": [ "subnet-0123456789abcdef0" ]
    }
 }
-
 ```
 
 ## DeleteApplicationVpcConfiguration
+<a name="vpc-api-del"></a>
 
-Use the [DeleteApplicationVpcConfiguration](../apiv2/API_DeleteApplicationVpcConfiguration.md "../apiv2/API_DeleteApplicationVpcConfiguration.md") action to remove a VPC configuration from your application.
+Use the [DeleteApplicationVpcConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteApplicationVpcConfiguration.html) action to remove a VPC configuration from your application.
 
 The following example request code for the `AddApplicationVpcConfiguration` action removes an existing VPC configuration from an application:
 
@@ -73,20 +78,20 @@ The following example request code for the `AddApplicationVpcConfiguration` acti
    "CurrentApplicationVersionId": 9,
    "VpcConfigurationId": "1.1"
 }
-
 ```
 
 ## Update application
+<a name="vpc-api-upd"></a>
 
-Use the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action to update all of an application's VPC configurations at once.
+Use the [UpdateApplication](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_UpdateApplication.html) action to update all of an application's VPC configurations at once.
 
 The following example request code for the `UpdateApplication` action updates all of the VPC configurations for an application:
 
 ```
 {
-   "ApplicationConfigurationUpdate": {
-      "VpcConfigurationUpdates": [
-         {
+   "ApplicationConfigurationUpdate": { 
+      "VpcConfigurationUpdates": [ 
+         { 
             "SecurityGroupIdUpdates": [ "sg-0123456789abcdef0" ],
             "SubnetIdUpdates": [ "subnet-0123456789abcdef0" ],
             "VpcConfigurationId": "2.1"
@@ -96,5 +101,4 @@ The following example request code for the `UpdateApplication` action updates al
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 9
 }
-
 ```

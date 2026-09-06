@@ -1,16 +1,15 @@
+
+
 # Programmatic Flink configuration properties
+<a name="programmatic-configuration"></a>
 
-Following are Flink configuration properties that you can modify directly in your
-application code. Starting with MSF 2.2, an exception will be thrown if you try to
-modify a property not listed on this page in your application code.
+Following are Flink configuration properties that you can modify directly in your application code. Starting with MSF 2.2, an exception will be thrown if you try to modify a property not listed on this page in your application code.
 
-###### Note
-
-These properties are distinct from settings modified via AWS Support case. For
-infrastructure-level settings such as TaskManager memory, state backend, RocksDB
-tuning, and restart strategies, see [Modifiable Flink configuration properties](reference-modifiable-settings.md "reference-modifiable-settings.md").
+**Note**  
+These properties are distinct from settings modified via AWS Support case. For infrastructure-level settings such as TaskManager memory, state backend, RocksDB tuning, and restart strategies, see [Modifiable Flink configuration properties](reference-modifiable-settings.md).
 
 ## Pipeline configuration
+<a name="programmatic-configuration-pipeline"></a>
 
 `execution.runtime-mode`
 
@@ -55,12 +54,14 @@ tuning, and restart strategies, see [Modifiable Flink configuration properties](
 `pipeline.watermark-alignment.allow-unaligned-source-splits`
 
 ## Network
+<a name="programmatic-configuration-network"></a>
 
 `taskmanager.network.adaptive-partitioner.enabled`
 
 `taskmanager.network.adaptive-partitioner.max-traverse-size`
 
 ## Python API
+<a name="programmatic-configuration-python"></a>
 
 `python.execution-mode`
 
@@ -75,6 +76,7 @@ tuning, and restart strategies, see [Modifiable Flink configuration properties](
 `python.internal.requirements-file-key`
 
 ## Table API / SQL
+<a name="programmatic-configuration-table-api"></a>
 
 `table.exec.async-lookup.buffer-capacity`
 

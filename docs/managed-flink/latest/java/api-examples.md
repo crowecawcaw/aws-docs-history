@@ -1,10 +1,11 @@
+
+
 # Managed Service for Apache Flink API example code
+<a name="api-examples"></a>
 
 This topic contains example request blocks for Managed Service for Apache Flink actions.
 
-To use JSON as the input for an action with the AWS Command Line Interface (AWS CLI), save the request in a
-JSON file. Then pass the file name into the action using the `--cli-input-json`
-parameter.
+To use JSON as the input for an action with the AWS Command Line Interface (AWS CLI), save the request in a JSON file. Then pass the file name into the action using the `--cli-input-json` parameter. 
 
 The following example demonstrates how to use a JSON file with an action.
 
@@ -12,41 +13,37 @@ The following example demonstrates how to use a JSON file with an action.
 $ aws kinesisanalyticsv2 start-application --cli-input-json file://start.json
 ```
 
-For more information about using JSON with the AWS CLI, see [Generate CLI Skeleton and CLI Input JSON
-Parameters](../../../cli/latest/userguide/generate-cli-skeleton.md "../../../cli/latest/userguide/generate-cli-skeleton.md") in the _AWS Command Line Interface User Guide_.
+For more information about using JSON with the AWS CLI, see [Generate CLI Skeleton and CLI Input JSON Parameters](https://docs.aws.amazon.com/cli/latest/userguide/generate-cli-skeleton.html) in the *AWS Command Line Interface User Guide*.
 
-###### Topics
-
-- [AddApplicationCloudWatchLoggingOption](#api-examples-addapplicationcloudwatchloggingoption "#api-examples-addapplicationcloudwatchloggingoption")
-- [AddApplicationInput](#api-examples-addapplicationinput "#api-examples-addapplicationinput")
-- [AddApplicationInputProcessingConfiguration](#api-examples-addapplicationinputprocessingconfiguration "#api-examples-addapplicationinputprocessingconfiguration")
-- [AddApplicationOutput](#api-examples-addapplicationoutput "#api-examples-addapplicationoutput")
-- [AddApplicationReferenceDataSource](#api-examples-addapplicationreferencedatasource "#api-examples-addapplicationreferencedatasource")
-- [AddApplicationVpcConfiguration](#api-examples-AddApplicationVpcConfiguration "#api-examples-AddApplicationVpcConfiguration")
-- [CreateApplication](#api-examples-createapplication "#api-examples-createapplication")
-- [CreateApplicationSnapshot](#api-examples-createapplicationsnapshot "#api-examples-createapplicationsnapshot")
-- [DeleteApplication](#api-examples-deleteapplication "#api-examples-deleteapplication")
-- [DeleteApplicationCloudWatchLoggingOption](#api-examples-deleteapplicationcloudwatchloggingoption "#api-examples-deleteapplicationcloudwatchloggingoption")
-- [DeleteApplicationInputProcessingConfiguration](#api-examples-deleteapplicationinputprocessingconfiguration "#api-examples-deleteapplicationinputprocessingconfiguration")
-- [DeleteApplicationOutput](#api-examples-deleteapplicationoutput "#api-examples-deleteapplicationoutput")
-- [DeleteApplicationReferenceDataSource](#api-examples-deleteapplicationreferencedatasource "#api-examples-deleteapplicationreferencedatasource")
-- [DeleteApplicationSnapshot](#api-examples-deleteapplicationsnapshot "#api-examples-deleteapplicationsnapshot")
-- [DeleteApplicationVpcConfiguration](#api-examples-DeleteApplicationVpcConfiguration "#api-examples-DeleteApplicationVpcConfiguration")
-- [DescribeApplication](#api-examples-describeapplication "#api-examples-describeapplication")
-- [DescribeApplicationSnapshot](#api-examples-describeapplicationsnapshot "#api-examples-describeapplicationsnapshot")
-- [DiscoverInputSchema](#api-examples-discoverinputschema "#api-examples-discoverinputschema")
-- [ListApplications](#api-examples-listapplications "#api-examples-listapplications")
-- [ListApplicationSnapshots](#api-examples-listapplicationsnapshots "#api-examples-listapplicationsnapshots")
-- [StartApplication](#api-examples-startapplication "#api-examples-startapplication")
-- [StopApplication](#api-examples-stopapplication "#api-examples-stopapplication")
-- [UpdateApplication](#api-examples-updateapplication "#api-examples-updateapplication")
+**Topics**
++ [AddApplicationCloudWatchLoggingOption](#api-examples-addapplicationcloudwatchloggingoption)
++ [AddApplicationInput](#api-examples-addapplicationinput)
++ [AddApplicationInputProcessingConfiguration](#api-examples-addapplicationinputprocessingconfiguration)
++ [AddApplicationOutput](#api-examples-addapplicationoutput)
++ [AddApplicationReferenceDataSource](#api-examples-addapplicationreferencedatasource)
++ [AddApplicationVpcConfiguration](#api-examples-AddApplicationVpcConfiguration)
++ [CreateApplication](#api-examples-createapplication)
++ [CreateApplicationSnapshot](#api-examples-createapplicationsnapshot)
++ [DeleteApplication](#api-examples-deleteapplication)
++ [DeleteApplicationCloudWatchLoggingOption](#api-examples-deleteapplicationcloudwatchloggingoption)
++ [DeleteApplicationInputProcessingConfiguration](#api-examples-deleteapplicationinputprocessingconfiguration)
++ [DeleteApplicationOutput](#api-examples-deleteapplicationoutput)
++ [DeleteApplicationReferenceDataSource](#api-examples-deleteapplicationreferencedatasource)
++ [DeleteApplicationSnapshot](#api-examples-deleteapplicationsnapshot)
++ [DeleteApplicationVpcConfiguration](#api-examples-DeleteApplicationVpcConfiguration)
++ [DescribeApplication](#api-examples-describeapplication)
++ [DescribeApplicationSnapshot](#api-examples-describeapplicationsnapshot)
++ [DiscoverInputSchema](#api-examples-discoverinputschema)
++ [ListApplications](#api-examples-listapplications)
++ [ListApplicationSnapshots](#api-examples-listapplicationsnapshots)
++ [StartApplication](#api-examples-startapplication)
++ [StopApplication](#api-examples-stopapplication)
++ [UpdateApplication](#api-examples-updateapplication)
 
 ## AddApplicationCloudWatchLoggingOption
+<a name="api-examples-addapplicationcloudwatchloggingoption"></a>
 
-The following example request code for the
-[AddApplicationCloudWatchLoggingOption](../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.md "../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.md")
-action adds an Amazon CloudWatch
-logging option to a Managed Service for Apache Flink application:
+The following example request code for the [AddApplicationCloudWatchLoggingOption](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationCloudWatchLoggingOption.html) action adds an Amazon CloudWatch logging option to a Managed Service for Apache Flink application:
 
 ```
 {
@@ -56,25 +53,24 @@ logging option to a Managed Service for Apache Flink application:
     },
     "CurrentApplicationVersionId": 2
 }
-
 ```
 
 ## AddApplicationInput
+<a name="api-examples-addapplicationinput"></a>
 
-The following example request code for the [AddApplicationInput](../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInput.md "../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInput.md")
-action adds an application input to a Managed Service for Apache Flink application:
+The following example request code for the [AddApplicationInput](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInput.html) action adds an application input to a Managed Service for Apache Flink application:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 2,
-   "Input": {
-      "InputParallelism": {
+   "Input": { 
+      "InputParallelism": { 
          "Count": 2
       },
-      "InputSchema": {
-         "RecordColumns": [
-            {
+      "InputSchema": { 
+         "RecordColumns": [ 
+            { 
                "Mapping": "$.TICKER",
                "Name": "TICKER_SYMBOL",
                "SqlType": "VARCHAR(50)"
@@ -86,93 +82,88 @@ action adds an application input to a Managed Service for Apache Flink applicati
             }
          ],
          "RecordEncoding": "UTF-8",
-         "RecordFormat": {
-            "MappingParameters": {
-               "JSONMappingParameters": {
+         "RecordFormat": { 
+            "MappingParameters": { 
+               "JSONMappingParameters": { 
                   "RecordRowPath": "$"
                }
             },
             "RecordFormatType": "JSON"
          }
       },
-      "KinesisStreamsInput": {
+      "KinesisStreamsInput": { 
          "ResourceARN": "arn:aws:kinesis:us-east-1:012345678901:stream/ExampleInputStream"
       }
    }
 }
-
 ```
 
 ## AddApplicationInputProcessingConfiguration
+<a name="api-examples-addapplicationinputprocessingconfiguration"></a>
 
-The following example request code for the [AddApplicationInputProcessingConfiguration](../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInputProcessingConfiguration.md "../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInputProcessingConfiguration.md")
-action adds an application input processing configuration to a Managed Service for Apache Flink application:
+The following example request code for the [AddApplicationInputProcessingConfiguration](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationInputProcessingConfiguration.html) action adds an application input processing configuration to a Managed Service for Apache Flink application:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 2,
    "InputId": "2.1",
-   "InputProcessingConfiguration": {
-      "InputLambdaProcessor": {
+   "InputProcessingConfiguration": { 
+      "InputLambdaProcessor": { 
          "ResourceARN": "arn:aws:lambda:us-east-1:012345678901:function:MyLambdaFunction"
       }
    }
 }
-
 ```
 
 ## AddApplicationOutput
+<a name="api-examples-addapplicationoutput"></a>
 
-The following example request code for the [AddApplicationOutput](../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationOutput.md "../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationOutput.md")
-
-action adds a Kinesis data stream as an application output to a Managed Service for Apache Flink application:
+The following example request code for the [AddApplicationOutput](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationOutput.html) action adds a Kinesis data stream as an application output to a Managed Service for Apache Flink application:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 2,
-   "Output": {
-      "DestinationSchema": {
+   "Output": { 
+      "DestinationSchema": { 
          "RecordFormatType": "JSON"
       },
-      "KinesisStreamsOutput": {
+      "KinesisStreamsOutput": { 
          "ResourceARN": "arn:aws:kinesis:us-east-1:012345678901:stream/ExampleOutputStream"
       },
       "Name": "DESTINATION_SQL_STREAM"
    }
 }
-
 ```
 
 ## AddApplicationReferenceDataSource
+<a name="api-examples-addapplicationreferencedatasource"></a>
 
-The following example request code for the [AddApplicationReferenceDataSource](../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationReferenceDataSource.md "../../../managed-service-for-apache-flink/latest/apiv2/API_AddApplicationReferenceDataSource.md")
-
-action adds a CSV application reference data source to a Managed Service for Apache Flink application:
+The following example request code for the [AddApplicationReferenceDataSource](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_AddApplicationReferenceDataSource.html) action adds a CSV application reference data source to a Managed Service for Apache Flink application:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 5,
-   "ReferenceDataSource": {
-      "ReferenceSchema": {
-         "RecordColumns": [
-            {
+   "ReferenceDataSource": { 
+      "ReferenceSchema": { 
+         "RecordColumns": [ 
+            { 
                "Mapping": "$.TICKER",
                "Name": "TICKER",
                "SqlType": "VARCHAR(4)"
             },
-            {
+            { 
                "Mapping": "$.COMPANYNAME",
                "Name": "COMPANY_NAME",
                "SqlType": "VARCHAR(40)"
             },
          ],
          "RecordEncoding": "UTF-8",
-         "RecordFormat": {
-            "MappingParameters": {
-               "CSVMappingParameters": {
+         "RecordFormat": { 
+            "MappingParameters": { 
+               "CSVMappingParameters": { 
                   "RecordColumnDelimiter": " ",
                   "RecordRowDelimiter": "\r\n"
                }
@@ -180,37 +171,35 @@ action adds a CSV application reference data source to a Managed Service for Apa
             "RecordFormatType": "CSV"
          }
       },
-      "S3ReferenceDataSource": {
+      "S3ReferenceDataSource": { 
          "BucketARN": "arn:aws:s3:::amzn-s3-demo-bucket",
          "FileKey": "TickerReference.csv"
       },
       "TableName": "string"
    }
 }
-
 ```
 
 ## AddApplicationVpcConfiguration
+<a name="api-examples-AddApplicationVpcConfiguration"></a>
 
-The following example request code for the
-[AddApplicationVpcConfiguration](../apiv2/API_AddApplicationVpcConfiguration.md "../apiv2/API_AddApplicationVpcConfiguration.md") action adds a VPC configuration to an existing application:
+The following example request code for the [AddApplicationVpcConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_AddApplicationVpcConfiguration.html) action adds a VPC configuration to an existing application:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "CurrentApplicationVersionId": 9,
-   "VpcConfiguration": {
+   "VpcConfiguration": { 
       "SecurityGroupIds": [ "sg-0123456789abcdef0" ],
       "SubnetIds": [ "subnet-0123456789abcdef0" ]
    }
 }
-
 ```
 
 ## CreateApplication
+<a name="api-examples-createapplication"></a>
 
-The following example request code for the [CreateApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.md")
-action creates a Managed Service for Apache Flink application:
+The following example request code for the [CreateApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplication.html) action creates a Managed Service for Apache Flink application:
 
 ```
 {
@@ -225,15 +214,15 @@ action creates a Managed Service for Apache Flink application:
   ],
   "ApplicationConfiguration": {
     "EnvironmentProperties":
-      {"PropertyGroups":
+      {"PropertyGroups": 
         [
           {"PropertyGroupId": "ConsumerConfigProperties",
-            "PropertyMap":
+            "PropertyMap": 
               {"aws.region": "us-east-1",
               "flink.stream.initpos": "LATEST"}
           },
           {"PropertyGroupId": "ProducerConfigProperties",
-            "PropertyMap":
+            "PropertyMap": 
               {"aws.region": "us-east-1"}
           },
         ]
@@ -258,39 +247,34 @@ action creates a Managed Service for Apache Flink application:
     }
   }
 }
-
 ```
 
 ## CreateApplicationSnapshot
+<a name="api-examples-createapplicationsnapshot"></a>
 
-The following example request code for the
-[CreateApplicationSnapshot](../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.md "../../../managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.md")
-action creates a snapshot of application state:
+The following example request code for the [CreateApplicationSnapshot](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_CreateApplicationSnapshot.html) action creates a snapshot of application state:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "SnapshotName": "MySnapshot"
 }
-
 ```
 
 ## DeleteApplication
+<a name="api-examples-deleteapplication"></a>
 
-The following example request code for the [DeleteApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplication.md")
-action deletes a Managed Service for Apache Flink application:
+The following example request code for the [DeleteApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplication.html) action deletes a Managed Service for Apache Flink application:
 
 ```
 {"ApplicationName": "MyApplication",
 "CreateTimestamp": 12345678912}
-
 ```
 
 ## DeleteApplicationCloudWatchLoggingOption
+<a name="api-examples-deleteapplicationcloudwatchloggingoption"></a>
 
-The following example request code for the [DeleteApplicationCloudWatchLoggingOption](../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.md")
-action deletes an Amazon CloudWatch
-logging option from a Managed Service for Apache Flink application:
+The following example request code for the [DeleteApplicationCloudWatchLoggingOption](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationCloudWatchLoggingOption.html) action deletes an Amazon CloudWatch logging option from a Managed Service for Apache Flink application:
 
 ```
 {
@@ -298,14 +282,12 @@ logging option from a Managed Service for Apache Flink application:
     "CloudWatchLoggingOptionId": "3.1"
     "CurrentApplicationVersionId": 3
 }
-
 ```
 
 ## DeleteApplicationInputProcessingConfiguration
+<a name="api-examples-deleteapplicationinputprocessingconfiguration"></a>
 
-The following example request code for the [DeleteApplicationInputProcessingConfiguration](../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.md")
-
-action removes an input processing configuration from a Managed Service for Apache Flink application:
+The following example request code for the [DeleteApplicationInputProcessingConfiguration](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationInputProcessingConfiguration.html) action removes an input processing configuration from a Managed Service for Apache Flink application:
 
 ```
 {
@@ -313,14 +295,12 @@ action removes an input processing configuration from a Managed Service for Apac
    "CurrentApplicationVersionId": 4,
    "InputId": "2.1"
 }
-
 ```
 
 ## DeleteApplicationOutput
+<a name="api-examples-deleteapplicationoutput"></a>
 
-The following example request code for the [DeleteApplicationOutput](../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationOutput.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationOutput.md")
-
-action removes an application output from a Managed Service for Apache Flink application:
+The following example request code for the [DeleteApplicationOutput](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationOutput.html) action removes an application output from a Managed Service for Apache Flink application:
 
 ```
 {
@@ -328,14 +308,12 @@ action removes an application output from a Managed Service for Apache Flink app
    "CurrentApplicationVersionId": 4,
    "OutputId": "4.1"
 }
-
 ```
 
 ## DeleteApplicationReferenceDataSource
+<a name="api-examples-deleteapplicationreferencedatasource"></a>
 
-The following example request code for the [DeleteApplicationReferenceDataSource](../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationReferenceDataSource.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationReferenceDataSource.md")
-
-action removes an application reference data source from a Managed Service for Apache Flink application:
+The following example request code for the [DeleteApplicationReferenceDataSource](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationReferenceDataSource.html) action removes an application reference data source from a Managed Service for Apache Flink application:
 
 ```
 {
@@ -343,13 +321,12 @@ action removes an application reference data source from a Managed Service for A
    "CurrentApplicationVersionId": 5,
    "ReferenceId": "5.1"
 }
-
 ```
 
 ## DeleteApplicationSnapshot
+<a name="api-examples-deleteapplicationsnapshot"></a>
 
-The following example request code for the [DeleteApplicationSnapshot](../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationSnapshot.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationSnapshot.md")
-action deletes a snapshot of application state:
+The following example request code for the [DeleteApplicationSnapshot](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DeleteApplicationSnapshot.html) action deletes a snapshot of application state:
 
 ```
 {
@@ -357,12 +334,12 @@ action deletes a snapshot of application state:
    "SnapshotCreationTimestamp": 12345678912,
    "SnapshotName": "MySnapshot"
 }
-
 ```
 
 ## DeleteApplicationVpcConfiguration
+<a name="api-examples-DeleteApplicationVpcConfiguration"></a>
 
-The following example request code for the [DeleteApplicationVpcConfiguration](../apiv2/API_DeleteApplicationVpcConfiguration.md "../apiv2/API_DeleteApplicationVpcConfiguration.md") action removes an existing VPC configuration from an application:
+The following example request code for the [DeleteApplicationVpcConfiguration](https://docs.aws.amazon.com/managed-flink/latest/apiv2/API_DeleteApplicationVpcConfiguration.html) action removes an existing VPC configuration from an application:
 
 ```
 {
@@ -370,152 +347,132 @@ The following example request code for the [DeleteApplicationVpcConfiguration](.
    "CurrentApplicationVersionId": 9,
    "VpcConfigurationId": "1.1"
 }
-
 ```
 
 ## DescribeApplication
+<a name="api-examples-describeapplication"></a>
 
-The following example request code for the [DescribeApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.md")
-
-action returns details about a Managed Service for Apache Flink application:
+The following example request code for the [DescribeApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplication.html) action returns details about a Managed Service for Apache Flink application:
 
 ```
 {"ApplicationName": "MyApplication"}
-
 ```
 
 ## DescribeApplicationSnapshot
+<a name="api-examples-describeapplicationsnapshot"></a>
 
-The following example request code for the [DescribeApplicationSnapshot](../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.md")
-
-action returns details about a snapshot of application state:
+The following example request code for the [DescribeApplicationSnapshot](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DescribeApplicationSnapshot.html) action returns details about a snapshot of application state:
 
 ```
 {
    "ApplicationName": "MyApplication",
    "SnapshotName": "MySnapshot"
 }
-
 ```
 
 ## DiscoverInputSchema
+<a name="api-examples-discoverinputschema"></a>
 
-The following example request code for the [DiscoverInputSchema](../../../managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.md")
-
-action generates a schema from a streaming source:
+The following example request code for the [DiscoverInputSchema](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.html) action generates a schema from a streaming source:
 
 ```
 {
-   "InputProcessingConfiguration": {
-      "InputLambdaProcessor": {
+   "InputProcessingConfiguration": { 
+      "InputLambdaProcessor": { 
          "ResourceARN": "arn:aws:lambda:us-east-1:012345678901:function:MyLambdaFunction"
       }
    },
-   "InputStartingPositionConfiguration": {
+   "InputStartingPositionConfiguration": { 
       "InputStartingPosition": "NOW"
    },
    "ResourceARN": "arn:aws:kinesis:us-east-1:012345678901:stream/ExampleInputStream",
-   "S3Configuration": {
+   "S3Configuration": { 
       "BucketARN": "string",
       "FileKey": "string"
    },
    "ServiceExecutionRole": "string"
 }
-
 ```
 
-The following example request code for the [DiscoverInputSchema](../../../managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.md "../../../managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.md")
-
-action generates a schema from a reference source:
+The following example request code for the [DiscoverInputSchema](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_DiscoverInputSchema.html) action generates a schema from a reference source:
 
 ```
 {
-   "S3Configuration": {
+   "S3Configuration": { 
       "BucketARN": "arn:aws:s3:::amzn-s3-demo-bucket",
       "FileKey": "TickerReference.csv"
    },
    "ServiceExecutionRole": "arn:aws:iam::123456789123:role/myrole"
 }
-
 ```
 
 ## ListApplications
+<a name="api-examples-listapplications"></a>
 
-The following example request code for the [ListApplications](../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplications.md "../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplications.md")
-action returns a list of Managed Service for Apache Flink applications in your account:
+The following example request code for the [ListApplications](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListApplications.html) action returns a list of Managed Service for Apache Flink applications in your account:
 
 ```
 {
    "ExclusiveStartApplicationName": "MyApplication",
    "Limit": 50
 }
-
 ```
 
 ## ListApplicationSnapshots
+<a name="api-examples-listapplicationsnapshots"></a>
 
-The following example request code for the [ListApplicationSnapshots](../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.md "../../../managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.md")
-
-action returns a list of snapshots of application state:
+The following example request code for the [ListApplicationSnapshots](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_ListApplicationSnapshots.html) action returns a list of snapshots of application state:
 
 ```
 {"ApplicationName": "MyApplication",
    "Limit": 50,
    "NextToken": "aBcDeFgHiJkLmNoPqRsTuVwXyZ0123"
 }
-
 ```
 
 ## StartApplication
+<a name="api-examples-startapplication"></a>
 
-The following example request code for the [StartApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StartApplication.md")
-
-action starts a Managed Service for Apache Flink application, and loads the application state from the latest
-snapshot (if any):
+The following example request code for the [StartApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StartApplication.html) action starts a Managed Service for Apache Flink application, and loads the application state from the latest snapshot (if any):
 
 ```
 {
     "ApplicationName": "MyApplication",
     "RunConfiguration": {
-        "ApplicationRestoreConfiguration": {
+        "ApplicationRestoreConfiguration": { 
          "ApplicationRestoreType": "RESTORE_FROM_LATEST_SNAPSHOT"
          }
     }
 }
-
 ```
 
 ## StopApplication
+<a name="api-examples-stopapplication"></a>
 
-The following example request code for the
-[API\_StopApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_StopApplication.md")
-action stops a Managed Service for Apache Flink application:
+The following example request code for the [API\_StopApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_StopApplication.html) action stops a Managed Service for Apache Flink application:
 
 ```
 {"ApplicationName": "MyApplication"}
-
 ```
 
 ## UpdateApplication
+<a name="api-examples-updateapplication"></a>
 
-The following example request code for the [UpdateApplication](../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md "../../../managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.md")
-action updates a Managed Service for Apache Flink application to change the location
-of the application code:
+The following example request code for the [UpdateApplication](https://docs.aws.amazon.com/managed-service-for-apache-flink/latest/apiv2/API_UpdateApplication.html) action updates a Managed Service for Apache Flink application to change the location of the application code:
 
 ```
 {"ApplicationName": "MyApplication",
 "CurrentApplicationVersionId": 1,
-"ApplicationConfigurationUpdate": {
-      "ApplicationCodeConfigurationUpdate": {
+"ApplicationConfigurationUpdate": { 
+      "ApplicationCodeConfigurationUpdate": { 
          "CodeContentTypeUpdate": "ZIPFILE",
-         "CodeContentUpdate": {
-            "S3ContentLocationUpdate": {
-               "BucketARNUpdate": "`arn:aws:s3:::amzn-s3-demo-bucket`",
-               "FileKeyUpdate": "`my_new_code.zip`",
+         "CodeContentUpdate": { 
+            "S3ContentLocationUpdate": { 
+               "BucketARNUpdate": "{{arn:aws:s3:::amzn-s3-demo-bucket}}",
+               "FileKeyUpdate": "{{my_new_code.zip}}",
                "ObjectVersionUpdate": "2"
          }
       }
    }
 }
-
 ```

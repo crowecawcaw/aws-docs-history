@@ -1,10 +1,12 @@
-# Enable checkpointing
 
-You enable checkpointing by using environment settings. For information about checkpointing, see
-[Fault Tolerance](how-fault.md "how-fault.md")
-in the [Managed Service for Apache Flink Developer Guide](../java.md "../java.md").
+
+# Enable checkpointing
+<a name="how-zeppelin-checkpoint"></a>
+
+You enable checkpointing by using environment settings. For information about checkpointing, see [Fault Tolerance](https://docs.aws.amazon.com/managed-flink/latest/java/how-fault.html) in the [Managed Service for Apache Flink Developer Guide](https://docs.aws.amazon.com/managed-flink/latest/java/).
 
 ## Set the checkpointing interval
+<a name="how-zeppelin-checkpoint-interval"></a>
 
 The following Scala code example sets your application's checkpoint interval to one minute:
 
@@ -22,6 +24,7 @@ st_env.get_config().get_configuration().set_string(
 ```
 
 ## Set the checkpointing type
+<a name="how-zeppelin-checkpoint-type"></a>
 
 The following Scala code example sets your application's checkpoint mode to `EXACTLY_ONCE` (the default):
 

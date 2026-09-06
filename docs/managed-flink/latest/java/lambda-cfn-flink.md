@@ -1,19 +1,19 @@
-# Use CloudFormation with Managed Service for Apache Flink
 
-The following exercise shows how to start a Flink application created with CloudFormation using a
-Lambda function in the same stack.
+
+# Use CloudFormation with Managed Service for Apache Flink
+<a name="lambda-cfn-flink"></a>
+
+The following exercise shows how to start a Flink application created with CloudFormation using a Lambda function in the same stack. 
 
 ## Before you begin
+<a name="before-you-begin"></a>
 
-Before you begin this exercise, follow the steps on creating a Flink application using CloudFormation at
-[AWS::KinesisAnalytics::Application](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-analyticsapplication.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-analyticsapplication.md").
+Before you begin this exercise, follow the steps on creating a Flink application using CloudFormation at [AWS::KinesisAnalytics::Application](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-analyticsapplication.html).
 
 ## Write a Lambda function
+<a name="write-lambda-function"></a>
 
-To start a Flink application after creation or update, we use the kinesisanalyticsv2
-[start-application](../../../cli/latest/reference/kinesisanalyticsv2/start-application.md "../../../cli/latest/reference/kinesisanalyticsv2/start-application.md") API. The call will be
-triggered by an CloudFormation event after Flink application creation. We’ll discuss how to set up the stack to trigger the Lambda function later in this exercise,
-but first we focus on the Lambda function declaration and its code. We use `Python3.8` runtime in this example.
+To start a Flink application after creation or update, we use the kinesisanalyticsv2 [start-application](https://docs.aws.amazon.com/cli/latest/reference/kinesisanalyticsv2/start-application.html) API. The call will be triggered by an CloudFormation event after Flink application creation. We’ll discuss how to set up the stack to trigger the Lambda function later in this exercise, but first we focus on the Lambda function declaration and its code. We use `Python3.8` runtime in this example. 
 
 ```
 StartApplicationLambda:
@@ -30,67 +30,63 @@ StartApplicationLambda:
           import logging
           import cfnresponse
           import boto3
-
+          
           logger = logging.getLogger()
           logger.setLevel(logging.INFO)
-
+          
           def lambda_handler(event, context):
             logger.info('Incoming CFN event {}'.format(event))
-
+            
             try:
               application_name = event['ResourceProperties']['ApplicationName']
-
+              
               # filter out events other than Create or Update,
               # you can also omit Update in order to start an application on Create only.
               if event['RequestType'] not in ["Create", "Update"]:
-                logger.info('No-op for Application {} because CFN RequestType {} is filtered'.format(application_name, event['RequestType']))
+                logger.info('No-op for Application {} because CFN RequestType {} is filtered'.format(application_name, event['RequestType'])) 
                 cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
-
+                
                 return
-
+              
               # use kinesisanalyticsv2 API to start an application.
               client_kda = boto3.client('kinesisanalyticsv2', region_name=event['ResourceProperties']['Region'])
-
+              
               # get application status.
               describe_response = client_kda.describe_application(ApplicationName=application_name)
               application_status = describe_response['ApplicationDetail']['ApplicationStatus']
-
+              
               # an application can be started from 'READY' status only.
               if application_status != 'READY':
-                logger.info('No-op for Application {} because ApplicationStatus {} is filtered'.format(application_name, application_status))
+                logger.info('No-op for Application {} because ApplicationStatus {} is filtered'.format(application_name, application_status)) 
                 cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
-
+                
                 return
-
-              # create RunConfiguration.
-              run_configuration = {
+              
+              # create RunConfiguration. 
+              run_configuration = { 
                 'ApplicationRestoreConfiguration': {
                   'ApplicationRestoreType': 'RESTORE_FROM_LATEST_SNAPSHOT',
                 }
               }
-
-              logger.info('RunConfiguration for Application {}: {}'.format(application_name, run_configuration))
-
+                            
+              logger.info('RunConfiguration for Application {}: {}'.format(application_name, run_configuration)) 
+              
               # this call doesn't wait for an application to transfer to 'RUNNING' state.
               client_kda.start_application(ApplicationName=application_name, RunConfiguration=run_configuration)
-
-              logger.info('Started Application: {}'.format(application_name))
+              
+              logger.info('Started Application: {}'.format(application_name)) 
               cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
             except Exception as err:
               logger.error(err)
               cfnresponse.send(event,context, cfnresponse.FAILED, {"Data": str(err)})
 ```
 
-In the preceding code, Lambda processes incoming CloudFormation events, filters out everything
-besides `Create` and `Update`, gets the application state and start it
-if the state is `READY`. To get the application state, you must create the Lambda
-role, as shown following.
+In the preceding code, Lambda processes incoming CloudFormation events, filters out everything besides `Create` and `Update`, gets the application state and start it if the state is `READY`. To get the application state, you must create the Lambda role, as shown following.
 
 ## Create a Lambda role
+<a name="create-lambda-role"></a>
 
-You create a role for Lambda to successfully “talk” to the application and write logs.
-This role uses default managed policies, but you might want to narrow it down to using custom
-policies.
+You create a role for Lambda to successfully “talk” to the application and write logs. This role uses default managed policies, but you might want to narrow it down to using custom policies.
 
 ```
 StartApplicationLambdaRole:
@@ -99,7 +95,7 @@ StartApplicationLambdaRole:
     Properties:
       Description: A role for lambda to use while interacting with an application.
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -116,9 +112,9 @@ StartApplicationLambdaRole:
 Note that the Lambda resources will be created after creation of the Flink application in the same stack because they depend on it.
 
 ## Invoke the Lambda function
+<a name="invoking-lambda-function"></a>
 
-Now all that is left is to invoke the Lambda function. You do this by using a [custom
-resource](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.md").
+Now all that is left is to invoke the Lambda function. You do this by using a [custom resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html).
 
 ```
 StartApplicationLambdaInvoke:
@@ -132,15 +128,12 @@ StartApplicationLambdaInvoke:
       ApplicationName: !Ref TestFlinkApplication
 ```
 
-This is all you need to start your Flink application using Lambda. You are now ready to create your own stack or use the full example below
-to see how all those steps work in practice.
+This is all you need to start your Flink application using Lambda. You are now ready to create your own stack or use the full example below to see how all those steps work in practice.
 
 ## Review an extended example
+<a name="lambda-cfn-flink-full-example"></a>
 
-The following example is a slightly extended version of the previous steps with an
-additional `RunConfiguration` adjusting done via [template
-parameters](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md"). This is a working stack for you to try. Be sure to read the accompanying
-notes:
+The following example is a slightly extended version of the previous steps with an additional `RunConfiguration` adjusting done via [template parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html). This is a working stack for you to try. Be sure to read the accompanying notes: 
 
 stack.yaml
 
@@ -174,11 +167,11 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
-              Service:
+              Service: 
                 - kinesisanlaytics.amazonaws.com
             Action: sts:AssumeRole
       ManagedPolicyArns:
@@ -230,14 +223,14 @@ Resources:
             S3ContentLocation:
               BucketARN: !Ref CodeContentBucketArn
               FileKey: !Ref CodeContentFileKey
-          CodeContentType: 'ZIPFILE'
+          CodeContentType: 'ZIPFILE'     
   StartApplicationLambdaRole:
     Type: AWS::IAM::Role
     DependsOn: TestFlinkApplication
     Properties:
       Description: A role for lambda to use while interacting with an application.
       AssumeRolePolicyDocument:
-        Version: '2012-10-17'
+        Version: '2012-10-17		 	 	 '
         Statement:
           - Effect: Allow
             Principal:
@@ -263,40 +256,40 @@ Resources:
           import logging
           import cfnresponse
           import boto3
-
+          
           logger = logging.getLogger()
           logger.setLevel(logging.INFO)
-
+          
           def lambda_handler(event, context):
             logger.info('Incoming CFN event {}'.format(event))
-
+            
             try:
               application_name = event['ResourceProperties']['ApplicationName']
-
+              
               # filter out events other than Create or Update,
               # you can also omit Update in order to start an application on Create only.
               if event['RequestType'] not in ["Create", "Update"]:
-                logger.info('No-op for Application {} because CFN RequestType {} is filtered'.format(application_name, event['RequestType']))
+                logger.info('No-op for Application {} because CFN RequestType {} is filtered'.format(application_name, event['RequestType'])) 
                 cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
-
+                
                 return
-
+              
               # use kinesisanalyticsv2 API to start an application.
               client_kda = boto3.client('kinesisanalyticsv2', region_name=event['ResourceProperties']['Region'])
-
+              
               # get application status.
               describe_response = client_kda.describe_application(ApplicationName=application_name)
               application_status = describe_response['ApplicationDetail']['ApplicationStatus']
-
+              
               # an application can be started from 'READY' status only.
               if application_status != 'READY':
-                logger.info('No-op for Application {} because ApplicationStatus {} is filtered'.format(application_name, application_status))
+                logger.info('No-op for Application {} because ApplicationStatus {} is filtered'.format(application_name, application_status)) 
                 cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
-
+                
                 return
-
-              # create RunConfiguration from passed parameters.
-              run_configuration = {
+              
+              # create RunConfiguration from passed parameters. 
+              run_configuration = { 
                 'FlinkRunConfiguration': {
                   'AllowNonRestoredState': event['ResourceProperties']['AllowNonRestoredState'] == 'true'
                 },
@@ -304,17 +297,17 @@ Resources:
                   'ApplicationRestoreType': event['ResourceProperties']['ApplicationRestoreType'],
                 }
               }
-
+              
               # add SnapshotName to RunConfiguration if specified.
               if event['ResourceProperties']['SnapshotName'] != '':
                 run_configuration['ApplicationRestoreConfiguration']['SnapshotName'] = event['ResourceProperties']['SnapshotName']
-
-              logger.info('RunConfiguration for Application {}: {}'.format(application_name, run_configuration))
-
+              
+              logger.info('RunConfiguration for Application {}: {}'.format(application_name, run_configuration)) 
+              
               # this call doesn't wait for an application to transfer to 'RUNNING' state.
               client_kda.start_application(ApplicationName=application_name, RunConfiguration=run_configuration)
-
-              logger.info('Started Application: {}'.format(application_name))
+              
+              logger.info('Started Application: {}'.format(application_name)) 
               cfnresponse.send(event, context, cfnresponse.SUCCESS, {})
             except Exception as err:
               logger.error(err)
@@ -360,7 +353,7 @@ parameters.json
 ]
 ```
 
-Replace `YOUR_BUCKET_ARN` and `YOUR_JAR` with your specific requirements. You can follow this [guide](get-started-exercise.md "get-started-exercise.md") to create an Amazon S3 bucket and an application jar.
+Replace `YOUR_BUCKET_ARN` and `YOUR_JAR` with your specific requirements. You can follow this [guide](https://docs.aws.amazon.com/managed-flink/latest/java/get-started-exercise.html) to create an Amazon S3 bucket and an application jar.
 
 Now create the stack (replace YOUR\_REGION with a region of your choice, e.g. us-east-1):
 
@@ -368,10 +361,8 @@ Now create the stack (replace YOUR\_REGION with a region of your choice, e.g. us
 aws cloudformation create-stack --region YOUR_REGION --template-body "file://stack.yaml" --parameters "file://parameters.json" --stack-name "TestManaged Service for Apache FlinkStack" --capabilities CAPABILITY_NAMED_IAM
 ```
 
-You can now navigate to [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and view the progress.
-Once created you should see your Flink application in `Starting` state. It may take a few minutes until it will start `Running`.
+You can now navigate to [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation) and view the progress. Once created you should see your Flink application in `Starting` state. It may take a few minutes until it will start `Running`. 
 
 For more information, see the following:
-
-- [Four ways to retrieve any AWS service property using AWS CloudFormation (Part 1 of 3)](https://aws.amazon.com/blogs/mt/four-ways-to-retrieve-any-aws-service-property-using-aws-cloudformation-part-1/ "https://aws.amazon.com/blogs/mt/four-ways-to-retrieve-any-aws-service-property-using-aws-cloudformation-part-1/").
-- [Walkthrough: Looking up Amazon Machine Image IDs](../../../AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.md "../../../AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.md").
++ [Four ways to retrieve any AWS service property using AWS CloudFormation (Part 1 of 3)](https://aws.amazon.com/blogs/mt/four-ways-to-retrieve-any-aws-service-property-using-aws-cloudformation-part-1/).
++ [Walkthrough: Looking up Amazon Machine Image IDs](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/walkthrough-custom-resources-lambda-lookup-amiids.html).
