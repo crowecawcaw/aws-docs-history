@@ -24,7 +24,7 @@ Key capabilities include:
   Quick's knowledge sources to draft contextual responses to emails
   or to perform inbox and calendar tasks.
 - **External actions:** Perform actions in
-  third-party applications using your configured [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") or apps directly from
+  third-party applications using your configured [connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") or apps directly from
   Outlook.
 
 ###### Important

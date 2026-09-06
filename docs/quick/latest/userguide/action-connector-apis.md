@@ -1,17 +1,17 @@
-# Action connector APIs
+# Connector APIs
 
-Action connector APIs let you programmatically create and manage connections between
+Connector APIs let you programmatically create and manage connections between
 Amazon Quick and external services. These APIs support the action integration functionality
 that allows users to perform actions in third-party applications directly from Amazon Quick
 chat interfaces and automated workflows.
 
-## What are action connector APIs?
+## What are connector APIs?
 
-Action connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which actions are available to users within your Amazon Quick applications.
+Connectors serve as the foundational resources that enable integration with first and third party applications. Through these APIs, you can authenticate to applications, manage permissions, and control which actions are available to users within your Amazon Quick applications.
 
-### How action connector APIs support action integrations
+### How connector APIs support action integrations
 
-Action connector APIs provide the backend infrastructure for Amazon Quick action integrations. When you create an action connector through the API, you establish a secure connection that lets you:
+Connector APIs provide the backend infrastructure for Amazon Quick action integrations. When you create a connector through the API, you establish a secure connection that lets you:
 
 - Execute actions in external services through chat interfaces.
 - Perform automated workflows in background processes.
@@ -22,7 +22,7 @@ The APIs handle the complex authentication flows, credential management, and per
 
 ## Authentication methods
 
-Action connector APIs support multiple authentication methods to accommodate different use cases and security requirements:
+Connector APIs support multiple authentication methods to accommodate different use cases and security requirements:
 
 ### Managed authentication (3LO)
 
@@ -74,7 +74,7 @@ No authentication required:
 
 ## Permissions and access control
 
-Action connector APIs implement comprehensive permission controls through Access Control Lists (ACLs):
+Connector APIs implement comprehensive permission controls through Access Control Lists (ACLs):
 
 ### Resource-level permissions
 
@@ -128,7 +128,7 @@ Focused on knowledge base integration without action capabilities:
 
 ### Credential management
 
-- Automatic refresh token handling for OAuth action connectors.
+- Automatic refresh token handling for OAuth connectors.
 - Secure storage of authentication credentials using AWS KMS.
 - Support for credential rotation and updates.
 - Cross-account access for Amazon S3 connectors.
@@ -139,7 +139,7 @@ Use the `UpdateActionConnector` API to:
 
 - Modify authentication credentials.
 - Update service configuration parameters.
-- Change action connector metadata.
+- Change connector metadata.
 
 ### Monitoring and troubleshooting
 
@@ -150,7 +150,7 @@ Use the `UpdateActionConnector` API to:
 
 ## Rate limiting and quotas
 
-Action connector APIs implement standard AWS API rate limiting:
+Connector APIs implement standard AWS API rate limiting:
 
 - Standard AWS API throttling applies to all operations.
 - Connection validation may have additional limits.
@@ -168,7 +168,7 @@ For Amazon S3 connectors, the APIs support cross-account access:
 
 ## Error handling and troubleshooting
 
-Action connector APIs return standard AWS error responses:
+Connector APIs return standard AWS error responses:
 
 ### Common error types
 
@@ -186,13 +186,13 @@ Action connector APIs return standard AWS error responses:
 
 Implement proper error handling in your applications to manage these scenarios gracefully and provide meaningful feedback to users.
 
-## Using Action Connector APIs with AWS CLI
+## Using connector APIs with AWS CLI
 
-You can use the AWS CLI to manage action connectors programmatically. The following examples demonstrate common operations using generic placeholder values.
+You can use the AWS CLI to manage connectors programmatically. The following examples demonstrate common operations using generic placeholder values.
 
-### Creating an action connector
+### Creating a connector
 
-Use the `create-action-connector` command to create a new action connector for integrating with external services.
+Use the `create-action-connector` command to create a new connector for integrating with external services.
 
 ```
 
@@ -215,9 +215,9 @@ aws quicksight create-action-connector \
 
 ```
 
-### Listing action connectors
+### Listing connectors
 
-Use the `list-action-connectors` command to retrieve all action connectors in your account.
+Use the `list-action-connectors` command to retrieve all connectors in your account.
 
 ```
 
@@ -228,9 +228,9 @@ aws quicksight list-action-connectors \
 
 ```
 
-### Describing an action connector
+### Describing a connector
 
-Use the `describe-action-connector` command to get detailed information about a specific action connector.
+Use the `describe-action-connector` command to get detailed information about a specific connector.
 
 ```
 
@@ -241,9 +241,9 @@ aws quicksight describe-action-connector \
 
 ```
 
-### Updating an action connector
+### Updating a connector
 
-Use the `update-action-connector` command to modify an existing action connector's configuration.
+Use the `update-action-connector` command to modify an existing connector's configuration.
 
 ```
 
@@ -264,9 +264,9 @@ aws quicksight update-action-connector \
 
 ```
 
-### Searching action connectors
+### Searching connectors
 
-Use the `search-action-connectors` command to find action connectors based on specific criteria.
+Use the `search-action-connectors` command to find connectors based on specific criteria.
 
 ```
 
@@ -282,9 +282,9 @@ aws quicksight search-action-connectors \
 
 ```
 
-### Managing action connector permissions
+### Managing connector permissions
 
-Use the `update-action-connector-permissions` command to grant or revoke permissions for an action connector.
+Use the `update-action-connector-permissions` command to grant or revoke permissions for a connector.
 
 ```
 
@@ -303,9 +303,9 @@ aws quicksight update-action-connector-permissions \
 
 ```
 
-### Viewing action connector permissions
+### Viewing connector permissions
 
-Use the `describe-action-connector-permissions` command to view current permissions for an action connector.
+Use the `describe-action-connector-permissions` command to view current permissions for a connector.
 
 ```
 
@@ -316,9 +316,9 @@ aws quicksight describe-action-connector-permissions \
 
 ```
 
-### Deleting an action connector
+### Deleting a connector
 
-Use the `delete-action-connector` command to remove an action connector from your account.
+Use the `delete-action-connector` command to remove a connector from your account.
 
 ```
 
@@ -331,7 +331,7 @@ aws quicksight delete-action-connector \
 
 ## Next steps
 
-After understanding action connector APIs, you can:
+After understanding connector APIs, you can:
 
 - Review the complete API reference documentation for detailed parameter specifications.
 - Explore specific connector setup guides for your target services.

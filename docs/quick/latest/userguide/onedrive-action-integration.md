@@ -1,6 +1,6 @@
 # Microsoft OneDrive action integration
 
-Use the Microsoft OneDrive action connector to manage OneDrive files, folders, and
+Use the Microsoft OneDrive connector to manage OneDrive files, folders, and
 Excel workbooks directly in Amazon Quick through natural language.
 
 Amazon Quick supports multiple authentication methods for Microsoft OneDrive.

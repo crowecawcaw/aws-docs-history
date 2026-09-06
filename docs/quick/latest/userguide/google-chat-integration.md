@@ -1,6 +1,6 @@
 # Google Chat integration
 
-With the Google Chat action connector, you can send messages, manage spaces,
+With the Google Chat connector, you can send messages, manage spaces,
 and interact with chat threads from your Google Workspace account directly in
 Amazon Quick through natural language.
 
@@ -15,6 +15,10 @@ Make sure that you have the following before you set up the integration.
   spaces that you want to use.
 - An OAuth 2.0 client registered in the Google Cloud console for your
   Google Workspace project, with the Google Chat API enabled.
+- A Google Chat App configured in the Google Cloud console under the
+  Google Chat API settings. The Chat App must be configured before you
+  can use the Chat API to send messages and interact with spaces. For
+  more information, see [Configure the Google Chat App](#google-chat-app-setup "#google-chat-app-setup").
 - For Amazon Quick subscription requirements, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## Configuring Google Cloud
@@ -32,6 +36,45 @@ example, `us-east-1`). For step-by-step instructions,
 see [Google Chat API](https://developers.google.com/workspace/chat "https://developers.google.com/workspace/chat") in the Google Workspace developer
 documentation. Record the Client ID and Client Secret — you need
 them when you configure Amazon Quick.
+
+### Configure the Google Chat App
+
+Before you can use the Google Chat API, you must configure a Google
+Chat App in the Google Cloud console. The Chat App is the identity
+under which your integration interacts with Google Chat spaces and
+threads.
+
+1. In the [Google
+   Cloud console](https://console.cloud.google.com/ "https://console.cloud.google.com/"), navigate to **APIs &
+   Services** and confirm that the
+   **Google Chat API** is enabled for your
+   project.
+2. Choose **Google Chat API**, then choose the
+   **Configuration** tab.
+3. Enter the following Chat App details:
+
+   - **App name**. A display name for
+     the Chat App (for example, "Amazon Quick
+     Integration").
+   - **Avatar URL** (Optional). A URL
+     to an image that represents the Chat App in Google
+     Chat.
+   - **Description**. A brief
+     description of the Chat App's purpose.
+
+4. Under **Interactive features**, configure
+   the features that your integration requires. If your
+   integration only sends messages and does not need to receive
+   events from Google Chat, you can leave interactive features
+   turned off.
+5. Under **Visibility**, choose who can
+   install the Chat App in your Google Workspace domain. You can
+   make the app available to specific people or to everyone in
+   your organization.
+6. Choose **Save**.
+
+For more information about configuring Google Chat Apps, see [Google Chat app overview](https://developers.google.com/workspace/chat/overview "https://developers.google.com/workspace/chat/overview") in the Google Workspace
+developer documentation.
 
 ## Setting up the connector in Amazon Quick
 

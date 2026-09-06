@@ -191,17 +191,17 @@ databases.
 
 | Feature                                  | Amazon Quick behavior                                        | Badge          | Parent capability |
 | ---------------------------------------- | ------------------------------------------------------------ | -------------- | ----------------- |
-| Actions                                  | Restricts all action connector capabilities.                 | AI             | Not applicable    |
+| Actions                                  | Restricts all connector capabilities.                        | AI             | Not applicable    |
 | Creating or updating all data sources    | Access to creating or updating all data sources is disabled. | Not applicable | Not applicable    |
 | Sharing data sources                     | Access to sharing data sources is disabled.                  | Not applicable | Not applicable    |
 | Knowledge base                           | Restricts all knowledge base capabilities.                   | AI             | Not applicable    |
 | Creating or updating all knowledge bases | Users can't create or update knowledge bases.                | AI             | Knowledge base    |
 | Share all knowledge bases                | Users can't share knowledge bases with other users.          | AI             | Knowledge base    |
 
-### Action connector features
+### Connector features
 
 In addition to the features listed in the preceding sections, you can restrict
-access to individual action connectors. Each action connector supports the
+access to individual connectors. Each connector supports the
 following permissions:
 
 - **Create and Update action** –
@@ -214,8 +214,8 @@ following permissions:
 
 These permissions are available under **Actions**, in the
 **Connectors** group of the **Capabilities &
-features** section. For a list of available action connectors, see
-[Action connectors](action-integrations.md "action-integrations.md").
+features** section. For a list of available connectors, see
+[Connectors](action-integrations.md "action-integrations.md").
 
 ### Knowledge base connectors
 

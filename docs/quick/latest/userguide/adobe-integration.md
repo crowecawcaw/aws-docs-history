@@ -1,6 +1,6 @@
 # Adobe Marketing Agent integration
 
-With the Adobe Marketing Agent action connector, you can work with Adobe
+With the Adobe Marketing Agent connector, you can work with Adobe
 Experience Platform marketing data and AI-powered marketing capabilities directly
 in Amazon Quick through natural language.
 

@@ -1,6 +1,6 @@
 # Google Slides integration
 
-With the Google Slides action connector, you can access Google Slides directly
+With the Google Slides connector, you can access Google Slides directly
 in Amazon Quick through natural language. You can create presentations, edit
 slides, copy templates, and retrieve presentation content without leaving
 Amazon Quick.

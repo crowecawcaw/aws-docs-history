@@ -24,7 +24,7 @@ threshold alerts, and send and subscribe to dashboard email reports.
 
 - [Publishing dashboards](creating-a-dashboard.md "creating-a-dashboard.md")
 - [Sharing Amazon Quick Sight dashboards](sharing-a-dashboard.md "sharing-a-dashboard.md")
-- [Using Quick action connectors in dashboard visuals](action-connectors-in-dashboard-visuals.md "action-connectors-in-dashboard-visuals.md")
+- [Using Quick connectors in dashboard visuals](action-connectors-in-dashboard-visuals.md "action-connectors-in-dashboard-visuals.md")
 - [Sharing your view of a Amazon Quick Sight dashboard](share-dashboard-view.md "share-dashboard-view.md")
 - [Scheduling and sending Quick Sight reports by email](sending-reports.md "sending-reports.md")
 - [Subscribing to email reports in Amazon Quick Sight](subscribing-to-reports.md "subscribing-to-reports.md")
@@ -32,4 +32,4 @@ threshold alerts, and send and subscribe to dashboard email reports.
 - [Printing a dashboard or analysis](printing1.md "printing1.md")
 - [Exporting Amazon Quick Sight analyses or dashboards as PDFs](export-dashboard-to-pdf.md "export-dashboard-to-pdf.md")
 - [Error codes for failed PDF export jobs](qs-reports-error-codes.md "qs-reports-error-codes.md")
-- [Organizing assets into folders for Amazon Quick Sight](folders.md "folders.md")
+- [Organizing assets into folders for Amazon Quick](folders.md "folders.md")

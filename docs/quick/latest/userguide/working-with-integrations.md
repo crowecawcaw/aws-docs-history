@@ -7,7 +7,7 @@ experiences.
 
 You can create three types of integrations:
 
-**Action connectors**
+**Connectors**
 
 Initiate real-time calls to perform actions in external services. Use action
 connectors to address user natural language chat requests, automate workflows,
@@ -39,7 +39,7 @@ Not all applications support all integration types. Available options depend on 
 - [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md")
 - [Integration workflows](integration-workflows.md "integration-workflows.md")
 - [Knowledge bases](knowledge-base-integrations.md "knowledge-base-integrations.md")
-- [Action connectors](action-integrations.md "action-integrations.md")
+- [Connectors](action-integrations.md "action-integrations.md")
 - [Integration-specific guides](integration-guides.md "integration-guides.md")
 - [Bring Your Own Amazon Q Business Index (BYOI)](quick-byoa.md "quick-byoa.md")
 - [Bring your own Amazon Bedrock managed knowledge base](quick-byo-bedrock-kb.md "quick-byo-bedrock-kb.md")

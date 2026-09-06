@@ -4,7 +4,7 @@ With GitHub integration in Amazon Quick, you can manage repositories, create and
 
 ## What you can do
 
-GitHub integration provides action connector capabilities through MCP server connectivity:
+GitHub integration provides connector capabilities through MCP server connectivity:
 
 - Create and manage repositories
 - Create, review, and merge pull requests

@@ -1,16 +1,21 @@
 # Generating an analysis with natural language prompts
 
-With Quick Sight, you can generate multi-sheet analyses from natural language prompts.
-Describe the analysis you want, and Quick Sight creates multiple organized sheets with
-visuals, filter controls, and calculated fields such as year-over-year growth and
-month-over-month comparisons.
+With Quick Sight, you can use artificial intelligence (AI) to author analyses in three ways within the
+analysis authoring experience. You can generate a full, multi-sheet analysis from a
+natural language prompt (Generate Analysis). You can generate a single sheet within an
+open analysis (Generate Sheet). You can also generate an analysis from an image. This
+topic describes the full-analysis flow. The following sections describe the two
+additional flows.
 
-Before generation begins, you can review and modify an interactive plan that
-outlines the proposed structure.
+To generate a full analysis, describe the analysis or dashboard that you want, and
+select up to three datasets. Before generation begins, you can review and modify an
+interactive plan that outlines the proposed structure. When you generate, Quick Sight
+creates multiple organized sheets with visuals, filter controls, and calculated fields
+such as year-over-year growth and month-over-month comparisons.
 
 The generated output is a native Quick Sight analysis. It works with existing
-publishing workflows, embedding patterns, CI/CD pipelines, and point-and-click
-editing in the analysis surface. After generation, you can refine each visual.
+publishing workflows, embedding patterns, CI/CD pipelines, and point-and-click editing
+in the analysis surface. After generation, you can refine each visual.
 
 ## Prerequisites
 
@@ -98,3 +103,40 @@ After you are satisfied with the generated analysis, choose **Publish** to creat
 You can share the dashboard with other users, embed it in applications, or schedule email deliveries. For more information about publishing and sharing, see [Publishing dashboards](creating-a-dashboard.md "creating-a-dashboard.md") and [Sharing Quick Sight analyses](sharing-analyses.md "sharing-analyses.md").
 
 ![Publish and share dialog](images/visualize-data-figure-9.gif)
+
+## Generating a single sheet
+
+Within an open analysis, you can generate a single sheet with AI instead of
+generating a full analysis. Use the following procedure to generate a single
+sheet.
+
+###### To generate a single sheet
+
+1. In an open analysis, choose the **+** (plus) next to the
+   sheet tabs.
+2. In the **New sheet** dialog, select **Interactive
+   sheet**, then choose **Generate**. Choosing
+   **Add** creates a blank sheet to build by hand, and
+   **Generate** starts the AI flow.
+   **Generate** is available for interactive sheets
+   only.
+3. On the **Generate sheet** screen, select one or more
+   datasets that are already part of the analysis, write a prompt that
+   describes the sheet, and choose **Generate**.
+4. Quick Sight adds the sheet with visuals selected for the data, filter
+   controls, and calculated fields such as year-over-year growth and
+   month-over-month comparisons.
+
+## Adding an image to your prompt
+
+You can generate an analysis from an image of a dashboard, including dashboards
+from other business intelligence (BI) tools. Use the following procedure to add an image to your
+prompt.
+
+###### To add an image to your prompt
+
+1. From the **Visualize your data with AI** prompt, choose
+   **Add image** (located next to **+ Add
+   data**) to attach an image of a dashboard.
+2. Quick Sight reads the image and builds the sheets and visuals that
+   Quick Sight supports.

@@ -28,7 +28,7 @@ Key capabilities include:
   relevant information from your Quick knowledge sources directly
   into your document.
 - **External actions:** Perform actions in
-  third-party applications using your configured [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") or apps directly from
+  third-party applications using your configured [connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") or apps directly from
   Word.
 
 ###### Important

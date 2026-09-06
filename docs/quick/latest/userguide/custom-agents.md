@@ -263,7 +263,7 @@ Using builder view directly
      The system displays a success message to
      denote successful linking.
 
-   - To create an action connector and link new
+   - To create a connector and link new
      actions
 
      - Select **Create**.
@@ -272,7 +272,7 @@ Using builder view directly
        action**.
      - From the **New action**
        window, for **Sources** select
-       the action connector you want to add and then
+       the connector you want to add and then
        select **Next**.
      - In **Actions** review the
        actions available and then select
@@ -284,7 +284,7 @@ Using builder view directly
      ###### Note
 
      For more information on creating and using
-     action connectors, see [Actions in
+     connectors, see [Actions in
      Amazon Quick](../../../quicksuite/latest/userguide/qbs-actions.md "../../../quicksuite/latest/userguide/qbs-actions.md").
 
      The system displays a success message to

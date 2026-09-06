@@ -6,7 +6,7 @@ Q&A.
 
 ## What you can do
 
-**Action connector**
+**Connector**
 
 Create, update, delete, and manage OneDrive files and folders
 through Microsoft Graph API calls.

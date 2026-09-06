@@ -64,7 +64,7 @@ Duplicating a flow creates a copy that you can modify for your own purposes.
 
 ###### Note
 
-When you duplicate a flow, all components, connections, and configurations are copied. However, you may need to reconfigure certain settings, such as authentication for action connectors.
+When you duplicate a flow, all components, connections, and configurations are copied. However, you may need to reconfigure certain settings, such as authentication for connectors.
 
 ## Creating a flow from an agent conversation
 

@@ -1,3 +1,3 @@
-# Action connectors
+# Connectors
 
-Action connectors use secure connections to external services and execute actions based on your authentication level and permissions.
+Connectors use secure connections to external services and execute actions based on your authentication level and permissions.

@@ -1,9 +1,9 @@
-# Using Quick action connectors in threshold alerts
+# Using Quick connectors in threshold alerts
 
 ## Prerequisites
 
 Before you begin, make sure to
-[create at least one action connector](builtin-services-integration.md "builtin-services-integration.md").
+[create at least one connector](builtin-services-integration.md "builtin-services-integration.md").
 
 The connector must meet these requirements:
 
@@ -15,9 +15,9 @@ The connector must meet these requirements:
   - Salesforce
   - ServiceNow
 
-## Enable Quick actions on a dashboard to use action connectors
+## Enable Quick actions on a dashboard to use connectors
 
-###### To enable Quick actions on a dashboard to use action connectors
+###### To enable Quick actions on a dashboard to use connectors
 
 1. If a dashboard exists, go to the source analysis of the dashboard. Otherwise,
    [create a new analysis](quickstart-createanalysis.md "quickstart-createanalysis.md").
@@ -28,9 +28,9 @@ The connector must meet these requirements:
    under **Dashboard options**.
 5. Choose **Publish dashboard**.
 
-## Use action connectors in a threshold alert
+## Use connectors in a threshold alert
 
-###### To use action connectors in a threshold alert
+###### To use connectors in a threshold alert
 
 1. Open a dashboard with the **Enable Quick actions**
    publishing option turned on.
@@ -39,7 +39,7 @@ The connector must meet these requirements:
 3. Choose the bell icon.
 4. The **Create alert** pane opens at right.
 5. Choose **Add Action**.
-6. A menu appears with a list of all supported action connectors and actions.
+6. A menu appears with a list of all supported connectors and actions.
 7. Choose the desired action from the list.
 8. An **Action** form appears in the right pane.
 9. Enter all the information you need to include with the action.

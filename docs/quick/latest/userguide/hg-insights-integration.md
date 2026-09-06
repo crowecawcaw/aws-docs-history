@@ -1,6 +1,6 @@
 # HG Insights integration
 
-With the HG Insights action connector, you can access technographic data,
+With the HG Insights connector, you can access technographic data,
 query company technology profiles, and retrieve market intelligence directly in
 Amazon Quick through natural language.
 

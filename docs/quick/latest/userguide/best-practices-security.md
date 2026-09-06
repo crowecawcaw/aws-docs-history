@@ -218,7 +218,7 @@ enable it.
   of that connector inherits its reach and access scope. Scope shared credentials
   narrowly and review what they grant.
 - **Per-connector restriction** – You can
-  restrict individual action connectors for Create and Update, Share, and Use
+  restrict individual connectors for Create and Update, Share, and Use
   through custom permissions, so a connector can be enabled for a narrow set of
   users rather than everyone. For more information, see
   [Custom permissions](custom-permissions.md "custom-permissions.md").
@@ -228,7 +228,7 @@ enable it.
 **Review each outbound path before enabling
 it** – Before you enable an outbound capability, verify that the
 destination and the data that can flow to it meet your organization's requirements.
-Outbound paths include action connectors, remote MCP servers, web search, third-party
+Outbound paths include connectors, remote MCP servers, web search, third-party
 research providers, public apps, embedding, and export destinations. For per-path detail
 on what data can leave, what triggers it, who controls it, and what to verify, see
 [Outbound connections and data egress in Amazon Quick](outbound-connections.md "outbound-connections.md").
@@ -260,7 +260,7 @@ investigation, confirm that it covers the event you intend to track.
 
 - **CloudWatch metrics and alarms** – Near-real-time
   operational metrics cover dashboards, visuals, dataset ingestions, unstructured
-  datasets, action connectors, and SPICE capacity. You can create CloudWatch alarms that
+  datasets, connectors, and SPICE capacity. You can create CloudWatch alarms that
   send notifications when a metric reaches a threshold that you specify. For more
   information, see
   [Monitoring Amazon Quick using CloudWatch metrics](monitoring-cloudwatch-metrics.md "monitoring-cloudwatch-metrics.md").

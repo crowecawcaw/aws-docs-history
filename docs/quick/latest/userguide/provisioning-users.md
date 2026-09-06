@@ -78,7 +78,8 @@ people the ability to create an Amazon Quick reader account for themselves.
 Reader accounts become active and billable the first time they open Amazon Quick.
 If you decide to upgrade or downgrade a user, billing for that user is prorated for
 the month. To set up self-provisioning, you need to give them permission to use the
-`quicksight:CreateReader` action.
+`quicksight:CreateReader` action. For complete details about when
+billing begins, proration, and what happens when you remove a user, see [Understanding Amazon Quick user billing](understanding-quick-user-billing.md "understanding-quick-user-billing.md").
 
 Readers that are used to automatically or programmatically refresh dashboards for
 near real-time use cases must choose capacity pricing. For readers under user

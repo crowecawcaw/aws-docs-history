@@ -1,6 +1,6 @@
 # Dropbox integration
 
-With the Dropbox action connector, you can access the Dropbox platform directly
+With the Dropbox connector, you can access the Dropbox platform directly
 in Amazon Quick through natural language. You can upload files, manage folder
 structures, generate sharing links, and search for content without leaving
 Amazon Quick.

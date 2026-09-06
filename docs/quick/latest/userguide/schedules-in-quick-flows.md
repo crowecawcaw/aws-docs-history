@@ -62,6 +62,6 @@ You receive email notifications when:
 - A flow with your schedules is deleted
 - A flow with your schedules is updated with a new version (schedules continue with the updated version)
 
-## Authentication for action connectors
+## Authentication for connectors
 
-Ensure your authentication for action connectors is current before scheduling. If authentication expires before a scheduled run, you receive an email notification. To verify, run the flow manually or visit the action connector page in Quick to sign in.
+Ensure your authentication for connectors is current before scheduling. If authentication expires before a scheduled run, you receive an email notification. To verify, run the flow manually or visit the connector page in Quick to sign in.

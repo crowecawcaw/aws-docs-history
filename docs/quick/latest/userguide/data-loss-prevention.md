@@ -515,6 +515,14 @@ field.
   Quick stores only the ARN of your secret. Quick reads
   your credentials at runtime and never displays them in the console, returns them
   from the API, or writes them to logs.
+- **Monitor data loss prevention (DLP) activity.**
+  Quick delivers a `DLP_LOGS` vended log to CloudWatch Logs, Amazon S3,
+  or Firehose. Use it to audit DLP policy changes, including when enforcement was
+  enabled or disabled and which principal made the change
+  (`DLP_SETTING_*` events, `status`, and
+  `last_updated_by`). You can also identify blocked, warned, or
+  inspection-failed files by filtering on `event_type` and
+  `failure_type`. For setup and the full schema, see [Monitoring Amazon Quick using CloudWatch Logs](monitoring-cloudwatch-logs.md "monitoring-cloudwatch-logs.md").
 
 ## API reference
 

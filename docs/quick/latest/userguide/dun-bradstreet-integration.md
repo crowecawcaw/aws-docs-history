@@ -1,6 +1,6 @@
 # Dun & Bradstreet integration
 
-With the Dun & Bradstreet action connector, you can look up company
+With the Dun & Bradstreet connector, you can look up company
 profiles, credit risk data, and business intelligence directly in Amazon Quick
 through natural language.
 

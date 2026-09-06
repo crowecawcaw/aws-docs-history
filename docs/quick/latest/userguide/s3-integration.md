@@ -7,8 +7,8 @@ searching S3 content.
 ###### Note
 
 This guide covers Amazon S3 data ingestion integration for knowledge base creation.
-For Amazon S3 action connectors that perform Amazon S3 operations such as uploading, downloading,
-and deleting files, see [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md"). Amazon S3 actions
+For Amazon S3 connectors that perform Amazon S3 operations such as uploading, downloading,
+and deleting files, see [AWS service connectors](builtin-services-integration.md "builtin-services-integration.md"). Amazon S3 actions
 are only supported for Quick Automate.
 
 ## What you can do

@@ -1,6 +1,6 @@
 # ZoomInfo integration
 
-With the ZoomInfo action connector, you can look up company and contact data,
+With the ZoomInfo connector, you can look up company and contact data,
 and query firmographic and intent data directly in Amazon Quick through natural
 language.
 

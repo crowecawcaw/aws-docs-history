@@ -1,6 +1,6 @@
 # New Relic integration
 
-With the New Relic action connector, you can access the New Relic observability
+With the New Relic connector, you can access the New Relic observability
 platform directly in Amazon Quick through natural language.
 You can investigate incidents, analyze application performance, query telemetry data,
 and generate reports without leaving Amazon Quick.

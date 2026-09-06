@@ -8,7 +8,7 @@ AI-powered search and Q&A.
 
 The Box integration offers two connector types.
 
-**Action connector**
+**Connector**
 
 Access Box AI features, manage files and folders, and organize
 content in hubs directly in Amazon Quick through natural

@@ -5,7 +5,7 @@ Before using actions in Amazon Quick, ensure you have the following:
 ## Subscription requirements
 
 For information about subscription requirements for configuring and using
-action connectors, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
+connectors, see [Set up integrations in the console](integration-console-setup-process.md "integration-console-setup-process.md").
 
 ## Service requirements
 
@@ -14,7 +14,7 @@ For third-party services (such as Jira or Salesforce), ensure that you have:
 - Appropriate permissions in the target services.
 - Authentication credentials for each service.
 
-For AWS action connectors, you need admin access to the relevant services.
+For AWS connectors, you need admin access to the relevant services.
 
 ## AWS account requirements
 

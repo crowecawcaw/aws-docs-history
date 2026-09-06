@@ -66,7 +66,7 @@ Before you begin, ensure you have the following:
 - An IAM role with Bedrock permissions for invoking models
 - Your model ID (for example, `us.anthropic.claude-3-5-sonnet-20241022-v2:0`)
 
-**Step 1:** Create a Bedrock Runtime Action integration by following the detailed instructions in [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md")
+**Step 1:** Create a Bedrock Runtime Action integration by following the detailed instructions in [AWS service connectors](builtin-services-integration.md "builtin-services-integration.md")
 
 **Step 2:** Set Up Your Automation Group
 

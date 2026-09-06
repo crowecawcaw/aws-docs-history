@@ -1,6 +1,6 @@
 # Data access integrations
 
-Data access integrations in Amazon Quick establish secure connections to external data sources. They serve as the foundation for creating knowledge bases. Unlike action connectors that perform actions, data access integrations focus on accessing and indexing content from third-party applications and services.
+Data access integrations in Amazon Quick establish secure connections to external data sources. They serve as the foundation for creating knowledge bases. Unlike connectors that perform actions, data access integrations focus on accessing and indexing content from third-party applications and services.
 
 Data access integrations only configure authentication and point to the project or organization of the service. They cannot be used directly for analysis or by AI agents. You must create a connected knowledge base to make the data accessible.
 
@@ -138,4 +138,4 @@ Before creating data access integrations, ensure you have the following requirem
 - **Network connectivity** - Ensure Amazon Quick can access your data sources. Network requirements differ by integration type:
 
   - **Knowledge bases** - Do not support VPC connectivity. Data sources must be accessible over the public internet.
-  - **Action connectors** - Support VPC connectivity for resource servers within your VPC. However, authentication servers must remain publicly accessible.
+  - **Connectors** - Support VPC connectivity for resource servers within your VPC. However, authentication servers must remain publicly accessible.

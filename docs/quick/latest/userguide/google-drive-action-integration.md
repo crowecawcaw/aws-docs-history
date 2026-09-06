@@ -1,12 +1,12 @@
 # Google Drive action connector
 
-With the Google Drive action connector, you can access Google Drive directly
+With the Google Drive connector, you can access Google Drive directly
 in Amazon Quick through natural language. You can upload and download files,
 manage folders, search content, and track changes without leaving
 Amazon Quick.
 
 Amazon Quick supports multiple authentication methods for the Google Drive
-action connector. Choose the method that best fits your organization's security
+connector. Choose the method that best fits your organization's security
 requirements.
 
 - **Default OAuth app** – Uses an

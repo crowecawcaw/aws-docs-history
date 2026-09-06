@@ -10,6 +10,7 @@ Supported Integration Capabilities| Integration | Actions | Knowledge Base |
 | Asana | ✓ | — |
 | Atlassian Confluence Cloud | ✓ | ✓ |
 | Atlassian Jira Cloud | ✓ | — |
+| AWS Agent Registry | ✓ | — |
 | BambooHR | ✓ | — |
 | Box | ✓ | — |
 | Canva | ✓ | — |
@@ -17,7 +18,6 @@ Supported Integration Capabilities| Integration | Actions | Knowledge Base |
 | Cisco Webex Video Messaging | ✓ | — |
 | Dropbox | ✓ | — |
 | Dun & Bradstreet | ✓ | — |
-| Figma | ✓ | — |
 | GitHub | ✓ | — |
 | Gmail | ✓ | — |
 | Google Analytics | ✓ | — |
@@ -74,7 +74,7 @@ Not all applications support all integration types. The available options depend
 
 **Actions**
 
-Call APIs and perform actions in external applications directly from Amazon Quick. You can share action connectors with other users and use them in automated workflows.
+Call APIs and perform actions in external applications directly from Amazon Quick. You can share connectors with other users and use them in automated workflows.
 
 **Knowledge base**
 

@@ -66,7 +66,7 @@ Team.
 
 1. Start a direct message (DM) with Quick.
 2. Ask it to perform an action of your choice in an external application
-   using [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
+   using [connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
    organization.
 
 ## Amazon Quick Microsoft Teams extension usage guidelines

@@ -1,6 +1,6 @@
 # Google Meet integration
 
-With the Google Meet action connector, you can access Google Meet directly in
+With the Google Meet connector, you can access Google Meet directly in
 Amazon Quick through natural language. You can schedule meetings, view conference
 records, retrieve transcripts and recordings, and manage meeting spaces without
 leaving Amazon Quick.

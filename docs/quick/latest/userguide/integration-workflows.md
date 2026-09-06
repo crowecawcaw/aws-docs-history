@@ -25,9 +25,9 @@ ask questions about and get insights from your content.
 After you choose **Create**, the data sync starts
 automatically.
 
-## Creating an action connector
+## Creating a connector
 
-Action connectors enable you to perform actions in external applications
+Connectors enable you to perform actions in external applications
 directly from Amazon Quick.
 
 1. In the Amazon Quick console, choose
@@ -42,7 +42,7 @@ directly from Amazon Quick.
 6. Review the available actions and choose
    **Publish**.
 
-After successful creation, your action connector is available for use in
+After successful creation, your connector is available for use in
 Amazon Quick chat, workflows, and Amazon Q Apps.
 
 ## Managing existing integrations
@@ -62,7 +62,7 @@ For knowledge bases:
 4. Modify the settings as needed and choose
    **Save changes**.
 
-For action connectors:
+For connectors:
 
 1. In the Amazon Quick console, choose
    **Connectors**.
@@ -84,7 +84,7 @@ For knowledge bases:
 4. In the confirmation dialog, choose
    **Delete** to confirm.
 
-For action connectors:
+For connectors:
 
 1. In the Amazon Quick console, choose
    **Connectors**.
@@ -103,9 +103,9 @@ integration will be impacted.
 From the connector or knowledge base details page, choose the menu
 icon (⋮) and select **Share**.
 
-### Managing action connectors
+### Managing connectors
 
-Action connectors have additional management options available from
+Connectors have additional management options available from
 the connector details page.
 
 **Sign in or re-connect**
@@ -129,5 +129,5 @@ responds as expected.
 ###### Note
 
 The **Test action APIs** option is available for
-action connectors only. Knowledge bases do not support action
+connectors only. Knowledge bases do not support action
 testing.

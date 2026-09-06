@@ -6,7 +6,7 @@ Connect Amazon Quick to your Asana workspace to manage projects, tasks, and team
 
 With Asana integration, you can perform actions within your Asana workspaces through the Asana API.
 
-**Action connector**
+**Connector**
 
 Create, update, and manage projects, tasks, and team assignments through the Asana API.
 

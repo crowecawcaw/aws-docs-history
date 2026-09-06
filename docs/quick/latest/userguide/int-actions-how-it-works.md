@@ -1,16 +1,16 @@
-# How action connectors work
+# How connectors work
 
-Action connectors in Amazon Quick create secure connections between Amazon Quick and external services. When you configure these integrations, you can perform actions based on your authentication level and permissions.
+Connectors in Amazon Quick create secure connections between Amazon Quick and external services. When you configure these integrations, you can perform actions based on your authentication level and permissions.
 
 ## Core components
 
-**Action connectors**
+**Connectors**
 
-The foundational resources that integrate with external services. For a list of supported connectors, see [Supported integrations](supported-integrations.md "supported-integrations.md"). For information about setting up AWS built-in service action connectors, see [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md").
+The foundational resources that integrate with external services. For a list of supported connectors, see [Supported integrations](supported-integrations.md "supported-integrations.md"). For information about setting up AWS built-in service connectors, see [AWS service connectors](builtin-services-integration.md "builtin-services-integration.md").
 
 **Authentication methods**
 
-Action connectors support multiple authentication methods including
+Connectors support multiple authentication methods including
 Default OAuth app, Custom OAuth app, Service-to-Service OAuth, and API key. For detailed information
 about each authentication method, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
 

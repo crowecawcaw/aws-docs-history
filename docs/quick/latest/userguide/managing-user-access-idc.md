@@ -138,3 +138,6 @@ transfer their assets to another user. To transfer assets that no longer have an
 owner, see [Amazon Quick asset management](manage-qs-assets.md "manage-qs-assets.md").
 For the full model of how user removal affects assets and data, see
 [User lifecycle and data handling in Amazon Quick](user-lifecycle-data-handling.md "user-lifecycle-data-handling.md").
+
+Removing a user affects billing for the current billing period. For how billing
+works when you remove a user, see [Understanding Amazon Quick user billing](understanding-quick-user-billing.md "understanding-quick-user-billing.md").

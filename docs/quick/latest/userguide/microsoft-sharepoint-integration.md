@@ -6,7 +6,7 @@ and Q&A.
 
 ## What you can do
 
-**Action connector**
+**Connector**
 
 Manage SharePoint lists, items, files, and Excel workbooks through
 Microsoft Graph API calls.
@@ -24,7 +24,7 @@ for document-level access control.
 After you review the prerequisites and capabilities, continue with one of the
 following topics:
 
-- To set up the action connector, see
+- To set up the connector, see
   [Microsoft SharePoint action integration](sharepoint-action-integration.md "sharepoint-action-integration.md").
 - To create a knowledge base from SharePoint content, see
   [Microsoft SharePoint knowledge base integration](sharepoint-knowledge-base.md "sharepoint-knowledge-base.md").

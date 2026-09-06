@@ -1,6 +1,6 @@
 # Smartsheet integration
 
-With the Smartsheet action connector, you can manage sheets, rows, reports,
+With the Smartsheet connector, you can manage sheets, rows, reports,
 and search across your Smartsheet workspaces directly in Amazon Quick through
 natural language.
 

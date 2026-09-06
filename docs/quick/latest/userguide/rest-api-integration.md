@@ -4,9 +4,9 @@ With REST API Connection integration in Amazon Quick, you can perform actions wi
 
 ## What you can do
 
-With REST API Connection integration, you can perform actions with custom REST APIs and web services through the action connector.
+With REST API Connection integration, you can perform actions with custom REST APIs and web services through the connector.
 
-**Action connector**
+**Connector**
 
 Perform HTTP requests, retrieve data, and interact with APIs using flexible authentication options.
 

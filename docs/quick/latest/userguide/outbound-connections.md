@@ -19,7 +19,7 @@ control that enables it.
 
 | Outbound path                  | Data that can leave                                                                                                  | What enables it                                                                                                                                                                                                    |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Action connectors              | Conversational context, user requests, and structured parameters sent to the<br>connected third-party or AWS service | Administrator creates and configures the connector, selects authentication<br>method and scopes; individual connectors can be restricted through custom<br>permissions                                             |
+| Connectors                     | Conversational context, user requests, and structured parameters sent to the<br>connected third-party or AWS service | Administrator creates and configures the connector, selects authentication<br>method and scopes; individual connectors can be restricted through custom<br>permissions                                             |
 | Remote MCP servers             | Tool invocation parameters derived from conversational context                                                       | Administrator creates the MCP integration (Enterprise subscription<br>required)                                                                                                                                    |
 | Web search                     | Queries derived from user requests sent to external web search<br>providers                                          | Administrator enables web search for the organization                                                                                                                                                              |
 | Third-party research providers | Research queries derived from the research objective                                                                 | Administrator sets up each integration individually and shares it with<br>authorized users; premium providers require a provisioned license; the Research<br>custom permission removes all providers for a profile |
@@ -29,9 +29,9 @@ control that enables it.
 | Log and metric delivery        | Chat conversations, user feedback, agent hours, index storage usage, knowledge<br>base file sync results             | Administrator configures delivery destinations (CloudWatch Logs, Amazon S3,<br>Firehose)                                                                                                                           |
 | Cross-Region inference         | Inference inputs and outputs move between Regions within a defined<br>geography                                      | Automatic platform behavior; no outbound destination for you to review or<br>restrict                                                                                                                              |
 
-## Action connectors
+## Connectors
 
-Action connectors create secure connections between Amazon Quick and third-party or AWS
+Connectors create secure connections between Amazon Quick and third-party or AWS
 services. After an administrator configures a connector, it sends conversational context, user
 requests, and structured parameters to the target service.
 
@@ -42,7 +42,7 @@ requests, and structured parameters to the target service.
   and configures each connector, choosing the authentication method (managed OAuth, custom
   user OAuth, API key, or service-to-service) and the scopes granted. A user can invoke
   only the connectors that an administrator shares with that user. Administrators can additionally
-  restrict individual action connectors through custom permissions. Each connector
+  restrict individual connectors through custom permissions. Each connector
   supports three permissions: **Create and Update action**,
   **Share action**, and **Use action**.
   Custom permissions profiles apply at the user, role, or account level. The most specific
@@ -153,7 +153,7 @@ For more information, see
 
 Quick Apps run inside a security sandbox that blocks direct external network access. All
 communication with external systems goes through the secure bridge API or a registered
-action connector. When an app owner enables public sharing, app content renders to anonymous
+connector. When an app owner enables public sharing, app content renders to anonymous
 internet viewers who have no identity, no integrations, and are rate-limited.
 
 - **What triggers it** – The app owner creates and

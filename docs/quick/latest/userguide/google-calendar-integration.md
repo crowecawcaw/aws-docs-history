@@ -1,6 +1,6 @@
 # Google Calendar integration
 
-With the Google Calendar action connector, you can access Google Calendar
+With the Google Calendar connector, you can access Google Calendar
 directly in Amazon Quick through natural language. You can create and update
 events, check availability, manage calendars, and organize attendees without
 leaving Amazon Quick.

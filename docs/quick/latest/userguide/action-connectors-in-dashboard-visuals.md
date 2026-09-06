@@ -1,9 +1,9 @@
-# Using Quick action connectors in dashboard visuals
+# Using Quick connectors in dashboard visuals
 
 ## Prerequisites
 
 Before you begin, make sure to
-[create at least one action connector](builtin-services-integration.md "builtin-services-integration.md").
+[create at least one connector](builtin-services-integration.md "builtin-services-integration.md").
 
 The connector must meet these requirements:
 
@@ -17,9 +17,9 @@ The connector must meet these requirements:
   - ServiceNow
   - Slack
 
-## Enable Quick actions on a dashboard to use action connectors
+## Enable Quick actions on a dashboard to use connectors
 
-###### To enable Quick actions on a dashboard to use action connectors
+###### To enable Quick actions on a dashboard to use connectors
 
 1. If a dashboard exists, go to the source analysis of the dashboard. Otherwise,
    [create a new analysis](quickstart-createanalysis.md "quickstart-createanalysis.md").
@@ -30,15 +30,15 @@ The connector must meet these requirements:
    under **Dashboard options**.
 5. Choose **Publish dashboard**.
 
-## Use action connectors on a visual
+## Use connectors on a visual
 
-###### To use action connectors on a visual
+###### To use connectors on a visual
 
 1. Open a dashboard with the **Enable Quick actions**
    publishing option turned on.
 2. Hover over a visual.
 3. Choose the lightening bolt icon.
-4. A menu appears with a list of all supported action connectors and actions.
+4. A menu appears with a list of all supported connectors and actions.
 5. Choose the desired action from the list.
 6. If you have not used the connector before, or if your previous login credentials
    have expired, an authentication modal will appear. Log in with appropriate credentials

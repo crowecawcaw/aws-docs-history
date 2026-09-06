@@ -1,6 +1,6 @@
 # Microsoft SharePoint action integration
 
-Use the Microsoft SharePoint action connector to manage lists, items, files, and
+Use the Microsoft SharePoint connector to manage lists, items, files, and
 Excel workbooks directly in Amazon Quick through natural language.
 
 Amazon Quick supports multiple authentication methods for Microsoft SharePoint.

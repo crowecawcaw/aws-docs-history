@@ -108,7 +108,7 @@ For more information, see [Dashboards and topics](data-insight-steps.md#dashboar
 
 In Editor mode, add or select an action step. In the configuration panel, set the following:
 
-- **Action connector**: Select the connector to use (for example, Salesforce, Jira, Slack).
+- **Connector**: Select the connector to use (for example, Salesforce, Jira, Slack).
 - **Action**: Select the specific action to perform.
 - **Prompt**: Write prompt instructions to execute your actions.
 

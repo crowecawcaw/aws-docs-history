@@ -1,7 +1,7 @@
-# Permissions for Quick Sight shared folders
+# Permissions for Quick shared folders
 
 Shared folders have three permission levels. To set folder-level permissions for a
-user or group, see [Create and manage membership permissions for Quick Sight shared folders](sharing-folders.md "sharing-folders.md").
+user or group, see [Create and manage membership permissions for Quick shared folders](sharing-folders.md "sharing-folders.md").
 
 - **Owners** - The folder _owner_ owns
   everything (folders, analyses, dashboards, datasets, data sources, topics)
@@ -40,4 +40,4 @@ user or group, see [Create and manage membership permissions for Quick Sight sha
 - The correct IAM permissions are required to update the permissions of a
   restricted shared folder with the `UpdateFolderPermissions`
   API.
-  To create and manage permissions of a shared folder, see [Create and manage membership permissions for Quick Sight shared folders](sharing-folders.md "sharing-folders.md").
+  To create and manage permissions of a shared folder, see [Create and manage membership permissions for Quick shared folders](sharing-folders.md "sharing-folders.md").

@@ -56,7 +56,7 @@ where content you did not author can enter.
 - Files uploaded in chat
 - Web search results
 - Third-party research provider data
-- Content returned by action connectors
+- Content returned by connectors
 - Content returned by remote MCP server tools
 
 Retained context also contributes to the read surface. Past conversations and, on
@@ -132,7 +132,7 @@ capabilities. Together, they form a layered model for human oversight.
    available to any user. For more information, see
    [Deny by Default](custom-permissions-governance.md "custom-permissions-governance.md").
 2. **Build-time consent (Apps integration consent)**
-   – When the Apps agent adds an integration to an app (action connector, space,
+   – When the Apps agent adds an integration to an app (connector, space,
    dashboard visual, or AI inference), it prompts the author for approval. The published
    app never includes unapproved integrations, and app viewers inherit the approved
    integration scope rather than broader access. For more information, see

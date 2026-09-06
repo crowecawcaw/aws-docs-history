@@ -6,7 +6,7 @@ With OpenAPI Specification integration, you can create custom integrations based
 
 OpenAPI Specification integration provides schema-based connectivity to help you work with custom APIs.
 
-**Action connector**
+**Connector**
 
 Perform actions based on OpenAPI specifications. Execute API calls, manage resources, and interact with custom services through dynamically generated actions based on the provided schema.
 
@@ -180,7 +180,7 @@ After you create your OpenAPI Specification integration, you can manage it throu
 
 ### Share integration
 
-You can share OpenAPI Specification action connectors with other users in your organization.
+You can share OpenAPI Specification connectors with other users in your organization.
 
 1. From the OpenAPI integration details page, choose **Share**.
 2. Configure sharing options:

@@ -1,6 +1,6 @@
 # Moodys GenAI Ready Data integration
 
-With the Moodys GenAI Ready Data action connector, you can access credit
+With the Moodys GenAI Ready Data connector, you can access credit
 ratings, financial research, and risk analytics data directly in Amazon Quick
 through natural language.
 

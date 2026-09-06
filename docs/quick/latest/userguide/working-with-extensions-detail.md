@@ -58,5 +58,3 @@ The following extension types are available:
 - [Amazon Quick Microsoft PowerPoint extension](powerpoint-extension-guide.md "powerpoint-extension-guide.md")
 - [Amazon Quick Slack extension](slack-extension-guide.md "slack-extension-guide.md")
 - [Amazon Quick Microsoft Teams extension](teams-extension-guide.md "teams-extension-guide.md")
-- [Amazon Quick Microsoft Outlook extension (Legacy)](legacy-outlook-extension-guide.md "legacy-outlook-extension-guide.md")
-- [Amazon Quick Microsoft Word extension (Legacy)](legacy-word-extension-guide.md "legacy-word-extension-guide.md")

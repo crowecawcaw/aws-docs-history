@@ -10,7 +10,7 @@ When you export an automation version, Amazon Quick Automate packages it into a 
 
 ###### Note
 
-Dependencies such as action connectors, credentials, and task queue configurations are not included in the export bundle. You must configure these separately in the destination environment.
+Dependencies such as connectors, credentials, and task queue configurations are not included in the export bundle. You must configure these separately in the destination environment.
 
 ## Use cases
 
@@ -58,5 +58,5 @@ To import an automation version, complete the following steps.
 ## Considerations
 
 - You can export one automation version per operation.
-- Action connectors, credentials, and other dependencies are not included in the export. You must configure these separately in the destination environment.
+- Connectors, credentials, and other dependencies are not included in the export. You must configure these separately in the destination environment.
 - For cross-account transfers, both the source and destination accounts must have Amazon Quick Automate enabled.

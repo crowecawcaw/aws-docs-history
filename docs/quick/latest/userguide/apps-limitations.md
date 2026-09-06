@@ -40,7 +40,7 @@ Limits| Resource | Limit |
 - **External access** — Users must have a
   Amazon Quick account to view an app, unless the app is published publicly.
   Public access is available on Free and Plus accounts only. Public apps cannot
-  use action connectors, embedded visuals, embedded chat, or spaces.
+  use connectors, embedded visuals, embedded chat, or spaces.
 
 ## Portability
 

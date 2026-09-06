@@ -4,7 +4,7 @@ With Monday.com integration in Amazon Quick, you can manage project boards, trac
 
 ## What you can do
 
-Monday.com integration provides action connector capabilities through MCP server connectivity:
+Monday.com integration provides connector capabilities through MCP server connectivity:
 
 - Create and manage project boards
 - Add and update board items and tasks

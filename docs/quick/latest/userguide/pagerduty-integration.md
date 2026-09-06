@@ -6,7 +6,7 @@ Connect Amazon Quick to your PagerDuty system to manage incidents, alerts, sched
 
 With PagerDuty integration, you can perform actions within your PagerDuty systems through the PagerDuty API.
 
-**Action connector**
+**Connector**
 
 Create, update, and manage incidents, alerts, schedules, and escalation policies through the PagerDuty API.
 

@@ -1,6 +1,6 @@
 # Microsoft Teams integration
 
-Use the Microsoft Teams action connector to send messages, manage channels, schedule
+Use the Microsoft Teams connector to send messages, manage channels, schedule
 meetings, and manage team collaboration directly in Amazon Quick through natural
 language.
 

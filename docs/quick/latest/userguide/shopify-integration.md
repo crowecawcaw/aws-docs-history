@@ -1,6 +1,6 @@
 # Shopify integration
 
-With the Shopify action connector, you can manage products, orders, customers,
+With the Shopify connector, you can manage products, orders, customers,
 and store operations directly in Amazon Quick through natural language.
 
 Shopify uses Custom OAuth app authentication. For more information about the

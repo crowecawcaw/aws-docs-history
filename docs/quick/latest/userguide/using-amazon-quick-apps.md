@@ -20,7 +20,7 @@ With Apps in Quick, you get the following capabilities:
   what you want, and the AI builds it.
 - **Live dashboard embeds** — Embed
   interactive Amazon Quick Sight visuals directly in your app.
-- **Action connectors** — Call external
+- **Connectors** — Call external
   APIs and services from your app. For more information, see
   [Work with integrations in Amazon Quick](working-with-integrations.md "working-with-integrations.md").
 - **Built-in AI inference** — Add

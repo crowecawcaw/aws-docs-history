@@ -1,6 +1,6 @@
 # Box action integration
 
-With the Box action connector, you can access Box AI features, manage files
+With the Box connector, you can access Box AI features, manage files
 and folders, and organize content in hubs directly in Amazon Quick through
 natural language.
 

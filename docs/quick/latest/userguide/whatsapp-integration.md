@@ -1,6 +1,6 @@
 # WhatsApp integration
 
-With the WhatsApp action connector, you can send and manage messages through
+With the WhatsApp connector, you can send and manage messages through
 WhatsApp Business directly in Amazon Quick through natural language.
 
 WhatsApp uses Custom OAuth app authentication. For more information about the

@@ -1,6 +1,6 @@
 # Google Sheets integration
 
-With the Google Sheets action connector, you can access Google Sheets directly
+With the Google Sheets connector, you can access Google Sheets directly
 in Amazon Quick through natural language. You can create and edit spreadsheets,
 read and write cell ranges, format cells, and search for data without leaving
 Amazon Quick.

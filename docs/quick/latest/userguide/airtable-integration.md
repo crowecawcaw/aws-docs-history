@@ -1,6 +1,6 @@
 # Airtable integration
 
-With the Airtable action connector, you can access the Airtable platform directly
+With the Airtable connector, you can access the Airtable platform directly
 in Amazon Quick through natural language. You can create and update records, manage
 bases and tables, filter views, and perform relational data operations without leaving
 Amazon Quick.

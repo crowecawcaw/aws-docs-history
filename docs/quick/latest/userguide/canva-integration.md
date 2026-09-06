@@ -4,7 +4,7 @@ With Canva integration in Amazon Quick, you can create, edit, and manage designs
 
 ## What you can do
 
-Canva integration provides action connector capabilities through MCP server connectivity:
+Canva integration provides connector capabilities through MCP server connectivity:
 
 - Create new designs from templates
 - Edit existing designs and presentations

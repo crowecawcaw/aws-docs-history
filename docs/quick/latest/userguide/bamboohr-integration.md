@@ -6,7 +6,7 @@ Connect Amazon Quick to your BambooHR system to manage employee data, time-off r
 
 With BambooHR integration, you can perform actions within your BambooHR systems through the BambooHR API.
 
-**Action connector**
+**Connector**
 
 Create, update, and manage employee records, time-off requests, and other HR processes through the BambooHR API.
 
@@ -71,7 +71,7 @@ To modify your BambooHR integration settings:
 
 ### Share integration
 
-You can share your BambooHR action connector with other users in your organization.
+You can share your BambooHR connector with other users in your organization.
 
 1. From the BambooHR integration details page, choose **Share**.
 2. Configure your sharing options and permission levels.

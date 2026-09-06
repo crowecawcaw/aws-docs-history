@@ -1,6 +1,6 @@
 # QuickBooks integration
 
-With the QuickBooks action connector, you can access QuickBooks Online directly
+With the QuickBooks connector, you can access QuickBooks Online directly
 in Amazon Quick through natural language. You can manage invoices, customers,
 vendors, accounts, and generate financial reports without leaving
 Amazon Quick.

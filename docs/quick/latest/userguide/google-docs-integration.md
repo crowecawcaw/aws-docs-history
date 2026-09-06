@@ -1,6 +1,6 @@
 # Google Docs integration
 
-With the Google Docs action connector, you can access Google Docs directly in
+With the Google Docs connector, you can access Google Docs directly in
 Amazon Quick through natural language. You can create and edit documents, read
 content, insert text and images, and manage document structure without leaving
 Amazon Quick.

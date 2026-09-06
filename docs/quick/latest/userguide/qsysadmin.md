@@ -1,19 +1,27 @@
 # Administration for Amazon Quick
 
-The administration experience for Amazon Quick depends on how your account was
-created. This section covers administration for accounts provisioned through the AWS Management Console,
-including IAM Identity Center configuration, SPICE capacity management, security settings, and integration
-with other AWS services.
+As an administrator, you decide who can access your Amazon Quick account and what those
+users can do in it. You also configure the security and encryption settings that protect
+your data. You do this work in the Amazon Quick administration console. Some sections
+require AWS Identity and Access Management (IAM) permissions, and you can perform some tasks programmatically with
+the Amazon Quick API.
 
 If you created your account with email or social on [aws.com/quick](https://aws.com/quick "https://aws.com/quick"), see [Administering Amazon Quick (Free/Plus/Max)](../../../quicksuite/latest/userguide/standalone-admin-guide.md "../../../quicksuite/latest/userguide/standalone-admin-guide.md") instead.
 
-###### Note
+Use this section to do the following:
 
-The product features available to users (chat, agents, spaces, research,
-integrations, extensions) are identical regardless of how the
-account was created. Only the administration interface differs. Some features,
-including Amazon Quick Sight and Amazon Quick Automate, are available only for accounts provisioned
-through the AWS Management Console.
+- Set up identity and access, including IAM Identity Center, IAM federation, Active Directory,
+  external identity providers, and multi-factor authentication.
+- Manage users, groups, and subscriptions.
+- Provision SPICE capacity and index capacity for unstructured
+  data.
+- Connect to your data through VPC connections and AWS data sources.
+- Secure your account with domain allowlisting, namespaces, IP and VPC restrictions,
+  and AWS Key Management Service customer managed keys.
+- Control permissions with default access settings, custom permissions, IAM policy
+  assignments, and limit profiles.
+- Govern usage with approval workflows and data loss prevention.
+- Customize branding and agent settings, and monitor usage metrics.
 
 ###### Topics
 

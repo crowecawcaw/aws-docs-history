@@ -4,7 +4,7 @@ With HuggingFace integration in Amazon Quick, you can access machine learning mo
 
 ## What you can do
 
-HuggingFace integration provides action connector capabilities through MCP server connectivity:
+HuggingFace integration provides connector capabilities through MCP server connectivity:
 
 - Browse and download models from HuggingFace Hub
 - Access and manage datasets

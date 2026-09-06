@@ -1,6 +1,6 @@
 # Atlassian Confluence Cloud action integration
 
-Use the Atlassian Confluence Cloud action connector to create, update, and manage
+Use the Atlassian Confluence Cloud connector to create, update, and manage
 Confluence pages and spaces directly in Amazon Quick through natural language.
 
 To set up this integration, you first create an OAuth 2.0 (3LO) app in the Atlassian
@@ -131,7 +131,7 @@ Required credentials from Atlassian Developer Console| Value | Where to find it 
 
 ## Prepare authentication
 
-Confluence Cloud action connectors support two authentication methods. Gather the
+Confluence Cloud connectors support two authentication methods. Gather the
 required credentials before configuring Amazon Quick.
 
 **User authentication (3LO)**

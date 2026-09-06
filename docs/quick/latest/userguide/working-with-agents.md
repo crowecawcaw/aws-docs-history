@@ -61,7 +61,7 @@ ways:
 
 - **Preconfigured with resources** – These
   chat agents use only the configured resources (for example, spaces as knowledge
-  sources, action connectors as tools) when looking for answers or orchestrating
+  sources, connectors as tools) when looking for answers or orchestrating
   actions as their defeault behavior. While chatting, users can attach additional
   resources as per their need or invoke actions directly. For example, chat agents
   configured with only spaces containing files can't take actions by default
@@ -72,10 +72,10 @@ ways:
   interface.
 - **Not opinionated at build time** – These
   chat agents are not initially configured with resources when they are built
-  (spaces, or action connectors, or both). Chat determines the resource boundary
+  (spaces, or connectors, or both). Chat determines the resource boundary
   for the chat agent. For example, if no space is configured for the chat agent,
   chat will default to all spaces or LLM knowledge until the user makes a change.
-  If no action connectors are configured for the chat agent, during chat, all
+  If no connectors are configured for the chat agent, during chat, all
   actions a user has access to will be available to the agent until user makes a
   resource selection that doesn't include actions.
 
@@ -91,7 +91,7 @@ resources within chat for comprehensive assistance.
 
 The system chat agent is an unopinionated chat agent by design. If you
 want chat agents to access all actions irrespective of data focus, configure
-chat agents with action connectors.
+chat agents with connectors.
 
 ## Amazon Quick user interaction with chat agents
 
@@ -100,10 +100,10 @@ as a Amazon Quick user. For more information on which roles can access these fea
 refer to the [Amazon Quick
 pricing](https://aws.amazon.com/quicksuite/pricing/ "https://aws.amazon.com/quicksuite/pricing/") document.
 
-| Access Level      | Capabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Admin Console     | • Assign owners for the system chat agent and custom chat<br>chat agents using [Manage assets](../../../quicksuite/latest/userguide/manage-qs-assets.md "../../../quicksuite/latest/userguide/manage-qs-assets.md")<br>• Control whether users can create chat agents using [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md")<br>• Configure instance-wide blocked words and phrases for all<br>chat agents                                                   |
-| Amazon Quick user | • Create and maintain custom chat agents (with appropriate<br>permissions)<br>• Configure chat agent personality and response styles and<br>provide reference documents to inform its behavior<br>• Link chat agents with spaces (with dashboards, datasets,<br>topics) as their knowledge source to look for answers<br>• Attach action connectors to use as tools<br>• Share chat agents with specific users and teams<br>• Interact with chat agents through conversations<br>• Analyze data with chat agent assistance<br>• Receive permissions-aware responses from chat<br>agents |
+| Access Level      | Capabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Admin Console     | • Assign owners for the system chat agent and custom chat<br>chat agents using [Manage assets](../../../quicksuite/latest/userguide/manage-qs-assets.md "../../../quicksuite/latest/userguide/manage-qs-assets.md")<br>• Control whether users can create chat agents using [Custom permissions](../../../quicksuite/latest/userguide/create-custom-permissions-profile.md "../../../quicksuite/latest/userguide/create-custom-permissions-profile.md")<br>• Configure instance-wide blocked words and phrases for all<br>chat agents                                            |
+| Amazon Quick user | • Create and maintain custom chat agents (with appropriate<br>permissions)<br>• Configure chat agent personality and response styles and<br>provide reference documents to inform its behavior<br>• Link chat agents with spaces (with dashboards, datasets,<br>topics) as their knowledge source to look for answers<br>• Attach connectors to use as tools<br>• Share chat agents with specific users and teams<br>• Interact with chat agents through conversations<br>• Analyze data with chat agent assistance<br>• Receive permissions-aware responses from chat<br>agents |
 
 ## Amazon Quick user permissions for chat agents
 
@@ -130,10 +130,10 @@ Guide.
 The following table outlines how user permissions determine what you can do with a
 Amazon Quick chat agent:
 
-| Permissions type | Permissions                                                                                                                                                                                                                                                                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Owners           | • Can access and configure agent behavior (agent persona<br>settings, reference documents) and resources (space and<br>action connectors)<br>• Can customize chat agent details like title, description,<br>and suggested prompts to improve usability<br>• Can share chat agents with users and groups<br>• Can delete the chat agent |
-| Viewers          | • Can't customize the chat agent's details<br>• Can receive responses based on the permissions they have<br>to resources                                                                                                                                                                                                               |
+| Permissions type | Permissions                                                                                                                                                                                                                                                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Owners           | • Can access and configure agent behavior (agent persona<br>settings, reference documents) and resources (space and<br>connectors)<br>• Can customize chat agent details like title, description,<br>and suggested prompts to improve usability<br>• Can share chat agents with users and groups<br>• Can delete the chat agent |
+| Viewers          | • Can't customize the chat agent's details<br>• Can receive responses based on the permissions they have<br>to resources                                                                                                                                                                                                        |
 
 ## Custom permissions for chat agents
 

@@ -4,7 +4,7 @@ With Notion integration in Amazon Quick, you can manage pages, databases, and co
 
 ## What you can do
 
-Notion integration provides action connector capabilities through MCP server connectivity:
+Notion integration provides connector capabilities through MCP server connectivity:
 
 - Create and edit pages and documents
 - Manage databases and structured content

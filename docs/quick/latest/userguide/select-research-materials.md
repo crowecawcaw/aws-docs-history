@@ -49,7 +49,7 @@ Accepted file formats include .pdf, .txt, .doc, .xls, and .csv files. The file s
 
 ## Quick assets
 
-Connect Quick Research to your existing data spaces to include internal documents, reports, knowledge bases, and integrations in your research. You can combine external web sources with your organization's proprietary information. Quick Research can also fetch data through Quick action connectors, enabling it to pull live data from connected systems during the research process.
+Connect Quick Research to your existing data spaces to include internal documents, reports, knowledge bases, and integrations in your research. You can combine external web sources with your organization's proprietary information. Quick Research can also fetch data through Quick connectors, enabling it to pull live data from connected systems during the research process.
 
 For optimal results, consider selecting the most relevant assets for your specific research question. Choose **Browse** to add assets from Quick.
 
@@ -63,7 +63,7 @@ For optimal results, consider selecting the most relevant assets for your specif
    3. **Dashboard** - Dashboard resources (maximum of 2 selections)
    4. **Topic** - Topic resources (maximum of 2 selections)
    5. **Knowledgebase** - Knowledge base resources
-   6. **Integration** - Action connectors that can fetch live data from connected systems
+   6. **Integration** - Connectors that can fetch live data from connected systems
 
 3. Review the available assets, which display the Name, Owner, and Last Modified date and time for each asset.
 4. Select the assets you want to include in your research.

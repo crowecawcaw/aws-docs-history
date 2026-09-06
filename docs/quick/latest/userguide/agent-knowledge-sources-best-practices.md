@@ -59,7 +59,7 @@ through AI-driven improvements.
   by Amazon Quick AI to customize agent responses
 - Instruct how to leverage reference documents for detailed
   interactions
-- Provide general guidance on use of spaces and action connectors in its
+- Provide general guidance on use of spaces and connectors in its
   responses
 
 This approach works best for general-purpose chat agents and exploratory use

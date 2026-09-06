@@ -21,7 +21,7 @@ custom agents for specific domains. For more information, see [Create, customize
 ## Spaces organize context
 
 Spaces bring together the resources an agent needs: documents, dashboards,
-datasets, knowledge bases, and action connectors. When you assign a space to an
+datasets, knowledge bases, and connectors. When you assign a space to an
 agent, it draws on everything in that space to answer questions and complete tasks.
 You share spaces with your team so everyone benefits from the same context. For more
 information, see [Organize, collaborate, and share resources with spaces in Amazon Quick](working-with-spaces.md "working-with-spaces.md").
@@ -38,7 +38,7 @@ Sources include Amazon S3, SharePoint, OneDrive, Confluence, Google Drive,
 and web crawlers. Quick keeps the index in sync as sources
 update.
 
-**Action connectors**
+**Connectors**
 
 Let Quick read data, trigger workflows, and update
 records in external services. You create connectors from OpenAPI
@@ -62,14 +62,14 @@ For more information, see [Work with integrations in Amazon Quick](working-with-
 Each Quick feature combines the components above in different
 ways:
 
-| Feature             | What it does                         | What it uses                                               |
-| ------------------- | ------------------------------------ | ---------------------------------------------------------- |
-| Quick Sight         | Interactive dashboards and analytics | Structured data connections, SPICE, datasets               |
-| Quick Flows         | Task automation                      | Action connectors, spaces, agent logic                     |
-| Quick Automate      | End-to-end process automation        | Action connectors, agents, human-in-the-loop               |
-| Quick Research      | In-depth cited reports               | Spaces, knowledge bases, web                               |
-| Apps in Quick       | Interactive web applications         | Structured data, action connectors, Quick Sight<br>visuals |
-| Desktop application | Personalized AI on your machine      | Local files, email, calendar, MCP servers                  |
+| Feature             | What it does                         | What it uses                                        |
+| ------------------- | ------------------------------------ | --------------------------------------------------- |
+| Quick Sight         | Interactive dashboards and analytics | Structured data connections, SPICE, datasets        |
+| Quick Flows         | Task automation                      | Connectors, spaces, agent logic                     |
+| Quick Automate      | End-to-end process automation        | Connectors, agents, human-in-the-loop               |
+| Quick Research      | In-depth cited reports               | Spaces, knowledge bases, web                        |
+| Apps in Quick       | Interactive web applications         | Structured data, connectors, Quick Sight<br>visuals |
+| Desktop application | Personalized AI on your machine      | Local files, email, calendar, MCP servers           |
 
 ## Where to go next
 

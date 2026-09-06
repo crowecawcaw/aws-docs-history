@@ -21,7 +21,7 @@ Key capabilities include:
 - Direct interaction through private messages for individual
   productivity.
 - External actions in third-party applications from Slack using
-  [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
+  [connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured by your
   organization.
 - Unlimited usage for enhanced team collaboration and knowledge sharing.
 - General knowledge capabilities.

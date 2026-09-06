@@ -1,6 +1,6 @@
 # Zoom integration
 
-With the Zoom action connector, you can access the Zoom platform directly in
+With the Zoom connector, you can access the Zoom platform directly in
 Amazon Quick through natural language. You can create and manage meetings, access
 recordings and meeting summaries, view webinar details, and search contacts without
 leaving Amazon Quick.

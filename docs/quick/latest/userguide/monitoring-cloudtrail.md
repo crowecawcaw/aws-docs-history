@@ -227,7 +227,7 @@ aws cloudtrail put-event-selectors \
   --advanced-event-selectors '[
     { "Name": "All management events",
       "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Management"] } ] },
-    { "Name": "Quick action connector data events",
+    { "Name": "Quick connector data events",
       "FieldSelectors": [
         { "Field": "eventCategory", "Equals": ["Data"] },
         { "Field": "resources.type", "Equals": ["AWS::Quicksight::ActionConnector"] } ] },
@@ -248,7 +248,7 @@ Add selectors for `AWS::Quicksight::Companion`,
 
 ### `InvokeAction` data event
 
-When a user or flow invokes an action connector, CloudTrail records an
+When a user or flow invokes a connector, CloudTrail records an
 `InvokeAction` data event. This event captures the following
 information:
 

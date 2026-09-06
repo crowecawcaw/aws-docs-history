@@ -31,7 +31,7 @@ column-level permissions.
 
 ## Integration consent model
 
-When the apps in Quick agent adds an integration to your app (action connector, space,
+When the apps in Quick agent adds an integration to your app (connector, space,
 dashboard visual, or AI inference), it prompts you for approval. This consent model
 ensures:
 
@@ -62,7 +62,7 @@ popups, direct network access) are restricted.
   use the `downloadFile` function from the apps in Quick runtime
   library.
 - **Public app isolation** — Public apps
-  run in the same sandbox as private apps but cannot access action connectors,
+  run in the same sandbox as private apps but cannot access connectors,
   embedded visuals, embedded chat experiences, or Amazon Quick spaces. Only
   shared storage and AI inference are available to anonymous viewers.
 
@@ -77,7 +77,7 @@ measures apply:
 - **No private storage** — Anonymous viewers
   cannot access private storage. Only shared storage is available.
 - **No integrations** — Public apps cannot
-  use action connectors, embedded visuals, embedded chat experiences, or
+  use connectors, embedded visuals, embedded chat experiences, or
   Amazon Quick spaces.
 - **Rate limiting** — AI inference requests
   from public apps are rate-limited to prevent abuse. Usage counts against the

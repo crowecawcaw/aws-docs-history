@@ -28,6 +28,7 @@ it entirely.
 - [Editing a subscription](#edit-subscriptions "#edit-subscriptions")
 - [Delete a subscription](#delete-subscriptions "#delete-subscriptions")
 - [Upgrading or downgrading user subscriptions](#upgrading-subscription "#upgrading-subscription")
+- [Understanding Amazon Quick user billing](understanding-quick-user-billing.md "understanding-quick-user-billing.md")
 
 ## Viewing current subscriptions
 

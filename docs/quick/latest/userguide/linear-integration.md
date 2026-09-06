@@ -4,7 +4,7 @@ With Linear integration in Amazon Quick, you can manage issues, track projects, 
 
 ## What you can do
 
-Linear integration provides action connector capabilities through MCP server connectivity:
+Linear integration provides connector capabilities through MCP server connectivity:
 
 - Create and manage issues and tasks
 - Track project progress and milestones

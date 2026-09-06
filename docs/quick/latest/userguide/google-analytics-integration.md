@@ -1,6 +1,6 @@
 # Google Analytics integration
 
-With the Google Analytics action connector, you can access Google Analytics
+With the Google Analytics connector, you can access Google Analytics
 directly in Amazon Quick through natural language. You can run reports, retrieve
 audience data, monitor key events, and access real-time metrics without leaving
 Amazon Quick.

@@ -3,7 +3,7 @@
 The console organizes integrations into separate categories
 based on their purpose. Use **Knowledge** to connect data
 sources for Q&A and insights. Use **Connectors** to set
-up action connectors that perform operations in external applications. The
+up connectors that perform operations in external applications. The
 setup process adapts based on the integration you select, your subscription,
 and existing integrations.
 
@@ -18,7 +18,7 @@ When you set up an integration, the console guides you based on several factors:
   only.
 - **Subscription** – Configuring
   integrations requires an Enterprise subscription. This includes
-  creating action connectors, setting up knowledge bases, and managing
+  creating connectors, setting up knowledge bases, and managing
   integration settings. Users with a Professional subscription can use
   integrations that have been shared with them.
 - **Existing integrations** – When you
@@ -47,7 +47,7 @@ admin-managed authentication.
 
 ### Google Drive – Set up an action connector
 
-Google Drive also supports action connectors for performing file
+Google Drive also supports connectors for performing file
 operations directly from .
 
 1. In the console, choose

@@ -6,7 +6,7 @@ search and Q&A.
 
 ## What you can do
 
-**Action connector**
+**Connector**
 
 Upload and download files, manage folders, search content,
 and track changes through the Google Drive API.

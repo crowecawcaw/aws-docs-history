@@ -62,4 +62,4 @@ and Pivot table visuals in Quick Sight.
 - [Managing Threshold Alerts](threshold-alerts-managing.md "threshold-alerts-managing.md")
 - [Investigating Alert Failures](threshold-alerts-failures.md "threshold-alerts-failures.md")
 - [Alert Scheduling](threshold-alerts-scheduling.md "threshold-alerts-scheduling.md")
-- [Using Quick action connectors in threshold alerts](action-connectors-in-threshold-alerts.md "action-connectors-in-threshold-alerts.md")
+- [Using Quick connectors in threshold alerts](action-connectors-in-threshold-alerts.md "action-connectors-in-threshold-alerts.md")

@@ -15,4 +15,4 @@ CA. For more information, see [Amazon Quick SSL and CA certificates](../../../qu
 - [Allowing autodiscovery of AWS resources](autodiscover-aws-data-sources.md "autodiscover-aws-data-sources.md")
 - [Authorizing connections from Amazon Quick Sight to AWS data stores](enabling-access.md "enabling-access.md")
 - [Exploring your AWS data in Amazon Quick](explore-in-quicksight.md "explore-in-quicksight.md")
-- [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md")
+- [AWS service connectors](builtin-services-integration.md "builtin-services-integration.md")

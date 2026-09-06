@@ -1,10 +1,10 @@
 # Monitoring and maintenance
 
-Monitoring your action connectors helps ensure reliable performance and identify issues before they impact users. Regular monitoring allows you to track usage patterns, optimize performance, and maintain healthy connections to external services.
+Monitoring your connectors helps ensure reliable performance and identify issues before they impact users. Regular monitoring allows you to track usage patterns, optimize performance, and maintain healthy connections to external services.
 
 ## Performance monitoring
 
-You can assess action connector performance using the following metrics and analytics.
+You can assess connector performance using the following metrics and analytics.
 
 ### CloudWatch metrics
 
@@ -15,16 +15,16 @@ You can assess action connector performance using the following metrics and anal
 
 ### Usage analytics
 
-The following usage analytics are collected for action connectors:
+The following usage analytics are collected for connectors:
 
-- Active users - Track how many users are actively using action connectors to understand adoption and usage patterns.
+- Active users - Track how many users are actively using connectors to understand adoption and usage patterns.
 - Popular actions - Identify which actions are used most frequently to prioritize optimization efforts.
 - Execution patterns - Analyze when and how often actions are executed to optimize resource allocation.
 - Error trends - Monitor error patterns over time to identify systemic issues and improvement opportunities.
 
 ## Connection health
 
-You can assess action connector health using the following connection health tools:
+You can assess connector health using the following connection health tools:
 
 ### Status monitoring
 

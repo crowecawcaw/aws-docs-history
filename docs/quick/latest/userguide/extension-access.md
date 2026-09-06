@@ -53,5 +53,3 @@ User roles and extension permissions work as follows:
 - [Amazon Quick Microsoft PowerPoint extension](powerpoint-extension.md "powerpoint-extension.md")
 - [Amazon Quick Slack extension](slack-extension.md "slack-extension.md")
 - [Amazon Quick Microsoft Teams extension](teams-extension.md "teams-extension.md")
-- [Amazon Quick Microsoft Outlook extension (Legacy)](legacy-outlook-extension.md "legacy-outlook-extension.md")
-- [Amazon Quick Microsoft Word extension (Legacy)](legacy-word-extension.md "legacy-word-extension.md")

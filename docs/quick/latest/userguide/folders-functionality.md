@@ -1,6 +1,6 @@
-# Overview of Quick Sight folders
+# Overview of Quick folders
 
-In Quick Sight, you can create personal and shared folders. You can also favorite
+In Quick, you can create personal and shared folders. You can also favorite
 your personal or shared folders for quick access by choosing the favorite (
 ![Star icon outline.](images/favorite-icon.png)
 ) icon next to it.
@@ -20,7 +20,7 @@ folders.
   either of these around within the top-level folder.
 - Add or remove owners, contributors, and viewers. When you make a person an
   _owner_ of the folder, you give them
-  ownership of every asset in the folder. For more information, see [Permissions for Quick Sight shared folders](folders-security.md "folders-security.md").
+  ownership of every asset in the folder. For more information, see [Permissions for Quick shared folders](folders-security.md "folders-security.md").
   The following table summarizes the actions that a Quick user can take when
   working with unrestricted shared folders based on their role.
 
@@ -61,7 +61,7 @@ permissions can perform the following tasks with restricted shared folders.
   with the `UpdateFolderPermissions` API operation. For more
   information about the `UpdateFolderPermissions` API operation, see
   [UpdateFolderPermissions](../../../quicksight/latest/APIReference/API_UpdateFolderPermissions.md "../../../quicksight/latest/APIReference/API_UpdateFolderPermissions.md").
-  The following table summarizes the actions that a Quick Sight user can take when
+  The following table summarizes the actions that a Quick user can take when
   working with restricted shared folders based on their role.
 
 | Action                                                                                                         | Contributor | Viewer |
@@ -85,5 +85,5 @@ permissions can perform the following tasks with restricted shared folders.
 
 The owner role is not supported for restricted shared folders.
 
-After you choose which folder type best fits your use case, see [Permissions for Quick Sight shared folders](folders-security.md "folders-security.md") and [Create and manage membership permissions for Quick Sight shared folders](sharing-folders.md "sharing-folders.md") to create folders and
+After you choose which folder type best fits your use case, see [Permissions for Quick shared folders](folders-security.md "folders-security.md") and [Create and manage membership permissions for Quick shared folders](sharing-folders.md "sharing-folders.md") to create folders and
 set up folder permissions.

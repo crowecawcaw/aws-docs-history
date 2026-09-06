@@ -15,7 +15,7 @@ Key capabilities include:
 - Summarize web pages for quick understanding.
 - Ask questions about multiple web pages and access organizational knowledge
   from spaces.
-- Use actions from [action connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured in
+- Use actions from [connectors](../../../quicksuite/latest/userguide/action-connectors.md "../../../quicksuite/latest/userguide/action-connectors.md") configured in
   Quick.
 - Analyze files uploaded to Quick during browsing sessions.
   The AI-powered assistance enables you to maximize reading productivity, streamline
@@ -58,7 +58,7 @@ requiring application switching.
   knowledge.
 - Analyze both files you upload to Quick and specific spaces it
   can access.
-- Execute actions from configured action connectors without leaving your
+- Execute actions from configured connectors without leaving your
   browser.
 
 ## Browser extension use cases

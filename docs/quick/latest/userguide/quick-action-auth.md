@@ -1,6 +1,6 @@
 # Authentication methods
 
-Amazon Quick supports multiple authentication methods for action connectors. The available methods depend on the specific connector. During setup, you choose your authentication method from the **OAuth Configuration** options or from the connector-specific authentication settings.
+Amazon Quick supports multiple authentication methods for connectors. The available methods depend on the specific connector. During setup, you choose your authentication method from the **OAuth Configuration** options or from the connector-specific authentication settings.
 
 ## Default OAuth app
 

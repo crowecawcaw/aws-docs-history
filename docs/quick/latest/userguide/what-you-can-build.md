@@ -23,7 +23,7 @@ external setup. There are two modes: private storage (scoped to the individual u
 invisible to others) and shared storage (visible to everyone who accesses the app).
 Built-in storage scales to support large numbers of records.
 
-You can also store and retrieve data through external systems using action connectors
+You can also store and retrieve data through external systems using connectors
 or through Amazon Quick spaces. For more information, see
 [Working with data in apps in Quick](working-with-data-apps.md "working-with-data-apps.md").
 
@@ -88,7 +88,7 @@ Public apps support the following capabilities:
   served from a unique URL on the Quick domain. Custom domains are
   not supported.
 
-Public apps do not support action connectors, embedded visuals, embedded chat
+Public apps do not support connectors, embedded visuals, embedded chat
 experiences, or Amazon Quick spaces. For the full security model, see
 [Public app security](security-sandbox-apps.md#apps-public-app-security "security-sandbox-apps.md#apps-public-app-security").
 

@@ -1,6 +1,6 @@
 # Atlassian Jira Cloud integration
 
-Use the Atlassian Jira Cloud action connector to create, update, search, and manage
+Use the Atlassian Jira Cloud connector to create, update, search, and manage
 Jira issues, projects, sprints, and users directly in Amazon Quick through natural language.
 
 Setting up this integration involves two steps. First, you create an OAuth 2.0 (3LO)

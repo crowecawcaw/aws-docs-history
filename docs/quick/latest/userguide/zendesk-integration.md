@@ -1,7 +1,7 @@
 # Zendesk Suite integration
 
 Manage your Zendesk support tickets directly from Amazon Quick using natural
-language. With the Zendesk Suite action connector, you can create, update, search,
+language. With the Zendesk Suite connector, you can create, update, search,
 and list support tickets without leaving Amazon Quick.
 
 Zendesk Suite is available as a built-in connector in Amazon Quick. To set up
@@ -71,7 +71,7 @@ you leave this page. 5. After you capture the secret, choose **Save**
 again to create the OAuth client.
 
 The Identifier and the secret serve as the Client ID and Client Secret
-when you configure the action connector in Amazon Quick with the Custom
+when you configure the connector in Amazon Quick with the Custom
 OAuth app authentication method.
 
 For more information, see [Using OAuth authentication with your application](https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application "https://support.zendesk.com/hc/en-us/articles/4408845965210-Using-OAuth-authentication-with-your-application") on the

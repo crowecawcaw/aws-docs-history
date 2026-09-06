@@ -1,7 +1,7 @@
 # HubSpot integration
 
 Access your HubSpot CRM data directly from Amazon Quick using natural
-language. With the HubSpot action connector, you can retrieve and list
+language. With the HubSpot connector, you can retrieve and list
 contacts, companies, deals, and tickets without leaving Amazon Quick.
 
 HubSpot is available as a built-in connector in Amazon Quick. To set up
@@ -66,7 +66,7 @@ MCP Auth app configured in your HubSpot developer settings.
 Record the client secret and client ID.
 
 The client ID and client secret serve as the Client ID and Client Secret
-when you configure the action connector in Amazon Quick with the Custom
+when you configure the connector in Amazon Quick with the Custom
 OAuth app authentication method.
 
 For more information, see [HubSpot MCP server](https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server") on the HubSpot website.

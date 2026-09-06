@@ -6,7 +6,7 @@ This guide covers an integration validated with a third-party MCP server.
 Snowflake manages the setup and availability of the Cortex Agent MCP
 server.
 
-With the Snowflake Cortex Agent action connector, you can query Snowflake data
+With the Snowflake Cortex Agent connector, you can query Snowflake data
 and run AI-powered analytics through Cortex Agent directly in Amazon Quick via
 Model Context Protocol (MCP) server connectivity.
 

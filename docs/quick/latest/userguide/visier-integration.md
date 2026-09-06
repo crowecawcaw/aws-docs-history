@@ -1,6 +1,6 @@
 # Visier Agent integration
 
-With the Visier Agent action connector, you can access Visier's people
+With the Visier Agent connector, you can access Visier's people
 analytics platform directly in Amazon Quick through natural language. You can
 query live workforce data, analyze headcount trends, assess retention health,
 generate workforce briefings, and more without leaving Amazon Quick.

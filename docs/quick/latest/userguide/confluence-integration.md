@@ -6,7 +6,7 @@ AI-powered search and Q&A.
 
 ## Integration capabilities
 
-**Action connector**
+**Connector**
 
 Create and update Confluence pages, and search Confluence
 content through Atlassian API calls.

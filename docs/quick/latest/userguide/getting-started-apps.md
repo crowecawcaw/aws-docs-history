@@ -138,7 +138,7 @@ Anonymous viewers can use the app without creating an account.
 
 ###### Important
 
-Public apps cannot use action connectors, embedded visuals, embedded chat
+Public apps cannot use connectors, embedded visuals, embedded chat
 experiences, or Amazon Quick spaces. If your app uses any of these
 integrations, remove them before publishing publicly.
 

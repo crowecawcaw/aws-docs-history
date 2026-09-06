@@ -384,7 +384,7 @@ Before creating automations with REST API integration, ensure you have:
 
   - Link your configured REST API integration to your automation group
   - Verify integration appears in available actions
-  - Step-by-step guide: [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md")
+  - Step-by-step guide: [AWS service connectors](builtin-services-integration.md "builtin-services-integration.md")
 
 - **Authentication Configured**
 

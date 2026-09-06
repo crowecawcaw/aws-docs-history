@@ -8,7 +8,7 @@ business data, inventory, materials, and business processes. For Amazon Quick su
 SAP workload integrations provide enterprise-level connectivity to help you work with
 your SAP systems.
 
-**Action connector**
+**Connector**
 
 Perform actions within SAP systems. Create, update, and manage business data, inventory records, material information, and other enterprise operations through SAP APIs.
 
@@ -286,7 +286,7 @@ Follow these steps to modify your SAP workload integration settings.
 
 ### Share integration
 
-You can share SAP workload action connectors with other users in your
+You can share SAP workload connectors with other users in your
 organization.
 
 1. From the SAP integration details page, choose **Share**.

@@ -1,6 +1,6 @@
 # Microsoft Outlook integration
 
-With the Microsoft Outlook action connector, you can access Outlook's email,
+With the Microsoft Outlook connector, you can access Outlook's email,
 calendar, and contact APIs directly in Amazon Quick through natural language.
 
 Amazon Quick supports multiple authentication methods for Microsoft Outlook.
@@ -117,6 +117,7 @@ Outlook action integration – delegated permissions| Permission | Description |
 | --- | --- |
 | `Mail.ReadWrite` | Allows the app to create, read, update, and delete email in<br>user mailboxes. |
 | `Mail.Send` | Allows the app to send mail as users in the<br>organization. |
+| `Mail.Read.Shared` | Allows the app to read mail that the user can access,<br>including the user's own mail and shared mail. |
 | `Calendars.ReadWrite` | Allows the app to create, read, update, and delete events in<br>user calendars. |
 | `Calendars.ReadWrite.Shared` | Allows the app to create, read, update and delete events in<br>all calendars the user has permissions to access, including<br>delegate and shared calendars. |
 | `User.Read` | Allows users to sign in to the app and allows the app to read<br>the profile of signed-in users. |

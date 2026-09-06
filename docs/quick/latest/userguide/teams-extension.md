@@ -10,7 +10,7 @@ The Teams extension enables users to:
 
 - Mention **@Amazon Quick** in conversations in
   Teams channels to add it as a collaborator.
-- Use actions from action connectors configured in Amazon Quick.
+- Use actions from connectors configured in Amazon Quick.
 - Access any company knowledge sources added to your Amazon Quick instance from
   within Microsoft Teams.
 
@@ -399,5 +399,5 @@ the extension access.
 
 With Microsoft Teams extension access configured, your team can now use
 **@Quick** mentions in conversations to access AI
-assistance, company knowledge, and action connectors directly within their
+assistance, company knowledge, and connectors directly within their
 Teams environment.

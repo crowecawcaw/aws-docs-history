@@ -1,6 +1,6 @@
 # Gmail integration
 
-With the Gmail action connector, you can access Gmail directly in Amazon Quick
+With the Gmail connector, you can access Gmail directly in Amazon Quick
 through natural language. You can read and send emails, manage labels and drafts,
 organize threads, and search contacts without leaving Amazon Quick.
 

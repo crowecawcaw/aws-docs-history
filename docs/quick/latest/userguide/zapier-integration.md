@@ -1,6 +1,6 @@
 # Zapier integration
 
-With the Zapier action connector, you can trigger workflows across thousands
+With the Zapier connector, you can trigger workflows across thousands
 of applications that Zapier connects to, directly in Amazon Quick through natural
 language. Use this connector to extend the action capabilities of Amazon Quick
 to any application that you have already configured in your Zapier

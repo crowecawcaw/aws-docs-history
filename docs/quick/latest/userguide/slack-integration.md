@@ -1,6 +1,6 @@
 # Slack integration
 
-With the Slack action connector, you can access the Slack platform directly in
+With the Slack connector, you can access the Slack platform directly in
 Amazon Quick through natural language. You can send messages, manage channels,
 search content, and interact with users and user groups without leaving
 Amazon Quick.

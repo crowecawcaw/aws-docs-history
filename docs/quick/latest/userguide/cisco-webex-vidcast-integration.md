@@ -1,6 +1,6 @@
 # Cisco Webex Video Messaging integration
 
-With the Cisco Webex Video Messaging action connector, you can manage video
+With the Cisco Webex Video Messaging connector, you can manage video
 updates, retrieve transcripts, and access video metadata from Cisco Webex
 (formerly known as Vidcast) directly in Amazon Quick through natural
 language.

@@ -228,7 +228,7 @@ you select the space as your chat context.
 
 ###### Note
 
-Only authors can create action connectors.
+Only authors can create connectors.
 
 ###### To use actions in a space
 
@@ -241,4 +241,4 @@ Only authors can create action connectors.
 
 ###### Note
 
-To learn how to create an action connector, refer to [Working with integrations](../../../quicksuite/latest/userguide/working-with-integrations.md "../../../quicksuite/latest/userguide/working-with-integrations.md").
+To learn how to create a connector, refer to [Working with integrations](../../../quicksuite/latest/userguide/working-with-integrations.md "../../../quicksuite/latest/userguide/working-with-integrations.md").

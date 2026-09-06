@@ -4,7 +4,7 @@ With Intercom integration in Amazon Quick, you can manage customer conversations
 
 ## What you can do
 
-Intercom integration provides action connector capabilities through MCP server connectivity:
+Intercom integration provides connector capabilities through MCP server connectivity:
 
 - Manage customer conversations and messages
 - Create and update support tickets
