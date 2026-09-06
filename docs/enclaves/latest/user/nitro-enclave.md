@@ -162,6 +162,8 @@ Nitro Enclaves has the following requirements:
   | R8idn           | All instance types, **except**: `r8idn.large`       | `r8idn.metal-48xl`  | `r8idn.metal-96xl` |
   | R8ib            | All instance types, **except**: `r8ib.large`        | `r8ib.metal-48xl`   | `r8ib.metal-96xl`  |
   | R8idb           | All instance types, **except**: `r8idb.large`       | `r8idb.metal-48xl`  | `r8idb.metal-96xl` |
+  | R9g             | All instance types, **except**: `r9g.medium`        | `r9g.metal-48xl`    |
+  | R9gd            | All instance types, **except**: `r9gd.medium`       | `r9gd.metal-48xl`   |
   | X2gd            | All instance types, **except**: `x2gd.medium`       | `x2gd.metal`        |
   | X2idn           | All instance types, **except**: `x2idn.metal`       |
   | X2iedn          | All instance types, **except**: `x2iedn.metal`      |
