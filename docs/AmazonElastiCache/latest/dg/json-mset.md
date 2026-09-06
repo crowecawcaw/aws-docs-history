@@ -1,4 +1,7 @@
+
+
 # JSON.MSET
+<a name="json-mset"></a>
 
 Supported for Valkey version 8.1 and above.
 
@@ -9,29 +12,24 @@ Set JSON values for multiple keys. The operation is atomic. Either all values ar
 ```
 JSON.MSET key path json [ key path json ... ]
 ```
++ If the path calls for an object member:
+  + If the parent element does not exist, the command will return NONEXISTENT error.
+  + If the parent element exists but is not an object, the command will return ERROR.
+  + If the parent element exists and is an object:
+    + If the member does not exist, a new member will be appended to the parent object if and only if the parent object is the last child in the path. Otherwise, the command will return NONEXISTENT error.
+    + If the member exists, its value will be replaced by the JSON value.
++ If the path calls for an array index:
+  + If the parent element does not exist, the command will return a NONEXISTENT error.
+  + If the parent element exists but is not an array, the command will return ERROR.
+  + If the parent element exists but the index is out of bounds, the command will return OUTOFBOUNDARIES error.
+  + If the parent element exists and the index is valid, the element will be replaced by the new JSON value.
++ If the path calls for an object or array, the value (object or array) will be replaced by the new JSON value.
 
-- If the path calls for an object member:
+**Return**
++ Simple string reply: 'OK' if the operation was successful.
++ Simple error reply: If the operation failed.
 
-  - If the parent element does not exist, the command will return NONEXISTENT error.
-  - If the parent element exists but is not an object, the command will return ERROR.
-  - If the parent element exists and is an object:
-
-    - If the member does not exist, a new member will be appended to the parent object if and only if the parent object is the last child in the path. Otherwise, the command will return NONEXISTENT error.
-    - If the member exists, its value will be replaced by the JSON value.
-
-- If the path calls for an array index:
-
-  - If the parent element does not exist, the command will return a NONEXISTENT error.
-  - If the parent element exists but is not an array, the command will return ERROR.
-  - If the parent element exists but the index is out of bounds, the command will return OUTOFBOUNDARIES error.
-  - If the parent element exists and the index is valid, the element will be replaced by the new JSON value.
-
-- If the path calls for an object or array, the value (object or array) will be replaced by the new JSON value.
-  **Return**
-
-- Simple string reply: 'OK' if the operation was successful.
-- Simple error reply: If the operation failed.
-  **Examples**
+**Examples**
 
 Enhanced path syntax:
 

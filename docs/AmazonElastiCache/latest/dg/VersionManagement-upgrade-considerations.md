@@ -1,75 +1,45 @@
+
+
 # Upgrade considerations when working with node-based clusters
+<a name="VersionManagement-upgrade-considerations"></a>
 
-###### Note
-
+**Note**  
 The following considerations only apply when upgrading node-based clusters. They do not apply to ElastiCache Serverless.
 
 **Valkey and Redis OSS considerations**
 
 When upgrading a node-based Valkey or Redis OSS cluster, consider the following.
++ Engine version management is designed so that you can have as much control as possible over how patching occurs. However, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software.
++ Beginning with ElastiCache version 7.2 for Valkey and ElastiCache version 6.0 for Redis OSS, ElastiCache will offer a single version for each minor release, rather than offering multiple patch versions.
++ Starting with Redis OSS engine version 5.0.6, you can upgrade your cluster version with minimal downtime. The cluster is available for reads during the entire upgrade and is available for writes for most of the upgrade duration, except during the failover operation which lasts a few seconds.
++ You can also upgrade your ElastiCache clusters with versions earlier than 5.0.6. The process involved is the same but may incur longer failover time during DNS propagation (30s-1m). 
++ Beginning with Redis OSS 7, ElastiCache supports switching between Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled).
++ The Amazon ElastiCache for Redis OSS engine upgrade process is designed to make a best effort to retain your existing data and requires successful Redis OSS replication. 
++ When upgrading the engine, ElastiCache will terminate existing client connections. To minimize downtime during engine upgrades, we recommend you implement [best practices for Redis OSS clients](BestPractices.Clients.redis.md) with error retries and exponential backoff and the best practices for [minimizing downtime during maintenance](BestPractices.MinimizeDowntime.md). 
++ You can't upgrade directly from Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled) when you upgrade your engine. The following procedure shows you how to upgrade from Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled).
 
-- Engine version management is designed so that you can have as much control as possible over
-  how patching occurs. However, ElastiCache reserves the right to patch your cluster
-  on your behalf in the unlikely event of a critical security vulnerability in
-  the system or cache software.
-- Beginning with ElastiCache version 7.2 for Valkey and ElastiCache version 6.0 for Redis OSS, ElastiCache will offer a single version for each minor release, rather than offering multiple patch versions.
-- Starting with Redis OSS engine version 5.0.6, you can upgrade your cluster version with minimal downtime.
-  The cluster is available for reads during the entire upgrade and is available for writes for most of the upgrade duration, except during the failover operation which lasts a few seconds.
-- You can also upgrade your ElastiCache clusters with versions earlier than 5.0.6. The process involved is the same but may incur longer failover time during DNS propagation (30s-1m).
-- Beginning with Redis OSS 7, ElastiCache supports switching between Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mode enabled).
-- The Amazon ElastiCache for Redis OSS engine upgrade process is designed to make a best effort to retain your existing data
-  and requires successful Redis OSS replication.
-- When upgrading the engine, ElastiCache will terminate existing client connections. To minimize downtime during engine upgrades,
-  we recommend you implement [best practices for Redis OSS clients](BestPractices.Clients.redis.md "BestPractices.Clients.redis.md")
-  with error retries and exponential backoff and the best practices for
-  [minimizing downtime during maintenance](BestPractices.MinimizeDowntime.md "BestPractices.MinimizeDowntime.md").
-- You can't upgrade directly from Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled) when you upgrade your
-  engine. The following procedure shows you how to upgrade from Valkey or Redis OSS (cluster mode disabled)
-  to Valkey or Redis OSS (cluster mode enabled).
+**To upgrade from a Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled) engine version**
 
-###### To upgrade from a Valkey or Redis OSS (cluster mode disabled) to Valkey or Redis OSS (cluster mode enabled) engine version
+  1. Make a backup of your Valkey or Redis OSS (cluster mode disabled) cluster or replication group. For more information, see [Taking manual backups](backups-manual.md).
 
-    1. Make a backup of your Valkey or Redis OSS (cluster mode disabled) cluster or replication group. For more information,
-     see [Taking manual backups](backups-manual.md "backups-manual.md").
-    2. Use the backup to create and seed a Valkey or Redis OSS (cluster mode enabled) cluster with one shard (node group).
-     Specify the new engine version and enable cluster mode when creating the cluster or
-     replication group. For more information, see [Tutorial: Seeding a new node-based cluster with an externally created backup](backups-seeding-redis.md "backups-seeding-redis.md").
-    3. Delete the old Valkey or Redis OSS (cluster mode disabled) cluster or replication group. For more information,
-     see [Deleting a cluster in ElastiCache](Clusters.Delete.md "Clusters.Delete.md") or [Deleting a replication group](Replication.DeletingRepGroup.md "Replication.DeletingRepGroup.md").
-    4. Scale the new Valkey or Redis OSS (cluster mode enabled) cluster or replication group to the number of shards (node groups)
-     that you need. For more information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
+  1. Use the backup to create and seed a Valkey or Redis OSS (cluster mode enabled) cluster with one shard (node group). Specify the new engine version and enable cluster mode when creating the cluster or replication group. For more information, see [Tutorial: Seeding a new node-based cluster with an externally created backup](backups-seeding-redis.md).
 
-- When upgrading major engine versions, for example from 5.0.6 to 6.0, you need to also choose a new parameter group that is compatible with the new engine version.
-- For single Redis OSS clusters and clusters with Multi-AZ disabled, we recommend that
-  sufficient memory be made available to Redis OSS as described in [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md").
-  In these cases, the primary is unavailable to service requests during the
-  upgrade process.
-- For Redis OSS clusters with Multi-AZ enabled, we also recommend that you schedule engine
-  upgrades during periods of low incoming write traffic. When upgrading to Redis OSS 5.0.6 or above, the primary cluster continues to be available to service requests during the upgrade process.
+  1. Delete the old Valkey or Redis OSS (cluster mode disabled) cluster or replication group. For more information, see [Deleting a cluster in ElastiCache](Clusters.Delete.md) or [Deleting a replication group](Replication.DeletingRepGroup.md).
 
-Clusters and replication groups with multiple shards are processed and patched as follows:
+  1. Scale the new Valkey or Redis OSS (cluster mode enabled) cluster or replication group to the number of shards (node groups) that you need. For more information, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md)
++ When upgrading major engine versions, for example from 5.0.6 to 6.0, you need to also choose a new parameter group that is compatible with the new engine version.
++ For single Redis OSS clusters and clusters with Multi-AZ disabled, we recommend that sufficient memory be made available to Redis OSS as described in [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md). In these cases, the primary is unavailable to service requests during the upgrade process.
++ For Redis OSS clusters with Multi-AZ enabled, we also recommend that you schedule engine upgrades during periods of low incoming write traffic. When upgrading to Redis OSS 5.0.6 or above, the primary cluster continues to be available to service requests during the upgrade process. 
 
-    + All shards are processed in parallel. Only one upgrade operation is performed
-     on a shard at any time.
-    + In each shard, Amazon ElastiCache creates a new set of nodes running the new engine version. A new node
-     syncs with the existing primary node. After the sync is complete, a failover promotes the new node to primary.
-     The remaining new nodes then sync with the new primary, and the old nodes are removed from the cluster.
-    + During this process, there is a brief period where both old and new nodes are visible in the cluster topology.
-     Clients connecting to new replica nodes that are still loading data might receive errors. To handle
-     this transient state, we recommend implementing [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.redis.md "BestPractices.Clients.redis.md") with error retries and exponential backoff.
-    + Across all the shards, primary failovers are processed in series.
-     Only one primary node is failed over at a time.
+  Clusters and replication groups with multiple shards are processed and patched as follows:
+  + All shards are processed in parallel. Only one upgrade operation is performed on a shard at any time.
+  + In each shard, Amazon ElastiCache creates a new set of nodes running the new engine version. A new node syncs with the existing primary node. After the sync is complete, a failover promotes the new node to primary. The remaining new nodes then sync with the new primary, and the old nodes are removed from the cluster.
+  + During this process, there is a brief period where both old and new nodes are visible in the cluster topology. Clients connecting to new replica nodes that are still loading data might receive errors. To handle this transient state, we recommend implementing [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.redis.md) with error retries and exponential backoff.
+  + Across all the shards, primary failovers are processed in series. Only one primary node is failed over at a time.
++ If encryption is enabled on your current cluster or replication group, you cannot upgrade to an engine version that does not support encryption.
 
-- If encryption is enabled on your current cluster or replication group, you cannot upgrade to
-  an engine version that does not support encryption.
-  **Memcached considerations**
+**Memcached considerations**
 
 When upgrading a node-based Memcached cluster, consider the following.
-
-- Engine version management is designed so that you can have as much control as possible over
-  how patching occurs. However, ElastiCache reserves the right to patch your cluster
-  on your behalf in the unlikely event of a critical security vulnerability in
-  the system or cache software.
-- Because the Memcached engine does not support persistence, Memcached engine version
-  upgrades are always a disruptive process that clears all cache data in the
-  cluster.
++ Engine version management is designed so that you can have as much control as possible over how patching occurs. However, ElastiCache reserves the right to patch your cluster on your behalf in the unlikely event of a critical security vulnerability in the system or cache software.
++ Because the Memcached engine does not support persistence, Memcached engine version upgrades are always a disruptive process that clears all cache data in the cluster.

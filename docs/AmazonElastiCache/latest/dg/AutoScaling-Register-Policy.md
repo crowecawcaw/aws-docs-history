@@ -1,40 +1,24 @@
+
+
 # Registering a Scalable Target
+<a name="AutoScaling-Register-Policy"></a>
 
-You can apply a scaling policy based on either a predefined or custom metric. To
-do so, you can use the AWS CLI or the Application Auto Scaling API. The first step is
-to register your ElastiCache for Valkey and Redis OSS replication group with Auto Scaling.
+You can apply a scaling policy based on either a predefined or custom metric. To do so, you can use the AWS CLI or the Application Auto Scaling API. The first step is to register your ElastiCache for Valkey and Redis OSS replication group with Auto Scaling. 
 
-Before you can use ElastiCache auto scaling with a cluster, you must register your
-cluster with ElastiCache auto scaling. You do so to define the scaling dimension and
-limits to be applied to that cluster. ElastiCache auto scaling dynamically scales the
-cluster along the `elasticache:replication-group:Replicas`
-scalable dimension, which represents the number of cluster replicas per shard.
+Before you can use ElastiCache auto scaling with a cluster, you must register your cluster with ElastiCache auto scaling. You do so to define the scaling dimension and limits to be applied to that cluster. ElastiCache auto scaling dynamically scales the cluster along the `elasticache:replication-group:Replicas` scalable dimension, which represents the number of cluster replicas per shard. 
 
-**Using the CLI**
+**Using the CLI** 
 
-To register your ElastiCache cluster, use the [register-scalable-target](../../../cli/latest/reference/application-autoscaling/register-scalable-target.md "../../../cli/latest/reference/application-autoscaling/register-scalable-target.md") command with the following parameters:
+To register your ElastiCache cluster, use the [register-scalable-target](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/register-scalable-target.html) command with the following parameters: 
++ --service-namespace – Set this value to elasticache. 
++ --resource-id – The resource identifier for the ElastiCache cluster. For this parameter, the resource type is ReplicationGroup and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`. 
++ --scalable-dimension – Set this value to `elasticache:replication-group:Replicas`. 
++ --min-capacity – The minimum number of replicas to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax).
++ --max-capacity – The maximum number of replicas to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax).
 
-- --service-namespace – Set this value to elasticache.
-- --resource-id – The resource identifier for the ElastiCache cluster. For
-  this parameter, the resource type is ReplicationGroup and the unique
-  identifier is the name of the cluster, for example
-  `replication-group/myscalablecluster`.
-- --scalable-dimension – Set this value to
-  `elasticache:replication-group:Replicas`.
-- --min-capacity – The minimum number of replicas to be managed by ElastiCache
-  auto scaling. For information about the relationship between --min-capacity,
-  --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
-- --max-capacity – The maximum number of replicas to be managed by ElastiCache
-  auto scaling. For information about the relationship between --min-capacity,
-  --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
-
-###### Example
-
-In the following example, you register an ElastiCache cluster named
-`myscalablecluster`. The registration indicates that the cluster
-should be dynamically scaled to have from one to 5 replicas.
-
-For Linux, macOS, or Unix:
+**Example**  
+In the following example, you register an ElastiCache cluster named `myscalablecluster`. The registration indicates that the cluster should be dynamically scaled to have from one to 5 replicas.   
+For Linux, macOS, or Unix:  
 
 ```
 aws application-autoscaling register-scalable-target \
@@ -44,8 +28,7 @@ aws application-autoscaling register-scalable-target \
     --min-capacity 1 \
     --max-capacity 5 \
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws application-autoscaling register-scalable-target ^
@@ -58,17 +41,15 @@ aws application-autoscaling register-scalable-target ^
 
 **Using the API**
 
-To register your ElastiCache cluster, use the [register-scalable-target](../../../cli/latest/reference/application-autoscaling/register-scalable-target.md "../../../cli/latest/reference/application-autoscaling/register-scalable-target.md") command with the following parameters:
+To register your ElastiCache cluster, use the [register-scalable-target](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/register-scalable-target.html) command with the following parameters: 
++ ServiceNamespace – Set this value to elasticache. 
++ ResourceID – The resource identifier for the ElastiCache cluster. For this parameter, the resource type is ReplicationGroup and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`. 
++ ScalableDimension – Set this value to `elasticache:replication-group:Replicas`. 
++ MinCapacity – The minimum number of replicas to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax).
++ MaxCapacity – The maximum number of replicas to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax).
 
-- ServiceNamespace – Set this value to elasticache.
-- ResourceID – The resource identifier for the ElastiCache cluster. For this parameter, the resource type is ReplicationGroup and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`.
-- ScalableDimension – Set this value to `elasticache:replication-group:Replicas`.
-- MinCapacity – The minimum number of replicas to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
-- MaxCapacity – The maximum number of replicas to be managed by ElastiCache auto scaling. For information about the relationship between --min-capacity, --max-capacity, and the number of replicas in your cluster, see [Minimum and maximum capacity](AutoScaling-Policies.md#AutoScaling-MinMax "AutoScaling-Policies.md#AutoScaling-MinMax").
-
-###### Example
-
-In the following example, you register a cluster named `myscalablecluster` with the Application Auto Scaling API. This registration indicates that the cluster should be dynamically scaled to have from one to 5 replicas.
+**Example**  
+In the following example, you register a cluster named `myscalablecluster` with the Application Auto Scaling API. This registration indicates that the cluster should be dynamically scaled to have from one to 5 replicas. 
 
 ```
 POST / HTTP/1.1

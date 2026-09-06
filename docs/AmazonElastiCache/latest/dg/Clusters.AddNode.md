@@ -1,102 +1,93 @@
+
+
 # Adding nodes to an ElastiCache cluster
+<a name="Clusters.AddNode"></a>
 
-Adding nodes to a Memcached cluster increases the number of your cluster's
-partitions. When you change the number of partitions in a cluster some of your key spaces need to
-be remapped so that they are mapped to the right node. Remapping key spaces temporarily increases
-the number of cache misses on the cluster. For more information, see [Configuring your ElastiCache client for efficient load balancing (Memcached)](BestPractices.LoadBalancing.md "BestPractices.LoadBalancing.md").
+Adding nodes to a Memcached cluster increases the number of your cluster's partitions. When you change the number of partitions in a cluster some of your key spaces need to be remapped so that they are mapped to the right node. Remapping key spaces temporarily increases the number of cache misses on the cluster. For more information, see [Configuring your ElastiCache client for efficient load balancing (Memcached)](BestPractices.LoadBalancing.md).
 
-To reconfigure your Valkey or Redis OSS (cluster mode enabled) cluster, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
+To reconfigure your Valkey or Redis OSS (cluster mode enabled) cluster, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md)
 
 You can use the ElastiCache Management Console, the AWS CLI or ElastiCache API to add nodes to your cluster.
 
-If you want to add a node to a single-node Valkey or Redis OSS (cluster mode disabled) cluster
-(one without replication enabled), it's a two-step process: first add replication,
-and then add a replica node.
+## Using the ElastiCache AWS Management Console
+<a name="Clusters.AddNode.CON"></a>
 
-###### Topics
+If you want to add a node to a single-node Valkey or Redis OSS (cluster mode disabled) cluster (one without replication enabled), it's a two-step process: first add replication, and then add a replica node.
 
-- [To add replication to a Valkey or Redis OSS cluster with no shards](#AddReplication.CON "#AddReplication.CON")
-- [To add nodes to an ElastiCache cluster (console)](#AddNode.CON "#AddNode.CON")
-  The following procedure adds replication to a single-node Valkey or Redis OSS that does not have replication enabled.
-  When you add replication, the existing node becomes the primary node in the replication-enabled cluster.
-  After replication is added, you can add up to 5 replica nodes to the cluster.
+**Topics**
++ [To add replication to a Valkey or Redis OSS cluster with no shards](#AddReplication.CON)
++ [To add nodes to an ElastiCache cluster (console)](#AddNode.CON)
 
-###### To add replication to a Valkey or Redis OSS cluster with no shards
+The following procedure adds replication to a single-node Valkey or Redis OSS that does not have replication enabled. When you add replication, the existing node becomes the primary node in the replication-enabled cluster. After replication is added, you can add up to 5 replica nodes to the cluster.<a name="AddReplication.CON"></a>
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. From the navigation pane, choose **Valkey clusters** or **Redis OSS clusters**.
+**To add replication to a Valkey or Redis OSS cluster with no shards**
 
-A list of clusters running that engine is displayed. 3. Choose the name of a cluster, not the box to the left of the cluster's name, that you want to add
-nodes to.
+1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-The following is true of a Redis OSS cluster that does not have replication enabled:
+1. From the navigation pane, choose **Valkey clusters** or **Redis OSS clusters**.
 
-    * It is running Redis OSS, not Clustered Redis OSS.
-    * It has zero shards.
+   A list of clusters running that engine is displayed.
 
+1. Choose the name of a cluster, not the box to the left of the cluster's name, that you want to add nodes to.
 
-    If the cluster has any shards, replication is already enabled on it
-     and you can continue at [To add nodes to an ElastiCache cluster (console)](#AddNode.CON "#AddNode.CON").
+   The following is true of a Redis OSS cluster that does not have replication enabled:
+   + It is running Redis OSS, not Clustered Redis OSS.
+   + It has zero shards.
 
-4. Choose **Add replication**. 5. In **Add Replication**, enter a description for this replication-enabled
-cluster. 6. Choose **Add**.
+     If the cluster has any shards, replication is already enabled on it and you can continue at [To add nodes to an ElastiCache cluster (console)](#AddNode.CON).
 
-As soon as the cluster's status returns to _available_ you can continue at the next procedure
-and add replicas to the cluster.
+1. Choose **Add replication**.
 
-###### To add nodes to an ElastiCache cluster (console)
+1. In **Add Replication**, enter a description for this replication-enabled cluster.
+
+1. Choose **Add**.
+
+   As soon as the cluster's status returns to *available* you can continue at the next procedure and add replicas to the cluster.<a name="AddNode.CON"></a>
+
+**To add nodes to an ElastiCache cluster (console)**
 
 The following procedure can be used to add nodes to a cluster.
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the navigation pane, choose the engine running on the cluster that you want to add
-   nodes to.
+1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-A list of clusters running the chosen engine appears. 3. From the list of clusters, for the cluster that you want to add a node to, choose its
-name.
+1. In the navigation pane, choose the engine running on the cluster that you want to add nodes to.
 
-If your cluster is a Valkey or Redis OSS (cluster mode enabled) cluster, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md").
+   A list of clusters running the chosen engine appears.
 
-If your cluster is a Valkey or Redis OSS (cluster mode disabled) cluster with zero shards, first complete the steps at [To add replication to a Valkey or Redis OSS cluster with no shards](#AddReplication.CON "#AddReplication.CON"). 4. Choose **Add node**. 5. Complete the information requested in the **Add Node** dialog box. 6. Choose the **Apply Immediately - Yes** button to add this node immediately,
-or choose **No** to add this node during the cluster's next maintenance window.
+1. From the list of clusters, for the cluster that you want to add a node to, choose its name.
 
-Impact of New Add and Remove Requests on Pending Requests| Scenarios | Pending Operation | New Request | Results |
-| --- | --- | --- | --- |
-| Scenario 1 | Delete | Delete | The new delete request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to delete nodes 0002 and 0004 is issued, only nodes 0002 and 0004 will be deleted.<br>Nodes 0001, 0003, and 0007 will not be deleted. |
-| Scenario 2 | Delete | Create | The new create request, pending or immediate, replaces the pending delete request.<br>For example, if nodes 0001, 0003, and 0007 are pending deletion and a new request<br>to create a node is issued, a new node will be created and nodes 0001, 0003, and 0007<br>will not be deleted. |
-| Scenario 3 | Create | Delete | The new delete request, pending or immediate, replaces the pending create request.<br>For example, if there is a pending request to create two nodes and a new request<br>is issued to delete node 0003, no new nodes will be created and node 0003 will<br>be deleted. |
-| Scenario 4 | Create | Create | The new create request is added to the pending create request.<br>For example, if there is a pending request to create two nodes and a new request is<br>issued to create three nodes, the new requests is added to the pending request and five<br>nodes will be created.<br>ImportantIf the new create request is set to **Apply Immediately<br>• Yes**,<br>all create requests are performed immediately.<br>If the new create request is set to **Apply Immediately<br>• No**,<br>all create requests are pending. |
+   If your cluster is a Valkey or Redis OSS (cluster mode enabled) cluster, see [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md).
 
-To determine what operations are pending, choose the **Description** tab and
-check to see how many pending creations or deletions are shown.
-You cannot have both pending creations and pending deletions. 7. Choose the **Add** button.
+   If your cluster is a Valkey or Redis OSS (cluster mode disabled) cluster with zero shards, first complete the steps at [To add replication to a Valkey or Redis OSS cluster with no shards](#AddReplication.CON).
 
-After a few moments, the new nodes should appear in the nodes list with a status
-of **creating**. If they don't appear, refresh your browser page.
-When the node's status changes to _available_ the new node is able
-to be used.
-To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-cache-cluster`
-with the following parameters:
+1. Choose **Add node**.
 
-- `--cache-cluster-id` The ID of the cluster that you want to add nodes
-  to.
-- `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the
-  number of nodes that you want in this cluster after the modification is
-  applied. To add nodes to this cluster, `--num-cache-nodes` must
-  be greater than the current number of nodes in this cluster. If this value
-  is less than the current number of nodes, ElastiCache expects the parameter
-  `cache-node-ids-to-remove` and a list of nodes to remove from
-  the cluster. For more information, see [Using the AWS CLI with ElastiCache](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI "Clusters.DeleteNode.md#Clusters.DeleteNode.CLI").
-- `--apply-immediately` or `--no-apply-immediately`
-  which specifies whether to add these nodes immediately or at the next maintenance window.
-  For Linux, macOS, or Unix:
+1. Complete the information requested in the **Add Node** dialog box.
+
+1. Choose the **Apply Immediately - Yes** button to add this node immediately, or choose **No** to add this node during the cluster's next maintenance window.  
+**Impact of New Add and Remove Requests on Pending Requests**    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.AddNode.html)
+
+   To determine what operations are pending, choose the **Description** tab and check to see how many pending creations or deletions are shown. You cannot have both pending creations and pending deletions. 
+
+1. Choose the **Add** button.
+
+    After a few moments, the new nodes should appear in the nodes list with a status of **creating**. If they don't appear, refresh your browser page. When the node's status changes to *available* the new node is able to be used.
+
+## Using the AWS CLI with ElastiCache
+<a name="Clusters.AddNode.CLI"></a>
+
+To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `modify-cache-cluster` with the following parameters:
++ `--cache-cluster-id` The ID of the cluster that you want to add nodes to.
++ `--num-cache-nodes` The `--num-cache-nodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied. To add nodes to this cluster, `--num-cache-nodes` must be greater than the current number of nodes in this cluster. If this value is less than the current number of nodes, ElastiCache expects the parameter `cache-node-ids-to-remove` and a list of nodes to remove from the cluster. For more information, see [Using the AWS CLI with ElastiCache](Clusters.DeleteNode.md#Clusters.DeleteNode.CLI).
++ `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window.
+
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
-    --cache-cluster-id `my-cluster` \
-    --num-cache-nodes `5` \
+    --cache-cluster-id {{my-cluster}} \
+    --num-cache-nodes {{5}} \
     --apply-immediately
 ```
 
@@ -104,8 +95,8 @@ For Windows:
 
 ```
 aws elasticache modify-cache-cluster ^
-    --cache-cluster-id `my-cluster` ^
-    --num-cache-nodes `5` ^
+    --cache-cluster-id {{my-cluster}} ^
+    --num-cache-nodes {{5}} ^
     --apply-immediately
 ```
 
@@ -114,67 +105,60 @@ This operation produces output similar to the following (JSON format):
 ```
 {
     "CacheCluster": {
-        "Engine": "memcached",
+        "Engine": "memcached", 
         "CacheParameterGroup": {
-            "CacheNodeIdsToReboot": [],
-            "CacheParameterGroupName": "default.memcached1.4",
+            "CacheNodeIdsToReboot": [], 
+            "CacheParameterGroupName": "default.memcached1.4", 
             "ParameterApplyStatus": "in-sync"
-        },
-        "CacheClusterId": "my-cluster",
-        "PreferredAvailabilityZone": "us-west-2b",
+        }, 
+        "CacheClusterId": "my-cluster", 
+        "PreferredAvailabilityZone": "us-west-2b", 
         "ConfigurationEndpoint": {
-            "Port": 11211,
+            "Port": 11211, 
             "Address": "rlh-mem000.7alc7bf-example.cfg.usw2.cache.amazonaws.com"
-        },
-        "CacheSecurityGroups": [],
-        "CacheClusterCreateTime": "2016-09-21T16:28:28.973Z",
-        "AutoMinorVersionUpgrade": true,
-        "CacheClusterStatus": "modifying",
-        "NumCacheNodes": 2,
-        "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
+        }, 
+        "CacheSecurityGroups": [], 
+        "CacheClusterCreateTime": "2016-09-21T16:28:28.973Z", 
+        "AutoMinorVersionUpgrade": true, 
+        "CacheClusterStatus": "modifying", 
+        "NumCacheNodes": 2, 
+        "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:", 
         "SecurityGroups": [
             {
-                "Status": "active",
+                "Status": "active", 
                 "SecurityGroupId": "sg-dbe93fa2"
             }
-        ],
-        "CacheSubnetGroupName": "default",
-        "EngineVersion": "1.4.24",
+        ], 
+        "CacheSubnetGroupName": "default", 
+        "EngineVersion": "1.4.24", 
         "PendingModifiedValues": {
             "NumCacheNodes": 5
-        },
-        "PreferredMaintenanceWindow": "sat:09:00-sat:10:00",
+        }, 
+        "PreferredMaintenanceWindow": "sat:09:00-sat:10:00", 
         "CacheNodeType": "cache.m5.large",
          "DataTiering": "disabled",
     }
 }
 ```
 
-For more information, see the AWS CLI topic [`modify-cache-cluster`](../../../cli/latest/reference/elasticache/modify-cache-cluster.md "../../../cli/latest/reference/elasticache/modify-cache-cluster.md").
+For more information, see the AWS CLI topic [`modify-cache-cluster`](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html).
 
-If you want to add nodes to an existing Valkey or Redis OSS (cluster mode disabled) cluster that does not
-have replication enabled, you must first create the replication group specifying the existing cluster as the primary.
-For more information, see [Creating a replication group using an available Valkey or Redis OSS cluster (AWS CLI)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI "Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI").
-After the replication group is _available_, you can continue with
-the following process.
+## Using the AWS CLI with ElastiCache
+<a name="Clusters.AddNode.CLI"></a>
 
-To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `increase-replica-count`
-with the following parameters:
+If you want to add nodes to an existing Valkey or Redis OSS (cluster mode disabled) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the primary. For more information, see [Creating a replication group using an available Valkey or Redis OSS cluster (AWS CLI)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.CLI). After the replication group is *available*, you can continue with the following process.
 
-- `--replication-group-id` The ID of the replicationn group that you want to add nodes
-  to.
-- `--new-replica-count` specifies the
-  number of nodes that you want in this replication group after the modification is
-  applied. To add nodes to this cluster, `--new-replica-count` must
-  be greater than the current number of nodes in this cluster.
-- `--apply-immediately` or `--no-apply-immediately`
-  which specifies whether to add these nodes immediately or at the next maintenance window.
-  For Linux, macOS, or Unix:
+To add nodes to a cluster using the AWS CLI, use the AWS CLI operation `increase-replica-count` with the following parameters:
++ `--replication-group-id` The ID of the replicationn group that you want to add nodes to.
++ `--new-replica-count` specifies the number of nodes that you want in this replication group after the modification is applied. To add nodes to this cluster, `--new-replica-count` must be greater than the current number of nodes in this cluster.
++ `--apply-immediately` or `--no-apply-immediately` which specifies whether to add these nodes immediately or at the next maintenance window.
+
+For Linux, macOS, or Unix:
 
 ```
 aws elasticache increase-replica-count \
-    --replication-group-id `my-replication-group` \
-    --new-replica-count `4` \
+    --replication-group-id {{my-replication-group}} \
+    --new-replica-count {{4}} \
     --apply-immediately
 ```
 
@@ -182,8 +166,8 @@ For Windows:
 
 ```
 aws elasticache increase-replica-count ^
-    --replication-group-id `my-replication-group` ^
-    --new-replica-count `4` ^
+    --replication-group-id {{my-replication-group}} ^
+    --new-replica-count {{4}} ^
     --apply-immediately
 ```
 
@@ -193,7 +177,7 @@ This operation produces output similar to the following (JSON format):
 {
     "ReplicationGroup": {
         "ReplicationGroupId": "node-test",
-        "Description": "node-test",
+        "Description": "node-test",       
         "Status": "modifying",
         "PendingModifiedValues": {},
         "MemberClusters": [
@@ -264,93 +248,74 @@ This operation produces output similar to the following (JSON format):
 }
 ```
 
-For more information, see the AWS CLI topic [`increase-replica-count`](../../../cli/latest/reference/elasticache/increase-replica-count.md "../../../cli/latest/reference/elasticache/increase-replica-count.md").
+For more information, see the AWS CLI topic [`increase-replica-count`](https://docs.aws.amazon.com/cli/latest/reference/elasticache/increase-replica-count.html).
 
-If you want to add nodes to an existing Valkey or Redis OSS (cluster mode disabled) cluster that does not have replication enabled,
-you must first create the replication group specifying the existing cluster as the Primary.
-For more information, see [Adding replicas to a standalone Valkey or Redis OSS (Cluster Mode Disabled) cluster (ElastiCache API)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.API "Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.API").
-After the replication group is _available_, you can continue with
-the following process.
+## Using the ElastiCache API
+<a name="Clusters.AddNode.API"></a>
 
-###### To add nodes to a cluster (ElastiCache API)
+If you want to add nodes to an existing Valkey or Redis OSS (cluster mode disabled) cluster that does not have replication enabled, you must first create the replication group specifying the existing cluster as the Primary. For more information, see [Adding replicas to a standalone Valkey or Redis OSS (Cluster Mode Disabled) cluster (ElastiCache API)](Replication.CreatingReplGroup.ExistingCluster.md#Replication.CreatingReplGroup.ExistingCluster.API). After the replication group is *available*, you can continue with the following process.
 
-- Call the `IncreaseReplicaCount` API operation with the following
-  parameters:
+**To add nodes to a cluster (ElastiCache API)**
++ Call the `IncreaseReplicaCount` API operation with the following parameters:
+  + `ReplicationGroupId` The ID of the cluster that you want to add nodes to.
+  + `NewReplicaCount` The `NewReplicaCount` parameter specifies the number of nodes that you want in this cluster after the modification is applied. To add nodes to this cluster, `NewReplicaCount` must be greater than the current number of nodes in this cluster. If this value is less than the current number of nodes, use the `DecreaseReplicaCount` API with the number of nodes to remove from the cluster.
+  + `ApplyImmediately` Specifies whether to add these nodes immediately or at the next maintenance window.
+  + `Region` Specifies the AWS Region of the cluster that you want to add nodes to.
 
-  - `ReplicationGroupId` The ID of the cluster that you want to add nodes to.
-  - `NewReplicaCount` The `NewReplicaCount` parameter specifies the number
-    of nodes that you want in this cluster after the modification is
-    applied. To add nodes to this cluster, `NewReplicaCount`
-    must be greater than the current number of nodes in this cluster. If
-    this value is less than the current number of nodes, use the `DecreaseReplicaCount` API with the number of nodes
-    to remove from the cluster.
-  - `ApplyImmediately`
-    Specifies whether to add these nodes immediately or at the next maintenance window.
-  - `Region` Specifies the AWS Region of the cluster that you want to add nodes
-    to.
-    The following example shows a call to add nodes to a cluster.
+  The following example shows a call to add nodes to a cluster.  
+**Example**  
 
-###### Example
+  ```
+  https://elasticache.us-west-2.amazonaws.com/
+      ?Action=IncreaseReplicaCount
+      &ApplyImmediately=true
+      &NumCacheNodes=4
+      &ReplicationGroupId=my-replication-group
+      &Region=us-east-2
+      &Version=2014-12-01
+      &SignatureVersion=4
+      &SignatureMethod=HmacSHA256
+      &Timestamp=20141201T220302Z
+      &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+      &X-Amz-Date=20141201T220302Z
+      &X-Amz-SignedHeaders=Host
+      &X-Amz-Expires=20141201T220302Z
+      &X-Amz-Credential=<credential>
+      &X-Amz-Signature=<signature>
+  ```
 
-```
-https://elasticache.us-west-2.amazonaws.com/
-    ?Action=IncreaseReplicaCount
-    &ApplyImmediately=true
-    &NumCacheNodes=4
-    &ReplicationGroupId=my-replication-group
-    &Region=us-east-2
-    &Version=2014-12-01
-    &SignatureVersion=4
-    &SignatureMethod=HmacSHA256
-    &Timestamp=20141201T220302Z
-    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
-    &X-Amz-Date=20141201T220302Z
-    &X-Amz-SignedHeaders=Host
-    &X-Amz-Expires=20141201T220302Z
-    &X-Amz-Credential=<credential>
-    &X-Amz-Signature=<signature>
-```
+For more information, see ElastiCache API topic [`IncreaseReplicaCount`](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_IncreaseReplicaCount.html).
 
-For more information, see ElastiCache API topic [`IncreaseReplicaCount`](../APIReference/API_IncreaseReplicaCount.md "../APIReference/API_IncreaseReplicaCount.md").
+## Using the ElastiCache API
+<a name="Clusters.AddNode.API"></a>
 
-###### To add nodes to a cluster (ElastiCache API)
+**To add nodes to a cluster (ElastiCache API)**
++ Call the `ModifyCacheCluster` API operation with the following parameters:
+  + `CacheClusterId` The ID of the cluster that you want to add nodes to.
+  + `NumCacheNodes` The `NumCachNodes` parameter specifies the number of nodes that you want in this cluster after the modification is applied. To add nodes to this cluster, `NumCacheNodes` must be greater than the current number of nodes in this cluster. If this value is less than the current number of nodes, ElastiCache expects the parameter `CacheNodeIdsToRemove` with a list of nodes to remove from the cluster (see [Using the ElastiCache API with Memcached](Clusters.DeleteNode.md#Clusters.DeleteNode.API)).
+  + `ApplyImmediately` Specifies whether to add these nodes immediately or at the next maintenance window.
+  + `Region` Specifies the AWS Region of the cluster that you want to add nodes to.
 
-- Call the `ModifyCacheCluster` API operation with the following
-  parameters:
+  The following example shows a call to add nodes to a cluster.  
+**Example**  
 
-  - `CacheClusterId` The ID of the cluster that you want to add nodes to.
-  - `NumCacheNodes` The `NumCachNodes` parameter specifies the number
-    of nodes that you want in this cluster after the modification is
-    applied. To add nodes to this cluster, `NumCacheNodes`
-    must be greater than the current number of nodes in this cluster. If
-    this value is less than the current number of nodes, ElastiCache expects
-    the parameter `CacheNodeIdsToRemove` with a list of nodes
-    to remove from the cluster (see [Using the ElastiCache API with Memcached](Clusters.DeleteNode.md#Clusters.DeleteNode.API "Clusters.DeleteNode.md#Clusters.DeleteNode.API")).
-  - `ApplyImmediately`
-    Specifies whether to add these nodes immediately or at the next maintenance window.
-  - `Region` Specifies the AWS Region of the cluster that you want to add nodes
-    to.
-    The following example shows a call to add nodes to a cluster.
+  ```
+  https://elasticache.us-west-2.amazonaws.com/
+      ?Action=ModifyCacheCluster
+      &ApplyImmediately=true
+      &NumCacheNodes=5
+  	&CacheClusterId=my-cluster
+  	&Region=us-east-2
+      &Version=2014-12-01
+      &SignatureVersion=4
+      &SignatureMethod=HmacSHA256
+      &Timestamp=20141201T220302Z
+      &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
+      &X-Amz-Date=20141201T220302Z
+      &X-Amz-SignedHeaders=Host
+      &X-Amz-Expires=20141201T220302Z
+      &X-Amz-Credential=<credential>
+      &X-Amz-Signature=<signature>
+  ```
 
-###### Example
-
-```
-https://elasticache.us-west-2.amazonaws.com/
-    ?Action=ModifyCacheCluster
-    &ApplyImmediately=true
-    &NumCacheNodes=5
-	&CacheClusterId=my-cluster
-	&Region=us-east-2
-    &Version=2014-12-01
-    &SignatureVersion=4
-    &SignatureMethod=HmacSHA256
-    &Timestamp=20141201T220302Z
-    &X-Amz-Algorithm=&AWS;4-HMAC-SHA256
-    &X-Amz-Date=20141201T220302Z
-    &X-Amz-SignedHeaders=Host
-    &X-Amz-Expires=20141201T220302Z
-    &X-Amz-Credential=<credential>
-    &X-Amz-Signature=<signature>
-```
-
-For more information, see ElastiCache API topic [`ModifyCacheCluster`](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md").
+For more information, see ElastiCache API topic [`ModifyCacheCluster`](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).

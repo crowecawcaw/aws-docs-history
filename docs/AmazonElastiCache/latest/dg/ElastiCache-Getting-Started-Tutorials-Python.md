@@ -1,41 +1,43 @@
+
+
 # Python and ElastiCache
+<a name="ElastiCache-Getting-Started-Tutorials-Python"></a>
 
 In this tutorial, you use the AWS SDK for Python (Boto3) to write simple programs to perform the following ElastiCache operations:
++ Create ElastiCache for Redis OSS clusters (cluster mode enabled and cluster mode disabled)
++ Check if users or user groups exist, otherwise create them. (This feature is availably with Valkey 7.2 and onwards, and with Redis OSS 6.0 to 7.1.)
++ Connect to ElastiCache
++ Perform operations such as setting and getting strings, reading from and writing to steams and publishing and subscribing from Pub/Sub channel.
 
-- Create ElastiCache for Redis OSS clusters (cluster mode enabled and cluster mode disabled)
-- Check if users or user groups exist, otherwise create them. (This feature is availably with Valkey 7.2 and onwards, and with Redis OSS 6.0 to 7.1.)
-- Connect to ElastiCache
-- Perform operations such as setting and getting strings, reading from and writing to steams and publishing and subscribing from Pub/Sub channel.
-  As you work through this tutorial, you can refer to the AWS SDK for Python (Boto) documentation. The following section is specific to ElastiCache:
-  [ElastiCache low-level client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html")
+As you work through this tutorial, you can refer to the AWS SDK for Python (Boto) documentation. The following section is specific to ElastiCache: [ElastiCache low-level client](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html)
 
 ## Tutorial Prerequisites
+<a name="ElastiCache-Getting-Started-Tutorials-Prerquisites"></a>
++ Set up an AWS access key to use the AWS SDKs. For more information, see [Setting up ElastiCache](set-up.md).
++ Install Python 3.0 or later. For more information, see [https://www.python.org/downloads](https://www.python.org/downloads). For instructions, see [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html) in the Boto 3 documentation.
 
-- Set up an AWS access key to use the AWS SDKs. For more information, see [Setting up ElastiCache](set-up.md "set-up.md").
-- Install Python 3.0 or later. For more information, see [https://www.python.org/downloads](https://www.python.org/downloads "https://www.python.org/downloads"). For instructions, see
-  [Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html") in the Boto 3 documentation.
-
-###### Topics
-
-- [Tutorial: Creating ElastiCache clusters and users](#ElastiCache-Getting-Started-Tutorials-Create-Cluster-and-Users "#ElastiCache-Getting-Started-Tutorials-Create-Cluster-and-Users")
-- [Tutorial: Connecting to ElastiCache](#ElastiCache-Getting-Started-Tutorials-Connecting "#ElastiCache-Getting-Started-Tutorials-Connecting")
-- [Usage examples](#ElastiCache-Getting-Started-Tutorials-Usage "#ElastiCache-Getting-Started-Tutorials-Usage")
+**Topics**
++ [Tutorial Prerequisites](#ElastiCache-Getting-Started-Tutorials-Prerquisites)
++ [Tutorial: Creating ElastiCache clusters and users](#ElastiCache-Getting-Started-Tutorials-Create-Cluster-and-Users)
++ [Tutorial: Connecting to ElastiCache](#ElastiCache-Getting-Started-Tutorials-Connecting)
++ [Usage examples](#ElastiCache-Getting-Started-Tutorials-Usage)
 
 ## Tutorial: Creating ElastiCache clusters and users
+<a name="ElastiCache-Getting-Started-Tutorials-Create-Cluster-and-Users"></a>
 
 The following examples use the boto3 SDK for ElastiCache for Redis OSS management operations (cluster or user creation) and redis-py/redis-py-cluster for data handling.
 
-###### Topics
-
-- [Create a cluster mode disabled cluster](#ElastiCache-Getting-Started-Tutorials-Create-Cluster "#ElastiCache-Getting-Started-Tutorials-Create-Cluster")
-- [Create a cluster mode disabled cluster with TLS and RBAC](#ElastiCache-Getting-Started-Tutorials-RBAC "#ElastiCache-Getting-Started-Tutorials-RBAC")
-- [Create a cluster mode enabled cluster](#ElastiCache-Getting-Started-Tutorials-Cluster-Enabled "#ElastiCache-Getting-Started-Tutorials-Cluster-Enabled")
-- [Create a cluster mode enabled cluster with TLS and RBAC](#ElastiCache-Getting-Started-Tutorials-Cluster-RBAC "#ElastiCache-Getting-Started-Tutorials-Cluster-RBAC")
-- [Check if users/usergroup exists, otherwise create them](#ElastiCache-Getting-Started-Tutorials-Users "#ElastiCache-Getting-Started-Tutorials-Users")
+**Topics**
++ [Create a cluster mode disabled cluster](#ElastiCache-Getting-Started-Tutorials-Create-Cluster)
++ [Create a cluster mode disabled cluster with TLS and RBAC](#ElastiCache-Getting-Started-Tutorials-RBAC)
++ [Create a cluster mode enabled cluster](#ElastiCache-Getting-Started-Tutorials-Cluster-Enabled)
++ [Create a cluster mode enabled cluster with TLS and RBAC](#ElastiCache-Getting-Started-Tutorials-Cluster-RBAC)
++ [Check if users/usergroup exists, otherwise create them](#ElastiCache-Getting-Started-Tutorials-Users)
 
 ### Create a cluster mode disabled cluster
+<a name="ElastiCache-Getting-Started-Tutorials-Create-Cluster"></a>
 
-Copy the following program and paste it into a file named _CreateClusterModeDisabledCluster.py_.
+Copy the following program and paste it into a file named *CreateClusterModeDisabledCluster.py*.
 
 ```
 import boto3
@@ -76,32 +78,31 @@ def create_cluster_mode_disabled(CacheNodeType='cache.t3.small',EngineVersion='6
 
 
 if __name__ == '__main__':
-
+    
     # Creates an ElastiCache Cluster mode disabled cluster, based on cache.m6g.large nodes, Valkey 8.0, one primary and two replicas
     elasticacheResponse = create_cluster_mode_disabled(
-        #CacheNodeType='cache.m6g.large',
+        #CacheNodeType='cache.m6g.large', 
         EngineVersion='8.0',
         NumCacheClusters=3,
         ReplicationGroupDescription='Valkey cluster mode disabled with replicas',
         ReplicationGroupId='valkey202104053'
         )
-
+    
     logging.info(elasticacheResponse)
 ```
 
 To run the program, enter the following command:
 
-`python CreateClusterModeDisabledCluster.py`
+ `python CreateClusterModeDisabledCluster.py`
 
-For more information, see [Managing clusters in ElastiCache](Clusters.md "Clusters.md").
+For more information, see [Managing clusters in ElastiCache](Clusters.md).
 
 ### Create a cluster mode disabled cluster with TLS and RBAC
+<a name="ElastiCache-Getting-Started-Tutorials-RBAC"></a>
 
-To ensure security, you can use Transport Layer Security (TLS) and Role-Based Access Control (RBAC) when creating a cluster mode disabled cluster.
-Unlike Valkey or Redis OSS AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups. These user groups are designed as a way to organize access to replication groups.
-For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md").
+To ensure security, you can use Transport Layer Security (TLS) and Role-Based Access Control (RBAC) when creating a cluster mode disabled cluster. Unlike Valkey or Redis OSS AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups. These user groups are designed as a way to organize access to replication groups. For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md).
 
-Copy the following program and paste it into a file named _ClusterModeDisabledWithRBAC.py_.
+Copy the following program and paste it into a file named *ClusterModeDisabledWithRBAC.py*.
 
 ```
 import boto3
@@ -133,15 +134,15 @@ def create_cluster_mode_disabled_rbac(CacheNodeType='cache.t3.small',EngineVersi
     elif not isinstance(UserGroupIds,(list)):
         return {'Error': 'UserGroupIds parameter is required and must be a list'}
 
-    params={'AutomaticFailoverEnabled': True,
-            'CacheNodeType': CacheNodeType,
-            'Engine': 'valkey',
-            'EngineVersion': EngineVersion,
-            'NumCacheClusters': NumCacheClusters,
-            'ReplicationGroupDescription': ReplicationGroupDescription,
-            'ReplicationGroupId': ReplicationGroupId,
-            'SnapshotRetentionLimit': 30,
-            'TransitEncryptionEnabled': True,
+    params={'AutomaticFailoverEnabled': True, 
+            'CacheNodeType': CacheNodeType, 
+            'Engine': 'valkey', 
+            'EngineVersion': EngineVersion, 
+            'NumCacheClusters': NumCacheClusters, 
+            'ReplicationGroupDescription': ReplicationGroupDescription, 
+            'ReplicationGroupId': ReplicationGroupId, 
+            'SnapshotRetentionLimit': 30, 
+            'TransitEncryptionEnabled': True, 
             'UserGroupIds':UserGroupIds
         }
 
@@ -158,7 +159,7 @@ if __name__ == '__main__':
 
     # Creates an ElastiCache Cluster mode disabled cluster, based on cache.m6g.large nodes, Valkey 8.0, one primary and two replicas.
     # Assigns the existent user group "mygroup" for RBAC authentication
-
+   
     response=create_cluster_mode_disabled_rbac(
         CacheNodeType='cache.m6g.large',
         EngineVersion='8.0',
@@ -175,18 +176,18 @@ if __name__ == '__main__':
     )
 
     logging.info(response)
-
 ```
 
 To run the program, enter the following command:
 
-`python ClusterModeDisabledWithRBAC.py`
+ `python ClusterModeDisabledWithRBAC.py`
 
-For more information, see [Managing clusters in ElastiCache](Clusters.md "Clusters.md").
+For more information, see [Managing clusters in ElastiCache](Clusters.md).
 
 ### Create a cluster mode enabled cluster
+<a name="ElastiCache-Getting-Started-Tutorials-Cluster-Enabled"></a>
 
-Copy the following program and paste it into a file named _ClusterModeEnabled.py_.
+Copy the following program and paste it into a file named *ClusterModeEnabled.py*.
 
 ```
 import boto3
@@ -213,7 +214,7 @@ def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.
     """
     if not ReplicationGroupId:
         return 'ReplicationGroupId parameter is required'
-
+    
     response = client.create_replication_group(
         AutomaticFailoverEnabled=True,
         CacheNodeType=CacheNodeType,
@@ -230,7 +231,7 @@ def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.
     return response
 
 
-# Creates a cluster mode enabled
+# Creates a cluster mode enabled 
 response = create_cluster_mode_enabled(
     CacheNodeType='cache.m6g.large',
     EngineVersion='6.0',
@@ -242,22 +243,20 @@ response = create_cluster_mode_enabled(
 )
 
 logging.info(response)
-
 ```
 
 To run the program, enter the following command:
 
-`python ClusterModeEnabled.py`
+ `python ClusterModeEnabled.py`
 
-For more information, see [Managing clusters in ElastiCache](Clusters.md "Clusters.md").
+For more information, see [Managing clusters in ElastiCache](Clusters.md).
 
 ### Create a cluster mode enabled cluster with TLS and RBAC
+<a name="ElastiCache-Getting-Started-Tutorials-Cluster-RBAC"></a>
 
-To ensure security, you can use Transport Layer Security (TLS) and Role-Based Access Control (RBAC) when creating a cluster mode enabled cluster.
-Unlike Valkey or Redis OSS AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups. These user groups are designed as a way to organize access to replication groups.
-For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md").
+To ensure security, you can use Transport Layer Security (TLS) and Role-Based Access Control (RBAC) when creating a cluster mode enabled cluster. Unlike Valkey or Redis OSS AUTH, where all authenticated clients have full replication group access if their token is authenticated, RBAC enables you to control cluster access through user groups. These user groups are designed as a way to organize access to replication groups. For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md).
 
-Copy the following program and paste it into a file named _ClusterModeEnabledWithRBAC.py_.
+Copy the following program and paste it into a file named *ClusterModeEnabledWithRBAC.py*.
 
 ```
 import boto3
@@ -288,14 +287,14 @@ def create_cluster_mode_enabled(CacheNodeType='cache.t3.small',EngineVersion='6.
     elif not isinstance(UserGroupIds,(list)):
         return {'Error': 'UserGroupIds parameter is required and must be a list'}
 
-    params={'AutomaticFailoverEnabled': True,
-            'CacheNodeType': CacheNodeType,
-            'Engine': 'valkey',
-            'EngineVersion': EngineVersion,
-            'ReplicationGroupDescription': ReplicationGroupDescription,
-            'ReplicationGroupId': ReplicationGroupId,
-            'SnapshotRetentionLimit': 30,
-            'TransitEncryptionEnabled': True,
+    params={'AutomaticFailoverEnabled': True, 
+            'CacheNodeType': CacheNodeType, 
+            'Engine': 'valkey', 
+            'EngineVersion': EngineVersion, 
+            'ReplicationGroupDescription': ReplicationGroupDescription, 
+            'ReplicationGroupId': ReplicationGroupId, 
+            'SnapshotRetentionLimit': 30, 
+            'TransitEncryptionEnabled': True, 
             'UserGroupIds':UserGroupIds,
             'NumNodeGroups': NumNodeGroups,
             'ReplicasPerNodeGroup': ReplicasPerNodeGroup,
@@ -330,26 +329,24 @@ if __name__ == '__main__':
         CacheSubnetGroupName='default'
 
     )
-
+    
     logging.info(response)
-
 ```
 
 To run the program, enter the following command:
 
-`python ClusterModeEnabledWithRBAC.py`
+ `python ClusterModeEnabledWithRBAC.py`
 
-For more information, see [Managing clusters in ElastiCache](Clusters.md "Clusters.md").
+For more information, see [Managing clusters in ElastiCache](Clusters.md).
 
 ### Check if users/usergroup exists, otherwise create them
+<a name="ElastiCache-Getting-Started-Tutorials-Users"></a>
 
-With RBAC, you create users and assign them specific permissions by using an access string. You assign the users to user groups aligned with a specific role
-(administrators, human resources) that are then deployed to one or more ElastiCache for Redis OSS replication groups. By doing this, you can establish security boundaries between clients using the same Valkey or Redis OSS replication group or groups and prevent clients from accessing each other’s data.
-For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md").
+With RBAC, you create users and assign them specific permissions by using an access string. You assign the users to user groups aligned with a specific role (administrators, human resources) that are then deployed to one or more ElastiCache for Redis OSS replication groups. By doing this, you can establish security boundaries between clients using the same Valkey or Redis OSS replication group or groups and prevent clients from accessing each other’s data. For more information, see [Role-Based Access Control (RBAC)](Clusters.RBAC.md).
 
-Copy the following program and paste it into a file named _UserAndUserGroups.py_. Update the mechanism for supplying credentials. Credentials in this example are shown as replaceable and assigned an undeclared item. Avoid hard-coding credentials.
+Copy the following program and paste it into a file named *UserAndUserGroups.py*. Update the mechanism for supplying credentials. Credentials in this example are shown as replaceable and assigned an undeclared item. Avoid hard-coding credentials.
 
-This example uses an access string with the permissions for the user. For more information on access strings see [Specifying Permissions Using an Access String](Clusters.RBAC.md#Access-string "Clusters.RBAC.md#Access-string").
+This example uses an access string with the permissions for the user. For more information on access strings see [Specifying Permissions Using an Access String](Clusters.RBAC.md#Access-string).
 
 ```
 import boto3
@@ -406,7 +403,7 @@ def create_user(UserId=None,UserName=None,Password=None,AccessString=None):
     :param UserId: ElastiCache user ID. User IDs must be unique
     :param UserName: ElastiCache user name. ElastiCache allows multiple users with the same name as long as the associated user ID is unique.
     :param Password: Password for user. Must have at least 16 chars.
-    :param AccessString: Access string with the permissions for the user.
+    :param AccessString: Access string with the permissions for the user. 
     :return: user ARN
     """
     try:
@@ -444,7 +441,7 @@ def create_group(UserGroupId=None, UserIds=None):
 
 
 if __name__ == '__main__':
-
+    
     groupName='mygroup2'
     userName = 'myuser2'
     userId=groupName+'-'+userName
@@ -452,54 +449,53 @@ if __name__ == '__main__':
     # Creates a new user if the user ID does not exist.
     for tmpUserId,tmpUserName in [ (userId,userName), (groupName+'-default','default')]:
         if not check_user_exists(tmpUserId):
-            response=create_user(UserId=tmpUserId, UserName=`EXAMPLE`,Password=`EXAMPLE`,AccessString='on ~* +@all')
+            response=create_user(UserId=tmpUserId, UserName={{EXAMPLE}},Password={{EXAMPLE}},AccessString='on ~* +@all')
             logging.info(response)
         # assigns the new user ID to the user group
     if not check_group_exists(groupName):
         UserIds = [ userId , groupName+'-default']
         response=create_group(UserGroupId=groupName,UserIds=UserIds)
         logging.info(response)
-
-
 ```
 
 To run the program, enter the following command:
 
-`python UserAndUserGroups.py`
+ `python UserAndUserGroups.py`
 
 ## Tutorial: Connecting to ElastiCache
+<a name="ElastiCache-Getting-Started-Tutorials-Connecting"></a>
 
 The following examples use the Valkey or Redis OSS client to connect to ElastiCache.
 
-###### Topics
-
-- [Connecting to a cluster mode disabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled "#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled")
-- [Connecting to a cluster mode enabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-enabled "#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-enabled")
-- [Connecting using IAM authentication](#ElastiCache-Getting-Started-Tutorials-Connecting-iam "#ElastiCache-Getting-Started-Tutorials-Connecting-iam")
+**Topics**
++ [Connecting to a cluster mode disabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled)
++ [Connecting to a cluster mode enabled cluster](#ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-enabled)
++ [Connecting using IAM authentication](#ElastiCache-Getting-Started-Tutorials-Connecting-iam)
 
 ### Connecting to a cluster mode disabled cluster
+<a name="ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-disabled"></a>
 
-Copy the following program and paste it into a file named _ConnectClusterModeDisabled.py_. Update the mechanism for supplying credentials. Credentials in this example are shown as replaceable and assigned an undeclared item. Avoid hard-coding credentials.
+Copy the following program and paste it into a file named *ConnectClusterModeDisabled.py*. Update the mechanism for supplying credentials. Credentials in this example are shown as replaceable and assigned an undeclared item. Avoid hard-coding credentials.
 
 ```
 from redis import Redis
 import logging
 
 logging.basicConfig(level=logging.INFO)
-redis = Redis(host='primary.xxx.yyyyyy.zzz1.cache.amazonaws.com', port=6379, decode_responses=True, ssl=True, username=`example`, password=`EXAMPLE`)
+redis = Redis(host='primary.xxx.yyyyyy.zzz1.cache.amazonaws.com', port=6379, decode_responses=True, ssl=True, username={{example}}, password={{EXAMPLE}})
 
 if redis.ping():
     logging.info("Connected to Redis")
-
 ```
 
 To run the program, enter the following command:
 
-`python ConnectClusterModeDisabled.py`
+ `python ConnectClusterModeDisabled.py`
 
 ### Connecting to a cluster mode enabled cluster
+<a name="ElastiCache-Getting-Started-Tutorials-Connecting-cluster-mode-enabled"></a>
 
-The cluster client is included in redis-py; the standalone redis-py-cluster package is no longer required. Copy the following Python program and paste it into a file named _ConnectClusterModeEnabled.py_:
+The cluster client is included in redis-py; the standalone redis-py-cluster package is no longer required. Copy the following Python program and paste it into a file named *ConnectClusterModeEnabled.py*:
 
 ```
 from redis.cluster import RedisCluster
@@ -510,18 +506,18 @@ redis = RedisCluster(host="xxx.yyy.clustercfg.zzz1.cache.amazonaws.com", port=63
 
 if redis.ping():
     logging.info("Connected to Redis")
-
 ```
 
 To run the program, enter the following command:
 
-`python ConnectClusterModeEnabled.py`
+ `python ConnectClusterModeEnabled.py`
 
 ### Connecting using IAM authentication
+<a name="ElastiCache-Getting-Started-Tutorials-Connecting-iam"></a>
 
-You can authenticate a Python connection using an AWS Identity and Access Management (IAM) identity instead of a user password. IAM authentication is available for caches running Valkey 7.2 and above or Redis OSS version 7.0 and above. This method requires Transport Layer Security (TLS) for in-transit encryption. Before you connect, create an IAM-enabled ElastiCache user and grant the `elasticache:Connect` action to the cache and user. For instructions on setting up IAM authentication, see [Authenticating with IAM](auth-iam.md "auth-iam.md").
+You can authenticate a Python connection using an AWS Identity and Access Management (IAM) identity instead of a user password. IAM authentication is available for caches running Valkey 7.2 and above or Redis OSS version 7.0 and above. This method requires Transport Layer Security (TLS) for in-transit encryption. Before you connect, create an IAM-enabled ElastiCache user and grant the `elasticache:Connect` action to the cache and user. For instructions on setting up IAM authentication, see [Authenticating with IAM](auth-iam.md).
 
-The following Python program generates a short-lived IAM authentication token with an AWS Signature Version 4 pre-signed request and uses the token as the password. Copy the program and paste it into a file named _ConnectWithIAM.py_:
+The following Python program generates a short-lived IAM authentication token with an AWS Signature Version 4 pre-signed request and uses the token as the password. Copy the program and paste it into a file named *ConnectWithIAM.py*:
 
 ```
 import boto3
@@ -560,26 +556,26 @@ if redis.ping():
 
 To run the program, enter the following command:
 
-`python ConnectWithIAM.py`
+ `python ConnectWithIAM.py`
 
-###### Note
-
+**Note**  
 The IAM authentication token is valid for 15 minutes. For long-lived connections, regenerate the token before it expires. For a node-based (cluster) cache instead of a Serverless cache, call `generate_iam_auth_token` with `is_serverless=False`.
 
 ## Usage examples
+<a name="ElastiCache-Getting-Started-Tutorials-Usage"></a>
 
 The following examples use the boto3 SDK for ElastiCache to work with ElastiCache for Redis OSS.
 
-###### Topics
-
-- [Set and Get strings](#ElastiCache-Getting-Started-Tutorials-set-strings "#ElastiCache-Getting-Started-Tutorials-set-strings")
-- [Set and Get a hash with multiple items](#ElastiCache-Getting-Started-Tutorials-set-hash "#ElastiCache-Getting-Started-Tutorials-set-hash")
-- [Publish (write) and subscribe (read) from a Pub/Sub channel](#ElastiCache-Getting-Started-Tutorials-pub-sub "#ElastiCache-Getting-Started-Tutorials-pub-sub")
-- [Write and read from a stream](#ElastiCache-Getting-Started-Tutorials-read-write-stream "#ElastiCache-Getting-Started-Tutorials-read-write-stream")
+**Topics**
++ [Set and Get strings](#ElastiCache-Getting-Started-Tutorials-set-strings)
++ [Set and Get a hash with multiple items](#ElastiCache-Getting-Started-Tutorials-set-hash)
++ [Publish (write) and subscribe (read) from a Pub/Sub channel](#ElastiCache-Getting-Started-Tutorials-pub-sub)
++ [Write and read from a stream](#ElastiCache-Getting-Started-Tutorials-read-write-stream)
 
 ### Set and Get strings
+<a name="ElastiCache-Getting-Started-Tutorials-set-strings"></a>
 
-Copy the following program and paste it into a file named _SetAndGetStrings.py_.
+Copy the following program and paste it into a file named *SetAndGetStrings.py*.
 
 ```
 import time
@@ -589,7 +585,7 @@ logging.basicConfig(level=logging.INFO,format='%(asctime)s: %(message)s')
 keyName='mykey'
 currTime=time.ctime(time.time())
 
-# Set the key 'mykey' with the current date and time as value.
+# Set the key 'mykey' with the current date and time as value. 
 # The Key will expire and removed from cache in 60 seconds.
 redis.set(keyName, currTime, ex=60)
 
@@ -605,11 +601,12 @@ logging.info("Key {} was set at {} and has {} seconds until expired".format(keyN
 
 To run the program, enter the following command:
 
-`python SetAndGetStrings.py`
+ `python SetAndGetStrings.py`
 
 ### Set and Get a hash with multiple items
+<a name="ElastiCache-Getting-Started-Tutorials-set-hash"></a>
 
-Copy the following program and paste it into a file named _SetAndGetHash.py_.
+Copy the following program and paste it into a file named *SetAndGetHash.py*.
 
 ```
 import logging
@@ -620,7 +617,7 @@ logging.basicConfig(level=logging.INFO,format='%(asctime)s: %(message)s')
 keyName='mykey'
 keyValues={'datetime': time.ctime(time.time()), 'epochtime': time.time()}
 
-# Set the hash 'mykey' with the current date and time in human readable format (datetime field) and epoch number (epochtime field).
+# Set the hash 'mykey' with the current date and time in human readable format (datetime field) and epoch number (epochtime field). 
 redis.hset(keyName, mapping=keyValues)
 
 # Set the key to expire and removed from cache in 60 seconds.
@@ -638,11 +635,12 @@ logging.info("Key {} was set at {} and has {} seconds until expired".format(keyN
 
 To run the program, enter the following command:
 
-`python SetAndGetHash.py`
+ `python SetAndGetHash.py`
 
 ### Publish (write) and subscribe (read) from a Pub/Sub channel
+<a name="ElastiCache-Getting-Started-Tutorials-pub-sub"></a>
 
-Copy the following program and paste it into a file named _PubAndSub.py_.
+Copy the following program and paste it into a file named *PubAndSub.py*.
 
 ```
 import logging
@@ -678,11 +676,12 @@ while True:
 
 To run the program, enter the following command:
 
-`python PubAndSub.py`
+ `python PubAndSub.py`
 
 ### Write and read from a stream
+<a name="ElastiCache-Getting-Started-Tutorials-read-write-stream"></a>
 
-Copy the following program and paste it into a file named _ReadWriteStream.py_.
+Copy the following program and paste it into a file named *ReadWriteStream.py*.
 
 ```
 from redis import Redis
@@ -731,7 +730,7 @@ def readMessage(groupName=None,streamName=None):
                 pass
         except:
             raise
-
+            
         time.sleep(0.5)
 
 # Creates the stream 'mystream' and consumer group 'myworkergroup' where multiple threads will write/read.
@@ -759,4 +758,4 @@ time.sleep(30)
 
 To run the program, enter the following command:
 
-`python ReadWriteStream.py`
+ `python ReadWriteStream.py`

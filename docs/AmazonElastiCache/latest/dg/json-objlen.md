@@ -1,4 +1,7 @@
+
+
 # JSON.OBJLEN
+<a name="json-objlen"></a>
 
 Gets the number of keys in the object values at the path.
 
@@ -7,26 +10,26 @@ Syntax
 ```
 JSON.OBJLEN <key> [path]
 ```
++ key (required) – A Valkey or Redis OSS key of JSON document type.
++ path (optional) – A JSON path. Defaults to the root if not provided.
 
-- key (required) – A Valkey or Redis OSS key of JSON document type.
-- path (optional) – A JSON path. Defaults to the root if not provided.
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of integers that represent the object length at each path.
++ If a value is not an object, its corresponding return value is null.
++ Null if the document key does not exist.
 
-- Array of integers that represent the object length at each path.
-- If a value is not an object, its corresponding return value is null.
-- Null if the document key does not exist.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Integer, number of keys in the object.
++ If multiple objects are selected, the command returns the first object's length.
++ `WRONGTYPE` error if the value at the path is not an object.
++ `NONEXISTENT JSON` error if the path does not exist.
++ Null if the document key does not exist.
 
-- Integer, number of keys in the object.
-- If multiple objects are selected, the command returns the first object's length.
-- `WRONGTYPE` error if the value at the path is not an object.
-- `NONEXISTENT JSON` error if the path does not exist.
-- Null if the document key does not exist.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 $ '{"a":{}, "b":{"a":"a"}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":{"a":3,"b":4}}, "e":1}'
@@ -56,10 +59,9 @@ OK
 3) (integer) 2
 4) (integer) 3
 5) (nil)
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":{}, "b":{"a":"a"}, "c":{"a":"a", "b":"bb"}, "d":{"a":1, "b":"b", "c":{"a":3,"b":4}}, "e":1}'
@@ -82,5 +84,4 @@ OK
 (integer) 2
 127.0.0.1:6379> JSON.OBJLEN k1 .*
 (integer) 0
-
 ```

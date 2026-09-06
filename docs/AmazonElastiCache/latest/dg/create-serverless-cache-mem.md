@@ -1,17 +1,27 @@
+
+
 # Create a Memcached serverless cache
+<a name="create-serverless-cache-mem"></a>
 
 **AWS Management Console**
 
 To create a new Memcached serverless cache using the ElastiCache console:
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the navigation pane on the left side of the console, choose **Memcached Caches**.
-3. On the right side of the console, choose **Create Memcached cache**.
-4. In the **Cache settings** enter a **Name**. You can optionally enter a **description** for the cache.
-5. Leave the default settings selected.
-6. Click **Create** to create the cache.
-7. Once the cache is in "ACTIVE" status, you can begin writing and reading data to the cache.
-   To create a new cache using the AWS CLI
+1. Sign in to the AWS Management Console and open the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
+
+1. In the navigation pane on the left side of the console, choose **Memcached Caches**.
+
+1. On the right side of the console, choose **Create Memcached cache**.
+
+1. In the **Cache settings** enter a **Name**. You can optionally enter a **description** for the cache. 
+
+1. Leave the default settings selected. 
+
+1. Click **Create** to create the cache. 
+
+1. Once the cache is in "ACTIVE" status, you can begin writing and reading data to the cache. 
+
+To create a new cache using the AWS CLI
 
 The following AWS CLI example creates a new cache using create-serverless-cache.
 
@@ -47,4 +57,4 @@ aws elasticache describe-serverless-caches --serverless-cache-name CacheName
 aws elasticache describe-serverless-caches --serverless-cache-name CacheName
 ```
 
-After creating the new cache, proceed to [Read and write data to the cache](read-write-cache-mem.md "read-write-cache-mem.md").
+After creating the new cache, proceed to [Read and write data to the cache](read-write-cache-mem.md).

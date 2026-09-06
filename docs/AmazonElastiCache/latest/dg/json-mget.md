@@ -1,25 +1,23 @@
-# JSON.MGET
 
-Gets serialized JSONs at the path from multiple document keys. It returns null for
-a nonexistent key or JSON path.
+
+# JSON.MGET
+<a name="json-mget"></a>
+
+Gets serialized JSONs at the path from multiple document keys. It returns null for a nonexistent key or JSON path.
 
 **Syntax**
 
 ```
 JSON.MGET <key> [key ...] <path>
 ```
++ key (required) – One or more Valkey or Redis OSS keys of document type.
++ path (required) – A JSON path.
 
-- key (required) – One or more Valkey or Redis OSS keys of document type.
-- path (required) – A JSON path.
-  **Return**
+**Return**
++ Array of bulk strings. The size of the array is equal to the number of keys in the command. Each element of the array is populated with either (a) the serialized JSON as located by the path or (b) null if the key does not exist, the path does not exist in the document, or the path is invalid (syntax error).
++ If any of the specified keys exists and is not a JSON key, the command returns `WRONGTYPE` error.
 
-- Array of bulk strings. The size of the array is equal to the number of keys in the command.
-  Each element of the array is populated with either (a) the serialized
-  JSON as located by the path or (b) null if the key does not exist, the
-  path does not exist in the document, or the path is invalid (syntax
-  error).
-- If any of the specified keys exists and is not a JSON key, the command returns `WRONGTYPE` error.
-  **Examples**
+**Examples**
 
 Enhanced path syntax:
 
@@ -34,10 +32,9 @@ OK
 1) "[\"New York\"]"
 2) "[\"Boston\"]"
 3) "[\"Seattle\"]"
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"address":{"street":"21 2nd Street","city":"New York","state":"NY","zipcode":"10021"}}'
@@ -51,5 +48,4 @@ OK
 1) "\"New York\""
 2) "\"Seattle\""
 3) "\"Seattle\""
-
 ```

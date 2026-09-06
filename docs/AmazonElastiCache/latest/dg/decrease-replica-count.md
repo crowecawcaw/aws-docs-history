@@ -1,241 +1,141 @@
+
+
 # Decreasing the number of replicas in a shard
+<a name="decrease-replica-count"></a>
 
-You can decrease the number of replicas in a shard for Valkey or Redis OSS (cluster mode enabled), or in a
-replication group for Valkey or Redis OSS (cluster mode disabled):
+You can decrease the number of replicas in a shard for Valkey or Redis OSS (cluster mode enabled), or in a replication group for Valkey or Redis OSS (cluster mode disabled):
++ For Valkey or Redis OSS (cluster mode disabled), you can decrease the number of replicas to one if Multi-AZ is enabled, and to zero if it isn't enabled.
++ For Valkey or Redis OSS (cluster mode enabled), you can decrease the number of replicas to zero. However, you can't fail over to a replica if your primary node fails.
 
-- For Valkey or Redis OSS (cluster mode disabled), you can decrease the number of replicas to one if Multi-AZ
-  is enabled, and to zero if it isn't enabled.
-- For Valkey or Redis OSS (cluster mode enabled), you can decrease the number of replicas to zero. However,
-  you can't fail over to a replica if your primary node fails.
-  You can use the AWS Management Console, the AWS CLI or the ElastiCache API to decrease the number of replicas
-  in a node group (shard) or replication group.
+You can use the AWS Management Console, the AWS CLI or the ElastiCache API to decrease the number of replicas in a node group (shard) or replication group.
 
-###### Topics
-
-- [Using the AWS Management Console](#decrease-replica-count-con "#decrease-replica-count-con")
-- [Using the AWS CLI](#decrease-replica-count-cli "#decrease-replica-count-cli")
-- [Using the ElastiCache API](#decrease-replica-count-api "#decrease-replica-count-api")
+**Topics**
++ [Using the AWS Management Console](#decrease-replica-count-con)
++ [Using the AWS CLI](#decrease-replica-count-cli)
++ [Using the ElastiCache API](#decrease-replica-count-api)
 
 ## Using the AWS Management Console
+<a name="decrease-replica-count-con"></a>
 
-The following procedure uses the console to decrease the number of replicas in a
-Valkey or Redis OSS (cluster mode enabled) replication group.
+The following procedure uses the console to decrease the number of replicas in a Valkey or Redis OSS (cluster mode enabled) replication group.
 
-###### To decrease the number of replicas in a Valkey or Redis OSS shard
+**To decrease the number of replicas in a Valkey or Redis OSS shard**
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the navigation pane, choose **Valkey** or **Redis OSS**, then choose the name
-   of the replication group from which you want to delete replicas.
-3. Choose the box for each shard you want to remove a replica node from.
-4. Choose **Delete replicas**.
-5. Complete the **Delete Replicas from Shards** page:
+1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-   1. For **New number of replicas/shard**, enter the
-      number of replicas that you want the selected shards to have. This number
-      must be greater than or equal to 1. We recommend at least two replicas
-      per shard as a working minimum.
-   2. Choose **Delete** to delete the replicas or
-      **Cancel** to cancel the operation.
+1. In the navigation pane, choose **Valkey** or **Redis OSS**, then choose the name of the replication group from which you want to delete replicas.
 
-###### Important
+1. Choose the box for each shard you want to remove a replica node from.
 
-- If you don’t specify the replica nodes to be deleted, ElastiCache for Redis OSS automatically selects replica nodes for deletion.
-  While doing so, ElastiCache for Redis OSS attempts to retain the Multi-AZ architecture for your replication group followed by retaining
-  replicas with minimum replication lag with the primary.
-- You can't delete the primary or primary nodes in a replication group. If you specify a primary node for deletion, the operation fails with an error event
-  indicating that the primary node was selected for deletion.
+1. Choose **Delete replicas**.
+
+1. Complete the **Delete Replicas from Shards** page:
+
+   1. For **New number of replicas/shard**, enter the number of replicas that you want the selected shards to have. This number must be greater than or equal to 1. We recommend at least two replicas per shard as a working minimum.
+
+   1. Choose **Delete** to delete the replicas or **Cancel** to cancel the operation.
+
+**Important**  
+If you don’t specify the replica nodes to be deleted, ElastiCache for Redis OSS automatically selects replica nodes for deletion. While doing so, ElastiCache for Redis OSS attempts to retain the Multi-AZ architecture for your replication group followed by retaining replicas with minimum replication lag with the primary.
+You can't delete the primary or primary nodes in a replication group. If you specify a primary node for deletion, the operation fails with an error event indicating that the primary node was selected for deletion. 
 
 ## Using the AWS CLI
+<a name="decrease-replica-count-cli"></a>
 
-To decrease the number of replicas in a Valkey or Redis OSS shard, use the
-`decrease-replica-count` command with the following parameters:
+To decrease the number of replicas in a Valkey or Redis OSS shard, use the `decrease-replica-count` command with the following parameters:
++ `--replication-group-id` – Required. Identifies which replication group you want to decrease the number of replicas in.
++ `--apply-immediately` or `--no-apply-immediately` – Required. Specifies whether to decrease the replica count immediately (`--apply-immediately`) or at the next maintenance window (`--no-apply-immediately`). Currently, `--no-apply-immediately` is not supported.
++ `--new-replica-count` – Optional. Specifies the number of replica nodes that you want. The value of `--new-replica-count` must be a valid value less than the current number of replicas in the node groups. For minimum permitted values, see [Decreasing the number of replicas in a shard](#decrease-replica-count). If the value of `--new-replica-count` doesn't meet this requirement, the call fails.
++ `--replicas-to-remove` – Optional. Contains a list of node IDs specifying the replica nodes to remove.
++ `--replica-configuration` – Optional. Allows you to set the number of replicas and Availability Zones for each node group independently. Use this parameter for Valkey or Redis OSS (cluster mode enabled) groups where you want to configure each node group independently. 
 
-- `--replication-group-id` – Required. Identifies which
-  replication group you want to decrease the number of replicas in.
-- `--apply-immediately` or
-  `--no-apply-immediately` – Required. Specifies whether to
-  decrease the replica count immediately (`--apply-immediately`) or at
-  the next maintenance window (`--no-apply-immediately`). Currently,
-  `--no-apply-immediately` is not supported.
-- `--new-replica-count` – Optional. Specifies the number of
-  replica nodes that you want. The value of `--new-replica-count` must
-  be a valid value less than the current number of replicas in the node groups.
-  For minimum permitted values, see [Decreasing the number of replicas in a shard](decrease-replica-count.md "decrease-replica-count.md"). If the value of
-  `--new-replica-count` doesn't meet this requirement, the
-  call fails.
-- `--replicas-to-remove` – Optional. Contains a list of node
-  IDs specifying the replica nodes to remove.
-- `--replica-configuration` – Optional. Allows you to set
-  the number of replicas and Availability Zones for each node group
-  independently. Use this parameter for Valkey or Redis OSS (cluster mode enabled) groups where you want to
-  configure each node group independently.
+  `--replica-configuration` has three optional members:
+  + `NodeGroupId` – The four-digit ID for the node group that you are configuring. For Valkey or Redis OSS (cluster mode disabled) replication groups, the shard ID is always `0001`. To find a Valkey or Redis OSS (cluster mode enabled) node group's (shard's) ID, see [Finding a shard's ID](Shards.md#shard-find-id).
+  + `NewReplicaCount` – An optional parameter that specifies the number of replica nodes you want. The value of `NewReplicaCount` must be a valid value less than the current number of replicas in the node groups. For minimum permitted values, see [Decreasing the number of replicas in a shard](#decrease-replica-count). If the value of `NewReplicaCount` doesn't meet this requirement, the call fails.
+  + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are in. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node. If this member of `--replica-configuration` is omitted, ElastiCache for Redis OSS chooses the Availability Zone for each of the new replicas.
 
-`--replica-configuration` has three optional members:
+**Important**  
+You must include one and only one of the `--new-replica-count`, `--replicas-to-remove`, or `--replica-configuration` parameters.
 
-    + `NodeGroupId` – The four-digit ID for the node group
-     that you are configuring. For Valkey or Redis OSS (cluster mode disabled) replication groups, the
-     shard ID is always `0001`. To find a Valkey or Redis OSS (cluster mode enabled) node
-     group's (shard's) ID, see [Finding a shard's ID](Shards.md#shard-find-id "Shards.md#shard-find-id").
-    + `NewReplicaCount` – An optional parameter that
-     specifies the number of replica nodes you want. The value of
-     `NewReplicaCount` must be a valid value less than the
-     current number of replicas in the node groups. For minimum permitted
-     values, see [Decreasing the number of replicas in a shard](decrease-replica-count.md "decrease-replica-count.md"). If the value of
-     `NewReplicaCount` doesn't meet this requirement, the
-     call fails.
-    + `PreferredAvailabilityZones` – A list of
-     `PreferredAvailabilityZone` strings that specify which
-     Availability Zones the replication group's nodes are in. The number of
-     `PreferredAvailabilityZone` values must equal the value of
-     `NewReplicaCount` plus 1 to account for the primary node.
-     If this member of `--replica-configuration` is omitted, ElastiCache for Redis OSS
-     chooses the Availability Zone for each of the new replicas.
-
-###### Important
-
-You must include one and only one of the `--new-replica-count`,
-`--replicas-to-remove`, or `--replica-configuration`
-parameters.
-
-###### Example
-
-The following example uses `--new-replica-count` to decrease the
-number of replicas in the replication group `sample-repl-group` to one.
-When the example is finished, there is one replica in each node group. This number
-applies whether this is a Valkey or Redis OSS (cluster mode disabled) group with a single node group or a
-Valkey or Redis OSS (cluster mode enabled) group with multiple node groups.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example uses `--new-replica-count` to decrease the number of replicas in the replication group `sample-repl-group` to one. When the example is finished, there is one replica in each node group. This number applies whether this is a Valkey or Redis OSS (cluster mode disabled) group with a single node group or a Valkey or Redis OSS (cluster mode enabled) group with multiple node groups.  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache decrease-replica-count
-    --replication-group-id `sample-repl-group` \
-    --new-replica-count `1` \
+    --replication-group-id {{sample-repl-group}} \
+    --new-replica-count {{1}} \
     --apply-immediately
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws elasticache decrease-replica-count ^
-    --replication-group-id `sample-repl-group` ^
-    --new-replica-count `1` ^
+    --replication-group-id {{sample-repl-group}} ^
+    --new-replica-count {{1}} ^
     --apply-immediately
 ```
-
-The following example decreases the number of replicas in the replication group `sample-repl-group`
-by removing two specified replicas (`0001` and `0003`) from the node group.
-
-For Linux, macOS, or Unix:
+The following example decreases the number of replicas in the replication group `sample-repl-group` by removing two specified replicas (`0001` and `0003`) from the node group.  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache decrease-replica-count \
-    --replication-group-id `sample-repl-group` \
-    --replicas-to-remove `0001`,`0003` \
+    --replication-group-id {{sample-repl-group}} \
+    --replicas-to-remove {{0001}},{{0003}} \
     --apply-immediately
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws elasticache decrease-replica-count ^
-    --replication-group-id `sample-repl-group` ^
-    --replicas-to-remove `0001`,`0003` \
+    --replication-group-id {{sample-repl-group}} ^
+    --replicas-to-remove {{0001}},{{0003}} \
     --apply-immediately
 ```
-
-The following example uses `--replica-configuration` to decrease the
-number of replicas in the replication group `sample-repl-group` to the
-value specified for the two specified node groups. Given that there are multiple
-node groups, this is a Valkey or Redis OSS (cluster mode enabled) replication group. When specifying the
-optional `PreferredAvailabilityZones`, the number of Availability Zones
-listed must equal the value of `NewReplicaCount` plus 1 more. This
-approach accounts for the primary node for the group identified by
-`NodeGroupId`.
-
-For Linux, macOS, or Unix:
+The following example uses `--replica-configuration` to decrease the number of replicas in the replication group `sample-repl-group` to the value specified for the two specified node groups. Given that there are multiple node groups, this is a Valkey or Redis OSS (cluster mode enabled) replication group. When specifying the optional `PreferredAvailabilityZones`, the number of Availability Zones listed must equal the value of `NewReplicaCount` plus 1 more. This approach accounts for the primary node for the group identified by `NodeGroupId`.  
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache decrease-replica-count \
-    --replication-group-id `sample-repl-group` \
+    --replication-group-id {{sample-repl-group}} \
     --replica-configuration \
-        NodeGroupId=`0001`,NewReplicaCount=`1`,PreferredAvailabilityZones=`us-east-1a`,`us-east-1c` \
-        NodeGroupId=`0003`,NewReplicaCount=`2`,PreferredAvailabilityZones=`us-east-1a`,`us-east-1b`,`us-east-1c` \
+        NodeGroupId={{0001}},NewReplicaCount={{1}},PreferredAvailabilityZones={{us-east-1a}},{{us-east-1c}} \
+        NodeGroupId={{0003}},NewReplicaCount={{2}},PreferredAvailabilityZones={{us-east-1a}},{{us-east-1b}},{{us-east-1c}} \
     --apply-immediately
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws elasticache decrease-replica-count ^
-    --replication-group-id `sample-repl-group` ^
+    --replication-group-id {{sample-repl-group}} ^
     --replica-configuration ^
-        NodeGroupId=`0001`,NewReplicaCount=`2`,PreferredAvailabilityZones=`us-east-1a`,`us-east-1c` ^
-        NodeGroupId=`0003`,NewReplicaCount=`3`,PreferredAvailabilityZones=`us-east-1a`,`us-east-1b`,`us-east-1c` \
+        NodeGroupId={{0001}},NewReplicaCount={{2}},PreferredAvailabilityZones={{us-east-1a}},{{us-east-1c}} ^
+        NodeGroupId={{0003}},NewReplicaCount={{3}},PreferredAvailabilityZones={{us-east-1a}},{{us-east-1b}},{{us-east-1c}} \
     --apply-immediately
 ```
 
-For more information about decreasing the number of replicas using the CLI, see
-[decrease-replica-count](../../../cli/latest/reference/elasticache/decrease-replica-count.md "../../../cli/latest/reference/elasticache/decrease-replica-count.md") in the _Amazon ElastiCache Command Line Reference._
+For more information about decreasing the number of replicas using the CLI, see [decrease-replica-count](https://docs.aws.amazon.com/cli/latest/reference/elasticache/decrease-replica-count.html) in the *Amazon ElastiCache Command Line Reference.*
 
 ## Using the ElastiCache API
+<a name="decrease-replica-count-api"></a>
 
-To decrease the number of replicas in a Valkey or Redis OSS shard, use the
-`DecreaseReplicaCount` action with the following parameters:
+To decrease the number of replicas in a Valkey or Redis OSS shard, use the `DecreaseReplicaCount` action with the following parameters:
++ `ReplicationGroupId` – Required. Identifies which replication group you want to decrease the number of replicas in.
++ `ApplyImmediately` – Required. Specifies whether to decrease the replica count immediately (`ApplyImmediately=True`) or at the next maintenance window (`ApplyImmediately=False`). Currently, `ApplyImmediately=False` is not supported.
++ `NewReplicaCount` – Optional. Specifies the number of replica nodes you want. The value of `NewReplicaCount` must be a valid value less than the current number of replicas in the node groups. For minimum permitted values, see [Decreasing the number of replicas in a shard](#decrease-replica-count). If the value of `--new-replica-count` doesn't meet this requirement, the call fails.
++ `ReplicasToRemove` – Optional. Contains a list of node IDs specifying the replica nodes to remove.
++ `ReplicaConfiguration` – Optional. Contains a list of node groups that allows you to set the number of replicas and Availability Zones for each node group independently. Use this parameter for Valkey or Redis OSS (cluster mode enabled) groups where you want to configure each node group independently. 
 
-- `ReplicationGroupId` – Required. Identifies which
-  replication group you want to decrease the number of replicas in.
-- `ApplyImmediately` – Required. Specifies whether to decrease
-  the replica count immediately (`ApplyImmediately=True`) or at the
-  next maintenance window (`ApplyImmediately=False`). Currently,
-  `ApplyImmediately=False` is not supported.
-- `NewReplicaCount` – Optional. Specifies the number of
-  replica nodes you want. The value of `NewReplicaCount` must be a
-  valid value less than the current number of replicas in the node groups. For
-  minimum permitted values, see [Decreasing the number of replicas in a shard](decrease-replica-count.md "decrease-replica-count.md"). If the value of
-  `--new-replica-count` doesn't meet this requirement, the
-  call fails.
-- `ReplicasToRemove` – Optional. Contains a list of node IDs
-  specifying the replica nodes to remove.
-- `ReplicaConfiguration` – Optional. Contains a list of node
-  groups that allows you to set the number of replicas and Availability Zones for
-  each node group independently. Use this parameter for Valkey or Redis OSS (cluster mode enabled) groups
-  where you want to configure each node group independently.
+  `ReplicaConfiguraion` has three optional members:
+  + `NodeGroupId` – The four-digit ID for the node group you are configuring. For Valkey or Redis OSS (cluster mode disabled) replication groups, the node group ID is always `0001`. To find a Valkey or Redis OSS (cluster mode enabled) node group's (shard's) ID, see [Finding a shard's ID](Shards.md#shard-find-id).
+  + `NewReplicaCount` – The number of replicas that you want in this node group at the end of this operation. The value must be less than the current number of replicas down to a minimum of 1 if Multi-AZ is enabled or 0 if Multi-AZ with Automatic Failover isn't enabled. If this value is not less than the current number of replicas in the node group, the call fails with an exception.
+  + `PreferredAvailabilityZones` – A list of `PreferredAvailabilityZone` strings that specify which Availability Zones the replication group's nodes are in. The number of `PreferredAvailabilityZone` values must equal the value of `NewReplicaCount` plus 1 to account for the primary node. If this member of `ReplicaConfiguration` is omitted, ElastiCache for Redis OSS chooses the Availability Zone for each of the new replicas.
 
-`ReplicaConfiguraion` has three optional members:
+**Important**  
+You must include one and only one of the `NewReplicaCount`, `ReplicasToRemove`, or `ReplicaConfiguration` parameters.
 
-    + `NodeGroupId` – The four-digit ID for the node group
-     you are configuring. For Valkey or Redis OSS (cluster mode disabled) replication groups, the node
-     group ID is always `0001`. To find a Valkey or Redis OSS (cluster mode enabled) node
-     group's (shard's) ID, see [Finding a shard's ID](Shards.md#shard-find-id "Shards.md#shard-find-id").
-    + `NewReplicaCount` – The number of replicas that you
-     want in this node group at the end of this operation. The value must be
-     less than the current number of replicas down to a minimum of 1 if
-     Multi-AZ is enabled or 0 if Multi-AZ with
-     Automatic Failover isn't enabled. If this value is not less than the
-     current number of replicas in the node group, the call fails with an
-     exception.
-    + `PreferredAvailabilityZones` – A list of
-     `PreferredAvailabilityZone` strings that specify which
-     Availability Zones the replication group's nodes are in. The number of
-     `PreferredAvailabilityZone` values must equal the value of
-     `NewReplicaCount` plus 1 to account for the primary node.
-     If this member of `ReplicaConfiguration` is omitted, ElastiCache for Redis OSS
-     chooses the Availability Zone for each of the new replicas.
-
-###### Important
-
-You must include one and only one of the `NewReplicaCount`, `ReplicasToRemove`,
-or `ReplicaConfiguration` parameters.
-
-###### Example
-
-The following example uses `NewReplicaCount` to decrease the number
-of replicas in the replication group `sample-repl-group` to one. When
-the example is finished, there is one replica in each node group. This number
-applies whether this is a Valkey or Redis OSS (cluster mode disabled) group with a single node group or a
-Valkey or Redis OSS (cluster mode enabled) group with multiple node groups.
+**Example**  
+The following example uses `NewReplicaCount` to decrease the number of replicas in the replication group `sample-repl-group` to one. When the example is finished, there is one replica in each node group. This number applies whether this is a Valkey or Redis OSS (cluster mode disabled) group with a single node group or a Valkey or Redis OSS (cluster mode enabled) group with multiple node groups.  
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
@@ -249,9 +149,7 @@ https://elasticache.us-west-2.amazonaws.com/
       &Timestamp=20150202T192317Z
       &X-Amz-Credential=<credential>
 ```
-
-The following example decreases the number of replicas in the replication group `sample-repl-group`
-by removing two specified replicas (`0001` and `0003`) from the node group.
+The following example decreases the number of replicas in the replication group `sample-repl-group` by removing two specified replicas (`0001` and `0003`) from the node group.  
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
@@ -266,15 +164,7 @@ https://elasticache.us-west-2.amazonaws.com/
       &Timestamp=20150202T192317Z
       &X-Amz-Credential=<credential>
 ```
-
-The following example uses `ReplicaConfiguration` to decrease the
-number of replicas in the replication group `sample-repl-group` to the
-value specified for the two specified node groups. Given that there are multiple
-node groups, this is a Valkey or Redis OSS (cluster mode enabled) replication group. When specifying the
-optional `PreferredAvailabilityZones`, the number of Availability Zones
-listed must equal the value of `NewReplicaCount` plus 1 more. This
-approach accounts for the primary node for the group identified by
-`NodeGroupId`.
+The following example uses `ReplicaConfiguration` to decrease the number of replicas in the replication group `sample-repl-group` to the value specified for the two specified node groups. Given that there are multiple node groups, this is a Valkey or Redis OSS (cluster mode enabled) replication group. When specifying the optional `PreferredAvailabilityZones`, the number of Availability Zones listed must equal the value of `NewReplicaCount` plus 1 more. This approach accounts for the primary node for the group identified by `NodeGroupId`.  
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
@@ -297,5 +187,4 @@ https://elasticache.us-west-2.amazonaws.com/
       &X-Amz-Credential=<credential>
 ```
 
-For more information about decreasing the number of replicas using the API, see
-[DecreaseReplicaCount](../APIReference/API_DecreaseReplicaCount.md "../APIReference/API_DecreaseReplicaCount.md") in the _Amazon ElastiCache API Reference._
+For more information about decreasing the number of replicas using the API, see [DecreaseReplicaCount](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DecreaseReplicaCount.html) in the *Amazon ElastiCache API Reference.*

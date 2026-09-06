@@ -1,95 +1,119 @@
+
+
 # Viewing an ElastiCache cluster's details
+<a name="Clusters.ViewDetails"></a>
 
 You can view detail information about one or more clusters using the ElastiCache console, AWS CLI, or ElastiCache API.
+
+## Viewing a Memcached cluster's details (Console)
+<a name="Clusters.ViewDetails.CON.Memcached"></a>
 
 You can view the details of a Memcached cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
 
 The following procedure details how to view the details of a Memcached cluster using the ElastiCache console.
 
-###### To view a Memcached cluster's details
+**To view a Memcached cluster's details**
 
-1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. From the list in the upper-right corner, choose the AWS Region you are interested in.
-3. In the ElastiCache engine dashboard, choose **Memcached**.
-   Doing this displays a list of all your clusters that are running on the Memcached engine.
-4. To see details of a cluster, choose the box to the left of the cluster's name.
-5. To view node information, choose the **Nodes** tab, which displays information on node(s) status and endpoint.
-6. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster.
-   For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
-7. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration and the VPC security group.
-   For more information, see [Subnets and subnet groups](SubnetGroups.md "SubnetGroups.md").
-8. Choose the **Maintenance** tab to view details on the cluster's maintenance settings.
-   For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md").
-9. Choose the **Tags** tab to view details on any tags applied to cluster resources.
-   For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md").
-   You can view the details of a Valkey or Redis OSS (cluster mode disabled) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
+
+1. From the list in the upper-right corner, choose the AWS Region you are interested in.
+
+1. In the ElastiCache engine dashboard, choose **Memcached**. Doing this displays a list of all your clusters that are running on the Memcached engine.
+
+1. To see details of a cluster, choose the box to the left of the cluster's name.
+
+1. To view node information, choose the **Nodes** tab, which displays information on node(s) status and endpoint.
+
+1. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster. For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md)
+
+1. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration and the VPC security group. For more information, see [Subnets and subnet groups](SubnetGroups.md).
+
+1. Choose the **Maintenance** tab to view details on the cluster's maintenance settings. For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md).
+
+1. Choose the **Tags** tab to view details on any tags applied to cluster resources. For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md).
+
+## Viewing Valkey or Redis OSS (Cluster Mode Disabled) details (Console)
+<a name="Clusters.ViewDetails.CON.Redis"></a>
+
+You can view the details of a Valkey or Redis OSS (cluster mode disabled) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
 
 The following procedure details how to view the details of a Valkey or Redis OSS (cluster mode disabled) cluster using the ElastiCache console.
 
-###### To view a Valkey or Redis OSS (cluster mode disabled) cluster's details
+**To view a Valkey or Redis OSS (cluster mode disabled) cluster's details**
 
-1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the ElastiCache engine dashboard, choose either **Valkey**or **Redis OSS** to
-   display a list of all your clusters that are running on that engine.
-3. To see details of a cluster, select the check box to the left of the cluster's name.
-   Make sure that you select a cluster running the Valkey or Redis OSS engine, not Clustered Valkey or Clustered
-   Redis OSS. Doing this displays details about the cluster, including the
-   cluster's primary endpoint.
-4. To view node information:
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
+
+1. In the ElastiCache engine dashboard, choose either **Valkey**or **Redis OSS** to display a list of all your clusters that are running on that engine.
+
+1. To see details of a cluster, select the check box to the left of the cluster's name. Make sure that you select a cluster running the Valkey or Redis OSS engine, not Clustered Valkey or Clustered Redis OSS. Doing this displays details about the cluster, including the cluster's primary endpoint.
+
+1. To view node information:
 
    1. Choose the cluster's name.
-   2. Choose the **Shards and nodes** tab.
-      Doing this displays details about each node, including the node's endpoint which
-      you need to use to read from the cluster.
 
-5. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster.
-   For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
-6. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant
-   details. For more information, see [Log delivery](Log_Delivery.md "Log_Delivery.md").
-7. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration.
-   For more information, see [Subnets and subnet groups](SubnetGroups.md "SubnetGroups.md").
-8. Choose the **Maintenance** tab to view details on the cluster's maintenance settings.
-   For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md").
-9. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply-by date.
-   For more information, see [Service updates in ElastiCache](Self-Service-Updates.md "Self-Service-Updates.md").
-10. Choose the **Tags** tab to view details on any tags applied to cluster resources.
-    For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md").
-    You can view the details of a Valkey or Redis OSS (cluster mode enabled) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
+   1. Choose the **Shards and nodes** tab. Doing this displays details about each node, including the node's endpoint which you need to use to read from the cluster.
+
+1. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster. For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md)
+
+1. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant details. For more information, see [Log delivery](Log_Delivery.md).
+
+1. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration. For more information, see [Subnets and subnet groups](SubnetGroups.md).
+
+1. Choose the **Maintenance** tab to view details on the cluster's maintenance settings. For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md).
+
+1. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply-by date. For more information, see [Service updates in ElastiCache](Self-Service-Updates.md).
+
+1. Choose the **Tags** tab to view details on any tags applied to cluster resources. For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md).
+
+## Viewing details for a Valkey or Redis OSS (Cluster Mode Enabled) cluster (Console)
+<a name="Clusters.ViewDetails.CON.RedisCluster"></a>
+
+You can view the details of a Valkey or Redis OSS (cluster mode enabled) cluster using the ElastiCache console, the AWS CLI for ElastiCache, or the ElastiCache API.
 
 The following procedure details how to view the details of a Valkey or Redis OSS (cluster mode enabled) cluster using the ElastiCache console.
 
-###### To view a Valkey or Redis OSS (cluster mode enabled) cluster's details
+**To view a Valkey or Redis OSS (cluster mode enabled) cluster's details**
 
-1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. From the list in the upper-right corner, choose the AWS Region you are interested in.
-3. In the ElastiCache engine dashboard, choose **Valkey** or **Redis OSS** to display a list of all your clusters
-   that are running on that engine.
-4. To see details of a Valkey or Redis OSS (cluster mode enabled) cluster, choose the box to the left of the cluster's
-   name. Make sure you choose a cluster running the Valkey or Clustered Redis OSS engine.
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-The screen expands below the cluster and display details about the cluster,
-including the cluster's configuration endpoint. 5. To see a listing of the cluster's shards and the number of nodes in each shard, choose the **Shards and nodes** tab. 6. To view specific information on a node:
+1. From the list in the upper-right corner, choose the AWS Region you are interested in.
 
-    1. Choose the shard's ID.
+1. In the ElastiCache engine dashboard, choose **Valkey** or **Redis OSS** to display a list of all your clusters that are running on that engine.
 
+1. To see details of a Valkey or Redis OSS (cluster mode enabled) cluster, choose the box to the left of the cluster's name. Make sure you choose a cluster running the Valkey or Clustered Redis OSS engine.
 
-    Doing this displays information about each node, including each node's endpoint that
-     you need to use to read data from the cluster.
+   The screen expands below the cluster and display details about the cluster, including the cluster's configuration endpoint.
 
-7. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster.
-For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md") 8. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant
-details. For more information, see [Log delivery](Log_Delivery.md "Log_Delivery.md"). 9. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration, the VPC security group and
-what, if any, encryption method is enabled on the cluster. For more information, see [Subnets and subnet groups](SubnetGroups.md "SubnetGroups.md") and [Data security in Amazon ElastiCache](encryption.md "encryption.md"). 10. Choose the **Maintenance** tab to view details on the cluster's maintenance settings.
-For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md "maintenance-window.md"). 11. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply-by date.
-For more information, see [Service updates in ElastiCache](Self-Service-Updates.md "Self-Service-Updates.md"). 12. Choose the **Tags** tab to view details on any tags applied to cluster resources.
-For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md "Tagging-Resources.md").
-The following code lists the details for `my-cluster`:
+1. To see a listing of the cluster's shards and the number of nodes in each shard, choose the **Shards and nodes** tab.
+
+1. To view specific information on a node:
+
+   1. Choose the shard's ID.
+
+     Doing this displays information about each node, including each node's endpoint that you need to use to read data from the cluster.
+
+1. To view metrics, choose the **Metrics** tab, which displays the relevant metrics for all nodes in the cluster. For more information, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md)
+
+1. To view logs, choose the **Logs** tab, which indicates if the cluster is using Slow logs or Engine logs and provides relevant details. For more information, see [Log delivery](Log_Delivery.md).
+
+1. Choose the **Network and security** tab to view details on the cluster's network connectivity and subnet group configuration, the VPC security group and what, if any, encryption method is enabled on the cluster. For more information, see [Subnets and subnet groups](SubnetGroups.md) and [Data security in Amazon ElastiCache](encryption.md).
+
+1. Choose the **Maintenance** tab to view details on the cluster's maintenance settings. For more information, see [Managing ElastiCache cluster maintenance](maintenance-window.md).
+
+1. Choose the **Service updates** tab to view details on any available service updates along with their recommended apply-by date. For more information, see [Service updates in ElastiCache](Self-Service-Updates.md).
+
+1. Choose the **Tags** tab to view details on any tags applied to cluster resources. For more information, see [Tagging your ElastiCache resources](Tagging-Resources.md).
+
+## Viewing an ElastiCache cluster's details (AWS CLI)
+<a name="Clusters.ViewDetails.CLI"></a>
+
+The following code lists the details for {{my-cluster}}:
 
 ```
 aws elasticache describe-cache-clusters --cache-cluster-id my-cluster
 ```
 
-Replace `my-cluster` with the name of your cluster in a case where the cluster is created with 1 cache node and 0 shards using the `create-cache-cluster` command.
+Replace {{my-cluster}} with the name of your cluster in a case where the cluster is created with 1 cache node and 0 shards using the `create-cache-cluster` command.
 
 ```
 {
@@ -447,19 +471,18 @@ Replace `my-cluster` with the name of your cluster in a case where the cluster i
 }
 ```
 
-In a case where the cluster is created using the AWS Management Console (cluster node enabled or disabled with 1 or more shards), use the following command to describe the cluster's details (replace `my-cluster` with the name of the replication group (name of your cluster):
+In a case where the cluster is created using the AWS Management Console (cluster node enabled or disabled with 1 or more shards), use the following command to describe the cluster's details (replace {{my-cluster}} with the name of the replication group (name of your cluster):
 
 ```
-aws elasticache describe-replication-groups --replication-group-id my-cluster
+aws elasticache describe-replication-groups --replication-group-id my-cluster 
 ```
 
-For more information, see the AWS CLI for ElastiCache topic [`describe-cache-clusters`](../../../cli/latest/reference/elasticache/describe-cache-clusters.md "../../../cli/latest/reference/elasticache/describe-cache-clusters.md").
+For more information, see the AWS CLI for ElastiCache topic [`describe-cache-clusters`](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-clusters.html).
 
-You can view the details for a cluster using the ElastiCache API `DescribeCacheClusters` action.
-If the `CacheClusterId` parameter is included, details for the specified cluster are returned.
-If the `CacheClusterId` parameter is omitted, details for up to `MaxRecords` (default 100)
-clusters are returned.
-The value for `MaxRecords` cannot be less than 20 or greater than 100.
+## Viewing an ElastiCache cluster's details (ElastiCache API)
+<a name="Clusters.ViewDetails.API"></a>
+
+You can view the details for a cluster using the ElastiCache API `DescribeCacheClusters` action. If the `CacheClusterId` parameter is included, details for the specified cluster are returned. If the `CacheClusterId` parameter is omitted, details for up to `MaxRecords` (default 100) clusters are returned. The value for `MaxRecords` cannot be less than 20 or greater than 100.
 
 The following code lists the details for `my-cluster`.
 
@@ -487,4 +510,4 @@ https://elasticache.us-west-2.amazonaws.com/
    &X-Amz-Credential=<credential>
 ```
 
-For more information, see the ElastiCache API reference topic [`DescribeCacheClusters`](../APIReference/API_DescribeCacheClusters.md "../APIReference/API_DescribeCacheClusters.md").
+For more information, see the ElastiCache API reference topic [`DescribeCacheClusters`](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html).

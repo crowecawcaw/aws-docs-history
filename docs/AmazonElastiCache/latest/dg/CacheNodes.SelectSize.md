@@ -1,214 +1,113 @@
-# Choosing your node size
 
-The node size you select for your ElastiCache cluster impacts costs, performance, and fault tolerance.
+
+# Choosing your node size
+<a name="CacheNodes.SelectSize"></a>
+
+The node size you select for your ElastiCache cluster impacts costs, performance, and fault tolerance. 
 
 ## Node size (Valkey and Redis OSS)
+<a name="CacheNodes.SelectSize.redis"></a>
 
-For information about the benefits of Graviton processors, see [AWS Graviton
-Processor](https://aws.amazon.com/pm/ec2-graviton/ "https://aws.amazon.com/pm/ec2-graviton/").
+For information about the benefits of Graviton processors, see [AWS Graviton Processor](https://aws.amazon.com/pm/ec2-graviton/).
 
-Answering the following questions can help you determine the minimum node type you
-need for your Valkey or Redis OSS implementation:
+Answering the following questions can help you determine the minimum node type you need for your Valkey or Redis OSS implementation:
++ Do you expect throughput-bound workloads with multiple client connections?
 
-- Do you expect throughput-bound workloads with multiple client
-  connections?
+  If this is the case and you're running Valkey, or Redis OSS version 5.0.6 to 7.1, you can get better throughput and latency with the enhanced I/O feature. Available CPUs offload the client connections from the engine. If you're running Valkey, or Redis OSS version 7.0.4 to 7.1, on top of enhanced I/O, you get additional acceleration with enhanced I/O multiplexing, where each dedicated network I/O thread pipelines commands from multiple clients into the engine, taking advantage of its ability to efficiently process commands in batches. Starting with ElastiCache for Redis OSS v7.1 and Valkey 7.2, the enhanced I/O threads functionality also handles the presentation layer logic. This means that enhanced I/O threads not only read client input, but also parse the input into the engine's binary command format, which is then forwarded to the main thread for execution, providing performance gain. For more information, see the [blog post](https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/) and the [supported versions](engine-versions.md) page. 
++ Do you have workloads that access a small percentage of their data regularly?
 
-If this is the case and you're running Valkey, or Redis OSS version 5.0.6 to 7.1, you can
-get better throughput and latency with the enhanced I/O feature. Available
-CPUs offload the client connections from the engine. If you're running Valkey, or Redis OSS version 7.0.4 to 7.1, on top of enhanced I/O,
-you get additional acceleration with enhanced I/O multiplexing, where each
-dedicated network I/O thread pipelines commands from multiple clients into the
-engine, taking advantage of its ability to efficiently process commands
-in batches. Starting with ElastiCache for Redis OSS v7.1 and Valkey 7.2, the enhanced I/O
-threads functionality also handles the presentation layer logic. This means
-that enhanced I/O threads not only read client input, but also parse the input
-into the engine's binary command format, which is then forwarded to the main
-thread for execution, providing performance gain. For more information, see the [blog post](https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/ "https://aws.amazon.com/blogs/database/achieve-over-500-million-requests-per-second-per-cluster-with-amazon-elasticache-for-redis-7-1/") and the [supported versions](engine-versions.md "engine-versions.md")
-page.
+  If this is the case and you are running on Redis OSS engine version 6.2 or later, you can leverage data tiering by choosing the r6gd node type. With data tiering, least-recently used data is stored in SSD. When it is retrieved there is a small latency cost, which is balanced by cost savings. For more information, see [Data tiering in ElastiCache](data-tiering.md).
 
-- Do you have workloads that access a small percentage of their data
-  regularly?
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
++ How much total memory do you need for your data?
 
-If this is the case and you are running on Redis OSS engine version 6.2 or later,
-you can leverage data tiering by choosing the r6gd node type. With data tiering,
-least-recently used data is stored in SSD. When it is retrieved there is a small
-latency cost, which is balanced by cost savings. For more information, see [Data tiering in ElastiCache](data-tiering.md "data-tiering.md").
+  To get a general estimate, take the size of the items that you want to cache. Multiply this size by the number of items that you want to keep in the cache at the same time. To get a reasonable estimation of the item size, first serialize your cache items, then count the characters. Then divide this over the number of shards in your cluster.
 
-For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
++ Valkey and Redis OSS use a forkless save process for failover, snapshot, synchronizing, and promoting a replica to primary operations. This process requires less available memory because writes are managed without forking the process.
 
-- How much total memory do you need for your data?
+  For more information, see the following:
+  + [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md)
++ How write-heavy is your application?
 
-To get a general estimate, take the size of the items that you want to cache.
-Multiply this size by the number of items that you want to keep in the cache at
-the same time. To get a reasonable estimation of the item size, first serialize
-your cache items, then count the characters. Then divide this over the number of
-shards in your cluster.
+  Write heavy applications can require significantly more available memory, memory not used by data, when taking snapshots or failing over. Whenever the `BGSAVE` process is performed, you must have sufficient memory that is unused by data to accommodate all the writes that transpire during the `BGSAVE` process. Examples are when taking a snapshot, when syncing a primary cluster with a replica in a cluster, and when enabling the append-only file (AOF) feature. Another is when promoting a replica to primary (if you have Multi-AZ enabled). The worst case is when all of your data is rewritten during the process. In this case, you need a node instance size with twice as much memory as needed for data alone.
 
-For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
+  For more detailed information, see [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md).
++ Will your implementation be a standalone Valkey or Redis OSS (cluster mode disabled) cluster, or a Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards?
 
-- Valkey and Redis OSS use a forkless save process for failover,
-  snapshot, synchronizing, and promoting a replica to primary operations. This
-  process requires less available memory because writes are managed without
-  forking the process.
+**Valkey or Redis OSS (cluster mode disabled) cluster**  
+If you're implementing a Valkey or Redis OSS (cluster mode disabled) cluster, your node type must be able to accommodate all your data plus the necessary overhead as described in the previous bullet.
 
-For more information, see the following:
+  For example, suppose that you estimate that the total size of all your items is 12 GB. In this case, you can use a `cache.m5.xlarge` node with 12.93 GB of memory or a `cache.r5.large` node with 13.07 GB of memory. However, you might need more memory for `BGSAVE` operations. If your application is write-heavy, double the memory requirements to at least 24 GB. Thus, use either a `cache.m5.2xlarge` with 26.04 GB of memory or a `cache.r5.xlarge` with 26.32 GB of memory.
 
-    + [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md")
+**Valkey or Redis OSS (cluster mode enabled) with multiple shards**  
+If you're implementing a Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards, then the node type must be able to accommodate `bytes-for-data-and-overhead / number-of-shards` bytes of data.
 
-- How write-heavy is your application?
+  For example, suppose that you estimate that the total size of all your items to be 12 GB and you have two shards. In this case, you can use a `cache.m5.large` node with 6.38 GB of memory (12 GB / 2). However, you might need more memory for `BGSAVE` operations. If your application is write-heavy, double the memory requirements to at least 12 GB per shard. Thus, use either a `cache.m5.xlarge` with 12.93 GB of memory or a `cache.r5.large` with 13.07 GB of memory.
++ Are you using Local Zones?
 
-Write heavy applications can require significantly more available memory,
-memory not used by data, when taking snapshots or failing over. Whenever the
-`BGSAVE` process is performed, you must have sufficient memory
-that is unused by data to accommodate all the writes that transpire during the
-`BGSAVE` process. Examples are when taking a snapshot, when
-syncing a primary cluster with a replica in a cluster, and when enabling the
-append-only file (AOF) feature. Another is when promoting a replica to primary
-(if you have Multi-AZ enabled). The worst case is when all of your data is
-rewritten during the process. In this case, you need a node instance size with
-twice as much memory as needed for data alone.
+[Local Zones](Local_zones.md) enable you to place resources such as an ElastiCache cluster in multiple locations close to your users. But when you choose your node size, be aware that the available node sizes are limited to the following at this time, regardless of capacity requirements:
+  + Current generation: 
 
-For more detailed information, see [Ensuring you have enough memory to make a Valkey or Redis OSS snapshot](BestPractices.BGSAVE.md "BestPractices.BGSAVE.md").
+    **M5 node types:** `cache.m5.large`, `cache.m5.xlarge`, `cache.m5.2xlarge`, `cache.m5.4xlarge`, `cache.m5.12xlarge`, `cache.m5.24xlarge` 
 
-- Will your implementation be a standalone Valkey or Redis OSS (cluster mode disabled) cluster, or a
-  Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards?
+    **R5 node types:** `cache.r5.large`, `cache.r5.xlarge`, `cache.r5.2xlarge`, `cache.r5.4xlarge`, `cache.r5.12xlarge`, `cache.r5.24xlarge`
 
-###### Valkey or Redis OSS (cluster mode disabled) cluster
+    **T3 node types:** `cache.t3.micro`, `cache.t3.small`, `cache.t3.medium`
 
-If you're implementing a Valkey or Redis OSS (cluster mode disabled) cluster, your node type must be
-able to accommodate all your data plus the necessary overhead as described
-in the previous bullet.
+While your cluster is running, you can monitor the memory usage, processor utilization, cache hits, and cache misses metrics that are published to CloudWatch. You might notice that your cluster doesn't have the hit rate that you want or that keys are being evicted too often. In these cases, you can choose a different node size with larger CPU and memory specifications.
 
-For example, suppose that you estimate that the total size of all your items
-is 12 GB. In this case, you can use a `cache.m5.xlarge` node with
-12.93 GB of memory or a `cache.r5.large` node with 13.07 GB of memory.
-However, you might need more memory for `BGSAVE` operations. If your
-application is write-heavy, double the memory requirements to at least 24 GB.
-Thus, use either a `cache.m5.2xlarge` with 26.04 GB of memory or a
-`cache.r5.xlarge` with 26.32 GB of memory.
-
-###### Valkey or Redis OSS (cluster mode enabled) with multiple shards
-
-If you're implementing a Valkey or Redis OSS (cluster mode enabled) cluster with multiple shards, then
-the node type must be able to accommodate `bytes-for-data-and-overhead
- / number-of-shards` bytes of data.
-
-For example, suppose that you estimate that the total size of all your items
-to be 12 GB and you have two shards. In this case, you can use a
-`cache.m5.large` node with 6.38 GB of memory (12 GB / 2).
-However, you might need more memory for `BGSAVE` operations. If your
-application is write-heavy, double the memory requirements to at least 12 GB per
-shard. Thus, use either a `cache.m5.xlarge` with 12.93 GB of memory or
-a `cache.r5.large` with 13.07 GB of memory.
-
-- Are you using Local Zones?
-
-[Local
-Zones](Local_zones.md "Local_zones.md") enable you to place resources such as an ElastiCache cluster in
-multiple locations close to your users. But when you choose your node size,
-be aware that the available node sizes are limited to the following at this
-time, regardless of capacity requirements:
-
-    + Current generation:
-
-
-    **M5 node types:**
-    `cache.m5.large`, `cache.m5.xlarge`,
-     `cache.m5.2xlarge`, `cache.m5.4xlarge`,
-     `cache.m5.12xlarge`, `cache.m5.24xlarge`
-
-
-
-    **R5 node types:**
-    `cache.r5.large`, `cache.r5.xlarge`,
-     `cache.r5.2xlarge`, `cache.r5.4xlarge`,
-     `cache.r5.12xlarge`,
-     `cache.r5.24xlarge`
-
-
-    **T3 node types:**
-    `cache.t3.micro`, `cache.t3.small`,
-     `cache.t3.medium`
-
-While your cluster is running, you can monitor the memory usage, processor
-utilization, cache hits, and cache misses metrics that are published to CloudWatch. You might
-notice that your cluster doesn't have the hit rate that you want or that keys are
-being evicted too often. In these cases, you can choose a different node size with
-larger CPU and memory specifications.
-
-When monitoring CPU usage, remember Valkey and Redis OSS are single-threaded. Thus, multiply the
-reported CPU usage by the number of CPU cores to get that actual usage. For example, a
-four-core CPU reporting a 20-percent usage rate is actually the one core Redis OSS is
-running at 80 percent utilization.
+When monitoring CPU usage, remember Valkey and Redis OSS are single-threaded. Thus, multiply the reported CPU usage by the number of CPU cores to get that actual usage. For example, a four-core CPU reporting a 20-percent usage rate is actually the one core Redis OSS is running at 80 percent utilization.
 
 ## Node size (Memcached)
+<a name="CacheNodes.SelectSize.Mem"></a>
 
-Memcached clusters contain one or more nodes with the cluster's data partitioned
-across the nodes. Because of this, the memory needs of the cluster and the memory of a
-node are related, but not the same. You can attain your needed cluster memory capacity
-by having a few large nodes or several smaller nodes. Further, as your needs change, you
-can add nodes to or remove nodes from the cluster and thus pay only for what you
-need.
+Memcached clusters contain one or more nodes with the cluster's data partitioned across the nodes. Because of this, the memory needs of the cluster and the memory of a node are related, but not the same. You can attain your needed cluster memory capacity by having a few large nodes or several smaller nodes. Further, as your needs change, you can add nodes to or remove nodes from the cluster and thus pay only for what you need.
 
-The total memory capacity of your cluster is calculated by multiplying the number of
-nodes in the cluster by the RAM capacity of each node after deducting system overhead.
-The capacity of each node is based on the node type.
+The total memory capacity of your cluster is calculated by multiplying the number of nodes in the cluster by the RAM capacity of each node after deducting system overhead. The capacity of each node is based on the node type.
 
 ```
 cluster_capacity = number_of_nodes * (node_capacity - system_overhead)
 ```
 
-The number of nodes in the cluster is a key factor in the availability of your cluster
-running Memcached. The failure of a single node can have an impact on the availability
-of your application and the load on your backend database. In such a case, ElastiCache
-provisions a replacement for a failed node and it gets repopulated. To reduce this
-availability impact, spread your memory and compute capacity over more nodes with
-smaller capacity, rather than using fewer high-capacity nodes.
+The number of nodes in the cluster is a key factor in the availability of your cluster running Memcached. The failure of a single node can have an impact on the availability of your application and the load on your backend database. In such a case, ElastiCache provisions a replacement for a failed node and it gets repopulated. To reduce this availability impact, spread your memory and compute capacity over more nodes with smaller capacity, rather than using fewer high-capacity nodes.
 
-In a scenario where you want to have 35 GB of cache memory, you can set up any of the
-following configurations:
+In a scenario where you want to have 35 GB of cache memory, you can set up any of the following configurations:
++ 11 `cache.t2.medium` nodes with 3.22 GB of memory and 2 threads each = 35.42 GB and 22 threads.
++ 6 `cache.m4.large` nodes with 6.42 GB of memory and 2 threads each = 38.52 GB and 12 threads.
++ 3 `cache.r4.large` nodes with 12.3 GB of memory and 2 threads each = 36.90 GB and 6 threads.
++ 3 `cache.m4.xlarge` nodes with 14.28 GB of memory and 4 threads each = 42.84 GB and 12 threads.
 
-- 11 `cache.t2.medium` nodes with 3.22 GB of memory and 2 threads
-  each = 35.42 GB and 22 threads.
-- 6 `cache.m4.large` nodes with 6.42 GB of memory and 2 threads each
-  = 38.52 GB and 12 threads.
-- 3 `cache.r4.large` nodes with 12.3 GB of memory and 2 threads each
-  = 36.90 GB and 6 threads.
-- 3 `cache.m4.xlarge` nodes with 14.28 GB of memory and 4 threads
-  each = 42.84 GB and 12 threads.
 
-Comparing node options| Node type | Memory (in GiB) | Cores | Hourly cost \* | Nodes needed | Total memory (in GiB) | Total cores | Monthly cost † |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| cache.t2.medium | 3.22 | 2 | $ 0.068 | 11 | 35.42 | 22 | $ 538.56 |
-| cache.m4.large | 6.42 | 2 | $ 0.156 | 6 | 38.52 | 12 | $ 673.92 |
-| cache.m4.xlarge | 14.28 | 4 | $ 0.311 | 3 | 42.84 | 12 | $ 671.76 |
-| cache.m5.xlarge | 12.93 | 4 | $ 0.311 | 3 | 38.81 | 12 | $ 671.76 |
-| cache.m6g.large | 6.85 | 2 | $ 0.147 | 6 | 41.1 | 12 | $ 635 |
-| cache.r4.large | 12.3 | 2 | $ 0.228 | 3 | 36.9 | 6 | $ 492.48 |
-| cache.r5.large | 13.07 | 2 | $ 0.216 | 3 | 39.22 | 6 | $ 466.56 |
-| cache.r6g.large | 13.07 | 2 | $ 0.205 | 3 | 42.12 | 6 | $ 442 |
-| \<br>• Hourly cost per node as of October 8,<br>2020. |
-| † Monthly cost at 100% usage for 30 days (720<br>hours). |
+**Comparing node options**  
 
-These options each provide similar memory capacity but different computational
-capacity and cost. To compare the costs of your specific options, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/ "https://aws.amazon.com/elasticache/pricing/").
+<table>
+<thead>
+  <tr><th>Node type</th><th> Memory (in GiB)</th><th> Cores </th><th> Hourly cost * </th><th> Nodes needed </th><th> Total memory (in GiB)</th><th> Total cores </th><th> Monthly cost  </th></tr>
+</thead>
+<tbody>
+  <tr><td>cache.t2.medium</td><td>3.22</td><td>2</td><td>$ 0.068</td><td>11</td><td>35.42</td><td>22</td><td>$ 538.56</td></tr>
+  <tr><td>cache.m4.large</td><td>6.42</td><td>2</td><td>$ 0.156</td><td>6</td><td>38.52</td><td>12</td><td>$ 673.92</td></tr>
+  <tr><td>cache.m4.xlarge</td><td>14.28 </td><td>4</td><td>$ 0.311</td><td>3</td><td>42.84 </td><td>12</td><td>$ 671.76</td></tr>
+  <tr><td>cache.m5.xlarge</td><td>12.93 </td><td>4</td><td>$ 0.311</td><td>3</td><td>38.81 </td><td>12</td><td>$ 671.76</td></tr>
+  <tr><td>cache.m6g.large</td><td>6.85</td><td>2</td><td>$ 0.147</td><td>6</td><td>41.1</td><td>12</td><td>$ 635</td></tr>
+  <tr><td>cache.r4.large</td><td>12.3</td><td>2</td><td>$ 0.228</td><td>3</td><td>36.9</td><td>6</td><td>$ 492.48</td></tr>
+  <tr><td>cache.r5.large</td><td>13.07</td><td>2</td><td>$ 0.216</td><td>3</td><td>39.22 </td><td>6</td><td>$ 466.56</td></tr>
+  <tr><td>cache.r6g.large</td><td>13.07</td><td>2</td><td>$ 0.205</td><td>3</td><td>42.12</td><td>6</td><td>$ 442</td></tr>
+  <tr><td colspan="8">* Hourly cost per node as of October 8, 2020.</td></tr>
+  <tr><td colspan="8"> Monthly cost at 100% usage for 30 days (720 hours).</td></tr>
+</tbody>
+</table>
 
-For clusters running Memcached, some of the available memory on each node is used for
-connection overhead. For more information, see [Memcached connection overhead](ParameterGroups.Engine.md#ParameterGroups.Memcached.Overhead "ParameterGroups.Engine.md#ParameterGroups.Memcached.Overhead")
 
-Using multiple nodes requires spreading the keys across them. Each node has its own
-endpoint. For easy endpoint management, you can use the ElastiCache the Auto Discovery
-feature, which enables client programs to automatically identify all of the nodes in a
-cluster. For more information, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md "AutoDiscovery.md").
+These options each provide similar memory capacity but different computational capacity and cost. To compare the costs of your specific options, see [Amazon ElastiCache Pricing](https://aws.amazon.com/elasticache/pricing/).
 
-In some cases, you might be unsure how much capacity you need. If so, for testing we
-recommend starting with one `cache.m5.large` node. Then monitor the memory
-usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to
-Amazon CloudWatch. For more information on CloudWatch metrics for ElastiCache, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md"). For production and larger
-workloads, the R5 nodes provide the best performance and RAM cost value.
+For clusters running Memcached, some of the available memory on each node is used for connection overhead. For more information, see [Memcached connection overhead](ParameterGroups.Engine.md#ParameterGroups.Memcached.Overhead)
 
-If your cluster doesn't have the hit rate that you want, you can easily add more
-nodes to increase the total available memory in your cluster.
+Using multiple nodes requires spreading the keys across them. Each node has its own endpoint. For easy endpoint management, you can use the ElastiCache the Auto Discovery feature, which enables client programs to automatically identify all of the nodes in a cluster. For more information, see [Automatically identify nodes in your cluster (Memcached)](AutoDiscovery.md).
 
-If your cluster is bound by CPU but has sufficient hit rate, set up a new cluster with
-a node type that provides more compute power.
+In some cases, you might be unsure how much capacity you need. If so, for testing we recommend starting with one `cache.m5.large` node. Then monitor the memory usage, CPU utilization, and cache hit rate with the ElastiCache metrics that are published to Amazon CloudWatch. For more information on CloudWatch metrics for ElastiCache, see [Monitoring use with CloudWatch Metrics](CacheMetrics.md). For production and larger workloads, the R5 nodes provide the best performance and RAM cost value.
+
+If your cluster doesn't have the hit rate that you want, you can easily add more nodes to increase the total available memory in your cluster.
+
+If your cluster is bound by CPU but has sufficient hit rate, set up a new cluster with a node type that provides more compute power.

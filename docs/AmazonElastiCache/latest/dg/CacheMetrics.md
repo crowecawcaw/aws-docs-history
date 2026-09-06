@@ -1,22 +1,19 @@
+
+
 # Monitoring use with CloudWatch Metrics
+<a name="CacheMetrics"></a>
 
-ElastiCache provides metrics that enable you to monitor your clusters. You can access
-these metrics through CloudWatch. For more information on CloudWatch, see the [CloudWatch documentation.](https://aws.amazon.com/documentation/cloudwatch/ "https://aws.amazon.com/documentation/cloudwatch/")
+ElastiCache provides metrics that enable you to monitor your clusters. You can access these metrics through CloudWatch. For more information on CloudWatch, see the [CloudWatch documentation.](https://aws.amazon.com/documentation/cloudwatch/)
 
-ElastiCache provides both host-level metrics (for example, CPU usage) and metrics that are
-specific to the cache engine software (for example, cache gets and cache misses). These
-metrics are measured and published for each Cache node in 60-second intervals.
+ElastiCache provides both host-level metrics (for example, CPU usage) and metrics that are specific to the cache engine software (for example, cache gets and cache misses). These metrics are measured and published for each Cache node in 60-second intervals.
 
-###### Important
+**Important**  
+You should consider setting CloudWatch alarms on certain key metrics, so that you will be notified if your cluster's performance starts to degrade. For more information, see [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md) in this guide.
 
-You should consider setting CloudWatch alarms on certain key metrics, so that you will be notified if your cluster's performance starts to degrade.
-For more information, see [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md "CacheMetrics.WhichShouldIMonitor.md") in this guide.
-
-###### Topics
-
-- [Host-Level Metrics](CacheMetrics.HostLevel.md "CacheMetrics.HostLevel.md")
-- [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md")
-- [Metrics for Memcached](CacheMetrics.Memcached.md "CacheMetrics.Memcached.md")
-- [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md "CacheMetrics.WhichShouldIMonitor.md")
-- [Choosing Metric Statistics and Periods](CacheMetrics.ChoosingStatisticsAndPeriods.md "CacheMetrics.ChoosingStatisticsAndPeriods.md")
-- [Monitoring CloudWatch Cluster and Node Metrics](CloudWatchMetrics.md "CloudWatchMetrics.md")
+**Topics**
++ [Host-Level Metrics](CacheMetrics.HostLevel.md)
++ [Metrics for Valkey and Redis OSS](CacheMetrics.Redis.md)
++ [Metrics for Memcached](CacheMetrics.Memcached.md)
++ [Which Metrics Should I Monitor?](CacheMetrics.WhichShouldIMonitor.md)
++ [Choosing Metric Statistics and Periods](CacheMetrics.ChoosingStatisticsAndPeriods.md)
++ [Monitoring CloudWatch Cluster and Node Metrics](CloudWatchMetrics.md)

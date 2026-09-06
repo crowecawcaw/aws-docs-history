@@ -1,16 +1,14 @@
+
+
 # JSON.DEBUG
+<a name="json-debug"></a>
 
 Reports information. Supported subcommands are:
++ MEMORY <key> [path] – Reports memory usage in bytes of a JSON value. Path defaults to the root if not provided.
++ FIELDS <key> [path] – Reports the number of fields at the specified document path. Path defaults to the root if not provided. Each non-container JSON value counts as one field. Objects and arrays recursively count one field for each of their containing JSON values. Each container value, except the root container, counts as one additional field.
++ HELP – Prints help messages of the command.
 
-- MEMORY <key> [path] – Reports memory usage in bytes of a JSON value. Path
-  defaults to the root if not provided.
-- FIELDS <key> [path] – Reports the number of fields at the specified document
-  path. Path defaults to the root if not provided. Each non-container JSON
-  value counts as one field. Objects and arrays recursively count one
-  field for each of their containing JSON values. Each container value,
-  except the root container, counts as one additional field.
-- HELP – Prints help messages of the command.
-  Syntax
+Syntax
 
 ```
 JSON.DEBUG <subcommand & arguments>
@@ -19,30 +17,22 @@ JSON.DEBUG <subcommand & arguments>
 Depends on the subcommand:
 
 MEMORY
++ If the path is enhanced syntax:
+  + Returns an array of integers that represent memory size (in bytes) of JSON value at each path.
+  + Returns an empty array if the Valkey or Redis OSS key does not exist.
++ If the path is restricted syntax:
+  + Returns an integer, memory size, and the JSON value in bytes.
+  + Returns null if the Valkey or Redis OSS key does not exist.
 
-- If the path is enhanced syntax:
+FIELDS
++ If the path is enhanced syntax:
+  + Returns an array of integers that represent the number of fields of JSON value at each path.
+  + Returns an empty array if the Valkey or Redis OSS key does not exist.
++ If the path is restricted syntax:
+  + Returns an integer, number of fields of the JSON value.
+  + Returns null if the Valkey or Redis OSS key does not exist.
 
-  - Returns an array of integers that represent memory size (in bytes) of JSON value at each
-    path.
-  - Returns an empty array if the Valkey or Redis OSS key does not exist.
-
-- If the path is restricted syntax:
-
-  - Returns an integer, memory size, and the JSON value in bytes.
-  - Returns null if the Valkey or Redis OSS key does not exist.
-    FIELDS
-
-- If the path is enhanced syntax:
-
-  - Returns an array of integers that represent the number of fields of JSON value at each
-    path.
-  - Returns an empty array if the Valkey or Redis OSS key does not exist.
-
-- If the path is restricted syntax:
-
-  - Returns an integer, number of fields of the JSON value.
-  - Returns null if the Valkey or Redis OSS key does not exist.
-    HELP – Returns an array of help messages.
+HELP – Returns an array of help messages.
 
 **Examples**
 
@@ -71,7 +61,6 @@ OK
 7) (integer) 0
 8) (integer) 2
 9) (integer) 3
-
 ```
 
 Restricted path syntax:
@@ -93,6 +82,4 @@ OK
 1) JSON.DEBUG MEMORY <key> [path] - report memory size (bytes) of the JSON element. Path defaults to root if not provided.
 2) JSON.DEBUG FIELDS <key> [path] - report number of fields in the JSON element. Path defaults to root if not provided.
 3) JSON.DEBUG HELP - print help message.
-
-
 ```

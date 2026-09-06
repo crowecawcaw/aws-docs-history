@@ -1,54 +1,47 @@
+
+
 # Deleting a scaling policy
+<a name="AutoScaling-Deleting-Policy"></a>
 
-You can delete a scaling policy using the AWS Management Console, the AWS CLI or the Application
-Auto Scaling API
+You can delete a scaling policy using the AWS Management Console, the AWS CLI or the Application Auto Scaling API
 
-###### Deleting a scaling policy using the AWS Management Console
+**Deleting a scaling policy using the AWS Management Console**
 
-You can only edit policies with type Predefined metrics by using the
-AWS Management Console
+You can only edit policies with type Predefined metrics by using the AWS Management Console
 
-1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. In the navigation pane, choose **Valkey** or **Redis OSS**
-3. Choose the cluster whose auto scaling policy you want to delete.
-4. Choose the **Auto Scaling policies** tab.
-5. Under **Scaling policies**, choose the auto scaling
-   policy, and then choose **Delete**.
-   **Deleting a scaling policy using the AWS CLI or the Application
-   Auto Scaling API**
+1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-You can use the AWS CLI or the Application Auto Scaling API to delete a scaling
-policy from an ElastiCache cluster.
+1. In the navigation pane, choose **Valkey** or **Redis OSS**
+
+1. Choose the cluster whose auto scaling policy you want to delete.
+
+1. Choose the **Auto Scaling policies** tab. 
+
+1. Under **Scaling policies**, choose the auto scaling policy, and then choose **Delete**. 
+
+**Deleting a scaling policy using the AWS CLI or the Application Auto Scaling API **
+
+You can use the AWS CLI or the Application Auto Scaling API to delete a scaling policy from an ElastiCache cluster. 
 
 **CLI**
 
-To delete a scaling policy from your ElastiCache for Valkey and Redis OSS cluster, use the [delete-scaling-policy](../../../cli/latest/reference/application-autoscaling/delete-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/delete-scaling-policy.md") command with the following parameters:
+To delete a scaling policy from your ElastiCache for Valkey and Redis OSS cluster, use the [delete-scaling-policy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/delete-scaling-policy.html) command with the following parameters: 
++ --policy-name – The name of the scaling policy. 
++ --resource-id – The resource identifier for the cluster. For this parameter, the resource type is ReplicationGroup and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`. 
++ --service-namespace – Set this value to elasticache. 
++ --scalable-dimension – Set this value to `elasticache:replication-group:Replicas`. 
 
-- --policy-name – The name of the scaling policy.
-- --resource-id – The resource identifier for the cluster. For this
-  parameter, the resource type is ReplicationGroup and the unique identifier
-  is the name of the cluster, for example
-  `replication-group/myscalablecluster`.
-- --service-namespace – Set this value to elasticache.
-- --scalable-dimension – Set this value to
-  `elasticache:replication-group:Replicas`.
-
-###### Example
-
-In the following example, you delete a target-tracking scaling policy named
-`myscalablepolicy` from an ELC; cluster named
-`myscalablecluster`.
+**Example**  
+In the following example, you delete a target-tracking scaling policy named `myscalablepolicy` from an ELC; cluster named `myscalablecluster`. 
 
 For Linux, macOS, or Unix:
 
 ```
-
 aws application-autoscaling delete-scaling-policy \
     --policy-name myscalablepolicy \
     --resource-id replication-group/myscalablecluster \
     --service-namespace elasticache \
     --scalable-dimension elasticache:replication-group:Replicas \
-
 ```
 
 For Windows:
@@ -63,20 +56,13 @@ aws application-autoscaling delete-scaling-policy ^
 
 **API**
 
-To delete a scaling policy from your ElastiCache for Valkey and Redis OSS cluster, use the [DeleteScalingPolicy](../../../ApplicationAutoScaling/latest/APIReference/API_DeleteScalingPolicy.md "../../../ApplicationAutoScaling/latest/APIReference/API_DeleteScalingPolicy.md") Application Auto Scaling API operation with the
-following parameters:
+To delete a scaling policy from your ElastiCache for Valkey and Redis OSS cluster, use the [DeleteScalingPolicy](https://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/API_DeleteScalingPolicy.html) Application Auto Scaling API operation with the following parameters: 
++ PolicyName – The name of the scaling policy. 
++ ResourceID – The resource identifier for the cluster. For this parameter, the resource type is ReplicationGroup and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`. 
++ ServiceNamespace – Set this value to elasticache. 
++ ScalableDimension – Set this value to `elasticache:replication-group:Replicas`. 
 
-- PolicyName – The name of the scaling policy.
-- ResourceID – The resource identifier for the cluster. For this
-  parameter, the resource type is ReplicationGroup and the unique identifier
-  is the name of the cluster, for example
-  `replication-group/myscalablecluster`.
-- ServiceNamespace – Set this value to elasticache.
-- ScalableDimension – Set this value to
-  `elasticache:replication-group:Replicas`.
-  In the following example, you delete a target-tracking scaling policy named
-  `myscalablepolicy` from a cluster named
-  `myscalablecluster` with the Application Auto Scaling API.
+In the following example, you delete a target-tracking scaling policy named `myscalablepolicy` from a cluster named `myscalablecluster` with the Application Auto Scaling API. 
 
 ```
 POST / HTTP/1.1

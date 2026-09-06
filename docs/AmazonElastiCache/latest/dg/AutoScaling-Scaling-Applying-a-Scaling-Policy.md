@@ -1,40 +1,26 @@
-# Applying a scaling policy
 
-After registering your cluster with ElastiCache for Valkey and Redis OSS auto scaling and defining a scaling
-policy, you apply the scaling policy to the registered cluster. To apply a
-scaling policy to an ElastiCache for Redis OSS cluster, you can use the AWS CLI or the Application
-Auto Scaling API.
+
+# Applying a scaling policy
+<a name="AutoScaling-Scaling-Applying-a-Scaling-Policy"></a>
+
+After registering your cluster with ElastiCache for Valkey and Redis OSS auto scaling and defining a scaling policy, you apply the scaling policy to the registered cluster. To apply a scaling policy to an ElastiCache for Redis OSS cluster, you can use the AWS CLI or the Application Auto Scaling API. 
 
 ## Applying a scaling policy using the AWS CLI
+<a name="AutoScaling-Scaling-Applying-a-Scaling-Policy-CLI"></a>
 
-To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [put-scaling-policy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") command with the following parameters:
+To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [put-scaling-policy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html) command with the following parameters: 
++ **--policy-name** – The name of the scaling policy. 
++ **--policy-type** – Set this value to `TargetTrackingScaling`. 
++ **--resource-id** – The resource identifier. For this parameter, the resource type is `ReplicationGroup` and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`. 
++ **--service-namespace** – Set this value to `elasticache`. 
++ **--scalable-dimension** – Set this value to `elasticache:replication-group:NodeGroups`. 
++ **--target-tracking-scaling-policy-configuration** – The target-tracking scaling policy configuration to use for the cluster. 
 
-- **--policy-name** – The name
-  of the scaling policy.
-- **--policy-type** – Set this
-  value to `TargetTrackingScaling`.
-- **--resource-id** – The
-  resource identifier. For this parameter, the resource
-  type is `ReplicationGroup` and the unique identifier is
-  the name of the cluster, for example
-  `replication-group/myscalablecluster`.
-- **--service-namespace** – Set
-  this value to `elasticache`.
-- **--scalable-dimension** – Set
-  this value to `elasticache:replication-group:NodeGroups`.
-- **--target-tracking-scaling-policy-configuration**
-  – The target-tracking scaling policy configuration to use for
-  the cluster.
-
-In the following example, you apply a target-tracking scaling policy named
-`myscalablepolicy` to an ElastiCache for Valkey and Redis OSS cluster named
-`myscalablecluster` with ElastiCache auto scaling. To do so, you
-use a policy configuration saved in a file named `config.json`.
+In the following example, you apply a target-tracking scaling policy named `myscalablepolicy` to an ElastiCache for Valkey and Redis OSS cluster named `myscalablecluster` with ElastiCache auto scaling. To do so, you use a policy configuration saved in a file named `config.json`. 
 
 For Linux, macOS, or Unix:
 
 ```
-
 aws application-autoscaling put-scaling-policy \
     --policy-name myscalablepolicy \
     --policy-type TargetTrackingScaling \
@@ -47,7 +33,6 @@ aws application-autoscaling put-scaling-policy \
 For Windows:
 
 ```
-
 aws application-autoscaling put-scaling-policy ^
     --policy-name myscalablepolicy ^
     --policy-type TargetTrackingScaling ^
@@ -58,18 +43,16 @@ aws application-autoscaling put-scaling-policy ^
 ```
 
 ## Applying a scaling policy using the API
+<a name="AutoScaling-Scaling-Applying-a-Scaling-Policy-API"></a>
 
-To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [PutScalingPolicy](../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md "../../../cli/latest/reference/application-autoscaling/put-scaling-policy.md") AWS CLI command with the following parameters:
+To apply a scaling policy to your ElastiCache for Valkey and Redis OSS cluster, use the [PutScalingPolicy](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scaling-policy.html) AWS CLI command with the following parameters: 
++ **--policy-name** – The name of the scaling policy. 
++ **--resource-id** – The resource identifier. For this parameter, the resource type is `ReplicationGroup` and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`. 
++ **--service-namespace** – Set this value to `elasticache`. 
++ **--scalable-dimension** – Set this value to `elasticache:replication-group:NodeGroups`. 
++ **--target-tracking-scaling-policy-configuration** – The target-tracking scaling policy configuration to use for the cluster. 
 
-- **--policy-name** – The name of the scaling policy.
-- **--resource-id** – The resource identifier. For this parameter, the resource type is `ReplicationGroup`
-  and the unique identifier is the name of the cluster, for example `replication-group/myscalablecluster`.
-- **--service-namespace** – Set this value to `elasticache`.
-- **--scalable-dimension** – Set this value to `elasticache:replication-group:NodeGroups`.
-- **--target-tracking-scaling-policy-configuration** – The target-tracking scaling policy configuration to use for the cluster.
-
-In the following example, you apply a target-tracking scaling policy named `myscalablepolicy` to an ElastiCache cluster named `myscalablecluster` with ElastiCache auto scaling.
-You use a policy configuration based on the `ElastiCachePrimaryEngineCPUUtilization` predefined metric.
+In the following example, you apply a target-tracking scaling policy named `myscalablepolicy` to an ElastiCache cluster named `myscalablecluster` with ElastiCache auto scaling. You use a policy configuration based on the `ElastiCachePrimaryEngineCPUUtilization` predefined metric. 
 
 ```
 POST / HTTP/1.1

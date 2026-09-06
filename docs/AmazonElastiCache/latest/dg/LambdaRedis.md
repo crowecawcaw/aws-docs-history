@@ -1,23 +1,25 @@
+
+
 # Tutorial: Configuring Lambda to access ElastiCache in a VPC
+<a name="LambdaRedis"></a>
 
 In this tutorial you can learn how to create an ElastiCache serverless cache, create a Lambda function, then test the Lambda function, and optionally clean up after.
 
-###### Topics
-
-- [Step 1: Creating an ElastiCache serverless cache.](#LambdaRedis.step1 "#LambdaRedis.step1")
-- [Step 2: Create a Lambda function for ElastiCache](#LambdaRedis.step2 "#LambdaRedis.step2")
-- [Step 3: Test the Lambda function with ElastiCache](#LambdaRedis.step3 "#LambdaRedis.step3")
-- [Step 4: Clean up (Optional)](#LambdaRedis.step4 "#LambdaRedis.step4")
+**Topics**
++ [Step 1: Creating an ElastiCache serverless cache.](#LambdaRedis.step1)
++ [Step 2: Create a Lambda function for ElastiCache](#LambdaRedis.step2)
++ [Step 3: Test the Lambda function with ElastiCache](#LambdaRedis.step3)
++ [Step 4: Clean up (Optional)](#LambdaRedis.step4)
 
 ## Step 1: Creating an ElastiCache serverless cache.
+<a name="LambdaRedis.step1"></a>
 
 To create a serverless cache, follow these steps.
 
 ### Step 1.1: Create a serverless cache
+<a name="LambdaRedis.step1.1"></a>
 
-In this step, you create a serverless cache in the default Amazon VPC in the us-east-1 region in your account using the AWS Command Line Interface (CLI).
-For information on creating serverless cache using the ElastiCache console or API,
-see [Create a Redis OSS serverless cache](GettingStarted.serverless-redis.step1.md "GettingStarted.serverless-redis.step1.md").
+In this step, you create a serverless cache in the default Amazon VPC in the us-east-1 region in your account using the AWS Command Line Interface (CLI). For information on creating serverless cache using the ElastiCache console or API, see [Create a Redis OSS serverless cache](GettingStarted.serverless-redis.step1.md).
 
 ```
 aws elasticache create-serverless-cache \
@@ -29,6 +31,7 @@ aws elasticache create-serverless-cache \
 Note that the value of the Status field is set to `CREATING`. ElastiCache creates your cache in about a minute.
 
 ### Step 1.2: Copy serverless cache endpoint
+<a name="LambdaRedis.step1.2"></a>
 
 Verify that ElastiCache for Redis OSS has finished creating the cache with the `describe-serverless-caches` command.
 
@@ -40,118 +43,121 @@ aws elasticache describe-serverless-caches \
 Copy the Endpoint Address shown in the output. You'll need this address when you create the deployment package for your Lambda function.
 
 ### Step 1.3: Create IAM Role
+<a name="LambdaRedis.step1.3"></a>
 
-1. Create an IAM trust policy document, as shown below, for your role that allows the Lambda service to assume the new role.
-   Save the policy to a file named _trust-policy.json_.
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [{
-        "Effect": "Allow",
-        "Principal": {"Service": "lambda.amazonaws.com"},
-        "Action": "sts:AssumeRole"
-    }]
-}
-```
 
-2. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
+1. Create an IAM trust policy document, as shown below, for your role that allows the Lambda service to assume the new role. Save the policy to a file named *trust-policy.json*.
 
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "elasticache:Connect"
-            ],
-            "Resource": [
-                "arn:aws:elasticache:us-east-1:123456789012:serverlesscache:cache-01",
-                "arn:aws:elasticache:us-east-1:123456789012:user:iam-user-01"
-            ]
-        }
-    ]
-}
-```
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [{
+           "Effect": "Allow",
+           "Principal": {"Service": "lambda.amazonaws.com"},
+           "Action": "sts:AssumeRole"
+       }]
+   }
+   ```
 
-3. Create an IAM role.
+1. Create an IAM policy document, as shown below. Save the policy to a file named *policy.json*.
 
-```
-aws iam create-role \
---role-name "elasticache-iam-auth-app" \
---assume-role-policy-document file://trust-policy.json
-```
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "elasticache:Connect"
+               ],
+               "Resource": [
+                   "arn:aws:elasticache:us-east-1:123456789012:serverlesscache:cache-01",
+                   "arn:aws:elasticache:us-east-1:123456789012:user:iam-user-01"
+               ]
+           }
+       ]
+   }
+   ```
 
-4. Create the IAM policy.
+1. Create an IAM role.
 
-```
-aws iam create-policy \
-  --policy-name "elasticache-allow-all" \
-  --policy-document file://policy.json
-```
+   ```
+   aws iam create-role \
+   --role-name "elasticache-iam-auth-app" \
+   --assume-role-policy-document file://trust-policy.json
+   ```
 
-5. Attach the IAM policy to the role.
+1. Create the IAM policy.
 
-```
-aws iam attach-role-policy \
- --role-name "elasticache-iam-auth-app" \
- --policy-arn "arn:aws:iam::123456789012:policy/elasticache-allow-all"
-```
+   ```
+   aws iam create-policy \
+     --policy-name "elasticache-allow-all" \
+     --policy-document file://policy.json
+   ```
+
+1. Attach the IAM policy to the role.
+
+   ```
+   aws iam attach-role-policy \
+    --role-name "elasticache-iam-auth-app" \
+    --policy-arn "arn:aws:iam::123456789012:policy/elasticache-allow-all"
+   ```
 
 ### Step 1.4: Configure IAM authentication
+<a name="LambdaRedis.step1.4"></a>
 
-###### Important
-
+**Important**  
 This step is required. Your Lambda function authenticates to ElastiCache using IAM. For this to work, you must create an IAM-enabled ElastiCache user, add it to a user group, and associate that user group with your cache. Without this configuration, connection attempts from Lambda will fail.
 
 1. Create a default user with access disabled. Every user group requires a default user. By disabling access on this user, you ensure that only explicitly configured IAM users can connect.
 
-```
-aws elasticache create-user \
-  --user-name default \
---user-id default-user-disabled \
---engine redis \
---authentication-mode Type=no-password-required \
---access-string "off +get ~keys*"
-```
+   ```
+   aws elasticache create-user \
+     --user-name default \
+   --user-id default-user-disabled \
+   --engine redis \
+   --authentication-mode Type=no-password-required \
+   --access-string "off +get ~keys*"
+   ```
 
-2. Create an IAM-enabled user. This is the user identity that your Lambda function will authenticate as.
+1. Create an IAM-enabled user. This is the user identity that your Lambda function will authenticate as.
 
-```
-aws elasticache create-user \
-  --user-name iam-user-01 \
---user-id iam-user-01 \
---authentication-mode Type=iam \
---engine redis \
---access-string "on ~* +@all"
-```
+   ```
+   aws elasticache create-user \
+     --user-name iam-user-01 \
+   --user-id iam-user-01 \
+   --authentication-mode Type=iam \
+   --engine redis \
+   --access-string "on ~* +@all"
+   ```
 
-3. Create a user group, add both users to it, and associate the group with your cache.
+1. Create a user group, add both users to it, and associate the group with your cache.
 
-```
-aws elasticache create-user-group \
-  --user-group-id iam-user-group-01 \
---engine redis \
---user-ids default-user-disabled iam-user-01
-
-aws elasticache modify-serverless-cache \
-  --serverless-cache-name cache-01  \
---user-group-id iam-user-group-01
-```
+   ```
+   aws elasticache create-user-group \
+     --user-group-id iam-user-group-01 \
+   --engine redis \
+   --user-ids default-user-disabled iam-user-01
+   
+   aws elasticache modify-serverless-cache \
+     --serverless-cache-name cache-01  \
+   --user-group-id iam-user-group-01
+   ```
 
 ## Step 2: Create a Lambda function for ElastiCache
+<a name="LambdaRedis.step2"></a>
 
 To create a Lambda function to access the ElastiCache cache, take these steps.
 
 ### Step 2.1: Create a Lambda function
+<a name="LambdaRedis.step2.1"></a>
 
 In this tutorial, we provide example code in Python for your Lambda function.
 
 **Python**
 
-The following example Python code reads and writes an item to your ElastiCache cache. Copy the code and save it into a file named `app.py`.
-Be sure to replace the `elasticache_endpoint` value in the code with the endpoint address you copied in the previous step.
+The following example Python code reads and writes an item to your ElastiCache cache. Copy the code and save it into a file named `app.py`. Be sure to replace the `elasticache_endpoint` value in the code with the endpoint address you copied in the previous step. 
 
 ```
 from typing import Tuple, Union
@@ -214,7 +220,7 @@ def lambda_handler(event, context):
     elasticache_endpoint = "cache-01-xxxxx.serverless.use1.cache.amazonaws.com" # replace with your cache endpoint
     creds_provider = ElastiCacheIAMProvider(user=username, cache_name=cache_name, is_serverless=True)
     redis_client = redis.Redis(host=elasticache_endpoint, port=6379, credential_provider=creds_provider, ssl=True, ssl_cert_reqs="none")
-
+    
     key='uuid'
     # create a random UUID - this will be the sample element we add to the cache
     uuid_in = uuid.uuid4().hex
@@ -227,16 +233,13 @@ def lambda_handler(event, context):
         print(f"Success: Inserted {uuid_in}. Fetched {decoded_result} from Valkey.")
     else:
         raise Exception(f"Bad value retrieved. Expected {uuid_in}, got {decoded_result}")
-
+        
     return "Fetched value from Valkey"
 ```
 
-This code uses the Python redis-py library to put items into your cache and retrieve them. This code uses cachetools
-to cache generated IAM Auth tokens for 15 mins. To create a deployment package containing redis-py and cachetools,
-carry out the following steps.
+This code uses the Python redis-py library to put items into your cache and retrieve them. This code uses cachetools to cache generated IAM Auth tokens for 15 mins. To create a deployment package containing redis-py and cachetools, carry out the following steps.
 
-In your project directory containing the app.py source code file, create a folder package to install the redis-py and
-cachetools libraries into.
+In your project directory containing the app.py source code file, create a folder package to install the redis-py and cachetools libraries into.
 
 ```
 mkdir package
@@ -249,16 +252,14 @@ pip install --target ./package redis
 pip install --target ./package cachetools
 ```
 
-Create a .zip file containing the redis-py and cachetools libraries. In Linux and macOS, run the following command.
-In Windows, use your preferred zip utility to create a .zip file with the redis-py and cachetools libraries at the root.
+Create a .zip file containing the redis-py and cachetools libraries. In Linux and macOS, run the following command. In Windows, use your preferred zip utility to create a .zip file with the redis-py and cachetools libraries at the root.
 
 ```
 cd package
 zip -r ../my_deployment_package.zip .
 ```
 
-Add your function code to the .zip file. In Linux and macOS, run the following command.
-In Windows, use your preferred zip utility to add app.py to the root of your .zip file.
+Add your function code to the .zip file. In Linux and macOS, run the following command. In Windows, use your preferred zip utility to add app.py to the root of your .zip file.
 
 ```
 cd ..
@@ -266,6 +267,7 @@ zip my_deployment_package.zip app.py
 ```
 
 ### Step 2.2: Create the IAM role (execution role)
+<a name="LambdaRedis.step2.2"></a>
 
 Attach the AWS managed policy named `AWSLambdaVPCAccessExecutionRole` to the role.
 
@@ -276,16 +278,13 @@ aws iam attach-role-policy \
 ```
 
 ### Step 2.3: Upload the deployment package (create the Lambda function)
+<a name="LambdaRedis.step2.3"></a>
 
-In this step, you create the Lambda function (AccessValkey) using the create-function AWS CLI command.
+In this step, you create the Lambda function (AccessValkey) using the create-function AWS CLI command. 
 
 From the project directory that contains your deployment package .zip file, run the following Lambda CLI `create-function` command.
 
-For the role option, use the ARN of the execution role you created in the previous step. For the vpc-config enter comma separated lists of your
-default VPC's subnets and your default VPC's security group ID. You can find these values in the Amazon VPC console.
-To find your default VPC's subnets, choose **Your VPCs**, then choose your AWS account's default VPC.
-To find the security group for this VPC, go to **Security** and choose **Security groups**.
-Ensure that you have the us-east-1 region selected.
+For the role option, use the ARN of the execution role you created in the previous step. For the vpc-config enter comma separated lists of your default VPC's subnets and your default VPC's security group ID. You can find these values in the Amazon VPC console. To find your default VPC's subnets, choose **Your VPCs**, then choose your AWS account's default VPC. To find the security group for this VPC, go to **Security** and choose **Security groups**. Ensure that you have the us-east-1 region selected.
 
 ```
 aws lambda create-function \
@@ -300,35 +299,35 @@ aws lambda create-function \
 ```
 
 ## Step 3: Test the Lambda function with ElastiCache
+<a name="LambdaRedis.step3"></a>
 
-In this step, you invoke the Lambda function manually using the invoke command.
-When the Lambda function executes, it generates a UUID and writes it to the ElastiCache cache that you specified in your Lambda code.
-The Lambda function then retrieves the item from the cache.
+In this step, you invoke the Lambda function manually using the invoke command. When the Lambda function executes, it generates a UUID and writes it to the ElastiCache cache that you specified in your Lambda code. The Lambda function then retrieves the item from the cache.
 
 1. Invoke the Lambda function (AccessValkey) using the AWS Lambda invoke command.
 
-```
-aws lambda invoke \
---function-name AccessValkey  \
---region us-east-1 \
-output.txt
-```
-
-2. Verify that the Lambda function executed successfully as follows:
-
-   - Review the output.txt file.
-   - Verify the results in CloudWatch Logs by opening the CloudWatch console and choosing the log group for your function (/aws/lambda/AccessValkey). The log stream should contain output similar to the following:
-
    ```
-   Success: Inserted 826e70c5f4d2478c8c18027125a3e01e. Fetched 826e70c5f4d2478c8c18027125a3e01e from Valkey.
+   aws lambda invoke \
+   --function-name AccessValkey  \
+   --region us-east-1 \
+   output.txt
    ```
-   - Review the results in the AWS Lambda console.
+
+1. Verify that the Lambda function executed successfully as follows:
+   + Review the output.txt file.
+   + Verify the results in CloudWatch Logs by opening the CloudWatch console and choosing the log group for your function (/aws/lambda/AccessValkey). The log stream should contain output similar to the following:
+
+     ```
+     Success: Inserted 826e70c5f4d2478c8c18027125a3e01e. Fetched 826e70c5f4d2478c8c18027125a3e01e from Valkey.
+     ```
+   + Review the results in the AWS Lambda console.
 
 ## Step 4: Clean up (Optional)
+<a name="LambdaRedis.step4"></a>
 
 To clean up, take these steps.
 
 ### Step 4.1: Delete Lambda function
+<a name="LambdaRedis.step4.1"></a>
 
 ```
 aws lambda delete-function \
@@ -336,6 +335,7 @@ aws lambda delete-function \
 ```
 
 ### Step 4.2: Delete Serverless cache
+<a name="LambdaRedis.step4.2"></a>
 
 Delete the cache.
 
@@ -358,19 +358,20 @@ aws elasticache delete-user-group \
 ```
 
 ### Step 4.3: Remove IAM Role and policies
+<a name="LambdaRedis.step4.3"></a>
 
 ```
 aws iam detach-role-policy \
  --role-name "elasticache-iam-auth-app" \
  --policy-arn "arn:aws:iam::123456789012:policy/elasticache-allow-all"
-
+ 
 aws iam detach-role-policy \
 --role-name "elasticache-iam-auth-app" \
 --policy-arn "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-
+ 
 aws iam delete-role \
  --role-name "elasticache-iam-auth-app"
-
+  
  aws iam delete-policy \
   --policy-arn "arn:aws:iam::123456789012:policy/elasticache-allow-all"
 ```

@@ -1,12 +1,11 @@
+
+
 # Distributing reads to replicas (cluster mode disabled)
+<a name="BestPractices.Clients-lettuce-cmd-readfrom"></a>
 
-For cluster mode disabled clusters with replicas, you can use Lettuce's
-`StaticMasterReplicaTopologyProvider` with the `ReadFrom` setting to
-direct writes to the primary node and distribute reads across replicas. This improves
-read throughput by offloading reads from the primary.
+For cluster mode disabled clusters with replicas, you can use Lettuce's `StaticMasterReplicaTopologyProvider` with the `ReadFrom` setting to direct writes to the primary node and distribute reads across replicas. This improves read throughput by offloading reads from the primary.
 
-Use the primary endpoint for writes and the reader endpoint for reads. The reader endpoint
-automatically load-balances connections across available replicas.
+Use the primary endpoint for writes and the reader endpoint for reads. The reader endpoint automatically load-balances connections across available replicas.
 
 ```
 // Primary endpoint for writes, reader endpoint for read distribution
@@ -27,15 +26,11 @@ connection.setReadFrom(ReadFrom.REPLICA_PREFERRED);
 ```
 
 The following `ReadFrom` options are available:
++ `REPLICA_PREFERRED` – Reads from replicas when available and falls back to the primary (recommended for most use cases).
++ `REPLICA` – Reads only from replicas. Fails if no replica is available.
++ `PRIMARY_PREFERRED` – Reads from the primary, falls back to replicas.
++ `ANY_REPLICA` – Reads from any replica node.
++ `PRIMARY` – Reads only from the primary node. Use when strong consistency is required.
 
-- `REPLICA_PREFERRED` – Reads from replicas when available and falls back to the primary (recommended for most use cases).
-- `REPLICA` – Reads only from replicas. Fails if no replica is available.
-- `PRIMARY_PREFERRED` – Reads from the primary, falls back to replicas.
-- `ANY_REPLICA` – Reads from any replica node.
-- `PRIMARY` – Reads only from the primary node. Use when strong consistency is required.
-
-###### Note
-
-Data read from replicas might be slightly stale because replication is asynchronous.
-If your application requires strong consistency, use `ReadFrom.PRIMARY` or
-`ReadFrom.PRIMARY_PREFERRED`.
+**Note**  
+Data read from replicas might be slightly stale because replication is asynchronous. If your application requires strong consistency, use `ReadFrom.PRIMARY` or `ReadFrom.PRIMARY_PREFERRED`.

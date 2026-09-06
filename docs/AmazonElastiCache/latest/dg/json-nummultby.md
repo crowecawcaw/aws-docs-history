@@ -1,4 +1,7 @@
+
+
 # JSON.NUMMULTBY
+<a name="json-nummultby"></a>
 
 Multiplies the number values at the path by a given number.
 
@@ -7,31 +10,30 @@ Syntax
 ```
 JSON.NUMMULTBY <key> <path> <number>
 ```
++ key (required) – A Valkey or Redis OSS key of JSON document type.
++ path (required) – A JSON path.
++ number (required) – A number.
 
-- key (required) – A Valkey or Redis OSS key of JSON document type.
-- path (required) – A JSON path.
-- number (required) – A number.
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of bulk strings that represent the resulting value at each path.
++ If a value is not a number, its corresponding return value is null.
++ `WRONGTYPE` error if the number cannot be parsed.
++ `OVERFLOW` error if the result is out of the range of a 64-bit IEEE double precision floating point number.
++ `NONEXISTENT` if the document key does not exist.
 
-- Array of bulk strings that represent the resulting value at each path.
-- If a value is not a number, its corresponding return value is null.
-- `WRONGTYPE` error if the number cannot be parsed.
-- `OVERFLOW` error if the result is out of the range of a 64-bit IEEE double
-  precision floating point number.
-- `NONEXISTENT` if the document key does not exist.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Bulk string that represents the resulting value.
++ If multiple values are selected, the command returns the result of the last updated value.
++ `WRONGTYPE` error if the value at the path is not a number.
++ `WRONGTYPE` error if the number cannot be parsed.
++ `OVERFLOW` error if the result is out of the range of a 64-bit IEEE double.
++ `NONEXISTENT` if the document key does not exist.
 
-- Bulk string that represents the resulting value.
-- If multiple values are selected, the command returns the result of the last updated value.
-- `WRONGTYPE` error if the value at the path is not a number.
-- `WRONGTYPE` error if the number cannot be parsed.
-- `OVERFLOW` error if the result is out of the range of a 64-bit IEEE double.
-- `NONEXISTENT` if the document key does not exist.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":[], "b":[1], "c":[1,2], "d":[1,2,3]}'
@@ -73,10 +75,9 @@ OK
 "[null,null]"
 127.0.0.1:6379> JSON.NUMMULTBY k3 $.d.* 2
 "[2,null,6]"
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":[], "b":[1], "c":[1,2], "d":[1,2,3]}'
@@ -134,5 +135,4 @@ OK
 "6"
 127.0.0.1:6379> JSON.GET k3
 "{\"a\":{\"a\":\"a\"},\"b\":{\"a\":\"a\",\"b\":2},\"c\":{\"a\":\"a\",\"b\":\"b\"},\"d\":{\"a\":2,\"b\":\"b\",\"c\":6}}"
-
 ```

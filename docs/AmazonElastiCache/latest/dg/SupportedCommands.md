@@ -1,1778 +1,1495 @@
+
+
 # Supported and restricted Valkey, Memcached, and Redis OSS commands
+<a name="SupportedCommands"></a>
 
 ## Supported Valkey and Redis OSS commands
+<a name="SupportedCommandsRedis"></a>
 
 **Supported Valkey and Redis OSS commands**
 
-The following Valkey and Redis OSS commands are supported by serverless caches.
-In addition to these commands, these [Supported Valkey and Redis OSS commands](json-list-commands.md "json-list-commands.md") are also supported.
+The following Valkey and Redis OSS commands are supported by serverless caches. In addition to these commands, these [Supported Valkey and Redis OSS commands](json-list-commands.md) are also supported.
 
-For information on Bloom Filter commands see [Bloom filter commands](BloomFilters.md#SupportedCommandsBloom "BloomFilters.md#SupportedCommandsBloom")
+For information on Bloom Filter commands see [Bloom filter commands](BloomFilters.md#SupportedCommandsBloom)
 
 **Bitmap Commands**
++ `BITCOUNT`
 
-- `BITCOUNT`
+  Counts the number of set bits (population counting) in a string.
 
-Counts the number of set bits (population counting) in a string.
+  [Learn more](https://valkey.io/commands/bitcount/)
++ `BITFIELD`
 
-[Learn more](https://valkey.io/commands/bitcount/ "https://valkey.io/commands/bitcount/")
+  Performs arbitrary bitfield integer operations on strings.
 
-- `BITFIELD`
+  [Learn more](https://valkey.io/commands/bitfield/)
++ `BITFIELD_RO`
 
-Performs arbitrary bitfield integer operations on strings.
+  Performs arbitrary read-only bitfield integer operations on strings.
 
-[Learn more](https://valkey.io/commands/bitfield/ "https://valkey.io/commands/bitfield/")
+  [Learn more](https://valkey.io/commands/bitfield_ro/)
++ `BITOP`
 
-- `BITFIELD_RO`
+  Performs bitwise operations on multiple strings, and stores the result.
 
-Performs arbitrary read-only bitfield integer operations on strings.
+  [Learn more](https://valkey.io/commands/bitop/)
++ `BITPOS`
 
-[Learn more](https://valkey.io/commands/bitfield_ro/ "https://valkey.io/commands/bitfield_ro/")
+  Finds the first set (1) or clear (0) bit in a string.
 
-- `BITOP`
+  [Learn more](https://valkey.io/commands/bitpos/)
++ `GETBIT`
 
-Performs bitwise operations on multiple strings, and stores the result.
+  Returns a bit value by offset.
 
-[Learn more](https://valkey.io/commands/bitop/ "https://valkey.io/commands/bitop/")
+  [Learn more](https://valkey.io/commands/getbit/)
++ `SETBIT`
 
-- `BITPOS`
+  Sets or clears the bit at offset of the string value. Creates the key if it doesn't exist.
 
-Finds the first set (1) or clear (0) bit in a string.
-
-[Learn more](https://valkey.io/commands/bitpos/ "https://valkey.io/commands/bitpos/")
-
-- `GETBIT`
-
-Returns a bit value by offset.
-
-[Learn more](https://valkey.io/commands/getbit/ "https://valkey.io/commands/getbit/")
-
-- `SETBIT`
-
-Sets or clears the bit at offset of the string value. Creates the key if it doesn't exist.
-
-[Learn more](https://valkey.io/commands/setbit/ "https://valkey.io/commands/setbit/")
+  [Learn more](https://valkey.io/commands/setbit/)
 
 **Cluster Management Commands**
++ `CLUSTER COUNTKEYSINSLOT`
 
-- `CLUSTER COUNTKEYSINSLOT`
+  Returns the number of keys in a hash slot.
 
-Returns the number of keys in a hash slot.
+  [Learn more](https://valkey.io/commands/cluster-countkeysinslot/)
++ `CLUSTER GETKEYSINSLOT`
 
-[Learn more](https://valkey.io/commands/cluster-countkeysinslot/ "https://valkey.io/commands/cluster-countkeysinslot/")
+  Returns the key names in a hash slot.
 
-- `CLUSTER GETKEYSINSLOT`
+  [Learn more](https://valkey.io/commands/cluster-getkeysinslot/)
++ `CLUSTER INFO`
 
-Returns the key names in a hash slot.
+  Returns information about the state of a node. In a serverless cache, returns state about the single virtual “shard” exposed to the client.
 
-[Learn more](https://valkey.io/commands/cluster-getkeysinslot/ "https://valkey.io/commands/cluster-getkeysinslot/")
+  [Learn more](https://valkey.io/commands/cluster-info/)
++ `CLUSTER KEYSLOT`
 
-- `CLUSTER INFO`
+  Returns the hash slot for a key. In Valkey 9.1 and later, available in both cluster mode and standalone mode.
 
-Returns information about the state of a node.
-In a serverless cache, returns state about the single virtual “shard” exposed to the client.
+  [Learn more](https://valkey.io/commands/cluster-keyslot/)
++ `CLUSTER MYID`
 
-[Learn more](https://valkey.io/commands/cluster-info/ "https://valkey.io/commands/cluster-info/")
+  Returns the ID of a node. In a serverless cache, returns state about the single virtual “shard” exposed to the client. 
 
-- `CLUSTER KEYSLOT`
+  [Learn more](https://valkey.io/commands/cluster-myid/)
++ `CLUSTER NODES`
 
-Returns the hash slot for a key. In Valkey 9.1 and later, available in both cluster mode and standalone mode.
+  Returns the cluster configuration for a node. In a serverless cache, returns state about the single virtual “shard” exposed to the client. 
 
-[Learn more](https://valkey.io/commands/cluster-keyslot/ "https://valkey.io/commands/cluster-keyslot/")
+  [Learn more](https://valkey.io/commands/cluster-nodes/)
++ `CLUSTER REPLICAS`
 
-- `CLUSTER MYID`
+  Lists the replica nodes of a master node. In a serverless cache, returns state about the single virtual “shard” exposed to the client. 
 
-Returns the ID of a node.
-In a serverless cache, returns state about the single virtual “shard” exposed to the client.
+  [Learn more](https://valkey.io/commands/cluster-replicas/)
++ `CLUSTER SHARDS`
 
-[Learn more](https://valkey.io/commands/cluster-myid/ "https://valkey.io/commands/cluster-myid/")
+  Returns the mapping of cluster slots to shards. In Valkey 9.1 and later, includes an `availability-zone` field per node. In a serverless cache, returns state about the single virtual “shard” exposed to the client. 
 
-- `CLUSTER NODES`
+  [Learn more](https://valkey.io/commands/cluster-shards/)
++ `CLUSTER SLOTS`
 
-Returns the cluster configuration for a node.
-In a serverless cache, returns state about the single virtual “shard” exposed to the client.
+  Returns the mapping of cluster slots to nodes. In a serverless cache, returns state about the single virtual “shard” exposed to the client. 
 
-[Learn more](https://valkey.io/commands/cluster-nodes/ "https://valkey.io/commands/cluster-nodes/")
+  [Learn more](https://valkey.io/commands/cluster-slots/)
++ `CLUSTERSCAN`
 
-- `CLUSTER REPLICAS`
+  Iterates over key names across all nodes in a cluster. Available in cluster-mode-enabled configurations.
 
-Lists the replica nodes of a master node.
-In a serverless cache, returns state about the single virtual “shard” exposed to the client.
+  [Learn more](https://valkey.io/commands/clusterscan/)
++ `CLUSTER SLOT-STATS`
 
-[Learn more](https://valkey.io/commands/cluster-replicas/ "https://valkey.io/commands/cluster-replicas/")
+  Allows tracking of per slot metrics for key count, CPU utilization, network bytes in, and network bytes out. 
 
-- `CLUSTER SHARDS`
+  [Learn more](https://valkey.io/commands/cluster-slot-stats/)
++ `READONLY`
 
-Returns the mapping of cluster slots to shards. In Valkey 9.1 and later, includes an `availability-zone` field per node.
-In a serverless cache, returns state about the single virtual “shard” exposed to the client.
+  Enables read-only queries for a connection to a Valkey or Redis OSS Cluster replica node.
 
-[Learn more](https://valkey.io/commands/cluster-shards/ "https://valkey.io/commands/cluster-shards/")
+  [Learn more](https://valkey.io/commands/readonly/)
++ `READWRITE`
 
-- `CLUSTER SLOTS`
+  Enables read-write queries for a connection to a Valkey or Redis OSS Cluster replica node.
 
-Returns the mapping of cluster slots to nodes.
-In a serverless cache, returns state about the single virtual “shard” exposed to the client.
+  [Learn more](https://valkey.io/commands/readwrite/)
++ `SCRIPT SHOW`
 
-[Learn more](https://valkey.io/commands/cluster-slots/ "https://valkey.io/commands/cluster-slots/")
+  Returns the original source code of a script in the script cache.
 
-- `CLUSTERSCAN`
-
-Iterates over key names across all nodes in a cluster. Available in cluster-mode-enabled configurations.
-
-[Learn more](https://valkey.io/commands/clusterscan/ "https://valkey.io/commands/clusterscan/")
-
-- `CLUSTER SLOT-STATS`
-
-Allows tracking of per slot metrics for key count, CPU utilization, network bytes in, and network bytes out.
-
-[Learn more](https://valkey.io/commands/cluster-slot-stats/ "https://valkey.io/commands/cluster-slot-stats/")
-
-- `READONLY`
-
-Enables read-only queries for a connection to a Valkey or Redis OSS Cluster replica node.
-
-[Learn more](https://valkey.io/commands/readonly/ "https://valkey.io/commands/readonly/")
-
-- `READWRITE`
-
-Enables read-write queries for a connection to a Valkey or Redis OSS Cluster replica node.
-
-[Learn more](https://valkey.io/commands/readwrite/ "https://valkey.io/commands/readwrite/")
-
-- `SCRIPT SHOW`
-
-Returns the original source code of a script in the script cache.
-
-[Learn more](https://valkey.io/commands/script-show/ "https://valkey.io/commands/script-show/")
+  [Learn more](https://valkey.io/commands/script-show/)
 
 **Connection Management Commands**
++ `AUTH`
 
-- `AUTH`
+  Authenticates the connection.
 
-Authenticates the connection.
+  [Learn more](https://valkey.io/commands/auth/)
++ `CLIENT GETNAME`
 
-[Learn more](https://valkey.io/commands/auth/ "https://valkey.io/commands/auth/")
+  Returns the name of the connection.
 
-- `CLIENT GETNAME`
+  [Learn more](https://valkey.io/commands/client-getname/)
++ `CLIENT REPLY`
 
-Returns the name of the connection.
+  Instructs the server whether to reply to commands.
 
-[Learn more](https://valkey.io/commands/client-getname/ "https://valkey.io/commands/client-getname/")
+  [Learn more](https://valkey.io/commands/client-reply/)
++ `CLIENT SETNAME`
 
-- `CLIENT REPLY`
+  Sets the connection name.
 
-Instructs the server whether to reply to commands.
+  [Learn more](https://valkey.io/commands/client-setname/)
++ `ECHO`
 
-[Learn more](https://valkey.io/commands/client-reply/ "https://valkey.io/commands/client-reply/")
+  Returns the given string.
 
-- `CLIENT SETNAME`
+  [Learn more](https://valkey.io/commands/echo/)
++ `HELLO`
 
-Sets the connection name.
+  Handshakes with the Valkey or Redis OSS server.
 
-[Learn more](https://valkey.io/commands/client-setname/ "https://valkey.io/commands/client-setname/")
+  [Learn more](https://valkey.io/commands/hello/)
++ `PING`
 
-- `ECHO`
+  Returns the server's liveliness response.
 
-Returns the given string.
+  [Learn more](https://valkey.io/commands/ping/)
++ `QUIT`
 
-[Learn more](https://valkey.io/commands/echo/ "https://valkey.io/commands/echo/")
+  Closes the connection.
 
-- `HELLO`
+  [Learn more](https://valkey.io/commands/quit/)
++ `RESET`
 
-Handshakes with the Valkey or Redis OSS server.
+  Resets the connection.
 
-[Learn more](https://valkey.io/commands/hello/ "https://valkey.io/commands/hello/")
+  [Learn more](https://valkey.io/commands/reset/)
++ `SELECT`
 
-- `PING`
+  Changes the selected database.
 
-Returns the server's liveliness response.
-
-[Learn more](https://valkey.io/commands/ping/ "https://valkey.io/commands/ping/")
-
-- `QUIT`
-
-Closes the connection.
-
-[Learn more](https://valkey.io/commands/quit/ "https://valkey.io/commands/quit/")
-
-- `RESET`
-
-Resets the connection.
-
-[Learn more](https://valkey.io/commands/reset/ "https://valkey.io/commands/reset/")
-
-- `SELECT`
-
-Changes the selected database.
-
-[Learn more](https://valkey.io/commands/select/ "https://valkey.io/commands/select/")
+  [Learn more](https://valkey.io/commands/select/)
 
 **Generic Commands**
++ `COPY`
 
-- `COPY`
+  Copies the value of a key to a new key.
 
-Copies the value of a key to a new key.
+  [Learn more](https://valkey.io/commands/copy/)
++ `DEL`
 
-[Learn more](https://valkey.io/commands/copy/ "https://valkey.io/commands/copy/")
+  Deletes one or more keys.
 
-- `DEL`
+  [Learn more](https://valkey.io/commands/del/)
++ `DELIFEQ`
 
-Deletes one or more keys.
+  Deletes the given key only if its current value is equal to the provided value.
 
-[Learn more](https://valkey.io/commands/del/ "https://valkey.io/commands/del/")
+  [Learn more](https://valkey.io/commands/delifeq/)
++ `DUMP`
 
-- `DELIFEQ`
+  Returns a serialized representation of the value stored at a key.
 
-Deletes the given key only if its current value is equal to the provided value.
+  [Learn more](https://valkey.io/commands/dump/)
++ `EXISTS`
 
-[Learn more](https://valkey.io/commands/delifeq/ "https://valkey.io/commands/delifeq/")
+  Determines whether one or more keys exist.
 
-- `DUMP`
+  [Learn more](https://valkey.io/commands/exists/)
++ `EXPIRE`
 
-Returns a serialized representation of the value stored at a key.
+  Sets the expiration time of a key in seconds.
 
-[Learn more](https://valkey.io/commands/dump/ "https://valkey.io/commands/dump/")
+  [Learn more](https://valkey.io/commands/expire/)
++ `EXPIREAT`
 
-- `EXISTS`
+  Sets the expiration time of a key to a Unix timestamp.
 
-Determines whether one or more keys exist.
+  [Learn more](https://valkey.io/commands/expireat/)
++ `EXPIRETIME`
 
-[Learn more](https://valkey.io/commands/exists/ "https://valkey.io/commands/exists/")
+  Returns the expiration time of a key as a Unix timestamp.
 
-- `EXPIRE`
+  [Learn more](https://valkey.io/commands/expiretime/)
++ `PERSIST`
 
-Sets the expiration time of a key in seconds.
+  Removes the expiration time of a key.
 
-[Learn more](https://valkey.io/commands/expire/ "https://valkey.io/commands/expire/")
+  [Learn more](https://valkey.io/commands/persist/)
++ `PEXPIRE`
 
-- `EXPIREAT`
+  Sets the expiration time of a key in milliseconds.
 
-Sets the expiration time of a key to a Unix timestamp.
+  [Learn more](https://valkey.io/commands/pexpire/)
++ `PEXPIREAT`
 
-[Learn more](https://valkey.io/commands/expireat/ "https://valkey.io/commands/expireat/")
+  Sets the expiration time of a key to a Unix milliseconds timestamp.
 
-- `EXPIRETIME`
+  [Learn more](https://valkey.io/commands/pexpireat/)
++ `PEXPIRETIME`
 
-Returns the expiration time of a key as a Unix timestamp.
+  Returns the expiration time of a key as a Unix milliseconds timestamp.
 
-[Learn more](https://valkey.io/commands/expiretime/ "https://valkey.io/commands/expiretime/")
+  [Learn more](https://valkey.io/commands/pexpiretime/)
++ `PTTL`
 
-- `PERSIST`
+  Returns the expiration time in milliseconds of a key.
 
-Removes the expiration time of a key.
+  [Learn more](https://valkey.io/commands/pttl/)
++ `RANDOMKEY`
 
-[Learn more](https://valkey.io/commands/persist/ "https://valkey.io/commands/persist/")
+  Returns a random key name from the database.
 
-- `PEXPIRE`
+  [Learn more](https://valkey.io/commands/randomkey/)
++ `RENAME`
 
-Sets the expiration time of a key in milliseconds.
+  Renames a key and overwrites the destination.
 
-[Learn more](https://valkey.io/commands/pexpire/ "https://valkey.io/commands/pexpire/")
+  [Learn more](https://valkey.io/commands/rename/)
++ `RENAMENX`
 
-- `PEXPIREAT`
+  Renames a key only when the target key name doesn't exist.
 
-Sets the expiration time of a key to a Unix milliseconds timestamp.
+  [Learn more](https://valkey.io/commands/renamenx/)
++ `RESTORE`
 
-[Learn more](https://valkey.io/commands/pexpireat/ "https://valkey.io/commands/pexpireat/")
+  Creates a key from the serialized representation of a value.
 
-- `PEXPIRETIME`
+  [Learn more](https://valkey.io/commands/restore/)
++ `SCAN`
 
-Returns the expiration time of a key as a Unix milliseconds timestamp.
+  Iterates over the key names in the database.
 
-[Learn more](https://valkey.io/commands/pexpiretime/ "https://valkey.io/commands/pexpiretime/")
+  [Learn more](https://valkey.io/commands/scan/)
++ `SORT`
 
-- `PTTL`
+  Sorts the elements in a list, a set, or a sorted set, optionally storing the result.
 
-Returns the expiration time in milliseconds of a key.
+  [Learn more](https://valkey.io/commands/sort/)
++ `SORT_RO`
 
-[Learn more](https://valkey.io/commands/pttl/ "https://valkey.io/commands/pttl/")
+  Returns the sorted elements of a list, a set, or a sorted set.
 
-- `RANDOMKEY`
+  [Learn more](https://valkey.io/commands/sort_ro/)
++ `TOUCH`
 
-Returns a random key name from the database.
+  Returns the number of existing keys out of those specified after updating the time they were last accessed.
 
-[Learn more](https://valkey.io/commands/randomkey/ "https://valkey.io/commands/randomkey/")
+  [Learn more](https://valkey.io/commands/touch/)
++ `TTL`
 
-- `RENAME`
+  Returns the expiration time in seconds of a key.
 
-Renames a key and overwrites the destination.
+  [Learn more](https://valkey.io/commands/ttl/)
++ `TYPE`
 
-[Learn more](https://valkey.io/commands/rename/ "https://valkey.io/commands/rename/")
+  Determines the type of value stored at a key.
 
-- `RENAMENX`
+  [Learn more](https://valkey.io/commands/type/)
++ `UNLINK`
 
-Renames a key only when the target key name doesn't exist.
+  Asynchronously deletes one or more keys.
 
-[Learn more](https://valkey.io/commands/renamenx/ "https://valkey.io/commands/renamenx/")
-
-- `RESTORE`
-
-Creates a key from the serialized representation of a value.
-
-[Learn more](https://valkey.io/commands/restore/ "https://valkey.io/commands/restore/")
-
-- `SCAN`
-
-Iterates over the key names in the database.
-
-[Learn more](https://valkey.io/commands/scan/ "https://valkey.io/commands/scan/")
-
-- `SORT`
-
-Sorts the elements in a list, a set, or a sorted set, optionally storing the result.
-
-[Learn more](https://valkey.io/commands/sort/ "https://valkey.io/commands/sort/")
-
-- `SORT_RO`
-
-Returns the sorted elements of a list, a set, or a sorted set.
-
-[Learn more](https://valkey.io/commands/sort_ro/ "https://valkey.io/commands/sort_ro/")
-
-- `TOUCH`
-
-Returns the number of existing keys out of those specified after updating the time they were last accessed.
-
-[Learn more](https://valkey.io/commands/touch/ "https://valkey.io/commands/touch/")
-
-- `TTL`
-
-Returns the expiration time in seconds of a key.
-
-[Learn more](https://valkey.io/commands/ttl/ "https://valkey.io/commands/ttl/")
-
-- `TYPE`
-
-Determines the type of value stored at a key.
-
-[Learn more](https://valkey.io/commands/type/ "https://valkey.io/commands/type/")
-
-- `UNLINK`
-
-Asynchronously deletes one or more keys.
-
-[Learn more](https://valkey.io/commands/unlink/ "https://valkey.io/commands/unlink/")
+  [Learn more](https://valkey.io/commands/unlink/)
 
 **Geospatial Commands**
++ `GEOADD`
 
-- `GEOADD`
+  Adds one or more members to a geospatial index. The key is created if it doesn't exist.
 
-Adds one or more members to a geospatial index. The key is created if it doesn't exist.
+  [Learn more](https://valkey.io/commands/geoadd/)
++ `GEODIST`
 
-[Learn more](https://valkey.io/commands/geoadd/ "https://valkey.io/commands/geoadd/")
+  Returns the distance between two members of a geospatial index.
 
-- `GEODIST`
+  [Learn more](https://valkey.io/commands/geodist/)
++ `GEOHASH`
 
-Returns the distance between two members of a geospatial index.
+  Returns members from a geospatial index as geohash strings.
 
-[Learn more](https://valkey.io/commands/geodist/ "https://valkey.io/commands/geodist/")
+  [Learn more](https://valkey.io/commands/geohash/)
++ `GEOPOS`
 
-- `GEOHASH`
+  Returns the longitude and latitude of members from a geospatial index.
 
-Returns members from a geospatial index as geohash strings.
+  [Learn more](https://valkey.io/commands/geopos/)
++ `GEORADIUS`
 
-[Learn more](https://valkey.io/commands/geohash/ "https://valkey.io/commands/geohash/")
+  Queries a geospatial index for members within a distance from a coordinate, optionally stores the result.
 
-- `GEOPOS`
+  [Learn more](https://valkey.io/commands/georadius/)
++ `GEORADIUS_RO`
 
-Returns the longitude and latitude of members from a geospatial index.
+  Returns members from a geospatial index that are within a distance from a coordinate.
 
-[Learn more](https://valkey.io/commands/geopos/ "https://valkey.io/commands/geopos/")
+  [Learn more](https://valkey.io/commands/georadius_ro/)
++ `GEORADIUSBYMEMBER`
 
-- `GEORADIUS`
+  Queries a geospatial index for members within a distance from a member, optionally stores the result.
 
-Queries a geospatial index for members within a distance from a coordinate, optionally stores the result.
+  [Learn more](https://valkey.io/commands/georadiusbymember/)
++ `GEORADIUSBYMEMBER_RO`
 
-[Learn more](https://valkey.io/commands/georadius/ "https://valkey.io/commands/georadius/")
+  Returns members from a geospatial index that are within a distance from a member.
 
-- `GEORADIUS_RO`
+  [Learn more](https://valkey.io/commands/georadiusbymember_ro/)
++ `GEOSEARCH`
 
-Returns members from a geospatial index that are within a distance from a coordinate.
+  Queries a geospatial index for members inside an area of a box or a circle.
 
-[Learn more](https://valkey.io/commands/georadius_ro/ "https://valkey.io/commands/georadius_ro/")
+  [Learn more](https://valkey.io/commands/geosearch/)
++ `GEOSEARCHSTORE`
 
-- `GEORADIUSBYMEMBER`
+  Queries a geospatial index for members inside an area of a box or a circle, optionally stores the result.
 
-Queries a geospatial index for members within a distance from a member, optionally stores the result.
-
-[Learn more](https://valkey.io/commands/georadiusbymember/ "https://valkey.io/commands/georadiusbymember/")
-
-- `GEORADIUSBYMEMBER_RO`
-
-Returns members from a geospatial index that are within a distance from a member.
-
-[Learn more](https://valkey.io/commands/georadiusbymember_ro/ "https://valkey.io/commands/georadiusbymember_ro/")
-
-- `GEOSEARCH`
-
-Queries a geospatial index for members inside an area of a box or a circle.
-
-[Learn more](https://valkey.io/commands/geosearch/ "https://valkey.io/commands/geosearch/")
-
-- `GEOSEARCHSTORE`
-
-Queries a geospatial index for members inside an area of a box or a circle, optionally stores the result.
-
-[Learn more](https://valkey.io/commands/geosearchstore/ "https://valkey.io/commands/geosearchstore/")
+  [Learn more](https://valkey.io/commands/geosearchstore/)
 
 **Hash Commands**
++ `HDEL`
 
-- `HDEL`
+  Deletes one or more fields and their values from a hash. Deletes the hash if no fields remain.
 
-Deletes one or more fields and their values from a hash. Deletes the hash if no fields remain.
+  [Learn more](https://valkey.io/commands/hdel/)
++ `HEXISTS`
 
-[Learn more](https://valkey.io/commands/hdel/ "https://valkey.io/commands/hdel/")
+  Determines whether a field exists in a hash.
 
-- `HEXISTS`
+  [Learn more](https://valkey.io/commands/hexists/)
++ `HGET`
 
-Determines whether a field exists in a hash.
+  Returns the value of a field in a hash.
 
-[Learn more](https://valkey.io/commands/hexists/ "https://valkey.io/commands/hexists/")
+  [Learn more](https://valkey.io/commands/hget/)
++ `HGETALL`
 
-- `HGET`
+  Returns all fields and values in a hash.
 
-Returns the value of a field in a hash.
+  [Learn more](https://valkey.io/commands/hgetall/)
++ `HINCRBY`
 
-[Learn more](https://valkey.io/commands/hget/ "https://valkey.io/commands/hget/")
+  Increments the integer value of a field in a hash by a number. Uses 0 as initial value if the field doesn't exist.
 
-- `HGETALL`
+  [Learn more](https://valkey.io/commands/hincrby/)
++ `HINCRBYFLOAT`
 
-Returns all fields and values in a hash.
+  Increments the floating point value of a field by a number. Uses 0 as initial value if the field doesn't exist.
 
-[Learn more](https://valkey.io/commands/hgetall/ "https://valkey.io/commands/hgetall/")
+  [Learn more](https://valkey.io/commands/hincrbyfloat/)
++ `HKEYS`
 
-- `HINCRBY`
+  Returns all fields in a hash.
 
-Increments the integer value of a field in a hash by a number. Uses 0 as initial value if the field doesn't exist.
+  [Learn more](https://valkey.io/commands/hkeys/)
++ `HLEN`
 
-[Learn more](https://valkey.io/commands/hincrby/ "https://valkey.io/commands/hincrby/")
+  Returns the number of fields in a hash.
 
-- `HINCRBYFLOAT`
+  [Learn more](https://valkey.io/commands/hlen/)
++ `HMGET`
 
-Increments the floating point value of a field by a number. Uses 0 as initial value if the field doesn't exist.
+  Returns the values of all fields in a hash.
 
-[Learn more](https://valkey.io/commands/hincrbyfloat/ "https://valkey.io/commands/hincrbyfloat/")
+  [Learn more](https://valkey.io/commands/hmget/)
++ `HMSET`
 
-- `HKEYS`
+  Sets the values of multiple fields.
 
-Returns all fields in a hash.
+  [Learn more](https://valkey.io/commands/hmset/)
++ `HRANDFIELD`
 
-[Learn more](https://valkey.io/commands/hkeys/ "https://valkey.io/commands/hkeys/")
+  Returns one or more random fields from a hash.
 
-- `HLEN`
+  [Learn more](https://valkey.io/commands/hrandfield/)
++ `HSCAN`
 
-Returns the number of fields in a hash.
+  Iterates over fields and values of a hash.
 
-[Learn more](https://valkey.io/commands/hlen/ "https://valkey.io/commands/hlen/")
+  [Learn more](https://valkey.io/commands/hscan/)
++ `HSET`
 
-- `HMGET`
+  Creates or modifies the value of a field in a hash.
 
-Returns the values of all fields in a hash.
+  [Learn more](https://valkey.io/commands/hset/)
++ `HSETNX`
 
-[Learn more](https://valkey.io/commands/hmget/ "https://valkey.io/commands/hmget/")
+  Sets the value of a field in a hash only when the field doesn't exist.
 
-- `HMSET`
+  [Learn more](https://valkey.io/commands/hsetnx/)
++ `HSTRLEN`
 
-Sets the values of multiple fields.
+  Returns the length of the value of a field.
 
-[Learn more](https://valkey.io/commands/hmset/ "https://valkey.io/commands/hmset/")
+  [Learn more](https://valkey.io/commands/hstrlen/)
++ `HVALS`
 
-- `HRANDFIELD`
+  Returns all values in a hash.
 
-Returns one or more random fields from a hash.
+  [Learn more](https://valkey.io/commands/hvals/)
++ `HSETEX`
 
-[Learn more](https://valkey.io/commands/hrandfield/ "https://valkey.io/commands/hrandfield/")
+  Sets fields in a hash with per-field expiration times. Supports `NX` (set only if field does not exist) and `XX` (set only if field already exists) flags. Creates the key if it doesn't exist.
 
-- `HSCAN`
+  [Learn more](https://valkey.io/commands/hsetex/)
++ `HGETEX`
 
-Iterates over fields and values of a hash.
+  Returns the values of fields in a hash and optionally sets their expiration.
 
-[Learn more](https://valkey.io/commands/hscan/ "https://valkey.io/commands/hscan/")
+  [Learn more](https://valkey.io/commands/hgetex/)
++ `HGETDEL`
 
-- `HSET`
+  Returns the values of fields in a hash and deletes them.
 
-Creates or modifies the value of a field in a hash.
+  [Learn more](https://valkey.io/commands/hgetdel/)
++ `HEXPIRE`
 
-[Learn more](https://valkey.io/commands/hset/ "https://valkey.io/commands/hset/")
+  Sets the expiration time of a hash field in seconds.
 
-- `HSETNX`
+  [Learn more](https://valkey.io/commands/hexpire/)
++ `HEXPIREAT`
 
-Sets the value of a field in a hash only when the field doesn't exist.
+  Sets the expiration time of a hash field to a Unix timestamp.
 
-[Learn more](https://valkey.io/commands/hsetnx/ "https://valkey.io/commands/hsetnx/")
+  [Learn more](https://valkey.io/commands/hexpireat/)
++ `HPEXPIRE`
 
-- `HSTRLEN`
+  Sets the expiration time of a hash field in milliseconds.
 
-Returns the length of the value of a field.
+  [Learn more](https://valkey.io/commands/hpexpire/)
++ `HPEXPIREAT`
 
-[Learn more](https://valkey.io/commands/hstrlen/ "https://valkey.io/commands/hstrlen/")
+  Sets the expiration time of a hash field to a Unix milliseconds timestamp.
 
-- `HVALS`
+  [Learn more](https://valkey.io/commands/hpexpireat/)
++ `HPERSIST`
 
-Returns all values in a hash.
+  Removes the expiration time from a hash field.
 
-[Learn more](https://valkey.io/commands/hvals/ "https://valkey.io/commands/hvals/")
+  [Learn more](https://valkey.io/commands/hpersist/)
++ `HTTL`
 
-- `HSETEX`
+  Returns the remaining time to live of a hash field in seconds.
 
-Sets fields in a hash with per-field expiration times. Supports `NX` (set only if field does not exist) and `XX` (set only if field already exists) flags. Creates the key if it doesn't exist.
+  [Learn more](https://valkey.io/commands/httl/)
++ `HPTTL`
 
-[Learn more](https://valkey.io/commands/hsetex/ "https://valkey.io/commands/hsetex/")
+  Returns the remaining time to live of a hash field in milliseconds.
 
-- `HGETEX`
+  [Learn more](https://valkey.io/commands/hpttl/)
++ `HEXPIRETIME`
 
-Returns the values of fields in a hash and optionally sets their expiration.
+  Returns the expiration time of a hash field as a Unix timestamp.
 
-[Learn more](https://valkey.io/commands/hgetex/ "https://valkey.io/commands/hgetex/")
+  [Learn more](https://valkey.io/commands/hexpiretime/)
++ `HPEXPIRETIME`
 
-- `HGETDEL`
+  Returns the expiration time of a hash field as a Unix milliseconds timestamp.
 
-Returns the values of fields in a hash and deletes them.
-
-[Learn more](https://valkey.io/commands/hgetdel/ "https://valkey.io/commands/hgetdel/")
-
-- `HEXPIRE`
-
-Sets the expiration time of a hash field in seconds.
-
-[Learn more](https://valkey.io/commands/hexpire/ "https://valkey.io/commands/hexpire/")
-
-- `HEXPIREAT`
-
-Sets the expiration time of a hash field to a Unix timestamp.
-
-[Learn more](https://valkey.io/commands/hexpireat/ "https://valkey.io/commands/hexpireat/")
-
-- `HPEXPIRE`
-
-Sets the expiration time of a hash field in milliseconds.
-
-[Learn more](https://valkey.io/commands/hpexpire/ "https://valkey.io/commands/hpexpire/")
-
-- `HPEXPIREAT`
-
-Sets the expiration time of a hash field to a Unix milliseconds timestamp.
-
-[Learn more](https://valkey.io/commands/hpexpireat/ "https://valkey.io/commands/hpexpireat/")
-
-- `HPERSIST`
-
-Removes the expiration time from a hash field.
-
-[Learn more](https://valkey.io/commands/hpersist/ "https://valkey.io/commands/hpersist/")
-
-- `HTTL`
-
-Returns the remaining time to live of a hash field in seconds.
-
-[Learn more](https://valkey.io/commands/httl/ "https://valkey.io/commands/httl/")
-
-- `HPTTL`
-
-Returns the remaining time to live of a hash field in milliseconds.
-
-[Learn more](https://valkey.io/commands/hpttl/ "https://valkey.io/commands/hpttl/")
-
-- `HEXPIRETIME`
-
-Returns the expiration time of a hash field as a Unix timestamp.
-
-[Learn more](https://valkey.io/commands/hexpiretime/ "https://valkey.io/commands/hexpiretime/")
-
-- `HPEXPIRETIME`
-
-Returns the expiration time of a hash field as a Unix milliseconds timestamp.
-
-[Learn more](https://valkey.io/commands/hpexpiretime/ "https://valkey.io/commands/hpexpiretime/")
+  [Learn more](https://valkey.io/commands/hpexpiretime/)
 
 **HyperLogLog Commands**
++ `PFADD`
 
-- `PFADD`
+  Adds elements to a HyperLogLog key. Creates the key if it doesn't exist.
 
-Adds elements to a HyperLogLog key. Creates the key if it doesn't exist.
+  [Learn more](https://valkey.io/commands/pfadd/)
++ `PFCOUNT`
 
-[Learn more](https://valkey.io/commands/pfadd/ "https://valkey.io/commands/pfadd/")
+  Returns the approximated cardinality of the set(s) observed by the HyperLogLog key(s).
 
-- `PFCOUNT`
+  [Learn more](https://valkey.io/commands/pfcount/)
++ `PFMERGE`
 
-Returns the approximated cardinality of the set(s) observed by the HyperLogLog key(s).
+  Merges one or more HyperLogLog values into a single key.
 
-[Learn more](https://valkey.io/commands/pfcount/ "https://valkey.io/commands/pfcount/")
-
-- `PFMERGE`
-
-Merges one or more HyperLogLog values into a single key.
-
-[Learn more](https://valkey.io/commands/pfmerge/ "https://valkey.io/commands/pfmerge/")
+  [Learn more](https://valkey.io/commands/pfmerge/)
 
 **List Commands**
++ `BLMOVE`
 
-- `BLMOVE`
+  Pops an element from a list, pushes it to another list and returns it. Blocks until an element is available otherwise. Deletes the list if the last element was moved.
 
-Pops an element from a list, pushes it to another list and returns it.
-Blocks until an element is available otherwise. Deletes the list if the last element was moved.
+  [Learn more](https://valkey.io/commands/blmove/)
++ `BLMPOP`
 
-[Learn more](https://valkey.io/commands/blmove/ "https://valkey.io/commands/blmove/")
+  Pops the first element from one of multiple lists. Blocks until an element is available otherwise. Deletes the list if the last element was popped.
 
-- `BLMPOP`
+  [Learn more](https://valkey.io/commands/blmpop/)
++ `BLPOP`
 
-Pops the first element from one of multiple lists. Blocks until an element
-is available otherwise. Deletes the list if the last element was popped.
+  Removes and returns the first element in a list. Blocks until an element is available otherwise. Deletes the list if the last element was popped.
 
-[Learn more](https://valkey.io/commands/blmpop/ "https://valkey.io/commands/blmpop/")
+  [Learn more](https://valkey.io/commands/blpop/)
++ `BRPOP`
 
-- `BLPOP`
+  Removes and returns the last element in a list. Blocks until an element is available otherwise. Deletes the list if the last element was popped.
 
-Removes and returns the first element in a list. Blocks until an element is
-available otherwise. Deletes the list if the last element was popped.
+  [Learn more](https://valkey.io/commands/brpop/)
++ `BRPOPLPUSH`
 
-[Learn more](https://valkey.io/commands/blpop/ "https://valkey.io/commands/blpop/")
+  Pops an element from a list, pushes it to another list and returns it. Block until an element is available otherwise. Deletes the list if the last element was popped.
 
-- `BRPOP`
+  [Learn more](https://valkey.io/commands/brpoplpush/)
++ `LINDEX`
 
-Removes and returns the last element in a list. Blocks until an element is available otherwise. Deletes the list if the last element was popped.
+  Returns an element from a list by its index.
 
-[Learn more](https://valkey.io/commands/brpop/ "https://valkey.io/commands/brpop/")
+  [Learn more](https://valkey.io/commands/lindex/)
++ `LINSERT`
 
-- `BRPOPLPUSH`
+  Inserts an element before or after another element in a list.
 
-Pops an element from a list, pushes it to another list and returns it. Block until an element is available otherwise. Deletes the list if the last element was popped.
+  [Learn more](https://valkey.io/commands/linsert/)
++ `LLEN`
 
-[Learn more](https://valkey.io/commands/brpoplpush/ "https://valkey.io/commands/brpoplpush/")
+  Returns the length of a list.
 
-- `LINDEX`
+  [Learn more](https://valkey.io/commands/llen/)
++ `LMOVE`
 
-Returns an element from a list by its index.
+  Returns an element after popping it from one list and pushing it to another. Deletes the list if the last element was moved.
 
-[Learn more](https://valkey.io/commands/lindex/ "https://valkey.io/commands/lindex/")
+  [Learn more](https://valkey.io/commands/lmove/)
++ `LMPOP`
 
-- `LINSERT`
+  Returns multiple elements from a list after removing them. Deletes the list if the last element was popped.
 
-Inserts an element before or after another element in a list.
+  [Learn more](https://valkey.io/commands/lmpop/)
++ `LPOP`
 
-[Learn more](https://valkey.io/commands/linsert/ "https://valkey.io/commands/linsert/")
+  Returns the first elements in a list after removing it. Deletes the list if the last element was popped.
 
-- `LLEN`
+  [Learn more](https://valkey.io/commands/lpop/)
++ `LPOS`
 
-Returns the length of a list.
+  Returns the index of matching elements in a list.
 
-[Learn more](https://valkey.io/commands/llen/ "https://valkey.io/commands/llen/")
+  [Learn more](https://valkey.io/commands/lpos/)
++ `LPUSH`
 
-- `LMOVE`
+  Prepends one or more elements to a list. Creates the key if it doesn't exist.
 
-Returns an element after popping it from one list and pushing it to another. Deletes the list if the last element was moved.
+  [Learn more](https://valkey.io/commands/lpush/)
++ `LPUSHX`
 
-[Learn more](https://valkey.io/commands/lmove/ "https://valkey.io/commands/lmove/")
+  Prepends one or more elements to a list only when the list exists.
 
-- `LMPOP`
+  [Learn more](https://valkey.io/commands/lpushx/)
++ `LRANGE`
 
-Returns multiple elements from a list after removing them. Deletes the list if the last element was popped.
+  Returns a range of elements from a list.
 
-[Learn more](https://valkey.io/commands/lmpop/ "https://valkey.io/commands/lmpop/")
+  [Learn more](https://valkey.io/commands/lrange/)
++ `LREM`
 
-- `LPOP`
+  Removes elements from a list. Deletes the list if the last element was removed.
 
-Returns the first elements in a list after removing it. Deletes the list if the last element was popped.
+  [Learn more](https://valkey.io/commands/lrem/)
++ `LSET`
 
-[Learn more](https://valkey.io/commands/lpop/ "https://valkey.io/commands/lpop/")
+  Sets the value of an element in a list by its index.
 
-- `LPOS`
+  [Learn more](https://valkey.io/commands/lset/)
++ `LTRIM`
 
-Returns the index of matching elements in a list.
+  Removes elements from both ends a list. Deletes the list if all elements were trimmed.
 
-[Learn more](https://valkey.io/commands/lpos/ "https://valkey.io/commands/lpos/")
+  [Learn more](https://valkey.io/commands/ltrim/)
++ `RPOP`
 
-- `LPUSH`
+  Returns and removes the last elements of a list. Deletes the list if the last element was popped.
 
-Prepends one or more elements to a list. Creates the key if it doesn't exist.
+  [Learn more](https://valkey.io/commands/rpop/)
++ `RPOPLPUSH`
 
-[Learn more](https://valkey.io/commands/lpush/ "https://valkey.io/commands/lpush/")
+  Returns the last element of a list after removing and pushing it to another list. Deletes the list if the last element was popped.
 
-- `LPUSHX`
+  [Learn more](https://valkey.io/commands/rpoplpush/)
++ `RPUSH`
 
-Prepends one or more elements to a list only when the list exists.
+  Appends one or more elements to a list. Creates the key if it doesn't exist.
 
-[Learn more](https://valkey.io/commands/lpushx/ "https://valkey.io/commands/lpushx/")
+  [Learn more](https://valkey.io/commands/rpush/)
++ `RPUSHX`
 
-- `LRANGE`
+  Appends an element to a list only when the list exists.
 
-Returns a range of elements from a list.
-
-[Learn more](https://valkey.io/commands/lrange/ "https://valkey.io/commands/lrange/")
-
-- `LREM`
-
-Removes elements from a list. Deletes the list if the last element was removed.
-
-[Learn more](https://valkey.io/commands/lrem/ "https://valkey.io/commands/lrem/")
-
-- `LSET`
-
-Sets the value of an element in a list by its index.
-
-[Learn more](https://valkey.io/commands/lset/ "https://valkey.io/commands/lset/")
-
-- `LTRIM`
-
-Removes elements from both ends a list. Deletes the list if all elements were trimmed.
-
-[Learn more](https://valkey.io/commands/ltrim/ "https://valkey.io/commands/ltrim/")
-
-- `RPOP`
-
-Returns and removes the last elements of a list. Deletes the list if the last element was popped.
-
-[Learn more](https://valkey.io/commands/rpop/ "https://valkey.io/commands/rpop/")
-
-- `RPOPLPUSH`
-
-Returns the last element of a list after removing and pushing it to another list. Deletes the list if the last element was popped.
-
-[Learn more](https://valkey.io/commands/rpoplpush/ "https://valkey.io/commands/rpoplpush/")
-
-- `RPUSH`
-
-Appends one or more elements to a list. Creates the key if it doesn't exist.
-
-[Learn more](https://valkey.io/commands/rpush/ "https://valkey.io/commands/rpush/")
-
-- `RPUSHX`
-
-Appends an element to a list only when the list exists.
-
-[Learn more](https://valkey.io/commands/rpushx/ "https://valkey.io/commands/rpushx/")
+  [Learn more](https://valkey.io/commands/rpushx/)
 
 **Pub/Sub Commands**
 
-###### Note
-
+**Note**  
 PUBSUB commands internally use sharded PUBSUB, so channel names will be mixed.
++ `PUBLISH`
 
-- `PUBLISH`
+  Posts a message to a channel.
 
-Posts a message to a channel.
+  [Learn more](https://valkey.io/commands/publish/)
++ `PUBSUB CHANNELS`
 
-[Learn more](https://valkey.io/commands/publish/ "https://valkey.io/commands/publish/")
+  Returns the active channels.
 
-- `PUBSUB CHANNELS`
+  [Learn more](https://valkey.io/commands/pubsub-channels/)
++ `PUBSUB NUMSUB`
 
-Returns the active channels.
+  Returns a count of subscribers to channels.
 
-[Learn more](https://valkey.io/commands/pubsub-channels/ "https://valkey.io/commands/pubsub-channels/")
+  [Learn more](https://valkey.io/commands/pubsub-numsub/)
++ `PUBSUB SHARDCHANNELS`
 
-- `PUBSUB NUMSUB`
+  Returns the active shard channels.
 
-Returns a count of subscribers to channels.
+  [Learn more](https://valkey.io/commands/pubsub-shardchannels/)
++ `PUBSUB SHARDNUMSUB`
 
-[Learn more](https://valkey.io/commands/pubsub-numsub/ "https://valkey.io/commands/pubsub-numsub/")
+  Returns the count of subscribers of shard channels.
 
-- `PUBSUB SHARDCHANNELS`
+  [Learn more](https://valkey.io/commands/pubsub-shardnumsub/)
++ `SPUBLISH`
 
-Returns the active shard channels.
+  Post a message to a shard channel
 
-[Learn more](https://valkey.io/commands/pubsub-shardchannels/ "https://valkey.io/commands/pubsub-shardchannels/")
+  [Learn more](https://valkey.io/commands/spublish/)
++ `SSUBSCRIBE`
 
-- `PUBSUB SHARDNUMSUB`
+  Listens for messages published to shard channels.
 
-Returns the count of subscribers of shard channels.
+  [Learn more](https://valkey.io/commands/ssubscribe/)
++ `SUBSCRIBE`
 
-[Learn more](https://valkey.io/commands/pubsub-shardnumsub/ "https://valkey.io/commands/pubsub-shardnumsub/")
+  Listens for messages published to channels.
 
-- `SPUBLISH`
+  [Learn more](https://valkey.io/commands/subscribe/)
++ `SUNSUBSCRIBE`
 
-Post a message to a shard channel
+  Stops listening to messages posted to shard channels.
 
-[Learn more](https://valkey.io/commands/spublish/ "https://valkey.io/commands/spublish/")
+  [Learn more](https://valkey.io/commands/sunsubscribe/)
++ `UNSUBSCRIBE`
 
-- `SSUBSCRIBE`
+  Stops listening to messages posted to channels.
 
-Listens for messages published to shard channels.
-
-[Learn more](https://valkey.io/commands/ssubscribe/ "https://valkey.io/commands/ssubscribe/")
-
-- `SUBSCRIBE`
-
-Listens for messages published to channels.
-
-[Learn more](https://valkey.io/commands/subscribe/ "https://valkey.io/commands/subscribe/")
-
-- `SUNSUBSCRIBE`
-
-Stops listening to messages posted to shard channels.
-
-[Learn more](https://valkey.io/commands/sunsubscribe/ "https://valkey.io/commands/sunsubscribe/")
-
-- `UNSUBSCRIBE`
-
-Stops listening to messages posted to channels.
-
-[Learn more](https://valkey.io/commands/unsubscribe/ "https://valkey.io/commands/unsubscribe/")
+  [Learn more](https://valkey.io/commands/unsubscribe/)
 
 **Scripting Commands**
++ `EVAL`
 
-- `EVAL`
+  Executes a server-side Lua script.
 
-Executes a server-side Lua script.
+  [Learn more](https://valkey.io/commands/eval/)
++ `EVAL_RO`
 
-[Learn more](https://valkey.io/commands/eval/ "https://valkey.io/commands/eval/")
+  Executes a read-only server-side Lua script.
 
-- `EVAL_RO`
+  [Learn more](https://valkey.io/commands/eval_ro/)
++ `EVALSHA`
 
-Executes a read-only server-side Lua script.
+  Executes a server-side Lua script by SHA1 digest.
 
-[Learn more](https://valkey.io/commands/eval_ro/ "https://valkey.io/commands/eval_ro/")
+  [Learn more](https://valkey.io/commands/evalsha/)
++ `EVALSHA_RO`
 
-- `EVALSHA`
+  Executes a read-only server-side Lua script by SHA1 digest.
 
-Executes a server-side Lua script by SHA1 digest.
+  [Learn more](https://valkey.io/commands/evalsha_ro/)
++ `SCRIPT EXISTS`
 
-[Learn more](https://valkey.io/commands/evalsha/ "https://valkey.io/commands/evalsha/")
+  Determines whether server-side Lua scripts exist in the script cache.
 
-- `EVALSHA_RO`
+  [Learn more](https://valkey.io/commands/script-exists/)
++ `SCRIPT FLUSH`
 
-Executes a read-only server-side Lua script by SHA1 digest.
+  Currently a no-op, script cache is managed by the service. 
 
-[Learn more](https://valkey.io/commands/evalsha_ro/ "https://valkey.io/commands/evalsha_ro/")
+  [Learn more](https://valkey.io/commands/script-flush/)
++ `SCRIPT LOAD`
 
-- `SCRIPT EXISTS`
+  Loads a server-side Lua script to the script cache.
 
-Determines whether server-side Lua scripts exist in the script cache.
-
-[Learn more](https://valkey.io/commands/script-exists/ "https://valkey.io/commands/script-exists/")
-
-- `SCRIPT FLUSH`
-
-Currently a no-op, script cache is managed by the service.
-
-[Learn more](https://valkey.io/commands/script-flush/ "https://valkey.io/commands/script-flush/")
-
-- `SCRIPT LOAD`
-
-Loads a server-side Lua script to the script cache.
-
-[Learn more](https://valkey.io/commands/script-load/ "https://valkey.io/commands/script-load/")
+  [Learn more](https://valkey.io/commands/script-load/)
 
 **Server Management Commands**
 
-###### Note
+**Note**  
+When using node-based ElastiCache clusters for Valkey and Redis OSS, flush commands must be sent to every primary by the client to flush all keys. ElastiCache Serverless for Valkey and Redis OSS works differently, because it abstracts away the underlying cluster topology. The result is that in ElastiCache Serverless, `FLUSHDB` and `FLUSHALL` commands will always flush all keys across the cluster. For this reason, flush commands cannot be included inside a Serverless transaction. 
++ `ACL CAT`
 
-When using node-based ElastiCache clusters for Valkey and Redis OSS, flush commands must be sent to every primary by the client to flush all keys. ElastiCache Serverless for Valkey and Redis OSS works differently, because it abstracts away the underlying cluster topology. The result is that in ElastiCache Serverless, `FLUSHDB` and `FLUSHALL` commands will always flush all keys across the cluster. For this reason, flush commands cannot be included inside a Serverless transaction.
+  Lists the ACL categories, or the commands inside a category.
 
-- `ACL CAT`
+  [Learn more](https://valkey.io/commands/acl-cat/)
++ `ACL GENPASS`
 
-Lists the ACL categories, or the commands inside a category.
+  Generates a pseudorandom, secure password that can be used to identify ACL users.
 
-[Learn more](https://valkey.io/commands/acl-cat/ "https://valkey.io/commands/acl-cat/")
+  [Learn more](https://valkey.io/commands/acl-genpass/)
++ `ACL GETUSER`
 
-- `ACL GENPASS`
+  Lists the ACL rules of a user.
 
-Generates a pseudorandom, secure password that can be used to identify ACL users.
+  [Learn more](https://valkey.io/commands/acl-getuser/)
++ `ACL LIST`
 
-[Learn more](https://valkey.io/commands/acl-genpass/ "https://valkey.io/commands/acl-genpass/")
+  Dumps the effective rules in ACL file format.
 
-- `ACL GETUSER`
+  [Learn more](https://valkey.io/commands/acl-list/)
++ `ACL USERS`
 
-Lists the ACL rules of a user.
+  Lists all ACL users.
 
-[Learn more](https://valkey.io/commands/acl-getuser/ "https://valkey.io/commands/acl-getuser/")
+  [Learn more](https://valkey.io/commands/acl-users/)
++ `ACL WHOAMI`
 
-- `ACL LIST`
+  Returns the authenticated username of the current connection.
 
-Dumps the effective rules in ACL file format.
+  [Learn more](https://valkey.io/commands/acl-whoami/)
++ `DBSIZE`
 
-[Learn more](https://valkey.io/commands/acl-list/ "https://valkey.io/commands/acl-list/")
+  Return the number of keys in the currently-selected database. This operation is not guaranteed to be atomic across all slots.
 
-- `ACL USERS`
+  [Learn more](https://valkey.io/commands/dbsize/)
++ `COMMAND`
 
-Lists all ACL users.
+  Returns detailed information about all commands.
 
-[Learn more](https://valkey.io/commands/acl-users/ "https://valkey.io/commands/acl-users/")
+  [Learn more](https://valkey.io/commands/command/)
++ `COMMAND COUNT`
 
-- `ACL WHOAMI`
+  Returns a count of commands.
 
-Returns the authenticated username of the current connection.
+  [Learn more](https://valkey.io/commands/command-count/)
++ `COMMAND DOCS`
 
-[Learn more](https://valkey.io/commands/acl-whoami/ "https://valkey.io/commands/acl-whoami/")
+  Returns documentary information about one, multiple or all commands.
 
-- `DBSIZE`
+  [Learn more](https://valkey.io/commands/command-docs/)
++ `COMMAND GETKEYS`
 
-Return the number of keys in the currently-selected database.
-This operation is not guaranteed to be atomic across all slots.
+  Extracts the key names from an arbitrary command.
 
-[Learn more](https://valkey.io/commands/dbsize/ "https://valkey.io/commands/dbsize/")
+  [Learn more](https://valkey.io/commands/command-getkeys/)
++ `COMMAND GETKEYSANDFLAGS`
 
-- `COMMAND`
+  Extracts the key names and access flags for an arbitrary command.
 
-Returns detailed information about all commands.
+  [Learn more](https://valkey.io/commands/command-getkeysandflags/)
++ `COMMAND INFO`
 
-[Learn more](https://valkey.io/commands/command/ "https://valkey.io/commands/command/")
+  Returns information about one, multiple or all commands.
 
-- `COMMAND COUNT`
+  [Learn more](https://valkey.io/commands/command-info/)
++ `COMMAND LIST`
 
-Returns a count of commands.
+  Returns a list of command names.
 
-[Learn more](https://valkey.io/commands/command-count/ "https://valkey.io/commands/command-count/")
+  [Learn more](https://valkey.io/commands/command-list/)
++ `COMMANDLOG`
 
-- `COMMAND DOCS`
+  A container for command log commands.
 
-Returns documentary information about one, multiple or all commands.
+  [Learn more](https://valkey.io/commands/commandlog/)
++ `COMMANDLOG GET`
 
-[Learn more](https://valkey.io/commands/command-docs/ "https://valkey.io/commands/command-docs/")
+  Returns the specified command log's entries.
 
-- `COMMAND GETKEYS`
+  [Learn more](https://valkey.io/commands/commandlog-get/)
++ `COMMANDLOG HELP`
 
-Extracts the key names from an arbitrary command.
+  Show helpful text about the different subcommands.
 
-[Learn more](https://valkey.io/commands/command-getkeys/ "https://valkey.io/commands/command-getkeys/")
+  [Learn more](https://valkey.io/commands/commandlog-help/)
++ `COMMANDLOG LEN`
 
-- `COMMAND GETKEYSANDFLAGS`
+  Returns the number of entries in the specified type of command log.
 
-Extracts the key names and access flags for an arbitrary command.
+  [Learn more](https://valkey.io/commands/commandlog-len/)
++ `COMMANDLOG RESET`
 
-[Learn more](https://valkey.io/commands/command-getkeysandflags/ "https://valkey.io/commands/command-getkeysandflags/")
+  Clears all entries from the specified type of command log.
 
-- `COMMAND INFO`
+  [Learn more](https://valkey.io/commands/commandlog-reset/)
++ `FLUSHALL`
 
-Returns information about one, multiple or all commands.
+  Removes all keys from all databases. This operation is not guaranteed to be atomic across all slots. 
 
-[Learn more](https://valkey.io/commands/command-info/ "https://valkey.io/commands/command-info/")
+  [Learn more](https://valkey.io/commands/flushall/)
++ `FLUSHDB`
 
-- `COMMAND LIST`
+  Remove all keys from the current database. This operation is not guaranteed to be atomic across all slots.
 
-Returns a list of command names.
+  [Learn more](https://valkey.io/commands/flushdb/)
++ `INFO`
 
-[Learn more](https://valkey.io/commands/command-list/ "https://valkey.io/commands/command-list/")
+  Returns information and statistics about the server.
 
-- `COMMANDLOG`
+  [Learn more](https://valkey.io/commands/info/)
++ `LOLWUT`
 
-A container for command log commands.
+  Displays computer art and the Valkey or Redis OSS version.
 
-[Learn more](https://valkey.io/commands/commandlog/ "https://valkey.io/commands/commandlog/")
+  [Learn more](https://valkey.io/commands/lolwut/)
++ `ROLE`
 
-- `COMMANDLOG GET`
+  Returns the replication role.
 
-Returns the specified command log's entries.
+  [Learn more](https://valkey.io/commands/role/)
++ `TIME`
 
-[Learn more](https://valkey.io/commands/commandlog-get/ "https://valkey.io/commands/commandlog-get/")
+  Returns the server time.
 
-- `COMMANDLOG HELP`
-
-Show helpful text about the different subcommands.
-
-[Learn more](https://valkey.io/commands/commandlog-help/ "https://valkey.io/commands/commandlog-help/")
-
-- `COMMANDLOG LEN`
-
-Returns the number of entries in the specified type of command log.
-
-[Learn more](https://valkey.io/commands/commandlog-len/ "https://valkey.io/commands/commandlog-len/")
-
-- `COMMANDLOG RESET`
-
-Clears all entries from the specified type of command log.
-
-[Learn more](https://valkey.io/commands/commandlog-reset/ "https://valkey.io/commands/commandlog-reset/")
-
-- `FLUSHALL`
-
-Removes all keys from all databases.
-This operation is not guaranteed to be atomic across all slots.
-
-[Learn more](https://valkey.io/commands/flushall/ "https://valkey.io/commands/flushall/")
-
-- `FLUSHDB`
-
-Remove all keys from the current database.
-This operation is not guaranteed to be atomic across all slots.
-
-[Learn more](https://valkey.io/commands/flushdb/ "https://valkey.io/commands/flushdb/")
-
-- `INFO`
-
-Returns information and statistics about the server.
-
-[Learn more](https://valkey.io/commands/info/ "https://valkey.io/commands/info/")
-
-- `LOLWUT`
-
-Displays computer art and the Valkey or Redis OSS version.
-
-[Learn more](https://valkey.io/commands/lolwut/ "https://valkey.io/commands/lolwut/")
-
-- `ROLE`
-
-Returns the replication role.
-
-[Learn more](https://valkey.io/commands/role/ "https://valkey.io/commands/role/")
-
-- `TIME`
-
-Returns the server time.
-
-[Learn more](https://valkey.io/commands/time/ "https://valkey.io/commands/time/")
+  [Learn more](https://valkey.io/commands/time/)
 
 **Set Commands**
++ `SADD`
 
-- `SADD`
+  Adds one or more members to a set. Creates the key if it doesn't exist.
 
-Adds one or more members to a set. Creates the key if it doesn't exist.
+  [Learn more](https://valkey.io/commands/sadd/)
++ `SCARD`
 
-[Learn more](https://valkey.io/commands/sadd/ "https://valkey.io/commands/sadd/")
+  Returns the number of members in a set.
 
-- `SCARD`
+  [Learn more](https://valkey.io/commands/scard/)
++ `SDIFF`
 
-Returns the number of members in a set.
+  Returns the difference of multiple sets.
 
-[Learn more](https://valkey.io/commands/scard/ "https://valkey.io/commands/scard/")
+  [Learn more](https://valkey.io/commands/sdiff/)
++ `SDIFFSTORE`
 
-- `SDIFF`
+  Stores the difference of multiple sets in a key.
 
-Returns the difference of multiple sets.
+  [Learn more](https://valkey.io/commands/sdiffstore/)
++ `SINTER`
 
-[Learn more](https://valkey.io/commands/sdiff/ "https://valkey.io/commands/sdiff/")
+  Returns the intersect of multiple sets.
 
-- `SDIFFSTORE`
+  [Learn more](https://valkey.io/commands/sinter/)
++ `SINTERCARD`
 
-Stores the difference of multiple sets in a key.
+  Returns the number of members of the intersect of multiple sets.
 
-[Learn more](https://valkey.io/commands/sdiffstore/ "https://valkey.io/commands/sdiffstore/")
+  [Learn more](https://valkey.io/commands/sintercard/)
++ `SINTERSTORE`
 
-- `SINTER`
+  Stores the intersect of multiple sets in a key.
 
-Returns the intersect of multiple sets.
+  [Learn more](https://valkey.io/commands/sinterstore/)
++ `SISMEMBER`
 
-[Learn more](https://valkey.io/commands/sinter/ "https://valkey.io/commands/sinter/")
+  Determines whether a member belongs to a set.
 
-- `SINTERCARD`
+  [Learn more](https://valkey.io/commands/sismember/)
++ `SMEMBERS`
 
-Returns the number of members of the intersect of multiple sets.
+  Returns all members of a set.
 
-[Learn more](https://valkey.io/commands/sintercard/ "https://valkey.io/commands/sintercard/")
+  [Learn more](https://valkey.io/commands/smembers/)
++ `SMISMEMBER`
 
-- `SINTERSTORE`
+  Determines whether multiple members belong to a set.
 
-Stores the intersect of multiple sets in a key.
+  [Learn more](https://valkey.io/commands/smismember/)
++ `SMOVE`
 
-[Learn more](https://valkey.io/commands/sinterstore/ "https://valkey.io/commands/sinterstore/")
+  Moves a member from one set to another.
 
-- `SISMEMBER`
+  [Learn more](https://valkey.io/commands/smove/)
++ `SPOP`
 
-Determines whether a member belongs to a set.
+  Returns one or more random members from a set after removing them. Deletes the set if the last member was popped.
 
-[Learn more](https://valkey.io/commands/sismember/ "https://valkey.io/commands/sismember/")
+  [Learn more](https://valkey.io/commands/spop/)
++ `SRANDMEMBER`
 
-- `SMEMBERS`
+  Get one or multiple random members from a set
 
-Returns all members of a set.
+  [Learn more](https://valkey.io/commands/srandmember/)
++ `SREM`
 
-[Learn more](https://valkey.io/commands/smembers/ "https://valkey.io/commands/smembers/")
+  Removes one or more members from a set. Deletes the set if the last member was removed.
 
-- `SMISMEMBER`
+  [Learn more](https://valkey.io/commands/srem/)
++ `SSCAN`
 
-Determines whether multiple members belong to a set.
+  Iterates over members of a set.
 
-[Learn more](https://valkey.io/commands/smismember/ "https://valkey.io/commands/smismember/")
+  [Learn more](https://valkey.io/commands/sscan/)
++ `SUNION`
 
-- `SMOVE`
+  Returns the union of multiple sets.
 
-Moves a member from one set to another.
+  [Learn more](https://valkey.io/commands/sunion/)
++ `SUNIONSTORE`
 
-[Learn more](https://valkey.io/commands/smove/ "https://valkey.io/commands/smove/")
+  Stores the union of multiple sets in a key.
 
-- `SPOP`
-
-Returns one or more random members from a set after removing them. Deletes the set if the last member was popped.
-
-[Learn more](https://valkey.io/commands/spop/ "https://valkey.io/commands/spop/")
-
-- `SRANDMEMBER`
-
-Get one or multiple random members from a set
-
-[Learn more](https://valkey.io/commands/srandmember/ "https://valkey.io/commands/srandmember/")
-
-- `SREM`
-
-Removes one or more members from a set. Deletes the set if the last member was removed.
-
-[Learn more](https://valkey.io/commands/srem/ "https://valkey.io/commands/srem/")
-
-- `SSCAN`
-
-Iterates over members of a set.
-
-[Learn more](https://valkey.io/commands/sscan/ "https://valkey.io/commands/sscan/")
-
-- `SUNION`
-
-Returns the union of multiple sets.
-
-[Learn more](https://valkey.io/commands/sunion/ "https://valkey.io/commands/sunion/")
-
-- `SUNIONSTORE`
-
-Stores the union of multiple sets in a key.
-
-[Learn more](https://valkey.io/commands/sunionstore/ "https://valkey.io/commands/sunionstore/")
+  [Learn more](https://valkey.io/commands/sunionstore/)
 
 **Sorted Set Commands**
++ `BZMPOP`
 
-- `BZMPOP`
+  Removes and returns a member by score from one or more sorted sets. Blocks until a member is available otherwise. Deletes the sorted set if the last element was popped.
 
-Removes and returns a member by score from one or more sorted sets.
-Blocks until a member is available otherwise. Deletes the sorted set if the last element was popped.
+  [Learn more](https://valkey.io/commands/bzmpop/)
++ `BZPOPMAX`
 
-[Learn more](https://valkey.io/commands/bzmpop/ "https://valkey.io/commands/bzmpop/")
+  Removes and returns the member with the highest score from one or more sorted sets. Blocks until a member available otherwise. Deletes the sorted set if the last element was popped.
 
-- `BZPOPMAX`
+  [Learn more](https://valkey.io/commands/bzpopmax/)
++ `BZPOPMIN`
 
-Removes and returns the member with the highest score from one or more sorted sets. Blocks until a member available otherwise. Deletes the sorted set if the last element was popped.
+  Removes and returns the member with the lowest score from one or more sorted sets. Blocks until a member is available otherwise. Deletes the sorted set if the last element was popped.
 
-[Learn more](https://valkey.io/commands/bzpopmax/ "https://valkey.io/commands/bzpopmax/")
+  [Learn more](https://valkey.io/commands/bzpopmin/)
++ `ZADD`
 
-- `BZPOPMIN`
+  Adds one or more members to a sorted set, or updates their scores. Creates the key if it doesn't exist.
 
-Removes and returns the member with the lowest score from one or more sorted sets. Blocks until a member is available otherwise. Deletes the sorted set if the last element was popped.
+  [Learn more](https://valkey.io/commands/zadd/)
++ `ZCARD`
 
-[Learn more](https://valkey.io/commands/bzpopmin/ "https://valkey.io/commands/bzpopmin/")
+  Returns the number of members in a sorted set.
 
-- `ZADD`
+  [Learn more](https://valkey.io/commands/zcard/)
++ `ZCOUNT`
 
-Adds one or more members to a sorted set, or updates their scores. Creates the key if it doesn't exist.
+  Returns the count of members in a sorted set that have scores within a range.
 
-[Learn more](https://valkey.io/commands/zadd/ "https://valkey.io/commands/zadd/")
+  [Learn more](https://valkey.io/commands/zcount/)
++ `ZDIFF`
 
-- `ZCARD`
+  Returns the difference between multiple sorted sets.
 
-Returns the number of members in a sorted set.
+  [Learn more](https://valkey.io/commands/zdiff/)
++ `ZDIFFSTORE`
 
-[Learn more](https://valkey.io/commands/zcard/ "https://valkey.io/commands/zcard/")
+  Stores the difference of multiple sorted sets in a key.
 
-- `ZCOUNT`
+  [Learn more](https://valkey.io/commands/zdiffstore/)
++ `ZINCRBY`
 
-Returns the count of members in a sorted set that have scores within a range.
+  Increments the score of a member in a sorted set.
 
-[Learn more](https://valkey.io/commands/zcount/ "https://valkey.io/commands/zcount/")
+  [Learn more](https://valkey.io/commands/zincrby/)
++ `ZINTER`
 
-- `ZDIFF`
+  Returns the intersect of multiple sorted sets.
 
-Returns the difference between multiple sorted sets.
+  [Learn more](https://valkey.io/commands/zinter/)
++ `ZINTERCARD`
 
-[Learn more](https://valkey.io/commands/zdiff/ "https://valkey.io/commands/zdiff/")
+  Returns the number of members of the intersect of multiple sorted sets.
 
-- `ZDIFFSTORE`
+  [Learn more](https://valkey.io/commands/zintercard/)
++ `ZINTERSTORE`
 
-Stores the difference of multiple sorted sets in a key.
+  Stores the intersect of multiple sorted sets in a key.
 
-[Learn more](https://valkey.io/commands/zdiffstore/ "https://valkey.io/commands/zdiffstore/")
+  [Learn more](https://valkey.io/commands/zinterstore/)
++ `ZLEXCOUNT`
 
-- `ZINCRBY`
+  Returns the number of members in a sorted set within a lexicographical range.
 
-Increments the score of a member in a sorted set.
+  [Learn more](https://valkey.io/commands/zlexcount/)
++ `ZMPOP`
 
-[Learn more](https://valkey.io/commands/zincrby/ "https://valkey.io/commands/zincrby/")
+  Returns the highest- or lowest-scoring members from one or more sorted sets after removing them. Deletes the sorted set if the last member was popped.
 
-- `ZINTER`
+  [Learn more](https://valkey.io/commands/zmpop/)
++ `ZMSCORE`
 
-Returns the intersect of multiple sorted sets.
+  Returns the score of one or more members in a sorted set.
 
-[Learn more](https://valkey.io/commands/zinter/ "https://valkey.io/commands/zinter/")
+  [Learn more](https://valkey.io/commands/zmscore/)
++ `ZPOPMAX`
 
-- `ZINTERCARD`
+  Returns the highest-scoring members from a sorted set after removing them. Deletes the sorted set if the last member was popped.
 
-Returns the number of members of the intersect of multiple sorted sets.
+  [Learn more](https://valkey.io/commands/zpopmax/)
++ `ZPOPMIN`
 
-[Learn more](https://valkey.io/commands/zintercard/ "https://valkey.io/commands/zintercard/")
+  Returns the lowest-scoring members from a sorted set after removing them. Deletes the sorted set if the last member was popped.
 
-- `ZINTERSTORE`
+  [Learn more](https://valkey.io/commands/zpopmin/)
++ `ZRANDMEMBER`
 
-Stores the intersect of multiple sorted sets in a key.
+  Returns one or more random members from a sorted set.
 
-[Learn more](https://valkey.io/commands/zinterstore/ "https://valkey.io/commands/zinterstore/")
+  [Learn more](https://valkey.io/commands/zrandmember/)
++ `ZRANGE`
 
-- `ZLEXCOUNT`
+  Returns members in a sorted set within a range of indexes.
 
-Returns the number of members in a sorted set within a lexicographical range.
+  [Learn more](https://valkey.io/commands/zrange/)
++ `ZRANGEBYLEX`
 
-[Learn more](https://valkey.io/commands/zlexcount/ "https://valkey.io/commands/zlexcount/")
+  Returns members in a sorted set within a lexicographical range.
 
-- `ZMPOP`
+  [Learn more](https://valkey.io/commands/zrangebylex/)
++ `ZRANGEBYSCORE`
 
-Returns the highest- or lowest-scoring members from one or more sorted sets after removing them. Deletes the sorted set if the last member was popped.
+  Returns members in a sorted set within a range of scores.
 
-[Learn more](https://valkey.io/commands/zmpop/ "https://valkey.io/commands/zmpop/")
+  [Learn more](https://valkey.io/commands/zrangebyscore/)
++ `ZRANGESTORE`
 
-- `ZMSCORE`
+  Stores a range of members from sorted set in a key.
 
-Returns the score of one or more members in a sorted set.
+  [Learn more](https://valkey.io/commands/zrangestore/)
++ `ZRANK`
 
-[Learn more](https://valkey.io/commands/zmscore/ "https://valkey.io/commands/zmscore/")
+  Returns the index of a member in a sorted set ordered by ascending scores.
 
-- `ZPOPMAX`
+  [Learn more](https://valkey.io/commands/zrank/)
++ `ZREM`
 
-Returns the highest-scoring members from a sorted set after removing them. Deletes the sorted set if the last member was popped.
+  Removes one or more members from a sorted set. Deletes the sorted set if all members were removed.
 
-[Learn more](https://valkey.io/commands/zpopmax/ "https://valkey.io/commands/zpopmax/")
+  [Learn more](https://valkey.io/commands/zrem/)
++ `ZREMRANGEBYLEX`
 
-- `ZPOPMIN`
+  Removes members in a sorted set within a lexicographical range. Deletes the sorted set if all members were removed.
 
-Returns the lowest-scoring members from a sorted set after removing them. Deletes the sorted set if the last member was popped.
+  [Learn more](https://valkey.io/commands/zremrangebylex/)
++ `ZREMRANGEBYRANK`
 
-[Learn more](https://valkey.io/commands/zpopmin/ "https://valkey.io/commands/zpopmin/")
+  Removes members in a sorted set within a range of indexes. Deletes the sorted set if all members were removed.
 
-- `ZRANDMEMBER`
+  [Learn more](https://valkey.io/commands/zremrangebyrank/)
++ `ZREMRANGEBYSCORE`
 
-Returns one or more random members from a sorted set.
+  Removes members in a sorted set within a range of scores. Deletes the sorted set if all members were removed.
 
-[Learn more](https://valkey.io/commands/zrandmember/ "https://valkey.io/commands/zrandmember/")
+  [Learn more](https://valkey.io/commands/zremrangebyscore/)
++ `ZREVRANGE`
 
-- `ZRANGE`
+  Returns members in a sorted set within a range of indexes in reverse order.
 
-Returns members in a sorted set within a range of indexes.
+  [Learn more](https://valkey.io/commands/zrevrange/)
++ `ZREVRANGEBYLEX`
 
-[Learn more](https://valkey.io/commands/zrange/ "https://valkey.io/commands/zrange/")
+  Returns members in a sorted set within a lexicographical range in reverse order.
 
-- `ZRANGEBYLEX`
+  [Learn more](https://valkey.io/commands/zrevrangebylex/)
++ `ZREVRANGEBYSCORE`
 
-Returns members in a sorted set within a lexicographical range.
+  Returns members in a sorted set within a range of scores in reverse order.
 
-[Learn more](https://valkey.io/commands/zrangebylex/ "https://valkey.io/commands/zrangebylex/")
+  [Learn more](https://valkey.io/commands/zrevrangebyscore/)
++ `ZREVRANK`
 
-- `ZRANGEBYSCORE`
+  Returns the index of a member in a sorted set ordered by descending scores.
 
-Returns members in a sorted set within a range of scores.
+  [Learn more](https://valkey.io/commands/zrevrank/)
++ `ZSCAN`
 
-[Learn more](https://valkey.io/commands/zrangebyscore/ "https://valkey.io/commands/zrangebyscore/")
+  Iterates over members and scores of a sorted set.
 
-- `ZRANGESTORE`
+  [Learn more](https://valkey.io/commands/zscan/)
++ `ZSCORE`
 
-Stores a range of members from sorted set in a key.
+  Returns the score of a member in a sorted set.
 
-[Learn more](https://valkey.io/commands/zrangestore/ "https://valkey.io/commands/zrangestore/")
+  [Learn more](https://valkey.io/commands/zscore/)
++ `ZUNION`
 
-- `ZRANK`
+  Returns the union of multiple sorted sets.
 
-Returns the index of a member in a sorted set ordered by ascending scores.
+  [Learn more](https://valkey.io/commands/zunion/)
++ `ZUNIONSTORE`
 
-[Learn more](https://valkey.io/commands/zrank/ "https://valkey.io/commands/zrank/")
+  Stores the union of multiple sorted sets in a key.
 
-- `ZREM`
-
-Removes one or more members from a sorted set. Deletes the sorted set if all members were removed.
-
-[Learn more](https://valkey.io/commands/zrem/ "https://valkey.io/commands/zrem/")
-
-- `ZREMRANGEBYLEX`
-
-Removes members in a sorted set within a lexicographical range. Deletes the sorted set if all members were removed.
-
-[Learn more](https://valkey.io/commands/zremrangebylex/ "https://valkey.io/commands/zremrangebylex/")
-
-- `ZREMRANGEBYRANK`
-
-Removes members in a sorted set within a range of indexes. Deletes the sorted set if all members were removed.
-
-[Learn more](https://valkey.io/commands/zremrangebyrank/ "https://valkey.io/commands/zremrangebyrank/")
-
-- `ZREMRANGEBYSCORE`
-
-Removes members in a sorted set within a range of scores. Deletes the sorted set if all members were removed.
-
-[Learn more](https://valkey.io/commands/zremrangebyscore/ "https://valkey.io/commands/zremrangebyscore/")
-
-- `ZREVRANGE`
-
-Returns members in a sorted set within a range of indexes in reverse order.
-
-[Learn more](https://valkey.io/commands/zrevrange/ "https://valkey.io/commands/zrevrange/")
-
-- `ZREVRANGEBYLEX`
-
-Returns members in a sorted set within a lexicographical range in reverse order.
-
-[Learn more](https://valkey.io/commands/zrevrangebylex/ "https://valkey.io/commands/zrevrangebylex/")
-
-- `ZREVRANGEBYSCORE`
-
-Returns members in a sorted set within a range of scores in reverse order.
-
-[Learn more](https://valkey.io/commands/zrevrangebyscore/ "https://valkey.io/commands/zrevrangebyscore/")
-
-- `ZREVRANK`
-
-Returns the index of a member in a sorted set ordered by descending scores.
-
-[Learn more](https://valkey.io/commands/zrevrank/ "https://valkey.io/commands/zrevrank/")
-
-- `ZSCAN`
-
-Iterates over members and scores of a sorted set.
-
-[Learn more](https://valkey.io/commands/zscan/ "https://valkey.io/commands/zscan/")
-
-- `ZSCORE`
-
-Returns the score of a member in a sorted set.
-
-[Learn more](https://valkey.io/commands/zscore/ "https://valkey.io/commands/zscore/")
-
-- `ZUNION`
-
-Returns the union of multiple sorted sets.
-
-[Learn more](https://valkey.io/commands/zunion/ "https://valkey.io/commands/zunion/")
-
-- `ZUNIONSTORE`
-
-Stores the union of multiple sorted sets in a key.
-
-[Learn more](https://valkey.io/commands/zunionstore/ "https://valkey.io/commands/zunionstore/")
+  [Learn more](https://valkey.io/commands/zunionstore/)
 
 **Stream Commands**
++ `XACK`
 
-- `XACK`
+  Returns the number of messages that were successfully acknowledged by the consumer group member of a stream.
 
-Returns the number of messages that were successfully acknowledged by the consumer group member of a stream.
+  [Learn more](https://valkey.io/commands/xack/)
++ `XADD`
 
-[Learn more](https://valkey.io/commands/xack/ "https://valkey.io/commands/xack/")
+  Appends a new message to a stream. Creates the key if it doesn't exist.
 
-- `XADD`
+  [Learn more](https://valkey.io/commands/xadd/)
++ `XAUTOCLAIM`
 
-Appends a new message to a stream. Creates the key if it doesn't exist.
+  Changes, or acquires, ownership of messages in a consumer group, as if the messages were delivered to as consumer group member.
 
-[Learn more](https://valkey.io/commands/xadd/ "https://valkey.io/commands/xadd/")
+  [Learn more](https://valkey.io/commands/xautoclaim/)
++ `XCLAIM`
 
-- `XAUTOCLAIM`
+  Changes, or acquires, ownership of a message in a consumer group, as if the message was delivered a consumer group member.
 
-Changes, or acquires, ownership of messages in a consumer group, as if the messages were delivered to as consumer group member.
+  [Learn more](https://valkey.io/commands/xclaim/)
++ `XDEL`
 
-[Learn more](https://valkey.io/commands/xautoclaim/ "https://valkey.io/commands/xautoclaim/")
+  Returns the number of messages after removing them from a stream.
 
-- `XCLAIM`
+  [Learn more](https://valkey.io/commands/xdel/)
++ `XGROUP CREATE`
 
-Changes, or acquires, ownership of a message in a consumer group, as if the message was delivered a consumer group member.
+  Creates a consumer group. 
 
-[Learn more](https://valkey.io/commands/xclaim/ "https://valkey.io/commands/xclaim/")
+  [Learn more](https://valkey.io/commands/xgroup-create/)
++ `XGROUP CREATECONSUMER`
 
-- `XDEL`
+  Creates a consumer in a consumer group.
 
-Returns the number of messages after removing them from a stream.
+  [Learn more](https://valkey.io/commands/xgroup-createconsumer/)
++ `XGROUP DELCONSUMER`
 
-[Learn more](https://valkey.io/commands/xdel/ "https://valkey.io/commands/xdel/")
+  Deletes a consumer from a consumer group.
 
-- `XGROUP CREATE`
+  [Learn more](https://valkey.io/commands/xgroup-delconsumer/)
++ `XGROUP DESTROY`
 
-Creates a consumer group.
+  Destroys a consumer group.
 
-[Learn more](https://valkey.io/commands/xgroup-create/ "https://valkey.io/commands/xgroup-create/")
+  [Learn more](https://valkey.io/commands/xgroup-destroy/)
++ `XGROUP SETID`
 
-- `XGROUP CREATECONSUMER`
+  Sets the last-delivered ID of a consumer group.
 
-Creates a consumer in a consumer group.
+  [Learn more](https://valkey.io/commands/xgroup-setid/)
++ `XINFO CONSUMERS`
 
-[Learn more](https://valkey.io/commands/xgroup-createconsumer/ "https://valkey.io/commands/xgroup-createconsumer/")
+  Returns a list of the consumers in a consumer group.
 
-- `XGROUP DELCONSUMER`
+  [Learn more](https://valkey.io/commands/xinfo-consumers/)
++ `XINFO GROUPS`
 
-Deletes a consumer from a consumer group.
+  Returns a list of the consumer groups of a stream.
 
-[Learn more](https://valkey.io/commands/xgroup-delconsumer/ "https://valkey.io/commands/xgroup-delconsumer/")
+  [Learn more](https://valkey.io/commands/xinfo-groups/)
++ `XINFO STREAM`
 
-- `XGROUP DESTROY`
+  Returns information about a stream.
 
-Destroys a consumer group.
+  [Learn more](https://valkey.io/commands/xinfo-stream/)
++ `XLEN`
 
-[Learn more](https://valkey.io/commands/xgroup-destroy/ "https://valkey.io/commands/xgroup-destroy/")
+  Return the number of messages in a stream.
 
-- `XGROUP SETID`
+  [Learn more](https://valkey.io/commands/xlen/)
++ `XPENDING`
 
-Sets the last-delivered ID of a consumer group.
+  Returns the information and entries from a stream consumer group's pending entries list.
 
-[Learn more](https://valkey.io/commands/xgroup-setid/ "https://valkey.io/commands/xgroup-setid/")
+  [Learn more](https://valkey.io/commands/xpending/)
++ `XRANGE`
 
-- `XINFO CONSUMERS`
+  Returns the messages from a stream within a range of IDs.
 
-Returns a list of the consumers in a consumer group.
+  [Learn more](https://valkey.io/commands/xrange/)
++ `XREAD`
 
-[Learn more](https://valkey.io/commands/xinfo-consumers/ "https://valkey.io/commands/xinfo-consumers/")
+  Returns messages from multiple streams with IDs greater than the ones requested. Blocks until a message is available otherwise.
 
-- `XINFO GROUPS`
+  [Learn more](https://valkey.io/commands/xread/)
++ `XREADGROUP`
 
-Returns a list of the consumer groups of a stream.
+  Returns new or historical messages from a stream for a consumer in a group. Blocks until a message is available otherwise.
 
-[Learn more](https://valkey.io/commands/xinfo-groups/ "https://valkey.io/commands/xinfo-groups/")
+  [Learn more](https://valkey.io/commands/xreadgroup/)
++ `XREVRANGE`
 
-- `XINFO STREAM`
+  Returns the messages from a stream within a range of IDs in reverse order.
 
-Returns information about a stream.
+  [Learn more](https://valkey.io/commands/xrevrange/)
++ `XTRIM`
 
-[Learn more](https://valkey.io/commands/xinfo-stream/ "https://valkey.io/commands/xinfo-stream/")
+  Deletes messages from the beginning of a stream.
 
-- `XLEN`
-
-Return the number of messages in a stream.
-
-[Learn more](https://valkey.io/commands/xlen/ "https://valkey.io/commands/xlen/")
-
-- `XPENDING`
-
-Returns the information and entries from a stream consumer group's pending entries list.
-
-[Learn more](https://valkey.io/commands/xpending/ "https://valkey.io/commands/xpending/")
-
-- `XRANGE`
-
-Returns the messages from a stream within a range of IDs.
-
-[Learn more](https://valkey.io/commands/xrange/ "https://valkey.io/commands/xrange/")
-
-- `XREAD`
-
-Returns messages from multiple streams with IDs greater than the ones requested. Blocks until a message is available otherwise.
-
-[Learn more](https://valkey.io/commands/xread/ "https://valkey.io/commands/xread/")
-
-- `XREADGROUP`
-
-Returns new or historical messages from a stream for a consumer in a group. Blocks until a message is available otherwise.
-
-[Learn more](https://valkey.io/commands/xreadgroup/ "https://valkey.io/commands/xreadgroup/")
-
-- `XREVRANGE`
-
-Returns the messages from a stream within a range of IDs in reverse order.
-
-[Learn more](https://valkey.io/commands/xrevrange/ "https://valkey.io/commands/xrevrange/")
-
-- `XTRIM`
-
-Deletes messages from the beginning of a stream.
-
-[Learn more](https://valkey.io/commands/xtrim/ "https://valkey.io/commands/xtrim/")
+  [Learn more](https://valkey.io/commands/xtrim/)
 
 **String Commands**
++ `APPEND`
 
-- `APPEND`
+  Appends a string to the value of a key. Creates the key if it doesn't exist.
 
-Appends a string to the value of a key. Creates the key if it doesn't exist.
+  [Learn more](https://valkey.io/commands/append/)
++ `DECR`
 
-[Learn more](https://valkey.io/commands/append/ "https://valkey.io/commands/append/")
+  Decrements the integer value of a key by one. Uses 0 as initial value if the key doesn't exist.
 
-- `DECR`
+  [Learn more](https://valkey.io/commands/decr/)
++ `DECRBY`
 
-Decrements the integer value of a key by one. Uses 0 as initial value if the key doesn't exist.
+  Decrements a number from the integer value of a key. Uses 0 as initial value if the key doesn't exist.
 
-[Learn more](https://valkey.io/commands/decr/ "https://valkey.io/commands/decr/")
+  [Learn more](https://valkey.io/commands/decrby/)
++ `GET`
 
-- `DECRBY`
+  Returns the string value of a key.
 
-Decrements a number from the integer value of a key. Uses 0 as initial value if the key doesn't exist.
+  [Learn more](https://valkey.io/commands/get/)
++ `GETDEL`
 
-[Learn more](https://valkey.io/commands/decrby/ "https://valkey.io/commands/decrby/")
+  Returns the string value of a key after deleting the key.
 
-- `GET`
+  [Learn more](https://valkey.io/commands/getdel/)
++ `GETEX`
 
-Returns the string value of a key.
+  Returns the string value of a key after setting its expiration time.
 
-[Learn more](https://valkey.io/commands/get/ "https://valkey.io/commands/get/")
+  [Learn more](https://valkey.io/commands/getex/)
++ `GETRANGE`
 
-- `GETDEL`
+  Returns a substring of the string stored at a key.
 
-Returns the string value of a key after deleting the key.
+  [Learn more](https://valkey.io/commands/getrange/)
++ `GETSET`
 
-[Learn more](https://valkey.io/commands/getdel/ "https://valkey.io/commands/getdel/")
+  Returns the previous string value of a key after setting it to a new value.
 
-- `GETEX`
+  [Learn more](https://valkey.io/commands/getset/)
++ `INCR`
 
-Returns the string value of a key after setting its expiration time.
+  Increments the integer value of a key by one. Uses 0 as initial value if the key doesn't exist.
 
-[Learn more](https://valkey.io/commands/getex/ "https://valkey.io/commands/getex/")
+  [Learn more](https://valkey.io/commands/incr/)
++ `INCRBY`
 
-- `GETRANGE`
+  Increments the integer value of a key by a number. Uses 0 as initial value if the key doesn't exist.
 
-Returns a substring of the string stored at a key.
+  [Learn more](https://valkey.io/commands/incrby/)
++ `INCRBYFLOAT`
 
-[Learn more](https://valkey.io/commands/getrange/ "https://valkey.io/commands/getrange/")
+  Increment the floating point value of a key by a number. Uses 0 as initial value if the key doesn't exist.
 
-- `GETSET`
+  [Learn more](https://valkey.io/commands/incrbyfloat/)
++ `LCS`
 
-Returns the previous string value of a key after setting it to a new value.
+  Finds the longest common substring.
 
-[Learn more](https://valkey.io/commands/getset/ "https://valkey.io/commands/getset/")
+  [Learn more](https://valkey.io/commands/lcs/)
++ `MGET`
 
-- `INCR`
+  Atomically returns the string values of one or more keys.
 
-Increments the integer value of a key by one. Uses 0 as initial value if the key doesn't exist.
+  [Learn more](https://valkey.io/commands/mget/)
++ `MSET`
 
-[Learn more](https://valkey.io/commands/incr/ "https://valkey.io/commands/incr/")
+  Atomically creates or modifies the string values of one or more keys.
 
-- `INCRBY`
+  [Learn more](https://valkey.io/commands/mset/)
++ `MSETNX`
 
-Increments the integer value of a key by a number. Uses 0 as initial value if the key doesn't exist.
+  Atomically modifies the string values of one or more keys only when all keys don't exist.
 
-[Learn more](https://valkey.io/commands/incrby/ "https://valkey.io/commands/incrby/")
+  [Learn more](https://valkey.io/commands/msetnx/)
++ `MSETEX`
 
-- `INCRBYFLOAT`
+  Atomically sets multiple keys with a shared expiration time.
 
-Increment the floating point value of a key by a number. Uses 0 as initial value if the key doesn't exist.
+  [Learn more](https://valkey.io/commands/msetex/)
++ `PSETEX`
 
-[Learn more](https://valkey.io/commands/incrbyfloat/ "https://valkey.io/commands/incrbyfloat/")
+  Sets both string value and expiration time in milliseconds of a key. The key is created if it doesn't exist.
 
-- `LCS`
+  [Learn more](https://valkey.io/commands/psetex/)
++ `SET`
 
-Finds the longest common substring.
+  Sets the string value of a key, ignoring its type. The key is created if it doesn't exist.
 
-[Learn more](https://valkey.io/commands/lcs/ "https://valkey.io/commands/lcs/")
+  [Learn more](https://valkey.io/commands/set/)
++ `SETEX`
 
-- `MGET`
+  Sets the string value and expiration time of a key. Creates the key if it doesn't exist.
 
-Atomically returns the string values of one or more keys.
+  [Learn more](https://valkey.io/commands/setex/)
++ `SETNX`
 
-[Learn more](https://valkey.io/commands/mget/ "https://valkey.io/commands/mget/")
+  Set the string value of a key only when the key doesn't exist.
 
-- `MSET`
+  [Learn more](https://valkey.io/commands/setnx/)
++ `SETRANGE`
 
-Atomically creates or modifies the string values of one or more keys.
+  Overwrites a part of a string value with another by an offset. Creates the key if it doesn't exist.
 
-[Learn more](https://valkey.io/commands/mset/ "https://valkey.io/commands/mset/")
+  [Learn more](https://valkey.io/commands/setrange/)
++ `STRLEN`
 
-- `MSETNX`
+  Returns the length of a string value.
 
-Atomically modifies the string values of one or more keys only when all keys don't exist.
+  [Learn more](https://valkey.io/commands/strlen/)
++ `SUBSTR`
 
-[Learn more](https://valkey.io/commands/msetnx/ "https://valkey.io/commands/msetnx/")
+  Returns a substring from a string value.
 
-- `MSETEX`
-
-Atomically sets multiple keys with a shared expiration time.
-
-[Learn more](https://valkey.io/commands/msetex/ "https://valkey.io/commands/msetex/")
-
-- `PSETEX`
-
-Sets both string value and expiration time in milliseconds of a key. The key is created if it doesn't exist.
-
-[Learn more](https://valkey.io/commands/psetex/ "https://valkey.io/commands/psetex/")
-
-- `SET`
-
-Sets the string value of a key, ignoring its type. The key is created if it doesn't exist.
-
-[Learn more](https://valkey.io/commands/set/ "https://valkey.io/commands/set/")
-
-- `SETEX`
-
-Sets the string value and expiration time of a key. Creates the key if it doesn't exist.
-
-[Learn more](https://valkey.io/commands/setex/ "https://valkey.io/commands/setex/")
-
-- `SETNX`
-
-Set the string value of a key only when the key doesn't exist.
-
-[Learn more](https://valkey.io/commands/setnx/ "https://valkey.io/commands/setnx/")
-
-- `SETRANGE`
-
-Overwrites a part of a string value with another by an offset. Creates the key if it doesn't exist.
-
-[Learn more](https://valkey.io/commands/setrange/ "https://valkey.io/commands/setrange/")
-
-- `STRLEN`
-
-Returns the length of a string value.
-
-[Learn more](https://valkey.io/commands/strlen/ "https://valkey.io/commands/strlen/")
-
-- `SUBSTR`
-
-Returns a substring from a string value.
-
-[Learn more](https://valkey.io/commands/substr/ "https://valkey.io/commands/substr/")
+  [Learn more](https://valkey.io/commands/substr/)
 
 **Transaction Commands**
++ `DISCARD`
 
-- `DISCARD`
+  Discards a transaction.
 
-Discards a transaction.
+  [Learn more](https://valkey.io/commands/discard/)
++ `EXEC`
 
-[Learn more](https://valkey.io/commands/discard/ "https://valkey.io/commands/discard/")
+  Executes all commands in a transaction.
 
-- `EXEC`
+  [Learn more](https://valkey.io/commands/exec/)
++ `MULTI`
 
-Executes all commands in a transaction.
+  Starts a transaction.
 
-[Learn more](https://valkey.io/commands/exec/ "https://valkey.io/commands/exec/")
-
-- `MULTI`
-
-Starts a transaction.
-
-[Learn more](https://valkey.io/commands/multi/ "https://valkey.io/commands/multi/")
+  [Learn more](https://valkey.io/commands/multi/)
 
 ## Search commands
+<a name="SupportedCommandsSearch"></a>
 
 **Search Commands**
 
 The following search commands are supported by ElastiCache for Valkey.
++ `FT.CREATE`
 
-- `FT.CREATE`
+  Creates an index and initiates a backfill of that index.
 
-Creates an index and initiates a backfill of that index.
+  [Learn more](https://valkey.io/commands/ft.create/)
++ `FT.SEARCH`
 
-[Learn more](https://valkey.io/commands/ft.create/ "https://valkey.io/commands/ft.create/")
+  Uses the provided query expression to locate keys within an index.
 
-- `FT.SEARCH`
+  [Learn more](https://valkey.io/commands/ft.search/)
++ `FT.AGGREGATE`
 
-Uses the provided query expression to locate keys within an index.
+  Runs an aggregation pipeline against an index.
 
-[Learn more](https://valkey.io/commands/ft.search/ "https://valkey.io/commands/ft.search/")
+  [Learn more](https://valkey.io/commands/ft.aggregate/)
++ `FT.DROPINDEX`
 
-- `FT.AGGREGATE`
+  Deletes an index.
 
-Runs an aggregation pipeline against an index.
+  [Learn more](https://valkey.io/commands/ft.dropindex/)
++ `FT.INFO`
 
-[Learn more](https://valkey.io/commands/ft.aggregate/ "https://valkey.io/commands/ft.aggregate/")
+  Returns information about a given index.
 
-- `FT.DROPINDEX`
+  [Learn more](https://valkey.io/commands/ft.info/)
++ `FT._LIST`
 
-Deletes an index.
+  Returns a list of all existing indexes.
 
-[Learn more](https://valkey.io/commands/ft.dropindex/ "https://valkey.io/commands/ft.dropindex/")
-
-- `FT.INFO`
-
-Returns information about a given index.
-
-[Learn more](https://valkey.io/commands/ft.info/ "https://valkey.io/commands/ft.info/")
-
-- `FT._LIST`
-
-Returns a list of all existing indexes.
-
-[Learn more](https://valkey.io/commands/ft._list/ "https://valkey.io/commands/ft._list/")
+  [Learn more](https://valkey.io/commands/ft._list/)
 
 ## Restricted Valkey and Redis OSS commands
+<a name="RestrictedCommandsRedis"></a>
 
-To deliver a managed service experience, ElastiCache restricts access to certain cache
-engine-specific commands that require advanced privileges. For caches running
-Redis OSS, the following commands are unavailable:
-
-- `acl setuser`
-- `acl load`
-- `acl save`
-- `acl deluser`
-- `bgrewriteaof`
-- `bgsave`
-- `cluster addslot`
-- `cluster addslotsrange`
-- `cluster bumpepoch`
-- `cluster delslot`
-- `cluster delslotsrange`
-- `cluster failover`
-- `cluster flushslots`
-- `cluster forget`
-- `cluster links`
-- `cluster meet`
-- `cluster setslot`
-- `config`
-- `debug`
-- `migrate`
-- `psync`
-- `replicaof`
-- `save`
-- `slaveof`
-- `shutdown`
-- `sync`
+To deliver a managed service experience, ElastiCache restricts access to certain cache engine-specific commands that require advanced privileges. For caches running Redis OSS, the following commands are unavailable:
++ `acl setuser`
++ `acl load`
++ `acl save`
++ `acl deluser`
++ `bgrewriteaof`
++ `bgsave`
++ `cluster addslot`
++ `cluster addslotsrange`
++ `cluster bumpepoch`
++ `cluster delslot`
++ `cluster delslotsrange `
++ `cluster failover `
++ `cluster flushslots `
++ `cluster forget `
++ `cluster links`
++ `cluster meet`
++ `cluster setslot`
++ `config`
++ `debug`
++ `migrate`
++ `psync`
++ `replicaof`
++ `save`
++ `slaveof`
++ `shutdown`
++ `sync`
 
 In addition, the following commands are unavailable for serverless caches:
-
-- `acl log`
-- `client caching`
-- `client getredir`
-- `client id`
-- `client info`
-- `client kill`
-- `client list`
-- `client no-evict`
-- `client pause`
-- `client tracking`
-- `client trackinginfo`
-- `client unblock`
-- `client unpause`
-- `cluster count-failure-reports`
-- `commandlog`
-- `commandlog get`
-- `commandlog help`
-- `commandlog len`
-- `commandlog reset`
-- `fcall`
-- `fcall_ro`
-- `function`
-- `function delete`
-- `function dump`
-- `function flush`
-- `function help`
-- `function kill`
-- `function list`
-- `function load`
-- `function restore`
-- `function stats`
-- `keys`
-- `lastsave`
-- `latency`
-- `latency doctor`
-- `latency graph`
-- `latency help`
-- `latency histogram`
-- `latency history`
-- `latency latest`
-- `latency reset`
-- `memory`
-- `memory doctor`
-- `memory help`
-- `memory malloc-stats`
-- `memory purge`
-- `memory stats`
-- `memory usage`
-- `monitor`
-- `move`
-- `object`
-- `object encoding`
-- `object freq`
-- `object help`
-- `object idletime`
-- `object refcount`
-- `pfdebug`
-- `pfselftest`
-- `psubscribe`
-- `pubsub numpat`
-- `punsubscribe`
-- `script kill`
-- `slowlog`
-- `slowlog get`
-- `slowlog help`
-- `slowlog len`
-- `slowlog reset`
-- `swapdb`
-- `wait`
++ `acl log`
++ `client caching`
++ `client getredir`
++ `client id`
++ `client info`
++ `client kill`
++ `client list`
++ `client no-evict`
++ `client pause`
++ `client tracking`
++ `client trackinginfo`
++ `client unblock`
++ `client unpause`
++ `cluster count-failure-reports`
++ `commandlog`
++ `commandlog get`
++ `commandlog help`
++ `commandlog len`
++ `commandlog reset`
++ `fcall`
++ `fcall_ro`
++ `function`
++ `function delete`
++ `function dump`
++ `function flush`
++ `function help`
++ `function kill`
++ `function list`
++ `function load`
++ `function restore`
++ `function stats`
++ `keys`
++ `lastsave`
++ `latency`
++ `latency doctor`
++ `latency graph`
++ `latency help`
++ `latency histogram`
++ `latency history`
++ `latency latest`
++ `latency reset`
++ `memory`
++ `memory doctor`
++ `memory help`
++ `memory malloc-stats`
++ `memory purge`
++ `memory stats`
++ `memory usage`
++ `monitor`
++ `move`
++ `object`
++ `object encoding`
++ `object freq`
++ `object help`
++ `object idletime`
++ `object refcount`
++ `pfdebug`
++ `pfselftest`
++ `psubscribe`
++ `pubsub numpat`
++ `punsubscribe`
++ `script kill`
++ `slowlog`
++ `slowlog get`
++ `slowlog help`
++ `slowlog len`
++ `slowlog reset`
++ `swapdb`
++ `wait`
 
 ## Supported Memcached commands
+<a name="SupportedCommandsMem"></a>
 
-ElastiCache Serverless for Memcached supports all of the memcached
-[commands](https://github.com/memcached/memcached/wiki/Commands "https://github.com/memcached/memcached/wiki/Commands") in open source memcached 1.6 except for
-the following:
-
-- Client connections require TLS, as a result UDP protocol is not supported.
-- Binary protocol is not supported, as it is officially
-  [deprecated](https://github.com/memcached/memcached/wiki/ReleaseNotes160 "https://github.com/memcached/memcached/wiki/ReleaseNotes160") in memcached 1.6.
-- `GET/GETS` commands are limited to 16KB to avoid potential DoS attack to the server with fetching large number of keys.
-- Delayed `flush_all` command will be rejected with `CLIENT_ERROR`.
-- Commands that configure the engine or reveal internal information about engine state or logs
-  are not supported, such as:
-
-  - For `STATS` command, only `stats` and `stats reset` are supported. Other variations will return `ERROR`
-  - `lru / lru_crawler` - modification for LRU and LRU crawler settings
-  - `watch` - watches memcached server logs
-  - `verbosity` - configures the server log level
-  - `me` - meta debug (me) command is not supported
+ElastiCache Serverless for Memcached supports all of the memcached [commands](https://github.com/memcached/memcached/wiki/Commands) in open source memcached 1.6 except for the following: 
++ Client connections require TLS, as a result UDP protocol is not supported.
++ Binary protocol is not supported, as it is officially [deprecated](https://github.com/memcached/memcached/wiki/ReleaseNotes160) in memcached 1.6.
++ `GET/GETS` commands are limited to 16KB to avoid potential DoS attack to the server with fetching large number of keys.
++ Delayed `flush_all` command will be rejected with `CLIENT_ERROR`.
++ Commands that configure the engine or reveal internal information about engine state or logs are not supported, such as:
+  + For `STATS` command, only `stats` and `stats reset` are supported. Other variations will return `ERROR`
+  + `lru / lru_crawler` - modification for LRU and LRU crawler settings
+  + `watch` - watches memcached server logs
+  + `verbosity` - configures the server log level
+  + `me` - meta debug (me) command is not supported

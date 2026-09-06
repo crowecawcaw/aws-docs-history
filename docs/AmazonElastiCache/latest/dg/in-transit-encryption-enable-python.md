@@ -1,47 +1,31 @@
+
+
 # Enabling in-transit encryption on a node-based Redis OSS cluster using Python
+<a name="in-transit-encryption-enable-python"></a>
 
-The following guide will demonstrate how to enable in-transit encryption on a Redis OSS 7.0 cluster that was originally created with in-transit encryption disabled. TCP and TLS
-clients will continue communicating with the cluster during this process without
-downtime.
+The following guide will demonstrate how to enable in-transit encryption on a Redis OSS 7.0 cluster that was originally created with in-transit encryption disabled. TCP and TLS clients will continue communicating with the cluster during this process without downtime.
 
-Boto3 will get the credentials it needs (`aws_access_key_id`,
-`aws_secret_access_key`, and `aws_session_token`) from the
-environment variables. Those credentials will be pasted in advance in the same bash
-terminal where we will run `python3` to process the Python code shown in this
-guide. The code in the example below was process from an EC2 instance that was launched
-in the same VPC that will be used to create the ElastiCache Redis OSS Cluster in it.
+Boto3 will get the credentials it needs (`aws_access_key_id`, `aws_secret_access_key`, and `aws_session_token`) from the environment variables. Those credentials will be pasted in advance in the same bash terminal where we will run `python3` to process the Python code shown in this guide. The code in the example below was process from an EC2 instance that was launched in the same VPC that will be used to create the ElastiCache Redis OSS Cluster in it.
 
-###### Note
+**Note**  
+The following examples use the boto3 SDK for ElastiCache management operations (cluster or user creation) and redis-py/redis-py-cluster for data handling.
+You must use at least boto3 version (=\~) 1.26.39 to use the online TLS migration with the cluster modification API.
+ElastiCache supports online TLS migration only for clusters with Valkey version 7.2 and above or Redis OSS version 7.0 or above. So if you have a cluster running a Redis OSS version earlier than 7.0, you’ll need to upgrade the Redis OSS version of your cluster. For more information on version differences, see [Major engine version behavior and compatibility differences with Redis OSS](VersionManagementConsiderations.md).
 
-- The following examples use the boto3 SDK for ElastiCache management
-  operations (cluster or user creation) and redis-py/redis-py-cluster for data
-  handling.
-- You must use at least boto3 version (=~) 1.26.39 to use the online TLS
-  migration with the cluster modification API.
-- ElastiCache supports online TLS migration only for clusters with Valkey version 7.2 and above or Redis OSS
-  version 7.0 or above. So if you have a cluster running a Redis OSS version earlier
-  than 7.0, you’ll need to upgrade the Redis OSS version of your cluster. For more
-  information on version differences, see [Major engine version behavior and compatibility differences with Redis OSS](VersionManagementConsiderations.md "VersionManagementConsiderations.md").
-
-###### Topics
-
-- [Define the string constants that will launch the ElastiCache Valkey or Redis OSS Cluster](#enable-python-define-constants "#enable-python-define-constants")
-- [Define the classes for the cluster configuration](#enable-python-define-classes "#enable-python-define-classes")
-- [Define a class that will represent the cluster itself](#enable-python-define-classes-cluster "#enable-python-define-classes-cluster")
-- [(Optional) Create a wrapper class to demo client connection to Valkey or Redis OSS cluster](#enable-python-create-wrapper "#enable-python-create-wrapper")
-- [Create the main function that demos the process of changing in-transit encryption configuration](#enable-python-main-function "#enable-python-main-function")
+**Topics**
++ [Define the string constants that will launch the ElastiCache Valkey or Redis OSS Cluster](#enable-python-define-constants)
++ [Define the classes for the cluster configuration](#enable-python-define-classes)
++ [Define a class that will represent the cluster itself](#enable-python-define-classes-cluster)
++ [(Optional) Create a wrapper class to demo client connection to Valkey or Redis OSS cluster](#enable-python-create-wrapper)
++ [Create the main function that demos the process of changing in-transit encryption configuration](#enable-python-main-function)
 
 ## Define the string constants that will launch the ElastiCache Valkey or Redis OSS Cluster
+<a name="enable-python-define-constants"></a>
 
-First, let’s define some simple Python string constants that will hold the names
-of the AWS entities required to create the ElastiCache cluster such as
-`security-group`, `Cache Subnet group`, and a
-`default parameter group`. All of these AWS entities must be
-created in advance in your AWS account in the Region you are willing to
-use.
+First, let’s define some simple Python string constants that will hold the names of the AWS entities required to create the ElastiCache cluster such as `security-group`, `Cache Subnet group`, and a `default parameter group`. All of these AWS entities must be created in advance in your AWS account in the Region you are willing to use.
 
 ```
-#Constants definitions
+#Constants definitions 
 SECURITY_GROUP = "sg-0492aa0a29c558427"
 CLUSTER_DESCRIPTION = "This cluster has been launched as part of the online TLS migration user guide"
 EC_SUBNET_GROUP = "client-testing"
@@ -49,11 +33,9 @@ DEFAULT_PARAMETER_GROUP_REDIS_7_CLUSTER_MODE_ENABLED = "default.redis7.cluster.o
 ```
 
 ## Define the classes for the cluster configuration
+<a name="enable-python-define-classes"></a>
 
-Now, let’s define some simple Python classes that will represent a configuration
-of a cluster, which will hold metadata about the cluster such as the Valkey or Redis OSS version,
-the instance type, and whether in-transit encryption (TLS) is enabled or
-disabled.
+Now, let’s define some simple Python classes that will represent a configuration of a cluster, which will hold metadata about the cluster such as the Valkey or Redis OSS version, the instance type, and whether in-transit encryption (TLS) is enabled or disabled.
 
 ```
 #Class definitions
@@ -86,7 +68,7 @@ class Config:
             "ReplicationGroupDescription": CLUSTER_DESCRIPTION,
             "SecurityGroupIds": [SECURITY_GROUP],
         }
-
+        
 class ConfigCME(Config):
     def __init__(
         self,
@@ -110,10 +92,9 @@ class ConfigCME(Config):
 ```
 
 ## Define a class that will represent the cluster itself
+<a name="enable-python-define-classes-cluster"></a>
 
-Now, let’s define some simple Python classes that will represent the ElastiCache Valkey or Redis OSS Cluster itself. This class will have a client field which will hold a boto3 client
-for ElastiCache management operations such as creating the cluster and querying the ElastiCache
-API.
+Now, let’s define some simple Python classes that will represent the ElastiCache Valkey or Redis OSS Cluster itself. This class will have a client field which will hold a boto3 client for ElastiCache management operations such as creating the cluster and querying the ElastiCache API.
 
 ```
 import botocore.config
@@ -126,9 +107,9 @@ def init_client(region: str = "us-east-1"):
     init_request["config"] = config
     init_request["service_name"] = "elasticache"
     init_request["region_name"] = region
-    return boto3.client(**init_request)
-
-
+    return boto3.client(**init_request) 
+ 
+ 
 class ElastiCacheClusterBase:
     def __init__(self, name: str):
         self.name = name
@@ -138,19 +119,19 @@ class ElastiCacheClusterBase:
         return self.elasticache_client.describe_replication_groups(
         ReplicationGroupId=self.name
         )["ReplicationGroups"][0]
-
+ 
     def get_status(self) -> str:
         return self.get_first_replication_group()["Status"]
-
+ 
     def get_transit_encryption_enabled(self) -> bool:
         return self.get_first_replication_group()["TransitEncryptionEnabled"]
-
+ 
     def is_available(self) -> bool:
         return self.get_status() == "available"
-
+        
     def is_modifying(self) -> bool:
         return self.get_status() == "modifying"
-
+        
     def wait_for_available(self):
         while True:
             if self.is_available():
@@ -164,12 +145,12 @@ class ElastiCacheClusterBase:
                 break
             else:
                 time.sleep(5)
-
+                
     def delete_cluster(self) -> bool:
         self.elasticache_client.delete_replication_group(
             ReplicationGroupId=self.name, RetainPrimaryCluster=False
         )
-
+        
     def modify_transit_encryption_mode(self, new_transit_encryption_mode: str):
         # generate api call to migrate the cluster to TLS preffered or to TLS required
             self.elasticache_client.modify_replication_group(
@@ -177,9 +158,9 @@ class ElastiCacheClusterBase:
                 TransitEncryptionMode=new_transit_encryption_mode,
                 TransitEncryptionEnabled=True,
                 ApplyImmediately=True,
-            )
+            )  
         self.wait_for_modifying()
-
+              
  class ElastiCacheClusterCME(ElastiCacheClusterBase):
     def __init__(self, name: str):
         super().__init__(name)
@@ -196,31 +177,28 @@ class ElastiCacheClusterBase:
 
     def get_configuration_endpoint(self) -> str:
         return self.get_first_replication_group()["ConfigurationEndpoint"]["Address"]
-
-#Since the code can throw exceptions, we define this class to make the code more readable and
-#so we won't forget to delete the cluster
+     
+#Since the code can throw exceptions, we define this class to make the code more readable and 
+#so we won't forget to delete the cluster    
 class ElastiCacheCMEManager:
     def __init__(self, config: ConfigCME = None):
         self.config = config or ConfigCME()
 
     def __enter__(self) -> ElastiCacheClusterCME:
         self.cluster = ElastiCacheClusterCME.launch(self.config)
-        return self.cluster
-
+        return self.cluster 
+          
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.cluster.delete_cluster()
 ```
 
 ## (Optional) Create a wrapper class to demo client connection to Valkey or Redis OSS cluster
+<a name="enable-python-create-wrapper"></a>
 
-Now, let’s create a wrapper class for the `redis-py-cluster` client.
-This wrapper class will support pre-filling the cluster with some keys and then
-doing random repeated `get` commands.
+Now, let’s create a wrapper class for the `redis-py-cluster` client. This wrapper class will support pre-filling the cluster with some keys and then doing random repeated `get` commands.
 
-###### Note
-
-This is an optional step but it simplifies the code of the main function that
-comes in a later step.
+**Note**  
+This is an optional step but it simplifies the code of the main function that comes in a later step.
 
 ```
 import redis
@@ -236,14 +214,14 @@ class DowntimeTestClient:
         self.prefilled = 0
         # percent of get above prefilled
         self.percent_get_above_prefilled = 10 # nil result expected when get hit above prefilled
-        # total downtime in nano seconds
+        # total downtime in nano seconds 
         self.downtime_ns = 0
         # num of success and fail operations
         self.success_ops = 0
         self.fail_ops = 0
         self.connection_errors = 0
         self.timeout_errors = 0
-
+        
 
     def replace_client(self, client):
         self.client = client
@@ -269,7 +247,7 @@ class DowntimeTestClient:
         except Exception as e:
             elapsed_ns = perf_counter_ns() - start_ns
             self.downtime_ns += elapsed_ns
-            # in case of failure- increment the relevant counters so that we will keep track
+            # in case of failure- increment the relevant counters so that we will keep track 
             # of how many connection issues we had while trying to communicate with
             # the cluster.
             self.fail_ops += 1
@@ -312,38 +290,34 @@ class DowntimeTestClient:
 ```
 
 ## Create the main function that demos the process of changing in-transit encryption configuration
+<a name="enable-python-main-function"></a>
 
 Now, let’s define the main function, which will do the following:
 
 1. Create the cluster using boto3 ElastiCache client.
-2. Initialize the `redis-py-cluster` client that will connect to
-   the cluster with a clear TCP connection without TLS.
-3. The `redis-py-cluster` client prefills the cluster with some
-   data.
-4. The boto3 client will trigger TLS migration from no-TLS to TLS
-   preferred.
-5. While the cluster is being migrated to TLS `Preferred`, the
-   `redis-py-cluster` TCP client will send repeated
-   `get` operations to the cluster until the migration is
-   finished.
-6. After the migration to TLS `Preferred` is finished, we will
-   assert that the cluster supports in-transit encryption. Afterwards, we will
-   create a `redis-py-cluster` client that will connect to the
-   cluster with TLS.
-7. We will send some `get` commands using the new TLS client and
-   the old TCP client.
-8. The boto3 client will trigger TLS migration from TLS
-   `Preferred` to TLS required.
-9. While the cluster is being migrated to TLS required, the redis-py-cluster
-   TLS client will send repeated `get` operations to the cluster
-   until the migration is finished.
+
+1. Initialize the `redis-py-cluster` client that will connect to the cluster with a clear TCP connection without TLS.
+
+1. The `redis-py-cluster` client prefills the cluster with some data. 
+
+1. The boto3 client will trigger TLS migration from no-TLS to TLS preferred.
+
+1. While the cluster is being migrated to TLS `Preferred`, the `redis-py-cluster` TCP client will send repeated `get` operations to the cluster until the migration is finished.
+
+1. After the migration to TLS `Preferred` is finished, we will assert that the cluster supports in-transit encryption. Afterwards, we will create a `redis-py-cluster` client that will connect to the cluster with TLS.
+
+1. We will send some `get` commands using the new TLS client and the old TCP client.
+
+1. The boto3 client will trigger TLS migration from TLS `Preferred` to TLS required.
+
+1. While the cluster is being migrated to TLS required, the redis-py-cluster TLS client will send repeated `get` operations to the cluster until the migration is finished.
 
 ```
 import redis
 
 def init_cluster_client(
     cluster: ElastiCacheClusterCME, prefill_data: bool, TLS: bool = True) -> DowntimeTestClient:
-    # we must use for the host name the cluster configuration endpoint.
+    # we must use for the host name the cluster configuration endpoint. 
     redis_client = redis.RedisCluster(
         host=cluster.get_configuration_endpoint(), ssl=TLS, socket_timeout=0.25, socket_connect_timeout=0.1
     )
@@ -358,30 +332,30 @@ if __name__ == '__main__':
     with ElastiCacheCMEManager(config) as cluster:
         # create a client that will connect to the cluster with clear tcp connection
         test_client_tcp = init_cluster_client(cluster, prefill_data=True, TLS=False)
-
+        
        # migrate the cluster to TLS Preferred
         cluster.modify_transit_encryption_mode(new_transit_encryption_mode="preferred")
-
+        
         # do repeated get commands until the cluster finishes the migration to TLS Preferred
         test_client_tcp.do_get_until(cluster.is_available)
-
+        
        # verify that in transit encryption is enabled so that clients will be able to connect to the cluster with TLS
         assert cluster.get_transit_encryption_enabled() == True
-
-       # create a client that will connect to the cluster with TLS connection.
+        
+       # create a client that will connect to the cluster with TLS connection. 
         # we must first make sure that the cluster indeed supports TLS
         test_client_tls = init_cluster_client(cluster, prefill_data=True, TLS=True)
-
+        
         # by doing get commands with the tcp client for 60 more seconds
-       # we can verify that the existing tcp connection to the cluster still works
+       # we can verify that the existing tcp connection to the cluster still works 
         test_client_tcp.repeat_get(seconds=60)
-
+        
         # do get commands with the new TLS client for 60 more seconds
         test_client_tcp.repeat_get(seconds=60)
-
+        
        # migrate the cluster to TLS required
         cluster.modify_transit_encryption_mode(new_transit_encryption_mode="required")
-
+        
        # from this point the tcp clients will be disconnected and we must not use them anymore.
        # do get commands with the TLS client until the cluster finishes migartion to TLS required mode.
         test_client_tls.do_get_until(cluster.is_available)

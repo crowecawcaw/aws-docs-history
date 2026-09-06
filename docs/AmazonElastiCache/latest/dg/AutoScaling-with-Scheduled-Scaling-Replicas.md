@@ -1,46 +1,35 @@
+
+
 # Scheduled scaling
+<a name="AutoScaling-with-Scheduled-Scaling-Replicas"></a>
 
-Scaling based on a schedule enables you to scale your application in response to
-predictable changes in demand. To use scheduled scaling, you create scheduled
-actions, which tell ElastiCache for Valkey and Redis OSS to perform scaling activities at specific times. When you
-create a scheduled action, you specify an existing ElastiCache cluster, when the scaling
-activity should occur, minimum capacity, and maximum capacity. You can create
-scheduled actions that scale one time only or that scale on a recurring schedule.
+Scaling based on a schedule enables you to scale your application in response to predictable changes in demand. To use scheduled scaling, you create scheduled actions, which tell ElastiCache for Valkey and Redis OSS to perform scaling activities at specific times. When you create a scheduled action, you specify an existing ElastiCache cluster, when the scaling activity should occur, minimum capacity, and maximum capacity. You can create scheduled actions that scale one time only or that scale on a recurring schedule. 
 
-You can only create a scheduled action for ElastiCache clusters that already exist.
-You can't create a scheduled action at the same time that you create a
-cluster.
+ You can only create a scheduled action for ElastiCache clusters that already exist. You can't create a scheduled action at the same time that you create a cluster.
 
-For more information on terminology for scheduled action creation, management, and
-deletion, see [Commonly used commands for scheduled action creation, management, and deletion](../../../autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.md#scheduled-scaling-commonly-used-commands "../../../autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.md#scheduled-scaling-commonly-used-commands")
+For more information on terminology for scheduled action creation, management, and deletion, see [ Commonly used commands for scheduled action creation, management, and deletion ](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-scheduled-scaling.html#scheduled-scaling-commonly-used-commands) 
 
 **To create a one-time scheduled action:**
 
-Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md").
+Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md).
 
 **To delete a scheduled action**
 
-Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md "AutoScaling-with-Scheduled-Scaling-Shards.md").
+Similar to Shard dimension. See [Scheduled scaling](AutoScaling-with-Scheduled-Scaling-Shards.md).
 
-**To manage scheduled scaling using the AWS CLI**
+**To manage scheduled scaling using the AWS CLI **
 
 Use the following application-autoscaling APIs:
-
-- [put-scheduled-action](../../../cli/latest/reference/application-autoscaling/put-scheduled-action.md "../../../cli/latest/reference/application-autoscaling/put-scheduled-action.md")
-- [describe-scheduled-actions](../../../cli/latest/reference/application-autoscaling/describe-scheduled-actions.md "../../../cli/latest/reference/application-autoscaling/describe-scheduled-actions.md")
-- [delete-scheduled-action](../../../cli/latest/reference/application-autoscaling/delete-scheduled-action.md "../../../cli/latest/reference/application-autoscaling/delete-scheduled-action.md")
++ [put-scheduled-action](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/put-scheduled-action.html) 
++ [describe-scheduled-actions](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/describe-scheduled-actions.html) 
++ [delete-scheduled-action](https://docs.aws.amazon.com/cli/latest/reference/application-autoscaling/delete-scheduled-action.html) 
 
 ## Use CloudFormation to create Auto Scaling policies
+<a name="AutoScaling-with-Cloudformation-Update-Action"></a>
 
-This snippet shows how to create a scheduled action and apply it to an [AWS::ElastiCache::ReplicationGroup](../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.md") resource using the [AWS::ApplicationAutoScaling::ScalableTarget](../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.md") resource. It uses the
-[Fn::Join](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.md") and [Ref](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.md") intrinsic functions to construct the `ResourceId`
-property with the logical name of the
-`AWS::ElastiCache::ReplicationGroup` resource that is specified
-in the same template.
+This snippet shows how to create a scheduled action and apply it to an [AWS::ElastiCache::ReplicationGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html) resource using the [AWS::ApplicationAutoScaling::ScalableTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html) resource. It uses the [Fn::Join](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-join.html) and [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) intrinsic functions to construct the `ResourceId` property with the logical name of the `AWS::ElastiCache::ReplicationGroup` resource that is specified in the same template. 
 
 ```
-
-
 ScalingTarget:
    Type: 'AWS::ApplicationAutoScaling::ScalableTarget'
    Properties:
@@ -57,5 +46,4 @@ ScalingTarget:
            MinCapacity: '2'
          ScheduledActionName: First
          Schedule: 'cron(0 18 * * ? *)'
-
 ```

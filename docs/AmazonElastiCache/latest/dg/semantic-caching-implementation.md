@@ -1,9 +1,12 @@
-# Implementing a semantic cache with ElastiCache for Valkey
 
-The following walkthrough shows how to implement a read-through semantic cache using ElastiCache for
-Valkey with Amazon Bedrock.
+
+# Implementing a semantic cache with ElastiCache for Valkey
+<a name="semantic-caching-implementation"></a>
+
+The following walkthrough shows how to implement a read-through semantic cache using ElastiCache for Valkey with Amazon Bedrock.
 
 ## Step 1: Create an ElastiCache for Valkey cluster
+<a name="semantic-caching-step1"></a>
 
 Create an ElastiCache for Valkey cluster with version 8.2 or later using the AWS CLI:
 
@@ -18,9 +21,9 @@ aws elasticache create-replication-group \
 ```
 
 ## Step 2: Connect to the cluster and configure embeddings
+<a name="semantic-caching-step2"></a>
 
-From your application code running on your Amazon EC2 instance, connect to the ElastiCache cluster and
-set up the embedding model:
+From your application code running on your Amazon EC2 instance, connect to the ElastiCache cluster and set up the embedding model:
 
 ```
 from valkey.cluster import ValkeyCluster
@@ -40,14 +43,12 @@ embeddings = BedrockEmbeddings(
 )
 ```
 
-Replace the host value with your ElastiCache cluster's configuration endpoint. For instructions
-on finding your cluster endpoint, see
-[Accessing your ElastiCache cluster](accessing-elasticache.md "accessing-elasticache.md").
+Replace the host value with your ElastiCache cluster's configuration endpoint. For instructions on finding your cluster endpoint, see [Accessing your ElastiCache cluster](accessing-elasticache.md).
 
 ## Step 3: Create the vector index for the semantic cache
+<a name="semantic-caching-step3"></a>
 
-Configure a ValkeyStore that automatically embeds queries using an HNSW index with COSINE
-distance for vector search:
+Configure a ValkeyStore that automatically embeds queries using an HNSW index with COSINE distance for vector search:
 
 ```
 from langgraph_checkpoint_aws import ValkeyStore
@@ -71,16 +72,13 @@ def cache_key_for_query(query: str):
     return md5(query.encode("utf-8")).hexdigest()
 ```
 
-###### Note
-
-ElastiCache for Valkey uses an index to provide fast and accurate vector search. The
-`FT.CREATE` command creates the underlying index. For more information, see
-[Vector search for ElastiCache](search.md "search.md").
+**Note**  
+ElastiCache for Valkey uses an index to provide fast and accurate vector search. The `FT.CREATE` command creates the underlying index. For more information, see [Vector search for ElastiCache](search.md).
 
 ## Step 4: Implement cache search and update functions
+<a name="semantic-caching-step4"></a>
 
-Create functions to search the cache for semantically similar queries and to store new
-query-response pairs:
+Create functions to search the cache for semantically similar queries and to store new query-response pairs:
 
 ```
 def search_cache(user_message: str, k: int = 3, min_similarity: float = 0.8):
@@ -118,6 +116,7 @@ def store_cache(user_message: str, result_message: str):
 ```
 
 ## Step 5: Implement the read-through cache pattern
+<a name="semantic-caching-step5"></a>
 
 Integrate the cache into your application's request handling:
 
@@ -155,13 +154,15 @@ def handle_query(user_message: str) -> dict:
 ```
 
 ## Underlying Valkey commands
+<a name="semantic-caching-valkey-commands"></a>
 
 The following table shows the Valkey commands used to implement the semantic cache:
 
-| Operation            | Valkey command                                                                                                                | Typical latency |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| Create index         | `FT.CREATE semantic_cache SCHEMA query TEXT answer TEXT embedding VECTOR HNSW 6 TYPE FLOAT32 DIM 1024 DISTANCE_METRIC COSINE` | One-time setup  |
-| Cache lookup         | `FT.SEARCH semantic_cache "*=>[KNN 3 @embedding $query_vec]" PARAMS 2 query_vec [bytes] DIALECT 2`                            | Microseconds    |
-| Store response       | `HSET cache:{hash} query "..." answer "..." embedding [bytes]`                                                                | Microseconds    |
-| Set TTL              | `EXPIRE cache:{hash} 82800`                                                                                                   | Microseconds    |
-| LLM inference (miss) | External API call to Amazon Bedrock                                                                                           | 500–6000 ms     |
+
+| Operation | Valkey command | Typical latency | 
+| --- | --- | --- | 
+| Create index | FT.CREATE semantic\_cache SCHEMA query TEXT answer TEXT embedding VECTOR HNSW 6 TYPE FLOAT32 DIM 1024 DISTANCE\_METRIC COSINE | One-time setup | 
+| Cache lookup | FT.SEARCH semantic\_cache "\*=>[KNN 3 @embedding $query\_vec]" PARAMS 2 query\_vec [bytes] DIALECT 2 | Microseconds | 
+| Store response | HSET cache:{hash} query "..." answer "..." embedding [bytes] | Microseconds | 
+| Set TTL | EXPIRE cache:{hash} 82800 | Microseconds | 
+| LLM inference (miss) | External API call to Amazon Bedrock | 500–6000 ms | 

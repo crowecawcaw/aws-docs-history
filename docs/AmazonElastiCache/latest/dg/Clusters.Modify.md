@@ -1,170 +1,133 @@
+
+
 # Modifying an ElastiCache cluster
+<a name="Clusters.Modify"></a>
 
-In addition to adding or removing nodes from an ElastiCache cluster,
-there can be times where you need to make other changes such as
-adding a security group, changing the maintenance window or a parameter group.
+In addition to adding or removing nodes from an ElastiCache cluster, there can be times where you need to make other changes such as adding a security group, changing the maintenance window or a parameter group.
 
-We recommend that you have your maintenance window fall at the time of lowest usage.
-Thus it might need modification from time to time.
+We recommend that you have your maintenance window fall at the time of lowest usage. Thus it might need modification from time to time.
 
-When you change a cluster's parameters, the change is applied to the cluster either
-immediately or after the cluster is restarted. This is true whether you change the
-cluster's parameter group itself or a parameter value within the cluster's
-parameter group. To determine when a particular parameter change is applied, see the
-**Changes Take Effect** section of the **Details** column in the tables for
+When you change a cluster's parameters, the change is applied to the cluster either immediately or after the cluster is restarted. This is true whether you change the cluster's parameter group itself or a parameter value within the cluster's parameter group. To determine when a particular parameter change is applied, see the **Changes Take Effect** section of the **Details** column in the tables for [Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached) and [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis). For information on rebooting a cluster's nodes, see [Rebooting nodes](nodes.rebooting.md).
 
-[Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached "ParameterGroups.Engine.md#ParameterGroups.Memcached") and
-[Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis").
-For information on rebooting a cluster's nodes, see [Rebooting nodes](nodes.rebooting.md "nodes.rebooting.md").
+## Using the ElastiCache AWS Management Console
+<a name="Clusters.Modify.CON"></a>
 
-###### To modify a cluster
+**To modify a cluster**
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. From the list in the upper-right corner, choose the AWS Region where the cluster that you
-   want to modify is located.
-3. In the navigation pane, choose the engine running on the cluster that you want to
-   modify.
+1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-A list of the chosen engine's clusters appears. 4. In the list of clusters, for the cluster that you want to modify, choose its name. 5. Choose **Actions** and then choose **Modify**.
+1. From the list in the upper-right corner, choose the AWS Region where the cluster that you want to modify is located.
 
-The **Modify Cluster** window appears. 6. In the **Modify Cluster** window, make the modifications that you
-want. Options include:
+1. In the navigation pane, choose the engine running on the cluster that you want to modify.
 
-    * Description
-    * Cluster mode - To modify cluster mode from **Disabled** to **Enabled**, you must first set the cluster mode to **Compatible**.
+   A list of the chosen engine's clusters appears.
 
+1. In the list of clusters, for the cluster that you want to modify, choose its name. 
 
-    Compatible mode allows your Valkey or Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then complete cluster mode
-     configuration and set the cluster mode to **Enabled**.
-    * Engine Version Compatibility
+1. Choose **Actions** and then choose **Modify**. 
 
+   The **Modify Cluster** window appears.
 
-    ###### Important
+1. In the **Modify Cluster** window, make the modifications that you want. Options include:
+   + Description
+   + Cluster mode - To modify cluster mode from **Disabled** to **Enabled**, you must first set the cluster mode to **Compatible**.
 
-    You can upgrade to newer engine versions. If you upgrade major engine versions, for example from 5.0.6 to 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
-     downgrade to older engine versions except by deleting the
-     existing cluster and creating it again.
-    * VPC Security Group(s)
-    * Parameter Group
-    * Node Type
+     Compatible mode allows your Valkey or Redis OSS clients to connect using both cluster mode enabled and cluster mode disabled. After you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then complete cluster mode configuration and set the cluster mode to **Enabled**.
+   + Engine Version Compatibility
+**Important**  
+You can upgrade to newer engine versions. If you upgrade major engine versions, for example from 5.0.6 to 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md). However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again.
+   + VPC Security Group(s)
+   + Parameter Group
+   + Node Type
+**Note**  
+If the cluster is using a node type from the r6gd family, you can only choose a different node size from within that family. If you choose a node type from the r6gd family, data tiering will automatically be enabled. For more information, see [Data tiering](data-tiering.md).
+   + Multi-AZ
+   + Auto failover (cluster mode disabled only)
+   + Enable Automatic Backups
+   + Backup Node Id
+   + Backup Retention Period
+   + Backup Window
+   + Topic for SNS Notification
+   + Memcached Engine Version Compatibility
+   + Network type
+**Note**  
+If you are switching from IPv4 to IPv6, you must select or create subnet groups compatible with IPv6. For more information, see [Choosing a network type in ElastiCache](network-type.md).
+   + VPC Security Group(s)
+   + Parameter Group
+   + Maintenance Window
+   + Topic for SNS Notification
 
+   The **Apply Immediately** box applies only to engine version and node type modifications. To apply changes immediately, choose the **Apply Immediately** check box. If this box is not chosen, engine version modifications are applied during the next maintenance window. Other modifications, such as changing the maintenance window, are applied immediately.
 
-    ###### Note
-
-    If the cluster is using a node type from the r6gd family, you can only choose a different node size from within that family. If you choose a node type from the r6gd family, data tiering will automatically be enabled.
-     For more information, see [Data tiering](data-tiering.md "data-tiering.md").
-    * Multi-AZ
-    * Auto failover (cluster mode disabled only)
-    * Enable Automatic Backups
-    * Backup Node Id
-    * Backup Retention Period
-    * Backup Window
-    * Topic for SNS Notification
-
-
-    * Memcached Engine Version Compatibility
-    * Network type
-
-
-    ###### Note
-
-    If you are switching from IPv4 to IPv6, you must select or create subnet groups compatible with IPv6.
-     For more information, see [Choosing a network type in ElastiCache](network-type.md "network-type.md").
-    * VPC Security Group(s)
-    * Parameter Group
-    * Maintenance Window
-    * Topic for SNS Notification
-
-The **Apply Immediately** box applies only to
-engine version and node type modifications. To apply changes immediately, choose the
-**Apply Immediately** check box. If this box is not chosen, engine version
-modifications are applied during the next maintenance window.
-Other modifications, such as changing the maintenance window, are applied immediately.
-
-###### To enable/disable log delivery for Redis
+**To enable/disable log delivery for Redis**
 
 1. From the list of clusters, choose the cluster you want to modify. Choose the **Cluster name** and not the checkbox beside it.
-2. On the **Cluster details** page, choose the **Logs** tab.
-3. To enable or disable slow logs, choose either **Enable** or **Disable**.
 
-If you choose enable:
+1. On the **Cluster details** page, choose the **Logs** tab.
 
-    1. Under **Log format**, choose either **JSON** or **Text**.
-    2. Under **Log destination type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
-    3. Under **Log destination**, you can choose **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
-     You can also choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
-    4. Choose **Enable**.
+1. To enable or disable slow logs, choose either **Enable** or **Disable**.
 
-###### To change your configuration for Redis:
+   If you choose enable:
+
+   1. Under **Log format**, choose either **JSON** or **Text**.
+
+   1. Under **Log destination type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
+
+   1. Under **Log destination**, you can choose **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name. You can also choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
+
+   1. Choose **Enable**.
+
+**To change your configuration for Redis:**
 
 1. Choose **Modify**.
-2. Under **Log format**, choose either **JSON** or **Text**.
-3. Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
-4. Under **Log destination**, choose either **Create new** and enter your CloudWatchLogs log group name or your Kinesis Data Firehose stream name. Or
-   choose **Select existing** and then choose your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
-   You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation.
-   To modify a cluster's configuration value, specify the cluster's ID, the parameter to
-   change and the parameter's new value.
-   The following example changes the maintenance window for a cluster named `my-cluster` and
-   applies the change immediately.
 
-###### Important
+1. Under **Log format**, choose either **JSON** or **Text**.
 
-You can upgrade to newer Memcached engine versions. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
-downgrade to older engine versions except by deleting the
-existing cluster and creating it again.
+1. Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
 
-###### Important
+1. Under **Log destination**, choose either **Create new** and enter your CloudWatchLogs log group name or your Kinesis Data Firehose stream name. Or choose **Select existing** and then choose your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.
 
-You can upgrade to newer Valkey or Redis OSS engine versions. If you upgrade major engine versions, for example from Redis OSS 5.0.6 to Redis OSS 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
-downgrade to older engine versions except by deleting the
-existing cluster and creating it again.
+## Using the AWS CLI with ElastiCache
+<a name="Clusters.Modify.CLI"></a>
+
+You can modify an existing cluster using the AWS CLI `modify-cache-cluster` operation. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately.
+
+**Important**  
+You can upgrade to newer Memcached engine versions. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md). However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again.
+
+**Important**  
+You can upgrade to newer Valkey or Redis OSS engine versions. If you upgrade major engine versions, for example from Redis OSS 5.0.6 to Redis OSS 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md). However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again.
 
 For Linux, macOS, or Unix:
 
 ```
 aws elasticache modify-cache-cluster \
-    --cache-cluster-id `my-cluster` \
-    --preferred-maintenance-window `sun:23:00-mon:02:00`
+    --cache-cluster-id {{my-cluster}} \
+    --preferred-maintenance-window {{sun:23:00-mon:02:00}}
 ```
 
 For Windows:
 
 ```
 aws elasticache modify-cache-cluster ^
-    --cache-cluster-id `my-cluster` ^
-    --preferred-maintenance-window `sun:23:00-mon:02:00`
+    --cache-cluster-id {{my-cluster}} ^
+    --preferred-maintenance-window {{sun:23:00-mon:02:00}}
 ```
 
-The `--apply-immediately` parameter applies only to
-modifications in node type, engine version, and changing the number of nodes
-in a cluster.
-If you want to apply any of these changes immediately,
-use the `--apply-immediately` parameter.
-If you prefer postponing these changes to your next maintenance window, use the
-`--no-apply-immediately` parameter.
-Other modifications, such as changing the maintenance window, are applied immediately.
+The `--apply-immediately` parameter applies only to modifications in node type, engine version, and changing the number of nodes in a cluster. If you want to apply any of these changes immediately, use the `--apply-immediately` parameter. If you prefer postponing these changes to your next maintenance window, use the `--no-apply-immediately` parameter. Other modifications, such as changing the maintenance window, are applied immediately.
 
-For more information, see the AWS CLI for ElastiCache topic [`modify-cache-cluster`](../../../cli/latest/reference/elasticache/modify-cache-cluster.md "../../../cli/latest/reference/elasticache/modify-cache-cluster.md").
+For more information, see the AWS CLI for ElastiCache topic [`modify-cache-cluster`](https://docs.aws.amazon.com/cli/latest/reference/elasticache/modify-cache-cluster.html).
 
-You can modify an existing cluster using the ElastiCache API `ModifyCacheCluster` operation.
-To modify a cluster's configuration value, specify the cluster's ID, the parameter to
-change and the parameter's new value.
-The following example changes the maintenance window for a cluster named `my-cluster` and
-applies the change immediately.
+## Using the ElastiCache API
+<a name="Clusters.Modify.API"></a>
 
-###### Important
+You can modify an existing cluster using the ElastiCache API `ModifyCacheCluster` operation. To modify a cluster's configuration value, specify the cluster's ID, the parameter to change and the parameter's new value. The following example changes the maintenance window for a cluster named `my-cluster` and applies the change immediately.
 
-You can upgrade to newer Memcached engine versions. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
-downgrade to older engine versions except by deleting the
-existing cluster and creating it again.
+**Important**  
+You can upgrade to newer Memcached engine versions. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md). However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again.
 
-###### Important
-
-You can upgrade to newer Valkey or Redis OSS engine versions. If you upgrade major engine versions, for example from Redis OSS 5.0.6 to Redis OSS 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md "VersionManagement.md"). However, you can't
-downgrade to older engine versions except by deleting the
-existing cluster and creating it again.
+**Important**  
+You can upgrade to newer Valkey or Redis OSS engine versions. If you upgrade major engine versions, for example from Redis OSS 5.0.6 to Redis OSS 6.0, you need to select a parameter group family that is compatible with the new engine version. For more information on doing so, see [Version Management for ElastiCache](VersionManagement.md). However, you can't downgrade to older engine versions except by deleting the existing cluster and creating it again.
 
 Line breaks are added for ease of reading.
 
@@ -184,13 +147,6 @@ https://elasticache.us-west-2.amazonaws.com/
     &X-Amz-Signature=<signature>
 ```
 
-The `ApplyImmediately` parameter applies only to
-modifications in node type, engine version, and changing the number of nodes
-in a cluster.
-If you want to apply any of these changes immediately,
-set the `ApplyImmediately` parameter to `true`.
-If you prefer postponing these changes to your next maintenance window, set the
-`ApplyImmediately` parameter to `false`.
-Other modifications, such as changing the maintenance window, are applied immediately.
+The `ApplyImmediately` parameter applies only to modifications in node type, engine version, and changing the number of nodes in a cluster. If you want to apply any of these changes immediately, set the `ApplyImmediately` parameter to `true`. If you prefer postponing these changes to your next maintenance window, set the `ApplyImmediately` parameter to `false`. Other modifications, such as changing the maintenance window, are applied immediately.
 
-For more information, see the ElastiCache API reference topic [`ModifyCacheCluster`](../APIReference/API_ModifyCacheCluster.md "../APIReference/API_ModifyCacheCluster.md").
+For more information, see the ElastiCache API reference topic [`ModifyCacheCluster`](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).

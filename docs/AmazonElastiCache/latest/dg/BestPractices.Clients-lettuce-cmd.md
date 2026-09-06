@@ -1,11 +1,10 @@
+
+
 # Example: Lettuce config for cluster mode disabled, TLS enabled
+<a name="BestPractices.Clients-lettuce-cmd"></a>
 
-###### Note
-
-Timeouts in the following example are for tests that ran SET/GET commands
-with keys and values up to 20 bytes long. The processing time can be longer when
-the commands are complex or the keys and values are larger. You should set the
-timeouts based on the use case of your application.
+**Note**  
+Timeouts in the following example are for tests that ran SET/GET commands with keys and values up to 20 bytes long. The processing time can be longer when the commands are complex or the keys and values are larger. You should set the timeouts based on the use case of your application. 
 
 ```
 // Set DNS cache TTL
@@ -64,8 +63,8 @@ class DynamicTimeout extends TimeoutSource {
 
 TimeoutOptions timeoutOptions = TimeoutOptions.builder()
     .timeoutSource(new DynamicTimeout(DEFAULT_COMMAND_TIMEOUT, META_COMMAND_TIMEOUT))
-     .build();
-
+     .build();                      
+                                    
 final SocketOptions socketOptions =
     SocketOptions.builder().connectTimeout(CONNECT_TIMEOUT).keepAlive(true).build();
 

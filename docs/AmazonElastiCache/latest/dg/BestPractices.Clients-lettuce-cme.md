@@ -1,11 +1,10 @@
+
+
 # Example: Lettuce config for cluster mode, TLS enabled
+<a name="BestPractices.Clients-lettuce-cme"></a>
 
-###### Note
-
-Timeouts in the following example are for tests that ran SET/GET commands
-with keys and values up to 20 bytes long. The processing time can be longer when
-the commands are complex or the keys and values are larger. You should set the
-timeouts based on the use case of your application.
+**Note**  
+Timeouts in the following example are for tests that ran SET/GET commands with keys and values up to 20 bytes long. The processing time can be longer when the commands are complex or the keys and values are larger. You should set the timeouts based on the use case of your application. 
 
 ```
 // Set DNS cache TTL
@@ -26,7 +25,7 @@ final RedisURI redisUriCluster =
         .withSsl(true)
         .build();
 
-// Configure the client's resources
+// Configure the client's resources                
 ClientResources clientResources = DefaultClientResources.builder()
     .reconnectDelay(
         Delay.fullJitter(
@@ -34,10 +33,10 @@ ClientResources clientResources = DefaultClientResources.builder()
             Duration.ofSeconds(10),      // maximum 10 second delay
             100, TimeUnit.MILLISECONDS)) // 100 millisecond base
     .addressResolverGroup(new DirContextDnsResolver())
-    .build();
+    .build(); 
 
 // Create a cluster client instance with the URI and resources
-RedisClusterClient redisClusterClient =
+RedisClusterClient redisClusterClient = 
     RedisClusterClient.create(clientResources, redisUriCluster);
 
 // Use a dynamic timeout for commands, to avoid timeouts during
@@ -74,7 +73,7 @@ TimeoutOptions timeoutOptions = TimeoutOptions.builder()
      .build();
 
 // Configure the topology refreshment options
-final ClusterTopologyRefreshOptions topologyOptions =
+final ClusterTopologyRefreshOptions topologyOptions = 
     ClusterTopologyRefreshOptions.builder()
     .enableAllAdaptiveRefreshTriggers()
     .enablePeriodicRefresh()
@@ -82,34 +81,33 @@ final ClusterTopologyRefreshOptions topologyOptions =
     .build();
 
 // Configure the socket options
-final SocketOptions socketOptions =
+final SocketOptions socketOptions = 
     SocketOptions.builder()
-    .connectTimeout(CONNECT_TIMEOUT)
+    .connectTimeout(CONNECT_TIMEOUT) 
     .keepAlive(true)
     .build();
 
 // Configure the client's options
-final ClusterClientOptions clusterClientOptions =
+final ClusterClientOptions clusterClientOptions = 
     ClusterClientOptions.builder()
     .topologyRefreshOptions(topologyOptions)
     .socketOptions(socketOptions)
     .autoReconnect(true)
-    .timeoutOptions(timeoutOptions)
-    .nodeFilter(it ->
-        ! (it.is(RedisClusterNode.NodeFlag.FAIL)
-        || it.is(RedisClusterNode.NodeFlag.EVENTUAL_FAIL)
-        || it.is(RedisClusterNode.NodeFlag.NOADDR)))
+    .timeoutOptions(timeoutOptions) 
+    .nodeFilter(it -> 
+        ! (it.is(RedisClusterNode.NodeFlag.FAIL) 
+        || it.is(RedisClusterNode.NodeFlag.EVENTUAL_FAIL) 
+        || it.is(RedisClusterNode.NodeFlag.NOADDR))) 
     .validateClusterNodeMembership(false)
     .build();
-
+    
 redisClusterClient.setOptions(clusterClientOptions);
 
 // Get a connection
-final StatefulRedisClusterConnection<String, String> connection =
+final StatefulRedisClusterConnection<String, String> connection = 
     redisClusterClient.connect();
 
-// Get cluster sync/async commands
+// Get cluster sync/async commands   
 RedisAdvancedClusterCommands<String, String> sync = connection.sync();
 RedisAdvancedClusterAsyncCommands<String, String> async = connection.async();
-
 ```

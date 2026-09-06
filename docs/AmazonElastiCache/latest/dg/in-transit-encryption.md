@@ -1,171 +1,117 @@
+
+
 # ElastiCache in-transit encryption (TLS)
+<a name="in-transit-encryption"></a>
 
-To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against
-unauthorized access of your data on the server. By providing in-transit encryption
-capability, ElastiCache gives you a tool you can use to help protect your data when it is moving
-from one location to another.
+To help keep your data secure, Amazon ElastiCache and Amazon EC2 provide mechanisms to guard against unauthorized access of your data on the server. By providing in-transit encryption capability, ElastiCache gives you a tool you can use to help protect your data when it is moving from one location to another. 
 
-All Valkey or Redis OSS serverless caches have in-transit encryption enabled. For node-based clusters, you can enable in-transit encryption on a replication group by setting the
-parameter `TransitEncryptionEnabled` to `true`
-(CLI: `--transit-encryption-enabled`) when you create the replication
-group. You can do this whether you are creating the replication group using the AWS Management Console,
-the AWS CLI, or the ElastiCache API.
+All Valkey or Redis OSS serverless caches have in-transit encryption enabled. For node-based clusters, you can enable in-transit encryption on a replication group by setting the parameter `TransitEncryptionEnabled` to `true` (CLI: `--transit-encryption-enabled`) when you create the replication group. You can do this whether you are creating the replication group using the AWS Management Console, the AWS CLI, or the ElastiCache API.
 
-All serverless caches have in-transit encryption enabled. For node-based clusters, you can enable in-transit encryption on a cluster by setting the parameter
-`TransitEncryptionEnabled` to `true` (CLI:
-`--transit-encryption-enabled`) when you create the cluster using the
-`CreateCacheCluster` (CLI: `create-cache-cluster`)
-operation.
+All serverless caches have in-transit encryption enabled. For node-based clusters, you can enable in-transit encryption on a cluster by setting the parameter `TransitEncryptionEnabled` to `true` (CLI: `--transit-encryption-enabled`) when you create the cluster using the `CreateCacheCluster` (CLI: `create-cache-cluster`) operation.
 
-###### Topics
-
-- [In-transit encryption overview](#in-transit-encryption-overview "#in-transit-encryption-overview")
-- [In-transit encryption conditions (Valkey and Redis OSS)](#in-transit-encryption-constraints "#in-transit-encryption-constraints")
-- [In-transit encryption conditions (Memcached)](#in-transit-encryption-constraints "#in-transit-encryption-constraints")
-- [In-transit encryption best practices](#in-transit-encryption-best-practices "#in-transit-encryption-best-practices")
-- [Further Valkey and Redis OSS options](#in-transit-encryption-see-also "#in-transit-encryption-see-also")
-- [Enabling in-transit encryption for Memcached](#in-transit-encryption-enable-existing-mc "#in-transit-encryption-enable-existing-mc")
-- [Enabling in-transit encryption](in-transit-encryption-enable.md "in-transit-encryption-enable.md")
-- [Connecting to ElastiCache (Valkey) or Amazon ElastiCache for Redis OSS with in-transit encryption using valkey-cli](connect-tls.md "connect-tls.md")
-- [Enabling in-transit encryption on a node-based Redis OSS cluster using Python](in-transit-encryption-enable-python.md "in-transit-encryption-enable-python.md")
-- [Best practices when enabling in-transit encryption](enable-python-best-practices.md "enable-python-best-practices.md")
-- [Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)](#in-transit-encryption-connect-mc "#in-transit-encryption-connect-mc")
-- [Creating a TLS Memcached client using Java](#in-transit-encryption-connect-java "#in-transit-encryption-connect-java")
-- [Creating a TLS Memcached client using PHP](#in-transit-encryption-connect-php-mc "#in-transit-encryption-connect-php-mc")
+**Topics**
++ [In-transit encryption overview](#in-transit-encryption-overview)
++ [In-transit encryption conditions (Valkey and Redis OSS)](#in-transit-encryption-constraints)
++ [In-transit encryption conditions (Memcached)](#in-transit-encryption-constraints)
++ [In-transit encryption best practices](#in-transit-encryption-best-practices)
++ [Further Valkey and Redis OSS options](#in-transit-encryption-see-also)
++ [Enabling in-transit encryption for Memcached](#in-transit-encryption-enable-existing-mc)
++ [Enabling in-transit encryption](in-transit-encryption-enable.md)
++ [Connecting to ElastiCache (Valkey) or Amazon ElastiCache for Redis OSS with in-transit encryption using valkey-cli](connect-tls.md)
++ [Enabling in-transit encryption on a node-based Redis OSS cluster using Python](in-transit-encryption-enable-python.md)
++ [Best practices when enabling in-transit encryption](enable-python-best-practices.md)
++ [Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)](#in-transit-encryption-connect-mc)
++ [Creating a TLS Memcached client using Java](#in-transit-encryption-connect-java)
++ [Creating a TLS Memcached client using PHP](#in-transit-encryption-connect-php-mc)
 
 ## In-transit encryption overview
+<a name="in-transit-encryption-overview"></a>
 
-Amazon ElastiCache in-transit encryption is a feature that allows you to increase the
-security of your data at its most vulnerable points—when it is in transit from
-one location to another. Because there is some processing needed to encrypt and decrypt
-the data at the endpoints, enabling in-transit encryption can have some performance
-impact. You should benchmark your data with and without in-transit encryption to
-determine the performance impact for your use cases.
+Amazon ElastiCache in-transit encryption is a feature that allows you to increase the security of your data at its most vulnerable points—when it is in transit from one location to another. Because there is some processing needed to encrypt and decrypt the data at the endpoints, enabling in-transit encryption can have some performance impact. You should benchmark your data with and without in-transit encryption to determine the performance impact for your use cases.
 
 ElastiCache in-transit encryption implements the following features:
++ **Encrypted client connections**—client connections to cache nodes are TLS encrypted.
++ **Encrypted server connections—**data moving between nodes in a cluster is encrypted.
++ **Server authentication**—clients can authenticate that they are connecting to the right server.
++ **Client authentication**—using the Valkey and Redis OSS AUTH feature, the server can authenticate the clients.
 
-- Encrypted client connections—client connections to
-  cache nodes are TLS encrypted.
-- Encrypted server connections—data moving
-  between nodes in a cluster is encrypted.
-- Server authentication—clients can
-  authenticate that they are connecting to the right server.
-- Client authentication—using the Valkey and Redis OSS AUTH feature, the server can authenticate the clients.
-
-###### Note
-
+**Note**  
 ElastiCache does not support mTLS (mutual TLS).
 
-###### Certificate Transparency logging
-
-ElastiCache provisions a TLS certificate that includes the cluster name for the
-endpoint of each cluster that has in-transit encryption enabled. AWS Certificate Manager records
-publicly trusted TLS certificates in public, append-only
-Certificate Transparency logs. As a result, the name of a cluster with in-transit
-encryption enabled appears in public Certificate Transparency logs. Don't
-include confidential or sensitive information in cluster names. For more information
-about Certificate Transparency logging, see [Certificate
-Transparency logging](../../../acm/latest/userguide/acm-concepts.md#concept-transparency "../../../acm/latest/userguide/acm-concepts.md#concept-transparency") in the _AWS Certificate Manager User
-Guide_.
+**Certificate Transparency logging**  
+ElastiCache provisions a TLS certificate that includes the cluster name for the endpoint of each cluster that has in-transit encryption enabled. AWS Certificate Manager records publicly trusted TLS certificates in public, append-only Certificate Transparency logs. As a result, the name of a cluster with in-transit encryption enabled appears in public Certificate Transparency logs. Don't include confidential or sensitive information in cluster names. For more information about Certificate Transparency logging, see [Certificate Transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) in the *AWS Certificate Manager User Guide*.
 
 ## In-transit encryption conditions (Valkey and Redis OSS)
+<a name="in-transit-encryption-constraints"></a>
 
-The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind
-when you plan your node-based cluster implementation:
+The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind when you plan your node-based cluster implementation:
++ In-transit encryption is supported on replication groups running Valkey and Redis OSS.
++ Modifying the in-transit encryption setting, for an existing cluster, is supported on replication groups running Valkey 7.2 and later, and Redis OSS version 7 and later.
 
-- In-transit encryption is supported on replication groups running Valkey and Redis OSS.
-- Modifying the in-transit encryption setting, for an existing cluster, is
-  supported on replication groups running Valkey 7.2 and later, and Redis OSS version 7 and later.
+  If your cluster runs an engine version that doesn't support this modification, the in-transit encryption option appears disabled (greyed out) in the AWS Management Console when you attempt to modify the cluster. To enable in-transit encryption in this case, you must upgrade your engine version to Valkey 7.2 or later, or Redis OSS version 7 or later.
++ In-transit encryption is supported only for replication groups running in an Amazon VPC.
++ In-transit encryption is not supported for replication groups running the following node types: M1, M2.
 
-If your cluster runs an engine version that doesn't support this modification, the in-transit encryption option appears disabled (greyed out) in the AWS Management Console when you attempt to modify the cluster. To enable in-transit encryption in this case, you must upgrade your engine version to Valkey 7.2 or later, or Redis OSS version 7 or later.
-
-- In-transit encryption is supported only for replication groups running in an Amazon VPC.
-- In-transit encryption is not supported for replication groups running the following node types: M1, M2.
-
-For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
-
-- In-transit encryption is enabled by explicitly setting the parameter
-  `TransitEncryptionEnabled` to `true`.
-- Ensure that your caching client supports TLS connectivity and that you have
-  enabled it in client configuration.
-- Starting April 28, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs.
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
++ In-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`.
++ Ensure that your caching client supports TLS connectivity and that you have enabled it in client configuration. 
++ Starting April 28, 2026, AWS will update the minimum supported TLS version to 1.2 on ElastiCache for Valkey version 7.2 and above, and ElastiCache for Redis OSS version 6 and above. Customers must update their client software before that date. This update helps you meet security, compliance, and regulatory needs. 
 
 ## In-transit encryption conditions (Memcached)
+<a name="in-transit-encryption-constraints"></a>
 
-The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind
-when you plan your node-based cluster implementation:
+The following constraints on Amazon ElastiCache in-transit encryption should be kept in mind when you plan your node-based cluster implementation:
++ In-transit encryption is supported on clusters running Memcached versions 1.6.12 and later.
++ In-transit encryption supports Transport Layer Security (TLS) versions 1.2 and 1.3.
++ In-transit encryption is supported only for clusters running in an Amazon VPC.
++ In-transit encryption is not supported for replication groups running the following node types: M1, M2, M3, R3, T2.
 
-- In-transit encryption is supported on clusters running Memcached versions
-  1.6.12 and later.
-- In-transit encryption supports Transport Layer Security (TLS) versions 1.2 and
-  1.3.
-- In-transit encryption is supported only for clusters running in an
-  Amazon VPC.
-- In-transit encryption is not supported for replication groups running the following node types: M1, M2, M3, R3, T2.
-
-For more information, see [Supported node types](CacheNodes.SupportedTypes.md "CacheNodes.SupportedTypes.md").
-
-- In-transit encryption is enabled by explicitly setting the parameter
-  `TransitEncryptionEnabled` to `true`.
-- You can enable in-transit encryption on a cluster only when creating the
-  cluster. You cannot toggle in-transit encryption on and off by modifying a
-  cluster.
-- Ensure that your caching client supports TLS connectivity and that you have
-  enabled it in client configuration.
+  For more information, see [Supported node types](CacheNodes.SupportedTypes.md).
++ In-transit encryption is enabled by explicitly setting the parameter `TransitEncryptionEnabled` to `true`.
++ You can enable in-transit encryption on a cluster only when creating the cluster. You cannot toggle in-transit encryption on and off by modifying a cluster. 
++ Ensure that your caching client supports TLS connectivity and that you have enabled it in client configuration.
 
 ## In-transit encryption best practices
-
-- Because of the processing required to encrypt and decrypt the data at the
-  endpoints, implementing in-transit encryption can reduce performance. Benchmark
-  in-transit encryption compared to no encryption on your own data to determine
-  its impact on performance for your implementation.
-- Because creating new connections can be expensive, you can reduce the
-  performance impact of in-transit encryption by persisting your TLS
-  connections.
-- Don't include confidential or sensitive information in cluster names. When
-  you enable in-transit encryption, the cluster's TLS certificate includes
-  the cluster name, and AWS Certificate Manager records that certificate in public
-  Certificate Transparency logs.
+<a name="in-transit-encryption-best-practices"></a>
++ Because of the processing required to encrypt and decrypt the data at the endpoints, implementing in-transit encryption can reduce performance. Benchmark in-transit encryption compared to no encryption on your own data to determine its impact on performance for your implementation.
++ Because creating new connections can be expensive, you can reduce the performance impact of in-transit encryption by persisting your TLS connections.
++ Don't include confidential or sensitive information in cluster names. When you enable in-transit encryption, the cluster's TLS certificate includes the cluster name, and AWS Certificate Manager records that certificate in public Certificate Transparency logs.
 
 ## Further Valkey and Redis OSS options
+<a name="in-transit-encryption-see-also"></a>
 
 For further information on options available for Valkey and Redis OSS, see the following links.
-
-- [At-Rest Encryption in ElastiCache](at-rest-encryption.md "at-rest-encryption.md")
-- [Authenticating with the Valkey and Redis OSS AUTH command](auth.md "auth.md")
-- [Role-Based Access Control (RBAC)](Clusters.RBAC.md "Clusters.RBAC.md")
-- [Amazon VPCs and ElastiCache security](VPCs.md "VPCs.md")
-- [Identity and Access Management for Amazon ElastiCache](IAM.md "IAM.md")
++ [At-Rest Encryption in ElastiCache](at-rest-encryption.md)
++ [Authenticating with the Valkey and Redis OSS AUTH command](auth.md)
++ [Role-Based Access Control (RBAC)](Clusters.RBAC.md)
++ [Amazon VPCs and ElastiCache security](VPCs.md)
++ [Identity and Access Management for Amazon ElastiCache](IAM.md)
 
 ## Enabling in-transit encryption for Memcached
+<a name="in-transit-encryption-enable-existing-mc"></a>
 
-To enable in-transit encryption when creating a Memcached cluster using the AWS
-Management Console, make the following selections:
+To enable in-transit encryption when creating a Memcached cluster using the AWS Management Console, make the following selections:
++ Choose Memcached as your engine.
++ Choose engine version 1.6.12 or later.
++ Under **Encryption in transit**, choose **Enable**.
 
-- Choose Memcached as your engine.
-- Choose engine version 1.6.12 or later.
-- Under **Encryption in transit**, choose
-  **Enable**.
-
-For the step-by-step process, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md "Clusters.Create.md").
+ For the step-by-step process, see [Creating a cluster for Valkey or Redis OSS](Clusters.Create.md). 
 
 ## Connecting to nodes enabled with in-transit encryption using Openssl (Memcached)
+<a name="in-transit-encryption-connect-mc"></a>
 
-To access data from ElastiCache for Memcached nodes enabled with in-transit encryption, you need to use
-clients that work with Secure Socket Layer (SSL). You can also use Openssl s\_client on
-Amazon Linux and Amazon Linux 2.
+To access data from ElastiCache for Memcached nodes enabled with in-transit encryption, you need to use clients that work with Secure Socket Layer (SSL). You can also use Openssl s\_client on Amazon Linux and Amazon Linux 2. 
 
-To use Openssl s\_client to connect to a Memcached cluster enabled with in-transit
-encryption on Amazon Linux 2 or Amazon Linux:
+To use Openssl s\_client to connect to a Memcached cluster enabled with in-transit encryption on Amazon Linux 2 or Amazon Linux:
 
 ```
-/usr/bin/openssl s_client -connect `memcached-node-endpoint`:`memcached-port`
+/usr/bin/openssl s_client -connect {{memcached-node-endpoint}}:{{memcached-port}}
 ```
 
 ## Creating a TLS Memcached client using Java
+<a name="in-transit-encryption-connect-java"></a>
 
-To create a client in TLS mode, do the following to initialize the client with the
-appropriate SSLContext:
+To create a client in TLS mode, do the following to initialize the client with the appropriate SSLContext:
 
 ```
 import java.security.KeyStore;
@@ -193,9 +139,9 @@ public class TLSDemo {
 ```
 
 ## Creating a TLS Memcached client using PHP
+<a name="in-transit-encryption-connect-php-mc"></a>
 
-To create a client in TLS mode, do the following to initialize the client with the
-appropriate SSLContext:
+To create a client in TLS mode, do the following to initialize the client with the appropriate SSLContext:
 
 ```
 <?php
@@ -203,8 +149,8 @@ appropriate SSLContext:
 /**
  * Sample PHP code to show how to create a TLS Memcached client. In this example we
  * will use the Amazon ElastiCache Auto Descovery feature, but TLS can also be
- * used with a Static mode client.
- * See Using the ElastiCache Cluster Client for PHP (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoDiscovery.Using.ModifyApp.PHP.html) for more information
+ * used with a Static mode client. 
+ * See Using the ElastiCache Cluster Client for PHP (https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoDiscovery.Using.ModifyApp.PHP.html) for more information 
  * about Auto Discovery and persistent-id.
  */
 
@@ -212,7 +158,7 @@ appropriate SSLContext:
  * this is only an example */
 $server_endpoint = "mycluster.fnjyzo.cfg.use1.cache.amazonaws.com";
 
-/* Port for connecting to the cluster.
+/* Port for connecting to the cluster. 
  * This is only an example     */
 $server_port = 11211;
 
@@ -261,4 +207,4 @@ if ($tls_client->get('key') === 'value') {
 }
 ```
 
-For more information on using the PHP client, see [Installing the ElastiCache cluster client for PHP](Appendix.PHPAutoDiscoverySetup.md "Appendix.PHPAutoDiscoverySetup.md").
+For more information on using the PHP client, see [Installing the ElastiCache cluster client for PHP](Appendix.PHPAutoDiscoverySetup.md).

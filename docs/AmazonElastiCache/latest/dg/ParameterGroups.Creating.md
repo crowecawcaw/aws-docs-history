@@ -1,194 +1,159 @@
-# Creating an ElastiCache parameter group
 
-You need to create a new parameter group if there is one or more parameter values that
-you want changed from the default values. You can create a parameter group using the
-ElastiCache console, the AWS CLI, or the ElastiCache API.
+
+# Creating an ElastiCache parameter group
+<a name="ParameterGroups.Creating"></a>
+
+You need to create a new parameter group if there is one or more parameter values that you want changed from the default values. You can create a parameter group using the ElastiCache console, the AWS CLI, or the ElastiCache API.
 
 ## Creating an ElastiCache parameter group (Console)
+<a name="ParameterGroups.Creating.CON"></a>
 
-The following procedure shows how to create a parameter group using the ElastiCache
-console.
+The following procedure shows how to create a parameter group using the ElastiCache console.
 
-###### To create a parameter group using the ElastiCache console
+**To create a parameter group using the ElastiCache console**
 
-1. Sign in to the AWS Management Console and open the ElastiCache console at
-   [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
-2. To see a list of all available parameter groups, in the left hand
-   navigation pane choose **Parameter Groups**.
-3. To create a parameter group, choose **Create Parameter
-   Group**.
+1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-The **Create Parameter Group** screen appears. 4. From the **Family** list, choose the parameter group
-family that will be the template for your parameter group.
+1. To see a list of all available parameter groups, in the left hand navigation pane choose **Parameter Groups**.
 
-The parameter group family, such as _memcached1.6_
-or _redis7_ defines
-the actual parameters in your parameter group and their initial values. The
-parameter group family must coincide with the cluster's engine and
-version. 5. In the **Name** box, type in a unique name for this
-parameter group.
+1. To create a parameter group, choose **Create Parameter Group**.
 
-When creating a cluster or modifying a cluster's parameter group, you
-will choose the parameter group by its name. Therefore, we recommend that
-the name be informative and somehow identify the parameter group's
-family.
+   The **Create Parameter Group** screen appears.
 
-Parameter group naming constraints are as follows:
+1. From the **Family** list, choose the parameter group family that will be the template for your parameter group.
 
-    * Must begin with an ASCII letter.
-    * Can only contain ASCII letters, digits, and hyphens.
-    * Must be 1–255 characters long.
-    * Can't contain two consecutive hyphens.
-    * Can't end with a hyphen.
+   The parameter group family, such as *memcached1.6* or *redis7* defines the actual parameters in your parameter group and their initial values. The parameter group family must coincide with the cluster's engine and version.
 
-6. In the **Description** box, type in a description for the
-parameter group. 7. To create the parameter group, choose **Create**.
+1. In the **Name** box, type in a unique name for this parameter group.
 
-To terminate the process without creating the parameter group, choose
-**Cancel**. 8. When the parameter group is created, it will have the family's
-default values. To change the default values you must modify the parameter
-group. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
+   When creating a cluster or modifying a cluster's parameter group, you will choose the parameter group by its name. Therefore, we recommend that the name be informative and somehow identify the parameter group's family.
+
+   Parameter group naming constraints are as follows:
+   + Must begin with an ASCII letter.
+   + Can only contain ASCII letters, digits, and hyphens.
+   + Must be 1–255 characters long.
+   + Can't contain two consecutive hyphens.
+   + Can't end with a hyphen.
+
+1. In the **Description** box, type in a description for the parameter group.
+
+1. To create the parameter group, choose **Create**.
+
+   To terminate the process without creating the parameter group, choose **Cancel**.
+
+1. When the parameter group is created, it will have the family's default values. To change the default values you must modify the parameter group. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md).
 
 ## Creating an ElastiCache parameter group (AWS CLI)
+<a name="ParameterGroups.Creating.CLI"></a>
 
-To create a parameter group using the AWS CLI, use the command
-`create-cache-parameter-group` with these parameters.
+To create a parameter group using the AWS CLI, use the command `create-cache-parameter-group` with these parameters.
++ `--cache-parameter-group-name` — The name of the parameter group.
 
-- `--cache-parameter-group-name` — The name of the
-  parameter group.
+  Parameter group naming constraints are as follows:
+  + Must begin with an ASCII letter.
+  + Can only contain ASCII letters, digits, and hyphens.
+  + Must be 1–255 characters long.
+  + Can't contain two consecutive hyphens.
+  + Can't end with a hyphen.
++ `--cache-parameter-group-family` — The engine and version family for the parameter group.
++ `--description` — A user supplied description for the parameter group.
 
-Parameter group naming constraints are as follows:
-
-    + Must begin with an ASCII letter.
-    + Can only contain ASCII letters, digits, and hyphens.
-    + Must be 1–255 characters long.
-    + Can't contain two consecutive hyphens.
-    + Can't end with a hyphen.
-
-- `--cache-parameter-group-family` — The engine and
-  version family for the parameter group.
-- `--description` — A user supplied description for the
-  parameter group.
-
-###### Example
-
-The following example creates a parameter group named
-_myMem14_ using the memcached1.4 family as the template.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example creates a parameter group named *myMem14* using the memcached1.4 family as the template.   
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-cache-parameter-group \
-    --cache-parameter-group-name `myMem14`  \
-    --cache-parameter-group-family `memcached1.4` \
-    --description `"My first parameter group"`
+    --cache-parameter-group-name {{myMem14}}  \
+    --cache-parameter-group-family {{memcached1.4}} \
+    --description {{"My first parameter group"}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws elasticache create-cache-parameter-group ^
-    --cache-parameter-group-name `myMem14`  ^
-    --cache-parameter-group-family `memcached1.4` ^
-    --description `"My first parameter group"`
+    --cache-parameter-group-name {{myMem14}}  ^
+    --cache-parameter-group-family {{memcached1.4}} ^
+    --description {{"My first parameter group"}}
 ```
-
-The output from this command should look something like this.
+The output from this command should look something like this.  
 
 ```
 {
     "CacheParameterGroup": {
-        "CacheParameterGroupName": "myMem14",
-        "CacheParameterGroupFamily": "memcached1.4",
+        "CacheParameterGroupName": "myMem14", 
+        "CacheParameterGroupFamily": "memcached1.4", 
         "Description": "My first  parameter group"
     }
 }
 ```
 
-###### Example
-
-The following example creates a parameter group named
-_myRed7_ using the redis7 family as the template.
-
-For Linux, macOS, or Unix:
+**Example**  
+The following example creates a parameter group named *myRed7* using the redis7 family as the template.   
+For Linux, macOS, or Unix:  
 
 ```
 aws elasticache create-cache-parameter-group \
-    --cache-parameter-group-name `myRed7`  \
-    --cache-parameter-group-family `redis7` \
-    --description `"My first parameter group"`
+    --cache-parameter-group-name {{myRed7}}  \
+    --cache-parameter-group-family {{redis7}} \
+    --description {{"My first parameter group"}}
 ```
-
-For Windows:
+For Windows:  
 
 ```
 aws elasticache create-cache-parameter-group ^
-    --cache-parameter-group-name `myRed7`  ^
-    --cache-parameter-group-family `redis7` ^
-    --description `"My first parameter group"`
+    --cache-parameter-group-name {{myRed7}}  ^
+    --cache-parameter-group-family {{redis7}} ^
+    --description {{"My first parameter group"}}
 ```
-
-The output from this command should look something like this.
+The output from this command should look something like this.  
 
 ```
 {
     "CacheParameterGroup": {
-        "CacheParameterGroupName": "myRed7",
-        "CacheParameterGroupFamily": "redis7",
+        "CacheParameterGroupName": "myRed7", 
+        "CacheParameterGroupFamily": "redis7", 
         "Description": "My first parameter group"
     }
 }
 ```
 
-When the parameter group is created, it will have the family's default
-values. To change the default values you must modify the parameter group. For more
-information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
+When the parameter group is created, it will have the family's default values. To change the default values you must modify the parameter group. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md).
 
-For more information, see [`create-cache-parameter-group`](../../../cli/latest/reference/elasticache/create-cache-parameter-group.md "../../../cli/latest/reference/elasticache/create-cache-parameter-group.md").
+For more information, see [`create-cache-parameter-group`](https://docs.aws.amazon.com/cli/latest/reference/elasticache/create-cache-parameter-group.html).
 
 ## Creating an ElastiCache parameter group (ElastiCache API)
+<a name="ParameterGroups.Creating.API"></a>
 
-To create a parameter group using the ElastiCache API, use the
-`CreateCacheParameterGroup` action with these parameters.
+To create a parameter group using the ElastiCache API, use the `CreateCacheParameterGroup` action with these parameters.
++ `ParameterGroupName` — The name of the parameter group.
 
-- `ParameterGroupName` — The name of the parameter
-  group.
+  Parameter group naming constraints are as follows:
+  + Must begin with an ASCII letter.
+  + Can only contain ASCII letters, digits, and hyphens.
+  + Must be 1–255 characters long.
+  + Can't contain two consecutive hyphens.
+  + Can't end with a hyphen.
++ `CacheParameterGroupFamily` — The engine and version family for the parameter group. For example, `memcached1.4`.
++ `CacheParameterGroupFamily` — The engine and version family for the parameter group. For example, `redis7`.
++ `Description` — A user supplied description for the parameter group.
 
-Parameter group naming constraints are as follows:
-
-    + Must begin with an ASCII letter.
-    + Can only contain ASCII letters, digits, and hyphens.
-    + Must be 1–255 characters long.
-    + Can't contain two consecutive hyphens.
-    + Can't end with a hyphen.
-
-- `CacheParameterGroupFamily` — The engine and version
-  family for the parameter group. For example,
-  `memcached1.4`.
-- `CacheParameterGroupFamily` — The engine and version
-  family for the parameter group. For example, `redis7`.
-- `Description` — A user supplied description for the
-  parameter group.
-
-###### Example
-
-The following example creates a parameter group named
-_myMem14_ using the memcached1.4 family as the template.
+**Example**  
+The following example creates a parameter group named *myMem14* using the memcached1.4 family as the template.   
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateCacheParameterGroup
-   &CacheParameterGroupFamily=`memcached1.4`
-   &CacheParameterGroupName=`myMem14`
-   &Description=`My%20first%20parameter%20group`
+   &CacheParameterGroupFamily={{memcached1.4}}
+   &CacheParameterGroupName={{myMem14}}
+   &Description={{My%20first%20parameter%20group}}
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
    &Timestamp=20150202T192317Z
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-
-The response from this action should look something like this.
+The response from this action should look something like this.  
 
 ```
 <CreateCacheParameterGroupResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
@@ -205,25 +170,22 @@ The response from this action should look something like this.
 </CreateCacheParameterGroupResponse>
 ```
 
-###### Example
-
-The following example creates a parameter group named
-_myRed7_ using the redis7 family as the template.
+**Example**  
+The following example creates a parameter group named *myRed7* using the redis7 family as the template.   
 
 ```
 https://elasticache.us-west-2.amazonaws.com/
    ?Action=CreateCacheParameterGroup
-   &CacheParameterGroupFamily=`redis7`
-   &CacheParameterGroupName=`myRed7`
-   &Description=`My%20first%20parameter%20group`
+   &CacheParameterGroupFamily={{redis7}}
+   &CacheParameterGroupName={{myRed7}}
+   &Description={{My%20first%20parameter%20group}}
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
    &Timestamp=20150202T192317Z
    &Version=2015-02-02
    &X-Amz-Credential=<credential>
 ```
-
-The response from this action should look something like this.
+The response from this action should look something like this.  
 
 ```
 <CreateCacheParameterGroupResponse xmlns="http://elasticache.amazonaws.com/doc/2013-06-15/">
@@ -240,8 +202,6 @@ The response from this action should look something like this.
 </CreateCacheParameterGroupResponse>
 ```
 
-When the parameter group is created, it will have the family's default
-values. To change the default values you must modify the parameter group. For more
-information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
+When the parameter group is created, it will have the family's default values. To change the default values you must modify the parameter group. For more information, see [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md).
 
-For more information, see [`CreateCacheParameterGroup`](../APIReference/API_CreateCacheParameterGroup.md "../APIReference/API_CreateCacheParameterGroup.md").
+For more information, see [`CreateCacheParameterGroup`](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html).

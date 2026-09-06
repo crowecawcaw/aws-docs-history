@@ -1,83 +1,49 @@
+
+
 # Ensuring you have enough memory to make a Valkey or Redis OSS snapshot
+<a name="BestPractices.BGSAVE"></a>
 
-###### Snapshots and synchronizations
+**Snapshots and synchronizations**  
+Valkey and Redis OSS support snapshots and synchronizations using a forkless save process that allows you to allocate more of your memory to your application's use without incurring increased swap usage during synchronizations and saves.
 
-Valkey and Redis OSS support snapshots and synchronizations using a forkless
-save process that allows you to allocate
-more of your memory to your application's use without incurring increased
-swap usage during synchronizations and saves.
+When you work with ElastiCache for Redis OSS, Redis OSS calls a background write command in a number of cases:
++ When creating a snapshot for a backup.
++ When synchronizing replicas with the primary in a replication group.
++ When enabling the append-only file feature (AOF) for Redis OSS.
++ When promoting a replica to primary (which causes a primary/replica sync).
 
-When you work with ElastiCache for Redis OSS, Redis OSS calls a background write command in a
-number of cases:
-
-- When creating a snapshot for a backup.
-- When synchronizing replicas with the primary in a replication group.
-- When enabling the append-only file feature (AOF) for Redis OSS.
-- When promoting a replica to primary (which causes a primary/replica
-  sync).
-  Whenever Redis OSS executes a background write process, you must have sufficient available memory
-  to accommodate the process overhead. Failure to have sufficient memory available
-  causes the process to fail. Because of this, it is important to choose a node instance type
-  that has sufficient memory when creating your Redis OSS cluster.
+Whenever Redis OSS executes a background write process, you must have sufficient available memory to accommodate the process overhead. Failure to have sufficient memory available causes the process to fail. Because of this, it is important to choose a node instance type that has sufficient memory when creating your Redis OSS cluster.
 
 ## Background Write Process and Memory Usage with Valkey and Redis OSS
+<a name="BestPractices.BGSAVE.Process"></a>
 
-Whenever a background write process is called, Valkey and Redis OSS forks its process (remember, these engines are single threaded). One fork persists your data to disk in a Redis OSS .rdb snapshot
-file. The other fork services all read and write operations. To ensure that
-your snapshot is a point-in-time snapshot, all data updates and additions are written
-to an area of available memory separate from the data area.
+Whenever a background write process is called, Valkey and Redis OSS forks its process (remember, these engines are single threaded). One fork persists your data to disk in a Redis OSS .rdb snapshot file. The other fork services all read and write operations. To ensure that your snapshot is a point-in-time snapshot, all data updates and additions are written to an area of available memory separate from the data area.
 
-As long as you have sufficient memory available to record all write operations while the
-data is being persisted to disk, you should have no insufficient memory issues. You
-are likely to experience insufficient memory issues if any of the following are
-true:
+As long as you have sufficient memory available to record all write operations while the data is being persisted to disk, you should have no insufficient memory issues. You are likely to experience insufficient memory issues if any of the following are true:
++ Your application performs many write operations, thus requiring a large amount of available memory to accept the new or updated data.
++ You have very little memory available in which to write new or updated data.
++ You have a large dataset that takes a long time to persist to disk, thus requiring a large number of write operations.
 
-- Your application performs many write operations, thus requiring a large
-  amount of available memory to accept the new or updated data.
-- You have very little memory available in which to write new or updated
-  data.
-- You have a large dataset that takes a long time to persist to disk, thus
-  requiring a large number of write operations.
+The following diagram illustrates memory use when executing a background write process.
 
-The following diagram illustrates memory use when executing
-a background write process.
+![Image: Diagram of memory use during a background write.](http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ElastiCache-bgsaveMemoryUseage.png)
 
-![Image: Diagram of memory use during a background write.](images/ElastiCache-bgsaveMemoryUseage.png)
 
-For information on the impact of doing a backup on performance, see
-[Performance impact of backups of node-based clusters](backups.md#backups-performance "backups.md#backups-performance").
+For information on the impact of doing a backup on performance, see [Performance impact of backups of node-based clusters](backups.md#backups-performance).
 
-For more information on how Valkey and Redis OSS perform snapshots, see
-[http://valkey.io](http://valkey.io "http://valkey.io").
+For more information on how Valkey and Redis OSS perform snapshots, see [http://valkey.io](http://valkey.io).
 
-For more information on regions and Availability Zones, see
-[Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md "RegionsAndAZs.md").
+For more information on regions and Availability Zones, see [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md). 
 
 ## Avoiding running out of memory when executing a background write
+<a name="BestPractices.BGSAVE.memoryFix"></a>
 
-Whenever a background write process such as `BGSAVE` or `BGREWRITEAOF` is called, to keep the
-process from failing, you must have more memory available than will be consumed by
-write operations during the process. The worst-case scenario is that during the
-background write operation every record is updated and some new records are
-added to the cache. Because of this, we recommend that you set
-`reserved-memory-percent` to 25 (25 percent) for Valkey and Redis OSS.
+Whenever a background write process such as `BGSAVE` or `BGREWRITEAOF` is called, to keep the process from failing, you must have more memory available than will be consumed by write operations during the process. The worst-case scenario is that during the background write operation every record is updated and some new records are added to the cache. Because of this, we recommend that you set `reserved-memory-percent` to 25 (25 percent) for Valkey and Redis OSS. 
 
-The `maxmemory` value indicates the memory available to you
-for data and operational overhead. Because you cannot modify the
-`reserved-memory` parameter in the default parameter group, you must
-create a custom parameter group for the cluster. The default value for
-`reserved-memory` is 0, which allows Redis OSS to consume all of
-_maxmemory_ with data,
-potentially leaving too little memory for other uses, such as a background
-write process. For `maxmemory` values by node instance type,
-see [Redis OSS node-type specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific "ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific").
+The `maxmemory` value indicates the memory available to you for data and operational overhead. Because you cannot modify the `reserved-memory` parameter in the default parameter group, you must create a custom parameter group for the cluster. The default value for `reserved-memory` is 0, which allows Redis OSS to consume all of *maxmemory* with data, potentially leaving too little memory for other uses, such as a background write process. For `maxmemory` values by node instance type, see [Redis OSS node-type specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis.NodeSpecific).
 
-You can also use `reserved-memory` parameter
-to reduce the amount of memory used on the box.
+You can also use `reserved-memory` parameter to reduce the amount of memory used on the box.
 
-For more information on Valkey and Redis-specific parameters in ElastiCache,
-see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis").
+For more information on Valkey and Redis-specific parameters in ElastiCache, see [Valkey and Redis OSS parameters](ParameterGroups.Engine.md#ParameterGroups.Redis).
 
-For information on creating and modifying parameter groups,
-see [Creating an ElastiCache parameter group](ParameterGroups.Creating.md "ParameterGroups.Creating.md") and
-[Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md "ParameterGroups.Modifying.md").
+For information on creating and modifying parameter groups, see [Creating an ElastiCache parameter group](ParameterGroups.Creating.md) and [Modifying an ElastiCache parameter group](ParameterGroups.Modifying.md).

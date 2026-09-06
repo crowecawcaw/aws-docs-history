@@ -1,13 +1,14 @@
-# Multi-turn conversation caching
 
-For applications with multi-turn conversations, the same user message can mean different things
-depending on context. For example, "Tell me more" in a conversation about Valkey means
-something different from "Tell me more" in a conversation about Python.
+
+# Multi-turn conversation caching
+<a name="semantic-caching-multi-turn"></a>
+
+For applications with multi-turn conversations, the same user message can mean different things depending on context. For example, "Tell me more" in a conversation about Valkey means something different from "Tell me more" in a conversation about Python.
 
 ## The challenge
+<a name="semantic-caching-multi-turn-challenge"></a>
 
-Single-prompt caching works well for stateless queries. In multi-turn conversations, you
-must cache the full conversation context, not just the last message:
+Single-prompt caching works well for stateless queries. In multi-turn conversations, you must cache the full conversation context, not just the last message:
 
 ```
 # "Tell me more" means nothing without context
@@ -16,10 +17,9 @@ must cache the full conversation context, not just the last message:
 ```
 
 ## Strategy: context-aware cache keys
+<a name="semantic-caching-context-aware-keys"></a>
 
-Instead of embedding only the last user message, embed a summary of the full conversation
-context. This way, similar follow-up questions in similar conversation flows can reuse cached
-answers.
+Instead of embedding only the last user message, embed a summary of the full conversation context. This way, similar follow-up questions in similar conversation flows can reuse cached answers.
 
 ```
 def build_context_string(messages: list) -> str:
@@ -35,9 +35,9 @@ def build_context_string(messages: list) -> str:
 ```
 
 ## Per-user cache isolation with TAG filters
+<a name="semantic-caching-tag-filters"></a>
 
-Use TAG fields to isolate cached conversations by user, session, or other dimensions. This
-prevents one user's cached conversations from being returned for another user:
+Use TAG fields to isolate cached conversations by user, session, or other dimensions. This prevents one user's cached conversations from being returned for another user:
 
 ```
 # Create index with TAG field for per-user isolation
@@ -55,7 +55,7 @@ valkey_client.execute_command(
 )
 ```
 
-Search with hybrid filtering (TAG + KNN):
+Search with hybrid filtering (TAG \+ KNN):
 
 ```
 def lookup_conversation_cache(messages: list, user_id: str, threshold: float = 0.12):
@@ -87,19 +87,17 @@ def lookup_conversation_cache(messages: list, user_id: str, threshold: float = 0
     return {"hit": False}
 ```
 
-###### Note
-
-The `@user_id:{user_123}` TAG filter ensures that User A's cached
-conversations don't leak to User B. The hybrid query (TAG + KNN) runs as a single
-atomic operation — pre-filtering by user, then finding the nearest conversation
-context.
+**Note**  
+The `@user_id:{user_123}` TAG filter ensures that User A's cached conversations don't leak to User B. The hybrid query (TAG \+ KNN) runs as a single atomic operation — pre-filtering by user, then finding the nearest conversation context.
 
 ## Cache isolation strategies
+<a name="semantic-caching-isolation-strategies"></a>
 
-| Strategy        | TAG filter               | Best for                 |
-| --------------- | ------------------------ | ------------------------ |
-| Per-user        | `@user_id:{user_123}`    | Personalized assistants  |
-| Per-session     | `@session_id:{sess_abc}` | Short-lived chats        |
-| Global (shared) | No filter (`*`)          | FAQ bots, common queries |
-| Per-model       | `@model:{gpt-4}`         | Multi-model deployments  |
-| Per-product     | `@product_id:{prod_456}` | E-commerce assistants    |
+
+| Strategy | TAG filter | Best for | 
+| --- | --- | --- | 
+| Per-user | @user\_id:{user\_123} | Personalized assistants | 
+| Per-session | @session\_id:{sess\_abc} | Short-lived chats | 
+| Global (shared) | No filter (\*) | FAQ bots, common queries | 
+| Per-model | @model:{gpt-4} | Multi-model deployments | 
+| Per-product | @product\_id:{prod\_456} | E-commerce assistants | 

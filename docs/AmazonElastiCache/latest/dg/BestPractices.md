@@ -1,40 +1,33 @@
+
+
 # ElastiCache best practices and caching strategies
+<a name="BestPractices"></a>
 
-Below you can find recommended best practices for Amazon ElastiCache. Following these improves
-your cache's performance and reliability.
+Below you can find recommended best practices for Amazon ElastiCache. Following these improves your cache's performance and reliability. 
 
-###### Topics
-
-- [Overall best practices](WorkingWithRedis.md "WorkingWithRedis.md")
-- [Best Practices for using Read Replicas](ReadReplicas.md "ReadReplicas.md")
-- [Supported and restricted Valkey, Memcached, and Redis OSS commands](SupportedCommands.md "SupportedCommands.md")
-- [Valkey and Redis OSS configuration and limits](RedisConfiguration.md "RedisConfiguration.md")
-- [IPv6 client examples for Valkey, Memcached, and Redis OSS](network-type-best-practices.md "network-type-best-practices.md")
-- [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.redis.md "BestPractices.Clients.redis.md")
-- [Best practices for clients (Memcached)](BestPractices.Clients.memcached.md "BestPractices.Clients.memcached.md")
-- [TLS enabled dual stack ElastiCache clusters](#network-type-configuring-tls-enabled-dual-stack "#network-type-configuring-tls-enabled-dual-stack")
-- [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md "redis-memory-management.md")
-- [Best practices when working with Valkey and Redis OSS node-based clusters](BestPractices.SelfDesigned.md "BestPractices.SelfDesigned.md")
-- [Caching database query results](caching-database-query-results.md "caching-database-query-results.md")
-- [Caching strategies for Memcached](Strategies.md "Strategies.md")
-- [Amazon ElastiCache (Valkey) for e-commerce applications](ecommerce-caching-valkey.md "ecommerce-caching-valkey.md")
+**Topics**
++ [Overall best practices](WorkingWithRedis.md)
++ [Best Practices for using Read Replicas](ReadReplicas.md)
++ [Supported and restricted Valkey, Memcached, and Redis OSS commands](SupportedCommands.md)
++ [Valkey and Redis OSS configuration and limits](RedisConfiguration.md)
++ [IPv6 client examples for Valkey, Memcached, and Redis OSS](network-type-best-practices.md)
++ [Best practices for clients (Valkey and Redis OSS)](BestPractices.Clients.redis.md)
++ [Best practices for clients (Memcached)](BestPractices.Clients.memcached.md)
++ [TLS enabled dual stack ElastiCache clusters](#network-type-configuring-tls-enabled-dual-stack)
++ [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md)
++ [Best practices when working with Valkey and Redis OSS node-based clusters](BestPractices.SelfDesigned.md)
++ [Caching database query results](caching-database-query-results.md)
++ [Caching strategies for Memcached](Strategies.md)
++ [Amazon ElastiCache (Valkey) for e-commerce applications](ecommerce-caching-valkey.md)
 
 ## TLS enabled dual stack ElastiCache clusters
+<a name="network-type-configuring-tls-enabled-dual-stack"></a>
 
-When TLS is enabled for ElastiCache clusters the cluster discovery functions (`cluster slots`,
-`cluster shards`, and `cluster nodes` for Redis) or `config get cluster` for Memcached return
-hostnames instead of IPs. The hostnames are then used instead of IPs to connect to the ElastiCache cluster and perform a TLS handshake.
-This means that clients won't be affected by the IP Discovery parameter. For TLS enabled clusters the IP Discovery parameter has no effect
-on the preferred IP protocol. Instead, the IP protocol used will be determined by which IP protocol
-the client prefers when resolving DNS hostnames.
+When TLS is enabled for ElastiCache clusters the cluster discovery functions (`cluster slots`, `cluster shards`, and `cluster nodes` for Redis) or `config get cluster` for Memcached return hostnames instead of IPs. The hostnames are then used instead of IPs to connect to the ElastiCache cluster and perform a TLS handshake. This means that clients won't be affected by the IP Discovery parameter. For TLS enabled clusters the IP Discovery parameter has no effect on the preferred IP protocol. Instead, the IP protocol used will be determined by which IP protocol the client prefers when resolving DNS hostnames.
 
 **Java clients**
 
-When connecting from a Java environment that supports both IPv4 and IPv6, Java will by default prefer IPv4 over IPv6 for backwards compatibility.
-However, the IP protocol preference is configurable through the JVM arguments.
-To prefer IPv4, the JVM accepts `-Djava.net.preferIPv4Stack=true` and to prefer IPv6 set `-Djava.net.preferIPv6Stack=true`.
-Setting `-Djava.net.preferIPv4Stack=true` means that the JVM will no longer make any IPv6 connections.
-**For Valkey or Redis OSS, this includes those to other non-Valkey and non-Redis OSS applications.**
+When connecting from a Java environment that supports both IPv4 and IPv6, Java will by default prefer IPv4 over IPv6 for backwards compatibility. However, the IP protocol preference is configurable through the JVM arguments. To prefer IPv4, the JVM accepts `-Djava.net.preferIPv4Stack=true` and to prefer IPv6 set `-Djava.net.preferIPv6Stack=true`. Setting `-Djava.net.preferIPv4Stack=true` means that the JVM will no longer make any IPv6 connections. **For Valkey or Redis OSS, this includes those to other non-Valkey and non-Redis OSS applications.**
 
 **Host Level Preferences**
 
@@ -42,13 +35,7 @@ In general, if the client or client runtime don't provide configuration options 
 
 **Linux hosts**
 
-For Linux, an IP protocol preference can be configured by modifying the `gai.conf` file. The `gai.conf` file can be
-found under `/etc/gai.conf`. If there is no `gai.conf` specified then an example one should be available under
-`/usr/share/doc/glibc-common-x.xx/gai.conf` which can be copied to `/etc/gai.conf` and then the default configuration
-should be un-commented. To update the configuration to prefer IPv4 when connecting to an ElastiCache cluster update the precedence for
-the CIDR range encompassing the cluster IPs to be above the precedence for default IPv6 connections.
-By default IPv6 connections have a precedence of 40. For example, assuming the cluster is located in a subnet with the CIDR 172.31.0.0:0/16,
-the configuration below would cause clients to prefer IPv4 connections to that cluster.
+For Linux, an IP protocol preference can be configured by modifying the `gai.conf` file. The `gai.conf` file can be found under `/etc/gai.conf`. If there is no `gai.conf` specified then an example one should be available under `/usr/share/doc/glibc-common-x.xx/gai.conf` which can be copied to `/etc/gai.conf` and then the default configuration should be un-commented. To update the configuration to prefer IPv4 when connecting to an ElastiCache cluster update the precedence for the CIDR range encompassing the cluster IPs to be above the precedence for default IPv6 connections. By default IPv6 connections have a precedence of 40. For example, assuming the cluster is located in a subnet with the CIDR 172.31.0.0:0/16, the configuration below would cause clients to prefer IPv4 connections to that cluster.
 
 ```
 label ::1/128       0
@@ -84,14 +71,13 @@ precedence ::ffff:0:0/96  10
 precedence ::ffff:172.31.0.0/112 100
 ```
 
-More details on `gai.conf` are available on the [Linux man page](https://man7.org/linux/man-pages/man5/gai.conf.5.html "https://man7.org/linux/man-pages/man5/gai.conf.5.html")
+More details on `gai.conf` are available on the [Linux man page](https://man7.org/linux/man-pages/man5/gai.conf.5.html) 
 
 **Windows hosts**
 
-The process for Windows hosts is similar. For Windows hosts you can run `netsh interface ipv6 set prefix CIDR_CONTAINING_CLUSTER_IPS PRECEDENCE LABEL`.
-This has the same effect as modifying the `gai.conf` file on Linux hosts.
+The process for Windows hosts is similar. For Windows hosts you can run `netsh interface ipv6 set prefix CIDR_CONTAINING_CLUSTER_IPS PRECEDENCE LABEL`. This has the same effect as modifying the `gai.conf` file on Linux hosts.
 
-This will update the preference policies to prefer IPv4 connections over IPv6 connections for the specified CIDR range. For example, assuming that the cluster is in a subnet with the 172.31.0.0:0/16 CIDR executing `netsh interface ipv6 set prefix ::ffff:172.31.0.0:0/112 100 15` would result in the following precedence table which would cause clients to prefer IPv4 when connecting to the cluster.
+This will update the preference policies to prefer IPv4 connections over IPv6 connections for the specified CIDR range. For example, assuming that the cluster is in a subnet with the 172.31.0.0:0/16 CIDR executing `netsh interface ipv6 set prefix ::ffff:172.31.0.0:0/112 100 15` would result in the following precedence table which would cause clients to prefer IPv4 when connecting to the cluster. 
 
 ```
 C:\Users\Administrator>netsh interface ipv6 show prefixpolicies

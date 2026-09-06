@@ -1,16 +1,17 @@
+
+
 # Configure a client-side timeout (Valkey and Redis OSS)
+<a name="BestPractices.Clients.Redis.ClientTimeout"></a>
 
 **Configuring the client-side timeout**
 
-Configure the client-side timeout appropriately to allow the server sufficient time to process the request and generate the response. This also allows it to fail fast if the connection to the server can't be established.
-Certain Valkey or Redis OSS commands can be more computationally expensive than others. For example, Lua scripts or MULTI/EXEC transactions that contain multiple commands that must be run atomically. In general, a higher client-side timeout is
-recommended to avoid a time out of the client before the response is received from the server, including the following:
+Configure the client-side timeout appropriately to allow the server sufficient time to process the request and generate the response. This also allows it to fail fast if the connection to the server can't be established. Certain Valkey or Redis OSS commands can be more computationally expensive than others. For example, Lua scripts or MULTI/EXEC transactions that contain multiple commands that must be run atomically. In general, a higher client-side timeout is recommended to avoid a time out of the client before the response is received from the server, including the following:
++ Running commands across multiple keys
++ Running MULTI/EXEC transactions or Lua scripts that consist of multiple individual Valkey or Redis OSS commands
++ Reading large values
++ Performing blocking operations such as BLPOP
 
-- Running commands across multiple keys
-- Running MULTI/EXEC transactions or Lua scripts that consist of multiple individual Valkey or Redis OSS commands
-- Reading large values
-- Performing blocking operations such as BLPOP
-  In case of a blocking operation such as BLPOP, the best practice is to set the command timeout to a number lower than the socket timeout.
+In case of a blocking operation such as BLPOP, the best practice is to set the command timeout to a number lower than the socket timeout.
 
 The following are code examples for implementing a client-side timeout in redis-py, PHPRedis, and Lettuce.
 
@@ -54,12 +55,7 @@ $res = $client->blpop("list", 1); // will timeout after 1 second
 print "$res\n";                   // less than the 2 second socket timeout
 ```
 
-###### Timeout config sample 2b: PHPRedis with TLS
-
-When connecting to ElastiCache with in-transit encryption enabled (required for
-serverless), configure the TLS connection. In the following PHP code example,
-replace `HOST` with your cluster endpoint and `PORT`
-with your cluster's port number:
+When connecting to ElastiCache with in-transit encryption enabled (required for serverless), configure the TLS connection. In the following PHP code example, replace `{{HOST}}` with your cluster endpoint and `{{PORT}}` with your cluster's port number:
 
 ```
 // Connect to Amazon ElastiCache with TLS enabled.
@@ -93,7 +89,7 @@ public static void main(String[] args)
 		client = RedisClient.create(RedisURI.create(HOST, PORT));
 		client.setOptions(ClientOptions.builder()
 	.socketOptions(SocketOptions.builder().connectTimeout(Duration.ofMillis(100)).build()) // 100 millisecond connection timeout
-	.timeoutOptions(TimeoutOptions.builder().fixedTimeout(Duration.ofSeconds(2)).build()) // 2 second command timeout
+	.timeoutOptions(TimeoutOptions.builder().fixedTimeout(Duration.ofSeconds(2)).build()) // 2 second command timeout 
 	.build());
 
 		// use the connection pool from above example

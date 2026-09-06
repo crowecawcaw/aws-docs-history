@@ -1,4 +1,7 @@
+
+
 # Specifying log delivery using the AWS CLI
+<a name="CLI_Log"></a>
 
 **Slow Log**
 
@@ -14,14 +17,14 @@ aws elasticache create-replication-group \
     --cache-node-type cache.r5.large \
     --num-cache-clusters 2 \
     --log-delivery-configurations '{
-        "LogType":"slow-log",
-        "DestinationType":"cloudwatch-logs",
-        "DestinationDetails":{
-          "CloudWatchLogsDetails":{
+        "LogType":"slow-log", 
+        "DestinationType":"cloudwatch-logs",  
+        "DestinationDetails":{ 
+          "CloudWatchLogsDetails":{ 
             "LogGroup":"my-log-group"
-          }
-        },
-        "LogFormat":"json"
+          } 
+        }, 
+        "LogFormat":"json" 
       }'
 ```
 
@@ -35,14 +38,14 @@ aws elasticache create-replication-group ^
     --cache-node-type cache.r5.large ^
     --num-cache-clusters 2 ^
     --log-delivery-configurations '{
-        "LogType":"slow-log",
-        "DestinationType":"cloudwatch-logs",
-        "DestinationDetails":{
-          "CloudWatchLogsDetails":{
+        "LogType":"slow-log", 
+        "DestinationType":"cloudwatch-logs", 
+        "DestinationDetails":{ 
+          "CloudWatchLogsDetails":{ 
             "LogGroup":"my-log-group"
-          }
-        },
-        "LogFormat":"json"
+          } 
+        }, 
+        "LogFormat":"json" 
       }'
 ```
 
@@ -56,15 +59,15 @@ aws elasticache modify-replication-group \
     --apply-immediately \
     --log-delivery-configurations '
     {
-      "LogType":"slow-log",
-      "DestinationType":"cloudwatch-logs",
-      "DestinationDetails":{
-        "CloudWatchLogsDetails":{
+      "LogType":"slow-log", 
+      "DestinationType":"cloudwatch-logs", 
+      "DestinationDetails":{ 
+        "CloudWatchLogsDetails":{ 
 
           "LogGroup":"my-log-group"
-        }
+        } 
       },
-      "LogFormat":"json"
+      "LogFormat":"json" 
     }'
 ```
 
@@ -76,14 +79,14 @@ aws elasticache modify-replication-group ^
     --apply-immediately ^
     --log-delivery-configurations '
     {
-      "LogType":"slow-log",
-      "DestinationType":"cloudwatch-logs",
-      "DestinationDetails":{
-        "CloudWatchLogsDetails":{
+      "LogType":"slow-log", 
+      "DestinationType":"cloudwatch-logs", 
+      "DestinationDetails":{ 
+        "CloudWatchLogsDetails":{ 
           "LogGroup":"my-log-group"
-        }
+        } 
       },
-      "LogFormat":"json"
+      "LogFormat":"json" 
     }'
 ```
 
@@ -95,10 +98,10 @@ For Linux, macOS, or Unix:
 aws elasticache modify-replication-group \
     --replication-group-id test-slow-log \
     --apply-immediately \
-    --log-delivery-configurations '
+    --log-delivery-configurations ' 
     {
-      "LogType":"slow-log",
-      "Enabled":false
+      "LogType":"slow-log", 
+      "Enabled":false 
     }'
 ```
 
@@ -108,10 +111,10 @@ For Windows:
 aws elasticache modify-replication-group ^
     --replication-group-id test-slow-log ^
     --apply-immediately ^
-    --log-delivery-configurations '
+    --log-delivery-configurations '  
     {
-      "LogType":"slow-log",
-      "Enabled":false
+      "LogType":"slow-log", 
+      "Enabled":false 
     }'
 ```
 
@@ -129,14 +132,14 @@ aws elasticache create-replication-group \
     --cache-node-type cache.r5.large \
     --num-cache-clusters 2 \
     --log-delivery-configurations '{
-        "LogType":"engine-log",
-        "DestinationType":"cloudwatch-logs",
-        "DestinationDetails":{
-          "CloudWatchLogsDetails":{
+        "LogType":"engine-log", 
+        "DestinationType":"cloudwatch-logs",  
+        "DestinationDetails":{ 
+          "CloudWatchLogsDetails":{ 
             "LogGroup":"my-log-group"
-          }
-        },
-        "LogFormat":"json"
+          } 
+        }, 
+        "LogFormat":"json" 
       }'
 ```
 
@@ -150,14 +153,14 @@ aws elasticache create-replication-group ^
     --cache-node-type cache.r5.large ^
     --num-cache-clusters 2 ^
     --log-delivery-configurations '{
-        "LogType":"engine-log",
-        "DestinationType":"cloudwatch-logs",
-        "DestinationDetails":{
-          "CloudWatchLogsDetails":{
+        "LogType":"engine-log", 
+        "DestinationType":"cloudwatch-logs", 
+        "DestinationDetails":{ 
+          "CloudWatchLogsDetails":{ 
             "LogGroup":"my-log-group"
-          }
-        },
-        "LogFormat":"json"
+          } 
+        }, 
+        "LogFormat":"json" 
       }'
 ```
 
@@ -171,14 +174,14 @@ aws elasticache modify-replication-group \
     --apply-immediately \
     --log-delivery-configurations '
     {
-      "LogType":"engine-log",
+      "LogType":"engine-log", 
       "DestinationType":"kinesis-firehose",
       "DestinationDetails":{
       "KinesisFirehoseDetails":{
          "DeliveryStream":"test"
-       }
+       }    
      },
-      "LogFormat":"json"
+      "LogFormat":"json" 
     }'
 ```
 
@@ -190,14 +193,14 @@ aws elasticache modify-replication-group ^
     --apply-immediately ^
     --log-delivery-configurations '
     {
-      "LogType":"engine-log",
+      "LogType":"engine-log",       
       "DestinationType":"kinesis-firehose",
       "DestinationDetails":{
       "KinesisFirehoseDetails":{
          "DeliveryStream":"test"
-       }
+       }  
       },
-      "LogFormat":"json"
+      "LogFormat":"json" 
     }'
 ```
 
@@ -209,7 +212,7 @@ For Linux, macOS, or Unix:
 aws elasticache modify-replication-group \
     --replication-group-id test-slow-log \
     --apply-immediately \
-    --log-delivery-configurations '
+    --log-delivery-configurations ' 
     {
        "LogType":"engine-log",
        "LogFormat":"json"
@@ -222,7 +225,7 @@ For Windows:
 aws elasticache modify-replication-group ^
     --replication-group-id test-slow-log ^
     --apply-immediately ^
-    --log-delivery-configurations '
+    --log-delivery-configurations ' 
     {
        "LogType":"engine-log",
        "LogFormat":"json"
@@ -237,10 +240,10 @@ For Linux, macOS, or Unix:
 aws elasticache modify-replication-group \
     --replication-group-id test-slow-log \
     --apply-immediately \
-    --log-delivery-configurations '
+    --log-delivery-configurations ' 
     {
-      "LogType":"engine-log",
-      "Enabled":false
+      "LogType":"engine-log", 
+      "Enabled":false 
     }'
 ```
 
@@ -250,9 +253,9 @@ For Windows:
 aws elasticache modify-replication-group ^
     --replication-group-id test-slow-log ^
     --apply-immediately ^
-    --log-delivery-configurations '
+    --log-delivery-configurations '  
     {
-      "LogType":"engine-log",
-      "Enabled":false
+      "LogType":"engine-log", 
+      "Enabled":false 
     }'
 ```
