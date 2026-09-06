@@ -1,23 +1,22 @@
+
+
 # Use `DescribeInstanceAttribute` with a CLI
+<a name="example_ec2_DescribeInstanceAttribute_section"></a>
 
 The following code examples show how to use `DescribeInstanceAttribute`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe the instance type**
-
-This example describes the instance type of the specified instance.
-
-Command:
+**AWS CLI**  
+**To describe the instance type**  
+This example describes the instance type of the specified instance.  
+Command:  
 
 ```
-`aws ec2 describe-instance-attribute --instance-id `i-1234567890abcdef0` --attribute `instanceType``
-
+aws ec2 describe-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute {{instanceType}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -27,19 +26,14 @@ Output:
     }
 }
 ```
-
-**To describe the disableApiTermination attribute**
-
-This example describes the `disableApiTermination` attribute of the specified instance.
-
-Command:
+**To describe the disableApiTermination attribute**  
+This example describes the `disableApiTermination` attribute of the specified instance.  
+Command:  
 
 ```
-`aws ec2 describe-instance-attribute --instance-id `i-1234567890abcdef0` --attribute `disableApiTermination``
-
+aws ec2 describe-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute {{disableApiTermination}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -49,19 +43,14 @@ Output:
     }
 }
 ```
-
-**To describe the block device mapping for an instance**
-
-This example describes the `blockDeviceMapping` attribute of the specified instance.
-
-Command:
+**To describe the block device mapping for an instance**  
+This example describes the `blockDeviceMapping` attribute of the specified instance.  
+Command:  
 
 ```
-`aws ec2 describe-instance-attribute --instance-id `i-1234567890abcdef0` --attribute `blockDeviceMapping``
-
+aws ec2 describe-instance-attribute --instance-id {{i-1234567890abcdef0}} --attribute {{blockDeviceMapping}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -88,49 +77,38 @@ Output:
     ],
 }
 ```
++  For API details, see [DescribeInstanceAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-attribute.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeInstanceAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-attribute.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-attribute.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the instance type of the specified instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the instance type of the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceType
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceType                      : t2.micro
 ```
-
-**Example 2: This example describes whether enhanced networking is enabled for the specified instance.**
+**Example 2: This example describes whether enhanced networking is enabled for the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 SriovNetSupport                   : simple
 ```
-
-**Example 3: This example describes the security groups for the specified instance.**
+**Example 3: This example describes the security groups for the specified instance.**  
 
 ```
 (Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute groupSet).Groups
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupId
@@ -138,86 +116,65 @@ GroupId
 sg-12345678
 sg-45678901
 ```
-
-**Example 4: This example describes whether EBS optimization is enabled for the specified instance.**
+**Example 4: This example describes whether EBS optimization is enabled for the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 EbsOptimized                      : False
 ```
-
-**Example 5: This example describes the 'disableApiTermination' attribute of the specified instance.**
+**Example 5: This example describes the 'disableApiTermination' attribute of the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DisableApiTermination             : False
 ```
-
-**Example 6: This example describes the 'instanceInitiatedShutdownBehavior' attribute of the specified instance.**
+**Example 6: This example describes the 'instanceInitiatedShutdownBehavior' attribute of the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceInitiatedShutdownBehavior : stop
 ```
++  For API details, see [DescribeInstanceAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeInstanceAttribute](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the instance type of the specified instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the instance type of the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceType
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceType                      : t2.micro
 ```
-
-**Example 2: This example describes whether enhanced networking is enabled for the specified instance.**
+**Example 2: This example describes whether enhanced networking is enabled for the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute sriovNetSupport
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 SriovNetSupport                   : simple
 ```
-
-**Example 3: This example describes the security groups for the specified instance.**
+**Example 3: This example describes the security groups for the specified instance.**  
 
 ```
 (Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute groupSet).Groups
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupId
@@ -225,50 +182,38 @@ GroupId
 sg-12345678
 sg-45678901
 ```
-
-**Example 4: This example describes whether EBS optimization is enabled for the specified instance.**
+**Example 4: This example describes whether EBS optimization is enabled for the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute ebsOptimized
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 EbsOptimized                      : False
 ```
-
-**Example 5: This example describes the 'disableApiTermination' attribute of the specified instance.**
+**Example 5: This example describes the 'disableApiTermination' attribute of the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute disableApiTermination
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DisableApiTermination             : False
 ```
-
-**Example 6: This example describes the 'instanceInitiatedShutdownBehavior' attribute of the specified instance.**
+**Example 6: This example describes the 'instanceInitiatedShutdownBehavior' attribute of the specified instance.**  
 
 ```
 Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute instanceInitiatedShutdownBehavior
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceInitiatedShutdownBehavior : stop
 ```
++  For API details, see [DescribeInstanceAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeInstanceAttribute](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

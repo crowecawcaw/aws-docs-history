@@ -1,16 +1,15 @@
+
+
 # Use `DescribeAddresses` with an AWS SDK or CLI
+<a name="example_ec2_DescribeAddresses_section"></a>
 
 The following code examples show how to use `DescribeAddresses`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Describe all Elastic IP addresses.
@@ -48,28 +47,20 @@ bool AwsDoc::EC2::describeAddresses(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DescribeAddresses](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DescribeAddresses) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To retrieve details about all of your Elastic IP addresses**  
+The following `describe addresses` example displays details about your Elastic IP addresses.  
 
 ```
-
-- For API details, see
-  [DescribeAddresses](../../../goto/SdkForCpp/ec2-2016-11-15/DescribeAddresses.md "../../../goto/SdkForCpp/ec2-2016-11-15/DescribeAddresses.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To retrieve details about all of your Elastic IP addresses**
-
-The following `describe addresses` example displays details about your Elastic IP addresses.
-
+aws ec2 describe-addresses
 ```
-`aws ec2 describe-addresses`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -94,18 +85,14 @@ Output:
     ]
 }
 ```
-
-**Example 2: To retrieve details your Elastic IP addresses for EC2-VPC**
-
-The following `describe-addresses` example displays details about your Elastic IP addresses for use with instances in a VPC.
+**Example 2: To retrieve details your Elastic IP addresses for EC2-VPC**  
+The following `describe-addresses` example displays details about your Elastic IP addresses for use with instances in a VPC.  
 
 ```
-`aws ec2 describe-addresses \
- --filters `"Name=domain,Values=vpc"``
-
+aws ec2 describe-addresses \
+    --filters {{"Name=domain,Values=vpc"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -124,18 +111,14 @@ Output:
     ]
 }
 ```
-
-**Example 3: To retrieve details about an Elastic IP address specified by allocation ID**
-
-The following `describe-addresses` example displays details about the Elastic IP address with the specified allocation ID, which is associated with an instance in EC2-VPC.
+**Example 3: To retrieve details about an Elastic IP address specified by allocation ID**  
+The following `describe-addresses` example displays details about the Elastic IP address with the specified allocation ID, which is associated with an instance in EC2-VPC.  
 
 ```
-`aws ec2 describe-addresses \
- --allocation-ids `eipalloc-282d9641``
-
+aws ec2 describe-addresses \
+    --allocation-ids {{eipalloc-282d9641}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -154,28 +137,21 @@ Output:
     ]
 }
 ```
-
-**Example 4: To retrieve details about an Elastic IP address specified by its VPC private IP address**
-
-The following `describe-addresses` example displays details about the Elastic IP address associated with a particular private IP address in EC2-VPC.
+**Example 4: To retrieve details about an Elastic IP address specified by its VPC private IP address**  
+The following `describe-addresses` example displays details about the Elastic IP address associated with a particular private IP address in EC2-VPC.  
 
 ```
-`aws ec2 describe-addresses \
- --filters `"Name=private-ip-address,Values=10.251.50.12"``
+aws ec2 describe-addresses \
+    --filters {{"Name=private-ip-address,Values=10.251.50.12"}}
+```
+**Example 5: To retrieve details about Elastic IP addresses in EC2-Classic**  
+The following `describe-addresses` example displays details about your Elastic IP addresses for use in EC2-Classic.  
 
 ```
-
-**Example 5: To retrieve details about Elastic IP addresses in EC2-Classic**
-
-The following `describe-addresses` example displays details about your Elastic IP addresses for use in EC2-Classic.
-
+aws ec2 describe-addresses \
+    --filters {{"Name=domain,Values=standard"}}
 ```
-`aws ec2 describe-addresses \
- --filters `"Name=domain,Values=standard"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -189,18 +165,14 @@ Output:
     ]
 }
 ```
-
-**Example 6: To retrieve details about an Elastic IP addresses specified by its public IP address**
-
-The following `describe-addresses` example displays details about the Elastic IP address with the value `203.0.110.25`, which is associated with an instance in EC2-Classic.
+**Example 6: To retrieve details about an Elastic IP addresses specified by its public IP address**  
+The following `describe-addresses` example displays details about the Elastic IP address with the value `203.0.110.25`, which is associated with an instance in EC2-Classic.  
 
 ```
-`aws ec2 describe-addresses \
- --public-ips `203.0.110.25``
-
+aws ec2 describe-addresses \
+    --public-ips {{203.0.110.25}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -214,20 +186,13 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAddresses](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-addresses.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAddresses](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-addresses.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-addresses.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { DescribeAddressesCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -259,26 +224,19 @@ export const main = async ({ allocationId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DescribeAddresses](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAddressesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeAddresses](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAddressesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeAddressesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified Elastic IP address for instances in EC2-Classic.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified Elastic IP address for instances in EC2-Classic.**  
 
 ```
 Get-EC2Address -AllocationId eipalloc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocationId            : eipalloc-12345678
@@ -290,22 +248,17 @@ NetworkInterfaceOwnerId : 12345678
 PrivateIpAddress        : 10.0.2.172
 PublicIp                : 198.51.100.2
 ```
-
-**Example 2: This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.**
+**Example 2: This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.**  
 
 ```
 Get-EC2Address -Filter @{ Name="domain";Values="vpc" }
-
 ```
-
-**Example 3: This example describes the specified Elastic IP address for instances in EC2-Classic.**
+**Example 3: This example describes the specified Elastic IP address for instances in EC2-Classic.**  
 
 ```
 Get-EC2Address -PublicIp 203.0.113.17
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocationId            :
@@ -317,44 +270,34 @@ NetworkInterfaceOwnerId :
 PrivateIpAddress        :
 PublicIp                : 203.0.113.17
 ```
-
-**Example 4: This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.**
+**Example 4: This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.**  
 
 ```
 Get-EC2Address -Filter @{ Name="domain";Values="standard" }
-
 ```
-
-**Example 5: This example describes all your Elastic IP addresses.**
+**Example 5: This example describes all your Elastic IP addresses.**  
 
 ```
 Get-EC2Address
-
 ```
-
-**Example 6: This example returns the public and private IP for the instance id provided in filter**
+**Example 6: This example returns the public and private IP for the instance id provided in filter**  
 
 ```
 Get-EC2Address -Region eu-west-1 -Filter @{Name="instance-id";Values="i-0c12d3f4f567ffb89"} | Select-Object PrivateIpAddress, PublicIp
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 PrivateIpAddress PublicIp
 ---------------- --------
 10.0.0.99        63.36.5.227
 ```
-
-**Example 7: This example retrieves all the Elastic IPs with its allocation id, association id and instance ids**
+**Example 7: This example retrieves all the Elastic IPs with its allocation id, association id and instance ids**  
 
 ```
 Get-EC2Address -Region eu-west-1 | Select-Object InstanceId, AssociationId, AllocationId, PublicIp
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          AssociationId              AllocationId               PublicIp
@@ -367,15 +310,12 @@ i-0f1bf2f34c5678d09 eipassoc-0e12934568a952d96 eipalloc-0e1c23e4d5e6789e4 37.218
 i-012e3cb4df567e8aa eipassoc-0d1b2fa4d67d03810 eipalloc-0123f456f78a01b58 37.210.82.27
 i-0123bcf4b567890e1 eipassoc-01d2345f678903fb1 eipalloc-0e1db23cfef5c45c7 37.215.222.270
 ```
-
-**Example 8: This example fetches list of EC2 IP addresses matching tag key 'Category' with value 'Prod'**
+**Example 8: This example fetches list of EC2 IP addresses matching tag key 'Category' with value 'Prod'**  
 
 ```
 Get-EC2Address -Filter @{Name="tag:Category";Values="Prod"}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocationId            : eipalloc-0123f456f81a01b58
@@ -392,21 +332,15 @@ PublicIp                : 34.250.81.29
 PublicIpv4Pool          : amazon
 Tags                    : {Category, Name}
 ```
++  For API details, see [DescribeAddresses](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeAddresses](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified Elastic IP address for instances in EC2-Classic.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified Elastic IP address for instances in EC2-Classic.**  
 
 ```
 Get-EC2Address -AllocationId eipalloc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocationId            : eipalloc-12345678
@@ -418,22 +352,17 @@ NetworkInterfaceOwnerId : 12345678
 PrivateIpAddress        : 10.0.2.172
 PublicIp                : 198.51.100.2
 ```
-
-**Example 2: This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.**
+**Example 2: This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.**  
 
 ```
 Get-EC2Address -Filter @{ Name="domain";Values="vpc" }
-
 ```
-
-**Example 3: This example describes the specified Elastic IP address for instances in EC2-Classic.**
+**Example 3: This example describes the specified Elastic IP address for instances in EC2-Classic.**  
 
 ```
 Get-EC2Address -PublicIp 203.0.113.17
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocationId            :
@@ -445,44 +374,34 @@ NetworkInterfaceOwnerId :
 PrivateIpAddress        :
 PublicIp                : 203.0.113.17
 ```
-
-**Example 4: This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.**
+**Example 4: This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.**  
 
 ```
 Get-EC2Address -Filter @{ Name="domain";Values="standard" }
-
 ```
-
-**Example 5: This example describes all your Elastic IP addresses.**
+**Example 5: This example describes all your Elastic IP addresses.**  
 
 ```
 Get-EC2Address
-
 ```
-
-**Example 6: This example returns the public and private IP for the instance id provided in filter**
+**Example 6: This example returns the public and private IP for the instance id provided in filter**  
 
 ```
 Get-EC2Address -Region eu-west-1 -Filter @{Name="instance-id";Values="i-0c12d3f4f567ffb89"} | Select-Object PrivateIpAddress, PublicIp
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 PrivateIpAddress PublicIp
 ---------------- --------
 10.0.0.99        63.36.5.227
 ```
-
-**Example 7: This example retrieves all the Elastic IPs with its allocation id, association id and instance ids**
+**Example 7: This example retrieves all the Elastic IPs with its allocation id, association id and instance ids**  
 
 ```
 Get-EC2Address -Region eu-west-1 | Select-Object InstanceId, AssociationId, AllocationId, PublicIp
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          AssociationId              AllocationId               PublicIp
@@ -495,15 +414,12 @@ i-0f1bf2f34c5678d09 eipassoc-0e12934568a952d96 eipalloc-0e1c23e4d5e6789e4 37.218
 i-012e3cb4df567e8aa eipassoc-0d1b2fa4d67d03810 eipalloc-0123f456f78a01b58 37.210.82.27
 i-0123bcf4b567890e1 eipassoc-01d2345f678903fb1 eipalloc-0e1db23cfef5c45c7 37.215.222.270
 ```
-
-**Example 8: This example fetches list of EC2 IP addresses matching tag key 'Category' with value 'Prod'**
+**Example 8: This example fetches list of EC2 IP addresses matching tag key 'Category' with value 'Prod'**  
 
 ```
 Get-EC2Address -Filter @{Name="tag:Category";Values="Prod"}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AllocationId            : eipalloc-0123f456f81a01b58
@@ -520,20 +436,13 @@ PublicIp                : 34.250.81.29
 PublicIpv4Pool          : amazon
 Tags                    : {Category, Name}
 ```
++  For API details, see [DescribeAddresses](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeAddresses](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -544,14 +453,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeAddresses](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeAddresses](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

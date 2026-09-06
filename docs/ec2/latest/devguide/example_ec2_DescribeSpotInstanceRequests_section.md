@@ -1,22 +1,22 @@
+
+
 # Use `DescribeSpotInstanceRequests` with a CLI
+<a name="example_ec2_DescribeSpotInstanceRequests_section"></a>
 
 The following code examples show how to use `DescribeSpotInstanceRequests`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To describe a Spot Instance request**
-
-The following `describe-spot-instance-requests` example describes the specified Spot Instance request.
-
-```
-`aws ec2 describe-spot-instance-requests \
- --spot-instance-request-ids `sir-08b93456``
+**AWS CLI**  
+**Example 1: To describe a Spot Instance request**  
+The following `describe-spot-instance-requests` example describes the specified Spot Instance request.  
 
 ```
-
-Output:
+aws ec2 describe-spot-instance-requests \
+    --spot-instance-request-ids {{sir-08b93456}}
+```
+Output:  
 
 ```
 {
@@ -78,20 +78,16 @@ Output:
     ]
 }
 ```
-
-**Example 2: To describe Spot Instance requests based on filters**
-
-The following `describe-spot-instance-requests` example uses filters to scope the results to Spot Instance requests with the specified instance type in the specified Availability Zone. The example uses the `--query` parameter to display only the instance IDs.
+**Example 2: To describe Spot Instance requests based on filters**  
+The following `describe-spot-instance-requests` example uses filters to scope the results to Spot Instance requests with the specified instance type in the specified Availability Zone. The example uses the `--query` parameter to display only the instance IDs.  
 
 ```
-`aws ec2 describe-spot-instance-requests \
- --filters `Name=launch.instance-type,Values=m3.medium` `Name=launched-availability-zone,Values=us-east-2a` \
- --query `"SpotInstanceRequests[*].[InstanceId]"` \
- --output `text``
-
+aws ec2 describe-spot-instance-requests \
+    --filters {{Name=launch.instance-type,Values=m3.medium}} {{Name=launched-availability-zone,Values=us-east-2a}} \
+    --query {{"SpotInstanceRequests[*].[InstanceId]"}} \
+    --output {{text}}
 ```
-
-Output:
+Output:  
 
 ```
 i-057750d42936e468a
@@ -99,39 +95,28 @@ i-001efd250faaa6ffa
 i-027552a73f021f3bd
 ...
 ```
-
-For additional examples using filters, see [Listing and filtering your resources](../../../AWSEC2/latest/UserGuide/Using_Filtering.md#Filtering_Resources_CLI "../../../AWSEC2/latest/UserGuide/Using_Filtering.md#Filtering_Resources_CLI") in the _Amazon Elastic Compute Cloud User Guide_.
-
-**Example 3: To describe Spot Instance requests based on tags**
-
-The following `describe-spot-instance-requests` example uses tag filters to scope the results to Spot Instance requests that have the tag `cost-center=cc123`.
+For additional examples using filters, see [Listing and filtering your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI) in the *Amazon Elastic Compute Cloud User Guide*.  
+**Example 3: To describe Spot Instance requests based on tags**  
+The following `describe-spot-instance-requests` example uses tag filters to scope the results to Spot Instance requests that have the tag `cost-center=cc123`.  
 
 ```
-`aws ec2 describe-spot-instance-requests \
- --filters `Name=tag:cost-center,Values=cc123``
-
+aws ec2 describe-spot-instance-requests \
+    --filters {{Name=tag:cost-center,Values=cc123}}
 ```
+For an example of the output for `describe-spot-instance-requests`, see Example 1.  
+For additional examples using tag filters, see [Working with tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#Using_Tags_CLI) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeSpotInstanceRequests](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-instance-requests.html) in *AWS CLI Command Reference*. 
 
-For an example of the output for `describe-spot-instance-requests`, see Example 1.
+------
+#### [ PowerShell ]
 
-For additional examples using tag filters, see [Working with tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI") in the _Amazon EC2 User Guide_.
-
-- For API details, see
-  [DescribeSpotInstanceRequests](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-instance-requests.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-instance-requests.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified Spot instance request.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified Spot instance request.**  
 
 ```
 Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ActualBlockHourlyPrice   :
@@ -151,28 +136,20 @@ Status                   : Amazon.EC2.Model.SpotInstanceStatus
 Tags                     : {Name}
 Type                     : one-time
 ```
-
-**Example 2: This example describes all your Spot instance requests.**
+**Example 2: This example describes all your Spot instance requests.**  
 
 ```
 Get-EC2SpotInstanceRequest
-
 ```
++  For API details, see [DescribeSpotInstanceRequests](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeSpotInstanceRequests](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified Spot instance request.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified Spot instance request.**  
 
 ```
 Get-EC2SpotInstanceRequest -SpotInstanceRequestId sir-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ActualBlockHourlyPrice   :
@@ -192,18 +169,13 @@ Status                   : Amazon.EC2.Model.SpotInstanceStatus
 Tags                     : {Name}
 Type                     : one-time
 ```
-
-**Example 2: This example describes all your Spot instance requests.**
+**Example 2: This example describes all your Spot instance requests.**  
 
 ```
 Get-EC2SpotInstanceRequest
-
 ```
++  For API details, see [DescribeSpotInstanceRequests](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeSpotInstanceRequests](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

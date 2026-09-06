@@ -1,10 +1,11 @@
+
+
 # AWS Wavelength actions
+<a name="operation-list-wavelength"></a>
 
-The following API actions are available for AWS Wavelength. For more information, see the
-[AWS Wavelength documentation](../../../index.md "../../../index.md").
+The following API actions are available for AWS Wavelength. For more information, see the [AWS Wavelength documentation](https://docs.aws.amazon.com/).
 
-###### Carrier gateways
-
-- [CreateCarrierGateway](../../../AWSEC2/latest/APIReference/API_CreateCarrierGateway.md "../../../AWSEC2/latest/APIReference/API_CreateCarrierGateway.md")
-- [DeleteCarrierGateway](../../../AWSEC2/latest/APIReference/API_DeleteCarrierGateway.md "../../../AWSEC2/latest/APIReference/API_DeleteCarrierGateway.md")
-- [DescribeCarrierGateways](../../../AWSEC2/latest/APIReference/API_DescribeCarrierGateways.md "../../../AWSEC2/latest/APIReference/API_DescribeCarrierGateways.md")
+**Carrier gateways**
++ [CreateCarrierGateway](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCarrierGateway.html)
++ [DeleteCarrierGateway](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteCarrierGateway.html)
++ [DescribeCarrierGateways](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCarrierGateways.html)

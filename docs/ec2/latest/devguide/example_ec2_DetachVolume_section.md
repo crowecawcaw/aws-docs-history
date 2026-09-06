@@ -1,29 +1,26 @@
+
+
 # Use `DetachVolume` with a CLI
+<a name="example_ec2_DetachVolume_section"></a>
 
 The following code examples show how to use `DetachVolume`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md) 
 
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To detach a volume from an instance**
-
-This example command detaches the volume (`vol-049df61146c4d7901`) from the instance it is attached to.
-
-Command:
+**AWS CLI**  
+**To detach a volume from an instance**  
+This example command detaches the volume (`vol-049df61146c4d7901`) from the instance it is attached to.  
+Command:  
 
 ```
-`aws ec2 detach-volume --volume-id `vol-1234567890abcdef0``
-
+aws ec2 detach-volume --volume-id {{vol-1234567890abcdef0}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -34,23 +31,18 @@ Output:
     "Device": "/dev/sdb"
 }
 ```
++  For API details, see [DetachVolume](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/detach-volume.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DetachVolume](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/detach-volume.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/detach-volume.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example detaches the specified volume.**
+**Tools for PowerShell V4**  
+**Example 1: This example detaches the specified volume.**  
 
 ```
 Dismount-EC2Volume -VolumeId vol-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttachTime          : 12/22/2015 1:53:58 AM
@@ -60,28 +52,20 @@ InstanceId          : i-1a2b3c4d
 State               : detaching
 VolumeId            : vol-12345678
 ```
-
-**Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.**
+**Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.**  
 
 ```
 Dismount-EC2Volume -VolumeId vol-12345678 -InstanceId i-1a2b3c4d -Device /dev/sdh
-
 ```
++  For API details, see [DetachVolume](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DetachVolume](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example detaches the specified volume.**
+**Tools for PowerShell V5**  
+**Example 1: This example detaches the specified volume.**  
 
 ```
 Dismount-EC2Volume -VolumeId vol-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttachTime          : 12/22/2015 1:53:58 AM
@@ -91,18 +75,13 @@ InstanceId          : i-1a2b3c4d
 State               : detaching
 VolumeId            : vol-12345678
 ```
-
-**Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.**
+**Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.**  
 
 ```
 Dismount-EC2Volume -VolumeId vol-12345678 -InstanceId i-1a2b3c4d -Device /dev/sdh
-
 ```
++  For API details, see [DetachVolume](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DetachVolume](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

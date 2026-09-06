@@ -1,22 +1,19 @@
+
+
 # Use `CreateLaunchTemplate` with an AWS SDK or CLI
+<a name="example_ec2_CreateLaunchTemplate_section"></a>
 
 The following code examples show how to use `CreateLaunchTemplate`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
 
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -78,31 +75,23 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
+```
++  For API details, see [CreateLaunchTemplate](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/CreateLaunchTemplate) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create a launch template**  
+The following `create-launch-template` example creates a launch template that specifies the subnet in which to launch the instance , assigns a public IP address and an IPv6 address to the instance, and creates a tag for the instance.  
 
 ```
-
-- For API details, see
-  [CreateLaunchTemplate](../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateLaunchTemplate.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateLaunchTemplate.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a launch template**
-
-The following `create-launch-template` example creates a launch template that specifies the subnet in which to launch the instance , assigns a public IP address and an IPv6 address to the instance, and creates a tag for the instance.
-
+aws ec2 create-launch-template \
+    --launch-template-name {{TemplateForWebServer}} \
+    --version-description {{WebVersion1}} \
+    --launch-template-data '{{{"NetworkInterfaces":[{"AssociatePublicIpAddress":true,"DeviceIndex":0,"Ipv6AddressCount":1,"SubnetId":"subnet-7b16de0c"}],"ImageId":"ami-8c1be5f6","InstanceType":"t2.small","TagSpecifications":[{"ResourceType":"instance","Tags":[{"Key":"purpose","Value":"webserver"}]}]}}}'
 ```
-`aws ec2 create-launch-template \
- --launch-template-name `TemplateForWebServer` \
- --version-description `WebVersion1` \
- --launch-template-data '`{"NetworkInterfaces":[{"AssociatePublicIpAddress":true,"DeviceIndex":0,"Ipv6AddressCount":1,"SubnetId":"subnet-7b16de0c"}],"ImageId":"ami-8c1be5f6","InstanceType":"t2.small","TagSpecifications":[{"ResourceType":"instance","Tags":[{"Key":"purpose","Value":"webserver"}]}]}`'`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -116,23 +105,17 @@ Output:
     }
 }
 ```
-
-For more information, see Launching an Instance from a Launch Template in the _Amazon Elastic Compute Cloud User Guide_.
-For information about quoting JSON-formatted parameters, see Quoting Strings in the _AWS Command Line Interface User Guide_.
-
-**Example 2: To create a launch template for Amazon EC2 Auto Scaling**
-
-The following `create-launch-template` example creates a launch template with multiple tags and a block device mapping to specify an additional EBS volume when an instance launches. Specify a value for `Groups` that corresponds to security groups for the VPC that your Auto Scaling group will launch instances into. Specify the VPC and subnets as properties of the Auto Scaling group.
+For more information, see Launching an Instance from a Launch Template in the *Amazon Elastic Compute Cloud User Guide*. For information about quoting JSON-formatted parameters, see Quoting Strings in the *AWS Command Line Interface User Guide*.  
+**Example 2: To create a launch template for Amazon EC2 Auto Scaling**  
+The following `create-launch-template` example creates a launch template with multiple tags and a block device mapping to specify an additional EBS volume when an instance launches. Specify a value for `Groups` that corresponds to security groups for the VPC that your Auto Scaling group will launch instances into. Specify the VPC and subnets as properties of the Auto Scaling group.  
 
 ```
-`aws ec2 create-launch-template \
- --launch-template-name `TemplateForAutoScaling` \
- --version-description `AutoScalingVersion1` \
- --launch-template-data '`{"NetworkInterfaces":[{"DeviceIndex":0,"AssociatePublicIpAddress":true,"Groups":["sg-7c227019,sg-903004f8"],"DeleteOnTermination":true}],"ImageId":"ami-b42209de","InstanceType":"m4.large","TagSpecifications":[{"ResourceType":"instance","Tags":[{"Key":"environment","Value":"production"},{"Key":"purpose","Value":"webserver"}]},{"ResourceType":"volume","Tags":[{"Key":"environment","Value":"production"},{"Key":"cost-center","Value":"cc123"}]}],"BlockDeviceMappings":[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":100}}]}`' --region `us-east-1``
-
+aws ec2 create-launch-template \
+    --launch-template-name {{TemplateForAutoScaling}} \
+    --version-description {{AutoScalingVersion1}} \
+    --launch-template-data '{{{"NetworkInterfaces":[{"DeviceIndex":0,"AssociatePublicIpAddress":true,"Groups":["sg-7c227019,sg-903004f8"],"DeleteOnTermination":true}],"ImageId":"ami-b42209de","InstanceType":"m4.large","TagSpecifications":[{"ResourceType":"instance","Tags":[{"Key":"environment","Value":"production"},{"Key":"purpose","Value":"webserver"}]},{"ResourceType":"volume","Tags":[{"Key":"environment","Value":"production"},{"Key":"cost-center","Value":"cc123"}]}],"BlockDeviceMappings":[{"DeviceName":"/dev/sda1","Ebs":{"VolumeSize":100}}]}}}' --region {{us-east-1}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -146,22 +129,16 @@ Output:
     }
 }
 ```
-
-For more information, see Creating a Launch Template for an Auto Scaling Group in the _Amazon EC2 Auto Scaling User Guide_.
-For information about quoting JSON-formatted parameters, see Quoting Strings in the _AWS Command Line Interface User Guide_.
-
-**Example 3: To create a launch template that specifies encryption of EBS volumes**
-
-The following `create-launch-template` example creates a launch template that includes encrypted EBS volumes created from an unencrypted snapshot. It also tags the volumes during creation. If encryption by default is disabled, you must specify the `"Encrypted"` option as shown in the following example. If you use the `"KmsKeyId"` option to specify a customer managed CMK, you also must specify the `"Encrypted"` option even if encryption by default is enabled.
+For more information, see Creating a Launch Template for an Auto Scaling Group in the *Amazon EC2 Auto Scaling User Guide*. For information about quoting JSON-formatted parameters, see Quoting Strings in the *AWS Command Line Interface User Guide*.  
+**Example 3: To create a launch template that specifies encryption of EBS volumes**  
+The following `create-launch-template` example creates a launch template that includes encrypted EBS volumes created from an unencrypted snapshot. It also tags the volumes during creation. If encryption by default is disabled, you must specify the `"Encrypted"` option as shown in the following example. If you use the `"KmsKeyId"` option to specify a customer managed CMK, you also must specify the `"Encrypted"` option even if encryption by default is enabled.  
 
 ```
-`aws ec2 create-launch-template \
- --launch-template-name `TemplateForEncryption` \
- --launch-template-data `file://config.json``
-
+aws ec2 create-launch-template \
+  --launch-template-name {{TemplateForEncryption}} \
+  --launch-template-data {{file://config.json}}
 ```
-
-Contents of `config.json`:
+Contents of `config.json`:  
 
 ```
 {
@@ -192,8 +169,7 @@ Contents of `config.json`:
     ]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -207,22 +183,14 @@ Output:
     }
 }
 ```
+For more information, see Restoring an Amazon EBS Volume from a Snapshot and Encryption by Default in the *Amazon Elastic Compute Cloud User Guide*.  
++  For API details, see [CreateLaunchTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-launch-template.html) in *AWS CLI Command Reference*. 
 
-For more information, see Restoring an Amazon EBS Volume from a Snapshot and Encryption by Default in the _Amazon Elastic Compute Cloud User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [CreateLaunchTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-launch-template.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-launch-template.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
 ```
     const ssmClient = new SSMClient({});
@@ -245,25 +213,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
           KeyName: NAMES.keyPairName,
         },
       }),
-
-
 ```
++  For API details, see [CreateLaunchTemplate](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLaunchTemplateCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateLaunchTemplate](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLaunchTemplateCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLaunchTemplateCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
-
-This example creates a launch template that includes an instance profile that grants specific permissions to the instance, and a user data Bash script that runs on the instance after it starts.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
+This example creates a launch template that includes an instance profile that grants specific permissions to the instance, and a user data Bash script that runs on the instance after it starts.  
 
 ```
 class AutoScalingWrapper:
@@ -376,15 +334,9 @@ class AutoScalingWrapper:
                 )
             log.error(f"Full error:\n\t{err}")
         return template
-
-
-
 ```
++  For API details, see [CreateLaunchTemplate](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateLaunchTemplate) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateLaunchTemplate](../../../goto/boto3/ec2-2016-11-15/CreateLaunchTemplate.md "../../../goto/boto3/ec2-2016-11-15/CreateLaunchTemplate.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

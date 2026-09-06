@@ -1,23 +1,22 @@
+
+
 # Use `GetPasswordData` with an AWS SDK or CLI
+<a name="example_ec2_GetPasswordData_section"></a>
 
 The following code examples show how to use `GetPasswordData`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get the encrypted password**
-
-This example gets the encrypted password.
-
-Command:
+**AWS CLI**  
+**To get the encrypted password**  
+This example gets the encrypted password.  
+Command:  
 
 ```
-`aws ec2 get-password-data --instance-id `i-1234567890abcdef0``
-
+aws ec2 get-password-data --instance-id {{i-1234567890abcdef0}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -30,19 +29,14 @@ e1DQ7PY4an/DgZT4mwcpRFigzhniQgDDeO1InvSDcwoUTwNs0Y1S8ouri2W4n5GNlriM3Q0AnNVelVz/
 DPGzKrF5yLlf3etP2L4ZR6CvG7K1hx7VKOQVN32Dajw=="
 }
 ```
-
-**To get the decrypted password**
-
-This example gets the decrypted password.
-
-Command:
+**To get the decrypted password**  
+This example gets the decrypted password.  
+Command:  
 
 ```
-`aws ec2 get-password-data --instance-id `i-1234567890abcdef0` --priv-launch-key C:\Keys\MyKeyPair.pem`
-
+aws ec2 get-password-data --instance-id  {{i-1234567890abcdef0}} --priv-launch-key C:\Keys\MyKeyPair.pem
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -51,20 +45,13 @@ Output:
     "PasswordData": "&ViJ652e*u"
 }
 ```
++  For API details, see [GetPasswordData](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/get-password-data.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetPasswordData](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/get-password-data.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/get-password-data.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -86,7 +73,7 @@ public class GetPasswordData {
         final String usage = """
 
                 Usage:
-                   <instanceId>
+                   <instanceId> 
 
                 Where:
                    instanceId - An instance id value that you can obtain from the AWS Management Console.\s
@@ -138,106 +125,78 @@ public class GetPasswordData {
         return response.thenApply(resp -> null);
     }
 }
-
-
 ```
++  For API details, see [GetPasswordData](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/GetPasswordData) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [GetPasswordData](../../../goto/SdkForJavaV2/ec2-2016-11-15/GetPasswordData.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/GetPasswordData.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example decrypts the password that Amazon EC2 assigned to the Administrator account for the specified Windows instance. As a pem file was specified, the setting of the -Decrypt switch is automatically assumed.**
+**Tools for PowerShell V4**  
+**Example 1: This example decrypts the password that Amazon EC2 assigned to the Administrator account for the specified Windows instance. As a pem file was specified, the setting of the -Decrypt switch is automatically assumed.**  
 
 ```
 Get-EC2PasswordData -InstanceId i-12345678 -PemFile C:\path\my-key-pair.pem
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mYZ(PA9?C)Q
 ```
-
-**Example 2: (Windows PowerShell only) Inspects the instance to determine the name of the keypair used to launch the instance and then attempts to find the corresponding keypair data in the configuration store of the AWS Toolkit for Visual Studio. If the keypair data is found the password is decrypted.**
+**Example 2: (Windows PowerShell only) Inspects the instance to determine the name of the keypair used to launch the instance and then attempts to find the corresponding keypair data in the configuration store of the AWS Toolkit for Visual Studio. If the keypair data is found the password is decrypted.**  
 
 ```
 Get-EC2PasswordData -InstanceId i-12345678 -Decrypt
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mYZ(PA9?C)Q
 ```
-
-**Example 3: Returns the encrypted password data for the instance.**
+**Example 3: Returns the encrypted password data for the instance.**  
 
 ```
 Get-EC2PasswordData -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 iVz3BAK/WAXV.....dqt8WeMA==
 ```
++  For API details, see [GetPasswordData](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [GetPasswordData](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example decrypts the password that Amazon EC2 assigned to the Administrator account for the specified Windows instance. As a pem file was specified, the setting of the -Decrypt switch is automatically assumed.**
+**Tools for PowerShell V5**  
+**Example 1: This example decrypts the password that Amazon EC2 assigned to the Administrator account for the specified Windows instance. As a pem file was specified, the setting of the -Decrypt switch is automatically assumed.**  
 
 ```
 Get-EC2PasswordData -InstanceId i-12345678 -PemFile C:\path\my-key-pair.pem
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mYZ(PA9?C)Q
 ```
-
-**Example 2: (Windows PowerShell only) Inspects the instance to determine the name of the keypair used to launch the instance and then attempts to find the corresponding keypair data in the configuration store of the AWS Toolkit for Visual Studio. If the keypair data is found the password is decrypted.**
+**Example 2: (Windows PowerShell only) Inspects the instance to determine the name of the keypair used to launch the instance and then attempts to find the corresponding keypair data in the configuration store of the AWS Toolkit for Visual Studio. If the keypair data is found the password is decrypted.**  
 
 ```
 Get-EC2PasswordData -InstanceId i-12345678 -Decrypt
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 mYZ(PA9?C)Q
 ```
-
-**Example 3: Returns the encrypted password data for the instance.**
+**Example 3: Returns the encrypted password data for the instance.**  
 
 ```
 Get-EC2PasswordData -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 iVz3BAK/WAXV.....dqt8WeMA==
 ```
++  For API details, see [GetPasswordData](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [GetPasswordData](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

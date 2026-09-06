@@ -1,28 +1,25 @@
+
+
 # Use `DescribeImages` with an AWS SDK or CLI
+<a name="example_ec2_DescribeImages_section"></a>
 
 The following code examples show how to use `DescribeImages`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md) 
++  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
-- [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -88,11 +85,8 @@ function ec2_describe_images() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -137,30 +131,22 @@ function aws_cli_error_log() {
 
   return 0
 }
+```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages) in *AWS CLI Command Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To describe an AMI**  
+The following `describe-images` example describes the specified AMI in the specified Region.  
 
 ```
-
-- For API details, see
-  [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  in _AWS CLI Command Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe an AMI**
-
-The following `describe-images` example describes the specified AMI in the specified Region.
-
+aws ec2 describe-images \
+    --region {{us-east-1}} \
+    --image-ids {{ami-1234567890EXAMPLE}}
 ```
-`aws ec2 describe-images \
- --region `us-east-1` \
- --image-ids `ami-1234567890EXAMPLE``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -200,58 +186,40 @@ Output:
     ]
 }
 ```
-
-For more information, see [Amazon Machine Images (AMI)](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") in the _Amazon EC2 User Guide_.
-
-**Example 2: To describe AMIs based on filters**
-
-The following `describe-images` example describes Windows AMIs provided by Amazon that are backed by Amazon EBS.
+For more information, see [Amazon Machine Images (AMI)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) in the *Amazon EC2 User Guide*.  
+**Example 2: To describe AMIs based on filters**  
+The following `describe-images` example describes Windows AMIs provided by Amazon that are backed by Amazon EBS.  
 
 ```
-`aws ec2 describe-images \
- --owners `amazon` \
- --filters `"Name=platform,Values=windows"` `"Name=root-device-type,Values=ebs"``
+aws ec2 describe-images \
+    --owners {{amazon}} \
+    --filters {{"Name=platform,Values=windows"}} {{"Name=root-device-type,Values=ebs"}}
+```
+For an example of the output for `describe-images`, see Example 1.  
+For additional examples using filters, see [Listing and filtering your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI) in the *Amazon EC2 User Guide*.  
+**Example 3: To describe AMIs based on tags**  
+The following `describe-images` example describes all AMIs that have the tag `Type=Custom`. The example uses the `--query` parameter to display only the AMI IDs.  
 
 ```
-
-For an example of the output for `describe-images`, see Example 1.
-
-For additional examples using filters, see [Listing and filtering your resources](../../../AWSEC2/latest/UserGuide/Using_Filtering.md#Filtering_Resources_CLI "../../../AWSEC2/latest/UserGuide/Using_Filtering.md#Filtering_Resources_CLI") in the _Amazon EC2 User Guide_.
-
-**Example 3: To describe AMIs based on tags**
-
-The following `describe-images` example describes all AMIs that have the tag `Type=Custom`. The example uses the `--query` parameter to display only the AMI IDs.
-
+aws ec2 describe-images \
+    --filters {{"Name=tag:Type,Values=Custom"}} \
+    --query '{{Images[*].[ImageId]}}' \
+    --output {{text}}
 ```
-`aws ec2 describe-images \
- --filters `"Name=tag:Type,Values=Custom"` \
- --query '`Images[*].[ImageId]`' \
- --output `text``
-
-```
-
-Output:
+Output:  
 
 ```
 ami-1234567890EXAMPLE
 ami-0abcdef1234567890
 ```
+For additional examples using tag filters, see [Working with tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#Using_Tags_CLI) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html) in *AWS CLI Command Reference*. 
 
-For additional examples using tag filters, see [Working with tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI") in the _Amazon EC2 User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [DescribeImages](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-images.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { EC2Client, paginateDescribeImages } from "@aws-sdk/client-ec2";
@@ -314,26 +282,19 @@ export const main = async ({ architecture, pageSize }) => {
     throw caught;
   }
 };
-
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeImagesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeImages](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeImagesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeImagesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified AMI.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified AMI.**  
 
 ```
 Get-EC2Image -ImageId ami-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Architecture        : x86_64
@@ -360,42 +321,30 @@ StateReason         :
 Tags                : {Name}
 VirtualizationType  : hvm
 ```
-
-**Example 2: This example describes the AMIs that you own.**
+**Example 2: This example describes the AMIs that you own.**  
 
 ```
 Get-EC2Image -owner self
-
 ```
-
-**Example 3: This example describes the public AMIs that run Microsoft Windows Server.**
+**Example 3: This example describes the public AMIs that run Microsoft Windows Server.**  
 
 ```
 Get-EC2Image -Filter @{ Name="platform"; Values="windows" }
-
 ```
-
-**Example 4: This example describes all public AMIs in the 'us-west-2' region.**
+**Example 4: This example describes all public AMIs in the 'us-west-2' region.**  
 
 ```
 Get-EC2Image -Region us-west-2
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeImages](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified AMI.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified AMI.**  
 
 ```
 Get-EC2Image -ImageId ami-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Architecture        : x86_64
@@ -422,41 +371,28 @@ StateReason         :
 Tags                : {Name}
 VirtualizationType  : hvm
 ```
-
-**Example 2: This example describes the AMIs that you own.**
+**Example 2: This example describes the AMIs that you own.**  
 
 ```
 Get-EC2Image -owner self
-
 ```
-
-**Example 3: This example describes the public AMIs that run Microsoft Windows Server.**
+**Example 3: This example describes the public AMIs that run Microsoft Windows Server.**  
 
 ```
 Get-EC2Image -Filter @{ Name="platform"; Values="windows" }
-
 ```
-
-**Example 4: This example describes all public AMIs in the 'us-west-2' region.**
+**Example 4: This example describes all public AMIs in the 'us-west-2' region.**  
 
 ```
 Get-EC2Image -Region us-west-2
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeImages](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class EC2InstanceWrapper:
@@ -504,24 +440,14 @@ class EC2InstanceWrapper:
                 logger.error("One or more of the AMI IDs does not exist.")
             raise
         return images
-
-
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeImages) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeImages](../../../goto/boto3/ec2-2016-11-15/DescribeImages.md "../../../goto/boto3/ec2-2016-11-15/DescribeImages.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
     pub async fn list_images(&self, ids: Vec<Parameter>) -> Result<Vec<Image>, EC2Error> {
@@ -540,11 +466,8 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             Ok(images)
         }
     }
-
-
 ```
-
-Using the list\_images function with SSM to limit based on your environment. For more details on SSM, see https://docs.aws.amazon.com/systems-manager/latest/userguide/example\_ssm\_GetParameters\_section.html.
+Using the list\_images function with SSM to limit based on your environment. For more details on SSM, see https://docs.aws.amazon.com/systems-manager/latest/userguide/example\_ssm\_GetParameters\_section.html.  
 
 ```
     async fn find_image(&mut self) -> Result<ScenarioImage, EC2Error> {
@@ -568,23 +491,14 @@ Using the list\_images function with SSM to limit based on your environment. For
         let ami = self.util.select_scenario_image(amzn2_images)?;
         Ok(ami)
     }
-
-
 ```
++  For API details, see [DescribeImages](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_images) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeImages](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_images "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_images")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -595,30 +509,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeImages](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeImages](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
 
     /// Return an array of `EC2ClientTypes.Image` objects describing all of
     /// the images in the specified array.
-    ///
+    /// 
     /// - Parameter idList: A list of image ID strings indicating the images
     ///   to return details about.
     ///
@@ -649,14 +554,9 @@ import AWSEC2
             return []
         }
     }
-
-
 ```
++  For API details, see [DescribeImages](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeimages(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DescribeImages](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeimages(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeimages(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

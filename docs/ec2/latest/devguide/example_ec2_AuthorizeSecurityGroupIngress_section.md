@@ -1,35 +1,32 @@
+
+
 # Use `AuthorizeSecurityGroupIngress` with an AWS SDK or CLI
+<a name="example_ec2_AuthorizeSecurityGroupIngress_section"></a>
 
 The following code examples show how to use `AuthorizeSecurityGroupIngress`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md) 
++  [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md) 
++  [Creating a relational database instance](example_rds_GettingStarted_036_section.md) 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md) 
++  [Getting started with document databases](example_docdb_GettingStarted_025_section.md) 
++  [Getting started with graph databases](example_ec2_GettingStarted_064_section.md) 
++  [Getting started with in-memory caching](example_ec2_GettingStarted_065_section.md) 
++  [Getting started with load balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
-- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Creating a relational database instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
-- [Getting started with document databases](example_docdb_GettingStarted_025_section.md "example_docdb_GettingStarted_025_section.md")
-- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Getting started with in-memory caching](example_ec2_GettingStarted_065_section.md "example_ec2_GettingStarted_065_section.md")
-- [Getting started with load balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md "example_elastic_load_balancing_v2_GettingStarted_058_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -92,23 +89,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
         // return the value to the caller.
         return ipString.Trim();
     }
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -207,11 +195,8 @@ function ec2_authorize_security_group_ingress() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -256,23 +241,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Authorize ingress to an Amazon Elastic Compute Cloud (Amazon EC2) group.
@@ -301,11 +277,8 @@ AwsDoc::EC2::authorizeSecurityGroupIngress(const Aws::String &groupID,
 
     return authorizeSecurityGroupIngressOutcome.IsSuccess();
 }
-
-
 ```
-
-Utility function to build an ingress rule.
+Utility function to build an ingress rule.  
 
 ```
 //! Build a sample ingress rule.
@@ -335,32 +308,24 @@ void buildSampleIngressRule(
 
     authorize_request.AddIpPermissions(permission2);
 }
+```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/AuthorizeSecurityGroupIngress) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To add a rule that allows inbound SSH traffic**  
+The following `authorize-security-group-ingress` example adds a rule that allows inbound traffic on TCP port 22 (SSH).  
 
 ```
-
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../goto/SdkForCpp/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/SdkForCpp/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To add a rule that allows inbound SSH traffic**
-
-The following `authorize-security-group-ingress` example adds a rule that allows inbound traffic on TCP port 22 (SSH).
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --protocol {{tcp}} \
+    --port {{22}} \
+    --cidr {{203.0.113.0/24}}
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --protocol `tcp` \
- --port `22` \
- --cidr `203.0.113.0/24``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -379,21 +344,17 @@ Output:
     ]
 }
 ```
-
-**Example 2: To add a rule that allows inbound HTTP traffic from another security group**
-
-The following `authorize-security-group-ingress` example adds a rule that allows inbound access on TCP port 80 from the source security group `sg-1a2b3c4d`. The source group must be in the same VPC or in a peer VPC (requires a VPC peering connection). Incoming traffic is allowed based on the private IP addresses of instances that are associated with the source security group (not the public IP address or Elastic IP address).
+**Example 2: To add a rule that allows inbound HTTP traffic from another security group**  
+The following `authorize-security-group-ingress` example adds a rule that allows inbound access on TCP port 80 from the source security group `sg-1a2b3c4d`. The source group must be in the same VPC or in a peer VPC (requires a VPC peering connection). Incoming traffic is allowed based on the private IP addresses of instances that are associated with the source security group (not the public IP address or Elastic IP address).  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --protocol `tcp` \
- --port `80` \
- --source-group `sg-1a2b3c4d``
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --protocol {{tcp}} \
+    --port {{80}} \
+    --source-group {{sg-1a2b3c4d}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -415,19 +376,15 @@ Output:
     ]
 }
 ```
-
-**Example 3: To add multiple rules in the same call**
-
-The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add two inbound rules, one that enables inbound access on TCP port 3389 (RDP) and the other that enables ping/ICMP.
+**Example 3: To add multiple rules in the same call**  
+The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add two inbound rules, one that enables inbound access on TCP port 3389 (RDP) and the other that enables ping/ICMP.  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --ip-permissions '`IpProtocol=tcp,FromPort=3389,ToPort=3389,IpRanges=[{CidrIp=172.31.0.0/16}]`' '`IpProtocol=icmp,FromPort=-1,ToPort=-1,IpRanges=[{CidrIp=172.31.0.0/16}]`'`
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --ip-permissions '{{IpProtocol=tcp,FromPort=3389,ToPort=3389,IpRanges=[{CidrIp=172.31.0.0/16}]}}' '{{IpProtocol=icmp,FromPort=-1,ToPort=-1,IpRanges=[{CidrIp=172.31.0.0/16}]}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -456,19 +413,15 @@ Output:
     ]
 }
 ```
-
-**Example 4: To add a rule for ICMP traffic**
-
-The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows the ICMP message `Destination Unreachable: Fragmentation Needed and Don't Fragment was Set` (Type 3, Code 4) from anywhere.
+**Example 4: To add a rule for ICMP traffic**  
+The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows the ICMP message `Destination Unreachable: Fragmentation Needed and Don't Fragment was Set` (Type 3, Code 4) from anywhere.  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --ip-permissions '`IpProtocol=icmp,FromPort=3,ToPort=4,IpRanges=[{CidrIp=0.0.0.0/0}]`'`
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --ip-permissions '{{IpProtocol=icmp,FromPort=3,ToPort=4,IpRanges=[{CidrIp=0.0.0.0/0}]}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -487,19 +440,15 @@ Output:
     ]
 }
 ```
-
-**Example 5: To add a rule for IPv6 traffic**
-
-The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows SSH access (port 22) from the IPv6 range `2001:db8:1234:1a00::/64`.
+**Example 5: To add a rule for IPv6 traffic**  
+The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows SSH access (port 22) from the IPv6 range `2001:db8:1234:1a00::/64`.  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --ip-permissions '`IpProtocol=tcp,FromPort=22,ToPort=22,Ipv6Ranges=[{CidrIpv6=2001:db8:1234:1a00::/64}]`'`
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --ip-permissions '{{IpProtocol=tcp,FromPort=22,ToPort=22,Ipv6Ranges=[{CidrIpv6=2001:db8:1234:1a00::/64}]}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -518,19 +467,15 @@ Output:
     ]
 }
 ```
-
-**Example 6: To add a rule for ICMPv6 traffic**
-
-The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows ICMPv6 traffic from anywhere.
+**Example 6: To add a rule for ICMPv6 traffic**  
+The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows ICMPv6 traffic from anywhere.  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --ip-permissions '`IpProtocol=icmpv6,Ipv6Ranges=[{CidrIpv6=::/0}]`'`
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --ip-permissions '{{IpProtocol=icmpv6,Ipv6Ranges=[{CidrIpv6=::/0}]}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -549,19 +494,15 @@ Output:
     ]
 }
 ```
-
-**Example 7: Add a rule with a description**
-
-The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows RDP traffic from the specified IPv4 address range. The rule includes a description to help you identify it later.
+**Example 7: Add a rule with a description**  
+The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows RDP traffic from the specified IPv4 address range. The rule includes a description to help you identify it later.  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-1234567890abcdef0` \
- --ip-permissions 'IpProtocol=tcp,FromPort=3389,ToPort=3389,IpRanges=[{CidrIp=203.0.113.0/24,Description='RDP `access` `from` `NY` office'}]'`
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-1234567890abcdef0}} \
+    --ip-permissions 'IpProtocol=tcp,FromPort=3389,ToPort=3389,IpRanges=[{CidrIp=203.0.113.0/24,Description='RDP {{access}} {{from}} {{NY}} office'}]'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -581,19 +522,15 @@ Output:
     ]
 }
 ```
-
-**Example 8: To add an inbound rule that uses a prefix list**
-
-The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows all traffic for the CIDR ranges in the specified prefix list.
+**Example 8: To add an inbound rule that uses a prefix list**  
+The following `authorize-security-group-ingress` example uses the `ip-permissions` parameter to add an inbound rule that allows all traffic for the CIDR ranges in the specified prefix list.  
 
 ```
-`aws ec2 authorize-security-group-ingress \
- --group-id `sg-04a351bfe432d4e71` \
- --ip-permissions '`IpProtocol=all,PrefixListIds=[{PrefixListId=pl-002dc3ec097de1514}]`'`
-
+aws ec2 authorize-security-group-ingress \
+    --group-id {{sg-04a351bfe432d4e71}} \
+    --ip-permissions '{{IpProtocol=all,PrefixListIds=[{PrefixListId=pl-002dc3ec097de1514}]}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -612,22 +549,14 @@ Output:
     ]
 }
 ```
+For more information, see [Security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) in the *Amazon VPC User Guide*.  
++  For API details, see [AuthorizeSecurityGroupIngress](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/authorize-security-group-ingress.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Security groups](../../../vpc/latest/userguide/vpc-security-groups.md "../../../vpc/latest/userguide/vpc-security-groups.md") in the _Amazon VPC User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/authorize-security-group-ingress.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/authorize-security-group-ingress.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -688,23 +617,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 }
             });
     }
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import {
@@ -746,23 +666,14 @@ export const main = async ({ groupId, ipAddress }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun createEC2SecurityGroupSc(
@@ -811,29 +722,22 @@ suspend fun createEC2SecurityGroupSc(
         return resp.groupId
     }
 }
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example defines ingress rules for a security group for EC2-VPC. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.**
+**Tools for PowerShell V4**  
+**Example 1: This example defines ingress rules for a security group for EC2-VPC. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.**  
 
 ```
 $ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
 $ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
 
 Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 2: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**
+**Example 2: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**  
 
 ```
 $ip1 = New-Object Amazon.EC2.Model.IpPermission
@@ -849,20 +753,16 @@ $ip2.ToPort = 3389
 $ip2.IpRanges.Add("203.0.113.25/32")
 
 Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 3: This example defines ingress rules for a security group for EC2-Classic. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). The syntax used by this example requires PowerShell version 3 or higher.**
+**Example 3: This example defines ingress rules for a security group for EC2-Classic. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). The syntax used by this example requires PowerShell version 3 or higher.**  
 
 ```
 $ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
 $ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
 
 Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 4: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**
+**Example 4: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**  
 
 ```
 $ip1 = New-Object Amazon.EC2.Model.IpPermission
@@ -878,10 +778,8 @@ $ip2.ToPort = 3389
 $ip2.IpRanges.Add("203.0.113.25/32")
 
 Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 5: This example grants TCP port 8081 access from the specified source security group (sg-1a2b3c4d) to the specified security group (sg-12345678).**
+**Example 5: This example grants TCP port 8081 access from the specified source security group (sg-1a2b3c4d) to the specified security group (sg-12345678).**  
 
 ```
 $ug = New-Object Amazon.EC2.Model.UserIdGroupPair
@@ -889,10 +787,8 @@ $ug.GroupId = "sg-1a2b3c4d"
 $ug.UserId = "123456789012"
 
 Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( @{ IpProtocol="tcp"; FromPort="8081"; ToPort="8081"; UserIdGroupPairs=$ug } )
-
 ```
-
-**Example 6: This example adds the CIDR 5.5.5.5/32 to the Ingress rules of security Group sg-1234abcd for TCP port 22 traffic with a description.**
+**Example 6: This example adds the CIDR 5.5.5.5/32 to the Ingress rules of security Group sg-1234abcd for TCP port 22 traffic with a description.**  
 
 ```
 $IpRange = New-Object -TypeName Amazon.EC2.Model.IpRange
@@ -904,26 +800,19 @@ $IpPermission.ToPort = 22
 $IpPermission.FromPort = 22
 $IpPermission.Ipv4Ranges = $IpRange
 Grant-EC2SecurityGroupIngress -GroupId sg-1234abcd -IpPermission $IpPermission
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example defines ingress rules for a security group for EC2-VPC. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.**
+**Tools for PowerShell V5**  
+**Example 1: This example defines ingress rules for a security group for EC2-VPC. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.**  
 
 ```
 $ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
 $ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
 
 Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 2: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**
+**Example 2: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**  
 
 ```
 $ip1 = New-Object Amazon.EC2.Model.IpPermission
@@ -939,20 +828,16 @@ $ip2.ToPort = 3389
 $ip2.IpRanges.Add("203.0.113.25/32")
 
 Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 3: This example defines ingress rules for a security group for EC2-Classic. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). The syntax used by this example requires PowerShell version 3 or higher.**
+**Example 3: This example defines ingress rules for a security group for EC2-Classic. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). The syntax used by this example requires PowerShell version 3 or higher.**  
 
 ```
 $ip1 = @{ IpProtocol="tcp"; FromPort="22"; ToPort="22"; IpRanges="203.0.113.25/32" }
 $ip2 = @{ IpProtocol="tcp"; FromPort="3389"; ToPort="3389"; IpRanges="203.0.113.25/32" }
 
 Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 4: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**
+**Example 4: With PowerShell version 2, you must use New-Object to create the IpPermission objects.**  
 
 ```
 $ip1 = New-Object Amazon.EC2.Model.IpPermission
@@ -968,10 +853,8 @@ $ip2.ToPort = 3389
 $ip2.IpRanges.Add("203.0.113.25/32")
 
 Grant-EC2SecurityGroupIngress -GroupName "my-security-group" -IpPermission @( $ip1, $ip2 )
-
 ```
-
-**Example 5: This example grants TCP port 8081 access from the specified source security group (sg-1a2b3c4d) to the specified security group (sg-12345678).**
+**Example 5: This example grants TCP port 8081 access from the specified source security group (sg-1a2b3c4d) to the specified security group (sg-12345678).**  
 
 ```
 $ug = New-Object Amazon.EC2.Model.UserIdGroupPair
@@ -979,10 +862,8 @@ $ug.GroupId = "sg-1a2b3c4d"
 $ug.UserId = "123456789012"
 
 Grant-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission @( @{ IpProtocol="tcp"; FromPort="8081"; ToPort="8081"; UserIdGroupPairs=$ug } )
-
 ```
-
-**Example 6: This example adds the CIDR 5.5.5.5/32 to the Ingress rules of security Group sg-1234abcd for TCP port 22 traffic with a description.**
+**Example 6: This example adds the CIDR 5.5.5.5/32 to the Ingress rules of security Group sg-1234abcd for TCP port 22 traffic with a description.**  
 
 ```
 $IpRange = New-Object -TypeName Amazon.EC2.Model.IpRange
@@ -994,22 +875,14 @@ $IpPermission.ToPort = 22
 $IpPermission.FromPort = 22
 $IpPermission.Ipv4Ranges = $IpRange
 Grant-EC2SecurityGroupIngress -GroupId sg-1234abcd -IpPermission $IpPermission
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class SecurityGroupWrapper:
@@ -1074,24 +947,14 @@ class SecurityGroupWrapper:
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
     /// Add an ingress rule to a security group explicitly allowing IPv4 address
@@ -1122,23 +985,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .await?;
         Ok(())
     }
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     " Create IP permissions for SSH access (port 22)
@@ -1163,29 +1017,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
 
     /// Authorize ingress of connections for the security group.
-    ///
+    /// 
     /// - Parameters:
     ///   - groupId: The group ID of the security group to authorize access for.
     ///   - ipAddress: The IP address of the device to grant access to.
@@ -1221,14 +1066,9 @@ import AWSEC2
             return false
         }
     }
-
-
 ```
++  For API details, see [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [AuthorizeSecurityGroupIngress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

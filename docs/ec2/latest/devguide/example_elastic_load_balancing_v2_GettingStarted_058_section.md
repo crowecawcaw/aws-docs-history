@@ -1,24 +1,22 @@
+
+
 # Getting started with load balancing
+<a name="example_elastic_load_balancing_v2_GettingStarted_058_section"></a>
 
 The following code example shows how to:
++ Create an Application Load Balancer
++ Create a target group
++ Create a listener
++ Verify your configuration
++ Add an HTTPS listener (optional)
++ Add path-based routing (optional)
++ Clean up resources
 
-- Create an Application Load Balancer
-- Create a target group
-- Create a listener
-- Verify your configuration
-- Add an HTTPS listener (optional)
-- Add path-based routing (optional)
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/058-elastic-load-balancing-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/058-elastic-load-balancing-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/058-elastic-load-balancing-gs) repository. 
 
 ```
 #!/bin/bash
@@ -78,34 +76,34 @@ validate_vpc_id() {
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources in reverse order..."
-
+    
     if [ -n "${LISTENER_ARN:-}" ]; then
         echo "Deleting listener: $LISTENER_ARN"
         aws elbv2 delete-listener --listener-arn "$LISTENER_ARN" 2>/dev/null || true
     fi
-
+    
     if [ -n "${LOAD_BALANCER_ARN:-}" ]; then
         echo "Deleting load balancer: $LOAD_BALANCER_ARN"
         aws elbv2 delete-load-balancer --load-balancer-arn "$LOAD_BALANCER_ARN" 2>/dev/null || true
-
+        
         # Wait for load balancer to be deleted before deleting target group
         echo "Waiting for load balancer to be deleted..."
         aws elbv2 wait load-balancers-deleted --load-balancer-arns "$LOAD_BALANCER_ARN" 2>/dev/null || true
     fi
-
+    
     if [ -n "${TARGET_GROUP_ARN:-}" ]; then
         echo "Deleting target group: $TARGET_GROUP_ARN"
         aws elbv2 delete-target-group --target-group-arn "$TARGET_GROUP_ARN" 2>/dev/null || true
     fi
-
+    
     if [ -n "${SECURITY_GROUP_ID:-}" ]; then
         echo "Waiting 30 seconds before deleting security group to ensure all dependencies are removed..."
         sleep 30
-
+        
         echo "Deleting security group: $SECURITY_GROUP_ID"
         local sg_delete_output
         sg_delete_output=$(aws ec2 delete-security-group --group-id "$SECURITY_GROUP_ID" 2>&1 || true)
-
+        
         local retry_count=0
         local max_retries=5
         while echo "$sg_delete_output" | grep -i "DependencyViolation" > /dev/null && [ $retry_count -lt $max_retries ]; do
@@ -114,7 +112,7 @@ cleanup_resources() {
             sleep 30
             sg_delete_output=$(aws ec2 delete-security-group --group-id "$SECURITY_GROUP_ID" 2>&1 || true)
         done
-
+        
         if echo "$sg_delete_output" | grep -i "error" > /dev/null; then
             echo "WARNING: Could not delete security group: $SECURITY_GROUP_ID" >&2
             echo "You may need to delete it manually using: aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID"
@@ -238,7 +236,7 @@ else
             target_args+=("Id=${INSTANCE_IDS[$i]}")
         fi
     done
-
+    
     if [ ${#target_args[@]} -gt 0 ]; then
         if aws elbv2 register-targets \
             --target-group-arn "$TARGET_GROUP_ARN" \
@@ -308,29 +306,26 @@ else
 fi
 
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateListener](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateListener)
+  + [CreateLoadBalancer](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateTargetGroup](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateTargetGroup)
+  + [DeleteListener](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteListener)
+  + [DeleteLoadBalancer](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteTargetGroup](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DescribeLoadBalancers](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTargetHealth](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [Help](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/Help)
+  + [RegisterTargets](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/RegisterTargets)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/elasticloadbalancingv2-2015-12-01/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateListener](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateListener.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateListener.md")
-  - [CreateLoadBalancer](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateTargetGroup](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/CreateTargetGroup.md")
-  - [DeleteListener](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteListener.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteListener.md")
-  - [DeleteLoadBalancer](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteTargetGroup](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeLoadBalancers](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTargetHealth](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [Help](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/Help.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/Help.md")
-  - [RegisterTargets](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/RegisterTargets.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/RegisterTargets.md")
-  - [Wait](../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/Wait.md "../../../goto/aws-cli/elasticloadbalancingv2-2015-12-01/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

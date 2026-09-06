@@ -1,28 +1,25 @@
+
+
 # Use `CreateSnapshot` with a CLI
+<a name="example_ec2_CreateSnapshot_section"></a>
 
 The following code examples show how to use `CreateSnapshot`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md) 
 
-- [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a snapshot**
-
-This example command creates a snapshot of the volume with a volume ID of `vol-1234567890abcdef0` and a short description to identify the snapshot.
-
-Command:
+**AWS CLI**  
+**To create a snapshot**  
+This example command creates a snapshot of the volume with a volume ID of `vol-1234567890abcdef0` and a short description to identify the snapshot.  
+Command:  
 
 ```
-`aws ec2 create-snapshot --volume-id `vol-1234567890abcdef0` --description `"This is my root volume snapshot"``
-
+aws ec2 create-snapshot --volume-id {{vol-1234567890abcdef0}} --description {{"This is my root volume snapshot"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -38,19 +35,14 @@ Output:
     "SnapshotId": "snap-066877671789bd71b"
 }
 ```
-
-**To create a snapshot with tags**
-
-This example command creates a snapshot and applies two tags: purpose=prod and costcenter=123.
-
-Command:
+**To create a snapshot with tags**  
+This example command creates a snapshot and applies two tags: purpose=prod and costcenter=123.  
+Command:  
 
 ```
-`aws ec2 create-snapshot --volume-id `vol-1234567890abcdef0` --description '`Prod backup`' --tag-specifications '`ResourceType=snapshot,Tags=[{Key=purpose,Value=prod},{Key=costcenter,Value=123}]`'`
-
+aws ec2 create-snapshot --volume-id {{vol-1234567890abcdef0}} --description '{{Prod backup}}' --tag-specifications '{{ResourceType=snapshot,Tags=[{Key=purpose,Value=prod},{Key=costcenter,Value=123}]}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -75,23 +67,18 @@ Output:
      "SnapshotId": "snap-09ed24a70bc19bbe4"
  }
 ```
++  For API details, see [CreateSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-snapshot.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateSnapshot](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-snapshot.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-snapshot.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a snapshot of the specified volume.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a snapshot of the specified volume.**  
 
 ```
 New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DataEncryptionKeyId :
@@ -109,21 +96,15 @@ Tags                : {}
 VolumeId            : vol-12345678
 VolumeSize          : 20
 ```
++  For API details, see [CreateSnapshot](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateSnapshot](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a snapshot of the specified volume.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a snapshot of the specified volume.**  
 
 ```
 New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DataEncryptionKeyId :
@@ -141,11 +122,8 @@ Tags                : {}
 VolumeId            : vol-12345678
 VolumeSize          : 20
 ```
++  For API details, see [CreateSnapshot](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateSnapshot](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

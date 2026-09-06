@@ -1,29 +1,26 @@
+
+
 # Use `DescribeAvailabilityZones` with an AWS SDK or CLI
+<a name="example_ec2_DescribeAvailabilityZones_section"></a>
 
 The following code examples show how to use `DescribeAvailabilityZones`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Getting started with graph databases](example_ec2_GettingStarted_064_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md) 
++  [Getting started with video transport streaming](example_mediaconnect_GettingStarted_081_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
++  [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md) 
 
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
-- [Getting started with video transport streaming](example_mediaconnect_GettingStarted_081_section.md "example_mediaconnect_GettingStarted_081_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -49,26 +46,16 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
+```
++  For API details, see [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeAvailabilityZones) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ C\+\+ ]
+
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeAvailabilityZones](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  in _AWS SDK for .NET API Reference_.
-
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
-
-```
-
 //! DescribeAvailabilityZones
 /*!
   \param clientConfiguration: AWS client configuration.
@@ -105,28 +92,20 @@ int AwsDoc::EC2::describeAvailabilityZones(const Aws::Client::ClientConfiguratio
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DescribeAvailabilityZones) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To describe your Availability Zones**  
+The following example `describe-availability-zones` displays details for the Availability Zones that are available to you. The response includes Availability Zones only for the current Region. In this example, it uses the profiles default `us-west-2` (Oregon) Region.  
 
 ```
-
-- For API details, see
-  [DescribeAvailabilityZones](../../../goto/SdkForCpp/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/SdkForCpp/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To describe your Availability Zones**
-
-The following example `describe-availability-zones` displays details for the Availability Zones that are available to you. The response includes Availability Zones only for the current Region. In this example, it uses the profiles default `us-west-2` (Oregon) Region.
-
+aws ec2 describe-availability-zones
 ```
-`aws ec2 describe-availability-zones`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -184,23 +163,18 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAvailabilityZones](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAvailabilityZones](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-availability-zones.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the Availability Zones for the current region that are available to you.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the Availability Zones for the current region that are available to you.**  
 
 ```
 Get-EC2AvailabilityZone
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Messages    RegionName    State        ZoneName
@@ -209,15 +183,12 @@ Messages    RegionName    State        ZoneName
 {}          us-west-2     available    us-west-2b
 {}          us-west-2     available    us-west-2c
 ```
-
-**Example 2: This example describes any Availability Zones that are in an impaired state. The syntax used by this example requires PowerShell version 3 or higher.**
+**Example 2: This example describes any Availability Zones that are in an impaired state. The syntax used by this example requires PowerShell version 3 or higher.**  
 
 ```
 Get-EC2AvailabilityZone -Filter @{ Name="state";Values="impaired" }
-
 ```
-
-**Example 3: With PowerShell version 2, you must use New-Object to create the filter.**
+**Example 3: With PowerShell version 2, you must use New-Object to create the filter.**  
 
 ```
 $filter = New-Object Amazon.EC2.Model.Filter
@@ -225,23 +196,16 @@ $filter.Name = "state"
 $filter.Values = "impaired"
 
 Get-EC2AvailabilityZone -Filter $filter
-
 ```
++  For API details, see [DescribeAvailabilityZones](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeAvailabilityZones](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the Availability Zones for the current region that are available to you.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the Availability Zones for the current region that are available to you.**  
 
 ```
 Get-EC2AvailabilityZone
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Messages    RegionName    State        ZoneName
@@ -250,15 +214,12 @@ Messages    RegionName    State        ZoneName
 {}          us-west-2     available    us-west-2b
 {}          us-west-2     available    us-west-2c
 ```
-
-**Example 2: This example describes any Availability Zones that are in an impaired state. The syntax used by this example requires PowerShell version 3 or higher.**
+**Example 2: This example describes any Availability Zones that are in an impaired state. The syntax used by this example requires PowerShell version 3 or higher.**  
 
 ```
 Get-EC2AvailabilityZone -Filter @{ Name="state";Values="impaired" }
-
 ```
-
-**Example 3: With PowerShell version 2, you must use New-Object to create the filter.**
+**Example 3: With PowerShell version 2, you must use New-Object to create the filter.**  
 
 ```
 $filter = New-Object Amazon.EC2.Model.Filter
@@ -266,22 +227,14 @@ $filter.Name = "state"
 $filter.Values = "impaired"
 
 Get-EC2AvailabilityZone -Filter $filter
-
 ```
++  For API details, see [DescribeAvailabilityZones](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeAvailabilityZones](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class AutoScalingWrapper:
@@ -349,24 +302,14 @@ class AutoScalingWrapper:
             log.error(f"Full error:\n\t{err}")
         else:
             return zones
-
-
-
 ```
++  For API details, see [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeAvailabilityZones) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeAvailabilityZones](../../../goto/boto3/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/boto3/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -378,15 +321,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
-
 ```
++  For API details, see [DescribeAvailabilityZones](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeAvailabilityZones](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

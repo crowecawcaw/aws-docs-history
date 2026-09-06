@@ -1,26 +1,23 @@
+
+
 # Use `DescribeSecurityGroups` with an AWS SDK or CLI
+<a name="example_ec2_DescribeSecurityGroups_section"></a>
 
 The following code examples show how to use `DescribeSecurityGroups`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md) 
++  [Creating and managing a service networking mesh](example_vpc_lattice_GettingStarted_055_section.md) 
++  [Getting started with in-memory caching](example_ec2_GettingStarted_065_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
-- [Creating and managing a service networking mesh](example_vpc_lattice_GettingStarted_055_section.md "example_vpc_lattice_GettingStarted_055_section.md")
-- [Getting started with in-memory caching](example_ec2_GettingStarted_065_section.md "example_ec2_GettingStarted_065_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -113,24 +110,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             Console.WriteLine($"\n\tTo Port: {permission.ToPort}");
         });
     }
-
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeSecurityGroups) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSecurityGroups.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -194,11 +181,8 @@ function ec2_describe_security_groups() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -243,23 +227,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Describe all Amazon Elastic Compute Cloud (Amazon EC2) security groups, or a specific group.
@@ -313,29 +288,21 @@ bool AwsDoc::EC2::describeSecurityGroups(const Aws::String &groupID,
 
     return true;
 }
+```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DescribeSecurityGroups) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To describe a security group**  
+The following `describe-security-groups` example describes the specified security group.  
 
 ```
-
-- For API details, see
-  [DescribeSecurityGroups](../../../goto/SdkForCpp/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/SdkForCpp/ec2-2016-11-15/DescribeSecurityGroups.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe a security group**
-
-The following `describe-security-groups` example describes the specified security group.
-
+aws ec2 describe-security-groups \
+    --group-ids {{sg-903004f8}}
 ```
-`aws ec2 describe-security-groups \
- --group-ids `sg-903004f8``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -394,20 +361,16 @@ Output:
     ]
 }
 ```
-
-**Example 2: To describe security groups that have specific rules**
-
-The following `describe-security-groups` example uses filters to scope the results to security groups that have a rule that allows SSH traffic (port 22) and a rule that allows traffic from all addresses (`0.0.0.0/0`). The example uses the `--query` parameter to display only the names of the security groups. Security groups must match all filters to be returned in the results; however, a single rule does not have to match all filters. For example, the output returns a security group with a rule that allows SSH traffic from a specific IP address and another rule that allows HTTP traffic from all addresses.
+**Example 2: To describe security groups that have specific rules**  
+The following `describe-security-groups` example uses filters to scope the results to security groups that have a rule that allows SSH traffic (port 22) and a rule that allows traffic from all addresses (`0.0.0.0/0`). The example uses the `--query` parameter to display only the names of the security groups. Security groups must match all filters to be returned in the results; however, a single rule does not have to match all filters. For example, the output returns a security group with a rule that allows SSH traffic from a specific IP address and another rule that allows HTTP traffic from all addresses.  
 
 ```
-`aws ec2 describe-security-groups \
- --filters `Name=ip-permission.from-port,Values=22` `Name=ip-permission.to-port,Values=22` Name=ip-permission.cidr,Values='0.0.0.0/0' \
- --query `"SecurityGroups[*].[GroupName]"` \
- --output `text``
-
+aws ec2 describe-security-groups \
+    --filters {{Name=ip-permission.from-port,Values=22}} {{Name=ip-permission.to-port,Values=22}} Name=ip-permission.cidr,Values='0.0.0.0/0' \
+    --query {{"SecurityGroups[*].[GroupName]"}} \
+    --output {{text}}
 ```
-
-Output:
+Output:  
 
 ```
 default
@@ -415,19 +378,15 @@ my-security-group
 web-servers
 launch-wizard-1
 ```
-
-**Example 3: To describe security groups based on tags**
-
-The following `describe-security-groups` example uses filters to scope the results to security groups that include `test` in the security group name, and that have the tag `Test=To-delete`. The example uses the `--query` parameter to display only the names and IDs of the security groups.
+**Example 3: To describe security groups based on tags**  
+The following `describe-security-groups` example uses filters to scope the results to security groups that include `test` in the security group name, and that have the tag `Test=To-delete`. The example uses the `--query` parameter to display only the names and IDs of the security groups.  
 
 ```
-`aws ec2 describe-security-groups \
- --filters `Name=group-name,Values=*test*` `Name=tag:Test,Values=To-delete` \
- --query `"SecurityGroups[*].{Name:GroupName,ID:GroupId}"``
-
+aws ec2 describe-security-groups \
+    --filters {{Name=group-name,Values=*test*}} {{Name=tag:Test,Values=To-delete}} \
+    --query {{"SecurityGroups[*].{Name:GroupName,ID:GroupId}"}}
 ```
-
-Output:
+Output:  
 
 ```
 [
@@ -441,25 +400,16 @@ Output:
     }
 ]
 ```
+For additional examples using tag filters, see [Working with tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#Using_Tags_CLI) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeSecurityGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-security-groups.html) in *AWS CLI Command Reference*. 
 
-For additional examples using tag filters, see [Working with tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI") in the _Amazon EC2 User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeSecurityGroups](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-security-groups.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-security-groups.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
-
     /**
      * Asynchronously describes the security groups for the specified group ID.
      *
@@ -492,23 +442,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Failed to describe security group", ex);
         });
     }
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeSecurityGroups) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeSecurityGroups.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { DescribeSecurityGroupsCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -546,23 +487,14 @@ export const main = async ({ groupIds = [] }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun describeEC2SecurityGroups(groupId: String) {
@@ -578,26 +510,19 @@ suspend fun describeEC2SecurityGroups(groupId: String) {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.**  
 
 ```
 Get-EC2SecurityGroup -GroupId sg-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description         : default VPC security group
@@ -609,15 +534,12 @@ OwnerId             : 123456789012
 Tags                : {}
 VpcId               : vpc-12345678
 ```
-
-**Example 2: This example describes the specified security group for EC2-Classic. When working with security groups for EC2-Classic you may use either the group name (-GroupName parameter) or group ID (-GroupId parameter) to reference the security group.**
+**Example 2: This example describes the specified security group for EC2-Classic. When working with security groups for EC2-Classic you may use either the group name (-GroupName parameter) or group ID (-GroupId parameter) to reference the security group.**  
 
 ```
 Get-EC2SecurityGroup -GroupName my-security-group
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description         : my security group
@@ -629,28 +551,20 @@ OwnerId             : 123456789012
 Tags                : {}
 VpcId               :
 ```
-
-**Example 3: This example retrieves all the security groups for the vpc-0fc1ff23456b789eb**
+**Example 3: This example retrieves all the security groups for the vpc-0fc1ff23456b789eb**  
 
 ```
 Get-EC2SecurityGroup -Filter @{Name="vpc-id";Values="vpc-0fc1ff23456b789eb"}
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.**  
 
 ```
 Get-EC2SecurityGroup -GroupId sg-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description         : default VPC security group
@@ -662,15 +576,12 @@ OwnerId             : 123456789012
 Tags                : {}
 VpcId               : vpc-12345678
 ```
-
-**Example 2: This example describes the specified security group for EC2-Classic. When working with security groups for EC2-Classic you may use either the group name (-GroupName parameter) or group ID (-GroupId parameter) to reference the security group.**
+**Example 2: This example describes the specified security group for EC2-Classic. When working with security groups for EC2-Classic you may use either the group name (-GroupName parameter) or group ID (-GroupId parameter) to reference the security group.**  
 
 ```
 Get-EC2SecurityGroup -GroupName my-security-group
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description         : my security group
@@ -682,27 +593,18 @@ OwnerId             : 123456789012
 Tags                : {}
 VpcId               :
 ```
-
-**Example 3: This example retrieves all the security groups for the vpc-0fc1ff23456b789eb**
+**Example 3: This example retrieves all the security groups for the vpc-0fc1ff23456b789eb**  
 
 ```
 Get-EC2SecurityGroup -Filter @{Name="vpc-id";Values="vpc-0fc1ff23456b789eb"}
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class SecurityGroupWrapper:
@@ -767,24 +669,14 @@ class SecurityGroupWrapper:
                     f"because the specified security group ID was not found."
                 )
             raise
-
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeSecurityGroups) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../goto/boto3/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/boto3/ec2-2016-11-15/DescribeSecurityGroups.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
 async fn show_security_groups(client: &aws_sdk_ec2::Client, group_ids: Vec<String>) {
@@ -815,23 +707,14 @@ async fn show_security_groups(client: &aws_sdk_ec2::Client, group_ids: Vec<Strin
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_security_groups) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_security_groups "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_security_groups")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -844,25 +727,15 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
-
-Using pagination with `describeSecurityGroupsPaginated()`.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
+Using pagination with `describeSecurityGroupsPaginated()`.  
 
 ```
 import AWSEC2
@@ -899,11 +772,8 @@ import AWSEC2
 
         return groupNames
     }
-
-
 ```
-
-Without pagination.
+Without pagination.  
 
 ```
 import AWSEC2
@@ -930,14 +800,9 @@ import AWSEC2
             return false
         }
     }
-
-
 ```
++  For API details, see [DescribeSecurityGroups](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describesecuritygroups(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DescribeSecurityGroups](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describesecuritygroups(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describesecuritygroups(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

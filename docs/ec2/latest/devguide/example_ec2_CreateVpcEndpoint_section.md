@@ -1,29 +1,27 @@
+
+
 # Use `CreateVpcEndpoint` with an AWS SDK or CLI
+<a name="example_ec2_CreateVpcEndpoint_section"></a>
 
 The following code examples show how to use `CreateVpcEndpoint`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
 
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a gateway endpoint**
-
-The following `create-vpc-endpoint` example creates a gateway VPC endpoint between VPC `vpc-1a2b3c4d` and Amazon S3 in the `us-east-1` region, and associates route table `rtb-11aa22bb` with the endpoint.
+**AWS CLI**  
+**Example 1: To create a gateway endpoint**  
+The following `create-vpc-endpoint` example creates a gateway VPC endpoint between VPC `vpc-1a2b3c4d` and Amazon S3 in the `us-east-1` region, and associates route table `rtb-11aa22bb` with the endpoint.  
 
 ```
-`aws ec2 create-vpc-endpoint \
- --vpc-id `vpc-1a2b3c4d` \
- --service-name `com.amazonaws.us-east-1.s3` \
- --route-table-ids `rtb-11aa22bb``
-
+aws ec2 create-vpc-endpoint \
+    --vpc-id {{vpc-1a2b3c4d}} \
+    --service-name {{com.amazonaws.us-east-1.s3}} \
+    --route-table-ids {{rtb-11aa22bb}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -40,25 +38,20 @@ Output:
     }
 }
 ```
-
-For more information, see [Create a gateway endpoint](../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3 "../../../vpc/latest/privatelink/vpc-endpoints-s3.md#create-gateway-endpoint-s3") in the _AWS PrivateLink User Guide_.
-
-**Example 2: To create an interface endpoint**
-
-The following `create-vpc-endpoint` example creates an interface VPC endpoint between VPC `vpc-1a2b3c4d` and Amazon S3 in the `us-east-1` region. The command creates the endpoint in subnet `subnet-1a2b3c4d`, associates it with security group `sg-1a2b3c4d`, and adds a tag with a key of "Service" and a Value of "S3".
+For more information, see [Create a gateway endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html#create-gateway-endpoint-s3) in the *AWS PrivateLink User Guide*.  
+**Example 2: To create an interface endpoint**  
+The following `create-vpc-endpoint` example creates an interface VPC endpoint between VPC `vpc-1a2b3c4d` and Amazon S3 in the `us-east-1` region. The command creates the endpoint in subnet `subnet-1a2b3c4d`, associates it with security group `sg-1a2b3c4d`, and adds a tag with a key of "Service" and a Value of "S3".  
 
 ```
-`aws ec2 create-vpc-endpoint \
- --vpc-id `vpc-1a2b3c4d` \
- --vpc-endpoint-type `Interface` \
- --service-name `com.amazonaws.us-east-1.s3` \
- --subnet-ids `subnet-7b16de0c` \
- --security-group-id `sg-1a2b3c4d` \
- --tag-specifications `ResourceType=vpc-endpoint,Tags=[{Key=service,Value=S3}]``
-
+aws ec2 create-vpc-endpoint \
+    --vpc-id {{vpc-1a2b3c4d}} \
+    --vpc-endpoint-type {{Interface}} \
+    --service-name {{com.amazonaws.us-east-1.s3}} \
+    --subnet-ids {{subnet-7b16de0c}} \
+    --security-group-id {{sg-1a2b3c4d}} \
+    --tag-specifications {{ResourceType=vpc-endpoint,Tags=[{Key=service,Value=S3}]}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -104,23 +97,18 @@ Output:
     }
 }
 ```
-
-For more information, see [Create an interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") in the _AWS PrivateLink User Guide_.
-
-**Example 3: To create a Gateway Load Balancer endpoint**
-
-The following `create-vpc-endpoint` example creates a Gateway Load Balancer endpoint between VPC `vpc-111122223333aabbc` and and a service that is configured using a Gateway Load Balancer.
+For more information, see [Create an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink User Guide*.  
+**Example 3: To create a Gateway Load Balancer endpoint**  
+The following `create-vpc-endpoint` example creates a Gateway Load Balancer endpoint between VPC `vpc-111122223333aabbc` and and a service that is configured using a Gateway Load Balancer.  
 
 ```
-`aws ec2 create-vpc-endpoint \
- --service-name `com.amazonaws.vpce.us-east-1.vpce-svc-123123a1c43abc123` \
- --vpc-endpoint-type `GatewayLoadBalancer` \
- --vpc-id `vpc-111122223333aabbc` \
- --subnet-ids `subnet-0011aabbcc2233445``
-
+aws ec2 create-vpc-endpoint \
+    --service-name {{com.amazonaws.vpce.us-east-1.vpce-svc-123123a1c43abc123}} \
+    --vpc-endpoint-type {{GatewayLoadBalancer}} \
+    --vpc-id {{vpc-111122223333aabbc}} \
+    --subnet-ids {{subnet-0011aabbcc2233445}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -142,23 +130,18 @@ Output:
     }
 }
 ```
-
-For more information, see [Gateway Load Balancer endpoints](../../../vpc/latest/privatelink/gateway-load-balancer-endpoints.md "../../../vpc/latest/privatelink/gateway-load-balancer-endpoints.md") in the _AWS PrivateLink User Guide_.
-
-**Example 4: To create a resource endpoint**
-
-The following `create-vpc-endpoint` example creates a resource endpoint.
+For more information, see [Gateway Load Balancer endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/gateway-load-balancer-endpoints.html) in the *AWS PrivateLink User Guide*.  
+**Example 4: To create a resource endpoint**  
+The following `create-vpc-endpoint` example creates a resource endpoint.  
 
 ```
-`aws ec2 create-vpc-endpoint \
- --vpc-endpoint-type `Resource` \
- --vpc-id `vpc-111122223333aabbc` \
- --subnet-ids `subnet-0011aabbcc2233445` \
- --resource-configuration-arn `arn:aws:vpc-lattice-us-east-1:123456789012:resourceconfiguration/rcfg-0123abcde98765432``
-
+aws ec2 create-vpc-endpoint \
+    --vpc-endpoint-type {{Resource}} \
+    --vpc-id {{vpc-111122223333aabbc}} \
+    --subnet-ids {{subnet-0011aabbcc2233445}} \
+    --resource-configuration-arn {{arn:aws:vpc-lattice-us-east-1:123456789012:resourceconfiguration/rcfg-0123abcde98765432}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -185,24 +168,19 @@ Output:
     }
 }
 ```
-
-For more information, see [Resource endpoints](../../../vpc/latest/privatelink/privatelink-access-resources.md "../../../vpc/latest/privatelink/privatelink-access-resources.md") in the _AWS PrivateLink User Guide_.
-
-**Example 5: To create a service network endpoint**
-
-The following `create-vpc-endpoint` example creates a service network endpoint.
+For more information, see [Resource endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-resources.html) in the *AWS PrivateLink User Guide*.  
+**Example 5: To create a service network endpoint**  
+The following `create-vpc-endpoint` example creates a service network endpoint.  
 
 ```
-`aws ec2 create-vpc-endpoint \
- --vpc-endpoint-type `ServiceNetwork` \
- --vpc-id `vpc-111122223333aabbc` \
- --subnet-ids `subnet-0011aabbcc2233445` \
- --service-network-arn `arn:aws:vpc-lattice:us-east-1:123456789012:servicenetwork/sn-0101abcd5432abcd0` \
- --security-group-ids `sg-0123456789012abcd``
-
+aws ec2 create-vpc-endpoint \
+    --vpc-endpoint-type {{ServiceNetwork}} \
+    --vpc-id {{vpc-111122223333aabbc}} \
+    --subnet-ids {{subnet-0011aabbcc2233445}} \
+    --service-network-arn {{arn:aws:vpc-lattice:us-east-1:123456789012:servicenetwork/sn-0101abcd5432abcd0}} \
+    --security-group-ids {{sg-0123456789012abcd}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -229,25 +207,16 @@ Output:
     }
 }
 ```
+For more information, see [Service network endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-service-networks.html) in the *AWS PrivateLink User Guide*.  
++  For API details, see [CreateVpcEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Service network endpoints](../../../vpc/latest/privatelink/privatelink-access-service-networks.md "../../../vpc/latest/privatelink/privatelink-access-service-networks.md") in the _AWS PrivateLink User Guide_.
+------
+#### [ PHP ]
 
-- For API details, see
-  [CreateVpcEndpoint](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc-endpoint.html")
-  in _AWS CLI Command Reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples). 
 
 ```
-
     /**
      * @param string $serviceName
      * @param string $vpcId
@@ -269,68 +238,47 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [CreateVpcEndpoint](https://docs.aws.amazon.com/goto/SdkForPHPV3/ec2-2016-11-15/CreateVpcEndpoint) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateVpcEndpoint](../../../goto/SdkForPHPV3/ec2-2016-11-15/CreateVpcEndpoint.md "../../../goto/SdkForPHPV3/ec2-2016-11-15/CreateVpcEndpoint.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example create a new VPC Endpoint for the service com.amazonaws.eu-west-1.s3 in the VPC vpc-0fc1ff23f45b678eb**
+**Tools for PowerShell V4**  
+**Example 1: This example create a new VPC Endpoint for the service com.amazonaws.eu-west-1.s3 in the VPC vpc-0fc1ff23f45b678eb**  
 
 ```
 New-EC2VpcEndpoint -ServiceName com.amazonaws.eu-west-1.s3 -VpcId vpc-0fc1ff23f45b678eb
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ClientToken VpcEndpoint
 ----------- -----------
             Amazon.EC2.Model.VpcEndpoint
 ```
++  For API details, see [CreateVpcEndpoint](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateVpcEndpoint](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example create a new VPC Endpoint for the service com.amazonaws.eu-west-1.s3 in the VPC vpc-0fc1ff23f45b678eb**
+**Tools for PowerShell V5**  
+**Example 1: This example create a new VPC Endpoint for the service com.amazonaws.eu-west-1.s3 in the VPC vpc-0fc1ff23f45b678eb**  
 
 ```
 New-EC2VpcEndpoint -ServiceName com.amazonaws.eu-west-1.s3 -VpcId vpc-0fc1ff23f45b678eb
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 ClientToken VpcEndpoint
 ----------- -----------
             Amazon.EC2.Model.VpcEndpoint
 ```
++  For API details, see [CreateVpcEndpoint](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateVpcEndpoint](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class VpcWrapper:
@@ -382,24 +330,14 @@ class VpcWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [CreateVpcEndpoint](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateVpcEndpoint) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateVpcEndpoint](../../../goto/boto3/ec2-2016-11-15/CreateVpcEndpoint.md "../../../goto/boto3/ec2-2016-11-15/CreateVpcEndpoint.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     " iv_vpc_id = 'vpc-abc123'
@@ -415,14 +353,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateVpcEndpoint](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateVpcEndpoint](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,22 @@
+
+
 # Use `DescribeAccountAttributes` with a CLI
+<a name="example_ec2_DescribeAccountAttributes_section"></a>
 
 The following code examples show how to use `DescribeAccountAttributes`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe all the attributes for your AWS account**
-
-This example describes the attributes for your AWS account.
-
-Command:
+**AWS CLI**  
+**To describe all the attributes for your AWS account**  
+This example describes the attributes for your AWS account.  
+Command:  
 
 ```
-`aws ec2 describe-account-attributes`
-
+aws ec2 describe-account-attributes
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -76,19 +75,14 @@ Output:
     ]
 }
 ```
-
-**To describe a single attribute for your AWS account**
-
-This example describes the `supported-platforms` attribute for your AWS account.
-
-Command:
+**To describe a single attribute for your AWS account**  
+This example describes the `supported-platforms` attribute for your AWS account.  
+Command:  
 
 ```
-`aws ec2 describe-account-attributes --attribute-names `supported-platforms``
-
+aws ec2 describe-account-attributes --attribute-names {{supported-platforms}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -107,23 +101,18 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeAccountAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-account-attributes.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeAccountAttributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-account-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-account-attributes.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.**  
 
 ```
 (Get-EC2AccountAttribute -AttributeName supported-platforms).AttributeValues
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttributeValue
@@ -131,51 +120,39 @@ AttributeValue
 EC2
 VPC
 ```
-
-**Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.**
+**Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.**  
 
 ```
 (Get-EC2AccountAttribute -AttributeName default-vpc).AttributeValues
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttributeValue
 --------------
 vpc-12345678
 ```
-
-**Example 3: This example describes the maximum number of On-Demand instances that you can run.**
+**Example 3: This example describes the maximum number of On-Demand instances that you can run.**  
 
 ```
 (Get-EC2AccountAttribute -AttributeName max-instances).AttributeValues
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttributeValue
 --------------
 20
 ```
++  For API details, see [DescribeAccountAttributes](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeAccountAttributes](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.**  
 
 ```
 (Get-EC2AccountAttribute -AttributeName supported-platforms).AttributeValues
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttributeValue
@@ -183,41 +160,32 @@ AttributeValue
 EC2
 VPC
 ```
-
-**Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.**
+**Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.**  
 
 ```
 (Get-EC2AccountAttribute -AttributeName default-vpc).AttributeValues
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttributeValue
 --------------
 vpc-12345678
 ```
-
-**Example 3: This example describes the maximum number of On-Demand instances that you can run.**
+**Example 3: This example describes the maximum number of On-Demand instances that you can run.**  
 
 ```
 (Get-EC2AccountAttribute -AttributeName max-instances).AttributeValues
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AttributeValue
 --------------
 20
 ```
++  For API details, see [DescribeAccountAttributes](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeAccountAttributes](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,22 @@
+
+
 # Use `DescribeSpotPriceHistory` with a CLI
+<a name="example_ec2_DescribeSpotPriceHistory_section"></a>
 
 The following code examples show how to use `DescribeSpotPriceHistory`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe Spot price history**
-
-This example command returns the Spot Price history for m1.xlarge instances for a particular day in January.
-
-Command:
+**AWS CLI**  
+**To describe Spot price history**  
+This example command returns the Spot Price history for m1.xlarge instances for a particular day in January.  
+Command:  
 
 ```
-`aws ec2 describe-spot-price-history --instance-types `m1.xlarge` --start-time `2014-01-06T07:08:09` --end-time `2014-01-06T08:09:10``
-
+aws ec2 describe-spot-price-history --instance-types {{m1.xlarge}} --start-time {{2014-01-06T07:08:09}} --end-time {{2014-01-06T08:09:10}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -46,19 +45,14 @@ Output:
       ...
 }
 ```
-
-**To describe Spot price history for Linux/UNIX Amazon VPC**
-
-This example command returns the Spot Price history for m1.xlarge, Linux/UNIX Amazon VPC instances for a particular day in January.
-
-Command:
+**To describe Spot price history for Linux/UNIX Amazon VPC**  
+This example command returns the Spot Price history for m1.xlarge, Linux/UNIX Amazon VPC instances for a particular day in January.  
+Command:  
 
 ```
-`aws ec2 describe-spot-price-history --instance-types `m1.xlarge` --product-description `"Linux/UNIX (Amazon VPC)"` --start-time `2014-01-06T07:08:09` --end-time `2014-01-06T08:09:10``
-
+aws ec2 describe-spot-price-history --instance-types {{m1.xlarge}} --product-description {{"Linux/UNIX (Amazon VPC)"}} --start-time {{2014-01-06T07:08:09}} --end-time {{2014-01-06T08:09:10}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -80,23 +74,18 @@ Output:
   ]
 }
 ```
++  For API details, see [DescribeSpotPriceHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-price-history.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeSpotPriceHistory](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-price-history.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-spot-price-history.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone. Note that the value specified for the -AvailabilityZone parameter must be valid for the region value supplied to either the cmdlet's -Region parameter (not shown in the example) or set as default in the shell. This example command assumes a default region of 'us-west-2' has been set in the environment.**
+**Tools for PowerShell V4**  
+**Example 1: This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone. Note that the value specified for the -AvailabilityZone parameter must be valid for the region value supplied to either the cmdlet's -Region parameter (not shown in the example) or set as default in the shell. This example command assumes a default region of 'us-west-2' has been set in the environment.**  
 
 ```
 Get-EC2SpotPriceHistory -InstanceType c3.large -AvailabilityZone us-west-2a -MaxResult 10
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone   : us-west-2a
@@ -118,21 +107,15 @@ ProductDescription : Linux/UNIX (Amazon VPC)
 Timestamp          : 12/25/2015 6:57:13 AM
 ...
 ```
++  For API details, see [DescribeSpotPriceHistory](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeSpotPriceHistory](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone. Note that the value specified for the -AvailabilityZone parameter must be valid for the region value supplied to either the cmdlet's -Region parameter (not shown in the example) or set as default in the shell. This example command assumes a default region of 'us-west-2' has been set in the environment.**
+**Tools for PowerShell V5**  
+**Example 1: This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone. Note that the value specified for the -AvailabilityZone parameter must be valid for the region value supplied to either the cmdlet's -Region parameter (not shown in the example) or set as default in the shell. This example command assumes a default region of 'us-west-2' has been set in the environment.**  
 
 ```
 Get-EC2SpotPriceHistory -InstanceType c3.large -AvailabilityZone us-west-2a -MaxResult 10
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone   : us-west-2a
@@ -154,11 +137,8 @@ ProductDescription : Linux/UNIX (Amazon VPC)
 Timestamp          : 12/25/2015 6:57:13 AM
 ...
 ```
++  For API details, see [DescribeSpotPriceHistory](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeSpotPriceHistory](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

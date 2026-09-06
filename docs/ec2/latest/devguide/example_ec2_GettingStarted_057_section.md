@@ -1,24 +1,22 @@
+
+
 # Getting started with managed streaming
+<a name="example_ec2_GettingStarted_057_section"></a>
 
 The following code example shows how to:
++ Create an MSK cluster
++ Create IAM permissions for MSK access
++ Create a client machine
++ Get bootstrap brokers
++ Set up the client machine
++ Create a topic and produce/consume data
++ Clean up resources
 
-- Create an MSK cluster
-- Create IAM permissions for MSK access
-- Create a client machine
-- Get bootstrap brokers
-- Set up the client machine
-- Create a topic and produce/consume data
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/057-amazon-managed-streaming-for-apache-kafka-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/057-amazon-managed-streaming-for-apache-kafka-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/057-amazon-managed-streaming-for-apache-kafka-gs) repository. 
 
 ```
 #!/bin/bash
@@ -47,7 +45,7 @@ handle_error() {
     if [ -n "$CLIENT_SG_ID" ]; then echo "- Client Security Group: $CLIENT_SG_ID"; fi
     if [ -n "$INSTANCE_ID" ]; then echo "- EC2 Instance: $INSTANCE_ID"; fi
     if [ -n "$KEY_NAME" ]; then echo "- Key Pair: $KEY_NAME"; fi
-
+    
     echo "Attempting to clean up resources..."
     cleanup_resources
     exit 1
@@ -57,7 +55,7 @@ handle_error() {
 resource_exists() {
     local resource_type="$1"
     local resource_id="$2"
-
+    
     case "$resource_type" in
         "cluster")
             aws kafka describe-cluster --cluster-arn "$resource_id" &>/dev/null
@@ -86,44 +84,44 @@ resource_exists() {
 # Function to remove security group references
 remove_security_group_references() {
     local sg_id="$1"
-
+    
     if [ -z "$sg_id" ]; then
         echo "No security group ID provided for reference removal"
         return
     fi
-
+    
     echo "Removing security group references for $sg_id"
-
+    
     # Get all security groups in the VPC that might reference our client security group
     local vpc_security_groups=$(aws ec2 describe-security-groups \
         --filters "Name=vpc-id,Values=$DEFAULT_VPC_ID" \
         --query 'SecurityGroups[].GroupId' \
         --output text 2>/dev/null)
-
+    
     if [ -n "$vpc_security_groups" ]; then
         for other_sg in $vpc_security_groups; do
             if [ "$other_sg" != "$sg_id" ]; then
                 echo "Checking security group $other_sg for references to $sg_id"
-
+                
                 # Get the security group details in JSON format
                 local sg_details=$(aws ec2 describe-security-groups \
                     --group-ids "$other_sg" \
                     --output json 2>/dev/null)
-
+                
                 if [ -n "$sg_details" ]; then
                     # Check if our security group is referenced in inbound rules
                     local has_inbound_ref=$(echo "$sg_details" | grep -o "\"GroupId\": \"$sg_id\"" | head -1)
-
+                    
                     if [ -n "$has_inbound_ref" ]; then
                         echo "Found inbound rules in $other_sg referencing $sg_id, removing them..."
-
+                        
                         # Try to remove common rule types
                         echo "Attempting to remove all-traffic rule"
                         aws ec2 revoke-security-group-ingress \
                             --group-id "$other_sg" \
                             --protocol all \
                             --source-group "$sg_id" 2>/dev/null || echo "No all-traffic rule to remove"
-
+                        
                         # Try to remove TCP rules on common ports
                         for port in 22 80 443 9092 9094 9096; do
                             aws ec2 revoke-security-group-ingress \
@@ -132,20 +130,20 @@ remove_security_group_references() {
                                 --port "$port" \
                                 --source-group "$sg_id" 2>/dev/null || true
                         done
-
+                        
                         # Try to remove UDP rules
                         aws ec2 revoke-security-group-ingress \
                             --group-id "$other_sg" \
                             --protocol udp \
                             --source-group "$sg_id" 2>/dev/null || true
                     fi
-
+                    
                     # Check for outbound rules (less common but possible)
                     local has_outbound_ref=$(echo "$sg_details" | grep -A 20 "IpPermissionsEgress" | grep -o "\"GroupId\": \"$sg_id\"" | head -1)
-
+                    
                     if [ -n "$has_outbound_ref" ]; then
                         echo "Found outbound rules in $other_sg referencing $sg_id, removing them..."
-
+                        
                         aws ec2 revoke-security-group-egress \
                             --group-id "$other_sg" \
                             --protocol all \
@@ -155,14 +153,14 @@ remove_security_group_references() {
             fi
         done
     fi
-
+    
     echo "Completed security group reference removal for $sg_id"
 }
 
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     # Delete EC2 instance if it exists
     if [ -n "$INSTANCE_ID" ] && resource_exists "instance" "$INSTANCE_ID"; then
         echo "Terminating EC2 instance: $INSTANCE_ID"
@@ -170,21 +168,21 @@ cleanup_resources() {
         echo "Waiting for instance to terminate..."
         aws ec2 wait instance-terminated --instance-ids "$INSTANCE_ID" || echo "Failed to wait for instance termination"
     fi
-
+    
     # Delete MSK cluster first (to remove dependencies on security group)
     if [ -n "$CLUSTER_ARN" ] && resource_exists "cluster" "$CLUSTER_ARN"; then
         echo "Deleting MSK cluster: $CLUSTER_ARN"
         aws kafka delete-cluster --cluster-arn "$CLUSTER_ARN" || echo "Failed to delete cluster"
-
+        
         # Wait a bit for the cluster deletion to start
         echo "Waiting 30 seconds for cluster deletion to begin..."
         sleep 30
     fi
-
+    
     # Remove security group references before attempting deletion
     if [ -n "$CLIENT_SG_ID" ] && resource_exists "security-group" "$CLIENT_SG_ID"; then
         remove_security_group_references "$CLIENT_SG_ID"
-
+        
         echo "Deleting security group: $CLIENT_SG_ID"
         # Try multiple times with longer delays to ensure dependencies are removed
         for i in {1..10}; do
@@ -196,13 +194,13 @@ cleanup_resources() {
             sleep 30
         done
     fi
-
+    
     # Delete key pair if it exists
     if [ -n "$KEY_NAME" ] && resource_exists "key-pair" "$KEY_NAME"; then
         echo "Deleting key pair: $KEY_NAME"
         aws ec2 delete-key-pair --key-name "$KEY_NAME" || echo "Failed to delete key pair"
     fi
-
+    
     # Remove role from instance profile
     if [ -n "$ROLE_NAME" ] && [ -n "$INSTANCE_PROFILE_NAME" ] && resource_exists "instance-profile" "$INSTANCE_PROFILE_NAME"; then
         echo "Removing role from instance profile"
@@ -210,14 +208,14 @@ cleanup_resources() {
             --instance-profile-name "$INSTANCE_PROFILE_NAME" \
             --role-name "$ROLE_NAME" || echo "Failed to remove role from instance profile"
     fi
-
+    
     # Delete instance profile
     if [ -n "$INSTANCE_PROFILE_NAME" ] && resource_exists "instance-profile" "$INSTANCE_PROFILE_NAME"; then
         echo "Deleting instance profile: $INSTANCE_PROFILE_NAME"
         aws iam delete-instance-profile \
             --instance-profile-name "$INSTANCE_PROFILE_NAME" || echo "Failed to delete instance profile"
     fi
-
+    
     # Detach policy from role
     if [ -n "$ROLE_NAME" ] && [ -n "$POLICY_ARN" ] && resource_exists "role" "$ROLE_NAME"; then
         echo "Detaching policy from role"
@@ -225,19 +223,19 @@ cleanup_resources() {
             --role-name "$ROLE_NAME" \
             --policy-arn "$POLICY_ARN" || echo "Failed to detach policy"
     fi
-
+    
     # Delete role
     if [ -n "$ROLE_NAME" ] && resource_exists "role" "$ROLE_NAME"; then
         echo "Deleting role: $ROLE_NAME"
         aws iam delete-role --role-name "$ROLE_NAME" || echo "Failed to delete role"
     fi
-
+    
     # Delete policy
     if [ -n "$POLICY_ARN" ] && resource_exists "policy" "$POLICY_ARN"; then
         echo "Deleting policy: $POLICY_ARN"
         aws iam delete-policy --policy-arn "$POLICY_ARN" || echo "Failed to delete policy"
     fi
-
+    
     echo "Cleanup completed"
 }
 
@@ -245,31 +243,31 @@ cleanup_resources() {
 find_suitable_subnet_and_instance_type() {
     local vpc_id="$1"
     local -a subnet_array=("${!2}")
-
+    
     # List of instance types to try, in order of preference
     local instance_types=("t3.micro" "t2.micro" "t3.small" "t2.small")
-
+    
     echo "Finding suitable subnet and instance type combination..."
-
+    
     for instance_type in "${instance_types[@]}"; do
         echo "Trying instance type: $instance_type"
-
+        
         for subnet_id in "${subnet_array[@]}"; do
             # Get the availability zone for this subnet
             local az=$(aws ec2 describe-subnets \
                 --subnet-ids "$subnet_id" \
                 --query 'Subnets[0].AvailabilityZone' \
                 --output text)
-
+            
             echo "  Checking subnet $subnet_id in AZ $az"
-
+            
             # Check if this instance type is available in this AZ
             local available=$(aws ec2 describe-instance-type-offerings \
                 --location-type availability-zone \
                 --filters "Name=location,Values=$az" "Name=instance-type,Values=$instance_type" \
                 --query 'InstanceTypeOfferings[0].InstanceType' \
                 --output text 2>/dev/null)
-
+            
             if [ "$available" = "$instance_type" ]; then
                 echo "  ✓ Found suitable combination: $instance_type in $az (subnet: $subnet_id)"
                 SELECTED_SUBNET_ID="$subnet_id"
@@ -280,7 +278,7 @@ find_suitable_subnet_and_instance_type() {
             fi
         done
     done
-
+    
     echo "ERROR: Could not find any suitable subnet and instance type combination"
     return 1
 }
@@ -374,22 +372,22 @@ echo "Waiting for cluster to become active (this may take 15-20 minutes)..."
 # Wait for the cluster to become active
 while true; do
     CLUSTER_STATUS=$(aws kafka describe-cluster --cluster-arn "$CLUSTER_ARN" --query "ClusterInfo.State" --output text 2>/dev/null)
-
+    
     if [ $? -ne 0 ]; then
         echo "Failed to get cluster status. Retrying in 30 seconds..."
         sleep 30
         continue
     fi
-
+    
     echo "Current cluster status: $CLUSTER_STATUS"
-
+    
     if [ "$CLUSTER_STATUS" = "ACTIVE" ]; then
         echo "Cluster is now active!"
         break
     elif [ "$CLUSTER_STATUS" = "FAILED" ]; then
         handle_error "Cluster creation failed"
     fi
-
+    
     echo "Still waiting for cluster to become active... (checking again in 60 seconds)"
     sleep 60
 done
@@ -716,7 +714,7 @@ if [ -z "$CLIENT_DNS" ] || [ "$CLIENT_DNS" = "None" ]; then
         --instance-ids "$INSTANCE_ID" \
         --query 'Reservations[0].Instances[0].PublicIpAddress' \
         --output text)
-
+    
     if [ -z "$CLIENT_DNS" ] || [ "$CLIENT_DNS" = "None" ]; then
         handle_error "Failed to get public DNS name or IP address for instance"
     fi
@@ -735,7 +733,7 @@ while [ -z "$BOOTSTRAP_BROKERS" ] || [ "$BOOTSTRAP_BROKERS" = "None" ]; do
     # Get the full bootstrap brokers response
     BOOTSTRAP_RESPONSE=$(aws kafka get-bootstrap-brokers \
         --cluster-arn "$CLUSTER_ARN" 2>/dev/null)
-
+    
     if [ $? -eq 0 ] && [ -n "$BOOTSTRAP_RESPONSE" ]; then
         # Try to get IAM authentication brokers first using grep
         BOOTSTRAP_BROKERS=$(echo "$BOOTSTRAP_RESPONSE" | grep -o '"BootstrapBrokerStringSaslIam": "[^"]*' | cut -d'"' -f4)
@@ -749,9 +747,9 @@ while [ -z "$BOOTSTRAP_BROKERS" ] || [ "$BOOTSTRAP_BROKERS" = "None" ]; do
             fi
         fi
     fi
-
+    
     RETRY_COUNT=$((RETRY_COUNT + 1))
-
+    
     if [ "$RETRY_COUNT" -ge "$MAX_RETRIES" ]; then
         echo "Warning: Could not get bootstrap brokers after $MAX_RETRIES attempts."
         echo "You may need to manually retrieve them later using:"
@@ -760,7 +758,7 @@ while [ -z "$BOOTSTRAP_BROKERS" ] || [ "$BOOTSTRAP_BROKERS" = "None" ]; do
         AUTH_METHOD="UNKNOWN"
         break
     fi
-
+    
     if [ -z "$BOOTSTRAP_BROKERS" ] || [ "$BOOTSTRAP_BROKERS" = "None" ]; then
         echo "Bootstrap brokers not available yet. Retrying in 30 seconds... (Attempt $RETRY_COUNT/$MAX_RETRIES)"
         sleep 30
@@ -998,49 +996,45 @@ else
 fi
 
 echo "Script completed successfully!"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddRoleToInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile)
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/kafka-2018-11-14/CreateCluster)
+  + [CreateInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateInstanceProfile)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [CreatePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreatePolicy)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteCluster](https://docs.aws.amazon.com/goto/aws-cli/kafka-2018-11-14/DeleteCluster)
+  + [DeleteInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteInstanceProfile)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair)
+  + [DeletePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeletePolicy)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeCluster](https://docs.aws.amazon.com/goto/aws-cli/kafka-2018-11-14/DescribeCluster)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstanceTypeOfferings](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypeOfferings)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetBootstrapBrokers](https://docs.aws.amazon.com/goto/aws-cli/kafka-2018-11-14/GetBootstrapBrokers)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetInstanceProfile)
+  + [GetPolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetPolicy)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [RemoveRoleFromInstanceProfile](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/RemoveRoleFromInstanceProfile)
+  + [RevokeSecurityGroupEgress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupEgress)
+  + [RevokeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddRoleToInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md")
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateCluster](../../../goto/aws-cli/kafka-2018-11-14/CreateCluster.md "../../../goto/aws-cli/kafka-2018-11-14/CreateCluster.md")
-  - [CreateInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/CreateInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/CreateInstanceProfile.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteCluster](../../../goto/aws-cli/kafka-2018-11-14/DeleteCluster.md "../../../goto/aws-cli/kafka-2018-11-14/DeleteCluster.md")
-  - [DeleteInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/DeleteInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/DeleteInstanceProfile.md")
-  - [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeletePolicy](../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DeletePolicy.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeCluster](../../../goto/aws-cli/kafka-2018-11-14/DescribeCluster.md "../../../goto/aws-cli/kafka-2018-11-14/DescribeCluster.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstanceTypeOfferings](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypeOfferings.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypeOfferings.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeKeyPairs](../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md")
-  - [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetBootstrapBrokers](../../../goto/aws-cli/kafka-2018-11-14/GetBootstrapBrokers.md "../../../goto/aws-cli/kafka-2018-11-14/GetBootstrapBrokers.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/GetInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/GetInstanceProfile.md")
-  - [GetPolicy](../../../goto/aws-cli/iam-2010-05-08/GetPolicy.md "../../../goto/aws-cli/iam-2010-05-08/GetPolicy.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [RemoveRoleFromInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/RemoveRoleFromInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/RemoveRoleFromInstanceProfile.md")
-  - [RevokeSecurityGroupEgress](../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupEgress.md "../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupEgress.md")
-  - [RevokeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

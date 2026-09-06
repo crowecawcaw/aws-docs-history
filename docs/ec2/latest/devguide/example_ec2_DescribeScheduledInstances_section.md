@@ -1,23 +1,22 @@
+
+
 # Use `DescribeScheduledInstances` with a CLI
+<a name="example_ec2_DescribeScheduledInstances_section"></a>
 
 The following code examples show how to use `DescribeScheduledInstances`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe your Scheduled Instances**
-
-This example describes the specified Scheduled Instance.
-
-Command:
+**AWS CLI**  
+**To describe your Scheduled Instances**  
+This example describes the specified Scheduled Instance.  
+Command:  
 
 ```
-`aws ec2 describe-scheduled-instances --scheduled-instance-ids `sci-1234-1234-1234-1234-123456789012``
-
+aws ec2 describe-scheduled-instances --scheduled-instance-ids {{sci-1234-1234-1234-1234-123456789012}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -49,32 +48,24 @@ Output:
   ]
 }
 ```
-
-This example describes all your Scheduled Instances.
-
-Command:
+This example describes all your Scheduled Instances.  
+Command:  
 
 ```
-`aws ec2 describe-scheduled-instances`
-
+aws ec2 describe-scheduled-instances
 ```
++  For API details, see [DescribeScheduledInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-scheduled-instances.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeScheduledInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-scheduled-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-scheduled-instances.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified Scheduled Instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified Scheduled Instance.**  
 
 ```
 Get-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone            : us-west-2b
@@ -85,7 +76,7 @@ InstanceType                : c4.large
 NetworkPlatform             : EC2-VPC
 NextSlotStartTime           : 1/31/2016 1:00:00 AM
 Platform                    : Linux/UNIX
-PreviousSlotEndTime         :
+PreviousSlotEndTime         : 
 Recurrence                  : Amazon.EC2.Model.ScheduledInstanceRecurrence
 ScheduledInstanceId         : sci-1234-1234-1234-1234-123456789012
 SlotDurationInHours         : 32
@@ -93,28 +84,20 @@ TermEndDate                 : 1/31/2017 1:00:00 AM
 TermStartDate               : 1/31/2016 1:00:00 AM
 TotalScheduledInstanceHours : 1696
 ```
-
-**Example 2: This example describes all your Scheduled Instances.**
+**Example 2: This example describes all your Scheduled Instances.**  
 
 ```
 Get-EC2ScheduledInstance
-
 ```
++  For API details, see [DescribeScheduledInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeScheduledInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified Scheduled Instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified Scheduled Instance.**  
 
 ```
 Get-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone            : us-west-2b
@@ -125,7 +108,7 @@ InstanceType                : c4.large
 NetworkPlatform             : EC2-VPC
 NextSlotStartTime           : 1/31/2016 1:00:00 AM
 Platform                    : Linux/UNIX
-PreviousSlotEndTime         :
+PreviousSlotEndTime         : 
 Recurrence                  : Amazon.EC2.Model.ScheduledInstanceRecurrence
 ScheduledInstanceId         : sci-1234-1234-1234-1234-123456789012
 SlotDurationInHours         : 32
@@ -133,18 +116,13 @@ TermEndDate                 : 1/31/2017 1:00:00 AM
 TermStartDate               : 1/31/2016 1:00:00 AM
 TotalScheduledInstanceHours : 1696
 ```
-
-**Example 2: This example describes all your Scheduled Instances.**
+**Example 2: This example describes all your Scheduled Instances.**  
 
 ```
 Get-EC2ScheduledInstance
-
 ```
++  For API details, see [DescribeScheduledInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeScheduledInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

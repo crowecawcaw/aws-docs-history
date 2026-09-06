@@ -1,23 +1,22 @@
+
+
 # Use `ReleaseHosts` with a CLI
+<a name="example_ec2_ReleaseHosts_section"></a>
 
 The following code examples show how to use `ReleaseHosts`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To release a Dedicated host from your account**
-
-To release a Dedicated host from your account. Instances that are on the host must be stopped or terminated before the host can be released.
-
-Command:
+**AWS CLI**  
+**To release a Dedicated host from your account**  
+To release a Dedicated host from your account. Instances that are on the host must be stopped or terminated before the host can be released.  
+Command:  
 
 ```
-`aws ec2 release-hosts --host-id=h-0029d6e3cacf1b3da`
-
+aws ec2 release-hosts --host-id=h-0029d6e3cacf1b3da
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -28,23 +27,18 @@ Output:
 
  }
 ```
++  For API details, see [ReleaseHosts](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/release-hosts.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ReleaseHosts](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/release-hosts.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/release-hosts.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example releases the given host ID h-0badafd1dcb2f3456**
+**Tools for PowerShell V4**  
+**Example 1: This example releases the given host ID h-0badafd1dcb2f3456**  
 
 ```
 Remove-EC2Host -HostId h-0badafd1dcb2f3456
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -56,21 +50,15 @@ Successful            Unsuccessful
 ----------            ------------
 {h-0badafd1dcb2f3456} {}
 ```
++  For API details, see [ReleaseHosts](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [ReleaseHosts](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example releases the given host ID h-0badafd1dcb2f3456**
+**Tools for PowerShell V5**  
+**Example 1: This example releases the given host ID h-0badafd1dcb2f3456**  
 
 ```
 Remove-EC2Host -HostId h-0badafd1dcb2f3456
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -82,11 +70,8 @@ Successful            Unsuccessful
 ----------            ------------
 {h-0badafd1dcb2f3456} {}
 ```
++  For API details, see [ReleaseHosts](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [ReleaseHosts](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

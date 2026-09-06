@@ -1,25 +1,25 @@
+
+
 # Use `CreateNetworkInterface` with a CLI
+<a name="example_ec2_CreateNetworkInterface_section"></a>
 
 The following code examples show how to use `CreateNetworkInterface`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To specify an IPv4 address for a network interface**
-
-The following `create-network-interface` example creates a network interface for the specified subnet with the specified primary IPv4 address.
-
-```
-`aws ec2 create-network-interface \
- --subnet-id `subnet-00a24d0d67acf6333` \
- --description `"my network interface"` \
- --groups `sg-09dfba7ed20cda78b` \
- --private-ip-address `10.0.8.17``
+**AWS CLI**  
+**Example 1: To specify an IPv4 address for a network interface**  
+The following `create-network-interface` example creates a network interface for the specified subnet with the specified primary IPv4 address.  
 
 ```
-
-Output:
+aws ec2 create-network-interface \
+    --subnet-id {{subnet-00a24d0d67acf6333}} \
+    --description {{"my network interface"}} \
+    --groups {{sg-09dfba7ed20cda78b}} \
+    --private-ip-address {{10.0.8.17}}
+```
+Output:  
 
 ```
 {
@@ -56,21 +56,17 @@ Output:
     }
 }
 ```
-
-**Example 2: To create a network interface with an IPv4 address and an IPv6 address**
-
-The following `create-network-interface` example creates a network interface for the specified subnet with an IPv4 address and an IPv6 address that are selected by Amazon EC2.
+**Example 2: To create a network interface with an IPv4 address and an IPv6 address**  
+The following `create-network-interface` example creates a network interface for the specified subnet with an IPv4 address and an IPv6 address that are selected by Amazon EC2.  
 
 ```
-`aws ec2 create-network-interface \
- --subnet-id `subnet-00a24d0d67acf6333` \
- --description `"my dual stack network interface"` \
- --ipv6-address-count `1` \
- --groups `sg-09dfba7ed20cda78b``
-
+aws ec2 create-network-interface \
+    --subnet-id {{subnet-00a24d0d67acf6333}} \
+    --description {{"my dual stack network interface"}} \
+    --ipv6-address-count {{1}} \
+    --groups {{sg-09dfba7ed20cda78b}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -113,20 +109,16 @@ Output:
     }
 }
 ```
-
-**Example 3: To create a network interface with connection tracking configuration options**
-
-The following `create-network-interface` example creates a network interface and configures the idle connection tracking timeouts.
+**Example 3: To create a network interface with connection tracking configuration options**  
+The following `create-network-interface` example creates a network interface and configures the idle connection tracking timeouts.  
 
 ```
-`aws ec2 create-network-interface \
- --subnet-id `subnet-00a24d0d67acf6333` \
- --groups `sg-02e57dbcfe0331c1b` \
- --connection-tracking-specification `TcpEstablishedTimeout=86400,UdpTimeout=60``
-
+aws ec2 create-network-interface \
+    --subnet-id {{subnet-00a24d0d67acf6333}} \
+    --groups {{sg-02e57dbcfe0331c1b}} \
+    --connection-tracking-specification {{TcpEstablishedTimeout=86400,UdpTimeout=60}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -167,21 +159,17 @@ Output:
     }
 }
 ```
-
-**Example 4: To create an Elastic Fabric Adapter**
-
-The following `create-network-interface` example creates an EFA.
+**Example 4: To create an Elastic Fabric Adapter**  
+The following `create-network-interface` example creates an EFA.  
 
 ```
-`aws ec2 create-network-interface \
- --interface-type `efa` \
- --subnet-id `subnet-00a24d0d67acf6333` \
- --description `"my efa"` \
- --groups `sg-02e57dbcfe0331c1b``
-
+aws ec2 create-network-interface \
+    --interface-type {{efa}} \
+    --subnet-id {{subnet-00a24d0d67acf6333}} \
+    --description {{"my efa"}} \
+    --groups {{sg-02e57dbcfe0331c1b}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -218,25 +206,19 @@ Output:
     }
 }
 ```
+For more information, see [Elastic network interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in the *Amazon EC2 User Guide*.  
++  For API details, see [CreateNetworkInterface](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-interface.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md") in the _Amazon EC2 User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [CreateNetworkInterface](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-interface.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-interface.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates the specified network interface.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates the specified network interface.**  
 
 ```
 New-EC2NetworkInterface -SubnetId subnet-1a2b3c4d -Description "my network interface" -Group sg-12345678 -PrivateIpAddress 10.0.0.17
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Association        :
@@ -258,21 +240,15 @@ SubnetId           : subnet-1a2b3c4d
 TagSet             : {}
 VpcId              : vpc-12345678
 ```
++  For API details, see [CreateNetworkInterface](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateNetworkInterface](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates the specified network interface.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates the specified network interface.**  
 
 ```
 New-EC2NetworkInterface -SubnetId subnet-1a2b3c4d -Description "my network interface" -Group sg-12345678 -PrivateIpAddress 10.0.0.17
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Association        :
@@ -294,11 +270,8 @@ SubnetId           : subnet-1a2b3c4d
 TagSet             : {}
 VpcId              : vpc-12345678
 ```
++  For API details, see [CreateNetworkInterface](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateNetworkInterface](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

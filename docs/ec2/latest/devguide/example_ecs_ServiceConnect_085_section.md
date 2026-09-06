@@ -1,24 +1,22 @@
+
+
 # Configure container service connectivity
+<a name="example_ecs_ServiceConnect_085_section"></a>
 
 The following code example shows how to:
++ Create the VPC infrastructure
++ Set up logging
++ Create the ECS cluster
++ Configure IAM roles
++ Create the service with Service Connect
++ Verify the deployment
++ Clean up resources
 
-- Create the VPC infrastructure
-- Set up logging
-- Create the ECS cluster
-- Configure IAM roles
-- Create the service with Service Connect
-- Verify the deployment
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/085-amazon-ecs-service-connect "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/085-amazon-ecs-service-connect")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/085-amazon-ecs-service-connect) repository. 
 
 ```
 #!/bin/bash
@@ -74,7 +72,7 @@ track_resource() {
 check_for_errors() {
     local output="$1"
     local command_name="$2"
-
+    
     # Check for specific AWS CLI error patterns, not just any occurrence of "error"
     if echo "$output" | grep -qi "An error occurred\|InvalidParameterException\|AccessDenied\|ValidationException\|ResourceNotFoundException"; then
         log "ERROR in $command_name: $output"
@@ -93,7 +91,7 @@ get_account_id() {
 wait_for_resource() {
     local resource_type="$1"
     local resource_id="$2"
-
+    
     case "$resource_type" in
         "cluster")
             log "Waiting for cluster $resource_id to be active..."
@@ -126,7 +124,7 @@ wait_for_resource() {
 # Function to use default VPC infrastructure
 setup_default_vpc_infrastructure() {
     log "Using default VPC infrastructure..."
-
+    
     # Get default VPC
     VPC_ID=$(aws ec2 describe-vpcs --filters "Name=isDefault,Values=true" --query 'Vpcs[0].VpcId' --output text)
     if [[ "$VPC_ID" == "None" || -z "$VPC_ID" ]]; then
@@ -134,21 +132,21 @@ setup_default_vpc_infrastructure() {
         exit 1
     fi
     log "Using default VPC: $VPC_ID"
-
+    
     # Get default subnets
     SUBNETS=$(aws ec2 describe-subnets --filters "Name=vpc-id,Values=$VPC_ID" "Name=default-for-az,Values=true" --query 'Subnets[].SubnetId' --output text)
     SUBNET_ARRAY=($SUBNETS)
-
+    
     if [ ${#SUBNET_ARRAY[@]} -lt 2 ]; then
         log "ERROR: Need at least 2 subnets for ECS Service Connect. Found: ${#SUBNET_ARRAY[@]}"
         exit 1
     fi
-
+    
     PUBLIC_SUBNET1=${SUBNET_ARRAY[0]}
     PUBLIC_SUBNET2=${SUBNET_ARRAY[1]}
-
+    
     log "Using subnets: $PUBLIC_SUBNET1, $PUBLIC_SUBNET2"
-
+    
     # Create security group for ECS tasks
     SG_OUTPUT=$(aws ec2 create-security-group \
         --group-name "${ENV_PREFIX}-ecs-sg-${RANDOM_SUFFIX}" \
@@ -159,27 +157,27 @@ setup_default_vpc_infrastructure() {
     SECURITY_GROUP_ID=$(echo "$SG_OUTPUT" | grep -o '"GroupId": "[^"]*"' | cut -d'"' -f4)
     track_resource "SG:$SECURITY_GROUP_ID"
     log "Created security group: $SECURITY_GROUP_ID"
-
+    
     # Add inbound rules to security group
     aws ec2 authorize-security-group-ingress \
         --group-id "$SECURITY_GROUP_ID" \
         --protocol tcp \
         --port 80 \
         --cidr 0.0.0.0/0 >/dev/null 2>&1 || true
-
+    
     aws ec2 authorize-security-group-ingress \
         --group-id "$SECURITY_GROUP_ID" \
         --protocol tcp \
         --port 443 \
         --cidr 0.0.0.0/0 >/dev/null 2>&1 || true
-
+    
     log "Default VPC infrastructure setup completed"
 }
 
 # Function to create CloudWatch log groups
 create_log_groups() {
     log "Creating CloudWatch log groups..."
-
+    
     # Create log group for nginx container
     aws logs create-log-group --log-group-name "/ecs/service-connect-nginx" --tags project=doc-smith,tutorial=amazon-ecs-service-connect 2>&1 | grep -v "ResourceAlreadyExistsException" || {
         if [ ${PIPESTATUS[0]} -eq 0 ]; then
@@ -189,7 +187,7 @@ create_log_groups() {
             log "Log group /ecs/service-connect-nginx already exists"
         fi
     }
-
+    
     # Create log group for service connect proxy
     aws logs create-log-group --log-group-name "/ecs/service-connect-proxy" --tags project=doc-smith,tutorial=amazon-ecs-service-connect 2>&1 | grep -v "ResourceAlreadyExistsException" || {
         if [ ${PIPESTATUS[0]} -eq 0 ]; then
@@ -204,25 +202,25 @@ create_log_groups() {
 # Function to create ECS cluster with Service Connect
 create_ecs_cluster() {
     log "Creating ECS cluster with Service Connect..."
-
+    
     CLUSTER_OUTPUT=$(aws ecs create-cluster \
         --cluster-name "$CLUSTER_NAME" \
         --service-connect-defaults namespace="$NAMESPACE_NAME" \
         --tags key=Environment,value=tutorial key=project,value=doc-smith key=tutorial,value=amazon-ecs-service-connect 2>&1)
     check_for_errors "$CLUSTER_OUTPUT" "create-cluster"
-
+    
     track_resource "CLUSTER:$CLUSTER_NAME"
     log "Created ECS cluster: $CLUSTER_NAME"
-
+    
     wait_for_resource "cluster" "$CLUSTER_NAME"
-
+    
     # Track the Service Connect namespace that gets created
     # Wait a moment for the namespace to be created
     sleep 5
     NAMESPACE_ID=$(aws servicediscovery list-namespaces \
         --filters Name=TYPE,Values=HTTP \
         --query "Namespaces[?Name=='$NAMESPACE_NAME'].Id" --output text 2>/dev/null || echo "")
-
+    
     if [[ -n "$NAMESPACE_ID" && "$NAMESPACE_ID" != "None" ]]; then
         track_resource "NAMESPACE:$NAMESPACE_ID"
         log "Service Connect namespace created: $NAMESPACE_ID"
@@ -232,7 +230,7 @@ create_ecs_cluster() {
 # Function to create IAM roles
 create_iam_roles() {
     log "Creating IAM roles..."
-
+    
     # Check if ecsTaskExecutionRole exists
     if aws iam get-role --role-name ecsTaskExecutionRole >/dev/null 2>&1; then
         log "IAM role ecsTaskExecutionRole exists"
@@ -241,7 +239,7 @@ create_iam_roles() {
         aws iam create-role \
             --role-name ecsTaskExecutionRole \
             --assume-role-policy-document '{
-                "Version":"2012-10-17",
+                "Version":"2012-10-17",		 	 	 
                 "Statement": [{
                     "Effect": "Allow",
                     "Principal": {"Service": "ecs-tasks.amazonaws.com"},
@@ -256,17 +254,17 @@ create_iam_roles() {
         log "Created ecsTaskExecutionRole"
         sleep 10
     fi
-
+    
     # Check if ecsTaskRole exists, create if not
     if aws iam get-role --role-name ecsTaskRole >/dev/null 2>&1; then
         log "IAM role ecsTaskRole exists"
     else
         log "IAM role ecsTaskRole does not exist, will create it"
-
+        
         # Create trust policy for ECS tasks
         cat > /tmp/ecs-task-trust-policy.json << EOF
 {
-    "Version":"2012-10-17",
+    "Version":"2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -278,15 +276,15 @@ create_iam_roles() {
     ]
 }
 EOF
-
+        
         aws iam create-role \
             --role-name ecsTaskRole \
             --assume-role-policy-document file:///tmp/ecs-task-trust-policy.json >/dev/null
-
+        
         track_resource "IAM_ROLE:ecsTaskRole"
         aws iam tag-role --role-name ecsTaskRole --tags Key=project,Value=doc-smith Key=tutorial,Value=amazon-ecs-service-connect
         log "Created ecsTaskRole"
-
+        
         # Wait for role to be available
         sleep 10
     fi
@@ -295,7 +293,7 @@ EOF
 # Function to create task definition
 create_task_definition() {
     log "Creating task definition..."
-
+    
     # Create task definition JSON
     cat > /tmp/task-definition.json << EOF
 {
@@ -330,14 +328,14 @@ create_task_definition() {
     ]
 }
 EOF
-
+    
     TASK_DEF_OUTPUT=$(aws ecs register-task-definition --cli-input-json file:///tmp/task-definition.json 2>&1)
     check_for_errors "$TASK_DEF_OUTPUT" "register-task-definition"
-
+    
     TASK_DEF_ARN=$(echo "$TASK_DEF_OUTPUT" | grep -o '"taskDefinitionArn": "[^"]*"' | cut -d'"' -f4)
     track_resource "TASK_DEF:service-connect-nginx"
     log "Created task definition: $TASK_DEF_ARN"
-
+    
     # Clean up temporary file
     rm -f /tmp/task-definition.json
 }
@@ -345,7 +343,7 @@ EOF
 # Function to create ECS service with Service Connect
 create_ecs_service() {
     log "Creating ECS service with Service Connect..."
-
+    
     # Create service definition JSON
     cat > /tmp/service-definition.json << EOF
 {
@@ -401,15 +399,15 @@ create_ecs_service() {
     ]
 }
 EOF
-
+    
     SERVICE_OUTPUT=$(aws ecs create-service --cli-input-json file:///tmp/service-definition.json 2>&1)
     check_for_errors "$SERVICE_OUTPUT" "create-service"
-
+    
     track_resource "SERVICE:service-connect-nginx-service"
     log "Created ECS service: service-connect-nginx-service"
-
+    
     wait_for_resource "service" "service-connect-nginx-service"
-
+    
     # Clean up temporary file
     rm -f /tmp/service-definition.json
 }
@@ -417,55 +415,55 @@ EOF
 # Function to verify deployment
 verify_deployment() {
     log "Verifying deployment..."
-
+    
     # Check service status
     SERVICE_STATUS=$(aws ecs describe-services \
         --cluster "$CLUSTER_NAME" \
         --services "service-connect-nginx-service" \
         --query 'services[0].status' --output text)
     log "Service status: $SERVICE_STATUS"
-
+    
     # Check running tasks
     RUNNING_COUNT=$(aws ecs describe-services \
         --cluster "$CLUSTER_NAME" \
         --services "service-connect-nginx-service" \
         --query 'services[0].runningCount' --output text)
     log "Running tasks: $RUNNING_COUNT"
-
+    
     # Get task ARN
     TASK_ARN=$(aws ecs list-tasks \
         --cluster "$CLUSTER_NAME" \
         --service-name "service-connect-nginx-service" \
         --query 'taskArns[0]' --output text)
-
+    
     if [[ "$TASK_ARN" != "None" && -n "$TASK_ARN" ]]; then
         log "Task ARN: $TASK_ARN"
-
+        
         # Try to get task IP address
         TASK_IP=$(aws ecs describe-tasks \
             --cluster "$CLUSTER_NAME" \
             --tasks "$TASK_ARN" \
             --query 'tasks[0].attachments[0].details[?name==`privateIPv4Address`].value' \
             --output text 2>/dev/null || echo "")
-
+        
         if [[ -n "$TASK_IP" && "$TASK_IP" != "None" ]]; then
             log "Task IP address: $TASK_IP"
         else
             log "Could not retrieve task IP address"
         fi
     fi
-
+    
     # Check Service Connect namespace
     NAMESPACE_STATUS=$(aws servicediscovery list-namespaces \
         --filters Name=TYPE,Values=HTTP \
         --query "Namespaces[?Name=='$NAMESPACE_NAME'].Id" --output text 2>/dev/null || echo "")
-
+    
     if [[ -n "$NAMESPACE_STATUS" && "$NAMESPACE_STATUS" != "None" ]]; then
         log "Service Connect namespace '$NAMESPACE_NAME' is active"
     else
         log "Service Connect namespace '$NAMESPACE_NAME' not found or not active"
     fi
-
+    
     # Display Service Connect configuration
     log "Service Connect configuration:"
     aws ecs describe-services \
@@ -490,15 +488,15 @@ display_resources() {
 # Function to cleanup resources
 cleanup_resources() {
     log "Starting cleanup process..."
-
+    
     # Delete resources in reverse order of creation
     for ((i=${#CREATED_RESOURCES[@]}-1; i>=0; i--)); do
         resource="${CREATED_RESOURCES[i]}"
         resource_type=$(echo "$resource" | cut -d':' -f1)
         resource_id=$(echo "$resource" | cut -d':' -f2)
-
+        
         log "Cleaning up $resource_type: $resource_id"
-
+        
         case "$resource_type" in
             "SERVICE")
                 aws ecs update-service --cluster "$CLUSTER_NAME" --service "$resource_id" --desired-count 0 2>&1 | grep -qi "error" && log "Warning: Failed to scale down service $resource_id"
@@ -539,27 +537,27 @@ cleanup_resources() {
                 NAMESPACE_SERVICES=$(aws servicediscovery list-services \
                     --filters Name=NAMESPACE_ID,Values="$resource_id" \
                     --query 'Services[].Id' --output text 2>/dev/null || echo "")
-
+                
                 if [[ -n "$NAMESPACE_SERVICES" && "$NAMESPACE_SERVICES" != "None" ]]; then
                     for service_id in $NAMESPACE_SERVICES; do
                         aws servicediscovery delete-service --id "$service_id" >/dev/null 2>&1 || true
                         sleep 2
                     done
                 fi
-
+                
                 # Then delete the namespace
                 aws servicediscovery delete-namespace --id "$resource_id" >/dev/null 2>&1 || true
                 ;;
         esac
-
+        
         sleep 2  # Brief pause between deletions
     done
-
+    
     # Clean up temporary files
     rm -f /tmp/ecs-task-trust-policy.json
     rm -f /tmp/task-definition.json
     rm -f /tmp/service-definition.json
-
+    
     log "Cleanup completed"
 }
 
@@ -568,36 +566,36 @@ main() {
     log "Starting $SCRIPT_NAME v4 (Default VPC)"
     log "Region: $REGION"
     log "Log file: $LOG_FILE"
-
+    
     # Get AWS account ID
     get_account_id
-
+    
     # Setup infrastructure using default VPC
     setup_default_vpc_infrastructure
-
+    
     # Create CloudWatch log groups
     create_log_groups
-
+    
     # Create ECS cluster
     create_ecs_cluster
-
+    
     # Create IAM roles
     create_iam_roles
-
+    
     # Create task definition
     create_task_definition
-
+    
     # Create ECS service
     create_ecs_service
-
+    
     # Verify deployment
     verify_deployment
-
+    
     log "Tutorial completed successfully!"
-
+    
     # Display created resources
     display_resources
-
+    
     # Ask user if they want to clean up
     echo ""
     echo "==========================================="
@@ -605,7 +603,7 @@ main() {
     echo "==========================================="
     echo "Do you want to clean up all created resources? (y/n): "
     CLEANUP_CHOICE="y"
-
+    
     if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         cleanup_resources
         log "All resources have been cleaned up"
@@ -620,44 +618,40 @@ main() {
 # Make script executable and run
 chmod +x "$0"
 main "$@"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/AttachRolePolicy)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/CreateCluster)
+  + [CreateLogGroup](https://docs.aws.amazon.com/goto/aws-cli/logs-2014-03-28/CreateLogGroup)
+  + [CreateRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/CreateRole)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/CreateService)
+  + [DeleteCluster](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeleteCluster)
+  + [DeleteLogGroup](https://docs.aws.amazon.com/goto/aws-cli/logs-2014-03-28/DeleteLogGroup)
+  + [DeleteNamespace](https://docs.aws.amazon.com/goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace)
+  + [DeleteRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DeleteRole)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteService (AWS Cloud Map)](https://docs.aws.amazon.com/goto/aws-cli/servicediscovery-2017-03-14/DeleteService)
+  + [DeleteService (Amazon ECS)](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeleteService)
+  + [DeregisterTaskDefinition](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition)
+  + [DescribeClusters](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeClusters)
+  + [DescribeServices](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeServices)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTasks](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/DescribeTasks)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [DetachRolePolicy](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/DetachRolePolicy)
+  + [GetCallerIdentity](https://docs.aws.amazon.com/goto/aws-cli/sts-2011-06-15/GetCallerIdentity)
+  + [GetRole](https://docs.aws.amazon.com/goto/aws-cli/iam-2010-05-08/GetRole)
+  + [ListNamespaces](https://docs.aws.amazon.com/goto/aws-cli/servicediscovery-2017-03-14/ListNamespaces)
+  + [ListServices](https://docs.aws.amazon.com/goto/aws-cli/servicediscovery-2017-03-14/ListServices)
+  + [ListTaskDefinitions](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListTaskDefinitions)
+  + [ListTasks](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/ListTasks)
+  + [RegisterTaskDefinition](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition)
+  + [UpdateService](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/UpdateService)
+  + [Wait (Amazon EC2)](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
+  + [Wait (Amazon ECS)](https://docs.aws.amazon.com/goto/aws-cli/ecs-2014-11-13/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateCluster](../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md "../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md")
-  - [CreateLogGroup](../../../goto/aws-cli/logs-2014-03-28/CreateLogGroup.md "../../../goto/aws-cli/logs-2014-03-28/CreateLogGroup.md")
-  - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateService](../../../goto/aws-cli/ecs-2014-11-13/CreateService.md "../../../goto/aws-cli/ecs-2014-11-13/CreateService.md")
-  - [DeleteCluster](../../../goto/aws-cli/ecs-2014-11-13/DeleteCluster.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteCluster.md")
-  - [DeleteLogGroup](../../../goto/aws-cli/logs-2014-03-28/DeleteLogGroup.md "../../../goto/aws-cli/logs-2014-03-28/DeleteLogGroup.md")
-  - [DeleteNamespace](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace.md")
-  - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteService (AWS Cloud Map)](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md")
-  - [DeleteService (Amazon ECS)](../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md")
-  - [DeregisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md")
-  - [DescribeClusters](../../../goto/aws-cli/ecs-2014-11-13/DescribeClusters.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeClusters.md")
-  - [DescribeServices](../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTasks](../../../goto/aws-cli/ecs-2014-11-13/DescribeTasks.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeTasks.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [DetachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/DetachRolePolicy.md")
-  - [GetCallerIdentity](../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md "../../../goto/aws-cli/sts-2011-06-15/GetCallerIdentity.md")
-  - [GetRole](../../../goto/aws-cli/iam-2010-05-08/GetRole.md "../../../goto/aws-cli/iam-2010-05-08/GetRole.md")
-  - [ListNamespaces](../../../goto/aws-cli/servicediscovery-2017-03-14/ListNamespaces.md "../../../goto/aws-cli/servicediscovery-2017-03-14/ListNamespaces.md")
-  - [ListServices](../../../goto/aws-cli/servicediscovery-2017-03-14/ListServices.md "../../../goto/aws-cli/servicediscovery-2017-03-14/ListServices.md")
-  - [ListTaskDefinitions](../../../goto/aws-cli/ecs-2014-11-13/ListTaskDefinitions.md "../../../goto/aws-cli/ecs-2014-11-13/ListTaskDefinitions.md")
-  - [ListTasks](../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md "../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md")
-  - [RegisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md")
-  - [UpdateService](../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md "../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md")
-  - [Wait (Amazon EC2)](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-  - [Wait (Amazon ECS)](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

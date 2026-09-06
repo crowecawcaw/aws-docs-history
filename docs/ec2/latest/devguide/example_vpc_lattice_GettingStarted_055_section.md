@@ -1,24 +1,22 @@
+
+
 # Creating and managing a service networking mesh
+<a name="example_vpc_lattice_GettingStarted_055_section"></a>
 
 The following code example shows how to:
++ Create a service network
++ Create a service
++ List available VPCs
++ List security groups for the selected VPC
++ List service associations
++ List VPC associations
++ Clean up resources
 
-- Create a service network
-- Create a service
-- List available VPCs
-- List security groups for the selected VPC
-- List service associations
-- List VPC associations
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/055-amazon-vpc-lattice-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/055-amazon-vpc-lattice-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/055-amazon-vpc-lattice-gs) repository. 
 
 ```
 #!/bin/bash
@@ -63,18 +61,18 @@ check_aws_cli() {
 validate_input() {
     local input="$1"
     local param_name="$2"
-
+    
     if [[ -z "$input" ]]; then
         echo "ERROR: $param_name is empty" | tee -a "$LOG_FILE"
         return 1
     fi
-
+    
     # Validate against common injection patterns
     if [[ "$input" =~ [\;\$\`\|\&\<\>\(\)\{\}] ]]; then
         echo "ERROR: $param_name contains invalid characters" | tee -a "$LOG_FILE"
         return 1
     fi
-
+    
     return 0
 }
 
@@ -93,14 +91,14 @@ wait_for_resource() {
     validate_input "$desired_status" "desired_status" || return 1
 
     echo "Waiting for $resource_type $resource_id to be in state $desired_status..." | tee -a "$LOG_FILE"
-
+    
     while [ "$attempt" -le "$max_attempts" ]; do
         echo "Attempt $attempt of $max_attempts..." >> "$LOG_FILE"
-
+        
         # Run the command to get the status and capture the output
         status_output=$(eval "$command" 2>&1) || true
         echo "$status_output" >> "$LOG_FILE"
-
+        
         # For service networks, they do not have a status field in the output
         # We'll consider them active if we can retrieve them
         if [[ "$resource_type" == "Service Network" ]]; then
@@ -112,7 +110,7 @@ wait_for_resource() {
             # For other resources, extract the status field
             status=$(echo "$status_output" | grep -i "status" | awk -F'"' '{print $4}' || true)
             echo "Current status: $status" >> "$LOG_FILE"
-
+            
             if [[ "$status" == "$desired_status" ]]; then
                 echo "$resource_type $resource_id is now in state $desired_status" | tee -a "$LOG_FILE"
                 return 0
@@ -121,12 +119,12 @@ wait_for_resource() {
                 return 1
             fi
         fi
-
+        
         echo "Waiting for status change... (attempt $attempt/$max_attempts)" >> "$LOG_FILE"
         sleep 10
         ((attempt++))
     done
-
+    
     echo "ERROR: Timed out waiting for $resource_type $resource_id to reach state $desired_status" | tee -a "$LOG_FILE"
     return 1
 }
@@ -244,23 +242,23 @@ else
         echo "ERROR: VPC_ID validation failed"
         exit 1
     }
-
+    
     echo "Auto-selected VPC: $VPC_ID" | tee -a "$LOG_FILE"
-
+    
     # Step 6: List security groups for the selected VPC
     echo -e "\n=== Step 6: Listing security groups for VPC $VPC_ID ===" | tee -a "$LOG_FILE"
-
+    
     SG_LIST=$(log_command "aws ec2 describe-security-groups --filters Name=vpc-id,Values='$VPC_ID' --query 'SecurityGroups[*].[GroupId,GroupName]' --output text")
     check_error $?
-
+    
     echo "Available Security Groups for VPC $VPC_ID:" | tee -a "$LOG_FILE"
     echo "$SG_LIST" | tee -a "$LOG_FILE"
-
+    
     # Step 7: Auto-select first available security group
     echo -e "\n=== Step 7: Select a security group for the VPC association ===" | tee -a "$LOG_FILE"
-
+    
     SG_ID=$(echo "$SG_LIST" | head -n 1 | awk '{print $1}')
-
+    
     if [ -z "$SG_ID" ]; then
         echo "WARNING: No Security Group ID found" | tee -a "$LOG_FILE"
         echo "Skipping VPC association step" | tee -a "$LOG_FILE"
@@ -269,25 +267,25 @@ else
             echo "ERROR: SG_ID validation failed"
             exit 1
         }
-
+        
         echo "Auto-selected Security Group: $SG_ID" | tee -a "$LOG_FILE"
-
+        
         # Step 8: Associate the VPC with the service network
         echo -e "\n=== Step 8: Associating VPC with service network ===" | tee -a "$LOG_FILE"
-
+        
         VPC_ASSOC_OUTPUT=$(log_command "aws vpc-lattice create-service-network-vpc-association --vpc-identifier '$VPC_ID' --service-network-identifier '$SERVICE_NETWORK_ID' --security-group-ids '$SG_ID' --output json")
         check_error $?
-
+        
         # Extract the VPC association ID using jq for safety
         VPC_ASSOC_ID=$(echo "$VPC_ASSOC_OUTPUT" | jq -r '.id // empty' 2>/dev/null || true)
         if [ -z "$VPC_ASSOC_ID" ]; then
             echo "ERROR: Failed to extract VPC association ID" | tee -a "$LOG_FILE"
         else
             validate_input "$VPC_ASSOC_ID" "VPC_ASSOC_ID" || exit 1
-
+            
             echo "VPC association created with ID: $VPC_ASSOC_ID" | tee -a "$LOG_FILE"
             CREATED_RESOURCES+=("VPC Association: $VPC_ASSOC_ID")
-
+            
             # Wait for the VPC association to be active
             wait_for_resource "VPC Association" "$VPC_ASSOC_ID" "ACTIVE" "aws vpc-lattice get-service-network-vpc-association --service-network-vpc-association-identifier '$VPC_ASSOC_ID' --output json"
             check_error $?
@@ -325,7 +323,7 @@ echo "Starting cleanup process..." | tee -a "$LOG_FILE"
 if [[ -n "${VPC_ASSOC_ID:-}" ]]; then
     echo "Deleting VPC association: $VPC_ASSOC_ID" | tee -a "$LOG_FILE"
     log_command "aws vpc-lattice delete-service-network-vpc-association --service-network-vpc-association-identifier '$VPC_ASSOC_ID'" || true
-
+    
     # Wait for the VPC association to be deleted
     echo "Waiting for VPC association to be deleted..." | tee -a "$LOG_FILE"
     sleep 30
@@ -355,28 +353,25 @@ echo "Cleanup completed successfully!" | tee -a "$LOG_FILE"
 
 echo -e "\n=== Tutorial completed! ===" | tee -a "$LOG_FILE"
 echo "Log file: $LOG_FILE" | tee -a "$LOG_FILE"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateService](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/CreateService)
+  + [CreateServiceNetwork](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetwork)
+  + [CreateServiceNetworkServiceAssociation](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkServiceAssociation)
+  + [CreateServiceNetworkVpcAssociation](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkVpcAssociation)
+  + [DeleteService](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/DeleteService)
+  + [DeleteServiceNetwork](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetwork)
+  + [DeleteServiceNetworkServiceAssociation](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetworkServiceAssociation)
+  + [DeleteServiceNetworkVpcAssociation](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetworkVpcAssociation)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [GetService](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/GetService)
+  + [GetServiceNetwork](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetwork)
+  + [GetServiceNetworkServiceAssociation](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetworkServiceAssociation)
+  + [GetServiceNetworkVpcAssociation](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetworkVpcAssociation)
+  + [ListServiceNetworkServiceAssociations](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/ListServiceNetworkServiceAssociations)
+  + [ListServiceNetworkVpcAssociations](https://docs.aws.amazon.com/goto/aws-cli/vpc-lattice-2022-11-30/ListServiceNetworkVpcAssociations)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateService](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateService.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateService.md")
-  - [CreateServiceNetwork](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetwork.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetwork.md")
-  - [CreateServiceNetworkServiceAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkServiceAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkServiceAssociation.md")
-  - [CreateServiceNetworkVpcAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkVpcAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/CreateServiceNetworkVpcAssociation.md")
-  - [DeleteService](../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteService.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteService.md")
-  - [DeleteServiceNetwork](../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetwork.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetwork.md")
-  - [DeleteServiceNetworkServiceAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetworkServiceAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetworkServiceAssociation.md")
-  - [DeleteServiceNetworkVpcAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetworkVpcAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/DeleteServiceNetworkVpcAssociation.md")
-  - [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [GetService](../../../goto/aws-cli/vpc-lattice-2022-11-30/GetService.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/GetService.md")
-  - [GetServiceNetwork](../../../goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetwork.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetwork.md")
-  - [GetServiceNetworkServiceAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetworkServiceAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetworkServiceAssociation.md")
-  - [GetServiceNetworkVpcAssociation](../../../goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetworkVpcAssociation.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/GetServiceNetworkVpcAssociation.md")
-  - [ListServiceNetworkServiceAssociations](../../../goto/aws-cli/vpc-lattice-2022-11-30/ListServiceNetworkServiceAssociations.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/ListServiceNetworkServiceAssociations.md")
-  - [ListServiceNetworkVpcAssociations](../../../goto/aws-cli/vpc-lattice-2022-11-30/ListServiceNetworkVpcAssociations.md "../../../goto/aws-cli/vpc-lattice-2022-11-30/ListServiceNetworkVpcAssociations.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

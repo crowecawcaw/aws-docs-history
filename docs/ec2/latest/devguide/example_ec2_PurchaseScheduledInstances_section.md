@@ -1,23 +1,22 @@
+
+
 # Use `PurchaseScheduledInstances` with a CLI
+<a name="example_ec2_PurchaseScheduledInstances_section"></a>
 
 The following code examples show how to use `PurchaseScheduledInstances`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To purchase a Scheduled Instance**
-
-This example purchases a Scheduled Instance.
-
-Command:
+**AWS CLI**  
+**To purchase a Scheduled Instance**  
+This example purchases a Scheduled Instance.  
+Command:  
 
 ```
-`aws ec2 purchase-scheduled-instances --purchase-requests `file://purchase-request.json``
-
+aws ec2 purchase-scheduled-instances --purchase-requests {{file://purchase-request.json}}
 ```
-
-Purchase-request.json:
+Purchase-request.json:  
 
 ```
 [
@@ -27,8 +26,7 @@ Purchase-request.json:
     }
 ]
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -60,26 +58,21 @@ Output:
   ]
 }
 ```
++  For API details, see [PurchaseScheduledInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/purchase-scheduled-instances.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [PurchaseScheduledInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/purchase-scheduled-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/purchase-scheduled-instances.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example purchases a Scheduled Instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example purchases a Scheduled Instance.**  
 
 ```
 $request = New-Object Amazon.EC2.Model.PurchaseRequest
 $request.InstanceCount = 1
 $request.PurchaseToken = "eyJ2IjoiMSIsInMiOjEsImMiOi..."
 New-EC2ScheduledInstancePurchase -PurchaseRequest $request
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone            : us-west-2b
@@ -90,7 +83,7 @@ InstanceType                : c4.large
 NetworkPlatform             : EC2-VPC
 NextSlotStartTime           : 1/31/2016 1:00:00 AM
 Platform                    : Linux/UNIX
-PreviousSlotEndTime         :
+PreviousSlotEndTime         : 
 Recurrence                  : Amazon.EC2.Model.ScheduledInstanceRecurrence
 ScheduledInstanceId         : sci-1234-1234-1234-1234-123456789012
 SlotDurationInHours         : 32
@@ -98,24 +91,18 @@ TermEndDate                 : 1/31/2017 1:00:00 AM
 TermStartDate               : 1/31/2016 1:00:00 AM
 TotalScheduledInstanceHours : 1696
 ```
++  For API details, see [PurchaseScheduledInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [PurchaseScheduledInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example purchases a Scheduled Instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example purchases a Scheduled Instance.**  
 
 ```
 $request = New-Object Amazon.EC2.Model.PurchaseRequest
 $request.InstanceCount = 1
 $request.PurchaseToken = "eyJ2IjoiMSIsInMiOjEsImMiOi..."
 New-EC2ScheduledInstancePurchase -PurchaseRequest $request
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone            : us-west-2b
@@ -126,7 +113,7 @@ InstanceType                : c4.large
 NetworkPlatform             : EC2-VPC
 NextSlotStartTime           : 1/31/2016 1:00:00 AM
 Platform                    : Linux/UNIX
-PreviousSlotEndTime         :
+PreviousSlotEndTime         : 
 Recurrence                  : Amazon.EC2.Model.ScheduledInstanceRecurrence
 ScheduledInstanceId         : sci-1234-1234-1234-1234-123456789012
 SlotDurationInHours         : 32
@@ -134,11 +121,8 @@ TermEndDate                 : 1/31/2017 1:00:00 AM
 TermStartDate               : 1/31/2016 1:00:00 AM
 TotalScheduledInstanceHours : 1696
 ```
++  For API details, see [PurchaseScheduledInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [PurchaseScheduledInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

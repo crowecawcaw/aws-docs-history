@@ -1,20 +1,18 @@
+
+
 # Getting started with in-memory caching
+<a name="example_ec2_GettingStarted_065_section"></a>
 
 The following code example shows how to:
++ Set up security group for ElastiCache access
++ Create a Valkey serverless cache
++ Clean up resources
 
-- Set up security group for ElastiCache access
-- Create a Valkey serverless cache
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/065-amazon-elasticache-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/065-amazon-elasticache-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/065-amazon-elasticache-gs) repository. 
 
 ```
 #!/bin/bash
@@ -153,33 +151,33 @@ CACHE_STATUS=""
 
 while [[ $ATTEMPT -le $MAX_ATTEMPTS ]]; do
     echo "Checking cache status (attempt $ATTEMPT of $MAX_ATTEMPTS)..."
-
+    
     if ! DESCRIBE_RESULT=$(aws elasticache describe-serverless-caches \
       --serverless-cache-name "$CACHE_NAME" 2>&1); then
         handle_error "Failed to describe serverless cache: $DESCRIBE_RESULT"
     fi
-
+    
     # Extract status using jq for reliable JSON parsing
     if command -v jq &> /dev/null; then
         CACHE_STATUS=$(echo "$DESCRIBE_RESULT" | jq -r '.ServerlessCaches[0].Status // "UNKNOWN"' 2>/dev/null || echo "")
     else
         CACHE_STATUS=$(echo "$DESCRIBE_RESULT" | grep -o '"Status": "[^"]*"' | awk -F'"' '{print $4}' | head -n 1)
     fi
-
+    
     echo "Current status: $CACHE_STATUS"
-
+    
     if [[ "${CACHE_STATUS,,}" == "available" ]]; then
         echo "Cache is now available!"
         break
     elif [[ "${CACHE_STATUS,,}" == "create-failed" ]]; then
         handle_error "Cache creation failed. Please check the AWS console for details."
     fi
-
+    
     if [[ $ATTEMPT -lt $MAX_ATTEMPTS ]]; then
         echo "Waiting 30 seconds..."
         sleep 30
     fi
-
+    
     ((ATTEMPT++))
 done
 
@@ -245,7 +243,7 @@ CLEANUP_CHOICE="y"
 
 if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
     echo "Starting cleanup process..."
-
+    
     # Step 7: Delete the cache
     echo "Deleting serverless cache $CACHE_NAME..."
     if ! DELETE_RESULT=$(aws elasticache delete-serverless-cache \
@@ -255,7 +253,7 @@ if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
     else
         echo "Cache deletion initiated. This may take several minutes to complete."
     fi
-
+    
     # Only attempt to remove security group rules if we created them
     if [[ "${SG_RULE_6379:-}" != "existing" ]]; then
         echo "Removing security group rule for port 6379..."
@@ -267,7 +265,7 @@ if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
             echo "WARNING: Failed to remove security group rule for port 6379"
         fi
     fi
-
+    
     if [[ "${SG_RULE_6380:-}" != "existing" ]]; then
         echo "Removing security group rule for port 6380..."
         if ! aws ec2 revoke-security-group-ingress \
@@ -278,25 +276,22 @@ if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
             echo "WARNING: Failed to remove security group rule for port 6380"
         fi
     fi
-
+    
     echo "Cleanup completed."
 fi
 
 echo ""
 echo "Script completed. See $LOG_FILE for the full log."
 echo "============================================================"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateServerlessCache](https://docs.aws.amazon.com/goto/aws-cli/elasticache-2015-02-02/CreateServerlessCache)
+  + [DeleteServerlessCache](https://docs.aws.amazon.com/goto/aws-cli/elasticache-2015-02-02/DeleteServerlessCache)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DescribeServerlessCaches](https://docs.aws.amazon.com/goto/aws-cli/elasticache-2015-02-02/DescribeServerlessCaches)
+  + [RevokeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateServerlessCache](../../../goto/aws-cli/elasticache-2015-02-02/CreateServerlessCache.md "../../../goto/aws-cli/elasticache-2015-02-02/CreateServerlessCache.md")
-  - [DeleteServerlessCache](../../../goto/aws-cli/elasticache-2015-02-02/DeleteServerlessCache.md "../../../goto/aws-cli/elasticache-2015-02-02/DeleteServerlessCache.md")
-  - [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DescribeServerlessCaches](../../../goto/aws-cli/elasticache-2015-02-02/DescribeServerlessCaches.md "../../../goto/aws-cli/elasticache-2015-02-02/DescribeServerlessCaches.md")
-  - [RevokeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

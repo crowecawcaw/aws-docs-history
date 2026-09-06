@@ -1,21 +1,18 @@
+
+
 # Use `DescribeInstanceTypes` with an AWS SDK or CLI
+<a name="example_ec2_DescribeInstanceTypes_section"></a>
 
 The following code examples show how to use `DescribeInstanceTypes`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -62,23 +59,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstanceTypes) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstanceTypes.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -188,11 +176,8 @@ function ec2_describe_instance_types() {
   echo "$response"
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -237,29 +222,21 @@ function aws_cli_error_log() {
 
   return 0
 }
+```
++  For API details, see [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypes) in *AWS CLI Command Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To describe an instance type**  
+The following `describe-instance-types` example displays details for the specified instance type.  
 
 ```
-
-- For API details, see
-  [DescribeInstanceTypes](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypes.md")
-  in _AWS CLI Command Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe an instance type**
-
-The following `describe-instance-types` example displays details for the specified instance type.
-
+aws ec2 describe-instance-types \
+    --instance-types {{t2.micro}}
 ```
-`aws ec2 describe-instance-types \
- --instance-types `t2.micro``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -325,21 +302,15 @@ Output:
     ]
 }
 ```
-
-For more information, see [Instance Types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in _Amazon Elastic Compute Cloud
-User Guide for Linux Instances_.
-
-**Example 2: To filter the available instance types**
-
-You can specify a filter to scope the results to instance types that have a specific characteristic. The following `describe-instance-types` example lists the instance types that support hibernation.
+For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
+**Example 2: To filter the available instance types**  
+You can specify a filter to scope the results to instance types that have a specific characteristic. The following `describe-instance-types` example lists the instance types that support hibernation.  
 
 ```
-`aws ec2 describe-instance-types \
- --filters `Name=hibernation-supported,Values=true` --query '`InstanceTypes[*].InstanceType`'`
-
+aws ec2 describe-instance-types \
+    --filters {{Name=hibernation-supported,Values=true}} --query '{{InstanceTypes[*].InstanceType}}'
 ```
-
-Output:
+Output:  
 
 ```
 [
@@ -360,23 +331,14 @@ Output:
     "c5.4xlarge"
 ]
 ```
+For more information, see [Instance Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
++  For API details, see [DescribeInstanceTypes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-types.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Instance Types](../../../AWSEC2/latest/UserGuide/instance-types.md "../../../AWSEC2/latest/UserGuide/instance-types.md") in _Amazon Elastic Compute Cloud
-User Guide for Linux Instances_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeInstanceTypes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-types.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-types.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -422,23 +384,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             return "";
         });
     }
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstanceTypes) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstanceTypes.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { EC2Client, paginateDescribeInstanceTypes } from "@aws-sdk/client-ec2";
@@ -495,23 +448,14 @@ export const main = async ({ pageSize, supportedArch, freeTier }) => {
     throw caught;
   }
 };
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceTypesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceTypesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceTypesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 // Get a list of instance types.
@@ -540,23 +484,14 @@ suspend fun getInstanceTypesSc(): String {
         return instanceType
     }
 }
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class EC2InstanceWrapper:
@@ -625,24 +560,14 @@ class EC2InstanceWrapper:
             raise
         else:
             return inst_types
-
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeInstanceTypes) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](../../../goto/boto3/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/boto3/ec2-2016-11-15/DescribeInstanceTypes.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
     /// List instance types that match an image's architecture and are free tier eligible.
@@ -677,23 +602,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .filter_map(|iti| iti.instance_type)
             .collect())
     }
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     " Create filters for architecture and instance type patterns
@@ -722,42 +638,33 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
 
     /// Return a list of instance types matching the specified architecture
     /// and instance sizes.
-    ///
+    /// 
     /// - Parameters:
     ///   - architecture: The architecture of the instance types to return, as
     ///     a member of `EC2ClientTypes.ArchitectureValues`.
     ///   - sizes: An array of one or more strings identifying sizes of
     ///     instance type to accept.
-    ///
+    /// 
     /// - Returns: An array of `EC2ClientTypes.InstanceTypeInfo` records
     ///   describing the instance types matching the given requirements.
     func getMatchingInstanceTypes(architecture: EC2ClientTypes.ArchitectureValues = EC2ClientTypes.ArchitectureValues.x8664,
                           sizes: [String] = ["*.micro", "*.small"]) async
                           -> [EC2ClientTypes.InstanceTypeInfo] {
-        var instanceTypes: [EC2ClientTypes.InstanceTypeInfo] = []
+        var instanceTypes: [EC2ClientTypes.InstanceTypeInfo] = []    
 
         let archFilter = EC2ClientTypes.Filter(
             name: "processor-info.supported-architecture",
@@ -789,14 +696,9 @@ import AWSEC2
 
         return instanceTypes
     }
-
-
 ```
++  For API details, see [DescribeInstanceTypes](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstancetypes(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DescribeInstanceTypes](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstancetypes(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstancetypes(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

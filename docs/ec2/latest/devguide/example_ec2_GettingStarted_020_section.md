@@ -1,22 +1,20 @@
+
+
 # Creating and managing block storage volumes
+<a name="example_ec2_GettingStarted_020_section"></a>
 
 The following code example shows how to:
++ Create an EBS volume
++ Check volume status
++ Create an EC2 instance (optional)
++ Attach a volume to an EC2 instance
++ Clean up resources
 
-- Create an EBS volume
-- Check volume status
-- Create an EC2 instance (optional)
-- Attach a volume to an EC2 instance
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/020-ebs-gs-volumes "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/020-ebs-gs-volumes")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/020-ebs-gs-volumes) repository. 
 
 ```
 #!/bin/bash
@@ -45,48 +43,48 @@ handle_error() {
     if [ -n "$SG_ID" ]; then
         echo "- Security Group: $SG_ID"
     fi
-
+    
     echo ""
     echo "==========================================="
     echo "CLEANUP CONFIRMATION"
     echo "==========================================="
     echo "An error occurred. Do you want to clean up created resources? (y/n): "
     read -r CLEANUP_CHOICE
-
+    
     if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         cleanup_resources
     else
         echo "Resources were not cleaned up. You will need to delete them manually."
     fi
-
+    
     exit 1
 }
 
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     if [ -n "$VOLUME_ID" ] && [ "$ATTACHED" = true ]; then
         echo "Detaching volume $VOLUME_ID..."
         aws ec2 detach-volume --volume-id "$VOLUME_ID"
-
+        
         # Wait for volume to be detached
         echo "Waiting for volume to be detached..."
         aws ec2 wait volume-available --volume-ids "$VOLUME_ID"
     fi
-
+    
     if [ -n "$VOLUME_ID" ]; then
         echo "Deleting volume $VOLUME_ID..."
         aws ec2 delete-volume --volume-id "$VOLUME_ID"
     fi
-
+    
     if [ -n "$INSTANCE_ID" ] && [ "$CREATED_INSTANCE" = true ]; then
         echo "Terminating instance $INSTANCE_ID..."
         aws ec2 terminate-instances --instance-ids "$INSTANCE_ID"
         echo "Waiting for instance to terminate..."
         aws ec2 wait instance-terminated --instance-ids "$INSTANCE_ID"
     fi
-
+    
     # Clean up security group if created
     if [ -n "$SG_ID" ] && [ "$CREATED_INSTANCE" = true ]; then
         echo "Deleting security group $SG_ID..."
@@ -94,41 +92,41 @@ cleanup_resources() {
         sleep 10
         aws ec2 delete-security-group --group-id "$SG_ID" 2>/dev/null || echo "Security group may have dependencies, delete manually if needed"
     fi
-
+    
     echo "Cleanup completed."
 }
 
 # Function to get available instance type
 get_available_instance_type() {
     local region=$1
-
+    
     # Try instance types in order of preference (cheapest first)
     local instance_types=("t3.nano" "t3.micro" "t2.micro" "t2.nano")
-
+    
     for instance_type in "${instance_types[@]}"; do
         local available=$(aws ec2 describe-instance-type-offerings \
             --region "$region" \
             --filters "Name=instance-type,Values=$instance_type" \
             --query "length(InstanceTypeOfferings)" \
             --output text)
-
+        
         if [ "$available" -gt 0 ]; then
             echo "$instance_type"
             return 0
         fi
     done
-
+    
     # If none of the preferred types are available, get any available type
     local fallback_type=$(aws ec2 describe-instance-type-offerings \
         --region "$region" \
         --query "InstanceTypeOfferings[0].InstanceType" \
         --output text)
-
+    
     if [ "$fallback_type" != "None" ] && [ -n "$fallback_type" ]; then
         echo "$fallback_type"
         return 0
     fi
-
+    
     return 1
 }
 
@@ -195,14 +193,14 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
         --filters "Name=availability-zone,Values=$AZ" "Name=instance-state-name,Values=running" \
         --query "length(Reservations[].Instances[])" \
         --output text)
-
+    
     # Check if there are any running instances in the AZ
     if [ "$INSTANCES_COUNT" -eq 0 ]; then
         echo "No running instances found in $AZ."
         echo ""
         echo "Would you like to create a test EC2 instance? (y/n): "
         read -r CREATE_INSTANCE_CHOICE
-
+        
         if [[ "$CREATE_INSTANCE_CHOICE" =~ ^[Yy]$ ]]; then
             # Get available instance type
             echo "Finding available instance type for region $REGION..."
@@ -211,7 +209,7 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
                 handle_error "No suitable instance type found in region $REGION"
             fi
             echo "Using instance type: $INSTANCE_TYPE"
-
+            
             # Get the latest Amazon Linux 2 AMI
             echo "Finding the latest Amazon Linux 2 AMI..."
             AMI_ID=$(aws ec2 describe-images \
@@ -219,35 +217,35 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
                 --filters "Name=name,Values=amzn2-ami-hvm-*-x86_64-gp2" "Name=state,Values=available" \
                 --query "sort_by(Images, &CreationDate)[-1].ImageId" \
                 --output text)
-
+            
             if [ -z "$AMI_ID" ]; then
                 handle_error "Failed to find a suitable AMI"
             fi
-
+            
             echo "Using AMI: $AMI_ID"
-
+            
             # Check if a default VPC exists
             DEFAULT_VPC_ID=$(aws ec2 describe-vpcs \
                 --filters "Name=isDefault,Values=true" \
                 --query "Vpcs[0].VpcId" \
                 --output text)
-
+            
             if [ "$DEFAULT_VPC_ID" = "None" ] || [ -z "$DEFAULT_VPC_ID" ]; then
                 handle_error "No default VPC found. Please create a VPC and subnet before running this script."
             fi
-
+            
             # Get a subnet in the selected AZ
             SUBNET_ID=$(aws ec2 describe-subnets \
                 --filters "Name=vpc-id,Values=$DEFAULT_VPC_ID" "Name=availability-zone,Values=$AZ" \
                 --query "Subnets[0].SubnetId" \
                 --output text)
-
+            
             if [ -z "$SUBNET_ID" ] || [ "$SUBNET_ID" = "None" ]; then
                 handle_error "No subnet found in $AZ. Please create a subnet before running this script."
             fi
-
+            
             echo "Using subnet: $SUBNET_ID"
-
+            
             # Create a security group that allows SSH
             SG_NAME="EBSTutorialSG-$(date +%s)"
             SG_ID=$(aws ec2 create-security-group \
@@ -257,22 +255,22 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
                 --tag-specifications 'ResourceType=security-group,Tags=[{Key=project,Value=doc-smith},{Key=tutorial,Value=ebs-gs-volumes}]' \
                 --query "GroupId" \
                 --output text)
-
+            
             if [ -z "$SG_ID" ]; then
                 handle_error "Failed to create security group"
             fi
-
+            
             echo "Created security group: $SG_ID"
-
+            
             # Add a rule to allow SSH
             aws ec2 authorize-security-group-ingress \
                 --group-id "$SG_ID" \
                 --protocol tcp \
                 --port 22 \
                 --cidr 0.0.0.0/0
-
+            
             echo "Added SSH rule to security group"
-
+            
             # Create the instance
             echo "Creating EC2 instance in $AZ with instance type $INSTANCE_TYPE..."
             INSTANCE_ID=$(aws ec2 run-instances \
@@ -283,18 +281,18 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
                 --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=EBSTutorialInstance},{Key=Purpose,Value=Tutorial},{Key=project,Value=doc-smith},{Key=tutorial,Value=ebs-gs-volumes}]' \
                 --query "Instances[0].InstanceId" \
                 --output text)
-
+            
             if [ -z "$INSTANCE_ID" ]; then
                 handle_error "Failed to create EC2 instance"
             fi
-
+            
             CREATED_INSTANCE=true
             echo "Instance created with ID: $INSTANCE_ID"
-
+            
             # Wait for the instance to be running
             echo "Waiting for instance to be running..."
             aws ec2 wait instance-running --instance-ids "$INSTANCE_ID"
-
+            
             # Wait a bit more for the instance to initialize
             echo "Waiting for instance initialization (30 seconds)..."
             sleep 30
@@ -309,13 +307,13 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
             --filters "Name=availability-zone,Values=$AZ" "Name=instance-state-name,Values=running" \
             --query "Reservations[*].Instances[*].[InstanceId,Tags[?Key=='Name'].Value|[0],InstanceType]" \
             --output table
-
+        
         # Ask for instance ID
         echo ""
         echo "Enter the instance ID to attach the volume to (or press Enter to skip): "
         read -r INSTANCE_ID
     fi
-
+    
     if [ -n "$INSTANCE_ID" ]; then
         # Attach volume to the instance
         echo "Attaching volume $VOLUME_ID to instance $INSTANCE_ID..."
@@ -325,14 +323,14 @@ if [[ "$ATTACH_CHOICE" =~ ^[Yy]$ ]]; then
             --device "/dev/sdf" \
             --query 'State' \
             --output text)
-
+        
         if [ $? -ne 0 ] || [ -z "$ATTACH_RESULT" ]; then
             handle_error "Failed to attach volume to instance"
         fi
-
+        
         ATTACHED=true
         echo "Volume attached successfully. Device: /dev/sdf"
-
+        
         # Verify attachment
         echo "Verifying attachment..."
         aws ec2 describe-volumes \
@@ -396,29 +394,26 @@ fi
 echo ""
 echo "Script completed at $(date)"
 echo "=============================================="
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AttachVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AttachVolume)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVolume)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVolume)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstanceTypeOfferings](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypeOfferings)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeVolumes](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVolumes)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [DetachVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DetachVolume)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AttachVolume](../../../goto/aws-cli/ec2-2016-11-15/AttachVolume.md "../../../goto/aws-cli/ec2-2016-11-15/AttachVolume.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateVolume](../../../goto/aws-cli/ec2-2016-11-15/CreateVolume.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVolume.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteVolume](../../../goto/aws-cli/ec2-2016-11-15/DeleteVolume.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVolume.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstanceTypeOfferings](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypeOfferings.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypeOfferings.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeVolumes](../../../goto/aws-cli/ec2-2016-11-15/DescribeVolumes.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVolumes.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [DetachVolume](../../../goto/aws-cli/ec2-2016-11-15/DetachVolume.md "../../../goto/aws-cli/ec2-2016-11-15/DetachVolume.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,31 +1,28 @@
+
+
 # Use `DescribeSubnets` with an AWS SDK or CLI
+<a name="example_ec2_DescribeSubnets_section"></a>
 
 The following code examples show how to use `DescribeSubnets`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
++  [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md) 
++  [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md) 
++  [Creating a relational database instance](example_rds_GettingStarted_036_section.md) 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Getting started with document databases](example_docdb_GettingStarted_025_section.md) 
++  [Getting started with load balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md) 
 
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md "example_ecs_ServiceConnect_085_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
-- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Creating a relational database instance](example_rds_GettingStarted_036_section.md "example_rds_GettingStarted_036_section.md")
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Getting started with document databases](example_docdb_GettingStarted_025_section.md "example_docdb_GettingStarted_025_section.md")
-- [Getting started with load balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md "example_elastic_load_balancing_v2_GettingStarted_058_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -73,28 +70,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
+```
++  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeSubnets) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To describe all your subnets**  
+The following `describe-subnets` example displays the details of your subnets.  
 
 ```
-
-- For API details, see
-  [DescribeSubnets](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSubnets.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSubnets.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe all your subnets**
-
-The following `describe-subnets` example displays the details of your subnets.
-
+aws ec2 describe-subnets
 ```
-`aws ec2 describe-subnets`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -155,20 +144,15 @@ Output:
     ]
 }
 ```
-
-For more information, see [Working with VPCs and Subnets](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md") in the _AWS VPC User Guide_.
-
-**Example 2: To describe the subnets of a specific VPC**
-
-The following `describe-subnets` example uses a filter to retrieve details for the subnets of the specified VPC.
+For more information, see [Working with VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html) in the *AWS VPC User Guide*.  
+**Example 2: To describe the subnets of a specific VPC**  
+The following `describe-subnets` example uses a filter to retrieve details for the subnets of the specified VPC.  
 
 ```
-`aws ec2 describe-subnets \
- --filters `"Name=vpc-id,Values=vpc-3EXAMPLE"``
-
+aws ec2 describe-subnets \
+    --filters {{"Name=vpc-id,Values=vpc-3EXAMPLE"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -205,44 +189,31 @@ Output:
     ]
 }
 ```
-
-For more information, see [Working with VPCs and Subnets](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md") in the _AWS VPC User Guide_.
-
-**Example 3: To describe the subnets with a specific tag**
-
-The following `describe-subnets` example uses a filter to retrieve the details of those subnets with the tag `CostCenter=123` and the `--query` parameter to display the subnet IDs of the subnets with this tag.
+For more information, see [Working with VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html) in the *AWS VPC User Guide*.  
+**Example 3: To describe the subnets with a specific tag**  
+The following `describe-subnets` example uses a filter to retrieve the details of those subnets with the tag `CostCenter=123` and the `--query` parameter to display the subnet IDs of the subnets with this tag.  
 
 ```
-`aws ec2 describe-subnets \
- --filters `"Name=tag:CostCenter,Values=123"` \
- --query `"Subnets[*].SubnetId"` \
- --output `text``
-
+aws ec2 describe-subnets \
+    --filters {{"Name=tag:CostCenter,Values=123"}} \
+    --query {{"Subnets[*].SubnetId"}} \
+    --output {{text}}
 ```
-
-Output:
+Output:  
 
 ```
 subnet-0987a87c8b37348ef
 subnet-02a95061c45f372ee
 subnet-03f720e7de2788d73
 ```
+For more information, see [Working with VPCs and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-vpcs.html) in the *Amazon VPC User Guide*.  
++  For API details, see [DescribeSubnets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-subnets.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with VPCs and Subnets](../../../vpc/latest/userguide/working-with-vpcs.md "../../../vpc/latest/userguide/working-with-vpcs.md") in the _Amazon VPC User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [DescribeSubnets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-subnets.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-subnets.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
 ```
     const client = new EC2Client({});
@@ -255,26 +226,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
         ],
       }),
     );
-
-
 ```
++  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSubnetsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeSubnets](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSubnetsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSubnetsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified subnet.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified subnet.**  
 
 ```
 Get-EC2Subnet -SubnetId subnet-1a2b3c4d
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone        : us-west-2c
@@ -287,28 +251,20 @@ SubnetId                : subnet-1a2b3c4d
 Tags                    : {}
 VpcId                   : vpc-12345678
 ```
-
-**Example 2: This example describes all your subnets.**
+**Example 2: This example describes all your subnets.**  
 
 ```
 Get-EC2Subnet
-
 ```
++  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeSubnets](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified subnet.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified subnet.**  
 
 ```
 Get-EC2Subnet -SubnetId subnet-1a2b3c4d
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone        : us-west-2c
@@ -321,27 +277,18 @@ SubnetId                : subnet-1a2b3c4d
 Tags                    : {}
 VpcId                   : vpc-12345678
 ```
-
-**Example 2: This example describes all your subnets.**
+**Example 2: This example describes all your subnets.**  
 
 ```
 Get-EC2Subnet
-
 ```
++  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeSubnets](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class AutoScalingWrapper:
@@ -433,15 +380,9 @@ class AutoScalingWrapper:
                 )
             # Add more error-specific handling as needed
             log.error(f"Full error:\n\t{err}")
-
-
-
 ```
++  For API details, see [DescribeSubnets](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeSubnets) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeSubnets](../../../goto/boto3/ec2-2016-11-15/DescribeSubnets.md "../../../goto/boto3/ec2-2016-11-15/DescribeSubnets.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

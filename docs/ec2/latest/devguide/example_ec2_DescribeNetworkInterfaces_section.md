@@ -1,28 +1,25 @@
+
+
 # Use `DescribeNetworkInterfaces` with a CLI
+<a name="example_ec2_DescribeNetworkInterfaces_section"></a>
 
 The following code examples show how to use `DescribeNetworkInterfaces`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md) 
 
-- [Create a container task for the serverless launch type](example_ecs_GettingStarted_086_section.md "example_ecs_GettingStarted_086_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To describe your network interfaces**
-
-This example describes all your network interfaces.
-
-Command:
+**AWS CLI**  
+**To describe your network interfaces**  
+This example describes all your network interfaces.  
+Command:  
 
 ```
-`aws ec2 describe-network-interfaces`
-
+aws ec2 describe-network-interfaces
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -124,17 +121,13 @@ Output:
   ]
 }
 ```
-
-This example describes network interfaces that have a tag with the key `Purpose` and the value `Prod`.
-
-Command:
+This example describes network interfaces that have a tag with the key `Purpose` and the value `Prod`.  
+Command:  
 
 ```
-`aws ec2 describe-network-interfaces --filters `Name=tag:Purpose,Values=Prod``
-
+aws ec2 describe-network-interfaces --filters {{Name=tag:Purpose,Values=Prod}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -181,23 +174,18 @@ Output:
   ]
 }
 ```
++  For API details, see [DescribeNetworkInterfaces](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-network-interfaces.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeNetworkInterfaces](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-network-interfaces.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-network-interfaces.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified network interface.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterface -NetworkInterfaceId eni-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Association        :
@@ -219,28 +207,20 @@ SubnetId           : subnet-1a2b3c4d
 TagSet             : {}
 VpcId              : vpc-12345678
 ```
-
-**Example 2: This example describes all your network interfaces.**
+**Example 2: This example describes all your network interfaces.**  
 
 ```
 Get-EC2NetworkInterface
-
 ```
++  For API details, see [DescribeNetworkInterfaces](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeNetworkInterfaces](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified network interface.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterface -NetworkInterfaceId eni-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Association        :
@@ -262,18 +242,13 @@ SubnetId           : subnet-1a2b3c4d
 TagSet             : {}
 VpcId              : vpc-12345678
 ```
-
-**Example 2: This example describes all your network interfaces.**
+**Example 2: This example describes all your network interfaces.**  
 
 ```
 Get-EC2NetworkInterface
-
 ```
++  For API details, see [DescribeNetworkInterfaces](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeNetworkInterfaces](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,19 @@
+
+
 # Use `RebootInstances` with an AWS SDK or CLI
+<a name="example_ec2_RebootInstances_section"></a>
 
 The following code examples show how to use `RebootInstances`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
 
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
-
-Reboot an instance by its Id.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
+Reboot an instance by its Id.  
 
 ```
     /// <summary>
@@ -88,12 +84,8 @@ Reboot an instance by its Id.
 
         return hasState;
     }
-
-
-
 ```
-
-Replace the profile for an instance, reboot, and restart a web server.
+Replace the profile for an instance, reboot, and restart a web server.  
 
 ```
     /// <summary>
@@ -175,23 +167,14 @@ Replace the profile for an instance, reboot, and restart a web server.
             throw;
         }
     }
-
-
 ```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/RebootInstances) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [RebootInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/RebootInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/RebootInstances.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Reboot an Amazon Elastic Compute Cloud (Amazon EC2) instance.
@@ -234,44 +217,28 @@ bool AwsDoc::EC2::rebootInstance(const Aws::String &instanceId,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/RebootInstances) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To reboot an Amazon EC2 instance**  
+This example reboots the specified instance. If the command succeeds, no output is returned.  
+Command:  
 
 ```
-
-- For API details, see
-  [RebootInstances](../../../goto/SdkForCpp/ec2-2016-11-15/RebootInstances.md "../../../goto/SdkForCpp/ec2-2016-11-15/RebootInstances.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To reboot an Amazon EC2 instance**
-
-This example reboots the specified instance. If the command succeeds, no output is returned.
-
-Command:
-
+aws ec2 reboot-instances --instance-ids {{i-1234567890abcdef5}}
 ```
-`aws ec2 reboot-instances --instance-ids `i-1234567890abcdef5``
+For more information, see Reboot Your Instance in the *Amazon Elastic Compute Cloud User Guide*.  
++  For API details, see [RebootInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/reboot-instances.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ JavaScript ]
 
-For more information, see Reboot Your Instance in the _Amazon Elastic Compute Cloud User Guide_.
-
-- For API details, see
-  [RebootInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/reboot-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/reboot-instances.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { EC2Client, RebootInstancesCommand } from "@aws-sdk/client-ec2";
@@ -303,51 +270,33 @@ export const main = async ({ instanceIds }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RebootInstancesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [RebootInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/RebootInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/RebootInstancesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example reboots the specified instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example reboots the specified instance.**  
 
 ```
 Restart-EC2Instance -InstanceId i-12345678
-
 ```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [RebootInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example reboots the specified instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example reboots the specified instance.**  
 
 ```
 Restart-EC2Instance -InstanceId i-12345678
-
 ```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [RebootInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class AutoScalingWrapper:
@@ -456,24 +405,14 @@ class AutoScalingWrapper:
                     f"Please verify the instance ID and try again."
                 )
             log.error(f"Full error:\n\t{err}")
-
-
-
 ```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/RebootInstances) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [RebootInstances](../../../goto/boto3/ec2-2016-11-15/RebootInstances.md "../../../goto/boto3/ec2-2016-11-15/RebootInstances.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
     pub async fn reboot(&self, ec2: &EC2) -> Result<(), EC2Error> {
@@ -486,8 +425,6 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
         }
         Ok(())
     }
-
-
 ```
 
 ```
@@ -502,11 +439,8 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
 
         Ok(())
     }
-
-
 ```
-
-Waiters for instance to be in the stopped and ready states, using the Waiters API. Using the Waiters API requires `use aws\_sdk\_ec2::client::Waiters` in the rust file.
+Waiters for instance to be in the stopped and ready states, using the Waiters API. Using the Waiters API requires `use aws\_sdk\_ec2::client::Waiters` in the rust file.  
 
 ```
     /// Wait for an instance to be ready and status ok (default wait 60 seconds)
@@ -549,23 +483,14 @@ Waiters for instance to be in the stopped and ready states, using the Waiters AP
             })?;
         Ok(())
     }
-
-
 ```
++  For API details, see [RebootInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.reboot_instances) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [RebootInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.reboot_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.reboot_instances")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     DATA lt_instance_ids TYPE /aws1/cl_ec2instidstringlist_w=>tt_instanceidstringlist.
@@ -594,14 +519,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
           MESSAGE lv_error TYPE 'E'.
         ENDIF.
     ENDTRY.
-
-
 ```
++  For API details, see [RebootInstances](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [RebootInstances](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

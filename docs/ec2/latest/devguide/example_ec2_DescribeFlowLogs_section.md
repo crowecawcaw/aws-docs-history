@@ -1,21 +1,21 @@
+
+
 # Use `DescribeFlowLogs` with a CLI
+<a name="example_ec2_DescribeFlowLogs_section"></a>
 
 The following code examples show how to use `DescribeFlowLogs`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To describe all of your flow logs**
-
-The following `describe-flow-logs` example displays details for all of your flow logs.
-
-```
-`aws ec2 describe-flow-logs`
+**AWS CLI**  
+**Example 1: To describe all of your flow logs**  
+The following `describe-flow-logs` example displays details for all of your flow logs.  
 
 ```
-
-Output:
+aws ec2 describe-flow-logs
+```
+Output:  
 
 ```
 {
@@ -48,33 +48,25 @@ Output:
     ]
 }
 ```
-
-**Example 2: To describe a subset of your flow logs**
-
-The following `describe-flow-logs` example uses a filter to display details for only those flow logs that are in the specified log group in Amazon CloudWatch Logs.
+**Example 2: To describe a subset of your flow logs**  
+The following `describe-flow-logs` example uses a filter to display details for only those flow logs that are in the specified log group in Amazon CloudWatch Logs.  
 
 ```
-`aws ec2 describe-flow-logs \
- --filter `"Name=log-group-name,Values=MyFlowLogs"``
-
+aws ec2 describe-flow-logs \
+    --filter {{"Name=log-group-name,Values=MyFlowLogs"}}
 ```
++  For API details, see [DescribeFlowLogs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-flow-logs.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeFlowLogs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-flow-logs.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-flow-logs.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes one or more flow logs with log destination type 's3'**
+**Tools for PowerShell V4**  
+**Example 1: This example describes one or more flow logs with log destination type 's3'**  
 
 ```
 Get-EC2FlowLog -Filter @{Name="log-destination-type";Values="s3"}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreationTime             : 2/25/2019 9:07:36 PM
@@ -89,21 +81,15 @@ LogGroupName             :
 ResourceId               : eni-01d2dda3456b7e890
 TrafficType              : ALL
 ```
++  For API details, see [DescribeFlowLogs](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeFlowLogs](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes one or more flow logs with log destination type 's3'**
+**Tools for PowerShell V5**  
+**Example 1: This example describes one or more flow logs with log destination type 's3'**  
 
 ```
 Get-EC2FlowLog -Filter @{Name="log-destination-type";Values="s3"}
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CreationTime             : 2/25/2019 9:07:36 PM
@@ -118,11 +104,8 @@ LogGroupName             :
 ResourceId               : eni-01d2dda3456b7e890
 TrafficType              : ALL
 ```
++  For API details, see [DescribeFlowLogs](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeFlowLogs](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

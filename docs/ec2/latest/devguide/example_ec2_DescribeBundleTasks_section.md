@@ -1,23 +1,22 @@
+
+
 # Use `DescribeBundleTasks` with a CLI
+<a name="example_ec2_DescribeBundleTasks_section"></a>
 
 The following code examples show how to use `DescribeBundleTasks`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe your bundle tasks**
-
-This example describes all of your bundle tasks.
-
-Command:
+**AWS CLI**  
+**To describe your bundle tasks**  
+This example describes all of your bundle tasks.  
+Command:  
 
 ```
-`aws ec2 describe-bundle-tasks`
-
+aws ec2 describe-bundle-tasks
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -39,23 +38,18 @@ Output:
   ]
 }
 ```
++  For API details, see [DescribeBundleTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-bundle-tasks.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeBundleTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-bundle-tasks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-bundle-tasks.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified bundle task.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified bundle task.**  
 
 ```
 Get-EC2BundleTask -BundleId bun-12345678
-
 ```
-
-**Example 2: This example describes the bundle tasks whose state is either 'complete' or 'failed'.**
+**Example 2: This example describes the bundle tasks whose state is either 'complete' or 'failed'.**  
 
 ```
 $filter = New-Object Amazon.EC2.Model.Filter
@@ -63,23 +57,16 @@ $filter.Name = "state"
 $filter.Values = @( "complete", "failed" )
 
 Get-EC2BundleTask -Filter $filter
-
 ```
++  For API details, see [DescribeBundleTasks](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeBundleTasks](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified bundle task.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified bundle task.**  
 
 ```
 Get-EC2BundleTask -BundleId bun-12345678
-
 ```
-
-**Example 2: This example describes the bundle tasks whose state is either 'complete' or 'failed'.**
+**Example 2: This example describes the bundle tasks whose state is either 'complete' or 'failed'.**  
 
 ```
 $filter = New-Object Amazon.EC2.Model.Filter
@@ -87,13 +74,9 @@ $filter.Name = "state"
 $filter.Values = @( "complete", "failed" )
 
 Get-EC2BundleTask -Filter $filter
-
 ```
++  For API details, see [DescribeBundleTasks](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeBundleTasks](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

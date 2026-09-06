@@ -1,23 +1,22 @@
+
+
 # Use `RunScheduledInstances` with a CLI
+<a name="example_ec2_RunScheduledInstances_section"></a>
 
 The following code examples show how to use `RunScheduledInstances`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To launch a Scheduled Instance**
-
-This example launches the specified Scheduled Instance in a VPC.
-
-Command:
+**AWS CLI**  
+**To launch a Scheduled Instance**  
+This example launches the specified Scheduled Instance in a VPC.  
+Command:  
 
 ```
-`aws ec2 run-scheduled-instances --scheduled-instance-id `sci-1234-1234-1234-1234-123456789012` --instance-count `1` --launch-specification `file://launch-specification.json``
-
+aws ec2 run-scheduled-instances --scheduled-instance-id {{sci-1234-1234-1234-1234-123456789012}} --instance-count {{1}} --launch-specification {{file://launch-specification.json}}
 ```
-
-Launch-specification.json:
+Launch-specification.json:  
 
 ```
 {
@@ -37,8 +36,7 @@ Launch-specification.json:
   }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -47,17 +45,13 @@ Output:
   ]
 }
 ```
-
-This example launches the specified Scheduled Instance in EC2-Classic.
-
-Command:
+This example launches the specified Scheduled Instance in EC2-Classic.  
+Command:  
 
 ```
-`aws ec2 run-scheduled-instances --scheduled-instance-id `sci-1234-1234-1234-1234-123456789012` --instance-count `1` --launch-specification `file://launch-specification.json``
-
+aws ec2 run-scheduled-instances --scheduled-instance-id {{sci-1234-1234-1234-1234-123456789012}} --instance-count {{1}} --launch-specification {{file://launch-specification.json}}
 ```
-
-Launch-specification.json:
+Launch-specification.json:  
 
 ```
 {
@@ -73,8 +67,7 @@ Launch-specification.json:
   }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -83,16 +76,13 @@ Output:
   ]
 }
 ```
++  For API details, see [RunScheduledInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-scheduled-instances.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [RunScheduledInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-scheduled-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/run-scheduled-instances.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example launches the specified Scheduled Instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example launches the specified Scheduled Instance.**  
 
 ```
 New-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012 -InstanceCount 1 `
@@ -101,16 +91,11 @@ New-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-1234567890
 -LaunchSpecification_InstanceType c4.large `
 -LaunchSpecification_SubnetId subnet-12345678`
 -LaunchSpecification_SecurityGroupId sg-12345678
-
 ```
++  For API details, see [RunScheduledInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [RunScheduledInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example launches the specified Scheduled Instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example launches the specified Scheduled Instance.**  
 
 ```
 New-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-123456789012 -InstanceCount 1 `
@@ -119,13 +104,9 @@ New-EC2ScheduledInstance -ScheduledInstanceId sci-1234-1234-1234-1234-1234567890
 -LaunchSpecification_InstanceType c4.large `
 -LaunchSpecification_SubnetId subnet-12345678`
 -LaunchSpecification_SecurityGroupId sg-12345678
-
 ```
++  For API details, see [RunScheduledInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [RunScheduledInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

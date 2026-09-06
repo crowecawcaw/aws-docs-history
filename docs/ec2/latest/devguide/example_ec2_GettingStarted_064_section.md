@@ -1,24 +1,22 @@
+
+
 # Getting started with graph databases
+<a name="example_ec2_GettingStarted_064_section"></a>
 
 The following code example shows how to:
++ Create a VPC for your Neptune database
++ Create subnets in multiple availability zones
++ Configure security for your Neptune database
++ Create a Neptune DB subnet group
++ Create a Neptune DB cluster and instance
++ Add data to your graph database
++ Query your graph database
 
-- Create a VPC for your Neptune database
-- Create subnets in multiple availability zones
-- Configure security for your Neptune database
-- Create a Neptune DB subnet group
-- Create a Neptune DB cluster and instance
-- Add data to your graph database
-- Query your graph database
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/064-amazon-neptune-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/064-amazon-neptune-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/064-amazon-neptune-gs) repository. 
 
 ```
 #!/bin/bash
@@ -42,7 +40,7 @@ check_error() {
     local cmd_output="$1"
     local cmd_status="$2"
     local error_msg="$3"
-
+    
     if [[ $cmd_status -ne 0 || "$cmd_output" =~ [Ee][Rr][Rr][Oo][Rr] ]]; then
         echo "ERROR: $error_msg" | tee -a "$LOG_FILE"
         cleanup_on_error
@@ -53,36 +51,36 @@ check_error() {
 # Function to clean up resources on error
 cleanup_on_error() {
     echo "Error encountered. Cleaning up resources..." | tee -a "$LOG_FILE"
-
+    
     # Only attempt to delete resources that were successfully created
     if [[ -n "$DB_INSTANCE_ID" ]]; then
         echo "Deleting DB instance $DB_INSTANCE_ID..." | tee -a "$LOG_FILE"
         log_cmd "aws neptune delete-db-instance --db-instance-identifier $DB_INSTANCE_ID --skip-final-snapshot"
         log_cmd "aws neptune wait db-instance-deleted --db-instance-identifier $DB_INSTANCE_ID"
     fi
-
+    
     if [[ -n "$DB_CLUSTER_ID" ]]; then
         echo "Deleting DB cluster $DB_CLUSTER_ID..." | tee -a "$LOG_FILE"
         log_cmd "aws neptune delete-db-cluster --db-cluster-identifier $DB_CLUSTER_ID --skip-final-snapshot"
     fi
-
+    
     if [[ -n "$DB_SUBNET_GROUP" ]]; then
         echo "Deleting DB subnet group $DB_SUBNET_GROUP..." | tee -a "$LOG_FILE"
         log_cmd "aws neptune delete-db-subnet-group --db-subnet-group-name $DB_SUBNET_GROUP"
     fi
-
+    
     if [[ -n "$SECURITY_GROUP_ID" ]]; then
         echo "Deleting security group $SECURITY_GROUP_ID..." | tee -a "$LOG_FILE"
         log_cmd "aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID"
     fi
-
+    
     if [[ -n "$SUBNET_IDS" ]]; then
         for SUBNET_ID in $SUBNET_IDS; do
             echo "Deleting subnet $SUBNET_ID..." | tee -a "$LOG_FILE"
             log_cmd "aws ec2 delete-subnet --subnet-id $SUBNET_ID"
         done
     fi
-
+    
     if [[ -n "$VPC_ID" ]]; then
         echo "Deleting VPC $VPC_ID..." | tee -a "$LOG_FILE"
         log_cmd "aws ec2 delete-vpc --vpc-id $VPC_ID"
@@ -256,50 +254,50 @@ read -r CLEANUP_CHOICE
 
 if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
     echo "Starting cleanup process..." | tee -a "$LOG_FILE"
-
+    
     # Delete DB instance
     echo "Deleting DB instance $DB_INSTANCE_ID..." | tee -a "$LOG_FILE"
     log_cmd "aws neptune delete-db-instance --db-instance-identifier $DB_INSTANCE_ID --skip-final-snapshot"
-
+    
     # Wait for DB instance to be deleted
     echo "Waiting for DB instance to be deleted..." | tee -a "$LOG_FILE"
     log_cmd "aws neptune wait db-instance-deleted --db-instance-identifier $DB_INSTANCE_ID"
-
+    
     # Delete DB cluster
     echo "Deleting DB cluster $DB_CLUSTER_ID..." | tee -a "$LOG_FILE"
     log_cmd "aws neptune delete-db-cluster --db-cluster-identifier $DB_CLUSTER_ID --skip-final-snapshot"
-
+    
     # Wait for DB cluster to be deleted (no specific wait command for this, so we'll sleep)
     echo "Waiting for DB cluster to be deleted..." | tee -a "$LOG_FILE"
     sleep 60
-
+    
     # Delete DB subnet group
     echo "Deleting DB subnet group $DB_SUBNET_GROUP..." | tee -a "$LOG_FILE"
     log_cmd "aws neptune delete-db-subnet-group --db-subnet-group-name $DB_SUBNET_GROUP"
-
+    
     # Delete security group
     echo "Deleting security group $SECURITY_GROUP_ID..." | tee -a "$LOG_FILE"
     log_cmd "aws ec2 delete-security-group --group-id $SECURITY_GROUP_ID"
-
+    
     # Detach and delete internet gateway
     echo "Detaching and deleting internet gateway $IGW_ID..." | tee -a "$LOG_FILE"
     log_cmd "aws ec2 detach-internet-gateway --internet-gateway-id $IGW_ID --vpc-id $VPC_ID"
     log_cmd "aws ec2 delete-internet-gateway --internet-gateway-id $IGW_ID"
-
+    
     # Delete subnets
     echo "Deleting subnets..." | tee -a "$LOG_FILE"
     log_cmd "aws ec2 delete-subnet --subnet-id $SUBNET1_ID"
     log_cmd "aws ec2 delete-subnet --subnet-id $SUBNET2_ID"
     log_cmd "aws ec2 delete-subnet --subnet-id $SUBNET3_ID"
-
+    
     # Delete route table
     echo "Deleting route table $ROUTE_TABLE_ID..." | tee -a "$LOG_FILE"
     log_cmd "aws ec2 delete-route-table --route-table-id $ROUTE_TABLE_ID"
-
+    
     # Delete VPC
     echo "Deleting VPC $VPC_ID..." | tee -a "$LOG_FILE"
     log_cmd "aws ec2 delete-vpc --vpc-id $VPC_ID"
-
+    
     echo "Cleanup complete!" | tee -a "$LOG_FILE"
 else
     echo "Resources will not be cleaned up. You can delete them manually later." | tee -a "$LOG_FILE"
@@ -307,38 +305,34 @@ else
 fi
 
 echo "Script completed. See $LOG_FILE for details." | tee -a "$LOG_FILE"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AssociateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateRouteTable)
+  + [AttachInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AttachInternetGateway)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateDbCluster](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/CreateDbCluster)
+  + [CreateDbInstance](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/CreateDbInstance)
+  + [CreateDbSubnetGroup](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/CreateDbSubnetGroup)
+  + [CreateInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateInternetGateway)
+  + [CreateRoute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRoute)
+  + [CreateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRouteTable)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSubnet)
+  + [CreateVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpc)
+  + [DeleteDbCluster](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/DeleteDbCluster)
+  + [DeleteDbInstance](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/DeleteDbInstance)
+  + [DeleteDbSubnetGroup](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/DeleteDbSubnetGroup)
+  + [DeleteInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway)
+  + [DeleteRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteRouteTable)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSubnet)
+  + [DeleteVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpc)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeDbClusters](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/DescribeDbClusters)
+  + [DetachInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DetachInternetGateway)
+  + [ModifyVpcAttribute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ModifyVpcAttribute)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/neptune-2014-10-31/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
-  - [AttachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateDbCluster](../../../goto/aws-cli/neptune-2014-10-31/CreateDbCluster.md "../../../goto/aws-cli/neptune-2014-10-31/CreateDbCluster.md")
-  - [CreateDbInstance](../../../goto/aws-cli/neptune-2014-10-31/CreateDbInstance.md "../../../goto/aws-cli/neptune-2014-10-31/CreateDbInstance.md")
-  - [CreateDbSubnetGroup](../../../goto/aws-cli/neptune-2014-10-31/CreateDbSubnetGroup.md "../../../goto/aws-cli/neptune-2014-10-31/CreateDbSubnetGroup.md")
-  - [CreateInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateInternetGateway.md")
-  - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")
-  - [CreateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateSubnet](../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md")
-  - [CreateVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md")
-  - [DeleteDbCluster](../../../goto/aws-cli/neptune-2014-10-31/DeleteDbCluster.md "../../../goto/aws-cli/neptune-2014-10-31/DeleteDbCluster.md")
-  - [DeleteDbInstance](../../../goto/aws-cli/neptune-2014-10-31/DeleteDbInstance.md "../../../goto/aws-cli/neptune-2014-10-31/DeleteDbInstance.md")
-  - [DeleteDbSubnetGroup](../../../goto/aws-cli/neptune-2014-10-31/DeleteDbSubnetGroup.md "../../../goto/aws-cli/neptune-2014-10-31/DeleteDbSubnetGroup.md")
-  - [DeleteInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway.md")
-  - [DeleteRouteTable](../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteSubnet](../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md")
-  - [DeleteVpc](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeDbClusters](../../../goto/aws-cli/neptune-2014-10-31/DescribeDbClusters.md "../../../goto/aws-cli/neptune-2014-10-31/DescribeDbClusters.md")
-  - [DetachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/DetachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DetachInternetGateway.md")
-  - [ModifyVpcAttribute](../../../goto/aws-cli/ec2-2016-11-15/ModifyVpcAttribute.md "../../../goto/aws-cli/ec2-2016-11-15/ModifyVpcAttribute.md")
-  - [Wait](../../../goto/aws-cli/neptune-2014-10-31/Wait.md "../../../goto/aws-cli/neptune-2014-10-31/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,28 +1,26 @@
+
+
 # Use `DescribeVolumes` with a CLI
+<a name="example_ec2_DescribeVolumes_section"></a>
 
 The following code examples show how to use `DescribeVolumes`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md) 
 
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Working with block storage encryption, snapshots, and volume initialization](example_ec2_GettingStarted_022_section.md "example_ec2_GettingStarted_022_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe a volume**
-
-The following `describe-volumes` example describes the specified volumes in the current Region.
+**AWS CLI**  
+**Example 1: To describe a volume**  
+The following `describe-volumes` example describes the specified volumes in the current Region.  
 
 ```
-`aws ec2 describe-volumes \
- --volume-ids `vol-049df61146c4d7901` `vol-1234567890abcdef0``
-
+aws ec2 describe-volumes \
+    --volume-ids {{vol-049df61146c4d7901}} {{vol-1234567890abcdef0}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -64,44 +62,32 @@ Output:
     ]
 }
 ```
-
-**Example 2: To describe volumes that are attached to a specific instance**
-
-The following `describe-volumes` example describes all volumes that are both attached to the specified instance and set to delete when the instance terminates.
+**Example 2: To describe volumes that are attached to a specific instance**  
+The following `describe-volumes` example describes all volumes that are both attached to the specified instance and set to delete when the instance terminates.  
 
 ```
-`aws ec2 describe-volumes \
- --region `us-east-1` \
- --filters `Name=attachment.instance-id,Values=i-1234567890abcdef0` `Name=attachment.delete-on-termination,Values=true``
+aws ec2 describe-volumes \
+    --region {{us-east-1}} \
+    --filters {{Name=attachment.instance-id,Values=i-1234567890abcdef0}} {{Name=attachment.delete-on-termination,Values=true}}
+```
+For an example of the output for `describe-volumes`, see Example 1.  
+**Example 3: To describe available volumes in a specific Availability Zone**  
+The following `describe-volumes` example describes all volumes that have a status of `available` and are in the specified Availability Zone.  
 
 ```
-
-For an example of the output for `describe-volumes`, see Example 1.
-
-**Example 3: To describe available volumes in a specific Availability Zone**
-
-The following `describe-volumes` example describes all volumes that have a status of `available` and are in the specified Availability Zone.
+aws ec2 describe-volumes \
+    --filters {{Name=status,Values=available}} {{Name=availability-zone,Values=us-east-1a}}
+```
+For an example of the output for `describe-volumes`, see Example 1.  
+**Example 4: To describe volumes based on tags**  
+The following `describe-volumes` example describes all volumes that have the tag key `Name` and a value that begins with `Test`. The output is then filtered with a query that displays only the tags and IDs of the volumes.  
 
 ```
-`aws ec2 describe-volumes \
- --filters `Name=status,Values=available` `Name=availability-zone,Values=us-east-1a``
-
+aws ec2 describe-volumes \
+    --filters {{Name=tag:Name,Values=Test*}} \
+    --query {{"Volumes[*].{ID:VolumeId,Tag:Tags}"}}
 ```
-
-For an example of the output for `describe-volumes`, see Example 1.
-
-**Example 4: To describe volumes based on tags**
-
-The following `describe-volumes` example describes all volumes that have the tag key `Name` and a value that begins with `Test`. The output is then filtered with a query that displays only the tags and IDs of the volumes.
-
-```
-`aws ec2 describe-volumes \
- --filters `Name=tag:Name,Values=Test*` \
- --query `"Volumes[*].{ID:VolumeId,Tag:Tags}"``
-
-```
-
-Output:
+Output:  
 
 ```
 [
@@ -125,25 +111,19 @@ Output:
     }
 ]
 ```
+For additional examples using tag filters, see [Working with tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#Using_Tags_CLI) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeVolumes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-volumes.html) in *AWS CLI Command Reference*. 
 
-For additional examples using tag filters, see [Working with tags](../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI "../../../AWSEC2/latest/UserGuide/Using_Tags.md#Using_Tags_CLI") in the _Amazon EC2 User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeVolumes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-volumes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-volumes.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified EBS volume.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified EBS volume.**  
 
 ```
 Get-EC2Volume -VolumeId vol-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attachments      : {}
@@ -159,15 +139,12 @@ Tags             : {}
 VolumeId         : vol-12345678
 VolumeType       : standard
 ```
-
-**Example 2: This example describes your EBS volumes that have the status 'available'.**
+**Example 2: This example describes your EBS volumes that have the status 'available'.**  
 
 ```
 Get-EC2Volume -Filter @{ Name="status"; Values="available" }
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attachments      : {}
@@ -184,28 +161,20 @@ VolumeId         : vol-12345678
 VolumeType       : gp2
 ...
 ```
-
-**Example 3: This example describes all your EBS volumes.**
+**Example 3: This example describes all your EBS volumes.**  
 
 ```
 Get-EC2Volume
-
 ```
++  For API details, see [DescribeVolumes](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeVolumes](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified EBS volume.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified EBS volume.**  
 
 ```
 Get-EC2Volume -VolumeId vol-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attachments      : {}
@@ -221,15 +190,12 @@ Tags             : {}
 VolumeId         : vol-12345678
 VolumeType       : standard
 ```
-
-**Example 2: This example describes your EBS volumes that have the status 'available'.**
+**Example 2: This example describes your EBS volumes that have the status 'available'.**  
 
 ```
 Get-EC2Volume -Filter @{ Name="status"; Values="available" }
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attachments      : {}
@@ -246,18 +212,13 @@ VolumeId         : vol-12345678
 VolumeType       : gp2
 ...
 ```
-
-**Example 3: This example describes all your EBS volumes.**
+**Example 3: This example describes all your EBS volumes.**  
 
 ```
 Get-EC2Volume
-
 ```
++  For API details, see [DescribeVolumes](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeVolumes](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

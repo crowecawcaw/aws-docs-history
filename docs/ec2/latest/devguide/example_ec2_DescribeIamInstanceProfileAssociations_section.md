@@ -1,21 +1,18 @@
+
+
 # Use `DescribeIamInstanceProfileAssociations` with an AWS SDK or CLI
+<a name="example_ec2_DescribeIamInstanceProfileAssociations_section"></a>
 
 The following code examples show how to use `DescribeIamInstanceProfileAssociations`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
 
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -52,30 +49,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
+```
++  For API details, see [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To describe IAM instance profile associations**  
+This example describes all of your IAM instance profile associations.  
+Command:  
 
 ```
-
-- For API details, see
-  [DescribeIamInstanceProfileAssociations](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To describe IAM instance profile associations**
-
-This example describes all of your IAM instance profile associations.
-
-Command:
-
+aws ec2 describe-iam-instance-profile-associations
 ```
-`aws ec2 describe-iam-instance-profile-associations`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -101,20 +89,13 @@ Output:
    ]
 }
 ```
++  For API details, see [DescribeIamInstanceProfileAssociations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-iam-instance-profile-associations.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeIamInstanceProfileAssociations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-iam-instance-profile-associations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-iam-instance-profile-associations.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
 ```
       const ec2Client = new EC2Client({});
@@ -125,23 +106,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
           ],
         }),
       );
-
-
 ```
++  For API details, see [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIamInstanceProfileAssociationsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeIamInstanceProfileAssociations](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIamInstanceProfileAssociationsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIamInstanceProfileAssociationsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class AutoScalingWrapper:
@@ -218,15 +190,9 @@ class AutoScalingWrapper:
             if error_code == "InvalidInstanceID.NotFound":
                 log.error(f"The instance ID '{instance_id}' does not exist.")
             log.error(f"Full error:\n\t{err}")
-
-
-
 ```
++  For API details, see [DescribeIamInstanceProfileAssociations](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeIamInstanceProfileAssociations](../../../goto/boto3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md "../../../goto/boto3/ec2-2016-11-15/DescribeIamInstanceProfileAssociations.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

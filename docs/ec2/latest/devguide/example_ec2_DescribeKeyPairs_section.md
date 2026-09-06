@@ -1,23 +1,20 @@
+
+
 # Use `DescribeKeyPairs` with an AWS SDK or CLI
+<a name="example_ec2_DescribeKeyPairs_section"></a>
 
 The following code examples show how to use `DescribeKeyPairs`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Getting started with big data processing clusters](example_emr_GettingStarted_037_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Getting started with big data processing clusters](example_emr_GettingStarted_037_section.md "example_emr_GettingStarted_037_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -58,24 +55,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
-
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeKeyPairs) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeKeyPairs.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -131,11 +118,8 @@ function ec2_describe_key_pairs() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -180,23 +164,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Describe all Amazon Elastic Compute Cloud (Amazon EC2) instance key pairs.
@@ -229,29 +204,21 @@ bool AwsDoc::EC2::describeKeyPairs(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DescribeKeyPairs) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To display a key pair**  
+The following `describe-key-pairs` example displays information about the specified key pair.  
 
 ```
-
-- For API details, see
-  [DescribeKeyPairs](../../../goto/SdkForCpp/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/SdkForCpp/ec2-2016-11-15/DescribeKeyPairs.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To display a key pair**
-
-The following `describe-key-pairs` example displays information about the specified key pair.
-
+aws ec2 describe-key-pairs \
+    --key-names {{my-key-pair}}
 ```
-`aws ec2 describe-key-pairs \
- --key-names `my-key-pair``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -267,22 +234,14 @@ Output:
     ]
 }
 ```
+For more information, see [Describe public keys](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/describe-keys.html) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeKeyPairs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-key-pairs.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Describe public keys](../../../AWSEC2/latest/UserGuide/describe-keys.md "../../../AWSEC2/latest/UserGuide/describe-keys.md") in the _Amazon EC2 User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeKeyPairs](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-key-pairs.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-key-pairs.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -301,23 +260,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         return responseFuture;
     }
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeKeyPairs) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeKeyPairs.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { DescribeKeyPairsCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -345,23 +295,14 @@ export const main = async ({ dryRun }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeKeyPairsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeKeyPairsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeKeyPairsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun describeEC2Keys() {
@@ -372,81 +313,57 @@ suspend fun describeEC2Keys() {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified key pair.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified key pair.**  
 
 ```
 Get-EC2KeyPair -KeyName my-key-pair
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 KeyFingerprint                                              KeyName
 --------------                                              -------
 1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f my-key-pair
 ```
-
-**Example 2: This example describes all your key pairs.**
+**Example 2: This example describes all your key pairs.**  
 
 ```
 Get-EC2KeyPair
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified key pair.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified key pair.**  
 
 ```
 Get-EC2KeyPair -KeyName my-key-pair
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 KeyFingerprint                                              KeyName
 --------------                                              -------
 1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f my-key-pair
 ```
-
-**Example 2: This example describes all your key pairs.**
+**Example 2: This example describes all your key pairs.**  
 
 ```
 Get-EC2KeyPair
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class KeyPairWrapper:
@@ -514,47 +431,28 @@ class KeyPairWrapper:
         except ClientError as err:
             logger.error(f"Failed to list key pairs: {str(err)}")
             raise
-
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeKeyPairs) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../goto/boto3/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/boto3/ec2-2016-11-15/DescribeKeyPairs.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
     pub async fn list_key_pair(&self) -> Result<Vec<KeyPairInfo>, EC2Error> {
         let output = self.client.describe_key_pairs().send().await?;
         Ok(output.key_pairs.unwrap_or_default())
     }
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_key_pairs) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_key_pairs "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_key_pairs")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -565,23 +463,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
@@ -606,14 +495,9 @@ import AWSEC2
             print("*** Error: Unable to obtain a key pair list.")
         }
     }
-
-
 ```
++  For API details, see [DescribeKeyPairs](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describekeypairs(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DescribeKeyPairs](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describekeypairs(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describekeypairs(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

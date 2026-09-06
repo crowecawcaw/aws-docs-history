@@ -1,23 +1,21 @@
+
+
 # Get started with dedicated network connections using the CLI
+<a name="example_directconnect_GettingStarted_051_section"></a>
 
 The following code example shows how to:
++ Use ec2 CreateVpnGateway
++ Use ec2 DeleteVpnGateway
++ Use ec2 DescribeVpnGateways
++ Use directconnect CreateConnection
++ Use directconnect CreatePrivateVirtualInterface
++ Use directconnect DeleteConnection
 
-- Use ec2 CreateVpnGateway
-- Use ec2 DeleteVpnGateway
-- Use ec2 DescribeVpnGateways
-- Use directconnect CreateConnection
-- Use directconnect CreatePrivateVirtualInterface
-- Use directconnect DeleteConnection
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/051-aws-direct-connect-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/051-aws-direct-connect-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/051-aws-direct-connect-gs) repository. 
 
 ```
 #!/bin/bash
@@ -36,7 +34,7 @@ echo "$(date): Starting AWS Direct Connect script v6"
 check_error() {
     local output=$1
     local command=$2
-
+    
     if echo "$output" | grep -i "error" > /dev/null; then
         echo "ERROR: Command failed: $command"
         echo "Output: $output"
@@ -50,12 +48,12 @@ wait_for_vgw() {
     local vgw_id=$1
     local max_attempts=30
     local attempt=1
-
+    
     echo "Waiting for virtual private gateway $vgw_id to become available..."
-
+    
     while [ $attempt -le $max_attempts ]; do
         VGW_STATE=$(aws ec2 describe-vpn-gateways --vpn-gateway-ids "$vgw_id" --query 'VpnGateways[0].State' --output text)
-
+        
         if [ "$VGW_STATE" == "available" ]; then
             echo "Virtual private gateway is now available"
             return 0
@@ -63,12 +61,12 @@ wait_for_vgw() {
             echo "Virtual private gateway failed to become available"
             return 1
         fi
-
+        
         echo "Attempt $attempt/$max_attempts: VGW state is $VGW_STATE, waiting 10 seconds..."
         sleep 10
         attempt=$((attempt + 1))
     done
-
+    
     echo "Timeout waiting for VGW to become available"
     return 1
 }
@@ -78,13 +76,13 @@ wait_for_connection() {
     local connection_id=$1
     local max_attempts=60
     local attempt=1
-
+    
     echo "Waiting for connection $connection_id to become available..."
     echo "Note: This can take 30+ minutes in production as AWS provisions the physical connection"
-
+    
     while [ $attempt -le $max_attempts ]; do
         CONNECTION_STATE=$(aws directconnect describe-connections --connection-id "$connection_id" --query 'connections[0].connectionState' --output text)
-
+        
         if [ "$CONNECTION_STATE" == "available" ]; then
             echo "Connection is now available"
             return 0
@@ -92,12 +90,12 @@ wait_for_connection() {
             echo "Connection failed with state: $CONNECTION_STATE"
             return 1
         fi
-
+        
         echo "Attempt $attempt/$max_attempts: Connection state is $CONNECTION_STATE, waiting 30 seconds..."
         sleep 30
         attempt=$((attempt + 1))
     done
-
+    
     echo "Timeout waiting for connection to become available"
     return 1
 }
@@ -105,24 +103,24 @@ wait_for_connection() {
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     # Delete virtual interfaces if they exist
     if [ -n "$PRIVATE_VIF_ID" ]; then
         echo "Deleting private virtual interface: $PRIVATE_VIF_ID"
         aws directconnect delete-virtual-interface --virtual-interface-id "$PRIVATE_VIF_ID"
     fi
-
+    
     if [ -n "$PUBLIC_VIF_ID" ]; then
         echo "Deleting public virtual interface: $PUBLIC_VIF_ID"
         aws directconnect delete-virtual-interface --virtual-interface-id "$PUBLIC_VIF_ID"
     fi
-
+    
     # Delete connection if it exists
     if [ -n "$CONNECTION_ID" ]; then
         echo "Deleting connection: $CONNECTION_ID"
         aws directconnect delete-connection --connection-id "$CONNECTION_ID"
     fi
-
+    
     # Delete VGW if it exists
     if [ -n "$VGW_ID" ]; then
         echo "Deleting virtual private gateway: $VGW_ID"
@@ -263,7 +261,7 @@ if [ "$CONNECTION_STATE" != "available" ]; then
     echo "3. Provide the LOA-CFA to your network provider for cross-connect"
     echo "4. Create virtual interfaces once connection is 'available'"
     echo ""
-
+    
     # Ask if user wants to wait for connection to become available
     echo ""
     echo "==========================================="
@@ -271,7 +269,7 @@ if [ "$CONNECTION_STATE" != "available" ]; then
     echo "==========================================="
     echo -n "Do you want to wait for the connection to become available? (y/n): "
     read -r WAIT_CHOICE
-
+    
     if [[ "$WAIT_CHOICE" =~ ^[Yy]$ ]]; then
         if wait_for_connection "$CONNECTION_ID"; then
             echo "Connection is now available! You could now create virtual interfaces."
@@ -336,25 +334,21 @@ else
 fi
 
 echo "$(date): Script completed"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateConnection](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/CreateConnection)
+  + [CreatePrivateVirtualInterface](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/CreatePrivateVirtualInterface)
+  + [CreateVpnGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpnGateway)
+  + [DeleteConnection](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/DeleteConnection)
+  + [DeleteVirtualInterface](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/DeleteVirtualInterface)
+  + [DeleteVpnGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpnGateway)
+  + [DescribeConnections](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/DescribeConnections)
+  + [DescribeLoa](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/DescribeLoa)
+  + [DescribeLocations](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/DescribeLocations)
+  + [DescribeVirtualInterfaces](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/DescribeVirtualInterfaces)
+  + [DescribeVpnGateways](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpnGateways)
+  + [UpdateConnection](https://docs.aws.amazon.com/goto/aws-cli/direct-connect-2012-10-25/UpdateConnection)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateConnection](../../../goto/aws-cli/direct-connect-2012-10-25/CreateConnection.md "../../../goto/aws-cli/direct-connect-2012-10-25/CreateConnection.md")
-  - [CreatePrivateVirtualInterface](../../../goto/aws-cli/direct-connect-2012-10-25/CreatePrivateVirtualInterface.md "../../../goto/aws-cli/direct-connect-2012-10-25/CreatePrivateVirtualInterface.md")
-  - [CreateVpnGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateVpnGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpnGateway.md")
-  - [DeleteConnection](../../../goto/aws-cli/direct-connect-2012-10-25/DeleteConnection.md "../../../goto/aws-cli/direct-connect-2012-10-25/DeleteConnection.md")
-  - [DeleteVirtualInterface](../../../goto/aws-cli/direct-connect-2012-10-25/DeleteVirtualInterface.md "../../../goto/aws-cli/direct-connect-2012-10-25/DeleteVirtualInterface.md")
-  - [DeleteVpnGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpnGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpnGateway.md")
-  - [DescribeConnections](../../../goto/aws-cli/direct-connect-2012-10-25/DescribeConnections.md "../../../goto/aws-cli/direct-connect-2012-10-25/DescribeConnections.md")
-  - [DescribeLoa](../../../goto/aws-cli/direct-connect-2012-10-25/DescribeLoa.md "../../../goto/aws-cli/direct-connect-2012-10-25/DescribeLoa.md")
-  - [DescribeLocations](../../../goto/aws-cli/direct-connect-2012-10-25/DescribeLocations.md "../../../goto/aws-cli/direct-connect-2012-10-25/DescribeLocations.md")
-  - [DescribeVirtualInterfaces](../../../goto/aws-cli/direct-connect-2012-10-25/DescribeVirtualInterfaces.md "../../../goto/aws-cli/direct-connect-2012-10-25/DescribeVirtualInterfaces.md")
-  - [DescribeVpnGateways](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpnGateways.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpnGateways.md")
-  - [UpdateConnection](../../../goto/aws-cli/direct-connect-2012-10-25/UpdateConnection.md "../../../goto/aws-cli/direct-connect-2012-10-25/UpdateConnection.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

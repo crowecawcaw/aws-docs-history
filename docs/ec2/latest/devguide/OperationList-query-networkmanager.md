@@ -1,31 +1,31 @@
+
+
 # AWS Network Manager actions
+<a name="OperationList-query-networkmanager"></a>
 
-The following API actions are available for AWS Network Manager.
+The following API actions are available for AWS Network Manager.<a name="operation-list-infrastructure-performance"></a>
 
-###### Infrastructure Performance
+**Infrastructure Performance**
++ [DescribeAwsNetworkPerformanceMetricSubscriptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAwsNetworkPerformanceMetricSubscriptions.html)
++ [DisableAwsNetworkPerformanceMetricSubscription](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableAwsNetworkPerformanceMetricSubscription.html)
++ [EnableAwsNetworkPerformanceMetricSubscription](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableAwsNetworkPerformanceMetricSubscription.html)
++ [GetAwsNetworkPerformanceData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.html)<a name="operation-list-network-access-analyzer"></a>
 
-- [DescribeAwsNetworkPerformanceMetricSubscriptions](../../../AWSEC2/latest/APIReference/API_DescribeAwsNetworkPerformanceMetricSubscriptions.md "../../../AWSEC2/latest/APIReference/API_DescribeAwsNetworkPerformanceMetricSubscriptions.md")
-- [DisableAwsNetworkPerformanceMetricSubscription](../../../AWSEC2/latest/APIReference/API_DisableAwsNetworkPerformanceMetricSubscription.md "../../../AWSEC2/latest/APIReference/API_DisableAwsNetworkPerformanceMetricSubscription.md")
-- [EnableAwsNetworkPerformanceMetricSubscription](../../../AWSEC2/latest/APIReference/API_EnableAwsNetworkPerformanceMetricSubscription.md "../../../AWSEC2/latest/APIReference/API_EnableAwsNetworkPerformanceMetricSubscription.md")
-- [GetAwsNetworkPerformanceData](../../../AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.md "../../../AWSEC2/latest/APIReference/API_GetAwsNetworkPerformanceData.md")
+**Network Access Analyzer**
++ [CreateNetworkInsightsAccessScope](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInsightsAccessScope.html)
++ [DeleteNetworkInsightsAccessScope](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScope.html)
++ [DeleteNetworkInsightsAccessScopeAnalysis](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScopeAnalysis.html)
++ [DescribeNetworkInsightsAccessScopeAnalyses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopeAnalyses.html)
++ [DescribeNetworkInsightsAccessScopes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopes.html)
++ [GetNetworkInsightsAccessScopeAnalysisFindings](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeAnalysisFindings.html)
++ [GetNetworkInsightsAccessScopeContent](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeContent.html)
++ [StartNetworkInsightsAccessScopeAnalysis](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartNetworkInsightsAccessScopeAnalysis.html)<a name="operation-list-reachability-analyzer"></a>
 
-###### Network Access Analyzer
-
-- [CreateNetworkInsightsAccessScope](../../../AWSEC2/latest/APIReference/API_CreateNetworkInsightsAccessScope.md "../../../AWSEC2/latest/APIReference/API_CreateNetworkInsightsAccessScope.md")
-- [DeleteNetworkInsightsAccessScope](../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScope.md "../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScope.md")
-- [DeleteNetworkInsightsAccessScopeAnalysis](../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScopeAnalysis.md "../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAccessScopeAnalysis.md")
-- [DescribeNetworkInsightsAccessScopeAnalyses](../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopeAnalyses.md "../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopeAnalyses.md")
-- [DescribeNetworkInsightsAccessScopes](../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopes.md "../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAccessScopes.md")
-- [GetNetworkInsightsAccessScopeAnalysisFindings](../../../AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeAnalysisFindings.md "../../../AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeAnalysisFindings.md")
-- [GetNetworkInsightsAccessScopeContent](../../../AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeContent.md "../../../AWSEC2/latest/APIReference/API_GetNetworkInsightsAccessScopeContent.md")
-- [StartNetworkInsightsAccessScopeAnalysis](../../../AWSEC2/latest/APIReference/API_StartNetworkInsightsAccessScopeAnalysis.md "../../../AWSEC2/latest/APIReference/API_StartNetworkInsightsAccessScopeAnalysis.md")
-
-###### Reachability Analyzer
-
-- [CreateNetworkInsightsPath](../../../AWSEC2/latest/APIReference/API_CreateNetworkInsightsPath.md "../../../AWSEC2/latest/APIReference/API_CreateNetworkInsightsPath.md")
-- [DeleteNetworkInsightsAnalysis](../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAnalysis.md "../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAnalysis.md")
-- [DeleteNetworkInsightsPath](../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsPath.md "../../../AWSEC2/latest/APIReference/API_DeleteNetworkInsightsPath.md")
-- [DescribeNetworkInsightsAnalyses](../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.md "../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.md")
-- [DescribeNetworkInsightsPaths](../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.md "../../../AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.md")
-- [EnableReachabilityAnalyzerOrganizationSharing](../../../AWSEC2/latest/APIReference/API_EnableReachabilityAnalyzerOrganizationSharing.md "../../../AWSEC2/latest/APIReference/API_EnableReachabilityAnalyzerOrganizationSharing.md")
-- [StartNetworkInsightsAnalysis](../../../AWSEC2/latest/APIReference/API_StartNetworkInsightsAnalysis.md "../../../AWSEC2/latest/APIReference/API_StartNetworkInsightsAnalysis.md")
+**Reachability Analyzer**
++ [CreateNetworkInsightsPath](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInsightsPath.html)
++ [DeleteNetworkInsightsAnalysis](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsAnalysis.html)
++ [DeleteNetworkInsightsPath](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteNetworkInsightsPath.html)
++ [DescribeNetworkInsightsAnalyses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsAnalyses.html)
++ [DescribeNetworkInsightsPaths](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInsightsPaths.html)
++ [EnableReachabilityAnalyzerOrganizationSharing](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableReachabilityAnalyzerOrganizationSharing.html)
++ [StartNetworkInsightsAnalysis](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartNetworkInsightsAnalysis.html)

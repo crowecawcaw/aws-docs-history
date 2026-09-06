@@ -1,28 +1,23 @@
+
+
 # VM Import Manifest
+<a name="manifest"></a>
 
-The import manifest is an XML file created and consumed by the Amazon EC2 API operations [ImportInstance](../../../AWSEC2/latest/APIReference/API_ImportInstance.md "../../../AWSEC2/latest/APIReference/API_ImportInstance.md") and [ImportVolume](../../../AWSEC2/latest/APIReference/API_ImportVolume.md "../../../AWSEC2/latest/APIReference/API_ImportVolume.md"). Note that these operations
-are not supported by the AWS CLI.
+The import manifest is an XML file created and consumed by the Amazon EC2 API operations [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html) and [ImportVolume](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportVolume.html). Note that these operations are not supported by the AWS CLI.
 
-The manifest allows a virtual machine image to be broken into small parts for transfer and
-then reassembled at the destination, with support for retrying failed partial transfers. This
-file is generally created, consumed, and destroyed by the Amazon EC2 tools without user intervention.
+The manifest allows a virtual machine image to be broken into small parts for transfer and then reassembled at the destination, with support for retrying failed partial transfers. This file is generally created, consumed, and destroyed by the Amazon EC2 tools without user intervention.
 
-In some exceptional situations, developers may wish to construct a manifest manually or
-programmatically, making it possible to bypass certain API operations while still providing
-a manifest for other operations that require the file as a parameter value.
+In some exceptional situations, developers may wish to construct a manifest manually or programmatically, making it possible to bypass certain API operations while still providing a manifest for other operations that require the file as a parameter value. 
 
 This topic documents the structure of the manifest and provides a sample file.
 
-###### Note
-
-Direct manipulation of the manifest departs from the standard workflow of the
-Amazon EC2 API. We recommend that you follow the procedures in [VM Import/Export processes](../../../vm-import/latest/userguide/import-export-processes.md "../../../vm-import/latest/userguide/import-export-processes.md")
-instead.
+**Note**  
+Direct manipulation of the manifest departs from the standard workflow of the Amazon EC2 API. We recommend that you follow the procedures in [VM Import/Export processes](https://docs.aws.amazon.com/vm-import/latest/userguide/import-export-processes.html) instead.
 
 ## Manifest Schema
+<a name="manifest_file_elements"></a>
 
-The schema below describes the format of the manifest. Documentation for the
-schema elements is presented inline.
+The schema below describes the format of the manifest. Documentation for the schema elements is presented inline. 
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -183,9 +178,9 @@ schema elements is presented inline.
 ```
 
 ## Examples
+<a name="sample_manifest_file"></a>
 
-This first example of a manifest describes a volume image with two parts. The files
-containing the parts are on a local system and must be uploaded to Amazon S3.
+This first example of a manifest describes a volume image with two parts. The files containing the parts are on a local system and must be uploaded to Amazon S3. 
 
 ```
 <manifest>
@@ -220,8 +215,7 @@ containing the parts are on a local system and must be uploaded to Amazon S3.
 </manifest>
 ```
 
-The second example describes a volume image with a single part that has already been
-uploaded to Amazon S3.
+The second example describes a volume image with a single part that has already been uploaded to Amazon S3. 
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>

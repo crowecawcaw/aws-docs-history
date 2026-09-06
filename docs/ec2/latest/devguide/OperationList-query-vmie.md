@@ -1,25 +1,24 @@
+
+
 # VM Import/Export actions
+<a name="OperationList-query-vmie"></a>
 
-The following API actions are available for VM Import/Export. For more information, see the
-[VM Import/Export
-documentation](../../../vm-import/latest/userguide.md "../../../vm-import/latest/userguide.md").
+The following API actions are available for VM Import/Export. For more information, see the [VM Import/Export documentation](https://docs.aws.amazon.com/vm-import/latest/userguide/).
 
-###### VM export
+**VM export**
++ [CancelExportTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelExportTask.html)
++ [CreateInstanceExportTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateInstanceExportTask.html)
++ [DescribeExportImageTasks](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeExportImageTasks.html)
++ [DescribeExportTasks](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeExportTasks.html)
++ [ExportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ExportImage.html)
 
-- [CancelExportTask](../../../AWSEC2/latest/APIReference/API_CancelExportTask.md "../../../AWSEC2/latest/APIReference/API_CancelExportTask.md")
-- [CreateInstanceExportTask](../../../AWSEC2/latest/APIReference/API_CreateInstanceExportTask.md "../../../AWSEC2/latest/APIReference/API_CreateInstanceExportTask.md")
-- [DescribeExportImageTasks](../../../AWSEC2/latest/APIReference/API_DescribeExportImageTasks.md "../../../AWSEC2/latest/APIReference/API_DescribeExportImageTasks.md")
-- [DescribeExportTasks](../../../AWSEC2/latest/APIReference/API_DescribeExportTasks.md "../../../AWSEC2/latest/APIReference/API_DescribeExportTasks.md")
-- [ExportImage](../../../AWSEC2/latest/APIReference/API_ExportImage.md "../../../AWSEC2/latest/APIReference/API_ExportImage.md")
-
-###### VM import
-
-- [CancelConversionTask](../../../AWSEC2/latest/APIReference/API_CancelConversionTask.md "../../../AWSEC2/latest/APIReference/API_CancelConversionTask.md")
-- [CancelImportTask](../../../AWSEC2/latest/APIReference/API_CancelImportTask.md "../../../AWSEC2/latest/APIReference/API_CancelImportTask.md")
-- [DescribeConversionTasks](../../../AWSEC2/latest/APIReference/API_DescribeConversionTasks.md "../../../AWSEC2/latest/APIReference/API_DescribeConversionTasks.md")
-- [DescribeImportImageTasks](../../../AWSEC2/latest/APIReference/API_DescribeImportImageTasks.md "../../../AWSEC2/latest/APIReference/API_DescribeImportImageTasks.md")
-- [DescribeImportSnapshotTasks](../../../AWSEC2/latest/APIReference/API_DescribeImportSnapshotTasks.md "../../../AWSEC2/latest/APIReference/API_DescribeImportSnapshotTasks.md")
-- [ImportImage](../../../AWSEC2/latest/APIReference/API_ImportImage.md "../../../AWSEC2/latest/APIReference/API_ImportImage.md")
-- [ImportInstance](../../../AWSEC2/latest/APIReference/API_ImportInstance.md "../../../AWSEC2/latest/APIReference/API_ImportInstance.md")
-- [ImportSnapshot](../../../AWSEC2/latest/APIReference/API_ImportSnapshot.md "../../../AWSEC2/latest/APIReference/API_ImportSnapshot.md")
-- [ImportVolume](../../../AWSEC2/latest/APIReference/API_ImportVolume.md "../../../AWSEC2/latest/APIReference/API_ImportVolume.md")
+**VM import**
++ [CancelConversionTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelConversionTask.html)
++ [CancelImportTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelImportTask.html)
++ [DescribeConversionTasks](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeConversionTasks.html)
++ [DescribeImportImageTasks](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImportImageTasks.html)
++ [DescribeImportSnapshotTasks](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImportSnapshotTasks.html)
++ [ImportImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportImage.html)
++ [ImportInstance](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html)
++ [ImportSnapshot](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportSnapshot.html)
++ [ImportVolume](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportVolume.html)

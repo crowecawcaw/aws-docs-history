@@ -1,27 +1,24 @@
+
+
 # Getting started with virtual private networks
+<a name="example_vpc_GettingStartedCLI_section"></a>
 
 The following code example shows how to:
++ Create a VPC
++ Create subnets
++ Configure internet connectivity
++ Create a NAT Gateway
++ Configure subnet settings
++ Create security groups
++ Verify your VPC configuration
 
-- Create a VPC
-- Create subnets
-- Configure internet connectivity
-- Create a NAT Gateway
-- Configure subnet settings
-- Create security groups
-- Verify your VPC configuration
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/002-vpc-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/002-vpc-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/002-vpc-gs) repository. 
 
 ```
-
 #!/bin/bash
 
 # VPC Creation Script
@@ -39,7 +36,7 @@ handle_error() {
   do
     echo "- $resource"
   done
-
+  
   echo "Attempting to clean up resources..."
   cleanup_resources
   exit 1
@@ -48,14 +45,14 @@ handle_error() {
 # Function to clean up resources
 cleanup_resources() {
   echo "Cleaning up resources in reverse order..."
-
+  
   # Reverse the array to delete in reverse order of creation
   for ((i=${#CREATED_RESOURCES[@]}-1; i>=0; i--))
   do
     resource="${CREATED_RESOURCES[$i]}"
     resource_type=$(echo "$resource" | cut -d':' -f1)
     resource_id=$(echo "$resource" | cut -d':' -f2)
-
+    
     case "$resource_type" in
       "INSTANCE")
         echo "Terminating EC2 instance: $resource_id"
@@ -544,48 +541,44 @@ else
 fi
 
 echo "Script completed at $(date)"
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AllocateAddress)
+  + [AssociateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateRouteTable)
+  + [AttachInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AttachInternetGateway)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateInternetGateway)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [CreateNatGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateNatGateway)
+  + [CreateRoute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRoute)
+  + [CreateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRouteTable)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSubnet)
+  + [CreateVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpc)
+  + [DeleteInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteNatGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteNatGateway)
+  + [DeleteRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteRouteTable)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSubnet)
+  + [DeleteVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpc)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DescribeInternetGateways](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInternetGateways)
+  + [DescribeNatGateways](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeNatGateways)
+  + [DescribeRouteTables](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeRouteTables)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [DetachInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DetachInternetGateway)
+  + [DisassociateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DisassociateRouteTable)
+  + [ModifySubnetAttribute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ModifySubnetAttribute)
+  + [ModifyVpcAttribute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ModifyVpcAttribute)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ReleaseAddress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AllocateAddress](../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
-  - [AttachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateInternetGateway.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateNatGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateNatGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateNatGateway.md")
-  - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")
-  - [CreateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateSubnet](../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md")
-  - [CreateVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md")
-  - [DeleteInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway.md")
-  - [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteNatGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteNatGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteNatGateway.md")
-  - [DeleteRouteTable](../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteSubnet](../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md")
-  - [DeleteVpc](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeInternetGateways](../../../goto/aws-cli/ec2-2016-11-15/DescribeInternetGateways.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInternetGateways.md")
-  - [DescribeNatGateways](../../../goto/aws-cli/ec2-2016-11-15/DescribeNatGateways.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeNatGateways.md")
-  - [DescribeRouteTables](../../../goto/aws-cli/ec2-2016-11-15/DescribeRouteTables.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeRouteTables.md")
-  - [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [DetachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/DetachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DetachInternetGateway.md")
-  - [DisassociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/DisassociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/DisassociateRouteTable.md")
-  - [ModifySubnetAttribute](../../../goto/aws-cli/ec2-2016-11-15/ModifySubnetAttribute.md "../../../goto/aws-cli/ec2-2016-11-15/ModifySubnetAttribute.md")
-  - [ModifyVpcAttribute](../../../goto/aws-cli/ec2-2016-11-15/ModifyVpcAttribute.md "../../../goto/aws-cli/ec2-2016-11-15/ModifyVpcAttribute.md")
-  - [ReleaseAddress](../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md "../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

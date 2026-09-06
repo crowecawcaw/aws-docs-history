@@ -1,22 +1,19 @@
+
+
 # Use `AssociateAddress` with an AWS SDK or CLI
+<a name="example_ec2_AssociateAddress_section"></a>
 
 The following code examples show how to use `AssociateAddress`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -59,23 +56,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -148,11 +136,8 @@ function ec2_associate_address() {
   echo "$response"
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -197,23 +182,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateAddress) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
     Aws::EC2::EC2Client ec2Client(clientConfiguration);
@@ -249,91 +225,67 @@ bool AwsDoc::EC2::associateAddress(const Aws::String &instanceId, const Aws::Str
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/AssociateAddress) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To associate an Elastic IP address with an instance**  
+The following `associate-address` example associates an Elastic IP address with the specified EC2 instance.  
 
 ```
-
-- For API details, see
-  [AssociateAddress](../../../goto/SdkForCpp/ec2-2016-11-15/AssociateAddress.md "../../../goto/SdkForCpp/ec2-2016-11-15/AssociateAddress.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To associate an Elastic IP address with an instance**
-
-The following `associate-address` example associates an Elastic IP address with the specified EC2 instance.
-
+aws ec2 associate-address \
+    --instance-id {{i-0b263919b6498b123}} \
+    --allocation-id {{eipalloc-64d5890a}}
 ```
-`aws ec2 associate-address \
- --instance-id `i-0b263919b6498b123` \
- --allocation-id `eipalloc-64d5890a``
-
-```
-
-Output:
+Output:  
 
 ```
 {
     "AssociationId": "eipassoc-2bebb745"
 }
 ```
-
-**Example 2: To associate an Elastic IP address with a network interface**
-
-The following `associate-address` example associates the specified Elastic IP address with the specified network interface.
+**Example 2: To associate an Elastic IP address with a network interface**  
+The following `associate-address` example associates the specified Elastic IP address with the specified network interface.  
 
 ```
-`aws ec2 associate-address
- --allocation-id `eipalloc-64d5890a` \
- --network-interface-id `eni-1a2b3c4d``
-
+aws ec2 associate-address
+    --allocation-id {{eipalloc-64d5890a}} \
+    --network-interface-id {{eni-1a2b3c4d}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "AssociationId": "eipassoc-2bebb745"
 }
 ```
-
-**Example 3: To associate an Elastic IP address with a private IP address**
-
-The following `associate-address` example associates the specified Elastic IP address with the specified private IP address in the specified network interface.
+**Example 3: To associate an Elastic IP address with a private IP address**  
+The following `associate-address` example associates the specified Elastic IP address with the specified private IP address in the specified network interface.  
 
 ```
-`aws ec2 associate-address \
- --allocation-id `eipalloc-64d5890a` \
- --network-interface-id `eni-1a2b3c4d` \
- --private-ip-address `10.0.0.85``
-
+aws ec2 associate-address \
+    --allocation-id {{eipalloc-64d5890a}} \
+    --network-interface-id {{eni-1a2b3c4d}} \
+    --private-ip-address {{10.0.0.85}}
 ```
-
-Output:
+Output:  
 
 ```
 {
     "AssociationId": "eipassoc-2bebb745"
 }
 ```
+For more information, see [Elastic IP addresses](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) in the *Amazon EC2 User Guide*.  
++  For API details, see [AssociateAddress](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/associate-address.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Elastic IP addresses](../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md "../../../AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.md") in the _Amazon EC2 User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [AssociateAddress](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/associate-address.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/associate-address.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -363,23 +315,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         });
     }
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { AssociateAddressCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -419,23 +362,14 @@ export const main = async ({ instanceId, allocationId }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun associateAddressSc(
@@ -453,77 +387,53 @@ suspend fun associateAddressSc(
         return associateResponse.associationId
     }
 }
-
-
 ```
++  For API details, see [AssociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [AssociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example associates the specified Elastic IP address with the specified instance in a VPC.**
+**Tools for PowerShell V4**  
+**Example 1: This example associates the specified Elastic IP address with the specified instance in a VPC.**  
 
 ```
 C:\> Register-EC2Address -InstanceId i-12345678 -AllocationId eipalloc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 eipassoc-12345678
 ```
-
-**Example 2: This example associates the specified Elastic IP address with the specified instance in EC2-Classic.**
+**Example 2: This example associates the specified Elastic IP address with the specified instance in EC2-Classic.**  
 
 ```
 C:\> Register-EC2Address -InstanceId i-12345678 -PublicIp 203.0.113.17
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [AssociateAddress](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example associates the specified Elastic IP address with the specified instance in a VPC.**
+**Tools for PowerShell V5**  
+**Example 1: This example associates the specified Elastic IP address with the specified instance in a VPC.**  
 
 ```
 C:\> Register-EC2Address -InstanceId i-12345678 -AllocationId eipalloc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 eipassoc-12345678
 ```
-
-**Example 2: This example associates the specified Elastic IP address with the specified instance in EC2-Classic.**
+**Example 2: This example associates the specified Elastic IP address with the specified instance in EC2-Classic.**  
 
 ```
 C:\> Register-EC2Address -InstanceId i-12345678 -PublicIp 203.0.113.17
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [AssociateAddress](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class ElasticIpWrapper:
@@ -602,24 +512,14 @@ class ElasticIpWrapper:
                 )
             raise
         return response
-
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/AssociateAddress) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../goto/boto3/ec2-2016-11-15/AssociateAddress.md "../../../goto/boto3/ec2-2016-11-15/AssociateAddress.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
 # Associates an Elastic IP address with an Amazon Elastic Compute Cloud
@@ -655,24 +555,14 @@ rescue StandardError => e
   puts "Error associating Elastic IP address with instance: #{e.message}"
   'Error'
 end
-
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/AssociateAddress) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../goto/SdkForRubyV3/ec2-2016-11-15/AssociateAddress.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/AssociateAddress.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
     pub async fn associate_ip_address(
@@ -689,23 +579,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
             .await?;
         Ok(response)
     }
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [AssociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -717,29 +598,20 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [AssociateAddress](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [AssociateAddress](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
 
     /// Associate the specified allocated Elastic IP to a given instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceId: The instance to associate the Elastic IP with.
     ///   - allocationId: The ID of the allocated Elastic IP to associate with
@@ -761,14 +633,9 @@ import AWSEC2
             return nil
         }
     }
-
-
 ```
++  For API details, see [AssociateAddress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [AssociateAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

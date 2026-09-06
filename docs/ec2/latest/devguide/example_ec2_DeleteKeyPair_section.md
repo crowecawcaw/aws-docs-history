@@ -1,26 +1,23 @@
+
+
 # Use `DeleteKeyPair` with an AWS SDK or CLI
+<a name="example_ec2_DeleteKeyPair_section"></a>
 
 The following code examples show how to use `DeleteKeyPair`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md) 
++  [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -62,23 +59,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             File.Delete(tempFileName);
         }
     }
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DeleteKeyPair) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteKeyPair.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -137,11 +125,8 @@ function ec2_delete_keypair() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -186,23 +171,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Delete an Amazon Elastic Compute Cloud (Amazon EC2) instance key pair.
@@ -231,29 +207,21 @@ bool AwsDoc::EC2::deleteKeyPair(const Aws::String &keyPairName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DeleteKeyPair) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a key pair**  
+The following `delete-key-pair` example deletes the specified key pair.  
 
 ```
-
-- For API details, see
-  [DeleteKeyPair](../../../goto/SdkForCpp/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/SdkForCpp/ec2-2016-11-15/DeleteKeyPair.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a key pair**
-
-The following `delete-key-pair` example deletes the specified key pair.
-
+aws ec2 delete-key-pair \
+    --key-name {{my-key-pair}}
 ```
-`aws ec2 delete-key-pair \
- --key-name `my-key-pair``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -261,22 +229,14 @@ Output:
     "KeyPairId": "key-03c8d3aceb53b507"
 }
 ```
+For more information, see [Create and delete key pairs](https://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-keypairs.html) in the *AWS Command Line Interface User Guide*.  
++  For API details, see [DeleteKeyPair](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-key-pair.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Create and delete key pairs](../../../cli/latest/userguide/cli-ec2-keypairs.md "../../../cli/latest/userguide/cli-ec2-keypairs.md") in the _AWS Command Line Interface User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DeleteKeyPair](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-key-pair.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-key-pair.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -302,23 +262,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             }
         });
     }
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DeleteKeyPair) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteKeyPair.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { DeleteKeyPairCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -344,23 +295,14 @@ export const main = async ({ keyName }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteKeyPairCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteKeyPairCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteKeyPairCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun deleteKeys(keyPair: String?) {
@@ -374,26 +316,19 @@ suspend fun deleteKeys(keyPair: String?) {
         println("Successfully deleted key pair named $keyPair")
     }
 }
-
-
 ```
++  For API details, see [DeleteKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DeleteKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the specified key pair. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the specified key pair. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
 ```
 Remove-EC2KeyPair -KeyName my-key-pair
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -401,21 +336,15 @@ Are you sure you want to perform this action?
 Performing operation "Remove-EC2KeyPair (DeleteKeyPair)" on Target "my-key-pair".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the specified key pair. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the specified key pair. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
 ```
 Remove-EC2KeyPair -KeyName my-key-pair
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -423,20 +352,13 @@ Are you sure you want to perform this action?
 Performing operation "Remove-EC2KeyPair (DeleteKeyPair)" on Target "my-key-pair".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class KeyPairWrapper:
@@ -502,26 +424,15 @@ class KeyPairWrapper:
                     "Please verify the key pair name and try again."
                 )
             raise
-
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DeleteKeyPair) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../goto/boto3/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/boto3/ec2-2016-11-15/DeleteKeyPair.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
-
-Wrapper around delete\_key that also removes the backing private PEM key.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
+Wrapper around delete\_key that also removes the backing private PEM key.  
 
 ```
     pub async fn delete(self, ec2: &EC2, util: &Util) -> Result<(), EC2Error> {
@@ -535,8 +446,6 @@ Wrapper around delete\_key that also removes the backing private PEM key.
         }
         Ok(())
     }
-
-
 ```
 
 ```
@@ -550,23 +459,14 @@ Wrapper around delete\_key that also removes the backing private PEM key.
             .await?;
         Ok(())
     }
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_key_pair) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DeleteKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_key_pair "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_key_pair")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -576,31 +476,22 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteKeyPair](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteKeyPair](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
 
     /// Delete an EC2 key pair.
-    ///
+    /// 
     /// - Parameter keyPair: The name of the key pair to delete.
-    ///
+    /// 
     /// - Returns: `true` if the key pair is deleted successfully; otherwise
     ///   `false`.
     func deleteKeyPair(keyPair: String) async -> Bool {
@@ -617,14 +508,9 @@ import AWSEC2
             return false
         }
     }
-
-
 ```
++  For API details, see [DeleteKeyPair](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletekeypair(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [DeleteKeyPair](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletekeypair(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletekeypair(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

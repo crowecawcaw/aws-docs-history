@@ -1,21 +1,21 @@
+
+
 # Use `DescribeVpcEndpoints` with a CLI
+<a name="example_ec2_DescribeVpcEndpoints_section"></a>
 
 The following code examples show how to use `DescribeVpcEndpoints`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe your VPC endpoints**
-
-The following `describe-vpc-endpoints` example displays details for all of your VPC endpoints.
-
-```
-`aws ec2 describe-vpc-endpoints`
+**AWS CLI**  
+**To describe your VPC endpoints**  
+The following `describe-vpc-endpoints` example displays details for all of your VPC endpoints.  
 
 ```
-
-Output:
+aws ec2 describe-vpc-endpoints
+```
+Output:  
 
 ```
 {
@@ -98,25 +98,19 @@ Output:
     ]
 }
 ```
+For more information, see [Concepts](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html) in the *AWS PrivateLink User Guide*.  
++  For API details, see [DescribeVpcEndpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-endpoints.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Concepts](../../../vpc/latest/privatelink/concepts.md "../../../vpc/latest/privatelink/concepts.md") in the _AWS PrivateLink User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeVpcEndpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-endpoints.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-vpc-endpoints.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes one or more of your VPC endpoints for the region eu-west-1. It then pipes the output to the next command, which select the VpcEndpointId property and returns array VPC ID as string array**
+**Tools for PowerShell V4**  
+**Example 1: This example describes one or more of your VPC endpoints for the region eu-west-1. It then pipes the output to the next command, which select the VpcEndpointId property and returns array VPC ID as string array**  
 
 ```
 Get-EC2VpcEndpoint -Region eu-west-1 | Select-Object -ExpandProperty VpcEndpointId
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 vpce-01a2ab3f4f5cc6f7d
@@ -124,15 +118,12 @@ vpce-01d2b345a6787890b
 vpce-0012e34d567890e12
 vpce-0c123db4567890123
 ```
-
-**Example 2: This example describes all the vpc endpoints for the region eu-west-1 and selects VpcEndpointId, VpcId, ServiceName and PrivateDnsEnabled properties to present it in a tabular format**
+**Example 2: This example describes all the vpc endpoints for the region eu-west-1 and selects VpcEndpointId, VpcId, ServiceName and PrivateDnsEnabled properties to present it in a tabular format**  
 
 ```
 Get-EC2VpcEndpoint -Region eu-west-1 | Select-Object VpcEndpointId, VpcId, ServiceName, PrivateDnsEnabled | Format-Table -AutoSize
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 VpcEndpointId          VpcId                 ServiceName                         PrivateDnsEnabled
@@ -142,28 +133,20 @@ vpce-01d1b111a1114561b vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ec2        
 vpce-0011e23d45167e838 vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ec2messages              True
 vpce-0c123db4567890123 vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ssmmessages              True
 ```
-
-**Example 3: This example exports the policy document for the VPC Endpoint vpce-01a2ab3f4f5cc6f7d into a json file**
+**Example 3: This example exports the policy document for the VPC Endpoint vpce-01a2ab3f4f5cc6f7d into a json file**  
 
 ```
 Get-EC2VpcEndpoint -Region eu-west-1 -VpcEndpointId vpce-01a2ab3f4f5cc6f7d | Select-Object -expand PolicyDocument | Out-File vpce_policyDocument.json
-
 ```
++  For API details, see [DescribeVpcEndpoints](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeVpcEndpoints](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes one or more of your VPC endpoints for the region eu-west-1. It then pipes the output to the next command, which select the VpcEndpointId property and returns array VPC ID as string array**
+**Tools for PowerShell V5**  
+**Example 1: This example describes one or more of your VPC endpoints for the region eu-west-1. It then pipes the output to the next command, which select the VpcEndpointId property and returns array VPC ID as string array**  
 
 ```
 Get-EC2VpcEndpoint -Region eu-west-1 | Select-Object -ExpandProperty VpcEndpointId
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 vpce-01a2ab3f4f5cc6f7d
@@ -171,15 +154,12 @@ vpce-01d2b345a6787890b
 vpce-0012e34d567890e12
 vpce-0c123db4567890123
 ```
-
-**Example 2: This example describes all the vpc endpoints for the region eu-west-1 and selects VpcEndpointId, VpcId, ServiceName and PrivateDnsEnabled properties to present it in a tabular format**
+**Example 2: This example describes all the vpc endpoints for the region eu-west-1 and selects VpcEndpointId, VpcId, ServiceName and PrivateDnsEnabled properties to present it in a tabular format**  
 
 ```
 Get-EC2VpcEndpoint -Region eu-west-1 | Select-Object VpcEndpointId, VpcId, ServiceName, PrivateDnsEnabled | Format-Table -AutoSize
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 VpcEndpointId          VpcId                 ServiceName                         PrivateDnsEnabled
@@ -189,18 +169,13 @@ vpce-01d1b111a1114561b vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ec2        
 vpce-0011e23d45167e838 vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ec2messages              True
 vpce-0c123db4567890123 vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ssmmessages              True
 ```
-
-**Example 3: This example exports the policy document for the VPC Endpoint vpce-01a2ab3f4f5cc6f7d into a json file**
+**Example 3: This example exports the policy document for the VPC Endpoint vpce-01a2ab3f4f5cc6f7d into a json file**  
 
 ```
 Get-EC2VpcEndpoint -Region eu-west-1 -VpcEndpointId vpce-01a2ab3f4f5cc6f7d | Select-Object -expand PolicyDocument | Out-File vpce_policyDocument.json
-
 ```
++  For API details, see [DescribeVpcEndpoints](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeVpcEndpoints](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

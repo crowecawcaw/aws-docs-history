@@ -1,22 +1,22 @@
+
+
 # Use `DescribeImportImageTasks` with a CLI
+<a name="example_ec2_DescribeImportImageTasks_section"></a>
 
 The following code examples show how to use `DescribeImportImageTasks`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To monitor an import image task**
-
-The following `describe-import-image-tasks` example checks the status of the specified import image task.
-
-```
-`aws ec2 describe-import-image-tasks \
- --import-task-ids `import-ami-1234567890abcdef0``
+**AWS CLI**  
+**To monitor an import image task**  
+The following `describe-import-image-tasks` example checks the status of the specified import image task.  
 
 ```
-
-Output for an import image task that is in progress.
+aws ec2 describe-import-image-tasks \
+    --import-task-ids {{import-ami-1234567890abcdef0}}
+```
+Output for an import image task that is in progress.  
 
 ```
 {
@@ -41,8 +41,7 @@ Output for an import image task that is in progress.
     ]
 }
 ```
-
-Output for an import image task that is completed. The ID of the resulting AMI is provided by `ImageId`.
+Output for an import image task that is completed. The ID of the resulting AMI is provided by `ImageId`.  
 
 ```
 {
@@ -67,23 +66,18 @@ Output for an import image task that is completed. The ID of the resulting AMI i
     ]
 }
 ```
++  For API details, see [DescribeImportImageTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-import-image-tasks.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeImportImageTasks](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-import-image-tasks.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-import-image-tasks.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified image import task.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified image import task.**  
 
 ```
 Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Architecture    : x86_64
@@ -98,15 +92,12 @@ SnapshotDetails : {/dev/sda1}
 Status          : completed
 StatusMessage   :
 ```
-
-**Example 2: This example describes all your image import tasks.**
+**Example 2: This example describes all your image import tasks.**  
 
 ```
 Get-EC2ImportImageTask
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Architecture    :
@@ -133,21 +124,15 @@ SnapshotDetails : {/dev/sda1}
 Status          : completed
 StatusMessage   :
 ```
++  For API details, see [DescribeImportImageTasks](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeImportImageTasks](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified image import task.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified image import task.**  
 
 ```
 Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Architecture    : x86_64
@@ -162,15 +147,12 @@ SnapshotDetails : {/dev/sda1}
 Status          : completed
 StatusMessage   :
 ```
-
-**Example 2: This example describes all your image import tasks.**
+**Example 2: This example describes all your image import tasks.**  
 
 ```
 Get-EC2ImportImageTask
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Architecture    :
@@ -197,11 +179,8 @@ SnapshotDetails : {/dev/sda1}
 Status          : completed
 StatusMessage   :
 ```
++  For API details, see [DescribeImportImageTasks](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeImportImageTasks](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

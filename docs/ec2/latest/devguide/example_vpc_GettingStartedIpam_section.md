@@ -1,30 +1,27 @@
+
+
 # Get started using IP address management using the CLI
+<a name="example_vpc_GettingStartedIpam_section"></a>
 
 The following code example shows how to:
++ Set up and configure Amazon VPC IP Address Manager (IPAM) using the CLI.
++ Create an IPAM with operating regions (e.g., us-east-1, us-west-2).
++ Retrieve the private scope ID for the IPAM.
++ Create a hierarchical structure of IPv4 pools (top-level, regional, and development pools).
++ Provision CIDR blocks to each pool (e.g., 10.0.0.0/8, 10.0.0.0/16, 10.0.0.0/24).
++ Create a VPC using a CIDR allocated from an IPAM pool.
++ Verify IPAM pool allocations and VPC creation.
++ Troubleshoot common issues like permission errors, CIDR allocation failures, and dependency violations.
++ Clean up IPAM resources (VPC, pools, CIDRs, and IPAM) to avoid unnecessary charges.
++ Explore next steps for advanced IPAM features.
 
-- Set up and configure Amazon VPC IP Address Manager (IPAM) using the CLI.
-- Create an IPAM with operating regions (e.g., us-east-1, us-west-2).
-- Retrieve the private scope ID for the IPAM.
-- Create a hierarchical structure of IPv4 pools (top-level, regional, and development pools).
-- Provision CIDR blocks to each pool (e.g., 10.0.0.0/8, 10.0.0.0/16, 10.0.0.0/24).
-- Create a VPC using a CIDR allocated from an IPAM pool.
-- Verify IPAM pool allocations and VPC creation.
-- Troubleshoot common issues like permission errors, CIDR allocation failures, and dependency violations.
-- Clean up IPAM resources (VPC, pools, CIDRs, and IPAM) to avoid unnecessary charges.
-- Explore next steps for advanced IPAM features.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/009-vpc-ipam-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/009-vpc-ipam-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/009-vpc-ipam-gs) repository. 
 
 ```
-
 #!/bin/bash
 
 # IPAM Getting Started CLI Script - Version 7
@@ -53,46 +50,46 @@ cleanup_resources() {
     echo "==========================================="
     echo "RESOURCES CREATED:"
     echo "==========================================="
-
+    
     if [ -n "$VPC_ID" ]; then
         echo "VPC: $VPC_ID"
     fi
-
+    
     if [ -n "$DEV_POOL_ID" ]; then
         echo "Development Pool: $DEV_POOL_ID"
     fi
-
+    
     if [ -n "$REGIONAL_POOL_ID" ]; then
         echo "Regional Pool: $REGIONAL_POOL_ID"
     fi
-
+    
     if [ -n "$TOP_POOL_ID" ]; then
         echo "Top-level Pool: $TOP_POOL_ID"
     fi
-
+    
     if [ -n "$IPAM_ID" ]; then
         echo "IPAM: $IPAM_ID"
     fi
-
+    
     echo ""
     echo "==========================================="
     echo "CLEANUP CONFIRMATION"
     echo "==========================================="
     echo "Do you want to clean up all created resources? (y/n): "
     read -r CLEANUP_CHOICE
-
+    
     if [[ "$CLEANUP_CHOICE" =~ ^[Yy]$ ]]; then
         echo "Starting cleanup..."
-
+        
         # Delete resources in reverse order of creation to handle dependencies
-
+        
         if [ -n "$VPC_ID" ]; then
             echo "Deleting VPC: $VPC_ID"
             aws ec2 delete-vpc --vpc-id "$VPC_ID" || echo "Failed to delete VPC"
             echo "Waiting for VPC to be deleted..."
             sleep 10
         fi
-
+        
         if [ -n "$DEV_POOL_ID" ]; then
             echo "Deleting Development Pool: $DEV_POOL_ID"
             # First deprovision any CIDRs from the pool
@@ -106,7 +103,7 @@ cleanup_resources() {
             echo "Waiting for Development Pool to be deleted..."
             sleep 10
         fi
-
+        
         if [ -n "$REGIONAL_POOL_ID" ]; then
             echo "Deleting Regional Pool: $REGIONAL_POOL_ID"
             # First deprovision any CIDRs from the pool
@@ -120,7 +117,7 @@ cleanup_resources() {
             echo "Waiting for Regional Pool to be deleted..."
             sleep 10
         fi
-
+        
         if [ -n "$TOP_POOL_ID" ]; then
             echo "Deleting Top-level Pool: $TOP_POOL_ID"
             # First deprovision any CIDRs from the pool
@@ -134,12 +131,12 @@ cleanup_resources() {
             echo "Waiting for Top-level Pool to be deleted..."
             sleep 10
         fi
-
+        
         if [ -n "$IPAM_ID" ]; then
             echo "Deleting IPAM: $IPAM_ID"
             aws ec2 delete-ipam --ipam-id "$IPAM_ID" || echo "Failed to delete IPAM"
         fi
-
+        
         echo "Cleanup completed."
     else
         echo "Cleanup skipped. Resources will remain in your account."
@@ -152,22 +149,22 @@ wait_for_pool() {
     local max_attempts=30
     local attempt=1
     local state=""
-
+    
     echo "Waiting for pool $pool_id to be available..."
-
+    
     while [ $attempt -le $max_attempts ]; do
         state=$(aws ec2 describe-ipam-pools --ipam-pool-ids "$pool_id" --query 'IpamPools[0].State' --output text)
-
+        
         if [ "$state" = "create-complete" ]; then
             echo "Pool $pool_id is now available (state: $state)"
             return 0
         fi
-
+        
         echo "Attempt $attempt/$max_attempts: Pool $pool_id is in state: $state. Waiting..."
         sleep 10
         ((attempt++))
     done
-
+    
     echo "Timed out waiting for pool $pool_id to be available"
     return 1
 }
@@ -179,22 +176,22 @@ wait_for_cidr_provisioning() {
     local max_attempts=30
     local attempt=1
     local state=""
-
+    
     echo "Waiting for CIDR $cidr to be fully provisioned in pool $pool_id..."
-
+    
     while [ $attempt -le $max_attempts ]; do
         state=$(aws ec2 get-ipam-pool-cidrs --ipam-pool-id "$pool_id" --query "IpamPoolCidrs[?Cidr=='$cidr'].State" --output text)
-
+        
         if [ "$state" = "provisioned" ]; then
             echo "CIDR $cidr is now fully provisioned (state: $state)"
             return 0
         fi
-
+        
         echo "Attempt $attempt/$max_attempts: CIDR $cidr is in state: $state. Waiting..."
         sleep 10
         ((attempt++))
     done
-
+    
     echo "Timed out waiting for CIDR $cidr to be provisioned"
     return 1
 }
@@ -386,26 +383,22 @@ cleanup_resources
 
 echo "Script completed at $(date)"
 exit 0
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateIpam](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateIpam)
+  + [CreateIpamPool](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateIpamPool)
+  + [CreateVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpc)
+  + [DeleteIpam](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteIpam)
+  + [DeleteIpamPool](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteIpamPool)
+  + [DeleteVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpc)
+  + [DeprovisionIpamPoolCidr](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeprovisionIpamPoolCidr)
+  + [DescribeIpamPools](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeIpamPools)
+  + [DescribeIpams](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeIpams)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [GetIpamPoolAllocations](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/GetIpamPoolAllocations)
+  + [GetIpamPoolCidrs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/GetIpamPoolCidrs)
+  + [ProvisionIpamPoolCidr](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ProvisionIpamPoolCidr)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateIpam](../../../goto/aws-cli/ec2-2016-11-15/CreateIpam.md "../../../goto/aws-cli/ec2-2016-11-15/CreateIpam.md")
-  - [CreateIpamPool](../../../goto/aws-cli/ec2-2016-11-15/CreateIpamPool.md "../../../goto/aws-cli/ec2-2016-11-15/CreateIpamPool.md")
-  - [CreateVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md")
-  - [DeleteIpam](../../../goto/aws-cli/ec2-2016-11-15/DeleteIpam.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteIpam.md")
-  - [DeleteIpamPool](../../../goto/aws-cli/ec2-2016-11-15/DeleteIpamPool.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteIpamPool.md")
-  - [DeleteVpc](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md")
-  - [DeprovisionIpamPoolCidr](../../../goto/aws-cli/ec2-2016-11-15/DeprovisionIpamPoolCidr.md "../../../goto/aws-cli/ec2-2016-11-15/DeprovisionIpamPoolCidr.md")
-  - [DescribeIpamPools](../../../goto/aws-cli/ec2-2016-11-15/DescribeIpamPools.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeIpamPools.md")
-  - [DescribeIpams](../../../goto/aws-cli/ec2-2016-11-15/DescribeIpams.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeIpams.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [GetIpamPoolAllocations](../../../goto/aws-cli/ec2-2016-11-15/GetIpamPoolAllocations.md "../../../goto/aws-cli/ec2-2016-11-15/GetIpamPoolAllocations.md")
-  - [GetIpamPoolCidrs](../../../goto/aws-cli/ec2-2016-11-15/GetIpamPoolCidrs.md "../../../goto/aws-cli/ec2-2016-11-15/GetIpamPoolCidrs.md")
-  - [ProvisionIpamPoolCidr](../../../goto/aws-cli/ec2-2016-11-15/ProvisionIpamPoolCidr.md "../../../goto/aws-cli/ec2-2016-11-15/ProvisionIpamPoolCidr.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

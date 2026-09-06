@@ -1,23 +1,22 @@
+
+
 # Use `DescribeCustomerGateways` with a CLI
+<a name="example_ec2_DescribeCustomerGateways_section"></a>
 
 The following code examples show how to use `DescribeCustomerGateways`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe your customer gateways**
-
-This example describes your customer gateways.
-
-Command:
+**AWS CLI**  
+**To describe your customer gateways**  
+This example describes your customer gateways.  
+Command:  
 
 ```
-`aws ec2 describe-customer-gateways`
-
+aws ec2 describe-customer-gateways
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -39,19 +38,14 @@ Output:
     ]
 }
 ```
-
-**To describe a specific customer gateway**
-
-This example describes the specified customer gateway.
-
-Command:
+**To describe a specific customer gateway**  
+This example describes the specified customer gateway.  
+Command:  
 
 ```
-`aws ec2 describe-customer-gateways --customer-gateway-ids `cgw-0e11f167``
-
+aws ec2 describe-customer-gateways --customer-gateway-ids {{cgw-0e11f167}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -66,23 +60,18 @@ Output:
     ]
 }
 ```
++  For API details, see [DescribeCustomerGateways](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-customer-gateways.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeCustomerGateways](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-customer-gateways.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-customer-gateways.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified customer gateway.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified customer gateway.**  
 
 ```
 Get-EC2CustomerGateway -CustomerGatewayId cgw-1a2b3c4d
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 BgpAsn            : 65534
@@ -92,8 +81,7 @@ State             : available
 Tags              : {}
 Type              : ipsec.1
 ```
-
-**Example 2: This example describes any customer gateway whose state is either pending or available.**
+**Example 2: This example describes any customer gateway whose state is either pending or available.**  
 
 ```
 $filter = New-Object Amazon.EC2.Model.Filter
@@ -101,30 +89,21 @@ $filter.Name = "state"
 $filter.Values = @( "pending", "available" )
 
 Get-EC2CustomerGateway -Filter $filter
-
 ```
-
-**Example 3: This example describes all your customer gateways.**
+**Example 3: This example describes all your customer gateways.**  
 
 ```
 Get-EC2CustomerGateway
-
 ```
++  For API details, see [DescribeCustomerGateways](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeCustomerGateways](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified customer gateway.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified customer gateway.**  
 
 ```
 Get-EC2CustomerGateway -CustomerGatewayId cgw-1a2b3c4d
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 BgpAsn            : 65534
@@ -134,8 +113,7 @@ State             : available
 Tags              : {}
 Type              : ipsec.1
 ```
-
-**Example 2: This example describes any customer gateway whose state is either pending or available.**
+**Example 2: This example describes any customer gateway whose state is either pending or available.**  
 
 ```
 $filter = New-Object Amazon.EC2.Model.Filter
@@ -143,20 +121,14 @@ $filter.Name = "state"
 $filter.Values = @( "pending", "available" )
 
 Get-EC2CustomerGateway -Filter $filter
-
 ```
-
-**Example 3: This example describes all your customer gateways.**
+**Example 3: This example describes all your customer gateways.**  
 
 ```
 Get-EC2CustomerGateway
-
 ```
++  For API details, see [DescribeCustomerGateways](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeCustomerGateways](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

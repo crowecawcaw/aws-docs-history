@@ -1,24 +1,21 @@
+
+
 # Create a virtual private network with private subnets and network address translation gateways using the CLI
+<a name="example_vpc_GettingStartedPrivate_section"></a>
 
 The following code example shows how to:
++ Create a VPC with private subnets and NAT gateways using the CLI.
++ Set up the necessary components including VPC, subnets, route tables, and NAT gateways.
++ Configure security groups and IAM roles for proper access and security.
++ Use CLI commands to automate the creation and configuration of these resources.
 
-- Create a VPC with private subnets and NAT gateways using the CLI.
-- Set up the necessary components including VPC, subnets, route tables, and NAT gateways.
-- Configure security groups and IAM roles for proper access and security.
-- Use CLI commands to automate the creation and configuration of these resources.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/008-vpc-private-servers-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/008-vpc-private-servers-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/008-vpc-private-servers-gs) repository. 
 
 ```
-
 #!/bin/bash
 
 # VPC with Private Subnets and NAT Gateways (IMDSv2 Compliant Version)
@@ -33,7 +30,7 @@ exec > >(tee -a "$LOG_FILE") 2>&1
 # Cleanup function to delete all created resources
 cleanup_resources() {
   echo "Cleaning up resources..."
-
+  
   # Delete Auto Scaling group if it exists
   if [ -n "${ASG_NAME:-}" ]; then
     echo "Deleting Auto Scaling group: $ASG_NAME"
@@ -41,7 +38,7 @@ cleanup_resources() {
     echo "Waiting for Auto Scaling group to be deleted..."
     aws autoscaling wait auto-scaling-groups-deleted --auto-scaling-group-names "$ASG_NAME"
   fi
-
+  
   # Delete load balancer if it exists
   if [ -n "${LB_ARN:-}" ]; then
     echo "Deleting load balancer: $LB_ARN"
@@ -49,64 +46,64 @@ cleanup_resources() {
     # Wait for load balancer to be deleted
     sleep 30
   fi
-
+  
   # Delete target group if it exists
   if [ -n "${TARGET_GROUP_ARN:-}" ]; then
     echo "Deleting target group: $TARGET_GROUP_ARN"
     aws elbv2 delete-target-group --target-group-arn "$TARGET_GROUP_ARN"
   fi
-
+  
   # Delete launch template if it exists
   if [ -n "${LAUNCH_TEMPLATE_NAME:-}" ]; then
     echo "Deleting launch template: $LAUNCH_TEMPLATE_NAME"
     aws ec2 delete-launch-template --launch-template-name "$LAUNCH_TEMPLATE_NAME"
   fi
-
+  
   # Delete NAT Gateways if they exist
   if [ -n "${NAT_GW1_ID:-}" ]; then
     echo "Deleting NAT Gateway 1: $NAT_GW1_ID"
     aws ec2 delete-nat-gateway --nat-gateway-id "$NAT_GW1_ID"
   fi
-
+  
   if [ -n "${NAT_GW2_ID:-}" ]; then
     echo "Deleting NAT Gateway 2: $NAT_GW2_ID"
     aws ec2 delete-nat-gateway --nat-gateway-id "$NAT_GW2_ID"
   fi
-
+  
   # Wait for NAT Gateways to be deleted
   if [ -n "${NAT_GW1_ID:-}" ] || [ -n "${NAT_GW2_ID:-}" ]; then
     echo "Waiting for NAT Gateways to be deleted..."
     sleep 60
   fi
-
+  
   # Release Elastic IPs if they exist
   if [ -n "${EIP1_ALLOC_ID:-}" ]; then
     echo "Releasing Elastic IP 1: $EIP1_ALLOC_ID"
     aws ec2 release-address --allocation-id "$EIP1_ALLOC_ID"
   fi
-
+  
   if [ -n "${EIP2_ALLOC_ID:-}" ]; then
     echo "Releasing Elastic IP 2: $EIP2_ALLOC_ID"
     aws ec2 release-address --allocation-id "$EIP2_ALLOC_ID"
   fi
-
+  
   # Delete VPC endpoint if it exists
   if [ -n "${VPC_ENDPOINT_ID:-}" ]; then
     echo "Deleting VPC endpoint: $VPC_ENDPOINT_ID"
     aws ec2 delete-vpc-endpoints --vpc-endpoint-ids "$VPC_ENDPOINT_ID"
   fi
-
+  
   # Delete security groups if they exist
   if [ -n "${APP_SG_ID:-}" ]; then
     echo "Deleting application security group: $APP_SG_ID"
     aws ec2 delete-security-group --group-id "$APP_SG_ID"
   fi
-
+  
   if [ -n "${LB_SG_ID:-}" ]; then
     echo "Deleting load balancer security group: $LB_SG_ID"
     aws ec2 delete-security-group --group-id "$LB_SG_ID"
   fi
-
+  
   # Detach and delete Internet Gateway if it exists
   if [ -n "${IGW_ID:-}" ] && [ -n "${VPC_ID:-}" ]; then
     echo "Detaching Internet Gateway: $IGW_ID from VPC: $VPC_ID"
@@ -114,70 +111,70 @@ cleanup_resources() {
     echo "Deleting Internet Gateway: $IGW_ID"
     aws ec2 delete-internet-gateway --internet-gateway-id "$IGW_ID"
   fi
-
+  
   # Delete route table associations and route tables if they exist
   if [ -n "${PUBLIC_RT_ASSOC1_ID:-}" ]; then
     echo "Disassociating public route table from subnet 1: $PUBLIC_RT_ASSOC1_ID"
     aws ec2 disassociate-route-table --association-id "$PUBLIC_RT_ASSOC1_ID"
   fi
-
+  
   if [ -n "${PUBLIC_RT_ASSOC2_ID:-}" ]; then
     echo "Disassociating public route table from subnet 2: $PUBLIC_RT_ASSOC2_ID"
     aws ec2 disassociate-route-table --association-id "$PUBLIC_RT_ASSOC2_ID"
   fi
-
+  
   if [ -n "${PRIVATE_RT1_ASSOC_ID:-}" ]; then
     echo "Disassociating private route table 1: $PRIVATE_RT1_ASSOC_ID"
     aws ec2 disassociate-route-table --association-id "$PRIVATE_RT1_ASSOC_ID"
   fi
-
+  
   if [ -n "${PRIVATE_RT2_ASSOC_ID:-}" ]; then
     echo "Disassociating private route table 2: $PRIVATE_RT2_ASSOC_ID"
     aws ec2 disassociate-route-table --association-id "$PRIVATE_RT2_ASSOC_ID"
   fi
-
+  
   if [ -n "${PUBLIC_RT_ID:-}" ]; then
     echo "Deleting public route table: $PUBLIC_RT_ID"
     aws ec2 delete-route-table --route-table-id "$PUBLIC_RT_ID"
   fi
-
+  
   if [ -n "${PRIVATE_RT1_ID:-}" ]; then
     echo "Deleting private route table 1: $PRIVATE_RT1_ID"
     aws ec2 delete-route-table --route-table-id "$PRIVATE_RT1_ID"
   fi
-
+  
   if [ -n "${PRIVATE_RT2_ID:-}" ]; then
     echo "Deleting private route table 2: $PRIVATE_RT2_ID"
     aws ec2 delete-route-table --route-table-id "$PRIVATE_RT2_ID"
   fi
-
+  
   # Delete subnets if they exist
   if [ -n "${PUBLIC_SUBNET1_ID:-}" ]; then
     echo "Deleting public subnet 1: $PUBLIC_SUBNET1_ID"
     aws ec2 delete-subnet --subnet-id "$PUBLIC_SUBNET1_ID"
   fi
-
+  
   if [ -n "${PUBLIC_SUBNET2_ID:-}" ]; then
     echo "Deleting public subnet 2: $PUBLIC_SUBNET2_ID"
     aws ec2 delete-subnet --subnet-id "$PUBLIC_SUBNET2_ID"
   fi
-
+  
   if [ -n "${PRIVATE_SUBNET1_ID:-}" ]; then
     echo "Deleting private subnet 1: $PRIVATE_SUBNET1_ID"
     aws ec2 delete-subnet --subnet-id "$PRIVATE_SUBNET1_ID"
   fi
-
+  
   if [ -n "${PRIVATE_SUBNET2_ID:-}" ]; then
     echo "Deleting private subnet 2: $PRIVATE_SUBNET2_ID"
     aws ec2 delete-subnet --subnet-id "$PRIVATE_SUBNET2_ID"
   fi
-
+  
   # Delete VPC if it exists
   if [ -n "${VPC_ID:-}" ]; then
     echo "Deleting VPC: $VPC_ID"
     aws ec2 delete-vpc --vpc-id "$VPC_ID"
   fi
-
+  
   echo "Cleanup completed."
 }
 
@@ -540,48 +537,48 @@ HEALTHY_INSTANCES=0
 
 while [ $ATTEMPT -le $MAX_ATTEMPTS ] && [ $HEALTHY_INSTANCES -lt 2 ]; do
   echo "Check attempt $ATTEMPT of $MAX_ATTEMPTS..."
-
+  
   # Check Auto Scaling group instances
   echo "Checking Auto Scaling group instances..."
   ASG_INSTANCES=$(aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names "$ASG_NAME" --query 'AutoScalingGroups[0].Instances[*].[InstanceId,HealthStatus]' --output json)
   echo "ASG Instances status:"
   echo "$ASG_INSTANCES" | jq -r '.[] | "Instance: \(.[0]), Health: \(.[1])"'
-
+  
   # Check target group health
   echo "Checking target group health..."
   TARGET_HEALTH=$(aws elbv2 describe-target-health --target-group-arn "$TARGET_GROUP_ARN" --output json)
   echo "Target health status:"
   echo "$TARGET_HEALTH" | jq -r '.TargetHealthDescriptions[] | "Instance: \(.Target.Id), State: \(.TargetHealth.State), Reason: \(.TargetHealth.Reason // "N/A"), Description: \(.TargetHealth.Description // "N/A")"'
-
+  
   # Count healthy instances
   HEALTHY_INSTANCES=$(echo "$TARGET_HEALTH" | jq -r '[.TargetHealthDescriptions[] | select(.TargetHealth.State=="healthy")] | length')
   echo "Number of healthy instances: $HEALTHY_INSTANCES of 2 expected"
-
+  
   # Check if we have healthy instances
   if [ $HEALTHY_INSTANCES -ge 2 ]; then
     echo "All instances are healthy!"
-
+    
     # Test load balancer accessibility
     echo "Testing load balancer accessibility..."
     HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" "http://$LB_DNS_NAME")
-
+    
     if [ "$HTTP_STATUS" = "200" ]; then
       echo "Load balancer is accessible! HTTP Status: $HTTP_STATUS"
       echo "You can access your application at: http://$LB_DNS_NAME"
-
+      
       # Try to get the content to verify IMDSv2 is working
       echo "Fetching content to verify IMDSv2 functionality..."
       CONTENT=$(curl -s "http://$LB_DNS_NAME")
       echo "Response from server:"
       echo "$CONTENT"
-
+      
       # Check if the content contains the expected pattern
       if [[ "$CONTENT" == *"Hello from"* && "$CONTENT" == *"in"* ]]; then
         echo "IMDSv2 is working correctly! The instance was able to access metadata using the token-based approach."
       else
         echo "Warning: Content doesn't match expected pattern. IMDSv2 functionality could not be verified."
       fi
-
+      
       break
     else
       echo "Load balancer returned HTTP status: $HTTP_STATUS"
@@ -591,9 +588,9 @@ while [ $ATTEMPT -le $MAX_ATTEMPTS ] && [ $HEALTHY_INSTANCES -lt 2 ]; do
     echo "Waiting for instances to become healthy..."
     echo "Will check again in 30 seconds..."
   fi
-
+  
   ATTEMPT=$((ATTEMPT+1))
-
+  
   if [ $ATTEMPT -le $MAX_ATTEMPTS ]; then
     sleep 30
   fi
@@ -620,42 +617,38 @@ else
   echo "Resources will not be deleted. You can manually delete them later."
   echo "To delete resources, run this script again and choose to clean up."
 fi
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AllocateAddress)
+  + [AssociateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateRouteTable)
+  + [AttachInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AttachInternetGateway)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateInternetGateway)
+  + [CreateLaunchTemplate](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateLaunchTemplate)
+  + [CreateNatGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateNatGateway)
+  + [CreateRoute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRoute)
+  + [CreateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRouteTable)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [CreateSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSubnet)
+  + [CreateVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpc)
+  + [CreateVpcEndpoint](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpcEndpoint)
+  + [DeleteAutoScalingGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteAutoScalingGroup)
+  + [DeleteInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway)
+  + [DeleteLaunchTemplate](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteLaunchTemplate)
+  + [DeleteLoadBalancer](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteLoadBalancer)
+  + [DeleteNatGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteNatGateway)
+  + [DeleteRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteRouteTable)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DeleteSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSubnet)
+  + [DeleteTargetGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteTargetGroup)
+  + [DeleteVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpc)
+  + [DeleteVpcEndpoints](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpcEndpoints)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribePrefixLists](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribePrefixLists)
+  + [DetachInternetGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DetachInternetGateway)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ReleaseAddress)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AllocateAddress](../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
-  - [AttachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/AttachInternetGateway.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateInternetGateway.md")
-  - [CreateLaunchTemplate](../../../goto/aws-cli/ec2-2016-11-15/CreateLaunchTemplate.md "../../../goto/aws-cli/ec2-2016-11-15/CreateLaunchTemplate.md")
-  - [CreateNatGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateNatGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateNatGateway.md")
-  - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")
-  - [CreateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [CreateSubnet](../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md")
-  - [CreateVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md")
-  - [CreateVpcEndpoint](../../../goto/aws-cli/ec2-2016-11-15/CreateVpcEndpoint.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpcEndpoint.md")
-  - [DeleteAutoScalingGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteAutoScalingGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteAutoScalingGroup.md")
-  - [DeleteInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteInternetGateway.md")
-  - [DeleteLaunchTemplate](../../../goto/aws-cli/ec2-2016-11-15/DeleteLaunchTemplate.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteLaunchTemplate.md")
-  - [DeleteLoadBalancer](../../../goto/aws-cli/ec2-2016-11-15/DeleteLoadBalancer.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteLoadBalancer.md")
-  - [DeleteNatGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteNatGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteNatGateway.md")
-  - [DeleteRouteTable](../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteSubnet](../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md")
-  - [DeleteTargetGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteTargetGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteTargetGroup.md")
-  - [DeleteVpc](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md")
-  - [DeleteVpcEndpoints](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpcEndpoints.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpcEndpoints.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribePrefixLists](../../../goto/aws-cli/ec2-2016-11-15/DescribePrefixLists.md "../../../goto/aws-cli/ec2-2016-11-15/DescribePrefixLists.md")
-  - [DetachInternetGateway](../../../goto/aws-cli/ec2-2016-11-15/DetachInternetGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DetachInternetGateway.md")
-  - [ReleaseAddress](../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md "../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

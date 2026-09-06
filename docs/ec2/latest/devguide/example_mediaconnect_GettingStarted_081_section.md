@@ -1,21 +1,19 @@
+
+
 # Getting started with video transport streaming
+<a name="example_mediaconnect_GettingStarted_081_section"></a>
 
 The following code example shows how to:
++ Verify access to Elemental MediaConnect
++ Create a flow
++ Add an output
++ Clean up resources
 
-- Verify access to Elemental MediaConnect
-- Create a flow
-- Add an output
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/081-aws-elemental-mediaconnect-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/081-aws-elemental-mediaconnect-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/081-aws-elemental-mediaconnect-gs) repository. 
 
 ```
 #!/bin/bash
@@ -54,16 +52,16 @@ validate_aws_cli() {
     if ! command -v aws &> /dev/null; then
         handle_error "AWS CLI is not installed or not in PATH"
     fi
-
+    
     # Security: Verify AWS CLI version is recent
     local aws_version
     aws_version=$(aws --version 2>&1 | head -1)
     echo "AWS CLI version: $aws_version"
-
+    
     if ! aws sts get-caller-identity &> /dev/null; then
         handle_error "AWS credentials are not configured or invalid"
     fi
-
+    
     # Security: Validate caller identity
     local account_id
     account_id=$(aws sts get-caller-identity --query Account --output text 2>/dev/null)
@@ -77,11 +75,11 @@ validate_aws_cli() {
 extract_json_value() {
     local json_output="$1"
     local key="$2"
-
+    
     if [ -z "$json_output" ]; then
         return 1
     fi
-
+    
     # Security: Use jq if available for safer JSON parsing
     if command -v jq &> /dev/null; then
         echo "$json_output" | jq -r ".${key} // empty" 2>/dev/null || return 1
@@ -98,7 +96,7 @@ extract_json_value() {
 tag_mediaconnect_resource() {
     local resource_arn="$1"
     echo "Tagging resource: $resource_arn"
-
+    
     for tag in "${TAGS_ARRAY[@]}"; do
         if ! aws mediaconnect tag-resource --resource-arn "$resource_arn" --tags "$tag" 2>&1; then
             echo "WARNING: Failed to apply tag $tag to resource"
@@ -109,20 +107,20 @@ tag_mediaconnect_resource() {
 # Function to clean up resources
 cleanup_resources() {
     echo "Cleaning up resources..."
-
+    
     if [ -n "${FLOW_ARN:-}" ]; then
         # Security: Validate ARN format before using it
         if [[ ! "$FLOW_ARN" =~ ^arn:aws:mediaconnect:[a-z0-9-]+:[0-9]+:flow:[a-zA-Z0-9:-]+$ ]]; then
             echo "WARNING: Invalid Flow ARN format, skipping cleanup: $FLOW_ARN"
             return 1
         fi
-
+        
         # Check flow status before attempting to stop
         echo "Checking flow status..."
         local flow_status_output
         if flow_status_output=$(aws mediaconnect describe-flow --flow-arn "$FLOW_ARN" --query "Flow.Status" --output text 2>&1); then
             echo "Current flow status: $flow_status_output"
-
+            
             if [ "$flow_status_output" == "ACTIVE" ] || [ "$flow_status_output" == "UPDATING" ]; then
                 echo "Stopping flow: $FLOW_ARN"
                 if aws mediaconnect stop-flow --flow-arn "$FLOW_ARN" 2>&1; then
@@ -135,7 +133,7 @@ cleanup_resources() {
             else
                 echo "Flow is not in ACTIVE or UPDATING state, skipping stop operation."
             fi
-
+            
             # Delete the flow
             echo "Deleting flow: $FLOW_ARN"
             if aws mediaconnect delete-flow --flow-arn "$FLOW_ARN" 2>&1; then
@@ -181,12 +179,12 @@ if az_output=$(aws ec2 describe-availability-zones --region "$AWS_REGION" --quer
     if [ -z "$AVAILABILITY_ZONE" ]; then
         handle_error "Failed to retrieve availability zones"
     fi
-
+    
     # Security: Validate AZ format
     if [[ ! "$AVAILABILITY_ZONE" =~ ^[a-z]{2}-[a-z]+-[0-9][a-z]$ ]]; then
         handle_error "Invalid availability zone format: $AVAILABILITY_ZONE"
     fi
-
+    
     echo "Using availability zone: $AVAILABILITY_ZONE"
 else
     handle_error "Failed to get availability zones"
@@ -324,20 +322,17 @@ echo "==========================================="
 echo "Automatically cleaning up all created resources..."
 
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddFlowOutputs](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/AddFlowOutputs)
+  + [CreateFlow](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/CreateFlow)
+  + [DeleteFlow](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/DeleteFlow)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeFlow](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/DescribeFlow)
+  + [GrantFlowEntitlements](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/GrantFlowEntitlements)
+  + [ListFlows](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/ListFlows)
+  + [StopFlow](https://docs.aws.amazon.com/goto/aws-cli/mediaconnect-2018-11-14/StopFlow)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddFlowOutputs](../../../goto/aws-cli/mediaconnect-2018-11-14/AddFlowOutputs.md "../../../goto/aws-cli/mediaconnect-2018-11-14/AddFlowOutputs.md")
-  - [CreateFlow](../../../goto/aws-cli/mediaconnect-2018-11-14/CreateFlow.md "../../../goto/aws-cli/mediaconnect-2018-11-14/CreateFlow.md")
-  - [DeleteFlow](../../../goto/aws-cli/mediaconnect-2018-11-14/DeleteFlow.md "../../../goto/aws-cli/mediaconnect-2018-11-14/DeleteFlow.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeFlow](../../../goto/aws-cli/mediaconnect-2018-11-14/DescribeFlow.md "../../../goto/aws-cli/mediaconnect-2018-11-14/DescribeFlow.md")
-  - [GrantFlowEntitlements](../../../goto/aws-cli/mediaconnect-2018-11-14/GrantFlowEntitlements.md "../../../goto/aws-cli/mediaconnect-2018-11-14/GrantFlowEntitlements.md")
-  - [ListFlows](../../../goto/aws-cli/mediaconnect-2018-11-14/ListFlows.md "../../../goto/aws-cli/mediaconnect-2018-11-14/ListFlows.md")
-  - [StopFlow](../../../goto/aws-cli/mediaconnect-2018-11-14/StopFlow.md "../../../goto/aws-cli/mediaconnect-2018-11-14/StopFlow.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

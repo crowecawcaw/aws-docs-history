@@ -1,21 +1,19 @@
+
+
 # Working with block storage encryption, snapshots, and volume initialization
+<a name="example_ec2_GettingStarted_022_section"></a>
 
 The following code example shows how to:
++ Enable Amazon EBS encryption by default
++ Create an EBS snapshot
++ Create and initialize a volume from a snapshot
++ Clean up resources
 
-- Enable Amazon EBS encryption by default
-- Create an EBS snapshot
-- Create and initialize a volume from a snapshot
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/022-ebs-intermediate "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/022-ebs-intermediate")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/022-ebs-intermediate) repository. 
 
 ```
 #!/bin/bash
@@ -58,7 +56,7 @@ cleanup_resources() {
     echo "Attempting to clean up resources..."
     local retry_count=0
     local max_retries=3
-
+    
     if [ -n "${NEW_VOLUME_ID:-}" ]; then
         echo "Deleting new volume $NEW_VOLUME_ID..."
         for ((retry_count=0; retry_count<max_retries; retry_count++)); do
@@ -75,7 +73,7 @@ cleanup_resources() {
             fi
         done
     fi
-
+    
     if [ -n "${VOLUME_ID:-}" ]; then
         echo "Deleting original volume $VOLUME_ID..."
         for ((retry_count=0; retry_count<max_retries; retry_count++)); do
@@ -92,7 +90,7 @@ cleanup_resources() {
             fi
         done
     fi
-
+    
     if [ -n "${SNAPSHOT_ID:-}" ]; then
         echo "Deleting snapshot $SNAPSHOT_ID..."
         for ((retry_count=0; retry_count<max_retries; retry_count++)); do
@@ -109,14 +107,14 @@ cleanup_resources() {
             fi
         done
     fi
-
+    
     if [ "${ENCRYPTION_MODIFIED:-false}" = true ]; then
         echo "Restoring original encryption setting..."
         if [ "${ORIGINAL_ENCRYPTION:-}" = "False" ]; then
             aws ec2 disable-ebs-encryption-by-default --region "$AWS_REGION" 2>/dev/null || echo "WARNING: Could not restore encryption setting"
         fi
     fi
-
+    
     echo "Cleanup completed."
 }
 
@@ -136,7 +134,7 @@ validate_aws_cli() {
         echo "ERROR: AWS CLI is not installed or not in PATH"
         exit 1
     fi
-
+    
     # Verify AWS credentials are configured
     if ! aws sts get-caller-identity &> /dev/null; then
         echo "ERROR: AWS credentials are not properly configured"
@@ -306,24 +304,21 @@ fi
 echo "Cleanup completed successfully."
 
 echo "Script completed at $(date)"
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateSnapshot](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSnapshot)
+  + [CreateVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVolume)
+  + [DeleteSnapshot](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSnapshot)
+  + [DeleteVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVolume)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeVolumes](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVolumes)
+  + [DetachVolume](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DetachVolume)
+  + [DisableEbsEncryptionByDefault](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DisableEbsEncryptionByDefault)
+  + [EnableEbsEncryptionByDefault](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/EnableEbsEncryptionByDefault)
+  + [GetEbsDefaultKmsKeyId](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/GetEbsDefaultKmsKeyId)
+  + [GetEbsEncryptionByDefault](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/GetEbsEncryptionByDefault)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateSnapshot](../../../goto/aws-cli/ec2-2016-11-15/CreateSnapshot.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSnapshot.md")
-  - [CreateVolume](../../../goto/aws-cli/ec2-2016-11-15/CreateVolume.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVolume.md")
-  - [DeleteSnapshot](../../../goto/aws-cli/ec2-2016-11-15/DeleteSnapshot.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSnapshot.md")
-  - [DeleteVolume](../../../goto/aws-cli/ec2-2016-11-15/DeleteVolume.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVolume.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeVolumes](../../../goto/aws-cli/ec2-2016-11-15/DescribeVolumes.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVolumes.md")
-  - [DetachVolume](../../../goto/aws-cli/ec2-2016-11-15/DetachVolume.md "../../../goto/aws-cli/ec2-2016-11-15/DetachVolume.md")
-  - [DisableEbsEncryptionByDefault](../../../goto/aws-cli/ec2-2016-11-15/DisableEbsEncryptionByDefault.md "../../../goto/aws-cli/ec2-2016-11-15/DisableEbsEncryptionByDefault.md")
-  - [EnableEbsEncryptionByDefault](../../../goto/aws-cli/ec2-2016-11-15/EnableEbsEncryptionByDefault.md "../../../goto/aws-cli/ec2-2016-11-15/EnableEbsEncryptionByDefault.md")
-  - [GetEbsDefaultKmsKeyId](../../../goto/aws-cli/ec2-2016-11-15/GetEbsDefaultKmsKeyId.md "../../../goto/aws-cli/ec2-2016-11-15/GetEbsDefaultKmsKeyId.md")
-  - [GetEbsEncryptionByDefault](../../../goto/aws-cli/ec2-2016-11-15/GetEbsEncryptionByDefault.md "../../../goto/aws-cli/ec2-2016-11-15/GetEbsEncryptionByDefault.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

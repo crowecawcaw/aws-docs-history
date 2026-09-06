@@ -1,20 +1,18 @@
+
+
 # Getting started with big data processing clusters
+<a name="example_emr_GettingStarted_037_section"></a>
 
 The following code example shows how to:
++ Create an EC2 key pair
++ Set up storage and prepare your application
++ Clean up resources
 
-- Create an EC2 key pair
-- Set up storage and prepare your application
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/037-emr-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/037-emr-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/037-emr-gs) repository. 
 
 ```
 #!/bin/bash
@@ -42,7 +40,7 @@ handle_error() {
     echo "Resources created so far:"
     if [ -n "${BUCKET_NAME:-}" ]; then echo "- S3 Bucket: $BUCKET_NAME"; fi
     if [ -n "${CLUSTER_ID:-}" ]; then echo "- EMR Cluster: $CLUSTER_ID"; fi
-
+    
     echo "Attempting to clean up resources..."
     cleanup
     exit 1
@@ -55,32 +53,32 @@ cleanup() {
     echo "CLEANUP IN PROGRESS"
     echo "==========================================="
     echo "Starting cleanup process..."
-
+    
     # Terminate EMR cluster if it exists
     if [ -n "${CLUSTER_ID:-}" ]; then
         echo "Terminating EMR cluster: $CLUSTER_ID"
         aws emr terminate-clusters --cluster-ids "$CLUSTER_ID" 2>/dev/null || true
-
+        
         echo "Waiting for cluster to terminate..."
         aws emr wait cluster-terminated --cluster-id "$CLUSTER_ID" 2>/dev/null || true
         echo "Cluster terminated successfully."
     fi
-
+    
     # Delete S3 bucket and contents if it exists and is not shared
     if [ -n "${BUCKET_NAME:-}" ] && [ "${BUCKET_IS_SHARED:-false}" != "true" ]; then
         echo "Deleting S3 bucket contents: $BUCKET_NAME"
         aws s3 rm "s3://$BUCKET_NAME" --recursive 2>/dev/null || true
-
+        
         echo "Deleting S3 bucket: $BUCKET_NAME"
         aws s3 rb "s3://$BUCKET_NAME" 2>/dev/null || true
     fi
-
+    
     # Remove temporary key pair file if created by this script
     if [ -f "${KEY_NAME_FILE:-}" ]; then
         rm -f "$KEY_NAME_FILE"
         echo "Removed temporary key pair file."
     fi
-
+    
     echo "Cleanup completed."
 }
 
@@ -163,10 +161,10 @@ def calculate_red_violations(data_source, output_uri):
         restaurants_df.createOrReplaceTempView("restaurant_violations")
 
         # Create a DataFrame of the top 10 restaurants with the most Red violations
-        top_red_violation_restaurants = spark.sql("""SELECT name, count(*) AS total_red_violations
-          FROM restaurant_violations
-          WHERE violation_type = 'RED'
-          GROUP BY name
+        top_red_violation_restaurants = spark.sql("""SELECT name, count(*) AS total_red_violations 
+          FROM restaurant_violations 
+          WHERE violation_type = 'RED' 
+          GROUP BY name 
           ORDER BY total_red_violations DESC LIMIT 10""")
 
         # Write the results to the specified output URI
@@ -288,7 +286,7 @@ if [ "$CLUSTER_STATE" != "WAITING" ]; then
         sleep 30
         CLUSTER_STATE=$(aws emr describe-cluster --cluster-id "$CLUSTER_ID" --query "Cluster.Status.State" --output text)
         echo "Current cluster state: $CLUSTER_STATE"
-
+        
         # Check for error states
         if [[ "$CLUSTER_STATE" == "TERMINATED_WITH_ERRORS" || "$CLUSTER_STATE" == "TERMINATED" ]]; then
             handle_error "Cluster entered error state: $CLUSTER_STATE"
@@ -381,27 +379,24 @@ fi
 cleanup
 
 echo "Script completed successfully."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AddSteps](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/AddSteps)
+  + [Cp](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Cp)
+  + [CreateCluster](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/CreateCluster)
+  + [CreateDefaultRoles](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/CreateDefaultRoles)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [DescribeCluster](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/DescribeCluster)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs)
+  + [DescribeStep](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/DescribeStep)
+  + [Ls](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Ls)
+  + [Mb](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Mb)
+  + [Rb](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rb)
+  + [Rm](https://docs.aws.amazon.com/goto/aws-cli/s3-2006-03-01/Rm)
+  + [Ssh](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/Ssh)
+  + [TerminateClusters](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/TerminateClusters)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/elasticmapreduce-2009-03-31/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AddSteps](../../../goto/aws-cli/elasticmapreduce-2009-03-31/AddSteps.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/AddSteps.md")
-  - [Cp](../../../goto/aws-cli/s3-2006-03-01/Cp.md "../../../goto/aws-cli/s3-2006-03-01/Cp.md")
-  - [CreateCluster](../../../goto/aws-cli/elasticmapreduce-2009-03-31/CreateCluster.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/CreateCluster.md")
-  - [CreateDefaultRoles](../../../goto/aws-cli/elasticmapreduce-2009-03-31/CreateDefaultRoles.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/CreateDefaultRoles.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [DescribeCluster](../../../goto/aws-cli/elasticmapreduce-2009-03-31/DescribeCluster.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/DescribeCluster.md")
-  - [DescribeKeyPairs](../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md")
-  - [DescribeStep](../../../goto/aws-cli/elasticmapreduce-2009-03-31/DescribeStep.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/DescribeStep.md")
-  - [Ls](../../../goto/aws-cli/s3-2006-03-01/Ls.md "../../../goto/aws-cli/s3-2006-03-01/Ls.md")
-  - [Mb](../../../goto/aws-cli/s3-2006-03-01/Mb.md "../../../goto/aws-cli/s3-2006-03-01/Mb.md")
-  - [Rb](../../../goto/aws-cli/s3-2006-03-01/Rb.md "../../../goto/aws-cli/s3-2006-03-01/Rb.md")
-  - [Rm](../../../goto/aws-cli/s3-2006-03-01/Rm.md "../../../goto/aws-cli/s3-2006-03-01/Rm.md")
-  - [Ssh](../../../goto/aws-cli/elasticmapreduce-2009-03-31/Ssh.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/Ssh.md")
-  - [TerminateClusters](../../../goto/aws-cli/elasticmapreduce-2009-03-31/TerminateClusters.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/TerminateClusters.md")
-  - [Wait](../../../goto/aws-cli/elasticmapreduce-2009-03-31/Wait.md "../../../goto/aws-cli/elasticmapreduce-2009-03-31/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

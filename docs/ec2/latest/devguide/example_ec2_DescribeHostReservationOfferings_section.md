@@ -1,23 +1,22 @@
+
+
 # Use `DescribeHostReservationOfferings` with a CLI
+<a name="example_ec2_DescribeHostReservationOfferings_section"></a>
 
 The following code examples show how to use `DescribeHostReservationOfferings`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe Dedicated Host Reservation offerings**
-
-This example describes the Dedicated Host Reservations for the M4 instance family that are available to purchase.
-
-Command:
+**AWS CLI**  
+**To describe Dedicated Host Reservation offerings**  
+This example describes the Dedicated Host Reservations for the M4 instance family that are available to purchase.  
+Command:  
 
 ```
-`aws ec2 describe-host-reservation-offerings --filter `Name=instance-family,Values=m4``
-
+aws ec2 describe-host-reservation-offerings --filter {{Name=instance-family,Values=m4}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -73,23 +72,18 @@ Output:
   ]
 }
 ```
++  For API details, see [DescribeHostReservationOfferings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-host-reservation-offerings.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeHostReservationOfferings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-host-reservation-offerings.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-host-reservation-offerings.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the Dedicated Host reservations that are available to purchase for the given filter 'instance-family' where PaymentOption is 'NoUpfront'**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the Dedicated Host reservations that are available to purchase for the given filter 'instance-family' where PaymentOption is 'NoUpfront'**  
 
 ```
 Get-EC2HostReservationOffering -Filter @{Name="instance-family";Values="m4"} | Where-Object PaymentOption -eq NoUpfront
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CurrencyCode   :
@@ -108,21 +102,15 @@ OfferingId     : hro-04ad12aaaf34b5a67
 PaymentOption  : NoUpfront
 UpfrontPrice   : 0.000
 ```
++  For API details, see [DescribeHostReservationOfferings](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeHostReservationOfferings](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the Dedicated Host reservations that are available to purchase for the given filter 'instance-family' where PaymentOption is 'NoUpfront'**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the Dedicated Host reservations that are available to purchase for the given filter 'instance-family' where PaymentOption is 'NoUpfront'**  
 
 ```
 Get-EC2HostReservationOffering -Filter @{Name="instance-family";Values="m4"} | Where-Object PaymentOption -eq NoUpfront
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CurrencyCode   :
@@ -141,11 +129,8 @@ OfferingId     : hro-04ad12aaaf34b5a67
 PaymentOption  : NoUpfront
 UpfrontPrice   : 0.000
 ```
++  For API details, see [DescribeHostReservationOfferings](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeHostReservationOfferings](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

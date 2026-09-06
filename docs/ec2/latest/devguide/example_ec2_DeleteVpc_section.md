@@ -1,47 +1,37 @@
+
+
 # Use `DeleteVpc` with an AWS SDK or CLI
+<a name="example_ec2_DeleteVpc_section"></a>
 
 The following code examples show how to use `DeleteVpc`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Getting started with graph databases](example_ec2_GettingStarted_064_section.md) 
++  [Virtual private network with IP address management](example_vpc_GettingStartedIpam_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
++  [Working with network peering connections](example_ec2_GettingStarted_015_section.md) 
 
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Virtual private network with IP address management](example_vpc_GettingStartedIpam_section.md "example_vpc_GettingStartedIpam_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Working with network peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To delete a VPC**
-
-This example deletes the specified VPC. If the command succeeds, no output is returned.
-
-Command:
+**AWS CLI**  
+**To delete a VPC**  
+This example deletes the specified VPC. If the command succeeds, no output is returned.  
+Command:  
 
 ```
-`aws ec2 delete-vpc --vpc-id `vpc-a01106c2``
+aws ec2 delete-vpc --vpc-id {{vpc-a01106c2}}
+```
++  For API details, see [DeleteVpc](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-vpc.html) in *AWS CLI Command Reference*. 
+
+------
+#### [ PHP ]
+
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples). 
 
 ```
-
-- For API details, see
-  [DeleteVpc](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-vpc.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-vpc.html")
-  in _AWS CLI Command Reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples").
-
-```
-
     /**
      * @param string $vpcId
      * @return void
@@ -57,27 +47,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [DeleteVpc](https://docs.aws.amazon.com/goto/SdkForPHPV3/ec2-2016-11-15/DeleteVpc) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DeleteVpc](../../../goto/SdkForPHPV3/ec2-2016-11-15/DeleteVpc.md "../../../goto/SdkForPHPV3/ec2-2016-11-15/DeleteVpc.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example deletes the specified VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**
+**Tools for PowerShell V4**  
+**Example 1: This example deletes the specified VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
 ```
 Remove-EC2Vpc -VpcId vpc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -85,21 +67,15 @@ Are you sure you want to perform this action?
 Performing operation "Remove-EC2Vpc (DeleteVpc)" on Target "vpc-12345678".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
++  For API details, see [DeleteVpc](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DeleteVpc](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example deletes the specified VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**
+**Tools for PowerShell V5**  
+**Example 1: This example deletes the specified VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.**  
 
 ```
 Remove-EC2Vpc -VpcId vpc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Confirm
@@ -107,20 +83,13 @@ Are you sure you want to perform this action?
 Performing operation "Remove-EC2Vpc (DeleteVpc)" on Target "vpc-12345678".
 [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):
 ```
++  For API details, see [DeleteVpc](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DeleteVpc](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class VpcWrapper:
@@ -162,24 +131,14 @@ class VpcWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DeleteVpc](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DeleteVpc) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteVpc](../../../goto/boto3/ec2-2016-11-15/DeleteVpc.md "../../../goto/boto3/ec2-2016-11-15/DeleteVpc.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -189,14 +148,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteVpc](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DeleteVpc](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

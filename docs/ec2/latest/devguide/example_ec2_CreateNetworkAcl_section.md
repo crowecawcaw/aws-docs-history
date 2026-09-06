@@ -1,23 +1,22 @@
+
+
 # Use `CreateNetworkAcl` with a CLI
+<a name="example_ec2_CreateNetworkAcl_section"></a>
 
 The following code examples show how to use `CreateNetworkAcl`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To create a network ACL**
-
-This example creates a network ACL for the specified VPC.
-
-Command:
+**AWS CLI**  
+**To create a network ACL**  
+This example creates a network ACL for the specified VPC.  
+Command:  
 
 ```
-`aws ec2 create-network-acl --vpc-id `vpc-a01106c2``
-
+aws ec2 create-network-acl --vpc-id {{vpc-a01106c2}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -46,23 +45,18 @@ Output:
     }
 }
 ```
++  For API details, see [CreateNetworkAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-acl.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateNetworkAcl](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-acl.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-network-acl.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a network ACL for the specified VPC.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a network ACL for the specified VPC.**  
 
 ```
 New-EC2NetworkAcl -VpcId vpc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Associations : {}
@@ -72,21 +66,15 @@ NetworkAclId : acl-12345678
 Tags         : {}
 VpcId        : vpc-12345678
 ```
++  For API details, see [CreateNetworkAcl](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateNetworkAcl](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a network ACL for the specified VPC.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a network ACL for the specified VPC.**  
 
 ```
 New-EC2NetworkAcl -VpcId vpc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Associations : {}
@@ -96,11 +84,8 @@ NetworkAclId : acl-12345678
 Tags         : {}
 VpcId        : vpc-12345678
 ```
++  For API details, see [CreateNetworkAcl](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateNetworkAcl](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

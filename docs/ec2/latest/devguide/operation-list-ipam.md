@@ -1,69 +1,65 @@
+
+
 # Amazon VPC IPAM actions
+<a name="operation-list-ipam"></a>
 
-The following API actions are available for Amazon VPC IP Address Manager (IPAM). For more
-information, see the [IPAM User
-Guide](../../../vpc/latest/ipam.md "../../../vpc/latest/ipam.md").
+The following API actions are available for Amazon VPC IP Address Manager (IPAM). For more information, see the [IPAM User Guide](https://docs.aws.amazon.com/vpc/latest/ipam/).
 
-###### BYOASN
+**BYOASN**
++ [AssociateIpamByoasn](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIpamByoasn.html)
++ [CreateIpamExternalResourceVerificationToken](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpamExternalResourceVerificationToken.html)
++ [DeleteIpamExternalResourceVerificationToken](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpamExternalResourceVerificationToken.html)
++ [DeprovisionIpamByoasn](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamByoasn.html)
++ [DescribeIpamByoasn](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamByoasn.html)
++ [DescribeIpamExternalResourceVerificationTokens](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamExternalResourceVerificationTokens.html)
++ [DisassociateIpamByoasn](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.html)
++ [ProvisionIpamByoasn](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionIpamByoasn.html)
 
-- [AssociateIpamByoasn](../../../AWSEC2/latest/APIReference/API_AssociateIpamByoasn.md "../../../AWSEC2/latest/APIReference/API_AssociateIpamByoasn.md")
-- [CreateIpamExternalResourceVerificationToken](../../../AWSEC2/latest/APIReference/API_CreateIpamExternalResourceVerificationToken.md "../../../AWSEC2/latest/APIReference/API_CreateIpamExternalResourceVerificationToken.md")
-- [DeleteIpamExternalResourceVerificationToken](../../../AWSEC2/latest/APIReference/API_DeleteIpamExternalResourceVerificationToken.md "../../../AWSEC2/latest/APIReference/API_DeleteIpamExternalResourceVerificationToken.md")
-- [DeprovisionIpamByoasn](../../../AWSEC2/latest/APIReference/API_DeprovisionIpamByoasn.md "../../../AWSEC2/latest/APIReference/API_DeprovisionIpamByoasn.md")
-- [DescribeIpamByoasn](../../../AWSEC2/latest/APIReference/API_DescribeIpamByoasn.md "../../../AWSEC2/latest/APIReference/API_DescribeIpamByoasn.md")
-- [DescribeIpamExternalResourceVerificationTokens](../../../AWSEC2/latest/APIReference/API_DescribeIpamExternalResourceVerificationTokens.md "../../../AWSEC2/latest/APIReference/API_DescribeIpamExternalResourceVerificationTokens.md")
-- [DisassociateIpamByoasn](../../../AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.md "../../../AWSEC2/latest/APIReference/API_DisassociateIpamByoasn.md")
-- [ProvisionIpamByoasn](../../../AWSEC2/latest/APIReference/API_ProvisionIpamByoasn.md "../../../AWSEC2/latest/APIReference/API_ProvisionIpamByoasn.md")
+**IPAMs**
++ [CreateIpam](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpam.html)
++ [DeleteIpam](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpam.html)
++ [DescribeIpams](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpams.html)
++ [DisableIpamOrganizationAdminAccount](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisableIpamOrganizationAdminAccount.html)
++ [EnableIpamOrganizationAdminAccount](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableIpamOrganizationAdminAccount.html)
++ [GetIpamAddressHistory](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamAddressHistory.html)
++ [ModifyIpam](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpam.html)
++ [MoveByoipCidrToIpam](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_MoveByoipCidrToIpam.html)
 
-###### IPAMs
+**Pools**
++ [AllocateIpamPoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html)
++ [CreateIpamPool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpamPool.html)
++ [CreatePublicIpv4Pool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreatePublicIpv4Pool.html)
++ [DeleteIpamPool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpamPool.html)
++ [DeletePublicIpv4Pool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeletePublicIpv4Pool.html)
++ [DeprovisionIpamPoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.html)
++ [DeprovisionPublicIpv4PoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeprovisionPublicIpv4PoolCidr.html)
++ [API\_DescribeIpamPoolAllocations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_API_DescribeIpamPoolAllocations.html)
++ [DescribeIpamPools](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamPools.html)
++ [DescribePublicIpv4Pools](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.html)
++ [GetIpamPoolAllocations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.html)
++ [GetIpamPoolCidrs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html)
++ [ModifyIpamPool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamPool.html)
++ [API\_ModifyIpamPoolAllocation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_API_ModifyIpamPoolAllocation.html)
++ [ProvisionIpamPoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionIpamPoolCidr.html)
++ [ProvisionPublicIpv4PoolCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ProvisionPublicIpv4PoolCidr.html)
++ [ReleaseIpamPoolAllocation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html)
 
-- [CreateIpam](../../../AWSEC2/latest/APIReference/API_CreateIpam.md "../../../AWSEC2/latest/APIReference/API_CreateIpam.md")
-- [DeleteIpam](../../../AWSEC2/latest/APIReference/API_DeleteIpam.md "../../../AWSEC2/latest/APIReference/API_DeleteIpam.md")
-- [DescribeIpams](../../../AWSEC2/latest/APIReference/API_DescribeIpams.md "../../../AWSEC2/latest/APIReference/API_DescribeIpams.md")
-- [DisableIpamOrganizationAdminAccount](../../../AWSEC2/latest/APIReference/API_DisableIpamOrganizationAdminAccount.md "../../../AWSEC2/latest/APIReference/API_DisableIpamOrganizationAdminAccount.md")
-- [EnableIpamOrganizationAdminAccount](../../../AWSEC2/latest/APIReference/API_EnableIpamOrganizationAdminAccount.md "../../../AWSEC2/latest/APIReference/API_EnableIpamOrganizationAdminAccount.md")
-- [GetIpamAddressHistory](../../../AWSEC2/latest/APIReference/API_GetIpamAddressHistory.md "../../../AWSEC2/latest/APIReference/API_GetIpamAddressHistory.md")
-- [ModifyIpam](../../../AWSEC2/latest/APIReference/API_ModifyIpam.md "../../../AWSEC2/latest/APIReference/API_ModifyIpam.md")
-- [MoveByoipCidrToIpam](../../../AWSEC2/latest/APIReference/API_MoveByoipCidrToIpam.md "../../../AWSEC2/latest/APIReference/API_MoveByoipCidrToIpam.md")
+**Resource discoveries**
++ [AssociateIpamResourceDiscovery](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIpamResourceDiscovery.html)
++ [CreateIpamResourceDiscovery](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpamResourceDiscovery.html)
++ [DeleteIpamResourceDiscovery](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpamResourceDiscovery.html)
++ [DescribeIpamResourceDiscoveries](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamResourceDiscoveries.html)
++ [DescribeIpamResourceDiscoveryAssociations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamResourceDiscoveryAssociations.html)
++ [DisassociateIpamResourceDiscovery](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIpamResourceDiscovery.html)
++ [GetIpamDiscoveredAccounts](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredAccounts.html)
++ [GetIpamDiscoveredPublicAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredPublicAddresses.html)
++ [GetIpamDiscoveredResourceCidrs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamDiscoveredResourceCidrs.html)
++ [GetIpamResourceCidrs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamResourceCidrs.html)
++ [ModifyIpamResourceCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html)
++ [ModifyIpamResourceDiscovery](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceDiscovery.html)
 
-###### Pools
-
-- [AllocateIpamPoolCidr](../../../AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.md "../../../AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.md")
-- [CreateIpamPool](../../../AWSEC2/latest/APIReference/API_CreateIpamPool.md "../../../AWSEC2/latest/APIReference/API_CreateIpamPool.md")
-- [CreatePublicIpv4Pool](../../../AWSEC2/latest/APIReference/API_CreatePublicIpv4Pool.md "../../../AWSEC2/latest/APIReference/API_CreatePublicIpv4Pool.md")
-- [DeleteIpamPool](../../../AWSEC2/latest/APIReference/API_DeleteIpamPool.md "../../../AWSEC2/latest/APIReference/API_DeleteIpamPool.md")
-- [DeletePublicIpv4Pool](../../../AWSEC2/latest/APIReference/API_DeletePublicIpv4Pool.md "../../../AWSEC2/latest/APIReference/API_DeletePublicIpv4Pool.md")
-- [DeprovisionIpamPoolCidr](../../../AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.md "../../../AWSEC2/latest/APIReference/API_DeprovisionIpamPoolCidr.md")
-- [DeprovisionPublicIpv4PoolCidr](../../../AWSEC2/latest/APIReference/API_DeprovisionPublicIpv4PoolCidr.md "../../../AWSEC2/latest/APIReference/API_DeprovisionPublicIpv4PoolCidr.md")
-- [API\_DescribeIpamPoolAllocations](../../../AWSEC2/latest/APIReference/API_API_DescribeIpamPoolAllocations.md "../../../AWSEC2/latest/APIReference/API_API_DescribeIpamPoolAllocations.md")
-- [DescribeIpamPools](../../../AWSEC2/latest/APIReference/API_DescribeIpamPools.md "../../../AWSEC2/latest/APIReference/API_DescribeIpamPools.md")
-- [DescribePublicIpv4Pools](../../../AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.md "../../../AWSEC2/latest/APIReference/API_DescribePublicIpv4Pools.md")
-- [GetIpamPoolAllocations](../../../AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.md "../../../AWSEC2/latest/APIReference/API_GetIpamPoolAllocations.md")
-- [GetIpamPoolCidrs](../../../AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.md "../../../AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.md")
-- [ModifyIpamPool](../../../AWSEC2/latest/APIReference/API_ModifyIpamPool.md "../../../AWSEC2/latest/APIReference/API_ModifyIpamPool.md")
-- [API\_ModifyIpamPoolAllocation](../../../AWSEC2/latest/APIReference/API_API_ModifyIpamPoolAllocation.md "../../../AWSEC2/latest/APIReference/API_API_ModifyIpamPoolAllocation.md")
-- [ProvisionIpamPoolCidr](../../../AWSEC2/latest/APIReference/API_ProvisionIpamPoolCidr.md "../../../AWSEC2/latest/APIReference/API_ProvisionIpamPoolCidr.md")
-- [ProvisionPublicIpv4PoolCidr](../../../AWSEC2/latest/APIReference/API_ProvisionPublicIpv4PoolCidr.md "../../../AWSEC2/latest/APIReference/API_ProvisionPublicIpv4PoolCidr.md")
-- [ReleaseIpamPoolAllocation](../../../AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.md "../../../AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.md")
-
-###### Resource discoveries
-
-- [AssociateIpamResourceDiscovery](../../../AWSEC2/latest/APIReference/API_AssociateIpamResourceDiscovery.md "../../../AWSEC2/latest/APIReference/API_AssociateIpamResourceDiscovery.md")
-- [CreateIpamResourceDiscovery](../../../AWSEC2/latest/APIReference/API_CreateIpamResourceDiscovery.md "../../../AWSEC2/latest/APIReference/API_CreateIpamResourceDiscovery.md")
-- [DeleteIpamResourceDiscovery](../../../AWSEC2/latest/APIReference/API_DeleteIpamResourceDiscovery.md "../../../AWSEC2/latest/APIReference/API_DeleteIpamResourceDiscovery.md")
-- [DescribeIpamResourceDiscoveries](../../../AWSEC2/latest/APIReference/API_DescribeIpamResourceDiscoveries.md "../../../AWSEC2/latest/APIReference/API_DescribeIpamResourceDiscoveries.md")
-- [DescribeIpamResourceDiscoveryAssociations](../../../AWSEC2/latest/APIReference/API_DescribeIpamResourceDiscoveryAssociations.md "../../../AWSEC2/latest/APIReference/API_DescribeIpamResourceDiscoveryAssociations.md")
-- [DisassociateIpamResourceDiscovery](../../../AWSEC2/latest/APIReference/API_DisassociateIpamResourceDiscovery.md "../../../AWSEC2/latest/APIReference/API_DisassociateIpamResourceDiscovery.md")
-- [GetIpamDiscoveredAccounts](../../../AWSEC2/latest/APIReference/API_GetIpamDiscoveredAccounts.md "../../../AWSEC2/latest/APIReference/API_GetIpamDiscoveredAccounts.md")
-- [GetIpamDiscoveredPublicAddresses](../../../AWSEC2/latest/APIReference/API_GetIpamDiscoveredPublicAddresses.md "../../../AWSEC2/latest/APIReference/API_GetIpamDiscoveredPublicAddresses.md")
-- [GetIpamDiscoveredResourceCidrs](../../../AWSEC2/latest/APIReference/API_GetIpamDiscoveredResourceCidrs.md "../../../AWSEC2/latest/APIReference/API_GetIpamDiscoveredResourceCidrs.md")
-- [GetIpamResourceCidrs](../../../AWSEC2/latest/APIReference/API_GetIpamResourceCidrs.md "../../../AWSEC2/latest/APIReference/API_GetIpamResourceCidrs.md")
-- [ModifyIpamResourceCidr](../../../AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.md "../../../AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.md")
-- [ModifyIpamResourceDiscovery](../../../AWSEC2/latest/APIReference/API_ModifyIpamResourceDiscovery.md "../../../AWSEC2/latest/APIReference/API_ModifyIpamResourceDiscovery.md")
-
-###### Scopes
-
-- [CreateIpamScope](../../../AWSEC2/latest/APIReference/API_CreateIpamScope.md "../../../AWSEC2/latest/APIReference/API_CreateIpamScope.md")
-- [DeleteIpamScope](../../../AWSEC2/latest/APIReference/API_DeleteIpamScope.md "../../../AWSEC2/latest/APIReference/API_DeleteIpamScope.md")
-- [DescribeIpamScopes](../../../AWSEC2/latest/APIReference/API_DescribeIpamScopes.md "../../../AWSEC2/latest/APIReference/API_DescribeIpamScopes.md")
-- [ModifyIpamScope](../../../AWSEC2/latest/APIReference/API_ModifyIpamScope.md "../../../AWSEC2/latest/APIReference/API_ModifyIpamScope.md")
+**Scopes**
++ [CreateIpamScope](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateIpamScope.html)
++ [DeleteIpamScope](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteIpamScope.html)
++ [DescribeIpamScopes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeIpamScopes.html)
++ [ModifyIpamScope](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamScope.html)

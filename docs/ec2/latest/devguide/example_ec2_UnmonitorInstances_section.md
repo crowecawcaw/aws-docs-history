@@ -1,21 +1,18 @@
+
+
 # Use `UnmonitorInstances` with an AWS SDK or CLI
+<a name="example_ec2_UnmonitorInstances_section"></a>
 
 The following code examples show how to use `UnmonitorInstances`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Disable monitoring for an EC2 instance.
@@ -59,30 +56,21 @@ bool AwsDoc::EC2::disableMonitoring(const Aws::String &instanceId,
 
     return unmonitorInstancesOutcome.IsSuccess();
 }
+```
++  For API details, see [UnmonitorInstances](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/UnmonitorInstances) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To disable detailed monitoring for an instance**  
+This example command disables detailed monitoring for the specified instance.  
+Command:  
 
 ```
-
-- For API details, see
-  [UnmonitorInstances](../../../goto/SdkForCpp/ec2-2016-11-15/UnmonitorInstances.md "../../../goto/SdkForCpp/ec2-2016-11-15/UnmonitorInstances.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To disable detailed monitoring for an instance**
-
-This example command disables detailed monitoring for the specified instance.
-
-Command:
-
+aws ec2 unmonitor-instances --instance-ids {{i-1234567890abcdef0}}
 ```
-`aws ec2 unmonitor-instances --instance-ids `i-1234567890abcdef0``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -96,20 +84,13 @@ Output:
   ]
 }
 ```
++  For API details, see [UnmonitorInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/unmonitor-instances.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [UnmonitorInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/unmonitor-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/unmonitor-instances.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { EC2Client, UnmonitorInstancesCommand } from "@aws-sdk/client-ec2";
@@ -145,58 +126,42 @@ export const main = async ({ instanceIds }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [UnmonitorInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [UnmonitorInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example disables detailed monitoring for the specified instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example disables detailed monitoring for the specified instance.**  
 
 ```
 Stop-EC2InstanceMonitoring -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId    Monitoring
 ----------    ----------
 i-12345678    Amazon.EC2.Model.Monitoring
 ```
++  For API details, see [UnmonitorInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [UnmonitorInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example disables detailed monitoring for the specified instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example disables detailed monitoring for the specified instance.**  
 
 ```
 Stop-EC2InstanceMonitoring -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId    Monitoring
 ----------    ----------
 i-12345678    Amazon.EC2.Model.Monitoring
 ```
++  For API details, see [UnmonitorInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [UnmonitorInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

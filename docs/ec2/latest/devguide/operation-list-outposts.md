@@ -1,46 +1,43 @@
+
+
 # AWS Outposts actions
+<a name="operation-list-outposts"></a>
 
-The following Amazon EC2 API actions are available for AWS Outposts. There is also an API for
-AWS Outposts. For more information, see the [AWS Outposts API
-Reference](../../../outposts/latest/APIReference/API_Operations.md "../../../outposts/latest/APIReference/API_Operations.md").
+The following Amazon EC2 API actions are available for AWS Outposts. There is also an API for AWS Outposts. For more information, see the [AWS Outposts API Reference](https://docs.aws.amazon.com/outposts/latest/APIReference/API_Operations.html).
 
-###### Customer-owned IP addresses
+**Customer-owned IP addresses**
++ [CreateCoipCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCoipCidr.html)
++ [CreateCoipPool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateCoipPool.html)
++ [DeleteCoipCidr](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteCoipCidr.html)
++ [DeleteCoipPool](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteCoipPool.html)
++ [DescribeCoipPools](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html)
++ [GetCoipPoolUsage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetCoipPoolUsage.html)
 
-- [CreateCoipCidr](../../../AWSEC2/latest/APIReference/API_CreateCoipCidr.md "../../../AWSEC2/latest/APIReference/API_CreateCoipCidr.md")
-- [CreateCoipPool](../../../AWSEC2/latest/APIReference/API_CreateCoipPool.md "../../../AWSEC2/latest/APIReference/API_CreateCoipPool.md")
-- [DeleteCoipCidr](../../../AWSEC2/latest/APIReference/API_DeleteCoipCidr.md "../../../AWSEC2/latest/APIReference/API_DeleteCoipCidr.md")
-- [DeleteCoipPool](../../../AWSEC2/latest/APIReference/API_DeleteCoipPool.md "../../../AWSEC2/latest/APIReference/API_DeleteCoipPool.md")
-- [DescribeCoipPools](../../../AWSEC2/latest/APIReference/API_DescribeCoipPools.md "../../../AWSEC2/latest/APIReference/API_DescribeCoipPools.md")
-- [GetCoipPoolUsage](../../../AWSEC2/latest/APIReference/API_GetCoipPoolUsage.md "../../../AWSEC2/latest/APIReference/API_GetCoipPoolUsage.md")
+**Local gateways**
++ [CreateLocalGatewayRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRoute.html)
++ [CreateLocalGatewayRouteTable](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTable.html)
++ [CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.html)
++ [CreateLocalGatewayVirtualInterface](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.html)
++ [CreateLocalGatewayRouteTableVpcAssociation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVpcAssociation.html)
++ [CreateLocalGatewayVirtualInterface](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.html)
++ [CreateLocalGatewayVirtualInterfaceGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterfaceGroup.html)
++ [DeleteLocalGatewayRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRoute.html)
++ [DeleteLocalGatewayRouteTable](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTable.html)
++ [DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.html)
++ [DeleteLocalGatewayRouteTableVpcAssociation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVpcAssociation.html)
++ [DeleteLocalGatewayVirtualInterface](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterface.html)
++ [DeleteLocalGatewayVirtualInterfaceGroup](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterfaceGroup.html)
++ [DescribeLocalGatewayRouteTables](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html)
++ [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.html)
++ [DescribeLocalGatewayRouteTableVpcAssociations](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTableVpcAssociations.html)
++ [DescribeLocalGateways](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html)
++ [DescribeLocalGatewayVirtualInterfaceGroups](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html)
++ [DescribeLocalGatewayVirtualInterfaces](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html)
++ [ModifyLocalGatewayRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyLocalGatewayRoute.html)
++ [SearchLocalGatewayRoutes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchLocalGatewayRoutes.html)
 
-###### Local gateways
+**Service links**
++ [DescribeServiceLinkVirtualInterfaces](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.html)
 
-- [CreateLocalGatewayRoute](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRoute.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRoute.md")
-- [CreateLocalGatewayRouteTable](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTable.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTable.md")
-- [CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation.md")
-- [CreateLocalGatewayVirtualInterface](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.md")
-- [CreateLocalGatewayRouteTableVpcAssociation](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVpcAssociation.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayRouteTableVpcAssociation.md")
-- [CreateLocalGatewayVirtualInterface](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterface.md")
-- [CreateLocalGatewayVirtualInterfaceGroup](../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterfaceGroup.md "../../../AWSEC2/latest/APIReference/API_CreateLocalGatewayVirtualInterfaceGroup.md")
-- [DeleteLocalGatewayRoute](../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRoute.md "../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRoute.md")
-- [DeleteLocalGatewayRouteTable](../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTable.md "../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTable.md")
-- [DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation](../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.md "../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation.md")
-- [DeleteLocalGatewayRouteTableVpcAssociation](../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVpcAssociation.md "../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayRouteTableVpcAssociation.md")
-- [DeleteLocalGatewayVirtualInterface](../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterface.md "../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterface.md")
-- [DeleteLocalGatewayVirtualInterfaceGroup](../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterfaceGroup.md "../../../AWSEC2/latest/APIReference/API_DeleteLocalGatewayVirtualInterfaceGroup.md")
-- [DescribeLocalGatewayRouteTables](../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.md "../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.md")
-- [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations](../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.md "../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.md")
-- [DescribeLocalGatewayRouteTableVpcAssociations](../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTableVpcAssociations.md "../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTableVpcAssociations.md")
-- [DescribeLocalGateways](../../../AWSEC2/latest/APIReference/API_DescribeLocalGateways.md "../../../AWSEC2/latest/APIReference/API_DescribeLocalGateways.md")
-- [DescribeLocalGatewayVirtualInterfaceGroups](../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.md "../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.md")
-- [DescribeLocalGatewayVirtualInterfaces](../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.md "../../../AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.md")
-- [ModifyLocalGatewayRoute](../../../AWSEC2/latest/APIReference/API_ModifyLocalGatewayRoute.md "../../../AWSEC2/latest/APIReference/API_ModifyLocalGatewayRoute.md")
-- [SearchLocalGatewayRoutes](../../../AWSEC2/latest/APIReference/API_SearchLocalGatewayRoutes.md "../../../AWSEC2/latest/APIReference/API_SearchLocalGatewayRoutes.md")
-
-###### Service links
-
-- [DescribeServiceLinkVirtualInterfaces](../../../AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.md "../../../AWSEC2/latest/APIReference/API_DescribeServiceLinkVirtualInterfaces.md")
-
-###### Link aggregation groups
-
-- [DescribeOutpostLags](../../../AWSEC2/latest/APIReference/API_DescribeOutpostLags.md "../../../AWSEC2/latest/APIReference/API_DescribeOutpostLags.md")
+**Link aggregation groups**
++ [DescribeOutpostLags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeOutpostLags.html)

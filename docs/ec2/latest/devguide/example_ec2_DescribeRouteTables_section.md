@@ -1,27 +1,25 @@
+
+
 # Use `DescribeRouteTables` with an AWS SDK or CLI
+<a name="example_ec2_DescribeRouteTables_section"></a>
 
 The following code examples show how to use `DescribeRouteTables`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md) 
 
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To describe your route tables**
-
-The following `describe-route-tables` example retrieves the details about your route tables
+**AWS CLI**  
+**To describe your route tables**  
+The following `describe-route-tables` example retrieves the details about your route tables  
 
 ```
-`aws ec2 describe-route-tables`
-
+aws ec2 describe-route-tables
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -114,25 +112,16 @@ Output:
     ]
 }
 ```
+For more information, see [Working with Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#WorkWithRouteTables) in the *AWS VPC User Guide*.  
++  For API details, see [DescribeRouteTables](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-route-tables.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Working with Route Tables](../../../vpc/latest/userguide/VPC_Route_Tables.md#WorkWithRouteTables "../../../vpc/latest/userguide/VPC_Route_Tables.md#WorkWithRouteTables") in the _AWS VPC User Guide_.
+------
+#### [ PHP ]
 
-- For API details, see
-  [DescribeRouteTables](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-route-tables.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-route-tables.html")
-  in _AWS CLI Command Reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples). 
 
 ```
-
     /**
      * @param array $routeTableIds
      * @param array $filters
@@ -161,27 +150,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
         }
         return $contents;
     }
-
-
-
 ```
++  For API details, see [DescribeRouteTables](https://docs.aws.amazon.com/goto/SdkForPHPV3/ec2-2016-11-15/DescribeRouteTables) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [DescribeRouteTables](../../../goto/SdkForPHPV3/ec2-2016-11-15/DescribeRouteTables.md "../../../goto/SdkForPHPV3/ec2-2016-11-15/DescribeRouteTables.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes all your route tables.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes all your route tables.**  
 
 ```
 Get-EC2RouteTable
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DestinationCidrBlock    : 10.0.0.0/16
@@ -204,22 +185,17 @@ Origin                  : CreateRoute
 State                   : active
 VpcPeeringConnectionId  :
 ```
-
-**Example 2: This example returns details for the specified route table.**
+**Example 2: This example returns details for the specified route table.**  
 
 ```
 Get-EC2RouteTable -RouteTableId rtb-1a2b3c4d
-
 ```
-
-**Example 3: This example describes the route tables for the specified VPC.**
+**Example 3: This example describes the route tables for the specified VPC.**  
 
 ```
 Get-EC2RouteTable -Filter @{ Name="vpc-id"; Values="vpc-1a2b3c4d" }
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Associations    : {rtbassoc-12345678}
@@ -229,21 +205,15 @@ RouteTableId    : rtb-1a2b3c4d
 Tags            : {}
 VpcId           : vpc-1a2b3c4d
 ```
++  For API details, see [DescribeRouteTables](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeRouteTables](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes all your route tables.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes all your route tables.**  
 
 ```
 Get-EC2RouteTable
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 DestinationCidrBlock    : 10.0.0.0/16
@@ -266,22 +236,17 @@ Origin                  : CreateRoute
 State                   : active
 VpcPeeringConnectionId  :
 ```
-
-**Example 2: This example returns details for the specified route table.**
+**Example 2: This example returns details for the specified route table.**  
 
 ```
 Get-EC2RouteTable -RouteTableId rtb-1a2b3c4d
-
 ```
-
-**Example 3: This example describes the route tables for the specified VPC.**
+**Example 3: This example describes the route tables for the specified VPC.**  
 
 ```
 Get-EC2RouteTable -Filter @{ Name="vpc-id"; Values="vpc-1a2b3c4d" }
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Associations    : {rtbassoc-12345678}
@@ -291,20 +256,13 @@ RouteTableId    : rtb-1a2b3c4d
 Tags            : {}
 VpcId           : vpc-1a2b3c4d
 ```
++  For API details, see [DescribeRouteTables](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeRouteTables](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class VpcWrapper:
@@ -349,24 +307,14 @@ class VpcWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++  For API details, see [DescribeRouteTables](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeRouteTables) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DescribeRouteTables](../../../goto/boto3/ec2-2016-11-15/DescribeRouteTables.md "../../../goto/boto3/ec2-2016-11-15/DescribeRouteTables.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     " Create filter for VPC ID
@@ -387,14 +335,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeRouteTables](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeRouteTables](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

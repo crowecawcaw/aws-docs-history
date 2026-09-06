@@ -1,33 +1,31 @@
+
+
 # Use `CreateSubnet` with an AWS SDK or CLI
+<a name="example_ec2_CreateSubnet_section"></a>
 
 The following code examples show how to use `CreateSubnet`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Getting started with graph databases](example_ec2_GettingStarted_064_section.md) 
++  [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
++  [Working with network peering connections](example_ec2_GettingStarted_015_section.md) 
 
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Working with network peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a subnet with an IPv4 CIDR block only**
-
-The following `create-subnet` example creates a subnet in the specified VPC with the specified IPv4 CIDR block.
+**AWS CLI**  
+**Example 1: To create a subnet with an IPv4 CIDR block only**  
+The following `create-subnet` example creates a subnet in the specified VPC with the specified IPv4 CIDR block.  
 
 ```
-`aws ec2 create-subnet \
- --vpc-id `vpc-081ec835f3EXAMPLE` \
- --cidr-block `10.0.0.0/24` \
- --tag-specifications `ResourceType=subnet,Tags=[{Key=Name,Value=my-ipv4-only-subnet}]``
-
+aws ec2 create-subnet \
+    --vpc-id {{vpc-081ec835f3EXAMPLE}} \
+    --cidr-block {{10.0.0.0/24}} \
+    --tag-specifications {{ResourceType=subnet,Tags=[{Key=Name,Value=my-ipv4-only-subnet}]}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -54,21 +52,17 @@ Output:
     }
 }
 ```
-
-**Example 2: To create a subnet with both IPv4 and IPv6 CIDR blocks**
-
-The following `create-subnet` example creates a subnet in the specified VPC with the specified IPv4 and IPv6 CIDR blocks.
+**Example 2: To create a subnet with both IPv4 and IPv6 CIDR blocks**  
+The following `create-subnet` example creates a subnet in the specified VPC with the specified IPv4 and IPv6 CIDR blocks.  
 
 ```
-`aws ec2 create-subnet \
- --vpc-id `vpc-081ec835f3EXAMPLE` \
- --cidr-block `10.0.0.0/24` \
- --ipv6-cidr-block `2600:1f16:cfe:3660::/64` \
- --tag-specifications `ResourceType=subnet,Tags=[{Key=Name,Value=my-ipv4-ipv6-subnet}]``
-
+aws ec2 create-subnet \
+    --vpc-id {{vpc-081ec835f3EXAMPLE}} \
+    --cidr-block {{10.0.0.0/24}} \
+    --ipv6-cidr-block {{2600:1f16:cfe:3660::/64}} \
+    --tag-specifications {{ResourceType=subnet,Tags=[{Key=Name,Value=my-ipv4-ipv6-subnet}]}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -103,21 +97,17 @@ Output:
     }
 }
 ```
-
-**Example 3: To create a subnet with an IPv6 CIDR block only**
-
-The following `create-subnet` example creates a subnet in the specified VPC with the specified IPv6 CIDR block.
+**Example 3: To create a subnet with an IPv6 CIDR block only**  
+The following `create-subnet` example creates a subnet in the specified VPC with the specified IPv6 CIDR block.  
 
 ```
-`aws ec2 create-subnet \
- --vpc-id `vpc-081ec835f3EXAMPLE` \
- --ipv6-native \
- --ipv6-cidr-block `2600:1f16:115:200::/64` \
- --tag-specifications `ResourceType=subnet,Tags=[{Key=Name,Value=my-ipv6-only-subnet}]``
-
+aws ec2 create-subnet \
+    --vpc-id {{vpc-081ec835f3EXAMPLE}} \
+    --ipv6-native \
+    --ipv6-cidr-block {{2600:1f16:115:200::/64}} \
+    --tag-specifications {{ResourceType=subnet,Tags=[{Key=Name,Value=my-ipv6-only-subnet}]}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -151,25 +141,19 @@ Output:
     }
 }
 ```
+For more information, see [VPCs and subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the *Amazon VPC User Guide*.  
++  For API details, see [CreateSubnet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-subnet.html) in *AWS CLI Command Reference*. 
 
-For more information, see [VPCs and subnets](../../../vpc/latest/userguide/VPC_Subnets.md "../../../vpc/latest/userguide/VPC_Subnets.md") in the _Amazon VPC User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [CreateSubnet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-subnet.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-subnet.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a subnet with the specified CIDR.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a subnet with the specified CIDR.**  
 
 ```
 New-EC2Subnet -VpcId vpc-12345678 -CidrBlock 10.0.0.0/24
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone        : us-west-2c
@@ -182,21 +166,15 @@ SubnetId                : subnet-1a2b3c4d
 Tag                     : {}
 VpcId                   : vpc-12345678
 ```
++  For API details, see [CreateSubnet](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateSubnet](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a subnet with the specified CIDR.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a subnet with the specified CIDR.**  
 
 ```
 New-EC2Subnet -VpcId vpc-12345678 -CidrBlock 10.0.0.0/24
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone        : us-west-2c
@@ -209,23 +187,15 @@ SubnetId                : subnet-1a2b3c4d
 Tag                     : {}
 VpcId                   : vpc-12345678
 ```
++  For API details, see [CreateSubnet](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateSubnet](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
-
 require 'aws-sdk-ec2'
 
 # Creates a subnet within a virtual private cloud (VPC) in
@@ -338,14 +308,9 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [CreateSubnet](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/CreateSubnet) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateSubnet](../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateSubnet.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateSubnet.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

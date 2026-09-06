@@ -1,27 +1,24 @@
+
+
 # Use `CreateKeyPair` with an AWS SDK or CLI
+<a name="example_ec2_CreateKeyPair_section"></a>
 
 The following code examples show how to use `CreateKeyPair`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md) 
++  [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md) 
++  [Getting started with big data processing clusters](example_emr_GettingStarted_037_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
-- [Getting started with big data processing clusters](example_emr_GettingStarted_037_section.md "example_emr_GettingStarted_037_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -93,23 +90,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
 
         return pemFileName;
     }
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/CreateKeyPair) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [CreateKeyPair](../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateKeyPair.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateKeyPair.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -185,11 +173,8 @@ function ec2_create_keypair() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -234,23 +219,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Create an Amazon Elastic Compute Cloud (Amazon EC2) instance key pair.
@@ -286,46 +262,29 @@ bool AwsDoc::EC2::createKeyPair(const Aws::String &keyPairName, const Aws::Strin
     return outcome.IsSuccess();
 
 }
+```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/CreateKeyPair) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To create a key pair**  
+This example creates a key pair named `MyKeyPair`.  
+Command:  
 
 ```
-
-- For API details, see
-  [CreateKeyPair](../../../goto/SdkForCpp/ec2-2016-11-15/CreateKeyPair.md "../../../goto/SdkForCpp/ec2-2016-11-15/CreateKeyPair.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To create a key pair**
-
-This example creates a key pair named `MyKeyPair`.
-
-Command:
-
+aws ec2 create-key-pair --key-name {{MyKeyPair}}
 ```
-`aws ec2 create-key-pair --key-name `MyKeyPair``
+The output is an ASCII version of the private key and key fingerprint. You need to save the key to a file.  
+For more information, see Using Key Pairs in the *AWS Command Line Interface User Guide*.  
++  For API details, see [CreateKeyPair](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-key-pair.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-The output is an ASCII version of the private key and key fingerprint. You need to save the key to a file.
-
-For more information, see Using Key Pairs in the _AWS Command Line Interface User Guide_.
-
-- For API details, see
-  [CreateKeyPair](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-key-pair.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-key-pair.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -358,23 +317,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 
         return responseFuture;
     }
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/CreateKeyPair) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [CreateKeyPair](../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateKeyPair.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateKeyPair.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { CreateKeyPairCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -402,23 +352,14 @@ export const main = async ({ keyName }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateKeyPairCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [CreateKeyPair](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateKeyPairCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateKeyPairCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun createEC2KeyPair(keyNameVal: String) {
@@ -432,51 +373,33 @@ suspend fun createEC2KeyPair(keyNameVal: String) {
         println("The key ID is ${response.keyPairId}")
     }
 }
-
-
 ```
++  For API details, see [CreateKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [CreateKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the AWS Command Line Interface User Guide.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the AWS Command Line Interface User Guide.**  
 
 ```
 (New-EC2KeyPair -KeyName "my-key-pair").KeyMaterial | Out-File -Encoding ascii -FilePath C:\path\my-key-pair.pem
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateKeyPair](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the AWS Command Line Interface User Guide.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the AWS Command Line Interface User Guide.**  
 
 ```
 (New-EC2KeyPair -KeyName "my-key-pair").KeyMaterial | Out-File -Encoding ascii -FilePath C:\path\my-key-pair.pem
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateKeyPair](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class KeyPairWrapper:
@@ -547,27 +470,16 @@ class KeyPairWrapper:
             raise
         else:
             return self.key_pair
+```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateKeyPair) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateKeyPair](../../../goto/boto3/ec2-2016-11-15/CreateKeyPair.md "../../../goto/boto3/ec2-2016-11-15/CreateKeyPair.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
-
-```
-
 # This code example does the following:
 # 1. Creates a key pair in Amazon Elastic Compute Cloud (Amazon EC2).
 # 2. Displays information about available key pairs.
@@ -705,25 +617,15 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/CreateKeyPair) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateKeyPair](../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateKeyPair.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateKeyPair.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
-
-Rust implementation that calls the EC2 Client's create\_key\_pair and extracts the returned material.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
+Rust implementation that calls the EC2 Client's create\_key\_pair and extracts the returned material.  
 
 ```
     pub async fn create_key_pair(&self, name: String) -> Result<(KeyPairInfo, String), EC2Error> {
@@ -739,11 +641,8 @@ Rust implementation that calls the EC2 Client's create\_key\_pair and extracts t
             .ok_or_else(|| EC2Error::new("Create Key Pair has no key material"))?;
         Ok((info, material))
     }
-
-
 ```
-
-A function that calls the create\_key impl and securely saves the PEM private key.
+A function that calls the create\_key impl and securely saves the PEM private key.  
 
 ```
     /// Creates a key pair that can be used to securely connect to an EC2 instance.
@@ -772,23 +671,14 @@ A function that calls the create\_key impl and securely saves the PEM private ke
 
         Ok(key_pair)
     }
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_key_pair) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [CreateKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_key_pair "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_key_pair")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -798,23 +688,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateKeyPair](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateKeyPair](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
 
 ```
 import AWSEC2
@@ -856,14 +737,9 @@ import AWSEC2
             return nil
         }
     }
-
-
 ```
++  For API details, see [CreateKeyPair](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createkeypair(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [CreateKeyPair](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createkeypair(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createkeypair(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,31 +1,28 @@
+
+
 # Use `CreateRouteTable` with an AWS SDK or CLI
+<a name="example_ec2_CreateRouteTable_section"></a>
 
 The following code examples show how to use `CreateRouteTable`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Getting started with graph databases](example_ec2_GettingStarted_064_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
++  [Working with network peering connections](example_ec2_GettingStarted_015_section.md) 
 
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Working with network peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To create a route table**
-
-This example creates a route table for the specified VPC.
-
-Command:
+**AWS CLI**  
+**To create a route table**  
+This example creates a route table for the specified VPC.  
+Command:  
 
 ```
-`aws ec2 create-route-table --vpc-id `vpc-a01106c2``
-
+aws ec2 create-route-table --vpc-id {{vpc-a01106c2}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -45,23 +42,18 @@ Output:
     }
 }
 ```
++  For API details, see [CreateRouteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateRouteTable](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-route-table.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a route table for the specified VPC.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a route table for the specified VPC.**  
 
 ```
 New-EC2RouteTable -VpcId vpc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Associations    : {}
@@ -71,21 +63,15 @@ RouteTableId    : rtb-1a2b3c4d
 Tags            : {}
 VpcId           : vpc-12345678
 ```
++  For API details, see [CreateRouteTable](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateRouteTable](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a route table for the specified VPC.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a route table for the specified VPC.**  
 
 ```
 New-EC2RouteTable -VpcId vpc-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Associations    : {}
@@ -95,20 +81,13 @@ RouteTableId    : rtb-1a2b3c4d
 Tags            : {}
 VpcId           : vpc-12345678
 ```
++  For API details, see [CreateRouteTable](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateRouteTable](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
 require 'aws-sdk-ec2'
@@ -235,15 +214,9 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
-
 ```
++  For API details, see [CreateRouteTable](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/CreateRouteTable) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateRouteTable](../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateRouteTable.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateRouteTable.md")
-  in _AWS SDK for Ruby API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

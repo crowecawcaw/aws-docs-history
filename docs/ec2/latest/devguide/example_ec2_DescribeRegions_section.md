@@ -1,16 +1,15 @@
+
+
 # Use `DescribeRegions` with an AWS SDK or CLI
+<a name="example_ec2_DescribeRegions_section"></a>
 
 The following code examples show how to use `DescribeRegions`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Describe all Amazon Elastic Compute Cloud (Amazon EC2) Regions.
@@ -45,28 +44,20 @@ bool AwsDoc::EC2::describeRegions(
     return outcome.IsSuccess();
 
 }
+```
++  For API details, see [DescribeRegions](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DescribeRegions) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To describe all of your enabled Regions**  
+The following `describe-regions` example describes all of the Regions that are enabled for your account.  
 
 ```
-
-- For API details, see
-  [DescribeRegions](../../../goto/SdkForCpp/ec2-2016-11-15/DescribeRegions.md "../../../goto/SdkForCpp/ec2-2016-11-15/DescribeRegions.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe all of your enabled Regions**
-
-The following `describe-regions` example describes all of the Regions that are enabled for your account.
-
+aws ec2 describe-regions
 ```
-`aws ec2 describe-regions`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -159,20 +150,15 @@ Output:
     ]
 }
 ```
-
-For more information, see [Regions and Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_.
-
-**Example 2: To describe enabled Regions with an endpoint whose name contains a specific string**
-
-The following `describe-regions` example describes all Regions that you have enabled that have the string "us" in the endpoint.
+For more information, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.  
+**Example 2: To describe enabled Regions with an endpoint whose name contains a specific string**  
+The following `describe-regions` example describes all Regions that you have enabled that have the string "us" in the endpoint.  
 
 ```
-`aws ec2 describe-regions \
- --filters `"Name=endpoint,Values=*us*"``
-
+aws ec2 describe-regions \
+    --filters {{"Name=endpoint,Values=*us*"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -196,20 +182,15 @@ Output:
     ]
 }
 ```
-
-For more information, see [Regions and Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_.
-
-**Example 3: To describe all Regions**
-
-The following `describe-regions` example describes all available Regions, including Regions that are disabled.
+For more information, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.  
+**Example 3: To describe all Regions**  
+The following `describe-regions` example describes all available Regions, including Regions that are disabled.  
 
 ```
-`aws ec2 describe-regions \
- --all-regions`
-
+aws ec2 describe-regions \
+    --all-regions
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -312,22 +293,17 @@ Output:
     ]
 }
 ```
-
-For more information, see [Regions and Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_.
-
-**Example 4: To list the Region names only**
-
-The following `describe-regions` example uses the `--query` parameter to filter the output and return only the names of the Regions as text.
+For more information, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.  
+**Example 4: To list the Region names only**  
+The following `describe-regions` example uses the `--query` parameter to filter the output and return only the names of the Regions as text.  
 
 ```
-`aws ec2 describe-regions \
- --all-regions \
- --query `"Regions[].{Name:RegionName}"` \
- --output `text``
-
+aws ec2 describe-regions \
+    --all-regions \
+    --query {{"Regions[].{Name:RegionName}"}} \
+    --output {{text}}
 ```
-
-Output:
+Output:  
 
 ```
 eu-north-1
@@ -350,22 +326,14 @@ us-east-2
 us-west-1
 us-west-2
 ```
+For more information, see [Regions and Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeRegions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-regions.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Regions and Zones](../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md "../../../AWSEC2/latest/UserGuide/using-regions-availability-zones.md") in the _Amazon EC2 User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [DescribeRegions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-regions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-regions.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { DescribeRegionsCommand, EC2Client } from "@aws-sdk/client-ec2";
@@ -407,26 +375,19 @@ export const main = async ({ regionNames, includeOptInRegions }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DescribeRegions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeRegionsCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeRegions](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeRegionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeRegionsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the regions that are available to you.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the regions that are available to you.**  
 
 ```
 Get-EC2Region
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Endpoint                            RegionName
@@ -441,21 +402,15 @@ ec2.sa-east-1.amazonaws.com         sa-east-1
 ec2.us-west-1.amazonaws.com         us-west-1
 ec2.us-west-2.amazonaws.com         us-west-2
 ```
++  For API details, see [DescribeRegions](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeRegions](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the regions that are available to you.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the regions that are available to you.**  
 
 ```
 Get-EC2Region
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Endpoint                            RegionName
@@ -470,23 +425,15 @@ ec2.sa-east-1.amazonaws.com         sa-east-1
 ec2.us-west-1.amazonaws.com         us-west-1
 ec2.us-west-2.amazonaws.com         us-west-2
 ```
++  For API details, see [DescribeRegions](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeRegions](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Ruby ]
 
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
-
 require 'aws-sdk-ec2'
 
 # @param ec2_client [Aws::EC2::Client] An initialized EC2 client.
@@ -588,23 +535,14 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [DescribeRegions](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/DescribeRegions) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DescribeRegions](../../../goto/SdkForRubyV3/ec2-2016-11-15/DescribeRegions.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/DescribeRegions.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
 async fn show_regions(client: &Client) -> Result<(), Error> {
@@ -617,23 +555,14 @@ async fn show_regions(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DescribeRegions](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_regions) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeRegions](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_regions "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_regions")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -644,15 +573,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
-
 ```
++  For API details, see [DescribeRegions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeRegions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

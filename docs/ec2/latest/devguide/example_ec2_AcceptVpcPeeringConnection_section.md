@@ -1,28 +1,25 @@
+
+
 # Use `AcceptVpcPeeringConnection` with a CLI
+<a name="example_ec2_AcceptVpcPeeringConnection_section"></a>
 
 The following code examples show how to use `AcceptVpcPeeringConnection`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Working with network peering connections](example_ec2_GettingStarted_015_section.md) 
 
-- [Working with network peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**To accept a VPC peering connection**
-
-This example accepts the specified VPC peering connection request.
-
-Command:
+**AWS CLI**  
+**To accept a VPC peering connection**  
+This example accepts the specified VPC peering connection request.  
+Command:  
 
 ```
-`aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id `pcx-1a2b3c4d``
-
+aws ec2 accept-vpc-peering-connection --vpc-peering-connection-id {{pcx-1a2b3c4d}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -46,23 +43,18 @@ Output:
   }
 }
 ```
++  For API details, see [AcceptVpcPeeringConnection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/accept-vpc-peering-connection.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [AcceptVpcPeeringConnection](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/accept-vpc-peering-connection.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/accept-vpc-peering-connection.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be**
+**Tools for PowerShell V4**  
+**Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be**  
 
 ```
 Approve-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-1dfad234b56ff78be
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccepterVpcInfo        : Amazon.EC2.Model.VpcPeeringConnectionVpcInfo
@@ -72,21 +64,15 @@ Status                 : Amazon.EC2.Model.VpcPeeringConnectionStateReason
 Tags                   : {}
 VpcPeeringConnectionId : pcx-1dfad234b56ff78be
 ```
++  For API details, see [AcceptVpcPeeringConnection](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [AcceptVpcPeeringConnection](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be**
+**Tools for PowerShell V5**  
+**Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be**  
 
 ```
 Approve-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-1dfad234b56ff78be
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AccepterVpcInfo        : Amazon.EC2.Model.VpcPeeringConnectionVpcInfo
@@ -96,11 +82,8 @@ Status                 : Amazon.EC2.Model.VpcPeeringConnectionStateReason
 Tags                   : {}
 VpcPeeringConnectionId : pcx-1dfad234b56ff78be
 ```
++  For API details, see [AcceptVpcPeeringConnection](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [AcceptVpcPeeringConnection](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

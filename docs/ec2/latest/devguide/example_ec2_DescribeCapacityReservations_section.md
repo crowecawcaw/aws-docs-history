@@ -1,21 +1,21 @@
+
+
 # Use `DescribeCapacityReservations` with a CLI
+<a name="example_ec2_DescribeCapacityReservations_section"></a>
 
 The following code examples show how to use `DescribeCapacityReservations`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To describe one or more of your capacity reservations**
-
-The following `describe-capacity-reservations` example displays details about all of your capacity reservations in the current AWS Region.
-
-```
-`aws ec2 describe-capacity-reservations`
+**AWS CLI**  
+**Example 1: To describe one or more of your capacity reservations**  
+The following `describe-capacity-reservations` example displays details about all of your capacity reservations in the current AWS Region.  
 
 ```
-
-Output:
+aws ec2 describe-capacity-reservations
+```
+Output:  
 
 ```
 {
@@ -65,18 +65,14 @@ Output:
     ]
 }
 ```
-
-**Example 2: To describe one or more of your capacity reservations**
-
-The following `describe-capacity-reservations` example displays details about the specified capacity reservation.
+**Example 2: To describe one or more of your capacity reservations**  
+The following `describe-capacity-reservations` example displays details about the specified capacity reservation.  
 
 ```
-`aws ec2 describe-capacity-reservations \
- --capacity-reservation-ids `cr-1234abcd56EXAMPLE``
-
+aws ec2 describe-capacity-reservations \
+    --capacity-reservation-ids {{cr-1234abcd56EXAMPLE}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -105,25 +101,19 @@ Output:
     ]
 }
 ```
+For more information, see [Viewing a Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#capacity-reservations-view) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*.  
++  For API details, see [DescribeCapacityReservations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-capacity-reservations.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Viewing a Capacity Reservation](../../../AWSEC2/latest/UserGuide/capacity-reservations-using.md#capacity-reservations-view "../../../AWSEC2/latest/UserGuide/capacity-reservations-using.md#capacity-reservations-view") in the _Amazon Elastic Compute Cloud User Guide for Linux Instances_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeCapacityReservations](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-capacity-reservations.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-capacity-reservations.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes one or more of your Capacity Reservations for the region**
+**Tools for PowerShell V4**  
+**Example 1: This example describes one or more of your Capacity Reservations for the region**  
 
 ```
 Get-EC2CapacityReservation -Region eu-west-1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone       : eu-west-1b
@@ -142,21 +132,15 @@ Tags                   : {}
 Tenancy                : default
 TotalInstanceCount     : 2
 ```
++  For API details, see [DescribeCapacityReservations](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeCapacityReservations](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes one or more of your Capacity Reservations for the region**
+**Tools for PowerShell V5**  
+**Example 1: This example describes one or more of your Capacity Reservations for the region**  
 
 ```
 Get-EC2CapacityReservation -Region eu-west-1
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone       : eu-west-1b
@@ -175,11 +159,8 @@ Tags                   : {}
 Tenancy                : default
 TotalInstanceCount     : 2
 ```
++  For API details, see [DescribeCapacityReservations](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeCapacityReservations](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

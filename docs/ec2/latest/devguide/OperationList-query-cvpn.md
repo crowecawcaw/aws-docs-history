@@ -1,50 +1,44 @@
+
+
 # AWS Client VPN actions
+<a name="OperationList-query-cvpn"></a>
 
-The following API actions are available for AWS Client VPN. To learn more about Client VPN,
-see the [Site-to-Site VPN product page](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") and the [Site-to-Site VPN documentation](../../../vpn.md "../../../vpn.md").
+The following API actions are available for AWS Client VPN. To learn more about Client VPN, see the [Site-to-Site VPN product page](https://aws.amazon.com/vpn/) and the [Site-to-Site VPN documentation](https://docs.aws.amazon.com/vpn/).
 
-###### Authorization rules
+**Authorization rules**
++ [AuthorizeClientVpnIngress](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeClientVpnIngress.html)
++ [DescribeClientVpnAuthorizationRules](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnAuthorizationRules.html)
++ [RevokeClientVpnIngress](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RevokeClientVpnIngress.html)
 
-- [AuthorizeClientVpnIngress](../../../AWSEC2/latest/APIReference/API_AuthorizeClientVpnIngress.md "../../../AWSEC2/latest/APIReference/API_AuthorizeClientVpnIngress.md")
-- [DescribeClientVpnAuthorizationRules](../../../AWSEC2/latest/APIReference/API_DescribeClientVpnAuthorizationRules.md "../../../AWSEC2/latest/APIReference/API_DescribeClientVpnAuthorizationRules.md")
-- [RevokeClientVpnIngress](../../../AWSEC2/latest/APIReference/API_RevokeClientVpnIngress.md "../../../AWSEC2/latest/APIReference/API_RevokeClientVpnIngress.md")
+**Certificate revocation lists**
++ [ExportClientVpnClientCertificateRevocationList](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ExportClientVpnClientCertificateRevocationList.html)
++ [ImportClientVpnClientCertificateRevocationList](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportClientVpnClientCertificateRevocationList.html)
 
-###### Certificate revocation lists
+**Client connections**
++ [DescribeClientVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnConnections.html)
++ [TerminateClientVpnConnections](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TerminateClientVpnConnections.html)
 
-- [ExportClientVpnClientCertificateRevocationList](../../../AWSEC2/latest/APIReference/API_ExportClientVpnClientCertificateRevocationList.md "../../../AWSEC2/latest/APIReference/API_ExportClientVpnClientCertificateRevocationList.md")
-- [ImportClientVpnClientCertificateRevocationList](../../../AWSEC2/latest/APIReference/API_ImportClientVpnClientCertificateRevocationList.md "../../../AWSEC2/latest/APIReference/API_ImportClientVpnClientCertificateRevocationList.md")
+**Client VPN endpoints**
++ [CreateClientVpnEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateClientVpnEndpoint.html)
++ [DeleteClientVpnEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteClientVpnEndpoint.html)
++ [DescribeClientVpnEndpoints](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.html)
++ [ModifyClientVpnEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyClientVpnEndpoint.html)
 
-###### Client connections
+**Configuration files**
++ [ExportClientVpnClientConfiguration](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ExportClientVpnClientConfiguration.html)
 
-- [DescribeClientVpnConnections](../../../AWSEC2/latest/APIReference/API_DescribeClientVpnConnections.md "../../../AWSEC2/latest/APIReference/API_DescribeClientVpnConnections.md")
-- [TerminateClientVpnConnections](../../../AWSEC2/latest/APIReference/API_TerminateClientVpnConnections.md "../../../AWSEC2/latest/APIReference/API_TerminateClientVpnConnections.md")
+**Routes**
++ [CreateClientVpnRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateClientVpnRoute.html)
++ [DeleteClientVpnRoute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteClientVpnRoute.html)
++ [DescribeClientVpnRoutes](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnRoutes.html)
 
-###### Client VPN endpoints
+**Target networks**
++ [ApplySecurityGroupsToClientVpnTargetNetwork](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ApplySecurityGroupsToClientVpnTargetNetwork.html)
++ [AssociateClientVpnTargetNetwork](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateClientVpnTargetNetwork.html)
++ [DescribeClientVpnTargetNetworks](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnTargetNetworks.html)
++ [DisassociateClientVpnTargetNetwork](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateClientVpnTargetNetwork.html)
 
-- [CreateClientVpnEndpoint](../../../AWSEC2/latest/APIReference/API_CreateClientVpnEndpoint.md "../../../AWSEC2/latest/APIReference/API_CreateClientVpnEndpoint.md")
-- [DeleteClientVpnEndpoint](../../../AWSEC2/latest/APIReference/API_DeleteClientVpnEndpoint.md "../../../AWSEC2/latest/APIReference/API_DeleteClientVpnEndpoint.md")
-- [DescribeClientVpnEndpoints](../../../AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.md "../../../AWSEC2/latest/APIReference/API_DescribeClientVpnEndpoints.md")
-- [ModifyClientVpnEndpoint](../../../AWSEC2/latest/APIReference/API_ModifyClientVpnEndpoint.md "../../../AWSEC2/latest/APIReference/API_ModifyClientVpnEndpoint.md")
-
-###### Configuration files
-
-- [ExportClientVpnClientConfiguration](../../../AWSEC2/latest/APIReference/API_ExportClientVpnClientConfiguration.md "../../../AWSEC2/latest/APIReference/API_ExportClientVpnClientConfiguration.md")
-
-###### Routes
-
-- [CreateClientVpnRoute](../../../AWSEC2/latest/APIReference/API_CreateClientVpnRoute.md "../../../AWSEC2/latest/APIReference/API_CreateClientVpnRoute.md")
-- [DeleteClientVpnRoute](../../../AWSEC2/latest/APIReference/API_DeleteClientVpnRoute.md "../../../AWSEC2/latest/APIReference/API_DeleteClientVpnRoute.md")
-- [DescribeClientVpnRoutes](../../../AWSEC2/latest/APIReference/API_DescribeClientVpnRoutes.md "../../../AWSEC2/latest/APIReference/API_DescribeClientVpnRoutes.md")
-
-###### Target networks
-
-- [ApplySecurityGroupsToClientVpnTargetNetwork](../../../AWSEC2/latest/APIReference/API_ApplySecurityGroupsToClientVpnTargetNetwork.md "../../../AWSEC2/latest/APIReference/API_ApplySecurityGroupsToClientVpnTargetNetwork.md")
-- [AssociateClientVpnTargetNetwork](../../../AWSEC2/latest/APIReference/API_AssociateClientVpnTargetNetwork.md "../../../AWSEC2/latest/APIReference/API_AssociateClientVpnTargetNetwork.md")
-- [DescribeClientVpnTargetNetworks](../../../AWSEC2/latest/APIReference/API_DescribeClientVpnTargetNetworks.md "../../../AWSEC2/latest/APIReference/API_DescribeClientVpnTargetNetworks.md")
-- [DisassociateClientVpnTargetNetwork](../../../AWSEC2/latest/APIReference/API_DisassociateClientVpnTargetNetwork.md "../../../AWSEC2/latest/APIReference/API_DisassociateClientVpnTargetNetwork.md")
-
-###### Transit Gateway attachments
-
-- [AcceptTransitGatewayClientVpnAttachment](../../../AWSEC2/latest/APIReference/API_AcceptTransitGatewayClientVpnAttachment.md "../../../AWSEC2/latest/APIReference/API_AcceptTransitGatewayClientVpnAttachment.md")
-- [DeleteTransitGatewayClientVpnAttachment](../../../AWSEC2/latest/APIReference/API_DeleteTransitGatewayClientVpnAttachment.md "../../../AWSEC2/latest/APIReference/API_DeleteTransitGatewayClientVpnAttachment.md")
-- [RejectTransitGatewayClientVpnAttachment](../../../AWSEC2/latest/APIReference/API_RejectTransitGatewayClientVpnAttachment.md "../../../AWSEC2/latest/APIReference/API_RejectTransitGatewayClientVpnAttachment.md")
+**Transit Gateway attachments**
++ [AcceptTransitGatewayClientVpnAttachment](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AcceptTransitGatewayClientVpnAttachment.html)
++ [DeleteTransitGatewayClientVpnAttachment](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteTransitGatewayClientVpnAttachment.html)
++ [RejectTransitGatewayClientVpnAttachment](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RejectTransitGatewayClientVpnAttachment.html)

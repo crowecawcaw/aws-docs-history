@@ -1,22 +1,20 @@
+
+
 # Working with network peering connections
+<a name="example_ec2_GettingStarted_015_section"></a>
 
 The following code example shows how to:
++ Create VPCs for peering
++ Create a VPC peering connection
++ Update route tables
++ Verify the VPC peering connection
++ Clean up resources
 
-- Create VPCs for peering
-- Create a VPC peering connection
-- Update route tables
-- Verify the VPC peering connection
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/015-vpc-peering "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/015-vpc-peering")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/015-vpc-peering) repository. 
 
 ```
 #!/bin/bash
@@ -68,13 +66,13 @@ escape_string() {
 # Function to log commands and their output securely
 log_cmd() {
     local cmd="$1"
-
+    
     # Validate command doesn't contain suspicious patterns
     if [[ "$cmd" =~ (\$\(|\`|;.*rm|;.*mv|;.*cp) ]]; then
         echo "ERROR: Suspicious command pattern detected" | tee -a "$LOG_FILE"
         return 1
     fi
-
+    
     echo "$(date): COMMAND: $cmd" >> "$LOG_FILE"
     eval "$cmd" 2>&1 | tee -a "$LOG_FILE"
     return "${PIPESTATUS[0]}"
@@ -98,17 +96,17 @@ validate_aws_cli() {
         echo "ERROR: AWS CLI is not installed" | tee -a "$LOG_FILE"
         exit 1
     fi
-
+    
     # Check AWS CLI version
     local aws_version
     aws_version=$(aws --version 2>&1 | cut -d' ' -f1 | cut -d'/' -f2)
     echo "AWS CLI version: $aws_version" >> "$LOG_FILE"
-
+    
     if ! aws sts get-caller-identity --region "$AWS_REGION" &>/dev/null; then
         echo "ERROR: AWS CLI is not properly configured or credentials are invalid" | tee -a "$LOG_FILE"
         exit 1
     fi
-
+    
     # Validate caller identity
     local account_id
     account_id=$(aws sts get-caller-identity --query 'Account' --output text 2>/dev/null)
@@ -126,11 +124,11 @@ validate_cidr() {
         echo "ERROR: Invalid CIDR block format: $cidr" | tee -a "$LOG_FILE"
         return 1
     fi
-
+    
     # Additional validation for IP octets
     local ip_part="${cidr%/*}"
     local mask_part="${cidr#*/}"
-
+    
     IFS='.' read -r -a octets <<< "$ip_part"
     for octet in "${octets[@]}"; do
         if (( octet > 255 )); then
@@ -138,25 +136,25 @@ validate_cidr() {
             return 1
         fi
     done
-
+    
     if (( mask_part > 32 || mask_part < 0 )); then
         echo "ERROR: Invalid CIDR mask value: $mask_part" | tee -a "$LOG_FILE"
         return 1
     fi
-
+    
     return 0
 }
 
 # Function to clean up resources on error
 cleanup_on_error() {
     echo "Error encountered. Attempting to clean up resources..." | tee -a "$LOG_FILE"
-
+    
     # List created resources
     echo "Resources created:" | tee -a "$LOG_FILE"
     for resource in "${CREATED_RESOURCES[@]:-}"; do
         echo "- $resource" | tee -a "$LOG_FILE"
     done
-
+    
     # Clean up in reverse order with retry logic
     for ((i=${#CLEANUP_COMMANDS[@]}-1; i>=0; i--)); do
         echo "Executing cleanup: ${CLEANUP_COMMANDS[$i]}" >> "$LOG_FILE"
@@ -203,16 +201,16 @@ else
     # Get the first two available VPCs
     VPC1_INFO=$(echo "$EXISTING_VPCS" | head -n 1)
     VPC2_INFO=$(echo "$EXISTING_VPCS" | head -n 2 | tail -n 1)
-
+    
     if [ -z "$VPC2_INFO" ]; then
         echo "Only one VPC found. Creating a second VPC..."
         VPC1_ID=$(echo "$VPC1_INFO" | awk '{print $1}')
         VPC1_CIDR=$(echo "$VPC1_INFO" | awk '{print $2}')
-
+        
         # Sanitize extracted values
         VPC1_ID=$(sanitize_var "$VPC1_ID") || check_error 1 "Invalid VPC1_ID format"
         VPC1_CIDR=$(sanitize_var "$VPC1_CIDR") || check_error 1 "Invalid VPC1_CIDR format"
-
+        
         validate_cidr "$VPC1_CIDR" || check_error 1 "Invalid VPC1 CIDR"
         CREATE_VPC2_ONLY=true
     else
@@ -220,13 +218,13 @@ else
         VPC1_CIDR=$(echo "$VPC1_INFO" | awk '{print $2}')
         VPC2_ID=$(echo "$VPC2_INFO" | awk '{print $1}')
         VPC2_CIDR=$(echo "$VPC2_INFO" | awk '{print $2}')
-
+        
         # Sanitize extracted values
         VPC1_ID=$(sanitize_var "$VPC1_ID") || check_error 1 "Invalid VPC1_ID format"
         VPC1_CIDR=$(sanitize_var "$VPC1_CIDR") || check_error 1 "Invalid VPC1_CIDR format"
         VPC2_ID=$(sanitize_var "$VPC2_ID") || check_error 1 "Invalid VPC2_ID format"
         VPC2_CIDR=$(sanitize_var "$VPC2_CIDR") || check_error 1 "Invalid VPC2_CIDR format"
-
+        
         validate_cidr "$VPC1_CIDR" || check_error 1 "Invalid VPC1 CIDR"
         validate_cidr "$VPC2_CIDR" || check_error 1 "Invalid VPC2 CIDR"
         CREATE_VPC2_ONLY=false
@@ -243,7 +241,7 @@ if [ "$CREATE_VPCS" = true ]; then
     CREATED_RESOURCES+=("VPC1: $VPC1_ID")
     CLEANUP_COMMANDS+=("aws ec2 delete-vpc --region '$AWS_REGION' --vpc-id '$VPC1_ID'")
     echo "VPC1 created with ID: $VPC1_ID"
-
+    
     echo "Creating VPC2..."
     VPC2_ID=$(log_cmd "aws ec2 create-vpc --region '$AWS_REGION' --cidr-block 10.2.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=VPC2-Peering-Demo},{Key=project,Value=doc-smith},{Key=tutorial,Value=vpc-peering}]' --query 'Vpc.VpcId' --output text")
     check_error $? "Failed to create VPC2"
@@ -252,12 +250,12 @@ if [ "$CREATE_VPCS" = true ]; then
     CREATED_RESOURCES+=("VPC2: $VPC2_ID")
     CLEANUP_COMMANDS+=("aws ec2 delete-vpc --region '$AWS_REGION' --vpc-id '$VPC2_ID'")
     echo "VPC2 created with ID: $VPC2_ID"
-
+    
     # Wait for VPCs to be available
     echo "Waiting for VPCs to be available..."
     log_cmd "aws ec2 wait vpc-available --region '$AWS_REGION' --vpc-ids '$VPC1_ID' '$VPC2_ID'"
     check_error $? "Timeout waiting for VPCs to become available"
-
+    
 elif [ "$CREATE_VPC2_ONLY" = true ]; then
     echo "Creating VPC2..."
     VPC2_ID=$(log_cmd "aws ec2 create-vpc --region '$AWS_REGION' --cidr-block 10.2.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=VPC2-Peering-Demo},{Key=project,Value=doc-smith},{Key=tutorial,Value=vpc-peering}]' --query 'Vpc.VpcId' --output text")
@@ -267,7 +265,7 @@ elif [ "$CREATE_VPC2_ONLY" = true ]; then
     CREATED_RESOURCES+=("VPC2: $VPC2_ID")
     CLEANUP_COMMANDS+=("aws ec2 delete-vpc --region '$AWS_REGION' --vpc-id '$VPC2_ID'")
     echo "VPC2 created with ID: $VPC2_ID"
-
+    
     # Wait for VPC2 to be available
     echo "Waiting for VPC2 to be available..."
     log_cmd "aws ec2 wait vpc-available --region '$AWS_REGION' --vpc-ids '$VPC2_ID'"
@@ -429,41 +427,41 @@ CLEANUP_CHOICE="y"
 
 if [[ "${CLEANUP_CHOICE,,}" == "y" ]]; then
     echo "Starting cleanup process..."
-
+    
     # Clean up in reverse order
     echo "Disassociating route table from subnet in VPC2..."
     log_cmd "aws ec2 disassociate-route-table --region '$AWS_REGION' --association-id '$RTB2_ASSOC_ID'" || true
-
+    
     echo "Disassociating route table from subnet in VPC1..."
     log_cmd "aws ec2 disassociate-route-table --region '$AWS_REGION' --association-id '$RTB1_ASSOC_ID'" || true
-
+    
     echo "Deleting route table for VPC2..."
     log_cmd "aws ec2 delete-route-table --region '$AWS_REGION' --route-table-id '$RTB2_ID'" || true
-
+    
     echo "Deleting route table for VPC1..."
     log_cmd "aws ec2 delete-route-table --region '$AWS_REGION' --route-table-id '$RTB1_ID'" || true
-
+    
     echo "Deleting VPC peering connection..."
     log_cmd "aws ec2 delete-vpc-peering-connection --region '$AWS_REGION' --vpc-peering-connection-id '$PEERING_ID'" || true
-
+    
     echo "Deleting subnet in VPC2..."
     log_cmd "aws ec2 delete-subnet --region '$AWS_REGION' --subnet-id '$SUBNET2_ID'" || true
-
+    
     echo "Deleting subnet in VPC1..."
     log_cmd "aws ec2 delete-subnet --region '$AWS_REGION' --subnet-id '$SUBNET1_ID'" || true
-
+    
     # Delete VPCs if they were created by this script
     if [ "$CREATE_VPCS" = true ]; then
         echo "Deleting VPC2..."
         log_cmd "aws ec2 delete-vpc --region '$AWS_REGION' --vpc-id '$VPC2_ID'" || true
-
+        
         echo "Deleting VPC1..."
         log_cmd "aws ec2 delete-vpc --region '$AWS_REGION' --vpc-id '$VPC1_ID'" || true
     elif [ "$CREATE_VPC2_ONLY" = true ]; then
         echo "Deleting VPC2..."
         log_cmd "aws ec2 delete-vpc --region '$AWS_REGION' --vpc-id '$VPC2_ID'" || true
     fi
-
+    
     echo "Cleanup completed successfully."
 else
     echo "Cleanup skipped. Resources will remain in your AWS account."
@@ -479,27 +477,24 @@ else
 fi
 
 echo "Script execution completed. See $LOG_FILE for detailed logs."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AcceptVpcPeeringConnection](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AcceptVpcPeeringConnection)
+  + [AssociateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateRouteTable)
+  + [CreateRoute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRoute)
+  + [CreateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRouteTable)
+  + [CreateSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSubnet)
+  + [CreateVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpc)
+  + [CreateVpcPeeringConnection](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpcPeeringConnection)
+  + [DeleteRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteRouteTable)
+  + [DeleteSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSubnet)
+  + [DeleteVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpc)
+  + [DeleteVpcPeeringConnection](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteVpcPeeringConnection)
+  + [DescribeVpcPeeringConnections](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcPeeringConnections)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [DisassociateRouteTable](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DisassociateRouteTable)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AcceptVpcPeeringConnection](../../../goto/aws-cli/ec2-2016-11-15/AcceptVpcPeeringConnection.md "../../../goto/aws-cli/ec2-2016-11-15/AcceptVpcPeeringConnection.md")
-  - [AssociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateRouteTable.md")
-  - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")
-  - [CreateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRouteTable.md")
-  - [CreateSubnet](../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md")
-  - [CreateVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md")
-  - [CreateVpcPeeringConnection](../../../goto/aws-cli/ec2-2016-11-15/CreateVpcPeeringConnection.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpcPeeringConnection.md")
-  - [DeleteRouteTable](../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteRouteTable.md")
-  - [DeleteSubnet](../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSubnet.md")
-  - [DeleteVpc](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpc.md")
-  - [DeleteVpcPeeringConnection](../../../goto/aws-cli/ec2-2016-11-15/DeleteVpcPeeringConnection.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteVpcPeeringConnection.md")
-  - [DescribeVpcPeeringConnections](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcPeeringConnections.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcPeeringConnections.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [DisassociateRouteTable](../../../goto/aws-cli/ec2-2016-11-15/DisassociateRouteTable.md "../../../goto/aws-cli/ec2-2016-11-15/DisassociateRouteTable.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

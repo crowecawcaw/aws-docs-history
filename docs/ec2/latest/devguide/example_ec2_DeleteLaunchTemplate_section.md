@@ -1,22 +1,19 @@
+
+
 # Use `DeleteLaunchTemplate` with an AWS SDK or CLI
+<a name="example_ec2_DeleteLaunchTemplate_section"></a>
 
 The following code examples show how to use `DeleteLaunchTemplate`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
 
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/cross-service/ResilientService/AutoScalerActions#code-examples). 
 
 ```
     /// <summary>
@@ -50,30 +47,21 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             throw;
         }
     }
+```
++  For API details, see [DeleteLaunchTemplate](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DeleteLaunchTemplate) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a launch template**  
+This example deletes the specified launch template.  
+Command:  
 
 ```
-
-- For API details, see
-  [DeleteLaunchTemplate](../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteLaunchTemplate.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteLaunchTemplate.md")
-  in _AWS SDK for .NET API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To delete a launch template**
-
-This example deletes the specified launch template.
-
-Command:
-
+aws ec2 delete-launch-template --launch-template-id {{lt-0abcd290751193123}}
 ```
-`aws ec2 delete-launch-template --launch-template-id `lt-0abcd290751193123``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -87,20 +75,13 @@ Output:
   }
 }
 ```
++  For API details, see [DeleteLaunchTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-launch-template.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteLaunchTemplate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-launch-template.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/delete-launch-template.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/cross-services/wkflw-resilient-service#code-examples). 
 
 ```
       await client.send(
@@ -108,23 +89,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
           LaunchTemplateName: NAMES.launchTemplateName,
         }),
       );
-
-
 ```
++  For API details, see [DeleteLaunchTemplate](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLaunchTemplateCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteLaunchTemplate](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLaunchTemplateCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLaunchTemplateCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class AutoScalingWrapper:
@@ -199,15 +171,9 @@ class AutoScalingWrapper:
                     self.launch_template_name,
                 )
             log.error(f"Full error:\n\t{err}")
-
-
-
 ```
++  For API details, see [DeleteLaunchTemplate](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DeleteLaunchTemplate) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteLaunchTemplate](../../../goto/boto3/ec2-2016-11-15/DeleteLaunchTemplate.md "../../../goto/boto3/ec2-2016-11-15/DeleteLaunchTemplate.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

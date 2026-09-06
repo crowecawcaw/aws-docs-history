@@ -1,22 +1,22 @@
+
+
 # Use `DescribeInstanceStatus` with an AWS SDK or CLI
+<a name="example_ec2_DescribeInstanceStatus_section"></a>
 
 The following code examples show how to use `DescribeInstanceStatus`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe the status of an instance**
-
-The following `describe-instance-status` example describes the current status of the specified instance.
-
-```
-`aws ec2 describe-instance-status \
- --instance-ids `i-1234567890abcdef0``
+**AWS CLI**  
+**To describe the status of an instance**  
+The following `describe-instance-status` example describes the current status of the specified instance.  
 
 ```
-
-Output:
+aws ec2 describe-instance-status \
+    --instance-ids {{i-1234567890abcdef0}}
+```
+Output:  
 
 ```
 {
@@ -50,25 +50,19 @@ Output:
     ]
 }
 ```
+For more information, see [Monitor the status of your instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check.html) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeInstanceStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-status.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Monitor the status of your instances](../../../AWSEC2/latest/UserGuide/monitoring-instances-status-check.md "../../../AWSEC2/latest/UserGuide/monitoring-instances-status-check.md") in the _Amazon EC2 User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [DescribeInstanceStatus](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-status.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instance-status.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the status of the specified instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the status of the specified instance.**  
 
 ```
 Get-EC2InstanceStatus -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone : us-west-2a
@@ -82,10 +76,8 @@ SystemStatus     : Amazon.EC2.Model.InstanceStatusSummary
 ```
 $status = Get-EC2InstanceStatus -InstanceId i-12345678
 $status.InstanceState
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Code    Name
@@ -95,10 +87,8 @@ Code    Name
 
 ```
 $status.Status
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Details           Status
@@ -108,31 +98,23 @@ Details           Status
 
 ```
 $status.SystemStatus
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Details           Status
 -------           ------
 {reachability}    ok
 ```
++  For API details, see [DescribeInstanceStatus](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeInstanceStatus](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the status of the specified instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the status of the specified instance.**  
 
 ```
 Get-EC2InstanceStatus -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone : us-west-2a
@@ -146,10 +128,8 @@ SystemStatus     : Amazon.EC2.Model.InstanceStatusSummary
 ```
 $status = Get-EC2InstanceStatus -InstanceId i-12345678
 $status.InstanceState
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Code    Name
@@ -159,10 +139,8 @@ Code    Name
 
 ```
 $status.Status
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Details           Status
@@ -172,30 +150,21 @@ Details           Status
 
 ```
 $status.SystemStatus
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Details           Status
 -------           ------
 {reachability}    ok
 ```
++  For API details, see [DescribeInstanceStatus](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeInstanceStatus](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
 
 ```
 async fn show_all_events(client: &Client) -> Result<(), Error> {
@@ -228,14 +197,9 @@ async fn show_all_events(client: &Client) -> Result<(), Error> {
 
     Ok(())
 }
-
-
 ```
++  For API details, see [DescribeInstanceStatus](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_status) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeInstanceStatus](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_status "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_status")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

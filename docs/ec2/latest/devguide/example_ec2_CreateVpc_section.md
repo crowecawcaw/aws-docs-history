@@ -1,33 +1,31 @@
+
+
 # Use `CreateVpc` with an AWS SDK or CLI
+<a name="example_ec2_CreateVpc_section"></a>
 
 The following code examples show how to use `CreateVpc`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Getting started with graph databases](example_ec2_GettingStarted_064_section.md) 
++  [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md) 
++  [Virtual private network with IP address management](example_vpc_GettingStartedIpam_section.md) 
++  [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md) 
++  [Working with network peering connections](example_ec2_GettingStarted_015_section.md) 
 
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Getting started with graph databases](example_ec2_GettingStarted_064_section.md "example_ec2_GettingStarted_064_section.md")
-- [Getting started with network transit gateways](example_vpc_TransitGatewayGettingStarted_section.md "example_vpc_TransitGatewayGettingStarted_section.md")
-- [Virtual private network with IP address management](example_vpc_GettingStartedIpam_section.md "example_vpc_GettingStartedIpam_section.md")
-- [Virtual private network with private servers](example_vpc_GettingStartedPrivate_section.md "example_vpc_GettingStartedPrivate_section.md")
-- [Working with network peering connections](example_ec2_GettingStarted_015_section.md "example_ec2_GettingStarted_015_section.md")
+------
+#### [ CLI ]
 
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a VPC**
-
-The following `create-vpc` example creates a VPC with the specified IPv4 CIDR block and a Name tag.
+**AWS CLI**  
+**Example 1: To create a VPC**  
+The following `create-vpc` example creates a VPC with the specified IPv4 CIDR block and a Name tag.  
 
 ```
-`aws ec2 create-vpc \
- --cidr-block `10.0.0.0/16` \
- --tag-specifications `ResourceType=vpc,Tags=[{Key=Name,Value=MyVpc}]``
-
+aws ec2 create-vpc \
+    --cidr-block {{10.0.0.0/16}} \
+    --tag-specifications {{ResourceType=vpc,Tags=[{Key=Name,Value=MyVpc}]}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -58,19 +56,15 @@ Output:
     }
 }
 ```
-
-**Example 2: To create a VPC with dedicated tenancy**
-
-The following `create-vpc` example creates a VPC with the specified IPv4 CIDR block and dedicated tenancy.
+**Example 2: To create a VPC with dedicated tenancy**  
+The following `create-vpc` example creates a VPC with the specified IPv4 CIDR block and dedicated tenancy.  
 
 ```
-`aws ec2 create-vpc \
- --cidr-block `10.0.0.0/16` \
- --instance-tenancy `dedicated``
-
+aws ec2 create-vpc \
+    --cidr-block {{10.0.0.0/16}} \
+    --instance-tenancy {{dedicated}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -95,19 +89,15 @@ Output:
     }
 }
 ```
-
-**Example 3: To create a VPC with an IPv6 CIDR block**
-
-The following `create-vpc` example creates a VPC with an Amazon-provided IPv6 CIDR block.
+**Example 3: To create a VPC with an IPv6 CIDR block**  
+The following `create-vpc` example creates a VPC with an Amazon-provided IPv6 CIDR block.  
 
 ```
-`aws ec2 create-vpc \
- --cidr-block `10.0.0.0/16` \
- --amazon-provided-ipv6-cidr-block`
-
+aws ec2 create-vpc \
+    --cidr-block {{10.0.0.0/16}} \
+    --amazon-provided-ipv6-cidr-block
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -142,30 +132,23 @@ Output:
     }
 }
 ```
-
-**Example 4: To create a VPC with a CIDR from an IPAM pool**
-
-The following `create-vpc` example creates a VPC with a CIDR from an Amazon VPC IP Address Manager (IPAM) pool.
-
-Linux and macOS:
+**Example 4: To create a VPC with a CIDR from an IPAM pool**  
+The following `create-vpc` example creates a VPC with a CIDR from an Amazon VPC IP Address Manager (IPAM) pool.  
+Linux and macOS:  
 
 ```
-`aws ec2 create-vpc \
- --ipv4-ipam-pool-id `ipam-pool-0533048da7d823723` \
- --tag-specifications ResourceType=vpc,Tags='[{Key=Environment,Value="Preprod"},{Key=Owner,Value="Build Team"}]'`
+aws ec2 create-vpc \
+    --ipv4-ipam-pool-id {{ipam-pool-0533048da7d823723}} \
+    --tag-specifications ResourceType=vpc,Tags='[{Key=Environment,Value="Preprod"},{Key=Owner,Value="Build Team"}]'
+```
+Windows:  
 
 ```
-
-Windows:
-
+aws ec2 create-vpc {{^}}
+    --ipv4-ipam-pool-id {{ipam-pool-0533048da7d823723}} {{^}}
+    --tag-specifications ResourceType=vpc,Tags=[{Key=Environment,Value="Preprod"},{Key=Owner,Value="Build Team"}]
 ```
-`aws ec2 create-vpc `^`
- --ipv4-ipam-pool-id `ipam-pool-0533048da7d823723` `^`
- --tag-specifications ResourceType=vpc,Tags=[{Key=Environment,Value="Preprod"},{Key=Owner,Value="Build Team"}]`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -200,25 +183,16 @@ Output:
     }
 }
 ```
+For more information, see [Create a VPC that uses an IPAM pool CIDR](https://docs.aws.amazon.com/vpc/latest/ipam/create-vpc-ipam.html) in the *Amazon VPC IPAM User Guide*.  
++  For API details, see [CreateVpc](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Create a VPC that uses an IPAM pool CIDR](../../../vpc/latest/ipam/create-vpc-ipam.md "../../../vpc/latest/ipam/create-vpc-ipam.md") in the _Amazon VPC IPAM User Guide_.
+------
+#### [ PHP ]
 
-- For API details, see
-  [CreateVpc](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-vpc.html")
-  in _AWS CLI Command Reference_.
-
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples").
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/ec2#code-examples). 
 
 ```
-
     /**
      * @param string $cidr
      * @return array
@@ -235,27 +209,19 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/p
             throw $caught;
         }
     }
-
-
-
 ```
++  For API details, see [CreateVpc](https://docs.aws.amazon.com/goto/SdkForPHPV3/ec2-2016-11-15/CreateVpc) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [CreateVpc](../../../goto/SdkForPHPV3/ec2-2016-11-15/CreateVpc.md "../../../goto/SdkForPHPV3/ec2-2016-11-15/CreateVpc.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a VPC with the specified CIDR. Amazon VPC also creates the following for the VPC: a default DHCP options set, a main route table, and a default network ACL.**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a VPC with the specified CIDR. Amazon VPC also creates the following for the VPC: a default DHCP options set, a main route table, and a default network ACL.**  
 
 ```
 New-EC2VPC -CidrBlock 10.0.0.0/16
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CidrBlock       : 10.0.0.0/16
@@ -266,21 +232,15 @@ State           : pending
 Tags            : {}
 VpcId           : vpc-12345678
 ```
++  For API details, see [CreateVpc](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateVpc](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a VPC with the specified CIDR. Amazon VPC also creates the following for the VPC: a default DHCP options set, a main route table, and a default network ACL.**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a VPC with the specified CIDR. Amazon VPC also creates the following for the VPC: a default DHCP options set, a main route table, and a default network ACL.**  
 
 ```
 New-EC2VPC -CidrBlock 10.0.0.0/16
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 CidrBlock       : 10.0.0.0/16
@@ -291,20 +251,13 @@ State           : pending
 Tags            : {}
 VpcId           : vpc-12345678
 ```
++  For API details, see [CreateVpc](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateVpc](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class VpcWrapper:
@@ -350,27 +303,16 @@ class VpcWrapper:
                 client_error.response["Error"]["Message"],
             )
             raise
+```
++  For API details, see [CreateVpc](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateVpc) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
-
-- For API details, see
-  [CreateVpc](../../../goto/boto3/ec2-2016-11-15/CreateVpc.md "../../../goto/boto3/ec2-2016-11-15/CreateVpc.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
-
-```
-
 require 'aws-sdk-ec2'
 
 # Creates a virtual private cloud (VPC) in
@@ -457,23 +399,14 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [CreateVpc](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/CreateVpc) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [CreateVpc](../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateVpc.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/CreateVpc.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     " iv_cidr_block = '10.0.0.0/16'
@@ -485,14 +418,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateVpc](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [CreateVpc](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

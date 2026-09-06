@@ -1,25 +1,25 @@
+
+
 # Use `CreateCapacityReservation` with a CLI
+<a name="example_ec2_CreateCapacityReservation_section"></a>
 
 The following code examples show how to use `CreateCapacityReservation`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To create a Capacity Reservation**
-
-The following `create-capacity-reservation` example creates a capacity reservation in the `eu-west-1a` Availability Zone, into which you can launch three `t2.medium` instances running a Linux/Unix operating system. By default, the capacity reservation is created with open instance matching criteria and no support for ephemeral storage, and it remains active until you manually cancel it.
-
-```
-`aws ec2 create-capacity-reservation \
- --availability-zone `eu-west-1a` \
- --instance-type `t2.medium` \
- --instance-platform `Linux/UNIX` \
- --instance-count `3``
+**AWS CLI**  
+**Example 1: To create a Capacity Reservation**  
+The following `create-capacity-reservation` example creates a capacity reservation in the `eu-west-1a` Availability Zone, into which you can launch three `t2.medium` instances running a Linux/Unix operating system. By default, the capacity reservation is created with open instance matching criteria and no support for ephemeral storage, and it remains active until you manually cancel it.  
 
 ```
-
-Output:
+aws ec2 create-capacity-reservation \
+    --availability-zone {{eu-west-1a}} \
+    --instance-type {{t2.medium}} \
+    --instance-platform {{Linux/UNIX}} \
+    --instance-count {{3}}
+```
+Output:  
 
 ```
 {
@@ -40,23 +40,19 @@ Output:
     }
 }
 ```
-
-**Example 2: To create a Capacity Reservation that automatically ends at a specified date/time**
-
-The following `create-capacity-reservation` example creates a capacity reservation in the `eu-west-1a` Availability Zone, into which you can launch three `m5.large` instances running a Linux/Unix operating system. This capacity reservation automatically ends on 08/31/2019 at 23:59:59.
+**Example 2: To create a Capacity Reservation that automatically ends at a specified date/time**  
+The following `create-capacity-reservation` example creates a capacity reservation in the `eu-west-1a` Availability Zone, into which you can launch three `m5.large` instances running a Linux/Unix operating system. This capacity reservation automatically ends on 08/31/2019 at 23:59:59.  
 
 ```
-`aws ec2 create-capacity-reservation \
- --availability-zone `eu-west-1a` \
- --instance-type `m5.large` \
- --instance-platform `Linux/UNIX` \
- --instance-count `3` \
- --end-date-type `limited` \
- --end-date `2019-08-31T23:59:59Z``
-
+aws ec2 create-capacity-reservation \
+    --availability-zone {{eu-west-1a}} \
+    --instance-type {{m5.large}} \
+    --instance-platform {{Linux/UNIX}} \
+    --instance-count {{3}} \
+    --end-date-type {{limited}} \
+    --end-date {{2019-08-31T23:59:59Z}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -78,22 +74,18 @@ Output:
     }
 }
 ```
-
-**Example 3: To create a Capacity Reservation that accepts only targeted instance launches**
-
-The following `create-capacity-reservation` example creates a capacity reservation that accepts only targeted instance launches.
+**Example 3: To create a Capacity Reservation that accepts only targeted instance launches**  
+The following `create-capacity-reservation` example creates a capacity reservation that accepts only targeted instance launches.  
 
 ```
-`aws ec2 create-capacity-reservation \
- --availability-zone `eu-west-1a` \
- --instance-type `m5.large` \
- --instance-platform `Linux/UNIX` \
- --instance-count `3` \
- --instance-match-criteria `targeted``
-
+aws ec2 create-capacity-reservation \
+    --availability-zone {{eu-west-1a}} \
+    --instance-type {{m5.large}} \
+    --instance-platform {{Linux/UNIX}} \
+    --instance-count {{3}} \
+    --instance-match-criteria {{targeted}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -114,25 +106,19 @@ Output:
     }
 }
 ```
+For more information, see [Create a Capacity Reservation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html) in the *Amazon EC2 User Guide*.  
++  For API details, see [CreateCapacityReservation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-capacity-reservation.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Create a Capacity Reservation](../../../AWSEC2/latest/UserGuide/capacity-reservations-using.md "../../../AWSEC2/latest/UserGuide/capacity-reservations-using.md") in the _Amazon EC2 User Guide_.
+------
+#### [ PowerShell ]
 
-- For API details, see
-  [CreateCapacityReservation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-capacity-reservation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-capacity-reservation.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example creates a new Capacity Reservation with the specified attributes**
+**Tools for PowerShell V4**  
+**Example 1: This example creates a new Capacity Reservation with the specified attributes**  
 
 ```
 Add-EC2CapacityReservation -InstanceType m4.xlarge -InstanceCount 2 -AvailabilityZone eu-west-1b -EbsOptimized True -InstancePlatform Windows
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone       : eu-west-1b
@@ -151,21 +137,15 @@ Tags                   : {}
 Tenancy                : default
 TotalInstanceCount     : 2
 ```
++  For API details, see [CreateCapacityReservation](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [CreateCapacityReservation](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example creates a new Capacity Reservation with the specified attributes**
+**Tools for PowerShell V5**  
+**Example 1: This example creates a new Capacity Reservation with the specified attributes**  
 
 ```
 Add-EC2CapacityReservation -InstanceType m4.xlarge -InstanceCount 2 -AvailabilityZone eu-west-1b -EbsOptimized True -InstancePlatform Windows
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone       : eu-west-1b
@@ -184,11 +164,8 @@ Tags                   : {}
 Tenancy                : default
 TotalInstanceCount     : 2
 ```
++  For API details, see [CreateCapacityReservation](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [CreateCapacityReservation](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

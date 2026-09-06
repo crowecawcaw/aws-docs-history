@@ -1,21 +1,18 @@
+
+
 # Use `MonitorInstances` with an AWS SDK or CLI
+<a name="example_ec2_MonitorInstances_section"></a>
 
 The following code examples show how to use `MonitorInstances`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md) 
 
-- [Run CPU stress tests on virtual machine instances using fault injection](example_iam_GettingStarted_069_section.md "example_iam_GettingStarted_069_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Enable detailed monitoring for an Amazon Elastic Compute Cloud (Amazon EC2) instance.
@@ -59,30 +56,21 @@ bool AwsDoc::EC2::enableMonitoring(const Aws::String &instanceId,
 
     return monitorInstancesOutcome.IsSuccess();
 }
+```
++  For API details, see [MonitorInstances](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/MonitorInstances) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To enable detailed monitoring for an instance**  
+This example command enables detailed monitoring for the specified instance.  
+Command:  
 
 ```
-
-- For API details, see
-  [MonitorInstances](../../../goto/SdkForCpp/ec2-2016-11-15/MonitorInstances.md "../../../goto/SdkForCpp/ec2-2016-11-15/MonitorInstances.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To enable detailed monitoring for an instance**
-
-This example command enables detailed monitoring for the specified instance.
-
-Command:
-
+aws ec2 monitor-instances --instance-ids {{i-1234567890abcdef0}}
 ```
-`aws ec2 monitor-instances --instance-ids `i-1234567890abcdef0``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -96,20 +84,13 @@ Output:
   ]
 }
 ```
++  For API details, see [MonitorInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/monitor-instances.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [MonitorInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/monitor-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/monitor-instances.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { EC2Client, MonitorInstancesCommand } from "@aws-sdk/client-ec2";
@@ -142,70 +123,49 @@ export const main = async ({ instanceIds }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [MonitorInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/MonitorInstancesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [MonitorInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/MonitorInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/MonitorInstancesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example enables detailed monitoring for the specified instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example enables detailed monitoring for the specified instance.**  
 
 ```
 Start-EC2InstanceMonitoring -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId    Monitoring
 ----------    ----------
 i-12345678    Amazon.EC2.Model.Monitoring
 ```
++  For API details, see [MonitorInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [MonitorInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example enables detailed monitoring for the specified instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example enables detailed monitoring for the specified instance.**  
 
 ```
 Start-EC2InstanceMonitoring -InstanceId i-12345678
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId    Monitoring
 ----------    ----------
 i-12345678    Amazon.EC2.Model.Monitoring
 ```
++  For API details, see [MonitorInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [MonitorInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
-
     DATA lt_instance_ids TYPE /aws1/cl_ec2instidstringlist_w=>tt_instanceidstringlist.
     APPEND NEW /aws1/cl_ec2instidstringlist_w( iv_value = iv_instance_id ) TO lt_instance_ids.
 
@@ -232,14 +192,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
           MESSAGE lv_error TYPE 'E'.
         ENDIF.
     ENDTRY.
-
-
 ```
++  For API details, see [MonitorInstances](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [MonitorInstances](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

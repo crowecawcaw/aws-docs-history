@@ -1,23 +1,22 @@
+
+
 # Use `DescribeScheduledInstanceAvailability` with a CLI
+<a name="example_ec2_DescribeScheduledInstanceAvailability_section"></a>
 
 The following code examples show how to use `DescribeScheduledInstanceAvailability`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe an available schedule**
-
-This example describes a schedule that occurs every week on Sunday, starting on the specified date.
-
-Command:
+**AWS CLI**  
+**To describe an available schedule**  
+This example describes a schedule that occurs every week on Sunday, starting on the specified date.  
+Command:  
 
 ```
-`aws ec2 describe-scheduled-instance-availability --recurrence `Frequency=Weekly,Interval=1,OccurrenceDays=[1]` --first-slot-start-time-range `EarliestTime=2016-01-31T00:00:00Z,LatestTime=2016-01-31T04:00:00Z``
-
+aws ec2 describe-scheduled-instance-availability --recurrence {{Frequency=Weekly,Interval=1,OccurrenceDays=[1]}} --first-slot-start-time-range {{EarliestTime=2016-01-31T00:00:00Z,LatestTime=2016-01-31T04:00:00Z}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -48,29 +47,21 @@ Output:
   ]
 }
 ```
+To narrow the results, you can add filters that specify the operating system, network, and instance type.  
+Command:  
+--filters Name=platform,Values=Linux/UNIX Name=network-platform,Values=EC2-VPC Name=instance-type,Values=c4.large  
++  For API details, see [DescribeScheduledInstanceAvailability](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-scheduled-instance-availability.html) in *AWS CLI Command Reference*. 
 
-To narrow the results, you can add filters that specify the operating system, network, and instance type.
+------
+#### [ PowerShell ]
 
-Command:
-
---filters Name=platform,Values=Linux/UNIX Name=network-platform,Values=EC2-VPC Name=instance-type,Values=c4.large
-
-- For API details, see
-  [DescribeScheduledInstanceAvailability](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-scheduled-instance-availability.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-scheduled-instance-availability.html")
-  in _AWS CLI Command Reference_.
-
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes a schedule that occurs every week on Sunday, starting on the specified date.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes a schedule that occurs every week on Sunday, starting on the specified date.**  
 
 ```
 Get-EC2ScheduledInstanceAvailability -Recurrence_Frequency Weekly -Recurrence_Interval 1 -Recurrence_OccurrenceDay 1 -FirstSlotStartTimeRange_EarliestTime 2016-01-31T00:00:00Z -FirstSlotStartTimeRange_LatestTime 2016-01-31T04:00:00Z
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone            : us-west-2b
@@ -89,28 +80,20 @@ TotalScheduledInstanceHours : 1219
 
 ...
 ```
-
-**Example 2: To narrow the results, you can add filters for criteria such as operating system, network, and instance type.**
+**Example 2: To narrow the results, you can add filters for criteria such as operating system, network, and instance type.**  
 
 ```
 -Filter @{ Name="platform";Values="Linux/UNIX" },@{ Name="network-platform";Values="EC2-VPC" },@{ Name="instance-type";Values="c4.large" }
-
 ```
++  For API details, see [DescribeScheduledInstanceAvailability](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeScheduledInstanceAvailability](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes a schedule that occurs every week on Sunday, starting on the specified date.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes a schedule that occurs every week on Sunday, starting on the specified date.**  
 
 ```
 Get-EC2ScheduledInstanceAvailability -Recurrence_Frequency Weekly -Recurrence_Interval 1 -Recurrence_OccurrenceDay 1 -FirstSlotStartTimeRange_EarliestTime 2016-01-31T00:00:00Z -FirstSlotStartTimeRange_LatestTime 2016-01-31T04:00:00Z
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AvailabilityZone            : us-west-2b
@@ -129,18 +112,13 @@ TotalScheduledInstanceHours : 1219
 
 ...
 ```
-
-**Example 2: To narrow the results, you can add filters for criteria such as operating system, network, and instance type.**
+**Example 2: To narrow the results, you can add filters for criteria such as operating system, network, and instance type.**  
 
 ```
 -Filter @{ Name="platform";Values="Linux/UNIX" },@{ Name="network-platform";Values="EC2-VPC" },@{ Name="instance-type";Values="c4.large" }
-
 ```
++  For API details, see [DescribeScheduledInstanceAvailability](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeScheduledInstanceAvailability](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

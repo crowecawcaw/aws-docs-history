@@ -1,20 +1,18 @@
+
+
 # Get started with software marketplace purchasing using the CLI
+<a name="example_ec2_GettingStarted_030_section"></a>
 
 The following code example shows how to:
++ Use ec2 AuthorizeSecurityGroupIngress
++ Use ec2 CreateKeyPair
++ Use ec2 CreateSecurityGroup
 
-- Use ec2 AuthorizeSecurityGroupIngress
-- Use ec2 CreateKeyPair
-- Use ec2 CreateSecurityGroup
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/030-marketplace-buyer-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/030-marketplace-buyer-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/030-marketplace-buyer-gs) repository. 
 
 ```
 #!/bin/bash
@@ -64,7 +62,7 @@ fi
 extract_json_value() {
     local json=$1
     local query=$2
-
+    
     echo "$json" | jq -r "$query" 2>/dev/null || {
         echo "ERROR: Failed to parse JSON with query: $query" >&2
         return 1
@@ -74,14 +72,14 @@ extract_json_value() {
 # Function to validate AWS permissions
 validate_aws_permissions() {
     echo "Validating AWS permissions..."
-
+    
     local identity
     identity=$(aws sts get-caller-identity --output json)
     local account_id
     account_id=$(extract_json_value "$identity" '.Account') || return 1
     local arn
     arn=$(extract_json_value "$identity" '.Arn') || return 1
-
+    
     echo "AWS Account ID: $account_id"
     echo "AWS Principal ARN: $arn"
     echo "Note: This script requires EC2 permissions for key pair, security group, and instance management."
@@ -94,16 +92,16 @@ cleanup_resources() {
     echo "==================================================="
     echo "CLEANING UP RESOURCES"
     echo "==================================================="
-
+    
     if [ -n "${INSTANCE_ID:-}" ]; then
         echo "Terminating EC2 instance: $INSTANCE_ID"
         aws ec2 terminate-instances --instance-ids "$INSTANCE_ID" --region "$AWS_REGION" > /dev/null 2>&1 || true
-
+        
         echo "Waiting for instance to terminate..."
         aws ec2 wait instance-terminated --instance-ids "$INSTANCE_ID" --region "$AWS_REGION" 2>/dev/null || true
         echo "Instance terminated successfully."
     fi
-
+    
     if [ -n "${SECURITY_GROUP_ID:-}" ]; then
         echo "Waiting before deleting security group..."
         sleep 5
@@ -111,11 +109,11 @@ cleanup_resources() {
         aws ec2 delete-security-group --group-id "$SECURITY_GROUP_ID" --region "$AWS_REGION" > /dev/null 2>&1 || true
         echo "Security group deleted."
     fi
-
+    
     if [ -n "${KEY_NAME:-}" ]; then
         echo "Deleting key pair: $KEY_NAME"
         aws ec2 delete-key-pair --key-name "$KEY_NAME" --region "$AWS_REGION" > /dev/null 2>&1 || true
-
+        
         # Remove the local key file if it exists with secure deletion
         if [ -f "${KEY_NAME}.pem" ]; then
             if command -v shred &> /dev/null; then
@@ -126,7 +124,7 @@ cleanup_resources() {
             echo "Local key file securely deleted."
         fi
     fi
-
+    
     echo "Cleanup completed."
 }
 
@@ -342,22 +340,19 @@ echo "Cleaning up all created resources..."
 
 echo ""
 echo "Script completed. See $LOG_FILE for the complete log."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [Wait](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

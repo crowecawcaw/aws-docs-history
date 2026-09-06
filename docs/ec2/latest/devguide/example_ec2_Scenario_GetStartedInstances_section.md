@@ -1,24 +1,21 @@
+
+
 # Learn the basics of Amazon EC2 with an AWS SDK
+<a name="example_ec2_Scenario_GetStartedInstances_section"></a>
 
 The following code examples show how to:
++ Create a key pair and security group.
++ Select an Amazon Machine Image (AMI) and compatible instance type, then create an instance.
++ Stop and restart the instance.
++ Associate an Elastic IP address with your instance.
++ Connect to your instance with SSH, then clean up resources.
 
-- Create a key pair and security group.
-- Select an Amazon Machine Image (AMI) and compatible instance type, then create an instance.
-- Stop and restart the instance.
-- Associate an Elastic IP address with your instance.
-- Connect to your instance with SSH, then clean up resources.
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
-
-Run a scenario at a command prompt.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
+Run a scenario at a command prompt.  
 
 ```
 /// <summary>
@@ -336,11 +333,8 @@ public class EC2Basics
         _uiMethods.PressEnter(isInteractive);
     }
 }
-
-
 ```
-
-Define a class that wraps EC2 actions.
+Define a class that wraps EC2 actions.  
 
 ```
 /// <summary>
@@ -1320,43 +1314,34 @@ public class EC2Wrapper
     }
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for .NET API Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/AllocateAddress)
+  + [AssociateAddress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/CreateKeyPair)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstanceTypes)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeKeyPairs)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DisassociateAddress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DisassociateAddress)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/ReleaseAddress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/RunInstances)
+  + [StartInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/StartInstances)
+  + [StopInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/StopInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/TerminateInstances)
+  + [UnmonitorInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/UnmonitorInstances)
 
-- For API details, see the following topics in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-  - [AllocateAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AllocateAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AssociateAddress.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateKeyPair](../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateKeyPair.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateSecurityGroup](../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteKeyPair](../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeImages](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeImages.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstanceTypes](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstanceTypes.md")
-  - [DescribeInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeKeyPairs](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeKeyPairs.md")
-  - [DescribeSecurityGroups](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DisassociateAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/DisassociateAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DisassociateAddress.md")
-  - [ReleaseAddress](../../../goto/DotNetSDKV3/ec2-2016-11-15/ReleaseAddress.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/ReleaseAddress.md")
-  - [RunInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/RunInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/RunInstances.md")
-  - [StartInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/StartInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/StartInstances.md")
-  - [StopInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/StopInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/StopInstances.md")
-  - [TerminateInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/TerminateInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/TerminateInstances.md")
-  - [UnmonitorInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/UnmonitorInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/UnmonitorInstances.md")
-
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
-
-Run an interactive scenario at a command prompt.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 ###############################################################################
@@ -2100,11 +2085,8 @@ function echo_repeat() {
   done
   echo
 }
-
-
 ```
-
-The DynamoDB functions used in this scenario.
+The DynamoDB functions used in this scenario.  
 
 ```
 ###############################################################################
@@ -3365,11 +3347,8 @@ function ec2_delete_keypair() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this scenario.
+The utility functions used in this scenario.  
 
 ```
 ###############################################################################
@@ -3414,43 +3393,34 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AllocateAddress)
+  + [AssociateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AssociateAddress)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateKeyPair)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypes)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DisassociateAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DisassociateAddress)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/ReleaseAddress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RunInstances)
+  + [StartInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/StartInstances)
+  + [StopInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/StopInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/TerminateInstances)
+  + [UnmonitorInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/UnmonitorInstances)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-  - [AllocateAddress](../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateAddress](../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/AssociateAddress.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateKeyPair](../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteKeyPair](../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeImages](../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstanceTypes](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstanceTypes.md")
-  - [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeKeyPairs](../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeKeyPairs.md")
-  - [DescribeSecurityGroups](../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DisassociateAddress](../../../goto/aws-cli/ec2-2016-11-15/DisassociateAddress.md "../../../goto/aws-cli/ec2-2016-11-15/DisassociateAddress.md")
-  - [ReleaseAddress](../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md "../../../goto/aws-cli/ec2-2016-11-15/ReleaseAddress.md")
-  - [RunInstances](../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md "../../../goto/aws-cli/ec2-2016-11-15/RunInstances.md")
-  - [StartInstances](../../../goto/aws-cli/ec2-2016-11-15/StartInstances.md "../../../goto/aws-cli/ec2-2016-11-15/StartInstances.md")
-  - [StopInstances](../../../goto/aws-cli/ec2-2016-11-15/StopInstances.md "../../../goto/aws-cli/ec2-2016-11-15/StopInstances.md")
-  - [TerminateInstances](../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md "../../../goto/aws-cli/ec2-2016-11-15/TerminateInstances.md")
-  - [UnmonitorInstances](../../../goto/aws-cli/ec2-2016-11-15/UnmonitorInstances.md "../../../goto/aws-cli/ec2-2016-11-15/UnmonitorInstances.md")
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
-
-Run a scenario at a command prompt.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
+Run a scenario at a command prompt.  
 
 ```
 import org.slf4j.Logger;
@@ -3509,7 +3479,7 @@ public class EC2Scenario {
 
         logger.info("""
             Usage:
-               <keyName> <fileName> <groupName> <groupDesc>
+               <keyName> <fileName> <groupName> <groupDesc> 
 
             Where:
                keyName -  A key pair name (for example, TestKeyPair).\s
@@ -3530,23 +3500,23 @@ public class EC2Scenario {
         String myIpAddress = localAddress.getHostAddress();
 
         logger.info("""
-            Amazon Elastic Compute Cloud (EC2) is a web service that provides secure, resizable compute
-            capacity in the cloud. It allows developers and organizations to easily launch and manage
+            Amazon Elastic Compute Cloud (EC2) is a web service that provides secure, resizable compute 
+            capacity in the cloud. It allows developers and organizations to easily launch and manage 
             virtual server instances, known as EC2 instances, to run their applications.
-
-            EC2 provides a wide range of instance types, each with different compute, memory,
-            and storage capabilities, to meet the diverse needs of various workloads. Developers
-            can choose the appropriate instance type based on their application's requirements,
+                        
+            EC2 provides a wide range of instance types, each with different compute, memory, 
+            and storage capabilities, to meet the diverse needs of various workloads. Developers 
+            can choose the appropriate instance type based on their application's requirements, 
             such as high-performance computing, memory-intensive tasks, or GPU-accelerated workloads.
-
-            The `Ec2AsyncClient` interface in the AWS SDK for Java 2.x provides a set of methods to
-            programmatically interact with the Amazon EC2 service. This allows developers to
-            automate the provisioning, management, and monitoring of EC2 instances as part of their
-            application deployment pipelines. With EC2, teams can focus on building and deploying
-            their applications without having to worry about the underlying infrastructure
+                        
+            The `Ec2AsyncClient` interface in the AWS SDK for Java 2.x provides a set of methods to 
+            programmatically interact with the Amazon EC2 service. This allows developers to 
+            automate the provisioning, management, and monitoring of EC2 instances as part of their 
+            application deployment pipelines. With EC2, teams can focus on building and deploying 
+            their applications without having to worry about the underlying infrastructure 
             required to host and manage physical servers.
-
-            This scenario walks you through how to perform key operations for this service.
+            
+            This scenario walks you through how to perform key operations for this service.  
             Let's get started...
             """);
 
@@ -3556,8 +3526,8 @@ public class EC2Scenario {
         logger.info(DASHES);
         logger.info("1. Create an RSA key pair and save the private key material as a .pem file.");
         logger.info("""
-            An RSA key pair for Amazon EC2 is a security mechanism used to authenticate and secure
-            access to your EC2 instances. It consists of a public key and a private key,
+            An RSA key pair for Amazon EC2 is a security mechanism used to authenticate and secure 
+            access to your EC2 instances. It consists of a public key and a private key, 
             which are generated as a pair.
             """);
         waitForInputToContinue(scanner);
@@ -3611,9 +3581,9 @@ public class EC2Scenario {
         logger.info(DASHES);
         logger.info("3. Create a security group.");
         logger.info("""
-            An AWS EC2 Security Group is a virtual firewall that controls the
-            inbound and outbound traffic to an EC2 instance. It acts as a first line
-            of defense for your EC2 instances, allowing you to specify the rules that
+            An AWS EC2 Security Group is a virtual firewall that controls the 
+            inbound and outbound traffic to an EC2 instance. It acts as a first line 
+            of defense for your EC2 instances, allowing you to specify the rules that 
             govern the network traffic entering and leaving your instances.
            """);
         waitForInputToContinue(scanner);
@@ -3667,8 +3637,8 @@ public class EC2Scenario {
         logger.info(DASHES);
         logger.info("5. Get a list of Amazon Linux 2 AMIs and select one with amzn2 in the name.");
         logger.info("""
-            An Amazon EC2 AMI (Amazon Machine Image) is a pre-configured virtual machine image that
-            serves as a template for launching EC2 instances. It contains all the necessary software and
+            An Amazon EC2 AMI (Amazon Machine Image) is a pre-configured virtual machine image that 
+            serves as a template for launching EC2 instances. It contains all the necessary software and 
             configurations required to run an application or operating system on an EC2 instance.
             """);
         waitForInputToContinue(scanner);
@@ -3700,11 +3670,11 @@ public class EC2Scenario {
         logger.info(DASHES);
         logger.info("6. Get the (Amazon Machine Image) AMI value from the amzn2 image.");
         logger.info("""
-           An AMI value represents a specific version of a virtual machine (VM) or server image.
-           It uniquely identifies a particular version of an EC2 instance, including its operating system,
-           pre-installed software, and any custom configurations. This allows you to consistently deploy the same
+           An AMI value represents a specific version of a virtual machine (VM) or server image.   
+           It uniquely identifies a particular version of an EC2 instance, including its operating system, 
+           pre-installed software, and any custom configurations. This allows you to consistently deploy the same 
            VM image across your infrastructure.
-
+                        
             """);
         waitForInputToContinue(scanner);
         String amiValue;
@@ -3859,17 +3829,17 @@ public class EC2Scenario {
         logger.info("12. Allocate an Elastic IP address and associate it with the instance.");
         logger.info("""
             An Elastic IP address is a static public IP address that you can associate with your EC2 instance.
-            This allows you to have a fixed, predictable IP address that remains the same even if your instance
-            is stopped, terminated, or replaced.
-            This is particularly useful for applications or services that need to be accessed consistently from a
+            This allows you to have a fixed, predictable IP address that remains the same even if your instance 
+            is stopped, terminated, or replaced. 
+            This is particularly useful for applications or services that need to be accessed consistently from a 
             known IP address.
-
+                        
             An EC2 Allocation ID (also known as a Reserved Instance Allocation ID) is a unique identifier associated with a Reserved Instance (RI) that you have purchased in AWS.
-
-            When you purchase a Reserved Instance, AWS assigns a unique Allocation ID to it.
-            This Allocation ID is used to track and identify the specific RI you have purchased,
+                       
+            When you purchase a Reserved Instance, AWS assigns a unique Allocation ID to it. 
+            This Allocation ID is used to track and identify the specific RI you have purchased, 
             and it is important for managing and monitoring your Reserved Instances.
-
+                        
             """);
 
         waitForInputToContinue(scanner);
@@ -4047,11 +4017,8 @@ public class EC2Scenario {
         }
     }
 }
-
-
 ```
-
-Define a class that wraps EC2 actions.
+Define a class that wraps EC2 actions.  
 
 ```
 import org.slf4j.Logger;
@@ -4743,45 +4710,34 @@ public class EC2Actions {
     }
 
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/AllocateAddress)
+  + [AssociateAddress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/CreateKeyPair)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstanceTypes)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeKeyPairs)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DisassociateAddress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DisassociateAddress)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/ReleaseAddress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/RunInstances)
+  + [StartInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/StartInstances)
+  + [StopInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/StopInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/TerminateInstances)
+  + [UnmonitorInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/UnmonitorInstances)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [AllocateAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AllocateAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AssociateAddress.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateKeyPair](../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateKeyPair.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateSecurityGroup](../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteKeyPair](../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeImages](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeImages.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstanceTypes](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstanceTypes.md")
-  - [DescribeInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeKeyPairs](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeKeyPairs.md")
-  - [DescribeSecurityGroups](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DisassociateAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/DisassociateAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DisassociateAddress.md")
-  - [ReleaseAddress](../../../goto/SdkForJavaV2/ec2-2016-11-15/ReleaseAddress.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/ReleaseAddress.md")
-  - [RunInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/RunInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/RunInstances.md")
-  - [StartInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/StartInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/StartInstances.md")
-  - [StopInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/StopInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/StopInstances.md")
-  - [TerminateInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/TerminateInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/TerminateInstances.md")
-  - [UnmonitorInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/UnmonitorInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/UnmonitorInstances.md")
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
-
-This file contains a list of common actions used with EC2. The steps are constructed
-with a Scenario framework that simplifies running an interactive example. For the full
-context, visit the GitHub repository.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
+This file contains a list of common actions used with EC2. The steps are constructed with a Scenario framework that simplifies running an interactive example. For the full context, visit the GitHub repository.   
 
 ```
 import { tmpdir } from "node:os";
@@ -5602,44 +5558,35 @@ export const logErrors = new ScenarioOutput(
     skipWhen: (/** @type {State} */ state) => state.errors.length === 0,
   },
 );
+```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AllocateAddressCommand)
+  + [AssociateAddress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand)
+  + [CreateKeyPair](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateKeyPairCommand)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateSecurityGroupCommand)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteKeyPairCommand)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteSecurityGroupCommand)
+  + [DescribeImages](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeImagesCommand)
+  + [DescribeInstanceTypes](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceTypesCommand)
+  + [DescribeInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeKeyPairsCommand)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand)
+  + [DisassociateAddress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateAddressCommand)
+  + [ReleaseAddress](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ReleaseAddressCommand)
+  + [RunInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RunInstancesCommand)
+  + [StartInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/StartInstancesCommand)
+  + [StopInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/StopInstancesCommand)
+  + [TerminateInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/TerminateInstancesCommand)
+  + [UnmonitorInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand)
 
+------
+#### [ Kotlin ]
+
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
-
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
-
-  - [AllocateAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AllocateAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AllocateAddressCommand.md")
-  - [AssociateAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateAddressCommand.md")
-  - [AuthorizeSecurityGroupIngress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/AuthorizeSecurityGroupIngressCommand.md")
-  - [CreateKeyPair](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateKeyPairCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateKeyPairCommand.md")
-  - [CreateSecurityGroup](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateSecurityGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateSecurityGroupCommand.md")
-  - [DeleteKeyPair](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteKeyPairCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteKeyPairCommand.md")
-  - [DeleteSecurityGroup](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteSecurityGroupCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteSecurityGroupCommand.md")
-  - [DescribeImages](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeImagesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeImagesCommand.md")
-  - [DescribeInstanceTypes](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceTypesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceTypesCommand.md")
-  - [DescribeInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand.md")
-  - [DescribeKeyPairs](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeKeyPairsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeKeyPairsCommand.md")
-  - [DescribeSecurityGroups](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand.md")
-  - [DisassociateAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateAddressCommand.md")
-  - [ReleaseAddress](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/ReleaseAddressCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/ReleaseAddressCommand.md")
-  - [RunInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/RunInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/RunInstancesCommand.md")
-  - [StartInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/StartInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/StartInstancesCommand.md")
-  - [StopInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/StopInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/StopInstancesCommand.md")
-  - [TerminateInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/TerminateInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/TerminateInstancesCommand.md")
-  - [UnmonitorInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/UnmonitorInstancesCommand.md")
-
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
-
-```
-
 /**
  Before running this Kotlin code example, set up your development environment,
  including your credentials.
@@ -5676,12 +5623,12 @@ suspend fun main(args: Array<String>) {
             <keyName> <fileName> <groupName> <groupDesc> <vpcId> <myIpAddress>
 
         Where:
-            keyName - A key pair name (for example, TestKeyPair).
-            fileName - A file name where the key information is written to.
-            groupName - The name of the security group.
-            groupDesc - The description of the security group.
-            vpcId - A VPC ID. You can get this value from the AWS Management Console.
-            myIpAddress - The IP address of your development machine.
+            keyName - A key pair name (for example, TestKeyPair). 
+            fileName - A file name where the key information is written to. 
+            groupName - The name of the security group. 
+            groupDesc - The description of the security group. 
+            vpcId - A VPC ID. You can get this value from the AWS Management Console. 
+            myIpAddress - The IP address of your development machine. 
 
 """
 
@@ -6169,43 +6116,34 @@ suspend fun createKeyPairSc(
         println("Successfully created key pair named $keyNameVal")
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Kotlin API reference*.
+  + [AllocateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [AssociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [CreateSecurityGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DeleteSecurityGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeInstanceTypes](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeKeyPairs](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DescribeSecurityGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [DisassociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [ReleaseAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [RunInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StartInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [StopInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [TerminateInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
+  + [UnmonitorInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html)
 
-- For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+------
+#### [ Python ]
 
-  - [AllocateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [AssociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [CreateSecurityGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteKeyPair](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DeleteSecurityGroup](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeInstanceTypes](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeKeyPairs](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DescribeSecurityGroups](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [DisassociateAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [ReleaseAddress](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [RunInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StartInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [StopInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [TerminateInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  - [UnmonitorInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
-
-Run an interactive scenario at a command prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
+Run an interactive scenario at a command prompt.  
 
 ```
 class EC2InstanceScenario:
@@ -6597,11 +6535,8 @@ if __name__ == "__main__":
         scenario.run_scenario()
     except Exception:
         logging.exception("Something went wrong with the demo.")
-
-
 ```
-
-Define a class that wraps key pair actions.
+Define a class that wraps key pair actions.  
 
 ```
 class KeyPairWrapper:
@@ -6724,14 +6659,8 @@ class KeyPairWrapper:
                     "Please verify the key pair name and try again."
                 )
             raise
-
-
-
-
-
 ```
-
-Define a class that wraps security group actions.
+Define a class that wraps security group actions.  
 
 ```
 class SecurityGroupWrapper:
@@ -6890,14 +6819,8 @@ class SecurityGroupWrapper:
                     "\n\t- Removed from VPC's as a default group"
                 )
             raise
-
-
-
-
-
 ```
-
-Define a class that wraps instance actions.
+Define a class that wraps instance actions.  
 
 ```
 class EC2InstanceWrapper:
@@ -7185,14 +7108,8 @@ class EC2InstanceWrapper:
             raise
         else:
             return inst_types
-
-
-
-
-
 ```
-
-Define a class that wraps Elastic IP actions.
+Define a class that wraps Elastic IP actions.  
 
 ```
 class ElasticIpWrapper:
@@ -7377,48 +7294,36 @@ class ElasticIpWrapper:
         return next(
             (ip for ip in elastic_ips if ip.allocation_id == allocation_id), None
         )
+```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [AllocateAddress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/AllocateAddress)
+  + [AssociateAddress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/AssociateAddress)
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateKeyPair](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateKeyPair)
+  + [CreateSecurityGroup](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/CreateSecurityGroup)
+  + [DeleteKeyPair](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DeleteKeyPair)
+  + [DeleteSecurityGroup](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DeleteSecurityGroup)
+  + [DescribeImages](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeImages)
+  + [DescribeInstanceTypes](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeInstanceTypes)
+  + [DescribeInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeInstances)
+  + [DescribeKeyPairs](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeKeyPairs)
+  + [DescribeSecurityGroups](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeSecurityGroups)
+  + [DisassociateAddress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DisassociateAddress)
+  + [ReleaseAddress](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/ReleaseAddress)
+  + [RunInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/RunInstances)
+  + [StartInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/StartInstances)
+  + [StopInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/StopInstances)
+  + [TerminateInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/TerminateInstances)
+  + [UnmonitorInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/UnmonitorInstances)
 
+------
+#### [ Rust ]
 
-
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
+The EC2InstanceScenario implementation contains logic to run the example as a whole.  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
-
-  - [AllocateAddress](../../../goto/boto3/ec2-2016-11-15/AllocateAddress.md "../../../goto/boto3/ec2-2016-11-15/AllocateAddress.md")
-  - [AssociateAddress](../../../goto/boto3/ec2-2016-11-15/AssociateAddress.md "../../../goto/boto3/ec2-2016-11-15/AssociateAddress.md")
-  - [AuthorizeSecurityGroupIngress](../../../goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/boto3/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateKeyPair](../../../goto/boto3/ec2-2016-11-15/CreateKeyPair.md "../../../goto/boto3/ec2-2016-11-15/CreateKeyPair.md")
-  - [CreateSecurityGroup](../../../goto/boto3/ec2-2016-11-15/CreateSecurityGroup.md "../../../goto/boto3/ec2-2016-11-15/CreateSecurityGroup.md")
-  - [DeleteKeyPair](../../../goto/boto3/ec2-2016-11-15/DeleteKeyPair.md "../../../goto/boto3/ec2-2016-11-15/DeleteKeyPair.md")
-  - [DeleteSecurityGroup](../../../goto/boto3/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/boto3/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DescribeImages](../../../goto/boto3/ec2-2016-11-15/DescribeImages.md "../../../goto/boto3/ec2-2016-11-15/DescribeImages.md")
-  - [DescribeInstanceTypes](../../../goto/boto3/ec2-2016-11-15/DescribeInstanceTypes.md "../../../goto/boto3/ec2-2016-11-15/DescribeInstanceTypes.md")
-  - [DescribeInstances](../../../goto/boto3/ec2-2016-11-15/DescribeInstances.md "../../../goto/boto3/ec2-2016-11-15/DescribeInstances.md")
-  - [DescribeKeyPairs](../../../goto/boto3/ec2-2016-11-15/DescribeKeyPairs.md "../../../goto/boto3/ec2-2016-11-15/DescribeKeyPairs.md")
-  - [DescribeSecurityGroups](../../../goto/boto3/ec2-2016-11-15/DescribeSecurityGroups.md "../../../goto/boto3/ec2-2016-11-15/DescribeSecurityGroups.md")
-  - [DisassociateAddress](../../../goto/boto3/ec2-2016-11-15/DisassociateAddress.md "../../../goto/boto3/ec2-2016-11-15/DisassociateAddress.md")
-  - [ReleaseAddress](../../../goto/boto3/ec2-2016-11-15/ReleaseAddress.md "../../../goto/boto3/ec2-2016-11-15/ReleaseAddress.md")
-  - [RunInstances](../../../goto/boto3/ec2-2016-11-15/RunInstances.md "../../../goto/boto3/ec2-2016-11-15/RunInstances.md")
-  - [StartInstances](../../../goto/boto3/ec2-2016-11-15/StartInstances.md "../../../goto/boto3/ec2-2016-11-15/StartInstances.md")
-  - [StopInstances](../../../goto/boto3/ec2-2016-11-15/StopInstances.md "../../../goto/boto3/ec2-2016-11-15/StopInstances.md")
-  - [TerminateInstances](../../../goto/boto3/ec2-2016-11-15/TerminateInstances.md "../../../goto/boto3/ec2-2016-11-15/TerminateInstances.md")
-  - [UnmonitorInstances](../../../goto/boto3/ec2-2016-11-15/UnmonitorInstances.md "../../../goto/boto3/ec2-2016-11-15/UnmonitorInstances.md")
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
-
-The EC2InstanceScenario implementation contains logic to run the example as a whole.
-
-```
-
 //! Scenario that uses the AWS SDK for Rust (the SDK) with Amazon Elastic Compute Cloud
 //! (Amazon EC2) to do the following:
 //!
@@ -7770,14 +7675,10 @@ pub async fn run(mut scenario: Ec2InstanceScenario) {
     println!("Thanks for running!");
     println!("--------------------------------------------------------------------------------");
 }
-
+```
+The EC2Impl struct serves as a an automock point for testing, and its functions wrap the EC2 SDK calls.  
 
 ```
-
-The EC2Impl struct serves as a an automock point for testing, and its functions wrap the EC2 SDK calls.
-
-```
-
 use std::{net::Ipv4Addr, time::Duration};
 
 use aws_sdk_ec2::{
@@ -8259,14 +8160,10 @@ impl std::fmt::Display for EC2Error {
         write!(f, "{}", self.0)
     }
 }
-
+```
+The SSM struct serves as a an automock point for testing, and its functions wraps SSM SDK calls.  
 
 ```
-
-The SSM struct serves as a an automock point for testing, and its functions wraps SSM SDK calls.
-
-```
-
 use aws_sdk_ssm::{types::Parameter, Client};
 use aws_smithy_async::future::pagination_stream::TryFlatMap;
 
@@ -8309,14 +8206,10 @@ impl SSMImpl {
         Ok(params)
     }
 }
-
+```
+The scenario uses several "Manager"-style structs to handle access to resources that are created and deleted throughout the scenario.  
 
 ```
-
-The scenario uses several "Manager"-style structs to handle access to resources that are created and deleted throughout the scenario.
-
-```
-
 use aws_sdk_ec2::operation::{
     allocate_address::AllocateAddressOutput, associate_address::AssociateAddressOutput,
 };
@@ -8710,14 +8603,10 @@ impl std::fmt::Display for SecurityGroupManager {
         }
     }
 }
-
+```
+The main entry point for the scenario.  
 
 ```
-
-The main entry point for the scenario.
-
-```
-
 use ec2_code_examples::{
     ec2::EC2,
     getting_started::{
@@ -8737,43 +8626,34 @@ async fn main() {
     let scenario = Ec2InstanceScenario::new(ec2, ssm, util);
     run(scenario).await;
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Rust API reference*.
+  + [AllocateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.allocate_address)
+  + [AssociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address)
+  + [AuthorizeSecurityGroupIngress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress)
+  + [CreateKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_key_pair)
+  + [CreateSecurityGroup](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_security_group)
+  + [DeleteKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_key_pair)
+  + [DeleteSecurityGroup](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_security_group)
+  + [DescribeImages](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_images)
+  + [DescribeInstanceTypes](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types)
+  + [DescribeInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instances)
+  + [DescribeKeyPairs](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_key_pairs)
+  + [DescribeSecurityGroups](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_security_groups)
+  + [DisassociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.disassociate_address)
+  + [ReleaseAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.release_address)
+  + [RunInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.run_instances)
+  + [StartInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.start_instances)
+  + [StopInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.stop_instances)
+  + [TerminateInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.terminate_instances)
+  + [UnmonitorInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.unmonitor_instances)
 
-- For API details, see the following topics in _AWS SDK for Rust API reference_.
+------
+#### [ Swift ]
 
-  - [AllocateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.allocate_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.allocate_address")
-  - [AssociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.associate_address")
-  - [AuthorizeSecurityGroupIngress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.authorize_security_group_ingress")
-  - [CreateKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_key_pair "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_key_pair")
-  - [CreateSecurityGroup](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_security_group "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.create_security_group")
-  - [DeleteKeyPair](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_key_pair "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_key_pair")
-  - [DeleteSecurityGroup](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_security_group "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.delete_security_group")
-  - [DescribeImages](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_images "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_images")
-  - [DescribeInstanceTypes](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instance_types")
-  - [DescribeInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instances")
-  - [DescribeKeyPairs](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_key_pairs "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_key_pairs")
-  - [DescribeSecurityGroups](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_security_groups "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_security_groups")
-  - [DisassociateAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.disassociate_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.disassociate_address")
-  - [ReleaseAddress](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.release_address "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.release_address")
-  - [RunInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.run_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.run_instances")
-  - [StartInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.start_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.start_instances")
-  - [StopInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.stop_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.stop_instances")
-  - [TerminateInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.terminate_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.terminate_instances")
-  - [UnmonitorInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.unmonitor_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.unmonitor_instances")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples").
-
-The `Package.swift` file.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/ec2#code-examples). 
+The `Package.swift` file.  
 
 ```
 // swift-tools-version: 5.9
@@ -8815,11 +8695,8 @@ let package = Package(
 
     ]
 )
-
-
 ```
-
-The `entry.swift` file.
+The `entry.swift` file.  
 
 ```
 // An example that shows how to use the AWS SDK for Swift to perform a variety
@@ -9007,7 +8884,7 @@ class Example {
             }
             imageIds.append(id)
         }
-
+        
         let images = await self.describeImages(imageIds)
 
         // This is where you would normally let the user choose which AMI to
@@ -9087,7 +8964,7 @@ class Example {
         //=====================================================================
 
         print("Waiting a few seconds to let the instance come up...")
-
+        
         do {
             try await Task.sleep(for: .seconds(20))
         } catch {
@@ -9179,7 +9056,7 @@ class Example {
     }
 
     /// Clean up by discarding and closing down all allocated EC2 items:
-    ///
+    /// 
     /// * Elastic IP allocation and association
     /// * Terminate the instance
     /// * Delete the security group
@@ -9287,9 +9164,9 @@ class Example {
     }
 
     /// Delete an EC2 key pair.
-    ///
+    /// 
     /// - Parameter keyPair: The name of the key pair to delete.
-    ///
+    /// 
     /// - Returns: `true` if the key pair is deleted successfully; otherwise
     ///   `false`.
     func deleteKeyPair(keyPair: String) async -> Bool {
@@ -9308,7 +9185,7 @@ class Example {
     }
 
     /// Return a list of AMI names that contain the specified string.
-    ///
+    /// 
     /// - Parameter filter: A string that must be contained in all returned
     ///   AMI names.
     ///
@@ -9354,19 +9231,19 @@ class Example {
 
     /// Return a list of instance types matching the specified architecture
     /// and instance sizes.
-    ///
+    /// 
     /// - Parameters:
     ///   - architecture: The architecture of the instance types to return, as
     ///     a member of `EC2ClientTypes.ArchitectureValues`.
     ///   - sizes: An array of one or more strings identifying sizes of
     ///     instance type to accept.
-    ///
+    /// 
     /// - Returns: An array of `EC2ClientTypes.InstanceTypeInfo` records
     ///   describing the instance types matching the given requirements.
     func getMatchingInstanceTypes(architecture: EC2ClientTypes.ArchitectureValues = EC2ClientTypes.ArchitectureValues.x8664,
                           sizes: [String] = ["*.micro", "*.small"]) async
                           -> [EC2ClientTypes.InstanceTypeInfo] {
-        var instanceTypes: [EC2ClientTypes.InstanceTypeInfo] = []
+        var instanceTypes: [EC2ClientTypes.InstanceTypeInfo] = []    
 
         let archFilter = EC2ClientTypes.Filter(
             name: "processor-info.supported-architecture",
@@ -9401,7 +9278,7 @@ class Example {
 
     /// Get the latest information about the specified instance and output it
     /// to the screen, returning the instance details to the caller.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceId: The ID of the instance to provide details about.
     ///   - stateFilter: The state to require the instance to be in.
@@ -9475,7 +9352,7 @@ class Example {
     }
 
     /// Stop the specified instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceId: The ID of the instance to stop.
     ///   - waitUntilStopped: If `true`, execution waits until the instance
@@ -9521,7 +9398,7 @@ class Example {
     }
 
     /// Start the specified instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceId: The ID of the instance to start.
     ///   - waitUntilStarted: If `true`, execution waits until the instance
@@ -9571,7 +9448,7 @@ class Example {
     ///   - instanceId: The instance to terminate.
     ///   - waitUntilTerminated: Whether or not to wait until the instance is
     ///     terminated before returning.
-    ///
+    /// 
     /// - Returns: `true` if terminated successfully. `false` if not or if an
     ///   error occurs.
     func terminateInstance(instanceId: String, waitUntilTerminated: Bool = false) async -> Bool {
@@ -9612,7 +9489,7 @@ class Example {
 
     /// Return an array of `EC2ClientTypes.Image` objects describing all of
     /// the images in the specified array.
-    ///
+    /// 
     /// - Parameter idList: A list of image ID strings indicating the images
     ///   to return details about.
     ///
@@ -9645,7 +9522,7 @@ class Example {
     }
 
     /// Create and return a new EC2 instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - imageId: The image ID of the AMI to use when creating the instance.
     ///   - instanceType: The type of instance to create.
@@ -9681,7 +9558,7 @@ class Example {
     }
 
     /// Return the device's external IP address.
-    ///
+    /// 
     /// - Returns: A string containing the device's IP address.
     func getMyIPAddress() -> String? {
         guard let url = URL(string: "http://checkip.amazonaws.com") else {
@@ -9699,7 +9576,7 @@ class Example {
     }
 
     /// Create a new security group.
-    ///
+    /// 
     /// - Parameters:
     ///   - groupName: The name of the group to create.
     ///   - groupDescription: A description of the new security group.
@@ -9722,7 +9599,7 @@ class Example {
     }
 
     /// Authorize ingress of connections for the security group.
-    ///
+    /// 
     /// - Parameters:
     ///   - groupId: The group ID of the security group to authorize access for.
     ///   - ipAddress: The IP address of the device to grant access to.
@@ -9783,9 +9660,9 @@ class Example {
     }
 
     /// Delete a security group.
-    ///
+    /// 
     /// - Parameter groupId: The ID of the security group to delete.
-    ///
+    /// 
     /// - Returns: `true` on successful deletion; `false` on error.
     func deleteSecurityGroup(groupId: String) async -> Bool {
         do {
@@ -9825,7 +9702,7 @@ class Example {
     }
 
     /// Associate the specified allocated Elastic IP to a given instance.
-    ///
+    /// 
     /// - Parameters:
     ///   - instanceId: The instance to associate the Elastic IP with.
     ///   - allocationId: The ID of the allocated Elastic IP to associate with
@@ -9849,7 +9726,7 @@ class Example {
     }
 
     /// Disassociate an Elastic IP.
-    ///
+    /// 
     /// - Parameter associationId: The ID of the association to end.
     func disassociateAddress(associationId: String?) async {
         do {
@@ -9864,7 +9741,7 @@ class Example {
     }
 
     /// Release an allocated Elastic IP.
-    ///
+    /// 
     /// - Parameter allocationId: The allocation ID of the Elastic IP to
     ///   release.
     func releaseAddress(allocationId: String?) async {
@@ -9908,34 +9785,30 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [AllocateAddress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/allocateaddress(input:))
+  + [AssociateAddress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:))
+  + [AuthorizeSecurityGroupIngress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:))
+  + [CreateKeyPair](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createkeypair(input:))
+  + [CreateSecurityGroup](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createsecuritygroup(input:))
+  + [DeleteKeyPair](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletekeypair(input:))
+  + [DeleteSecurityGroup](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletesecuritygroup(input:))
+  + [DescribeImages](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeimages(input:))
+  + [DescribeInstanceTypes](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstancetypes(input:))
+  + [DescribeInstances](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstances(input:))
+  + [DescribeKeyPairs](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describekeypairs(input:))
+  + [DescribeSecurityGroups](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describesecuritygroups(input:))
+  + [DisassociateAddress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/disassociateaddress(input:))
+  + [ReleaseAddress](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/releaseaddress(input:))
+  + [RunInstances](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/runinstances(input:))
+  + [StartInstances](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/startinstances(input:))
+  + [StopInstances](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/stopinstances(input:))
+  + [TerminateInstances](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/terminateinstances(input:))
+  + [UnmonitorInstances](https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/unmonitorinstances(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [AllocateAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/allocateaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/allocateaddress(input:)")
-  - [AssociateAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/associateaddress(input:)")
-  - [AuthorizeSecurityGroupIngress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/authorizesecuritygroupingress(input:)")
-  - [CreateKeyPair](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createkeypair(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createkeypair(input:)")
-  - [CreateSecurityGroup](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createsecuritygroup(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/createsecuritygroup(input:)")
-  - [DeleteKeyPair](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletekeypair(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletekeypair(input:)")
-  - [DeleteSecurityGroup](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletesecuritygroup(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/deletesecuritygroup(input:)")
-  - [DescribeImages](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeimages(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeimages(input:)")
-  - [DescribeInstanceTypes](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstancetypes(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstancetypes(input:)")
-  - [DescribeInstances](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describeinstances(input:)")
-  - [DescribeKeyPairs](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describekeypairs(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describekeypairs(input:)")
-  - [DescribeSecurityGroups](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describesecuritygroups(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/describesecuritygroups(input:)")
-  - [DisassociateAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/disassociateaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/disassociateaddress(input:)")
-  - [ReleaseAddress](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/releaseaddress(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/releaseaddress(input:)")
-  - [RunInstances](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/runinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/runinstances(input:)")
-  - [StartInstances](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/startinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/startinstances(input:)")
-  - [StopInstances](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/stopinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/stopinstances(input:)")
-  - [TerminateInstances](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/terminateinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/terminateinstances(input:)")
-  - [UnmonitorInstances](<https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/unmonitorinstances(input:)> "https://sdk.amazonaws.com/swift/api/awsec2/latest/documentation/awsec2/ec2client/unmonitorinstances(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,23 +1,22 @@
+
+
 # Use `DescribeNetworkInterfaceAttribute` with a CLI
+<a name="example_ec2_DescribeNetworkInterfaceAttribute_section"></a>
 
 The following code examples show how to use `DescribeNetworkInterfaceAttribute`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To describe the attachment attribute of a network interface**
-
-This example command describes the `attachment` attribute of the specified network interface.
-
-Command:
+**AWS CLI**  
+**To describe the attachment attribute of a network interface**  
+This example command describes the `attachment` attribute of the specified network interface.  
+Command:  
 
 ```
-`aws ec2 describe-network-interface-attribute --network-interface-id `eni-686ea200` --attribute `attachment``
-
+aws ec2 describe-network-interface-attribute --network-interface-id {{eni-686ea200}} --attribute {{attachment}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -33,19 +32,14 @@ Output:
   }
 }
 ```
-
-**To describe the description attribute of a network interface**
-
-This example command describes the `description` attribute of the specified network interface.
-
-Command:
+**To describe the description attribute of a network interface**  
+This example command describes the `description` attribute of the specified network interface.  
+Command:  
 
 ```
-`aws ec2 describe-network-interface-attribute --network-interface-id `eni-686ea200` --attribute `description``
-
+aws ec2 describe-network-interface-attribute --network-interface-id {{eni-686ea200}} --attribute {{description}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -55,19 +49,14 @@ Output:
   }
 }
 ```
-
-**To describe the groupSet attribute of a network interface**
-
-This example command describes the `groupSet` attribute of the specified network interface.
-
-Command:
+**To describe the groupSet attribute of a network interface**  
+This example command describes the `groupSet` attribute of the specified network interface.  
+Command:  
 
 ```
-`aws ec2 describe-network-interface-attribute --network-interface-id `eni-686ea200` --attribute `groupSet``
-
+aws ec2 describe-network-interface-attribute --network-interface-id {{eni-686ea200}} --attribute {{groupSet}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -80,19 +69,14 @@ Output:
   ]
 }
 ```
-
-**To describe the sourceDestCheck attribute of a network interface**
-
-This example command describes the `sourceDestCheck` attribute of the specified network interface.
-
-Command:
+**To describe the sourceDestCheck attribute of a network interface**  
+This example command describes the `sourceDestCheck` attribute of the specified network interface.  
+Command:  
 
 ```
-`aws ec2 describe-network-interface-attribute --network-interface-id `eni-686ea200` --attribute `sourceDestCheck``
-
+aws ec2 describe-network-interface-attribute --network-interface-id {{eni-686ea200}} --attribute {{sourceDestCheck}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -102,129 +86,97 @@ Output:
   }
 }
 ```
++  For API details, see [DescribeNetworkInterfaceAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-network-interface-attribute.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeNetworkInterfaceAttribute](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-network-interface-attribute.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-network-interface-attribute.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified network interface.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Attachment
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attachment         : Amazon.EC2.Model.NetworkInterfaceAttachment
 ```
-
-**Example 2: This example describes the specified network interface.**
+**Example 2: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Description
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description        : My description
 ```
-
-**Example 3: This example describes the specified network interface.**
+**Example 3: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute GroupSet
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Groups             : {my-security-group}
 ```
-
-**Example 4: This example describes the specified network interface.**
+**Example 4: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute SourceDestCheck
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 SourceDestCheck    : True
 ```
++  For API details, see [DescribeNetworkInterfaceAttribute](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeNetworkInterfaceAttribute](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified network interface.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Attachment
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Attachment         : Amazon.EC2.Model.NetworkInterfaceAttachment
 ```
-
-**Example 2: This example describes the specified network interface.**
+**Example 2: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute Description
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Description        : My description
 ```
-
-**Example 3: This example describes the specified network interface.**
+**Example 3: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute GroupSet
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Groups             : {my-security-group}
 ```
-
-**Example 4: This example describes the specified network interface.**
+**Example 4: This example describes the specified network interface.**  
 
 ```
 Get-EC2NetworkInterfaceAttribute -NetworkInterfaceId eni-12345678 -Attribute SourceDestCheck
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 SourceDestCheck    : True
 ```
++  For API details, see [DescribeNetworkInterfaceAttribute](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeNetworkInterfaceAttribute](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

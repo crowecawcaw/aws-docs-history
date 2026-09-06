@@ -1,29 +1,26 @@
+
+
 # Use `DescribeInstances` with an AWS SDK or CLI
+<a name="example_ec2_DescribeInstances_section"></a>
 
 The following code examples show how to use `DescribeInstances`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md) 
++  [Build and manage a resilient service](example_cross_ResilientService_section.md) 
++  [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md) 
++  [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md) 
++  [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md) 
++  [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md) 
++  [Getting started with load balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md) 
++  [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md) 
++  [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md) 
 
-- [Learn the basics](example_ec2_Scenario_GetStartedInstances_section.md "example_ec2_Scenario_GetStartedInstances_section.md")
-- [Build and manage a resilient service](example_cross_ResilientService_section.md "example_cross_ResilientService_section.md")
-- [Create a basic virtual private network](example_vpc_GettingStartedCLI_section.md "example_vpc_GettingStartedCLI_section.md")
-- [Creating a container service for virtual machine instances](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
-- [Creating and managing block storage volumes](example_ec2_GettingStarted_020_section.md "example_ec2_GettingStarted_020_section.md")
-- [Get started with software marketplace purchasing](example_ec2_GettingStarted_030_section.md "example_ec2_GettingStarted_030_section.md")
-- [Getting started with load balancing](example_elastic_load_balancing_v2_GettingStarted_058_section.md "example_elastic_load_balancing_v2_GettingStarted_058_section.md")
-- [Getting started with managed streaming](example_ec2_GettingStarted_057_section.md "example_ec2_GettingStarted_057_section.md")
-- [Getting started with virtual machines](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
+------
+#### [ .NET ]
 
-.NET
-
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/EC2#code-examples). 
 
 ```
     /// <summary>
@@ -80,23 +77,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/d
             return false;
         }
     }
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [DescribeInstances](../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances.md "../../../goto/DotNetSDKV3/ec2-2016-11-15/DescribeInstances.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples").
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/ec2#code-examples). 
 
 ```
 ###############################################################################
@@ -173,11 +161,8 @@ function ec2_describe_instances() {
 
   return 0
 }
-
-
 ```
-
-The utility functions used in this example.
+The utility functions used in this example.  
 
 ```
 ###############################################################################
@@ -222,23 +207,14 @@ function aws_cli_error_log() {
 
   return 0
 }
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeInstances) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DescribeInstances](../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeInstances.md")
-  in _AWS CLI Command Reference_.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/ec2#code-examples). 
 
 ```
 //! Describe all Amazon Elastic Compute Cloud (Amazon EC2) instances associated with an account.
@@ -318,29 +294,21 @@ bool AwsDoc::EC2::describeInstances(
 
     return true;
 }
+```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/goto/SdkForCpp/ec2-2016-11-15/DescribeInstances) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To describe an instance**  
+The following `describe-instances` example describes the specified instance.  
 
 ```
-
-- For API details, see
-  [DescribeInstances](../../../goto/SdkForCpp/ec2-2016-11-15/DescribeInstances.md "../../../goto/SdkForCpp/ec2-2016-11-15/DescribeInstances.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To describe an instance**
-
-The following `describe-instances` example describes the specified instance.
-
+aws ec2 describe-instances \
+    --instance-ids {{i-1234567890abcdef0}}
 ```
-`aws ec2 describe-instances \
- --instance-ids `i-1234567890abcdef0``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -498,44 +466,31 @@ Output:
     ]
 }
 ```
-
-**Example 2: To filter for instances with the specified type**
-
-The following `describe-instances` example uses filters to scope the results to instances of the specified type.
+**Example 2: To filter for instances with the specified type**  
+The following `describe-instances` example uses filters to scope the results to instances of the specified type.  
 
 ```
-`aws ec2 describe-instances \
- --filters `Name=instance-type,Values=m5.large``
+aws ec2 describe-instances \
+    --filters {{Name=instance-type,Values=m5.large}}
+```
+For example output, see Example 1.  
+For more information, see [List and filter using the CLI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html#Filtering_Resources_CLI) in the *Amazon EC2 User Guide*.  
+**Example 3: To filter for instances with the specified type and Availability Zone**  
+The following `describe-instances` example uses multiple filters to scope the results to instances with the specified type that are also in the specified Availability Zone.  
 
 ```
-
-For example output, see Example 1.
-
-For more information, see [List and filter using the CLI](../../../AWSEC2/latest/UserGuide/Using_Filtering.md#Filtering_Resources_CLI "../../../AWSEC2/latest/UserGuide/Using_Filtering.md#Filtering_Resources_CLI") in the _Amazon EC2 User Guide_.
-
-**Example 3: To filter for instances with the specified type and Availability Zone**
-
-The following `describe-instances` example uses multiple filters to scope the results to instances with the specified type that are also in the specified Availability Zone.
+aws ec2 describe-instances \
+    --filters {{Name=instance-type,Values=t2.micro,t3.micro}} {{Name=availability-zone,Values=us-east-2c}}
+```
+For example output, see Example 1.  
+**Example 4: To filter for instances with the specified type and Availability Zone using a JSON file**  
+The following `describe-instances` example uses a JSON input file to perform the same filtering as the previous example. When filters get more complicated, they can be easier to specify in a JSON file.  
 
 ```
-`aws ec2 describe-instances \
- --filters `Name=instance-type,Values=t2.micro,t3.micro` `Name=availability-zone,Values=us-east-2c``
-
+aws ec2 describe-instances \
+    --filters {{file://filters.json}}
 ```
-
-For example output, see Example 1.
-
-**Example 4: To filter for instances with the specified type and Availability Zone using a JSON file**
-
-The following `describe-instances` example uses a JSON input file to perform the same filtering as the previous example. When filters get more complicated, they can be easier to specify in a JSON file.
-
-```
-`aws ec2 describe-instances \
- --filters `file://filters.json``
-
-```
-
-Contents of `filters.json`:
+Contents of `filters.json`:  
 
 ```
 [
@@ -549,68 +504,48 @@ Contents of `filters.json`:
     }
 ]
 ```
-
-For example output, see Example 1.
-
-**Example 5: To filter for instances with the specified Owner tag**
-
-The following `describe-instances` example uses tag filters to scope the results to instances that have a tag with the specified tag key (Owner), regardless of the tag value.
+For example output, see Example 1.  
+**Example 5: To filter for instances with the specified Owner tag**  
+The following `describe-instances` example uses tag filters to scope the results to instances that have a tag with the specified tag key (Owner), regardless of the tag value.  
 
 ```
-`aws ec2 describe-instances \
- --filters `"Name=tag-key,Values=Owner"``
+aws ec2 describe-instances \
+    --filters {{"Name=tag-key,Values=Owner"}}
+```
+For example output, see Example 1.  
+**Example 6: To filter for instances with the specified my-team tag value**  
+The following `describe-instances` example uses tag filters to scope the results to instances that have a tag with the specified tag value (my-team), regardless of the tag key.  
 
 ```
-
-For example output, see Example 1.
-
-**Example 6: To filter for instances with the specified my-team tag value**
-
-The following `describe-instances` example uses tag filters to scope the results to instances that have a tag with the specified tag value (my-team), regardless of the tag key.
+aws ec2 describe-instances \
+    --filters {{"Name=tag-value,Values=my-team"}}
+```
+For example output, see Example 1.  
+**Example 7: To filter for instances with the specified Owner tag and my-team value**  
+The following `describe-instances` example uses tag filters to scope the results to instances that have the specified tag (Owner=my-team).  
 
 ```
-`aws ec2 describe-instances \
- --filters `"Name=tag-value,Values=my-team"``
+aws ec2 describe-instances \
+    --filters {{"Name=tag:Owner,Values=my-team"}}
+```
+For example output, see Example 1.  
+**Example 8: To display only instance and subnet IDs for all instances**  
+The following `describe-instances` examples use the `--query` parameter to display only the instance and subnet IDs for all instances, in JSON format.  
+Linux and macOS:  
 
 ```
-
-For example output, see Example 1.
-
-**Example 7: To filter for instances with the specified Owner tag and my-team value**
-
-The following `describe-instances` example uses tag filters to scope the results to instances that have the specified tag (Owner=my-team).
+aws ec2 describe-instances \
+    --query '{{Reservations[*].Instances[*].{Instance:InstanceId,Subnet:SubnetId}}}' \
+    --output {{json}}
+```
+Windows:  
 
 ```
-`aws ec2 describe-instances \
- --filters `"Name=tag:Owner,Values=my-team"``
-
+aws ec2 describe-instances {{^}}
+    --query {{"Reservations[*].Instances[*].{Instance:InstanceId,Subnet:SubnetId}"}} {{^}}
+    --output {{json}}
 ```
-
-For example output, see Example 1.
-
-**Example 8: To display only instance and subnet IDs for all instances**
-
-The following `describe-instances` examples use the `--query` parameter to display only the instance and subnet IDs for all instances, in JSON format.
-
-Linux and macOS:
-
-```
-`aws ec2 describe-instances \
- --query '`Reservations[*].Instances[*].{Instance:InstanceId,Subnet:SubnetId}`' \
- --output `json``
-
-```
-
-Windows:
-
-```
-`aws ec2 describe-instances `^`
- --query `"Reservations[*].Instances[*].{Instance:InstanceId,Subnet:SubnetId}"` `^`
- --output `json``
-
-```
-
-Output:
+Output:  
 
 ```
 [
@@ -629,20 +564,16 @@ Output:
     ...
 ]
 ```
-
-**Example 9: To filter instances of the specified type and only display their instance IDs**
-
-The following `describe-instances` example uses filters to scope the results to instances of the specified type and the `--query` parameter to display only the instance IDs.
+**Example 9: To filter instances of the specified type and only display their instance IDs**  
+The following `describe-instances` example uses filters to scope the results to instances of the specified type and the `--query` parameter to display only the instance IDs.  
 
 ```
-`aws ec2 describe-instances \
- --filters `"Name=instance-type,Values=t2.micro"` \
- --query `"Reservations[*].Instances[*].[InstanceId]"` \
- --output `text``
-
+aws ec2 describe-instances \
+    --filters {{"Name=instance-type,Values=t2.micro"}} \
+    --query {{"Reservations[*].Instances[*].[InstanceId]"}} \
+    --output {{text}}
 ```
-
-Output:
+Output:  
 
 ```
 i-031c0dc19de2fb70c
@@ -652,32 +583,25 @@ i-0626d4edd54f1286d
 i-00b8ae04f9f99908e
 i-0fc71c25d2374130c
 ```
-
-**Example 10: To filter instances of the specified type and only display their instance IDs, Availability Zone, and the specified tag value**
-
-The following `describe-instances` examples display the instance ID, Availability Zone, and the value of the `Name` tag for instances that have a tag with the name `tag-key`, in table format.
-
-Linux and macOS:
+**Example 10: To filter instances of the specified type and only display their instance IDs, Availability Zone, and the specified tag value**  
+The following `describe-instances` examples display the instance ID, Availability Zone, and the value of the `Name` tag for instances that have a tag with the name `tag-key`, in table format.  
+Linux and macOS:  
 
 ```
-`aws ec2 describe-instances \
- --filters `Name=tag-key,Values=Name` \
- --query '`Reservations[*].Instances[*].{Instance:InstanceId,AZ:Placement.AvailabilityZone,Name:Tags[?Key==`Name`]|[0].Value}`' \
- --output `table``
+aws ec2 describe-instances \
+    --filters {{Name=tag-key,Values=Name}} \
+    --query '{{Reservations[*].Instances[*].{Instance:InstanceId,AZ:Placement.AvailabilityZone,Name:Tags[?Key==`Name`]|[0].Value}}}' \
+    --output {{table}}
+```
+Windows:  
 
 ```
-
-Windows:
-
+aws ec2 describe-instances {{^}}
+    --filters {{Name=tag-key,Values=Name}} {{^}}
+    --query {{"Reservations[*].Instances[*].{Instance:InstanceId,AZ:Placement.AvailabilityZone,Name:Tags[?Key=='Name']|[0].Value}"}} {{^}}
+    --output {{table}}
 ```
-`aws ec2 describe-instances `^`
- --filters `Name=tag-key,Values=Name` `^`
- --query `"Reservations[*].Instances[*].{Instance:InstanceId,AZ:Placement.AvailabilityZone,Name:Tags[?Key=='Name']|[0].Value}"` `^`
- --output `table``
-
-```
-
-Output:
+Output:  
 
 ```
 -------------------------------------------------------------
@@ -690,19 +614,15 @@ Output:
 |  us-east-2a  |  i-027552a73f021f3bd  |  test-server-2     |
 +--------------+-----------------------+--------------------+
 ```
-
-**Example 11: To describe instances in a partition placement group**
-
-The following `describe-instances` example describes the specified instance. The output includes the placement information for the instance, which contains the placement group name and the partition number for the instance.
+**Example 11: To describe instances in a partition placement group**  
+The following `describe-instances` example describes the specified instance. The output includes the placement information for the instance, which contains the placement group name and the partition number for the instance.  
 
 ```
-`aws ec2 describe-instances \
- --instance-ids `i-0123a456700123456` \
- --query `"Reservations[*].Instances[*].Placement"``
-
+aws ec2 describe-instances \
+    --instance-ids {{i-0123a456700123456}} \
+    --query {{"Reservations[*].Instances[*].Placement"}}
 ```
-
-Output:
+Output:  
 
 ```
 [
@@ -717,20 +637,15 @@ Output:
     ]
 ]
 ```
-
-For more information, see [Describing instances in a placement group](../../../AWSEC2/latest/UserGuide/placement-groups.md#describe-instance-placement "../../../AWSEC2/latest/UserGuide/placement-groups.md#describe-instance-placement") in the _Amazon EC2 User Guide_.
-
-**Example 12: To filter to instances with the specified placement group and partition number**
-
-The following `describe-instances` example filters the results to only those instances with the specified placement group and partition number.
+For more information, see [Describing instances in a placement group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#describe-instance-placement) in the *Amazon EC2 User Guide*.  
+**Example 12: To filter to instances with the specified placement group and partition number**  
+The following `describe-instances` example filters the results to only those instances with the specified placement group and partition number.  
 
 ```
-`aws ec2 describe-instances \
- --filters `"Name=placement-group-name,Values=HDFS-Group-A"` `"Name=placement-partition-number,Values=7"``
-
+aws ec2 describe-instances \
+    --filters {{"Name=placement-group-name,Values=HDFS-Group-A"}} {{"Name=placement-partition-number,Values=7"}}
 ```
-
-The following shows only the relevant information from the output.
+The following shows only the relevant information from the output.  
 
 ```
 "Instances": [
@@ -755,22 +670,17 @@ The following shows only the relevant information from the output.
         }
     ],
 ```
-
-For more information, see [Describing instances in a placement group](../../../AWSEC2/latest/UserGuide/placement-groups.md#describe-instance-placement "../../../AWSEC2/latest/UserGuide/placement-groups.md#describe-instance-placement") in the _Amazon EC2 User Guide_.
-
-**Example 13: To filter to instances that are configured to allow access to tags from instance metadata**
-
-The following `describe-instances` example filters the results to only those instances that are configured to allow access to instance tags from instance metadata.
+For more information, see [Describing instances in a placement group](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html#describe-instance-placement) in the *Amazon EC2 User Guide*.  
+**Example 13: To filter to instances that are configured to allow access to tags from instance metadata**  
+The following `describe-instances` example filters the results to only those instances that are configured to allow access to instance tags from instance metadata.  
 
 ```
-`aws ec2 describe-instances \
- --filters `"Name=metadata-options.instance-metadata-tags,Values=enabled"` \
- --query `"Reservations[*].Instances[*].InstanceId"` \
- --output `text``
-
+aws ec2 describe-instances \
+    --filters {{"Name=metadata-options.instance-metadata-tags,Values=enabled"}} \
+    --query {{"Reservations[*].Instances[*].InstanceId"}} \
+    --output {{text}}
 ```
-
-The following shows the expected output.
+The following shows the expected output.  
 
 ```
 i-1234567890abcdefg
@@ -778,22 +688,14 @@ i-abcdefg1234567890
 i-11111111aaaaaaaaa
 i-aaaaaaaa111111111
 ```
+For more information, see [Work with instance tags in instance metadata](https://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/Using_Tags.html#view-access-to-tags-in-IMDS) in the *Amazon EC2 User Guide*.  
++  For API details, see [DescribeInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instances.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Work with instance tags in instance metadata](../../../en_us/AWSEC2/latest/UserGuide/Using_Tags.md#view-access-to-tags-in-IMDS "../../../en_us/AWSEC2/latest/UserGuide/Using_Tags.md#view-access-to-tags-in-IMDS") in the _Amazon EC2 User Guide_.
+------
+#### [ Java ]
 
-- For API details, see
-  [DescribeInstances](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instances.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/describe-instances.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples").
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/ec2#code-examples). 
 
 ```
     /**
@@ -827,23 +729,14 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
             throw new RuntimeException("Failed to describe instances", ex);
         });
     }
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [DescribeInstances](../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances.md "../../../goto/SdkForJavaV2/ec2-2016-11-15/DescribeInstances.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/ec2#code-examples). 
 
 ```
 import { EC2Client, paginateDescribeInstances } from "@aws-sdk/client-ec2";
@@ -900,23 +793,14 @@ export const main = async ({ pageSize, architectures }) => {
     }
   }
 };
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DescribeInstances](../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstancesCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Kotlin ]
 
-Kotlin
-
-**SDK for Kotlin**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples").
+**SDK for Kotlin**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/kotlin/services/ec2#code-examples). 
 
 ```
 suspend fun describeEC2Instances() {
@@ -938,26 +822,19 @@ suspend fun describeEC2Instances() {
         }
     }
 }
-
-
 ```
++  For API details, see [DescribeInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html) in *AWS SDK for Kotlin API reference*. 
 
-- For API details, see
-  [DescribeInstances](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
-  in _AWS SDK for Kotlin API reference_.
+------
+#### [ PowerShell ]
 
-PowerShell
-
-**Tools for PowerShell V4**
-
-**Example 1: This example describes the specified instance.**
+**Tools for PowerShell V4**  
+**Example 1: This example describes the specified instance.**  
 
 ```
 (Get-EC2Instance -InstanceId i-12345678).Instances
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AmiLaunchIndex        : 0
@@ -981,8 +858,8 @@ Platform              : Windows
 PrivateDnsName        : ip-10-0-2-172.us-west-2.compute.internal
 PrivateIpAddress      : 10.0.2.172
 ProductCodes          : {}
-PublicDnsName         :
-PublicIpAddress       :
+PublicDnsName         : 
+PublicIpAddress       : 
 RamdiskId             :
 RootDeviceName        : /dev/sda1
 RootDeviceType        : ebs
@@ -998,15 +875,12 @@ Tags                  : {Name}
 VirtualizationType    : hvm
 VpcId                 : vpc-12345678
 ```
-
-**Example 2: This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.**
+**Example 2: This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.**  
 
 ```
 Get-EC2Instance
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupNames    : {}
@@ -1024,15 +898,12 @@ RequesterId   : 854251627541
 ReservationId : r-63e65bab
 ...
 ```
-
-**Example 3: This example illustrates using a filter to query for EC2 instances in a specific subnet of a VPC.**
+**Example 3: This example illustrates using a filter to query for EC2 instances in a specific subnet of a VPC.**  
 
 ```
 (Get-EC2Instance -Filter @{Name="vpc-id";Values="vpc-1a2bc34d"},@{Name="subnet-id";Values="subnet-1a2b3c4d"}).Instances
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
@@ -1040,8 +911,7 @@ InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress Secur
 i-01af...82cf180e19 t2.medium    Windows  10.0.0.98                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
 i-0374...7e9d5b0c45 t2.xlarge    Windows  10.0.0.53                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
 ```
-
-**Example 4: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped**
+**Example 4: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped**  
 
 ```
 $InstanceParams = @{
@@ -1051,10 +921,8 @@ $InstanceParams = @{
 }
 
 (Get-EC2Instance @InstanceParams).Instances
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
@@ -1066,8 +934,7 @@ i-066b...57b7b08888 t3.medium    Windows  10.0.1.11                        ...  
 i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
 i-0a68...274cc5043b t3.medium    Windows  10.0.1.6                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
 ```
-
-**Example 5: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped and using the Select-Object cmdlet for choosing specific values to output.**
+**Example 5: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped and using the Select-Object cmdlet for choosing specific values to output.**  
 
 ```
 $InstanceParams = @{
@@ -1086,10 +953,8 @@ $SelectParams = @{
 
 $result = Get-EC2Instance @InstanceParams
 $result.Instances | Select-Object @SelectParams | Format-Table -AutoSize
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          InstanceType Platform PrivateIpAddress Name         State
@@ -1101,21 +966,15 @@ i-066b...57b7b08888 t3.medium    Windows  10.0.1.11        ec2-name-04  stopped
 i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5         ec2-name-05  running
 i-0a68...274cc5043b t3.medium    Windows  10.0.1.6         ec2-name-06  stopped
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/powershell/v4/reference) in *AWS Tools for PowerShell Cmdlet Reference (V4)*. 
 
-- For API details, see
-  [DescribeInstances](../../../powershell/v4/reference.md "../../../powershell/v4/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V4)_.
-
-**Tools for PowerShell V5**
-
-**Example 1: This example describes the specified instance.**
+**Tools for PowerShell V5**  
+**Example 1: This example describes the specified instance.**  
 
 ```
 (Get-EC2Instance -InstanceId i-12345678).Instances
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 AmiLaunchIndex        : 0
@@ -1139,8 +998,8 @@ Platform              : Windows
 PrivateDnsName        : ip-10-0-2-172.us-west-2.compute.internal
 PrivateIpAddress      : 10.0.2.172
 ProductCodes          : {}
-PublicDnsName         :
-PublicIpAddress       :
+PublicDnsName         : 
+PublicIpAddress       : 
 RamdiskId             :
 RootDeviceName        : /dev/sda1
 RootDeviceType        : ebs
@@ -1156,15 +1015,12 @@ Tags                  : {Name}
 VirtualizationType    : hvm
 VpcId                 : vpc-12345678
 ```
-
-**Example 2: This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.**
+**Example 2: This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.**  
 
 ```
 Get-EC2Instance
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 GroupNames    : {}
@@ -1182,15 +1038,12 @@ RequesterId   : 854251627541
 ReservationId : r-63e65bab
 ...
 ```
-
-**Example 3: This example illustrates using a filter to query for EC2 instances in a specific subnet of a VPC.**
+**Example 3: This example illustrates using a filter to query for EC2 instances in a specific subnet of a VPC.**  
 
 ```
 (Get-EC2Instance -Filter @{Name="vpc-id";Values="vpc-1a2bc34d"},@{Name="subnet-id";Values="subnet-1a2b3c4d"}).Instances
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
@@ -1198,8 +1051,7 @@ InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress Secur
 i-01af...82cf180e19 t2.medium    Windows  10.0.0.98                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
 i-0374...7e9d5b0c45 t2.xlarge    Windows  10.0.0.53                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
 ```
-
-**Example 4: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped**
+**Example 4: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped**  
 
 ```
 $InstanceParams = @{
@@ -1209,10 +1061,8 @@ $InstanceParams = @{
 }
 
 (Get-EC2Instance @InstanceParams).Instances
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
@@ -1224,8 +1074,7 @@ i-066b...57b7b08888 t3.medium    Windows  10.0.1.11                        ...  
 i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
 i-0a68...274cc5043b t3.medium    Windows  10.0.1.6                         ...            subnet-1a2b3c4d vpc-1a2b3c4d
 ```
-
-**Example 5: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped and using the Select-Object cmdlet for choosing specific values to output.**
+**Example 5: This example illustrates using a filter with multiple values to query for EC2 instances that are both running and stopped and using the Select-Object cmdlet for choosing specific values to output.**  
 
 ```
 $InstanceParams = @{
@@ -1244,10 +1093,8 @@ $SelectParams = @{
 
 $result = Get-EC2Instance @InstanceParams
 $result.Instances | Select-Object @SelectParams | Format-Table -AutoSize
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 InstanceId          InstanceType Platform PrivateIpAddress Name         State
@@ -1259,33 +1106,23 @@ i-066b...57b7b08888 t3.medium    Windows  10.0.1.11        ec2-name-04  stopped
 i-0fee...82e83ccd72 t3.medium    Windows  10.0.1.5         ec2-name-05  running
 i-0a68...274cc5043b t3.medium    Windows  10.0.1.6         ec2-name-06  stopped
 ```
-
-**Example 6: This example validates permissions for getting EC2 instances using the DryRun parameter without actually fetching them. Note: This throws an exception if succeeded which is the expected behavior.**
+**Example 6: This example validates permissions for getting EC2 instances using the DryRun parameter without actually fetching them. Note: This throws an exception if succeeded which is the expected behavior.**  
 
 ```
 Get-EC2Tag -DryRun $true
-
 ```
-
-**Output:**
+**Output:**  
 
 ```
 Get-EC2Instance: Request would have succeeded, but DryRun flag is set.
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/powershell/v5/reference) in *AWS Tools for PowerShell Cmdlet Reference (V5)*. 
 
-- For API details, see
-  [DescribeInstances](../../../powershell/v5/reference.md "../../../powershell/v5/reference.md")
-  in _AWS Tools for PowerShell Cmdlet Reference (V5)_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/ec2#code-examples). 
 
 ```
 class EC2InstanceWrapper:
@@ -1364,27 +1201,16 @@ class EC2InstanceWrapper:
                     "Please verify the instance IDs and try again."
                 )
                 raise
+```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/goto/boto3/ec2-2016-11-15/DescribeInstances) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Ruby ]
 
+**SDK for Ruby**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples). 
 
 ```
-
-- For API details, see
-  [DescribeInstances](../../../goto/boto3/ec2-2016-11-15/DescribeInstances.md "../../../goto/boto3/ec2-2016-11-15/DescribeInstances.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Ruby
-
-**SDK for Ruby**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/ec2#code-examples").
-
-```
-
 require 'aws-sdk-ec2'
 
 # @param ec2_resource [Aws::EC2::Resource] An initialized EC2 resource object.
@@ -1426,25 +1252,15 @@ def run_me
 end
 
 run_me if $PROGRAM_NAME == __FILE__
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/goto/SdkForRubyV3/ec2-2016-11-15/DescribeInstances) in *AWS SDK for Ruby API Reference*. 
 
-- For API details, see
-  [DescribeInstances](../../../goto/SdkForRubyV3/ec2-2016-11-15/DescribeInstances.md "../../../goto/SdkForRubyV3/ec2-2016-11-15/DescribeInstances.md")
-  in _AWS SDK for Ruby API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples").
-
-Retrieve details for an EC2 Instance.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/ec2#code-examples). 
+Retrieve details for an EC2 Instance.  
 
 ```
     pub async fn describe_instance(&self, instance_id: &str) -> Result<Instance, EC2Error> {
@@ -1467,11 +1283,8 @@ Retrieve details for an EC2 Instance.
 
         Ok(instance.clone())
     }
-
-
 ```
-
-After creating an EC2 instance, retrieve and store its details.
+After creating an EC2 instance, retrieve and store its details.  
 
 ```
     /// Create an EC2 instance with the given ID on a given type, using a
@@ -1491,23 +1304,14 @@ After creating an EC2 instance, retrieve and store its details.
         self.instance = Some(instance);
         Ok(())
     }
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instances) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [DescribeInstances](https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instances "https://docs.rs/aws-sdk-ec2/latest/aws_sdk_ec2/client/struct.Client.html#method.describe_instances")
-  in _AWS SDK for Rust API reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples").
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/ec2#code-examples). 
 
 ```
     TRY.
@@ -1531,14 +1335,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         DATA(lv_error) = |"{ lo_exception->av_err_code }" - { lo_exception->av_err_msg }|.
         MESSAGE lv_error TYPE 'E'.
     ENDTRY.
-
-
 ```
++  For API details, see [DescribeInstances](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [DescribeInstances](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

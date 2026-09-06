@@ -1,22 +1,20 @@
+
+
 # Getting started with document databases
+<a name="example_docdb_GettingStarted_025_section"></a>
 
 The following code example shows how to:
++ Create a DB subnet group
++ Create a DocumentDB cluster
++ Create a DocumentDB instance
++ Configure security and connectivity
++ Clean up resources
 
-- Create a DB subnet group
-- Create a DocumentDB cluster
-- Create a DocumentDB instance
-- Configure security and connectivity
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/025-documentdb-gs "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/025-documentdb-gs")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/025-documentdb-gs) repository. 
 
 ```
 #!/bin/bash
@@ -467,20 +465,20 @@ if [ -z "$MY_IP" ] || echo "$MY_IP" | grep -iq "error\|could not\|failed"; then
 else
     # Trim whitespace
     MY_IP=$(echo "$MY_IP" | tr -d '[:space:]')
-
+    
     # Validate IP format (basic check)
     if ! echo "$MY_IP" | grep -qE '^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$'; then
         echo "WARNING: Invalid IP address format: $MY_IP. Skipping security group rule."
         MY_IP=""
     else
         echo "Your public IP: $MY_IP"
-
+        
         SG_RULE_OUTPUT=$(aws ec2 authorize-security-group-ingress \
             --group-id "$SG_ID" \
             --protocol tcp \
             --port "$DOCDB_PORT" \
             --cidr "${MY_IP}/32" 2>&1)
-
+        
         if echo "$SG_RULE_OUTPUT" | grep -iq "error"; then
             # Ignore if rule already exists
             if echo "$SG_RULE_OUTPUT" | grep -iq "Duplicate"; then
@@ -574,29 +572,26 @@ echo ""
 cleanup_resources
 
 echo "Done."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [AuthorizeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress)
+  + [CreateDbCluster](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/CreateDbCluster)
+  + [CreateDbInstance](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/CreateDbInstance)
+  + [CreateDbSubnetGroup](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/CreateDbSubnetGroup)
+  + [CreateDefaultVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateDefaultVpc)
+  + [CreateSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/CreateSecret)
+  + [DeleteDbCluster](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/DeleteDbCluster)
+  + [DeleteDbInstance](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/DeleteDbInstance)
+  + [DeleteDbSubnetGroup](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/DeleteDbSubnetGroup)
+  + [DeleteSecret](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret)
+  + [DescribeDbClusters](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/DescribeDbClusters)
+  + [DescribeDbInstances](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/DescribeDbInstances)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
+  + [GetSecretValue](https://docs.aws.amazon.com/goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue)
+  + [RevokeSecurityGroupIngress](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress)
+  + [Wait](https://docs.aws.amazon.com/goto/aws-cli/docdb-2014-10-31/Wait)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
-  - [CreateDbCluster](../../../goto/aws-cli/docdb-2014-10-31/CreateDbCluster.md "../../../goto/aws-cli/docdb-2014-10-31/CreateDbCluster.md")
-  - [CreateDbInstance](../../../goto/aws-cli/docdb-2014-10-31/CreateDbInstance.md "../../../goto/aws-cli/docdb-2014-10-31/CreateDbInstance.md")
-  - [CreateDbSubnetGroup](../../../goto/aws-cli/docdb-2014-10-31/CreateDbSubnetGroup.md "../../../goto/aws-cli/docdb-2014-10-31/CreateDbSubnetGroup.md")
-  - [CreateDefaultVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateDefaultVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateDefaultVpc.md")
-  - [CreateSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md")
-  - [DeleteDbCluster](../../../goto/aws-cli/docdb-2014-10-31/DeleteDbCluster.md "../../../goto/aws-cli/docdb-2014-10-31/DeleteDbCluster.md")
-  - [DeleteDbInstance](../../../goto/aws-cli/docdb-2014-10-31/DeleteDbInstance.md "../../../goto/aws-cli/docdb-2014-10-31/DeleteDbInstance.md")
-  - [DeleteDbSubnetGroup](../../../goto/aws-cli/docdb-2014-10-31/DeleteDbSubnetGroup.md "../../../goto/aws-cli/docdb-2014-10-31/DeleteDbSubnetGroup.md")
-  - [DeleteSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/DeleteSecret.md")
-  - [DescribeDbClusters](../../../goto/aws-cli/docdb-2014-10-31/DescribeDbClusters.md "../../../goto/aws-cli/docdb-2014-10-31/DescribeDbClusters.md")
-  - [DescribeDbInstances](../../../goto/aws-cli/docdb-2014-10-31/DescribeDbInstances.md "../../../goto/aws-cli/docdb-2014-10-31/DescribeDbInstances.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-  - [GetSecretValue](../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md "../../../goto/aws-cli/secretsmanager-2017-10-17/GetSecretValue.md")
-  - [RevokeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/RevokeSecurityGroupIngress.md")
-  - [Wait](../../../goto/aws-cli/docdb-2014-10-31/Wait.md "../../../goto/aws-cli/docdb-2014-10-31/Wait.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,22 +1,20 @@
+
+
 # Getting started with network transit gateways
+<a name="example_vpc_TransitGatewayGettingStarted_section"></a>
 
 The following code example shows how to:
++ Create a transit gateway
++ Attach your VPCs to your transit gateway
++ Add routes between the transit gateway and your VPCs
++ Test the transit gateway
++ Clean up resources
 
-- Create a transit gateway
-- Attach your VPCs to your transit gateway
-- Add routes between the transit gateway and your VPCs
-- Test the transit gateway
-- Clean up resources
+------
+#### [ Bash ]
 
-Bash
-
-**AWS CLI with Bash script**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/012-transitgateway-gettingstarted "https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/012-transitgateway-gettingstarted")
-repository.
+**AWS CLI with Bash script**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [Sample developer tutorials](https://github.com/aws-samples/sample-developer-tutorials/tree/main/tuts/012-transitgateway-gettingstarted) repository. 
 
 ```
 #!/bin/bash
@@ -41,7 +39,7 @@ fi
 validate_aws_output() {
   local output=$1
   local context=$2
-
+  
   if [ -z "$output" ] || [ "$output" = "None" ]; then
     echo "ERROR: Failed to retrieve $context from AWS API"
     return 1
@@ -62,32 +60,32 @@ wait_for_tgw() {
   local tgw_id=$1
   local max_attempts=60
   local attempt=0
-
+  
   echo "Waiting for Transit Gateway $tgw_id to become available..."
-
+  
   while [ $attempt -lt $max_attempts ]; do
     status=$(aws ec2 describe-transit-gateways \
       --transit-gateway-ids "$tgw_id" \
       --query "TransitGateways[0].State" \
       --output text 2>/dev/null || echo "failed")
-
+    
     echo "Current status: $status"
-
+    
     if [ "$status" = "available" ]; then
       echo "Transit Gateway is now available"
       return 0
     fi
-
+    
     if [ "$status" = "failed" ]; then
       echo "ERROR: Transit Gateway creation failed"
       return 1
     fi
-
+    
     echo "Waiting for transit gateway to become available. Current state: $status"
     sleep 10
     ((attempt++))
   done
-
+  
   echo "ERROR: Timeout waiting for transit gateway to become available"
   return 1
 }
@@ -97,32 +95,32 @@ wait_for_tgw_attachment() {
   local attachment_id=$1
   local max_attempts=60
   local attempt=0
-
+  
   echo "Waiting for Transit Gateway Attachment $attachment_id to become available..."
-
+  
   while [ $attempt -lt $max_attempts ]; do
     status=$(aws ec2 describe-transit-gateway-vpc-attachments \
       --transit-gateway-attachment-ids "$attachment_id" \
       --query "TransitGatewayVpcAttachments[0].State" \
       --output text 2>/dev/null || echo "failed")
-
+    
     echo "Current status: $status"
-
+    
     if [ "$status" = "available" ]; then
       echo "Transit Gateway Attachment is now available"
       return 0
     fi
-
+    
     if [ "$status" = "failed" ]; then
       echo "ERROR: Transit Gateway Attachment creation failed"
       return 1
     fi
-
+    
     echo "Waiting for transit gateway attachment to become available. Current state: $status"
     sleep 10
     ((attempt++))
   done
-
+  
   echo "ERROR: Timeout waiting for transit gateway attachment to become available"
   return 1
 }
@@ -132,34 +130,34 @@ wait_for_tgw_attachment_deleted() {
   local attachment_id=$1
   local max_attempts=60
   local attempt=0
-
+  
   echo "Waiting for Transit Gateway Attachment $attachment_id to be deleted..."
-
+  
   while [ $attempt -lt $max_attempts ]; do
     count=$(aws ec2 describe-transit-gateway-vpc-attachments \
       --filters "Name=transit-gateway-attachment-id,Values=$attachment_id" \
       --query "length(TransitGatewayVpcAttachments)" \
       --output text 2>/dev/null || echo "0")
-
+    
     if [ "$count" = "0" ]; then
       echo "Transit Gateway Attachment has been deleted"
       return 0
     fi
-
+    
     status=$(aws ec2 describe-transit-gateway-vpc-attachments \
       --transit-gateway-attachment-ids "$attachment_id" \
       --query "TransitGatewayVpcAttachments[0].State" \
       --output text 2>/dev/null || echo "deleted")
-
+    
     if [ "$status" = "deleted" ] || [ "$status" = "deleting" ]; then
       echo "Transit Gateway Attachment is being deleted. Current state: $status"
     fi
-
+    
     echo "Waiting for transit gateway attachment to be deleted. Current state: $status"
     sleep 10
     ((attempt++))
   done
-
+  
   echo "WARNING: Timeout waiting for transit gateway attachment to be deleted"
   return 0
 }
@@ -168,7 +166,7 @@ wait_for_tgw_attachment_deleted() {
 cleanup() {
   local exit_code=$?
   echo "Error occurred (exit code: $exit_code). Cleaning up resources..."
-
+  
   # Delete resources in reverse order
   if [ -n "${TGW_ATTACHMENT_1_ID:-}" ]; then
     echo "Deleting Transit Gateway VPC Attachment 1: $TGW_ATTACHMENT_1_ID"
@@ -176,19 +174,19 @@ cleanup() {
       --transit-gateway-attachment-id "$TGW_ATTACHMENT_1_ID" &>/dev/null || true
     wait_for_tgw_attachment_deleted "$TGW_ATTACHMENT_1_ID" || true
   fi
-
+  
   if [ -n "${TGW_ATTACHMENT_2_ID:-}" ]; then
     echo "Deleting Transit Gateway VPC Attachment 2: $TGW_ATTACHMENT_2_ID"
     aws ec2 delete-transit-gateway-vpc-attachment \
       --transit-gateway-attachment-id "$TGW_ATTACHMENT_2_ID" &>/dev/null || true
     wait_for_tgw_attachment_deleted "$TGW_ATTACHMENT_2_ID" || true
   fi
-
+  
   if [ -n "${TGW_ID:-}" ]; then
     echo "Deleting Transit Gateway: $TGW_ID"
     aws ec2 delete-transit-gateway --transit-gateway-id "$TGW_ID" &>/dev/null || true
   fi
-
+  
   exit "$exit_code"
 }
 
@@ -227,7 +225,7 @@ if [ "$VPC1_ID" = "None" ] || [ -z "$VPC1_ID" ]; then
     --output text)
   validate_aws_output "$VPC1_ID" "VPC1" || exit 1
   echo "Created VPC1: $VPC1_ID"
-
+  
   # Create a subnet in VPC1
   echo "Creating subnet in VPC1..."
   SUBNET1_ID=$(aws ec2 create-subnet \
@@ -270,7 +268,7 @@ if [ "$VPC2_ID" = "None" ] || [ -z "$VPC2_ID" ]; then
     --output text)
   validate_aws_output "$VPC2_ID" "VPC2" || exit 1
   echo "Created VPC2: $VPC2_ID"
-
+  
   # Create a subnet in VPC2
   echo "Creating subnet in VPC2..."
   SUBNET2_ID=$(aws ec2 create-subnet \
@@ -431,27 +429,24 @@ aws ec2 delete-transit-gateway --transit-gateway-id "$TGW_ID" || true
 echo "Cleanup completed successfully"
 
 echo "Tutorial completed. See $LOG_FILE for detailed logs."
-
 ```
++ For API details, see the following topics in *AWS CLI Command Reference*.
+  + [CreateRoute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateRoute)
+  + [CreateSubnet](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateSubnet)
+  + [CreateTransitGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateTransitGateway)
+  + [CreateTransitGatewayVpcAttachment](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateTransitGatewayVpcAttachment)
+  + [CreateVpc](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/CreateVpc)
+  + [DeleteRoute](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteRoute)
+  + [DeleteTransitGateway](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteTransitGateway)
+  + [DeleteTransitGatewayVpcAttachment](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DeleteTransitGatewayVpcAttachment)
+  + [DescribeAvailabilityZones](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones)
+  + [DescribeRouteTables](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeRouteTables)
+  + [DescribeSubnets](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeSubnets)
+  + [DescribeTransitGatewayAttachments](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeTransitGatewayAttachments)
+  + [DescribeTransitGatewayVpcAttachments](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeTransitGatewayVpcAttachments)
+  + [DescribeTransitGateways](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeTransitGateways)
+  + [DescribeVpcs](https://docs.aws.amazon.com/goto/aws-cli/ec2-2016-11-15/DescribeVpcs)
 
-- For API details, see the following topics in _AWS CLI Command Reference_.
+------
 
-  - [CreateRoute](../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md "../../../goto/aws-cli/ec2-2016-11-15/CreateRoute.md")
-  - [CreateSubnet](../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md "../../../goto/aws-cli/ec2-2016-11-15/CreateSubnet.md")
-  - [CreateTransitGateway](../../../goto/aws-cli/ec2-2016-11-15/CreateTransitGateway.md "../../../goto/aws-cli/ec2-2016-11-15/CreateTransitGateway.md")
-  - [CreateTransitGatewayVpcAttachment](../../../goto/aws-cli/ec2-2016-11-15/CreateTransitGatewayVpcAttachment.md "../../../goto/aws-cli/ec2-2016-11-15/CreateTransitGatewayVpcAttachment.md")
-  - [CreateVpc](../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md "../../../goto/aws-cli/ec2-2016-11-15/CreateVpc.md")
-  - [DeleteRoute](../../../goto/aws-cli/ec2-2016-11-15/DeleteRoute.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteRoute.md")
-  - [DeleteTransitGateway](../../../goto/aws-cli/ec2-2016-11-15/DeleteTransitGateway.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteTransitGateway.md")
-  - [DeleteTransitGatewayVpcAttachment](../../../goto/aws-cli/ec2-2016-11-15/DeleteTransitGatewayVpcAttachment.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteTransitGatewayVpcAttachment.md")
-  - [DescribeAvailabilityZones](../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeAvailabilityZones.md")
-  - [DescribeRouteTables](../../../goto/aws-cli/ec2-2016-11-15/DescribeRouteTables.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeRouteTables.md")
-  - [DescribeSubnets](../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeSubnets.md")
-  - [DescribeTransitGatewayAttachments](../../../goto/aws-cli/ec2-2016-11-15/DescribeTransitGatewayAttachments.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeTransitGatewayAttachments.md")
-  - [DescribeTransitGatewayVpcAttachments](../../../goto/aws-cli/ec2-2016-11-15/DescribeTransitGatewayVpcAttachments.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeTransitGatewayVpcAttachments.md")
-  - [DescribeTransitGateways](../../../goto/aws-cli/ec2-2016-11-15/DescribeTransitGateways.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeTransitGateways.md")
-  - [DescribeVpcs](../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md "../../../goto/aws-cli/ec2-2016-11-15/DescribeVpcs.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
