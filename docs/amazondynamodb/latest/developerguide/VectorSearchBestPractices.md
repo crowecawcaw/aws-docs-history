@@ -60,9 +60,13 @@ With this item size, the per-partition-key limits translate to:
 - **Search:** 1 GBps ÷ 4 KB ≈ 250,000
   vectors examined per second per partition key value. As the number of
   vectors in a partition grows, each search examines more data and you
-  will approach this limit sooner.
+  approach this limit sooner.
 - **Write:** 10 MBps ÷ 4 KB ≈ 2,500 vector
   writes per second per partition key value
+
+The growth is logarithmic rather than proportional. An order of magnitude more
+vectors in a partition adds only a small amount to the data each search
+examines.
 
 Spreading your data across more partition key values multiplies these limits.
 For example, 50 partition key values provide up to 50× the aggregate search and

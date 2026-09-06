@@ -21,7 +21,14 @@ within the PITR recovery window.
 2. Drive a bulk job off the Amazon S3 data to reverse the changes listed in the export by writing
    the old item value back. Optionally apply a transformation to control exactly what gets undone
    and how (such as to correct minor mistakes on the items).
-   This approach provides the following advantages:
+   To drive this bulk job, you can use the open-source Bulk Executor for
+   DynamoDB. For more information about the tool, see [Introducing open source Bulk Executor for Amazon DynamoDB](https://aws.amazon.com/blogs/database/introducing-open-source-bulk-executor-for-amazon-dynamodb/ "https://aws.amazon.com/blogs/database/introducing-open-source-bulk-executor-for-amazon-dynamodb/") on the AWS
+   Database Blog. For a step-by-step example of rolling back unwanted writes with this approach,
+   see [Recover from accidental DynamoDB changes using Bulk Executor](https://aws.amazon.com/blogs/database/recover-from-accidental-dynamodb-changes-using-bulk-executor/ "https://aws.amazon.com/blogs/database/recover-from-accidental-dynamodb-changes-using-bulk-executor/") on the
+   AWS Database Blog. Bulk Executor is open source and does not include any
+   official support.
+
+This approach provides the following advantages:
 
 - More cost effective, especially for large tables. Instead of restoring a full table to
   undo a small number of mistaken writes, you focus on just the mistakes.

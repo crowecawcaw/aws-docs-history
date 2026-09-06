@@ -365,7 +365,9 @@ view type as **New and Old images**.
 
 {
    "Metadata": {
-     "WriteTimestampMicros": "1680109764000000"
+     "WriteTimestampMicros": {
+       "N": "1680109764000000"
+     }
    },
    "Keys": {
      "PK": {
@@ -392,7 +394,9 @@ view type as **New and Old images**.
 
 {
    "Metadata": {
-     "WriteTimestampMicros": "1680109764000000"
+     "WriteTimestampMicros": {
+       "N": "1680109764000000"
+     }
    },
    "Keys": {
      "PK": {
@@ -430,7 +434,9 @@ view type as **New and Old images**.
 
 {
    "Metadata": {
-     "WriteTimestampMicros": "1680109764000000"
+     "WriteTimestampMicros": {
+       "N": "1680109764000000"
+     }
    },
    "Keys": {
      "PK": {

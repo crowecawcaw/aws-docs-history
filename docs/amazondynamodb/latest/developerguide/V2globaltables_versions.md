@@ -197,7 +197,7 @@ version 2019.11.21 (Current).
 
 ```
 {
-    "version": "2012-10-17",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -214,7 +214,7 @@ The following IAM policy grants permissions to upgrade only the
 
 ```
 {
-    "version": "2012-10-17",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",

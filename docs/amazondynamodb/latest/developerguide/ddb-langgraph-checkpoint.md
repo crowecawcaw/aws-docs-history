@@ -12,6 +12,11 @@ The `langgraph-checkpoint-aws` package provides a `DynamoDBSaver`
 class that implements the LangGraph checkpoint interface, enabling you to persist agent state
 in DynamoDB with optional Amazon Simple Storage Service offloading for large checkpoints.
 
+The same package also provides a
+`DynamoDBStore` class that implements the LangGraph store interface for
+long-term, cross-thread agent memory, with semantic search backed by DynamoDB vector indexes.
+For more information, see [Semantic long-term memory for LangGraph agents](ddb-langgraph-memory.md "ddb-langgraph-memory.md"). This topic covers the checkpoint saver.
+
 ## Key features
 
 State persistence
@@ -46,13 +51,6 @@ application architectures.
   buckets)
 - AWS credentials configured (see the AWS documentation for credential
   setup options)
-
-###### Important
-
-This guide creates AWS resources that might incur charges. DynamoDB uses
-pay-per-request billing by default, and Amazon S3 charges apply if you enable large
-checkpoint offloading. Follow the [Clean
-up](#langgraph-cleanup "#langgraph-cleanup") section to delete resources when you are done.
 
 ## Installation
 
@@ -269,22 +267,6 @@ async def main():
     return result
 
 asyncio.run(main())
-```
-
-## Clean up
-
-To avoid ongoing charges, delete the resources you created:
-
-```
-# Delete the DynamoDB table
-aws dynamodb delete-table --table-name langgraph-checkpoints
-
-# Delete the CloudFormation stack (if you used the template above)
-aws cloudformation delete-stack --stack-name langgraph-checkpoint
-
-# If you created an S3 bucket for large checkpoint offloading, empty and delete it
-aws s3 rm s3://my-checkpoint-bucket --recursive
-aws s3 rb s3://my-checkpoint-bucket
 ```
 
 ## Error handling

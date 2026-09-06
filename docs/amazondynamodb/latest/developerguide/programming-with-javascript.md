@@ -449,15 +449,15 @@ response after a request has been sent, also in milliseconds. The defaults for b
 are zero, meaning the timeout is disabled and there's no limit on how long the
 client will wait if the response does not arrive. You should set the timeouts to
 something reasonable so in the event of a network issue the request will error out
-and a new request can be initiated. For example:
+and the client can initiate a new request. For example, 10 seconds:
 
 ```
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 
 const requestHandler = new NodeHttpHandler({
-  connectionTimeout: 2000,
-  requestTimeout: 2000,
+  connectionTimeout: 10000,
+  requestTimeout: 10000,
 });
 
 const client = new DynamoDBClient({
@@ -473,7 +473,9 @@ open-source and maintained by AWS.
 
 In addition to configuring timeout values, you can set the maximum number of
 sockets, which allows for an increased number of concurrent connections per origin.
-The developer guide includes [details on configuring the `maxSockets` parameter](../../../sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.md "../../../sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.md").
+The developer guide includes [details on configuring the `maxSockets` parameter](../../../sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.md "../../../sdk-for-javascript/v3/developer-guide/node-configuring-maxsockets.md"). Consider
+raising this when your application's concurrency (the number of simultaneous requests
+in flight) regularly approaches or exceeds 50.
 
 ### Config for keep-alive
 
@@ -544,6 +546,11 @@ const client = new DynamoDBClient({
 
 ```
 
+For information about upcoming changes to the default retry behavior across all
+AWS SDKs, see [Announcing updated retry behavior for AWS SDKs and Tools](https://aws.amazon.com/blogs/developer/announcing-updated-retry-behavior-for-aws-sdks-and-tools/ "https://aws.amazon.com/blogs/developer/announcing-updated-retry-behavior-for-aws-sdks-and-tools/") on the AWS
+Developer Tools Blog. For the exact details for JavaScript v3, see the [JavaScript v3 retry
+behavior update (issue #8037)](https://github.com/aws/aws-sdk-js-v3/issues/8037 "https://github.com/aws/aws-sdk-js-v3/issues/8037") on the GitHub website.
+
 ## Waiters
 
 The DynamoDB client includes two useful [waiter functions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/wait/index.html#cli-aws-dynamodb-wait "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/dynamodb/wait/index.html#cli-aws-dynamodb-wait") that can be used when creating, modifying, or deleting
@@ -597,7 +604,7 @@ was returned.
 
 ```
 import {
-  ResourceNotFoundException
+  ResourceNotFoundException,
   ProvisionedThroughputExceededException,
   DynamoDBServiceException,
 } from "@aws-sdk/client-dynamodb";
@@ -719,7 +726,7 @@ CommonJS uses the `require` function, while ES uses the
 1. **Common JS** – `const {
  DynamoDBClient, PutItemCommand } =
  require("@aws-sdk/client-dynamodb");`
-2. **ES (ECMAScript**
+2. **ES (ECMAScript)**
    –
    `import { DynamoDBClient, PutItemCommand }
  from
@@ -755,5 +762,5 @@ documentation.
 
 **DAX data plane operations**
 
-The Amazon DynamoDB Streams Accelerator (DAX) data plane operations are supported by the
-SDK for JavaScript V3.
+The SDK for JavaScript V3 supports Amazon DynamoDB Accelerator (DAX) data plane
+operations.

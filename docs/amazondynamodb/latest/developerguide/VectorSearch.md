@@ -304,11 +304,11 @@ delay applies locally as well as across Regions.
 
 ###### On-demand capacity required
 
-Vector indexes use on-demand capacity mode only and are supported
-only on tables that also use on-demand capacity mode; the two capacity
-modes cannot be mixed. Global tables support on-demand capacity mode.
-Create the vector index and the replica on a table that already uses
-on-demand capacity.
+Vector indexes use on-demand capacity mode only, and they require a
+table that also uses on-demand capacity mode. You cannot mix the two
+capacity modes. Global tables support on-demand capacity mode. Create the
+vector index and the replica on a table that already uses on-demand
+capacity.
 
 Point-in-time recovery (PITR) and backups
 

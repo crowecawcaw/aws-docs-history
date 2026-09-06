@@ -107,14 +107,20 @@ provisioning of your Kinesis data stream capacity, and make sure that DynamoDB�
 permissions are unchanged.
 
 - `FailedToReplicateRecordCount`: The number of records that DynamoDB
-  failed to replicate to your Kinesis data stream. Certain items larger than 34 KB
-  might expand in size to change data records that are larger than the 1 MB item
-  size limit of Kinesis Data Streams. This size expansion occurs when these larger than 34 KB
-  items include a large number of Boolean or empty attribute values. Boolean and
-  empty attribute values are stored as 1 byte in DynamoDB, but expand up to 5 bytes
-  when they’re serialized using standard JSON for Kinesis Data Streams replication. DynamoDB can’t
-  replicate such change records to your Kinesis data stream. DynamoDB skips these change
-  data records, and automatically continues replicating subsequent records.
+  failed to replicate to your Kinesis data stream. DynamoDB can't replicate change data
+  records that are larger than the maximum record size of your Kinesis data stream.
+  The maximum record size is 1 MB by default, and you can increase it to up to 10
+  MB. For more information, see [Quotas and
+  limits](../../../streams/latest/dev/service-sizes-and-limits.md "../../../streams/latest/dev/service-sizes-and-limits.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+
+Change data records can be larger than the items they describe. Update
+operations replicate both the old and new images of the item, which roughly
+doubles the record size. Boolean and empty attribute values are stored as 1 byte
+in DynamoDB, but expand up to 5 bytes when they're serialized using standard JSON
+for Kinesis Data Streams replication. For example, certain items larger than 34 KB might expand
+into change data records larger than the default 1 MB maximum record size. DynamoDB
+skips change data records that exceed your stream's maximum record size, and
+automatically continues replicating subsequent records.
 
 You can create Amazon CloudWatch alarms that send an Amazon Simple Notification Service (Amazon SNS) message for notification
 when any of the preceding metrics exceed a specific threshold.

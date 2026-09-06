@@ -61,7 +61,14 @@ index cost:
   the index and the amount of data returned. Restricting a search to a single
   partition key value reduces the amount of data examined. Returning the vector
   attribute in results increases cost further because the response includes the
-  full vector data.
+  full vector data. Search cost does not rise in proportion to the number of
+  items in the index. If the number of dimensions, the `TopK` value,
+  and the projection stay the same, the data a search examines grows
+  logarithmically as you add items.
+  This happens because an approximate nearest neighbor search traverses a small
+  subset of the index rather than reading every vector. Doubling the number of
+  items in an index adds a small, constant amount to the data each search
+  examines.
 - **Write cost**
   (`VectorWriteRequestBytes`) is incurred each time you write, update,
   or delete an item that changes a vector-indexed attribute, and scales with the
@@ -96,7 +103,16 @@ data and is still metered at the 1 KB minimum.
 Above the minimum, `VectorSearchRequestBytes` reflects the vector
 data the search examines within the index, not the size of the query vector you
 supply. As a result, `VectorSearchRequestBytes` is larger than the
-query vector alone. Do not estimate vector index cost from dimension count. Use
+query vector alone.
+
+Search cost grows logarithmically, as explained earlier, but that
+relationship is not a formula for estimating your bill.
+`VectorSearchRequestBytes` also includes the data the search returns.
+That data scales with `TopK` and with the attributes you project.
+The metric is also floored at the 1 KB per-request minimum. At a high
+`TopK` with a full projection, returned data can exceed examined data.
+
+Do not estimate vector index cost from dimension count. Use
 the `VectorSearchRequestBytes` and
 `VectorWriteRequestBytes` values returned by your own workload, or the
 corresponding CloudWatch metrics. Validate against a representative dataset before

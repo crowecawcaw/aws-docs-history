@@ -11,12 +11,18 @@ For more information about gen AI and the solutions AWS provides to build gen AI
 applications, see [Transform your business
 with generative AI](https://aws.amazon.com/ai/generative-ai/ "https://aws.amazon.com/ai/generative-ai/").
 
+DynamoDB also provides native vector search through
+vector indexes, so you can store vector embeddings alongside your operational data and run
+similarity searches with the `SearchVectors` API, without a separate vector
+database. For more information, see [Using vector indexes in DynamoDB](VectorSearch.md "VectorSearch.md").
+
 ###### Topics
 
 - [Generative AI use cases for DynamoDB](#gen-ai-use-case-ddb "#gen-ai-use-case-ddb")
+- [Vector search for RAG and agent memory](#gen-ai-vector-search "#gen-ai-vector-search")
+- [AI framework connectors for DynamoDB](gen-ai-framework-connectors.md "gen-ai-framework-connectors.md")
 - [Generative AI blogs for DynamoDB](#gen-ai-blogs "#gen-ai-blogs")
 - [Leveraging DynamoDB Zero-ETL integration with OpenSearch Service](ddb-and-amazon-bedrock.md "ddb-and-amazon-bedrock.md")
-- [Using DynamoDB as a checkpoint store for LangGraph agents](ddb-langgraph-checkpoint.md "ddb-langgraph-checkpoint.md")
 
 ## Generative AI use cases for DynamoDB
 
@@ -27,9 +33,9 @@ and enhance the user experience across three data patterns: application data, bu
 data, and user data. Some examples of these data patterns are as follows:
 
 - Storage of application data, such as chat message history, through
-  integrations with [LangChain](https://js.langchain.com/v0.1/docs/integrations/chat_memory/dynamodb/ "https://js.langchain.com/v0.1/docs/integrations/chat_memory/dynamodb/"), [LlamaIndex](https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/ "https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/"), or a custom code. This context enhances the user
+  integrations with [LangChain](https://reference.langchain.com/python/langchain-community/chat_message_histories/dynamodb/DynamoDBChatMessageHistory "https://reference.langchain.com/python/langchain-community/chat_message_histories/dynamodb/DynamoDBChatMessageHistory"), [LlamaIndex](https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/ "https://developers.llamaindex.ai/python/examples/docstore/dynamodbdocstoredemo/"), or a custom code. This context enhances the user
   experience by allowing the model to _converse_ back and forth
-  with the user.
+  with the user. For more DynamoDB integrations with agentic AI frameworks, see [AI framework connectors for DynamoDB](gen-ai-framework-connectors.md "gen-ai-framework-connectors.md").
 - Creation of a customized user experience by leveraging business data, such as
   inventory, pricing, and documentation.
 - Application of user data, such as web history, past orders, and user
@@ -49,6 +55,28 @@ agents](https://aws.amazon.com/bedrock/agents/ "https://aws.amazon.com/bedrock/a
 open-source earnings reports and call transcripts. They can also use user-specific
 portfolio and transaction history to generate an on-demand summary of portfolio
 including an outlook for the future.
+
+## Vector search for RAG and agent memory
+
+Generative AI applications retrieve context by meaning: a RAG application finds the
+documents most relevant to a prompt, and an AI agent recalls memories similar to the
+current conversation. Vector indexes bring this capability natively to DynamoDB. You store
+vector embeddings as attributes on your table items, and the `SearchVectors`
+API returns the items most similar to a query vector, ranked by similarity score. The
+data an application writes is the data it searches, so there is no separate vector
+database to provision and no replication pipeline to manage.
+
+You can also define a partition key in a vector index's search schema. Each
+similarity search is then scoped to a single partition key value, such as a tenant ID,
+user ID, or agent session ID. This makes vector indexes a natural fit for multi-tenant
+RAG and per-user agent memory.
+
+To get started with vector indexes, see the following topics:
+
+- [Using vector indexes in DynamoDB](VectorSearch.md "VectorSearch.md")
+- [Tutorial: Your first vector search](VectorSearchTutorial.md "VectorSearchTutorial.md")
+- [Creating and searching vector indexes](VectorSearchWorkingWith.md "VectorSearchWorkingWith.md")
+- [Best practices for vector indexes](VectorSearchBestPractices.md "VectorSearchBestPractices.md")
 
 ## Generative AI blogs for DynamoDB
 

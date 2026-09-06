@@ -1,9 +1,11 @@
 # Leveraging DynamoDB Zero-ETL integration with OpenSearch Service
 
 You can use Amazon Bedrock with DynamoDB to provide serverless access to [foundational models (FMs)](https://aws.amazon.com/what-is/foundation-models/ "https://aws.amazon.com/what-is/foundation-models/"), such as Amazon
-Titan and other third-party models. You can leverage the Zero-ETL integration with
-Amazon OpenSearch Service to enable vector search capabilities when building generative AI applications.
-The [Generative AI with DynamoDB zero-ETL to OpenSearch integration and Amazon Bedrock](https://catalog.workshops.aws/dynamodb-labs/en-US/dynamodb-opensearch-zetl "https://catalog.workshops.aws/dynamodb-labs/en-US/dynamodb-opensearch-zetl")
+Titan and other third-party models. For
+vector search on data in DynamoDB, you can use native vector indexes (see [Using vector indexes in DynamoDB](VectorSearch.md "VectorSearch.md")). If you also want
+full-text search, analytics, or hybrid search capabilities alongside vector search,
+you can leverage the
+Zero-ETL integration with Amazon OpenSearch Service when building generative AI applications. The [Generative AI with DynamoDB zero-ETL to OpenSearch integration and Amazon Bedrock](https://catalog.workshops.aws/dynamodb-labs/en-US/dynamodb-opensearch-zetl "https://catalog.workshops.aws/dynamodb-labs/en-US/dynamodb-opensearch-zetl")
 workshop provides you hands-on experience in setting up DynamoDB Zero-ETL integration with
 OpenSearch. This workshop does the following tasks:
 
