@@ -1,19 +1,17 @@
+
+
 # Hello Amazon Bedrock Agents
+<a name="bedrock-agent_example_bedrock-agent_Hello_section"></a>
 
 The following code example shows how to get started using Amazon Bedrock Agents.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples). 
 
 ```
-
 import { fileURLToPath } from "node:url";
 
 import {
@@ -84,15 +82,11 @@ export const main = async () => {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await main();
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [GetAgent](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/GetAgentCommand)
+  + [ListAgents](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/ListAgentsCommand)
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
 
-  - [GetAgent](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/GetAgentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/GetAgentCommand.md")
-  - [ListAgents](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/ListAgentsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/ListAgentsCommand.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

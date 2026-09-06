@@ -1,34 +1,38 @@
+
+
 # View and interpret results
+<a name="advanced-prompt-optimization-results"></a>
 
 ## Output location
+<a name="advanced-prompt-optimization-results-location"></a>
 
 After a job completes, results are written to your output S3 path:
 
-``output-s3-uri`/`job-id`/advanced_prompt_optimization_results.jsonl`
+`{{output-s3-uri}}/{{job-id}}/advanced_prompt_optimization_results.jsonl`
 
 The job ID is the last segment of the job ARN.
 
 ## Console results page
+<a name="advanced-prompt-optimization-results-console"></a>
 
-###### Warning
-
+**Warning**  
 If you move the results files away from the output S3 location after the job is complete, the console results page will not render.
 
 ## Output format
+<a name="advanced-prompt-optimization-results-format"></a>
 
 The output file is JSONL with per-template results. Each line contains:
-
-- `promptTemplateId`: correlates to your input templateId
-- `promptOptimizationResults`: array with one entry per target model, each containing:
-
-  - `modelId`: the target model
-  - `status`: optimization status for this model
-  - `optimizedPromptTemplate`: the rewritten prompt template
-  - Evaluation scores per sample
-  - Latency (time to first token, or TTFT)
-  - Cost estimates
++ `promptTemplateId`: correlates to your input templateId
++ `promptOptimizationResults`: array with one entry per target model, each containing:
+  + `modelId`: the target model
+  + `status`: optimization status for this model
+  + `optimizedPromptTemplate`: the rewritten prompt template
+  + Evaluation scores per sample
+  + Latency (time to first token, or TTFT)
+  + Cost estimates
 
 ## Reading results programmatically
+<a name="advanced-prompt-optimization-results-code"></a>
 
 ```
 import boto3
@@ -53,6 +57,7 @@ for line in content.strip().split('\n'):
 ```
 
 ## Interpreting scores
+<a name="advanced-prompt-optimization-results-scores"></a>
 
 Scores are normalized; higher is better. The service normalizes all evaluation scores regardless of the original grading scale you defined in your evaluation method.
 

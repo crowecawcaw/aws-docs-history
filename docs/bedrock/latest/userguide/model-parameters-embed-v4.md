@@ -1,24 +1,29 @@
+
+
 # Cohere Embed v4
+<a name="model-parameters-embed-v4"></a>
 
 Cohere Embed v4 is a multimodal embedding model that supports both text and image inputs. It can process interleaved text and image content, making it ideal for document understanding, visual search, and multimodal retrieval applications. The model supports various embedding types including float, int8, uint8, binary, and ubinary formats, with configurable output dimensions from 256 to 1536.
 
 The model ID for Cohere Embed v4 is `cohere.embed-v4`.
 
-###### Additional usage notes
+**Additional usage notes**  
 
-- **Context length:** Up to ~128k tokens per document; for RAG, smaller chunks often improve retrieval and cost.
-- **Image sizing:** Images > 2,458,624 pixels are downsampled to that size; images < 3,136 pixels are upsampled.
-- **Interleaved inputs:** Prefer inputs.content[] for page-like multimodal content so text context (e.g., filename, entities) travels with the image.
++ **Context length:** Up to \~128k tokens per document; for RAG, smaller chunks often improve retrieval and cost.
++ **Image sizing:** Images > 2,458,624 pixels are downsampled to that size; images < 3,136 pixels are upsampled.
++ **Interleaved inputs:** Prefer inputs.content[] for page-like multimodal content so text context (e.g., filename, entities) travels with the image.
 
-###### Topics
-
-- [Request and Response](#model-parameters-embed-v4-request-response "#model-parameters-embed-v4-request-response")
-- [Request and response for different input\_types](#api-inference-examples-cohere-embed-v4 "#api-inference-examples-cohere-embed-v4")
-- [Code Examples](#code-examples-cohere-embed-v4 "#code-examples-cohere-embed-v4")
+**Topics**
++ [Request and Response](#model-parameters-embed-v4-request-response)
++ [Request and response for different input\_types](#api-inference-examples-cohere-embed-v4)
++ [Code Examples](#code-examples-cohere-embed-v4)
 
 ## Request and Response
+<a name="model-parameters-embed-v4-request-response"></a>
 
-Request
+------
+#### [ Request ]
+
 Content type: application/json
 
 ```
@@ -40,33 +45,30 @@ Content type: application/json
 }
 ```
 
-###### Parameters
+**Parameters**  
 
-- **input\_type** (required) – Adds special tokens to distinguish use cases.
-  Allowed: `search_document`, `search_query`, `classification`, `clustering`. For search/RAG, embed your corpus with `search_document` and queries with `search_query`.
-- **texts** (optional) – Array of strings to embed. Max 96 per call. If you use `texts`, don't send `images` in the same call.
-- **images** (optional) – Array of data-URI base64 images to embed. Max 96 per call. Don't send `texts` and `images` together. (Use `inputs` for interleaved.)
-- **inputs** (optional; mixed/fused modality) – A list where each item has a content list of parts.
-  Each part is `{ "type": "text", "text": ... }` or `{ "type": "image_url", "image_url": {"url": "data:<mime>;base64,..."} }`. Send interleaved page-like content here (e.g., PDF page image + caption/metadata). Max 96 items.
-- **embedding\_types** (optional) – One or more of: `float`, `int8`, `uint8`, `binary`, `ubinary`. If omitted, returns float embeddings.
-- **output\_dimension** (optional) – Select vector length. Allowed: `256`, `512`, `1024`, `1536` (default `1536` if unspecified).
-- **max\_tokens** (optional) – Truncation budget per input document. The model supports up to ~128,000 tokens per document; chunk smaller for RAG as appropriate.
-- **truncate** (optional) – How to handle over-length inputs:
-  `LEFT` drops tokens from the start; `RIGHT` drops from the end; `NONE` returns an error if the input exceeds the limit.
++ **input\_type** (required) – Adds special tokens to distinguish use cases. Allowed: `search_document`, `search_query`, `classification`, `clustering`. For search/RAG, embed your corpus with `search_document` and queries with `search_query`.
++ **texts** (optional) – Array of strings to embed. Max 96 per call. If you use `texts`, don't send `images` in the same call.
++ **images** (optional) – Array of data-URI base64 images to embed. Max 96 per call. Don't send `texts` and `images` together. (Use `inputs` for interleaved.)
++ **inputs** (optional; mixed/fused modality) – A list where each item has a content list of parts. Each part is `{ "type": "text", "text": ... }` or `{ "type": "image_url", "image_url": {"url": "data:<mime>;base64,..."} }`. Send interleaved page-like content here (e.g., PDF page image \+ caption/metadata). Max 96 items.
++ **embedding\_types** (optional) – One or more of: `float`, `int8`, `uint8`, `binary`, `ubinary`. If omitted, returns float embeddings.
++ **output\_dimension** (optional) – Select vector length. Allowed: `256`, `512`, `1024`, `1536` (default `1536` if unspecified).
++ **max\_tokens** (optional) – Truncation budget per input document. The model supports up to \~128,000 tokens per document; chunk smaller for RAG as appropriate.
++ **truncate** (optional) – How to handle over-length inputs: `LEFT` drops tokens from the start; `RIGHT` drops from the end; `NONE` returns an error if the input exceeds the limit.
 
-###### Limits & sizing
+**Limits & sizing**  
 
-- Items per request: up to 96 images. The original image file type must be in a png, jpeg, webp, or gif format and can be up to 5 MB in size.
-- Request size cap: ~20 MB total payload.
-- Maximum input tokens: 128k tokens max. Image files are converted into tokens, and total tokens should be less than 128k.
-- Images: max 2,458,624 pixels before downsampling; images smaller than 3,136 pixels are upsampled. Provide images as `data:<mime>;base64,....`
-- Token accounting (per `inputs` item):
-  Tokens from an image input ≈ (image pixels ÷ 784) x 4
-  Tokens from an interleaved text and image input = (image pixels ÷ 784) x 4 + (text tokens)
++ Items per request: up to 96 images. The original image file type must be in a png, jpeg, webp, or gif format and can be up to 5 MB in size.
++ Request size cap: \~20 MB total payload.
++ Maximum input tokens: 128k tokens max. Image files are converted into tokens, and total tokens should be less than 128k.
++ Images: max 2,458,624 pixels before downsampling; images smaller than 3,136 pixels are upsampled. Provide images as `data:<mime>;base64,....`
++ Token accounting (per `inputs` item): Tokens from an image input ≈ (image pixels ÷ 784) x 4 Tokens from an interleaved text and image input = (image pixels ÷ 784) x 4 \+ (text tokens)
 
 **Tip:** For PDFs, convert each page to an image and send through `inputs` along with page metadata (e.g., file\_name, entities) in adjacent text parts.
 
-Response
+------
+#### [ Response ]
+
 Content type: application/json
 
 If you requested a single embedding type (e.g., only `float`):
@@ -95,15 +97,18 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
   "inputs": [ { "content": [ ... ] } ] // when 'inputs' used
 }
 ```
++ The number of returned vectors matches the length of your `texts` array or the number of `inputs` items.
++ Each vector's length equals `output_dimension` (default `1536`).
 
-- The number of returned vectors matches the length of your `texts` array or the number of `inputs` items.
-- Each vector's length equals `output_dimension` (default `1536`).
+------
 
 ## Request and response for different input\_types
+<a name="api-inference-examples-cohere-embed-v4"></a>
 
-**A) Interleaved page (image + caption) with compact int8 vectors**
+**A) Interleaved page (image \+ caption) with compact int8 vectors**
 
-###### Request
+**Request**  
+
 
 ```
 {
@@ -123,7 +128,8 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 }
 ```
 
-###### Response (truncated)
+**Response (truncated)**  
+
 
 ```
 {
@@ -141,7 +147,8 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 
 **B) Text-only corpus indexing (default float, 1536-dim)**
 
-###### Request
+**Request**  
+
 
 ```
 {
@@ -153,7 +160,8 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 }
 ```
 
-###### Response (sample)
+**Response (sample)**  
+
 
 ```
 {
@@ -166,8 +174,10 @@ If you requested multiple embedding types (e.g., `["float","int8"]`):
 ```
 
 ## Code Examples
+<a name="code-examples-cohere-embed-v4"></a>
 
-Text input
+------
+#### [ Text input ]
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -222,7 +232,7 @@ def main():
     """
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
+    
     region_name = 'us-east-1'
 
     model_id = 'cohere.embed-v4:0'
@@ -239,7 +249,7 @@ def main():
             "input_type": input_type,
             "embedding_types": embedding_types
         })
-
+        
         response = generate_text_embeddings(model_id=model_id, body=body, region_name=region_name)
 
         response_body = json.loads(response.get('body').read())
@@ -271,7 +281,8 @@ if __name__ == "__main__":
     main()
 ```
 
-Mixed modalities
+------
+#### [ Mixed modalities ]
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -333,7 +344,7 @@ def main():
     """
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
+    
     region_name = 'us-east-1'
 
     image_file_path = "image.jpg"
@@ -358,7 +369,7 @@ def main():
             "input_type": input_type,
             "embedding_types": embedding_types
         })
-
+        
         response = generate_embeddings(model_id=model_id, body=body, region_name=region_name)
 
         response_body = json.loads(response.get('body').read())
@@ -389,3 +400,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

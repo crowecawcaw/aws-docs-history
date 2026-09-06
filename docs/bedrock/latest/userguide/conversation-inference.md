@@ -1,162 +1,96 @@
+
+
 # Inference using Converse API
+<a name="conversation-inference"></a>
 
 The Converse API is available on the `bedrock-runtime` endpoint only.
 
-You can use the Amazon Bedrock Converse API to create conversational applications
-that send and receive messages to and from an Amazon Bedrock model. For example, you can create a
-chat bot that maintains a conversation over many turns and uses a persona or tone
-customization that is unique to your needs, such as a helpful technical support
-assistant.
+You can use the Amazon Bedrock Converse API to create conversational applications that send and receive messages to and from an Amazon Bedrock model. For example, you can create a chat bot that maintains a conversation over many turns and uses a persona or tone customization that is unique to your needs, such as a helpful technical support assistant.
 
-To use the Converse API, you use the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") (for streaming
-responses) operations to send messages to a model. It is possible to use the existing base
-inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")) for conversation applications. However, the
-Converse API provides a consistent API that works
-with all Amazon Bedrock models that support messages. This means you can write code once and use
-it with different models. Should a model have unique inference parameters, the
-Converse API also allows you to pass those unique parameters in a model
-specific structure.
+To use the Converse API, you use the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) or [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) (for streaming responses) operations to send messages to a model. It is possible to use the existing base inference operations ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)) for conversation applications. However, the Converse API provides a consistent API that works with all Amazon Bedrock models that support messages. This means you can write code once and use it with different models. Should a model have unique inference parameters, the Converse API also allows you to pass those unique parameters in a model specific structure. 
 
-You can use the Converse API to implement [tool
-use](tool-use.md "tool-use.md") and [guardrails](guardrails-use-converse-api.md "guardrails-use-converse-api.md") in your
-applications.
+You can use the Converse API to implement [tool use](tool-use.md) and [guardrails](guardrails-use-converse-api.md) in your applications. 
 
-###### Note
+**Note**  
+With Mistral AI and Meta models, the Converse API embeds your input in a model-specific prompt template that enables conversations. 
+Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md) for details.
 
-- With Mistral AI and Meta models, the Converse API embeds your input in
-  a model-specific prompt template that enables
-  conversations.
-- Restrictions apply to the following operations: `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`. See [API restrictions](inference-api-restrictions.md "inference-api-restrictions.md") for details.
-  For code examples, see the following:
-
-- Python examples for this topic – [Converse API examples](conversation-inference-examples.md "conversation-inference-examples.md")
-- Various languages and models – [Code examples for Amazon Bedrock Runtime using AWS SDKs](service_code_examples_bedrock-runtime.md "service_code_examples_bedrock-runtime.md")
-- Java tutorial – [A Java developer's guide to Bedrock's new Converse
-  API](https://community.aws/content/2hUiEkO83hpoGF5nm3FWrdfYvPt/amazon-bedrock-converse-api-java-developer-guide "https://community.aws/content/2hUiEkO83hpoGF5nm3FWrdfYvPt/amazon-bedrock-converse-api-java-developer-guide")
-- JavaScript tutorial – [A developer's guide to Bedrock's new Converse API](https://community.aws/content/2dtauBCeDa703x7fDS9Q30MJoBA/amazon-bedrock-converse-api-developer-guide "https://community.aws/content/2dtauBCeDa703x7fDS9Q30MJoBA/amazon-bedrock-converse-api-developer-guide")
+For code examples, see the following:
++ Python examples for this topic – [Converse API examples](conversation-inference-examples.md)
++ Various languages and models – [Code examples for Amazon Bedrock Runtime using AWS SDKs](service_code_examples_bedrock-runtime.md)
++ Java tutorial – [A Java developer's guide to Bedrock's new Converse API](https://community.aws/content/2hUiEkO83hpoGF5nm3FWrdfYvPt/amazon-bedrock-converse-api-java-developer-guide)
++ JavaScript tutorial – [A developer's guide to Bedrock's new Converse API](https://community.aws/content/2dtauBCeDa703x7fDS9Q30MJoBA/amazon-bedrock-converse-api-developer-guide)
 
 ## Using the Converse API
+<a name="converse-api-usage"></a>
 
-To use the Converse API, you call the `Converse` or
-`ConverseStream` operations to send messages to a model. To call
-`Converse`, you require permission for the
-`bedrock:InvokeModel` operation. To call `ConverseStream`, you
-require permission for the `bedrock:InvokeModelWithResponseStream`
-operation.
+To use the Converse API, you call the `Converse` or `ConverseStream` operations to send messages to a model. To call `Converse`, you require permission for the `bedrock:InvokeModel` operation. To call `ConverseStream`, you require permission for the `bedrock:InvokeModelWithResponseStream` operation.
 
 ### Request
+<a name="conversation-inference-call-request"></a>
 
-When you make a [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request with an [Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"), you can include the following
-fields:
+When you make a [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) request with an [Amazon Bedrock runtime endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#br-rt), you can include the following fields:
++ **modelId** – A required parameter in the header that lets you specify the resource to use for inference.
++ The following fields let you customize the prompt:
+  + **messages** – Use to specify the content and role of the prompts.
+  + **system** – Use to specify system prompts, which define instructions or context for the model.
+  + **inferenceConfig** – Use to specify inference parameters that are common to all models. Inference parameters influence the generation of the response.
+  + **additionalModelRequestFields** – Use to specify inference parameters that are specific to the model that you run inference with.
+  + **promptVariables** – (If you use a prompt from Prompt management) Use this field to define the variables in the prompt to fill in and the values with which to fill them.
++ The following fields let you customize how the response is returned:
+  + **guardrailConfig** – Use this field to include a guardrail to apply to the entire prompt.
+  + **toolConfig** – Use this field to include a tool to help a model generate responses.
+  + **additionalModelResponseFieldPaths** – Use this field to specify fields to return as a JSON pointer object.
+  + **serviceTier** – Use this field to specify the service tier for a particular request
++ **requestMetadata** – Use this field to include metadata that can be filtered on when using invocation logs.
 
-- **modelId** – A required parameter in
-  the header that lets you specify the resource to use for inference.
-- The following fields let you customize the prompt:
+**Note**  
+The following restrictions apply when you use a Prompt management prompt with `Converse` or `ConverseStream`:  
+You can't include the `additionalModelRequestFields`, `inferenceConfig`, `system`, or `toolConfig` fields.
+If you include the `messages` field, the messages are appended after the messages defined in the prompt.
+If you include the `guardrailConfig` field, the guardrail is applied to the entire prompt. If you include `guardContent` blocks in the [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html) field, the guardrail will only be applied to those blocks.
 
-  - **messages** – Use to specify
-    the content and role of the prompts.
-  - **system** – Use to specify
-    system prompts, which define instructions or context for the
-    model.
-  - **inferenceConfig** – Use to
-    specify inference parameters that are common to all models.
-    Inference parameters influence the generation of the
-    response.
-  - **additionalModelRequestFields**
-    – Use to specify inference parameters that are specific to the
-    model that you run inference with.
-  - **promptVariables** – (If you
-    use a prompt from Prompt management) Use this field to define the variables in
-    the prompt to fill in and the values with which to fill them.
-
-- The following fields let you customize how the response is
-  returned:
-
-  - **guardrailConfig** – Use this
-    field to include a guardrail to apply to the entire prompt.
-  - **toolConfig** – Use this field
-    to include a tool to help a model generate responses.
-  - **additionalModelResponseFieldPaths**
-    – Use this field to specify fields to return as a JSON pointer
-    object.
-  - **serviceTier**
-    – Use this field to specify the service tier for a particular
-    request
-
-- **requestMetadata** – Use this field to
-  include metadata that can be filtered on when using invocation logs.
-
-###### Note
-
-The following restrictions apply when you use a Prompt management prompt with `Converse` or `ConverseStream`:
-
-- You can't include the `additionalModelRequestFields`, `inferenceConfig`, `system`, or `toolConfig` fields.
-- If you include the `messages` field, the messages are appended after the messages defined in the prompt.
-- If you include the `guardrailConfig` field, the guardrail is applied to the entire prompt. If you include `guardContent` blocks in the [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") field, the guardrail will only be applied to those blocks.
-
-Expand a section to learn more about a field in the `Converse` request
-body:
+Expand a section to learn more about a field in the `Converse` request body:
 
 #### messages
+<a name="converse-messages"></a>
 
-The `messages` field is an array of [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") objects, each of
-which defines a message between the user and the model. A
-`Message` object contains the following fields:
+The `messages` field is an array of [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) objects, each of which defines a message between the user and the model. A `Message` object contains the following fields:
++ **role** – Defines whether the message is from the `user` (the prompt sent to the model) or `assistant` (the model response).
++ **content** – Defines the content in the prompt.
+**Note**  
+Amazon Bedrock doesn't store any text, images, or documents that you provide as content. The data is only used to generate the response.
 
-- **role** – Defines whether the
-  message is from the `user` (the prompt sent to the model)
-  or `assistant` (the model response).
-- **content** – Defines the
-  content in the prompt.
+You can maintain conversation context by including all the messages in the conversation in subsequent `Converse` requests and using the `role` field to specify whether the message is from the user or the model.
 
-###### Note
+The `content` field maps to an array of [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html) objects. Within each [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html), you can specify one of the following fields (to see what models support what blocks, see [models at a glance](model-cards.md)):
 
-Amazon Bedrock doesn't store any text, images, or documents that you
-provide as content. The data is only used to generate the
-response.
+------
+#### [ text ]
 
-You can maintain conversation context by including all the messages in the
-conversation in subsequent `Converse` requests and using the
-`role` field to specify whether the message is from the user
-or the model.
+The `text` field maps to a string specifying the prompt. The `text` field is interpreted alongside other fields that are specified in the same [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html).
 
-The `content` field maps to an array of [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") objects.
-Within each [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md"), you can specify one of the following fields (to
-see what models support what blocks, see [models at a glance](model-cards.md "model-cards.md")):
-
-text
-The `text` field maps to a string specifying the
-prompt. The `text` field is interpreted alongside
-other fields that are specified in the same
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md").
-
-The following shows a [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-`content` array containing only a text
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md"):
+The following shows a [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a text [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html):
 
 ```
 {
     "role": "user",
     "content": [
         {
-            "text": "`string`"
+            "text": "{{string}}"
         }
     ]
 }
 ```
 
-image
-The `image` field maps to an [ImageBlock](../APIReference/API_runtime_ImageBlock.md "../APIReference/API_runtime_ImageBlock.md"). Pass the
-raw bytes, encoded in base64, for an image in the
-`bytes` field. If you use an AWS SDK, you don't
-need to encode the bytes in base64.
+------
+#### [ image ]
 
-If you exclude the `text` field, the model
-describes the image.
+The `image` field maps to an [ImageBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ImageBlock.html). Pass the raw bytes, encoded in base64, for an image in the `bytes` field. If you use an AWS SDK, you don't need to encode the bytes in base64.
 
-The following shows an example [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-`content` array containing only an image
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md"):
+If you exclude the `text` field, the model describes the image.
+
+The following shows an example [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only an image [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html):
 
 ```
 {
@@ -166,7 +100,7 @@ The following shows an example [Message](../APIReference/API_runtime_Message.md 
             "image": {
                 "format": "png",
                 "source": {
-                    "bytes": "`image in bytes`"
+                    "bytes": "{{image in bytes}}"
                 }
             }
         }
@@ -195,58 +129,38 @@ You can also specify an Amazon S3 URI instead of passing the bytes directly in t
 }
 ```
 
-document
-The `document` field maps to an [DocumentBlock](../APIReference/API_runtime_DocumentBlock.md "../APIReference/API_runtime_DocumentBlock.md"). If
-you include a `DocumentBlock`, check that your
-request conforms to the following restrictions:
+------
+#### [ document ]
 
-- In the `content` field of the [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md")
-  object, you must also include a `text` field
-  with a prompt related to the document.
-- Pass the raw bytes, encoded in base64, for the
-  document in the `bytes` field. If you use an
-  AWS SDK, you don't need to encode the document bytes
-  in base64.
-- The `name` field can only contain the
-  following characters:
+The `document` field maps to an [DocumentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_DocumentBlock.html). If you include a `DocumentBlock`, check that your request conforms to the following restrictions:
++ In the `content` field of the [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object, you must also include a `text` field with a prompt related to the document.
++ Pass the raw bytes, encoded in base64, for the document in the `bytes` field. If you use an AWS SDK, you don't need to encode the document bytes in base64.
++ The `name` field can only contain the following characters:
+  + Alphanumeric characters
+  + Whitespace characters (no more than one in a row)
+  + Hyphens
+  + Parentheses
+  + Square brackets
+**Note**  
+The `name` field is vulnerable to prompt injections, because the model might inadvertently interpret it as instructions. Therefore, we recommend that you specify a neutral name.
 
-  - Alphanumeric characters
-  - Whitespace characters (no more than one in a
-    row)
-  - Hyphens
-  - Parentheses
-  - Square brackets
+When using a document you can enable the `citations` tag, which will provide document specific citations in the response of the API call. See the [DocumentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_DocumentBlock.html) API for more details.
 
-###### Note
-
-The `name` field is vulnerable to
-prompt injections, because the model might
-inadvertently interpret it as instructions.
-Therefore, we recommend that you specify a neutral
-name.
-
-When using a document you can enable the `citations` tag, which
-will provide document specific citations in the response of the API call. See
-the [DocumentBlock](../APIReference/API_runtime_DocumentBlock.md "../APIReference/API_runtime_DocumentBlock.md") API for more details.
-
-The following shows a sample [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-`content` array containing only a document
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") and a required accompanying text
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md").
+The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a document [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html) and a required accompanying text [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html).
 
 ```
 {
     "role": "user",
     "content": [
         {
-            "text": "`string`"
+            "text": "{{string}}"
         },
         {
             "document": {
                 "format": "pdf",
                 "name": "MyDocument",
                 "source": {
-                    "bytes": "`document in bytes`"
+                    "bytes": "{{document in bytes}}"
                 }
             }
         }
@@ -261,7 +175,7 @@ You can also specify an Amazon S3 URI instead of passing the bytes directly in t
     "role": "user",
     "content": [
         {
-            "text": "`string`"
+            "text": "{{string}}"
         },
         {
             "document": {
@@ -279,18 +193,14 @@ You can also specify an Amazon S3 URI instead of passing the bytes directly in t
 }
 ```
 
-video
-The `video` field maps to a [VideoBlock](../APIReference/API_runtime_VideoBlock.md "../APIReference/API_runtime_VideoBlock.md") object.
-Pass the raw bytes in the `bytes` field, encoded in
-base64. If you use the AWS SDK, you don't need to encode the
-bytes in base64.
+------
+#### [ video ]
 
-If you don't include the `text` field, the model
-will describe the video.
+The `video` field maps to a [VideoBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_VideoBlock.html) object. Pass the raw bytes in the `bytes` field, encoded in base64. If you use the AWS SDK, you don't need to encode the bytes in base64.
 
-The following shows a sample [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-`content` array containing only a video
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md").
+If you don't include the `text` field, the model will describe the video.
+
+The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a video [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html).
 
 ```
 {
@@ -300,7 +210,7 @@ The following shows a sample [Message](../APIReference/API_runtime_Message.md ".
             "video": {
                 "format": "mp4",
                 "source": {
-                    "bytes": "`video in bytes`"
+                    "bytes": "{{video in bytes}}"
                 }
             }
         }
@@ -329,41 +239,29 @@ You can also specify an Amazon S3 URI instead of passing the bytes directly in t
 }
 ```
 
-###### Note
+**Note**  
+The assumed role must have the `s3:GetObject` permission to the Amazon S3 URI. The `bucketOwner` field is optional but must be specified if the account making the request does not own the bucket the Amazon S3 URI is found in. For more information, see [Configure access to Amazon S3 buckets](s3-bucket-access.md).
 
-The assumed role must have the `s3:GetObject`
-permission to the Amazon S3 URI. The `bucketOwner`
-field is optional but must be specified if the account
-making the request does not own the bucket the Amazon S3 URI is
-found in. For more information, see [Configure access to Amazon S3 buckets](s3-bucket-access.md "s3-bucket-access.md").
+------
+#### [ cachePoint ]
 
-cachePoint
-You can add cache checkpoints as a block in a message
-alongside an accompanying prompt by using
-`cachePoint` fields to use prompt caching.
-Prompt caching is a feature that lets you begin caching the
-context of conversations to achieve cost and latency savings.
-For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+You can add cache checkpoints as a block in a message alongside an accompanying prompt by using `cachePoint` fields to use prompt caching. Prompt caching is a feature that lets you begin caching the context of conversations to achieve cost and latency savings. For more information, see [Prompt caching for faster model inference](prompt-caching.md).
 
-The following shows a sample [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-`content` array containing a document
-[ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") and a required accompanying text [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md"),
-as well as a **cachePoint** that adds both the
-document and text contents to the cache.
+The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing a document [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html) and a required accompanying text [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html), as well as a **cachePoint** that adds both the document and text contents to the cache.
 
 ```
 {
     "role": "user",
     "content": [
         {
-            "text": "`string`"
+            "text": "{{string}}"
         },
         {
             "document": {
                 "format": "pdf",
                 "name": "string",
                 "source": {
-                    "bytes": "`document in bytes`"
+                    "bytes": "{{document in bytes}}"
                 }
             }
         },
@@ -376,118 +274,91 @@ document and text contents to the cache.
 }
 ```
 
-guardContent
-The `guardContent` field maps to a [GuardrailConverseContentBlock](../APIReference/API_runtime_GuardrailConverseContentBlock.md "../APIReference/API_runtime_GuardrailConverseContentBlock.md")
-object. You can use this field to target an input to be
-evaluated by the guardrail defined in the
-`guardrailConfig` field. If you don't specify
-this field, the guardrail evaluates all messages in the request
-body. You can pass the following types of content in a
-`GuardBlock`:
+------
+#### [ guardContent ]
 
-- **text** – The
-  following shows an example [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-  `content` array containing only a text
-  [GuardrailConverseContentBlock](../APIReference/API_runtime_GuardrailConverseContentBlock.md "../APIReference/API_runtime_GuardrailConverseContentBlock.md"):
+The `guardContent` field maps to a [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html) object. You can use this field to target an input to be evaluated by the guardrail defined in the `guardrailConfig` field. If you don't specify this field, the guardrail evaluates all messages in the request body. You can pass the following types of content in a `GuardBlock`:
++ **text** – The following shows an example [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a text [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html):
 
-```
-{
-    "role": "user",
-    "content": [
-        {
-            "text": "Tell me what stocks to buy.",
-            "qualifiers": [
-                "guard_content"
-            ]
-        }
-    ]
-}
-```
+  ```
+  {
+      "role": "user",
+      "content": [
+          {
+              "text": "Tell me what stocks to buy.",
+              "qualifiers": [
+                  "guard_content"
+              ]
+          }
+      ]
+  }
+  ```
 
-You define the text to be evaluated and include any
-qualifiers to use for [contextual grounding](guardrails-contextual-grounding-check.md "guardrails-contextual-grounding-check.md").
+  You define the text to be evaluated and include any qualifiers to use for [contextual grounding](guardrails-contextual-grounding-check.md).
++ **image** – The following shows a [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only an image [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html):
 
-- **image** – The
-  following shows a [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") object with a
-  `content` array containing only an image
-  [GuardrailConverseContentBlock](../APIReference/API_runtime_GuardrailConverseContentBlock.md "../APIReference/API_runtime_GuardrailConverseContentBlock.md"):
+  ```
+  {
+      "role": "user",
+      "content": [
+          {
+              "format": "png",
+              "source": {
+                  "bytes": "{{image in bytes}}"
+              }
+          }
+      ]
+  }
+  ```
 
-```
-{
-    "role": "user",
-    "content": [
-        {
-            "format": "png",
-            "source": {
-                "bytes": "`image in bytes`"
-            }
-        }
-    ]
-}
-```
+  You specify the format of the image and define the image in bytes.
 
-You specify the format of the image and define the
-image in bytes.
+For more information about using guardrails, see [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md).
 
-For more information about using guardrails, see [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md "guardrails.md").
+------
+#### [ reasoningContent ]
 
-reasoningContent
-The `reasoningContent` field maps to a
-[ReasoningContentBlock](../APIReference/API_runtime_ReasoningContentBlock.md "../APIReference/API_runtime_ReasoningContentBlock.md"). This block contains content regarding
-the reasoning that was carried out by the model to generate the
-response in the accompanying `ContentBlock`.
+The `reasoningContent` field maps to a [ReasoningContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ReasoningContentBlock.html). This block contains content regarding the reasoning that was carried out by the model to generate the response in the accompanying `ContentBlock`.
 
-The following shows a `Message` object with a
-`content` array containing only a
-`ReasoningContentBlock` and an accompanying text
-`ContentBlock`.
+The following shows a `Message` object with a `content` array containing only a `ReasoningContentBlock` and an accompanying text `ContentBlock`.
 
 ```
 {
     "role": "user",
     "content": [
         {
-            "text": "`string`"
+            "text": "{{string}}"
         },
         {
             "reasoningContent": {
                 "reasoningText": {
-                    "text": "`string`",
-                    "signature": "`string`"
+                    "text": "{{string}}",
+                    "signature": "{{string}}"
                 }
-                "redactedContent": "`base64-encoded binary data object`"
+                "redactedContent": "{{base64-encoded binary data object}}"
             }
         }
     ]
 }
 ```
 
-The `ReasoningContentBlock` contains the reasoning
-used to generate the accompanying content in the
-`reasoningText` field, in addition to any content
-in the reasoning that was encrypted by the model provider for
-trust and safety reasons in the `redactedContent`
-field.
+The `ReasoningContentBlock` contains the reasoning used to generate the accompanying content in the `reasoningText` field, in addition to any content in the reasoning that was encrypted by the model provider for trust and safety reasons in the `redactedContent` field.
 
-Within the `reasoningText` field, the
-`text` fields describes the reasoning. The
-`signature` field is a hash of all the messages
-in the conversation and is a safeguard against tampering of the
-reasoning used by the model. You must include the signature and
-all previous messages in subsequent `Converse`
-requests. If any of the messages are changed, the response
-throws an error.
+Within the `reasoningText` field, the `text` fields describes the reasoning. The `signature` field is a hash of all the messages in the conversation and is a safeguard against tampering of the reasoning used by the model. You must include the signature and all previous messages in subsequent `Converse` requests. If any of the messages are changed, the response throws an error.
 
-toolUse
-Contains information about a tool for the model to use.
-For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
+------
+#### [ toolUse ]
 
-toolResult
-Contains information about the result from the model using a
-tool. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
+Contains information about a tool for the model to use. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md).
 
-In the following `messages` example, the user asks for a list
-of three pop songs, and the model generates a list of songs.
+------
+#### [ toolResult ]
+
+Contains information about the result from the model using a tool. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md).
+
+------
+
+In the following `messages` example, the user asks for a list of three pop songs, and the model generates a list of songs. 
 
 ```
 [
@@ -511,12 +382,9 @@ of three pop songs, and the model generates a list of songs.
 ```
 
 #### system
+<a name="converse-system"></a>
 
-A system prompt is a type of prompt that provides instructions or context
-to the model about the task it should perform, or the persona it should
-adopt during the conversation. You can specify a list of system prompts for
-the request in the `system` ([SystemContentBlock](../APIReference/API_runtime_SystemContentBlock.md "../APIReference/API_runtime_SystemContentBlock.md")) field, as shown in the following
-example.
+A system prompt is a type of prompt that provides instructions or context to the model about the task it should perform, or the persona it should adopt during the conversation. You can specify a list of system prompts for the request in the `system` ([SystemContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_SystemContentBlock.html)) field, as shown in the following example.
 
 ```
 [
@@ -527,65 +395,44 @@ example.
 ```
 
 #### inferenceConfig
+<a name="converse-inference"></a>
 
-The Converse API supports a base set of inference
-parameters that you set in the `inferenceConfig` field ([InferenceConfiguration](../APIReference/API_runtime_InferenceConfiguration.md "../APIReference/API_runtime_InferenceConfiguration.md")). The base set of inference parameters
-are:
+The Converse API supports a base set of inference parameters that you set in the `inferenceConfig` field ([InferenceConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InferenceConfiguration.html)). The base set of inference parameters are:
++ **maxTokens** – The maximum number of tokens to allow in the generated response. 
++ **stopSequences** – A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response. 
++ **temperature** – The likelihood of the model selecting higher-probability options while generating a response. 
++ **topP** – The percentage of most-likely candidates that the model considers for the next token.
 
-- **maxTokens** – The maximum
-  number of tokens to allow in the generated response.
-- **stopSequences** – A list of
-  stop sequences. A stop sequence is a sequence of characters that
-  causes the model to stop generating the response.
-- **temperature** – The
-  likelihood of the model selecting higher-probability options while
-  generating a response.
-- **topP** – The percentage of
-  most-likely candidates that the model considers for the next
-  token.
+For more information, see [Influence response generation with inference parameters](inference-parameters.md).
 
-For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
-
-The following example JSON sets the `temperature` inference
-parameter.
+The following example JSON sets the `temperature` inference parameter. 
 
 ```
 {"temperature": 0.5}
 ```
 
 #### additionalModelRequestFields
+<a name="converse-additional-model-request-fields"></a>
 
-If the model you are using has additional inference parameters, you can
-set those parameters by specifying them as JSON in the
-`additionalModelRequestFields` field. The following example
-JSON shows how to set `top_k`, which is available in Anthropic
-Claude models, but isn't a base inference parameter in the messages API.
+If the model you are using has additional inference parameters, you can set those parameters by specifying them as JSON in the `additionalModelRequestFields` field. The following example JSON shows how to set `top_k`, which is available in Anthropic Claude models, but isn't a base inference parameter in the messages API. 
 
 ```
 {"top_k": 200}
 ```
 
 #### promptVariables
+<a name="converse-prompt-variables"></a>
 
-If you specify a prompt from [Prompt management](prompt-management.md "prompt-management.md")
-in the `modelId` as the resource to run inference on, use this
-field to fill in the prompt variables with actual values. The
-`promptVariables` field maps to a JSON object with keys that
-correspond to variables defined in the prompts and values to replace the
-variables with.
+If you specify a prompt from [Prompt management](prompt-management.md) in the `modelId` as the resource to run inference on, use this field to fill in the prompt variables with actual values. The `promptVariables` field maps to a JSON object with keys that correspond to variables defined in the prompts and values to replace the variables with.
 
-For example, let's say that you have a prompt that says
-`Make me a `{{genre}}`playlist consisting of the following number of songs:`{{number}}`.`. The prompt's ID is
-`PROMPT12345` and its version is `1`. You could
-send the following `Converse` request to replace the
-variables:
+For example, let's say that you have a prompt that says **Make me a {{{{genre}}}} playlist consisting of the following number of songs: {{{{number}}}}.**. The prompt's ID is `PROMPT12345` and its version is `1`. You could send the following `Converse` request to replace the variables:
 
 ```
 POST /model/arn:aws:bedrock:us-east-1:111122223333:prompt/PROMPT12345:1/converse HTTP/1.1
 Content-type: application/json
 
 {
-   "promptVariables": {
+   "promptVariables": { 
       "genre": {
          "text": "pop"
       },
@@ -597,69 +444,42 @@ Content-type: application/json
 ```
 
 #### guardrailConfig
+<a name="converse-guardrail"></a>
 
-You can apply a guardrail that you created with [Amazon Bedrock Guardrails](guardrails.md "guardrails.md") by including this field. To apply the guardrail to a
-specific message in the conversation, include the message in a [GuardrailConverseContentBlock](../APIReference/API_runtime_GuardrailConverseContentBlock.md "../APIReference/API_runtime_GuardrailConverseContentBlock.md").
-If you don't include any `GuardrailConverseContentBlock`s in the
-request body, the guardrail is applied to all the messages in the
-`messages` field. For an example, see [Include a guardrail with the Converse API](guardrails-use-converse-api.md "guardrails-use-converse-api.md").
+You can apply a guardrail that you created with [Amazon Bedrock Guardrails](guardrails.md) by including this field. To apply the guardrail to a specific message in the conversation, include the message in a [GuardrailConverseContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailConverseContentBlock.html). If you don't include any `GuardrailConverseContentBlock`s in the request body, the guardrail is applied to all the messages in the `messages` field. For an example, see [Include a guardrail with the Converse API](guardrails-use-converse-api.md).
 
 #### toolConfig
+<a name="converse-tool"></a>
 
-This field lets you define a tool for the model to use to help it generate
-a response. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
+This field lets you define a tool for the model to use to help it generate a response. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md).
 
 #### additionalModelResponseFieldPaths
+<a name="converse-additional-model-response-field-paths"></a>
 
-Each model that Amazon Bedrock supports has its own native response shape with
-provider-specific fields (for example, Anthropic Claude returns a
-`stop_sequence` field; Cohere returns `is_finished`;
-and so on). To give you a uniform response across models, [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and
-[ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") drop most model-native fields by default and return a
-normalized envelope with `output`, `stopReason`,
-`usage`, and `metrics`.
+Each model that Amazon Bedrock supports has its own native response shape with provider-specific fields (for example, Anthropic Claude returns a `stop_sequence` field; Cohere returns `is_finished`; and so on). To give you a uniform response across models, [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) drop most model-native fields by default and return a normalized envelope with `output`, `stopReason`, `usage`, and `metrics`.
 
-If your application needs one or more of those model-native fields, list
-their JSON Pointer paths in `additionalModelResponseFieldPaths`.
-[Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") then include those fields in the
-`additionalModelResponseFields` field of the response.
+If your application needs one or more of those model-native fields, list their JSON Pointer paths in `additionalModelResponseFieldPaths`. [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) then include those fields in the `additionalModelResponseFields` field of the response.
 
-The following example asks [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") to also return Anthropic
-Claude's `stop_sequence` field, which contains the value of
-the stop sequence that ended generation:
+The following example asks [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) to also return Anthropic Claude's `stop_sequence` field, which contains the value of the stop sequence that ended generation:
 
 ```
 [ "/stop_sequence" ]
 ```
 
-Each path is a JSON Pointer ([RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901 "https://datatracker.ietf.org/doc/html/rfc6901"))
-into the model's native response. Empty pointers and malformed pointers
-return a `400` error. If a pointer is valid but the requested
-path doesn't exist in the model's response, it is silently ignored.
+Each path is a JSON Pointer ([RFC 6901](https://datatracker.ietf.org/doc/html/rfc6901)) into the model's native response. Empty pointers and malformed pointers return a `400` error. If a pointer is valid but the requested path doesn't exist in the model's response, it is silently ignored.
 
-###### Note
-
-This field controls which model-native _response
-fields_ are surfaced through [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"). It does not control
-text-output formatting. Some models — particularly reasoning
-models such as DeepSeek-R1, Claude 3.7 Sonnet with extended thinking,
-and Amazon Nova reasoning models — can include reasoning content or
-model-specific tokens in their text output. For how to work with
-reasoning content, see [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md").
+**Note**  
+This field controls which model-native *response fields* are surfaced through [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html). It does not control text-output formatting. Some models — particularly reasoning models such as DeepSeek-R1, Claude 3.7 Sonnet with extended thinking, and Amazon Nova reasoning models — can include reasoning content or model-specific tokens in their text output. For how to work with reasoning content, see [Enhance model responses with model reasoning](inference-reasoning.md).
 
 #### requestMetadata
+<a name="converse-request-metadata"></a>
 
-The `requestMetadata` field maps to a JSON object of key-value
-tags that are recorded with the request in your model invocation logs. You
-can use request metadata to filter and aggregate logs by team, application,
-environment, or any other dimension that varies per call.
+The `requestMetadata` field maps to a JSON object of key-value tags that are recorded with the request in your model invocation logs. You can use request metadata to filter and aggregate logs by team, application, environment, or any other dimension that varies per call.
 
-The same capability is available on [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")
-through the `X-Amzn-Bedrock-Request-Metadata` HTTP header. For
-details on supported APIs, limits, and how request metadata appears in
-invocation logs, see [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md").
+The same capability is available on [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) through the `X-Amzn-Bedrock-Request-Metadata` HTTP header. For details on supported APIs, limits, and how request metadata appears in invocation logs, see [Per-request metadata tagging](cost-mgmt-request-metadata.md).
 
 #### serviceTier
+<a name="inference-service-tiers"></a>
 
 This field maps to a JSON object. You can specify the service tier for a particular request.
 
@@ -671,43 +491,27 @@ The following example shows the `serviceTier` structure:
 }
 ```
 
-For detailed information about service tiers, including pricing and performance characteristics, see [Service tiers for optimizing performance and cost](service-tiers-inference.md "service-tiers-inference.md").
+For detailed information about service tiers, including pricing and performance characteristics, see [Service tiers for optimizing performance and cost](service-tiers-inference.md).
 
-You can also optionally add cache checkpoints to the `system` or
-`tools` fields to use prompt caching, depending on which model you're
-using. For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+You can also optionally add cache checkpoints to the `system` or `tools` fields to use prompt caching, depending on which model you're using. For more information, see [Prompt caching for faster model inference](prompt-caching.md).
 
 ### Response
+<a name="conversation-inference-call-response"></a>
 
-The response you get from the Converse API depends on which
-operation you call, `Converse` or `ConverseStream`.
+The response you get from the Converse API depends on which operation you call, `Converse` or `ConverseStream`.
 
 #### Converse response
+<a name="conversation-inference-call-response-converse"></a>
 
-In the response from `Converse`, the `output` field
-([ConverseOutput](../APIReference/API_runtime_ConverseOutput.md "../APIReference/API_runtime_ConverseOutput.md")) contains the message ([Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md")) that the model
-generates. The message content is in the `content` ([ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md")) field and the role (`user` or
-`assistant`) that the message corresponds to is in the
-`role` field.
+In the response from `Converse`, the `output` field ([ConverseOutput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseOutput.html)) contains the message ([Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html)) that the model generates. The message content is in the `content` ([ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html)) field and the role (`user` or `assistant`) that the message corresponds to is in the `role` field. 
 
-If you used [prompt caching](prompt-caching.md "prompt-caching.md"), then in the
-usage field, `cacheReadInputTokens` and
-`cacheWriteInputTokens` tell you how many total tokens were
-read from the cache and written to the cache, respectively.
+If you used [prompt caching](prompt-caching.md), then in the usage field, `cacheReadInputTokens` and `cacheWriteInputTokens` tell you how many total tokens were read from the cache and written to the cache, respectively.
 
-If you used [service tiers](#inference-service-tiers "#inference-service-tiers"), then in the
-response field, `service tier` would tell you which service tier was used for the request.
+If you used [service tiers](#inference-service-tiers), then in the response field, `service tier` would tell you which service tier was used for the request.
 
-The `metrics` field ([ConverseMetrics](../APIReference/API_runtime_ConverseMetrics.md "../APIReference/API_runtime_ConverseMetrics.md"))
-includes metrics for the call. To determine why the model stopped generating
-content, check the `stopReason` field. You can get information about
-the tokens passed to the model in the request, and the tokens generated in the
-response, by checking the `usage` field ([TokenUsage](../APIReference/API_runtime_TokenUsage.md "../APIReference/API_runtime_TokenUsage.md")). If you
-specified additional response fields in the request, the API returns them as
-JSON in the `additionalModelResponseFields` field.
+The `metrics` field ([ConverseMetrics](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseMetrics.html)) includes metrics for the call. To determine why the model stopped generating content, check the `stopReason` field. You can get information about the tokens passed to the model in the request, and the tokens generated in the response, by checking the `usage` field ([TokenUsage](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_TokenUsage.html)). If you specified additional response fields in the request, the API returns them as JSON in the `additionalModelResponseFields` field. 
 
-The following example shows the response from `Converse` when you
-pass the prompt discussed in [Request](#conversation-inference-call-request "#conversation-inference-call-request").
+The following example shows the response from `Converse` when you pass the prompt discussed in [Request](#conversation-inference-call-request).
 
 ```
 {
@@ -734,12 +538,9 @@ pass the prompt discussed in [Request](#conversation-inference-call-request "#co
 ```
 
 #### ConverseStream response
+<a name="conversation-inference-call-response-converse-stream"></a>
 
-If you call `ConverseStream` to stream the response from a model,
-the stream is returned in the `stream` response field. The stream
-emits the following events. The diagram below shows the order in which the
-events are received; the content block events repeat once per content block,
-grouped by `contentBlockIndex`.
+If you call `ConverseStream` to stream the response from a model, the stream is returned in the `stream` response field. The stream emits the following events. The diagram below shows the order in which the events are received; the content block events repeat once per content block, grouped by `contentBlockIndex`.
 
 ```
 messageStart                          (once per response)
@@ -762,39 +563,24 @@ metadata                              (once per response;
                                        usage + metrics)
 ```
 
-1. `messageStart` ([MessageStartEvent](../APIReference/API_runtime_MessageStartEvent.md "../APIReference/API_runtime_MessageStartEvent.md")). The start event for a message. Includes
-   the role for the message.
-2. `contentBlockStart` ([ContentBlockStartEvent](../APIReference/API_runtime_ContentBlockStartEvent.md "../APIReference/API_runtime_ContentBlockStartEvent.md")). A Content block start event. Tool
-   use only.
-3. `contentBlockDelta` ([ContentBlockDeltaEvent](../APIReference/API_runtime_ContentBlockDeltaEvent.md "../APIReference/API_runtime_ContentBlockDeltaEvent.md")). A Content block delta event.
-   Includes one of the following:
+1. `messageStart` ([MessageStartEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_MessageStartEvent.html)). The start event for a message. Includes the role for the message.
 
-   - `text` – The partial text that the model
-     generates.
-   - `reasoningContent` – The partial reasoning
-     carried out by the model to generate the response. You must
-     submit the returned `signature`, in addition to all
-     previous messages in subsequent `Converse` requests.
-     If any of the messages are changed, the response throws an
-     error.
-   - `toolUse` – The partial input JSON object for
-     tool use.
+1. `contentBlockStart` ([ContentBlockStartEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlockStartEvent.html)). A Content block start event. Tool use only. 
 
-4. `contentBlockStop` ([ContentBlockStopEvent](../APIReference/API_runtime_ContentBlockStopEvent.md "../APIReference/API_runtime_ContentBlockStopEvent.md")). A Content block stop event.
-5. `messageStop` ([MessageStopEvent](../APIReference/API_runtime_MessageStopEvent.md "../APIReference/API_runtime_MessageStopEvent.md")). The stop event for the message. Includes
-   the reason why the model stopped generating output.
-6. `metadata` ([ConverseStreamMetadataEvent](../APIReference/API_runtime_ConverseStreamMetadataEvent.md "../APIReference/API_runtime_ConverseStreamMetadataEvent.md")). Metadata for the request. The
-   metadata includes the token usage in `usage` ([TokenUsage](../APIReference/API_runtime_TokenUsage.md "../APIReference/API_runtime_TokenUsage.md")) and metrics for the call in
-   `metrics` ([ConverseStreamMetadataEvent](../APIReference/API_runtime_ConverseStreamMetadataEvent.md "../APIReference/API_runtime_ConverseStreamMetadataEvent.md")).
+1. `contentBlockDelta` ([ContentBlockDeltaEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlockDeltaEvent.html)). A Content block delta event. Includes one of the following:
+   + `text` – The partial text that the model generates.
+   + `reasoningContent` – The partial reasoning carried out by the model to generate the response. You must submit the returned `signature`, in addition to all previous messages in subsequent `Converse` requests. If any of the messages are changed, the response throws an error.
+   + `toolUse` – The partial input JSON object for tool use.
 
-ConverseStream streams a complete content block as a
-`ContentBlockStartEvent` event, one or more
-`ContentBlockDeltaEvent` events, and a
-`ContentBlockStopEvent` event. Use the
-`contentBlockIndex` field as an index to correlate the events
-that make up a content block.
+1. `contentBlockStop` ([ContentBlockStopEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlockStopEvent.html)). A Content block stop event.
 
-The following example is a partial response from `ConverseStream`.
+1. `messageStop` ([MessageStopEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_MessageStopEvent.html)). The stop event for the message. Includes the reason why the model stopped generating output. 
+
+1. `metadata` ([ConverseStreamMetadataEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStreamMetadataEvent.html)). Metadata for the request. The metadata includes the token usage in `usage` ([TokenUsage](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_TokenUsage.html)) and metrics for the call in `metrics` ([ConverseStreamMetadataEvent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStreamMetadataEvent.html)).
+
+ConverseStream streams a complete content block as a `ContentBlockStartEvent` event, one or more `ContentBlockDeltaEvent` events, and a `ContentBlockStopEvent` event. Use the `contentBlockIndex` field as an index to correlate the events that make up a content block.
+
+The following example is a partial response from `ConverseStream`. 
 
 ```
 {'messageStart': {'role': 'assistant'}}
@@ -807,22 +593,17 @@ The following example is a partial response from `ConverseStream`.
 {'contentBlockDelta': {'delta': {'text': ' The'}, 'contentBlockIndex': 0}}
 {'messageStop': {'stopReason': 'max_tokens'}}
 {'metadata': {'usage': {'inputTokens': 47, 'outputTokens': 20, 'totalTokens': 67}, 'metrics': {'latencyMs': 100.0}}}
-
 ```
 
 ## Converse API examples
+<a name="converse-api-examples"></a>
 
-The following examples show you how to use the `Converse` and
-`ConverseStream` operations.
+The following examples show you how to use the `Converse` and `ConverseStream` operations.
 
-Text
-This example shows how to call the `Converse` operation with
-the _Anthropic Claude 3 Sonnet_ model. The example
-shows how to send the input text, inference parameters, and additional
-parameters that are unique to the model. The code starts a conversation by
-asking the model to create a list of songs. It then continues the
-conversation by asking that the songs are by artists from the United
-Kingdom.
+------
+#### [ Text ]
+
+This example shows how to call the `Converse` operation with the *Anthropic Claude 3 Sonnet* model. The example shows how to send the input text, inference parameters, and additional parameters that are unique to the model. The code starts a conversation by asking the model to create a list of songs. It then continues the conversation by asking that the songs are by artists from the United Kingdom.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -949,13 +730,12 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-Image
-This example shows how to send an image as part of a message and requests
-that the model describe the image. The example uses `Converse`
-operation and the _Anthropic Claude 3 Sonnet_ model.
+------
+#### [ Image ]
+
+This example shows how to send an image as part of a message and requests that the model describe the image. The example uses `Converse` operation and the *Anthropic Claude 3 Sonnet* model. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -1071,14 +851,12 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-Document
-This example shows how to send a document as part of a message and
-requests that the model describe the contents of the document. The example
-uses `Converse` operation and the _Anthropic
-Claude 3 Sonnet_ model.
+------
+#### [ Document ]
+
+This example shows how to send a document as part of a message and requests that the model describe the contents of the document. The example uses `Converse` operation and the *Anthropic Claude 3 Sonnet* model. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -1199,11 +977,10 @@ if __name__ == "__main__":
     main()
 ```
 
-Streaming
-This example shows how to call the `ConverseStream` operation
-with the _Anthropic Claude 3 Sonnet_ model. The example
-shows how to send the input text, inference parameters, and additional
-parameters that are unique to the model.
+------
+#### [ Streaming ]
+
+This example shows how to call the `ConverseStream` operation with the *Anthropic Claude 3 Sonnet* model. The example shows how to send the input text, inference parameters, and additional parameters that are unique to the model.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -1300,7 +1077,7 @@ def main():
         "content": [{"text": input_text}]
     }
     messages = [message]
-
+    
     # System prompts.
     system_prompts = [{"text" : system_prompt}]
 
@@ -1333,13 +1110,12 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
-Video
-This example shows how to send a video as part of a message and requests
-that the model describes the video. The example uses `Converse`
-operation and the Amazon Nova Pro model.
+------
+#### [ Video ]
+
+This example shows how to send a video as part of a message and requests that the model describes the video. The example uses `Converse` operation and the Amazon Nova Pro model.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -1456,3 +1232,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

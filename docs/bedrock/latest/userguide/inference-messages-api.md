@@ -1,48 +1,42 @@
+
+
 # Inference using Anthropic Messages API
+<a name="inference-messages-api"></a>
 
-The Anthropic Messages API provides native access to Claude models using the Anthropic
-request and response format. You can use the Messages API on both the
-`bedrock-runtime` and `bedrock-mantle` endpoints. For new
-applications, we recommend the `bedrock-runtime` endpoint.
+The Anthropic Messages API provides native access to Claude models using the Anthropic request and response format. You can use the Messages API on both the `bedrock-runtime` and `bedrock-mantle` endpoints. For new applications, we recommend the `bedrock-runtime` endpoint.
 
-| **Endpoint**      | **Base URL**                                                    | **Use case**                                                                                                           |
-| ----------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `bedrock-runtime` | `https://bedrock-runtime.{region}.amazonaws.com/anthropic`      | Recommended for new applications. Uses AWS SDK integrations, IAM authentication, and invocation logging.               |
-| `bedrock-mantle`  | `https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages` | Supports Amazon Bedrock API key authentication and [Workspaces (Anthropic-compatible)](workspaces.md "workspaces.md"). |
+
+| **Endpoint** | **Base URL** | **Use case** | 
+| --- | --- | --- | 
+| bedrock-runtime | https://bedrock-runtime.{region}.amazonaws.com/anthropic | Recommended for new applications. Uses AWS SDK integrations, IAM authentication, and invocation logging. | 
+| bedrock-mantle | https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages | Supports Amazon Bedrock API key authentication and [Workspaces (Anthropic-compatible)](workspaces.md). | 
 
 ## Supported Regions
+<a name="inference-messages-api-supported"></a>
 
-The Messages API is available on the `bedrock-runtime` endpoint in all
-Regions where Claude models are available. See [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") for details. On the `bedrock-mantle`
-endpoint, it is available in all Regions that support `bedrock-mantle` (see
-[Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported "bedrock-mantle.md#bedrock-mantle-supported")).
+The Messages API is available on the `bedrock-runtime` endpoint in all Regions where Claude models are available. See [Regional availability by models](models-region-compatibility.md) for details. On the `bedrock-mantle` endpoint, it is available in all Regions that support `bedrock-mantle` (see [Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported)).
 
 ## Prerequisites
+<a name="inference-messages-api-prereq"></a>
 
 Before using the Messages API, make sure you have the following:
-
-- **Model access** – Request access to
-  Claude models in the Amazon Bedrock console. See [Request access to models](model-access.md "model-access.md").
-- **Authentication** – Depends on the endpoint:
-
-  - `bedrock-runtime` – Use AWS SigV4 credentials
-    through the AWS SDK (boto3, etc.), a Amazon Bedrock API key (see [API keys](api-keys.md "api-keys.md")), or a short-term Bedrock bearer token generated
-    from AWS credentials with the [aws-bedrock-token-generator](https://pypi.org/project/aws-bedrock-token-generator/ "https://pypi.org/project/aws-bedrock-token-generator/") library.
-  - `bedrock-mantle` – Use a Amazon Bedrock API key (see [API keys](api-keys.md "api-keys.md")) or AWS SigV4 credentials.
-
-- **Anthropic version header** – All requests require an API version:
-
-  - `bedrock-runtime`: Set `"anthropic_version": "bedrock-2023-05-31"` in the request body when calling `InvokeModel`. The Anthropic SDK adds the required header automatically when using `base_url=https://bedrock-runtime.{region}.amazonaws.com/anthropic`.
-  - `bedrock-mantle`: Set `anthropic-version: 2023-06-01` as an HTTP header.
++ **Model access** – Request access to Claude models in the Amazon Bedrock console. See [Request access to models](model-access.md).
++ **Authentication** – Depends on the endpoint:
+  + `bedrock-runtime` – Use AWS SigV4 credentials through the AWS SDK (boto3, etc.), a Amazon Bedrock API key (see [API keys](api-keys.md)), or a short-term Bedrock bearer token generated from AWS credentials with the [aws-bedrock-token-generator](https://pypi.org/project/aws-bedrock-token-generator/) library.
+  + `bedrock-mantle` – Use a Amazon Bedrock API key (see [API keys](api-keys.md)) or AWS SigV4 credentials.
++ **Anthropic version header** – All requests require an API version:
+  + `bedrock-runtime`: Set `"anthropic_version": "bedrock-2023-05-31"` in the request body when calling `InvokeModel`. The Anthropic SDK adds the required header automatically when using `base_url=https://bedrock-runtime.{region}.amazonaws.com/anthropic`.
+  + `bedrock-mantle`: Set `anthropic-version: 2023-06-01` as an HTTP header.
 
 ## Basic request
+<a name="inference-messages-api-basic"></a>
 
 To send a basic message to a Claude model, choose the tab for your preferred method, and then follow the steps:
 
-bedrock-runtime (Python, Anthropic SDK)
-Use the Anthropic SDK against the `bedrock-runtime`
-endpoint's `/anthropic` route with a short-term Bedrock bearer
-token generated by [aws-bedrock-token-generator](https://pypi.org/project/aws-bedrock-token-generator/ "https://pypi.org/project/aws-bedrock-token-generator/"):
+------
+#### [ bedrock-runtime (Python, Anthropic SDK) ]
+
+Use the Anthropic SDK against the `bedrock-runtime` endpoint's `/anthropic` route with a short-term Bedrock bearer token generated by [aws-bedrock-token-generator](https://pypi.org/project/aws-bedrock-token-generator/):
 
 ```
 from anthropic import Anthropic
@@ -65,7 +59,8 @@ response = client.messages.create(
 print(response.content[0].text)
 ```
 
-bedrock-runtime (Python, boto3)
+------
+#### [ bedrock-runtime (Python, boto3) ]
 
 ```
 import boto3
@@ -88,7 +83,9 @@ result = json.loads(response["body"].read())
 print(result["content"][0]["text"])
 ```
 
-bedrock-runtime (AWS CLI)
+------
+#### [ bedrock-runtime (AWS CLI) ]
+
 Use the AWS CLI to invoke the model:
 
 ```
@@ -105,10 +102,10 @@ aws bedrock-runtime invoke-model \
   output.json
 ```
 
-bedrock-runtime (curl)
-You can call `bedrock-runtime` directly with curl by signing
-the request with AWS SigV4. The example below uses curl's built-in
-`--aws-sigv4` flag (available in curl 7.75.0 and later):
+------
+#### [ bedrock-runtime (curl) ]
+
+You can call `bedrock-runtime` directly with curl by signing the request with AWS SigV4. The example below uses curl's built-in `--aws-sigv4` flag (available in curl 7.75.0 and later):
 
 ```
 curl -X POST \
@@ -125,18 +122,13 @@ curl -X POST \
   }'
 ```
 
-###### Note
+**Note**  
+If you are using temporary credentials from AWS STS (for example, an assumed role), also pass the session token by adding `-H "X-Amz-Security-Token: $AWS_SESSION_TOKEN"` to the request. For most use cases we recommend the AWS SDKs or CLI, which handle request signing and credential refresh automatically.
 
-If you are using temporary credentials from AWS STS (for example,
-an assumed role), also pass the session token by adding
-`-H "X-Amz-Security-Token: $AWS_SESSION_TOKEN"` to the
-request. For most use cases we recommend the AWS SDKs or CLI, which
-handle request signing and credential refresh automatically.
+------
+#### [ bedrock-runtime (curl, API key) ]
 
-bedrock-runtime (curl, API key)
-You can also call `bedrock-runtime` with a Amazon Bedrock API key using
-the Anthropic-native `/anthropic/v1/messages` route, just like
-`bedrock-mantle`:
+You can also call `bedrock-runtime` with a Amazon Bedrock API key using the Anthropic-native `/anthropic/v1/messages` route, just like `bedrock-mantle`:
 
 ```
 curl -X POST https://bedrock-runtime.us-east-1.amazonaws.com/anthropic/v1/messages \
@@ -152,7 +144,8 @@ curl -X POST https://bedrock-runtime.us-east-1.amazonaws.com/anthropic/v1/messag
   }'
 ```
 
-bedrock-mantle (curl)
+------
+#### [ bedrock-mantle (curl) ]
 
 ```
 curl -X POST https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages \
@@ -168,11 +161,15 @@ curl -X POST https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages \
   }'
 ```
 
+------
+
 ## Stream responses
+<a name="inference-messages-api-streaming"></a>
 
 To receive response tokens incrementally as they are generated, choose the tab for your preferred method, and then follow the steps:
 
-bedrock-runtime (Python, Anthropic SDK)
+------
+#### [ bedrock-runtime (Python, Anthropic SDK) ]
 
 ```
 from anthropic import Anthropic
@@ -196,7 +193,8 @@ with client.messages.stream(
         print(text, end="", flush=True)
 ```
 
-bedrock-runtime (Python, boto3)
+------
+#### [ bedrock-runtime (Python, boto3) ]
 
 ```
 import boto3
@@ -221,7 +219,8 @@ for event in response["body"]:
         print(chunk["delta"]["text"], end="")
 ```
 
-bedrock-runtime (curl, API key)
+------
+#### [ bedrock-runtime (curl, API key) ]
 
 ```
 curl -X POST https://bedrock-runtime.us-east-1.amazonaws.com/anthropic/v1/messages \
@@ -238,7 +237,8 @@ curl -X POST https://bedrock-runtime.us-east-1.amazonaws.com/anthropic/v1/messag
   }'
 ```
 
-bedrock-mantle (curl)
+------
+#### [ bedrock-mantle (curl) ]
 
 ```
 curl -X POST https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages \
@@ -255,24 +255,21 @@ curl -X POST https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages \
   }'
 ```
 
+------
+
 ## Supported features
+<a name="inference-messages-api-features"></a>
 
-In addition to the [Extended
-thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md"), [Adaptive
-thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md"), [Structured
-outputs](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md"), [Compaction](claude-messages-compaction.md "claude-messages-compaction.md"), [Fallback credit for refused requests (beta)](claude-messages-fallback-credit.md "claude-messages-fallback-credit.md"), and
-[Mid-conversation system
-messages](claude-messages-mid-conversation-system.md "claude-messages-mid-conversation-system.md") sections above, the Messages API supports the following features with
-Claude models:
+In addition to the [Extended thinking](claude-messages-extended-thinking.md), [Adaptive thinking](claude-messages-adaptive-thinking.md), [Structured outputs](claude-messages-structured-outputs.md), [Compaction](claude-messages-compaction.md), [Fallback credit for refused requests (beta)](claude-messages-fallback-credit.md), and [Mid-conversation system messages](claude-messages-mid-conversation-system.md) sections above, the Messages API supports the following features with Claude models:
++ **System prompts** – Set model behavior with a `system` parameter.
++ **Multi-turn conversations** – Pass alternating `user` and `assistant` messages.
++ **Tool use** – Define tools the model can call. See [Use a tool to complete an Amazon Bedrock model response](tool-use.md).
++ **Vision** – Send images in the `content` array alongside text.
++ **Prompt caching** – Cache frequently used context to reduce latency and cost.
 
-- **System prompts** – Set model behavior with a `system` parameter.
-- **Multi-turn conversations** – Pass alternating `user` and `assistant` messages.
-- **Tool use** – Define tools the model can call. See [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
-- **Vision** – Send images in the `content` array alongside text.
-- **Prompt caching** – Cache frequently used context to reduce latency and cost.
-
-For the full Messages API request and response field reference, see [Request and Response](model-parameters-anthropic-claude-messages-request-response.md "model-parameters-anthropic-claude-messages-request-response.md").
+For the full Messages API request and response field reference, see [Request and Response](model-parameters-anthropic-claude-messages-request-response.md).
 
 ## Count tokens
+<a name="inference-messages-api-count-tokens"></a>
 
-To count the number of input tokens that a request would consume before sending it for inference, use the Anthropic `count_tokens` path on the `bedrock-mantle` endpoint. This is the only token-counting path supported for Claude models that are not available on `bedrock-runtime` with a Region-specific endpoint, including Claude models that launch with cross-Region inference (CRIS) only. For details and an example, see [Count tokens using the bedrock-mantle endpoint](count-tokens.md#count-tokens-mantle "count-tokens.md#count-tokens-mantle").
+To count the number of input tokens that a request would consume before sending it for inference, use the Anthropic `count_tokens` path on the `bedrock-mantle` endpoint. This is the only token-counting path supported for Claude models that are not available on `bedrock-runtime` with a Region-specific endpoint, including Claude models that launch with cross-Region inference (CRIS) only. For details and an example, see [Count tokens using the bedrock-mantle endpoint](count-tokens.md#count-tokens-mantle).

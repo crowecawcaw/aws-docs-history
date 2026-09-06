@@ -1,8 +1,12 @@
+
+
 # Converse API code samples for custom model import
+<a name="custom-model-import-code-samples-converse"></a>
 
-If you're importing a Mistral, Llama, or Qwen type instruct model and you want to use the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or the [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") API, make sure to include the `chat_template` for the model type you are importing in the `tokenizer_config.json`. Select the tab corresponding to the model type you are importing in the following table.
+If you're importing a Mistral, Llama, or Qwen type instruct model and you want to use the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) or the [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) API, make sure to include the `chat_template` for the model type you are importing in the `tokenizer_config.json`. Select the tab corresponding to the model type you are importing in the following table.
 
-Llama 3.2 Text
+------
+#### [ Llama 3.2 Text ]
 
 ```
 {
@@ -2067,10 +2071,10 @@ Llama 3.2 Text
   "model_max_length": 131072,
   "tokenizer_class": "PreTrainedTokenizerFast"
 }
-
 ```
 
-Llama 3.1 Text
+------
+#### [ Llama 3.1 Text ]
 
 ```
 {
@@ -4135,10 +4139,10 @@ Llama 3.1 Text
   "model_max_length": 131072,
   "tokenizer_class": "PreTrainedTokenizerFast"
 }
-
 ```
 
-Llama 3.0 Text
+------
+#### [ Llama 3.0 Text ]
 
 ```
 {
@@ -6203,11 +6207,10 @@ Llama 3.0 Text
   "model_max_length": 1000000000000000019884624838656,
   "tokenizer_class": "PreTrainedTokenizerFast"
 }
-
-
 ```
 
-Llama 2.0 Chat models
+------
+#### [ Llama 2.0 Chat models ]
 
 ```
 {
@@ -6246,11 +6249,10 @@ Llama 2.0 Chat models
     "single_word": false
   }
 }
-
-
 ```
 
-Mistral 8x7b Text
+------
+#### [ Mistral 8x7b Text ]
 
 ```
 {
@@ -6297,11 +6299,10 @@ Mistral 8x7b Text
   "unk_token": "<unk>",
   "use_default_system_prompt": false
 }
-
-
 ```
 
-Mistral 7b
+------
+#### [ Mistral 7b ]
 
 ```
 {
@@ -12491,10 +12492,10 @@ Mistral 7b
   "unk_token": "<unk>",
   "use_default_system_prompt": false
 }
-
 ```
 
-Qwen2
+------
+#### [ Qwen2 ]
 
 ```
 {
@@ -12538,3 +12539,5 @@ Qwen2
   "unk_token": null
 }
 ```
+
+------

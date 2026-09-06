@@ -1,16 +1,15 @@
+
+
 # Hello Amazon Bedrock
+<a name="bedrock_example_bedrock_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Bedrock.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock#code-examples").
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock#code-examples). 
 
 ```
 using Amazon;
@@ -80,26 +79,16 @@ internal class HelloBedrock
         Console.WriteLine($"{foundationModel.ModelId}, Customization: {string.Join(", ", foundationModel.CustomizationsSupported)}, Stream: {foundationModel.ResponseStreamingSupported}, Input: {string.Join(", ", foundationModel.InputModalities)}, Output: {string.Join(", ", foundationModel.OutputModalities)}");
     }
 }
+```
++  For API details, see [ListFoundationModels](https://docs.aws.amazon.com/goto/DotNetSDKV4/bedrock-2023-04-20/ListFoundationModels) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Go ]
+
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock#code-examples). 
 
 ```
-
-- For API details, see
-  [ListFoundationModels](../../../goto/DotNetSDKV4/bedrock-2023-04-20/ListFoundationModels.md "../../../goto/DotNetSDKV4/bedrock-2023-04-20/ListFoundationModels.md")
-  in _AWS SDK for .NET API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock#code-examples").
-
-```
-
 package main
 
 import (
@@ -137,27 +126,16 @@ func main() {
 		fmt.Println(*modelSummary.ModelId)
 	}
 }
+```
++  For API details, see [ListFoundationModels](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrock#Client.ListFoundationModels) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ JavaScript ]
 
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples). 
 
 ```
-
-- For API details, see
-  [ListFoundationModels](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrock#Client.ListFoundationModels "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrock#Client.ListFoundationModels")
-  in _AWS SDK for Go API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples").
-
-```
-
 import { fileURLToPath } from "node:url";
 
 import {
@@ -209,26 +187,16 @@ export const main = async () => {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await main();
 }
+```
++  For API details, see [ListFoundationModels](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListFoundationModelsCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples). 
 
 ```
-
-- For API details, see
-  [ListFoundationModels](../../../AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListFoundationModelsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock/command/ListFoundationModelsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples").
-
-```
-
 """
 Lists the available Amazon Bedrock models.
 """
@@ -281,24 +249,14 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
 ```
++  For API details, see [ListFoundationModels](https://docs.aws.amazon.com/goto/boto3/bedrock-2023-04-20/ListFoundationModels) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListFoundationModels](../../../goto/boto3/bedrock-2023-04-20/ListFoundationModels.md "../../../goto/boto3/bedrock-2023-04-20/ListFoundationModels.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock#code-examples").
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock#code-examples). 
 
 ```
 import ArgumentParser
@@ -319,7 +277,7 @@ struct ExampleCommand: ParsableCommand {
     )
 
     /// Construct a string listing the specified modalities.
-    ///
+    /// 
     /// - Parameter modalities: An array of the modalities to list.
     ///
     /// - Returns: A string with a human-readable list of modalities.
@@ -343,9 +301,9 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Construct a string listing the specified customizations.
-    ///
+    /// 
     /// - Parameter customizations: An array of the customizations to list.
-    ///
+    /// 
     /// - Returns: A string listing the customizations.
     func buildCustomizationList(customizations: [BedrockClientTypes.ModelCustomization]?) -> String {
         var first = true
@@ -367,9 +325,9 @@ struct ExampleCommand: ParsableCommand {
     }
 
     /// Construct a string listing the specified inferences.
-    ///
+    /// 
     /// - Parameter inferences: An array of inferences to list.
-    ///
+    /// 
     /// - Returns: A string listing the specified inferences.
     func buildInferenceList(inferences: [BedrockClientTypes.InferenceType]?) -> String {
         var first = true
@@ -404,7 +362,7 @@ struct ExampleCommand: ParsableCommand {
             print("No models returned.")
             return
         }
-
+        
         // Output a list of the models with their details.
         for summary in summaries {
             print("==========================================")
@@ -418,7 +376,7 @@ struct ExampleCommand: ParsableCommand {
             print(" Supported inference types: \(buildInferenceList(inferences: summary.inferenceTypesSupported))")
             print("------------------------------------------\n")
         }
-
+        
         print("\(summaries.count) models available.")
     }
 }
@@ -435,16 +393,11 @@ struct Main {
         } catch {
             ExampleCommand.exit(withError: error)
         }
-    }
+    }    
 }
-
-
 ```
++  For API details, see [ListFoundationModels](https://sdk.amazonaws.com/swift/api/awsbedrock/latest/documentation/awsbedrock/bedrockclient/listfoundationmodels(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [ListFoundationModels](<https://sdk.amazonaws.com/swift/api/awsbedrock/latest/documentation/awsbedrock/bedrockclient/listfoundationmodels(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrock/latest/documentation/awsbedrock/bedrockclient/listfoundationmodels(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

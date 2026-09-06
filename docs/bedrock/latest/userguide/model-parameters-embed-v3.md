@@ -1,15 +1,19 @@
+
+
 # Cohere Embed v3
+<a name="model-parameters-embed-v3"></a>
 
-###### Topics
-
-- [Request and Response](#model-parameters-embed-v3-request-response "#model-parameters-embed-v3-request-response")
-- [Code example](#api-inference-examples-cohere-embed-v3 "#api-inference-examples-cohere-embed-v3")
+**Topics**
++ [Request and Response](#model-parameters-embed-v3-request-response)
++ [Code example](#api-inference-examples-cohere-embed-v3)
 
 ## Request and Response
+<a name="model-parameters-embed-v3-request-response"></a>
 
-Request
-The Cohere Embed models have the following
-inference parameters.
+------
+#### [ Request ]
+
+The Cohere Embed models have the following inference parameters. 
 
 ```
 {
@@ -22,76 +26,52 @@ inference parameters.
 ```
 
 The following are required parameters.
++ **texts** – An array of strings for the model to embed. Each text has a maximum length of 512 tokens (approximately 2,048 characters). 1 token is about 4 characters.
 
-- **texts** – An array
-  of strings for the model to embed. Each text has a maximum length of
-  512 tokens (approximately 2,048 characters). 1 token is about 4 characters.
+  The following are text per call and character limits.
 
-The following are text per call and character limits.
+**Texts per call**  
+    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html)
 
-###### Texts per call
-
-| Minimum | Maximum  |
-| ------- | -------- |
-| 0 texts | 96 texts |
-
-###### Characters
-
-| Minimum      | Maximum         |
-| ------------ | --------------- |
-| 0 characters | 2048 characters |
-
-- **input\_type** –
-  Prepends special tokens to differentiate each type from one another. You should
-  not mix different types together, except when mixing types for
-  for search and retrieval. In this case, embed your corpus with the
-  `search_document` type and embedded queries with type `search_query` type.
-
-  - `search_document` – In search
-    use-cases, use `search_document` when you encode
-    documents for embeddings that you store in a vector database.
-  - `search_query` – Use `search_query` when querying your vector DB to find relevant documents.
-  - `classification` – Use `classification` when using embeddings as an input to a text classifier.
-  - `clustering` – Use `clustering` to cluster the embeddings.
-  - `images` – This is an array of images.
-
-    - An array of image data URIs for the model to embed. Maximum number of images per call is 1 (i.e, the model only supports one image input).
-    - The image must be a valid data URI. The image must be in either image/jpeg or image/png format and has a maximum size of 5MB.
-    - Only one of either “images” or “texts” must be provided.
+**Characters**  
+    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-embed-v3.html)
++ **input\_type** – Prepends special tokens to differentiate each type from one another. You should not mix different types together, except when mixing types for for search and retrieval. In this case, embed your corpus with the `search_document` type and embedded queries with type `search_query` type. 
+  + `search_document` – In search use-cases, use `search_document` when you encode documents for embeddings that you store in a vector database.
+  + `search_query` – Use `search_query` when querying your vector DB to find relevant documents.
+  + `classification` – Use `classification` when using embeddings as an input to a text classifier.
+  + `clustering` – Use `clustering` to cluster the embeddings.
+  + `images` – This is an array of images.
+    + An array of image data URIs for the model to embed. Maximum number of images per call is 1 (i.e, the model only supports one image input).
+    + The image must be a valid data URI. The image must be in either image/jpeg or image/png format and has a maximum size of 5MB.
+    + Only one of either “images” or “texts” must be provided.
 
 The following are optional parameters:
++  **truncate** – Specifies how the API handles inputs longer than the maximum token length. Use one of the following:
+  + `NONE` – Returns an error when the input exceeds the maximum input token length. 
+  + `START` – Discards the start of the input. 
+  + `END` – (Default) Discards the end of the input.
 
-- **truncate** –
-  Specifies how the API handles inputs longer than the maximum token length. Use
-  one of the following:
+  If you specify `START` or `END`, the model discards the input until the remaining input is exactly the maximum input token length for the model.
++  **embedding\_types** – Specifies the types of embeddings you want to have returned. Optional and default is `None`, which returns the `Embed Floats` response type. Can be one or more of the following types:
+  + `float` – Use this value to return the default float embeddings. 
+  + `int8` – Use this value to return signed int8 embeddings. 
+  + `uint8` – Use this value to return unsigned int8 embeddings. 
+  + `binary` – Use this value to return signed binary embeddings. 
+  + `ubinary` – Use this value to return unsigned binary embeddings. 
 
-  - `NONE` – Returns an error when the input exceeds the maximum input token length.
-  - `START` – Discards the start of the input.
-  - `END` – (Default) Discards the end of the input.
-    If you specify `START` or `END`, the model discards
-    the input until the remaining input is exactly the maximum input token length
-    for the model.
+For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed) in the Cohere documentation.
 
-- **embedding\_types** –
-  Specifies the types of embeddings you want to have returned. Optional and default is `None`,
-  which returns the `Embed Floats` response type. Can be one or more of the following types:
+------
+#### [ Response ]
 
-  - `float` – Use this value to return the default float embeddings.
-  - `int8` – Use this value to return signed int8 embeddings.
-  - `uint8` – Use this value to return unsigned int8 embeddings.
-  - `binary` – Use this value to return signed binary embeddings.
-  - `ubinary` – Use this value to return unsigned binary embeddings.
-
-For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed "https://docs.cohere.com/reference/embed") in the
-Cohere documentation.
-
-Response
 The `body` response from a call to `InvokeModel` is the following:
 
 ```
 {
     "embeddings": [
-        [ `array of 1024 floats.` ]
+        [ {{array of 1024 floats.}} ]
     ],
     "id": string,
     "response_type" : "embeddings_floats,
@@ -101,37 +81,33 @@ The `body` response from a call to `InvokeModel` is the following:
 ```
 
 The `body` response has the following fields:
++ **id** – An identifier for the response. 
++ **response\_type** – The response type. This value is always `embeddings_floats`. 
++ **embeddings** – An array of embeddings, where each embedding is an array of floats with 1024 elements. The length of the `embeddings` array will be the same as the length of the original `texts` array. 
++ **texts** – An array containing the text entries for which embeddings were returned. 
++ **images** – An array of a description for each image input.
 
-- **id** – An identifier for the response.
-- **response\_type** – The response type. This value
-  is always `embeddings_floats`.
-- **embeddings** – An array of
-  embeddings, where each embedding is an array of floats with 1024 elements. The length of
-  the `embeddings` array will be the same as the length of the
-  original `texts` array.
-- **texts** – An array containing the
-  text entries for which embeddings were returned.
-- **images** – An array of a description for each image input.
+  An `image_description`image\_description is of this form:
 
-An `image_description`image\_description is of this form:
+  ```
+  {
+      "width": long,
+      "height": long,
+      "format": string,
+      "bit_depth": long
+  }
+  ```
 
-```
-{
-    "width": long,
-    "height": long,
-    "format": string,
-    "bit_depth": long
-}
-```
+  If image was used as input, the `“texts”` response field will be an empty array. Vice-versa is not true (i.e, when texts is used, `“images”` will not be in the response)
 
-If image was used as input, the `“texts”` response field will be an empty array. Vice-versa is not
-true (i.e, when texts is used, `“images”` will not be in the response)
+For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed).
 
-For more information, see [https://docs.cohere.com/reference/embed](https://docs.cohere.com/reference/embed "https://docs.cohere.com/reference/embed").
+------
 
 ## Code example
+<a name="api-inference-examples-cohere-embed-v3"></a>
 
-This examples shows how to call the _Cohere Embed English_ model.
+This examples shows how to call the *Cohere Embed English* model.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -186,7 +162,7 @@ def main():
     """
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
+    
     region_name = 'us-east-1'
 
     model_id = 'cohere.embed-english-v3'
@@ -203,7 +179,7 @@ def main():
             "input_type": input_type,
             "embedding_types": embedding_types
         })
-
+        
         response = generate_text_embeddings(model_id=model_id, body=body, region_name=region_name)
 
         response_body = json.loads(response.get('body').read())
@@ -297,7 +273,7 @@ def main():
     """
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
-
+    
     region_name = 'us-east-1'
 
     image_file_path = "image.jpg"
@@ -314,7 +290,7 @@ def main():
             "input_type": input_type,
             "embedding_types": embedding_types
         })
-
+        
         response = generate_image_embeddings(model_id=model_id, body=body, region_name=region_name)
 
         response_body = json.loads(response.get('body').read())

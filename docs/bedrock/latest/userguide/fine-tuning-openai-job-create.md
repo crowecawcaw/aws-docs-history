@@ -1,18 +1,22 @@
-# Create and manage fine-tuning jobs for open-weight models using OpenAI APIs
 
-The OpenAI-compatible fine-tuning job APIs allow you to create, monitor, and manage fine-tuning jobs. This page highlights using these APIs for reinforcement fine-tuning.
-For complete API details, see the [OpenAI Fine-tuning documentation](https://platform.openai.com/docs/api-reference/fine-tuning "https://platform.openai.com/docs/api-reference/fine-tuning").
+
+# Create and manage fine-tuning jobs for open-weight models using OpenAI APIs
+<a name="fine-tuning-openai-job-create"></a>
+
+The OpenAI-compatible fine-tuning job APIs allow you to create, monitor, and manage fine-tuning jobs. This page highlights using these APIs for reinforcement fine-tuning. For complete API details, see the [OpenAI Fine-tuning documentation](https://platform.openai.com/docs/api-reference/fine-tuning).
 
 ## Create fine-tuning job
+<a name="fine-tuning-openai-create-job"></a>
 
-Creates a fine-tuning job that begins the process of creating a new model from a given dataset. For complete API details,
-see the [OpenAI Create fine-tuning jobs documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/create "https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/create").
+Creates a fine-tuning job that begins the process of creating a new model from a given dataset. For complete API details, see the [OpenAI Create fine-tuning jobs documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/create).
 
 ### Examples
+<a name="fine-tuning-openai-create-job-examples"></a>
 
 To create a fine-tuning job with RFT method, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -27,7 +31,7 @@ job_response = client.fine_tuning.jobs.create(
     # suffix="rft-example",  # Optional: suffix for fine-tuned model name
     extra_body={
         "method": {
-            "type": "reinforcement",
+            "type": "reinforcement", 
             "reinforcement": {
                 "grader": {
                     "type": "lambda",
@@ -50,7 +54,9 @@ job_id = job_response.id
 print({job_id})
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/fine_tuning/jobs`:
 
 ```
@@ -79,17 +85,20 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs \
   }'
 ```
 
-## List fine-tuning events
+------
 
-Lists events for a fine-tuning job. Fine-tuning events provide detailed information about
-the progress of your job, including training metrics, checkpoint creation, and error
-messages. For complete API details, see the [OpenAI List fine-tuning events documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/list_events "https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/list_events").
+## List fine-tuning events
+<a name="fine-tuning-openai-list-events"></a>
+
+Lists events for a fine-tuning job. Fine-tuning events provide detailed information about the progress of your job, including training metrics, checkpoint creation, and error messages. For complete API details, see the [OpenAI List fine-tuning events documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/list_events).
 
 ### Examples
+<a name="fine-tuning-openai-list-events-examples"></a>
 
 To list fine-tuning events, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -108,23 +117,27 @@ for event in events.data:
         print(f"  Metrics: {event.data}")
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a GET request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}/events`:
 
 ```
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/events?limit=50
 ```
 
-Events include information such as:
+------
 
-- Training started and completed messages
-- Checkpoint creation notifications
-- Training metrics (loss, accuracy) at each step
-- Error messages if the job fails
+Events include information such as:
++ Training started and completed messages
++ Checkpoint creation notifications
++ Training metrics (loss, accuracy) at each step
++ Error messages if the job fails
 
 To paginate through all events, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -141,16 +154,18 @@ while True:
         limit=100,
         after=after
     )
-
+    
     all_events.extend(events.data)
-
+    
     if not events.has_more:
         break
-
+    
     after = events.data[-1].id
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make multiple GET requests with the `after` parameter:
 
 ```
@@ -161,15 +176,20 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/e
 curl "https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/events?limit=100&after=ft-event-abc123"
 ```
 
-## Retrieve fine-tuning job
+------
 
-Get detailed information about a fine-tuning job. For complete API details, see the [OpenAI Retrieve fine-tuning job documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/retrieve "https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/retrieve").
+## Retrieve fine-tuning job
+<a name="fine-tuning-openai-retrieve-job"></a>
+
+Get detailed information about a fine-tuning job. For complete API details, see the [OpenAI Retrieve fine-tuning job documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/retrieve).
 
 ### Examples
+<a name="fine-tuning-openai-retrieve-job-examples"></a>
 
 To retrieve specific job details, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -183,7 +203,9 @@ job_details = client.fine_tuning.jobs.retrieve(job_id)
 print(json.dumps(job_details.model_dump(), indent=2))
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a GET request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}`:
 
 ```
@@ -191,15 +213,20 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123 \
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
 
-## List fine-tuning jobs
+------
 
-Lists your organization's fine-tuning jobs with pagination support. For complete API details, see the [OpenAI List fine-tuning jobs documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/list "https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/list").
+## List fine-tuning jobs
+<a name="fine-tuning-openai-list-jobs"></a>
+
+Lists your organization's fine-tuning jobs with pagination support. For complete API details, see the [OpenAI List fine-tuning jobs documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/list).
 
 ### Examples
+<a name="fine-tuning-openai-list-jobs-examples"></a>
 
 To list fine-tuning jobs with limit and pagination, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -215,7 +242,9 @@ response = client.fine_tuning.jobs.list(
 print(json.dumps(response.model_dump(), indent=2))
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a GET request to `/v1/fine_tuning/jobs`:
 
 ```
@@ -223,15 +252,20 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs?limit=20 \
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
 
-## Cancel fine-tuning job
+------
 
-Cancels a fine-tuning job that is in progress. Once cancelled, the job cannot be resumed. For complete API details, see the [OpenAI Cancel fine-tuning job documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/cancel "https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/cancel").
+## Cancel fine-tuning job
+<a name="fine-tuning-openai-cancel-job"></a>
+
+Cancels a fine-tuning job that is in progress. Once cancelled, the job cannot be resumed. For complete API details, see the [OpenAI Cancel fine-tuning job documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/methods/cancel).
 
 ### Examples
+<a name="fine-tuning-openai-cancel-job-examples"></a>
 
 To cancel a fine-tuning job, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -245,7 +279,9 @@ print(f"Job ID: {cancel_response.id}")
 print(f"Status: {cancel_response.status}")  # Should be "cancelled"
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}/cancel`:
 
 ```
@@ -253,17 +289,20 @@ curl -X POST https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-
   -H "Authorization: Bearer $OPENAI_API_KEY"
 ```
 
-## List fine-tuning checkpoints
+------
 
-Lists checkpoints for a fine-tuning job. Checkpoints are intermediate model snapshots
-created during fine-tuning that can be used for inference to evaluate performance at
-different training stages. For more information, see the [OpenAI List fine-tuning checkpoints documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/subresources/checkpoints/methods/list "https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/subresources/checkpoints/methods/list").
+## List fine-tuning checkpoints
+<a name="fine-tuning-openai-list-checkpoints"></a>
+
+Lists checkpoints for a fine-tuning job. Checkpoints are intermediate model snapshots created during fine-tuning that can be used for inference to evaluate performance at different training stages. For more information, see the [OpenAI List fine-tuning checkpoints documentation](https://developers.openai.com/api/reference/resources/fine_tuning/subresources/jobs/subresources/checkpoints/methods/list).
 
 ### Examples
+<a name="fine-tuning-openai-list-checkpoints-examples"></a>
 
 To list checkpoints for a fine-tuning job, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -284,27 +323,27 @@ for checkpoint in checkpoints.data:
     print("---")
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a GET request to `/v1/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints`:
 
 ```
 curl https://bedrock-mantle.us-west-2.api.aws/v1/fine_tuning/jobs/ftjob-abc123/checkpoints?limit=10
 ```
 
-Each checkpoint includes:
+------
 
-- **Checkpoint ID** – Unique identifier for
-  the checkpoint
-- **Step number** – Training step at which
-  the checkpoint was created
-- **Model checkpoint** – Model identifier
-  that can be used for inference
-- **Metrics** – Validation loss and accuracy
-  at this checkpoint
+Each checkpoint includes:
++ **Checkpoint ID** – Unique identifier for the checkpoint
++ **Step number** – Training step at which the checkpoint was created
++ **Model checkpoint** – Model identifier that can be used for inference
++ **Metrics** – Validation loss and accuracy at this checkpoint
 
 To use a checkpoint model for inference, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -321,7 +360,9 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/chat/completions`:
 
 ```
@@ -334,15 +375,20 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/chat/completions \
   }'
 ```
 
-## Run inference with fine-tuned model
+------
 
-Once your fine-tuning job is complete, you can use the fine-tuned model for inference through the Responses API or Chat Completions API. For complete API details, see [Responses API](bedrock-mantle.md "bedrock-mantle.md").
+## Run inference with fine-tuned model
+<a name="fine-tuning-openai-inference"></a>
+
+Once your fine-tuning job is complete, you can use the fine-tuned model for inference through the Responses API or Chat Completions API. For complete API details, see [Responses API](bedrock-mantle.md).
 
 ### Responses API
+<a name="fine-tuning-openai-responses-api"></a>
 
 Use the Responses API for single-turn text generation with your fine-tuned model:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -355,7 +401,7 @@ job_details = client.fine_tuning.jobs.retrieve("ftjob-abc123")
 if job_details.status == 'succeeded' and job_details.fine_tuned_model:
     fine_tuned_model = job_details.fine_tuned_model
     print(f"Using fine-tuned model: {fine_tuned_model}")
-
+    
     # Run inference with Responses API
     response = client.completions.create(
         model=fine_tuned_model,
@@ -363,14 +409,16 @@ if job_details.status == 'succeeded' and job_details.fine_tuned_model:
         max_tokens=100,
         temperature=0.7
     )
-
+    
     print(f"Response: {response.choices[0].text}")
 else:
     print(f"Job status: {job_details.status}")
     print("Job must be in 'succeeded' status to run inference")
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/completions`:
 
 ```
@@ -385,11 +433,15 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/completions \
   }'
 ```
 
+------
+
 ### Chat Completions API
+<a name="fine-tuning-openai-inference-examples"></a>
 
 Use the Chat Completions API for conversational interactions with your fine-tuned model:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Requires OPENAI_API_KEY and OPENAI_BASE_URL environment variables
@@ -402,7 +454,7 @@ job_details = client.fine_tuning.jobs.retrieve("ftjob-abc123")
 if job_details.status == 'succeeded' and job_details.fine_tuned_model:
     fine_tuned_model = job_details.fine_tuned_model
     print(f"Using fine-tuned model: {fine_tuned_model}")
-
+    
     # Run inference
     inference_response = client.chat.completions.create(
         model=fine_tuned_model,
@@ -411,14 +463,16 @@ if job_details.status == 'succeeded' and job_details.fine_tuned_model:
         ],
         max_tokens=100
     )
-
+    
     print(f"Response: {inference_response.choices[0].message.content}")
 else:
     print(f"Job status: {job_details.status}")
     print("Job must be in 'succeeded' status to run inference")
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/chat/completions`:
 
 ```
@@ -433,3 +487,5 @@ curl https://bedrock-mantle.us-west-2.api.aws/v1/chat/completions \
     "max_tokens": 100
   }'
 ```
+
+------

@@ -1,41 +1,41 @@
+
+
 # Invoke your imported model
+<a name="invoke-imported-model"></a>
 
-The model import job can take several minutes to import your model after you send [CreateModelImportJob](../APIReference/API_CreateModelImportJob.md "../APIReference/API_CreateModelImportJob.md")
-request. You can check the status of your import job in the console or by calling the
-[GetModelImportJob](../APIReference/API_GetModelImportJob.md "../APIReference/API_GetModelImportJob.md") operation and checking the `Status` field in the response.
-The import job is complete if the Status for the model is **Complete**.
+The model import job can take several minutes to import your model after you send [CreateModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html) request. You can check the status of your import job in the console or by calling the [GetModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelImportJob.html) operation and checking the `Status` field in the response. The import job is complete if the Status for the model is **Complete**. 
 
-After your imported model is available in Amazon Bedrock, you can use the model with on demand throughput by sending [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") requests to make inference calls to the model. For more information,
-see [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md").
+After your imported model is available in Amazon Bedrock, you can use the model with on demand throughput by sending [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) requests to make inference calls to the model. For more information, see [Submit a single prompt with InvokeModel](inference-invoke.md).
 
-To interface with your imported model using the messages format, you can call the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") operations. For more information, see [Using the Converse API](conversation-inference-call.md "conversation-inference-call.md").
+To interface with your imported model using the messages format, you can call the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) or [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) operations. For more information, see [Using the Converse API](conversation-inference-call.md).
 
-###### Note
-
+**Note**  
 Converse API is not supported for Qwen2.5, Qwen2-VL, Qwen2.5-VL, and GPT-OSS models.
 
 ## Enhanced API Support: Multiple API Formats
+<a name="enhanced-api-support"></a>
 
 Starting November 17, 2025, Amazon Bedrock Custom Model Import supports comprehensive OpenAI-compatible API formats, providing flexibility in how you integrate and deploy your custom models. All models imported after November 11, 2025, will automatically benefit from these enhanced capabilities with no additional configuration required.
 
 Custom Model Import now supports three API formats:
-
-- **BedrockCompletion (Text)** - Compatible with current Bedrock workflows
-- **OpenAICompletion (Text)** - OpenAI Completions Schema compatibility
-- **OpenAIChatCompletion (Text and Images)** - Full conversational Schema compatibility
++ **BedrockCompletion (Text)** - Compatible with current Bedrock workflows
++ **OpenAICompletion (Text)** - OpenAI Completions Schema compatibility
++ **OpenAIChatCompletion (Text and Images)** - Full conversational Schema compatibility
 
 These enhanced capabilities include structured outputs for enforcing JSON schemas and patterns, enhanced vision support with multi-image processing, log probabilities for model confidence insights, and tool calling capabilities for GPT-OSS models.
 
 For detailed API reference documentation, see the official OpenAI documentation:
-
-- Completion: [OpenAI Completions API](https://platform.openai.com/docs/api-reference/completions "https://platform.openai.com/docs/api-reference/completions")
-- ChatCompletion: [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat "https://platform.openai.com/docs/api-reference/chat")
++ Completion: [OpenAI Completions API](https://platform.openai.com/docs/api-reference/completions)
++ ChatCompletion: [OpenAI Chat API](https://platform.openai.com/docs/api-reference/chat)
 
 ### API Format Examples
+<a name="api-format-examples"></a>
 
 The following examples demonstrate how to use each of the four supported API formats with your imported models.
 
-BedrockCompletion
+------
+#### [ BedrockCompletion ]
+
 **BedrockCompletion** format is compatible with current Bedrock workflows and supports text-based inference requests.
 
 Example request:
@@ -76,7 +76,9 @@ Example response:
 
 BedrockCompletion supports structured outputs using `response_format` parameter with `json_object` and `json_schema` types.
 
-OpenAICompletion
+------
+#### [ OpenAICompletion ]
+
 **OpenAICompletion** format provides OpenAI Completions Schema compatibility. To use this format, include the `max_tokens` parameter instead of `max_gen_len`.
 
 Example request:
@@ -127,7 +129,9 @@ Example response:
 
 OpenAICompletion supports full structured outputs capabilities including `json`, `regex`, `choice`, and `grammar` constraints using the `structured_outputs` parameter.
 
-OpenAIChatCompletion
+------
+#### [ OpenAIChatCompletion ]
+
 **OpenAIChatCompletion** format provides full conversational Schema compatibility and supports both text and image inputs.
 
 Example request:
@@ -186,19 +190,17 @@ Example response:
 
 OpenAIChatCompletion supports structured outputs using both `response_format` and `structured_outputs` parameters. For vision capabilities, include images in the content array with base64-encoded image data.
 
-###### Note
-
+**Note**  
 To use ChatCompletion format, the chat template needs to be part of the `tokenizer_config.json`. Custom Model Import will not apply any default chat templates to the request.
 
-You'll need the model ARN to make inference calls to your newly imported model. After the
-successful completion of the import job and after your imported model is active, you can get
-the model ARN of your imported model in the console or by sending a [ListImportedModels](../APIReference/API_ListImportedModels.md "../APIReference/API_ListImportedModels.md") request.
+------
 
-When you invoke your imported model using `InvokeModel` or `InvokeModelWithStream`,
-your request is served within 5 minutes or you might get `ModelNotReadyException`.
-To understand the ModelNotReadyException, follow the steps in this next section for handling ModelNotreadyException.
+You'll need the model ARN to make inference calls to your newly imported model. After the successful completion of the import job and after your imported model is active, you can get the model ARN of your imported model in the console or by sending a [ListImportedModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListImportedModels.html) request. 
+
+When you invoke your imported model using `InvokeModel` or `InvokeModelWithStream`, your request is served within 5 minutes or you might get `ModelNotReadyException`. To understand the ModelNotReadyException, follow the steps in this next section for handling ModelNotreadyException. 
 
 ## Frequently Asked Questions
+<a name="api-format-faq"></a>
 
 **Q: What API format should I use?**
 
@@ -206,7 +208,7 @@ A: For maximum compatibility with various SDKs, we recommend using OpenAIComplet
 
 **Q: Does GPT-OSS on Amazon Bedrock Custom Model Import support the Converse API?**
 
-A: No. GPT-OSS based custom model import models do not support the Converse API or ConverseStream API. You must use the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API with OpenAI-compatible schemas when working with GPT-OSS based custom models.
+A: No. GPT-OSS based custom model import models do not support the Converse API or ConverseStream API. You must use the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) API with OpenAI-compatible schemas when working with GPT-OSS based custom models.
 
 **Q: What models support tool calling?**
 
@@ -218,71 +220,76 @@ A: Models imported before November 11, 2025, continue to work as is with their e
 
 **Q: What about `generation_config.json` for OpenAI-based models?**
 
-A: It is critical that you include the correct `generation_config.json` file when importing OpenAI-based models such as GPT-OSS. You must use the updated configuration file (updated August 13, 2024) available at [https://huggingface.co/openai/gpt-oss-20b/blob/main/generation\_config.json](https://huggingface.co/openai/gpt-oss-20b/blob/main/generation_config.json "https://huggingface.co/openai/gpt-oss-20b/blob/main/generation_config.json"). The updated configuration includes three end-of-sequence token IDs (`[200002, 199999, 200012]`), whereas older versions only included two tokens (`[200002, 199999]`). Using an outdated `generation_config.json` file will cause runtime errors during model invocation. This file is essential for proper model behavior and must be included with your OpenAI-based model imports.
+A: It is critical that you include the correct `generation_config.json` file when importing OpenAI-based models such as GPT-OSS. You must use the updated configuration file (updated August 13, 2024) available at [https://huggingface.co/openai/gpt-oss-20b/blob/main/generation\_config.json](https://huggingface.co/openai/gpt-oss-20b/blob/main/generation_config.json). The updated configuration includes three end-of-sequence token IDs (`[200002, 199999, 200012]`), whereas older versions only included two tokens (`[200002, 199999]`). Using an outdated `generation_config.json` file will cause runtime errors during model invocation. This file is essential for proper model behavior and must be included with your OpenAI-based model imports.
 
 ## Handling ModelNotReadyException
+<a name="handle-model-not-ready-exception"></a>
 
-Amazon Bedrock Custom Model Import optimizes the hardware use by removing the models that are not active. If you try to invoke
-a model that has been removed, you'll get a `ModelNotReadyException`. After the model is removed and you invoke the model for the first time, Custom Model Import
-starts to restore the model. The restoration time depends on the on-demand fleet size and the model size.
+Amazon Bedrock Custom Model Import optimizes the hardware use by removing the models that are not active. If you try to invoke a model that has been removed, you'll get a `ModelNotReadyException`. After the model is removed and you invoke the model for the first time, Custom Model Import starts to restore the model. The restoration time depends on the on-demand fleet size and the model size.
 
-If your `InvokeModel` or `InvokeModelWithStream` request returns `ModelNotReadyException`,
-follow the steps to handle the exception.
+If your `InvokeModel` or `InvokeModelWithStream` request returns `ModelNotReadyException`, follow the steps to handle the exception.
 
-1. ###### Configure retries
+1. 
 
-By default, the request is automatically retried with exponential backoff. You can configure the maximum number of retries.
+**Configure retries**
 
-The following example shows how to configure the retry. Replace `${region-name}`, `${model-arn}`, and `10` with your Region, model ARN, and maximum attempts.
+   By default, the request is automatically retried with exponential backoff. You can configure the maximum number of retries.
 
-```
-import json
-import boto3
-from botocore.config import Config
+   The following example shows how to configure the retry. Replace {{${region-name}}}, {{${model-arn}}}, and {{10}} with your Region, model ARN, and maximum attempts.
 
+   ```
+   import json
+   import boto3
+   from botocore.config import Config
+   
+   
+   REGION_NAME = {{${region-name}}}
+   MODEL_ID= '{{${model-arn}}}'
+   
+   config = Config(
+       retries={
+           'total_max_attempts': {{10}}, //customizable
+           'mode': 'standard'
+       }
+   )
+   message = "Hello"
+   
+   
+   session = boto3.session.Session()
+   br_runtime = session.client(service_name = 'bedrock-runtime', 
+                                    region_name=REGION_NAME, 
+                                    config=config)
+       
+   try:
+       invoke_response = br_runtime.invoke_model(modelId=MODEL_ID, 
+                                               body=json.dumps({'prompt': message}), 
+                                               accept="application/json", 
+                                               contentType="application/json")
+       invoke_response["body"] = json.loads(invoke_response["body"].read().decode("utf-8"))
+       print(json.dumps(invoke_response, indent=4))
+   except Exception as e:
+       print(e)
+       print(e.__repr__())
+   ```
 
-REGION_NAME = `${region-name}`
-MODEL_ID= '`${model-arn}`'
+1. 
 
-config = Config(
-    retries={
-        'total_max_attempts': `10`, //customizable
-        'mode': 'standard'
-    }
-)
-message = "Hello"
+**Monitor response codes during retry attempts**
 
+   Each retry attempt starts model restoration process. The restoration time depends on the availability of the on-demand fleet and the model size. Monitor the response codes while the restoration process is going on. 
 
-session = boto3.session.Session()
-br_runtime = session.client(service_name = 'bedrock-runtime',
-                                 region_name=REGION_NAME,
-                                 config=config)
+   If the retries are consistently failing, continue with the next steps.
 
-try:
-    invoke_response = br_runtime.invoke_model(modelId=MODEL_ID,
-                                            body=json.dumps({'prompt': message}),
-                                            accept="application/json",
-                                            contentType="application/json")
-    invoke_response["body"] = json.loads(invoke_response["body"].read().decode("utf-8"))
-    print(json.dumps(invoke_response, indent=4))
-except Exception as e:
-    print(e)
-    print(e.__repr__())
+1. 
 
+**Verify model was successfully imported**
 
-```
+   You can verify if the model was successfully imported by checking the status of your import job in the console or by calling the [GetModelImportJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelImportJob.html) operation. Check the `Status` field in the response. The import job is successful if the Status for the model is **Complete**. 
 
-2. ###### Monitor response codes during retry attempts
+1. 
 
-Each retry attempt starts model restoration process. The restoration time depends on the availability of the on-demand fleet and the model size.
-Monitor the response codes while the restoration process is going on.
+**Contact Support for further investigation**
 
-If the retries are consistently failing, continue with the next steps. 3. ###### Verify model was successfully imported
+   Open a ticket with Support For more information, see [Creating support cases](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html).
 
-You can verify if the model was successfully imported by checking the status of your import job in the console or by calling the
-[GetModelImportJob](../APIReference/API_GetModelImportJob.md "../APIReference/API_GetModelImportJob.md") operation.
-Check the `Status` field in the response. The import job is successful if the Status for the model is **Complete**. 4. ###### Contact Support for further investigation
-
-Open a ticket with Support For more information, see [Creating support cases](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
-
-Include relevant details such as model ID and timestamps in the support ticket.
+   Include relevant details such as model ID and timestamps in the support ticket.

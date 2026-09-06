@@ -1,44 +1,23 @@
+
+
 # Anthropic Claude tool use
+<a name="model-parameters-anthropic-claude-messages-tool-use"></a>
 
-###### Warning
+**Warning**  
+Several functions below are offered in beta as indicated. These features are made available to you as a "Beta Service" as defined in the AWS Service Terms. It is subject to your Agreement with AWS and the AWS Service Terms, and the applicable model EULA.
 
-Several functions below are offered in beta as indicated. These features are made
-available to you as a "Beta Service" as defined in the AWS Service Terms. It is
-subject to your Agreement with AWS and the AWS Service Terms, and the applicable
-model EULA.
+With Anthropic Claude models, you can specify a tool that the model can use to answer a message. For example, you could specify a tool that gets the most popular song on a radio station. If the user passes the message *What's the most popular song on WZPZ?*, the model determines that the tool you specified can help answer the question. In its response, the model requests that you run the tool on its behalf. You then run the tool and pass the tool result to the model, which then generates a response for the original message. For more information, see [Tool use (function calling)](https://docs.anthropic.com/en/docs/tool-use) in the Anthropic Claude documentation.
 
-With Anthropic Claude models, you can specify a tool that the model can use to answer
-a message. For example, you could specify a tool that gets the most popular song on a radio
-station. If the user passes the message _What's the most popular song on
-WZPZ?_, the model determines that the tool you specified can help answer the
-question. In its response, the model requests that you run the tool on its behalf. You then
-run the tool and pass the tool result to the model, which then generates a response for the
-original message. For more information, see [Tool use (function calling)](https://docs.anthropic.com/en/docs/tool-use "https://docs.anthropic.com/en/docs/tool-use") in
-the Anthropic Claude documentation.
+**Tip**  
+We recommend that you use the Responses API or Messages API for integrating tool use into your application. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md). 
 
-###### Tip
+**Important**  
+Claude Sonnet 4.5 now preserves intentional formatting in tool call string parameters. Previously, trailing newlines in string parameters were sometimes incorrectly stripped. This fix ensures that tools requiring precise formatting (like text editors) receive parameters exactly as intended. This is a behind-the-scenes improvement with no API changes required. However, tools with string parameters may now receive values with trailing newlines that were previously stripped.
 
-We recommend that you use the Responses API or Messages API for integrating tool use
-into your application. For more information, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
+**Note**  
+Claude Sonnet 4.5 includes automatic optimizations to improve model performance. These optimizations may add small amounts of tokens to requests, but you are not billed for these system-added tokens.
 
-###### Important
-
-Claude Sonnet 4.5 now preserves intentional formatting in tool call string parameters.
-Previously, trailing newlines in string parameters were sometimes incorrectly stripped.
-This fix ensures that tools requiring precise formatting (like text editors) receive
-parameters exactly as intended. This is a behind-the-scenes improvement with no API
-changes required. However, tools with string parameters may now receive values with
-trailing newlines that were previously stripped.
-
-###### Note
-
-Claude Sonnet 4.5 includes automatic optimizations to improve model performance. These
-optimizations may add small amounts of tokens to requests, but you are not billed for
-these system-added tokens.
-
-You specify the tools that you want to make available to a model in the `tools`
-field. The following example is for a tool that gets the most popular songs on a radio
-station.
+You specify the tools that you want to make available to a model in the `tools` field. The following example is for a tool that gets the most popular songs on a radio station. 
 
 ```
 [
@@ -61,9 +40,7 @@ station.
 ]
 ```
 
-When the model needs a tool to generate a response to a message, it returns information
-about the requested tool, and the input to the tool, in the message `content`
-field. It also sets the stop reason for the response to `tool_use`.
+When the model needs a tool to generate a response to a message, it returns information about the requested tool, and the input to the tool, in the message `content` field. It also sets the stop reason for the response to `tool_use`.
 
 ```
 {
@@ -90,8 +67,7 @@ field. It also sets the stop reason for the response to `tool_use`.
 }
 ```
 
-In your code, you call the tool on the tools behalf. You then pass the tool result
-(`tool_result`) in a user message to the model.
+In your code, you call the tool on the tools behalf. You then pass the tool result (`tool_result`) in a user message to the model.
 
 ```
 {
@@ -106,8 +82,7 @@ In your code, you call the tool on the tools behalf. You then pass the tool resu
 }
 ```
 
-In its response, the model uses the tool result to generate a response for the original
-message.
+In its response, the model uses the tool result to generate a response for the original message.
 
 ```
 {
@@ -126,21 +101,14 @@ message.
 ```
 
 ## Fine-grained tool streaming
+<a name="model-parameters-anthropic-claude-messages-fine-grained-tool-streaming"></a>
 
-Fine-grained tool streaming is an Anthropic Claude model capability available with
-Claude Sonnet 4.5, Claude Haiku 4.5, Claude Sonnet 4, and Claude Opus 4. With
-fine-grained tool streaming, Claude developers can stream tool use parameters without
-buffering or JSON validation, reducing the latency to begin receiving large
-parameters.
+Fine-grained tool streaming is an Anthropic Claude model capability available with Claude Sonnet 4.5, Claude Haiku 4.5, Claude Sonnet 4, and Claude Opus 4. With fine-grained tool streaming, Claude developers can stream tool use parameters without buffering or JSON validation, reducing the latency to begin receiving large parameters.
 
-###### Note
+**Note**  
+When using fine-grained tool streaming, you may potentially receive invalid or partial JSON inputs. Please make sure to account for these edge cases in your code.
 
-When using fine-grained tool streaming, you may potentially receive invalid or
-partial JSON inputs. Please make sure to account for these edge cases in your
-code.
-
-To use this feature, simply add the header
-`fine-grained-tool-streaming-2025-05-14` to a tool use request.
+To use this feature, simply add the header `fine-grained-tool-streaming-2025-05-14` to a tool use request.
 
 Here’s an example of how to specify the fine-grained tool streaming header:
 
@@ -181,15 +149,9 @@ Here’s an example of how to specify the fine-grained tool streaming header:
 }
 ```
 
-In this example, fine-grained tool streaming enables Claude to stream the lines of a
-long poem into the tool call `make_file` without buffering to validate if the
-`lines_of_text` parameter is valid JSON. This means you can see the
-parameter stream as it arrives, without having to wait for the entire parameter to
-buffer and validate.
+In this example, fine-grained tool streaming enables Claude to stream the lines of a long poem into the tool call `make_file` without buffering to validate if the `lines_of_text` parameter is valid JSON. This means you can see the parameter stream as it arrives, without having to wait for the entire parameter to buffer and validate.
 
-With fine-grained tool streaming, tool use chunks start streaming faster, and are
-often longer and contain fewer word breaks. This is due to differences in chunking
-behavior.
+With fine-grained tool streaming, tool use chunks start streaming faster, and are often longer and contain fewer word breaks. This is due to differences in chunking behavior.
 
 For example, without fine-grained streaming (15s delay):
 
@@ -212,123 +174,90 @@ Chunk 1: '{"query": "TypeScript 5.0 5.1 5.2 5.3'
 Chunk 2: ' new features comparison'
 ```
 
-###### Note
-
-Because fine-grained streaming sends parameters without buffering or JSON
-validation, there is no guarantee that the resulting stream will complete in a valid
-JSON string. Particularly, if the stop reason `max_tokens` is reached,
-the stream may end midway through a parameter and may be incomplete. You will
-generally have to write specific support to handle when `max_tokens` is
-reached.
+**Note**  
+Because fine-grained streaming sends parameters without buffering or JSON validation, there is no guarantee that the resulting stream will complete in a valid JSON string. Particularly, if the stop reason `max_tokens` is reached, the stream may end midway through a parameter and may be incomplete. You will generally have to write specific support to handle when `max_tokens` is reached.
 
 ## Computer use (Beta)
+<a name="model-parameters-anthropic-claude-messages-computer-use"></a>
 
-Computer use is an Anthropic Claude tool family (in beta) for automating
-graphical user interface (GUI) tasks. For an overview, the Amazon Bedrock-specific request
-shape, and an end-to-end example, see [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md "computer-use.md"). To find which models support computer use on each
-endpoint, see the _Capabilities and Features_ table in each [Models at a glance](model-cards.md "model-cards.md").
+Computer use is an Anthropic Claude tool family (in beta) for automating graphical user interface (GUI) tasks. For an overview, the Amazon Bedrock-specific request shape, and an end-to-end example, see [Use computer use tools to automate GUI tasks with Amazon Bedrock models](computer-use.md). To find which models support computer use on each endpoint, see the *Capabilities and Features* table in each [Models at a glance](model-cards.md).
 
-To enable computer use on a request, set `anthropic_beta` to a
-computer-use version and include a tool entry whose `type` matches that
-version. The valid pairings are:
+To enable computer use on a request, set `anthropic_beta` to a computer-use version and include a tool entry whose `type` matches that version. The valid pairings are:
 
-| Beta header               | Computer tool type  |
-| ------------------------- | ------------------- |
-| `computer-use-2025-11-24` | `computer_20251124` |
-| `computer-use-2025-01-24` | `computer_20250124` |
-| `computer-use-2024-10-22` | `computer_20241022` |
 
-Each tool type works only with a specific subset of models. Submitting a tool type
-that a model does not support returns a `400 invalid_request_error` with a
-message such as `'claude-opus-4-7' does not support tool types:
- computer_20241022`. Confirm support in the model's _Capabilities
-and Features_ table before sending requests.
+| Beta header | Computer tool type | 
+| --- | --- | 
+| computer-use-2025-11-24 | computer\_20251124 | 
+| computer-use-2025-01-24 | computer\_20250124 | 
+| computer-use-2024-10-22 | computer\_20241022 | 
 
-For the underlying tool protocol, the full action vocabulary, and prompt-engineering
-guidance, see [Computer
-use](https://docs.anthropic.com/en/docs/build-with-claude/computer-use "https://docs.anthropic.com/en/docs/build-with-claude/computer-use") in the Anthropic documentation.
+Each tool type works only with a specific subset of models. Submitting a tool type that a model does not support returns a `400 invalid_request_error` with a message such as `'claude-opus-4-7' does not support tool types: computer_20241022`. Confirm support in the model's *Capabilities and Features* table before sending requests.
+
+For the underlying tool protocol, the full action vocabulary, and prompt-engineering guidance, see [Computer use](https://docs.anthropic.com/en/docs/build-with-claude/computer-use) in the Anthropic documentation.
 
 ### Client toolsets
+<a name="model-parameters-anthropic-claude-messages-computer-use-toolsets"></a>
 
 Some Claude models accept two bundled client toolsets as `tools[].type` values. A toolset bundles a related group of client tools under a single type, so you don't have to declare each tool individually. No `anthropic_beta` value is required.
 
-| **Toolset type**            | **Description**                                     |
-| --------------------------- | --------------------------------------------------- |
-| `computer_toolset_20260801` | Bundled computer-use tools for desktop interaction. |
-| `browser_toolset_20260801`  | Bundled browser-automation tools.                   |
+
+| **Toolset type** | **Description** | 
+| --- | --- | 
+| computer\_toolset\_20260801 | Bundled computer-use tools for desktop interaction. | 
+| browser\_toolset\_20260801 | Bundled browser-automation tools. | 
 
 As with individual client tools, the model requests actions but does not run them. You execute each requested action and return a `tool_result`. Submitting a toolset type that a model does not support returns a `400 invalid_request_error`. To confirm which toolsets a model accepts, see the **Capabilities and Features** section in the model's model card.
 
 ## Anthropic defined tools
+<a name="model-parameters-anthropic-anthropic-defined-tools"></a>
 
-Anthropic provides a set of pre-defined tools that Claude models can use to
-interact with computers. When specifying an Anthropic-defined tool, the
-`description` and `tool_schema` fields are not necessary or
-allowed. The model does not execute these tools automatically; you must run each
-requested action and return a `tool_result` to Claude. To find which
-of these tools each model accepts, see the _Capabilities and
-Features_ table in the model's [Models at a glance](model-cards.md "model-cards.md"); submitting a tool type that a model does not
-support returns a `400 invalid_request_error`.
+Anthropic provides a set of pre-defined tools that Claude models can use to interact with computers. When specifying an Anthropic-defined tool, the `description` and `tool_schema` fields are not necessary or allowed. The model does not execute these tools automatically; you must run each requested action and return a `tool_result` to Claude. To find which of these tools each model accepts, see the *Capabilities and Features* table in the model's [Models at a glance](model-cards.md); submitting a tool type that a model does not support returns a `400 invalid_request_error`.
 
-| Tool                                                                                         | Notes                                                                                                                                              |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<br>{<br>"type": "computer_20251124",<br>"name": "computer"<br>}<br>`                       | Latest computer-use tool. Use with `"anthropic_beta":<br>["computer-use-2025-11-24"]`.                                                             |
-| `<br>{<br>"type": "computer_20250124",<br>"name": "computer"<br>}<br>`                       | Use with `"anthropic_beta":<br>["computer-use-2025-01-24"]`.                                                                                       |
-| `<br>{<br>"type": "computer_20241022",<br>"name": "computer"<br>}<br>`                       | Legacy. Use with `"anthropic_beta":<br>["computer-use-2024-10-22"]`.                                                                               |
-| `<br>{<br>"type": "text_editor_20250124",<br>"name": "str_replace_based_edit_tool"<br>}<br>` | Update to the existing `str_replace_editor`<br>tool. Use with `"anthropic_beta": ["computer-use-2025-01-24"]`<br>or `["computer-use-2025-11-24"]`. |
-| `<br>{<br>"type": "text_editor_20241022",<br>"name": "str_replace_editor"<br>}<br>`          | Legacy. Use with `"anthropic_beta":<br>["computer-use-2024-10-22"]`.                                                                               |
-| `<br>{<br>"type": "bash_20250124",<br>"name": "bash"<br>}<br>`                               | Use with `"anthropic_beta":<br>["computer-use-2025-01-24"]` or<br>`["computer-use-2025-11-24"]`.                                                   |
-| `<br>{<br>"type": "bash_20241022",<br>"name": "bash"<br>}<br>`                               | Legacy. Use with `"anthropic_beta":<br>["computer-use-2024-10-22"]`.                                                                               |
 
-The `type` field identifies the tool and its parameters for validation
-purposes; the `name` field is the tool name exposed to the model.
+| Tool | Notes | 
+| --- | --- | 
+|  <pre>{ <br />    "type": "computer_20251124", <br />    "name": "computer" <br />}</pre>  | Latest computer-use tool. Use with `"anthropic_beta": ["computer-use-2025-11-24"]`. | 
+|  <pre>{ <br />    "type": "computer_20250124", <br />    "name": "computer" <br />}</pre>  | Use with `"anthropic_beta": ["computer-use-2025-01-24"]`. | 
+|  <pre>{ <br />    "type": "computer_20241022", <br />    "name": "computer" <br />}</pre>  | Legacy. Use with `"anthropic_beta": ["computer-use-2024-10-22"]`. | 
+|  <pre>{ <br />    "type": "text_editor_20250124", <br />    "name": "str_replace_based_edit_tool" <br />}</pre>  | Update to the existing `str_replace_editor` tool. Use with `"anthropic_beta": ["computer-use-2025-01-24"]` or `["computer-use-2025-11-24"]`. | 
+|  <pre>{ <br />    "type": "text_editor_20241022", <br />    "name": "str_replace_editor" <br />}</pre>  | Legacy. Use with `"anthropic_beta": ["computer-use-2024-10-22"]`. | 
+|  <pre>{ <br />    "type": "bash_20250124", <br />    "name": "bash" <br />}</pre>  | Use with `"anthropic_beta": ["computer-use-2025-01-24"]` or `["computer-use-2025-11-24"]`. | 
+|  <pre>{ <br />    "type": "bash_20241022", <br />    "name": "bash" <br />}</pre>  | Legacy. Use with `"anthropic_beta": ["computer-use-2024-10-22"]`. | 
 
-If you want to prompt the model to use one of these tools, you can explicitly refer
-the tool by the `name` field. The `name` field must be unique
-within the tool list; you cannot define a tool with the same `name` as an
-Anthropic-defined tool in the same API call.
+The `type` field identifies the tool and its parameters for validation purposes; the `name` field is the tool name exposed to the model.
+
+If you want to prompt the model to use one of these tools, you can explicitly refer the tool by the `name` field. The `name` field must be unique within the tool list; you cannot define a tool with the same `name` as an Anthropic-defined tool in the same API call.
 
 ## Automatic tool call clearing (Beta)
+<a name="model-parameters-anthropic-claude-automatic-tool-call-clearing"></a>
 
-###### Warning
+**Warning**  
+Automatic tool call clearing is made available as a "Beta Service" as defined in the AWS Service Terms.
 
-Automatic tool call clearing is made available as a "Beta Service" as defined in
-the AWS Service Terms.
-
-###### Note
-
+**Note**  
 This feature is currently supported on Claude Sonnet 4/4.5, Claude Haiku 4.5, and Claude Opus 4/4.1/4.5.
 
-Automatic tool call clearing is an Anthropic Claude model capability (in beta). With this feature,
-Claude can automatically clear old tool use results as you approach token limits,
-allowing for more efficient context management in
-multi-turn tool use scenarios. To use tool use clearing, you need to add
-`context-management-2025-06-27` to the list of beta headers on the
-anthropic\_beta request parameter. You will also need to specify the use of
-`clear_tool_uses_20250919` and choose from the following configuration
-options.
+Automatic tool call clearing is an Anthropic Claude model capability (in beta). With this feature, Claude can automatically clear old tool use results as you approach token limits, allowing for more efficient context management in multi-turn tool use scenarios. To use tool use clearing, you need to add `context-management-2025-06-27` to the list of beta headers on the anthropic\_beta request parameter. You will also need to specify the use of `clear_tool_uses_20250919` and choose from the following configuration options.
 
-These are the available controls for the `clear_tool_uses_20250919` context
-management strategy. All are optional or have defaults:
+These are the available controls for the `clear_tool_uses_20250919` context management strategy. All are optional or have defaults:
 
-| **Configuration Option**                      | **Description**                                                                                                                                                                                                                                                                         |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `trigger`<br>default: 100,000 input tokens    | Defines when the context editing strategy activates. Once the<br>prompt exceeds this threshold, clearing will begin. You can specify<br>this value in either input\_tokens or tool\_uses.                                                                                               |
-| `keep`<br>default: 3 tool uses                | Defines how many recent tool use/result pairs to keep after<br>clearing occurs. The API removes the oldest tool interactions first,<br>preserving the most recent ones. Helpful when the model needs access<br>to recent tool interactions to continue the conversation<br>effectively. |
-| `clear_at_least` (optional)                   | Ensures a minimum number of tokens are cleared each time the<br>strategy activates. If the API can't clear at least the specified<br>amount, the strategy will not be applied. This is useful for<br>determining whether context clearing is worth breaking your prompt<br>cache for.   |
-| `exclude_tools` (optional)                    | List of tool names whose tool uses and results should never be<br>cleared. Useful for preserving important context.                                                                                                                                                                     |
-| `clear_tool_inputs` (optional, default False) | Controls whether the tool call parameters are cleared along with<br>the tool results. By default, only the tool results are cleared<br>while keeping Claude's original tool calls visible, so Claude can<br>see what operations were performed even after the results are<br>removed.   |
 
-###### Note
+| **Configuration Option** | **Description** | 
+| --- | --- | 
+| `trigger`<br />default: 100,000 input tokens | Defines when the context editing strategy activates. Once the prompt exceeds this threshold, clearing will begin. You can specify this value in either input\_tokens or tool\_uses. | 
+| `keep`<br />default: 3 tool uses | Defines how many recent tool use/result pairs to keep after clearing occurs. The API removes the oldest tool interactions first, preserving the most recent ones. Helpful when the model needs access to recent tool interactions to continue the conversation effectively. | 
+| `clear_at_least` (optional) | Ensures a minimum number of tokens are cleared each time the strategy activates. If the API can't clear at least the specified amount, the strategy will not be applied. This is useful for determining whether context clearing is worth breaking your prompt cache for. | 
+| `exclude_tools` (optional) | List of tool names whose tool uses and results should never be cleared. Useful for preserving important context. | 
+| `clear_tool_inputs` (optional, default False) | Controls whether the tool call parameters are cleared along with the tool results. By default, only the tool results are cleared while keeping Claude's original tool calls visible, so Claude can see what operations were performed even after the results are removed. | 
 
-Tool clearing will invalidate your cache if your prefixes contain your
-tools.
+**Note**  
+Tool clearing will invalidate your cache if your prefixes contain your tools.
 
-###### Important
-
+**Important**  
 The Anthropic `web_search_20250305` server tool is not supported on Amazon Bedrock.
 
-Request
+------
+#### [ Request ]
 
 ```
 from anthropic import Anthropic
@@ -388,7 +317,8 @@ response = client.beta.messages.create(
  )
 ```
 
-Response
+------
+#### [ Response ]
 
 ```
 {
@@ -422,7 +352,8 @@ Response
 }
 ```
 
-Streaming Response
+------
+#### [ Streaming Response ]
 
 ```
 data: {"type": "message_start", "message": {"id": "msg_123", "type": "message", "role": "assistant"}}
@@ -454,24 +385,18 @@ data: {"type": "message_stop"}
 }
 ```
 
-###### Note
+------
 
-Bedrock does not currently support `clear_tool_uses_20250919` context
-management on the CountTokens API.
+**Note**  
+Bedrock does not currently support `clear_tool_uses_20250919` context management on the CountTokens API.
 
 ## Memory Tool (Beta)
+<a name="model-parameters-anthropic-claude-memory-tool"></a>
 
-###### Warning
+**Warning**  
+Memory Tool is made available as a "Beta Service" as defined in the AWS Service Terms.
 
-Memory Tool is made available as a "Beta Service" as defined in the AWS Service
-Terms.
-
-Claude Sonnet 4.5 includes a new memory tool. This tool provides you a way to manage
-memory across conversations. With this feature, you can allow Claude to retrieve
-information outside the context window by providing access to a local directory. This
-feature is available in beta. To use this feature, you must include
-`context-management-2025-06-27` in the
-`anthropic_beta` parameter.
+Claude Sonnet 4.5 includes a new memory tool. This tool provides you a way to manage memory across conversations. With this feature, you can allow Claude to retrieve information outside the context window by providing access to a local directory. This feature is available in beta. To use this feature, you must include `context-management-2025-06-27` in the `anthropic_beta` parameter.
 
 Tool definition:
 
@@ -540,53 +465,41 @@ Example Response:
 ```
 
 ## Cost considerations for tool use
+<a name="model-parameters-anthropic-claude-tool-use-cost"></a>
 
 Tool use requests are priced based on the following factors:
 
-1. The total number of input tokens sent to the model (including in the tools
-   parameter).
-2. The number of output tokens generated.
+1. The total number of input tokens sent to the model (including in the tools parameter).
 
-Tools are priced the same as all other Claude API requests, but do include
-additional tokens per request. The additional tokens from tool use come from the
-following:
+1. The number of output tokens generated.
 
-- The `tools` parameter in the API requests. For example, tool names,
-  descriptions, and schemas.
-- Any `tool_use` content blocks in API requests and responses.
-- Any `tool_result` content blocks in API requests.
+Tools are priced the same as all other Claude API requests, but do include additional tokens per request. The additional tokens from tool use come from the following:
++ The `tools` parameter in the API requests. For example, tool names, descriptions, and schemas.
++ Any `tool_use` content blocks in API requests and responses.
++ Any `tool_result` content blocks in API requests.
 
-When you use tools, the Anthropic models automatically include a special system
-prompt that enables tool use. The number of tool use tokens required for each model is
-listed in the following table. This table excludes the additional tokens described
-previously. Note that this table assumes at least one tool is provided. If no tools are
-provided, then a tool choice of none uses 0 additional system prompt tokens.
+When you use tools, the Anthropic models automatically include a special system prompt that enables tool use. The number of tool use tokens required for each model is listed in the following table. This table excludes the additional tokens described previously. Note that this table assumes at least one tool is provided. If no tools are provided, then a tool choice of none uses 0 additional system prompt tokens.
 
-| Model                                                                                                                                                        | Tool choice      | Tool use system prompt token count |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | ---------------------------------- |
-| Claude Opus 4.5<br>Claude Opus 4.1<br>Claude Opus 4<br>Claude Sonnet 4.5<br>Claude Haiku 4.5<br>Claude Sonnet 4<br>Claude 3.7 Sonnet<br>Claude 3.5 Sonnet v2 | `auto` or `none` | 346                                |
-| Claude Opus 4.5<br>Claude Opus 4.1<br>Claude Opus 4<br>Claude Sonnet 4.5<br>Claude Haiku 4.5<br>Claude Sonnet 4<br>Claude 3.7 Sonnet<br>Claude 3.5 Sonnet v2 | `any` or `tool`  | 313                                |
-| Claude 3.5 Sonnet                                                                                                                                            | `auto` or `none` | 294                                |
-| Claude 3.5 Sonnet                                                                                                                                            | `any` or `tool`  | 261                                |
-| Claude 3 Opus                                                                                                                                                | `auto` or `none` | 530                                |
-| Claude 3 Opus                                                                                                                                                | `any` or `tool`  | 281                                |
-| Claude 3 Sonnet                                                                                                                                              | `auto` or `none` | 159                                |
-| Claude 3 Sonnet                                                                                                                                              | `any` or `tool`  | 235                                |
-| Claude 3 Haiku                                                                                                                                               | `auto` or `none` | 264                                |
-| Claude 3 Haiku                                                                                                                                               | `any` or `tool`  | 340                                |
+
+| Model | Tool choice | Tool use system prompt token count | 
+| --- | --- | --- | 
+| Claude Opus 4.5<br />Claude Opus 4.1<br />Claude Opus 4<br />Claude Sonnet 4.5<br />Claude Haiku 4.5<br />Claude Sonnet 4<br />Claude 3.7 Sonnet<br />Claude 3.5 Sonnet v2 | auto or none | 346 | 
+| Claude Opus 4.5<br />Claude Opus 4.1<br />Claude Opus 4<br />Claude Sonnet 4.5<br />Claude Haiku 4.5<br />Claude Sonnet 4<br />Claude 3.7 Sonnet<br />Claude 3.5 Sonnet v2 | any or tool | 313 | 
+| Claude 3.5 Sonnet | auto or none | 294 | 
+| Claude 3.5 Sonnet | any or tool | 261 | 
+| Claude 3 Opus | auto or none | 530 | 
+| Claude 3 Opus | any or tool | 281 | 
+| Claude 3 Sonnet | auto or none | 159 | 
+| Claude 3 Sonnet | any or tool | 235 | 
+| Claude 3 Haiku | auto or none | 264 | 
+| Claude 3 Haiku | any or tool | 340 | 
 
 ## Tool search tool (beta)
+<a name="model-parameters-anthropic-claude-tool-search-tool"></a>
 
-Tool Search Tool allows Claude to work with hundreds or even thousands of tools
-without loading all their definitions into the context window upfront. Instead of
-declaring all tools immediately, you can mark them with `defer_loading:
- true`, and Claude finds and loads only the tools it needs through the tool
-search mechanism.
+Tool Search Tool allows Claude to work with hundreds or even thousands of tools without loading all their definitions into the context window upfront. Instead of declaring all tools immediately, you can mark them with `defer_loading: true`, and Claude finds and loads only the tools it needs through the tool search mechanism.
 
-To access this feature, you must include
-`tool-search-tool-2025-10-19` in the
-`anthropic_beta` parameter. Note that this feature is currently only
-available through the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") APIs.
+To access this feature, you must include `tool-search-tool-2025-10-19` in the `anthropic_beta` parameter. Note that this feature is currently only available through the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) APIs.
 
 Tool definition:
 
@@ -751,8 +664,7 @@ Streaming example
 }
 ```
 
-###### Custom tool search tools
-
+**Custom tool search tools**  
 You can implement custom tool search tools (for example, using embeddings) by defining a tool that returns `tool_reference` blocks. The custom tool must have `defer_loading: false` while other tools should have `defer_loading: true`. When you define your own Tool Search Tool, it should return a tool result containing `tool_reference` content blocks that point to the tools you want Claude to use.
 
 The expected customer-defined Tool Search Tool result response format:
@@ -775,8 +687,7 @@ The expected customer-defined Tool Search Tool result response format:
 
 The `tool_name` must match a tool defined in the request with `defer_loading: true`. Claude will then have access to those tools' full schemas.
 
-###### Custom search tools - Detailed example
-
+**Custom search tools - Detailed example**  
 You can implement custom tool search tools (for example, using embeddings or semantic search) by defining a tool that returns `tool_reference` blocks. This enables sophisticated tool discovery mechanisms beyond regex matching.
 
 Request example with custom TST:
@@ -875,8 +786,7 @@ Claude's response (calling custom TST):
 }
 ```
 
-###### Customer-provided tool result
-
+**Customer-provided tool result**  
 After performing semantic search on the tool library, the customer returns matching tool references:
 
 ```
@@ -918,12 +828,12 @@ Claude's follow-up (using discovered tool)
 }
 ```
 
-###### Error handling
-
-- Setting `defer_loading: true` for all tools (including the Tool Search Tool) will throw a 400 error.
-- Passing a `tool_reference` without a corresponding tool definition will throw a 400 error
+**Error handling**
++ Setting `defer_loading: true` for all tools (including the Tool Search Tool) will throw a 400 error.
++ Passing a `tool_reference` without a corresponding tool definition will throw a 400 error
 
 ## Tool use examples (beta)
+<a name="model-parameters-anthropic-claude-tool-use-examples"></a>
 
 Claude Opus 4.5 supports user-provided examples in tool definitions to increase Claude's tool use performance. You can provide examples as full function calls, formatted exactly as real LLM outputs would be, without needing translation into another format. To use this feature, you must include `tool-examples-2025-10-29` in the `anthropic_beta` parameter.
 
@@ -963,20 +873,16 @@ Tool definition example:
 }
 ```
 
-###### Validation rules
-
-- Schema conformance: Each example in `input_examples` must be valid according to the tool's `input_schema`.
-
-  - Required fields must be present in at least one example.
-  - Field types must match the schema.
-  - Enum values must be from the allowed set.
-  - If validation fails, return a 400 error with details about which example failed validation.
-
-- Array requirements: `input_examples` must be an array (can be empty).
-
-  - Empty array `[]` is valid and equivalent to omitting the field.
-  - Single example must still be wrapped in an array: `[{...}]`
-  - Length limit: start with a limit of 20 examples per tool definition.
+**Validation rules**
++ Schema conformance: Each example in `input_examples` must be valid according to the tool's `input_schema`.
+  + Required fields must be present in at least one example.
+  + Field types must match the schema.
+  + Enum values must be from the allowed set.
+  + If validation fails, return a 400 error with details about which example failed validation.
++ Array requirements: `input_examples` must be an array (can be empty).
+  + Empty array `[]` is valid and equivalent to omitting the field.
+  + Single example must still be wrapped in an array: `[{...}]`
+  + Length limit: start with a limit of 20 examples per tool definition.
 
 Error examples:
 
@@ -1001,14 +907,15 @@ Error examples:
 ```
 
 ## Mid-conversation tool changes (Beta)
+<a name="model-parameters-anthropic-claude-mid-conversation-tool-changes"></a>
 
-###### Note
-
+**Note**  
 This feature requires the beta flag `mid-conversation-tool-changes-2026-07-01` in `anthropic_beta`. Currently supported on Claude Opus 5 only.
 
 Claude Opus 5 supports adding and removing tools mid-conversation through `tool_addition` and `tool_removal` content blocks on `role: "system"` messages, instead of re-sending the full top-level `tools` array (which would invalidate the prompt cache).
 
 ### Request shape
+<a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-request"></a>
 
 `tool_addition` and `tool_removal` blocks appear in the `content` array of a `role: "system"` message, alongside optional `text` blocks. Each block references **one** tool through its `tool` field. Multiple blocks are allowed and are processed in content order.
 
@@ -1026,40 +933,44 @@ Claude Opus 5 supports adding and removing tools mid-conversation through `tool_
 Both block types support `cache_control` for prompt caching.
 
 ### Tool reference variants
+<a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-references"></a>
 
 The `tool` field is a discriminated union on `type`:
 
-| **type**                | **Fields**                                        | **Refers to**                                   | **Additional beta required** |
-| ----------------------- | ------------------------------------------------- | ----------------------------------------------- | ---------------------------- |
-| `tool_reference`        | `name` (string, pattern `^[a-zA-Z0-9_-]{1,128}$`) | A tool declared directly in top-level `tools[]` | —                            |
-| `mcp_tool_reference`    | `server_name`, `name`                             | A single MCP tool                               | An `mcp-client-*` beta       |
-| `mcp_toolset_reference` | `server_name`                                     | Every tool in the named MCP server's toolset    | An `mcp-client-*` beta       |
+
+| **type** | **Fields** | **Refers to** | **Additional beta required** | 
+| --- | --- | --- | --- | 
+| tool\_reference | name (string, pattern ^[a-zA-Z0-9\_-]{1,128}$) | A tool declared directly in top-level tools[] | — | 
+| mcp\_tool\_reference | server\_name, name | A single MCP tool | An mcp-client-\* beta | 
+| mcp\_toolset\_reference | server\_name | Every tool in the named MCP server's toolset | An mcp-client-\* beta | 
 
 `tool_reference` does **not** accept the composed `{server}_{name}` form assigned to MCP-resolved tools; use one of the MCP variants for those.
 
 ### Semantics
-
-- The available-tool set starts as everything in `tools[]` (after MCP resolution). Each `tool_removal` subtracts the referenced tool(s); each `tool_addition` re-adds them. A tool removed and later re-added is available at the end.
-- `tool_removal` renders a brief in-context notice so the model stops planning around the removed tool.
-- Mid-conversation tool changes do **not** trigger constrained decoding; `tool_choice` remains the only control for that.
-- Maximum 512 `tool_addition` blocks per request.
+<a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-semantics"></a>
++ The available-tool set starts as everything in `tools[]` (after MCP resolution). Each `tool_removal` subtracts the referenced tool(s); each `tool_addition` re-adds them. A tool removed and later re-added is available at the end.
++ `tool_removal` renders a brief in-context notice so the model stops planning around the removed tool.
++ Mid-conversation tool changes do **not** trigger constrained decoding; `tool_choice` remains the only control for that.
++ Maximum 512 `tool_addition` blocks per request.
 
 ### Error responses (400 invalid\_request\_error)
+<a name="model-parameters-anthropic-claude-mid-conversation-tool-changes-errors"></a>
 
-| **Condition**                                                           | **Error**                                                                                 |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| Beta flag missing                                                       | Block type rejected as an unknown discriminator                                           |
-| Block outside `role: "system"`                                          | `'tool_addition'/'tool_removal' blocks are only permitted within role: "system" messages` |
-| `tool_reference.name` not in `tools[]`, or names an MCP-resolved tool   | `tool_addition/tool_removal references unknown tool '<name>'`                             |
-| MCP variant with undeclared `server_name`                               | `tool_addition/tool_removal references unknown server '<name>'`                           |
-| MCP variant where server has `tool_configuration.enabled: false`        | `tool_addition/tool_removal references disabled server '<name>'`                          |
-| `mcp_tool_reference` in a `tool_addition` where server has no such tool | Error listing all unresolved tool names for that server                                   |
 
-###### Note
+| **Condition** | **Error** | 
+| --- | --- | 
+| Beta flag missing | Block type rejected as an unknown discriminator | 
+| Block outside role: "system" | 'tool\_addition'/'tool\_removal' blocks are only permitted within role: "system" messages | 
+| tool\_reference.name not in tools[], or names an MCP-resolved tool | tool\_addition/tool\_removal references unknown tool '<name>' | 
+| MCP variant with undeclared server\_name | tool\_addition/tool\_removal references unknown server '<name>' | 
+| MCP variant where server has tool\_configuration.enabled: false | tool\_addition/tool\_removal references disabled server '<name>' | 
+| mcp\_tool\_reference in a tool\_addition where server has no such tool | Error listing all unresolved tool names for that server | 
 
+**Note**  
 `mcp_tool_reference` in a `tool_removal` is lenient — if the server has since dropped that tool, the removal is a no-op (so historical conversations remain replayable).
 
 ## Forced tool use
+<a name="model-parameters-anthropic-claude-forced-tool-use"></a>
 
 Claude Fable 5.1 and Claude Mythos 5.1 do not support forced tool use. A request that sets `tool_choice` to `{"type": "any"}` or `{"type": "tool", "name": "..."}` returns a `400 invalid_request_error`:
 

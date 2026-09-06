@@ -1,22 +1,29 @@
+
+
 # View information about an agent
+<a name="agents-view"></a>
 
 After you create an agent, you can view or update its configuration as required. The configuration applies to the working draft. If you no longer need an agent, you can delete it.
 
 To learn how to view information about an agent, choose the tab for your preferred method, and then follow the steps:
 
-Console
+------
+#### [ Console ]
 
-###### To view information about an agent
+**To view information about an agent**
 
-1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
-3. On the agent details page, you can see configurations that apply to all versions of the agent, associated tags, and its versions and aliases.
-4. To see details about the working draft of the agent, choose **Edit in Agent builder**.
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
 
-API
-To get information about an agent, send a [GetAgent](../APIReference/API_agent_GetAgent.md "../APIReference/API_agent_GetAgent.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and
-specify the `agentId`.
+1. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
+
+1. On the agent details page, you can see configurations that apply to all versions of the agent, associated tags, and its versions and aliases.
+
+1. To see details about the working draft of the agent, choose **Edit in Agent builder**.
+
+------
+#### [ API ]
+
+To get information about an agent, send a [GetAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgent.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt) and specify the `agentId`. 
 
 ```
     def get_agent(self, agent_id, log_error=True):
@@ -39,24 +46,20 @@ specify the `agentId`.
             raise
         else:
             return agent
-
-
 ```
 
-For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md").
+For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md).
 
-To list information about your agents, send a [ListAgents](../APIReference/API_agent_ListAgents.md "../APIReference/API_agent_ListAgents.md")
-request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). [See code examples](bedrock-agent_example_bedrock-agent_ListAgents_section.md "bedrock-agent_example_bedrock-agent_ListAgents_section.md"). You can specify the following optional
-parameters:
+To list information about your agents, send a [ListAgents](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListAgents.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). [See code examples](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-agent_example_bedrock-agent_ListAgents_section.html). You can specify the following optional parameters:
 
-| Field      | Short description                                                                                                                                                                                                         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| maxResults | The maximum number of results to return in a<br>response.                                                                                                                                                                 |
-| nextToken  | If there are more results than the number you specified<br>in the `maxResults` field, the response returns a `nextToken`<br>value. To see the next batch of results, send the<br>`nextToken` value in another<br>request. |
 
-To list all the tags for an agent, send a [ListTagsForResource](../APIReference/API_agent_ListTagsForResource.md "../APIReference/API_agent_ListTagsForResource.md")
-request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt") and include the Amazon Resource Name (ARN) of the
-agent.
+
+| Field | Short description | 
+| --- | --- | 
+| maxResults | The maximum number of results to return in a response. | 
+| nextToken | If there are more results than the number you specified in the maxResults field, the response returns a nextToken value. To see the next batch of results, send the nextToken value in another request. | 
+
+To list all the tags for an agent, send a [ListTagsForResource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListTagsForResource.html) request with an [Agents for Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt) and include the Amazon Resource Name (ARN) of the agent.
 
 ```
     def list_agents(self):
@@ -78,8 +81,8 @@ agent.
             raise
         else:
             return all_agents
-
-
 ```
 
-For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md").
+For more information, see [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md).
+
+------

@@ -1,21 +1,18 @@
+
+
 # Invoke Amazon Titan Image on Amazon Bedrock to generate an image
+<a name="bedrock-runtime_example_bedrock-runtime_InvokeModel_TitanImageGenerator_section"></a>
 
 The following code examples show how to invoke Amazon Titan Image on Amazon Bedrock to generate an image.
 
-Go
+------
+#### [ Go ]
 
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples").
-
-Create an image with the Amazon Titan Image Generator.
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples). 
+Create an image with the Amazon Titan Image Generator.  
 
 ```
-
 import (
 	"context"
 	"encoding/json"
@@ -99,26 +96,15 @@ func (wrapper InvokeModelWrapper) InvokeTitanImage(ctx context.Context, prompt s
 	return base64ImageData, nil
 
 }
-
-
-
 ```
++  For API details, see [InvokeModel](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModel) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [InvokeModel](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModel "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModel")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Create an image with the Amazon Titan Image Generator.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Create an image with the Amazon Titan Image Generator.  
 
 ```
 // Create an image with the Amazon Titan Image Generator.
@@ -200,25 +186,15 @@ public class InvokeModel {
         displayImage(base64ImageData);
     }
 }
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Create an image with the Amazon Titan Image Generator.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Create an image with the Amazon Titan Image Generator.  
 
 ```
 # Use the native inference API to create an image with Amazon Titan Image Generator
@@ -281,15 +257,9 @@ with open(image_path, "wb") as file:
     file.write(image_data)
 
 print(f"The generated image has been saved to {image_path}")
-
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

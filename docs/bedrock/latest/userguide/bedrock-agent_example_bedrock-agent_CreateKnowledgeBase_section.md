@@ -1,18 +1,16 @@
+
+
 # Use `CreateKnowledgeBase` with an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_CreateKnowledgeBase_section"></a>
 
 The following code example shows how to use `CreateKnowledgeBase`.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-Create an Amazon Bedrock knowledge base.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+Create an Amazon Bedrock knowledge base.  
 
 ```
 def create_knowledge_base(bedrock_agent_client, name, role_arn, description=None):
@@ -55,15 +53,15 @@ def create_knowledge_base(bedrock_agent_client, name, role_arn, description=None
                 },
             "clientToken": "test-client-token-" + str(uuid.uuid4())
         }
-
+        
         if description:
             kwargs["description"] = description
-
+            
         response = bedrock_agent_client.create_knowledge_base(**kwargs)
-
+        
         logger.info("Created knowledge base with ID: %s", response["knowledgeBase"]["knowledgeBaseId"])
         return response["knowledgeBase"]
-
+    
     except ClientError as err:
         logger.error(
             "Couldn't create knowledge base. Here's why: %s: %s",
@@ -71,14 +69,9 @@ def create_knowledge_base(bedrock_agent_client, name, role_arn, description=None
             err.response["Error"]["Message"],
         )
         raise
-
-
 ```
++  For API details, see [CreateKnowledgeBase](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateKnowledgeBase) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [CreateKnowledgeBase](../../../goto/boto3/bedrock-agent-2023-12-12/CreateKnowledgeBase.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateKnowledgeBase.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

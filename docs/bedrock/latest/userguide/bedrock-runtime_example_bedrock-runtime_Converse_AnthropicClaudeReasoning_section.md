@@ -1,21 +1,18 @@
+
+
 # Use Anthropic Claude 3.7 Sonnet's reasoning capability on Amazon Bedrock
+<a name="bedrock-runtime_example_bedrock-runtime_Converse_AnthropicClaudeReasoning_section"></a>
 
 The following code example shows how to use Anthropic Claude 3.7 Sonnet's reasoning capability on Amazon Bedrock
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Use Anthropic Claude 3.7 Sonnet's reasoning capability with the asynchronous Bedrock runtime client.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Use Anthropic Claude 3.7 Sonnet's reasoning capability with the asynchronous Bedrock runtime client.  
 
 ```
-
 import com.example.bedrockruntime.models.anthropicClaude.lib.ReasoningResponse;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.document.Document;
@@ -107,14 +104,10 @@ public class ReasoningAsync {
         System.out.println(response.text());
     }
 }
-
+```
+Use Anthropic Claude 3.7 Sonnet's reasoning capability with the synchronous Bedrock runtime client.  
 
 ```
-
-Use Anthropic Claude 3.7 Sonnet's reasoning capability with the synchronous Bedrock runtime client.
-
-```
-
 import com.example.bedrockruntime.models.anthropicClaude.lib.ReasoningResponse;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.document.Document;
@@ -202,15 +195,9 @@ public class Reasoning {
         System.out.println(response.text());
     }
 }
-
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Converse](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

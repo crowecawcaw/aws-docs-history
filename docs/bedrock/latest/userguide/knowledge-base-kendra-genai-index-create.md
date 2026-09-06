@@ -1,90 +1,62 @@
+
+
 # Create an Amazon Bedrock knowledge base with an Amazon Kendra GenAI index
+<a name="knowledge-base-kendra-genai-index-create"></a>
 
-For more information about using an Amazon Kendra GenAI index, see [Amazon Kendra GenAI index](../../../kendra/latest/dg/hiw-index-types.md#kendra-gen-ai-index "../../../kendra/latest/dg/hiw-index-types.md#kendra-gen-ai-index") in the _Amazon Kendra Developer
-Guide_.
+ For more information about using an Amazon Kendra GenAI index, see [ Amazon Kendra GenAI index](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index-types.html#kendra-gen-ai-index) in the *Amazon Kendra Developer Guide*.
 
-You can create an Amazon Bedrock knowledge base with an Amazon Kendra GenAI index using either the Amazon Bedrock
-console or the Amazon Bedrock API. Choose the tab for your preferred method, and then follow the steps:
+You can create an Amazon Bedrock knowledge base with an Amazon Kendra GenAI index using either the Amazon Bedrock console or the Amazon Bedrock API. Choose the tab for your preferred method, and then follow the steps:
 
-###### Note
+**Note**  
+You can't create a knowledge base with a root user. Before you begin, log in with an AWS Identity and Access Management (IAM) user.
 
-You can't create a knowledge base with a root user. Before you begin, log in with
-an AWS Identity and Access Management (IAM) user.
+**Important**  
+To create a knowledge base with an Amazon Kendra GenAI index using the API, you must have an existing index. With the API, you can't create an index while creating a knowledge base. If you want to create an index while creating a knowledge base, then you must use the console.
 
-###### Important
+------
+#### [ Console ]
 
-To create a knowledge base with an Amazon Kendra GenAI index using the API, you must have
-an existing index. With the API, you can't create an index while creating a
-knowledge base. If you want to create an index while creating a knowledge base, then
-you must use the console.
+**To create a knowledge base with an Amazon Kendra GenAI index**
 
-Console
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
 
-###### To create a knowledge base with an Amazon Kendra GenAI index
+1. In the left navigation pane, choose **Knowledge bases**.
 
-1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. In the left navigation pane, choose **Knowledge bases**.
-3. In the **Knowledge bases** section, choose
-   **Create**.
-4. Choose
-   **Knowledge Base with Kendra GenAI index**.
-5. (Optional) Under **Knowledge base details**,
-   change the default name and provide a description for your knowledge
-   base.
-6. Under **IAM permissions**, choose an IAM role
-   that provides Amazon Bedrock permissions to access other required
-   AWS services. You can either have Amazon Bedrock create the service role for
-   you, or you can choose a [custom role
-   that you've created](kb-permissions.md "kb-permissions.md").
-7. Choose to **Create and use a new service role** or
-   **use an existing service role**.
-8. Choose
-   to **create a new Amazon Kendra GenAI index** or use an **existing
-   one Amazon Kendra GenAI index**.
-9. (Optional) Under **Additional configurations**,
-   do any of the following:
+1. In the **Knowledge bases** section, choose **Create**.
 
-   - Configure an AWS Key Management Service (AWS KMS) customer managed key to encrypt your
-     knowledge base.
-   - Add tags to your knowledge base. For more information, see
-     [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
+1. Choose **Knowledge Base with Kendra GenAI index**.
 
-10. Choose **Create knowledge base**. While Amazon Bedrock is
-    creating the knowledge base, you should see the status **In
-    progress**. You must wait for creation to finish before
-    you can add and sync a data source.
-11. After Amazon Bedrock finishes creating the knowledge base, to configure a data source, follow the
-    instructions in [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md").
+1. (Optional) Under **Knowledge base details**, change the default name and provide a description for your knowledge base.
 
-API
+1. Under **IAM permissions**, choose an IAM role that provides Amazon Bedrock permissions to access other required AWS services. You can either have Amazon Bedrock create the service role for you, or you can choose a [custom role that you've created](kb-permissions.md).
 
-###### To create a knowledge base with an Amazon Kendra GenAI index
+1. Choose to **Create and use a new service role** or **use an existing service role**.
 
-To create a knowledge base, send a [CreateKnowledgeBase](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") request with an Agents for [Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). For request and
-response formats and field details, see the [CreateKnowledgeBase](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") API reference.
+1. Choose to **create a new Amazon Kendra GenAI index** or use an **existing one Amazon Kendra GenAI index**.
 
-- In the `roleArn` field, provide the Amazon Resource Name (ARN) of an IAM
-  role that has permissions to create an Amazon Bedrock knowledge base.
-- To use a model that's supported for knowledge bases, you must
-  [enable model access](model-access.md "model-access.md"). Note
-  your model's ARN, which is required to convert your data into vector
-  embeddings. Copy the model (resource) ID for your chosen model for
-  knowledge bases. Then, construct the model ARN using the model ID by
-  following the ARN examples provided in [Resource types defined by Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-resources-for-iam-policies") in the
-  _Service Authorization Reference_. Refer to the examples for
-  your model resource type.
+1. (Optional) Under **Additional configurations**, do any of the following:
+   + Configure an AWS Key Management Service (AWS KMS) customer managed key to encrypt your knowledge base.
+   + Add tags to your knowledge base. For more information, see [Tagging Amazon Bedrock resources](tagging.md).
 
-In the `embeddingModelArn` field, in the
-`knowledgeBaseConfiguration` object, provide the ARN
-of the vector embeddings model that you want to use. For more
-information, see [Supported models and Regions for Amazon Bedrock knowledge bases](knowledge-base-supported.md "knowledge-base-supported.md").
+   
 
-- To create a knowledge base with an Amazon Kendra GenAI index, provide the
-  ARN of your Amazon Kendra GenAI index
-- After you create a knowledge base, create a data source that
-  contains the documents or content for your knowledge base. You
-  can't create a data source using Amazon Bedrock API operations. You must
-  do so with either the Amazon Bedrock console or the Amazon Kendra [CreateDataSource](../../../kendra/latest/APIReference/API_CreateDataSource.md "../../../kendra/latest/APIReference/API_CreateDataSource.md") API operation. For more information
-  about choosing a data source, and for API connection configuration
-  examples, see [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md").
+   
+
+1. Choose **Create knowledge base**. While Amazon Bedrock is creating the knowledge base, you should see the status **In progress**. You must wait for creation to finish before you can add and sync a data source.
+
+1. After Amazon Bedrock finishes creating the knowledge base, to configure a data source, follow the instructions in [Connect a data source to your knowledge base](data-source-connectors.md).
+
+------
+#### [ API ]
+
+**To create a knowledge base with an Amazon Kendra GenAI index**
+
+To create a knowledge base, send a [CreateKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html) request with an Agents for [Amazon Bedrock build-time endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-bt). For request and response formats and field details, see the [CreateKnowledgeBase](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateKnowledgeBase.html) API reference.
++ In the `roleArn` field, provide the Amazon Resource Name (ARN) of an IAM role that has permissions to create an Amazon Bedrock knowledge base.
++ To use a model that's supported for knowledge bases, you must [enable model access](model-access.md). Note your model's ARN, which is required to convert your data into vector embeddings. Copy the model (resource) ID for your chosen model for knowledge bases. Then, construct the model ARN using the model ID by following the ARN examples provided in [Resource types defined by Amazon Bedrock](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html#amazonbedrock-resources-for-iam-policies) in the *Service Authorization Reference*. Refer to the examples for your model resource type.
+
+  In the `embeddingModelArn` field, in the `knowledgeBaseConfiguration` object, provide the ARN of the vector embeddings model that you want to use. For more information, see [Supported models and Regions for Amazon Bedrock knowledge bases](knowledge-base-supported.md).
++ To create a knowledge base with an Amazon Kendra GenAI index, provide the ARN of your Amazon Kendra GenAI index 
++ After you create a knowledge base, create a data source that contains the documents or content for your knowledge base. You can't create a data source using Amazon Bedrock API operations. You must do so with either the Amazon Bedrock console or the Amazon Kendra [ CreateDataSource](https://docs.aws.amazon.com/kendra/latest/APIReference/API_CreateDataSource.html) API operation. For more information about choosing a data source, and for API connection configuration examples, see [Connect a data source to your knowledge base](data-source-connectors.md).
+
+------

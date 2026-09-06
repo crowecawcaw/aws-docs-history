@@ -1,18 +1,16 @@
+
+
 # Invoke Mistral on Amazon Bedrock using Bedrock's Converse API with a response stream
+<a name="bedrock-runtime_example_bedrock-runtime_ConverseStream_Mistral_section"></a>
 
 The following code examples show how to send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples").
-
-Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples). 
+Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.  
 
 ```
 // Use the Converse API to send a text message to Mistral
@@ -73,26 +71,15 @@ catch (AmazonBedrockRuntimeException e)
     Console.WriteLine($"ERROR: Can't invoke '{modelId}'. Reason: {e.Message}");
     throw;
 }
-
-
-
 ```
++  For API details, see [ConverseStream](https://docs.aws.amazon.com/goto/DotNetSDKV4/bedrock-runtime-2023-09-30/ConverseStream) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [ConverseStream](../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/ConverseStream.md "../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/ConverseStream.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.  
 
 ```
 // Use the Converse API to send a text message to Mistral
@@ -155,25 +142,15 @@ public class ConverseStream {
         }
     }
 }
-
-
 ```
++  For API details, see [ConverseStream](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/ConverseStream) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [ConverseStream](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/ConverseStream.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/ConverseStream.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples). 
+Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.  
 
 ```
 // Use the Conversation API to send a text message to Mistral.
@@ -220,26 +197,15 @@ try {
   console.log(`ERROR: Can't invoke '${modelId}'. Reason: ${err}`);
   process.exit(1);
 }
-
-
-
 ```
++  For API details, see [ConverseStream](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseStreamCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [ConverseStream](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseStreamCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseStreamCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Send a text message to Mistral, using Bedrock's Converse API and process the response stream in real-time.  
 
 ```
 # Use the Conversation API to send a text message to Mistral
@@ -280,15 +246,9 @@ try:
 except (ClientError, Exception) as e:
     print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
     exit(1)
-
-
-
 ```
++  For API details, see [ConverseStream](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/ConverseStream) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ConverseStream](../../../goto/boto3/bedrock-runtime-2023-09-30/ConverseStream.md "../../../goto/boto3/bedrock-runtime-2023-09-30/ConverseStream.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

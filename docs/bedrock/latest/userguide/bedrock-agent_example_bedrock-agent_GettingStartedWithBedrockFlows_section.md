@@ -1,24 +1,21 @@
+
+
 # An end-to-end example showing how to create and invoke an Amazon Bedrock flow using an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockFlows_section"></a>
 
 The following code example shows how to:
++ Create an execution role for the flow.
++ Create the flow.
++ Deploy the fully configured flow.
++ Invoke the flow with user-provided prompts.
++ Delete all created resources.
 
-- Create an execution role for the flow.
-- Create the flow.
-- Deploy the fully configured flow.
-- Invoke the flow with user-provided prompts.
-- Delete all created resources.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-Generates a music playlist based on user-specified genre and number of songs.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+Generates a music playlist based on user-specified genre and number of songs.  
 
 ```
 from datetime import datetime
@@ -175,7 +172,7 @@ def create_playlist_flow(client, flow_name, flow_description, role_arn, prompt_m
     # Create connections between the nodes
     connections = []
 
-    #  First, create connections between the output of the flow
+    #  First, create connections between the output of the flow 
     # input node and each input of the prompt node.
     for prompt_node_input in prompt_node["inputs"]:
         connections.append(
@@ -259,7 +256,7 @@ def prepare_flow_version_and_alias(bedrock_agent_client,
     Args:
         bedrock_agent_client: Amazon Bedrock Agent boto3 client.
         flowd_id (str): The ID of the flow that you want to prepare.
-    Returns: The flow_version and flow_alias.
+    Returns: The flow_version and flow_alias. 
 
     """
 
@@ -309,7 +306,7 @@ def delete_role_resources(bedrock_agent_client,
             delete_flow_version(bedrock_agent_client,
                         flow_id, flow_version)
         delete_flow(bedrock_agent_client, flow_id)
-
+    
     if role_name is not None:
         delete_flow_role(iam_client, role_name)
 
@@ -332,7 +329,7 @@ def main():
         bedrock_agent_client = session.client('bedrock-agent')
         bedrock_client = session.client('bedrock')
         iam_client = session.client('iam')
-
+        
         role_name = None
         flow_id = None
         flow_version = None
@@ -385,7 +382,7 @@ def main():
 
     except Exception as e:
         print(f"Fatal error: {str(e)}")
-
+    
     finally:
         if delete_choice == 'y':
                 delete_role_resources(bedrock_agent_client,
@@ -400,9 +397,9 @@ def main():
             print(f"\tFlow version: {flow_version}")
             print(f"\tFlow alias: {flow_alias}")
             print(f"\tRole ARN: {role_arn}")
-
+       
         print("Done!")
-
+ 
 if __name__ == "__main__":
     main()
 
@@ -452,7 +449,7 @@ def invoke_flow(client, flow_id, flow_alias_id, input_data):
         # Log trace events.
         elif 'flowTraceEvent' in event:
             logger.info("Flow trace:  %s", event['flowTraceEvent'])
-
+    
     return {
         "flow_status": flow_status,
         "output": output
@@ -498,7 +495,7 @@ def run_playlist_flow(bedrock_agent_client, flow_id, flow_alias_id):
                 bedrock_agent_client, flow_id, flow_alias_id, flow_input_data)
 
         status = result['flow_status']
-
+  
         if status == "SUCCESS":
                 # The flow completed successfully.
                 logger.info("The flow %s successfully completed.", flow_id)
@@ -521,17 +518,17 @@ def run_playlist_flow(bedrock_agent_client, flow_id, flow_alias_id):
 def create_flow_role(client, role_name):
     """
     Creates an IAM role for Amazon Bedrock with permissions to run a flow.
-
+    
     Args:
         role_name (str): Name for the new IAM role.
     Returns:
         str: The role Amazon Resource Name.
     """
 
-
+    
     # Trust relationship policy - allows Amazon Bedrock service to assume this role.
     trust_policy = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [{
             "Effect": "Allow",
             "Principal": {
@@ -540,13 +537,13 @@ def create_flow_role(client, role_name):
             "Action": "sts:AssumeRole"
         }]
     }
-
+    
     # Basic inline policy for for running a flow.
 
     resources = "*"
 
     bedrock_policy = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -562,7 +559,7 @@ def create_flow_role(client, role_name):
     }
 
 
-
+    
     try:
         # Create the IAM role with trust policy
         logging.info("Creating role: %s",role_name)
@@ -571,7 +568,7 @@ def create_flow_role(client, role_name):
             AssumeRolePolicyDocument=json.dumps(trust_policy),
             Description="Role for Amazon Bedrock operations"
         )
-
+        
         # Attach inline policy to the role
         print("Attaching inline policy")
         client.put_role_policy(
@@ -579,10 +576,10 @@ def create_flow_role(client, role_name):
             PolicyName=f"{role_name}-policy",
             PolicyDocument=json.dumps(bedrock_policy)
         )
-
+        
         logging.info("Create Role ARN: %s", role['Role']['Arn'])
         return role['Role']
-
+        
     except ClientError as e:
         logging.warning("Error creating role: %s", str(e))
         raise
@@ -594,15 +591,15 @@ def create_flow_role(client, role_name):
 def update_role_policy(client, role_name, resource_arns):
     """
     Updates an IAM role's inline policy with specific resource ARNs.
-
+    
     Args:
         role_name (str): Name of the existing role.
         resource_arns (list): List of resource ARNs to allow access to.
     """
 
-
+    
     updated_policy = {
-        "Version":"2012-10-17",
+        "Version":"2012-10-17",		 	 	 
         "Statement": [
             {
                 "Effect": "Allow",
@@ -616,7 +613,7 @@ def update_role_policy(client, role_name, resource_arns):
             }
         ]
     }
-
+    
     try:
         client.put_role_policy(
             RoleName=role_name,
@@ -624,7 +621,7 @@ def update_role_policy(client, role_name, resource_arns):
             PolicyDocument=json.dumps(updated_policy)
         )
         logging.info("Updated policy for role: %s",role_name)
-
+        
     except ClientError as e:
         logging.warning("Error updating role policy: %s", str(e))
         raise
@@ -654,25 +651,20 @@ def delete_flow_role(client, role_name):
     except ClientError as e:
         logging.info("Error Deleting role: %s", str(e))
         raise
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateFlow)
+  + [CreateFlowAlias](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateFlowAlias)
+  + [CreateFlowVersion](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateFlowVersion)
+  + [DeleteFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/DeleteFlow)
+  + [DeleteFlowAlias](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/DeleteFlowAlias)
+  + [DeleteFlowVersion](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/DeleteFlowVersion)
+  + [GetFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/GetFlow)
+  + [GetFlowAlias](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/GetFlowAlias)
+  + [GetFlowVersion](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/GetFlowVersion)
+  + [InvokeFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow)
+  + [PrepareFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/PrepareFlow)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateFlow](../../../goto/boto3/bedrock-agent-2023-12-12/CreateFlow.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateFlow.md")
-  - [CreateFlowAlias](../../../goto/boto3/bedrock-agent-2023-12-12/CreateFlowAlias.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateFlowAlias.md")
-  - [CreateFlowVersion](../../../goto/boto3/bedrock-agent-2023-12-12/CreateFlowVersion.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateFlowVersion.md")
-  - [DeleteFlow](../../../goto/boto3/bedrock-agent-2023-12-12/DeleteFlow.md "../../../goto/boto3/bedrock-agent-2023-12-12/DeleteFlow.md")
-  - [DeleteFlowAlias](../../../goto/boto3/bedrock-agent-2023-12-12/DeleteFlowAlias.md "../../../goto/boto3/bedrock-agent-2023-12-12/DeleteFlowAlias.md")
-  - [DeleteFlowVersion](../../../goto/boto3/bedrock-agent-2023-12-12/DeleteFlowVersion.md "../../../goto/boto3/bedrock-agent-2023-12-12/DeleteFlowVersion.md")
-  - [GetFlow](../../../goto/boto3/bedrock-agent-2023-12-12/GetFlow.md "../../../goto/boto3/bedrock-agent-2023-12-12/GetFlow.md")
-  - [GetFlowAlias](../../../goto/boto3/bedrock-agent-2023-12-12/GetFlowAlias.md "../../../goto/boto3/bedrock-agent-2023-12-12/GetFlowAlias.md")
-  - [GetFlowVersion](../../../goto/boto3/bedrock-agent-2023-12-12/GetFlowVersion.md "../../../goto/boto3/bedrock-agent-2023-12-12/GetFlowVersion.md")
-  - [InvokeFlow](../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow.md "../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow.md")
-  - [PrepareFlow](../../../goto/boto3/bedrock-agent-2023-12-12/PrepareFlow.md "../../../goto/boto3/bedrock-agent-2023-12-12/PrepareFlow.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,18 @@
+
+
 # Code examples
+<a name="api-inference-examples-claude-messages-code-examples"></a>
 
-The following code examples show how to use the messages API.
+The following code examples show how to use the messages API. 
 
-###### Topics
-
-- [Messages code example](#api-inference-examples-claude-messages-code-example "#api-inference-examples-claude-messages-code-example")
-- [Multimodal code examples](#api-inference-examples-claude-multimodal-code-example "#api-inference-examples-claude-multimodal-code-example")
+**Topics**
++ [Messages code example](#api-inference-examples-claude-messages-code-example)
++ [Multimodal code examples](#api-inference-examples-claude-multimodal-code-example)
 
 ## Messages code example
+<a name="api-inference-examples-claude-messages-code-example"></a>
 
-This example shows how to send a single turn user message and a user turn with a
-prefilled assistant message to an Anthropic Claude 3 Sonnet model.
+This example shows how to send a single turn user message and a user turn with a prefilled assistant message to an Anthropic Claude 3 Sonnet model.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -36,13 +38,13 @@ def generate_message(bedrock_runtime, model_id, system_prompt, messages, max_tok
             "max_tokens": max_tokens,
             "system": system_prompt,
             "messages": messages
-        }
-    )
+        }  
+    )  
 
-
+    
     response = bedrock_runtime.invoke_model(body=body, modelId=model_id)
     response_body = json.loads(response.get('body').read())
-
+   
     return response_body
 
 
@@ -83,24 +85,21 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
 ```
 
 ## Multimodal code examples
+<a name="api-inference-examples-claude-multimodal-code-example"></a>
 
-The following examples show how to pass an image and prompt text in a multimodal
-message to an Anthropic Claude 3 Sonnet model.
+The following examples show how to pass an image and prompt text in a multimodal message to an Anthropic Claude 3 Sonnet model.
 
-###### Topics
-
-- [Multimodal prompt with InvokeModel](#api-inference-examples-claude-multimodal-code-example-invoke-model "#api-inference-examples-claude-multimodal-code-example-invoke-model")
-- [Streaming multimodal prompt with InvokeModelWithResponseStream](#api-inference-examples-claude-multimodal-code-example-streaming "#api-inference-examples-claude-multimodal-code-example-streaming")
+**Topics**
++ [Multimodal prompt with InvokeModel](#api-inference-examples-claude-multimodal-code-example-invoke-model)
++ [Streaming multimodal prompt with InvokeModelWithResponseStream](#api-inference-examples-claude-multimodal-code-example-streaming)
 
 ### Multimodal prompt with InvokeModel
+<a name="api-inference-examples-claude-multimodal-code-example-invoke-model"></a>
 
-The following example shows how to send a multimodal prompt to Anthropic
-Claude 3 Sonnet with [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md").
+The following example shows how to send a multimodal prompt to Anthropic Claude 3 Sonnet with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html). 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -163,7 +162,7 @@ def main():
         max_tokens = 1000
         input_text = "What's in this image?"
         input_image = "/path/to/image" # Replace with actual path to image file
-
+ 
         # Read reference image from file and encode as base64 strings.
         image_ext = input_image.split(".")[-1]
         with open(input_image, "rb") as image_file:
@@ -173,21 +172,21 @@ def main():
             "role": "user",
             "content": [
                 {
-                    "type": "image",
+                    "type": "image", 
                     "source": {
                         "type": "base64",
-                        "media_type": f"image/{image_ext}",
+                        "media_type": f"image/{image_ext}", 
                         "data": content_image
                     }
                 },
                 {
-                    "type": "text",
+                    "type": "text", 
                     "text": input_text
                 }
             ]
         }
 
-
+    
         messages = [message]
 
         response = run_multi_modal_prompt(
@@ -203,19 +202,18 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
 
 ### Streaming multimodal prompt with InvokeModelWithResponseStream
+<a name="api-inference-examples-claude-multimodal-code-example-streaming"></a>
 
-The following example shows how to stream the response from a multimodal
-prompt sent to Anthropic Claude 3 Sonnet with [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md").
+The following example shows how to stream the response from a multimodal prompt sent to Anthropic Claude 3 Sonnet with [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html). 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 """
-Shows how to stream the response from Anthropic Claude Sonnet (on demand) for a
+Shows how to stream the response from Anthropic Claude Sonnet (on demand) for a 
 multimodal request.
 """
 
@@ -303,5 +301,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```

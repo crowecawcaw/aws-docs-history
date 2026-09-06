@@ -1,10 +1,14 @@
+
+
 # Prerequisites
+<a name="managed-entitlements-prerequisites"></a>
 
 Before you can use managed entitlements for Amazon Bedrock, you must complete the following prerequisites.
 
 ## AWS Organization requirements
+<a name="managed-entitlements-org-requirements"></a>
 
-**All features enabled**: Your AWS Organization must have all features enabled. Managed Entitlements for Bedrock requires this configuration to function properly. If your organization uses consolidated billing only, you must enable all features before proceeding. To enable all features, see [Enabling all features in your organization](../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md "../../../organizations/latest/userguide/orgs_manage_org_support-all-features.md") in the AWS Organizations User Guide.
+**All features enabled**: Your AWS Organization must have all features enabled. Managed Entitlements for Bedrock requires this configuration to function properly. If your organization uses consolidated billing only, you must enable all features before proceeding. To enable all features, see [Enabling all features in your organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html) in the AWS Organizations User Guide.
 
 To check if your organization has all features enabled, navigate to the AWS Organizations console, choose Settings in the navigation pane, and look for Feature set under Organization details. If it displays All features, you are ready to proceed.
 
@@ -13,6 +17,7 @@ To check if your organization has all features enabled, navigate to the AWS Orga
 **Member accounts associated**: All member accounts that will receive license grants must already be part of your AWS Organization. If you plan to add new accounts, they will automatically receive any licenses granted to your organization ID.
 
 ## Service-linked roles
+<a name="managed-entitlements-slr"></a>
 
 Service-linked roles (SLRs) are predefined IAM roles that are linked directly to AWS services. For Managed Entitlements, you must create SLRs for both AWS License Manager and AWS Marketplace. These roles include all permissions that the services require to call other AWS services on your behalf.
 

@@ -1,22 +1,27 @@
-# How EventBridge for Amazon Bedrock works
 
-Amazon EventBridge is a serverless event bus that ingests state change events from AWS services, SaaS partners, and customer applications. It processes events based on rules or patterns that you create, and routes these events to one or more _targets_ that you choose, such as AWS Lambda, Amazon Simple Queue Service, and Amazon Simple Notification Service. You can configure downstream workflows based on the contents of the event.
+
+# How EventBridge for Amazon Bedrock works
+<a name="monitoring-eventbridge-how-it-works"></a>
+
+Amazon EventBridge is a serverless event bus that ingests state change events from AWS services, SaaS partners, and customer applications. It processes events based on rules or patterns that you create, and routes these events to one or more *targets* that you choose, such as AWS Lambda, Amazon Simple Queue Service, and Amazon Simple Notification Service. You can configure downstream workflows based on the contents of the event.
 
 Before learning how to use Amazon EventBridge for Amazon Bedrock, review the following pages in the Amazon EventBridge User Guide.
++ [Event bus concepts in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.html) – Review the concepts of *events*, *rules*, and *targets*.
++ [Creating rules that react to events in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule.html) – Learn how to create rules.
++ [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html) – Learn how to define event patterns.
++ [Amazon EventBridge targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) – Learn about the targets you can send events to.
 
-- [Event bus concepts in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.md "../../../eventbridge/latest/userguide/eb-what-is-how-it-works-concepts.md") – Review the concepts of _events_, _rules_, and _targets_.
-- [Creating rules that react to events in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") – Learn how to create rules.
-- [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") – Learn how to define event patterns.
-- [Amazon EventBridge targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md") – Learn about the targets you can send events to.
-  Amazon Bedrock publishes your events through Amazon EventBridge whenever there is a change in the state of a job that you submit. In each case, a new event is created and sent to Amazon EventBridge, which then sends the event to your default event bus. The event shows which job’s state has changed and the current state of the job.
+Amazon Bedrock publishes your events through Amazon EventBridge whenever there is a change in the state of a job that you submit. In each case, a new event is created and sent to Amazon EventBridge, which then sends the event to your default event bus. The event shows which job’s state has changed and the current state of the job.
 
 Amazon Bedrock events are identified in an event by the value of the `source` being `aws.bedrock`. The `detail-type` for events in Amazon Bedrock include the following:
++ `Model Customization Job State Change`
++ `Batch Inference Job State Change`
 
-- `Model Customization Job State Change`
-- `Batch Inference Job State Change`
-  Select a tab to see a sample event for a job submitted in Amazon Bedrock.
+Select a tab to see a sample event for a job submitted in Amazon Bedrock.
 
-Model Customization Job State Change
+------
+#### [ Model Customization Job State Change ]
+
 The following JSON object shows a sample event for when the status of a model customization job has changed:
 
 ```
@@ -61,9 +66,11 @@ The following JSON object shows a sample event for when the status of a model cu
 }
 ```
 
-To learn about the fields in the **detail** object that are specific to model customization, see [GetModelCustomizationJob](../APIReference/API_GetModelCustomizationJob.md "../APIReference/API_GetModelCustomizationJob.md").
+To learn about the fields in the **detail** object that are specific to model customization, see [GetModelCustomizationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelCustomizationJob.html).
 
-Batch Inference Job State Change
+------
+#### [ Batch Inference Job State Change ]
+
 The following JSON object shows a sample event for when the status of a model customization job has changed:
 
 ```
@@ -89,13 +96,14 @@ The following JSON object shows a sample event for when the status of a model cu
 }
 ```
 
-To learn about the fields in the **detail** object that are specific to batch inference, see [GetModelInvocationJob](../APIReference/API_GetModelInvocationJob.md "../APIReference/API_GetModelInvocationJob.md").
+To learn about the fields in the **detail** object that are specific to batch inference, see [GetModelInvocationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelInvocationJob.html).
 
-Bedrock Data Automation sample event
+------
+#### [ Bedrock Data Automation sample event ]
+
 The following JSON object shows a sample event for when the status of a BDA processing job has changed.
 
 ```
-
 {
     "version": "0",
     "id": "0cc3eaf7-dff6-6f67-0ee0-ae572fccfe84",
@@ -120,5 +128,6 @@ The following JSON object shows a sample event for when the status of a BDA proc
         "error_message": ""
     }
 }
-
 ```
+
+------

@@ -1,339 +1,318 @@
+
+
 # Code samples for model customization
+<a name="model-customization-code-samples"></a>
 
 The following code samples show how to prepare a basic dataset, set up permissions, create a custom model, view the output files, purchase throughput for the model, and run inference on the model. You can modify these code snippets to your specific use-case.
 
 1. Prepare the training dataset.
 
-   1. Create a training dataset file containing the following one line and name it `train.jsonl`.
+   1. Create a training dataset file containing the following one line and name it {{train.jsonl}}.
 
-   ```
-   {"prompt": "what is AWS", "completion": "it's Amazon Web Services"}
-   ```
-   2. Create an S3 bucket for your training data and another one for your output
-      data (the names must be unique).
-   3. Upload `train.jsonl` into the training data
-      bucket.
+      ```
+      {"prompt": "what is AWS", "completion": "it's Amazon Web Services"}
+      ```
 
-2. Create a policy to access your training and attach it to an IAM role with an Amazon Bedrock
-   trust relationship. Choose the tab for your preferred method, and then follow the steps:
+   1. Create an S3 bucket for your training data and another one for your output data (the names must be unique).
 
-Console
+   1. Upload {{train.jsonl}} into the training data bucket.
 
-    1. Create the S3 policy.
+1. Create a policy to access your training and attach it to an IAM role with an Amazon Bedrock trust relationship. Choose the tab for your preferred method, and then follow the steps:
 
+------
+#### [ Console ]
 
-    	1. Navigate to the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam") and choose **Policies** from the left navigation pane.
-    	2. Select **Create policy** and then choose **JSON** to open the **Policy editor**.
-    	3. Paste the following policy, replacing
-    	 `${training-bucket}` and
-    	 `${output-bucket}` with your
-    	 bucket names, and then select
-    	 **Next**.
+   1. Create the S3 policy.
 
+      1. Navigate to the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam) and choose **Policies** from the left navigation pane.
 
-    	JSONJSON
+      1. Select **Create policy** and then choose **JSON** to open the **Policy editor**.
 
+      1. Paste the following policy, replacing {{${training-bucket}}} and {{${output-bucket}}} with your bucket names, and then select **Next**.
 
+------
+#### [ JSON ]
 
+****  
 
-    	```
-    	`{
-    	 "Version":"2012-10-17",
-    	 "Statement": [
-    	 {
-    	 "Effect": "Allow",
-    	 "Action": [
-    	 "s3:GetObject",
-    	 "s3:ListBucket"
-    	 ],
-    	 "Resource": [
-    	 "arn:aws:s3:::`${training-bucket}`",
-    	 "arn:aws:s3:::`${training-bucket}`/*"
-    	 ]
-    	 },
-    	 {
-    	 "Effect": "Allow",
-    	 "Action": [
-    	 "s3:GetObject",
-    	 "s3:PutObject",
-    	 "s3:ListBucket"
-    	 ],
-    	 "Resource": [
-    	 "arn:aws:s3:::`${output-bucket}`",
-    	 "arn:aws:s3:::`${output-bucket}`/*"
-    	 ]
-    	 }
-    	 ]
-    	}`
+         ```
+         {
+             "Version":"2012-10-17",		 	 	 
+             "Statement": [
+                 {
+                     "Effect": "Allow",
+                     "Action": [
+                         "s3:GetObject",
+                         "s3:ListBucket"
+                     ],
+                     "Resource": [
+                         "arn:aws:s3:::{{${training-bucket}}}",
+                         "arn:aws:s3:::{{${training-bucket}}}/*"
+                     ]
+                 },
+                 {
+                     "Effect": "Allow",
+                     "Action": [
+                         "s3:GetObject",
+                         "s3:PutObject",
+                         "s3:ListBucket"
+                     ],
+                     "Resource": [
+                         "arn:aws:s3:::{{${output-bucket}}}",
+                         "arn:aws:s3:::{{${output-bucket}}}/*"
+                     ]
+                 }
+             ]
+         }
+         ```
 
-    	```
-    	4. Name the policy `MyFineTuningDataAccess` and select **Create policy**.
-    2. Create an IAM role and attach the policy.
+------
 
+      1. Name the policy {{MyFineTuningDataAccess}} and select **Create policy**.
 
-    	1. From the left navigation pane, choose **Roles** and then select **Create role**.
-    	2. Select **Custom trust policy**, paste the following policy, and select **Next**.
+   1. Create an IAM role and attach the policy.
 
+      1. From the left navigation pane, choose **Roles** and then select **Create role**.
 
-    	JSONJSON
+      1. Select **Custom trust policy**, paste the following policy, and select **Next**.
 
+------
+#### [ JSON ]
 
+****  
 
+         ```
+         {
+             "Version":"2012-10-17",		 	 	 
+             "Statement": [
+                 {
+                     "Effect": "Allow",
+                     "Principal": {
+                         "Service": "bedrock.amazonaws.com"
+                     },
+                     "Action": "sts:AssumeRole"
+                 }
+             ] 
+         }
+         ```
 
-    	```
-    	`{
-    	 "Version":"2012-10-17",
-    	 "Statement": [
-    	 {
-    	 "Effect": "Allow",
-    	 "Principal": {
-    	 "Service": "bedrock.amazonaws.com"
-    	 },
-    	 "Action": "sts:AssumeRole"
-    	 }
-    	 ]
-    	}`
+------
 
-    	```
-    	3. Search for the `MyFineTuningDataAccess` policy you created, select the checkbox, and choose **Next**.
-    	4. Name the role `MyCustomizationRole` and select `Create role`.
+      1. Search for the {{MyFineTuningDataAccess}} policy you created, select the checkbox, and choose **Next**.
 
-CLI
+      1. Name the role {{MyCustomizationRole}} and select {{Create role}}.
 
-    1. Create a file called `BedrockTrust.json` and paste the following policy into it.
+------
+#### [ CLI ]
 
+   1. Create a file called {{BedrockTrust.json}} and paste the following policy into it.
 
-    JSONJSON
+------
+#### [ JSON ]
 
+****  
 
+      ```
+      {
+          "Version":"2012-10-17",		 	 	 
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Principal": {
+                      "Service": "bedrock.amazonaws.com"
+                  },
+                  "Action": "sts:AssumeRole"
+              }
+          ] 
+      }
+      ```
 
+------
 
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Principal": {
-     "Service": "bedrock.amazonaws.com"
-     },
-     "Action": "sts:AssumeRole"
-     }
-     ]
-    }`
+   1. Create another file called {{MyFineTuningDataAccess.json}} and paste the following policy into it, replacing {{${training-bucket}}} and {{${output-bucket}}} with your bucket names.
 
-    ```
-    2. Create another file called
-     `MyFineTuningDataAccess.json` and
-     paste the following policy into it, replacing
-     `${training-bucket}` and
-     `${output-bucket}` with your bucket
-     names.
+------
+#### [ JSON ]
 
+****  
 
-    JSONJSON
+      ```
+      {
+          "Version":"2012-10-17",		 	 	 
+          "Statement": [
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "s3:GetObject",
+                      "s3:ListBucket"
+                  ],
+                  "Resource": [
+                      "arn:aws:s3:::{{${training-bucket}}}",
+                      "arn:aws:s3:::{{${training-bucket}}}/*"
+                  ]
+              },
+              {
+                  "Effect": "Allow",
+                  "Action": [
+                      "s3:GetObject",
+                      "s3:PutObject",
+                      "s3:ListBucket"
+                  ],
+                  "Resource": [
+                      "arn:aws:s3:::{{${output-bucket}}}",
+                      "arn:aws:s3:::{{${output-bucket}}}/*"
+                  ]
+              }
+          ]
+      }
+      ```
 
+------
 
+   1. In a terminal, navigate to the folder containing the policies you created.
 
+   1. Make a [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) request to create an IAM role called {{MyCustomizationRole}} and attach the {{BedrockTrust.json}} trust policy that you created.
 
-    ```
-    `{
-     "Version":"2012-10-17",
-     "Statement": [
-     {
-     "Effect": "Allow",
-     "Action": [
-     "s3:GetObject",
-     "s3:ListBucket"
-     ],
-     "Resource": [
-     "arn:aws:s3:::`${training-bucket}`",
-     "arn:aws:s3:::`${training-bucket}`/*"
-     ]
-     },
-     {
-     "Effect": "Allow",
-     "Action": [
-     "s3:GetObject",
-     "s3:PutObject",
-     "s3:ListBucket"
-     ],
-     "Resource": [
-     "arn:aws:s3:::`${output-bucket}`",
-     "arn:aws:s3:::`${output-bucket}`/*"
-     ]
-     }
-     ]
-    }`
+      ```
+      aws iam create-role \
+          --role-name MyCustomizationRole \
+          --assume-role-policy-document file://BedrockTrust.json
+      ```
 
-    ```
-    3. In a terminal, navigate to the folder containing the policies you created.
-    4. Make a [CreateRole](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md") request to create an IAM role called `MyCustomizationRole` and attach the `BedrockTrust.json` trust policy that you created.
+   1. Make a [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html) request to create the S3 data access policy with the {{MyFineTuningDataAccess.json}} file you created. The response returns an `Arn` for the policy.
 
+      ```
+      aws iam create-policy \
+          --policy-name MyFineTuningDataAccess \
+          --policy-document file://MyFineTuningDataAccess.json
+      ```
 
+   1. Make an [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html) request to attach the S3 data access policy to your role, replacing the `policy-arn` with the ARN in the response from the previous step:
 
-    ```
-    aws iam create-role \
-        --role-name MyCustomizationRole \
-        --assume-role-policy-document file://BedrockTrust.json
-    ```
-    5. Make a [CreatePolicy](../../../IAM/latest/APIReference/API_CreatePolicy.md "../../../IAM/latest/APIReference/API_CreatePolicy.md") request to create the S3 data access policy with the `MyFineTuningDataAccess.json` file you created. The response returns an `Arn` for the policy.
+      ```
+      aws iam attach-role-policy \
+          --role-name MyCustomizationRole \
+          --policy-arn {{${policy-arn}}}
+      ```
 
+------
+#### [ Python ]
 
+   1. Run the following code to make a [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) request to create an IAM role called {{MyCustomizationRole}} and to make a [CreatePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html) request to create an S3 data access policy called {{MyFineTuningDataAccess}}. For the S3 data access policy, replace {{${training-bucket}}} and {{${output-bucket}}} with your S3 bucket names.
 
-    ```
-    aws iam create-policy \
-        --policy-name MyFineTuningDataAccess \
-        --policy-document file://MyFineTuningDataAccess.json
-    ```
-    6. Make an [AttachRolePolicy](../../../IAM/latest/APIReference/API_AttachRolePolicy.md "../../../IAM/latest/APIReference/API_AttachRolePolicy.md") request to attach the S3 data access policy to your role, replacing the `policy-arn` with the ARN in the response from the previous step:
+      ```
+      import boto3
+      import json
+      
+      iam = boto3.client("iam")
+      
+      iam.create_role(
+          RoleName="MyCustomizationRole",
+          AssumeRolePolicyDocument=json.dumps({
+              "Version": "2012-10-17",		 	 	 
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Principal": {
+                          "Service": "bedrock.amazonaws.com"
+                      },
+                      "Action": "sts:AssumeRole"
+                  }
+              ] 
+          })
+      )
+      
+      iam.create_policy(
+          PolicyName="MyFineTuningDataAccess",
+          PolicyDocument=json.dumps({
+              "Version": "2012-10-17",		 	 	 
+              "Statement": [
+                  {
+                      "Effect": "Allow",
+                      "Action": [
+                          "s3:GetObject",
+                          "s3:ListBucket"
+                      ],
+                      "Resource": [
+                          "arn:aws:s3:::{{${training-bucket}}}",
+                          "arn:aws:s3:::{{${training-bucket}}}/*"
+                      ]
+                  },
+                  {
+                      "Effect": "Allow",
+                      "Action": [
+                          "s3:GetObject",
+                          "s3:PutObject",
+                          "s3:ListBucket"
+                      ],
+                      "Resource": [
+                          "arn:aws:s3:::{{${output-bucket}}}",
+                          "arn:aws:s3:::{{${output-bucket}}}/*"
+                      ]
+                  }
+              ]
+          })
+      )
+      ```
 
+   1. An `Arn` is returned in the response. Run the following code snippet to make an [AttachRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html) request, replacing {{${policy-arn}}} with the returned `Arn`.
 
+      ```
+      iam.attach_role_policy(
+          RoleName="MyCustomizationRole",
+          PolicyArn="{{${policy-arn}}}"
+      )
+      ```
 
-    ```
-    aws iam attach-role-policy \
-        --role-name MyCustomizationRole \
-        --policy-arn `${policy-arn}`
-    ```
+------
 
-Python
+1. Select a language to see code samples to call the model customization API operations.
 
-    1. Run the following code to make a [CreateRole](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md") request to
-     create an IAM role called
-     `MyCustomizationRole` and to make a
-     [CreatePolicy](../../../IAM/latest/APIReference/API_CreatePolicy.md "../../../IAM/latest/APIReference/API_CreatePolicy.md") request to create an S3 data access policy called
-     `MyFineTuningDataAccess`. For the
-     S3 data access policy, replace
-     `${training-bucket}` and
-     `${output-bucket}` with your S3 bucket
-     names.
+------
+#### [ CLI ]
 
-
-
-    ```
-    import boto3
-    import json
-
-    iam = boto3.client("iam")
-
-    iam.create_role(
-        RoleName="MyCustomizationRole",
-        AssumeRolePolicyDocument=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "bedrock.amazonaws.com"
-                    },
-                    "Action": "sts:AssumeRole"
-                }
-            ]
-        })
-    )
-
-    iam.create_policy(
-        PolicyName="MyFineTuningDataAccess",
-        PolicyDocument=json.dumps({
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:ListBucket"
-                    ],
-                    "Resource": [
-                        "arn:aws:s3:::`${training-bucket}`",
-                        "arn:aws:s3:::`${training-bucket}`/*"
-                    ]
-                },
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "s3:GetObject",
-                        "s3:PutObject",
-                        "s3:ListBucket"
-                    ],
-                    "Resource": [
-                        "arn:aws:s3:::`${output-bucket}`",
-                        "arn:aws:s3:::`${output-bucket}`/*"
-                    ]
-                }
-            ]
-        })
-    )
-    ```
-    2. An `Arn` is returned in the response. Run the following code snippet to make an [AttachRolePolicy](../../../IAM/latest/APIReference/API_AttachRolePolicy.md "../../../IAM/latest/APIReference/API_AttachRolePolicy.md") request, replacing `${policy-arn}` with the returned `Arn`.
-
-
-
-    ```
-    iam.attach_role_policy(
-        RoleName="MyCustomizationRole",
-        PolicyArn="`${policy-arn}`"
-    )
-    ```
-
-3. Select a language to see code samples to call the model customization API operations.
-
-CLI
-First, create a text file named
-`FineTuningData.json`. Copy the JSON code from below
-into the text file, replacing `${training-bucket}` and
-`${output-bucket}` with your S3 bucket names.
+First, create a text file named {{FineTuningData.json}}. Copy the JSON code from below into the text file, replacing {{${training-bucket}}} and {{${output-bucket}}} with your S3 bucket names.
 
 ```
 {
     "trainingDataConfig": {
-        "s3Uri": "s3://`${training-bucket}`/train.jsonl"
+        "s3Uri": "s3://{{${training-bucket}}}/train.jsonl"
     },
     "outputDataConfig": {
-        "s3Uri": "s3://`${output-bucket}`"
+        "s3Uri": "s3://{{${output-bucket}}}"
     }
 }
 ```
 
-To submit a model customization job, navigate to the folder containing
-`FineTuningData.json` in a terminal and run the
-following command in the command line, replacing
-`${your-customization-role-arn}` with the model
-customization role that you set up.
+To submit a model customization job, navigate to the folder containing {{FineTuningData.json}} in a terminal and run the following command in the command line, replacing {{${your-customization-role-arn}}} with the model customization role that you set up.
 
 ```
 aws bedrock create-model-customization-job \
     --customization-type FINE_TUNING \
     --base-model-identifier arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1 \
-    --role-arn `${your-customization-role-arn}` \
+    --role-arn {{${your-customization-role-arn}}} \
     --job-name MyFineTuningJob \
     --custom-model-name MyCustomModel \
     --hyper-parameters epochCount=1,batchSize=1,learningRate=.0001,learningRateWarmupSteps=0 \
     --cli-input-json file://FineTuningData.json
-
 ```
 
-The response returns a `jobArn`. Allow the job some time to complete. You can check its status with the following command.
+The response returns a {{jobArn}}. Allow the job some time to complete. You can check its status with the following command.
 
 ```
 aws bedrock get-model-customization-job \
-    --job-identifier "`jobArn`"
+    --job-identifier "{{jobArn}}"
 ```
 
-When the `status` is `COMPLETE`, you can see the
-`trainingMetrics` in the response. You can download the artifacts
-to the current folder by running the following command, replacing
-`aet.et-bucket` with your output bucket name and
-`jobId` with the ID of the customization job (the
-sequence following the last slash in the `jobArn`).
+When the `status` is `COMPLETE`, you can see the `trainingMetrics` in the response. You can download the artifacts to the current folder by running the following command, replacing {{aet.et-bucket}} with your output bucket name and {{jobId}} with the ID of the customization job (the sequence following the last slash in the `jobArn`).
 
 ```
-aws s3 cp s3://`${output-bucket}`/model-customization-job-`jobId` . --recursive
+aws s3 cp s3://{{${output-bucket}}}/model-customization-job-{{jobId}} . --recursive
 ```
 
 Purchase a no-commitment Provisioned Throughput for your custom model with the following command.
 
-###### Note
-
+**Note**  
 You will be charged hourly for this purchase. Use the console to see price estimates for different options.
 
 ```
@@ -343,42 +322,37 @@ aws bedrock create-provisioned-model-throughput \
     --model-units 1
 ```
 
-The response returns a `provisionedModelArn`. Allow the Provisioned Throughput some
-time to be created. To check its status, provide the name or ARN of the provisioned
-model as the
-`provisioned-model-id` in the following command.
+The response returns a `provisionedModelArn`. Allow the Provisioned Throughput some time to be created. To check its status, provide the name or ARN of the provisioned model as the `provisioned-model-id` in the following command.
 
 ```
 aws bedrock get-provisioned-model-throughput \
-    --provisioned-model-id `${provisioned-model-arn}`
+    --provisioned-model-id {{${provisioned-model-arn}}}
 ```
 
-When the `status` is `InService`, you can run inference with your custom model with the following command. You must provide the ARN of the provisioned model as the `model-id`. The output is written to a file named `output.txt` in your current folder.
+When the `status` is `InService`, you can run inference with your custom model with the following command. You must provide the ARN of the provisioned model as the `model-id`. The output is written to a file named {{output.txt}} in your current folder.
 
 ```
 aws bedrock-runtime invoke-model \
-    --model-id `${provisioned-model-arn}` \
+    --model-id {{${provisioned-model-arn}}} \
     --body '{"inputText": "What is AWS?", "textGenerationConfig": {"temperature": 0.5}}' \
     --cli-binary-format raw-in-base64-out \
     output.txt
 ```
 
-Python
-Run the following code snippet to submit a fine-tuning job. Replace
-`${your-customization-role-arn}` with the ARN of the
-`MyCustomizationRole` that you set up and replace
-`${training-bucket}` and
-`${output-bucket}` with your S3 bucket names.
+------
+#### [ Python ]
+
+Run the following code snippet to submit a fine-tuning job. Replace {{${your-customization-role-arn}}} with the ARN of the {{MyCustomizationRole}} that you set up and replace {{${training-bucket}}} and {{${output-bucket}}} with your S3 bucket names.
 
 ```
 import boto3
 
 bedrock = boto3.client(service_name='bedrock')
-
+    
 # Set parameters
 customizationType = "FINE_TUNING"
 baseModelIdentifier = "arn:aws:bedrock:us-east-1::foundation-model/amazon.titan-text-express-v1"
-roleArn = "`${your-customization-role-arn}`"
+roleArn = "{{${your-customization-role-arn}}}"
 jobName = "MyFineTuningJob"
 customModelName = "MyCustomModel"
 hyperParameters = {
@@ -387,12 +361,12 @@ hyperParameters = {
         "learningRate": ".0001",
         "learningRateWarmupSteps": "0"
     }
-trainingDataConfig = {"s3Uri": "s3://`${training-bucket}`/myInputData/train.jsonl"}
-outputDataConfig = {"s3Uri": "s3://`${output-bucket}`/myOutputData"}
+trainingDataConfig = {"s3Uri": "s3://{{${training-bucket}}}/myInputData/train.jsonl"}
+outputDataConfig = {"s3Uri": "s3://{{${output-bucket}}}/myOutputData"}
 
 # Create job
 response_ft = bedrock.create_model_customization_job(
-    jobName=jobName,
+    jobName=jobName, 
     customModelName=customModelName,
     roleArn=roleArn,
     baseModelIdentifier=baseModelIdentifier,
@@ -404,16 +378,13 @@ response_ft = bedrock.create_model_customization_job(
 jobArn = response_ft.get('jobArn')
 ```
 
-The response returns a `jobArn`. Allow the job some time to complete. You can check its status with the following command.
+The response returns a {{jobArn}}. Allow the job some time to complete. You can check its status with the following command.
 
 ```
 bedrock.get_model_customization_job(jobIdentifier=jobArn).get('status')
 ```
 
-When the `status` is `COMPLETE`, you can see the
-`trainingMetrics` in the [GetModelCustomizationJob](../APIReference/API_GetModelCustomizationJob.md "../APIReference/API_GetModelCustomizationJob.md") response. You can also follow
-the steps at [Downloading
-objects](../../../AmazonS3/latest/userguide/download-objects.md "../../../AmazonS3/latest/userguide/download-objects.md") to download the metrics.
+When the `status` is `COMPLETE`, you can see the `trainingMetrics` in the [GetModelCustomizationJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetModelCustomizationJob.html) response. You can also follow the steps at [Downloading objects](https://docs.aws.amazon.com/AmazonS3/latest/userguide/download-objects.html) to download the metrics.
 
 Purchase a no-commitment Provisioned Throughput for your custom model with the following command.
 
@@ -427,15 +398,13 @@ response_pt = bedrock.create_provisioned_model_throughput(
 provisionedModelArn = response_pt.get('provisionedModelArn')
 ```
 
-The response returns a `provisionedModelArn`. Allow the Provisioned Throughput some
-time to be created. To check its status, provide the name or ARN of the provisioned
-model as the `provisionedModelId` in the following command.
+The response returns a `provisionedModelArn`. Allow the Provisioned Throughput some time to be created. To check its status, provide the name or ARN of the provisioned model as the `provisionedModelId` in the following command.
 
 ```
 bedrock.get_provisioned_model_throughput(provisionedModelId=provisionedModelArn)
 ```
 
-When the `status` is `InService`, you can run inference with your custom model with the following command. You must provide the ARN of the provisioned model as the `modelId`.
+When the `status` is `InService`, you can run inference with your custom model with the following command. You must provide the ARN of the provisioned model as the `modelId`. 
 
 ```
 import json
@@ -529,3 +498,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

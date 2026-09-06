@@ -1,18 +1,16 @@
+
+
 # Use `GetPrompt` with an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_GetPrompt_section"></a>
 
 The following code example shows how to use `GetPrompt`.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-Get an Amazon Bedrock managed prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+Get an Amazon Bedrock managed prompt.  
 
 ```
 def get_prompt(client, prompt_id):
@@ -33,7 +31,7 @@ def get_prompt(client, prompt_id):
             promptIdentifier=prompt_id
         )
 
-        logger.info("Retrieved prompt ID: %s. Name: %s",
+        logger.info("Retrieved prompt ID: %s. Name: %s", 
                     prompt_id,
                     response['name'])
 
@@ -46,14 +44,9 @@ def get_prompt(client, prompt_id):
     except Exception as e:
         logger.exception("Unexpected error getting prompt: %s", str(e))
         raise
-
-
 ```
++  For API details, see [GetPrompt](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/GetPrompt) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetPrompt](../../../goto/boto3/bedrock-agent-2023-12-12/GetPrompt.md "../../../goto/boto3/bedrock-agent-2023-12-12/GetPrompt.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,16 +1,21 @@
+
+
 # Managing Projects with AWS CloudFormation
+<a name="cloudformation-projects"></a>
 
 Amazon Bedrock is integrated with AWS CloudFormation, allowing you to define and manage Projects as part of your infrastructure templates. You can provision projects consistently and repeatedly across multiple AWS accounts and Regions using JSON or YAML templates.
 
 ## AWS::BedrockMantle::Project
+<a name="cloudformation-projects-resource"></a>
 
 Use the `AWS::BedrockMantle::Project` resource to create and manage a Bedrock Project in a CloudFormation template. Projects created through CloudFormation support the same capabilities as those created through the API, including IAM policy attachment, tagging, and observability.
 
 ### Syntax
+<a name="cloudformation-projects-syntax"></a>
 
 To declare this entity in your CloudFormation template, use the following syntax:
 
-###### Example CloudFormation Syntax
+**Example CloudFormation Syntax**  
 
 ```
 {
@@ -36,68 +41,59 @@ Properties:
 ```
 
 ### Properties
+<a name="cloudformation-projects-properties"></a>
 
-Name
-
-Required. The name of the project. Must be unique within your AWS account.
-
-Type: String
-
-Minimum: 1
-
-Maximum: 64
-
-Pattern: `^([0-9a-zA-Z][ _-]?)+$`
-
+Name  
+Required. The name of the project. Must be unique within your AWS account.  
+Type: String  
+Minimum: 1  
+Maximum: 64  
+Pattern: `^([0-9a-zA-Z][ _-]?)+$`  
 Update requires: Replacement
 
-Tags
-
-A map of key-value pairs to associate with the project for cost allocation and access control.
-
-Type: Map of String
-
+Tags  
+A map of key-value pairs to associate with the project for cost allocation and access control.  
+Type: Map of String  
 Update requires: No interruption
 
-###### Note on Tag Updates
-
+**Note on Tag Updates**  
 CloudFormation tag updates on `AWS::BedrockMantle::Project` use separate add and remove operations internally. There is no atomic full tag replacement. If a stack update fails mid-operation, the project's tag set may be in a partially updated state. Always verify the final tag state after a stack update that modifies tags.
 
 ### Return Values
+<a name="cloudformation-projects-return-values"></a>
 
 #### Ref
+<a name="cloudformation-projects-ref"></a>
 
 When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the project ID (e.g., `proj_abc123`).
 
 #### Fn::GetAtt
+<a name="cloudformation-projects-getatt"></a>
 
-ProjectId
-
+ProjectId  
 The unique identifier of the project (e.g., `proj_abc123`).
 
-ProjectArn
-
+ProjectArn  
 The Amazon Resource Name (ARN) of the project (e.g., `arn:aws:bedrock-mantle:us-east-1:123456789012:project/proj_abc123`).
 
-Status
-
+Status  
 The status of the project. `ACTIVE` means the project is ready to use. `ARCHIVED` means the project has been archived and cannot accept new inference requests.
 
-CreatedAt
-
+CreatedAt  
 The timestamp at which the project was created.
 
-UpdatedAt
-
+UpdatedAt  
 The timestamp at which the project was last updated.
 
 ## Examples
+<a name="cloudformation-projects-examples"></a>
 
 ### Create a Basic Project
+<a name="cloudformation-projects-basic"></a>
 
 The following example creates a project for a production chatbot application:
 
-###### Example Basic Project
+**Example Basic Project**  
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -159,6 +155,7 @@ Outputs:
 ```
 
 ### Create Multiple Projects for Different Environments
+<a name="cloudformation-projects-multi-env"></a>
 
 The following example provisions separate projects for development, staging, and production environments in a single stack:
 
@@ -231,6 +228,7 @@ Outputs:
 ```
 
 ### Create a Project with IAM Role Access
+<a name="cloudformation-projects-iam"></a>
 
 The following example creates a project and attaches an IAM policy granting a specific role access to invoke models:
 
@@ -280,6 +278,7 @@ Outputs:
 ```
 
 ## Using CloudFormation Outputs with the Projects API
+<a name="cloudformation-projects-using-outputs"></a>
 
 After deploying your CloudFormation stack, you can reference the project ARN and ID in your application code using the stack outputs:
 
@@ -313,9 +312,9 @@ print(response)
 ```
 
 ## Learn More
+<a name="cloudformation-projects-learn-more"></a>
 
 For more information about using CloudFormation with Amazon Bedrock resources, see:
-
-- [Create Amazon Bedrock resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
-- [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
-- [Amazon Bedrock resource type reference](../../../AWSCloudFormation/latest/TemplateReference/AWS_Bedrock.md "../../../AWSCloudFormation/latest/TemplateReference/AWS_Bedrock.md")
++ [Create Amazon Bedrock resources with AWS CloudFormation](creating-resources-with-cloudformation.md)
++ [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
++ [Amazon Bedrock resource type reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/AWS_Bedrock.html)

@@ -1,9 +1,11 @@
+
+
 # Monitoring your encryption keys for the Amazon Bedrock service
+<a name="import-model-monitor-encryption-keys"></a>
 
-When you use an AWS KMS customer managed key with your Amazon Bedrock resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or
-[Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that Amazon Bedrock sends to AWS KMS.
+When you use an AWS KMS customer managed key with your Amazon Bedrock resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track requests that Amazon Bedrock sends to AWS KMS.
 
-The following is an example AWS CloudTrail event for [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") to monitor AWS KMS operations called by Amazon Bedrock to create a primary grant:
+The following is an example AWS CloudTrail event for [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) to monitor AWS KMS operations called by Amazon Bedrock to create a primary grant:
 
 ```
 {
@@ -65,47 +67,49 @@ The following is an example AWS CloudTrail event for [CreateGrant](../../../kms/
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
-
-
 ```
 
-Attach the following resource-based policy to the KMS key by following the steps at [Creating a policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md"). The policy contains two statements.
+Attach the following resource-based policy to the KMS key by following the steps at [Creating a policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html). The policy contains two statements.
 
 1. Permissions for a role to encrypt model customization artifacts. Add ARNs of the imported custom model builder roles to the `Principal` field.
-2. Permissions for a role to use the imported custom model in inference. Add ARNs of imported custom model user roles to the `Principal` field.
 
-JSON
+1. Permissions for a role to use the imported custom model in inference. Add ARNs of imported custom model user roles to the `Principal` field.
 
-```
-`{
- "Version":"2012-10-17",
- "Id": "KMS Key Policy",
- "Statement": [
- {
- "Sid": "Permissions for imported model builders",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:user/role"
- },
- "Action": [
- "kms:Decrypt",
- "kms:GenerateDataKey",
- "kms:DescribeKey",
- "kms:CreateGrant"
- ],
- "Resource": "*"
- },
- {
- "Sid": "Permissions for imported model users",
- "Effect": "Allow",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:user/role"
- },
- "Action": "kms:Decrypt",
- "Resource": "*"
- }
- ]
-}`
+------
+#### [ JSON ]
+
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Id": "KMS Key Policy",
+    "Statement": [
+        {
+            "Sid": "Permissions for imported model builders",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{123456789012}}:user/role"
+            },
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey",
+                "kms:DescribeKey",
+                "kms:CreateGrant"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Permissions for imported model users",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{123456789012}}:user/role"
+            },
+            "Action": "kms:Decrypt",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+------

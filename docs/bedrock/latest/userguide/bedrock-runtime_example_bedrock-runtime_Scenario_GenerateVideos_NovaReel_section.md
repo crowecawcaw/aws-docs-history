@@ -1,18 +1,16 @@
+
+
 # Generate videos from text prompts using Amazon Bedrock and Nova-Reel
+<a name="bedrock-runtime_example_bedrock-runtime_Scenario_GenerateVideos_NovaReel_section"></a>
 
 The following code example shows how to a Spring Boot app that generates videos from text prompts using Amazon Bedrock and the Nova-Reel model.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Generate videos from text prompts using Amazon Bedrock and Nova-Reel.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Generate videos from text prompts using Amazon Bedrock and Nova-Reel.  
 
 ```
 import org.springframework.stereotype.Service;
@@ -114,15 +112,11 @@ public class VideoGenerationService {
         return novaRequest;
     }
 }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [GetAsyncInvoke](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/GetAsyncInvoke)
+  + [StartAsyncInvoke](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/StartAsyncInvoke)
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
 
-  - [GetAsyncInvoke](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/GetAsyncInvoke.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/GetAsyncInvoke.md")
-  - [StartAsyncInvoke](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/StartAsyncInvoke.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/StartAsyncInvoke.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

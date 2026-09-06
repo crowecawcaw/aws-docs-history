@@ -1,25 +1,21 @@
+
+
 # Use `InvokeFlow` with an AWS SDK
+<a name="bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeFlow_section"></a>
 
 The following code examples show how to use `InvokeFlow`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code examples:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
++  [Learn the basics](bedrock-agent-runtime_example_bedrock-agent-runtime_Scenario_ConverseWithFlow_section.md) 
++  [Create and invoke a flow](bedrock-agent-runtime_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md) 
 
-- [Learn the basics](bedrock-agent-runtime_example_bedrock-agent-runtime_Scenario_ConverseWithFlow_section.md "bedrock-agent-runtime_example_bedrock-agent-runtime_Scenario_ConverseWithFlow_section.md")
-- [Create and invoke a flow](bedrock-agent-runtime_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md "bedrock-agent-runtime_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md")
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples). 
 
 ```
-
 import { fileURLToPath } from "node:url";
 
 import {
@@ -116,25 +112,15 @@ if (isMain(import.meta.url)) {
     console.error(errors.join("\n"));
   }
 }
-
-
 ```
++  For API details, see [InvokeFlow](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeFlowCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [InvokeFlow](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeFlowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeFlowCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples").
-
-Invoke a flow.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples). 
+Invoke a flow.  
 
 ```
     def invoke_flow(self, flow_id, flow_alias_id, input_data, execution_id):
@@ -150,7 +136,7 @@ Invoke a flow.
         Return: Response from the flow.
         """
         try:
-
+      
             request_params = None
 
             if execution_id is None:
@@ -187,15 +173,9 @@ Invoke a flow.
             raise
 
         return result
-
-
-
 ```
++  For API details, see [InvokeFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeFlow](../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow.md "../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

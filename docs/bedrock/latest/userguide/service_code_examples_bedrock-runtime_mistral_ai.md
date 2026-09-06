@@ -1,9 +1,11 @@
+
+
 # Mistral AI for Amazon Bedrock Runtime
+<a name="service_code_examples_bedrock-runtime_mistral_ai"></a>
 
 The following code examples show how to use Amazon Bedrock Runtime with AWS SDKs.
 
-###### Examples
-
-- [Converse](bedrock-runtime_example_bedrock-runtime_Converse_Mistral_section.md "bedrock-runtime_example_bedrock-runtime_Converse_Mistral_section.md")
-- [ConverseStream](bedrock-runtime_example_bedrock-runtime_ConverseStream_Mistral_section.md "bedrock-runtime_example_bedrock-runtime_ConverseStream_Mistral_section.md")
-- [Document understanding](bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_Mistral_section.md "bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_Mistral_section.md")
+**Topics**
++ [Converse](bedrock-runtime_example_bedrock-runtime_Converse_Mistral_section.md)
++ [ConverseStream](bedrock-runtime_example_bedrock-runtime_ConverseStream_Mistral_section.md)
++ [Document understanding](bedrock-runtime_example_bedrock-runtime_DocumentUnderstanding_Mistral_section.md)

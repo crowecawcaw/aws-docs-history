@@ -1,8 +1,12 @@
-# Getting Library Details
 
-Use the [GetDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibrary.md "bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibrary.md") API to retrieve information about an existing library.
+
+# Getting Library Details
+<a name="bda-library-getting-details"></a>
+
+Use the [GetDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibrary.html) API to retrieve information about an existing library.
 
 ## AWS CLI Example:
+<a name="bda-library-getting-details-cli"></a>
 
 **Request**
 
@@ -32,8 +36,10 @@ aws bedrock-data-automation get-data-automation-library \
 ```
 
 ## AWS Console Example:
+<a name="bda-library-getting-details-console"></a>
 
 1. Navigate to "Manage libraries" page in BDA Console
-2. Select the desired library from the list of libraries
 
-![Custom vocabulary page showing library details and empty vocabulary lists table.](images/bda/library-get-details-console.png)
+1. Select the desired library from the list of libraries
+
+![Custom vocabulary page showing library details and empty vocabulary lists table.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-get-details-console.png)

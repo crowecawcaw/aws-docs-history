@@ -1,22 +1,23 @@
-# Processing use cases
 
-Amazon Bedrock Data Automation allows you to process documents, images, audio, and video.
-through the command line interface (CLI). For each modality, the workflow consists of creating a
-project, invoking the analysis, and retrieving the result.
+
+# Processing use cases
+<a name="bda-document-processing-examples"></a>
+
+Amazon Bedrock Data Automation allows you to process documents, images, audio, and video. through the command line interface (CLI). For each modality, the workflow consists of creating a project, invoking the analysis, and retrieving the result.
 
 Choose the tab for your preferred method, and then follow the steps:
 
-Documents
+------
+#### [ Documents ]
+
 **Extracting data from a W2**
 
-![Sample W2 form with standard fields, demonstrating layout and data fields that will be extracted.](images/bda/W2.png)
+![Sample W2 form with standard fields, demonstrating layout and data fields that will be extracted.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/W2.png)
 
-Sample passport containing personal identification information
 
 When processing a W2 form, an example schema would be the following:
 
 ```
-
 {
   "class": "W2TaxForm",
   "description": "Simple schema for extracting key information from W2 tax forms",
@@ -53,13 +54,11 @@ When processing a W2 form, an example schema would be the following:
     }
   }
 }
-
 ```
 
 The command to invoke the processing of the W2 would be similar to the following:
 
 ```
-
 aws bedrock-data-automation-runtime invoke-data-automation-async \
   --input-configuration '{
     "s3Uri": "s3://w2-processing-bucket-301678011486/input/W2.png"
@@ -72,13 +71,11 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
     "stage": "LIVE"
   }' \
   --data-automation-profile-arn "Amazon Resource Name (ARN):data-automation-profile/default"
-
 ```
 
 An example of the expected output is:
 
 ```
-
 {
   "documentType": "W2TaxForm",
   "extractedData": {
@@ -104,18 +101,19 @@ An example of the expected output is:
     "pageCount": 1
   }
 }
-
 ```
 
-Images
+------
+#### [ Images ]
+
 **Travel advertisement example**
 
-![Sample image, demonstrating how users can extract information from advertisements.](images/bda/TravelAdvertisement.jpg)
+![Sample image, demonstrating how users can extract information from advertisements.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/TravelAdvertisement.jpg)
+
 
 An example schema for travel advertisements would be the following:
 
 ```
-
 {
   "class": "TravelAdvertisement",
   "description": "Schema for extracting information from travel advertisement images",
@@ -152,13 +150,11 @@ An example schema for travel advertisements would be the following:
     }
   }
 }
-
 ```
 
 The command to invoke the processing of the travel advertisement would be similar to the following:
 
 ```
-
 aws bedrock-data-automation-runtime invoke-data-automation-async \
   --input-configuration '{
     "s3Uri": "s3://travel-ads-bucket-301678011486/input/TravelAdvertisement.jpg"
@@ -171,13 +167,11 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
     "stage": "LIVE"
   }' \
   --data-automation-profile-arn "Amazon Resource Name (ARN):data-automation-profile/default"
-
 ```
 
 An example of the expected output is:
 
 ```
-
 {
   "documentType": "TravelAdvertisement",
   "extractedData": {
@@ -204,16 +198,16 @@ An example of the expected output is:
     "imageHeight": 1080
   }
 }
-
 ```
 
-Audio
+------
+#### [ Audio ]
+
 **Transcribing a phone call**
 
 An example schema for a phone call would be the following:
 
 ```
-
 {
   "class": "AudioRecording",
   "description": "Schema for extracting information from AWS customer call recordings",
@@ -255,13 +249,11 @@ An example schema for a phone call would be the following:
     }
   }
 }
-
 ```
 
 The command to invoke the processing of a phone call would be similar to the following:
 
 ```
-
 aws bedrock-data-automation-runtime invoke-data-automation-async \
   --input-configuration '{
     "s3Uri": "s3://audio-analysis-bucket-301678011486/input/AWS_TCA-Call-Recording-2.wav"
@@ -274,13 +266,11 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
     "stage": "LIVE"
   }' \
   --data-automation-profile-arn "Amazon Resource Name (ARN):data-automation-profile/default"
-
 ```
 
 An example of the expected output is:
 
 ```
-
 {
   "documentType": "AudioRecording",
   "extractedData": {
@@ -338,16 +328,16 @@ An example of the expected output is:
     ]
   }
 }
-
 ```
 
-Video
+------
+#### [ Video ]
+
 **Processing a video**
 
 An example schema for videos would be the following:
 
 ```
-
 {
   "class": "VideoContent",
   "description": "Schema for extracting information from video content",
@@ -389,13 +379,11 @@ An example schema for videos would be the following:
     }
   }
 }
-
 ```
 
 The command to invoke the processing of the video would be similar to the following:
 
 ```
-
 aws bedrock-data-automation-runtime invoke-data-automation-async \
   --input-configuration '{
     "s3Uri": "s3://video-analysis-bucket-301678011486/input/MakingTheCut.mp4",
@@ -418,13 +406,11 @@ aws bedrock-data-automation-runtime invoke-data-automation-async \
     "stage": "LIVE"
   }' \
   --data-automation-profile-arn "Amazon Resource Name (ARN):data-automation-profile/default"
-
 ```
 
 An example of the expected output is:
 
 ```
-
 {
   "documentType": "VideoContent",
   "extractedData": {
@@ -477,5 +463,6 @@ An example of the expected output is:
     ]
   }
 }
-
 ```
+
+------

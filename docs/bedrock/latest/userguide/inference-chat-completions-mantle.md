@@ -1,27 +1,30 @@
+
+
 # Chat Completions API
+<a name="inference-chat-completions-mantle"></a>
 
-The OpenAI Chat Completions API generates conversational responses using Amazon Bedrock models.
-For new applications, we recommend the `bedrock-runtime` endpoint (see [Chat Completions API (legacy reference)](inference-chat-completions.md "inference-chat-completions.md")). This page documents the API on the
-`bedrock-mantle` endpoint, which is also fully supported. For complete API
-details, see the [OpenAI
-Chat Completions documentation](https://developers.openai.com/api/reference/chat-completions/overview "https://developers.openai.com/api/reference/chat-completions/overview").
+The OpenAI Chat Completions API generates conversational responses using Amazon Bedrock models. For new applications, we recommend the `bedrock-runtime` endpoint (see [Chat Completions API (legacy reference)](inference-chat-completions.md)). This page documents the API on the `bedrock-mantle` endpoint, which is also fully supported. For complete API details, see the [OpenAI Chat Completions documentation](https://developers.openai.com/api/reference/chat-completions/overview).
 
-| **Endpoint**                    | **Base URL**                                                                | **Authentication**                                |
-| ------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------- |
-| `bedrock-mantle`                | `https://bedrock-mantle.{region}.api.aws/v1/chat/completions`               | Amazon Bedrock API key or AWS credentials         |
-| `bedrock-runtime` (recommended) | `https://bedrock-runtime.{region}.amazonaws.com/openai/v1/chat/completions` | AWS credentials (SigV4) or Amazon Bedrock API key |
 
-Each endpoint has its own per-model token quotas. For details on the quotas applied to traffic on each endpoint, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md "quotas-mantle.md") and [Quotas for the bedrock-runtime endpoint](quotas-runtime.md "quotas-runtime.md").
+| **Endpoint** | **Base URL** | **Authentication** | 
+| --- | --- | --- | 
+| bedrock-mantle | https://bedrock-mantle.{region}.api.aws/v1/chat/completions | Amazon Bedrock API key or AWS credentials | 
+| bedrock-runtime (recommended) | https://bedrock-runtime.{region}.amazonaws.com/openai/v1/chat/completions | AWS credentials (SigV4) or Amazon Bedrock API key | 
+
+Each endpoint has its own per-model token quotas. For details on the quotas applied to traffic on each endpoint, see [Quotas for the bedrock-mantle endpoint](quotas-mantle.md) and [Quotas for the bedrock-runtime endpoint](quotas-runtime.md).
 
 ## Chat Completions with the bedrock-mantle endpoint
+<a name="inference-chat-completions-mantle-endpoint"></a>
 
 The `bedrock-mantle` endpoint supports Amazon Bedrock API key authentication and the OpenAI SDK.
 
 ### List available models
+<a name="inference-chat-completions-mantle-list-models"></a>
 
 To list models available on the `bedrock-mantle` endpoint, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # List all available models using the OpenAI SDK
@@ -35,10 +38,10 @@ models = client.models.list()
 
 for model in models.data:
     print(model.id)
-
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
 
 ```
 # List all available models
@@ -46,14 +49,18 @@ HTTP request
 
 curl -X GET $OPENAI_BASE_URL/models \
    -H "Authorization: Bearer $OPENAI_API_KEY"
-
 ```
 
+------
+
 ### Create a chat completion
+<a name="inference-chat-completions-mantle-create"></a>
 
 Choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
+
 Configure the OpenAI client using environment variables:
 
 ```
@@ -73,10 +80,11 @@ completion = client.chat.completions.create(
 )
 
 print(completion.choices[0].message)
-
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/chat/completions`:
 
 ```
@@ -93,14 +101,15 @@ curl -X POST $OPENAI_BASE_URL/chat/completions \
         {"role": "user", "content": "Hello!"}
     ]
 }'
-
 ```
 
-###### Streaming
+------
 
+**Streaming**  
 To receive responses incrementally, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 # Stream chat completion responses incrementally using the OpenAI SDK
@@ -119,10 +128,11 @@ stream = client.chat.completions.create(
 for chunk in stream:
     if chunk.choices[0].delta.content is not None:
         print(chunk.choices[0].delta.content, end="")
-
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
+
 Make a POST request to `/v1/chat/completions` with `stream` set to `true`:
 
 ```
@@ -139,18 +149,22 @@ curl -X POST $OPENAI_BASE_URL/chat/completions \
     ],
     "stream": true
 }'
-
 ```
 
+------
+
 ## Chat Completions with the bedrock-runtime endpoint
+<a name="inference-chat-completions-runtime-endpoint"></a>
 
 The `bedrock-runtime` endpoint supports AWS SigV4 authentication and Amazon Bedrock API key authentication.
 
 ### List available models
+<a name="inference-chat-completions-runtime-list-models"></a>
 
 To list models available on the `bedrock-runtime` endpoint, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 from openai import OpenAI
@@ -166,18 +180,24 @@ for model in models.data:
     print(model.id)
 ```
 
-HTTP request
+------
+#### [ HTTP request ]
 
 ```
 curl -X GET "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/models" \
   -H "Authorization: Bearer $AWS_BEARER_TOKEN_BEDROCK"
 ```
 
+------
+
 ### Create a chat completion
+<a name="inference-chat-completions-runtime-create"></a>
 
 Choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
+
 Configure the OpenAI client to point to the `bedrock-runtime` endpoint:
 
 ```
@@ -196,7 +216,8 @@ response = client.chat.completions.create(
 print(response.choices[0].message.content)
 ```
 
-HTTP request (API key)
+------
+#### [ HTTP request (API key) ]
 
 ```
 curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/completions" \
@@ -208,7 +229,8 @@ curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/com
   }'
 ```
 
-HTTP request (SigV4)
+------
+#### [ HTTP request (SigV4) ]
 
 ```
 curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/completions" \
@@ -221,27 +243,27 @@ curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/com
   }'
 ```
 
-For more details on supported models, Regions, and advanced features with the `bedrock-runtime` endpoint, see [Chat Completions API (legacy reference)](inference-chat-completions.md "inference-chat-completions.md").
+------
+
+For more details on supported models, Regions, and advanced features with the `bedrock-runtime` endpoint, see [Chat Completions API (legacy reference)](inference-chat-completions.md).
 
 ## Include a guardrail in a chat completion
+<a name="inference-chat-completions-guardrails"></a>
 
-To include safeguards in model input and responses, apply a [guardrail](guardrails.md "guardrails.md") when running model invocation by including the following [extra parameters](https://github.com/openai/openai-python#undocumented-request-params "https://github.com/openai/openai-python#undocumented-request-params") as fields in the request body:
+To include safeguards in model input and responses, apply a [guardrail](guardrails.md) when running model invocation by including the following [extra parameters](https://github.com/openai/openai-python#undocumented-request-params) as fields in the request body:
++ `extra_headers` – Maps to an object containing the following fields, which specify extra headers in the request:
+  + `X-Amzn-Bedrock-GuardrailIdentifier` (required) – The ID of the guardrail.
+  + `X-Amzn-Bedrock-GuardrailVersion` (required) – The version of the guardrail.
+  + `X-Amzn-Bedrock-Trace` (optional) – Whether or not to enable the guardrail trace.
++ `extra_body` – Maps to an object. In that object, you can include the `amazon-bedrock-guardrailConfig` field, which maps to an object containing the following fields:
+  + `tagSuffix` (optional) – Include this field for [input tagging](guardrails-tagging.md).
 
-- `extra_headers` – Maps to an object containing the following fields, which specify extra headers in the request:
-
-  - `X-Amzn-Bedrock-GuardrailIdentifier` (required) – The ID of the guardrail.
-  - `X-Amzn-Bedrock-GuardrailVersion` (required) – The version of the guardrail.
-  - `X-Amzn-Bedrock-Trace` (optional) – Whether or not to enable the guardrail trace.
-
-- `extra_body` – Maps to an object. In that object, you can include the `amazon-bedrock-guardrailConfig` field, which maps to an object containing the following fields:
-
-  - `tagSuffix` (optional) – Include this field for [input tagging](guardrails-tagging.md "guardrails-tagging.md").
-
-For more information about these parameters in Amazon Bedrock Guardrails, see [Test your guardrail](guardrails-test.md "guardrails-test.md").
+For more information about these parameters in Amazon Bedrock Guardrails, see [Test your guardrail](guardrails-test.md).
 
 To see examples of using guardrails with OpenAI chat completions, choose the tab for your preferred method, and then follow the steps:
 
-OpenAI SDK (Python)
+------
+#### [ OpenAI SDK (Python) ]
 
 ```
 import openai
@@ -284,7 +306,7 @@ try:
                 "content": "You are a helpful assistant."
             },
             {
-                "role": "assistant",
+                "role": "assistant", 
                 "content": "Hello! How can I help you today?"
             },
             {
@@ -297,7 +319,7 @@ try:
     request_id = response._request_id
     print(f"Request ID: {request_id}")
     print(response)
-
+    
 except OpenAIError as e:
     print(f"An error occurred: {e}")
     if hasattr(e, 'response') and e.response is not None:
@@ -305,7 +327,8 @@ except OpenAIError as e:
         print(f"Request ID: {request_id}")
 ```
 
-OpenAI SDK (Java)
+------
+#### [ OpenAI SDK (Java) ]
 
 ```
 import com.openai.client.OpenAIClient;
@@ -342,7 +365,7 @@ ChatCompletionCreateParams request = ChatCompletionCreateParams.builder()
                 JsonValue.from(Map.of("tagSuffix", JsonValue.of("xyz"))) // Allows input tagging
         )
         .build();
-
+        
 HttpResponseFor<ChatCompletion> rawChatCompletionResponse =
         client.chat().completions().withRawResponse().create(request);
 
@@ -350,3 +373,5 @@ final ChatCompletion chatCompletion = rawChatCompletionResponse.parse();
 
 System.out.println(chatCompletion);
 ```
+
+------

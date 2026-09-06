@@ -1,25 +1,23 @@
+
+
 # DeepSeek models
+<a name="model-parameters-deepseek"></a>
 
-DeepSeek’s R1 and V3.1 models are text-to-text models available for use for inferencing through the Invoke API ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"))
-and the Converse API ([Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md")).
+DeepSeek’s R1 and V3.1 models are text-to-text models available for use for inferencing through the Invoke API ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)) and the Converse API ([Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)). 
 
-When you make inference calls with DeepSeek’s models, you must include a prompt for the model. For general information about creating prompts for the DeepSeek models that Amazon Bedrock supports, see [DeepSeek prompt guide](https://api-docs.deepseek.com/guides/reasoning_model "https://api-docs.deepseek.com/guides/reasoning_model").
+When you make inference calls with DeepSeek’s models, you must include a prompt for the model. For general information about creating prompts for the DeepSeek models that Amazon Bedrock supports, see [DeepSeek prompt guide](https://api-docs.deepseek.com/guides/reasoning_model). 
 
-###### Note
+**Note**  
+You can't remove request access from the Amazon Titan, Amazon Nova, DeepSeek-R1, Mistral AI, Meta Llama 3 Instruct, and Meta Llama 4 models. You can prevent users from making inference calls to these models by using an IAM policy and specifying the model ID. For more information, see [Deny access for inference of foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/security_iam_id-based-policy-examples.html#security_iam_id-based-policy-examples-deny-inference                         .html).
+For optimal response quality with DeepSeek-R1, limit the `max_tokens` parameter to 8,192 tokens or fewer. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens. This aligns with the model's reasoning capabilities as described in the [inference reasoning guide](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-reasoning.html).
 
-- You can't remove request access from the Amazon Titan, Amazon Nova, DeepSeek-R1, Mistral AI, Meta Llama 3 Instruct, and Meta Llama 4 models. You can prevent users
-  from making inference calls to these models by using an IAM policy and specifying the model ID. For more information, see [Deny access for inference of foundation models](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-deny-inference .html "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-deny-inference .html").
-- For optimal response quality with DeepSeek-R1, limit the `max_tokens` parameter to 8,192 tokens or fewer. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens. This aligns with the model's reasoning capabilities as described in the [inference reasoning guide](inference-reasoning.md "inference-reasoning.md").
-  This section describes the request parameters and response fields for DeepSeek models. Use this information to make inference calls to DeepSeek models
-  with the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") operation. This section also includes Python code examples that shows how to call DeepSeek models.
+This section describes the request parameters and response fields for DeepSeek models. Use this information to make inference calls to DeepSeek models with the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) operation. This section also includes Python code examples that shows how to call DeepSeek models.
 
-To use a model in an inference operation, you need the model ID for the model. Since this model is invoked through cross-Region inference, you will need to use the
-[Inference profile ID](inference-profiles-support.md "inference-profiles-support.md") as the model ID. For example, for the US, you will use `us.deepseek.r1-v1:0`.
+To use a model in an inference operation, you need the model ID for the model. Since this model is invoked through cross-Region inference, you will need to use the [Inference profile ID](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-profiles-support.html) as the model ID. For example, for the US, you will use `us.deepseek.r1-v1:0`.
++ Model Name: DeepSeek-R1
++ Text Model
 
-- Model Name: DeepSeek-R1
-- Text Model
-  For more information on how to use DeepSeek models with APIs,
-  see [DeepSeek Models](https://deepseek.com/ "https://deepseek.com/").
+For more information on how to use DeepSeek models with APIs, see [DeepSeek Models](https://deepseek.com/).
 
 **DeepSeek Request and Response**
 
@@ -30,7 +28,7 @@ DeepSeek has the following inference parameters for a Text Completion inference 
 ```
 {
     "prompt": string,
-    "temperature": float,
+    "temperature": float, 
     "top_p": float,
     "max_tokens": int,
     "stop": string array
@@ -38,13 +36,13 @@ DeepSeek has the following inference parameters for a Text Completion inference 
 ```
 
 **Fields:**
++ **prompt** – (string) Required text input of prompt.
++ **temperature** – (float) Numerical value less than or equal to 1.
++ **top\_p** – (float) Numerical value less than or equal to 1.
++ **max\_tokens** – (int) Tokens used, minimum of 1 to a max of 8,192 tokens for optimal quality. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens.
++ **stop** – (string array) Maximum of 10 items.
 
-- **prompt** – (string) Required text input of prompt.
-- **temperature** – (float) Numerical value less than or equal to 1.
-- **top\_p** – (float) Numerical value less than or equal to 1.
-- **max\_tokens** – (int) Tokens used, minimum of 1 to a max of 8,192 tokens for optimal quality. While the API accepts up to 32,768 tokens, response quality significantly degrades above 8,192 tokens.
-- **stop** – (string array) Maximum of 10 items.
-  **Response body**
+**Response body**
 
 DeepSeek has the following response parameters for a Text Completion inference call. This example is a text completion from DeepSeek, and does not return a content reasoning block.
 
@@ -60,13 +58,11 @@ DeepSeek has the following response parameters for a Text Completion inference c
 ```
 
 **Fields:**
++ **stop\_reason** – (string) The reason why the response stopped generating text. Value of `stop` or `length`.
++ **stop** – (string) The model has finished generating text for the input prompt.
++ **length** – (string) The length of the tokens for the generated text exceeds the value of `max_tokens` in the call to `InvokeModel` ( or `InvokeModelWithResponseStream`, if you are streaming output). The response is truncated to `max_tokens`. Increase the value of `max_tokens` and try your request again.
 
-- **stop\_reason** – (string) The reason why the response stopped generating text. Value of `stop` or `length`.
-- **stop** – (string) The model has finished generating text for the input prompt.
-- **length** – (string) The length of the tokens for the generated text exceeds the value
-  of `max_tokens` in the call to `InvokeModel` ( or `InvokeModelWithResponseStream`, if you are streaming output).
-  The response is truncated to `max_tokens`. Increase the value of `max_tokens` and try your request again.
-  **Example Code**
+**Example Code**
 
 This example shows how to call the DeepSeek-R1 model.
 
@@ -105,10 +101,10 @@ try:
 
     # Read the response body.
     model_response = json.loads(response["body"].read())
-
+    
     # Extract choices.
     choices = model_response["choices"]
-
+    
     # Print choices.
     for index, choice in enumerate(choices):
         print(f"Choice {index + 1}\n----------")
@@ -117,8 +113,6 @@ try:
 except (ClientError, Exception) as e:
     print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
     exit(1)
-
-
 ```
 
 **Converse**
@@ -149,7 +143,7 @@ Request Body - Use this request body example to call the ConverseAPI.
         "maxTokens": int,
         "stopSequences": string array
     },
-    "guardrailConfig": {
+    "guardrailConfig": { 
         "guardrailIdentifier":"string",
         "guardrailVersion": "string",
         "trace": "string"
@@ -158,23 +152,18 @@ Request Body - Use this request body example to call the ConverseAPI.
 ```
 
 **Fields:**
++ **system** – (Optional) The system prompt for the request.
++ **messages** – (Required) The input messages.
+  + **role** – The role of the conversation turn. Valid values are `user` and `assistant`.
+  + **content** – (Required) The content of the conversation turn, as an array of objects. Each object contains a typefield, in which you can specify one of the following values:
+    + **text** – (Required) If you specify this type, you must include a text field and specify the text prompt as its value.
++ **inferenceConfig** 
+  + **temperature** – (Optional) Values: minimum = 0. maximum = 1.
+  + **topP** – (Optional) Values: minimum = 0. maximum = 1.
+  + **maxTokens** – (Optional) The maximum number of tokens to generate before stopping. Values: minimum = 0. maximum = 32,768.
+  + **stopSequences ** – (Optional) Custom text sequences that causes the model to stop generating output. Maximum = 10 items.
 
-- **system** – (Optional) The system prompt for the request.
-- **messages** – (Required) The input messages.
-
-  - **role** – The role of the conversation turn. Valid values are `user` and `assistant`.
-  - **content** – (Required) The content of the conversation turn, as an array of objects. Each object contains a
-    typefield, in which you can specify one of the following values:
-
-    - **text** – (Required) If you specify this type, you must include a text field and specify the text prompt as its value.
-
-- **inferenceConfig**
-
-  - **temperature** – (Optional) Values: minimum = 0. maximum = 1.
-  - **topP** – (Optional) Values: minimum = 0. maximum = 1.
-  - **maxTokens** – (Optional) The maximum number of tokens to generate before stopping. Values: minimum = 0. maximum = 32,768.
-  - **stopSequences** – (Optional) Custom text sequences that causes the model to stop generating output. Maximum = 10 items.
-    Response Body - Use this request body example to call the ConverseAPI.
+Response Body - Use this request body example to call the ConverseAPI.
 
 ```
 {
@@ -204,22 +193,17 @@ Request Body - Use this request body example to call the ConverseAPI.
 ```
 
 **Fields:**
++ **message** – The return response from the model.
++ **role** – The conversational role of the generated message. The value is always `assistant`.
++ **content** – The content generated by the model, which is returned as an array. There are two types of content:
+  + **text** – The text content of the response.
+  + **reasoningContent** – (Optional) The reasoning content from the model response.
+    + **reasoningText** – The reasoning text from the model response.
++ **stopReason** – The reason why the model stopped generating the response. 
+  + **end\_turn** – The turn the model reached a stopping point.
+  + **max\_tokens** – The generated text exceeded the value of the `maxTokens` input field or exceeded the maximum number of tokens that the model supports.
 
-- **message** – The return response from the model.
-- **role** – The conversational role of the generated message. The value is always `assistant`.
-- **content** – The content generated by the model, which is returned as an array. There are two types of content:
-
-  - **text** – The text content of the response.
-  - **reasoningContent** – (Optional) The reasoning content from the model response.
-
-    - **reasoningText** – The reasoning text from the model response.
-
-- **stopReason** – The reason why the model stopped generating the response.
-
-  - **end\_turn** – The turn the model reached a stopping point.
-  - **max\_tokens** – The generated text exceeded the value of the `maxTokens`
-    input field or exceeded the maximum number of tokens that the model supports.
-    Example Code - Here is an example of DeepSeek making a to call the ConverseAPI.
+Example Code - Here is an example of DeepSeek making a to call the ConverseAPI.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -319,7 +303,7 @@ def main():
 
         # Add the response message to the conversation.
         output_message = response['output']['message']
-
+        
         # Remove reasoning content from the response
         output_contents = []
         for content in output_message["content"]:
@@ -328,7 +312,7 @@ def main():
             else:
                 output_contents.append(content)
         output_message["content"] = output_contents
-
+        
         messages.append(output_message)
 
         # Continue the conversation with the 2nd message.

@@ -1,26 +1,21 @@
+
+
 # Use `DeleteAgent` with an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_DeleteAgent_section"></a>
 
 The following code examples show how to use `DeleteAgent`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Create and invoke an agent](bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockAgents_section.md) 
 
-- [Create and invoke an agent](bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockAgents_section.md "bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockAgents_section.md")
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples").
-
-Delete an agent.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent#code-examples). 
+Delete an agent.  
 
 ```
-
 import { fileURLToPath } from "node:url";
 import { checkForPlaceholders } from "../lib/utils.js";
 
@@ -58,25 +53,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const response = await deleteAgent(agentId);
   console.log(response);
 }
-
-
 ```
++  For API details, see [DeleteAgent](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/DeleteAgentCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [DeleteAgent](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/DeleteAgentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/DeleteAgentCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-Delete an agent.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+Delete an agent.  
 
 ```
     def delete_agent(self, agent_id):
@@ -96,15 +81,9 @@ Delete an agent.
             raise
         else:
             return response
-
-
-
 ```
++  For API details, see [DeleteAgent](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/DeleteAgent) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [DeleteAgent](../../../goto/boto3/bedrock-agent-2023-12-12/DeleteAgent.md "../../../goto/boto3/bedrock-agent-2023-12-12/DeleteAgent.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

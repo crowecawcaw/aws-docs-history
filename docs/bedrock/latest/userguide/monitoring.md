@@ -1,19 +1,16 @@
+
+
 # Monitor the `bedrock-runtime` endpoint
+<a name="monitoring"></a>
 
-The `bedrock-runtime.`region`.amazonaws.com` endpoint
-serves the [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md"), [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") API operations.
-The topics in this section describe the observability options available for traffic to this
-endpoint, including Amazon CloudWatch metrics, AWS CloudTrail logging, and model invocation logging.
+The `bedrock-runtime.{{region}}.amazonaws.com` endpoint serves the [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html), [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html), [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html), and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) API operations. The topics in this section describe the observability options available for traffic to this endpoint, including Amazon CloudWatch metrics, AWS CloudTrail logging, and model invocation logging.
 
-For more information about CloudWatch, see [What is
-Amazon CloudWatch](../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md "../../../AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.md") in the _Amazon CloudWatch User Guide_.
+For more information about CloudWatch, see [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/WhatIsCloudWatch.html) in the *Amazon CloudWatch User Guide*.
 
-If your application calls the `bedrock-mantle.`region`.api.aws`
-endpoint, see [Monitor the bedrock-mantle endpoint](monitoring-mantle.md "monitoring-mantle.md") instead.
+If your application calls the `bedrock-mantle.{{region}}.api.aws` endpoint, see [Monitor the `bedrock-mantle` endpoint](monitoring-mantle.md) instead.
 
-###### Topics
-
-- [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md")
-- [Monitor bedrock-runtime inference using CloudWatch metrics](monitoring-runtime-metrics.md "monitoring-runtime-metrics.md")
-- [Diagnose InvocationLatency increases using output tokens per second (OTPS)](monitoring-runtime-otps.md "monitoring-runtime-otps.md")
-- [Monitor Amazon Bedrock API calls using CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+**Topics**
++ [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md)
++ [Monitor `bedrock-runtime` inference using CloudWatch metrics](monitoring-runtime-metrics.md)
++ [Diagnose `InvocationLatency` increases using output tokens per second (OTPS)](monitoring-runtime-otps.md)
++ [Monitor Amazon Bedrock API calls using CloudTrail](logging-using-cloudtrail.md)

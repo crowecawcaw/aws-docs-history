@@ -1,55 +1,53 @@
+
+
 # Monitor your token usage by counting tokens before running inference
+<a name="count-tokens"></a>
 
-When you run model inference, the number of tokens that you send in the input contributes to the cost of the request and towards the quota of tokens that you can use per minute and per day. The [CountTokens](../APIReference/API_runtime_CountTokens.md "../APIReference/API_runtime_CountTokens.md") API helps you estimate token usage before sending requests to foundation models by returning the token count that would be used if the same input were sent to the model in an inference request.
+When you run model inference, the number of tokens that you send in the input contributes to the cost of the request and towards the quota of tokens that you can use per minute and per day. The [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) API helps you estimate token usage before sending requests to foundation models by returning the token count that would be used if the same input were sent to the model in an inference request.
 
-###### Note
+**Note**  
+Using the [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) API doesn't incur charges.
 
-Using the [CountTokens](../APIReference/API_runtime_CountTokens.md "../APIReference/API_runtime_CountTokens.md") API doesn't incur charges.
-
-###### Note
-
-Some Anthropic Claude models – including those that launch with cross-Region inference (CRIS) only on `bedrock-runtime` – don't support [CountTokens](../APIReference/API_runtime_CountTokens.md "../APIReference/API_runtime_CountTokens.md") on `bedrock-runtime`. For these models, count input tokens by calling Anthropic's `count_tokens` API on the `bedrock-mantle` endpoint instead. See [Count tokens using the bedrock-mantle endpoint](#count-tokens-mantle "#count-tokens-mantle") for the URL, request body, and an example.
+**Note**  
+Some Anthropic Claude models – including those that launch with cross-Region inference (CRIS) only on `bedrock-runtime` – don't support [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) on `bedrock-runtime`. For these models, count input tokens by calling Anthropic's `count_tokens` API on the `bedrock-mantle` endpoint instead. See [Count tokens using the bedrock-mantle endpoint](#count-tokens-mantle) for the URL, request body, and an example.
 
 Token counting is model-specific because different models use different tokenization strategies. The token count returned by this operation will match the token count that would be charged if the same input were sent to the model to run inference.
 
 You can use the `CountTokens` API to do the following:
++ Estimate costs before sending inference requests.
++ Optimize prompts to fit within token limits.
++ Plan for token usage in your applications.
 
-- Estimate costs before sending inference requests.
-- Optimize prompts to fit within token limits.
-- Plan for token usage in your applications.
-
-###### Topics
-
-- [Supported models and Regions for token counting](#count-tokens-supported "#count-tokens-supported")
-- [Count tokens using the bedrock-runtime endpoint](#count-tokens-use "#count-tokens-use")
-- [Example: count tokens for a bedrock-runtime request](#count-tokens-example "#count-tokens-example")
-- [Count tokens using the bedrock-mantle endpoint](#count-tokens-mantle "#count-tokens-mantle")
+**Topics**
++ [Supported models and Regions for token counting](#count-tokens-supported)
++ [Count tokens using the bedrock-runtime endpoint](#count-tokens-use)
++ [Example: count tokens for a bedrock-runtime request](#count-tokens-example)
++ [Count tokens using the bedrock-mantle endpoint](#count-tokens-mantle)
 
 ## Supported models and Regions for token counting
+<a name="count-tokens-supported"></a>
 
-To see which models support token counting, please visit
-[models at a glance](model-cards.md "model-cards.md") and pick the model you are interested in.
+To see which models support token counting, please visit [models at a glance](model-cards.md) and pick the model you are interested in.
 
 ## Count tokens using the bedrock-runtime endpoint
+<a name="count-tokens-use"></a>
 
-To count the number of input tokens in an inference request, send a [CountTokens](../APIReference/API_runtime_CountTokens.md "../APIReference/API_runtime_CountTokens.md") request with an [Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt"), Specify the model in the header and the input to count tokens for in the `body` field. The value of the `body` field depends on whether you're counting input tokens for an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request:
-
-- For an `InvokeModel` request, the format of the `body` is a string representing a JSON object whose format depends on the model that you specify.
-- For a `Converse` request, the format of the `body` is a JSON object specifying the `messages` and `system` prompts included in the conversation.
+To count the number of input tokens in an inference request, send a [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) request with an [Amazon Bedrock runtime endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#br-rt), Specify the model in the header and the input to count tokens for in the `body` field. The value of the `body` field depends on whether you're counting input tokens for an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) request:
++ For an `InvokeModel` request, the format of the `body` is a string representing a JSON object whose format depends on the model that you specify.
++ For a `Converse` request, the format of the `body` is a JSON object specifying the `messages` and `system` prompts included in the conversation.
 
 ## Example: count tokens for a bedrock-runtime request
+<a name="count-tokens-example"></a>
 
 The examples in this section let you count tokens for an `InvokeModel` and `Converse` request with Anthropic Claude 3 Haiku.
 
-###### Prerequisites
+**Prerequisites**
++ You've downloaded AWS SDK for Python (Boto3) and your configuration is set up such that your credentials and default AWS Region are automatically recognized.
++ Your IAM identity has permissions for the following actions (for more information, see [Action, resources, and condition keys for Amazon Bedrock](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html)):
+  + bedrock:CountTokens – Allows the usage of `CountTokens`.
+  + bedrock:InvokeModel – Allows the usage of `InvokeModel` and `Converse`. Should be scoped to the {{arn:${Partition}:bedrock:${Region}::foundation-model/anthropic.claude-3-haiku-20240307-v1:0}}, at minimum.
 
-- You've downloaded AWS SDK for Python (Boto3) and your configuration is set up such that your credentials and default AWS Region are automatically recognized.
-- Your IAM identity has permissions for the following actions (for more information, see [Action, resources, and condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md "../../../service-authorization/latest/reference/list_amazonbedrock.md")):
-
-  - bedrock:CountTokens – Allows the usage of `CountTokens`.
-  - bedrock:InvokeModel – Allows the usage of `InvokeModel` and `Converse`. Should be scoped to the `arn:${Partition}:bedrock:${Region}::foundation-model/anthropic.claude-3-haiku-20240307-v1:0`, at minimum.
-
-To try out counting tokens for an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") request, run the following Python code:
+To try out counting tokens for an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) request, run the following Python code:
 
 ```
 import boto3
@@ -78,14 +76,13 @@ response = bedrock_runtime.count_tokens(
 )
 
 print(response["inputTokens"])
-
 ```
 
-To try out counting tokens for a [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request, run the following Python code:
+To try out counting tokens for a [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) request, run the following Python code:
 
 ```
 import boto3
-import json
+import json 
 
 bedrock_runtime = boto3.client("bedrock-runtime")
 
@@ -131,25 +128,23 @@ response = bedrock_runtime.count_tokens(
 )
 
 print(response["inputTokens"])
-
 ```
 
 ## Count tokens using the bedrock-mantle endpoint
+<a name="count-tokens-mantle"></a>
 
-The `bedrock-mantle` endpoint exposes Anthropic's `count_tokens` API at `/anthropic/v1/messages/count_tokens`. Use it to count input tokens for Anthropic Claude models that don't support [CountTokens](../APIReference/API_runtime_CountTokens.md "../APIReference/API_runtime_CountTokens.md") on `bedrock-runtime` – for example, when the model is offered only through cross-Region inference (CRIS) on `bedrock-runtime` and so has no Region-specific endpoint for [CountTokens](../APIReference/API_runtime_CountTokens.md "../APIReference/API_runtime_CountTokens.md") to target. The `/anthropic/v1/messages` path is Claude-specific; non-Anthropic models on `bedrock-mantle` return `The model 'X' does not support the '/anthropic/v1/messages' API`.
+The `bedrock-mantle` endpoint exposes Anthropic's `count_tokens` API at `/anthropic/v1/messages/count_tokens`. Use it to count input tokens for Anthropic Claude models that don't support [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) on `bedrock-runtime` – for example, when the model is offered only through cross-Region inference (CRIS) on `bedrock-runtime` and so has no Region-specific endpoint for [CountTokens](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_CountTokens.html) to target. The `/anthropic/v1/messages` path is Claude-specific; non-Anthropic models on `bedrock-mantle` return `The model 'X' does not support the '/anthropic/v1/messages' API`.
 
-###### Request details
+**Request details**
++ **URL** – `POST https://bedrock-mantle.{{region}}.api.aws/anthropic/v1/messages/count_tokens`. For supported Regions, see [Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported).
++ **Request body** – The Anthropic `count_tokens` shape, including `model`, `messages`, and optional `system` and `tools` fields. See the [Anthropic Messages count tokens reference](https://docs.anthropic.com/en/api/messages-count-tokens).
++ **Authentication** – Either a SigV4 signature with service name `bedrock-mantle`, or an Amazon Bedrock API key passed in the `x-api-key` header. See [API keys](api-keys.md).
++ **IAM action** – `bedrock-mantle:CountTokens`. This action uses the `bedrock-mantle` service prefix and appears in the [Amazon Bedrock Powered by AWS Mantle service authorization reference](https://docs.aws.amazon.com/service-authorization/latest/reference/list_bedrock-mantle.html), rather than the Amazon Bedrock (`bedrock`) reference. The authorization is scoped to an Amazon Bedrock [Project](projects.md) resource of the form `arn:aws:bedrock-mantle:{{region}}:{{account-id}}:project/{{project-name}}`. The default project name is `default`.
++ **SDK support** – The AWS SDKs do not currently expose a method that targets this endpoint. Send the request as a SigV4-signed HTTP `POST`, or use any HTTP client with a Amazon Bedrock API key. The `bedrock-runtime` client method `count_tokens` does not target this endpoint and returns a validation error for models that are not supported on `bedrock-runtime`.
++ **Error format** – Errors follow the Anthropic shape: `{"type": "error", "request_id": "...", "error": {"type": "error-type", "message": "error-message"}}`. This differs from the standard AWS JSON error envelope returned by `bedrock-runtime`.
 
-- **URL** – `POST https://bedrock-mantle.`region`.api.aws/anthropic/v1/messages/count_tokens`. For supported Regions, see [Supported Regions and Endpoints](bedrock-mantle.md#bedrock-mantle-supported "bedrock-mantle.md#bedrock-mantle-supported").
-- **Request body** – The Anthropic `count_tokens` shape, including `model`, `messages`, and optional `system` and `tools` fields. See the [Anthropic Messages count tokens reference](https://docs.anthropic.com/en/api/messages-count-tokens "https://docs.anthropic.com/en/api/messages-count-tokens").
-- **Authentication** – Either a SigV4 signature with service name `bedrock-mantle`, or an Amazon Bedrock API key passed in the `x-api-key` header. See [API keys](api-keys.md "api-keys.md").
-- **IAM action** – `bedrock-mantle:CountTokens`. This action uses the `bedrock-mantle` service prefix and appears in the [Amazon Bedrock Powered by AWS Mantle service authorization reference](../../../service-authorization/latest/reference/list_bedrock-mantle.md "../../../service-authorization/latest/reference/list_bedrock-mantle.md"), rather than the Amazon Bedrock (`bedrock`) reference. The authorization is scoped to an Amazon Bedrock [Project](projects.md "projects.md") resource of the form `arn:aws:bedrock-mantle:`region`:`account-id`:project/`project-name``. The default project name is `default`.
-- **SDK support** – The AWS SDKs do not currently expose a method that targets this endpoint. Send the request as a SigV4-signed HTTP `POST`, or use any HTTP client with a Amazon Bedrock API key. The `bedrock-runtime` client method `count_tokens` does not target this endpoint and returns a validation error for models that are not supported on `bedrock-runtime`.
-- **Error format** – Errors follow the Anthropic shape: `{"type": "error", "request_id": "...", "error": {"type": "error-type", "message": "error-message"}}`. This differs from the standard AWS JSON error envelope returned by `bedrock-runtime`.
-
-###### Note
-
-The `count_tokens` endpoint validates the request body using the same schema as the corresponding inference endpoint, so request fields that the model does not support are rejected with HTTP 400. For example, Anthropic Claude Opus 4.7 does not accept `strict: true` on `tools[]` and returns `tools.0.custom.strict: Extra inputs are not permitted`. Consult the [model card](model-cards.md "model-cards.md") for the model-specific feature surface.
+**Note**  
+The `count_tokens` endpoint validates the request body using the same schema as the corresponding inference endpoint, so request fields that the model does not support are rejected with HTTP 400. For example, Anthropic Claude Opus 4.7 does not accept `strict: true` on `tools[]` and returns `tools.0.custom.strict: Extra inputs are not permitted`. Consult the [model card](model-cards.md) for the model-specific feature surface.
 
 The following example uses `curl` with a Amazon Bedrock API key to count tokens on the `bedrock-mantle` endpoint:
 

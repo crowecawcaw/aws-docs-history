@@ -1,8 +1,12 @@
-# Creating Library
 
-Use the [CreateDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.md "bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.md") API to create a new library container.
+
+# Creating Library
+<a name="bda-library-creating"></a>
+
+Use the [CreateDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.html) API to create a new library container.
 
 ## AWS CLI Example:
+<a name="bda-library-creating-cli"></a>
 
 **Request**
 
@@ -23,15 +27,22 @@ aws bedrock-data-automation create-data-automation-library \
 ```
 
 ## AWS Console Example:
+<a name="bda-library-creating-console"></a>
 
 1. Navigate to "Manage libraries" page in BDA Console
-2. Choose "Create library"
 
-![Create library dialog with fields for library name, description, KMS key , and tags.](images/bda/library-create-console.png)
+1. Choose "Create library"
+
+![Create library dialog with fields for library name, description, KMS key , and tags.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-create-console.png)
+
 
 ## Important Notes
+<a name="bda-library-creating-notes"></a>
 
 1. Library creation is synchronous and returns immediately
-2. Library names must be unique within your account and region
-3. The library is empty until you run an entity ingestion job
-4. Libraries can be associated with multiple projects
+
+1. Library names must be unique within your account and region
+
+1. The library is empty until you run an entity ingestion job
+
+1. Libraries can be associated with multiple projects

@@ -1,8 +1,12 @@
-# Listing Library Entities
 
-Use the [ListDataAutomationLibraryEntities](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.md "bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.md") API to retrieve the list of entities.
+
+# Listing Library Entities
+<a name="bda-library-listing-entities"></a>
+
+Use the [ListDataAutomationLibraryEntities](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.html) API to retrieve the list of entities.
 
 ## AWS CLI Example:
+<a name="bda-library-listing-entities-cli"></a>
 
 **Request**
 
@@ -31,7 +35,8 @@ aws bedrock-data-automation list-data-automation-library-entities \
 ```
 
 ## AWS Console Example:
+<a name="bda-library-listing-entities-console"></a>
 
 1. Navigate to the "Library details" page for your library
 
-![Custom vocabulary lists table showing medical-en list with English language and 2 phrases.](images/bda/library-list-entities-console.png)
+![Custom vocabulary lists table showing medical-en list with English language and 2 phrases.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-list-entities-console.png)

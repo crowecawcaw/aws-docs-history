@@ -1,36 +1,41 @@
-# Code example for batch inference
 
-The code example in this chapter shows how to create a batch inference job, view information about it, and stop it. This example uses the `InvokeModel` API format. For information about using the `Converse` API format, see [Format and upload your batch inference data](batch-inference-data.md "batch-inference-data.md").
+
+# Code example for batch inference
+<a name="batch-inference-example"></a>
+
+The code example in this chapter shows how to create a batch inference job, view information about it, and stop it. This example uses the `InvokeModel` API format. For information about using the `Converse` API format, see [Format and upload your batch inference data](batch-inference-data.md).
 
 Select a language to see a code example for it:
 
-Python
-Create a JSONL file named `abc.jsonl` and include a JSON object for each record that contains at least the minimum number of records (see the **Minimum number of records per batch inference job for `{Model}`** [Quotas for Amazon Bedrock](quotas.md "quotas.md")). In this example, you'll use the Anthropic Claude 3 Haiku model. The following example shows the first input JSON in the file:
+------
+#### [ Python ]
+
+Create a JSONL file named {{abc.jsonl}} and include a JSON object for each record that contains at least the minimum number of records (see the **Minimum number of records per batch inference job for {{{Model}}}** [Quotas for Amazon Bedrock](quotas.md)). In this example, you'll use the Anthropic Claude 3 Haiku model. The following example shows the first input JSON in the file:
 
 ```
 {
-    "recordId": "CALL0000001",
+    "recordId": "CALL0000001", 
     "modelInput": {
-        "anthropic_version": "bedrock-2023-05-31",
+        "anthropic_version": "bedrock-2023-05-31", 
         "max_tokens": 1024,
-        "messages": [
-            {
-                "role": "user",
+        "messages": [ 
+            { 
+                "role": "user", 
                 "content": [
                     {
-                        "type": "text",
-                        "text": "Summarize the following call transcript: ..."
-                    }
+                        "type": "text", 
+                        "text": "Summarize the following call transcript: ..." 
+                    } 
                 ]
             }
         ]
     }
 }
-...
+... 
 # Add records until you hit the minimum
 ```
 
-Create an S3 bucket called `amzn-s3-demo-bucket-input` and upload the file to it. Then create an S3 bucket called `amzn-s3-demo-bucket-output` to write your output files to. Run the following code snippet to submit a job and get the `jobArn` from the response:
+Create an S3 bucket called {{amzn-s3-demo-bucket-input}} and upload the file to it. Then create an S3 bucket called {{amzn-s3-demo-bucket-output}} to write your output files to. Run the following code snippet to submit a job and get the {{jobArn}} from the response:
 
 ```
 import boto3
@@ -66,7 +71,7 @@ Return the `status` of the job.
 bedrock.get_model_invocation_job(jobIdentifier=jobArn)['status']
 ```
 
-List batch inference jobs that `Failed`.
+List batch inference jobs that {{Failed}}.
 
 ```
 bedrock.list_model_invocation_jobs(
@@ -82,7 +87,8 @@ Stop the job that you started.
 bedrock.stop_model_invocation_job(jobIdentifier=jobArn)
 ```
 
-Java
+------
+#### [ Java ]
 
 ```
 package com.amazon.aws.sample.bedrock.inference;
@@ -133,3 +139,5 @@ public class BedrockBatchInference {
     }
 }
 ```
+
+------

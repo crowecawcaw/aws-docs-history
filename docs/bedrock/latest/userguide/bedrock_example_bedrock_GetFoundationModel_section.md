@@ -1,18 +1,16 @@
+
+
 # Use `GetFoundationModel` with an AWS SDK
+<a name="bedrock_example_bedrock_GetFoundationModel_section"></a>
 
 The following code examples show how to use `GetFoundationModel`.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock#code-examples").
-
-Get details about a foundation model using the synchronous Amazon Bedrock client.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock#code-examples). 
+Get details about a foundation model using the synchronous Amazon Bedrock client.  
 
 ```
     /**
@@ -50,11 +48,8 @@ Get details about a foundation model using the synchronous Amazon Bedrock client
             throw new RuntimeException(e);
         }
     }
-
-
 ```
-
-Get details about a foundation model using the asynchronous Amazon Bedrock client.
+Get details about a foundation model using the asynchronous Amazon Bedrock client.  
 
 ```
     /**
@@ -98,28 +93,17 @@ Get details about a foundation model using the asynchronous Amazon Bedrock clien
             throw new RuntimeException(e);
         }
     }
+```
++  For API details, see [GetFoundationModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-2023-04-20/GetFoundationModel) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples). 
+Get details about a foundation model.  
 
 ```
-
-- For API details, see
-  [GetFoundationModel](../../../goto/SdkForJavaV2/bedrock-2023-04-20/GetFoundationModel.md "../../../goto/SdkForJavaV2/bedrock-2023-04-20/GetFoundationModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock#code-examples").
-
-Get details about a foundation model.
-
-```
-
 import { fileURLToPath } from "node:url";
 
 import {
@@ -149,25 +133,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const model = await getFoundationModel();
   console.log(model);
 }
-
-
 ```
++  For API details, see [GetFoundationModel](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetFoundationModelCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [GetFoundationModel](../../../AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetFoundationModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock/command/GetFoundationModelCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples").
-
-Get details about a foundation model.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock#code-examples). 
+Get details about a foundation model.  
 
 ```
     def get_foundation_model(self, model_identifier):
@@ -186,15 +160,9 @@ Get details about a foundation model.
                 f"Couldn't get foundation models details for {model_identifier}"
             )
             raise
-
-
-
 ```
++  For API details, see [GetFoundationModel](https://docs.aws.amazon.com/goto/boto3/bedrock-2023-04-20/GetFoundationModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetFoundationModel](../../../goto/boto3/bedrock-2023-04-20/GetFoundationModel.md "../../../goto/boto3/bedrock-2023-04-20/GetFoundationModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

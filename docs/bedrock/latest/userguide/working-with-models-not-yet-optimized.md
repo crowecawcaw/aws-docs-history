@@ -1,51 +1,50 @@
+
+
 # Working with models not yet optimized for Amazon Bedrock Agents
+<a name="working-with-models-not-yet-optimized"></a>
 
-Amazon Bedrock Agents supports all models from Amazon Bedrock. You can create agents with any foundation model. Currently, some of the offered models are
-optimized with prompts/parsers fine-tuned for integrating with the Amazon Bedrock Agents architecture, while others are not.
+Amazon Bedrock Agents supports all models from Amazon Bedrock. You can create agents with any foundation model. Currently, some of the offered models are optimized with prompts/parsers fine-tuned for integrating with the Amazon Bedrock Agents architecture, while others are not. 
 
-###### Note
-
-No additional models are planned to be optimized for Amazon Bedrock Agents. You can continue
-to use newer foundation models with Amazon Bedrock Agents without optimization — the rest
-of this page describes the patterns for doing so. For new agent applications, we
-recommend evaluating [Amazon Bedrock
-AgentCore](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md"), which is the platform we recommend going forward for
-building, deploying, and operating agents at scale.
+**Note**  
+No additional models are planned to be optimized for Amazon Bedrock Agents. You can continue to use newer foundation models with Amazon Bedrock Agents without optimization — the rest of this page describes the patterns for doing so. For new agent applications, we recommend evaluating [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html), which is the platform we recommend going forward for building, deploying, and operating agents at scale.
 
 ## Viewing models not yet optimized for Amazon Bedrock Agents
+<a name="view-unoptimized-models"></a>
 
 You can view the list of models that are not yet optimized for Agents in the Amazon Bedrock console when you are either creating a new agent or updating an agent.
 
-###### To view models not optimized for Amazon Bedrock agent
+**To view models not optimized for Amazon Bedrock agent**
 
 1. If you're not already in the agent builder, do the following:
 
-   1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-      [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-   2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
-   3. Choose **Edit in Agent builder**.
+   1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
 
-2. In the **Select model** section, choose the pencil icon.
-3. By default, models optimized for agents are shown. To view all models supported by Amazon Bedrock Agents, clear **Bedrock Agents optimized**.
+   1. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
 
-![View all foundation models supported by Amazon Bedrock Agents.](images/agents/agents-optimized-model-selection.png)
+   1. Choose **Edit in Agent builder**.
+
+1. In the **Select model** section, choose the pencil icon.
+
+1. By default, models optimized for agents are shown. To view all models supported by Amazon Bedrock Agents, clear **Bedrock Agents optimized**.  
+![View all foundation models supported by Amazon Bedrock Agents.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/agents/agents-optimized-model-selection.png)
 
 ## Examples for using models not yet optimized for Amazon Bedrock Agents
+<a name="using-models-not-yet-optimized-examples"></a>
 
-If you’ve selected a model for which optimization is not yet available, you can override the prompts to extract better responses, and if
-needed, override the parsers. For more information on overriding prompts, see [Write a custom parser Lambda function in Amazon Bedrock Agents](lambda-parser.md "lambda-parser.md"). See [this code sample](https://github.com/awslabs/amazon-bedrock-agent-samples/tree/main/examples/agents/agent_with_models_not_yet_optimized_for_bedrock_agents "https://github.com/awslabs/amazon-bedrock-agent-samples/tree/main/examples/agents/agent_with_models_not_yet_optimized_for_bedrock_agents") for reference.
+If you’ve selected a model for which optimization is not yet available, you can override the prompts to extract better responses, and if needed, override the parsers. For more information on overriding prompts, see [Write a custom parser Lambda function in Amazon Bedrock Agents](lambda-parser.md). See [this code sample ](https://github.com/awslabs/amazon-bedrock-agent-samples/tree/main/examples/agents/agent_with_models_not_yet_optimized_for_bedrock_agents) for reference.
 
 The following sections provide example code for using tools with models not yet optimized for Amazon Bedrock Agents.
 
-You can use the Amazon Bedrock API to give a model access to tools that can help it generate responses for messages that you send to the model. For example, you might have a chat application that lets users find out the most popular song played on a radio station. To answer a request for the most popular song, a model needs a tool that can query and return the song information. For more information about tool use, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md "tool-use.md").
+You can use the Amazon Bedrock API to give a model access to tools that can help it generate responses for messages that you send to the model. For example, you might have a chat application that lets users find out the most popular song played on a radio station. To answer a request for the most popular song, a model needs a tool that can query and return the song information. For more information about tool use, see [Use a tool to complete an Amazon Bedrock model response](tool-use.md).
 
 ### Using tools with models that support native tool use
+<a name="unoptimized-models-support-native-tool-use"></a>
 
 Certain Amazon Bedrock models, while not yet optimized for Amazon Bedrock Agents, come with built-in tool use capabilities. For such models, you can enhance performance by overriding default prompts and parsers as needed. By customizing prompts specifically for your chosen model, you can improve response quality and resolve any inconsistencies with model-specific prompting conventions.
 
-**Example: Overriding prompts with Mistral Large**
+**Example: Overriding prompts with Mistral Large **
 
-Amazon Bedrock Agents supports the Mistral Large model which has tool use capability. However, since the prompting conventions for Mistral Large differ from Claude, the prompting and parser are not optimized.
+Amazon Bedrock Agents supports the Mistral Large model which has tool use capability. However, since the prompting conventions for Mistral Large differ from Claude, the prompting and parser are not optimized. 
 
 **Example prompt**
 
@@ -165,17 +164,17 @@ If you include specific instructions in the optimized prompt, then you need to p
 The prompting changes in the example code caused the model to spit out a trace that specifically mentioned tool\_use as a stop reason. Since this is the standard for the default parser, no further changes are needed, but if you were to add new specific instructions, then a parser would need to be written to handle the changes.
 
 ### Using tools with models that do not support native tool use
+<a name="using-tools-with-unoptimized-models"></a>
 
 Typically for agentic models, some model providers enable tool use support. If tool use is not supported for the model you've chosen, we recommend that you reevaluate if this model is the right model for your agentic usecase. If you want to go ahead with the model you've chosen, you can add tools to the model by defining the tools in the prompt and then writing a custom parser to parse out the model response for a tool invocation.
 
 **Example: Overriding prompts with DeepSeek R1**
 
-Amazon Bedrock Agents supports the DeepSeek R1 model which does not support tool use. See [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1 "https://github.com/deepseek-ai/DeepSeek-R1") documentation for more information. The following code sample defines and calls a tool that helps user search and book a flight for the specified date and time. The code sample shows how to use custom prompt and override the parsers.
+Amazon Bedrock Agents supports the DeepSeek R1 model which does not support tool use. See [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) documentation for more information. The following code sample defines and calls a tool that helps user search and book a flight for the specified date and time. The code sample shows how to use custom prompt and override the parsers.
 
 **Example prompt**
 
-The following example invokes tools that collects flight information from the
-users and answers user’s questions. The example assumes that an action group is created for the agent that sends the response back to the user.
+The following example invokes tools that collects flight information from the users and answers user’s questions. The example assumes that an action group is created for the agent that sends the response back to the user.
 
 ```
 {
@@ -274,7 +273,6 @@ You will ALWAYS follow the following guidelines when you are answering a questio
     }
 ]
 }
-
 ```
 
 **Example Parser Lambda function**
@@ -567,12 +565,11 @@ def addRepromptResponse(parsed_response, error):
     parsed_response['orchestrationParsedResponse']['parsingErrorDetails'] = {
         'repromptResponse': error_message
     }
-
 ```
 
 **Example Action Group Lambda function**
 
-The following example function sends the response to the user.
+The following example function sends the response to the user. 
 
 ```
 import json
@@ -611,5 +608,4 @@ def lambda_handler(event, context):
     print("Response: {}".format(dummy_function_response))
 
     return dummy_function_response
-
 ```

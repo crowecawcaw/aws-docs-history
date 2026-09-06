@@ -1,88 +1,106 @@
+
+
 # Get validated JSON results from models
+<a name="structured-output"></a>
 
 Structured outputs is a capability on Amazon Bedrock that ensures model responses conform to user-defined JSON schemas and tool definitions, reducing the need for custom parsing and validation mechanisms in production AI deployments.
 
 ## Benefits
+<a name="structured-output-benefits"></a>
 
 Structured outputs addresses critical challenges in production AI applications:
-
-- **Ensures schema compliance** – Eliminates error rates and retry loops from prompt-based approaches
-- **Reduced development complexity** – Removes the need for custom parsing and validation logic
-- **Lower operational costs** – Reduces failed requests and retries
-- **Production reliability** – Enables confident deployment of AI applications requiring predictable, machine-readable outputs
++ **Ensures schema compliance** – Eliminates error rates and retry loops from prompt-based approaches
++ **Reduced development complexity** – Removes the need for custom parsing and validation logic
++ **Lower operational costs** – Reduces failed requests and retries
++ **Production reliability** – Enables confident deployment of AI applications requiring predictable, machine-readable outputs
 
 ## How it works
+<a name="structured-output-how-it-works"></a>
 
 Structured outputs constrains model responses to follow a specific schema, ensuring valid, parseable output for downstream processing. You can use structured outputs through two complementary mechanisms:
 
 ### JSON Schema output format
+<a name="structured-output-json-schema"></a>
 
 For InvokeModel API with Anthropic Claude models, use the `output_config.format` request field. With open weight models, use the `response_format` request field. For Converse APIs, use the `outputConfig.textFormat` request field. The model's response will conform to the specified JSON schema.
 
 ### Strict tool use
+<a name="structured-output-strict-tool-use"></a>
 
 Add the `strict: true` flag to tool definitions to enable schema validation on tool names and inputs. The model's tool calls will then follow the defined tool input schema.
 
-These mechanisms can be used independently or together in the same request. Refer to [Bedrock API documentation](bedrock/latest/APIReference/welcome.md "bedrock/latest/APIReference/welcome.md") for more details.
+These mechanisms can be used independently or together in the same request. Refer to [Bedrock API documentation](bedrock/latest/APIReference/welcome.html) for more details.
 
 ### Request workflow
+<a name="structured-output-request-workflow"></a>
 
 The following describes how Amazon Bedrock processes requests with structured outputs:
 
 1. **Initial request** – You include either a JSON schema through the `outputConfig.textFormat`, `output_config.format`, or `response_format` parameter or a tool definition with the `strict: true` flag in your inference request.
-2. **Schema validation** – Amazon Bedrock validates the JSON schema format against the supported JSON Schema Draft 2020-12 subset. If the schema contains unsupported features, Amazon Bedrock returns a 400 error immediately.
-3. **First-time compilation** – For new schemas, Amazon Bedrock compiles the grammar, which may take up to a few minutes.
-4. **Caching** – Successfully compiled grammars are cached for 24 hours from first access. Cached grammars are encrypted with AWS-managed keys.
-5. **Subsequent requests** – Identical schemas from the same account use cached grammars, resulting in inference latency comparable to standard requests with minimal overhead.
-6. **Response** – You receive standard inference responses with strict schema compliance.
+
+1. **Schema validation** – Amazon Bedrock validates the JSON schema format against the supported JSON Schema Draft 2020-12 subset. If the schema contains unsupported features, Amazon Bedrock returns a 400 error immediately.
+
+1. **First-time compilation** – For new schemas, Amazon Bedrock compiles the grammar, which may take up to a few minutes.
+
+1. **Caching** – Successfully compiled grammars are cached for 24 hours from first access. Cached grammars are encrypted with AWS-managed keys.
+
+1. **Subsequent requests** – Identical schemas from the same account use cached grammars, resulting in inference latency comparable to standard requests with minimal overhead.
+
+1. **Response** – You receive standard inference responses with strict schema compliance.
 
 ## Supported JSON Schema features
+<a name="structured-output-supported-schema-features"></a>
 
 The following JSON Schema Draft 2020-12 features are supported:
++ All basic types: `object`, `array`, `string`, `integer`, `number`, `boolean`, `null`
++ `enum` (strings, numbers, booleans, or nulls only)
++ `const`, `anyOf`, `allOf` (with limitations)
++ `$ref`, `$def`, and `definitions` (internal references only)
++ String formats: `date-time`, `time`, `date`, `duration`, `email`, `hostname`, `uri`, `ipv4`, `ipv6`, `uuid`
++ Array `minItems` (only values 0 and 1)
 
-- All basic types: `object`, `array`, `string`, `integer`, `number`, `boolean`, `null`
-- `enum` (strings, numbers, booleans, or nulls only)
-- `const`, `anyOf`, `allOf` (with limitations)
-- `$ref`, `$def`, and `definitions` (internal references only)
-- String formats: `date-time`, `time`, `date`, `duration`, `email`, `hostname`, `uri`, `ipv4`, `ipv6`, `uuid`
-- Array `minItems` (only values 0 and 1)
-
-The following features are _not_ supported:
-
-- Recursive schemas
-- External `$ref` references
-- Numerical constraints (`minimum`, `maximum`, `multipleOf`)
-- String constraints (`minLength`, `maxLength`)
-- `additionalProperties` set to anything other than `false`
+The following features are *not* supported:
++ Recursive schemas
++ External `$ref` references
++ Numerical constraints (`minimum`, `maximum`, `multipleOf`)
++ String constraints (`minLength`, `maxLength`)
++ `additionalProperties` set to anything other than `false`
 
 ## Supported APIs or features
+<a name="structured-output-supported-apis"></a>
 
 You can use structured outputs across the following Amazon Bedrock features:
 
-| **API or feature**                                                                                                                                                                                                                                                           | **Supported** | **Notes**                                                                                                                                                                                                                               |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") APIs                                                       | Yes           | Conversational inference.                                                                                                                                                                                                               |
-| [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") APIs | Yes           | Single-turn inference.                                                                                                                                                                                                                  |
-| Cross-Region inference                                                                                                                                                                                                                                                       | Yes           | Works without any additional setup.                                                                                                                                                                                                     |
-| Batch inference                                                                                                                                                                                                                                                              | Yes           | Works without any additional setup.                                                                                                                                                                                                     |
-| Anthropic Messages API on the `bedrock-mantle` endpoint<br>(`https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages`)                                                                                                                                                 | No            | The `output_config.format` parameter is rejected with a<br>400 error. To use structured outputs with Anthropic Claude models,<br>send the request through the Converse API or the InvokeModel API on the<br>`bedrock-runtime` endpoint. |
 
-###### Note
+| **API or feature** | **Supported** | **Notes** | 
+| --- | --- | --- | 
+| [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) and [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) APIs | Yes | Conversational inference. | 
+| [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) APIs | Yes | Single-turn inference. | 
+| Cross-Region inference | Yes | Works without any additional setup. | 
+| Batch inference | Yes | Works without any additional setup. | 
+| Anthropic Messages API on the bedrock-mantle endpoint (https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages) | No | The output\_config.format parameter is rejected with a 400 error. To use structured outputs with Anthropic Claude models, send the request through the Converse API or the InvokeModel API on the bedrock-runtime endpoint. | 
 
+**Note**  
 Structured outputs is incompatible with citations for Anthropic models. If you enable citations while using structured outputs, the model will return a 400 error.
 
 ## Supported models
+<a name="structured-output-supported-models"></a>
 
-To see which models support structured outputs, please go to
-[models at a glance](model-cards.md "model-cards.md") and select the model you are interested in.
+To see which models support structured outputs, please go to [models at a glance](model-cards.md) and select the model you are interested in.
 
 ## Example requests
+<a name="structured-output-examples"></a>
 
 ### JSON Schema output format
+<a name="structured-output-json-schema-examples"></a>
 
 The following examples show how to use JSON Schema output format with structured outputs.
 
 #### Converse API
+<a name="json-schema-converse"></a>
+
+##### View example
+<a name="w2aac15c15c39c15b3b5b3b1"></a>
 
 ```
 {
@@ -115,6 +133,10 @@ The following examples show how to use JSON Schema output format with structured
 ```
 
 #### InvokeModel (Anthropic Claude)
+<a name="json-schema-invokemodel-claude"></a>
+
+##### View example
+<a name="w2aac15c15c39c15b3b7b3b1"></a>
 
 ```
 {
@@ -168,6 +190,10 @@ The following examples show how to use JSON Schema output format with structured
 ```
 
 #### InvokeModel (Open-weight models)
+<a name="json-schema-invokemodel-openweight"></a>
+
+##### View example
+<a name="w2aac15c15c39c15b3b9b3b1"></a>
 
 ```
 {
@@ -218,10 +244,15 @@ The following examples show how to use JSON Schema output format with structured
 ```
 
 ### Strict tool use
+<a name="structured-output-strict-tool-examples"></a>
 
 The following examples show how to use the strict field with tool use.
 
 #### Converse API
+<a name="strict-tool-converse"></a>
+
+##### View example
+<a name="w2aac15c15c39c15b5b5b3b1"></a>
 
 ```
 {
@@ -273,6 +304,10 @@ The following examples show how to use the strict field with tool use.
 ```
 
 #### InvokeModel (Anthropic Claude)
+<a name="strict-tool-invokemodel-claude"></a>
+
+##### View example
+<a name="w2aac15c15c39c15b5b7b3b1"></a>
 
 ```
 {
@@ -323,6 +358,10 @@ The following examples show how to use the strict field with tool use.
 ```
 
 #### InvokeModel (Open-weight models)
+<a name="strict-tool-invokemodel-openweight"></a>
+
+##### View example
+<a name="w2aac15c15c39c15b5b9b3b1"></a>
 
 ```
 {

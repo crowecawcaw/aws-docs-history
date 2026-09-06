@@ -1,6 +1,10 @@
+
+
 # Frequently asked questions
+<a name="managed-entitlements-faq"></a>
 
 ## Setup and configuration
+<a name="managed-entitlements-faq-setup"></a>
 
 **Q: My organization uses consolidated billing only. Can I still use managed entitlements?**
 
@@ -15,6 +19,7 @@ A: Yes. You can designate a delegated administrator account to manage license di
 A: No. All license management happens in the us-east-1 (N. Virginia) region regardless of where you use Bedrock models. Once you complete setup in us-east-1, you can invoke licensed models in any supported Bedrock region.
 
 ## Private Offers and pricing
+<a name="managed-entitlements-faq-pricing"></a>
 
 **Q: How does managed entitlements work with AWS Marketplace Private Offers?**
 
@@ -29,6 +34,7 @@ A: The account that holds the original subscription (typically the management ac
 A: No. When you distribute licenses through managed entitlements, all recipient accounts use the same pricing terms as the original subscription, including any Private Offer discounts.
 
 ## License distribution
+<a name="managed-entitlements-faq-distribution"></a>
 
 **Q: How long does it take for grants to appear in recipient accounts?**
 
@@ -55,6 +61,7 @@ A: Yes. When creating a grant, you can specify an OU ID to distribute licenses o
 A: When member accounts have active Bedrock models and their payer account distributes them a subscription to the same model, grant swap takes effect, the entitlements to the first subscription is disabled and they now have entitlements on the new distributed grant.
 
 ## Grant management
+<a name="managed-entitlements-faq-management"></a>
 
 **Q: Can I temporarily revoke access without deleting the grant?**
 
@@ -77,6 +84,7 @@ A: No. Deleting a grant is permanent and cannot be undone. However, you can crea
 A: The linked accounts will lose access to the model when the parent subscription expires in the management account.
 
 ## Special configurations
+<a name="managed-entitlements-faq-special"></a>
 
 **Q: How does managed entitlements work for AWS GovCloud customers?**
 
@@ -91,6 +99,7 @@ A: Yes. You can integrate managed entitlements APIs into your AWS Control Tower 
 A: Yes. Different accounts can subscribe to the same model independently. Each subscription creates its own separate license that can be distributed to different sets of member accounts.
 
 ## Troubleshooting
+<a name="managed-entitlements-faq-troubleshooting"></a>
 
 **Q: Why don't I see my license in License Manager after subscribing?**
 

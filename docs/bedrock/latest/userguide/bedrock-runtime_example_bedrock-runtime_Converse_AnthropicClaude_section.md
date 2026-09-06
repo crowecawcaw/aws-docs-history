@@ -1,18 +1,16 @@
+
+
 # Invoke Anthropic Claude on Amazon Bedrock using Bedrock's Converse API
+<a name="bedrock-runtime_example_bedrock-runtime_Converse_AnthropicClaude_section"></a>
 
 The following code examples show how to send a text message to Anthropic Claude, using Bedrock's Converse API.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
 // Use the Converse API to send a text message to Anthropic Claude.
@@ -66,29 +64,17 @@ catch (AmazonBedrockRuntimeException e)
     Console.WriteLine($"ERROR: Can't invoke '{modelId}'. Reason: {e.Message}");
     throw;
 }
+```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/DotNetSDKV4/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Go ]
 
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
-
-- For API details, see
-  [Converse](../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/Converse.md "../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for .NET API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
-
-```
-
 import (
 	"context"
 	"github.com/aws/aws-sdk-go-v2/aws"
@@ -128,26 +114,15 @@ func (wrapper ConverseWrapper) ConverseClaude(ctx context.Context, prompt string
 	return text.Value, nil
 
 }
-
-
-
 ```
++  For API details, see [Converse](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse) in *AWS SDK for Go API Reference*. 
 
-- For API details, see
-  [Converse](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse")
-  in _AWS SDK for Go API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
 // Use the Converse API to send a text message to Anthropic Claude.
@@ -209,11 +184,8 @@ public class Converse {
         converse();
     }
 }
-
-
 ```
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API with the async Java client.
+Send a text message to Anthropic Claude, using Bedrock's Converse API with the async Java client.  
 
 ```
 // Use the Converse API to send a text message to Anthropic Claude
@@ -291,25 +263,15 @@ public class ConverseAsync {
         converseAsync();
     }
 }
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [Converse](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
 // Use the Conversation API to send a text message to Anthropic Claude.
@@ -353,26 +315,15 @@ try {
   console.log(`ERROR: Can't invoke '${modelId}'. Reason: ${err}`);
   process.exit(1);
 }
-
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Converse](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
 # Use the Conversation API to send a text message to Anthropic Claude.
@@ -410,26 +361,15 @@ try:
 except (ClientError, Exception) as e:
     print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
     exit(1)
-
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Converse](../../../goto/boto3/bedrock-runtime-2023-09-30/Converse.md "../../../goto/boto3/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
 #[tokio::main]
@@ -481,11 +421,8 @@ fn get_converse_output_text(output: ConverseOutput) -> Result<String, BedrockCon
         .to_string();
     Ok(text)
 }
-
-
 ```
-
-Use statements, Error utility, and constants.
+Use statements, Error utility, and constants.  
 
 ```
 use aws_config::BehaviorVersion;
@@ -524,28 +461,18 @@ impl From<&ConverseError> for BedrockConverseError {
         })
     }
 }
+```
++  For API details, see [Converse](https://docs.rs/aws-sdk-bedrockruntime/latest/aws_sdk_bedrockruntime/client/struct.Client.html#method.converse) in *AWS SDK for Rust API reference*. 
 
+------
+#### [ Swift ]
+
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples). 
+Send a text message to Anthropic Claude, using Bedrock's Converse API.  
 
 ```
-
-- For API details, see
-  [Converse](https://docs.rs/aws-sdk-bedrockruntime/latest/aws_sdk_bedrockruntime/client/struct.Client.html#method.converse "https://docs.rs/aws-sdk-bedrockruntime/latest/aws_sdk_bedrockruntime/client/struct.Client.html#method.converse")
-  in _AWS SDK for Rust API reference_.
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples").
-
-Send a text message to Anthropic Claude, using Bedrock's Converse API.
-
-```
-// An example demonstrating how to use the Conversation API to send
+// An example demonstrating how to use the Conversation API to send 
 // a text message to Anthropic Claude.
 
 import AWSBedrockRuntime
@@ -593,15 +520,9 @@ func converse(_ textPrompt: String) async throws -> String {
         return "No message found in converse output"
     }
 }
-
-
-
 ```
++  For API details, see [Converse](https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/converse(input:)) in *AWS SDK for Swift API reference*. 
 
-- For API details, see
-  [Converse](<https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/converse(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/converse(input:)")
-  in _AWS SDK for Swift API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

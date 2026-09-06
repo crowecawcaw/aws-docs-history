@@ -1,41 +1,43 @@
+
+
 # Mistral AI text completion
+<a name="model-parameters-mistral-text-completion"></a>
 
 The Mistral AI text completion API lets you generate text with a Mistral AI model.
 
-You make inference requests to Mistral AI models with [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") (streaming).
+You make inference requests to Mistral AI models with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming). 
 
-Mistral AI models are available under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt "https://www.apache.org/licenses/LICENSE-2.0.txt"). For
-more information about using Mistral AI models, see the [Mistral AI documentation](https://docs.mistral.ai/ "https://docs.mistral.ai/").
+Mistral AI models are available under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt). For more information about using Mistral AI models, see the [Mistral AI documentation](https://docs.mistral.ai/).
 
-###### Topics
-
-- [Supported models](#mistral--text-completion-supported-models "#mistral--text-completion-supported-models")
-- [Request and Response](#model-parameters-mistral-text-completion-request-response "#model-parameters-mistral-text-completion-request-response")
-- [Code example](#api-inference-examples-mistral-text-completion "#api-inference-examples-mistral-text-completion")
+**Topics**
++ [Supported models](#mistral--text-completion-supported-models)
++ [Request and Response](#model-parameters-mistral-text-completion-request-response)
++ [Code example](#api-inference-examples-mistral-text-completion)
 
 ## Supported models
+<a name="mistral--text-completion-supported-models"></a>
 
 You can use following Mistral AI models.
++ Mistral 7B Instruct
++ Mixtral 8X7B Instruct
++ Mistral Large
++ Mistral Small
 
-- Mistral 7B Instruct
-- Mixtral 8X7B Instruct
-- Mistral Large
-- Mistral Small
-
-You need the model ID for the model
-that you want to use. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+You need the model ID for the model that you want to use. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md). 
 
 ## Request and Response
+<a name="model-parameters-mistral-text-completion-request-response"></a>
 
-Request
-The Mistral AI models have the following
-inference parameters.
+------
+#### [ Request ]
+
+The Mistral AI models have the following inference parameters. 
 
 ```
 {
     "prompt": string,
     "max_tokens" : int,
-    "stop" : [string],
+    "stop" : [string],    
     "temperature": float,
     "top_p": float,
     "top_k": int
@@ -43,73 +45,38 @@ inference parameters.
 ```
 
 The following are required parameters.
++  **prompt** – (Required) The prompt that you want to pass to the model, as shown in the following example. 
 
-- **prompt** – (Required) The
-  prompt that you want to pass to the model, as shown in the following example.
+  ```
+  <s>[INST] What is your favourite condiment? [/INST]
+  ```
 
-```
-<s>[INST] What is your favourite condiment? [/INST]
-```
+  The following example shows how to format is a multi-turn prompt. 
 
-The following example shows how to format is a multi-turn prompt.
+  ```
+  <s>[INST] What is your favourite condiment? [/INST]
+  Well, I'm quite partial to a good squeeze of fresh lemon juice. 
+  It adds just the right amount of zesty flavour to whatever I'm cooking up in the kitchen!</s> 
+  [INST] Do you have mayonnaise recipes? [/INST]
+  ```
 
-```
-<s>[INST] What is your favourite condiment? [/INST]
-Well, I'm quite partial to a good squeeze of fresh lemon juice.
-It adds just the right amount of zesty flavour to whatever I'm cooking up in the kitchen!</s>
-[INST] Do you have mayonnaise recipes? [/INST]
-```
-
-Text for the user role is inside the `[INST]...[/INST]`
-tokens, text outside is the assistant role. The beginning and ending
-of a string are represented by the `<s>`
-(beginning of string) and `</s>` (end of
-string) tokens. For information about sending a chat prompt in the
-correct format, see [Chat
-template](https://docs.mistral.ai/models/#chat-template "https://docs.mistral.ai/models/#chat-template") in the Mistral AI documentation.
+  Text for the user role is inside the `[INST]...[/INST]` tokens, text outside is the assistant role. The beginning and ending of a string are represented by the `<s>` (beginning of string) and `</s>` (end of string) tokens. For information about sending a chat prompt in the correct format, see [Chat template](https://docs.mistral.ai/models/#chat-template) in the Mistral AI documentation. 
 
 The following are optional parameters.
++ **max\_tokens** – Specify the maximum number of tokens to use in the generated response. The model truncates the response after the generated text exceeds `max_tokens`.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html)
++ **stop** – A list of stop sequences that if generated by the model, stops the model from generating further output.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html)
++ **temperature** – Controls the randomness of predictions made by the model. For more information, see [Influence response generation with inference parameters](inference-parameters.md).     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html)
++ **top\_p** – Controls the diversity of text that the model generates by setting the percentage of most-likely candidates that the model considers for the next token. For more information, see [Influence response generation with inference parameters](inference-parameters.md).    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html)
++ **top\_k** – Controls the number of most-likely candidates that the model considers for the next token. For more information, see [Influence response generation with inference parameters](inference-parameters.md).    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-mistral-text-completion.html)
 
-- **max\_tokens**
-  – Specify the maximum number of tokens to use in the generated
-  response. The model truncates the response after the generated text exceeds
-  `max_tokens`.
+------
+#### [ Response ]
 
-| Default                                                                                                    | Minimum | Maximum                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------- |
-| Mistral 7B Instruct – 512<br>Mixtral 8X7B Instruct – 512<br>Mistral Large – 8,192<br>Mistral Small – 8,192 | 1       | Mistral 7B Instruct – 8,192<br>Mixtral 8X7B Instruct – 4,096<br>Mistral Large – 8,192<br>Mistral Small – 8,192 |
-
-- **stop**
-  – A list of stop sequences that if generated by the model, stops the model from generating further output.
-
-| Default | Minimum | Maximum |
-| ------- | ------- | ------- |
-| 0       | 0       | 10      |
-
-- **temperature** – Controls the
-  randomness of predictions made by the model. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
-
-| Default                                                                                                | Minimum | Maximum |
-| ------------------------------------------------------------------------------------------------------ | ------- | ------- |
-| Mistral 7B Instruct – 0.5<br>Mixtral 8X7B Instruct – 0.5<br>Mistral Large – 0.7<br>Mistral Small – 0.7 | 0       | 1       |
-
-- **top\_p** – Controls the diversity of text that the model
-  generates by setting the percentage of most-likely candidates that the model considers for the next token.
-  For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
-
-| Default                                                                                            | Minimum | Maximum |
-| -------------------------------------------------------------------------------------------------- | ------- | ------- |
-| Mistral 7B Instruct – 0.9<br>Mixtral 8X7B Instruct – 0.9<br>Mistral Large – 1<br>Mistral Small – 1 | 0       | 1       |
-
-- **top\_k** – Controls the number
-  of most-likely candidates that the model considers for the next
-  token. For more information, see [Influence response generation with inference parameters](inference-parameters.md "inference-parameters.md").
-
-| Default                                                                                                        | Minimum | Maximum |
-| -------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| Mistral 7B Instruct – 50<br>Mixtral 8X7B Instruct – 50<br>Mistral Large – disabled<br>Mistral Small – disabled | 1       | 200     |
-
-Response
 The `body` response from a call to `InvokeModel` is the following:
 
 ```
@@ -121,31 +88,19 @@ The `body` response from a call to `InvokeModel` is the following:
     }
   ]
 }
-
-
 ```
 
 The `body` response has the following fields:
++ **outputs** – A list of outputs from the model. Each output has the following fields.
+  + **text** – The text that the model generated. 
+  + **stop\_reason** – The reason why the response stopped generating text. Possible values are:
+    + **stop** – The model has finished generating text for the input prompt. The model stops because it has no more content to generate or if the model generates one of the stop sequences that you define in the `stop` request parameter.
+    + **length** – The length of the tokens for the generated text exceeds the value of `max_tokens` in the call to `InvokeModel` (`InvokeModelWithResponseStream`, if you are streaming output). The response is truncated to `max_tokens` tokens. 
 
-- **outputs** – A list of outputs from the model. Each output has the following
-  fields.
-
-  - **text** – The text that the model generated.
-  - **stop\_reason** – The reason why the response stopped
-    generating text. Possible values are:
-
-    - **stop** – The model has
-      finished generating text for the input prompt. The model stops because it
-      has no more content to generate or if the model generates one of the stop sequences that you define in the `stop`
-      request parameter.
-    - **length** – The length of the
-      tokens for the generated text exceeds the value of
-      `max_tokens` in the call to `InvokeModel`
-      (`InvokeModelWithResponseStream`, if you are
-      streaming output). The response is truncated to
-      `max_tokens` tokens.
+------
 
 ## Code example
+<a name="api-inference-examples-mistral-text-completion"></a>
 
 This examples shows how to call the Mistral 7B Instruct model.
 
@@ -236,5 +191,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```

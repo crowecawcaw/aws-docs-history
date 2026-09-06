@@ -1,217 +1,243 @@
-# Claude Sonnet 4.5
 
-## Orange rounded square icon with white radial loading or progress indicator symbol. Anthropic — Claude Sonnet 4.5
+
+# Claude Sonnet 4.5
+<a name="model-card-anthropic-claude-sonnet-4-5"></a>
+
+## ![Orange rounded square icon with white radial loading or progress indicator symbol.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Sonnet 4.5
+<a name="model-card-anthropic-claude-sonnet-4-5-header"></a>
 
 ## Model Details
+<a name="model-card-anthropic-claude-sonnet-4-5-details"></a>
 
-Claude Sonnet 4.5 is Anthropic's model optimized for agents, coding, and computer use with significant improvements across all benchmarks. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd.pdf "https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd.pdf").
+Claude Sonnet 4.5 is Anthropic's model optimized for agents, coding, and computer use with significant improvements across all benchmarks. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/963373e433e489a87a10c823c52a0a013e9172dd.pdf).
++ **Model launch date:** Sep 30, 2025
++ **Model EOL date:** No sooner than 9/29/2026
++ **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
++ **Model lifecycle:** Active
++ **Context window:** 200K tokens
++ **Max output tokens:** 64K
++ **Reasoning:** Supported
++ **Knowledge cutoff:** Apr 2025
++ **Marketplace product ID:** `prod-mxcfnwvpd6kb4`
 
-- **Model launch date:** Sep 30, 2025
-- **Model EOL date:** No sooner than 9/29/2026
-- **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/")
-- **Model lifecycle:** Active
-- **Context window:** 200K tokens
-- **Max output tokens:** 64K
-- **Reasoning:** Supported
-- **Knowledge cutoff:** Apr 2025
-- **Marketplace product ID:** `prod-mxcfnwvpd6kb4`
 
-| **Input Modalities**                                                           | **Output Modalities**                                                             |
-| ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| Red circle with white X icon indicating error, cancel, or close action. Audio  | Red circle with white X icon indicating error, cancel, or close action. Embedding |
-| Green circle with white checkmark icon. Image                                  | Red circle with white X icon indicating error, cancel, or close action. Image     |
-| Red circle with white X icon indicating error, cancel, or close action. Speech | Red circle with white X icon indicating error, cancel, or close action. Speech    |
-| Green circle with white checkmark icon. Text                                   | Green circle with white checkmark icon. Text                                      |
-| Red circle with white X icon indicating error, cancel, or close action. Video  | Red circle with white X icon indicating error, cancel, or close action. Video     |
+| **Input Modalities** | **Output Modalities** | 
+| --- | --- | 
+| ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Audio | ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Embedding | 
+| ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) Image | ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Image | 
+| ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Speech | ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Speech | 
+| ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) Text | ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) Text | 
+| ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | 
 
 ## Endpoints and APIs supported
+<a name="model-card-anthropic-claude-sonnet-4-5-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for Claude Sonnet 4.5. For more information, see [APIs supported by Amazon Bedrock](apis.md "apis.md") and [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md").
+The following tables show which endpoints and APIs are supported for Claude Sonnet 4.5. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
-| **Endpoint**      | **Supported** |
-| ----------------- | ------------- |
-| `bedrock-runtime` | supported     |
-| `bedrock-mantle`  | not-supported |
+
+| **Endpoint** | **Supported** | 
+| --- | --- | 
+| bedrock-runtime | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| bedrock-mantle | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 **APIs supported on `bedrock-runtime` endpoint**
 
-| **Messages**  | **Responses** | **Chat Completions** | **Converse** | **Invoke** |
-| ------------- | ------------- | -------------------- | ------------ | ---------- |
-| not-supported | not-supported | not-supported        | supported    | supported  |
+
+| **Messages** | **Responses** | **Chat Completions** | **Converse** | **Invoke** | 
+| --- | --- | --- | --- | --- | 
+| ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 
 **APIs supported on `bedrock-mantle` endpoint**
 
-| **Messages**  | **Responses** | **Chat Completions** | **Converse**  | **Invoke**    |
-| ------------- | ------------- | -------------------- | ------------- | ------------- |
-| not-supported | not-supported | not-supported        | not-supported | not-supported |
 
-###### Tip
+| **Messages** | **Responses** | **Chat Completions** | **Converse** | **Invoke** | 
+| --- | --- | --- | --- | --- | 
+| ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md "endpoints.md") for details.
+**Tip**  
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
+<a name="model-card-anthropic-claude-sonnet-4-5-capabilities"></a>
 
-**Bedrock Features**
+***Bedrock Features***
 
 **Features supported using `bedrock-runtime` endpoint**
 
-| **Supported**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Not Supported**                                                                                                                             |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| • Green circle with white checkmark icon. [Response streaming](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")<br>• Green circle with white checkmark icon. [Abuse detection](abuse-detection.md "abuse-detection.md")<br>• Green circle with white checkmark icon. [Guardrails](guardrails.md "guardrails.md")<br>• Green circle with white checkmark icon. [Prompt optimization](prompt-management-optimize.md "prompt-management-optimize.md")<br>• Green circle with white checkmark icon. [Count tokens](count-tokens.md "count-tokens.md")<br>• Green circle with white checkmark icon. [Knowledge base](knowledge-base.md "knowledge-base.md")<br>• Green circle with white checkmark icon. [Model evaluation](evaluation.md "evaluation.md")<br>• Green circle with white checkmark icon. [Prompt management](prompt-management.md "prompt-management.md")<br>• Green circle with white checkmark icon. [Flows](flows.md "flows.md")<br>• Green circle with white checkmark icon. [Agents](agents.md "agents.md")<br>• Green circle with white checkmark icon. [Structured outputs](structured-outputs.md "structured-outputs.md")<br>• Green circle with white checkmark icon. [Computer use](computer-use.md "computer-use.md") | • Red circle with white X icon indicating error, cancel, or close action. [Intelligent prompt routing](prompt-routing.md "prompt-routing.md") |
+
+| **Supported** | **Not Supported** | 
+| --- | --- | 
+|  + ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt optimization](prompt-management-optimize.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Count tokens](count-tokens.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Knowledge base](knowledge-base.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Model evaluation](evaluation.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Prompt management](prompt-management.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Flows](flows.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Agents](agents.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](structured-outputs.html)<br />+ ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Computer use](computer-use.html)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)  | 
 
 **Implicit and Explicit Prompt Caching using `bedrock-runtime` endpoint**
 
-For more information, see [Prompt caching for faster model inference](prompt-caching.md "prompt-caching.md").
+For more information, see [Prompt caching for faster model inference](prompt-caching.html).
 
-| **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** |
-| ------------------------------------- | ----------------------------------- | ------------------------------------- | ----------------- | ----------------------------------------------- |
-| Yes                                   | 1,024                               | 4                                     | 5 minutes, 1 hour | `system`, `messages`, and `tools`               |
+
+| **Explicit Prompt Caching supported** | **Min tokens per cache checkpoint** | **Max cache checkpoints per request** | **Supported TTL** | **Fields that accept prompt cache checkpoints** | 
+| --- | --- | --- | --- | --- | 
+| Yes | 1,024 | 4 | 5 minutes, 1 hour | system, messages, and tools | 
 
 **Computer use using `bedrock-runtime` endpoint**
 
-For more information, see [Computer use](computer-use.md "computer-use.md").
+For more information, see [Computer use](computer-use.html).
 
-| **Tool type**       | **Beta header**           |
-| ------------------- | ------------------------- |
-| `computer_20250124` | `computer-use-2025-01-24` |
+
+| **Tool type** | **Beta header** | 
+| --- | --- | 
+| computer\_20250124 | computer-use-2025-01-24 | 
 
 ## Pricing
+<a name="model-card-anthropic-claude-sonnet-4-5-pricing"></a>
 
-This model is a third-party model offered and billed through AWS Marketplace. Charges appear on your AWS bill and in AWS Cost Explorer under the model provider (not under Amazon Bedrock). For pricing, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") page.
+This model is a third-party model offered and billed through AWS Marketplace. Charges appear on your AWS bill and in AWS Cost Explorer under the model provider (not under Amazon Bedrock). For pricing, see the [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/) page.
 
 ## Programmatic Access
+<a name="model-card-anthropic-claude-sonnet-4-5-programmatic-access"></a>
 
-Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
+Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.html) and [Endpoints supported](endpoints.html).
 
-| **Endpoint**      | **Model ID**                                | **In-Region endpoint URL** | **Geo inference ID**                                                                                                                                                                     | **Global inference ID**                            |
-| ----------------- | ------------------------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| `bedrock-runtime` | `anthropic.claude-sonnet-4-5-20250929-v1:0` | N/A                        | `us.anthropic.claude-sonnet-4-5-20250929-v1:0``eu.anthropic.claude-sonnet-4-5-20250929-v1:0``au.anthropic.claude-sonnet-4-5-20250929-v1:0``jp.anthropic.claude-sonnet-4-5-20250929-v1:0` | `global.anthropic.claude-sonnet-4-5-20250929-v1:0` |
 
-_For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com"._
+| **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
+| --- | --- | --- | --- | --- | 
+| bedrock-runtime | anthropic.claude-sonnet-4-5-20250929-v1:0 | N/A | `us.anthropic.claude-sonnet-4-5-20250929-v1:0`<br />`eu.anthropic.claude-sonnet-4-5-20250929-v1:0`<br />`au.anthropic.claude-sonnet-4-5-20250929-v1:0`<br />`jp.anthropic.claude-sonnet-4-5-20250929-v1:0` | global.anthropic.claude-sonnet-4-5-20250929-v1:0 | 
+
+*For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com".*
 
 ## Service Tiers
+<a name="model-card-anthropic-claude-sonnet-4-5-tiers"></a>
 
-Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](service-tiers-inference.md "service-tiers-inference.md").
+Amazon Bedrock offers multiple service tiers to match your workload requirements. **Standard** provides pay-per-token access with no commitment (set `"service_tier": "default"` or omit the field). **Priority** delivers the fastest response times for a price premium (set `"service_tier": "priority"`). **Flex** provides lower-cost access for flexible, non-time-sensitive workloads (set `"service_tier": "flex"`). **Reserved** provides dedicated throughput with a term commitment for predictable workloads; it is set at the account level rather than per request (contact your AWS account team to enable). For more information, see [service tiers](service-tiers-inference.html).
 
-| **Standard**                            | **Priority**                                                            | **Flex**                                                                | **Reserved**                            |
-| --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------- |
-| Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. | Green circle with white checkmark icon. |
+
+| **Standard** | **Priority** | **Flex** | **Reserved** | 
+| --- | --- | --- | --- | 
+| ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 
 ## Regional Availability
+<a name="model-card-anthropic-claude-sonnet-4-5-regional-availability"></a>
 
-**Regional availability at a glance**
+***Regional availability at a glance***
 
-Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md "models-region-compatibility.md") page for more details.
+Amazon Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (such as US, EU, and APAC) while respecting data residency, and **Global Cross-Region** routes anywhere worldwide when there are no residency constraints. Refer to the [Regional availability by models](models-region-compatibility.md) page for more details.
 
 Availability differs by endpoint.
 
 **Availability using the `bedrock-runtime` endpoint**
 
-| **Region**                     | **In-Region** | **Geo**       | **Global**    |
-| ------------------------------ | ------------- | ------------- | ------------- |
-| `us-east-1` (N. Virginia)      | not-supported | supported     | supported     |
-| `us-east-2` (Ohio)             | not-supported | supported     | supported     |
-| `us-west-1` (N. California)    | not-supported | supported     | supported     |
-| `us-west-2` (Oregon)           | not-supported | supported     | supported     |
-| `ca-central-1` (Canada)        | not-supported | supported     | supported     |
-| `ca-west-1` (Calgary)          | not-supported | not-supported | supported     |
-| `us-gov-west-1` (GovCloud)     | not-supported | supported     | not-supported |
-| `us-gov-east-1` (GovCloud)     | not-supported | supported     | not-supported |
-| `eu-central-1` (Frankfurt)     | not-supported | supported     | supported     |
-| `eu-central-2` (Zurich)        | not-supported | supported     | supported     |
-| `eu-north-1` (Stockholm)       | not-supported | supported     | supported     |
-| `eu-south-1` (Milan)           | not-supported | supported     | supported     |
-| `eu-south-2` (Spain)           | not-supported | supported     | supported     |
-| `eu-west-1` (Ireland)          | not-supported | supported     | supported     |
-| `eu-west-2` (London)           | not-supported | supported     | supported     |
-| `eu-west-3` (Paris)            | not-supported | supported     | supported     |
-| `ap-east-2` (Taipei)           | not-supported | not-supported | supported     |
-| `ap-northeast-1` (Tokyo)       | not-supported | supported     | supported     |
-| `ap-northeast-2` (Seoul)       | not-supported | not-supported | supported     |
-| `ap-northeast-3` (Osaka)       | not-supported | supported     | supported     |
-| `ap-south-1` (Mumbai)          | not-supported | not-supported | supported     |
-| `ap-south-2` (Hyderabad)       | not-supported | not-supported | supported     |
-| `ap-southeast-1` (Singapore)   | not-supported | not-supported | supported     |
-| `ap-southeast-2` (Sydney)      | not-supported | supported     | supported     |
-| `ap-southeast-3` (Jakarta)     | not-supported | not-supported | supported     |
-| `ap-southeast-4` (Melbourne)   | not-supported | supported     | supported     |
-| `ap-southeast-5` (Malaysia)    | not-supported | not-supported | supported     |
-| `ap-southeast-6` (New Zealand) | not-supported | supported     | supported     |
-| `ap-southeast-7` (Thailand)    | not-supported | not-supported | supported     |
-| `il-central-1` (Tel Aviv)      | not-supported | not-supported | supported     |
-| `me-central-1` (UAE)           | not-supported | not-supported | supported     |
-| `me-south-1` (Bahrain)         | not-supported | not-supported | supported     |
-| `af-south-1` (Cape Town)       | not-supported | not-supported | supported     |
-| `sa-east-1` (São Paulo)        | not-supported | not-supported | supported     |
-| `mx-central-1` (Mexico)        | not-supported | not-supported | supported     |
 
-**Geo inference details**
+| **Region** | **In-Region** | **Geo** | **Global** | 
+| --- | --- | --- | --- | 
+| us-east-1 (N. Virginia) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| us-east-2 (Ohio) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| us-west-1 (N. California) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| us-west-2 (Oregon) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ca-central-1 (Canada) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ca-west-1 (Calgary) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| us-gov-west-1 (GovCloud) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| us-gov-east-1 (GovCloud) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| eu-central-1 (Frankfurt) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-central-2 (Zurich) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-north-1 (Stockholm) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-south-1 (Milan) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-south-2 (Spain) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-west-1 (Ireland) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-west-2 (London) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| eu-west-3 (Paris) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-east-2 (Taipei) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-northeast-1 (Tokyo) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-northeast-2 (Seoul) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-northeast-3 (Osaka) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-south-1 (Mumbai) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-south-2 (Hyderabad) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-1 (Singapore) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-2 (Sydney) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-3 (Jakarta) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-4 (Melbourne) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-5 (Malaysia) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-6 (New Zealand) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-southeast-7 (Thailand) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| il-central-1 (Tel Aviv) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| me-central-1 (UAE) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| me-south-1 (Bahrain) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| af-south-1 (Cape Town) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| sa-east-1 (São Paulo) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| mx-central-1 (Mexico) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+
+***Geo inference details***
 
 **Geo: US**
 
 Geo Inference ID: `us.anthropic.claude-sonnet-4-5-20250929-v1:0`
 
-| **Source Region**                      | **Destination Regions**                                                                  |
-| -------------------------------------- | ---------------------------------------------------------------------------------------- |
-| us-east-1 (N. Virginia)                | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon)                            |
-| us-east-2 (Ohio)                       | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon)                            |
-| us-west-1 (N. California)              | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-1 (N. California), us-west-2 (Oregon) |
-| us-west-2 (Oregon)                     | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon)                            |
-| us-gov-east-1 (AWS GovCloud (US-East)) | us-gov-east-1 (AWS GovCloud (US-East)), us-gov-west-1 (AWS GovCloud (US-West))           |
-| us-gov-west-1 (AWS GovCloud (US-West)) | us-gov-east-1 (AWS GovCloud (US-East)), us-gov-west-1 (AWS GovCloud (US-West))           |
-| ca-central-1 (Canada)                  | ca-central-1 (Canada), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon)     |
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| us-east-1 (N. Virginia) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-east-2 (Ohio) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-west-1 (N. California) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-1 (N. California), us-west-2 (Oregon) | 
+| us-west-2 (Oregon) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-gov-east-1 (AWS GovCloud (US-East)) | us-gov-east-1 (AWS GovCloud (US-East)), us-gov-west-1 (AWS GovCloud (US-West)) | 
+| us-gov-west-1 (AWS GovCloud (US-West)) | us-gov-east-1 (AWS GovCloud (US-East)), us-gov-west-1 (AWS GovCloud (US-West)) | 
+| ca-central-1 (Canada) | ca-central-1 (Canada), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
 
 **Geo: EU**
 
 Geo Inference ID: `eu.anthropic.claude-sonnet-4-5-20250929-v1:0`
 
-| **Source Region**        | **Destination Regions**                                                                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| eu-central-1 (Frankfurt) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
-| eu-central-2 (Zurich)    | eu-central-1 (Frankfurt), eu-central-2 (Zurich), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) |
-| eu-north-1 (Stockholm)   | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
-| eu-south-1 (Milan)       | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
-| eu-south-2 (Spain)       | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
-| eu-west-1 (Ireland)      | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
-| eu-west-2 (London)       | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-2 (London), eu-west-3 (Paris)    |
-| eu-west-3 (Paris)        | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris)                        |
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| eu-central-1 (Frankfurt) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+| eu-central-2 (Zurich) | eu-central-1 (Frankfurt), eu-central-2 (Zurich), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+| eu-north-1 (Stockholm) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+| eu-south-1 (Milan) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+| eu-south-2 (Spain) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+| eu-west-1 (Ireland) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+| eu-west-2 (London) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-2 (London), eu-west-3 (Paris) | 
+| eu-west-3 (Paris) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
 
 **Geo: AU**
 
 Geo Inference ID: `au.anthropic.claude-sonnet-4-5-20250929-v1:0`
 
-| **Source Region**            | **Destination Regions**                                                           |
-| ---------------------------- | --------------------------------------------------------------------------------- |
-| ap-southeast-2 (Sydney)      | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne)                               |
-| ap-southeast-4 (Melbourne)   | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne)                               |
-| ap-southeast-6 (New Zealand) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne), ap-southeast-6 (New Zealand) |
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| ap-southeast-2 (Sydney) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
+| ap-southeast-4 (Melbourne) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
+| ap-southeast-6 (New Zealand) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne), ap-southeast-6 (New Zealand) | 
 
 **Geo: JP**
 
 Geo Inference ID: `jp.anthropic.claude-sonnet-4-5-20250929-v1:0`
 
-| **Source Region**      | **Destination Regions**                        |
-| ---------------------- | ---------------------------------------------- |
-| ap-northeast-1 (Tokyo) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
-| ap-northeast-3 (Osaka) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) |
 
-**Global inference details**
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| ap-northeast-1 (Tokyo) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) | 
+| ap-northeast-3 (Osaka) | ap-northeast-1 (Tokyo), ap-northeast-3 (Osaka) | 
 
-| **Global Inference ID**                          | **Americas**                                                                                                                                                                                                     | **EMEA**                                                                                                                                                                                                                                                                                                             | **Asia Pacific**                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| global.anthropic.claude-sonnet-4-5-20250929-v1:0 | • us-east-1 (N. Virginia)<br>• us-east-2 (Ohio)<br>• us-west-1 (N. California)<br>• us-west-2 (Oregon)<br>• ca-central-1 (Canada)<br>• ca-west-1 (Calgary)<br>• sa-east-1 (São Paulo)<br>• mx-central-1 (Mexico) | • eu-central-1 (Frankfurt)<br>• eu-central-2 (Zurich)<br>• eu-north-1 (Stockholm)<br>• eu-south-1 (Milan)<br>• eu-south-2 (Spain)<br>• eu-west-1 (Ireland)<br>• eu-west-2 (London)<br>• eu-west-3 (Paris)<br>• il-central-1 (Tel Aviv)<br>• me-central-1 (UAE)<br>• me-south-1 (Bahrain)<br>• af-south-1 (Cape Town) | • ap-east-2 (Taipei)<br>• ap-northeast-1 (Tokyo)<br>• ap-northeast-2 (Seoul)<br>• ap-northeast-3 (Osaka)<br>• ap-south-1 (Mumbai)<br>• ap-south-2 (Hyderabad)<br>• ap-southeast-1 (Singapore)<br>• ap-southeast-2 (Sydney)<br>• ap-southeast-3 (Jakarta)<br>• ap-southeast-4 (Melbourne)<br>• ap-southeast-5 (Malaysia)<br>• ap-southeast-6 (New Zealand)<br>• ap-southeast-7 (Thailand) |
+***Global inference details***
+
+
+| **Global Inference ID** | **Americas** | **EMEA** | **Asia Pacific** | 
+| --- | --- | --- | --- | 
+| global.anthropic.claude-sonnet-4-5-20250929-v1:0 |  + us-east-1 (N. Virginia)<br />+ us-east-2 (Ohio)<br />+ us-west-1 (N. California)<br />+ us-west-2 (Oregon)<br />+ ca-central-1 (Canada)<br />+ ca-west-1 (Calgary)<br />+ sa-east-1 (São Paulo)<br />+ mx-central-1 (Mexico)  |  + eu-central-1 (Frankfurt)<br />+ eu-central-2 (Zurich)<br />+ eu-north-1 (Stockholm)<br />+ eu-south-1 (Milan)<br />+ eu-south-2 (Spain)<br />+ eu-west-1 (Ireland)<br />+ eu-west-2 (London)<br />+ eu-west-3 (Paris)<br />+ il-central-1 (Tel Aviv)<br />+ me-central-1 (UAE)<br />+ me-south-1 (Bahrain)<br />+ af-south-1 (Cape Town)  |  + ap-east-2 (Taipei)<br />+ ap-northeast-1 (Tokyo)<br />+ ap-northeast-2 (Seoul)<br />+ ap-northeast-3 (Osaka)<br />+ ap-south-1 (Mumbai)<br />+ ap-south-2 (Hyderabad)<br />+ ap-southeast-1 (Singapore)<br />+ ap-southeast-2 (Sydney)<br />+ ap-southeast-3 (Jakarta)<br />+ ap-southeast-4 (Melbourne)<br />+ ap-southeast-5 (Malaysia)<br />+ ap-southeast-6 (New Zealand)<br />+ ap-southeast-7 (Thailand)  | 
 
 ## Quotas and Limits
+<a name="model-card-anthropic-claude-sonnet-4-5-quotas"></a>
 
-Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more information, see [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
+Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.html). For more information, see [Quotas for Amazon Bedrock](quotas.md) documentation and see the [limits](/general/latest/gr/bedrock.html#limits_bedrock) for the model.
 
 ## Sample Code
+<a name="model-card-anthropic-claude-sonnet-4-5-sample-code"></a>
 
-**Step 1 - AWS Account:** If you have an AWS account already, skip this step. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
+**Step 1 - AWS Account:** If you have an AWS account already, skip this step. If you are new to AWS, sign up for an [AWS account](https://portal.aws.amazon.com/billing/signup).
 
-**Step 2 - API key:** Go to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create "https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create") and generate a long-term API key.
+**Step 2 - API key:** Go to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/home#/api-keys/long-term/create) and generate a long-term API key.
 
 **Step 3 - Get the SDK:** To use this getting started guide, you must have Python already installed. Then install the relevant software depending on the APIs you are using.
 
@@ -227,7 +253,8 @@ AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
 
 **Step 5 - Run your first inference request:** Save the file as `bedrock-first-request.py`
 
-Invoke API
+------
+#### [ Invoke API ]
 
 ```
 import json
@@ -245,7 +272,8 @@ response = client.invoke_model(
 print(json.loads(response['body'].read()))
 ```
 
-Converse API
+------
+#### [ Converse API ]
 
 ```
 import boto3
@@ -262,3 +290,5 @@ response = client.converse(
 )
 print(response)
 ```
+
+------

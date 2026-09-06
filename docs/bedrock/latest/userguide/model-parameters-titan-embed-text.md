@@ -1,23 +1,27 @@
+
+
 # Amazon Titan Embeddings G1 - Text
+<a name="model-parameters-titan-embed-text"></a>
 
 Titan Embeddings G1 - Text does not support the use of inference parameters. The following sections detail the request and response formats and provides a code example.
 
-###### Topics
-
-- [Request and response](#model-parameters-titan-embed-text-request-response "#model-parameters-titan-embed-text-request-response")
-- [Example code](#api-inference-examples-titan-embed-text "#api-inference-examples-titan-embed-text")
+**Topics**
++ [Request and response](#model-parameters-titan-embed-text-request-response)
++ [Example code](#api-inference-examples-titan-embed-text)
 
 ## Request and response
+<a name="model-parameters-titan-embed-text-request-response"></a>
 
-The request body is passed in the `body` field of an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") request.
+The request body is passed in the `body` field of an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) request. 
 
-V2 Request
+------
+#### [ V2 Request ]
+
 The inputText parameter is required. The normalize and dimensions parameters are optional.
-
-- inputText – Enter text to convert to an embedding.
-- normalize – (optional) Flag indicating whether or not to normalize the output embedding. Defaults to true.
-- dimensions – (optional) The number of dimensions the output embedding should have. The following values are accepted: 1024 (default), 512, 256.
-- embeddingTypes – (optional) Accepts a list containing "float", "binary", or both. Defaults to `float`.
++ inputText – Enter text to convert to an embedding.
++ normalize – (optional) Flag indicating whether or not to normalize the output embedding. Defaults to true.
++ dimensions – (optional) The number of dimensions the output embedding should have. The following values are accepted: 1024 (default), 512, 256.
++ embeddingTypes – (optional) Accepts a list containing "float", "binary", or both. Defaults to `float`. 
 
 ```
 {
@@ -28,16 +32,15 @@ The inputText parameter is required. The normalize and dimensions parameters are
 }
 ```
 
-V2 Response
+------
+#### [ V2 Response ]
+
 The fields are described below.
-
-- embedding – An array that represents the embedding vector of the input you provided. This will always be type `float`.
-- inputTextTokenCount – The number of tokens in the input.
-- embeddingsByType – A dictionary or map of the embedding list. Depends on the input, lists "float", "binary", or both.
-
-  - Example: `"embeddingsByType": {"binary": [int,..], "float": [float,...]}`
-  - This field will always appear. Even if you don't specify `embeddingTypes` in your input,
-    there will still be “float”. Example: `"embeddingsByType": {"float": [float,...]}`
++ embedding – An array that represents the embedding vector of the input you provided. This will always be type `float`.
++ inputTextTokenCount – The number of tokens in the input.
++ embeddingsByType – A dictionary or map of the embedding list. Depends on the input, lists "float", "binary", or both.
+  + Example: `"embeddingsByType": {"binary": [int,..], "float": [float,...]}`
+  + This field will always appear. Even if you don't specify `embeddingTypes` in your input, there will still be “float”. Example: `"embeddingsByType": {"float": [float,...]}`
 
 ```
 {
@@ -47,7 +50,9 @@ The fields are described below.
 }
 ```
 
-G1 Request
+------
+#### [ G1 Request ]
+
 The only available field is `inputText`, in which you can include text to convert into an embedding.
 
 ```
@@ -56,7 +61,9 @@ The only available field is `inputText`, in which you can include text to conver
 }
 ```
 
-G1 Response
+------
+#### [ G1 Response ]
+
 The `body` of the response contains the following fields.
 
 ```
@@ -67,16 +74,20 @@ The `body` of the response contains the following fields.
 ```
 
 The fields are described below.
++ **embedding** – An array that represents the embedding vector of the input you provided.
++ **inputTextTokenCount** – The number of tokens in the input.
 
-- **embedding** – An array that represents the embedding vector of the input you provided.
-- **inputTextTokenCount** – The number of tokens in the input.
+------
 
 ## Example code
+<a name="api-inference-examples-titan-embed-text"></a>
 
 The following examples show how to call the Amazon Titan Embeddings models to generate embedding. Select the tab that corresponds to the model you're using:
 
-Amazon Titan Text Embeddings V2
-When using Titan Text Embeddings V2, the `embedding` field is not in the response if the `embeddingTypes` only contains `binary`.
+------
+#### [ Amazon Titan Text Embeddings V2 ]
+
+When using Titan Text Embeddings V2, the `embedding` field is not in the response if the `embeddingTypes` only contains `binary`. 
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -164,7 +175,8 @@ if __name__ == "__main__":
     main()
 ```
 
-Amazon Titan Embeddings G1 - Text
+------
+#### [ Amazon Titan Embeddings G1 - Text ]
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -248,5 +260,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```
+
+------

@@ -1,14 +1,18 @@
+
+
 # Adding New Vocabulary Entities
+<a name="bda-library-adding-cv"></a>
 
-You can add vocabulary to your library using the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") API. You can provide vocabulary through an S3 manifest file or inline payload.
+You can add vocabulary to your library using the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) API. You can provide vocabulary through an S3 manifest file or inline payload.
 
-###### Important
-
+**Important**  
 UPSERT operations use a clobber-style replacement at the entity level, meaning the entire entity is replaced rather than merged with existing content.
 
 ## Option 1: Using S3 Manifest File
+<a name="bda-library-adding-cv-manifest"></a>
 
 ### Step 1: Create a JSONL manifest file
+<a name="bda-library-adding-cv-manifest-step1"></a>
 
 Example: `vocabulary-manifest.json`
 
@@ -18,27 +22,26 @@ Example: `vocabulary-manifest.json`
 ```
 
 **Manifest File Requirements:**
-
-- **File Format:** JSONL (JSON Lines)
-- **Entity JSON:**
-
-  - **entityId** (required): Unique identifier (max 128 characters)
-  - **description** (optional): Description of the entityId
-  - **language** (required): ISO language code ([Supported languages](bda-library-character-sets.md "bda-library-character-sets.md"))
-  - **phrases** (required): Array of text objects. Each object contains:
-
-    - **text** (required): Individual word or phrase
-    - **displayAsText** (optional): Use this to replace actual word in transcript (NOTE: Case sensitive)
++ **File Format:** JSONL (JSON Lines)
++ **Entity JSON:**
+  + **entityId** (required): Unique identifier (max 128 characters)
+  + **description** (optional): Description of the entityId
+  + **language** (required): ISO language code ([Supported languages](bda-library-character-sets.md))
+  + **phrases** (required): Array of text objects. Each object contains:
+    + **text** (required): Individual word or phrase
+    + **displayAsText** (optional): Use this to replace actual word in transcript (NOTE: Case sensitive)
 
 ### Step 2: Upload the manifest to S3
+<a name="bda-library-adding-cv-manifest-step2"></a>
 
 ```
 aws s3 cp vocabulary-manifest.json s3://my-bucket/manifests/
 ```
 
 ### Step 3: Start the ingestion job
+<a name="bda-library-adding-cv-manifest-step3"></a>
 
-Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) to start a vocabulary ingestion job.
 
 **AWS CLI Example:**
 
@@ -64,17 +67,22 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 **AWS Console Example:**
 
 1. Navigate to "Library details" page
-2. Choose "Add custom vocabulary list"
-3. Choose "Upload/select manifest"
-4. Choose whether to upload the manifest file directly or from a S3 location
 
-![Upload/select manifest method selected with options to upload from local device or S3.](images/bda/library-add-cv-manifest-console.png)
+1. Choose "Add custom vocabulary list"
+
+1. Choose "Upload/select manifest"
+
+1. Choose whether to upload the manifest file directly or from a S3 location
+
+![Upload/select manifest method selected with options to upload from local device or S3.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-add-cv-manifest-console.png)
+
 
 ## Option 2: Using Inline Payload
+<a name="bda-library-adding-cv-inline"></a>
 
 This option can be used for quick updates with up to 100 phrases.
 
-Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") to start a vocabulary ingestion job.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) to start a vocabulary ingestion job.
 
 **AWS CLI Example:**
 
@@ -100,7 +108,9 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 **AWS Console Example:**
 
 1. Navigate to "Library details" page
-2. Choose "Add custom vocabulary list"
-3. Choose "Add manually"
 
-![Add custom vocabulary list interface showing list name medical-en with phrases paracetamol and ibuprofen.](images/bda/library-add-cv-inline-console.png)
+1. Choose "Add custom vocabulary list"
+
+1. Choose "Add manually"
+
+![Add custom vocabulary list interface showing list name medical-en with phrases paracetamol and ibuprofen.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-add-cv-inline-console.png)

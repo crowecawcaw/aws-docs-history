@@ -1,22 +1,19 @@
+
+
 # Converse with an Amazon Bedrock flow
+<a name="bedrock-agent-runtime_example_bedrock-agent-runtime_Scenario_ConverseWithFlow_section"></a>
 
 The following code example shows how to use InvokeFlow to converse with an Amazon Bedrock flow that includes an agent node.
 
-For more information, see [Converse with an Amazon Bedrock flow](flows-multi-turn-invocation.md "flows-multi-turn-invocation.md").
+For more information, see [Converse with an Amazon Bedrock flow](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-multi-turn-invocation.html).
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples").
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples). 
 
 ```
-
-
 """
 Shows how to run an Amazon Bedrock flow with InvokeFlow and handle muli-turn interaction
 for a single conversation.
@@ -191,15 +188,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
 ```
++  For API details, see [InvokeFlow](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeFlow](../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow.md "../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeFlow.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

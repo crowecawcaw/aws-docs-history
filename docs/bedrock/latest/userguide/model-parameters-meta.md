@@ -1,57 +1,40 @@
+
+
 # Meta Llama models
+<a name="model-parameters-meta"></a>
 
-This section describes the request parameters and response fields for Meta Llama models. Use this information
-to make inference calls to Meta Llama models with the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") (streaming) operations.
-This section also includes Python code examples that shows how to call Meta Llama models. To use a model in an inference operation, you need the model ID for the model.
-To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). Some
-models also work with the [Converse API](conversation-inference.md "conversation-inference.md").
-To check if a specific Meta Llama model supports a feature, see
-[models at a glance](model-cards.md "model-cards.md"). For more code examples,
-see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md "service_code_examples.md").
+This section describes the request parameters and response fields for Meta Llama models. Use this information to make inference calls to Meta Llama models with the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming) operations. This section also includes Python code examples that shows how to call Meta Llama models. To use a model in an inference operation, you need the model ID for the model. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md). Some models also work with the [Converse API](conversation-inference.md). To check if a specific Meta Llama model supports a feature, see [models at a glance](model-cards.md). For more code examples, see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md).
 
-Foundation models in Amazon Bedrock support input and output modalities, which vary from model to
-model. To check the modalities that Meta Llama models support, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). To check which Amazon Bedrock
-features the Meta Llama models support, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md"). To check which AWS Regions that Meta Llama models
-are available in, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+Foundation models in Amazon Bedrock support input and output modalities, which vary from model to model. To check the modalities that Meta Llama models support, see [Supported foundation models in Amazon Bedrock](models-supported.md). To check which Amazon Bedrock features the Meta Llama models support, see [Supported foundation models in Amazon Bedrock](models-supported.md). To check which AWS Regions that Meta Llama models are available in, see [Supported foundation models in Amazon Bedrock](models-supported.md).
 
-When you make inference calls with Meta Llama models, you include a prompt for the model. For general information
-about creating prompts for the models that Amazon Bedrock supports, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
-For Meta Llama specific prompt information, see the [Meta Llama prompt engineering guide](https://ai.meta.com/llama/get-started/#prompting "https://ai.meta.com/llama/get-started/#prompting").
+When you make inference calls with Meta Llama models, you include a prompt for the model. For general information about creating prompts for the models that Amazon Bedrock supports, see [Prompt engineering concepts](prompt-engineering-guidelines.md). For Meta Llama specific prompt information, see the [Meta Llama prompt engineering guide](https://ai.meta.com/llama/get-started/#prompting).
 
-###### Note
-
-Llama 3.2 11B Instruct, Llama 3.2 90B Instruct, Llama 4 Scout 17B Instruct, and
-Llama 4 Maverick 17B Instruct models use geofencing. Access to these models is restricted
-based on the country associated with your AWS account and the country associated with
-the request's source IP address. For information about supported countries and
-territories, see [Serverless Third-Party Model License Agreements](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/").
+**Note**  
+Llama 3.2 11B Instruct, Llama 3.2 90B Instruct, Llama 4 Scout 17B Instruct, and Llama 4 Maverick 17B Instruct models use geofencing. Access to these models is restricted based on the country associated with your AWS account and the country associated with the request's source IP address. For information about supported countries and territories, see [Serverless Third-Party Model License Agreements](https://aws.amazon.com/legal/bedrock/third-party-models/).
 
 This section provides information for using the following models from Meta.
++ Llama 3 Instruct
++ Llama 3.1 Instruct
++ Llama 3.2 Instruct
++ Llama 3.3 Instruct
++ Llama 4 Instruct
 
-- Llama 3 Instruct
-- Llama 3.1 Instruct
-- Llama 3.2 Instruct
-- Llama 3.3 Instruct
-- Llama 4 Instruct
-
-###### Topics
-
-- [Request and response](#model-parameters-meta-request-response "#model-parameters-meta-request-response")
-- [Example code](#api-inference-examples-meta-llama "#api-inference-examples-meta-llama")
+**Topics**
++ [Request and response](#model-parameters-meta-request-response)
++ [Example code](#api-inference-examples-meta-llama)
 
 ## Request and response
+<a name="model-parameters-meta-request-response"></a>
 
-The request body is passed in the `body` field of a request to
-[InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md").
+The request body is passed in the `body` field of a request to [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html).
 
-###### Note
+**Note**  
+You can't use the [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) or [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) (streaming) operations with Llama 4 Instruct.
 
-You can't use the [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") or [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md") (streaming) operations with
-Llama 4 Instruct.
+------
+#### [ Request ]
 
-Request
-The Llama 3 Instruct, Llama 3.1 Instruct, Llama 3.2 Instruct, and Llama 4 Instruct models have the following
-inference parameters:
+The Llama 3 Instruct, Llama 3.1 Instruct, Llama 3.2 Instruct, and Llama 4 Instruct models have the following inference parameters: 
 
 ```
 {
@@ -62,82 +45,63 @@ inference parameters:
 }
 ```
 
-NOTE: Llama 3.2 and later models adds `images` to the request structure, which is a list of strings. Example: `images: Optional[List[str]]`
+NOTE: Llama 3.2 and later models adds `images` to the request structure, which is a list of strings. Example: `images: Optional[List[str]]` 
 
 The following are required parameters:
++  **prompt** – (Required) The prompt that you want to pass to the model. For optimal results, format the conversation with the following template.
 
-- **prompt** – (Required) The
-  prompt that you want to pass to the model. For optimal results, format the conversation with the following template.
+  ```
+  <|begin_of_text|><|start_header_id|>user<|end_header_id|>
+  
+  What can you help me with?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+  ```
 
-```
-<|begin_of_text|><|start_header_id|>user<|end_header_id|>
+  **Example template with system prompt**
 
-What can you help me with?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-```
+  The following is an example prompt that includes a system prompt.
 
-**Example template with system prompt**
+  ```
+  <|begin_of_text|><|start_header_id|>system<|end_header_id|>
+  
+  You are a helpful AI assistant for travel tips and recommendations<|eot_id|><|start_header_id|>user<|end_header_id|>
+  
+  What can you help me with?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+  ```
 
-The following is an example prompt that includes a system prompt.
+  **Multi-turn conversation example**
 
-```
-<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+  The following is an example prompt of a multi-turn conversation.
 
-You are a helpful AI assistant for travel tips and recommendations<|eot_id|><|start_header_id|>user<|end_header_id|>
+  ```
+  <|begin_of_text|><|start_header_id|>user<|end_header_id|>
+  
+  What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+  
+  The capital of France is Paris!<|eot_id|><|start_header_id|>user<|end_header_id|>
+  
+  What is the weather like in Paris?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+  ```
 
-What can you help me with?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-```
+  **Example template with system prompt**
 
-**Multi-turn conversation example**
-
-The following is an example prompt of a multi-turn conversation.
-
-```
-<|begin_of_text|><|start_header_id|>user<|end_header_id|>
-
-What is the capital of France?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-
-The capital of France is Paris!<|eot_id|><|start_header_id|>user<|end_header_id|>
-
-What is the weather like in Paris?<|eot_id|><|start_header_id|>assistant<|end_header_id|>
-```
-
-**Example template with system prompt**
-
-For more information, see [Meta Llama 3](https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3 "https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3").
+  For more information, see [Meta Llama 3](https://llama.meta.com/docs/model-cards-and-prompt-formats/meta-llama-3).
 
 The following are optional parameters:
++ **temperature** – Use a lower value to decrease randomness in the response.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
++ **top\_p** – Use a lower value to ignore less probable options. Set to 1.0 to disable.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
++ **max\_gen\_len** – Specify the maximum number of tokens to use in the generated response. The model truncates the response after the generated text exceeds `max_gen_len`.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-meta.html)
 
-- **temperature**
-  – Use a lower value to decrease randomness in the response.
+------
+#### [ Response ]
 
-| Default | Minimum | Maximum |
-| ------- | ------- | ------- |
-| 0.5     | 0       | 1       |
-
-- **top\_p** – Use a
-  lower value to ignore less probable options. Set to 1.0 to
-  disable.
-
-| Default | Minimum | Maximum |
-| ------- | ------- | ------- |
-| 0.9     | 0       | 1       |
-
-- **max\_gen\_len**
-  – Specify the maximum number of tokens to use in the generated
-  response. The model truncates the response after the generated text exceeds
-  `max_gen_len`.
-
-| Default | Minimum | Maximum |
-| ------- | ------- | ------- |
-| 512     | 1       | 2048    |
-
-Response
-The Llama 3 Instruct models return the following fields for a text completion
-inference call.
+The Llama 3 Instruct models return the following fields for a text completion inference call. 
 
 ```
 {
-    "generation": "\n\n`<response>`",
+    "generation": "\n\n{{<response>}}",
     "prompt_token_count": int,
     "generation_token_count": int,
     "stop_reason" : string
@@ -145,29 +109,19 @@ inference call.
 ```
 
 More information about each field is provided below.
++ **generation** – The generated text.
++ **prompt\_token\_count** – The number of tokens in the prompt.
++ **generation\_token\_count** – The number of tokens in the generated text.
++ **stop\_reason** – The reason why the response stopped generating text. Possible values are:
+  + **stop** – The model has finished generating text for the input prompt.
+  + **length** – The length of the tokens for the generated text exceeds the value of `max_gen_len` in the call to `InvokeModel` (`InvokeModelWithResponseStream`, if you are streaming output). The response is truncated to `max_gen_len` tokens. Consider increasing the value of `max_gen_len` and trying again.
 
-- **generation** – The generated text.
-- **prompt\_token\_count** – The number of tokens in the
-  prompt.
-- **generation\_token\_count** – The number of tokens in the
-  generated text.
-- **stop\_reason** – The reason why the response stopped
-  generating text. Possible values are:
-
-  - **stop** – The model has
-    finished generating text for the input prompt.
-  - **length** – The length of the
-    tokens for the generated text exceeds the value of
-    `max_gen_len` in the call to `InvokeModel`
-    (`InvokeModelWithResponseStream`, if you are
-    streaming output). The response is truncated to
-    `max_gen_len` tokens. Consider increasing the value
-    of `max_gen_len` and trying again.
+------
 
 ## Example code
+<a name="api-inference-examples-meta-llama"></a>
 
-This example shows how to call the _Llama 3 Instruct_
-model.
+This example shows how to call the *Llama 3 Instruct* model.
 
 ```
 # Use the native inference API to send a text message to Meta Llama 3.
@@ -218,11 +172,6 @@ model_response = json.loads(response["body"].read())
 # Extract and print the response text.
 response_text = model_response["generation"]
 print(response_text)
-
-
-
 ```
 
-This example shows how to control the generation length using Llama 3 Instruct
-models. For detailed responses or summaries, adjust `max\_gen\_len` and include specific
-instructions in your prompt.
+This example shows how to control the generation length using Llama 3 Instruct models. For detailed responses or summaries, adjust `max\_gen\_len` and include specific instructions in your prompt.

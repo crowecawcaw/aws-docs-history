@@ -1,50 +1,47 @@
+
+
 # CloudFormation templates
+<a name="getting-started-mortgage-flow-template"></a>
 
 The `cloudformation-mortgage-flow-setup.zip` file that you download contains the following files:
++ `deploy.sh` – A shell script that deploys your resources and prepares the main CloudFormation template that you'll use.
++ `artifacts` – A folder that contains .zip files with functions for the agent and knowledge base templates:
+  + Lambda functions for the agent's action groups
+    + `agent_loan_calculator.zip`
+    + `mls_lookup.zip`
+    + `loader_deployment_package.zip`
+  + Functions for setting up the knowledge base
+    + `custom-resource-lambda.zip`
+    + `opensearchpy-layer.zip`
+    + `provider-event-handler.zip`
++ `api-schema` – A folder that contains API schemas for action groups.
++ `knowledge-base-data-source` – A folder that contains the PDF for [Fannie Mae's Selling Guide](https://selling-guide.fanniemae.com/).
++ `templates` – A folder that contains the templates for the resources in this flow, both in JSON and YAML format:
+  + `main-stack-tmp` – The main template that deploys the remaining templates as nested stacks. This file is turned into `main-stack` after the deployment script is run.
+  + `guardrails-template` – The template for the guardrail to be associated with the agent.
+  + `prompts-template` – The template for the prompts to be used in flow.
+  + `kb-role-template` – The template for the knowledge base role, to be used both by the OpenSearch template and by the knowledge base template.
+  + `oss-infra-template` – The template for the Amazon OpenSearch Serverless vector store to be used for the knowledge base.
+  + `kb-infra-template` – The template for the mortgage loan knowledge base to be associated with the agent.
+  + `agent-template` – The template for mortgage processing agent to be used in the flow.
+  + `mortgage-flow-template` – The template for the mortgage processing flow that combines all the resources.
++ `README.md` – A README file that describes the steps for using the template.
 
-- `deploy.sh` – A shell script that deploys your resources and prepares the main CloudFormation template that you'll use.
-- `artifacts` – A folder that contains .zip files with functions for the agent and knowledge base templates:
+The following topics show the CloudFormation templates used for each stack. The main stack deploys the remaining stacks as [nested stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html).
 
-  - Lambda functions for the agent's action groups
-
-    - `agent_loan_calculator.zip`
-    - `mls_lookup.zip`
-    - `loader_deployment_package.zip`
-
-  - Functions for setting up the knowledge base
-
-    - `custom-resource-lambda.zip`
-    - `opensearchpy-layer.zip`
-    - `provider-event-handler.zip`
-
-- `api-schema` – A folder that contains API schemas for action groups.
-- `knowledge-base-data-source` – A folder that contains the PDF for [Fannie Mae's Selling Guide](https://selling-guide.fanniemae.com/ "https://selling-guide.fanniemae.com/").
-- `templates` – A folder that contains the templates for the resources in this flow, both in JSON and YAML format:
-
-  - `main-stack-tmp` – The main template that deploys the remaining templates as nested stacks. This file is turned into `main-stack` after the deployment script is run.
-  - `guardrails-template` – The template for the guardrail to be associated with the agent.
-  - `prompts-template` – The template for the prompts to be used in flow.
-  - `kb-role-template` – The template for the knowledge base role, to be used both by the OpenSearch template and by the knowledge base template.
-  - `oss-infra-template` – The template for the Amazon OpenSearch Serverless vector store to be used for the knowledge base.
-  - `kb-infra-template` – The template for the mortgage loan knowledge base to be associated with the agent.
-  - `agent-template` – The template for mortgage processing agent to be used in the flow.
-  - `mortgage-flow-template` – The template for the mortgage processing flow that combines all the resources.
-
-- `README.md` – A README file that describes the steps for using the template.
-  The following topics show the CloudFormation templates used for each stack. The main stack deploys the remaining stacks as [nested stacks](../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.md").
-
-###### Topics
-
-- [Main stack](#getting-started-mortgage-templates-main "#getting-started-mortgage-templates-main")
-- [Amazon Bedrock Guardrails stack](#getting-started-mortgage-guardrail-templates "#getting-started-mortgage-guardrail-templates")
-- [Amazon Bedrock Prompt management stack](#getting-started-mortgage-prompts-templates "#getting-started-mortgage-prompts-templates")
-- [Amazon Bedrock Knowledge Bases stack](#getting-started-mortgage-kb-templates "#getting-started-mortgage-kb-templates")
+**Topics**
++ [Main stack](#getting-started-mortgage-templates-main)
++ [Amazon Bedrock Guardrails stack](#getting-started-mortgage-guardrail-templates)
++ [Amazon Bedrock Prompt management stack](#getting-started-mortgage-prompts-templates)
++ [Amazon Bedrock Knowledge Bases stack](#getting-started-mortgage-kb-templates)
 
 ## Main stack
+<a name="getting-started-mortgage-templates-main"></a>
 
-The main stack defines the parameters that you can define when you upload the template. These values are passed on to each of the remaining nested stacks. The deployment script replaces `MortgageFlowBucket` for the default value of the `Q01pS3BucketName` parameter with your actual S3 bucket that contains the resources deployed by the script.
+The main stack defines the parameters that you can define when you upload the template. These values are passed on to each of the remaining nested stacks. The deployment script replaces {{MortgageFlowBucket}} for the default value of the `Q01pS3BucketName` parameter with your actual S3 bucket that contains the resources deployed by the script.
 
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -208,7 +205,7 @@ Resources:
           Ref: Q03pGuardrailName
   AgentStack:
     Type: AWS::CloudFormation::Stack
-    DependsOn:
+    DependsOn: 
       - KBStack
       - GRStack
     Properties:
@@ -236,7 +233,7 @@ Resources:
       TimeoutInMinutes: 15
   FlowStack:
     Type: AWS::CloudFormation::Stack
-    DependsOn:
+    DependsOn: 
       - AgentStack
       - PromptsStack
     Properties:
@@ -259,10 +256,10 @@ Resources:
           Fn::GetAtt:
           - AgentStack
           - Outputs.AgentId
-
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -553,14 +550,17 @@ JSON
 }
 ```
 
+------
+
 ## Amazon Bedrock Guardrails stack
+<a name="getting-started-mortgage-guardrail-templates"></a>
 
-This stack creates the following [guardrails](guardrails.md "guardrails.md")-related resources:
+This stack creates the following [guardrails](guardrails.md)-related resources:
++ AgentGuardrail ([AWS::Bedrock::Guardrail](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.html)) – A guardrail that provides content filtering, topic policy, and PII protection. This guardrail will be attached to the agent in the Agent stack.
++ AgentGuardrailVersion ([AWS::Bedrock::GuardrailVersion](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.html)) – The version of the `AgentGuardrail` resource applied to the agent.
 
-- AgentGuardrail ([AWS::Bedrock::Guardrail](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrail.md")) – A guardrail that provides content filtering, topic policy, and PII protection. This guardrail will be attached to the agent in the Agent stack.
-- AgentGuardrailVersion ([AWS::Bedrock::GuardrailVersion](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-guardrailversion.md")) – The version of the `AgentGuardrail` resource applied to the agent.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -626,7 +626,7 @@ Resources:
             Threshold: 0.85
           - Type: RELEVANCE
             Threshold: 0.5
-
+            
   AgentGuardrailVersion:
     Type: AWS::Bedrock::GuardrailVersion
     Properties:
@@ -646,7 +646,8 @@ Outputs:
     Description: Version of guardrail to associate with agent
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -787,14 +788,17 @@ JSON
 }
 ```
 
+------
+
 ## Amazon Bedrock Prompt management stack
+<a name="getting-started-mortgage-prompts-templates"></a>
 
-This stack creates the following [prompt](prompt-management.md "prompt-management.md") ([AWS::IAM::Prompt](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.md")) resources, which are added to the flow:
+This stack creates the following [prompt](prompt-management.md) ([AWS::IAM::Prompt](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-prompt.html)) resources, which are added to the flow:
++ RejectionPrompt – A prompt that returns a generated rejection letter based on financial information.
++ ProcessApplicationPrompt – A prompt that sends a customer's financial information to an agent and prompts the agent to assess whether the customer qualifies for a loan.
 
-- RejectionPrompt – A prompt that returns a generated rejection letter based on financial information.
-- ProcessApplicationPrompt – A prompt that sends a customer's financial information to an agent and prompts the agent to assess whether the customer qualifies for a loan.
-
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: "2010-09-09"
@@ -814,10 +818,10 @@ Resources:
           TemplateConfiguration:
             Text:
               Text: |
-                Write a mortgage loan rejection letter for a candiate with income {{income}}, totalDebt {{totalDebt}}, loanAmount {{loanAmount}}.
-                The reason for rejection is their income to debt ratio.
-                Do not mention any other reason.
-                Make the letter as concise as possible.
+                Write a mortgage loan rejection letter for a candiate with income {{income}}, totalDebt {{totalDebt}}, loanAmount {{loanAmount}}. 
+                The reason for rejection is their income to debt ratio. 
+                Do not mention any other reason. 
+                Make the letter as concise as possible. 
                 Treat all numeric inputs as whole numbers.
                 Let the general structure be like the below:
 
@@ -856,9 +860,9 @@ Resources:
           TemplateConfiguration:
             Text:
               Text: |
-                Generate a question asking if the user will qualify for a loan for the specified criteria.
+                Generate a question asking if the user will qualify for a loan for the specified criteria. 
 
-                Include instruction to base the answer on key features of the property retrieved from MLS listing.
+                Include instruction to base the answer on key features of the property retrieved from MLS listing. 
 
                 Start with "will an applicant...".
 
@@ -892,7 +896,8 @@ Outputs:
     Description: ARN of the prompt to reject a mortgage application
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1015,14 +1020,17 @@ JSON
 }
 ```
 
+------
+
 ## Amazon Bedrock Knowledge Bases stack
+<a name="getting-started-mortgage-kb-templates"></a>
 
-This template creates the [knowledge base](knowledge-base.md "knowledge-base.md") and its data source containing the loan guidelines:
+This template creates the [knowledge base](knowledge-base.md) and its data source containing the loan guidelines:
++ KnowledgeBase ([AWS::Bedrock::KnowledgeBase](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.html))
++ KnowledgeBaseDataSource ([AWS::Bedrock::DataSource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.html))
 
-- KnowledgeBase ([AWS::Bedrock::KnowledgeBase](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-knowledgebase.md"))
-- KnowledgeBaseDataSource ([AWS::Bedrock::DataSource](../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-datasource.md"))
-
-YAML
+------
+#### [ YAML ]
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -1162,10 +1170,10 @@ Outputs:
     Value:
       Ref: KnowledgeBaseDataSource
     Description: KnowledgeBase Datasource
-
 ```
 
-JSON
+------
+#### [ JSON ]
 
 ```
 {
@@ -1396,3 +1404,5 @@ JSON
   }
 }
 ```
+
+------

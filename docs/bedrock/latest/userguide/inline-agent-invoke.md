@@ -1,54 +1,57 @@
+
+
 # Invoke an inline agent
+<a name="inline-agent-invoke"></a>
 
-###### Note
-
+**Note**  
 Configuring and invoking an inline agent feature is in preview release for Amazon Bedrock and is subject to change.
 
-Before you invoke your inline agent, make sure you've completed the [Prerequisites](inline-agent-prereq.md "inline-agent-prereq.md").
+Before you invoke your inline agent, make sure you've completed the [Prerequisites](https://docs.aws.amazon.com/bedrock/latest/userguide/inline-agent-prereq.html).
 
-To invoke an inline agent, send a [InvokeInlineAgent](../APIReference/API_agent-runtime_InvokeInlineAgent.md "../APIReference/API_agent-runtime_InvokeInlineAgent.md") API request with an [Agents for Amazon Bedrock runtime endpoint](../../../general/latest/gr/bedrock.md#bra-rt "../../../general/latest/gr/bedrock.md#bra-rt") and minimally include the
-following fields.
+To invoke an inline agent, send a [InvokeInlineAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html) API request with an [Agents for Amazon Bedrock runtime endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bra-rt) and minimally include the following fields.
 
-| Field           | Use case                                                                                                                                                                                                                                                                                                                                                         |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| instruction     | Provide instructions that tell the inline agent what it should do and how it should interact with users.                                                                                                                                                                                                                                                         |
-| foundationModel | Specify a [foundation model](foundation-models-reference.md "foundation-models-reference.md") or [cross-Region inference profile](cross-region-inference.md "cross-region-inference.md") ID to use for orchestration by the inline agent you create. For example, `anthropic.claude-3-7-sonnet-20250219-v1:0` or `us.anthropic.claude-3-7-sonnet-20250219-v1:0`. |
-| sessionId       | An unique identifier of the session. Use the same value across requests to continue same conversation.                                                                                                                                                                                                                                                           |
+
+
+| Field | Use case | 
+| --- | --- | 
+| instruction | Provide instructions that tell the inline agent what it should do and how it should interact with users. | 
+| foundationModel | Specify a [foundation model](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models-reference.html) or [cross-Region inference profile](cross-region-inference.md) ID to use for orchestration by the inline agent you create. For example, anthropic.claude-3-7-sonnet-20250219-v1:0 or us.anthropic.claude-3-7-sonnet-20250219-v1:0. | 
+| sessionId | An unique identifier of the session. Use the same value across requests to continue same conversation. | 
 
 The following fields are optional:
 
-| Field                       | Use case                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| actionGroups                | List of action groups with each action group defining the actions that<br>the inline agent can carry out.                                                                                                                                                                                                                                                                                        |
-| knowledgeBases              | Knowledge base associations with inline agent to augment response generated by the model.                                                                                                                                                                                                                                                                                                        |
-| guardrailConfiguration      | Guardrail configurations to block topics, to prevent hallucinations, and to implement safeguards for your application.                                                                                                                                                                                                                                                                           |
-| agentCollaboration          | Defines how the collaborator agent handles information across<br>multiple collaborator agents to coordinate a final response. The<br>collaborator agent can also be the supervisor.                                                                                                                                                                                                              |
-| collaboratorConfigurations  | Configurations for collaborator agent.                                                                                                                                                                                                                                                                                                                                                           |
-| collaborators               | List of collaborator agents.                                                                                                                                                                                                                                                                                                                                                                     |
-| promptOverrideConfiguration | Configurations for advanced prompts used to override the default prompts.                                                                                                                                                                                                                                                                                                                        |
-| enableTrace                 | Specify whether to turn on the trace or not to track the inline<br>agent's reasoning process.                                                                                                                                                                                                                                                                                                    |
-| idleSessionTTLInSeconds     | Specify the duration after which the inline agent should end the session<br>and delete any stored information.                                                                                                                                                                                                                                                                                   |
-| customerEncryptionKeyArn    | Specify the ARN of a KMS key to encrypt agent resources,                                                                                                                                                                                                                                                                                                                                         |
-| endSession                  | Specify whether to end the session with the inline agent or not.                                                                                                                                                                                                                                                                                                                                 |
-| inlineSessionState          | Parameters that specify the various attributes of a sessions.                                                                                                                                                                                                                                                                                                                                    |
-| inputText                   | Specify the prompt text to send to the agent.                                                                                                                                                                                                                                                                                                                                                    |
-| reasoning\_config           | To enable model reasoning so that the model explains how it reached its conclusions. Use inside of a `additionalModelRequestFields` field. You must specify the number of `budget_tokens` that are used for model reasoning, which are a subset of the output tokens. For more information, see [Enhance model responses with model reasoning](inference-reasoning.md "inference-reasoning.md"). |
 
-The following `InvokeInlineAgent` API example provides complete inline agent
-configurations including the foundation model, instructions, action groups with code
-interpreter, guardrails, and knowledge bases.
+
+| Field | Use case | 
+| --- | --- | 
+| actionGroups | List of action groups with each action group defining the actions that the inline agent can carry out.  | 
+| knowledgeBases | Knowledge base associations with inline agent to augment response generated by the model.  | 
+| guardrailConfiguration | Guardrail configurations to block topics, to prevent hallucinations, and to implement safeguards for your application.  | 
+| agentCollaboration | Defines how the collaborator agent handles information across multiple collaborator agents to coordinate a final response. The collaborator agent can also be the supervisor. | 
+| collaboratorConfigurations | Configurations for collaborator agent.  | 
+| collaborators | List of collaborator agents. | 
+| promptOverrideConfiguration | Configurations for advanced prompts used to override the default prompts. | 
+| enableTrace | Specify whether to turn on the trace or not to track the inline agent's reasoning process. | 
+| idleSessionTTLInSeconds | Specify the duration after which the inline agent should end the session and delete any stored information. | 
+| customerEncryptionKeyArn | Specify the ARN of a KMS key to encrypt agent resources, | 
+| endSession | Specify whether to end the session with the inline agent or not. | 
+| inlineSessionState | Parameters that specify the various attributes of a sessions. | 
+| inputText | Specify the prompt text to send to the agent. | 
+| reasoning\_config | To enable model reasoning so that the model explains how it reached its conclusions. Use inside of a additionalModelRequestFields field. You must specify the number of budget\_tokens that are used for model reasoning, which are a subset of the output tokens. For more information, see [Enhance model responses with model reasoning](https://docs.aws.amazon.com/bedrock/latest/userguide/inference-reasoning.html). | 
+
+The following `InvokeInlineAgent` API example provides complete inline agent configurations including the foundation model, instructions, action groups with code interpreter, guardrails, and knowledge bases. 
 
 ```
 response = bedrock_agent_runtime.invoke_inline_agent(
     // Initialization parameters: cannot be changed for a conversation
     sessionId='uniqueSessionId',
     customerEncryptionKeyArn: String,
-
+    
     // Input
     inputText="Hello, can you help me with a task?",
     endSession=False,
     enableTrace=True,
-
+    
     // Agent configurations
     foundationModel='anthropic.claude-3-7-sonnet-20250219-v1:0',
     instruction="You are a helpful assistant...",
@@ -70,8 +73,8 @@ response = bedrock_agent_runtime.invoke_inline_agent(
         {
             knowledgeBaseId: "string",
             description: 'Use this KB to get all the info',
-            retrievalConfiguration: {
-                vectorSearchConfiguration: {
+            retrievalConfiguration: { 
+                vectorSearchConfiguration: { 
                     filter: { ... },
                     numberOfResults: number,
                     overrideSearchType: "string"
@@ -84,7 +87,7 @@ response = bedrock_agent_runtime.invoke_inline_agent(
         gurardrailVersion: '1.0'
     },
     promptOverrideConfiguration: {...}
-
+    
     // session properties: persisted throughout conversation
     inlineSessionState = {
         sessionAttributes = { 'key': 'value' },

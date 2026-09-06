@@ -1,18 +1,16 @@
+
+
 # Invoke Amazon Titan Text models on Amazon Bedrock using the Invoke Model API
+<a name="bedrock-runtime_example_bedrock-runtime_InvokeModel_TitanText_section"></a>
 
 The following code example shows how to send a text message to Amazon Titan Text, using the Invoke Model API.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Use the Invoke Model API to send a text message.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Use the Invoke Model API to send a text message.  
 
 ```
 # Use the native inference API to send a text message to Amazon Titan Text.
@@ -57,15 +55,9 @@ model_response = json.loads(response["body"].read())
 # Extract and print the response text.
 response_text = model_response["results"][0]["outputText"]
 print(response_text)
-
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

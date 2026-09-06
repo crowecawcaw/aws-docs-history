@@ -1,27 +1,31 @@
+
+
 # Amazon Titan Text models
+<a name="model-parameters-titan-text"></a>
 
 The Amazon Titan Text models support the following inference parameters.
 
-For more information on Titan Text prompt engineering guidelines, see [Titan Text Prompt Engineering Guidelines](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Text+Prompt+Engineering+Guidelines.pdf "https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Text+Prompt+Engineering+Guidelines.pdf").
+For more information on Titan Text prompt engineering guidelines, see [Titan Text Prompt Engineering Guidelines](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Text+Prompt+Engineering+Guidelines.pdf). 
 
-For more information on Titan models, see [Overview of Amazon Titan models](titan-models.md "titan-models.md").
+For more information on Titan models, see [Overview of Amazon Titan models](titan-models.md).
 
-###### Topics
-
-- [Request and response](#model-parameters-titan-request-response "#model-parameters-titan-request-response")
-- [Code examples](#inference-titan-code "#inference-titan-code")
+**Topics**
++ [Request and response](#model-parameters-titan-request-response)
++ [Code examples](#inference-titan-code)
 
 ## Request and response
+<a name="model-parameters-titan-request-response"></a>
 
-The request body is passed in the `body` field of an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") request.
+The request body is passed in the `body` field of an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) request.
 
-Request
+------
+#### [ Request ]
 
 ```
 {
     "inputText": string,
     "textGenerationConfig": {
-        "temperature": float,
+        "temperature": float,  
         "topP": float,
         "maxTokenCount": int,
         "stopSequences": [string]
@@ -30,70 +34,53 @@ Request
 ```
 
 The following parameters are required:
++ **inputText** – The prompt to provide the model for generating a response. To generate responses in a conversational style, submit the prompt by using the following format:
 
-- **inputText** – The prompt to provide the model for generating a response. To generate responses in a conversational style, submit the prompt by using the following format:
+  ```
+  "inputText": "User: {{<theUserPrompt>}}\nBot:"
+  ```
 
-```
-"inputText": "User: `<theUserPrompt>`\nBot:"
-```
+  This format indicates to the model that it should respond on a new line after the user has provided a prompt.
 
-This format indicates to the model that it should respond on a new line after the user has provided a prompt.
+The `textGenerationConfig` is optional. You can use it to configure the following [inference parameters](inference-parameters.md):
++ **temperature** – Use a lower value to decrease randomness in responses.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html)
++ **topP** – Use a lower value to ignore less probable options and decrease the diversity of responses. The minimum value is exclusive of 0 — use a very small value such as 0.0001 instead.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html)
++ **maxTokenCount** – Specify the maximum number of tokens to generate in the response. Maximum token limits are strictly enforced.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters-titan-text.html)
++ **stopSequences** – Specify a character sequence to indicate where the model should stop.
 
-The `textGenerationConfig` is optional. You can use it to configure the following [inference parameters](inference-parameters.md "inference-parameters.md"):
-
-- **temperature** – Use a lower value to decrease randomness in responses.
-
-| Default | Minimum | Maximum |
-| ------- | ------- | ------- |
-| 0.7     | 0.0     | 1.0     |
-
-- **topP** – Use a lower value to ignore less probable options and decrease the diversity of responses. The minimum value is exclusive of 0 — use a very small value such as 0.0001 instead.
-
-| Default | Minimum                   | Maximum |
-| ------- | ------------------------- | ------- |
-| 0.9     | > 0 (for example, 0.0001) | 1.0     |
-
-- **maxTokenCount** – Specify the maximum number of tokens to generate in the response. Maximum token limits are strictly enforced.
-
-| Model              | Default | Minimum | Maximum |
-| ------------------ | ------- | ------- | ------- |
-| Titan Text Lite    | 512     | 0       | 4,096   |
-| Titan Text Express | 512     | 0       | 8,192   |
-| Titan Text Premier | 512     | 0       | 3,072   |
-
-- **stopSequences** – Specify a character sequence to indicate where the model should stop.
-
-InvokeModel Response
+------
+#### [ InvokeModel Response ]
 
 ```
 {
     "inputTextTokenCount": int,
     "results": [{
         "tokenCount": int,
-        "outputText": "\n`<response>`\n",
+        "outputText": "\n{{<response>}}\n",
         "completionReason": "string"
     }]
 }
 ```
 
 The response body contains the following fields:
++ **inputTextTokenCount** – The number of tokens in the prompt.
++ **results** – An array of one item, an object containing the following fields:
+  + **tokenCount** – The number of tokens in the response.
+  + **outputText** – The text in the response.
+  + **completionReason** – The reason the response finished being generated. The following reasons are possible:
+    + FINISHED – The response was fully generated.
+    + LENGTH – The response was truncated because of the response length you set.
+    + STOP\_CRITERIA\_MET – The response was truncated because the stop criteria was reached.
+    + RAG\_QUERY\_WHEN\_RAG\_DISABLED – The feature is disabled and cannot complete the query.
+    + CONTENT\_FILTERED – The contents were filtered or removed by the content filter applied.
 
-- **inputTextTokenCount** – The number of tokens in the prompt.
-- **results** – An array of one item, an object containing the following fields:
+------
+#### [ InvokeModelWithResponseStream Response ]
 
-  - **tokenCount** – The number of tokens in the response.
-  - **outputText** – The text in the response.
-  - **completionReason** – The reason the response finished being generated. The following reasons are possible:
-
-    - FINISHED – The response was fully generated.
-    - LENGTH – The response was truncated because of the response length you set.
-    - STOP\_CRITERIA\_MET – The response was truncated because the stop criteria was reached.
-    - RAG\_QUERY\_WHEN\_RAG\_DISABLED – The feature is disabled and cannot complete the query.
-    - CONTENT\_FILTERED – The contents were filtered or removed by the content filter applied.
-
-InvokeModelWithResponseStream Response
-Each chunk of text in the body of the response stream is in
-the following format. You must decode the `bytes` field (see [Submit a single prompt with InvokeModel](inference-invoke.md "inference-invoke.md") for an example).
+Each chunk of text in the body of the response stream is in the following format. You must decode the `bytes` field (see [Submit a single prompt with InvokeModel](inference-invoke.md) for an example).
 
 ```
 {
@@ -102,26 +89,27 @@ the following format. You must decode the `bytes` field (see [Submit a single pr
             "index": int,
             "inputTextTokenCount": int,
             "totalOutputTextTokenCount": int,
-            "outputText": "`<response-chunk>`",
+            "outputText": "{{<response-chunk>}}",
             "completionReason": "string"
         }'
     }
 }
 ```
++ **index** – The index of the chunk in the streaming response.
++ **inputTextTokenCount** – The number of tokens in the prompt.
++ **totalOutputTextTokenCount** – The number of tokens in the response.
++ **outputText** – The text in the response.
++ **completionReason** – The reason the response finished being generated. The following reasons are possible.
+  + FINISHED – The response was fully generated.
+  + LENGTH – The response was truncated because of the response length you set.
+  + STOP\_CRITERIA\_MET – The response was truncated because the stop criteria was reached.
+  + RAG\_QUERY\_WHEN\_RAG\_DISABLED – The feature is disabled and cannot complete the query.
+  + CONTENT\_FILTERED – The contents were filtered or removed by the filter applied.
 
-- **index** – The index of the chunk in the streaming response.
-- **inputTextTokenCount** – The number of tokens in the prompt.
-- **totalOutputTextTokenCount** – The number of tokens in the response.
-- **outputText** – The text in the response.
-- **completionReason** – The reason the response finished being generated. The following reasons are possible.
-
-  - FINISHED – The response was fully generated.
-  - LENGTH – The response was truncated because of the response length you set.
-  - STOP\_CRITERIA\_MET – The response was truncated because the stop criteria was reached.
-  - RAG\_QUERY\_WHEN\_RAG\_DISABLED – The feature is disabled and cannot complete the query.
-  - CONTENT\_FILTERED – The contents were filtered or removed by the filter applied.
+------
 
 ## Code examples
+<a name="inference-titan-code"></a>
 
 The following example shows how to run inference with the Amazon Titan Text Premier model with the Python SDK.
 
@@ -197,18 +185,18 @@ def main():
         # amazon.titan-text-premier-v1:0, amazon.titan-text-express-v1, amazon.titan-text-lite-v1
         model_id = 'amazon.titan-text-premier-v1:0'
 
-        prompt = """Meeting transcript: Miguel: Hi Brant, I want to discuss the workstream
+        prompt = """Meeting transcript: Miguel: Hi Brant, I want to discuss the workstream  
             for our new product launch Brant: Sure Miguel, is there anything in particular you want
             to discuss? Miguel: Yes, I want to talk about how users enter into the product.
-            Brant: Ok, in that case let me add in Namita. Namita: Hey everyone
+            Brant: Ok, in that case let me add in Namita. Namita: Hey everyone 
             Brant: Hi Namita, Miguel wants to discuss how users enter into the product.
-            Miguel: its too complicated and we should remove friction.
-            for example, why do I need to fill out additional forms?
+            Miguel: its too complicated and we should remove friction.  
+            for example, why do I need to fill out additional forms?  
             I also find it difficult to find where to access the product
             when I first land on the landing page. Brant: I would also add that
             I think there are too many steps. Namita: Ok, I can work on the
             landing page to make the product more discoverable but brant
-            can you work on the additonal forms? Brant: Yes but I would need
+            can you work on the additonal forms? Brant: Yes but I would need 
             to work with James from another team as he needs to unblock the sign up workflow.
             Miguel can you document any other concerns so that I can discuss with James only once?
             Miguel: Sure.
@@ -321,18 +309,18 @@ def main():
 
         model_id = 'amazon.titan-text-express-v1'
 
-        prompt = """Meeting transcript: Miguel: Hi Brant, I want to discuss the workstream
+        prompt = """Meeting transcript: Miguel: Hi Brant, I want to discuss the workstream  
             for our new product launch Brant: Sure Miguel, is there anything in particular you want
             to discuss? Miguel: Yes, I want to talk about how users enter into the product.
-            Brant: Ok, in that case let me add in Namita. Namita: Hey everyone
+            Brant: Ok, in that case let me add in Namita. Namita: Hey everyone 
             Brant: Hi Namita, Miguel wants to discuss how users enter into the product.
-            Miguel: its too complicated and we should remove friction.
-            for example, why do I need to fill out additional forms?
+            Miguel: its too complicated and we should remove friction.  
+            for example, why do I need to fill out additional forms?  
             I also find it difficult to find where to access the product
             when I first land on the landing page. Brant: I would also add that
             I think there are too many steps. Namita: Ok, I can work on the
             landing page to make the product more discoverable but brant
-            can you work on the additonal forms? Brant: Yes but I would need
+            can you work on the additonal forms? Brant: Yes but I would need 
             to work with James from another team as he needs to unblock the sign up workflow.
             Miguel can you document any other concerns so that I can discuss with James only once?
             Miguel: Sure.
@@ -372,5 +360,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 ```

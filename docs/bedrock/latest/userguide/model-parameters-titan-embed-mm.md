@@ -1,17 +1,22 @@
+
+
 # Amazon Titan Multimodal Embeddings G1
+<a name="model-parameters-titan-embed-mm"></a>
 
 This section provides request and response body formats and code examples for using Amazon Titan Multimodal Embeddings G1.
 
-###### Topics
-
-- [Request and response](#model-parameters-titan-embed-mm-request-response "#model-parameters-titan-embed-mm-request-response")
-- [Example code](#api-inference-examples-titan-embed-mm "#api-inference-examples-titan-embed-mm")
+**Topics**
++ [Request and response](#model-parameters-titan-embed-mm-request-response)
++ [Example code](#api-inference-examples-titan-embed-mm)
 
 ## Request and response
+<a name="model-parameters-titan-embed-mm-request-response"></a>
 
-The request body is passed in the `body` field of an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") request.
+The request body is passed in the `body` field of an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) request.
 
-Request
+------
+#### [ Request ]
+
 The request body for Amazon Titan Multimodal Embeddings G1 includes the following fields.
 
 ```
@@ -25,19 +30,18 @@ The request body for Amazon Titan Multimodal Embeddings G1 includes the followin
 ```
 
 At least one of the following fields is required. Include both to generate an embeddings vector that averages the resulting text embeddings and image embeddings vectors.
-
-- **inputText** – Enter text to convert to embeddings.
-- **inputImage** – Encode the image that you want to convert to embeddings in base64 and enter the string in this field. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#api-inference-examples-titan-embed-mm "#api-inference-examples-titan-embed-mm").
++ **inputText** – Enter text to convert to embeddings.
++ **inputImage** – Encode the image that you want to convert to embeddings in base64 and enter the string in this field. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#api-inference-examples-titan-embed-mm).
 
 The following field is optional.
++ **embeddingConfig** – Contains an `outputEmbeddingLength` field, in which you specify one of the following lengths for the output embeddings vector.
+  + 256
+  + 384
+  + 1024 (default)
 
-- **embeddingConfig** – Contains an `outputEmbeddingLength` field, in which you specify one of the following lengths for the output embeddings vector.
+------
+#### [ Response ]
 
-  - 256
-  - 384
-  - 1024 (default)
-
-Response
 The `body` of the response contains the following fields.
 
 ```
@@ -49,16 +53,20 @@ The `body` of the response contains the following fields.
 ```
 
 The fields are described below.
++ **embedding** – An array that represents the embeddings vector of the input you provided.
++ **inputTextTokenCount** – The number of tokens in the text input.
++ **message** – Specifies any errors that occur during generation.
 
-- **embedding** – An array that represents the embeddings vector of the input you provided.
-- **inputTextTokenCount** – The number of tokens in the text input.
-- **message** – Specifies any errors that occur during generation.
+------
 
 ## Example code
+<a name="api-inference-examples-titan-embed-mm"></a>
 
 The following examples show how to invoke the Amazon Titan Multimodal Embeddings G1 model with on-demand throughput in the Python SDK. Select a tab to view an example for each use-case.
 
-Text embeddings
+------
+#### [ Text embeddings ]
+
 This example shows how to call the Amazon Titan Multimodal Embeddings G1 model to generate text embeddings.
 
 ```
@@ -150,7 +158,7 @@ def main():
         logger.error("A client error occurred: %s", message)
         print("A client error occured: " +
               format(message))
-
+        
     except EmbedError as err:
         logger.error(err.message)
         print(err.message)
@@ -163,7 +171,9 @@ if __name__ == "__main__":
     main()
 ```
 
-Image embeddings
+------
+#### [ Image embeddings ]
+
 This example shows how to call the Amazon Titan Multimodal Embeddings G1 model to generate image embeddings.
 
 ```
@@ -257,7 +267,7 @@ def main():
         logger.error("A client error occurred: %s", message)
         print("A client error occured: " +
               format(message))
-
+        
     except EmbedError as err:
         logger.error(err.message)
         print(err.message)
@@ -270,7 +280,9 @@ if __name__ == "__main__":
     main()
 ```
 
-Text and image embeddings
+------
+#### [ Text and image embeddings ]
+
 This example shows how to call the Amazon Titan Multimodal Embeddings G1 model to generate embeddings from a combined text and image input. The resulting vector is the average of the generated text embeddings vector and the image embeddings vector.
 
 ```
@@ -366,7 +378,7 @@ def main():
         logger.error("A client error occurred: %s", message)
         print("A client error occured: " +
               format(message))
-
+        
     except EmbedError as err:
         logger.error(err.message)
         print(err.message)
@@ -378,3 +390,5 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+------

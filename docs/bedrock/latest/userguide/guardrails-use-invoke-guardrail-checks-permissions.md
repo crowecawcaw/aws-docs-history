@@ -1,4 +1,7 @@
+
+
 # Set up permissions
+<a name="guardrails-use-invoke-guardrail-checks-permissions"></a>
 
 To call `InvokeGuardrailChecks`, the caller's IAM identity needs permission to invoke the operation on Amazon Bedrock. Create or use an IAM role or user with the following policy attached.
 

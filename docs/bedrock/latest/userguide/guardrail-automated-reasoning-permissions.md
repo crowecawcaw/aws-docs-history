@@ -1,4 +1,7 @@
+
+
 # Permissions for Automated Reasoning policies with ApplyGuardrail
+<a name="guardrail-automated-reasoning-permissions"></a>
 
 When using Automated Reasoning policies with the `ApplyGuardrail` API, you need an IAM policy that allows you to invoke the Automated Reasoning policy.
 
@@ -10,7 +13,7 @@ When using Automated Reasoning policies with the `ApplyGuardrail` API, you need 
         "bedrock:InvokeAutomatedReasoningPolicy"
     ],
     "Resource": [
-        "arn:aws:bedrock:`region`:`account-id`:automated-reasoning-policy/`policy-id`:`policy-version`"
+        "arn:aws:bedrock:{{region}}:{{account-id}}:automated-reasoning-policy/{{policy-id}}:{{policy-version}}"
     ]
 }
 ```

@@ -1,99 +1,64 @@
+
+
 # Monitor Amazon Bedrock API calls using CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Amazon Bedrock is integrated with AWS CloudTrail, a service that provides a record of actions
-taken by a user, role, or an AWS service in Amazon Bedrock. CloudTrail captures all API calls for
-Amazon Bedrock as events. The calls captured include calls from the Amazon Bedrock console and
-code calls to the Amazon Bedrock API operations. If you create a trail, you can enable
-continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Bedrock.
+Amazon Bedrock is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Amazon Bedrock. CloudTrail captures all API calls for Amazon Bedrock as events. The calls captured include calls from the Amazon Bedrock console and code calls to the Amazon Bedrock API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Bedrock.
 
-###### Note
+**Note**  
+This page describes CloudTrail logging for the `bedrock-runtime.{{region}}.amazonaws.com` endpoint. If your application calls the `bedrock-mantle.{{region}}.api.aws` endpoint, see [Monitor `bedrock-mantle` API calls using CloudTrail](logging-cloudtrail-mantle.md) instead.
 
-This page describes CloudTrail logging for the
-`bedrock-runtime.`region`.amazonaws.com` endpoint. If your
-application calls the `bedrock-mantle.`region`.api.aws`
-endpoint, see [Monitor bedrock-mantle API calls using CloudTrail](logging-cloudtrail-mantle.md "logging-cloudtrail-mantle.md") instead.
+If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**.
 
-If you don't configure a trail, you can still view the most recent events in the CloudTrail console
-in **Event history**.
+Using the information collected by CloudTrail, you can determine the request that was made to Amazon Bedrock, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-Using the information collected by CloudTrail, you can
-determine the request that was made to Amazon Bedrock, the IP address from which the request
-was made, who made the request, when it was made, and additional details.
-
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Amazon Bedrock information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs
-in Amazon Bedrock, that activity is recorded in a CloudTrail event along with other AWS service events
-in **Event history**. You can view, search, and download recent events in
-your AWS account. For more information, see [Viewing events with CloudTrail Event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Amazon Bedrock, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for Amazon Bedrock,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an Amazon S3 bucket.
-By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail
-logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket
-that you specify. Additionally, you can configure other AWS services to further analyze and act
-upon the event data collected in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your AWS account, including events for Amazon Bedrock, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications
-  for CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log
-  files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail log
-  files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
++ Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
++ Whether the request was made with temporary security credentials for a role or federated user.
++ Whether the request was made by another AWS service.
 
-Every event or log entry contains information about who generated the request. The
-identity information helps you determine the following:
-
-- Whether the request was made with root or AWS Identity and Access Management (IAM) user credentials.
-- Whether the request was made with temporary security credentials for a role or
-  federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Amazon Bedrock data events in CloudTrail
+<a name="service-name-data-events-cloudtrail"></a>
 
-[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a resource (for example, reading or writing to an Amazon S3 object). These are also known as data plane operations. Data events are often high-volume activities that CloudTrail doesn’t log by default.
+[Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) provide information about the resource operations performed on or in a resource (for example, reading or writing to an Amazon S3 object). These are also known as data plane operations. Data events are often high-volume activities that CloudTrail doesn’t log by default.
 
-Amazon Bedrock logs some [Amazon Bedrock Runtime API operations](../APIReference/API_Operations_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Amazon_Bedrock_Runtime.md") (such as `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, `ConverseStream`, and `ListAsyncInvokes`) as
-[management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events").
+Amazon Bedrock logs some [Amazon Bedrock Runtime API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html) (such as `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, `ConverseStream`, and `ListAsyncInvokes`) as [management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events).
 
-Amazon Bedrock logs other [Amazon Bedrock Runtime API operations](../APIReference/API_Operations_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Amazon_Bedrock_Runtime.md") (such as `InvokeModelWithBidirectionalStream`, `GetAsyncInvoke`, and `StartAsyncInvokes`) as data events.
+Amazon Bedrock logs other [Amazon Bedrock Runtime API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html) (such as `InvokeModelWithBidirectionalStream`, `GetAsyncInvoke`, and `StartAsyncInvokes`) as data events.
 
-Amazon Bedrock logs all [Agents for Amazon Bedrock Runtime API operations](../APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md") (such as `InvokeAgent` and `InvokeInlineAgent`) actions to CloudTrail as data events.
+Amazon Bedrock logs all [Agents for Amazon Bedrock Runtime API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.html) (such as `InvokeAgent` and `InvokeInlineAgent`) actions to CloudTrail as data events.
++ To log [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) calls, configure advanced event selectors to record data events for the `AWS::Bedrock::AgentAlias` resource type.
++ To log [InvokeInlineAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeInlineAgent.html) calls, configure advanced event selectors to record data events for the `AWS::Bedrock::InlineAgent` resource type.
++ To log [InvokeModelWithBidirectionalStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithBidirectionalStream.html) calls, configure advanced event selectors to record data events for the `AWS::Bedrock::Model` resource type and `AWS:Bedrock::AsyncInvoke`.
++ To log [GetAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GetAsyncInvoke.html) and [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_StartAsyncInvoke.html) calls, configure advanced event selectors to record data events for the `AWS::Bedrock::Model` resource type and `AWS:Bedrock::AsyncInvoke`.
++ To log [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) and [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) calls, configure advanced event selectors to record data events for the `AWS::Bedrock::KnowledgeBase` resource type.
++ To log [InvokeFlow](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeFlow.html) calls, configure advanced event selectors to record data events for the `AWS::Bedrock::FlowAlias` resource type.
++ To log `RenderPrompt` calls, configure advanced event selectors to record data events for the `AWS::Bedrock::Prompt` resource type. `RenderPrompt` is a permission-only [action](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html#amazonbedrock-actions-as-permissions) that renders prompts, created using [Prompt management](prompt-management.md), for model invocation (`InvokeModel(WithResponseStream)` and `Converse(Stream)`).
++ To log `ApplyGuardrail` calls, including guardrail evaluations made during model invocation, configure advanced event selectors to record data events for the `AWS::Bedrock::Guardrail` resource type.
 
-- To log [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") calls, configure advanced event selectors to record data events for the `AWS::Bedrock::AgentAlias` resource type.
-- To log [InvokeInlineAgent](../APIReference/API_agent-runtime_InvokeInlineAgent.md "../APIReference/API_agent-runtime_InvokeInlineAgent.md")
-  calls, configure advanced event selectors to record data events for the `AWS::Bedrock::InlineAgent` resource type.
-- To log [InvokeModelWithBidirectionalStream](../APIReference/API_runtime_InvokeModelWithBidirectionalStream.md "../APIReference/API_runtime_InvokeModelWithBidirectionalStream.md") calls,
-  configure advanced event selectors to record data events for the `AWS::Bedrock::Model` resource type and `AWS:Bedrock::AsyncInvoke`.
-- To log [GetAsyncInvoke](../APIReference/API_runtime_GetAsyncInvoke.md "../APIReference/API_runtime_GetAsyncInvoke.md") and
-  [StartAsyncInvoke](../APIReference/API_runtime_StartAsyncInvoke.md "../APIReference/API_runtime_StartAsyncInvoke.md") calls, configure advanced event selectors
-  to record data events for the `AWS::Bedrock::Model` resource type and `AWS:Bedrock::AsyncInvoke`.
-- To log [Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") and [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") calls, configure advanced event selectors to record data events
-  for the `AWS::Bedrock::KnowledgeBase` resource type.
-- To log [InvokeFlow](../APIReference/API_agent-runtime_InvokeFlow.md "../APIReference/API_agent-runtime_InvokeFlow.md") calls, configure advanced event selectors to record data events for the `AWS::Bedrock::FlowAlias` resource type.
-- To log `RenderPrompt` calls, configure advanced event selectors to record data events for the `AWS::Bedrock::Prompt` resource type. `RenderPrompt` is a permission-only [action](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-actions-as-permissions") that renders prompts, created using [Prompt management](prompt-management.md "prompt-management.md"), for model invocation (`InvokeModel(WithResponseStream)` and `Converse(Stream)`).
-- To log `ApplyGuardrail` calls, including guardrail evaluations made during
-  model invocation, configure advanced event selectors to record data events for the
-  `AWS::Bedrock::Guardrail` resource type.
+From the CloudTrail console, choose **Bedrock agent alias** or **Bedrock knowledge base** for the **Data event type**. You can additionally filter on the `eventName` and `resources.ARN` fields by choosing a custom log selector template. For more information, see [Logging data events with the AWS Management Console](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html).
 
-From the CloudTrail console, choose **Bedrock agent alias** or **Bedrock knowledge base** for the **Data event type**. You can additionally filter on the `eventName` and `resources.ARN` fields by choosing a custom log selector template. For more information, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md").
-
-From the AWS CLI, set the `resource.type` value equal to
-`AWS::Bedrock::AgentAlias`, `AWS::Bedrock::KnowledgeBase`,
-`AWS::Bedrock::FlowAlias`, or `AWS::Bedrock::Guardrail` and set the
-`eventCategory` equal to `Data`. For more information, see [Logging data events with the AWS CLI](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI").
+From the AWS CLI, set the `resource.type` value equal to `AWS::Bedrock::AgentAlias`, `AWS::Bedrock::KnowledgeBase`, `AWS::Bedrock::FlowAlias`, or `AWS::Bedrock::Guardrail` and set the `eventCategory` equal to `Data`. For more information, see [Logging data events with the AWS CLI](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-with-the-AWS-CLI).
 
 The following example shows how to configure a trail to log all Amazon Bedrock data events for all Amazon Bedrock resource types in the AWS CLI.
 
 ```
-aws cloudtrail put-event-selectors --trail-name `trailName` \
+aws cloudtrail put-event-selectors --trail-name {{trailName}} \
 --advanced-event-selectors \
 '[
   {
@@ -127,44 +92,31 @@ aws cloudtrail put-event-selectors --trail-name `trailName` \
 ]'
 ```
 
-You can additionally filter on the `eventName` and
-`resources.ARN` fields. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md").
+You can additionally filter on the `eventName` and `resources.ARN` fields. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html).
 
-Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/).
 
 ## Amazon Bedrock management events in CloudTrail
+<a name="bedrock-management-events-cloudtrail"></a>
 
-[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. CloudTrail logs management event API operations by default.
+[Management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events) provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. CloudTrail logs management event API operations by default.
 
-Amazon Bedrock logs [Amazon Bedrock Runtime API operations](../APIReference/API_Operations_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Amazon_Bedrock_Runtime.md") (`InvokeModel`, `InvokeModelWithResponseStream`, `Converse`,
-and `ConverseStream`) as [management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events").
+Amazon Bedrock logs [Amazon Bedrock Runtime API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html) (`InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, and `ConverseStream`) as [management events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html#logging-management-events).
 
-Amazon Bedrock logs the remainder of Amazon Bedrock API operations as management events. For a list of the
-Amazon Bedrock API operations that Amazon Bedrock logs to CloudTrail, see the following pages in the Amazon Bedrock API reference.
+Amazon Bedrock logs the remainder of Amazon Bedrock API operations as management events. For a list of the Amazon Bedrock API operations that Amazon Bedrock logs to CloudTrail, see the following pages in the Amazon Bedrock API reference.
++ [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock.html). 
++ [Amazon Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock.html). 
++ [Amazon Bedrock Agents Runtime](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.html). 
++ [Amazon Bedrock Runtime](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html).
 
-- [Amazon Bedrock](../APIReference/API_Operations_Amazon_Bedrock.md "../APIReference/API_Operations_Amazon_Bedrock.md").
-- [Amazon Bedrock Agents](../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md").
-- [Amazon Bedrock Agents Runtime](../APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md").
-- [Amazon Bedrock Runtime](../APIReference/API_Operations_Amazon_Bedrock_Runtime.md "../APIReference/API_Operations_Amazon_Bedrock_Runtime.md").
+All [Amazon Bedrock API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock.html) and [Agents for Amazon Bedrock API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock.html) are logged by CloudTrail and documented in the [Amazon Bedrock API Reference](https://docs.aws.amazon.com/bedrock/latest/APIReference/). For example, calls to the `InvokeModel`, `StopModelCustomizationJob`, and `CreateAgent` actions generate entries in the CloudTrail log files.
 
-All [Amazon Bedrock API operations](../APIReference/API_Operations_Amazon_Bedrock.md "../APIReference/API_Operations_Amazon_Bedrock.md") and [Agents for Amazon Bedrock API operations](../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md "../APIReference/API_Operations_Agents_for_Amazon_Bedrock.md") are logged by CloudTrail and documented in the [Amazon Bedrock API Reference](../APIReference.md "../APIReference.md"). For example,
-calls to the `InvokeModel`, `StopModelCustomizationJob`, and `CreateAgent` actions generate
-entries in the CloudTrail log files.
-
-[Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/") continuously monitors and
-analyzes your CloudTrail management and event logs to detect potential security issues. When you
-enable Amazon GuardDuty for an AWS account, it automatically starts analyzing CloudTrail logs to detect
-suspicious activity in Amazon Bedrock APIs, such as a user logging in from a new location and using
-Amazon Bedrock APIs to remove Amazon Bedrock Guardrails, or change the Amazon S3 bucket set for model training
-data.
+[Amazon GuardDuty](https://aws.amazon.com/guardduty/) continuously monitors and analyzes your CloudTrail management and event logs to detect potential security issues. When you enable Amazon GuardDuty for an AWS account, it automatically starts analyzing CloudTrail logs to detect suspicious activity in Amazon Bedrock APIs, such as a user logging in from a new location and using Amazon Bedrock APIs to remove Amazon Bedrock Guardrails, or change the Amazon S3 bucket set for model training data.
 
 ## Understanding Amazon Bedrock log file entries
+<a name="understanding-bedrock-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket
-that you specify. CloudTrail log files contain one or more log entries. An event represents a single
-request from any source and includes information about the requested action, the date and time
-of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of
-the public API calls, so they don't appear in any specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
 The following example shows a CloudTrail log entry that demonstrates the `InvokeModel` action.
 
@@ -204,10 +156,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Invoke
 }
 ```
 
-The following example shows the fields relevant to an `ApplyGuardrail` data
-event for a model invocation evaluated by both a guardrail supplied in the request and a
-guardrail enforced by an organization. Standard CloudTrail identity and network fields are omitted
-from the example.
+The following example shows the fields relevant to an `ApplyGuardrail` data event for a model invocation evaluated by both a guardrail supplied in the request and a guardrail enforced by an organization. Standard CloudTrail identity and network fields are omitted from the example.
 
 ```
 {
@@ -271,25 +220,7 @@ from the example.
 }
 ```
 
-###### Note
-
-When an invocation is evaluated by more than one guardrail, the
-`assessments` list contains one entry for each guardrail that evaluated the
-content. **The order of entries isn't guaranteed, and the CloudTrail event
-doesn't identify which guardrail produced each assessment.** Don't use an
-assessment's position to attribute it to a specific guardrail or to an entry in the
-`resources` list. The event has no per-assessment guardrail identifier or other
-attribution field.
-
-The `action` field reports the combined result across the applicable
-guardrails. The `resources` list identifies the guardrail resources that were in
-scope, and each `accountId` identifies the owner of that resource. When available,
-use the guardrail trace for guardrail-specific assessment details. For more information, see
-[Test your guardrail](guardrails-test.md "guardrails-test.md").
-
-When no guardrail is supplied in the invocation request and one or more enforced
-guardrails apply, the `guardrailIdentifier` and `guardrailVersion`
-request parameters in the data event are `ENFORCED`. This value is a marker and
-isn't a guardrail identifier or version. If one enforced guardrail applies, the single
-`assessments` entry belongs to that guardrail. If multiple enforced guardrails
-apply, the same ordering and attribution limitations apply.
+**Note**  
+When an invocation is evaluated by more than one guardrail, the `assessments` list contains one entry for each guardrail that evaluated the content. **The order of entries isn't guaranteed, and the CloudTrail event doesn't identify which guardrail produced each assessment.** Don't use an assessment's position to attribute it to a specific guardrail or to an entry in the `resources` list. The event has no per-assessment guardrail identifier or other attribution field.  
+The `action` field reports the combined result across the applicable guardrails. The `resources` list identifies the guardrail resources that were in scope, and each `accountId` identifies the owner of that resource. When available, use the guardrail trace for guardrail-specific assessment details. For more information, see [Test your guardrail](guardrails-test.md).  
+When no guardrail is supplied in the invocation request and one or more enforced guardrails apply, the `guardrailIdentifier` and `guardrailVersion` request parameters in the data event are `ENFORCED`. This value is a marker and isn't a guardrail identifier or version. If one enforced guardrail applies, the single `assessments` entry belongs to that guardrail. If multiple enforced guardrails apply, the same ordering and attribution limitations apply.

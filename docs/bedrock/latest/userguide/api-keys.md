@@ -1,28 +1,34 @@
+
+
 # API keys
+<a name="api-keys"></a>
 
 Amazon Bedrock API keys let you authenticate API requests using a bearer token instead of AWS credentials. There are two types:
++ **Short-term** – Lasts up to 12 hours (or the duration of your session, whichever is shorter). Inherits permissions from the IAM principal used to generate it. Recommended for production use.
++ **Long-term** – Lasts until a configured expiration date. Creates an IAM user with attached policies. Recommended only for exploration.
 
-- **Short-term** – Lasts up to 12 hours (or the duration of your session, whichever is shorter). Inherits permissions from the IAM principal used to generate it. Recommended for production use.
-- **Long-term** – Lasts until a configured expiration date. Creates an IAM user with attached policies. Recommended only for exploration.
-
-###### Note
-
+**Note**  
 All API calls are logged in AWS CloudTrail. API keys are passed as authorization headers and are not logged.
 
 ## Generate a short-term API key
+<a name="api-keys-gen-short"></a>
 
 Choose the tab for your preferred method, and then follow the steps:
 
-Console
+------
+#### [ Console ]
 
-1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. In the left navigation pane, select **API keys**.
-3. In the **Short-term API keys** tab, choose **Generate short-term API keys**.
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
+
+1. In the left navigation pane, select **API keys**.
+
+1. In the **Short-term API keys** tab, choose **Generate short-term API keys**.
 
 The key expires when your console session expires (max 12 hours). To generate a key for a different Region, switch Regions in the console first.
 
-Python
+------
+#### [ Python ]
+
 Install the token generator:
 
 ```
@@ -38,7 +44,9 @@ token = provide_token()
 print(f"Token: {token}")
 ```
 
-Javascript
+------
+#### [ Javascript ]
+
 Install the token generator:
 
 ```
@@ -55,7 +63,9 @@ const token = await provideToken();
 console.log(`Bearer Token: ${token}`);
 ```
 
-Java
+------
+#### [ Java ]
+
 Add the dependency (Maven):
 
 ```
@@ -75,24 +85,31 @@ BedrockTokenGenerator tokenGenerator = BedrockTokenGenerator.builder().build();
 String token = tokenGenerator.getToken();
 ```
 
+------
+
 ## Generate a long-term API key
+<a name="api-keys-gen-long"></a>
 
-###### Warning
-
-Long-term keys are for exploration only. For production, use short-term keys. For more information, see [Alternatives to long-term access keys](../../../IAM/latest/UserGuide/security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys "../../../IAM/latest/UserGuide/security-creds-programmatic-access.md#security-creds-alternatives-to-long-term-access-keys").
+**Warning**  
+Long-term keys are for exploration only. For production, use short-term keys. For more information, see [Alternatives to long-term access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds-programmatic-access.html#security-creds-alternatives-to-long-term-access-keys).
 
 Choose the tab for your preferred method, and then follow the steps:
 
-Console
+------
+#### [ Console ]
 
-1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. In the left navigation pane, select **API keys**.
-3. In the **Long-term API keys** tab, choose **Generate long-term API keys**.
-4. Choose an expiration time and optionally add permissions in **Advanced permissions**.
-5. Choose **Generate**.
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
 
-CLI
+1. In the left navigation pane, select **API keys**.
+
+1. In the **Long-term API keys** tab, choose **Generate long-term API keys**.
+
+1. Choose an expiration time and optionally add permissions in **Advanced permissions**.
+
+1. Choose **Generate**.
+
+------
+#### [ CLI ]
 
 ```
 # Create an IAM user
@@ -106,7 +123,7 @@ aws iam attach-user-policy --user-name bedrock-api-user \
 aws iam create-service-specific-credential \
     --user-name bedrock-api-user \
     --service-name bedrock.amazonaws.com \
-    --credential-age-days `${NUMBER-OF-DAYS}`
+    --credential-age-days {{${NUMBER-OF-DAYS}}}
 ```
 
 The `ServiceApiKeyValue` in the response is your API key.
@@ -117,16 +134,17 @@ To deactivate or delete the key later, use the `ServiceSpecificCredentialId` fro
 # Deactivate the key
 aws iam update-service-specific-credential \
     --user-name bedrock-api-user \
-    --service-specific-credential-id `${ServiceSpecificCredentialId}` \
+    --service-specific-credential-id {{${ServiceSpecificCredentialId}}} \
     --status Inactive
 
 # Delete the key permanently
 aws iam delete-service-specific-credential \
     --user-name bedrock-api-user \
-    --service-specific-credential-id `${ServiceSpecificCredentialId}`
+    --service-specific-credential-id {{${ServiceSpecificCredentialId}}}
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -152,29 +170,32 @@ api_key = response["ServiceSpecificCredential"]["ServiceApiKeyValue"]
 print(api_key)
 ```
 
+------
+
 ## Use an API key
+<a name="api-keys-use"></a>
 
 Set the key as an environment variable:
 
 ```
 # macOS/Linux
-export AWS_BEARER_TOKEN_BEDROCK=`${api-key}`
+export AWS_BEARER_TOKEN_BEDROCK={{${api-key}}}
 
 # Windows
-setx AWS_BEARER_TOKEN_BEDROCK "`${api-key}`"
+setx AWS_BEARER_TOKEN_BEDROCK "{{${api-key}}}"
 ```
 
 Or pass it directly in the `Authorization` header:
 
 ```
-Authorization: Bearer `${api-key}`
+Authorization: Bearer {{${api-key}}}
 ```
 
-###### Example: Make a Converse request
-
+**Example: Make a Converse request**  
 choose the tab for your preferred method, and then follow the steps:
 
-cURL
+------
+#### [ cURL ]
 
 ```
 curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic.claude-sonnet-4-6/converse" \
@@ -185,13 +206,14 @@ curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/model/us.anthropic
   }'
 ```
 
-Python (boto3)
+------
+#### [ Python (boto3) ]
 
 ```
 import os
 import boto3
 
-os.environ['AWS_BEARER_TOKEN_BEDROCK'] = "`${api-key}`"
+os.environ['AWS_BEARER_TOKEN_BEDROCK'] = "{{${api-key}}}"
 
 client = boto3.client("bedrock-runtime", region_name="us-east-1")
 response = client.converse(
@@ -200,11 +222,15 @@ response = client.converse(
 )
 ```
 
+------
+
 ## Auto-refresh short-term keys
+<a name="api-keys-auto-refresh"></a>
 
 For long-running applications, call the token generator before each request. It returns a cached token if still valid or generates a new one automatically:
 
-Python
+------
+#### [ Python ]
 
 ```
 from aws_bedrock_token_generator import provide_token
@@ -220,7 +246,8 @@ response = requests.post(url, headers=headers, json=payload)
 print(response.json())
 ```
 
-Javascript
+------
+#### [ Javascript ]
 
 ```
 import { getTokenProvider } from "@aws/bedrock-token-generator";
@@ -238,40 +265,44 @@ const headers = {
 await fetch(url, {method: 'POST', headers, body: JSON.stringify(payload)});
 ```
 
-For more examples, see the token generator documentation: [Python](https://github.com/aws/aws-bedrock-token-generator-python/blob/main/README.md "https://github.com/aws/aws-bedrock-token-generator-python/blob/main/README.md") | [Javascript](https://github.com/aws/aws-bedrock-token-generator-js/blob/main/README.md "https://github.com/aws/aws-bedrock-token-generator-js/blob/main/README.md") | [Java](https://github.com/aws/aws-bedrock-token-generator-java/blob/main/README.md "https://github.com/aws/aws-bedrock-token-generator-java/blob/main/README.md").
+------
+
+For more examples, see the token generator documentation: [Python](https://github.com/aws/aws-bedrock-token-generator-python/blob/main/README.md) \| [Javascript](https://github.com/aws/aws-bedrock-token-generator-js/blob/main/README.md) \| [Java](https://github.com/aws/aws-bedrock-token-generator-java/blob/main/README.md).
 
 ## Modify permissions
+<a name="api-keys-modify"></a>
 
-A long-term API key is associated with an IAM user. To change its permissions, modify the policies attached to that user. See [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md").
+A long-term API key is associated with an IAM user. To change its permissions, modify the policies attached to that user. See [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
 
 From the console: go to **API keys** > **Long-term API keys** > select your key > **Manage in IAM Console**.
 
 ## Compromised keys
+<a name="api-keys-compromised"></a>
 
 If a key is compromised, take one of the following actions:
 
-| Action             | Key type   | How                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Deactivate         | Long-term  | Console: *_API keys_<br>• > select key > *_Actions_<br>• > **Deactivate**. API: `UpdateServiceSpecificCredential` with `Status=Inactive`.                                                                                                                                                                                              |
-| Reset              | Long-term  | Console: *_Actions_<br>• > **Reset key**. API: `ResetServiceSpecificCredential`.                                                                                                                                                                                                                                                       |
-| Delete             | Long-term  | Console: *_Actions_<br>• > **Delete**. API: `DeleteServiceSpecificCredential`.                                                                                                                                                                                                                                                         |
-| Invalidate session | Short-term | Invalidate the session used to generate the key, or attach an IAM policy that denies `CallWithBearerToken` ([Deny an identity the ability to make calls with an Amazon Bedrock API key](api-keys-revoke.md#api-keys-iam-policies-deny-call-with-bearer-token "api-keys-revoke.md#api-keys-iam-policies-deny-call-with-bearer-token")). |
+
+| Action | Key type | How | 
+| --- | --- | --- | 
+| Deactivate | Long-term | Console: API keys > select key > Actions > Deactivate. API: UpdateServiceSpecificCredential with Status=Inactive. | 
+| Reset | Long-term | Console: Actions > Reset key. API: ResetServiceSpecificCredential. | 
+| Delete | Long-term | Console: Actions > Delete. API: DeleteServiceSpecificCredential. | 
+| Invalidate session | Short-term | Invalidate the session used to generate the key, or attach an IAM policy that denies CallWithBearerToken ([Deny an identity the ability to make calls with an Amazon Bedrock API key](api-keys-revoke.md#api-keys-iam-policies-deny-call-with-bearer-token)). | 
 
 ## Control who can generate and use API keys
+<a name="api-keys-control"></a>
 
 IAM actions control API key generation and usage:
++ `iam:CreateServiceSpecificCredential` – Controls generation of long-term keys. Use the `iam:ServiceSpecificCredentialAgeDays` condition key to limit expiration (e.g., max 90 days).
++ `bedrock:CallWithBearerToken` – Controls usage of an API key through the Amazon Bedrock endpoint. Use the `bedrock:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
++ `bedrock-mantle:CallWithBearerToken` – Controls usage of an API key through the Amazon Bedrock Mantle endpoint. Use the `bedrock-mantle:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
 
-- `iam:CreateServiceSpecificCredential` – Controls generation of long-term keys. Use the `iam:ServiceSpecificCredentialAgeDays` condition key to limit expiration (e.g., max 90 days).
-- `bedrock:CallWithBearerToken` – Controls usage of an API key through the Amazon Bedrock endpoint. Use the `bedrock:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
-- `bedrock-mantle:CallWithBearerToken` – Controls usage of an API key through the Amazon Bedrock Mantle endpoint. Use the `bedrock-mantle:bearerTokenType` condition key with values `SHORT_TERM` or `LONG_TERM` to target specific key types.
-
-###### Example: Prevent an identity from using any API key
-
+**Example: Prevent an identity from using any API key**  
 Attach this policy to the identity:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Deny",
@@ -285,13 +316,12 @@ Attach this policy to the identity:
 }
 ```
 
-###### Example: Allow only short-lived keys (max 90 days)
-
+**Example: Allow only short-lived keys (max 90 days)**  
 Attach this policy to the identity:
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17", 		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -310,4 +340,4 @@ Attach this policy to the identity:
 }
 ```
 
-For more detailed policy examples, see [API keys reference](api-keys-reference.md "api-keys-reference.md").
+For more detailed policy examples, see [API keys reference](api-keys-reference.md).

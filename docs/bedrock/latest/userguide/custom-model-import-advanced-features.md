@@ -1,18 +1,20 @@
+
+
 # Advanced API features for imported models
+<a name="custom-model-import-advanced-features"></a>
 
 This page provides detailed examples of advanced features available for models imported after November 11, 2025. These capabilities include structured outputs for controlled generation, enhanced vision support for multi-image processing, log probabilities for confidence insights, and tool calling for GPT-OSS models.
 
 ## Structured Outputs
+<a name="structured-outputs"></a>
 
 Structured outputs enable controlled generation following specific formats, schemas, or patterns. This feature ensures that the model's response adheres to predefined constraints, making it ideal for applications requiring consistent data formats, API integrations, or automated processing pipelines.
 
 Structured outputs on Custom Model Import are supported through two parameters:
++ `response_format` - Supports `json_object` and `json_schema` types
++ `structured_outputs` - Supports `json`, `regex`, `choice`, and `grammar` types
 
-- `response_format` - Supports `json_object` and `json_schema` types
-- `structured_outputs` - Supports `json`, `regex`, `choice`, and `grammar` types
-
-###### Note
-
+**Note**  
 When using structured outputs on Custom Model Import, customers should expect performance trade-offs due to constraint validation during generation. Simple constraints like `choice` and `json_object` have minimal impact, while complex constraints like `json_schema` and `grammar` can significantly increase latency and reduce throughput. For optimal performance, use simpler constraint types when possible and keep schemas flat rather than deeply nested.
 
 The following examples demonstrate structured outputs support across different API formats. The Pydantic model definition is:
@@ -33,7 +35,9 @@ class CarDescription(BaseModel):
     car_type: CarType
 ```
 
-BedrockCompletion
+------
+#### [ BedrockCompletion ]
+
 BedrockCompletion supports structured outputs using the `response_format` parameter with `json_object` and `json_schema` types only.
 
 **Example: JSON Schema**
@@ -69,7 +73,9 @@ Example response:
 }
 ```
 
-OpenAICompletion
+------
+#### [ OpenAICompletion ]
+
 OpenAICompletion supports both `response_format` (json\_object, json\_schema) and `structured_outputs` (json, regex, choice, grammar) parameters. Use `max_tokens` instead of `max_gen_len` to route requests to OpenAICompletion.
 
 **Example: Structured Outputs - Choice**
@@ -113,7 +119,9 @@ Example response:
 }
 ```
 
-OpenAIChatCompletion
+------
+#### [ OpenAIChatCompletion ]
+
 OpenAIChatCompletion supports both `response_format` (json\_object, json\_schema) and `structured_outputs` (json, regex, choice, grammar) parameters.
 
 **Example: Response Format - JSON Schema**
@@ -166,23 +174,26 @@ Example response:
 }
 ```
 
+------
+
 ## Vision Support
+<a name="vision-support"></a>
 
 Vision capabilities enable processing of images alongside text inputs, with enhanced multi-image support for complex visual analysis tasks. Custom Model Import now supports up to 3 images per request, enhanced from previous single-image limitation.
 
 **Supported API:** OpenAIChatCompletion only. All models imported after November 11, 2025 will default to this API for vision capabilities.
 
 **Image Requirements:**
++ Base64 encoding required - Image URLs will cause request failures
++ Maximum 3 images per request
++ High resolution images significantly increase processing time and memory usage
 
-- Base64 encoding required - Image URLs will cause request failures
-- Maximum 3 images per request
-- High resolution images significantly increase processing time and memory usage
-
-###### Warning
-
+**Warning**  
 High resolution images significantly increase processing time, memory usage, and may cause timeout errors. Multiple high-resolution images compound performance impact exponentially. For optimal performance, resize images appropriately and use lower detail levels when possible.
 
-OpenAIChatCompletion
+------
+#### [ OpenAIChatCompletion ]
+
 **Example: Multi-Image Processing**
 
 ```
@@ -282,23 +293,26 @@ Example response:
 }
 ```
 
+------
+
 ## Log Probabilities
+<a name="log-probabilities"></a>
 
 Log probabilities represent the likelihood of each token in a sequence, calculated as log(p) where p is the probability of a token at any position given its previous token in the context. Since log probs are additive, sequence probability equals the sum of individual token log probs, making them useful for ranking generations by average per-token scores. Custom Model Import will always return the raw logprob values for requested tokens.
 
 Key applications include classification tasks where log probs enable custom confidence thresholds, retrieval Q&A systems that use confidence scores to reduce hallucinations, autocomplete suggestions based on token likelihood, and perplexity calculations for comparing model performance across prompts. Log probs also provide token-level analysis capabilities, allowing developers to examine alternative tokens the model considered.
 
-###### Note
-
+**Note**  
 Logprobs are not cached. For a request requiring prompt logprobs, the system will ignore the prefix cache and recompute the prefill of full prompt to generate the logprobs. This presents an obvious performance tradeoff when using logprobs.
 
 Log probability support varies by API format:
++ BedrockCompletion - Output tokens only
++ OpenAICompletion - Prompt and output tokens
++ OpenAIChatCompletion - Prompt and output tokens
 
-- BedrockCompletion - Output tokens only
-- OpenAICompletion - Prompt and output tokens
-- OpenAIChatCompletion - Prompt and output tokens
+------
+#### [ BedrockCompletion ]
 
-BedrockCompletion
 BedrockCompletion only supports output token logprobs. This will return top 1 logprob for each output token.
 
 ```
@@ -342,7 +356,9 @@ Example response (truncated):
 }
 ```
 
-OpenAIChatCompletion
+------
+#### [ OpenAIChatCompletion ]
+
 OpenAIChatCompletion supports both prompt and output token logprobs. You can set `top_logprobs=N` and `prompt_logprobs=N` where N is an integer representing log probabilities for the N most likely tokens at each position.
 
 ```
@@ -416,3 +432,5 @@ Example response (truncated):
     }
 }
 ```
+
+------

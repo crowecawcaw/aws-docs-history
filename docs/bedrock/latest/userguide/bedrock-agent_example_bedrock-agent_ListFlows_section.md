@@ -1,18 +1,16 @@
+
+
 # Use `ListFlows` with an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_ListFlows_section"></a>
 
 The following code example shows how to use `ListFlows`.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-List Amazon Bedrock flows.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+List Amazon Bedrock flows.  
 
 ```
 def list_flows(client):
@@ -59,14 +57,9 @@ def list_flows(client):
     except Exception as e:
         logging.exception("Unexpected error listing flow versions: %s", str(e))
         raise
-
-
 ```
++  For API details, see [ListFlows](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/ListFlows) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [ListFlows](../../../goto/boto3/bedrock-agent-2023-12-12/ListFlows.md "../../../goto/boto3/bedrock-agent-2023-12-12/ListFlows.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

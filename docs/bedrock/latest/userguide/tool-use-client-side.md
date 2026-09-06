@@ -1,4 +1,7 @@
+
+
 # Client-side tool use
+<a name="tool-use-client-side"></a>
 
 If you use the Responses API, Chat Completions API, Converse API, or InvokeModel API to send the request, then the model uses client-side tool calling. This means that in your code, you call the tool on the model's behalf. In this scenario, assume the tool implementation is an API. The tool could just as easily be a database, Lambda function, or some other software. You decide how you want to implement the tool. You then continue the conversation with the model by supplying a message with the result from the tool. Finally, the model generates a response for the original message that includes the tool results that you sent to the model.
 
@@ -16,7 +19,7 @@ def get_most_popular_song(station_name: str) -> str:
 
 **Using Responses API for client-side tooling**
 
-You can use the [Function calling](https://platform.openai.com/docs/guides/function-calling "https://platform.openai.com/docs/guides/function-calling") feature provided by OpenAI to call this tool. Responses API is OpenAI's preferred API. Here is the Python code for Responses API for client-side tooling:
+You can use the [Function calling](https://platform.openai.com/docs/guides/function-calling) feature provided by OpenAI to call this tool. Responses API is OpenAI's preferred API. Here is the Python code for Responses API for client-side tooling:
 
 ```
 from openai import OpenAI
@@ -50,7 +53,7 @@ if response.output and response.output[0].content:
     tool_call = response.output[0].content[0]
     args = json.loads(tool_call["arguments"])
     result = get_most_popular_song(args["station_name"])
-
+    
     final_response = client.responses.create(
         model="oss-gpt-120b",
         input=[
@@ -61,7 +64,7 @@ if response.output and response.output[0].content:
             }
         ]
     )
-
+    
     print(final_response.output_text)
 ```
 
@@ -70,7 +73,6 @@ if response.output and response.output[0].content:
 You can use the Chat Completions API also. Here is the Python code for using Chat Completions:
 
 ```
-
     from openai import OpenAI
 import json
 
@@ -112,14 +114,13 @@ if message.tool_calls:
     )
 
     print(followup.choices[0].message.content)
-
 ```
 
-For more details on the using Function Calling on Responses API and Chat Completions API, see [Function Calling](https://platform.openai.com/docs/guides/function-calling "https://platform.openai.com/docs/guides/function-calling") in OpenAI.
+For more details on the using Function Calling on Responses API and Chat Completions API, see [Function Calling](https://platform.openai.com/docs/guides/function-calling) in OpenAI.
 
 **Using Converse API for client-side tooling**
 
-You can use the [Converse API](bedrock/latest/userguide/conversation-inference.md "bedrock/latest/userguide/conversation-inference.md") to let a model use a tool in a conversation. The following Python examples show how to use a tool that returns the most popular song on a fictional radio station.
+You can use the [Converse API](bedrock/latest/userguide/conversation-inference.html) to let a model use a tool in a conversation. The following Python examples show how to use a tool that returns the most popular song on a fictional radio station.
 
 ```
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -278,4 +279,4 @@ if __name__ == "__main__":
 
 **Using Invoke APIs for client-side tool use**
 
-It is possible to use tools with the base inference operations ([InvokeModel](bedrock/latest/APIReference/API_runtime_InvokeModel.md "bedrock/latest/APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md "bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.md")). To find the inference parameters that you pass in the request body, see the [inference parameters](bedrock/latest/userguide/model-parameters.md "bedrock/latest/userguide/model-parameters.md") for the model that you want to use.
+It is possible to use tools with the base inference operations ([InvokeModel](bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)). To find the inference parameters that you pass in the request body, see the [inference parameters](bedrock/latest/userguide/model-parameters.html) for the model that you want to use.

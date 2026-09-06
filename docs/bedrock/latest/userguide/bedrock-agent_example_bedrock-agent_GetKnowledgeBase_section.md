@@ -1,18 +1,16 @@
+
+
 # Use `GetKnowledgeBase` with an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_GetKnowledgeBase_section"></a>
 
 The following code example shows how to use `GetKnowledgeBase`.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-Get an Amazon Bedrock knowledge base.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+Get an Amazon Bedrock knowledge base.  
 
 ```
 def get_knowledge_base(bedrock_agent_client, knowledge_base_id):
@@ -30,7 +28,7 @@ def get_knowledge_base(bedrock_agent_client, knowledge_base_id):
         response = bedrock_agent_client.get_knowledge_base(
             knowledgeBaseId=knowledge_base_id
         )
-
+        
         logger.info("Retrieved knowledge base: %s", knowledge_base_id)
         return response["knowledgeBase"]
     except ClientError as err:
@@ -41,14 +39,9 @@ def get_knowledge_base(bedrock_agent_client, knowledge_base_id):
             err.response["Error"]["Message"],
         )
         raise
-
-
 ```
++  For API details, see [GetKnowledgeBase](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/GetKnowledgeBase) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [GetKnowledgeBase](../../../goto/boto3/bedrock-agent-2023-12-12/GetKnowledgeBase.md "../../../goto/boto3/bedrock-agent-2023-12-12/GetKnowledgeBase.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

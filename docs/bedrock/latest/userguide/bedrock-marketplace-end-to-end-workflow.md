@@ -1,9 +1,9 @@
-# End-to-end workflow
 
-After you've set up Amazon Bedrock Marketplace, you can use the following example code in your
-end-to-end
-workflow. If you need more context, you can read the sections that follow the
-code.
+
+# End-to-end workflow
+<a name="bedrock-marketplace-end-to-end-workflow"></a>
+
+After you've set up Amazon Bedrock Marketplace, you can use the following example code in your end-to-end workflow. If you need more context, you can read the sections that follow the code.
 
 ```
 from botocore.exceptions import ClientError
@@ -163,8 +163,8 @@ class Bedrock:
 
 def run_script(sagemaker_execution_role: str, region: str):
     # Script params
-    model_arn = 'arn:aws:sagemaker:`AWS Region`:aws:hub-content/SageMakerPublicHub/Model/`example-model-name`/`hub-content-arn`'
-    model_name = '`example-model-name`'
+    model_arn = 'arn:aws:sagemaker:{{AWS Region}}:aws:hub-content/SageMakerPublicHub/Model/{{example-model-name}}/{{hub-content-arn}}'
+    model_name = '{{example-model-name}}'
     sample_endpoint_name = f'test-ep-{datetime.now().strftime("%Y-%m-%d%H%M%S")}'
     sagemaker_execution_role = sagemaker_execution_role
     conversation = [
@@ -344,6 +344,4 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     run_script(args.sagemaker_execution_role, args.region)
-
-
 ```

@@ -1,19 +1,17 @@
+
+
 # Use `InvokeAgent` with an AWS SDK
+<a name="bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeAgent_section"></a>
 
 The following code examples show how to use `InvokeAgent`.
 
-JavaScript
+------
+#### [ JavaScript ]
 
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples").
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-agent-runtime#code-examples). 
 
 ```
-
 import {
   BedrockAgentRuntimeClient,
   InvokeAgentCommand,
@@ -78,25 +76,15 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const result = await invokeBedrockAgent("I need help.", "123");
   console.log(result);
 }
-
-
 ```
++  For API details, see [InvokeAgent](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeAgentCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [InvokeAgent](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeAgentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/InvokeAgentCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples").
-
-Invoke an agent.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent-runtime#code-examples). 
+Invoke an agent.  
 
 ```
     def invoke_agent(self, agent_id, agent_alias_id, session_id, prompt):
@@ -133,27 +121,16 @@ Invoke an agent.
             raise
 
         return completion
+```
++  For API details, see [InvokeAgent](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeAgent) in *AWS SDK for Python (Boto3) API Reference*. 
 
+------
+#### [ Rust ]
 
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-agent-runtime#code-examples). 
 
 ```
-
-- For API details, see
-  [InvokeAgent](../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeAgent.md "../../../goto/boto3/bedrock-agent-runtime-2023-12-12/InvokeAgent.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
-
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-agent-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-agent-runtime#code-examples").
-
-```
-
 use aws_config::{BehaviorVersion, SdkConfig};
 use aws_sdk_bedrockagentruntime::{
     self as bedrockagentruntime,
@@ -306,26 +283,16 @@ mod test {
         let _ = process_agent_response_stream(mock).await.unwrap();
     }
 }
+```
++  For API details, see [InvokeAgent](https://docs.rs/aws-sdk-bedrockagentruntime/latest/aws_sdk_bedrockagentruntime/client/struct.Client.html#method.invoke_agent) in *AWS SDK for Rust API reference*. 
 
+------
+#### [ SAP ABAP ]
+
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdz#code-examples). 
 
 ```
-
-- For API details, see
-  [InvokeAgent](https://docs.rs/aws-sdk-bedrockagentruntime/latest/aws_sdk_bedrockagentruntime/client/struct.Client.html#method.invoke_agent "https://docs.rs/aws-sdk-bedrockagentruntime/latest/aws_sdk_bedrockagentruntime/client/struct.Client.html#method.invoke_agent")
-  in _AWS SDK for Rust API reference_.
-
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdz#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdz#code-examples").
-
-```
-
     DATA(lo_result) = lo_bdz->invokeagent(
       iv_agentid      = iv_agentid
         iv_agentaliasid = iv_agentaliasid
@@ -366,14 +333,9 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
         " catch /AWS1/CX_BDZSERVICEQUOTAEXCDEX.
         " catch /AWS1/CX_BDZCONFLICTEXCEPTION.
     ENDTRY.
-
-
 ```
++  For API details, see [InvokeAgent](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [InvokeAgent](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

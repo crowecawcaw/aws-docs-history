@@ -1,18 +1,16 @@
+
+
 # Use Amazon Nova Reel to generate a video from a text prompt
+<a name="bedrock-runtime_example_bedrock-runtime_Scenario_AmazonNova_TextToVideo_section"></a>
 
 The following code examples show how to use Amazon Nova Reel to generate a video from a text prompt.
 
-Python
+------
+#### [ Python ]
 
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Use Amazon Nova Reel to generate a video from a text prompt.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Use Amazon Nova Reel to generate a video from a text prompt.  
 
 ```
 """
@@ -135,27 +133,17 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [GetAsyncInvoke](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/GetAsyncInvoke)
+  + [StartAsyncInvoke](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/StartAsyncInvoke)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Swift ]
 
-  - [GetAsyncInvoke](../../../goto/boto3/bedrock-runtime-2023-09-30/GetAsyncInvoke.md "../../../goto/boto3/bedrock-runtime-2023-09-30/GetAsyncInvoke.md")
-  - [StartAsyncInvoke](../../../goto/boto3/bedrock-runtime-2023-09-30/StartAsyncInvoke.md "../../../goto/boto3/bedrock-runtime-2023-09-30/StartAsyncInvoke.md")
-
-Swift
-
-**SDK for Swift**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples").
-
-Use Amazon Nova Reel to generate a video from a text prompt.
+**SDK for Swift**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/bedrock-runtime#code-examples). 
+Use Amazon Nova Reel to generate a video from a text prompt.  
 
 ```
 // This example demonstrates how to use Amazon Nova Reel to generate a video from a text prompt.
@@ -207,7 +195,7 @@ func startTextToVideoGenerationJob(
 }
 
 func queryJobStatus(
-    bedrockRuntimeClient: BedrockRuntimeClient,
+    bedrockRuntimeClient: BedrockRuntimeClient, 
     invocationArn: String?
 ) async throws -> GetAsyncInvokeOutput {
     try await bedrockRuntimeClient.getAsyncInvoke(
@@ -262,16 +250,11 @@ do {
 } catch {
     print("An error occurred: \(error)")
 }
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Swift API reference*.
+  + [GetAsyncInvoke](https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/getasyncinvoke(input:))
+  + [StartAsyncInvoke](https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/startasyncinvoke(input:))
 
-- For API details, see the following topics in _AWS SDK for Swift API reference_.
+------
 
-  - [GetAsyncInvoke](<https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/getasyncinvoke(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/getasyncinvoke(input:)")
-  - [StartAsyncInvoke](<https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/startasyncinvoke(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/startasyncinvoke(input:)")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

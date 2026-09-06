@@ -1,50 +1,48 @@
-# Encryption of knowledge base resources
 
-Amazon Bedrock encrypts resources related to your knowledge bases. By default,
-Amazon Bedrock encrypts this data using an AWS-owned key. Optionally, you can encrypt the
-model artifacts using a customer managed key.
+
+# Encryption of knowledge base resources
+<a name="encryption-kb"></a>
+
+Amazon Bedrock encrypts resources related to your knowledge bases. By default, Amazon Bedrock encrypts this data using an AWS-owned key. Optionally, you can encrypt the model artifacts using a customer managed key.
 
 **Fully managed knowledge bases**
 
 Encryption with a KMS key can occur with the following processes:
++ Transient data storage while ingesting your data sources
++ Permanent data storage while storing your data sources
++ Querying a knowledge base
 
-- Transient data storage while ingesting your data sources
-- Permanent data storage while storing your data sources
-- Querying a knowledge base
-  The following resources used by your knowledge bases can be encrypted with a KMS key. If you encrypt them, you need to add permissions to decrypt the KMS key.
+The following resources used by your knowledge bases can be encrypted with a KMS key. If you encrypt them, you need to add permissions to decrypt the KMS key.
++ Data sources stored in an Amazon S3 bucket
 
-- Data sources stored in an Amazon S3 bucket
-  **Custom knowledge bases (vector store)**
+**Custom knowledge bases (vector store)**
 
 Encryption with a KMS key can occur with the following processes:
++ Transient data storage while ingesting your data sources
++ Passing information to OpenSearch Service if you let Amazon Bedrock set up your vector database
++ Querying a knowledge base
 
-- Transient data storage while ingesting your data sources
-- Passing information to OpenSearch Service if you let Amazon Bedrock set up your vector database
-- Querying a knowledge base
-  The following resources used by your knowledge bases can be encrypted with a KMS key. If you encrypt them, you need to add permissions to decrypt the KMS key.
+The following resources used by your knowledge bases can be encrypted with a KMS key. If you encrypt them, you need to add permissions to decrypt the KMS key.
++ Data sources stored in an Amazon S3 bucket
++ Third-party vector stores
 
-- Data sources stored in an Amazon S3 bucket
-- Third-party vector stores
-  For more information about AWS KMS keys, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the
-  _AWS Key Management Service Developer Guide_.
+For more information about AWS KMS keys, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk) in the *AWS Key Management Service Developer Guide*.
 
-###### Note
+**Note**  
+Amazon Bedrock knowledge bases uses TLS encryption for communication with third-party data source connectors and vector stores where the provider permits and supports TLS encryption in transit.
 
-Amazon Bedrock knowledge bases uses TLS encryption for communication with third-party data source connectors
-and vector stores where the provider permits and supports TLS encryption in transit.
-
-###### Topics
-
-- [Encryption of data storage in fully managed knowledge base](#encryption-kb-managed-ingestion "#encryption-kb-managed-ingestion")
-- [Encryption of knowledge base retrieval](#encryption-kb-runtime "#encryption-kb-runtime")
-- [Encryption of transient data storage during data ingestion](#encryption-kb-ingestion "#encryption-kb-ingestion")
-- [Encryption of information passed to Amazon OpenSearch Service](#encryption-kb-oss "#encryption-kb-oss")
-- [Encryption of information passed to Amazon S3 Vectors](#encryption-kb-s3-vector "#encryption-kb-s3-vector")
-- [Permissions to decrypt your AWS KMS key for your data sources in Amazon S3](#encryption-kb-ds "#encryption-kb-ds")
-- [Permissions to decrypt an AWS Secrets Manager secret for the vector store containing your knowledge base](#encryption-kb-3p "#encryption-kb-3p")
-- [Permissions for Bedrock Data Automation (BDA) with AWS KMS encryption](#encryption-kb-bda "#encryption-kb-bda")
+**Topics**
++ [Encryption of data storage in fully managed knowledge base](#encryption-kb-managed-ingestion)
++ [Encryption of knowledge base retrieval](#encryption-kb-runtime)
++ [Encryption of transient data storage during data ingestion](#encryption-kb-ingestion)
++ [Encryption of information passed to Amazon OpenSearch Service](#encryption-kb-oss)
++ [Encryption of information passed to Amazon S3 Vectors](#encryption-kb-s3-vector)
++ [Permissions to decrypt your AWS KMS key for your data sources in Amazon S3](#encryption-kb-ds)
++ [Permissions to decrypt an AWS Secrets Manager secret for the vector store containing your knowledge base](#encryption-kb-3p)
++ [Permissions for Bedrock Data Automation (BDA) with AWS KMS encryption](#encryption-kb-bda)
 
 ## Encryption of data storage in fully managed knowledge base
+<a name="encryption-kb-managed-ingestion"></a>
 
 When you create a fully managed knowledge base, you can encrypt the data with a custom KMS key. The KMS key is specified during knowledge base creation and applies to both transient data storage during ingestion and permanent data storage for indexing.
 
@@ -56,12 +54,12 @@ You provide these permissions in the key policy of your AWS KMS key for the IAM 
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::111122223333:role/`role-name`"
+                "AWS": "arn:aws:iam::111122223333:role/{{role-name}}"
             },
             "Action": [
                 "kms:CreateGrant"
@@ -69,7 +67,7 @@ You provide these permissions in the key policy of your AWS KMS key for the IAM 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "kms:ViaService": "bedrock.`region`.amazonaws.com"
+                    "kms:ViaService": "bedrock.{{region}}.amazonaws.com"
                 },
                 "ForAllValues:StringEquals": {
                     "kms:GrantOperations": [
@@ -86,7 +84,7 @@ You provide these permissions in the key policy of your AWS KMS key for the IAM 
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::111122223333:role/`role-name`"
+                "AWS": "arn:aws:iam::111122223333:role/{{role-name}}"
             },
             "Action": [
                 "kms:GenerateDataKey",
@@ -95,7 +93,7 @@ You provide these permissions in the key policy of your AWS KMS key for the IAM 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "kms:ViaService": "bedrock.`region`.amazonaws.com"
+                    "kms:ViaService": "bedrock.{{region}}.amazonaws.com"
                 }
             }
         }
@@ -104,8 +102,9 @@ You provide these permissions in the key policy of your AWS KMS key for the IAM 
 ```
 
 ### Monitor your encryption keys for fully managed knowledge bases
+<a name="encryption-kb-managed-monitor"></a>
 
-When you use an AWS KMS customer managed key with your knowledge base, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track the requests that Amazon Bedrock sends to AWS KMS.
+When you use an AWS KMS customer managed key with your knowledge base, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) or [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to track the requests that Amazon Bedrock sends to AWS KMS.
 
 The following is an example AWS CloudTrail event for that shows the grant that Amazon Bedrock creates on your AWS KMS key when you create a fully managed knowledge base:
 
@@ -170,135 +169,151 @@ The following is an example AWS CloudTrail event for that shows the grant that A
 ```
 
 ## Encryption of knowledge base retrieval
+<a name="encryption-kb-runtime"></a>
 
-You can encrypt sessions in which you generate responses from querying a knowledge base with a KMS key. To do so, include the ARN of a KMS key in the `kmsKeyArn` field when making a [RetrieveAndGenerate](../APIReference/API_agent-runtime_RetrieveAndGenerate.md "../APIReference/API_agent-runtime_RetrieveAndGenerate.md") request. Attach the following policy, replacing the example values with your own AWS Region, account ID, and AWS KMS key ID to allow Amazon Bedrock to encrypt the session context.
+You can encrypt sessions in which you generate responses from querying a knowledge base with a KMS key. To do so, include the ARN of a KMS key in the `kmsKeyArn` field when making a [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) request. Attach the following policy, replacing the example values with your own AWS Region, account ID, and AWS KMS key ID to allow Amazon Bedrock to encrypt the session context.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Principal": {
- "Service": "bedrock.amazonaws.com"
- },
- "Action": [
- "kms:GenerateDataKey",
- "kms:Decrypt"
- ],
- "Resource": "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-id`"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "bedrock.amazonaws.com"
+            },
+            "Action": [
+                "kms:GenerateDataKey",
+                "kms:Decrypt"
+            ],
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{key-id}}"
+        }
+    ]
+}
+```
+
+------
 
 ## Encryption of transient data storage during data ingestion
+<a name="encryption-kb-ingestion"></a>
 
 When you set up a data ingestion job for your custom knowledge base, you can encrypt the job with a custom KMS key.
 
 To allow the creation of a AWS KMS key for transient data storage in the process of ingesting your data source, attach the following policy to your Amazon Bedrock service role. Replace the example values with your own AWS Region, account ID, and AWS KMS key ID.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:GenerateDataKey",
- "kms:Decrypt"
- ],
- "Resource": [
- "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:GenerateDataKey",
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{key-id}}"
+            ]
+        }
+    ]
+}
 ```
+
+------
 
 ## Encryption of information passed to Amazon OpenSearch Service
+<a name="encryption-kb-oss"></a>
 
-If you opt to let Amazon Bedrock create a vector store in Amazon OpenSearch Service for your knowledge base, Amazon Bedrock
-can pass a KMS key that you choose to Amazon OpenSearch Service for encryption. To learn more about encryption
-in Amazon OpenSearch Service, see [Encryption in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/serverless-encryption.md "../../../opensearch-service/latest/developerguide/serverless-encryption.md").
+If you opt to let Amazon Bedrock create a vector store in Amazon OpenSearch Service for your knowledge base, Amazon Bedrock can pass a KMS key that you choose to Amazon OpenSearch Service for encryption. To learn more about encryption in Amazon OpenSearch Service, see [Encryption in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html).
 
 ## Encryption of information passed to Amazon S3 Vectors
+<a name="encryption-kb-s3-vector"></a>
 
-If you opt to let Amazon Bedrock create an S3 vector bucket and vector index in Amazon S3 Vectors for your
-knowledge base, Amazon Bedrock can pass a KMS key that you choose to Amazon S3 Vectors for encryption. To learn more
-about encryption in Amazon S3 Vectors, see [Encryption with Amazon S3 Vectors](../../../AmazonS3/latest/userguide/s3-vectors-bucket-encryption.md "../../../AmazonS3/latest/userguide/s3-vectors-bucket-encryption.md").
+If you opt to let Amazon Bedrock create an S3 vector bucket and vector index in Amazon S3 Vectors for your knowledge base, Amazon Bedrock can pass a KMS key that you choose to Amazon S3 Vectors for encryption. To learn more about encryption in Amazon S3 Vectors, see [Encryption with Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-bucket-encryption.html).
 
 ## Permissions to decrypt your AWS KMS key for your data sources in Amazon S3
+<a name="encryption-kb-ds"></a>
 
-You store the data sources for your knowledge base in your Amazon S3 bucket. To encrypt these documents at rest, you
-can use the Amazon S3 SSE-S3 server-side encryption option. With this option, objects are
-encrypted with service keys managed by the Amazon S3 service.
+You store the data sources for your knowledge base in your Amazon S3 bucket. To encrypt these documents at rest, you can use the Amazon S3 SSE-S3 server-side encryption option. With this option, objects are encrypted with service keys managed by the Amazon S3 service. 
 
-For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys
-(SSE-S3)](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md") in the _Amazon Simple Storage Service User Guide_.
+For more information, see [Protecting data using server-side encryption with Amazon S3-managed encryption keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html) in the *Amazon Simple Storage Service User Guide*.
 
 If you encrypted your data sources in Amazon S3 with a custom AWS KMS key, attach the following policy to your Amazon Bedrock service role to allow Amazon Bedrock to decrypt your key. Replace the example values with your own AWS Region, account ID, and AWS KMS key ID.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "KMS:Decrypt"
- ],
- "Resource": [
- "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-id`"
- ],
- "Condition": {
- "StringEquals": {
- "kms:ViaService": [
- "s3.us-east-1.amazonaws.com"
- ]
- }
- }
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "KMS:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{key-id}}"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "kms:ViaService": [
+                        "s3.us-east-1.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
+}
 ```
+
+------
 
 ## Permissions to decrypt an AWS Secrets Manager secret for the vector store containing your knowledge base
+<a name="encryption-kb-3p"></a>
 
-If the vector store containing your knowledge base is configured with an AWS Secrets Manager secret, you can encrypt the secret with a custom AWS KMS key by following the steps at [Secret encryption and decryption in AWS Secrets Manager](../../../secretsmanager/latest/userguide/security-encryption.md "../../../secretsmanager/latest/userguide/security-encryption.md").
+If the vector store containing your knowledge base is configured with an AWS Secrets Manager secret, you can encrypt the secret with a custom AWS KMS key by following the steps at [Secret encryption and decryption in AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html).
 
 If you do so, you attach the following policy to your Amazon Bedrock service role to allow it to decrypt your key. Replace the example values with your own AWS Region, account ID, and AWS KMS key ID.
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:Decrypt"
- ],
- "Resource": [
- "arn:aws:kms:`us-east-1`:`123456789012`:key/`key-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{key-id}}"
+            ]
+        }
+    ]
+}
 ```
+
+------
 
 ## Permissions for Bedrock Data Automation (BDA) with AWS KMS encryption
+<a name="encryption-kb-bda"></a>
 
 When using BDA to process multimodal content with customer-managed AWS KMS keys, additional permissions are required beyond the standard AWS KMS permissions.
 
@@ -314,11 +329,11 @@ Attach the following policy to your Amazon Bedrock service role to allow BDA to 
         "kms:DescribeKey",
         "kms:CreateGrant"
     ],
-    "Resource": "arn:aws:kms:`region`:`account-id`:key/`key-id`",
+    "Resource": "arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}}",
     "Condition": {
         "StringEquals": {
-            "aws:ResourceAccount": "`account-id`",
-            "kms:ViaService": "bedrock.`region`.amazonaws.com"
+            "aws:ResourceAccount": "{{account-id}}",
+            "kms:ViaService": "bedrock.{{region}}.amazonaws.com"
         }
     }
 }

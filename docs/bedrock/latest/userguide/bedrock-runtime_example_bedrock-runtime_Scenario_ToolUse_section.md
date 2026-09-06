@@ -1,21 +1,18 @@
+
+
 # A tool use example illustrating how to connect AI models on Amazon Bedrock with a custom tool or API
+<a name="bedrock-runtime_example_bedrock-runtime_Scenario_ToolUse_section"></a>
 
 The following code examples show how to build a typical interaction between an application, a generative AI model, and connected tools or APIs to mediate interactions between the AI and the outside world. It uses the example of connecting an external weather API to the AI model so it can provide real-time weather information based on user input.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime/Scenarios/ConverseToolScenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime/Scenarios/ConverseToolScenario#code-examples").
-
-The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime/Scenarios/ConverseToolScenario#code-examples). 
+The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
 ```
-
 using Amazon;
 using Amazon.BedrockRuntime;
 using Amazon.BedrockRuntime.Model;
@@ -54,12 +51,12 @@ public static class ConverseToolScenario
         To use the tool, you strictly apply the provided tool specification.
 
         - Explain your step-by-step process, and give brief updates before each step.
-        - Only use the Weather_Tool for data. Never guess or make up information.
+        - Only use the Weather_Tool for data. Never guess or make up information. 
         - Repeat the tool use for subsequent requests if necessary.
         - If the tool errors, apologize, explain weather is unavailable, and suggest other options.
         - Report temperatures in °C (°F) and wind in km/h (mph). Keep weather reports concise. Sparingly use
           emojis where appropriate.
-        - Only respond to weather queries. Remind off-topic users of your purpose.
+        - Only respond to weather queries. Remind off-topic users of your purpose. 
         - Never claim to search online, access external data, or use tools besides Weather_Tool.
         - Complete the entire process until you have all required data before sending the complete response.
     "
@@ -372,14 +369,10 @@ public static class ConverseToolScenario
         Console.WriteLine();
     }
 }
-
+```
+The weather tool used by the demo. This file defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.  
 
 ```
-
-The weather tool used by the demo. This file defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.
-
-```
-
 using Amazon.BedrockRuntime.Model;
 using Amazon.Runtime.Documents;
 using Microsoft.Extensions.Logging;
@@ -472,14 +465,10 @@ public class WeatherTool
         }
     }
 }
-
+```
+The Converse API action with a tool configuration.  
 
 ```
-
-The Converse API action with a tool configuration.
-
-```
-
 /// <summary>
 /// Wrapper class for interacting with the Amazon Bedrock Converse API.
 /// </summary>
@@ -550,25 +539,15 @@ public class BedrockActionsWrapper
         }
     }
 }
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [Converse](../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse.md "../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
 ```
 /*
@@ -593,14 +572,14 @@ public class BedrockScenario {
             the Weather_Tool, which expects latitude and longitude. Infer the coordinates from the location yourself.
             If the user provides coordinates, infer the approximate location and refer to it in your response.
             To use the tool, you strictly apply the provided tool specification.
-
+            
             - Explain your step-by-step process, and give brief updates before each step.
-            - Only use the Weather_Tool for data. Never guess or make up information.
+            - Only use the Weather_Tool for data. Never guess or make up information. 
             - Repeat the tool use for subsequent requests if necessary.
             - If the tool errors, apologize, explain weather is unavailable, and suggest other options.
             - Report temperatures in °C (°F) and wind in km/h (mph). Keep weather reports concise. Sparingly use
               emojis where appropriate.
-            - Only respond to weather queries. Remind off-topic users of your purpose.
+            - Only respond to weather queries. Remind off-topic users of your purpose. 
             - Never claim to search online, access external data, or use tools besides Weather_Tool.
             - Complete the entire process until you have all required data before sending the complete response.
             """;
@@ -611,17 +590,17 @@ public class BedrockScenario {
                 =================================================
                 Welcome to the Amazon Bedrock Tool Use demo!
                 =================================================
-
+                
                 This assistant provides current weather information for user-specified locations.
                 You can ask for weather details by providing the location name or coordinates.
-
+                
                 Example queries:
                 - What's the weather like in New York?
                 - Current weather for latitude 40.70, longitude -74.01
                 - Is it warmer in Rome or Barcelona today?
-
+                
                 To exit the program, simply type 'x' and press Enter.
-
+                
                 P.S.: You're not limited to single locations, or even to using English!
                 Have fun and experiment with the app!
                 """);
@@ -865,18 +844,15 @@ public class BedrockScenario {
                 =================================================
                 Thank you for checking out the Amazon Bedrock Tool Use demo. We hope you
                 learned something new, or got some inspiration for your own apps today!
-
+                
                 For more Bedrock examples in different programming languages, have a look at:
                 https://docs.aws.amazon.com/bedrock/latest/userguide/service_code_examples.html
                 =================================================
                 """);
     }
 }
-
-
 ```
-
-The weather tool used by the demo. This file defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.
+The weather tool used by the demo. This file defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.  
 
 ```
 public class WeatherTool {
@@ -999,11 +975,8 @@ public class WeatherTool {
         return Document.fromNull(); // Handle null values safely
     }
 }
-
-
 ```
-
-The Converse API action with a tool configuration.
+The Converse API action with a tool configuration.  
 
 ```
     /**
@@ -1048,28 +1021,17 @@ The Converse API action with a tool configuration.
             throw new RuntimeException("Failed to converse with Bedrock model: " + ex.getMessage(), ex);
         }
     }
+```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for Java 2.x API Reference*. 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime/scenarios/converse_tool_scenario#code-examples). 
+The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
 ```
-
-- For API details, see
-  [Converse](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for Java 2.x API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime/scenarios/converse_tool_scenario#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime/scenarios/converse_tool_scenario#code-examples").
-
-The primary execution of the scenario flow. This scenario orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.
-
-```
-
 /* Before running this JavaScript code example, set up your development environment, including your credentials.
 This demo illustrates a tool use scenario using Amazon Bedrock's Converse API and a weather tool.
 The script interacts with a foundation model on Amazon Bedrock to provide weather information based on user
@@ -1379,28 +1341,17 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   });
   main({ confirmAll: values.yes });
 }
+```
++  For API details, see [Converse](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand) in *AWS SDK for JavaScript API Reference*. 
 
+------
+#### [ Python ]
+
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+The primary execution script of the demo. This script orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
 ```
-
-- For API details, see
-  [Converse](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
-
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-The primary execution script of the demo. This script orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.
-
-```
-
 """
 This demo illustrates a tool use scenario using Amazon Bedrock's Converse API and a weather tool.
 The script interacts with a foundation model on Amazon Bedrock to provide weather information based on user
@@ -1439,12 +1390,12 @@ If the user provides coordinates, infer the approximate location and refer to it
 To use the tool, you strictly apply the provided tool specification.
 
 - Explain your step-by-step process, and give brief updates before each step.
-- Only use the Weather_Tool for data. Never guess or make up information.
+- Only use the Weather_Tool for data. Never guess or make up information. 
 - Repeat the tool use for subsequent requests if necessary.
 - If the tool errors, apologize, explain weather is unavailable, and suggest other options.
 - Report temperatures in °C (°F) and wind in km/h (mph). Keep weather reports concise. Sparingly use
   emojis where appropriate.
-- Only respond to weather queries. Remind off-topic users of your purpose.
+- Only respond to weather queries. Remind off-topic users of your purpose. 
 - Never claim to search online, access external data, or use tools besides Weather_Tool.
 - Complete the entire process until you have all required data before sending the complete response.
 """
@@ -1650,14 +1601,10 @@ class ToolUseDemo:
 if __name__ == "__main__":
     tool_use_demo = ToolUseDemo()
     tool_use_demo.run()
-
+```
+The weather tool used by the demo. This script defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.  
 
 ```
-
-The weather tool used by the demo. This script defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.
-
-```
-
 import requests
 from requests.exceptions import RequestException
 
@@ -1716,25 +1663,15 @@ def fetch_weather_data(input_data):
         return e.response.json()
     except Exception as e:
         return {"error": type(e), "message": str(e)}
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [Converse](../../../goto/boto3/bedrock-runtime-2023-09-30/Converse.md "../../../goto/boto3/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ Rust ]
 
-Rust
-
-**SDK for Rust**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-runtime#code-examples").
-
-The primary scenario and logic for the demo. This orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.
+**SDK for Rust**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/rustv1/examples/bedrock-runtime#code-examples). 
+The primary scenario and logic for the demo. This orchestrates the conversation between the user, the Amazon Bedrock Converse API, and a weather tool.  
 
 ```
 #[derive(Debug)]
@@ -1912,11 +1849,8 @@ async fn main() {
     }
     footer();
 }
-
-
 ```
-
-The weather tool used by the demo. This script defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.
+The weather tool used by the demo. This script defines the tool specification and implements the logic to retrieve weather data using from the Open-Meteo API.  
 
 ```
 const ENDPOINT: &str = "https://api.open-meteo.com/v1/forecast";
@@ -1970,11 +1904,8 @@ async fn fetch_weather_data(
         .content(ToolResultContentBlock::Text(result))
         .build()?)
 }
-
-
 ```
-
-Utilities to print the Message Content Blocks.
+Utilities to print the Message Content Blocks.  
 
 ```
 fn print_model_response(block: &ContentBlock) -> Result<(), ToolUseScenarioError> {
@@ -1988,11 +1919,8 @@ fn print_model_response(block: &ContentBlock) -> Result<(), ToolUseScenarioError
         )))
     }
 }
-
-
 ```
-
-Use statements, Error utility, and constants.
+Use statements, Error utility, and constants.  
 
 ```
 use std::{collections::HashMap, io::stdin};
@@ -2022,12 +1950,12 @@ If the user provides coordinates, infer the approximate location and refer to it
 To use the tool, you strictly apply the provided tool specification.
 
 - Explain your step-by-step process, and give brief updates before each step.
-- Only use the Weather_Tool for data. Never guess or make up information.
+- Only use the Weather_Tool for data. Never guess or make up information. 
 - Repeat the tool use for subsequent requests if necessary.
 - If the tool errors, apologize, explain weather is unavailable, and suggest other options.
 - Report temperatures in °C (°F) and wind in km/h (mph). Keep weather reports concise. Sparingly use
   emojis where appropriate.
-- Only respond to weather queries. Remind off-topic users of your purpose.
+- Only respond to weather queries. Remind off-topic users of your purpose. 
 - Never claim to search online, access external data, or use tools besides Weather_Tool.
 - Complete the entire process until you have all required data before sending the complete response.
 ";
@@ -2104,14 +2032,9 @@ impl From<SdkError<ConverseError, Response>> for ToolUseScenarioError {
         })
     }
 }
-
-
 ```
++  For API details, see [Converse](https://docs.rs/aws-sdk-bedrockruntime/latest/aws_sdk_bedrockruntime/client/struct.Client.html#method.converse) in *AWS SDK for Rust API reference*. 
 
-- For API details, see
-  [Converse](https://docs.rs/aws-sdk-bedrockruntime/latest/aws_sdk_bedrockruntime/client/struct.Client.html#method.converse "https://docs.rs/aws-sdk-bedrockruntime/latest/aws_sdk_bedrockruntime/client/struct.Client.html#method.converse")
-  in _AWS SDK for Rust API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

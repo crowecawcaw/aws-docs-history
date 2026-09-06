@@ -1,347 +1,301 @@
-# Enforce the use of specific guardrails in model inference requests
 
-You can enforce the use of a specific guardrail for model inference by including the
-`bedrock:GuardrailIdentifier` condition key in your IAM policy. This
-allows you to deny any inference API request that doesn't include the guardrail
-configured in your IAM policy.
+
+# Enforce the use of specific guardrails in model inference requests
+<a name="guardrails-permissions-id"></a>
+
+You can enforce the use of a specific guardrail for model inference by including the `bedrock:GuardrailIdentifier` condition key in your IAM policy. This allows you to deny any inference API request that doesn't include the guardrail configured in your IAM policy.
 
 You can apply this enforcement for the following inference APIs:
++ [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html)
++ [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html)
++ [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html)
++ [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)
 
-- [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md")
-- [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md")
-- [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md")
-- [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")
+The following examples are some ways in which you can using the `bedrock:GuardrailIdentifier` condition key.
 
-The following examples are some ways in which you can using the
-`bedrock:GuardrailIdentifier` condition key.
-
-**Example 1: Enforce the use of a specific guardrail and its numeric version**
-
-Use the following policy to enforce the use of a specific guardrail
-(`guardrail-id`) and its numeric
-version 1 during model inference.
-
-The explicit deny keeps the user request from calling the listed actions with
-any other `GuardrailIdentifier` and guardrail version no matter what
-other permissions the user might have.
-
-JSON
+**Example 1: Enforce the use of a specific guardrail and its numeric version**  
+Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and its numeric version 1 during model inference.  
+The explicit deny keeps the user request from calling the listed actions with any other `GuardrailIdentifier` and guardrail version no matter what other permissions the user might have.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "InvokeFoundationModelStatement1",
- "Effect": "Allow",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "StringEquals": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`:`1`"
- }
- }
- },
- {
- "Sid": "InvokeFoundationModelStatement2",
- "Effect": "Deny",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "StringNotEquals": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`:`1`"
- }
- }
- },
- {
- "Sid": "ApplyGuardrail",
- "Effect": "Allow",
- "Action": [
- "bedrock:ApplyGuardrail"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "InvokeFoundationModelStatement1",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}:{{1}}"
+                }
+            }
+        },
+        {
+            "Sid": "InvokeFoundationModelStatement2",
+            "Effect": "Deny",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}:{{1}}"
+                }
+            }
+        },
+        {
+            "Sid": "ApplyGuardrail",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ApplyGuardrail"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}"
+            ]
+        }
+    ]
+}
 ```
 
-**Example 2: Enforce the use of a specific guardrail and its DRAFT version**
-
-Use the following policy to enforce the use of a specific guardrail
-(`guardrail-id`) and its DRAFT
-version during model inference.
-
-JSON
+**Example 2: Enforce the use of a specific guardrail and its DRAFT version**  
+Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and its DRAFT version during model inference.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "InvokeFoundationModelStatement1",
- "Effect": "Allow",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "StringEquals": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`"
- }
- }
- },
- {
- "Sid": "InvokeFoundationModelStatement2",
- "Effect": "Deny",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "StringNotEquals": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`"
- }
- }
- },
- {
- "Sid": "ApplyGuardrail",
- "Effect": "Allow",
- "Action": [
- "bedrock:ApplyGuardrail"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "InvokeFoundationModelStatement1",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}"
+                }
+            }
+        },
+        {
+            "Sid": "InvokeFoundationModelStatement2",
+            "Effect": "Deny",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}"
+                }
+            }
+        },
+        {
+            "Sid": "ApplyGuardrail",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ApplyGuardrail"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}"
+            ]
+        }
+    ]
+}
 ```
 
-**Example 3: Enforce the use of a specific guardrail and any of its numeric
-versions**
-
-Use the following policy to enforce the use of a specific guardrail
-(`guardrail-id`) and any of its
-numeric versions during model inference.
-
-JSON
+**Example 3: Enforce the use of a specific guardrail and any of its numeric versions**  
+Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and any of its numeric versions during model inference.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "InvokeFoundationModelStatement1",
- "Effect": "Allow",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "ArnLike": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`:*"
- }
- }
- },
- {
- "Sid": "InvokeFoundationModelStatement2",
- "Effect": "Deny",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "ArnNotLike": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`:*"
- }
- }
- },
- {
- "Sid": "ApplyGuardrail",
- "Effect": "Allow",
- "Action": [
- "bedrock:ApplyGuardrail"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "InvokeFoundationModelStatement1",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "ArnLike": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}:*"
+                }
+            }
+        },
+        {
+            "Sid": "InvokeFoundationModelStatement2",
+            "Effect": "Deny",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "ArnNotLike": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}:*"
+                }
+            }
+        },
+        {
+            "Sid": "ApplyGuardrail",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ApplyGuardrail"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}"
+            ]
+        }
+    ]
+}
 ```
 
-**Example 4: Enforce the use of a specific guardrail and any of its versions**
-
-Use the following policy to enforce the use of a specific guardrail
-(`guardrail-id`) and any of its
-numeric versions (including the DRAFT version) during model inference.
-
-JSON
+**Example 4: Enforce the use of a specific guardrail and any of its versions**  
+Use the following policy to enforce the use of a specific guardrail (`{{guardrail-id}}`) and any of its numeric versions (including the DRAFT version) during model inference.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "InvokeFoundationModelStatement1",
- "Effect": "Allow",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "ArnLike": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`*"
- }
- }
- },
- {
- "Sid": "InvokeFoundationModelStatement2",
- "Effect": "Deny",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "ArnNotLike": {
- "bedrock:GuardrailIdentifier": "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`*"
- }
- }
- },
- {
- "Sid": "ApplyGuardrail",
- "Effect": "Allow",
- "Action": [
- "bedrock:ApplyGuardrail"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "InvokeFoundationModelStatement1",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "ArnLike": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}*"
+                }
+            }
+        },
+        {
+            "Sid": "InvokeFoundationModelStatement2",
+            "Effect": "Deny",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "ArnNotLike": {
+                    "bedrock:GuardrailIdentifier": "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}*"
+                }
+            }
+        },
+        {
+            "Sid": "ApplyGuardrail",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ApplyGuardrail"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-id}}"
+            ]
+        }
+    ]
+}
 ```
 
-**Example 5: Enforce the use of specific guardrail and version pairs**
-
-Use the following policy to allow model inference for only a set of guardrails
-and their respective versions.
-
-JSON
+**Example 5: Enforce the use of specific guardrail and version pairs**  
+Use the following policy to allow model inference for only a set of guardrails and their respective versions.    
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "InvokeFoundationModelStatement1",
- "Effect": "Allow",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "StringEquals": {
- "bedrock:GuardrailIdentifier": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-1-id`:`1`",
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-2-id`:`2`",
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-3-id`"
- ]
- }
- }
- },
- {
- "Sid": "InvokeFoundationModelStatement2",
- "Effect": "Deny",
- "Action": [
- "bedrock:InvokeModel",
- "bedrock:InvokeModelWithResponseStream"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`::foundation-model/*"
- ],
- "Condition": {
- "StringNotEquals": {
- "bedrock:GuardrailIdentifier": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-1-id`:`1`",
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-2-id`:`2`",
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-3-id`"
- ]
- }
- }
- },
- {
- "Sid": "ApplyGuardrail",
- "Effect": "Allow",
- "Action": [
- "bedrock:ApplyGuardrail"
- ],
- "Resource": [
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-1-id`",
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-2-id`",
- "arn:aws:bedrock:`us-east-1`:`123456789012`:guardrail/`guardrail-3-id`"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "InvokeFoundationModelStatement1",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "bedrock:GuardrailIdentifier": [
+                        "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-1-id}}:{{1}}",
+                        "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-2-id}}:{{2}}",
+                        "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-3-id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "InvokeFoundationModelStatement2",
+            "Effect": "Deny",
+            "Action": [
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}::foundation-model/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "bedrock:GuardrailIdentifier": [
+                        "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-1-id}}:{{1}}",
+                        "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-2-id}}:{{2}}",
+                        "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-3-id}}"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "ApplyGuardrail",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:ApplyGuardrail"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-1-id}}",
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-2-id}}",
+                "arn:aws:bedrock:{{us-east-1}}:{{123456789012}}:guardrail/{{guardrail-3-id}}"
+            ]
+        }
+    ]
+}
 ```
 
-**Limitations**
-
-If a user assumes an IAM role that has a specific guardrail configured
-using the `bedrock:GuardrailIdentifier` condition key:
-
-- A
-  user should not use the same role with additional
-  permissions to invoke Bedrock APIs like
-  `RetrieveAndGenerate`, `InvokeAgent`,
-  and `InvokeInlineAgent`
-  that make `InvokeModel` calls on behalf of the user. This
-  can lead to access denied errors even when the guardrail is
-  specified in the request because these APIs make multiple `InvokeModel`
-  calls, and some of these calls don't include a guardrail.
-- A user can bypass applying a guardrail in their prompt by using
-  [guardrail input tags](guardrails-tagging.md "guardrails-tagging.md").
-  However, the guardrail is always applied on the response.
-- Since Amazon Bedrock Guardrails support cross-account sharing only within an
-  organization, your guardrail and the requesting IAM role must
-  belong to accounts in the same AWS organization. See [Using resource based policies for guardrails](guardrails-resource-based-policies.md "guardrails-resource-based-policies.md") to learn
-  more.
+**Limitations**  
+If a user assumes an IAM role that has a specific guardrail configured using the `bedrock:GuardrailIdentifier` condition key:  
++ A user should not use the same role with additional permissions to invoke Bedrock APIs like `RetrieveAndGenerate`, `InvokeAgent`, and `InvokeInlineAgent` that make `InvokeModel` calls on behalf of the user. This can lead to access denied errors even when the guardrail is specified in the request because these APIs make multiple `InvokeModel` calls, and some of these calls don't include a guardrail.
++ A user can bypass applying a guardrail in their prompt by using [guardrail input tags](guardrails-tagging.md). However, the guardrail is always applied on the response.
++ Since Amazon Bedrock Guardrails support cross-account sharing only within an organization, your guardrail and the requesting IAM role must belong to accounts in the same AWS organization. See [Using resource based policies for guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-resource-based-policies.html) to learn more.

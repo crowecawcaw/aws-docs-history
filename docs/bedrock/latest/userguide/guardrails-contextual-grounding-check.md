@@ -1,211 +1,128 @@
+
+
 # Use contextual grounding check to filter hallucinations in responses
+<a name="guardrails-contextual-grounding-check"></a>
 
-Amazon Bedrock Guardrails supports contextual grounding checks to detect and filter hallucinations in model
-responses when a reference source and a user query is provided. The supported use cases
-include summarization, paraphrasing, and question answering as defined in computer
-science discipline. (Conversational QA / Chatbot use cases are not supported.)
+Amazon Bedrock Guardrails supports contextual grounding checks to detect and filter hallucinations in model responses when a reference source and a user query is provided. The supported use cases include summarization, paraphrasing, and question answering as defined in computer science discipline. (Conversational QA / Chatbot use cases are not supported.)
 
-Contextual grounding checks check for relevance for each chunk processed. If any one
-chunk is deemed relevant, the whole response is considered relevant as it has the answer
-to user's query. For streaming API, this can result in scenario where an irrelevant
-response is returned to the user and is only marked as irrelevant after the whole
-response is streamed.
+Contextual grounding checks check for relevance for each chunk processed. If any one chunk is deemed relevant, the whole response is considered relevant as it has the answer to user's query. For streaming API, this can result in scenario where an irrelevant response is returned to the user and is only marked as irrelevant after the whole response is streamed.
 
 Contextual grounding checks the following paradigms:
++ **Grounding** – This checks if the model response is factually accurate based on the source and is grounded in the source. Any new information introduced in the response will be considered un-grounded.
++ **Relevance** – This checks if the model response is relevant to the user query. 
 
-- **Grounding** – This checks if the model
-  response is factually accurate based on the source and is grounded in the
-  source. Any new information introduced in the response will be considered
-  un-grounded.
-- **Relevance** – This checks if the model
-  response is relevant to the user query.
-  Consider an example where the reference source contains "London is the capital of UK.
-  Tokyo is the capital of Japan" and the user query is "What is the capital of Japan?". A
-  response such as "The capital of Japan is London" will be considered ungrounded and
-  factually incorrect, where as a response such as "The capital of UK is London" will be
-  considered irrelevant, even if it's correct and grounded in the source.
+Consider an example where the reference source contains "London is the capital of UK. Tokyo is the capital of Japan" and the user query is "What is the capital of Japan?". A response such as "The capital of Japan is London" will be considered ungrounded and factually incorrect, where as a response such as "The capital of UK is London" will be considered irrelevant, even if it's correct and grounded in the source.
 
-###### Note
+**Note**  
+When a request includes multiple `grounding_source` tags, the guardrail combines and evaluates all the provided `grounding_source` values together, rather than considering each `grounding_source` separately. This behavior is identical for the `query` tag.
 
-When a request includes multiple `grounding_source` tags, the guardrail
-combines and evaluates all the provided `grounding_source` values
-together, rather than considering each `grounding_source` separately.
-This behavior is identical for the `query` tag.
-
-###### Note
-
-Contextual grounding policy currently supports a maximum of 100,000 characters for
-grounding source, 1,000 characters for query, and 5,000 characters for
-response.
+**Note**  
+Contextual grounding policy currently supports a maximum of 100,000 characters for grounding source, 1,000 characters for query, and 5,000 characters for response.
 
 **Confidence scores and thresholds**
 
-Contextual grounding checks generate confidence scores corresponding to grounding and
-relevance for each model response processed based on the source and user query provided.
-You can configure thresholds to filter model responses based on the generated scores.
-The filtering threshold determines the minimum allowable confidence score for the model
-response to be considered as grounded and relevant in your generative AI application.
-For example, if your grounding threshold and relevance threshold are each set at 0.7,
-all model responses with a grounding or relevance score of less than 0.7 will be
-detected as hallucinations and blocked in your application. As the filtering threshold
-is increased, the likelihood of blocking un-grounded and irrelevant content increases,
-and the probability of seeing hallucinated content in your application decreases. You
-can configure threshold values of grounding and relevance between 0 and 0.99. A
-threshold of 1 is invalid as that will block all content.
+Contextual grounding checks generate confidence scores corresponding to grounding and relevance for each model response processed based on the source and user query provided. You can configure thresholds to filter model responses based on the generated scores. The filtering threshold determines the minimum allowable confidence score for the model response to be considered as grounded and relevant in your generative AI application. For example, if your grounding threshold and relevance threshold are each set at 0.7, all model responses with a grounding or relevance score of less than 0.7 will be detected as hallucinations and blocked in your application. As the filtering threshold is increased, the likelihood of blocking un-grounded and irrelevant content increases, and the probability of seeing hallucinated content in your application decreases. You can configure threshold values of grounding and relevance between 0 and 0.99. A threshold of 1 is invalid as that will block all content.
 
-Contextual grounding checks require 3 components to perform the check: the grounding
-source, the query, and the content to guard (or the model response). These are
-configured differently depending on whether you are using Invoke APIs,
-Converse APIs, or `ApplyGuardrail` directly.
+Contextual grounding checks require 3 components to perform the check: the grounding source, the query, and the content to guard (or the model response). These are configured differently depending on whether you are using Invoke APIs, Converse APIs, or `ApplyGuardrail` directly.
++ Grounding source – contextual information needed to answer any user queries. For example, "London is the capital of UK. Tokyo is the capital of Japan".
++ Query – a question a user may ask. For example, "What is the capital of Japan?".
++ Content to guard – the text that should be guarded relative to the grounding source and query. For Invoke and Converse APIs, this is the model response. For example, this can be "The capital of Japan is Tokyo".
 
-- Grounding source – contextual information needed to answer any user
-  queries. For example, "London is the capital of UK. Tokyo is the capital of
-  Japan".
-- Query – a question a user may ask. For example, "What is the capital of
-  Japan?".
-- Content to guard – the text that should be guarded relative to the
-  grounding source and query. For Invoke and Converse APIs, this is
-  the model response. For example, this can be "The capital of Japan is
-  Tokyo".
-  **Ungrounded example**
+**Ungrounded example**
++ Grounding source - "London is the capital of UK. Tokyo is the capital of Japan."
++ Query - "What is the capital of Japan?"
++ Content to guard - "The capital of Japan is London."
 
-- Grounding source - "London is the capital of UK. Tokyo is the capital of
-  Japan."
-- Query - "What is the capital of Japan?"
-- Content to guard - "The capital of Japan is London."
-  In this example, the content to guard is relevant to the query but is ungrounded as it
-  does not use the grounding source correctly. This would have a low grounding
-  score.
+In this example, the content to guard is relevant to the query but is ungrounded as it does not use the grounding source correctly. This would have a low grounding score.
 
 **Irrelevant example**
++ Grounding source - "London is the capital of UK. Tokyo is the capital of Japan."
++ Query - "What is the capital of Japan?"
++ Content to guard - "The capital of UK is London."
 
-- Grounding source - "London is the capital of UK. Tokyo is the capital of
-  Japan."
-- Query - "What is the capital of Japan?"
-- Content to guard - "The capital of UK is London."
-  In this example, the content to guard is grounded but not relevant. It uses
-  information from the grounding source but does not answer the query. This would have a
-  low relevance score.
+In this example, the content to guard is grounded but not relevant. It uses information from the grounding source but does not answer the query. This would have a low relevance score.
 
 **Ungrounded and irrelevant example**
++ Grounding source - "London is the capital of UK. Tokyo is the capital of Japan."
++ Query - "What is the capital of Japan?"
++ Content to guard - "It is raining outside."
 
-- Grounding source - "London is the capital of UK. Tokyo is the capital of
-  Japan."
-- Query - "What is the capital of Japan?"
-- Content to guard - "It is raining outside."
-  In this example, the content to guard is not grounded and not relevant. It neither
-  uses information from the grounding source nor does it answer the query. This would have
-  a low grounding and relevance score.
+In this example, the content to guard is not grounded and not relevant. It neither uses information from the grounding source nor does it answer the query. This would have a low grounding and relevance score.
 
 **More Examples**
 
-Consider a banking application that is designed to answer questions associated with
-fees and charges.
+Consider a banking application that is designed to answer questions associated with fees and charges.
 
 Source:
++ There are no fees associated with opening a checking account.
++ The monthly fee for maintaining a checking account is $10.
++ There is a 1% transaction charge for international transfers.
++ There are no charges associated with domestic transfers.
++ The charges associated with late payments of credit card bill is 23.99%.
 
-- There are no fees associated with opening a checking account.
-- The monthly fee for maintaining a checking account is $10.
-- There is a 1% transaction charge for international transfers.
-- There are no charges associated with domestic transfers.
-- The charges associated with late payments of credit card bill is
-  23.99%.
-  Based on the above source, there can be four scenarios depending on the user's
-  query.
+Based on the above source, there can be four scenarios depending on the user's query.
 
 **Grounded and Relevant**
++ Q: What are the fees associated with checking account?
++ A: The monthly fee for maintaining a checking account is $10. There are no charges associated with domestic transfers. However, there is a 1% transaction charge for international transfers. There are no fees associated with opening a checking account. 
 
-- Q: What are the fees associated with checking account?
-- A: The monthly fee for maintaining a checking account is $10. There are no
-  charges associated with domestic transfers. However, there is a 1% transaction
-  charge for international transfers. There are no fees associated with opening a
-  checking account.
-  **Un-grounded but Relevant**
+**Un-grounded but Relevant**
++ Q: What is the transaction charge associated with credit card.
++ A: The transaction charges associated with the credit card is 23.99%.
 
-- Q: What is the transaction charge associated with credit card.
-- A: The transaction charges associated with the credit card is 23.99%.
-  **Grounded but Irrelevant**
+**Grounded but Irrelevant**
++ Q: What are the charges for using a checking bank account?
++ A: Based on the information provided, the late payment fee for a credit card is 23.99%.
 
-- Q: What are the charges for using a checking bank account?
-- A: Based on the information provided, the late payment fee for a credit card
-  is 23.99%.
-  **Un-grounded and Irrelevant**
+**Un-grounded and Irrelevant**
++ Q: What are the charges for using a checking bank account?
++ A: The charges for the brokerage account are $0.5 per trading transaction.
 
-- Q: What are the charges for using a checking bank account?
-- A: The charges for the brokerage account are $0.5 per trading
-  transaction.
-
-###### Topics
-
-- [Add contextual grounding checks with the console](#guardrails-contextual-grounding-console "#guardrails-contextual-grounding-console")
-- [Calling contextual grounding check with Invoke APIs](#guardrails-contextual-grounding-invoke-api "#guardrails-contextual-grounding-invoke-api")
-- [Calling contextual grounding check with Converse APIs](#guardrails-contextual-grounding-converse-api "#guardrails-contextual-grounding-converse-api")
-- [Calling contextual grounding check with ApplyGuardrail API](#guardrails-contextual-grounding-applyguardrail-api "#guardrails-contextual-grounding-applyguardrail-api")
+**Topics**
++ [Add contextual grounding checks with the console](#guardrails-contextual-grounding-console)
++ [Calling contextual grounding check with Invoke APIs](#guardrails-contextual-grounding-invoke-api)
++ [Calling contextual grounding check with Converse APIs](#guardrails-contextual-grounding-converse-api)
++ [Calling contextual grounding check with ApplyGuardrail API](#guardrails-contextual-grounding-applyguardrail-api)
 
 ## Add contextual grounding checks with the console
+<a name="guardrails-contextual-grounding-console"></a>
 
-1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. From the left navigation pane, choose **Guardrails**, and
-   then choose **Create guardrail**.
-3. For **Provide guardrail details** page, do the
-   following:
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
 
-   1. In the **Guardrail details** section, provide a
-      **Name** and optional
-      **Description** for the guardrail.
-   2. For **Messaging for blocked prompts**, enter a
-      message that displays when your guardrail is applied. Select the
-      **Apply the same blocked message for
-      responses** checkbox to use the same message when your
-      guardrail is applied on the response.
-   3. (Optional) To enable [cross-Region inference](guardrails-cross-region.md "guardrails-cross-region.md") for your guardrail, expand
-      **Cross-Region inference**, and then select
-      **Enable cross-Region inference for your
-      guardrail**. Choose a guardrail profile that defines
-      the destination AWS Regions where guardrail inference requests can
-      be routed.
-   4. (Optional) By default, your guardrail is encrypted with an
-      AWS managed key. To use your own customer-managed KMS key,
-      expand **KMS key selection** and select the
-      **Customize encryption settings (advanced)**
-      checkbox.
+1. From the left navigation pane, choose **Guardrails**, and then choose **Create guardrail**.
 
-   You can select an existing AWS KMS key or select **Create an
-   AWS KMS key** to create a new one. 5. (Optional) To add tags to your guardrail, expand
-   **Tags**, and then, select **Add new
-   tag** for each tag you define.
+1. For **Provide guardrail details** page, do the following:
 
-   For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md"). 6. Choose **Next**.
+   1. In the **Guardrail details** section, provide a **Name** and optional **Description** for the guardrail.
 
-4. On the **Add contextual grounding check** page, configure
-   thresholds to block un-grounded or irrelevant information.
+   1. For **Messaging for blocked prompts**, enter a message that displays when your guardrail is applied. Select the **Apply the same blocked message for responses** checkbox to use the same message when your guardrail is applied on the response.
 
-###### Note
+   1. (Optional) To enable [cross-Region inference](guardrails-cross-region.md) for your guardrail, expand **Cross-Region inference**, and then select **Enable cross-Region inference for your guardrail**. Choose a guardrail profile that defines the destination AWS Regions where guardrail inference requests can be routed.
 
-For each type of check, you can move the slider or input a threshold
-value from 0 to 0.99. Select an appropriate threshold for your uses. A
-higher threshold requires responses to be grounded or relevant with a
-high degree of confidence to be allowed. Responses below the threshold
-will be filtered.
+   1. (Optional) By default, your guardrail is encrypted with an AWS managed key. To use your own customer-managed KMS key, expand **KMS key selection** and select the **Customize encryption settings (advanced)** checkbox.
 
-    1. In the **Grounding** field, select
-     **Enable grounding check** to check if model
-     responses are grounded.
-    2. In the **Relevance** field, select
-     **Enable relevance check** to check if model
-     responses are relevant.
-    3. When you finish configuring sensitive information filters, select
-     **Next** or **Skip to review and
-     create**.
+      You can select an existing AWS KMS key or select **Create an AWS KMS key** to create a new one.
+
+   1. (Optional) To add tags to your guardrail, expand **Tags**, and then, select **Add new tag** for each tag you define.
+
+      For more information, see [Tagging Amazon Bedrock resources](tagging.md).
+
+   1. Choose **Next**.
+
+1. On the **Add contextual grounding check** page, configure thresholds to block un-grounded or irrelevant information.
+**Note**  
+For each type of check, you can move the slider or input a threshold value from 0 to 0.99. Select an appropriate threshold for your uses. A higher threshold requires responses to be grounded or relevant with a high degree of confidence to be allowed. Responses below the threshold will be filtered.
+
+   1. In the **Grounding** field, select **Enable grounding check** to check if model responses are grounded.
+
+   1. In the **Relevance** field, select **Enable relevance check** to check if model responses are relevant.
+
+   1. When you finish configuring sensitive information filters, select **Next** or **Skip to review and create**.
 
 ## Calling contextual grounding check with Invoke APIs
+<a name="guardrails-contextual-grounding-invoke-api"></a>
 
-To mark the grounding source and query within the input, use the following tags
-that work the same way as input tags. These tags are
-`amazon-bedrock-guardrails-groundingSource_xyz` and
-`amazon-bedrock-guardrails-query_xyz`, where `xyz` is the tag suffix.
-For example:
+To mark the grounding source and query within the input, use the following tags that work the same way as input tags. These tags are `amazon-bedrock-guardrails-groundingSource_xyz` and `amazon-bedrock-guardrails-query_xyz`, where `xyz` is the tag suffix. For example: 
 
 ```
 {
@@ -218,48 +135,30 @@ For example:
         "tagSuffix": "xyz",
     },
 }
-
 ```
 
-Note that the model response is required to perform the contextual grounding
-checks and so the checks will only be performed on output and not on the
-prompt.
+Note that the model response is required to perform the contextual grounding checks and so the checks will only be performed on output and not on the prompt.
 
-These tags can be used alongside the `guardContent` tags. Content
-inside `groundingSource` and `query` tags is excluded from
-policy evaluations other than contextual grounding (word filters, topic filters,
-content filters, sensitive information detection).
+These tags can be used alongside the `guardContent` tags. Content inside `groundingSource` and `query` tags is excluded from policy evaluations other than contextual grounding (word filters, topic filters, content filters, sensitive information detection).
 
-The behavior of the remaining policies depends on whether you use
-`guardContent` tags:
+The behavior of the remaining policies depends on whether you use `guardContent` tags:
++ **Without `guardContent` tags** – Other policies use default behavior: System prompts are not investigated, and messages are investigated.
++ **With `guardContent` tags** – Other policies investigate only the content within the `guardContent` tags. Content outside any tag (untagged text) and content inside `groundingSource` or `query` tags is skipped.
 
-- **Without `guardContent`
-  tags** – Other policies use default behavior: System prompts
-  are not investigated, and messages are investigated.
-- **With `guardContent`
-  tags** – Other policies investigate only the content within
-  the `guardContent` tags. Content outside any tag (untagged text)
-  and content inside `groundingSource` or `query` tags is
-  skipped.
-
-To have grounding source or query content also evaluated by the remaining
-policies, nest the contextual grounding tag inside a `guardContent` tag:
+To have grounding source or query content also evaluated by the remaining policies, nest the contextual grounding tag inside a `guardContent` tag:
 
 ```
 <amazon-bedrock-guardrails-guardContent_xyz><amazon-bedrock-guardrails-groundingSource_xyz>London is the capital of UK. Tokyo is the capital of Japan.</amazon-bedrock-guardrails-groundingSource_xyz></amazon-bedrock-guardrails-guardContent_xyz>
 
 <amazon-bedrock-guardrails-query_xyz>What is the capital of Japan?</amazon-bedrock-guardrails-query_xyz>
-
 ```
 
-In this example, the grounding source content is both used as the contextual
-grounding reference source and evaluated by other policies because it is also
-wrapped in a `guardContent` tag.
+In this example, the grounding source content is both used as the contextual grounding reference source and evaluated by other policies because it is also wrapped in a `guardContent` tag.
 
 ## Calling contextual grounding check with Converse APIs
+<a name="guardrails-contextual-grounding-converse-api"></a>
 
-To mark the grounding source and query for Converse APIs, use the
-qualifiers field in each guard content block. For example:
+To mark the grounding source and query for Converse APIs, use the qualifiers field in each guard content block. For example: 
 
 ```
 [
@@ -285,47 +184,24 @@ qualifiers field in each guard content block. For example:
         ],
     }
 ]
-
 ```
 
-Note that the model response is required to perform the contextual grounding
-checks and so the checks will only be performed on output and not on the
-prompt.
+Note that the model response is required to perform the contextual grounding checks and so the checks will only be performed on output and not on the prompt.
 
-The behavior of policies other than contextual grounding depends on the
-qualifiers assigned to each `guardContent` block:
+The behavior of policies other than contextual grounding depends on the qualifiers assigned to each `guardContent` block:
++ `["grounding_source"]` – Content is used as the contextual grounding reference source only. It is not evaluated by other policies.
++ `["query"]` – Content is used as the contextual grounding user query only. It is not evaluated by other policies.
++ `["guard_content"]` – Content is evaluated by the contextual grounding check (as content to guard) and by all other policies.
++ No qualifier (unqualified) – Content is evaluated by the contextual grounding check (as content to guard) and by all other policies.
++ `["grounding_source", "guard_content"]` – Content serves both roles: used as contextual grounding reference source and evaluated by other policies.
++ `["query", "guard_content"]` – Content serves both roles: used as contextual grounding query and evaluated by other policies.
 
-- `["grounding_source"]` – Content is used as the
-  contextual grounding reference source only. It is not evaluated by other
-  policies.
-- `["query"]` – Content is used as the contextual
-  grounding user query only. It is not evaluated by other policies.
-- `["guard_content"]` – Content is evaluated by the
-  contextual grounding check (as content to guard) and by all other
-  policies.
-- No qualifier (unqualified) – Content is evaluated by the
-  contextual grounding check (as content to guard) and by all other
-  policies.
-- `["grounding_source", "guard_content"]` – Content
-  serves both roles: used as contextual grounding reference source and
-  evaluated by other policies.
-- `["query", "guard_content"]` – Content serves both
-  roles: used as contextual grounding query and evaluated by other
-  policies.
-
-If you want your grounding source or query content to also be evaluated by other
-guardrail policies, add `guard_content` to the qualifiers list alongside
-the contextual grounding qualifier.
+If you want your grounding source or query content to also be evaluated by other guardrail policies, add `guard_content` to the qualifiers list alongside the contextual grounding qualifier.
 
 ## Calling contextual grounding check with ApplyGuardrail API
+<a name="guardrails-contextual-grounding-applyguardrail-api"></a>
 
-Using contextual grounding check with `ApplyGuardrail` is similar to
-using it with the Converse APIs. To mark the grounding source and
-query for `ApplyGuardrail`, use the qualifiers field in each content
-block. However, because a model is not invoked with `ApplyGuardrail`, you
-must also provide an extra content block with the content to be guarded. This
-content block can be optionally qualified with guard\_content and is equivalent to
-the model response in the Invoke\* or Converse\* APIs. For example:
+Using contextual grounding check with `ApplyGuardrail` is similar to using it with the Converse APIs. To mark the grounding source and query for `ApplyGuardrail`, use the qualifiers field in each content block. However, because a model is not invoked with `ApplyGuardrail`, you must also provide an extra content block with the content to be guarded. This content block can be optionally qualified with guard\_content and is equivalent to the model response in the Invoke\* or Converse\* APIs. For example: 
 
 ```
 [
@@ -351,38 +227,27 @@ the model response in the Invoke\* or Converse\* APIs. For example:
         }
     }
 ]
-
 ```
 
-Note that the model response is required to perform the contextual grounding
-checks and so the checks will only be performed on output and not on the
-prompt.
+Note that the model response is required to perform the contextual grounding checks and so the checks will only be performed on output and not on the prompt.
 
 ### How qualifiers affect policy evaluation
+<a name="guardrails-applyguardrail-qualifier-behavior"></a>
 
-Content blocks with `grounding_source` or `query`
-qualifiers are evaluated only by the contextual grounding check. These blocks are
-excluded from all other guardrail policy evaluations (word filters, topic filters,
-content filters, sensitive information detection, and prompt attack detection).
+Content blocks with `grounding_source` or `query` qualifiers are evaluated only by the contextual grounding check. These blocks are excluded from all other guardrail policy evaluations (word filters, topic filters, content filters, sensitive information detection, and prompt attack detection).
 
-To have a content block evaluated by both the contextual grounding check and
-other guardrail policies, use both qualifiers together. For example, specify
-`["grounding_source", "guard_content"]` to mark a content block as a
-grounding source that is also subject to all other configured policies.
+To have a content block evaluated by both the contextual grounding check and other guardrail policies, use both qualifiers together. For example, specify `["grounding_source", "guard_content"]` to mark a content block as a grounding source that is also subject to all other configured policies.
 
-For policies other than contextual grounding to evaluate content, at least one
-content block must be unqualified or explicitly qualified with
-`guard_content`. A content block is unqualified when it has no
-`qualifiers` field.
+For policies other than contextual grounding to evaluate content, at least one content block must be unqualified or explicitly qualified with `guard_content`. A content block is unqualified when it has no `qualifiers` field.
 
-The following table summarizes how each qualifier combination affects policy
-evaluation.
+The following table summarizes how each qualifier combination affects policy evaluation.
 
-| Qualifier                               | Contextual grounding check | Other guardrail policies |
-| --------------------------------------- | -------------------------- | ------------------------ |
-| `grounding_source`                      | Evaluated (as reference)   | Not evaluated            |
-| `query`                                 | Evaluated (as query)       | Not evaluated            |
-| `guard_content`                         | Evaluated (as response)    | Evaluated                |
-| No qualifier (unqualified)              | Evaluated (as response)    | Evaluated                |
-| `["grounding_source", "guard_content"]` | Evaluated (as reference)   | Evaluated                |
-| `["query", "guard_content"]`            | Evaluated (as query)       | Evaluated                |
+
+| Qualifier | Contextual grounding check | Other guardrail policies | 
+| --- | --- | --- | 
+| `grounding_source` | Evaluated (as reference) | Not evaluated | 
+| `query` | Evaluated (as query) | Not evaluated | 
+| `guard_content` | Evaluated (as response) | Evaluated | 
+| No qualifier (unqualified) | Evaluated (as response) | Evaluated | 
+| `["grounding_source", "guard_content"]` | Evaluated (as reference) | Evaluated | 
+| `["query", "guard_content"]` | Evaluated (as query) | Evaluated | 

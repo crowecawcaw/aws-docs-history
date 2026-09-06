@@ -1,23 +1,17 @@
-# Test your knowledge base with queries and responses
 
-After you set up your knowledge base, you can test its behavior in the following ways:
 
-###### Important
+# Test your managed knowledge base with queries and responses
+<a name="kb-managed-test"></a>
 
-For optimized retrieval accuracy and a managed experience, we recommend [Amazon Bedrock Managed Knowledge Base](kb-build-managed.md "kb-build-managed.md").
-
-- Send queries and retrieving relevant information from your data sources, by using the [[Retrieve](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md")](../APIReference/API_agent-runtime_Retrieve.md "../APIReference/API_agent-runtime_Retrieve.md") operation.
-- Send queries and generate responses to the queries based on the retrieved information from your data sources.
-- Use a reranking model to retrieve more relevant sources.
-- Use optional metadata filters to specify which documents in your data source can be used.
-  When you are satisfied with your knowledge base's behavior, you can then set up your application to query the knowledge base or attach the knowledge base to an agent by proceeding to [Deploy your knowledge base for your AI application](knowledge-base-deploy.md "knowledge-base-deploy.md").
-
-The test behavior is different based on functionality available in customer-managed knowledge bases or managed knowledge bases. If you are using managed knowledge bases, for example, you can use agentic retrieval to decompose complex queries into sub-queries and iteratively retrieve relevant information from your data sources, by using the [`AgenticRetrieveStream`](../APIReference/API_agent-runtime_AgenticRetrieveStream.md "../APIReference/API_agent-runtime_AgenticRetrieveStream.md") operation.
+After you set up your managed knowledge base, you can test its behavior in the following ways:
++ Retrieve relevant information from your data sources, by using the [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html) operation.
++ Use agentic retrieval to decompose complex queries into sub-queries and iteratively retrieve relevant information from your data sources, by using the `AgenticRetrieveStream` operation.
++ Connect to your knowledge base through AgentCore Gateway to expose it as an MCP tool.
 
 Select a topic to learn more about it.
 
-###### Topics
-
-- [Query a knowledge base and retrieve data](kb-test-retrieve.md "kb-test-retrieve.md")
-- [Test your customer-managed knowledge base](kb-test-self-managed.md "kb-test-self-managed.md")
-- [Test your managed knowledge base with queries and responses](kb-managed-test.md "kb-managed-test.md")
+**Topics**
++ [ACL-aware retrieval on managed knowledge bases](kb-test-retrieve-acl.md)
++ [Retrieve the content of documents from knowledge base](kb-test-get-document-content.md)
++ [Use agentic retrieval to query a knowledge base](kb-test-agentic-retrieve.md)
++ [Configure and customize queries for managed knowledge bases](kb-managed-test-config.md)

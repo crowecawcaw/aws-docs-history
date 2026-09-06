@@ -1,46 +1,52 @@
+
+
 # Compaction
+<a name="claude-messages-compaction"></a>
 
-###### Tip
-
+**Tip**  
 Server-side compaction is recommended for managing context in long-running conversations and agentic workflows as it handles context management automatically with minimal integration work.
 
-###### Note
-
-Compaction is currently in beta. Include the beta header `compact-2026-01-12` in your API requests to use this feature. Compaction is currently not supported by the Converse API, however it is supported with [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md").
+**Note**  
+Compaction is currently in beta. Include the beta header `compact-2026-01-12` in your API requests to use this feature. Compaction is currently not supported by the Converse API, however it is supported with [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html).
 
 Compaction extends the effective context length for long-running conversations and tasks by automatically summarizing older context when approaching the context window limit. This is ideal for:
++ Chat-based, multi-turn conversations where you want users to use one chat for a long period of time
++ Task-oriented prompts that require a lot of follow-up work (often tool use) that may exceed the 200K context window
 
-- Chat-based, multi-turn conversations where you want users to use one chat for a long period of time
-- Task-oriented prompts that require a lot of follow-up work (often tool use) that may exceed the 200K context window
-  Compaction is supported on the following models:
+Compaction is supported on the following models:
 
-| Model             | Model ID                       |
-| ----------------- | ------------------------------ |
-| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6`  |
-| Claude Opus 4.6   | `anthropic.claude-opus-4-6-v1` |
 
-###### Note
+| Model | Model ID | 
+| --- | --- | 
+| Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6` | 
+| Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` | 
 
-The top-level `input_tokens` and `output_tokens` in the `usage` field do not include compaction iteration usage, and reflect the sum of all non-compaction iterations. To calculate the total tokens consumed and billed for a request, sum across all entries in the `usage.iterations` array.
-
+**Note**  
+The top-level `input_tokens` and `output_tokens` in the `usage` field do not include compaction iteration usage, and reflect the sum of all non-compaction iterations. To calculate the total tokens consumed and billed for a request, sum across all entries in the `usage.iterations` array.  
 If you previously relied on `usage.input_tokens` and `usage.output_tokens` for cost tracking or auditing, you will need to update your tracking logic to aggregate across `usage.iterations` when compaction is enabled. The `iterations` array is only present when a new compaction is triggered during the request. Re-applying a previous `compaction` block incurs no additional compaction cost, and the top-level usage fields remain accurate in that case.
 
 ## How compaction works
+<a name="claude-messages-compaction-how-it-works"></a>
 
 When compaction is enabled, Claude automatically summarizes your conversation when it approaches the configured token threshold. The API:
 
 1. Detects when input tokens exceed your specified trigger threshold.
-2. Generates a summary of the current conversation.
-3. Creates a `compaction` block containing the summary.
-4. Continues the response with the compacted context.
+
+1. Generates a summary of the current conversation.
+
+1. Creates a `compaction` block containing the summary.
+
+1. Continues the response with the compacted context.
 
 On subsequent requests, append the response to your messages. The API automatically drops all message blocks before the `compaction` block, continuing the conversation from the summary.
 
 ## Basic usage
+<a name="claude-messages-compaction-basic-usage"></a>
 
 Enable compaction by adding the `compact_20260112` strategy to `context_management.edits` in your Messages API request.
 
-CLI
+------
+#### [ CLI ]
 
 ```
 aws bedrock-runtime invoke-model \
@@ -70,7 +76,8 @@ echo "Response:"
 cat /tmp/response.json | jq '.content[] | {type, text: .text[0:500]}'
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -109,7 +116,8 @@ for block in response_body["content"]:
         print(f"[RESPONSE]: {block['text']}")
 ```
 
-TypeScript
+------
+#### [ TypeScript ]
 
 ```
 import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
@@ -156,16 +164,21 @@ async function main() {
 main().catch(console.error);
 ```
 
-## Parameters
+------
 
-| Parameter                | Type    | Default        | Description                                                                        |
-| ------------------------ | ------- | -------------- | ---------------------------------------------------------------------------------- |
-| `type`                   | string  | Required       | Must be `"compact_20260112"`                                                       |
-| `trigger`                | object  | 150,000 tokens | When to trigger compaction. Must be at least 50,000 tokens.                        |
-| `pause_after_compaction` | boolean | `false`        | Whether to pause after generating the compaction summary                           |
-| `instructions`           | string  | `null`         | Custom summarization prompt. Completely replaces the default prompt when provided. |
+## Parameters
+<a name="claude-messages-compaction-parameters"></a>
+
+
+| Parameter | Type | Default | Description | 
+| --- | --- | --- | --- | 
+| type | string | Required | Must be "compact\_20260112" | 
+| trigger | object | 150,000 tokens | When to trigger compaction. Must be at least 50,000 tokens. | 
+| pause\_after\_compaction | boolean | false | Whether to pause after generating the compaction summary | 
+| instructions | string | null | Custom summarization prompt. Completely replaces the default prompt when provided. | 
 
 ## Trigger configuration
+<a name="claude-messages-compaction-trigger"></a>
 
 Configure when compaction triggers using the `trigger` parameter:
 
@@ -201,6 +214,7 @@ print(response_body["content"][-1]["text"])
 ```
 
 ## Custom summarization instructions
+<a name="claude-messages-compaction-custom-instructions"></a>
 
 By default, compaction uses the following summarization prompt:
 
@@ -239,6 +253,7 @@ print(response_body["content"][-1]["text"])
 ```
 
 ## Pausing after compaction
+<a name="claude-messages-compaction-pause"></a>
 
 Use `pause_after_compaction` to pause the API after generating the compaction summary. This allows you to add additional content blocks (such as preserving recent messages or specific instruction-oriented messages) before the API continues with the response.
 
@@ -296,6 +311,7 @@ print(response_body["content"][-1]["text"])
 ```
 
 ## Working with compaction blocks
+<a name="claude-messages-compaction-blocks"></a>
 
 When compaction is triggered, the API returns a `compaction` block at the start of the assistant response.
 
@@ -317,10 +333,12 @@ A long-running conversation may result in multiple compactions. The last compact
 ```
 
 ## Streaming
+<a name="claude-messages-compaction-streaming"></a>
 
 When streaming responses with compaction enabled, you'll receive a `content_block_start` event when compaction begins. The compaction block streams differently from text blocks. You'll receive a `content_block_start` event, followed by a single `content_block_delta` with the complete summary content (no intermediate streaming), and then a `content_block_stop` event.
 
 ## Prompt caching
+<a name="claude-messages-compaction-prompt-caching"></a>
 
 You may add a `cache_control` breakpoint on compaction blocks, which caches the full system prompt along with the summarized content. The original compacted content is ignored. Note that when compaction is triggered, it can result in a cache miss on the subsequent request.
 
@@ -342,6 +360,7 @@ You may add a `cache_control` breakpoint on compaction blocks, which caches the 
 ```
 
 ## Understanding usage
+<a name="claude-messages-compaction-usage"></a>
 
 Compaction requires an additional sampling step, which contributes to rate limits and billing. The API returns detailed usage information in the response:
 

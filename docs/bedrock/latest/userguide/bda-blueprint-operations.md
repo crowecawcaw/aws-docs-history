@@ -1,8 +1,12 @@
+
+
 # Blueprint Operations CLI
+<a name="bda-blueprint-operations"></a>
 
 This guide covers Blueprint operations available through the AWS Command Line Interface (CLI) for Amazon Bedrock Data Automation (BDA).
 
 ## Creating Blueprints
+<a name="create-blueprints-cli"></a>
 
 Blueprints define the structure and properties of data you want to extract from your documents, images, audio, or video files. Use the create-blueprint command to define a new Blueprint.
 
@@ -39,18 +43,23 @@ aws bedrock-data-automation create-blueprint \
 ```
 
 ## Complete parameter reference
+<a name="create-blueprint-parameters"></a>
 
 The following table shows all available parameters for the `create-blueprint` command:
 
-Parameters for create-blueprint| Parameter | Required | Default | Description |
-| --- | --- | --- | --- |
-| `--blueprint-name` | Yes | N/A | Name for the Blueprint |
-| `--type` | Yes | N/A | Type of content (IMAGE, DOCUMENT, AUDIO, VIDEO) |
-| `--blueprint-stage` | No | LIVE | Stage for the Blueprint (DEVELOPMENT or LIVE) |
-| `--schema` | Yes | N/A | JSON schema defining the Blueprint structure |
-| `--client-token` | No | Auto-generated | Unique identifier for request idempotency |
+
+**Parameters for create-blueprint**  
+
+| Parameter | Required | Default | Description | 
+| --- | --- | --- | --- | 
+| --blueprint-name | Yes | N/A | Name for the Blueprint | 
+| --type | Yes | N/A | Type of content (IMAGE, DOCUMENT, AUDIO, VIDEO) | 
+| --blueprint-stage | No | LIVE | Stage for the Blueprint (DEVELOPMENT or LIVE) | 
+| --schema | Yes | N/A | JSON schema defining the Blueprint structure | 
+| --client-token | No | Auto-generated | Unique identifier for request idempotency | 
 
 ## Viewing Blueprint configurations
+<a name="view-blueprint-cli"></a>
 
 **List all Blueprints**
 
@@ -80,7 +89,6 @@ When working with versioned Blueprints, use the get-blueprint command with the -
 **Syntax**
 
 ```
-
       aws bedrock-data-automation get-blueprint \
       --blueprint-arn "Amazon Resource Name (ARN)" \
       --blueprint-version "version-number"
@@ -91,13 +99,13 @@ When working with versioned Blueprints, use the get-blueprint command with the -
 To view Blueprints in either DEVELOPMENT or LIVE stage, use:
 
 ```
-
       aws bedrock-data-automation get-blueprint \
       --blueprint-arn "Amazon Resource Name (ARN)" \
       --blueprint-stage "LIVE"
 ```
 
 ## Editing Blueprint specifications
+<a name="edit-blueprint-cli"></a>
 
 **Update Blueprint settings**
 
@@ -154,10 +162,10 @@ Create a new version of your Blueprint to preserve its current state before maki
 ```
 aws bedrock-data-automation create-blueprint-version \
       --blueprint-arn "Amazon Resource Name (ARN)"
-
 ```
 
 ## Managing Blueprint tags
+<a name="tag-management-cli"></a>
 
 Tags help users organize and categorize Blueprints for simplified management.
 
@@ -197,6 +205,7 @@ aws bedrock-data-automation list-tags-for-resource \
 ```
 
 ## Deleting Blueprints
+<a name="delete-blueprint-cli"></a>
 
 **Delete an entire Blueprint**
 
@@ -207,7 +216,6 @@ Use the delete-blueprint command to permanently remove a Blueprint and all its v
 ```
 aws bedrock-data-automation delete-blueprint \
           --blueprint-arn "Amazon Resource Name (ARN)"
-
 ```
 
 **Caution:** This command permanently deletes a Blueprint and cannot recover it.
@@ -215,8 +223,10 @@ aws bedrock-data-automation delete-blueprint \
 **Important:** You cannot delete a Blueprint that's currently in use by any projects. Before deleting, ensure the Blueprint isn't referenced in any project's custom output configuration.
 
 ## Blueprint Optimization
+<a name="blueprint-optimization-cli"></a>
 
 ### Invoking Blueprint Optimization
+<a name="invoking-blueprint-optimization"></a>
 
 Start an asynchronous blueprint optimization job to improve blueprint's instructions of each of your blueprint fields and result accuracy.
 
@@ -240,6 +250,7 @@ aws bedrock-data-automation invoke-blueprint-optimization-async \
 ```
 
 ### Checking Blueprint Optimization Status
+<a name="checking-blueprint-optimization-status"></a>
 
 Monitor the progress and results of a blueprint optimization job.
 
@@ -253,6 +264,7 @@ aws bedrock-data-automation get-blueprint-optimization-status \
 Use this command to track the optimization job status. The response includes the current status (Created, InProgress, Success, ServiceError, or ClientError) and output configuration details when completed.
 
 ### Copying Blueprint Stages
+<a name="copying-blueprint-stages"></a>
 
 Copy a Blueprint from one stage to another
 

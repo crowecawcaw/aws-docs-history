@@ -1,8 +1,12 @@
-# Dissociation of Library from a Project
 
-You can dissociate a library from a project using the [UpdateDataAutomationProject](bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.md "bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.md") API.
+
+# Dissociation of Library from a Project
+<a name="bda-library-dissociating"></a>
+
+You can dissociate a library from a project using the [UpdateDataAutomationProject](bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.html) API.
 
 ## AWS CLI Example:
+<a name="bda-library-dissociating-cli"></a>
 
 ```
 aws bedrock-data-automation update-data-automation-project \
@@ -11,10 +15,14 @@ aws bedrock-data-automation update-data-automation-project \
 ```
 
 ## AWS Console Example:
+<a name="bda-library-dissociating-console"></a>
 
 1. Navigate to the "Library details" page for your library
-2. Expand "Associated projects"
-3. Choose the desired project
-4. Choose "Dissociate project"
 
-![Associated projects table showing one project named custom-vocab-project with its ID, ARN, and modification date.](images/bda/library-dissociate-console.png)
+1. Expand "Associated projects"
+
+1. Choose the desired project
+
+1. Choose "Dissociate project"
+
+![Associated projects table showing one project named custom-vocab-project with its ID, ARN, and modification date.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-dissociate-console.png)

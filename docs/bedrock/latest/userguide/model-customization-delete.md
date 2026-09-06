@@ -1,23 +1,29 @@
+
+
 # Delete a custom model
+<a name="model-customization-delete"></a>
 
 To delete a custom model, choose the tab for your preferred method, and then follow the steps:
 
-**Before you begin**
+**Before you begin**  
+If you're deleting a distilled model, you must first delete any Provisioned Throughput or custom model deployment associated with the model. 
 
-If you're deleting a distilled model, you must first delete any Provisioned Throughput or custom model deployment
-associated with the model.
+------
+#### [ Console ]
 
-Console
+1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock).
 
-1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
-   [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
-2. Select **Provisioned Throughput** from the left navigation pane.
-3. From the **Models** section, select a custom model.
-4. Choose the options icon (
+1. Select **Provisioned Throughput** from the left navigation pane.
 
-![Vertical ellipsis icon representing a menu or more options.](images/icons/vertical-ellipsis.png)
+1. From the **Models** section, select a custom model.
 
-) and select **Delete**. 5. Follow the instructions to confirm deletion. Your custom model is then deleted.
+1. Choose the options icon (![Vertical ellipsis icon representing a menu or more options.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/vertical-ellipsis.png)) and select **Delete**.
 
-API
-To delete a custom model, send a [DeleteCustomModel](../APIReference/API_DeleteCustomModel.md "../APIReference/API_DeleteCustomModel.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp"). Specify either the name of the custom model or its ARN as the `modelIdentifier`.
+1. Follow the instructions to confirm deletion. Your custom model is then deleted.
+
+------
+#### [ API ]
+
+To delete a custom model, send a [DeleteCustomModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteCustomModel.html) request with an [Amazon Bedrock control plane endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#br-cp). Specify either the name of the custom model or its ARN as the `modelIdentifier`.
+
+------

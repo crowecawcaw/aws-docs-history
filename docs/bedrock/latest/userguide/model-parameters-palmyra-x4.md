@@ -1,25 +1,23 @@
+
+
 # Writer Palmyra X4
+<a name="model-parameters-palmyra-x4"></a>
 
-Writer Palmyra X4 is a model with a context window of up to 128,000 tokens. This model excels in
-processing and understanding complex tasks, making it ideal for workflow automation, coding
-tasks, and data analysis.
-
-- Provider — Writer
-- Categories — Text generation, code generation, rich text formatting
-- Last version — v1
-- Release date — April 28th, 2025
-- Model ID — `writer.palmyra-x4-v1:0`
-- Modality — Text
-- Max tokens — Input: 122,880 tokens, Output: 8192 tokens
-- Language — English, Spanish, French, German, Chinese and multiple other languages
-- Deployment type — Serverless
+Writer Palmyra X4 is a model with a context window of up to 128,000 tokens. This model excels in processing and understanding complex tasks, making it ideal for workflow automation, coding tasks, and data analysis.
++ Provider — Writer
++ Categories — Text generation, code generation, rich text formatting
++ Last version — v1
++ Release date — April 28th, 2025
++ Model ID — `writer.palmyra-x4-v1:0`
++ Modality — Text
++ Max tokens — Input: 122,880 tokens, Output: 8192 tokens
++ Language — English, Spanish, French, German, Chinese and multiple other languages
++ Deployment type — Serverless
 
 ## Palmyra X4 invocation request body field
+<a name="model-parameters-palmyra-x4-request-body"></a>
 
-When you make an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") call using a Writer model, fill
-the `body` field with a JSON object that conforms to the one below.
-Enter the prompt in the `text` field in the `text_prompts`
-object.
+When you make an [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) call using a Writer model, fill the `body` field with a JSON object that conforms to the one below. Enter the prompt in the `text` field in the `text_prompts` object.
 
 ```
 {
@@ -32,19 +30,22 @@ object.
 
 The following table shows the minimum, maximum, and default values for the numerical parameters.
 
-| Parameter          | Type  | Default  | Range/Validation    | Description                    |
-| ------------------ | ----- | -------- | ------------------- | ------------------------------ |
-| messages           | array | Required | 1-∞ items           | Chat history messages          |
-| temperature        | float | 1.0      | 0.0 ≤ x ≤ 2.0       | Sampling temperature           |
-| top\_p             | float | 1.0      | 0.0 < value ≤ 1.0   | Nucleus sampling threshold     |
-| max\_tokens        | int   | 16       | 1 ≤ x ≤ 8192        | Maximum tokens to generate     |
-| min\_tokens        | int   | 0        | 0 ≤ x ≤ max\_tokens | Minimum tokens before stopping |
-| stop               | array | []       | ≤4 entries          | Stop sequences                 |
-| seed               | int   | null     | Any integer         | Random seed                    |
-| presence\_penalty  | float | 0.0      | -2.0 ≤ x ≤ 2.0      | New token presence penalty     |
-| frequency\_penalty | float | 0.0      | -2.0 ≤ x ≤ 2.0      | Token frequency penalty        |
+
+
+| Parameter | Type | Default | Range/Validation | Description | 
+| --- | --- | --- | --- | --- | 
+| messages | array | Required | 1-∞ items | Chat history messages | 
+| temperature | float | 1.0 | 0.0 ≤ x ≤ 2.0 | Sampling temperature | 
+| top\_p | float | 1.0 | 0.0 < value ≤ 1.0 | Nucleus sampling threshold | 
+| max\_tokens | int | 16 | 1 ≤ x ≤ 8192 | Maximum tokens to generate | 
+| min\_tokens | int | 0 | 0 ≤ x ≤ max\_tokens | Minimum tokens before stopping | 
+| stop | array | [] | ≤4 entries | Stop sequences | 
+| seed | int | null | Any integer | Random seed | 
+| presence\_penalty | float | 0.0 | -2.0 ≤ x ≤ 2.0 | New token presence penalty | 
+| frequency\_penalty | float | 0.0 | -2.0 ≤ x ≤ 2.0 | Token frequency penalty | 
 
 ## Palmyra X4 invocation response body field
+<a name="model-parameters-palmyra-x4-response-body"></a>
 
 The response JSON for Writer Palmyra X4 uses the following format:
 
@@ -79,6 +80,7 @@ The response JSON for Writer Palmyra X4 uses the following format:
 ```
 
 ## Writer Palmyra X4 example code
+<a name="model-parameters-palmyra-x4-example-code"></a>
 
 Example code for Writer Palmyra X4:
 

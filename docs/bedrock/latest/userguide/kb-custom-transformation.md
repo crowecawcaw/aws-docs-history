@@ -1,34 +1,22 @@
+
+
 # Use a custom transformation Lambda function to define how your data is ingested
+<a name="kb-custom-transformation"></a>
 
-You have the ability to define a custom transformation Lambda function to inject
-your own logic into the knowledge base ingestion process.
+You have the ability to define a custom transformation Lambda function to inject your own logic into the knowledge base ingestion process.
 
-You may have specific chunking logic, not natively supported by Amazon Bedrock knowledge bases. Use the
-no chunking strategy option, while specifying a Lambda function that contains your chunking logic.
-Additionally, you'll need to specify an Amazon S3 bucket for the knowledge base to write files to be chunked
-by your Lambda function.
+You may have specific chunking logic, not natively supported by Amazon Bedrock knowledge bases. Use the no chunking strategy option, while specifying a Lambda function that contains your chunking logic. Additionally, you'll need to specify an Amazon S3 bucket for the knowledge base to write files to be chunked by your Lambda function.
 
-After chunking, your Lambda function will write back chunked files into the
-same bucket and return references for the knowledge base for further processing. You optionally have
-the ability to provide your own AWS KMS key for encryption of files being stored in your S3 bucket.
+After chunking, your Lambda function will write back chunked files into the same bucket and return references for the knowledge base for further processing. You optionally have the ability to provide your own AWS KMS key for encryption of files being stored in your S3 bucket.
 
-###### Note
-
+**Note**  
 If web connectors are used, a markdown text is passed to Lambda instead of HTML.
 
-Alternatively, you may want to specify chunk-level metadata, while having the knowledge base apply
-one of the natively supported chunking strategies. In this case, select one of the pre-defined chunking
-strategies (for example, default or fixed-size chunking), while providing
-a reference to your Lambda function and S3 bucket. In this case, the knowledge base will store parsed and
-pre-chunked files in the pre-defined S3 bucket, before calling your Lambda function for further adding
-chunk-level metadata.
+Alternatively, you may want to specify chunk-level metadata, while having the knowledge base apply one of the natively supported chunking strategies. In this case, select one of the pre-defined chunking strategies (for example, default or fixed-size chunking), while providing a reference to your Lambda function and S3 bucket. In this case, the knowledge base will store parsed and pre-chunked files in the pre-defined S3 bucket, before calling your Lambda function for further adding chunk-level metadata.
 
-After adding chunk-level metadata, your Lambda function will write back chunked files
-into the same bucket and return references for the knowledge base for further processing. Please note that
-chunk-level metadata take precedence and overwrite file-level metadata, in case of any collisions.
+After adding chunk-level metadata, your Lambda function will write back chunked files into the same bucket and return references for the knowledge base for further processing. Please note that chunk-level metadata take precedence and overwrite file-level metadata, in case of any collisions.
 
-For an example of using a Python Lambda function for custom chunking, see
-[Custom chunking using Lambda function](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/rag/knowledge-bases/features-examples/03-optimizing-accuracy-retrieved-results/advanced_chunking_options.ipynb "https://github.com/aws-samples/amazon-bedrock-samples/blob/main/rag/knowledge-bases/features-examples/03-optimizing-accuracy-retrieved-results/advanced_chunking_options.ipynb").
+For an example of using a Python Lambda function for custom chunking, see [Custom chunking using Lambda function](https://github.com/aws-samples/amazon-bedrock-samples/blob/main/rag/knowledge-bases/features-examples/03-optimizing-accuracy-retrieved-results/advanced_chunking_options.ipynb).
 
 For API and file contracts, refer the the following structures:
 
@@ -38,9 +26,9 @@ For API and file contracts, refer the the following structures:
 {
 ...
     "vectorIngestionConfiguration": {
-        "customTransformationConfiguration": { // Custom transformation
+        "customTransformationConfiguration": { // Custom transformation 
             "intermediateStorage": {
-                "s3Location": { // the location where input/output of the Lambda is expected
+                "s3Location": { // the location where input/output of the Lambda is expected 
                     "uri": "string"
                 }
             },

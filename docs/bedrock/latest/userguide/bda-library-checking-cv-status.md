@@ -1,4 +1,7 @@
+
+
 # Checking Vocabulary Ingestion Job Status
+<a name="bda-library-checking-cv-status"></a>
 
 ```
 aws bedrock-data-automation get-data-automation-library-ingestion-job \
@@ -7,13 +10,14 @@ aws bedrock-data-automation get-data-automation-library-ingestion-job \
 ```
 
 ## Job Statuses:
-
-- **IN\_PROGRESS:** Job is currently processing
-- **COMPLETED:** All entities processed successfully
-- **COMPLETED\_WITH\_ERRORS:** Some entities failed (check output for details)
-- **FAILED:** Job failed completely
+<a name="bda-library-checking-cv-status-statuses"></a>
++ **IN\_PROGRESS:** Job is currently processing
++ **COMPLETED:** All entities processed successfully
++ **COMPLETED\_WITH\_ERRORS:** Some entities failed (check output for details)
++ **FAILED:** Job failed completely
 
 ## Understanding Job Output
+<a name="bda-library-checking-cv-status-output"></a>
 
 After job completion, check the S3 output location for detailed results.
 

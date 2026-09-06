@@ -1,16 +1,20 @@
+
+
 # Prepare your input dataset
+<a name="advanced-prompt-optimization-input"></a>
 
-###### Note
-
-Fully working examples and notebooks are available in the [Amazon Bedrock Samples GitHub](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/advanced-prompt-optimization "https://github.com/aws-samples/amazon-bedrock-samples/tree/main/advanced-prompt-optimization").
+**Note**  
+Fully working examples and notebooks are available in the [Amazon Bedrock Samples GitHub](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/advanced-prompt-optimization).
 
 ## File format
+<a name="advanced-prompt-optimization-input-format"></a>
 
 The input file uses JSONL format: one JSON object per line. Each line represents one prompt template to optimize and its associated fields. You provide one input file per job.
 
 ## Schema reference
+<a name="advanced-prompt-optimization-input-schema"></a>
 
-In this prompt dataset, you will also choose the evaluation method to steer the optimization. For more information about choosing an evaluation method, see [Define evaluation methods](advanced-prompt-optimization-evaluation.md "advanced-prompt-optimization-evaluation.md").
+In this prompt dataset, you will also choose the evaluation method to steer the optimization. For more information about choosing an evaluation method, see [Define evaluation methods](advanced-prompt-optimization-evaluation.md).
 
 ```
 {
@@ -44,71 +48,76 @@ In this prompt dataset, you will also choose the evaluation method to steer the 
 ```
 
 ### Field descriptions
+<a name="advanced-prompt-optimization-input-fields"></a>
 
-| #   | Field                                                                 | Type            | Required                                                       | Description                                                                                                                                                                                                                                                                                                                                                     |
-| --- | --------------------------------------------------------------------- | --------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | `version`                                                             | string          | Yes                                                            | Fixed value: `"bedrock-2026-05-14"`.                                                                                                                                                                                                                                                                                                                            |
-| 2   | `templateId`                                                          | string          | Yes                                                            | Unique identifier for this prompt template. Used to correlate input and output.                                                                                                                                                                                                                                                                                 |
-| 3   | `promptTemplate`                                                      | string          | Yes                                                            | The prompt template to optimize. Use `{{variableName}}` syntax for variable placeholders. You can optionally include `<advpo:optimize>` and `<advpo:exclude>` tags to control which sections the optimizer rewrites. For more information, see [Selective optimization](advanced-prompt-optimization-selective.md "advanced-prompt-optimization-selective.md"). |
-| 4   | `steeringCriteria`                                                    | list of string  | No                                                             | High-level optimization criteria (for example, `["PROFESSIONAL"]`).                                                                                                                                                                                                                                                                                             |
-| 5   | `customEvaluationMetricLabel`                                         | string          | Yes (if customLLMJConfig or evaluationMetricLambdaArn is used) | Name for your evaluation metric.                                                                                                                                                                                                                                                                                                                                |
-| 6   | `customLLMJConfig`                                                    | object          | No                                                             | Custom LLM-as-Judge configuration.                                                                                                                                                                                                                                                                                                                              |
-| 7   | `customLLMJConfig.customLLMJPrompt`                                   | string          | Yes (if customLLMJConfig present)                              | The judge prompt used to evaluate responses. Use `{{prompt}}`, `{{response}}`, `{{referenceResponse}}` as placeholders.                                                                                                                                                                                                                                         |
-| 8   | `customLLMJConfig.customLLMJModelId`                                  | string          | Yes (if customLLMJConfig present)                              | Bedrock model ID for the judge model.                                                                                                                                                                                                                                                                                                                           |
-| 9   | `evaluationMetricLambdaArn`                                           | string          | No                                                             | ARN of a Lambda function for custom evaluation.                                                                                                                                                                                                                                                                                                                 |
-| 10  | `evaluationSamples`                                                   | list            | Yes                                                            | Evaluation samples with input variables and reference responses.                                                                                                                                                                                                                                                                                                |
-| 11  | `evaluationSamples[].inputVariables`                                  | list of objects | Yes (if not using `inputVariablesMultimodal`)                  | Single-key objects matching `{{variableName}}` placeholders. At least one of `inputVariables` or `inputVariablesMultimodal` must be present per sample.                                                                                                                                                                                                         |
-| 12  | `evaluationSamples[].referenceResponse`                               | string          | No                                                             | Optional ground-truth reference response. Recommended for best optimization results.                                                                                                                                                                                                                                                                            |
-| 13  | `evaluationSamples[].inputVariablesMultimodal`                        | list of objects | Yes (if not using `inputVariables`)                            | Multimodal file inputs. At least one of `inputVariables` or `inputVariablesMultimodal` must be present per sample.                                                                                                                                                                                                                                              |
-| 14  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name`       | object          | Yes (if multimodal present)                                    | Name your multimodal variable. This is an arbitrary user-chosen name.                                                                                                                                                                                                                                                                                           |
-| 15  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.type`  | string          | Yes (if multimodal present)                                    | "IMAGE" or "PDF". IMAGE accepts JPG, JPEG, PNG, GIF, and WebP.                                                                                                                                                                                                                                                                                                  |
-| 16  | `evaluationSamples[].inputVariablesMultimodal[].Arbitrary_Name.s3Uri` | string          | Yes (if multimodal present)                                    | S3 URI path to the multimodal file.                                                                                                                                                                                                                                                                                                                             |
+
+| \# | Field | Type | Required | Description | 
+| --- | --- | --- | --- | --- | 
+| 1 | version | string | Yes | Fixed value: "bedrock-2026-05-14". | 
+| 2 | templateId | string | Yes | Unique identifier for this prompt template. Used to correlate input and output. | 
+| 3 | promptTemplate | string | Yes | The prompt template to optimize. Use {{variableName}} syntax for variable placeholders. You can optionally include <advpo:optimize> and <advpo:exclude> tags to control which sections the optimizer rewrites. For more information, see [Selective optimization](advanced-prompt-optimization-selective.md). | 
+| 4 | steeringCriteria | list of string | No | High-level optimization criteria (for example, ["PROFESSIONAL"]). | 
+| 5 | customEvaluationMetricLabel | string | Yes (if customLLMJConfig or evaluationMetricLambdaArn is used) | Name for your evaluation metric. | 
+| 6 | customLLMJConfig | object | No | Custom LLM-as-Judge configuration. | 
+| 7 | customLLMJConfig.customLLMJPrompt | string | Yes (if customLLMJConfig present) | The judge prompt used to evaluate responses. Use {{prompt}}, {{response}}, {{referenceResponse}} as placeholders. | 
+| 8 | customLLMJConfig.customLLMJModelId | string | Yes (if customLLMJConfig present) | Bedrock model ID for the judge model. | 
+| 9 | evaluationMetricLambdaArn | string | No | ARN of a Lambda function for custom evaluation. | 
+| 10 | evaluationSamples | list | Yes | Evaluation samples with input variables and reference responses. | 
+| 11 | evaluationSamples[].inputVariables | list of objects | Yes (if not using inputVariablesMultimodal) | Single-key objects matching {{variableName}} placeholders. At least one of inputVariables or inputVariablesMultimodal must be present per sample. | 
+| 12 | evaluationSamples[].referenceResponse | string | No | Optional ground-truth reference response. Recommended for best optimization results. | 
+| 13 | evaluationSamples[].inputVariablesMultimodal | list of objects | Yes (if not using inputVariables) | Multimodal file inputs. At least one of inputVariables or inputVariablesMultimodal must be present per sample. | 
+| 14 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name | object | Yes (if multimodal present) | Name your multimodal variable. This is an arbitrary user-chosen name. | 
+| 15 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name.type | string | Yes (if multimodal present) | "IMAGE" or "PDF". IMAGE accepts JPG, JPEG, PNG, GIF, and WebP. | 
+| 16 | evaluationSamples[].inputVariablesMultimodal[].Arbitrary\_Name.s3Uri | string | Yes (if multimodal present) | S3 URI path to the multimodal file. | 
 
 ## Required fields
-
-- `version`: fixed value `"bedrock-2026-05-14"`
-- `templateId`: unique string identifier for this prompt template
-- `promptTemplate`: the prompt to optimize, using `{{variableName}}` for placeholders
-- `evaluationSamples`: array of 1 to 100 samples
+<a name="advanced-prompt-optimization-input-required"></a>
++ `version`: fixed value `"bedrock-2026-05-14"`
++ `templateId`: unique string identifier for this prompt template
++ `promptTemplate`: the prompt to optimize, using `{{variableName}}` for placeholders
++ `evaluationSamples`: array of 1 to 100 samples
 
 ## Placeholder variables
+<a name="advanced-prompt-optimization-input-variables"></a>
 
 Use `{{variableName}}` syntax (double curly brackets) for placeholders in your prompt template. The keys in `inputVariables` must exactly match the placeholder names. Each key must be in its own object in the list. Maximum of 20 text placeholder variables per template. Placeholder variables should not be used to point to an S3 location of a multimodal file. The placeholder variables are for text only. If you have multimodal files, they will be sent to the model in the payload along with the text prompt.
 
 ## Evaluation samples
+<a name="advanced-prompt-optimization-input-samples"></a>
 
 Provide `inputVariables` as a list of single-key objects: `[{"variable1": "value1"}, {"variable2": "value2"}]`. Do NOT put multiple keys in one object. Optionally provide `referenceResponse` as the ground truth answer for better optimization results. For multimodal inputs, use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects. Multimodal files are sent to the model in the payload along with the text prompt. Supported types are IMAGE (JPG, JPEG, PNG, GIF, WebP) and PDF, with a maximum of 100 multimodal files per sample. Multimodal inputs (images and PDFs) are sent in the payload to the model along with the prompt but should not be referenced in a double curly bracket `{{placeholder}}` variable.
 
 ## Evaluation strategy
+<a name="advanced-prompt-optimization-input-strategy"></a>
 
-Pick ONE evaluation method per template, or omit all optional evaluation fields for the system default (which combines accuracy, answer completeness, and a subjective writing style evaluation). We recommend you define your own evaluation method for the best results. You may use different methods across templates in the same job. See [Define evaluation methods](advanced-prompt-optimization-evaluation.md "advanced-prompt-optimization-evaluation.md") for details.
+Pick ONE evaluation method per template, or omit all optional evaluation fields for the system default (which combines accuracy, answer completeness, and a subjective writing style evaluation). We recommend you define your own evaluation method for the best results. You may use different methods across templates in the same job. See [Define evaluation methods](advanced-prompt-optimization-evaluation.md) for details.
 
 ## Limits
+<a name="advanced-prompt-optimization-input-limits"></a>
 
-For the full list of quotas, see [Supported Regions, models, and quotas](advanced-prompt-optimization-quotas.md "advanced-prompt-optimization-quotas.md"). Key limits for input file preparation:
-
-- Maximum 10 templates per job
-- Maximum 100 evaluation samples per template
-- Maximum 5 models per job
-- Maximum 20 text variables per template
-- Maximum 100 multimodal files per sample
-- Maximum 5 steering criteria per template
+For the full list of quotas, see [Supported Regions, models, and quotas](advanced-prompt-optimization-quotas.md). Key limits for input file preparation:
++ Maximum 10 templates per job
++ Maximum 100 evaluation samples per template
++ Maximum 5 models per job
++ Maximum 20 text variables per template
++ Maximum 100 multimodal files per sample
++ Maximum 5 steering criteria per template
 
 ## Common mistakes
-
-- Providing both `steeringCriteria` AND `customLLMJConfig`/`evaluationMetricLambdaArn` = ValidationException
-- Missing `customEvaluationMetricLabel` when using LLMJ or `evaluationMetricLambdaArn` = ValidationException
-- Multiple keys in one `inputVariables` object = silent failure
-- Using single curly brackets like `{variable}` instead of double curly brackets like `{{variable}}`
-- The `inputVariables` keys must match the `{{variableName}}` placeholders in the `promptTemplate`
-- Allowed LLMJ models: anthropic.claude-opus-4-6-v1, anthropic.claude-sonnet-4-5-20250929-v1:0, anthropic.claude-sonnet-4-6
+<a name="advanced-prompt-optimization-input-mistakes"></a>
++ Providing both `steeringCriteria` AND `customLLMJConfig`/`evaluationMetricLambdaArn` = ValidationException
++ Missing `customEvaluationMetricLabel` when using LLMJ or `evaluationMetricLambdaArn` = ValidationException
++ Multiple keys in one `inputVariables` object = silent failure
++ Using single curly brackets like `{variable}` instead of double curly brackets like `{{variable}}`
++ The `inputVariables` keys must match the `{{variableName}}` placeholders in the `promptTemplate`
++ Allowed LLMJ models: anthropic.claude-opus-4-6-v1, anthropic.claude-sonnet-4-5-20250929-v1:0, anthropic.claude-sonnet-4-6
 
 ## Use multimodal inputs
+<a name="advanced-prompt-optimization-input-multimodal"></a>
 
 **Supported file types:** IMAGE (JPG, JPEG, PNG, GIF, WebP) and PDF.
 
-###### Tip
-
+**Tip**  
 For GIF and WebP files, models that support these formats typically use only the first frame of an animated multi-frame file. To use multiple frames from an animated file, split the frames manually and include them as separate multimodal files in the evaluation sample.
 
 **How to include:** Use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects containing `type` and `s3Uri`.
@@ -118,14 +127,16 @@ For GIF and WebP files, models that support these formats typically use only the
 **Mixing text and multimodal:** You can have both `inputVariables` (text) and `inputVariablesMultimodal` in the same sample. Double curly bracket `{{placeholders}}` are reserved for plaintext only. You cannot reference multimodal files through placeholders. Placeholder variables should not be used to point to an S3 location of a multimodal file. If you have multimodal files, they will be sent to the model in the payload along with the text prompt.
 
 ## Dataset tips
-
-- **Mix easy and hard examples** — match what you see in the real world. All-easy data won't push the prompt to improve; all-hard data leaves nothing to learn from.
-- **Cover the cases you care about** — the system generalizes beyond what it sees, but a representative data distribution helps it generalize better to real-world inputs.
-- **After prompt optimization, test on data the optimizer hasn't seen with a held-out dataset** — confirms the gains are real and not just memorized.
+<a name="advanced-prompt-optimization-input-dataset-tips"></a>
++ **Mix easy and hard examples** — match what you see in the real world. All-easy data won't push the prompt to improve; all-hard data leaves nothing to learn from.
++ **Cover the cases you care about** — the system generalizes beyond what it sees, but a representative data distribution helps it generalize better to real-world inputs.
++ **After prompt optimization, test on data the optimizer hasn't seen with a held-out dataset** — confirms the gains are real and not just memorized.
 
 ## Examples
+<a name="advanced-prompt-optimization-input-examples"></a>
 
 ### Example 1: Single template, multiple variables, single evaluation sample, steering criteria
+<a name="advanced-prompt-optimization-input-ex1"></a>
 
 ```
 {
@@ -141,6 +152,7 @@ For GIF and WebP files, models that support these formats typically use only the
 ```
 
 ### Example 2: Single template, multiple variables, multiple evaluation samples, steering criteria
+<a name="advanced-prompt-optimization-input-ex2"></a>
 
 ```
 {
@@ -157,6 +169,7 @@ For GIF and WebP files, models that support these formats typically use only the
 ```
 
 ### Example 3: Two templates, single variable per prompt, multiple samples, steering criteria
+<a name="advanced-prompt-optimization-input-ex3"></a>
 
 This example shows two lines in the JSONL file (two prompt templates in one job).
 
@@ -166,6 +179,7 @@ This example shows two lines in the JSONL file (two prompt templates in one job)
 ```
 
 ### Example 4: Single template, multiple variables, multiple samples, LLM-as-a-judge
+<a name="advanced-prompt-optimization-input-ex4"></a>
 
 ```
 {
@@ -185,6 +199,7 @@ This example shows two lines in the JSONL file (two prompt templates in one job)
 ```
 
 ### Example 5: Single template, multiple variables, multiple samples, no evaluation method (system default)
+<a name="advanced-prompt-optimization-input-ex5"></a>
 
 Since no evaluation or steering is provided, the prompt optimizer will use a built-in generic LLM-as-a-judge that combines accuracy, completeness, and writing style.
 
@@ -201,6 +216,7 @@ Since no evaluation or steering is provided, the prompt optimizer will use a bui
 ```
 
 ### Example 6: Single template, single variable, multiple samples, Lambda evaluator
+<a name="advanced-prompt-optimization-input-ex6"></a>
 
 ```
 {
@@ -217,6 +233,7 @@ Since no evaluation or steering is provided, the prompt optimizer will use a bui
 ```
 
 ### Example 7: Single template, no text variables, multimodal only, LLM-as-judge
+<a name="advanced-prompt-optimization-input-ex7"></a>
 
 This is an acceptable input even with no `{{variables}}` because there is a multimodal input included.
 
@@ -238,6 +255,7 @@ This is an acceptable input even with no `{{variables}}` because there is a mult
 ```
 
 ### Example 8: Single template, multiple variables, LLM-as-judge, mixed text and multimodal
+<a name="advanced-prompt-optimization-input-ex8"></a>
 
 ```
 {
@@ -263,6 +281,7 @@ This is an acceptable input even with no `{{variables}}` because there is a mult
 ```
 
 ### Example 9: Single template, selective optimization with advpo:optimize, steering criteria
+<a name="advanced-prompt-optimization-input-ex9"></a>
 
 This example uses `<advpo:optimize>` tags to optimize only the complaint-response instructions. The identity statement and policy constraint are preserved.
 
@@ -280,6 +299,7 @@ This example uses `<advpo:optimize>` tags to optimize only the complaint-respons
 ```
 
 ### Example 10: Single template, selective optimization with advpo:exclude, LLM-as-a-judge
+<a name="advanced-prompt-optimization-input-ex10"></a>
 
 This example uses `<advpo:exclude>` tags to freeze the identity and policy sections. Everything else is optimized.
 

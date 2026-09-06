@@ -1,26 +1,23 @@
+
+
 # An end-to-end example showing how to create and invoke Amazon Bedrock Agents using an AWS SDK
+<a name="bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockAgents_section"></a>
 
 The following code example shows how to:
++ Create an execution role for the agent.
++ Create the agent and deploy a DRAFT version.
++ Create a Lambda function that implements the agent's capabilities.
++ Create an action group that connects the agent to the Lambda function.
++ Deploy the fully configured agent.
++ Invoke the agent with user-provided prompts.
++ Delete all created resources.
 
-- Create an execution role for the agent.
-- Create the agent and deploy a DRAFT version.
-- Create a Lambda function that implements the agent's capabilities.
-- Create an action group that connects the agent to the Lambda function.
-- Deploy the fully configured agent.
-- Invoke the agent with user-provided prompts.
-- Delete all created resources.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples").
-
-Create and invoke an agent.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-agent#code-examples). 
+Create and invoke an agent.  
 
 ```
 REGION = "us-east-1"
@@ -137,7 +134,7 @@ class BedrockAgentScenarioWrapper:
                 RoleName=role_name,
                 AssumeRolePolicyDocument=json.dumps(
                     {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -152,7 +149,7 @@ class BedrockAgentScenarioWrapper:
             role.Policy(ROLE_POLICY_NAME).put(
                 PolicyDocument=json.dumps(
                     {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -237,7 +234,7 @@ class BedrockAgentScenarioWrapper:
                 RoleName=role_name,
                 AssumeRolePolicyDocument=json.dumps(
                     {
-                        "Version":"2012-10-17",
+                        "Version":"2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Effect": "Allow",
@@ -462,24 +459,19 @@ if __name__ == "__main__":
         scenario.run_scenario()
     except Exception as e:
         logging.exception(f"Something went wrong with the demo. Here's what: {e}")
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [CreateAgent](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateAgent)
+  + [CreateAgentActionGroup](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateAgentActionGroup)
+  + [CreateAgentAlias](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/CreateAgentAlias)
+  + [DeleteAgent](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/DeleteAgent)
+  + [DeleteAgentAlias](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/DeleteAgentAlias)
+  + [GetAgent](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/GetAgent)
+  + [ListAgentActionGroups](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/ListAgentActionGroups)
+  + [ListAgentKnowledgeBases](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/ListAgentKnowledgeBases)
+  + [ListAgents](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/ListAgents)
+  + [PrepareAgent](https://docs.aws.amazon.com/goto/boto3/bedrock-agent-2023-12-12/PrepareAgent)
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [CreateAgent](../../../goto/boto3/bedrock-agent-2023-12-12/CreateAgent.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateAgent.md")
-  - [CreateAgentActionGroup](../../../goto/boto3/bedrock-agent-2023-12-12/CreateAgentActionGroup.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateAgentActionGroup.md")
-  - [CreateAgentAlias](../../../goto/boto3/bedrock-agent-2023-12-12/CreateAgentAlias.md "../../../goto/boto3/bedrock-agent-2023-12-12/CreateAgentAlias.md")
-  - [DeleteAgent](../../../goto/boto3/bedrock-agent-2023-12-12/DeleteAgent.md "../../../goto/boto3/bedrock-agent-2023-12-12/DeleteAgent.md")
-  - [DeleteAgentAlias](../../../goto/boto3/bedrock-agent-2023-12-12/DeleteAgentAlias.md "../../../goto/boto3/bedrock-agent-2023-12-12/DeleteAgentAlias.md")
-  - [GetAgent](../../../goto/boto3/bedrock-agent-2023-12-12/GetAgent.md "../../../goto/boto3/bedrock-agent-2023-12-12/GetAgent.md")
-  - [ListAgentActionGroups](../../../goto/boto3/bedrock-agent-2023-12-12/ListAgentActionGroups.md "../../../goto/boto3/bedrock-agent-2023-12-12/ListAgentActionGroups.md")
-  - [ListAgentKnowledgeBases](../../../goto/boto3/bedrock-agent-2023-12-12/ListAgentKnowledgeBases.md "../../../goto/boto3/bedrock-agent-2023-12-12/ListAgentKnowledgeBases.md")
-  - [ListAgents](../../../goto/boto3/bedrock-agent-2023-12-12/ListAgents.md "../../../goto/boto3/bedrock-agent-2023-12-12/ListAgents.md")
-  - [PrepareAgent](../../../goto/boto3/bedrock-agent-2023-12-12/PrepareAgent.md "../../../goto/boto3/bedrock-agent-2023-12-12/PrepareAgent.md")
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

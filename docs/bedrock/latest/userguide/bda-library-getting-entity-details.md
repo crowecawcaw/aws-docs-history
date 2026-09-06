@@ -1,8 +1,12 @@
-# Getting Library Entity Details
 
-Use the [GetDataAutomationLibraryEntity](bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibraryEntity.md "bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibraryEntity.md") API to retrieve the list of vocabulary for an entity.
+
+# Getting Library Entity Details
+<a name="bda-library-getting-entity-details"></a>
+
+Use the [GetDataAutomationLibraryEntity](bedrock/latest/APIReference/API_data-automation_GetDataAutomationLibraryEntity.html) API to retrieve the list of vocabulary for an entity.
 
 ## AWS CLI Example:
+<a name="bda-library-getting-entity-details-cli"></a>
 
 **Request**
 
@@ -36,8 +40,10 @@ aws bedrock-data-automation get-data-automation-library-entity \
 ```
 
 ## AWS Console Example:
+<a name="bda-library-getting-entity-details-console"></a>
 
 1. Navigate to the "Library details" page for your library
-2. Choose the desired entity from the list
 
-![Translation management interface showing two phrases, ibuprofen and paracetamol, with language set to English.](images/bda/library-get-entity-details-console.png)
+1. Choose the desired entity from the list
+
+![Translation management interface showing two phrases, ibuprofen and paracetamol, with language set to English.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-get-entity-details-console.png)

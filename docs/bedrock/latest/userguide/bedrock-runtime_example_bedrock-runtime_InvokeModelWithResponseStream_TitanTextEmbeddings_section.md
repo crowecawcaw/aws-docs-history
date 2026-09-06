@@ -1,21 +1,18 @@
+
+
 # Invoke Amazon Titan Text Embeddings on Amazon Bedrock
+<a name="bedrock-runtime_example_bedrock-runtime_InvokeModelWithResponseStream_TitanTextEmbeddings_section"></a>
 
 The following code examples show how to:
++ Get started creating your first embedding.
++ Create embeddings configuring the number of dimensions and normalization (V2 only).
 
-- Get started creating your first embedding.
-- Create embeddings configuring the number of dimensions and normalization (V2 only).
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Create your first embedding with Titan Text Embeddings V2.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Create your first embedding with Titan Text Embeddings V2.  
 
 ```
 // Generate and print an embedding with Amazon Titan Text Embeddings.
@@ -79,14 +76,10 @@ public class InvokeModel {
         invokeModel();
     }
 }
-
+```
+Invoke Titan Text Embeddings V2 configuring the number of dimensions and normalization.  
 
 ```
-
-Invoke Titan Text Embeddings V2 configuring the number of dimensions and normalization.
-
-```
-
     /**
      * Invoke Amazon Titan Text Embeddings V2 with additional inference parameters.
      *
@@ -133,25 +126,15 @@ Invoke Titan Text Embeddings V2 configuring the number of dimensions and normali
         // Return the model's native response.
         return modelResponse;
     }
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Create your first embedding with Amazon Titan Text Embeddings.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Create your first embedding with Amazon Titan Text Embeddings.  
 
 ```
 # Generate and print an embedding with Amazon Titan Text Embeddings V2.
@@ -190,15 +173,9 @@ print(f"Number of input tokens: {input_token_count}")
 print(f"Size of the generated embedding: {len(embedding)}")
 print("Embedding:")
 print(embedding)
-
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

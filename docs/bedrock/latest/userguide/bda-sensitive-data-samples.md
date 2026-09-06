@@ -1,11 +1,12 @@
-# Sensitive data detection and redaction sample outputs
 
-The following examples show excerpts of sensitive data detection and redaction for standard
-outputs. For the complete response format, see
-[InvokeDataAutomationAsync](../APIReference/API_data-automation_InvokeDataAutomationAsync.md "../APIReference/API_data-automation_InvokeDataAutomationAsync.md")
-in the API Reference.
+
+# Sensitive data detection and redaction sample outputs
+<a name="bda-sensitive-data-samples"></a>
+
+The following examples show excerpts of sensitive data detection and redaction for standard outputs. For the complete response format, see [InvokeDataAutomationAsync](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationAsync.html) in the API Reference.
 
 ## Document
+<a name="bda-sensitive-data-sample-document"></a>
 
 The following example shows redacted standard output for a document.
 
@@ -49,9 +50,9 @@ The following example shows redacted standard output for a document.
 ```
 
 ## Audio
+<a name="bda-sensitive-data-sample-audio"></a>
 
-The following example shows the standard output before redaction, with the detected entity
-identified.
+The following example shows the standard output before redaction, with the detected entity identified.
 
 ```
 "audio_segments": [{
@@ -100,6 +101,7 @@ The following example shows the same standard output after redaction.
 ```
 
 ## Image
+<a name="bda-sensitive-data-sample-image"></a>
 
 The following example shows redacted standard output for an image.
 
@@ -130,13 +132,12 @@ The following example shows redacted standard output for an image.
 }
 ```
 
-The following examples show sensitive data detection and redaction for custom
-outputs.
+The following examples show sensitive data detection and redaction for custom outputs.
 
 ## Custom output
+<a name="bda-sensitive-data-sample-custom"></a>
 
-The following example shows the custom output before redaction, with the detected entities
-identified.
+The following example shows the custom output before redaction, with the detected entities identified.
 
 ```
 "blueprint_sensitive_data_detection": {

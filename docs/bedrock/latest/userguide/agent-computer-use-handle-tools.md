@@ -1,19 +1,18 @@
+
+
 # Handle computer use tool requests from agents in conversations
+<a name="agent-computer-use-handle-tools"></a>
 
-When your agent requests a tool, the response to your InvokeAgent API operation includes a `returnControl` payload that
-includes the tool to use and the tool action in the invocationInputs. For more information about
-return control to agent developer, see [Return control to the agent developer by sending elicited information in an InvokeAgent response](agents-returncontrol.md "agents-returncontrol.md").
+When your agent requests a tool, the response to your InvokeAgent API operation includes a `returnControl` payload that includes the tool to use and the tool action in the invocationInputs. For more information about return control to agent developer, see [Return control to the agent developer by sending elicited information in an InvokeAgent response](agents-returncontrol.md).
 
-###### Topics
-
-- [Return control example](#agent-computer-use-tool-request-format "#agent-computer-use-tool-request-format")
-- [Code example to parse the tool request](#agent-computer-use-implementation-example "#agent-computer-use-implementation-example")
+**Topics**
++ [Return control example](#agent-computer-use-tool-request-format)
++ [Code example to parse the tool request](#agent-computer-use-implementation-example)
 
 ## Return control example
+<a name="agent-computer-use-tool-request-format"></a>
 
-The following is an example of a `returnControl` payload with a request
-to use the `ANTHROPIC.Computer` tool with the `screenshot`
-action.
+The following is an example of a `returnControl` payload with a request to use the `ANTHROPIC.Computer` tool with the `screenshot` action.
 
 ```
 {
@@ -37,20 +36,13 @@ action.
 ```
 
 ## Code example to parse the tool request
+<a name="agent-computer-use-implementation-example"></a>
 
-The following code shows how to extract the computer use tool choice in an InvokeAgent response, map it to
-mock tool implementations for different tools, and then send the result of the tool use in a subsequent InvokeAgent request.
+The following code shows how to extract the computer use tool choice in an InvokeAgent response, map it to mock tool implementations for different tools, and then send the result of the tool use in a subsequent InvokeAgent request.
++ The `manage_computer_interaction` function runs a loop where it calls the InvocationAgent API operation and parses the response until there is no task to complete. When it parses the response, it extracts any tools to use from the `returnControl` payload and passes the `handle_computer_action` function.
++ The `handle_computer_action` maps the function name to mock implementations for four actions. For example tool implementations, see [computer-use-demo](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo/computer_use_demo/) in the Anthropic GitHub repository. 
 
-- The `manage_computer_interaction` function runs a loop where it
-  calls the InvocationAgent API operation and parses the response until there
-  is no task to complete. When it parses the response, it extracts any tools
-  to use from the `returnControl` payload and passes the
-  `handle_computer_action` function.
-- The `handle_computer_action` maps the function name to mock implementations for four actions. For example tool implementations, see
-  [computer-use-demo](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo/computer_use_demo/ "https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo/computer_use_demo/") in the Anthropic GitHub repository.
-
-For more information about computer use tools, including implementation examples and tool descriptions,
-see [Computer use (beta)](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use "https://docs.anthropic.com/en/docs/agents-and-tools/computer-use") in the Anthropic documentation.
+For more information about computer use tools, including implementation examples and tool descriptions, see [Computer use (beta)](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) in the Anthropic documentation.
 
 ```
 import boto3
@@ -135,7 +127,7 @@ def manage_computer_interaction(bedrock_agent_runtime_client, agent_id, alias_id
     session_id = "session123"
     initial_prompt = "Open a browser and go to a website"
     computer_use_results = None
-    current_prompt = `initial_prompt`
+    current_prompt = {{initial_prompt}}
 
     while True:
         # Make agent request with appropriate parameters
@@ -206,11 +198,11 @@ def manage_computer_interaction(bedrock_agent_runtime_client, agent_id, alias_id
         current_prompt = ""
 def main():
     bedrock_agent_runtime_client = boto3.client(service_name="bedrock-agent-runtime",
-                                         region_name="`REGION`"
+                                         region_name="{{REGION}}"
                                          )
 
-    agent_id = "`AGENT_ID`"
-    alias_id = "`ALIAS_ID`"
+    agent_id = "{{AGENT_ID}}"
+    alias_id = "{{ALIAS_ID}}"
 
     manage_computer_interaction(bedrock_agent_runtime_client, agent_id, alias_id)
 

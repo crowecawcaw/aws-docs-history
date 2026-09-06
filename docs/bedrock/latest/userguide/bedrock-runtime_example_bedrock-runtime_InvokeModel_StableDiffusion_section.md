@@ -1,21 +1,18 @@
+
+
 # Invoke Stability.ai Stable Image Core on Amazon Bedrock to generate an image
+<a name="bedrock-runtime_example_bedrock-runtime_InvokeModel_StableDiffusion_section"></a>
 
 The following code examples show how to invoke Stability.ai Stable Image Core on Amazon Bedrock to generate an image.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples").
-
-Create an image with Stable Image Core.
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples). 
+Create an image with Stable Image Core.  
 
 ```
-
         /// <summary>
         /// Asynchronously invokes the Stability.ai Stable Image Core model to run an inference based on the provided input.
         /// </summary>
@@ -67,27 +64,14 @@ Create an image with Stable Image Core.
             }
             return null;
         }
+```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/DotNetSDKV3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for .NET API Reference*. 
 
-
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples). 
+Create an image with Stable Image Core.  
 
 ```
-
-- For API details, see
-  [InvokeModel](../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples").
-
-Create an image with Stable Image Core.
-
-```
-
         /// <summary>
         /// Asynchronously invokes the Stability.ai Stable Image Core model to run an inference based on the provided input.
         /// </summary>
@@ -139,26 +123,15 @@ Create an image with Stable Image Core.
             }
             return null;
         }
-
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/DotNetSDKV4/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for .NET API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for .NET API Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples").
-
-Create an image with Stable Diffusion.
+**SDK for Java 2.x**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/bedrock-runtime#code-examples). 
+Create an image with Stable Diffusion.  
 
 ```
 // Create an image with Stability AI Stable Image Core.
@@ -244,25 +217,15 @@ public class InvokeModel {
     }
 
 }
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Java 2.x API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ PHP ]
 
-PHP
-
-**SDK for PHP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples").
-
-Create an image with Stable Diffusion.
+**SDK for PHP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php/example_code/bedrock-runtime#code-examples). 
+Create an image with Stable Diffusion.  
 
 ```
     public function invokeStableDiffusion(string $prompt, int $seed = 0, string $aspect_ratio = '1:1')
@@ -294,25 +257,15 @@ Create an image with Stable Diffusion.
 
         return $base64_image_data;
     }
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for PHP API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for PHP API Reference_.
+------
+#### [ Python ]
 
-Python
-
-**SDK for Python (Boto3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples").
-
-Create an image with Stable Diffusion.
+**SDK for Python (Boto3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/bedrock-runtime#code-examples). 
+Create an image with Stable Diffusion.  
 
 ```
 # Use the native inference API to create an image with Stability AI Stable Image Core
@@ -369,26 +322,15 @@ with open(image_path, "wb") as file:
     file.write(image_data)
 
 print(f"The generated image has been saved to {image_path}")
-
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/goto/boto3/bedrock-runtime-2023-09-30/InvokeModel) in *AWS SDK for Python (Boto3) API Reference*. 
 
-- For API details, see
-  [InvokeModel](../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/boto3/bedrock-runtime-2023-09-30/InvokeModel.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-SAP ABAP
-
-**SDK for SAP ABAP**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdr#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdr#code-examples").
-
-Create an image with Stable Diffusion.
+**SDK for SAP ABAP**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/bdr#code-examples). 
+Create an image with Stable Diffusion.  
 
 ```
     "Stable Image Core Input Parameters should be in a format like this:
@@ -443,12 +385,8 @@ Create an image with Stable Diffusion.
         WRITE / |Don't forget to enable model access at https://console.aws.amazon.com/bedrock/home?#/modelaccess|.
 
     ENDTRY.
-
-
-
 ```
-
-Invoke the Stability.ai Stable Image Core foundation model to generate images using L2 high level client.
+Invoke the Stability.ai Stable Image Core foundation model to generate images using L2 high level client.  
 
 ```
     TRY.
@@ -460,14 +398,9 @@ Invoke the Stability.ai Stable Image Core foundation model to generate images us
         WRITE / |Don't forget to enable model access at https://console.aws.amazon.com/bedrock/home?#/modelaccess|.
 
     ENDTRY.
-
-
 ```
++  For API details, see [InvokeModel](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
 
-- For API details, see
-  [InvokeModel](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,14 +1,17 @@
+
+
 # Updating Vocabulary Entities
+<a name="bda-library-updating-cv"></a>
 
-Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md "bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.md") with "UPSERT" operation type to update existing vocabulary entities for the same entityId. This will replace the entire entity with the new content.
+Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) with "UPSERT" operation type to update existing vocabulary entities for the same entityId. This will replace the entire entity with the new content.
 
-###### Important
-
+**Important**  
 UPSERT operations are clobber-style at the entity level. The entire entity is replaced, not merged.
 
 ## AWS CLI Example:
+<a name="bda-library-updating-cv-cli"></a>
 
-_Note that this operation is same as [Adding New Vocabulary Entities](bda-library-adding-cv.md "bda-library-adding-cv.md")._
+*Note that this operation is same as [Adding New Vocabulary Entities](bda-library-adding-cv.md).*
 
 **Request**
 
@@ -22,22 +25,28 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 ```
 
 ## AWS Console Example:
+<a name="bda-library-updating-cv-console"></a>
 
 1. Navigate to the "Library details" page for your library
-2. Select the desired entity from the "Custom vocabulary lists"
-3. Make the desired modifications:
+
+1. Select the desired entity from the "Custom vocabulary lists"
+
+1. Make the desired modifications:
 
    1. Update:
 
       1. Select the desired phrase
-      2. Update the phrase
-      3. Choose the check mark to the right of the phrase
 
-   2. Delete
+      1. Update the phrase
+
+      1. Choose the check mark to the right of the phrase
+
+   1. Delete
 
       1. Select the checkbox to the left of the desired phrase(s)
-      2. Choose "Delete phrases"
 
-4. Choose "Save updates"
+      1. Choose "Delete phrases"
 
-![Custom terminology editor showing phrase ibuprofen updated to display as paracetamol.](images/bda/library-update-cv-console.png)
+1. Choose "Save updates"
+
+![Custom terminology editor showing phrase ibuprofen updated to display as paracetamol.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-update-cv-console.png)

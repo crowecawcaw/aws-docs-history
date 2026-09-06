@@ -1,8 +1,12 @@
-# Listing Libraries
 
-Use the [ListDataAutomationLibraries](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraries.md "bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraries.md") API to retrieve the list of libraries.
+
+# Listing Libraries
+<a name="bda-library-listing"></a>
+
+Use the [ListDataAutomationLibraries](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraries.html) API to retrieve the list of libraries.
 
 ## AWS CLI Example:
+<a name="bda-library-listing-cli"></a>
 
 **Request**
 
@@ -27,7 +31,8 @@ aws bedrock-data-automation list-data-automation-libraries \
 ```
 
 ## AWS Console Example:
+<a name="bda-library-listing-console"></a>
 
 1. Navigate to "Manage libraries" page in BDA Console. This page will list libraries associated in this account.
 
-![Libraries table showing healthcare-vocabulary library with Active status and Custom vocabulary entity type.](images/bda/library-list-console.png)
+![Libraries table showing healthcare-vocabulary library with Active status and Custom vocabulary entity type.](http://docs.aws.amazon.com/bedrock/latest/userguide/images/bda/library-list-console.png)

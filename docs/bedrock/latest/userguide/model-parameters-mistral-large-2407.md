@@ -1,88 +1,89 @@
+
+
 # Mistral AI Large (24.07) parameters and inference
+<a name="model-parameters-mistral-large-2407"></a>
 
 The Mistral AI chat completion API lets you create conversational applications. You can also use the Amazon Bedrock Converse API with this model. You can use tools to make function calls.
 
-###### Tip
+**Tip**  
+You can use the Mistral AI chat completion API with the base inference operations ([InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)). However, we recommend that you use the Converse API to implement messages in your application. The Converse API provides a unified set of parameters that work across all models that support messages. For more information, see [Inference using Converse API](conversation-inference.md).
 
-You can use the Mistral AI chat completion API with the base
-inference operations ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md")
-or [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md")). However, we recommend that you use the
-Converse API to implement messages in your application. The Converse API
-provides a unified set of parameters that work across all models that support messages.
-For more information, see [Inference using Converse API](conversation-inference.md "conversation-inference.md").
+Mistral AI models are available under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt). For more information about using Mistral AI models, see the [Mistral AI documentation](https://docs.mistral.ai/).
 
-Mistral AI models are available under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0.txt "https://www.apache.org/licenses/LICENSE-2.0.txt"). For
-more information about using Mistral AI models, see the [Mistral AI documentation](https://docs.mistral.ai/ "https://docs.mistral.ai/").
-
-###### Topics
-
-- [Supported models](#mistral-supported-models-chat-completion "#mistral-supported-models-chat-completion")
-- [Request and Response Examples](#model-parameters-mistral-large-2407-request-response "#model-parameters-mistral-large-2407-request-response")
+**Topics**
++ [Supported models](#mistral-supported-models-chat-completion)
++ [Request and Response Examples](#model-parameters-mistral-large-2407-request-response)
 
 ## Supported models
+<a name="mistral-supported-models-chat-completion"></a>
 
 You can use the following Mistral AI models with the code examples on this page.
++ Mistral Large 2 (24.07)
 
-- Mistral Large 2 (24.07)
-
-You need the model ID for the model
-that you want to use. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+You need the model ID for the model that you want to use. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md). 
 
 ## Request and Response Examples
+<a name="model-parameters-mistral-large-2407-request-response"></a>
 
-Request
-Mistral AI Large (24.07) invoke model example.
+------
+#### [ Request ]
+
+Mistral AI Large (24.07) invoke model example. 
 
 ```
-import boto3
+import boto3 
 import json
 
-bedrock = session.client('bedrock-runtime', 'us-west-2')
-response = bedrock.invoke_model(
-        modelId='mistral.mistral-large-2407-v1:0',
+bedrock = session.client('bedrock-runtime', 'us-west-2') 
+response = bedrock.invoke_model( 
+        modelId='mistral.mistral-large-2407-v1:0', 
         body=json.dumps({
-            'messages': [
-                {
-                    'role': 'user',
-                    'content': 'which llm are you?'
-                }
-             ],
-         })
-       )
+            'messages': [ 
+                { 
+                    'role': 'user', 
+                    'content': 'which llm are you?' 
+                } 
+             ], 
+         }) 
+       ) 
 
 print(json.dumps(json.loads(response['body']), indent=4))
 ```
 
-Converse
-Mistral AI Large (24.07) converse example.
+------
+#### [ Converse ]
+
+Mistral AI Large (24.07) converse example. 
 
 ```
-import boto3
+import boto3 
 import json
 
 bedrock = session.client('bedrock-runtime', 'us-west-2')
-response = bedrock.converse(
-    modelId='mistral.mistral-large-2407-v1:0',
-    messages=[
-        {
-            'role': 'user',
-            'content': [
-                {
-                    'text': 'which llm are you?'
-                }
-             ]
-          }
-     ]
-  )
+response = bedrock.converse( 
+    modelId='mistral.mistral-large-2407-v1:0', 
+    messages=[ 
+        { 
+            'role': 'user', 
+            'content': [ 
+                { 
+                    'text': 'which llm are you?' 
+                } 
+             ] 
+          } 
+     ] 
+  ) 
 
 print(json.dumps(json.loads(response['body']), indent=4))
 ```
 
-invoke\_model\_with\_response\_stream
-Mistral AI Large (24.07) invoke\_model\_with\_response\_stream example.
+------
+#### [ invoke\_model\_with\_response\_stream ]
+
+Mistral AI Large (24.07) invoke\_model\_with\_response\_stream example. 
 
 ```
-import boto3
+import boto3 
 import json
 
 bedrock = session.client('bedrock-runtime', 'us-west-2')
@@ -102,11 +103,13 @@ if stream:
                 print(chunk_obj)
 ```
 
-converse\_stream
-Mistral AI Large (24.07) converse\_stream example.
+------
+#### [ converse\_stream ]
+
+Mistral AI Large (24.07) converse\_stream example. 
 
 ```
-import boto3
+import boto3 
 import json
 
 bedrock = session.client('bedrock-runtime', 'us-west-2')
@@ -143,11 +146,13 @@ mistral_params = {
                         f"Latency: {metadata['metrics']['latencyMs']} milliseconds")
 ```
 
-JSON Output
-Mistral AI Large (24.07) JSON output example.
+------
+#### [ JSON Output ]
+
+Mistral AI Large (24.07) JSON output example. 
 
 ```
-import boto3
+import boto3 
 import json
 
 bedrock = session.client('bedrock-runtime', 'us-west-2')
@@ -161,11 +166,12 @@ response = bedrock.invoke_model(**mistral_params)
 
 body = response.get('body').read().decode('utf-8')
 print(json.loads(body))
-
 ```
 
-Tooling
-Mistral AI Large (24.07) tools example.
+------
+#### [ Tooling ]
+
+Mistral AI Large (24.07) tools example. 
 
 ```
 data = {
@@ -181,12 +187,12 @@ df = pd.DataFrame(data)
 
 
 def retrieve_payment_status(df: data, transaction_id: str) -> str:
-    if transaction_id in df.transaction_id.values:
+    if transaction_id in df.transaction_id.values: 
         return json.dumps({'status': df[df.transaction_id == transaction_id].payment_status.item()})
     return json.dumps({'error': 'transaction id not found.'})
 
 def retrieve_payment_date(df: data, transaction_id: str) -> str:
-    if transaction_id in df.transaction_id.values:
+    if transaction_id in df.transaction_id.values: 
         return json.dumps({'date': df[df.transaction_id == transaction_id].payment_date.item()})
     return json.dumps({'error': 'transaction id not found.'})
 
@@ -239,11 +245,11 @@ message = [{"role": "user", "content": test_tool_input}]
 
 
 def invoke_bedrock_mistral_tool():
-
+   
     mistral_params = {
         "body": json.dumps({
             "messages": message,
-            "tools": tools
+            "tools": tools           
         }),
         "modelId":"mistral.mistral-large-2407-v1:0",
     }
@@ -260,11 +266,11 @@ def invoke_bedrock_mistral_tool():
     function_result = names_to_functions[function_name](**function_params)
 
     message.append({"role": "tool", "content": function_result, "tool_call_id":tool_call.get("id")})
-
+   
     new_mistral_params = {
         "body": json.dumps({
                 "messages": message,
-                "tools": tools
+                "tools": tools           
         }),
         "modelId":"mistral.mistral-large-2407-v1:0",
     }
@@ -273,5 +279,6 @@ def invoke_bedrock_mistral_tool():
     body = json.loads(body)
     print(body)
 invoke_bedrock_mistral_tool()
-
 ```
+
+------

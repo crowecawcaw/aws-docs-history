@@ -1,24 +1,20 @@
+
+
 # Store and retrieve conversation history and context with the BedrockSessionSaver LangGraph library
+<a name="sessions-opensource-library"></a>
 
-Instead of directly using the Amazon Bedrock session management APIs, you can store and retrieve conversation history and context in LangGraph with the `BedrockSessionSaver` library.
-This is a custom implementation of the LangGraph CheckpointSaver. It uses the Amazon Bedrock APIs with a LangGraph-based interface. For more information,
-see [langgraph-checkpoint-aws](https://github.com/langchain-ai/langchain-aws/tree/main/libs/langgraph-checkpoint-aws "https://github.com/langchain-ai/langchain-aws/tree/main/libs/langgraph-checkpoint-aws") in the [LangChain](https://github.com/langchain-ai "https://github.com/langchain-ai") GitHub repository.
+Instead of directly using the Amazon Bedrock session management APIs, you can store and retrieve conversation history and context in LangGraph with the `BedrockSessionSaver` library. This is a custom implementation of the LangGraph CheckpointSaver. It uses the Amazon Bedrock APIs with a LangGraph-based interface. For more information, see [langgraph-checkpoint-aws](https://github.com/langchain-ai/langchain-aws/tree/main/libs/langgraph-checkpoint-aws) in the [LangChain](https://github.com/langchain-ai) GitHub repository.
 
-The following code sample shows how to use the BedrockSessionSaver LangGraph library to track state as a user
-interacts with Claude. To use this code sample:
-
-- Install the required dependencies:
-
-  - boto3
-  - langgraph
-  - langgraph-checkpoint-aws
-  - langchain-core
-
-- Make sure you have access to the Claude 3.5 Sonnet v2 model in your account. Or you can modify the code to use a different model.
-- Replace `REGION` with your region:
-
-  - This Region for your runtime client and the BedrockSessionSaver must match.
-  - It must support Claude 3.5 Sonnet v2 (or the model you are using).
+The following code sample shows how to use the BedrockSessionSaver LangGraph library to track state as a user interacts with Claude. To use this code sample:
++ Install the required dependencies:
+  + boto3
+  + langgraph
+  + langgraph-checkpoint-aws
+  + langchain-core
++ Make sure you have access to the Claude 3.5 Sonnet v2 model in your account. Or you can modify the code to use a different model.
++ Replace `REGION` with your region:
+  + This Region for your runtime client and the BedrockSessionSaver must match. 
+  + It must support Claude 3.5 Sonnet v2 (or the model you are using).
 
 ```
 import boto3
@@ -121,10 +117,10 @@ def create_graph(session_saver):
 def main():
     # Create a runtime client
     agent_run_time_client = boto3.client("bedrock-agent-runtime",
-                                         region_name="`REGION`")
-
+                                         region_name="{{REGION}}")
+            
     # Initialize Bedrock session saver. The Region must match the Region used for the agent_run_time_client.
-    session_saver = BedrockSessionSaver(region_name="`REGION`")
+    session_saver = BedrockSessionSaver(region_name="{{REGION}}")
 
     # Create graph
     graph = create_graph(session_saver)

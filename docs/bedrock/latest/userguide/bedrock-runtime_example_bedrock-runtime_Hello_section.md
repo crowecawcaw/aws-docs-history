@@ -1,19 +1,17 @@
+
+
 # Hello Amazon Bedrock Runtime
+<a name="bedrock-runtime_example_bedrock-runtime_Hello_section"></a>
 
 The following code examples show how to get started using Amazon Bedrock Runtime.
 
-.NET
+------
+#### [ .NET ]
 
-**SDK for .NET**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples").
+**SDK for .NET**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3/Bedrock-runtime#code-examples). 
 
 ```
-
 using Amazon;
 using Amazon.BedrockRuntime;
 using Amazon.BedrockRuntime.Model;
@@ -70,25 +68,13 @@ internal class HelloBedrockRuntime
         }
     }
 }
+```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for .NET API Reference*. 
 
-
+**SDK for .NET (v4)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples). 
 
 ```
-
-- For API details, see
-  [Converse](../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse.md "../../../goto/DotNetSDKV3/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for .NET API Reference_.
-
-**SDK for .NET (v4)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/Bedrock-runtime#code-examples").
-
-```
-
 using Amazon;
 using Amazon.BedrockRuntime;
 using Amazon.BedrockRuntime.Model;
@@ -145,27 +131,16 @@ internal class HelloBedrockRuntime
         }
     }
 }
+```
++  For API details, see [Converse](https://docs.aws.amazon.com/goto/DotNetSDKV4/bedrock-runtime-2023-09-30/Converse) in *AWS SDK for .NET API Reference*. 
 
+------
+#### [ Go ]
 
+**SDK for Go V2**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples). 
 
 ```
-
-- For API details, see
-  [Converse](../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/Converse.md "../../../goto/DotNetSDKV4/bedrock-runtime-2023-09-30/Converse.md")
-  in _AWS SDK for .NET API Reference_.
-
-Go
-
-**SDK for Go V2**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/bedrock-runtime#code-examples").
-
-```
-
 package main
 
 import (
@@ -240,27 +215,16 @@ func main() {
 	}
 	fmt.Printf("Response: %s\n", text.Value)
 }
+```
++  For API details, see [Converse](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse) in *AWS SDK for Go API Reference*. 
 
+------
+#### [ JavaScript ]
 
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples). 
 
 ```
-
-- For API details, see
-  [Converse](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.Converse")
-  in _AWS SDK for Go API Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/bedrock-runtime#code-examples").
-
-```
-
 import { fileURLToPath } from "node:url";
 import {
   BedrockRuntimeClient,
@@ -324,14 +288,9 @@ const hello = async () => {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   await hello();
 }
-
-
 ```
++  For API details, see [Converse](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For API details, see
-  [Converse](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/ConverseCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using Amazon Bedrock with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
