@@ -1,63 +1,49 @@
+
+
 # Configuring AWS AppConfig Agent to write configuration copies to disk
+<a name="appconfig-agent-how-to-use-additional-features-write-to-disk"></a>
 
-You can configure AWS AppConfig Agent to automatically store a copy of a configuration to
-disk in plain text. This feature enables customers with applications that read
-configuration data from disk to integrate with AWS AppConfig.
+You can configure AWS AppConfig Agent to automatically store a copy of a configuration to disk in plain text. This feature enables customers with applications that read configuration data from disk to integrate with AWS AppConfig.
 
-This feature is not designed to be used as a configuration backup feature. AWS AppConfig
-Agent doesn't read from the configuration files copied to disk. If you want to back up
-configurations to disk, see the `BACKUP_DIRECTORY` and
-`PRELOAD_BACKUP` environment variables for [Using AWS AppConfig Agent with Amazon EC2](appconfig-integration-ec2.md#appconfig-integration-ec2-configuring "appconfig-integration-ec2.md#appconfig-integration-ec2-configuring") or [Using AWS AppConfig Agent with Amazon ECS and Amazon EKS](appconfig-integration-containers-agent.md#appconfig-integration-containers-agent-configuring "appconfig-integration-containers-agent.md#appconfig-integration-containers-agent-configuring").
+This feature is not designed to be used as a configuration backup feature. AWS AppConfig Agent doesn't read from the configuration files copied to disk. If you want to back up configurations to disk, see the `BACKUP_DIRECTORY` and `PRELOAD_BACKUP` environment variables for [Using AWS AppConfig Agent with Amazon EC2](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-integration-ec2.html#appconfig-integration-ec2-configuring) or [Using AWS AppConfig Agent with Amazon ECS and Amazon EKS](https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-integration-containers-agent.html#appconfig-integration-containers-agent-configuring).
 
-###### Warning
+**Warning**  
+Note the following important information about this feature:  
+Configurations saved to disk are stored in *plain text* and are human readable. Don't enable this feature for configurations that include sensitive data. 
+This feature writes to the local disk. Use the principle of least privilege for filesystem permissions. For more information, see [Implement least privilege access](appconfig-security.md#appconfig-security-least-privilege-access).
 
-Note the following important information about this feature:
-
-- Configurations saved to disk are stored in _plain text_ and
-  are human readable. Don't enable this feature for configurations that include
-  sensitive data.
-- This feature writes to the local disk. Use the principle of least privilege for
-  filesystem permissions. For more information, see [Implement least privilege access](appconfig-security.md#appconfig-security-least-privilege-access "appconfig-security.md#appconfig-security-least-privilege-access").
-
-###### To enable write configuration copy to disk
+**To enable write configuration copy to disk**
 
 1. Edit the manifest.
-2. Choose the configuration that you want AWS AppConfig to write to disk and add a
-   `writeTo` element. Here is an example:
 
-```
-{
-    "`application_name`:`environment_name`:`configuration_name`": {
-        "writeTo": {
-            "path": "`path_to_configuration_file`"
-        }
-    }
-}
-```
+1. Choose the configuration that you want AWS AppConfig to write to disk and add a `writeTo` element. Here is an example:
 
-Here is an example:
+   ```
+   {
+       "{{application_name}}:{{environment_name}}:{{configuration_name}}": {
+           "writeTo": {
+               "path": "{{path_to_configuration_file}}"
+           }
+       }
+   }
+   ```
 
-```
-{
-    "MyTestApp:MyTestEnvironment:MyNewConfiguration": {
-        "writeTo": {
-            "path": "/tmp/aws-appconfig/mobile-app/beta/enable-mobile-payments"
-        }
-    }
-}
-```
+   Here is an example:
 
-3. Save your changes. The configuration.json file will be updated each time new
-   configuration data is deployed.
+   ```
+   {
+       "MyTestApp:MyTestEnvironment:MyNewConfiguration": {
+           "writeTo": {
+               "path": "/tmp/aws-appconfig/mobile-app/beta/enable-mobile-payments"
+           }
+       }
+   }
+   ```
 
-###### Validate that write configuration copy to disk is working
+1. Save your changes. The configuration.json file will be updated each time new configuration data is deployed.
 
-You can validate that copies of a configuration are being written to disk by looking
-by reviewing the AWS AppConfig agent logs. The `INFO` log entry with the phrasing
-"INFO wrote configuration
-'`application`:`environment`:`configuration`'
-to `file_path`" indicates that AWS AppConfig Agent writes
-configuration copies to disk.
+**Validate that write configuration copy to disk is working**  
+You can validate that copies of a configuration are being written to disk by looking by reviewing the AWS AppConfig agent logs. The `INFO` log entry with the phrasing "INFO wrote configuration '{{application}}:{{environment}}:{{configuration}}' to {{file\_path}}" indicates that AWS AppConfig Agent writes configuration copies to disk.
 
 Here is an example:
 

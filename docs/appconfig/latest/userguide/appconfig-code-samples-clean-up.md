@@ -1,19 +1,20 @@
+
+
 # Cleaning up your environment
+<a name="appconfig-code-samples-clean-up"></a>
 
-If you ran one or more of the code samples in this section, we recommend you use one
-of the following samples to locate and delete the AWS AppConfig resources created by those code
-samples. The samples in this section call the following APIs:
+If you ran one or more of the code samples in this section, we recommend you use one of the following samples to locate and delete the AWS AppConfig resources created by those code samples. The samples in this section call the following APIs:
++ [ListApplications](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListApplications.html)
++ [DeleteApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteApplication.html)
++ [ListEnvironments](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListEnvironments.html)
++ [DeleteEnvironments](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteEnvironment.html)
++ [ListConfigurationProfiles](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListConfigurationProfiles.html)
++ [DeleteConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteConfigurationProfile.html)
++ [ListHostedConfigurationVersions](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_ListHostedConfigurationVersions.html)
++ [DeleteHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteHostedConfigurationVersion.html)
 
-- [ListApplications](../../2019-10-09/APIReference/API_ListApplications.md "../../2019-10-09/APIReference/API_ListApplications.md")
-- [DeleteApplication](../../2019-10-09/APIReference/API_DeleteApplication.md "../../2019-10-09/APIReference/API_DeleteApplication.md")
-- [ListEnvironments](../../2019-10-09/APIReference/API_ListEnvironments.md "../../2019-10-09/APIReference/API_ListEnvironments.md")
-- [DeleteEnvironments](../../2019-10-09/APIReference/API_DeleteEnvironment.md "../../2019-10-09/APIReference/API_DeleteEnvironment.md")
-- [ListConfigurationProfiles](../../2019-10-09/APIReference/API_ListConfigurationProfiles.md "../../2019-10-09/APIReference/API_ListConfigurationProfiles.md")
-- [DeleteConfigurationProfile](../../2019-10-09/APIReference/API_DeleteConfigurationProfile.md "../../2019-10-09/APIReference/API_DeleteConfigurationProfile.md")
-- [ListHostedConfigurationVersions](../../2019-10-09/APIReference/API_ListHostedConfigurationVersions.md "../../2019-10-09/APIReference/API_ListHostedConfigurationVersions.md")
-- [DeleteHostedConfigurationVersion](../../2019-10-09/APIReference/API_DeleteHostedConfigurationVersion.md "../../2019-10-09/APIReference/API_DeleteHostedConfigurationVersion.md")
-
-Java
+------
+#### [ Java ]
 
 ```
 /*
@@ -23,14 +24,14 @@ Java
     configuration profiles, hosted configuration versions, and environments. DO NOT run this code against
     an application that you may need in the future.
     */
-
+    
     public void cleanUpDemoResources() {
         AppConfigClient appconfig = AppConfigClient.create();
-
+        
         // The name of the application to delete
         // IMPORTANT: verify this name corresponds to the application you wish to delete
         String applicationToDelete = "MyDemoApp";
-
+        
         appconfig.listApplicationsPaginator(ListApplicationsRequest.builder().build()).items().forEach(app -> {
             if (app.name().equals(applicationToDelete)) {
                 System.out.println("Deleting App: " + app);
@@ -64,7 +65,8 @@ Java
     }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 # this sample provides cleanup code that deletes all the AWS AppConfig resources created in the samples above.
@@ -74,7 +76,7 @@ Python
 #   an application that you may need in the future.
 #
 
-import boto3
+import boto3 
 
 # the name of the application to delete
 # IMPORTANT: verify this name corresponds to the application you wish to delete
@@ -113,7 +115,8 @@ appconfig.delete_application(ApplicationId=application['Id'])
 print(f"deleted application {application['Name']} (id={application['Id']})")
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 // this sample provides cleanup code that deletes all the AWS AppConfig resources created in the samples above.
@@ -202,3 +205,5 @@ for await (const app_page of paginateListApplications({ client }, {})) {
   }
 }
 ```
+
+------

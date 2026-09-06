@@ -1,55 +1,40 @@
+
+
 # Bypassing or forcing a deletion protection check
+<a name="deletion-protection-check"></a>
 
-To help you manage deletion protection, the [DeleteEnvironment](../../2019-10-09/APIReference/API_DeleteEnvironment.md "../../2019-10-09/APIReference/API_DeleteEnvironment.md")
-and [DeleteConfigurationProfile](../../2019-10-09/APIReference/API_DeleteConfigurationProfile.md "../../2019-10-09/APIReference/API_DeleteConfigurationProfile.md") APIs include a parameter called
-`DeletionProtectionCheck`. This parameter supports the following values:
+To help you manage deletion protection, the [DeleteEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteEnvironment.html) and [DeleteConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteConfigurationProfile.html) APIs include a parameter called `DeletionProtectionCheck`. This parameter supports the following values:
++ `BYPASS`: Instructs AWS AppConfig to bypass the deletion protection check and delete a configuration profile even if deletion protection would have otherwise prevented it. 
++ `APPLY`: Instructs the deletion protection check to run, even if deletion protection is disabled at the account level. `APPLY` also forces the deletion protection check to run against resources created in the past hour, which are normally excluded from deletion protection checks. 
++ `ACCOUNT_DEFAULT`: The default setting, which instructs AWS AppConfig to implement the deletion protection value specified in the `UpdateAccountSettings` API.
 
-- `BYPASS`: Instructs AWS AppConfig to bypass the deletion protection
-  check and delete a configuration profile even if deletion protection would have otherwise
-  prevented it.
-- `APPLY`: Instructs the deletion protection check to run, even if deletion
-  protection is disabled at the account level. `APPLY` also forces the deletion
-  protection check to run against resources created in the past hour, which are normally
-  excluded from deletion protection checks.
-- `ACCOUNT_DEFAULT`: The default setting, which instructs AWS AppConfig
-  to implement the deletion protection value specified in the
-  `UpdateAccountSettings` API.
+**Note**  
+By default, `DeletionProtectionCheck` skips configuration profiles and environments created in the past hour. The default configuration is intended to prevent deletion protection from interferring with tests and demos that create short-lived resources. You can override this behavior by passing `DeletionProtectionCheck=APPLY` when calling `DeleteEnvironment` or `DeleteConfigurationProfile`.
 
-###### Note
+The following CLI walkthrough uses sample commands to illustrate how to use the `DeletionProtectionCheck` parameter. Replace {{ID}} in the following commands with the ID for your AWS AppConfig artifacts.
 
-By default, `DeletionProtectionCheck` skips configuration profiles and
-environments created in the past hour. The default configuration is intended to prevent
-deletion protection from interferring with tests and demos that create short-lived
-resources. You can override this behavior by passing
-`DeletionProtectionCheck=APPLY` when calling `DeleteEnvironment` or
-`DeleteConfigurationProfile`.
+1. Call [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html) on a deployed configuration.
 
-The following CLI walkthrough uses sample commands to illustrate how to use the
-`DeletionProtectionCheck` parameter. Replace `ID` in the
-following commands with the ID for your AWS AppConfig artifacts.
+   ```
+   aws appconfigdata get-latest-configuration --configuration-token $(aws appconfigdata start-configuration-session --application-identifier {{ID}} --environment-identifier {{ID}} --configuration-profile-identifier {{ID}} --query InitialConfigurationToken) outfile.txt 
+   ```
 
-1. Call [GetLatestConfiguration](../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md") on a deployed configuration.
+1. Wait 60 seconds for AWS AppConfig to register that the configuration is active.
 
-```
-aws appconfigdata get-latest-configuration --configuration-token $(aws appconfigdata start-configuration-session --application-identifier `ID` --environment-identifier `ID` --configuration-profile-identifier `ID` --query InitialConfigurationToken) outfile.txt
-```
+1. Run the following command to call [DeleteEnvironment](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_DeleteEnvironment.html) and apply deletion protection on the environment.
 
-2. Wait 60 seconds for AWS AppConfig to register that the configuration is active.
-3. Run the following command to call [DeleteEnvironment](../../2019-10-09/APIReference/API_DeleteEnvironment.md "../../2019-10-09/APIReference/API_DeleteEnvironment.md") and apply deletion protection on the environment.
+   ```
+   aws appconfig delete-environment --environment-id {{ID}} --application-id {{ID}} --deletion-protection-check APPLY
+   ```
 
-```
-aws appconfig delete-environment --environment-id `ID` --application-id `ID` --deletion-protection-check APPLY
-```
+   The command should return the following error.
 
-The command should return the following error.
+   ```
+   An error occurred (BadRequestException) when calling the DeleteEnvironment operation: Environment Beta is actively being used in your application and cannot be deleted.
+   ```
 
-```
-An error occurred (BadRequestException) when calling the DeleteEnvironment operation: Environment Beta is actively being used in your application and cannot be deleted.
-```
+1. Run the following command to bypass deletion protection and delete the environment.
 
-4. Run the following command to bypass deletion protection and delete the
-   environment.
-
-```
-aws appconfig delete-environment --environment-id `ID` --application-id `ID` --deletion-protection-check BYPASS
-```
+   ```
+   aws appconfig delete-environment --environment-id {{ID}} --application-id {{ID}} --deletion-protection-check BYPASS
+   ```

@@ -1,9 +1,12 @@
+
+
 # Using AWS AppConfig Agent to read a specific feature flag
+<a name="appconfig-code-samples-agent-read-feature-flag"></a>
 
-Each of the following samples includes comments about the actions performed by the
-code.
+Each of the following samples includes comments about the actions performed by the code.
 
-Java
+------
+#### [ Java ]
 
 ```
 public void retrieveSingleFlagFromAgent() throws Exception {
@@ -28,7 +31,8 @@ public void retrieveSingleFlagFromAgent() throws Exception {
     }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import requests
@@ -40,11 +44,12 @@ flag_key = 'MyFlag'
 
 # retrieve a single flag's data by providing the "flag" query string parameter
 # note: the configuration's type must be AWS.AppConfig.FeatureFlags
-response = requests.get(f"http://localhost:2772/applications/{application_name}/environments/{environment_name}/configurations/{config_profile_name}?flag={flag_key}")
+response = requests.get(f"http://localhost:2772/applications/{application_name}/environments/{environment_name}/configurations/{config_profile_name}?flag={flag_key}") 
 config = response.content
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 const application_name = "MyDemoApp";
@@ -58,3 +63,5 @@ const url = `http://localhost:2772/applications/${application_name}/environments
 const response = await fetch(url);
 const flag = await response.json(); // { "enabled": true/false }
 ```
+
+------

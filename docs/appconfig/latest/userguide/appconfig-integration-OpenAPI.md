@@ -1,19 +1,16 @@
-# Generating a client using the OpenAPI specification
 
-You can use the following YAML specification for OpenAPI to create an SDK using a tool
-like [OpenAPI
-Generator](https://github.com/OpenAPITools/openapi-generator "https://github.com/OpenAPITools/openapi-generator"). You can update this specification to include hardcoded values for
-Application, Environment, or Configuration. You can also add additional paths (if you have
-multiple configuration types) and include configuration schemas to generate
-configuration-specific typed models for your SDK clients. For more information about OpenAPI
-(which is also known as Swagger), see the [OpenAPI specification](https://swagger.io/specification/ "https://swagger.io/specification/").
+
+# Generating a client using the OpenAPI specification
+<a name="appconfig-integration-OpenAPI"></a>
+
+You can use the following YAML specification for OpenAPI to create an SDK using a tool like [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator). You can update this specification to include hardcoded values for Application, Environment, or Configuration. You can also add additional paths (if you have multiple configuration types) and include configuration schemas to generate configuration-specific typed models for your SDK clients. For more information about OpenAPI (which is also known as Swagger), see the [OpenAPI specification](https://swagger.io/specification/).
 
 ```
 openapi: 3.0.0
 info:
   version: 1.0.0
   title: AWS AppConfig Agent API
-  description: An API model for AWS AppConfig Agent.
+  description: An API model for AWS AppConfig Agent. 
 servers:
   - url: http://localhost:{port}/
     variables:
@@ -47,7 +44,7 @@ paths:
             type: string
         - in: query
           name: flag
-          description: The key(s) of the feature flag(s) to retrieve. If not provided, all flags are returned.
+          description: The key(s) of the feature flag(s) to retrieve. If not provided, all flags are returned. 
           required: false
           schema:
             type: array

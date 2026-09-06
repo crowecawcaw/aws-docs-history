@@ -1,17 +1,19 @@
+
+
 # Using the GetLatestConfiguration API action to read a freeform configuration profile
+<a name="appconfig-code-samples-using-API-read-configuration"></a>
 
-Each of the following samples includes comments about the actions performed by the
-code. The samples in this section call the following APIs:
+Each of the following samples includes comments about the actions performed by the code. The samples in this section call the following APIs:
++ [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetLatestConfiguration.html)
++ [StartConfigurationSession](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartConfigurationSession.html)
 
-- [GetLatestConfiguration](../../2019-10-09/APIReference/API_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_GetLatestConfiguration.md")
-- [StartConfigurationSession](../../2019-10-09/APIReference/API_StartConfigurationSession.md "../../2019-10-09/APIReference/API_StartConfigurationSession.md")
-
-Java
+------
+#### [ Java ]
 
 ```
 /*
 The example below uses two AWS AppConfig Data APIs: StartConfigurationSession and GetLatestConfiguration.
-For more information about these APIs, see AWS AppConfig Data.
+For more information about these APIs, see [AWS AppConfig Data](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.html).
 
 This class is meant to be used as a singleton to retrieve the latest configuration data from AWS AppConfig.
 This class maintains a cache of the latest configuration data in addition to the configuration token to be
@@ -141,14 +143,14 @@ public class AppConfigApiRetriever {
         this.configurationToken = session.initialConfigurationToken();
     }
 }
-
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 # The example below uses two AWS AppConfig Data APIs: StartConfigurationSession and GetLatestConfiguration.
-# For more information about these APIs, see AWS AppConfig Data.
+# For more information about these APIs, see [AWS AppConfig Data](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.html).
 #
 # This class is meant to be used as a singleton to retrieve the latest configuration data from AWS AppConfig.
 # This class maintains a cache of the latest configuration data in addition to the configuration token to be
@@ -249,12 +251,13 @@ class AppConfigApiRetriever:
         self.configuration_token = session['InitialConfigurationToken']
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 /*
 The example below uses two AWS AppConfig Data APIs: StartConfigurationSession and GetLatestConfiguration.
-For more information about these APIs, see AWS AppConfig Data
+For more information about these APIs, see [AWS AppConfig Data](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_Operations_AWS_AppConfig_Data.html)
 .
 
 This class is meant to be used as a singleton to retrieve the latest configuration data from AWS AppConfig.
@@ -368,5 +371,6 @@ class AppConfigApiRetriever {
     return this.configuration;
   }
 }
-
 ```
+
+------

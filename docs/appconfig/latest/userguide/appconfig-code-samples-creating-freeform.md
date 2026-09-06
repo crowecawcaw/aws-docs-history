@@ -1,13 +1,15 @@
+
+
 # Creating or updating a freeform configuration stored in the hosted configuration store
+<a name="appconfig-code-samples-creating-freeform"></a>
 
-Each of the following samples includes comments about the actions performed by the
-code. The samples in this section call the following APIs:
+Each of the following samples includes comments about the actions performed by the code. The samples in this section call the following APIs:
++ [CreateApplication](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateApplication.html)
++ [CreateConfigurationProfile](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateConfigurationProfile.html)
++ [CreateHostedConfigurationVersion](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_CreateHostedConfigurationVersion.html)
 
-- [CreateApplication](../../2019-10-09/APIReference/API_CreateApplication.md "../../2019-10-09/APIReference/API_CreateApplication.md")
-- [CreateConfigurationProfile](../../2019-10-09/APIReference/API_CreateConfigurationProfile.md "../../2019-10-09/APIReference/API_CreateConfigurationProfile.md")
-- [CreateHostedConfigurationVersion](../../2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md "../../2019-10-09/APIReference/API_CreateHostedConfigurationVersion.md")
-
-Java
+------
+#### [ Java ]
 
 ```
 public CreateHostedConfigurationVersionResponse createHostedConfigVersion() {
@@ -34,7 +36,8 @@ public CreateHostedConfigurationVersionResponse createHostedConfigVersion() {
     }
 ```
 
-Python
+------
+#### [ Python ]
 
 ```
 import boto3
@@ -53,13 +56,14 @@ config_profile = appconfig.create_configuration_profile(
 
 # create a hosted configuration version
 hcv = appconfig.create_hosted_configuration_version(
-    ApplicationId=application['Id'],
+    ApplicationId=application['Id'], 
     ConfigurationProfileId=config_profile['Id'],
     Content=b'my config data',
     ContentType='text/plain')
 ```
 
-JavaScript
+------
+#### [ JavaScript ]
 
 ```
 import {
@@ -96,3 +100,5 @@ await appconfig.send(
   })
 );
 ```
+
+------

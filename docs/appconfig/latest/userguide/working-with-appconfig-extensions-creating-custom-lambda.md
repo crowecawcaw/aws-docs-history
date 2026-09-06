@@ -1,20 +1,14 @@
-# Step 1: Create a Lambda function for a custom AWS AppConfig extension
 
-For most use-cases, to create a custom extension, you must create an AWS Lambda function to perform any computation and processing defined in the
-extension. This section includes Lambda function sample code for a custom AWS AppConfig extension.
-This section also includes payload request and response reference details. For information
-about creating a Lambda function, see [Getting started with Lambda](../../../lambda/latest/dg/getting-started.md "../../../lambda/latest/dg/getting-started.md") in the
-_AWS Lambda Developer Guide_.
+
+# Step 1: Create a Lambda function for a custom AWS AppConfig extension
+<a name="working-with-appconfig-extensions-creating-custom-lambda"></a>
+
+For most use-cases, to create a custom extension, you must create an AWS Lambda function to perform any computation and processing defined in the extension. This section includes Lambda function sample code for a custom AWS AppConfig extension. This section also includes payload request and response reference details. For information about creating a Lambda function, see [Getting started with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the *AWS Lambda Developer Guide*.
 
 ## Sample code
+<a name="working-with-appconfig-extensions-creating-custom-lambda-code-sample"></a>
 
-The following sample code for a Lambda function, when invoked, automatically backs up
-an AWS AppConfig configuration to an Amazon S3 bucket. The configuration is backed up whenever a new
-configuration is created or deployed. The sample uses extension parameters so the bucket
-name doesn't have to be hardcoded in the Lambda function. By using extension parameters,
-the user can attach the extension to multiple applications and back up configurations to
-different buckets. The code sample includes comments to further explain the
-function.
+The following sample code for a Lambda function, when invoked, automatically backs up an AWS AppConfig configuration to an Amazon S3 bucket. The configuration is backed up whenever a new configuration is created or deployed. The sample uses extension parameters so the bucket name doesn't have to be hardcoded in the Lambda function. By using extension parameters, the user can attach the extension to multiple applications and back up configurations to different buckets. The code sample includes comments to further explain the function.
 
 **Sample Lambda function for an AWS AppConfig extension**
 
@@ -28,38 +22,38 @@ import boto3
 
 def lambda_handler(event, context):
     print(event)
-
-    # Extensions that use the PRE_CREATE_HOSTED_CONFIGURATION_VERSION and PRE_START_DEPLOYMENT
+    
+    # Extensions that use the PRE_CREATE_HOSTED_CONFIGURATION_VERSION and PRE_START_DEPLOYMENT 
     # action points receive the contents of AWS AppConfig configurations in Lambda event parameters.
-    # Configuration contents are received as a base64-encoded string, which the lambda needs to decode
-    # in order to get the configuration data as bytes. For other action points, the content
+    # Configuration contents are received as a base64-encoded string, which the lambda needs to decode 
+    # in order to get the configuration data as bytes. For other action points, the content 
     # of the configuration isn't present, so the code below will fail.
     config_data_bytes = base64.b64decode(event["Content"])
-
-    # You can specify parameters for extensions. The CreateExtension API action lets you define
-    # which parameters an extension supports. You supply the values for those parameters when you
+    
+    # You can specify parameters for extensions. The CreateExtension API action lets you define  
+    # which parameters an extension supports. You supply the values for those parameters when you 
     # create an extension association by calling the CreateExtensionAssociation API action.
-    # The following code uses a parameter called S3_BUCKET to obtain the value specified in the
-    # extension association. You can specify this parameter when you create the extension
+    # The following code uses a parameter called S3_BUCKET to obtain the value specified in the 
+    # extension association. You can specify this parameter when you create the extension 
     # later in this walkthrough.
     extension_association_params = event.get('Parameters', {})
     bucket_name = extension_association_params['S3_BUCKET']
     write_backup_to_s3(bucket_name, config_data_bytes)
-
-    # The PRE_CREATE_HOSTED_CONFIGURATION_VERSION and PRE_START_DEPLOYMENT action points can
-    # modify the contents of a configuration. The following code makes a minor change
+    
+    # The PRE_CREATE_HOSTED_CONFIGURATION_VERSION and PRE_START_DEPLOYMENT action points can 
+    # modify the contents of a configuration. The following code makes a minor change 
     # for the purposes of a demonstration.
     old_config_data_string = config_data_bytes.decode('utf-8')
     new_config_data_string = old_config_data_string.replace('hello', 'hello!')
     new_config_data_bytes = new_config_data_string.encode('utf-8')
-
-    # The lambda initially received the configuration data as a base64-encoded string
+    
+    # The lambda initially received the configuration data as a base64-encoded string 
     # and must return it in the same format.
     new_config_data_base64string = base64.b64encode(new_config_data_bytes).decode('ascii')
-
+    
     return {
         'statusCode': 200,
-        # If you want to modify the contents of the configuration, you must include the new contents in the
+        # If you want to modify the contents of the configuration, you must include the new contents in the 
         # Lambda response. If you don't want to modify the contents, you can omit the 'Content' field shown here.
         'Content': new_config_data_base64string
     }
@@ -71,20 +65,15 @@ def write_backup_to_s3(bucket_name, config_data_bytes):
     new_object.put(Body=config_data_bytes)
 ```
 
-If you want to use this sample during this walkthrough, save it with the name
-`MyS3ConfigurationBackUpExtension` and copy the Amazon Resource
-Name (ARN) for the function. You specify the ARN when you create the AWS Identity and Access Management (IAM)
-assume role in the next section. You specify the ARN and the name when you create the
-extension.
+If you want to use this sample during this walkthrough, save it with the name **MyS3ConfigurationBackUpExtension** and copy the Amazon Resource Name (ARN) for the function. You specify the ARN when you create the AWS Identity and Access Management (IAM) assume role in the next section. You specify the ARN and the name when you create the extension.
 
 ## Payload reference
+<a name="working-with-appconfig-extensions-creating-custom-lambda-payload"></a>
 
-This section includes payload request and response reference details for working with
-custom AWS AppConfig extensions.
+This section includes payload request and response reference details for working with custom AWS AppConfig extensions.
 
-###### Request structure
-
-_AtDeploymentTick_
+**Request structure**  
+*AtDeploymentTick*
 
 ```
 {
@@ -112,9 +101,8 @@ _AtDeploymentTick_
 }
 ```
 
-###### Request structure
-
-_PreCreateHostedConfigurationVersion_
+**Request structure**  
+*PreCreateHostedConfigurationVersion*
 
 ```
 {
@@ -144,7 +132,7 @@ _PreCreateHostedConfigurationVersion_
 }
 ```
 
-_PreStartDeployment_
+*PreStartDeployment*
 
 ```
 {
@@ -174,9 +162,10 @@ _PreStartDeployment_
 }
 ```
 
-###### Asynchronous events
+**Asynchronous events**  
 
-_OnStartDeployment, OnDeploymentStep, OnDeployment_
+
+*OnStartDeployment, OnDeploymentStep, OnDeployment*
 
 ```
 {
@@ -202,12 +191,10 @@ _OnStartDeployment, OnDeploymentStep, OnDeployment_
 }
 ```
 
-###### Response structure
+**Response structure**  
+The following examples show what your Lambda function returns in response to the request from a custom AWS AppConfig extension.
 
-The following examples show what your Lambda function returns in response to the
-request from a custom AWS AppConfig extension.
-
-_PRE\_\* Synchronous events - successful response_
+*PRE\_\* Synchronous events - successful response*
 
 If you want to transform the content, use the following:
 
@@ -215,22 +202,18 @@ If you want to transform the content, use the following:
 "Content": "SomeBase64EncodedByteArray"
 ```
 
-_AT\_\* Synchronous events - successful response_
+*AT\_\* Synchronous events - successful response*
 
-If you want to control the next steps of a deployment (continue a deployment or roll
-it back) set `Directive` and `Description` attributes in the
-response.
+If you want to control the next steps of a deployment (continue a deployment or roll it back) set `Directive` and `Description` attributes in the response. 
 
 ```
 "Directive": "ROLL_BACK"
 "Description" "Deployment event log description"
 ```
 
-`Directive` supports two values: `CONTINUE` or
-`ROLL_BACK`. Use these enums in your payload response to control the next
-steps of a deployment.
+`Directive` supports two values: `CONTINUE` or `ROLL_BACK`. Use these enums in your payload response to control the next steps of a deployment.
 
-_Synchronous events - successful response_
+*Synchronous events - successful response*
 
 If you want to transform the content, use the following:
 
@@ -240,11 +223,11 @@ If you want to transform the content, use the following:
 
 If you don't want to transform the content, return nothing.
 
-_Asynchronous events - successful response_
+*Asynchronous events - successful response*
 
 Return nothing.
 
-_All error events_
+*All error events*
 
 ```
 {

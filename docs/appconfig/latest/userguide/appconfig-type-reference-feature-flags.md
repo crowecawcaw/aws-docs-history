@@ -1,7 +1,9 @@
-# Understanding the type reference for AWS.AppConfig.FeatureFlags
 
-Use the `AWS.AppConfig.FeatureFlags` JSON schema as a
-reference to create your feature flag configuration data.
+
+# Understanding the type reference for AWS.AppConfig.FeatureFlags
+<a name="appconfig-type-reference-feature-flags"></a>
+
+Use the `AWS.AppConfig.FeatureFlags` JSON schema as a reference to create your feature flag configuration data.
 
 ```
 {
@@ -262,7 +264,7 @@ reference to create your feature flag configuration data.
           "maxLength": 16384
         },
         "attributeValues": {
-          "type": "object",
+          "type": "object", 
           "patternProperties": {
             "^[a-z][a-zA-Z\\d_-]{0,63}$": {
               "$ref": "#/definitions/attributeValue"
@@ -294,20 +296,10 @@ reference to create your feature flag configuration data.
 }
 ```
 
-###### Important
+**Important**  
+To retrieve feature flag configuration data, your application must call the `GetLatestConfiguration` API. You can't retrieve feature flag configuration data by calling `GetConfiguration`, which is deprecated. For more information, see [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetLatestConfiguration.html) in the *AWS AppConfig API Reference*.
 
-To retrieve feature flag configuration data, your application must call the
-`GetLatestConfiguration` API. You can't retrieve feature flag configuration
-data by calling `GetConfiguration`, which is deprecated. For more
-information, see [GetLatestConfiguration](../../2019-10-09/APIReference/API_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_GetLatestConfiguration.md") in the _AWS AppConfig API Reference_.
-
-When your application calls [GetLatestConfiguration](../../2019-10-09/APIReference/API_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_GetLatestConfiguration.md") and receives a newly deployed configuration, the
-information that defines your feature flags and attributes is removed. The simplified JSON
-contains a map of keys that match each of the flag keys you specified. The simplified JSON
-also contains mapped values of `true` or `false` for the
-`enabled` attribute. If a flag sets `enabled` to
-`true`, any attributes of the flag will be present as well. The following JSON
-schema describes the format of the JSON output.
+When your application calls [GetLatestConfiguration](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_GetLatestConfiguration.html) and receives a newly deployed configuration, the information that defines your feature flags and attributes is removed. The simplified JSON contains a map of keys that match each of the flag keys you specified. The simplified JSON also contains mapped values of `true` or `false` for the `enabled` attribute. If a flag sets `enabled` to `true`, any attributes of the flag will be present as well. The following JSON schema describes the format of the JSON output.
 
 ```
 {
