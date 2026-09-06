@@ -18,6 +18,7 @@ associated to a GuardDuty finding:
 - [IAM finding types](guardduty_finding-types-iam.md "guardduty_finding-types-iam.md")
 - [Attack sequence finding
   types](guardduty-attack-sequence-finding-types.md "guardduty-attack-sequence-finding-types.md")
+- [Custom Detection Rules finding types](findings-custom-detection-rules.md "findings-custom-detection-rules.md")
 - [S3 Protection finding types](guardduty_finding-types-s3.md "guardduty_finding-types-s3.md")
 - [EKS Protection finding
   types](guardduty-finding-types-eks-audit-logs.md "guardduty-finding-types-eks-audit-logs.md")

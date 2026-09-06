@@ -21,6 +21,7 @@ populated.
 - [Finding overview](#findings-summary-section "#findings-summary-section")
 - [Resource](#findings-resource-affected "#findings-resource-affected")
 - [Attack sequence finding details](#guardduty-extended-threat-detection-attack-sequence-finding-details "#guardduty-extended-threat-detection-attack-sequence-finding-details")
+- [Custom Detection Rules finding details](#custom-detection-rules-finding-details "#custom-detection-rules-finding-details")
 - [RDS database (DB) user details](#rds-pro-db-user-details "#rds-pro-db-user-details")
 - [Runtime Monitoring finding details](#runtime-monitoring-runtime-details "#runtime-monitoring-runtime-details")
 - [EBS volumes scan details](#mp-ebs-volumes-scan-details "#mp-ebs-volumes-scan-details")
@@ -570,6 +571,44 @@ on the threat intelligence GuardDuty collects from sources such as Spur
 | `CATEGORY_FREE_VPN`            | Network or IP address is associated with a tunnel<br>operator that is categorized as a completely free VPN service.                                                                                                                                                                                                                           |
 | `CATEGORY_RESIDENTIAL_PROXY`   | Network or IP address is associated with a tunnel operator<br>that is categorized as an SDK, malware, or get-paid-to sourced proxy service.                                                                                                                                                                                                   |
 | `OPERATOR_XXX`                 | The name of the service provider that is<br>operating this tunnel.                                                                                                                                                                                                                                                                            |
+
+## Custom Detection Rules finding details
+
+Custom Detection Rules findings use the same `Service.Detection.Sequence` structure as
+[Attack sequence finding details](#guardduty-extended-threat-detection-attack-sequence-finding-details "#guardduty-extended-threat-detection-attack-sequence-finding-details").
+The Actors, Endpoints, Resources, and Signals fields share the same schema. This section
+describes the differences specific to Custom Detection Rules findings.
+
+**Type**
+
+The finding type follows the format `Tactic:Service/Technique`.
+For example, `Persistence:EC2/ExternalRemoteServices`.
+
+**Signals**
+
+Each signal represents a single matched rule event. The
+`Name` field contains the Custom Detection Rules name, and
+`SignalIndicators` contains the MITRE ATT&CK® tactic and
+technique. Multiple signals with the same rule can appear when the rule
+matches multiple events within the aggregation window.
+
+**Actors**
+
+Details about the IAM principals that performed the detected activity.
+Includes the user type (such as `AssumedRole` or
+`IAMUser`), credential information, and session details including
+the issuing role ARN and MFA status.
+
+**Resources**
+
+Details about the AWS resources involved in the detected activity, when
+applicable, such as Amazon EC2 instances, Amazon S3 buckets, or IAM access keys.
+
+**Endpoints**
+
+Details about the network endpoints from which the activity originated.
+Includes the IP address, geographic location (city and country), and the
+autonomous system (AS) name and number.
 
 ## RDS database (DB) user details
 

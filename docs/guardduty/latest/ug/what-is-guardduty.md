@@ -69,6 +69,12 @@ works and what threat scenarios it covers, see [GuardDuty Extended Threat Detect
   confidence scoring, MITRE ATT&CK® classification, and actionable next steps.
   For more information, see
   [GuardDuty Investigation (Preview)](guardduty-investigation.md "guardduty-investigation.md").
+- **Custom Detection Rules** –
+  Custom Detection Rules is a curated library of detection rules in Amazon GuardDuty
+  that are aligned with threat actor techniques. Each rule detects a
+  specific technique by evaluating fields in AWS CloudTrail management
+  events. You can browse, enable, and manage rules from the GuardDuty
+  console or through the GuardDuty API. For more information, see [Custom Detection Rules in GuardDuty](custom-detection-rules.md "custom-detection-rules.md").
 - **Use-case focused GuardDuty protection
   plans** – For enhanced threat detection
   visibility into the security of your AWS environment, GuardDuty offers
