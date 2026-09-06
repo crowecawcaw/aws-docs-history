@@ -1,98 +1,64 @@
+
+
 # Data encryption at rest for Amazon DataZone
+<a name="encryption-rest-datazone"></a>
 
-Encryption of data at rest by default helps reduce the operational overhead and complexity
-involved in protecting sensitive data. At the same time, it enables you to build secure
-applications that meet strict encryption compliance and regulatory requirements.
+Encryption of data at rest by default helps reduce the operational overhead and complexity involved in protecting sensitive data. At the same time, it enables you to build secure applications that meet strict encryption compliance and regulatory requirements.
 
-Amazon DataZone uses default AWS-owned keys to automatically encrypt your data at rest. You
-can't view, manage, or audit the use of AWS owned keys. For more information, see [AWS owned keys](../../../kms/latest/developerguide/concepts.md#aws-owned-cmk "../../../kms/latest/developerguide/concepts.md#aws-owned-cmk").
+Amazon DataZone uses default AWS-owned keys to automatically encrypt your data at rest. You can't view, manage, or audit the use of AWS owned keys. For more information, see [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk). 
 
-While you can't disable this layer of encryption or select an alternate encryption type,
-you can choose a customer-managed key when you create your Amazon DataZone domains. Amazon DataZone
-supports the use of a symmetric customer managed keys that you can create, own, and manage.
-Because you have full control of encryption, you can perform the following tasks:
+While you can't disable this layer of encryption or select an alternate encryption type, you can choose a customer-managed key when you create your Amazon DataZone domains. Amazon DataZone supports the use of a symmetric customer managed keys that you can create, own, and manage. Because you have full control of encryption, you can perform the following tasks: 
++ Establish and maintain key policies
++ Establish and maintain IAM policies and grants
++ Enable and disable key policies
++ Rotate key cryptographic material
++ Add tags
++ Create key aliases
++ Schedule keys for deletion
 
-- Establish and maintain key policies
-- Establish and maintain IAM policies and grants
-- Enable and disable key policies
-- Rotate key cryptographic material
-- Add tags
-- Create key aliases
-- Schedule keys for deletion
-  To use your own key, choose a customer managed key when you create your Amazon DataZone
-  domain.
+To use your own key, choose a customer managed key when you create your Amazon DataZone domain.
 
-For more information, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk").
+For more information, see [Customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk).
 
-###### Note
-
-Amazon DataZone automatically enables encryption at rest using AWS owned keys to protect
-customer data at no charge.
-
-AWS KMS charges apply for using a customer managed keys. For more information about
-pricing, see [AWS Key Management Service
-Pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+**Note**  
+Amazon DataZone automatically enables encryption at rest using AWS owned keys to protect customer data at no charge.  
+AWS KMS charges apply for using a customer managed keys. For more information about pricing, see [AWS Key Management Service Pricing](https://aws.amazon.com/kms/pricing/).
 
 ## How Amazon DataZone uses grants in AWS KMS
+<a name="encryption-grants"></a>
 
-Amazon DataZone requires two [grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to
-use your customer managed key. When you create a Amazon DataZone domain encrypted with a customer
-managed key, Amazon DataZone creates grants on your behalf by sending [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") requests to AWS KMS. Grants in AWS KMS are used to give
-Amazon DataZone access to a KMS key in your account. Amazon DataZone creates the following grants to
-use your customer managed key for the following internal operations:
+Amazon DataZone requires two [grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) to use your customer managed key. When you create a Amazon DataZone domain encrypted with a customer managed key, Amazon DataZone creates grants on your behalf by sending [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) requests to AWS KMS. Grants in AWS KMS are used to give Amazon DataZone access to a KMS key in your account. Amazon DataZone creates the following grants to use your customer managed key for the following internal operations:
 
-**One grant for encrypting your data at rest for the following
-operations:**
+**One grant for encrypting your data at rest for the following operations:**
++ Send [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) requests to AWS KMS to verify that the symmetric customer managed KMS key ID entered when creating a Amazon DataZone domain is valid.
++ Send [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) request enables Amazon DataZone to decrypt stored data.
++ [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) to retire the grant when domain is deleted.
 
-- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") requests to AWS KMS to verify that the symmetric customer
-  managed KMS key ID entered when creating a Amazon DataZone domain is valid.
-- Send [GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") to AWS KMS to generate data keys encrypted by your customer
-  managed key.
-- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") request enables Amazon DataZone to decrypt stored data.
-- [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") to retire the grant when domain is deleted.
+**One grant for search, discovery, and [export](https://docs.aws.amazon.com/sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.html) of your data:**
++ [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) - provides the customer managed key details that allow Amazon DataZone to validate the key.
++ [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) - allows Amazon DataZone to decrypt stored data.
 
-**One grant for search, discovery, and [export](../../../sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md "../../../sagemaker-unified-studio/latest/adminguide/sagemaker-unified-studio-export-asset-metadata-kms-permissions.md") of your data:**
-
-- [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") - provides the customer managed key details that allow Amazon DataZone
-  to validate the key.
-- [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") - allows Amazon DataZone to decrypt stored data.
-
-You can revoke access to the grant to the customer managed key at any time. If you do,
-Amazon DataZone won't be able to access any of the data encrypted by the customer managed key,
-which affects operations that are dependent on that data.
+You can revoke access to the grant to the customer managed key at any time. If you do, Amazon DataZone won't be able to access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data. 
 
 ## Create a customer managed key
+<a name="create-kms-key-datazone"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console,
-or the AWS KMS APIs.
+You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. 
 
-To create a symmetric customer managed key, follow the steps for [Creating symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the AWS Key Management Service
-Developer Guide.
+ To create a symmetric customer managed key, follow the steps for [Creating symmetric customer managed key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the AWS Key Management Service Developer Guide.
 
-**Key policy** - key policies control access to your
-customer managed key. Every customer managed key must have exactly one key policy, which
-contains statements that determine who can use the key and how they can use it. When you
-create your customer managed key, you can specify a key policy. For more information, see
-[Managing
-access to customer managed keys](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") in the AWS Key Management Service Developer
-Guide.
+**Key policy** - key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the AWS Key Management Service Developer Guide.
 
-To use your customer managed key with your Amazon DataZone resources, the following API
-operations must be permitted in the key policy:
-
-- [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – adds a grant to a customer managed key. Grants control
-  access to a specified KMS key, which allows access to [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon DataZone requires. For more information about [Using
-  Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), see the AWS Key Management Service Developer Guide.
-- [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") – provides the customer managed key details to allow
-  Amazon DataZone to validate the key.
-- [kms:GenerateDataKey](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md") – returns a unique symmetric data key for use outside of
-  AWS KMS.
-- [kms:Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") – decrypts ciphertext that was encrypted by a KMS key.
+To use your customer managed key with your Amazon DataZone resources, the following API operations must be permitted in the key policy:
++ [kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) – adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations) Amazon DataZone requires. For more information about [Using Grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html), see the AWS Key Management Service Developer Guide.
++ [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) – provides the customer managed key details to allow Amazon DataZone to validate the key.
++ [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) – returns a unique symmetric data key for use outside of AWS KMS.
++ [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) – decrypts ciphertext that was encrypted by a KMS key.
 
 The following are policy statement examples you can add for Amazon DataZone:
 
 ```
-
 "Statement": [
     {
       "Sid": "Enable IAM User Permissions for DescribeKey",
@@ -101,7 +67,7 @@ The following are policy statement examples you can add for Amazon DataZone:
         "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "kms:DescribeKey",
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`"
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}"
     },
     {
       "Sid": "Allow access to principals authorized to manage Amazon DataZone",
@@ -113,7 +79,7 @@ The following are policy statement examples you can add for Amazon DataZone:
         "kms:Decrypt",
         "kms:GenerateDataKey"
       ],
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`",
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}",
       "Condition": {
         "ForAnyValue:StringEquals": {
           "kms:EncryptionContextKeys": "aws:datazone:domainId"
@@ -127,11 +93,11 @@ The following are policy statement examples you can add for Amazon DataZone:
         "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "kms:CreateGrant",
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`",
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}",
       "Condition": {
         "StringLike": {
           "kms:CallerAccount": "111122223333",
-          "kms:ViaService": "datazone.`region`.amazonaws.com"
+          "kms:ViaService": "datazone.{{region}}.amazonaws.com"
         },
         "Bool": {
           "kms:GrantIsForAWSResource": "true"
@@ -142,64 +108,44 @@ The following are policy statement examples you can add for Amazon DataZone:
       }
     }
 ]
-
 ```
 
-###### Note
+**Note**  
+The Amazon DataZone data portal is granted access to your customer managed key via the Domain Execution Role principal.
 
-The Amazon DataZone data portal is granted access to your customer managed key via the
-Domain Execution Role principal.
+For more information about [specifying permissions in a policy](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html), see the AWS Key Management Service Developer Guide.
 
-For more information about [specifying
-permissions in a policy](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md"), see the AWS Key Management Service Developer
-Guide.
-
-For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the AWS Key Management Service Developer
-Guide.
+For more information about [troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html#example-no-iam), see the AWS Key Management Service Developer Guide.
 
 ## Specifying a customer managed key for Amazon DataZone
+<a name="specify-kms-key-datazone"></a>
 
-You can specify a customer managed key as a second layer encryption during [domain creation](create-domain.md "create-domain.md").
+You can specify a customer managed key as a second layer encryption during [domain creation](create-domain.md).
 
 ## Amazon DataZone encryption context
+<a name="specify-kms-key-datazone"></a>
 
-An [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain additional
-contextual information about the data.
+An [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) is an optional set of key-value pairs that contain additional contextual information about the data.
 
-AWS KMS uses the encryption context as [additional authenticated data](../../../crypto/latest/userguide/cryptography-concepts.md#term-aad "../../../crypto/latest/userguide/cryptography-concepts.md#term-aad") to support [authenticated encryption](../../../crypto/latest/userguide/cryptography-concepts.md#define-authenticated-encryption "../../../crypto/latest/userguide/cryptography-concepts.md#define-authenticated-encryption"). When you include an encryption context in a request to
-encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data,
-you include the same encryption context in the request.
+AWS KMS uses the encryption context as [additional authenticated data](https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#term-aad) to support [authenticated encryption](https://docs.aws.amazon.com/crypto/latest/userguide/cryptography-concepts.html#define-authenticated-encryption). When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request.
 
 Amazon DataZone uses following encryption context:
 
 ```
-
 "encryptionContextSubset": {
-    "aws:datazone:domainId": "{`dzd_samleid`}"
+    "aws:datazone:domainId": "{{{dzd_samleid}}}"
 }
-
 ```
 
-**Using encryption context for monitoring** - when you use
-a symmetric customer managed key to encrypt Amazon DataZone, you can also use the encryption
-context in audit records and logs to identify how the customer managed key is being used.
-The encryption context also appears in logs generated by AWS CloudTrail or Amazon
-CloudWatch Logs.
+**Using encryption context for monitoring** - when you use a symmetric customer managed key to encrypt Amazon DataZone, you can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in logs generated by AWS CloudTrail or Amazon CloudWatch Logs.
 
-**Using encryption context to control access to your customer
-managed key** - you can use the encryption context in key policies and IAM
-policies as conditions to control access to your symmetric customer managed key. You can
-also use encryption context constraints in a grant.
+**Using encryption context to control access to your customer managed key** - you can use the encryption context in key policies and IAM policies as conditions to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant.
 
-Amazon DataZone uses an encryption context constraint in grants to control access to the
-customer managed key in your account or region. The grant constraint requires that the
-operations that the grant allows use the specified encryption context.
+Amazon DataZone uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context.
 
-The following are example key policy statements to grant access to a customer managed
-key for a specific encryption context.
+The following are example key policy statements to grant access to a customer managed key for a specific encryption context. 
 
 ```
-
  {
       "Sid": "Enable DescribeKey",
       "Effect": "Allow",
@@ -207,7 +153,7 @@ key for a specific encryption context.
         "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
       },
       "Action": "kms:DescribeKey",
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`"
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}"
     },
     {
       "Sid": "Allow access to principal to manage an Amazon DataZone domain with the given domain id",
@@ -219,10 +165,10 @@ key for a specific encryption context.
         "kms:Decrypt",
         "kms:GenerateDataKey"
       ],
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`",
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}",
       "Condition": {
         "StringEquals": {
-          "kms:EncryptionContext:aws:datazone:domainId": "`dzd_sampleid`"
+          "kms:EncryptionContext:aws:datazone:domainId": "{{dzd_sampleid}}"
         }
       }
     },
@@ -233,11 +179,11 @@ key for a specific encryption context.
         "AWS": "arn:aws:iam::111122223333:role/ExampleRole"
       },
       "Action": "kms:CreateGrant",
-      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`",
+      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}",
       "Condition": {
         "StringLike": {
           "kms:CallerAccount": "111122223333",
-          "kms:ViaService": "datazone.`region`.amazonaws.com"
+          "kms:ViaService": "datazone.{{region}}.amazonaws.com"
         },
         "Bool": {
           "kms:GrantIsForAWSResource": "true"
@@ -247,30 +193,21 @@ key for a specific encryption context.
         }
       }
     }
-
 ```
 
 ## Monitoring your encryption keys for Amazon DataZone
+<a name="monitoring-encryption"></a>
 
-When you use an AWS KMS customer managed key with your Amazon DataZone resources, you can
-use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to track requests that Amazon DataZone sends to AWS KMS. The
-following examples are AWS CloudTrail events for `CreateGrant`,
-`GenerateDataKey`, `Decrypt`, and `RetireGrant` to
-monitor KMS operations called by Amazon DataZone to access data encrypted by your customer
-managed key.
+When you use an AWS KMS customer managed key with your Amazon DataZone resources, you can use [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) to track requests that Amazon DataZone sends to AWS KMS. The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKey`, `Decrypt`, and `RetireGrant` to monitor KMS operations called by Amazon DataZone to access data encrypted by your customer managed key.
 
-CreateGrant
-When you use an AWS KMS customer managed key to encrypt your Amazon DataZone domain,
-Amazon DataZone sends a `CreateGrant` request on your behalf to access the KMS
-key in your AWS account. Grants that Amazon DataZone creates are specific to the resource
-associated with the AWS KMS customer managed key. In addition, Amazon DataZone uses the
-`RetireGrant` operation to remove a grant when you delete a
-domain.
+------
+#### [ CreateGrant ]
+
+When you use an AWS KMS customer managed key to encrypt your Amazon DataZone domain, Amazon DataZone sends a `CreateGrant` request on your behalf to access the KMS key in your AWS account. Grants that Amazon DataZone creates are specific to the resource associated with the AWS KMS customer managed key. In addition, Amazon DataZone uses the `RetireGrant` operation to remove a grant when you delete a domain.
 
 The following example event records the `CreateGrant` operation:
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -336,11 +273,9 @@ The following example event records the `CreateGrant` operation:
     "eventCategory": "Management",
     "sessionCredentialFromConsole": "true"
 }
-
 ```
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -404,18 +339,16 @@ The following example event records the `CreateGrant` operation:
     "eventCategory": "Management",
     "sessionCredentialFromConsole": "true"
 }
-
 ```
 
-GenerateDataKey
-When you enable an AWS KMS customer managed key for your Amazon DataZone domain,
-Amazon DataZone generates data keys. It sends a `GenerateDataKey` request to
-AWS KMS that specifies the AWS KMS customer managed key for the domain.
+------
+#### [ GenerateDataKey ]
 
-The following example event records the GenerateDataKey operation:
+When you enable an AWS KMS customer managed key for your Amazon DataZone domain, Amazon DataZone generates data keys. It sends a `GenerateDataKey` request to AWS KMS that specifies the AWS KMS customer managed key for the domain.
+
+ The following example event records the GenerateDataKey operation: 
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -472,11 +405,9 @@ The following example event records the GenerateDataKey operation:
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
 ```
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -514,18 +445,16 @@ The following example event records the GenerateDataKey operation:
     "sharedEventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
     "eventCategory": "Management"
 }
-
 ```
 
-Decrypt
-When you access an encrypted Amazon DataZone domain, Amazon DataZone calls the
-`Decrypt` operation to use the stored encrypted data key to access the
-encrypted data.
+------
+#### [ Decrypt ]
 
-The following example event records the `Decrypt` operation:
+When you access an encrypted Amazon DataZone domain, Amazon DataZone calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data.
+
+ The following example event records the `Decrypt` operation: 
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -581,11 +510,9 @@ The following example event records the `Decrypt` operation:
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
 ```
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -625,11 +552,9 @@ The following example event records the `Decrypt` operation:
     "sharedEventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
     "eventCategory": "Management"
 }
-
 ```
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -666,14 +591,14 @@ The following example event records the `Decrypt` operation:
     "sharedEventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
     "eventCategory": "Management"
 }
-
 ```
 
-RetireGrant
-The following example event records the `RetireGrant` operation:
+------
+#### [ RetireGrant ]
+
+ The following example event records the `RetireGrant` operation: 
 
 ```
-
 {
     "eventVersion": "1.11",
     "userIdentity": {
@@ -709,92 +634,78 @@ The following example event records the `RetireGrant` operation:
     "sharedEventID": "b46377d7-b3c3-4bfd-a257-722bd3f3411d",
     "eventCategory": "Management"
 }
-
 ```
+
+------
 
 ## Creating Data Lake environments that involve encrypted AWS Glue catalogs
+<a name="create-project-with-data-lake"></a>
 
-In advanced use cases, when you are working with an AWS Glue catalog that is
-encrypted, you must grant access to the Amazon DataZone service to use your customer-managed KMS
-key. You can do this by updating your custom KMS policy and adding a tag to the key. To
-grant access to the Amazon DataZone service to work with data in an encrypted AWS Glue catalog,
-complete the following:
+In advanced use cases, when you are working with an AWS Glue catalog that is encrypted, you must grant access to the Amazon DataZone service to use your customer-managed KMS key. You can do this by updating your custom KMS policy and adding a tag to the key. To grant access to the Amazon DataZone service to work with data in an encrypted AWS Glue catalog, complete the following:
++ Add the following policy to your custom KMS key. For more information, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html).
 
-- Add the following policy to your custom KMS key. For more information, see [Changing a key policy](../../../kms/latest/developerguide/key-policy-modifying.md "../../../kms/latest/developerguide/key-policy-modifying.md").
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Allow datazone environment roles to decrypt using the key",
- "Effect": "Allow",
- "Principal": {
- "AWS": "*"
- },
- "Action": [
- "kms:Decrypt"
- ],
- "Resource": "*",
- "Condition": {
- "StringEquals": {
- "kms:EncryptionContext:glue_catalog_id": "<GLUE_CATALOG_ID>"
- },
- "ArnLike": {
- "aws:PrincipalArn": [
- "arn:aws:iam::111122223333:role/*datazone_usr*",
- "arn:aws:iam::444455556666:role/*datazone_usr*"
- ]
- }
- }
- },
- {
- "Sid": "Allow datazone environment roles to describe the key",
- "Effect": "Allow",
- "Principal": {
- "AWS": "*"
- },
- "Action": [
- "kms:DescribeKey"
- ],
- "Resource": "*",
- "Condition": {
- "ArnLike": {
- "aws:PrincipalArn": [
- "arn:aws:iam::111122223333:role/*datazone_usr*",
- "arn:aws:iam::444455556666:role/*datazone_usr*"
- ]
- }
- }
- }
- ]
-}`
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [
+          {
+              "Sid": "Allow datazone environment roles to decrypt using the key",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "*"
+              },
+              "Action": [
+                  "kms:Decrypt"
+              ],
+              "Resource": "*",
+              "Condition": {
+                  "StringEquals": {
+                      "kms:EncryptionContext:glue_catalog_id": "<GLUE_CATALOG_ID>"
+                  },
+                  "ArnLike": {
+                      "aws:PrincipalArn": [
+                          "arn:aws:iam::111122223333:role/*datazone_usr*",
+                          "arn:aws:iam::444455556666:role/*datazone_usr*"
+                      ]
+                  }
+              }
+          },
+          {
+              "Sid": "Allow datazone environment roles to describe the key",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "*"
+              },
+              "Action": [
+                  "kms:DescribeKey"
+              ],
+              "Resource": "*",
+              "Condition": {
+                  "ArnLike": {
+                      "aws:PrincipalArn": [
+                      "arn:aws:iam::111122223333:role/*datazone_usr*",
+                      "arn:aws:iam::444455556666:role/*datazone_usr*"
+                      ]
+                  }
+              }
+          }
+      ]
+  }
+  ```
 
-```
+------
+**Important**  
+You must modify the `"aws:PrincipalArn"` ARNs in the policy using the account IDs in which you want to create the environments. Each account in which you want to create an environment, must be listed in the policy as the `"aws:PrincipalArn"`. 
+You must also replace <GLUE\_CATALOG\_ID> with the valid AWS account ID in which your AWS Glue catalog is located.
+Note that this policy grants access to use the key to all Amazon DataZone environment user roles in the specified account(s). If you want to only allow specific environment user roles to use the key, you must specify the entire environment user role name (for example, `arn:aws:iam::<ENVIRONMENT_ACCOUNT_ID>:role/datazone_usr_<ENVIRONMENT_ID>` (where <ENVIRONMENT\_ID> is the ID of the environment) rather than the wildcard format.
++ Add the following tag to your custom KMS key. For more information, see [Using tags to control access to KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/tag-authorization.html).
 
-###### Important
-
-    + You must modify the `"aws:PrincipalArn"` ARNs in the policy using
-     the account IDs in which you want to create the environments. Each account in
-     which you want to create an environment, must be listed in the policy as the
-     `"aws:PrincipalArn"`.
-    + You must also replace <GLUE\_CATALOG\_ID> with the valid AWS account ID
-     in which your AWS Glue catalog is located.
-    + Note that this policy grants access to use the key to all Amazon DataZone
-     environment user roles in the specified account(s). If you want to only allow
-     specific environment user roles to use the key, you must specify the entire
-     environment user role name (for example,
-     `arn:aws:iam::<ENVIRONMENT_ACCOUNT_ID>:role/datazone_usr_<ENVIRONMENT_ID>`
-     (where <ENVIRONMENT\_ID> is the ID of the environment) rather than the
-     wildcard format.
-
-- Add the following tag to your custom KMS key. For more information, see [Using tags to control access to KMS keys](../../../kms/latest/developerguide/tag-authorization.md "../../../kms/latest/developerguide/tag-authorization.md").
-
-```
-
-key: AmazonDataZoneEnvironment
-value: all
-
-```
+  ```
+  key: AmazonDataZoneEnvironment
+  value: all
+  ```
