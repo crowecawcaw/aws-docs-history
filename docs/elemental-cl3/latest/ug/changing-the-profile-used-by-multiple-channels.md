@@ -1,92 +1,71 @@
-# Changing the profile used by multiple channels
 
-You can use the **Tasks** feature to change the profile so that several
-channels can use it. You can also change associations between channels and profiles so that each
-channel uses a different profile.
+
+# Changing the profile used by multiple channels
+<a name="changing-the-profile-used-by-multiple-channels"></a>
+
+You can use the **Tasks** feature to change the profile so that several channels can use it. You can also change associations between channels and profiles so that each channel uses a different profile.
 
 You can modify a channel even if it is running.
 
 ## Step 1. Create the task
+<a name="step-a-create-the-task"></a>
 
-###### To create a task
+**To create a task**
 
-1. On the **Channels** page, select **Tasks** in the top
-   left corner, and choose **Change Channel Profiles**.
+1. On the **Channels** page, select **Tasks** in the top left corner, and choose **Change Channel Profiles**. 
 
-The **Change Channel Profiles** page shows all the channels on all the
-nodes in the cluster. 2. Select the channels that you want to associate with one specific profile.
+   The **Change Channel Profiles** page shows all the channels on all the nodes in the cluster.
 
-You can select by choosing individual channels.
+1. Select the channels that you want to associate with one specific profile. 
 
-You can select by filtering. For example, you can filter by profile or by node. After you
-have filtered, choose the **Select All** button. 3. Choose **Next**. 4. Select the new profile to associate with all the selected channels. Choose
-**Next**. 5. If the new profile includes channel parameters, complete those parameters. When you are
-ready, choose **Next**.
+   You can select by choosing individual channels.
 
-**Examples of changes in channel parameters**
+   You can select by filtering. For example, you can filter by profile or by node. After you have filtered, choose the **Select All** button.
 
-| Original Profile for a Channel                                   | New Profile for a Channel                                                                                                                                            | Action                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Three channel parameters                                         | Two channel parameters, mapped to the same two fields as the original profile.<br>A third parameter channel which does not exist in the new profile.                 | None. For the two parameter channels that still exist, the values already in the<br>channel are preserved and used.<br>For the channel parameter that has been dropped, a value is no longer required in<br>the channel; the value that is “hard-coded” (or implied, that is, a system default) in<br>the new profile is used. |
-| Three channel parameters                                         | Four total channel parameters:<br>• Three channel parameters, mapped to the same three fields as the original<br>profile.<br>• One new channel parameter.            | You are prompted to provide a value for the new channel parameter.                                                                                                                                                                                                                                                             |
-| One channel parameter, for example, {{input\_network\_location}} | A channel parameter, mapped to the same field as the original profile. This channel<br>parameter, however, has a different name. For example {{input\_nw\_location}} | You are prompted to provide a value for the new channel parameter.                                                                                                                                                                                                                                                             |
-| One channel parameter, for example, {{input\_network\_location}} | The same channel parameter, but mapped to a different field.                                                                                                         | Conductor Live treats the channel parameter as a new parameter. You are prompted to provide<br>a value for the new channel parameter.<br>You should try to avoid this problem by tying each channel parameter name to a<br>specific field. Avoid generic names such as {{field 1}}                                             |
+1. Choose **Next**.
 
-You might get any combination of these types of discrepancies, and you are prompted to
-handle all of them. 6. On the final page, choose **Process Now** or **Save for
-Later**.
+1. Select the new profile to associate with all the selected channels. Choose **Next**.
 
-**Process Now**: Conductor Live applies the change. The
-**Channels** page reappears, showing the change.
+1. If the new profile includes channel parameters, complete those parameters. When you are ready, choose **Next**.
 
-**Save for Later**: This option lets you queue up several tasks and then
-perform them in one pass.
+   **Examples of changes in channel parameters**    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/elemental-cl3/latest/ug/changing-the-profile-used-by-multiple-channels.html)
 
-###### Warning
+   You might get any combination of these types of discrepancies, and you are prompted to handle all of them.
 
-**Save for Later** is intended to queue for a short time.
+1. On the final page, choose **Process Now** or **Save for Later**.
 
-Don't use **Save for Later** and then delay process the task in a few
-hours. Doing so might create undesired consequences.
+   **Process Now**: Conductor Live applies the change. The **Channels** page reappears, showing the change.
 
-**Example of Save for Later**
+   **Save for Later**: This option lets you queue up several tasks and then perform them in one pass.
+**Warning**  
+**Save for Later **is intended to queue for a short time.  
+Don't use **Save for Later** and then delay process the task in a few hours. Doing so might create undesired consequences.
 
-Assume that you want to move all existing channels from node A so that you can move
-another set of channels to node A. This is an opportunity to use bulk changes. Set up bulk
-changes as follows: do Bulk Change #1 to move the channels from node A to node B (change the
-associated node for the channels). Then do Bulk Change #2 to move the channels from node C to
-node A.
+   **Example of Save for Later**
 
-In order to do this two-part move with the least downtime, you could do the
-following:
+   Assume that you want to move all existing channels from node A so that you can move another set of channels to node A. This is an opportunity to use bulk changes. Set up bulk changes as follows: do Bulk Change \#1 to move the channels from node A to node B (change the associated node for the channels). Then do Bulk Change \#2 to move the channels from node C to node A. 
 
-    * Set up Bulk Change #1 and choose **Save for Later**.
-    * Set up Bulk Change #2 and choose **Save for Later**.
+   In order to do this two-part move with the least downtime, you could do the following:
+   + Set up Bulk Change \#1 and choose **Save for Later**. 
+   + Set up Bulk Change \#2 and choose **Save for Later**.
 
-
-    Both bulk changes appear on the left side of the page, as shown below.
-    * Then choose **Run Pending Actions**. Bulk Change #1 runs. As soon as
-     it has finished, Bulk Change #2 runs.
+     Both bulk changes appear on the left side of the page, as shown below.
+   + Then choose **Run Pending Actions**. Bulk Change \#1 runs. As soon as it has finished, Bulk Change \#2 runs.
 
 ## Step B. Monitor the status of the task
+<a name="step-b-monitor-the-status-of-the-task"></a>
 
-When you run **Process Now** to run the task, you can monitor the status
-of each modify action in the task.
+When you run **Process Now** to run the task, you can monitor the status of each modify action in the task.
 
-1. On the Conductor Live main menu, choose **Status**, then choose **Task
-   Reports**. The **Task Reports** page appears.
-2. In the **Task Reports** panel on the left, choose the task to monitor
-   (newer tasks appear first).
+1. On the Conductor Live main menu, choose **Status**, then choose **Task Reports**. The **Task Reports** page appears. 
 
-(This list shows running and completed tasks; for pending tasks, go to the
-**Channels** page and choose the **Pending Tasks**
-icon). 3. Find the relevant task and review the information:
+1. In the **Task Reports** panel on the left, choose the task to monitor (newer tasks appear first).
 
-    * The top line shows the count of total tasks, failed tasks, and successful tasks.
-    * Below that, a line appears for each individual action. Each line shows the current
-     status of the action: **Pending**, **Success**, or an
-     explanation of why the task failed.
+   (This list shows running and completed tasks; for pending tasks, go to the **Channels** page and choose the **Pending Tasks** icon).
 
+1. Find the relevant task and review the information:
+   + The top line shows the count of total tasks, failed tasks, and successful tasks.
+   + Below that, a line appears for each individual action. Each line shows the current status of the action: **Pending**, **Success**, or an explanation of why the task failed.
 
-    As the status of an action changes, the page automatically refreshes to display the
-     latest information.
+     As the status of an action changes, the page automatically refreshes to display the latest information.
