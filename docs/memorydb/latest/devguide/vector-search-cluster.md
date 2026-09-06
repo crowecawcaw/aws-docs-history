@@ -1,34 +1,37 @@
+
+
 # Create a cluster enabled for vector search
+<a name="vector-search-cluster"></a>
 
 You can create a cluster that is enabled for vector search by using the AWS Management Console, or the AWS Command Line Interface. Depending on the approach, considerations to enable vector search must be enabled.
 
 ## Using the AWS Management Console
+<a name="vector-search-console"></a>
 
-To create a cluster enabled for vector search within the console, you need to enable vector search under the **Cluster** settings.
-Vector search is available for MemoryDB version 7.1 in a single shard configuration.
+To create a cluster enabled for vector search within the console, you need to enable vector search under the **Cluster** settings. Vector search is available for MemoryDB version 7.1 in a single shard configuration.
 
-![Viewing the cluster settings with the "Enable vector search" option checked provides information about specific version and configuration support.](images/vs-2.png)
+![Viewing the cluster settings with the "Enable vector search" option checked provides information about specific version and configuration support.](http://docs.aws.amazon.com/memorydb/latest/devguide/images/vs-2.png)
 
-For more information on using vector search with the AWS Management Console, see [Creating a cluster (Console)](getting-started.md#clusters.createclusters.viewdetails.cluster "getting-started.md#clusters.createclusters.viewdetails.cluster").
+
+For more information on using vector search with the AWS Management Console, see [Creating a cluster (Console)](getting-started.md#clusters.createclusters.viewdetails.cluster).
 
 ## Using the AWS Command Line Interface
+<a name="vector-search-cli"></a>
 
-To create a vector search enabled MemoryDB cluster, you can use the MemoryDB [create-cluster](../../../cli/latest/reference/memorydb/create-cluster.md "../../../cli/latest/reference/memorydb/create-cluster.md")
-command by passing an immutable parameter group `default.memorydb-redis7.search` to enable the vector search capabilities.
+To create a vector search enabled MemoryDB cluster, you can use the MemoryDB [create-cluster](https://docs.aws.amazon.com/cli/latest/reference/memorydb/create-cluster.html) command by passing an immutable parameter group `default.memorydb-redis7.search` to enable the vector search capabilities.
 
 ```
 aws memorydb create-cluster \
-  --cluster-name `<value>` \
-  --node-type `<value>` \
+  --cluster-name {{<value>}} \
+  --node-type {{<value>}} \
   --engine redis \
   --engine-version 7.1 \
   --num-shards 1 \
-  --acl-name `<value>` \
+  --acl-name {{<value>}} \
   --parameter-group-name default.memorydb-redis7.search
-
 ```
 
-Optionally, you can also create a new parameter group to enable vector search as shown in the following example. You can learn more about parameter groups [here](parametergroups.management.md "parametergroups.management.md").
+Optionally, you can also create a new parameter group to enable vector search as shown in the following example. You can learn more about parameter groups [here](parametergroups.management.md).
 
 ```
 aws memorydb create-parameter-group \

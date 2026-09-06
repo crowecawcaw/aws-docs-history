@@ -1,11 +1,19 @@
+
+
 # Using data tiering
+<a name="data-tiering-enabling"></a>
 
-When creating a cluster, you use data tiering by selecting a node type from the r6gd family, such as _db.r6gd.xlarge_. Selecting that
-node type automatically enables data tiering.
+## Using data tiering using the AWS Management Console
+<a name="data-tiering-enabling-console"></a>
 
-For more information on creating a cluster, see [Step 2: Create a cluster](getting-started.md#getting-started.createcluster "getting-started.md#getting-started.createcluster").
+When creating a cluster, you use data tiering by selecting a node type from the r6gd family, such as *db.r6gd.xlarge*. Selecting that node type automatically enables data tiering. 
 
-When creating a cluster using the AWS CLI, you use data tiering by selecting a node type from the r6gd family, such as _db.r6gd.xlarge_ and setting the `--data-tiering` parameter.
+For more information on creating a cluster, see [Step 2: Create a cluster](getting-started.md#getting-started.createcluster).
+
+## Enabling data tiering using the AWS CLI
+<a name="data-tiering-enabling-cli"></a>
+
+When creating a cluster using the AWS CLI, you use data tiering by selecting a node type from the r6gd family, such as *db.r6gd.xlarge* and setting the `--data-tiering` parameter. 
 
 You cannot opt out of data tiering when selecting a node type from the r6gd family. If you set the `--no-data-tiering` parameter, the operation will fail.
 
@@ -56,7 +64,7 @@ After running this operation, you will see a response similar to the following:
         "ARN": "arn:aws:memorydb:us-east-1:xxxxxxxxxxxxxx:cluster/my-cluster",
         "SnapshotRetentionLimit": 0,
         "MaintenanceWindow": "wed:03:00-wed:04:00",
-        "SnapshotWindow": "04:30-05:30",
+        "SnapshotWindow": "04:30-05:30",        
         "ACLName": "my-acl",
         "DataTiering":"true",
         "AutoMinorVersionUpgrade": true

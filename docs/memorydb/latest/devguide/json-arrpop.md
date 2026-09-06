@@ -1,4 +1,7 @@
+
+
 # JSON.ARRPOP
+<a name="json-arrpop"></a>
 
 Remove and return element at the index from the array. Popping an empty array returns null.
 
@@ -7,29 +10,28 @@ Syntax
 ```
 JSON.ARRPOP <key> [path [index]]
 ```
++ key (required) – key of JSON document type
++ path (optional) – a JSON path. Defaults to the root if not provided
++ index (optional) – position in the array to start popping from.
+  + Defaults to -1 if not provided, which means the last element.
+  + Negative value means position from the last element.
+  + Out of boundary indexes are rounded to their respective array boundaries.
 
-- key (required) – key of JSON document type
-- path (optional) – a JSON path. Defaults to the root if not provided
-- index (optional) – position in the array to start popping from.
-
-  - Defaults to -1 if not provided, which means the last element.
-  - Negative value means position from the last element.
-  - Out of boundary indexes are rounded to their respective array boundaries.
-    **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of bulk strings, representing popped values at each path.
++ If a value is an empty array, its corresponding return value is null.
++ If a value is not an array, its corresponding return value is null.
 
-- Array of bulk strings, representing popped values at each path.
-- If a value is an empty array, its corresponding return value is null.
-- If a value is not an array, its corresponding return value is null.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Bulk string, representing the popped JSON value
++ Null if the array is empty.
++ `WRONGTYPE` error if the value at the path is not an array.
 
-- Bulk string, representing the popped JSON value
-- Null if the array is empty.
-- `WRONGTYPE` error if the value at the path is not an array.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"]]'
@@ -40,10 +42,9 @@ OK
 3) "\"b\""
 127.0.0.1:6379> JSON.GET k1
 "[[],[],[\"a\"]]"
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"]]'
@@ -59,5 +60,4 @@ OK
 "[]"
 127.0.0.1:6379> JSON.GET k2
 "[[\"a\"],[\"a\",\"b\"]]"
-
 ```

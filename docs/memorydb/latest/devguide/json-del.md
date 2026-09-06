@@ -1,4 +1,7 @@
+
+
 # JSON.DEL
+<a name="json-del"></a>
 
 Delete the JSON values at the path in a document key. If the path is the root, it is equivalent to deleting the key from Valkey or Redis OSS.
 
@@ -7,17 +10,17 @@ Syntax
 ```
 JSON.DEL <key> [path]
 ```
++ key (required) – key of JSON document type
++ path (optional) – a JSON path. Defaults to the root if not provided
 
-- key (required) – key of JSON document type
-- path (optional) – a JSON path. Defaults to the root if not provided
-  **Return**
+**Return**
++ Number of elements deleted.
++ 0 if the key does not exist.
++ 0 if the JSON path is invalid or does not exist.
 
-- Number of elements deleted.
-- 0 if the key does not exist.
-- 0 if the JSON path is invalid or does not exist.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":{}, "b":{"a":1}, "c":{"a":1, "b":2}, "d":{"a":1, "b":2, "c":3}, "e": [1,2,3,4,5]}'
@@ -30,10 +33,9 @@ OK
 (integer) 5
 127.0.0.1:6379> JSOn.GET k1
 "{\"a\":{},\"b\":{\"a\":1},\"c\":{\"a\":1,\"b\":2},\"d\":{},\"e\":[]}"
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":{}, "b":{"a":1}, "c":{"a":1, "b":2}, "d":{"a":1, "b":2, "c":3}, "e": [1,2,3,4,5]}'
@@ -46,5 +48,4 @@ OK
 (integer) 5
 127.0.0.1:6379> JSON.GET k1
 "{\"a\":{},\"b\":{\"a\":1},\"c\":{\"a\":1,\"b\":2},\"d\":{},\"e\":[]}"
-
 ```

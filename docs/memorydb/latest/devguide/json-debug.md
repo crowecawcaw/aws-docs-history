@@ -1,18 +1,17 @@
+
+
 # JSON.DEBUG
+<a name="json-debug"></a>
 
 Report information. Supported subcommands are:
-
-- MEMORY <key> [path] – report memory usage in bytes of a JSON value. Path defaults to the root if not provided.
-- DEPTH <key> [path] –
-  Reports the maximum path depth of the JSON document.
-
-###### Note
-
++ MEMORY <key> [path] – report memory usage in bytes of a JSON value. Path defaults to the root if not provided.
++ DEPTH <key> [path] – Reports the maximum path depth of the JSON document.
+**Note**  
 This subcommand is only available using Valkey 7.2 or later, or Redis OSS engine version 6.2.6.R2 or later.
++ FIELDS <key> [path] – report the number of fields at the specified document path. Path defaults to the root if not provided. Each non-container JSON value counts as one field. Objects and arrays recursively count one field for each of their containing JSON values. Each container value, except the root container, counts as one additional field.
++ HELP – print help messages of the command.
 
-- FIELDS <key> [path] – report the number of fields at the specified document path. Path defaults to the root if not provided. Each non-container JSON value counts as one field. Objects and arrays recursively count one field for each of their containing JSON values. Each container value, except the root container, counts as one additional field.
-- HELP – print help messages of the command.
-  Syntax
+Syntax
 
 ```
 JSON.DEBUG <subcommand & arguments>
@@ -21,32 +20,26 @@ JSON.DEBUG <subcommand & arguments>
 Depends on the subcommand:
 
 MEMORY
++ If the path is enhanced syntax:
+  + returns an array of integers, representing memory size (in bytes) of JSON value at each path.
+  + returns an empty array if the key does not exist.
++ If the path is restricted syntax:
+  + returns an integer, memory size the JSON value in bytes.
+  + returns null if the key does not exist.
 
-- If the path is enhanced syntax:
+DEPTH
++ Returns an integer that represents the maximum path depth of the JSON document.
++ Returns null if the key does not exist.
 
-  - returns an array of integers, representing memory size (in bytes) of JSON value at each path.
-  - returns an empty array if the key does not exist.
+FIELDS
++ If the path is enhanced syntax:
+  + returns an array of integers, representing number of fields of JSON value at each path.
+  + returns an empty array if the key does not exist.
++ If the path is restricted syntax:
+  + returns an integer, number of fields of the JSON value.
+  + returns null if the key does not exist.
 
-- If the path is restricted syntax:
-
-  - returns an integer, memory size the JSON value in bytes.
-  - returns null if the key does not exist.
-    DEPTH
-
-- Returns an integer that represents the maximum path depth of the JSON document.
-- Returns null if the key does not exist.
-  FIELDS
-
-- If the path is enhanced syntax:
-
-  - returns an array of integers, representing number of fields of JSON value at each path.
-  - returns an empty array if the key does not exist.
-
-- If the path is restricted syntax:
-
-  - returns an integer, number of fields of the JSON value.
-  - returns null if the key does not exist.
-    HELP – returns an array of help messages.
+HELP – returns an array of help messages.
 
 **Examples**
 
@@ -75,7 +68,6 @@ OK
 7) (integer) 0
 8) (integer) 2
 9) (integer) 3
-
 ```
 
 Restricted path syntax:
@@ -97,6 +89,4 @@ OK
 1) JSON.DEBUG MEMORY <key> [path] - report memory size (bytes) of the JSON element. Path defaults to root if not provided.
 2) JSON.DEBUG FIELDS <key> [path] - report number of fields in the JSON element. Path defaults to root if not provided.
 3) JSON.DEBUG HELP - print help message.
-
-
 ```

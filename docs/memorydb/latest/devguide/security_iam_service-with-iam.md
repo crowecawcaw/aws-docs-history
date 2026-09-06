@@ -1,76 +1,70 @@
+
+
 # How MemoryDB works with IAM
+<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to MemoryDB, learn what IAM features are
-available to use with MemoryDB.
+Before you use IAM to manage access to MemoryDB, learn what IAM features are available to use with MemoryDB.
 
-IAM features you can use with MemoryDB| IAM feature | MemoryDB support |
-| --- | --- |
-| [Identity-based policies](#security_iam_service-with-iam-id-based-policies "#security_iam_service-with-iam-id-based-policies") | Yes |
-| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies "#security_iam_service-with-iam-resource-based-policies") | No |
-| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions "#security_iam_service-with-iam-id-based-policies-actions") | Yes |
-| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources "#security_iam_service-with-iam-id-based-policies-resources") | Yes |
-| [Policy condition<br>keys](#security_iam_service-with-iam-id-based-policies-conditionkeys "#security_iam_service-with-iam-id-based-policies-conditionkeys") | Yes |
-| [ACLs](#security_iam_service-with-iam-acls "#security_iam_service-with-iam-acls") | Yes |
-| [ABAC (tags in policies)](#security_iam_service-with-iam-tags "#security_iam_service-with-iam-tags") | Yes |
-| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds "#security_iam_service-with-iam-roles-tempcreds") | Yes |
-| [Principal permissions](#security_iam_service-with-iam-principal-permissions "#security_iam_service-with-iam-principal-permissions") | Yes |
-| [Service roles](#security_iam_service-with-iam-roles-service "#security_iam_service-with-iam-roles-service") | Yes |
-| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked "#security_iam_service-with-iam-roles-service-linked") | Yes |
 
-To get a high-level view of how MemoryDB and other AWS services work with most IAM features, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the
-_IAM User Guide_.
+
+
+
+
+**IAM features you can use with MemoryDB**  
+
+| IAM feature | MemoryDB support | 
+| --- | --- | 
+| [Identity-based policies](#security_iam_service-with-iam-id-based-policies) |  Yes | 
+| [Resource-based policies](#security_iam_service-with-iam-resource-based-policies) | No | 
+| [Policy actions](#security_iam_service-with-iam-id-based-policies-actions) |  Yes | 
+| [Policy resources](#security_iam_service-with-iam-id-based-policies-resources) |  Yes | 
+| [Policy condition keys](#security_iam_service-with-iam-id-based-policies-conditionkeys) |  Yes | 
+| [ACLs](#security_iam_service-with-iam-acls) | Yes | 
+| [ABAC (tags in policies)](#security_iam_service-with-iam-tags) |  Yes | 
+| [Temporary credentials](#security_iam_service-with-iam-roles-tempcreds) |  Yes | 
+| [Principal permissions](#security_iam_service-with-iam-principal-permissions) |  Yes | 
+| [Service roles](#security_iam_service-with-iam-roles-service) | Yes | 
+| [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) | Yes | 
+
+To get a high-level view of how MemoryDB and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ## Identity-based policies for MemoryDB
+<a name="security_iam_service-with-iam-id-based-policies"></a>
 
-**Supports identity-based policies:**
+**Supports identity-based policies:** Yes
 
-Yes
+Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
 
-Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These
-policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based
-policy, see [Define custom IAM permissions with customer managed policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
-_IAM User Guide_.
-
-With IAM identity-based policies, you can specify allowed or denied actions and
-resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a
-JSON policy, see [IAM JSON
-policy elements reference](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md") in the
-_IAM User Guide_.
+With IAM identity-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied. To learn about all of the elements that you can use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*.
 
 ### Identity-based policy examples for MemoryDB
+<a name="security_iam_service-with-iam-id-based-policies-examples"></a>
 
-To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+
+To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md).
 
 ## Resource-based policies within MemoryDB
+<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
-**Supports resource-based policies:**
+**Supports resource-based policies:** No 
 
-No
+Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. Principals can include accounts, users, roles, federated users, or AWS services.
 
-Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are
-IAM _role trust policies_ and Amazon S3 _bucket policies_. In services that support resource-based policies, service
-administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions
-a specified principal can perform on that resource and under what conditions. You must [specify a principal](../../../IAM/latest/UserGuide/reference_policies_elements_principal.md "../../../IAM/latest/UserGuide/reference_policies_elements_principal.md") in a resource-based policy. Principals
-can include accounts, users, roles, federated users, or AWS services.
-
-To enable cross-account access, you can specify an entire account or IAM entities
-in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the
-_IAM User Guide_.
+To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
 ## Policy actions for MemoryDB
+<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
-**Supports policy actions:**
+**Supports policy actions:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-The `Action` element of a JSON policy describes the
-actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-To see a list of MemoryDB actions, see [Actions Defined by MemoryDB](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions") in the
-_Service Authorization Reference_.
+
+To see a list of MemoryDB actions, see [Actions Defined by MemoryDB ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-actions-as-permissions) in the *Service Authorization Reference*.
 
 Policy actions in MemoryDB use the following prefix before the action:
 
@@ -82,269 +76,260 @@ To specify multiple actions in a single statement, separate them with commas.
 
 ```
 "Action": [
-      "MemoryDB:`action1`",
-      "MemoryDB:`action2`"
+      "MemoryDB:{{action1}}",
+      "MemoryDB:{{action2}}"
          ]
 ```
 
-You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the
-word `Describe`, include the following action:
+
+
+
+
+You can specify multiple actions using wildcards (\*). For example, to specify all actions that begin with the word `Describe`, include the following action:
 
 ```
 "Action": "MemoryDB:Describe*"
 ```
 
-To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md).
 
 ## Policy resources for MemoryDB
+<a name="security_iam_service-with-iam-id-based-policies-resources"></a>
 
-**Supports policy resources:**
+**Supports policy resources:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
-
-The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md"). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
+The `Resource` JSON policy element specifies the object or objects to which the action applies. As a best practice, specify a resource using its [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html). For actions that don't support resource-level permissions, use a wildcard (\*) to indicate that the statement applies to all resources.
 
 ```
 "Resource": "*"
 ```
 
-To see a list of MemoryDB resource types and their ARNs, see [Resources Defined by MemoryDB](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-resources-for-iam-policies") in the
-_Service Authorization Reference_. To learn with which actions you can specify the ARN of each resource, see
-[Actions Defined by MemoryDB](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-actions-as-permissions") .
+To see a list of MemoryDB resource types and their ARNs, see [Resources Defined by MemoryDB ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by MemoryDB ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-actions-as-permissions).
 
-To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+
+
+
+To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md).
 
 ## Policy condition keys for MemoryDB
+<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
-**Supports service-specific policy condition keys:**
+**Supports service-specific policy condition keys:** Yes
 
-Yes
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
-Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
-**actions** on what **resources**, and under what **conditions**.
+The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition
-operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the
-policy with values in the request. To see all AWS global
-condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
-
-To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+To view examples of MemoryDB identity-based policies, see [Identity-based policy examples for MemoryDB](security_iam_id-based-policy-examples.md).
 
 ### Using condition keys
+<a name="IAM.ConditionKeys"></a>
 
-You can specify conditions that determine how an IAM policy takes effect. In MemoryDB, you can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy.
-For more information, see [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md").
+You can specify conditions that determine how an IAM policy takes effect. In MemoryDB, you can use the `Condition` element of a JSON policy to compare keys in the request context with key values that you specify in your policy. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html).
 
-To see a list of MemoryDB condition keys, see [Condition Keys for MemoryDB](../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys "../../../IAM/latest/UserGuide/list_awskeymanagementservice.md#awskeymanagementservice-policy-keys") in the
-_Service Authorization Reference_.
+To see a list of MemoryDB condition keys, see [Condition Keys for MemoryDB ](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-policy-keys) in the *Service Authorization Reference*.
 
-For a list of global condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md").
+For a list of global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html).
 
 #### Specifying Conditions: Using Condition Keys
+<a name="IAM.SpecifyingConditions"></a>
 
-To implement fine-grained control, you can write an IAM permissions policy that specifies conditions to control a set of individual parameters on certain requests. You can then apply the policy to IAM users, groups, or roles that you create using the IAM console.
+To implement fine-grained control, you can write an IAM permissions policy that specifies conditions to control a set of individual parameters on certain requests. You can then apply the policy to IAM users, groups, or roles that you create using the IAM console. 
 
-To apply a condition, you add the condition information to the IAM policy statement. For example, to disallow the creation of any MemoryDB cluster with TLS disabled, you can specify the following condition in your policy statement.
+To apply a condition, you add the condition information to the IAM policy statement. For example, to disallow the creation of any MemoryDB cluster with TLS disabled, you can specify the following condition in your policy statement. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": [
- "memorydb:CreateCluster"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "Bool": {
- "memorydb:TLSEnabled": "false"
- }
- }
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "memorydb:CreateCluster"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "Bool": {
+          "memorydb:TLSEnabled": "false"
+        }
+      }
+    }
+  ]
+}
+```
 
-For more information on tagging, see [Tagging your MemoryDB resources](tagging-resources.md "tagging-resources.md").
+------
 
-For more information on using policy condition operators, see [MemoryDB API permissions: Actions, resources, and conditions reference](iam.APIReference.md "iam.APIReference.md").
+For more information on tagging, see [Tagging your MemoryDB resources](tagging-resources.md). 
+
+For more information on using policy condition operators, see [MemoryDB API permissions: Actions, resources, and conditions reference](iam.APIReference.md).
 
 #### Example Policies: Using Conditions for Fine-Grained Parameter Control
+<a name="IAM.ExamplePolicies"></a>
 
 This section shows example policies for implementing fine-grained access control on the previously listed MemoryDB parameters.
 
-1. **memorydb:TLSEnabled** — Specify that clusters will be created only with TLS enabled.
+1. **memorydb:TLSEnabled** — Specify that clusters will be created only with TLS enabled. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "memorydb:CreateCluster"
- ],
- "Resource": [
- "arn:aws:memorydb:*:*:parametergroup/*",
- "arn:aws:memorydb:*:*:subnetgroup/*",
- "arn:aws:memorydb:*:*:acl/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "memorydb:CreateCluster"
- ],
- "Resource": [
- "*"
- ],
- "Condition": {
- "Bool": {
- "memorydb:TLSEnabled": "true"
- }
- }
- }
- ]
-}`
+****  
 
-```
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+                 {
+               "Effect": "Allow",
+               "Action": [
+                   "memorydb:CreateCluster"
+               ],
+               "Resource": [
+                   "arn:aws:memorydb:*:*:parametergroup/*",
+                   "arn:aws:memorydb:*:*:subnetgroup/*",
+                   "arn:aws:memorydb:*:*:acl/*"
+               ]
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "memorydb:CreateCluster"
+               ],
+               "Resource": [
+                   "*"
+               ],
+               "Condition": {
+                   "Bool": {
+                       "memorydb:TLSEnabled": "true"
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-2. **memorydb:UserAuthenticationMode:** — Specify that the users can be created with a specific type authentication mode (IAM for example).
+------
 
-JSON
+1. **memorydb:UserAuthenticationMode:** — Specify that the users can be created with a specific type authentication mode (IAM for example). 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "memorydb:Createuser"
- ],
- "Resource": [
- "arn:aws:memorydb:*:*:user/*"
- ],
- "Condition": {
- "StringEquals": {
- "memorydb:UserAuthenticationMode": "iam"
- }
- }
- }
- ]
-}`
+------
+#### [ JSON ]
 
-```
+****  
 
-In cases where you are setting ‘Deny’ based policies, it is recommended to use the [StringEqualsIgnoreCase](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String") operator to avoid all calls with a specific user authentication mode type irrespective of the case.
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "memorydb:Createuser"
+               ],
+               "Resource": [
+                   "arn:aws:memorydb:*:*:user/*"
+               ],
+               "Condition": {
+                   "StringEquals": {
+                       "memorydb:UserAuthenticationMode": "iam"
+                   }
+               }
+           }
+       ]
+   }
+   ```
 
-JSON
+------
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Deny",
- "Action": [
- "memorydb:CreateUser"
- ],
- "Resource": "*",
- "Condition": {
- "StringEqualsIgnoreCase": {
- "memorydb:UserAuthenticationMode": "password"
- }
- }
- }
- ]
-}`
+   In cases where you are setting ‘Deny’ based policies, it is recommended to use the [StringEqualsIgnoreCase](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String) operator to avoid all calls with a specific user authentication mode type irrespective of the case.
 
-```
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect": "Deny",
+         "Action": [
+           "memorydb:CreateUser"
+         ],
+         "Resource": "*",
+         "Condition": {
+           "StringEqualsIgnoreCase": {
+             "memorydb:UserAuthenticationMode": "password"
+           }
+         }
+       }
+     ]
+   }
+   ```
+
+------
 
 ## Access control lists (ACLs) in MemoryDB
+<a name="security_iam_service-with-iam-acls"></a>
 
-**Supports ACLs:**
+**Supports ACLs:** Yes
 
-Yes
-
-Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are
-similar to resource-based policies, although they do not use the JSON policy document format.
+Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are similar to resource-based policies, although they do not use the JSON policy document format.
 
 ## Attribute-based access control (ABAC) with MemoryDB
+<a name="security_iam_service-with-iam-tags"></a>
 
-**Supports ABAC (tags in policies):**
+**Supports ABAC (tags in policies):** Yes
 
-Yes
+Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
 
-Attribute-based access control (ABAC) is an authorization strategy that defines permissions
-based on attributes called tags. You can attach tags to IAM entities and AWS resources, then design ABAC policies to allow operations when the principal's tag matches the tag on the resource.
-
-To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `aws:ResourceTag/`key-name``, 
- `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys.
+To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `aws:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys.
 
 If a service supports all three condition keys for every resource type, then the value is **Yes** for the service. If a service supports all three condition keys for only some resource types, then the value is **Partial**.
 
-For more information about ABAC, see [Define permissions with ABAC authorization](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md") in the _IAM User Guide_. To view a tutorial with steps for setting up ABAC, see
-[Use attribute-based access control (ABAC)](../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md "../../../IAM/latest/UserGuide/tutorial_attribute-based-access-control.md") in the _IAM User Guide_.
+For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
 
 ## Using Temporary credentials with MemoryDB
+<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
-**Supports temporary credentials:**
+**Supports temporary credentials:** Yes
 
-Yes
-
-Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you
-dynamically generate temporary credentials instead of using long-term access keys. For
-more information, see [Temporary
-security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") and [AWS services
-that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md") in the _IAM User Guide_.
+Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
 ## Cross-service principal permissions for MemoryDB
+<a name="security_iam_service-with-iam-principal-permissions"></a>
 
-**Supports forward access sessions (FAS):**
+**Supports forward access sessions (FAS):** Yes
 
-Yes
-
-Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details
-when making FAS requests, see [Forward access sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+ Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html). 
 
 ## Service roles for MemoryDB
+<a name="security_iam_service-with-iam-roles-service"></a>
 
-**Supports service roles:**
+**Supports service roles:** Yes
 
-Yes
+ A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 
-A service role is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a service assumes to perform
-actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For
-more information, see [Create a role to delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_.
-
-###### Warning
-
-Changing the permissions for a service role might break MemoryDB functionality. Edit service roles only when
-MemoryDB provides guidance to do so.
+**Warning**  
+Changing the permissions for a service role might break MemoryDB functionality. Edit service roles only when MemoryDB provides guidance to do so.
 
 ## Service-linked roles for MemoryDB
+<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-**Supports service-linked roles:**
+**Supports service-linked roles:** Yes
 
-Yes
+ A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, but not edit the permissions for service-linked roles. 
 
-A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf.
-Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view,
-but not edit the permissions for service-linked roles.
-
-For details about creating or managing service-linked roles, see [AWS services that work with IAM](../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md "../../../IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.md"). Find
-a service in the table that includes a `Yes` in the **Service-linked role** column.
-Choose the **Yes** link to view the service-linked role documentation for that service.
+For details about creating or managing service-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html). Find a service in the table that includes a `Yes` in the **Service-linked role** column. Choose the **Yes** link to view the service-linked role documentation for that service.

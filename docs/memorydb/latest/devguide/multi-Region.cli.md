@@ -1,12 +1,15 @@
+
+
 # Using MemoryDB Multi-Region with the CLI
+<a name="multi-Region.cli"></a>
 
 Below are ways to use MemoryDB Multi-Region with the CLI
 
-###### Note
-
+**Note**  
 MemoryDB Multi-Region only supports node type db.r7g.xlarge and above.
 
 ## Creating clusters with MemoryDBMulti Region
+<a name="multi-Region.cli.create"></a>
 
 **Create a Multi Region cluster**
 
@@ -49,6 +52,7 @@ aws memorydb describe-multi-region-cluster \
 ```
 
 ## Update a Multi Region cluster
+<a name="multi-Region.cli.update"></a>
 
 **Modifying Node Type**
 
@@ -71,6 +75,7 @@ aws memorydb update-multi-region-cluster \
 ```
 
 ## Scaling MemoryDB clusters
+<a name="multi-Region.cli.scaling"></a>
 
 First, list the nodes that can scale up or down with the `list-allowed-node-type-updates` command:
 
@@ -87,14 +92,15 @@ aws memorydb update-cluster  \
 	--node-type db.r6g.2xlarge
 ```
 
-For more information on scaling with Multi-Region see [Scaling with MemoryDB Multi-Region](multi-Region.Scaling.md "multi-Region.Scaling.md").
+For more information on scaling with Multi-Region see [Scaling with MemoryDB Multi-Region](multi-Region.Scaling.md).
 
 ## Deleting clusters in MemoryDB Multi-Region
+<a name="multi-Region.cli.update"></a>
 
 **Delete a regional cluster**
 
 ```
-aws memorydb delete-cluster \
+aws memorydb delete-cluster \	
 	--cluster-name my-cluster \
 	--multi-region-cluster-name my-multi-region-cluster \
 	--region us-east-1

@@ -1,33 +1,36 @@
+
+
 # JSON.ARRINDEX
+<a name="json-arrindex"></a>
 
 Search for the first occurrence of a scalar JSON value in the arrays at the path.
++ Out of range errors are treated by rounding the index to the array's start and end.
++ If start > end, return -1 (not found).
 
-- Out of range errors are treated by rounding the index to the array's start and end.
-- If start > end, return -1 (not found).
-  Syntax
+Syntax
 
 ```
 JSON.ARRINDEX <key> <path> <json-scalar> [start [end]]
 ```
++ key (required) – key of JSON document type
++ path (required) – a JSON path
++ json-scalar (required) – scalar value to search for; JSON scalar refers to values that are not objects or arrays. i.e., String, number, boolean and null are scalar values.
++ start (optional) – start index, inclusive. Defaults to 0 if not provided.
++ end (optional) – end index, exclusive. Defaults to 0 if not provided, which means the last element is included. 0 or -1 means the last element is included.
 
-- key (required) – key of JSON document type
-- path (required) – a JSON path
-- json-scalar (required) – scalar value to search for; JSON scalar refers to values that are not objects or arrays. i.e., String, number, boolean and null are scalar values.
-- start (optional) – start index, inclusive. Defaults to 0 if not provided.
-- end (optional) – end index, exclusive. Defaults to 0 if not provided, which means the last element is included. 0 or -1 means the last element is included.
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of integers. Each value is the index of the matching element in the array at the path. The value is -1 if not found.
++ If a value is not an array, its corresponding return value is null.
 
-- Array of integers. Each value is the index of the matching element in the array at the path. The value is -1 if not found.
-- If a value is not an array, its corresponding return value is null.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Integer, the index of matching element, or -1 if not found.
++ `WRONGTYPE` error if the value at the path is not an array.
 
-- Integer, the index of matching element, or -1 if not found.
-- `WRONGTYPE` error if the value at the path is not an array.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"], ["a", "b", "c"]]'
@@ -37,15 +40,13 @@ OK
 2) (integer) -1
 3) (integer) 1
 4) (integer) 1
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"children": ["John", "Jack", "Tom", "Bob", "Mike"]}'
 OK
 127.0.0.1:6379> JSON.ARRINDEX k1 .children '"Tom"'
 (integer) 2
-
 ```

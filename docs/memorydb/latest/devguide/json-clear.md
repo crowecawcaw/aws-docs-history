@@ -1,4 +1,7 @@
+
+
 # JSON.CLEAR
+<a name="json-clear"></a>
 
 Clear the arrays or an objects at the path.
 
@@ -7,21 +10,18 @@ Syntax
 ```
 JSON.CLEAR <key> [path]
 ```
++ key (required) – key of JSON document type
++ path (optional) – a JSON path. Defaults to the root if not provided
 
-- key (required) – key of JSON document type
-- path (optional) – a JSON path. Defaults to the root if not provided
-  **Return**
-
-- Integer, the number of containers cleared.
-- Clearing an empty array or object accounts for 0 container cleared.
-
-###### Note
-
+**Return**
++ Integer, the number of containers cleared.
++ Clearing an empty array or object accounts for 0 container cleared.
+**Note**  
 Prior to Redis OSS version 6.2.6.R2, clearing an empty array or object accounts for 1 container cleared.
++ Clearing a non-container value returns 0.
++ If no array or object value is located by the path, the command returns 0.
 
-- Clearing a non-container value returns 0.
-- If no array or object value is located by the path, the command returns 0.
-  **Examples**
+**Examples**
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], [0], [0,1], [0,1,2], 1, true, null, "d"]'
@@ -36,5 +36,4 @@ OK
 (integer) 1
 127.0.0.1:6379> JSON.GET k2 .children
 "[]"
-
 ```

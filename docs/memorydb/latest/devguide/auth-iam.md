@@ -1,144 +1,147 @@
+
+
 # Authenticating with IAM
+<a name="auth-iam"></a>
 
-###### Topics
-
-- [Overview](#auth-iam-overview "#auth-iam-overview")
-- [Limitations](#auth-iam-limits "#auth-iam-limits")
-- [Setup](#auth-iam-setup "#auth-iam-setup")
-- [Connecting](#auth-iam-Connecting "#auth-iam-Connecting")
+**Topics**
++ [Overview](#auth-iam-overview)
++ [Limitations](#auth-iam-limits)
++ [Setup](#auth-iam-setup)
++ [Connecting](#auth-iam-Connecting)
 
 ## Overview
+<a name="auth-iam-overview"></a>
 
-With IAM Authentication you can authenticate a connection to MemoryDB using AWS IAM identities, when your cluster is configured to use Valkey or Redis OSS version 7 or above.
-This allows you to strengthen your security model and simplify many administrative security tasks. With IAM Authentication you can configure fine-grained access control for
-each individual MemoryDB cluster and MemoryDB user and follow least-privilege permissions principles. IAM Authentication for MemoryDB works by providing a short-lived IAM authentication token instead of a long-lived MemoryDB user password in the `AUTH` or `HELLO` command.
-
-For more information about the IAM authentication token, refer to the [Signature Version 4 signing process](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") in the the AWS General Reference Guide and the code example below.
+With IAM Authentication you can authenticate a connection to MemoryDB using AWS IAM identities, when your cluster is configured to use Valkey or Redis OSS version 7 or above. This allows you to strengthen your security model and simplify many administrative security tasks. With IAM Authentication you can configure fine-grained access control for each individual MemoryDB cluster and MemoryDB user and follow least-privilege permissions principles. IAM Authentication for MemoryDB works by providing a short-lived IAM authentication token instead of a long-lived MemoryDB user password in the `AUTH` or `HELLO` command. For more information about the IAM authentication token, refer to the [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) in the the AWS General Reference Guide and the code example below. 
 
 You can use IAM identities and their associated policies to further restrict Valkey or Redis OSS access. You can also grant access to users from their federated Identity providers directly to MemoryDB clusters.
 
-To use AWS IAM with MemoryDB, you first need to create a MemoryDB user with authentication mode set to IAM, then you can create or reuse an IAM identity. The IAM identity needs an associated policy to grant the `memorydb:Connect` action to the MemoryDB cluster and MemoryDB user. Once configured, you can create an IAM authentication token using the AWS credentials of the IAM user or role.
-
-Finally you need to provide the short-lived IAM authentication token as a password in your Valkey or Redis OSS client when connecting to your MemoryDB cluster node. A client with support for credentials provider can auto-generate the temporary credentials automatically for each new connection.
-MemoryDB will perform IAM authentication for connection requests of IAM-enabled MemoryDB users and will validate the connection requests with IAM.
+To use AWS IAM with MemoryDB, you first need to create a MemoryDB user with authentication mode set to IAM, then you can create or reuse an IAM identity. The IAM identity needs an associated policy to grant the `memorydb:Connect` action to the MemoryDB cluster and MemoryDB user. Once configured, you can create an IAM authentication token using the AWS credentials of the IAM user or role. Finally you need to provide the short-lived IAM authentication token as a password in your Valkey or Redis OSS client when connecting to your MemoryDB cluster node. A client with support for credentials provider can auto-generate the temporary credentials automatically for each new connection. MemoryDB will perform IAM authentication for connection requests of IAM-enabled MemoryDB users and will validate the connection requests with IAM. 
 
 ## Limitations
+<a name="auth-iam-limits"></a>
 
 When using IAM authentication, the following limitations apply:
-
-- IAM authentication is available when using Valkey or Redis OSS engine version 7.0 or above.
-- The IAM authentication token is valid for 15 minutes. For long-lived connections, we recommend using a Redis OSS client that supports a credentials provider interface.
-- An IAM authenticated connection to MemoryDB will automatically be disconnected after 12 hours. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token.
-- IAM authentication is not supported in `MULTI EXEC` commands.
-- Currently, IAM authentication doesn't support all global condition context keys.
-  For more information about global condition context keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md")
-  in the IAM User Guide.
++ IAM authentication is available when using Valkey or Redis OSS engine version 7.0 or above.
++ The IAM authentication token is valid for 15 minutes. For long-lived connections, we recommend using a Redis OSS client that supports a credentials provider interface.
++ An IAM authenticated connection to MemoryDB will automatically be disconnected after 12 hours. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token.
++ IAM authentication is not supported in `MULTI EXEC` commands.
++ Currently, IAM authentication doesn't support all global condition context keys. For more information about global condition context keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the IAM User Guide.
 
 ## Setup
+<a name="auth-iam-setup"></a>
 
 To setup IAM authentication:
 
 1. Create a cluster
 
-```
-aws memorydb create-cluster \
-    --cluster-name cluster-01 \
-    --description "MemoryDB IAM auth application"
-    --node-type db.r6g.large \
-    --engine-version 7.0 \
-    --acl-name open-access
-```
+   ```
+   aws memorydb create-cluster \
+       --cluster-name cluster-01 \
+       --description "MemoryDB IAM auth application"
+       --node-type db.r6g.large \
+       --engine-version 7.0 \
+       --acl-name open-access
+   ```
 
-2. Create an IAM trust policy document, as shown below, for your role that allows your account to assume the new role. Save the policy to a file named _trust-policy.json_.
+1. Create an IAM trust policy document, as shown below, for your role that allows your account to assume the new role. Save the policy to a file named *trust-policy.json*.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": {
- "Effect": "Allow",
- "Principal": { "AWS": "arn:aws:iam::123456789012:root" },
- "Action": "sts:AssumeRole"
- }
-}`
+****  
 
-```
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": {
+           "Effect": "Allow",
+           "Principal": { "AWS": "arn:aws:iam::123456789012:root" },
+           "Action": "sts:AssumeRole"
+       }
+   }
+   ```
 
-3. Create an IAM policy document, as shown below. Save the policy to a file named _policy.json_.
+------
 
-JSON
+1. Create an IAM policy document, as shown below. Save the policy to a file named *policy.json*.
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect" : "Allow",
- "Action" : [
- "memorydb:connect"
- ],
- "Resource" : [
- "arn:aws:memorydb:us-east-1:123456789012:cluster/cluster-01",
- "arn:aws:memorydb:us-east-1:123456789012:user/iam-user-01"
- ]
- }
- ]
-}`
+------
+#### [ JSON ]
 
-```
+****  
 
-4. Create an IAM role.
+   ```
+   {
+     "Version":"2012-10-17",		 	 	 
+     "Statement": [
+       {
+         "Effect" : "Allow",
+         "Action" : [
+           "memorydb:connect"
+         ],
+         "Resource" : [
+           "arn:aws:memorydb:us-east-1:123456789012:cluster/cluster-01",
+           "arn:aws:memorydb:us-east-1:123456789012:user/iam-user-01"
+         ]
+       }
+     ]
+   }
+   ```
 
-```
-aws iam create-role \
-  --role-name "memorydb-iam-auth-app" \
-  --assume-role-policy-document file://trust-policy.json
-```
+------
 
-5. Create the IAM policy.
+1. Create an IAM role.
 
-```
-aws iam create-policy \
-  --policy-name "memorydb-allow-all" \
-  --policy-document file://policy.json
-```
+   ```
+   aws iam create-role \
+     --role-name "memorydb-iam-auth-app" \
+     --assume-role-policy-document file://trust-policy.json
+   ```
 
-6. Attach the IAM policy to the role.
+1. Create the IAM policy.
 
-```
-aws iam attach-role-policy \
- --role-name "memorydb-iam-auth-app" \
- --policy-arn "arn:aws:iam::123456789012:policy/memorydb-allow-all"
-```
+   ```
+   aws iam create-policy \
+     --policy-name "memorydb-allow-all" \
+     --policy-document file://policy.json
+   ```
 
-7. Create a new IAM-enabled user.
+1. Attach the IAM policy to the role.
 
-```
-aws memorydb create-user \
-  --user-name iam-user-01 \
-  --authentication-mode Type=iam \
-  --access-string "on ~* +@all"
-```
+   ```
+   aws iam attach-role-policy \
+    --role-name "memorydb-iam-auth-app" \
+    --policy-arn "arn:aws:iam::123456789012:policy/memorydb-allow-all"
+   ```
 
-8. Create an ACL and attach the user.
+1. Create a new IAM-enabled user.
 
-```
-aws memorydb create-acl \
-  --acl-name iam-acl-01 \
-  --user-names iam-user-01
+   ```
+   aws memorydb create-user \
+     --user-name iam-user-01 \
+     --authentication-mode Type=iam \
+     --access-string "on ~* +@all"
+   ```
 
-aws memorydb update-cluster \
-  --cluster-name cluster-01 \
-  --acl-name iam-acl-01
-```
+1. Create an ACL and attach the user.
+
+   ```
+   aws memorydb create-acl \
+     --acl-name iam-acl-01 \
+     --user-names iam-user-01
+   
+   aws memorydb update-cluster \
+     --cluster-name cluster-01 \
+     --acl-name iam-acl-01
+   ```
 
 ## Connecting
+<a name="auth-iam-Connecting"></a>
 
 **Connect with token as password**
 
-You first need to generate the short-lived IAM authentication token using an [AWS SigV4 pre-signed request](../../../general/latest/gr/sigv4-signed-request-examples.md "../../../general/latest/gr/sigv4-signed-request-examples.md").
-After that you provide the IAM authentication token as a password when connecting to a MemoryDB cluster, as shown in the example below.
+You first need to generate the short-lived IAM authentication token using an [AWS SigV4 pre-signed request](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html). After that you provide the IAM authentication token as a password when connecting to a MemoryDB cluster, as shown in the example below. 
 
 ```
 String userName = "insert user name"
@@ -251,7 +254,7 @@ IAMAuthTokenRequest iamAuthTokenRequest = new IAMAuthTokenRequest(userName, clus
 // Create a credentials provider using IAM credentials.
 RedisCredentialsProvider redisCredentialsProvider = new RedisIAMAuthCredentialsProvider(
     userName, iamAuthTokenRequest, awsCredentialsProvider);
-
+    
 // Construct URL with IAM Auth credentials provider
 RedisURI redisURI = RedisURI.builder()
     .withHost(host)
@@ -281,7 +284,7 @@ public class RedisIAMAuthCredentialsProvider implements RedisCredentialsProvider
         AWSCredentialsProvider awsCredentialsProvider) {
         this.userName = userName;
         this.awsCredentialsProvider = awsCredentialsProvider;
-        this.iamAuthTokenRequest = iamAuthTokenRequest;
+        this.iamAuthTokenRequest = iamAuthTokenRequest;      
         this.iamAuthTokenSupplier = Suppliers.memoizeWithExpiration(this::getIamAuthToken, TOKEN_EXPIRY_SECONDS, TimeUnit.SECONDS);
     }
 

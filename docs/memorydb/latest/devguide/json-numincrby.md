@@ -1,4 +1,7 @@
+
+
 # JSON.NUMINCRBY
+<a name="json-numincrby"></a>
 
 Increment the number values at the path by a given number.
 
@@ -7,30 +10,30 @@ Syntax
 ```
 JSON.NUMINCRBY <key> <path> <number>
 ```
++ key (required) – key of JSON document type
++ path (required) – a JSON path
++ number (required) – a number
 
-- key (required) – key of JSON document type
-- path (required) – a JSON path
-- number (required) – a number
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of bulk Strings representing the resulting value at each path.
++ If a value is not a number, its corresponding return value is null.
++ `WRONGTYPE` error if the number cannot be parsed.
++ `OVERFLOW` error if the result is out of the range of 64-bit IEEE double.
++ `NONEXISTENT` if the document key does not exist.
 
-- Array of bulk Strings representing the resulting value at each path.
-- If a value is not a number, its corresponding return value is null.
-- `WRONGTYPE` error if the number cannot be parsed.
-- `OVERFLOW` error if the result is out of the range of 64-bit IEEE double.
-- `NONEXISTENT` if the document key does not exist.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Bulk String representing the resulting value.
++ If multiple values are selected, the command returns the result of the last updated value.
++ `WRONGTYPE` error if the value at the path is not a number.
++ `WRONGTYPE` error if the number cannot be parsed.
++ `OVERFLOW` error if the result is out of the range of 64-bit IEEE double.
++ `NONEXISTENT` if the document key does not exist.
 
-- Bulk String representing the resulting value.
-- If multiple values are selected, the command returns the result of the last updated value.
-- `WRONGTYPE` error if the value at the path is not a number.
-- `WRONGTYPE` error if the number cannot be parsed.
-- `OVERFLOW` error if the result is out of the range of 64-bit IEEE double.
-- `NONEXISTENT` if the document key does not exist.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":[], "b":[1], "c":[1,2], "d":[1,2,3]}'
@@ -78,10 +81,9 @@ OK
 "[2,null,4]"
 127.0.0.1:6379> JSON.GET k3
 "{\"a\":{\"a\":\"a\"},\"b\":{\"a\":\"a\",\"b\":2},\"c\":{\"a\":\"a\",\"b\":\"b\"},\"d\":{\"a\":2,\"b\":\"b\",\"c\":4}}"
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '{"a":[], "b":[1], "c":[1,2], "d":[1,2,3]}'
@@ -135,5 +137,4 @@ OK
 (error) WRONGTYPE JSON element is not a number
 127.0.0.1:6379> JSON.NUMINCRBY k3 .d.* 1
 "4"
-
 ```

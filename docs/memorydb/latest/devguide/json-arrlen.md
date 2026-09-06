@@ -1,33 +1,36 @@
+
+
 # JSON.ARRLEN
+<a name="json-arrlen"></a>
 
 Get length of the array values at the path.
 
 Syntax
 
 ```
-JSON.ARRLEN <key> [path]
+JSON.ARRLEN <key> [path] 
 ```
++ key (required) – key of JSON document type
++ path (optional) – a JSON path. Defaults to the root if not provided
 
-- key (required) – key of JSON document type
-- path (optional) – a JSON path. Defaults to the root if not provided
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of integers, representing the array length at each path.
++ If a value is not an array, its corresponding return value is null.
++ Null if the document key does not exist.
 
-- Array of integers, representing the array length at each path.
-- If a value is not an array, its corresponding return value is null.
-- Null if the document key does not exist.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Array of bulk strings. Each element is a key name in the object.
++ Integer, array length.
++ If multiple objects are selected, the command returns the first array's length.
++ `WRONGTYPE` error if the value at the path is not an array.
++ `WRONGTYPE` error if the path does not exist.
++ Null if the document key does not exist.
 
-- Array of bulk strings. Each element is a key name in the object.
-- Integer, array length.
-- If multiple objects are selected, the command returns the first array's length.
-- `WRONGTYPE` error if the value at the path is not an array.
-- `WRONGTYPE` error if the path does not exist.
-- Null if the document key does not exist.
-  **Examples**
+**Examples**
 
-Enhanced path syntax:
+ Enhanced path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], [\"a\"], [\"a\", \"b\"], [\"a\", \"b\", \"c\"]]'
@@ -48,10 +51,9 @@ OK
 3) (integer) 2
 4) (integer) 3
 5) (nil)
-
 ```
 
-Restricted path syntax:
+ Restricted path syntax:
 
 ```
 127.0.0.1:6379> JSON.SET k1 . '[[], ["a"], ["a", "b"], ["a", "b", "c"]]'
@@ -69,5 +71,4 @@ OK
 1) (nil)
 127.0.0.1:6379> JSON.ARRLEN k2 $[2]
 1) (integer) 2
-
 ```

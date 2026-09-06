@@ -1,15 +1,21 @@
-# Restoring data from a snapshot into clusters
 
-You can restore a snapshot to a new cluster with data tiering enabled using the (Console), (AWS CLI) or (MemoryDB API). When you create a cluster using node types in the r6gd family,
-data tiering is enabled.
+
+# Restoring data from a snapshot into clusters
+<a name="data-tiering-enabling-snapshots"></a>
+
+You can restore a snapshot to a new cluster with data tiering enabled using the (Console), (AWS CLI) or (MemoryDB API). When you create a cluster using node types in the r6gd family, data tiering is enabled. 
 
 ## Restoring data from a snapshot into clusters with data tiering enabled (console)
+<a name="data-tiering-enabling-snapshots-console"></a>
 
-To restore a snapshot to a new cluster with data tiering enabled (console), follow the steps at [Restoring from a snapshot (Console)](snapshots-restoring.md#snapshots-restoring-CON "snapshots-restoring.md#snapshots-restoring-CON")
+To restore a snapshot to a new cluster with data tiering enabled (console), follow the steps at [Restoring from a snapshot (Console)](snapshots-restoring.md#snapshots-restoring-CON)
 
 Note that to enable data-tiering, you need to select a node type from the r6gd family.
 
-When creating a cluster using the AWS CLI, data tiering is by default used by selecting a node type from the r6gd family, such as _db.r6gd.xlarge_ and setting the `--data-tiering` parameter.
+## Restoring data from a snapshot into clusters with data tiering enabled (AWS CLI)
+<a name="data-tiering-enabling-snapshots-cli"></a>
+
+When creating a cluster using the AWS CLI, data tiering is by default used by selecting a node type from the r6gd family, such as *db.r6gd.xlarge* and setting the `--data-tiering` parameter. 
 
 You cannot opt out of data tiering when selecting a node type from the r6gd family. If you set the `--no-data-tiering` parameter, the operation will fail.
 
@@ -19,11 +25,11 @@ For Linux, macOS, or Unix:
 aws memorydb create-cluster \
    --cluster-name my-cluster \
    --node-type db.r6gd.xlarge \
-   --engine valkey
+   --engine valkey 
    --acl-name my-acl \
    --subnet-group my-sg \
    --data-tiering \
-   --snapshot-name `my-snapshot`
+   --snapshot-name {{my-snapshot}}
 ```
 
 For Windows:
@@ -36,7 +42,7 @@ aws memorydb create-cluster ^
    --acl-name my-acl ^
    --subnet-group my-sg ^
    --data-tiering ^
-   --snapshot-name `my-snapshot`
+   --snapshot-name {{my-snapshot}}
 ```
 
 After running this operation, you will see a response similar to the following:
@@ -63,7 +69,7 @@ After running this operation, you will see a response similar to the following:
         "SnapshotRetentionLimit": 0,
         "MaintenanceWindow": "wed:03:00-wed:04:00",
         "SnapshotWindow": "04:30-05:30",
-        "ACLName": "my-acl",
+        "ACLName": "my-acl",       
         "DataTiering": "true"
 }
 ```

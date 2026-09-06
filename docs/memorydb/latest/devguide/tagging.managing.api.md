@@ -1,23 +1,24 @@
+
+
 # Managing your cost allocation tags using the MemoryDB API
+<a name="tagging.managing.api"></a>
 
 You can use the MemoryDB API to add, modify, or remove cost allocation tags.
 
-Cost allocation tags are applied to MemoryDB for clusters. The cluster to be tagged
-is specified using an ARN (Amazon Resource Name).
+Cost allocation tags are applied to MemoryDB for clusters. The cluster to be tagged is specified using an ARN (Amazon Resource Name).
 
 Sample arn: `arn:aws:memorydb:us-east-1:1234567890:cluster/my-cluster`
 
-###### Topics
-
-- [Listing tags using the MemoryDB API](#tagging.managing.api.List "#tagging.managing.api.List")
-- [Adding tags using the MemoryDB API](#tagging.managing.api.Add "#tagging.managing.api.Add")
-- [Modifying tags using the MemoryDB API](#tagging.managing.api.modify "#tagging.managing.api.modify")
-- [Removing tags using the MemoryDB API](#tagging.managing.api.Remove "#tagging.managing.api.Remove")
+**Topics**
++ [Listing tags using the MemoryDB API](#tagging.managing.api.List)
++ [Adding tags using the MemoryDB API](#tagging.managing.api.Add)
++ [Modifying tags using the MemoryDB API](#tagging.managing.api.modify)
++ [Removing tags using the MemoryDB API](#tagging.managing.api.Remove)
 
 ## Listing tags using the MemoryDB API
+<a name="tagging.managing.api.List"></a>
 
-You can use the MemoryDB API to list tags on an existing resource by using the
-[ListTags](../APIReference/API_ListTags.md "../APIReference/API_ListTags.md") operation.
+You can use the MemoryDB API to list tags on an existing resource by using the [ListTags](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_ListTags.html) operation.
 
 The following code uses the MemoryDB API to list the tags on the resource `my-cluster` in the us-east-1 region.
 
@@ -33,17 +34,11 @@ https://memory-db.us-east-1.amazonaws.com/
 ```
 
 ## Adding tags using the MemoryDB API
+<a name="tagging.managing.api.Add"></a>
 
-You can use the MemoryDB API to add tags to an existing MemoryDB cluster by using the
-[TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") operation.
-If the tag key does not exist on the resource, the key and value are added to
-the resource. If the key already exists on the resource, the value associated
-with that key is updated to the new value.
+You can use the MemoryDB API to add tags to an existing MemoryDB cluster by using the [TagResource](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_TagResource.html) operation. If the tag key does not exist on the resource, the key and value are added to the resource. If the key already exists on the resource, the value associated with that key is updated to the new value.
 
-The following code uses the MemoryDB API to add the keys `Service` and `Region`
-with the values `memorydb` and `us-east-1` respectively to the resource
-`my-cluster`
-in the us-east-1 region.
+The following code uses the MemoryDB API to add the keys `Service` and `Region` with the values `memorydb` and `us-east-1` respectively to the resource `my-cluster` in the us-east-1 region. 
 
 ```
 https://memory-db.us-east-1.amazonaws.com/
@@ -51,7 +46,7 @@ https://memory-db.us-east-1.amazonaws.com/
    &ResourceArn=arn:aws:memorydb:us-east-1:0123456789:cluster/my-cluster
    &SignatureVersion=4
    &SignatureMethod=HmacSHA256
-   &Tags.member.1.Key=Service
+   &Tags.member.1.Key=Service 
    &Tags.member.1.Value=memorydb
    &Tags.member.2.Key=Region
    &Tags.member.2.Value=us-east-1
@@ -60,30 +55,25 @@ https://memory-db.us-east-1.amazonaws.com/
    &X-Amz-Credential=<credential>
 ```
 
-For more information, see
-[TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md").
+For more information, see [TagResource](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_TagResource.html).
 
 ## Modifying tags using the MemoryDB API
+<a name="tagging.managing.api.modify"></a>
 
 You can use the MemoryDB API to modify the tags on a MemoryDB cluster.
 
 To modify the value of a tag:
++ Use [TagResource](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_TagResource.html) operation to either add a new tag and value or to change the value of an existing tag.
++ Use [UntagResource](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UntagResource.html) to remove tags from the resource.
 
-- Use [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") operation to either add a new tag and value or
-  to change the value of an existing tag.
-- Use [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") to remove tags from the resource.
-
-Output from either operation will be a list of tags and their values on the specified
-resource.
+Output from either operation will be a list of tags and their values on the specified resource.
 
 ## Removing tags using the MemoryDB API
+<a name="tagging.managing.api.Remove"></a>
 
-You can use the MemoryDB API to remove tags from an existing MemoryDB cluster by using the
-[UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") operation.
+You can use the MemoryDB API to remove tags from an existing MemoryDB cluster by using the [UntagResource](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_UntagResource.html) operation.
 
-The following code uses the MemoryDB API to remove the tags with the keys `Service` and `Region`
-from the cluster
-`my-cluster` in region us-east-1.
+The following code uses the MemoryDB API to remove the tags with the keys `Service` and `Region` from the cluster `my-cluster` in region us-east-1.
 
 ```
 https://memory-db.us-east-1.amazonaws.com/

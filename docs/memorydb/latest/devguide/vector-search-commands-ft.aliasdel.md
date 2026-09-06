@@ -1,4 +1,7 @@
+
+
 # FT.ALIASDEL
+<a name="vector-search-commands-ft.aliasdel"></a>
 
 Delete an existing alias for an index.
 
@@ -6,7 +9,6 @@ Delete an existing alias for an index.
 
 ```
 FT.ALIASDEL <alias>
-
 ```
 
 **Return**

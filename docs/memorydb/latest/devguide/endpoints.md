@@ -1,37 +1,46 @@
-# Finding connection endpoints
 
-Your application connects to your cluster using the endpoint.
-An endpoint is a cluster's unique address. Use the cluster's _Cluster Endpoint_ for all operations.
+
+# Finding connection endpoints
+<a name="endpoints"></a>
+
+Your application connects to your cluster using the endpoint. An endpoint is a cluster's unique address. Use the cluster's *Cluster Endpoint* for all operations. 
 
 The following sections guide you through discovering the endpoint you'll need.
 
-###### To find a MemoryDB cluster's endpoint
+## Finding the Endpoint for a MemoryDB Cluster (AWS Management Console)
+<a name="endpoints.find.console"></a>
 
-1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/ "https://console.aws.amazon.com/memorydb/").
-2. From the navigation pane, choose **Clusters**.
+**To find a MemoryDB cluster's endpoint**
 
-The clusters screen will appear with a list of clusters. Choose the cluster you wish to connect to. 3. To find the cluster's endpoint, choose the cluster's name (not the radio button). 4. The **Cluster endpoint** is displayed under
-**Cluster details**. To copy it, choose the _copy_ icon to the left of the endpoint.
-You can use the `describe-clusters` command to discover the endpoint for a cluster.
+1. Sign in to the AWS Management Console and open the MemoryDB console at [https://console.aws.amazon.com/memorydb/](https://console.aws.amazon.com/memorydb/).
 
-The command returns the cluster's endpoint.
+1. From the navigation pane, choose **Clusters**.
 
-The following operation retrieves the endpoint, which in this example is represented as a `sample`, for the
-cluster `mycluster`.
+   The clusters screen will appear with a list of clusters. Choose the cluster you wish to connect to.
+
+1. To find the cluster's endpoint, choose the cluster's name (not the radio button).
+
+1. The **Cluster endpoint** is displayed under **Cluster details**. To copy it, choose the *copy* icon to the left of the endpoint. 
+
+## Finding the Endpoint for a MemoryDB Cluster (AWS CLI)
+<a name="endpoints.find.cli"></a>
+
+You can use the `describe-clusters` command to discover the endpoint for a cluster. The command returns the cluster's endpoint. 
+
+The following operation retrieves the endpoint, which in this example is represented as a {{sample}}, for the cluster `mycluster`. 
 
 It returns the following JSON response:
 
 ```
 aws memorydb describe-clusters \
-  --cluster-name `mycluster`
+  --cluster-name {{mycluster}}
 ```
 
 For Windows:
 
 ```
 aws memorydb describe-clusters ^
-   --cluster-name `mycluster`
-
+   --cluster-name {{mycluster}}
 ```
 
 ```
@@ -42,7 +51,7 @@ aws memorydb describe-clusters ^
             "Status": "available",
             "NumberOfShards": 1,
             "ClusterEndpoint": {
-                "Address": `"clustercfg.my-cluster.xxxxxx.memorydb.us-east-1.amazonaws.com"`,
+                "Address": {{"clustercfg.my-cluster.xxxxxx.memorydb.us-east-1.amazonaws.com"}},
                 "Port": 6379
             },
             "NodeType": "db.r6g.large",
@@ -52,7 +61,7 @@ aws memorydb describe-clusters ^
             "ParameterGroupStatus": "in-sync",
             "SubnetGroupName": "my-sg",
             "TLSEnabled": true,
-            "ARN": `"arn:aws:memorydb:us-east-1:zzzexamplearn:cluster/my-cluster"`,
+            "ARN": {{"arn:aws:memorydb:us-east-1:zzzexamplearn:cluster/my-cluster"}},
             "SnapshotRetentionLimit": 0,
             "MaintenanceWindow": "wed:03:00-wed:04:00",
             "SnapshotWindow": "04:30-05:30",
@@ -63,18 +72,19 @@ aws memorydb describe-clusters ^
 }
 ```
 
-For more information, see [describe-clusters](../../../cli/latest/reference/memorydb/describe-clusters.md "../../../cli/latest/reference/memorydb/describe-clusters.md").
+For more information, see [describe-clusters](https://docs.aws.amazon.com/cli/latest/reference/memorydb/describe-clusters.html).
+
+## Finding the Endpoint for a MemoryDB Cluster (MemoryDB API)
+<a name="endpoints.find.api"></a>
 
 You can use the MemoryDB API to discover the endpoint of a cluster.
 
 ### Finding the Endpoint for a MemoryDB Cluster (MemoryDB API)
+<a name="endpoints.find.api.clusters"></a>
 
-You can use the MemoryDB API to discover the endpoint for a cluster with the
-`DescribeClusters` action.
-The action returns the cluster's endpoint.
+You can use the MemoryDB API to discover the endpoint for a cluster with the `DescribeClusters` action. The action returns the cluster's endpoint. 
 
-The following operation retrieves the cluster endpoint for the
-cluster `mycluster`.
+The following operation retrieves the cluster endpoint for the cluster `mycluster`. 
 
 ```
 https://memory-db.us-east-1.amazonaws.com/
@@ -87,4 +97,4 @@ https://memory-db.us-east-1.amazonaws.com/
     &X-Amz-Credential=<credential>
 ```
 
-For more information, see [DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md").
+For more information, see [DescribeClusters](https://docs.aws.amazon.com/memorydb/latest/APIReference/API_DescribeClusters.html).

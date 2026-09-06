@@ -1,4 +1,7 @@
+
+
 # JSON.TYPE
+<a name="json-type"></a>
 
 Report type of the values at the given path.
 
@@ -7,22 +10,22 @@ Syntax
 ```
 JSON.TYPE <key> [path]
 ```
++ key (required) – key of JSON document type
++ path (optional) – a JSON path. Defaults to the root if not provided
 
-- key (required) – key of JSON document type
-- path (optional) – a JSON path. Defaults to the root if not provided
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of strings, representing type of the value at each path. The type is one of {"null", "boolean", "string", "number", "integer", "object" and "array"}.
++ If a path does not exist, its corresponding return value is null.
++ Empty array if the document key does not exist.
 
-- Array of strings, representing type of the value at each path. The type is one of {"null", "boolean", "string", "number", "integer", "object" and "array"}.
-- If a path does not exist, its corresponding return value is null.
-- Empty array if the document key does not exist.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ String, type of the value
++ Null if the document key does not exist.
++ Null if the JSON path is invalid or does not exist.
 
-- String, type of the value
-- Null if the document key does not exist.
-- Null if the JSON path is invalid or does not exist.
-  **Examples**
+**Examples**
 
 Enhanced path syntax:
 
@@ -37,7 +40,6 @@ OK
 5) null
 6) object
 7) array
-
 ```
 
 Restricted path syntax:
@@ -59,5 +61,4 @@ number
 boolean
 127.0.0.1:6379> JSON.TYPE k1 .spouse
 null
-
 ```

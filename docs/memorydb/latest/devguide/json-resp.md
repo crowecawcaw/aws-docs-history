@@ -1,33 +1,36 @@
+
+
 # JSON.RESP
+<a name="json-resp"></a>
 
 Return the JSON value at the given path in the Valkey or Redis OSS Serialization Protocol (RESP). If the value is container, the response is RESP array or nested array.
++ JSON null is mapped to the RESP Null Bulk String.
++ JSON boolean values are mapped to the respective RESP Simple Strings.
++ Integer numbers are mapped to RESP Integers.
++ 64-bit IEEE double floating point numbers are mapped to RESP Bulk Strings.
++ JSON Strings are mapped to RESP Bulk Strings.
++ JSON Arrays are represented as RESP Arrays, where the first element is the simple string [, followed by the array's elements.
++ JSON Objects are represented as RESP Arrays, where the first element is the simple string {, followed by key-value pairs, each of which is a RESP bulk string.
 
-- JSON null is mapped to the RESP Null Bulk String.
-- JSON boolean values are mapped to the respective RESP Simple Strings.
-- Integer numbers are mapped to RESP Integers.
-- 64-bit IEEE double floating point numbers are mapped to RESP Bulk Strings.
-- JSON Strings are mapped to RESP Bulk Strings.
-- JSON Arrays are represented as RESP Arrays, where the first element is the simple string [, followed by the array's elements.
-- JSON Objects are represented as RESP Arrays, where the first element is the simple string {, followed by key-value pairs, each of which is a RESP bulk string.
-  Syntax
+Syntax
 
 ```
 JSON.RESP <key> [path]
 ```
++ key (required) – key of JSON document type
++ path (optional) – a JSON path. Defaults to the root if not provided
 
-- key (required) – key of JSON document type
-- path (optional) – a JSON path. Defaults to the root if not provided
-  **Return**
+**Return**
 
 If the path is enhanced syntax:
++ Array of arrays. Each array element represents the RESP form of the value at one path.
++ Empty array if the document key does not exist.
 
-- Array of arrays. Each array element represents the RESP form of the value at one path.
-- Empty array if the document key does not exist.
-  If the path is restricted syntax:
+If the path is restricted syntax:
++ Array, representing the RESP form of the value at the path.
++ Null if the document key does not exist.
 
-- Array, representing the RESP form of the value at the path.
-- Null if the document key does not exist.
-  **Examples**
+**Examples**
 
 Enhanced path syntax:
 
@@ -76,7 +79,6 @@ OK
       2) "office"
    3) 1) "number"
       2) "555 555-4567"
-
 ```
 
 Restricted path syntax:
@@ -134,5 +136,4 @@ OK
     2) 1) [
 10) 1) "spouse"
     2) (nil)
-
 ```
