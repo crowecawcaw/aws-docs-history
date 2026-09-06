@@ -97,6 +97,13 @@ Before creating a private connection, verify that you have the following:
 
 Private connections are account-level resources. After you create a private connection, you can reuse it across multiple integrations and Agent Spaces that need to reach the same host.
 
+###### Note
+
+In service-managed mode, AWS DevOps Agent creates the resource gateway in the VPC and subnets you specify, and that VPC belongs to the same account as the private connection. AWS DevOps Agent can't create a resource gateway in a different account. If your target service runs in another AWS account or on premises, choose one of the following:
+
+- Give the gateway's VPC a route to the target through VPC peering, AWS Transit Gateway, or a virtual private network (VPN) connection. The gateway stays in this account, and traffic reaches the target over that connection. The route has to exist in the gateway's VPC, not only in the account where the target runs.
+- Use self-managed mode. Create the resource gateway and resource configuration in the account where the target runs, share the resource configuration with this account through AWS Resource Access Manager (AWS RAM), accept the share, then create the private connection with that resource configuration's ARN. See [Advanced setup using existing VPC Lattice resources](#advanced-setup-using-existing-vpc-lattice-resources "#advanced-setup-using-existing-vpc-lattice-resources").
+
 ### Create a private connection using the console
 
 1. Open the AWS DevOps Agent console.
@@ -108,7 +115,7 @@ Private connections are account-level resources. After you create a private conn
 7. For **IP address type**, select the type of IP address of your target service (`IPv4`, `IPv6`, or `DualStack`).
 8. (Optional) For **Number of IPv4 addresses**, if you selected IPv4 or Dualstack for the IP address type, you can enter the number of IPv4 addresses per ENI for your resource gateway. The default is 16 IPv4 addresses per ENI.
 9. (Optional) For **Security groups**, select existing security groups (up to 5) to restrict what traffic is allowed to reach your target service. If you don't select any, a default security group is created.
-10. (Optional) For **Port ranges**, specify the TCP ports your target application listens on (for example, `443` or `8080-8090`). You can specify up to 11 port ranges.
+10. (Optional) For **Port ranges**, specify the TCP ports your target application listens on (for example, `443` or `8080-8090`). You can specify up to 11 port ranges. **If you don't specify any port ranges, the connection allows port `443` only.** The connection drops traffic to any port outside the configured ranges without an error. If your endpoint URL includes a non-standard port (for example, `https://tools.example.com:8089/mcp`), include that port here. You can't change the port ranges after you create the connection. To add a port, delete the connection and recreate it.
 11. For **Host address**, enter the IP address or DNS name of your target service (for example, `mcp.internal.example.com` or `10.0.1.50`). The service must be reachable from the selected VPC. If you enter a DNS name, how it is resolved depends on the **DNS resolution** mode you choose in the next step.
 12. For **DNS resolution**, choose how the host address DNS name is resolved:
 
@@ -202,6 +209,20 @@ In the AWS DevOps Agent console, private connections can be linked to a capabili
 ###### Note
 
 When you select a private connection for a capability provider that uses OAuth authentication (Client Credentials or 3LO), the private connection applies to both the capability provider endpoint and the token exchange endpoint. Ensure the private connection is configured with a host address that can route traffic to both endpoints.
+
+#### Host address and endpoint URL
+
+A private connection and a capability provider each take an address. The two are not interchangeable:
+
+- The **host address** on the private connection is the target that the connection routes to. It can be an IP address or a DNS name, and when it's a DNS name, the connection's **DNS resolution** mode determines how it's resolved.
+- The **endpoint URL** on the capability provider is the URL that AWS DevOps Agent requests, including its scheme, port, and path.
+
+The two values don't have to be identical, so a hostname that resolves only inside your VPC doesn't have to appear in the host address. If your service's hostname is private to your VPC, you have two options:
+
+- Set the connection's DNS resolution to **In VPC**, and use the hostname for both the host address and the endpoint URL.
+- Set the host address to the target's private IP address, and keep the hostname in the endpoint URL.
+
+You choose the DNS resolution mode when you create the connection, so decide which option you want first. For information about the symptoms that a mismatch between these two values produces, see [A DNS host address doesn't resolve, or traffic reaches the wrong place](configuring-integrations-and-knowledge-troubleshooting-private-connections.md "configuring-integrations-and-knowledge-troubleshooting-private-connections.md").
 
 #### Routing the endpoint and the OAuth token exchange through different private connections
 
@@ -310,6 +331,7 @@ This approach is useful when you:
 
 - Want full control over the resource gateway and resource configuration lifecycle.
 - Need to share resource configurations across multiple AWS accounts or services.
+- Need the resource gateway to run in the same account as your target service, rather than in the account where you create the private connection.
 - Require VPC Lattice access logs for detailed traffic monitoring.
 - Run a hub-and-spoke network architecture.
 

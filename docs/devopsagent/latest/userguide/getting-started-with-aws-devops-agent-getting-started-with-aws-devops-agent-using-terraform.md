@@ -16,14 +16,16 @@ Before you begin, make sure you have the following:
 - AWS CLI installed and configured with appropriate credentials
 - One AWS account for the monitoring (primary) account
 - (Optional) A second AWS account if you want to set up cross-account monitoring
+- (For Part 4) `awscc` provider version 1.98.0 or later. The `awscc_devopsagent_asset` and `awscc_devopsagent_trigger` resources were added in that version. To check the version in your configuration, run `terraform providers`.
 
 ## What this guide covers
 
-This guide is divided into three parts:
+This guide is divided into four parts:
 
 - **Part 1** — Deploy an agent space with an operator app and an AWS association in your monitoring account. After completing this part, the agent can monitor issues in that account.
 - **Part 2 (Optional)** — Add a source AWS association for a service account and deploy a cross-account IAM role plus an echo Lambda into that account. This allows the agent space to monitor resources across accounts.
 - **Part 3 (Optional)** — Register third-party services (Dynatrace, ServiceNow, Splunk, New Relic, GitLab, PagerDuty) and associate them with the agent space.
+- **Part 4 (Optional)** — Add a skill, a custom agent, and a scheduled trigger to the agent space, so the agent has custom knowledge and the scheduled trigger runs that custom agent automatically.
 
 ## Resources created
 
@@ -39,6 +41,14 @@ This guide is divided into three parts:
 
 - **IAM role** (`DevOpsAgentRole-SecondaryAccount-TF`) — Cross-account role with a fixed name. Trusted by the agent space in the monitoring account. Includes the `AIDevOpsAgentAccessPolicy` managed policy and an inline policy that allows creation of the Resource Explorer service-linked role.
 - **Lambda function** (`echo-service-tf`) — A simple example service that echoes back input events.
+
+### Part 4: Assets and triggers (optional)
+
+This configuration creates the following resources:
+
+- **Skill** (`rds-performance-investigation`) — A skill the agent loads when relevant, created using the `awscc_devopsagent_asset` resource with an `asset_type` of `skill`.
+- **Custom agent** (`rds-firefighter`) — Scopes the agent to a specific workflow with attached skills, created using the `awscc_devopsagent_asset` resource with an `asset_type` of `custom_agent`.
+- **Trigger** (`TIME_BASED`) — Runs the custom agent on a schedule, created using the `awscc_devopsagent_trigger` resource.
 
 ## Setup
 
@@ -287,6 +297,141 @@ For more information about configuring credentials for each service, see:
 - [Connecting GitLab](connecting-to-cicd-pipelines-connecting-gitlab.md "connecting-to-cicd-pipelines-connecting-gitlab.md")
 - [Connecting PagerDuty](connecting-to-ticketing-and-chat-connecting-pagerduty.md "connecting-to-ticketing-and-chat-connecting-pagerduty.md")
 
+## Part 4 (Optional): Add a skill, custom agent, and scheduled trigger
+
+In this section, you add three resources to the agent space you created in Part 1. You add a **skill** the agent loads when relevant and a **custom agent** that scopes the agent to a specific workflow. You also add a **scheduled trigger** that runs the custom agent automatically. These resources use the `awscc_devopsagent_asset` and `awscc_devopsagent_trigger` resources.
+
+These resources might incur additional charges to your AWS account. To remove them when you are done, follow the Cleanup section at the end of this guide.
+
+This example uses the `skill` and `custom_agent` asset types. The same `awscc_devopsagent_asset` resource creates every asset type—such as `memory_store`, `agents_md`, and `attachment`. To use a different type, change the `asset_type` argument and supply the metadata that type requires. For the full list of asset types, their required metadata, and the property reference, see [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+
+###### Important
+
+You must complete Part 1 before proceeding. These resources require the agent space ID from the Part 1 deployment.
+
+### Step 1: Add the configuration
+
+Create a file named `assets.tf` with the following contents. A time-based trigger's action references the custom agent by asset ID, in the form `custom:<assetId>`. The configuration wires this automatically from the custom agent's `asset_id` attribute.
+
+Note that the `metadata` and `action` arguments are JSON documents passed as strings, so this example uses `jsonencode`.
+
+```
+variable "agent_space_id" {
+  type        = string
+  description = "The agent space ID from the Part 1 output"
+}
+
+# A skill the agent loads when relevant
+resource "awscc_devopsagent_asset" "example_skill" {
+  agent_space_id = var.agent_space_id
+  asset_type     = "skill"
+
+  metadata = jsonencode({
+    name        = "rds-performance-investigation"
+    description = "Investigation procedures for RDS performance issues."
+    agent_types = ["GENERIC"]
+  })
+
+  files = [{
+    path         = "SKILL.md"
+    content_text = <<-EOT
+      # RDS Performance Investigation
+      Use this skill when investigating database latency, connection
+      errors, or query timeouts.
+    EOT
+  }]
+}
+
+# A custom agent with attached skills that a trigger can invoke
+resource "awscc_devopsagent_asset" "example_custom_agent" {
+  agent_space_id = var.agent_space_id
+  asset_type     = "custom_agent"
+
+  metadata = jsonencode({
+    name   = "rds-firefighter"
+    skills = ["rds-performance-investigation"]
+  })
+
+  files = [{
+    path         = "AGENT.md"
+    content_text = <<-EOT
+      # RDS Firefighter
+      Custom agent for RDS incidents.
+    EOT
+  }]
+
+  depends_on = [awscc_devopsagent_asset.example_skill]
+}
+
+# A time-based trigger that runs the custom agent on a schedule
+resource "awscc_devopsagent_trigger" "daily" {
+  agent_space_id = var.agent_space_id
+  type           = "TIME_BASED"
+
+  condition = {
+    schedule = {
+      expression = "rate(1 day)"
+    }
+  }
+
+  action = jsonencode({
+    actionType = "create:task"
+    task = {
+      agent = "custom:${awscc_devopsagent_asset.example_custom_agent.asset_id}"
+    }
+  })
+
+  status = "Active"
+}
+
+output "skill_asset_id" {
+  description = "The skill asset ID"
+  value       = awscc_devopsagent_asset.example_skill.asset_id
+}
+
+output "custom_agent_asset_id" {
+  description = "The custom agent asset ID"
+  value       = awscc_devopsagent_asset.example_custom_agent.asset_id
+}
+
+output "trigger_id" {
+  description = "The trigger ID"
+  value       = awscc_devopsagent_trigger.daily.trigger_id
+}
+```
+
+If you are adding this to the sample repository, you can reference the agent space resource directly instead of declaring the `agent_space_id` variable.
+
+### Step 2: Deploy
+
+Set the agent space ID in `terraform.tfvars`, using the `agent_space_id` value from the Part 1 output:
+
+```
+agent_space_id = "<AGENT_SPACE_ID>"
+```
+
+Apply the configuration:
+
+```
+terraform apply
+```
+
+The `agent_space_id` and `asset_type` arguments of an asset are create-only, as are the `agent_space_id`, `type`, `condition`, and `action` arguments of a trigger. Changing any of them replaces the resource. You can update the trigger's `status` (`Active` or `Inactive`) in place—set it to `Inactive` to pause the trigger without deleting it.
+
+### Step 3: Verify the deployment
+
+To confirm that the assets and trigger were created, run the following AWS CLI commands:
+
+```
+aws devops-agent list-assets \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --region <REGION>
+
+aws devops-agent list-triggers \
+  --agent-space-id <AGENT_SPACE_ID> \
+  --region <REGION>
+```
+
 ## Using existing IAM roles (Optional)
 
 By default, the Terraform configuration creates new IAM roles for the agent space and operator app. If you already have IAM roles with the required policies, you can skip role creation and provide the existing role ARNs instead.
@@ -344,10 +489,29 @@ When these values are set, the corresponding role resources in `iam.tf` are skip
 **Terraform resource type not found**
 
 - Verify that you have the `awscc` provider version `~> 1.0` or later. The `awscc_devopsagent_agent_space` and `awscc_devopsagent_association` resources require the AWS Cloud Control provider.
+- The `awscc_devopsagent_asset` and `awscc_devopsagent_trigger` resources used in Part 4 require `awscc` provider version 1.98.0 or later. Run `terraform providers` to check your version, and run `terraform init -upgrade` after raising the version constraint.
 
 ## Cleanup
 
-To remove all resources, destroy in reverse order if you deployed Part 2:
+If you completed Part 4, remove the skill, custom agent, and trigger first. Unlike the AWS CDK guide, which puts these resources in a separate stack, `assets.tf` is part of the same Terraform configuration, so a plain `terraform destroy` removes the agent space along with them. Delete `assets.tf` and apply the change to remove only the Part 4 resources:
+
+```
+rm assets.tf
+terraform apply
+```
+
+To keep the file, target the three resources instead:
+
+```
+terraform destroy \
+  -target=awscc_devopsagent_trigger.daily \
+  -target=awscc_devopsagent_asset.example_custom_agent \
+  -target=awscc_devopsagent_asset.example_skill
+```
+
+Removing only these resources leaves the agent space intact. Do this if you applied Part 4 against an agent space that you share with others or that you did not create in Part 1.
+
+To then remove everything else, destroy in reverse order if you deployed Part 2:
 
 ```
 ./cleanup.sh
@@ -383,3 +547,6 @@ After you have deployed your AWS DevOps Agent using Terraform:
 - [awscc\_devopsagent\_agent\_space](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_agent_space "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_agent_space") resource in the _Terraform Registry_
 - [awscc\_devopsagent\_association](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_association "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_association") resource in the _Terraform Registry_
 - [awscc\_devopsagent\_private\_connection](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_private_connection "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_private_connection") resource in the _Terraform Registry_
+- [awscc\_devopsagent\_asset](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_asset "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_asset") resource in the _Terraform Registry_
+- [awscc\_devopsagent\_trigger](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_trigger "https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/devopsagent_trigger") resource in the _Terraform Registry_
+- [Managing assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md")

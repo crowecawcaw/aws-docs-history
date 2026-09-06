@@ -46,6 +46,44 @@ To investigate faster, AWS DevOps Agent can delegate parts of an investigation t
 
 You can expand any sub-agent entry to see its complete nested timeline, including the context and task it was given, its individual reasoning steps with timing, the tool calls it made, and its own findings. You can trace exactly how each part of a parallel investigation reached its conclusions. Collapse the entry again to keep the overall timeline readable.
 
+## Chat with an investigation
+
+You can send a message directly to an investigation while it runs. Use this to redirect the agent's focus, give it information it does not have, or ask it to reconsider a hypothesis — without leaving the investigation and without starting a new one.
+
+Messages you send this way go to the investigation agent itself, and it reads them alongside the evidence it has already collected.
+
+### Sending a message
+
+To send a message to an investigation:
+
+1. Open an investigation from the Incident Response tab of your DevOps Agent Space web app.
+2. Choose **Chat with investigation** at the bottom of the page. This button is available from any tab of the investigation.
+3. AWS DevOps Agent switches to the **Timeline** tab and opens a message box below the timeline, so you can watch what the agent is doing as you write.
+4. Enter your message and send it. Press **Enter** to send, or **Shift+Enter** to start a new line.
+5. To close the message box, choose the button above it, such as **Back to summary**. It returns you to the tab you came from.
+
+The message box shows **Send as** with your name. Every message is attributed to the identity you signed in with, so the investigation record shows who guided it.
+
+A single message can be up to 32,768 characters. If your message is longer, AWS DevOps Agent tells you it is too long and does not send it.
+
+### Queued requests
+
+Your message does not interrupt the agent in the middle of a step. AWS DevOps Agent queues it, and the agent reads the queue between its reasoning steps. This means a message never arrives partway through a tool call, and the agent applies it with a complete picture of what it was doing.
+
+While a message is waiting, it appears in a numbered **Queued requests** list below the timeline. If you send several messages, they queue in order. Each request leaves the list when the agent picks it up, and the agent's response appears in the timeline.
+
+### Messaging a completed investigation
+
+You can also message an investigation that has already finished. When you do, AWS DevOps Agent resumes it: the investigation returns to a running state and the agent continues with your message and its full prior context, in the same investigation.
+
+This is useful when an investigation stops short of an answer, or when new information arrives after it completes.
+
+### When you can chat with an investigation
+
+**Chat with investigation** is available while an investigation is queued, running, waiting, or completed. It is not available for investigations that were canceled, failed, or timed out.
+
+You can also steer an investigation by talking to your DevOps Agent in Chat. For more information, see [On Demand DevOps Tasks](working-with-devops-agent-on-demand-devops-tasks.md "working-with-devops-agent-on-demand-devops-tasks.md").
+
 ## Incident triage
 
 The triage phase is the first stage of AWS DevOps Agent's incident response system. When an external event triggers, such as an alarm from Datadog, an incident ticket from ServiceNow, or a problem from Dynatrace, AWS DevOps Agent automatically processes it within seconds to determine whether it should be investigated independently or linked to an existing investigation.

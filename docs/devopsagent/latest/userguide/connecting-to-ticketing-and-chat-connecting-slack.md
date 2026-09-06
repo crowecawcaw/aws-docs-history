@@ -1,59 +1,215 @@
 # Connecting Slack
 
-You can configure AWS DevOps Agent to update Slack channels you select with incident response investigation key findings, root cause analyses, and generated mitigation plans.
+You can connect AWS DevOps Agent to Slack in two ways:
+
+- **One-way notifications** — AWS DevOps Agent posts incident response findings, root cause analyses, and mitigation plans to public or private Slack channels that you select.
+- **Bidirectional communication** — AWS DevOps Agent also receives and responds to messages in a private Slack channel. Mention the app to start a conversation. AWS DevOps Agent replies in a thread.
+  You can enable bidirectional communication only in private Slack channels. Public channels support one-way notifications only.
 
 ## Before you begin
 
-Slack needs to be registered with DevOps Agent before it can be added to an Agent Space. To integrate AWS DevOps Agent with Slack you must meet these requirements:
+To connect AWS DevOps Agent with Slack, verify that you have the following:
 
-- Have access to a Slack workspace with the ability to install and authorize third-party applications
-- Have identified the Slack channels where you want AWS DevOps Agent to send notifications
+- Access to a Slack workspace with permission to install and authorize third-party applications.
+- Permission to configure capability providers and communications integrations in AWS DevOps Agent.
+- Permission to create IAM roles from the AWS DevOps Agent console (required for bidirectional communication).
+- The Slack channel ID for each channel that you want to associate.
 
-## Register Slack integration with AWS DevOps Agent
+Each AWS Region has its own AWS DevOps Agent app in the [Slack Marketplace](https://slack.com/marketplace/search?q=AWS+DevOps+Agent "https://slack.com/marketplace/search?q=AWS+DevOps+Agent"). Use the app that matches the AWS Region of your Agent Space. For example, the US East (N. Virginia) AWS Region uses the app named **AWS DevOps Agent - US East (N. Virginia)**. Europe (Frankfurt) uses **AWS DevOps Agent - EU (Frankfurt)**. To find the app for your Region, search for **AWS DevOps Agent** in the Slack Marketplace.
 
-Each registration connects to one Slack workspace. To connect multiple workspaces, repeat this process for each one.
+Throughout this guide, references to the **AWS DevOps Agent** app refer to the regional app for your Agent Space. When a command includes `<Region>`, replace it with the Region suffix shown in your app name. For example, use `US East (N. Virginia)` or `EU (Frankfurt)`. The hyphen between the app name and Region suffix is part of the literal Slack app name.
 
-![Register Slack with AWS DevOps Agent page showing installation steps and authorization section.](images/4034f56fad96.png)
+## Connecting Slack to your Agent Space
 
-1. From the **Capability Providers** page in the AWS DevOps Agent console, find **Slack** in the **Available** providers section under **Communication** and choose **Register**.
-2. Choose the **Register** button.
-3. You will be redirected to Slack to authorize the AWS DevOps Agent application for your workspace.
-4. On the Slack authorization page, install directly to workspaces, not at the organization level.
-5. Choose a workspace from the dropdown. Do not select an Enterprise Grid.
-6. Install per workspace as needed for your organization.
-7. Review the requested scopes and choose **Allow** to authorize the integration.
-8. After authorization, you'll return to the AWS DevOps Agent console.
+Follow these steps to register Slack, associate a channel, and optionally enable bidirectional communication.
+
+### Step 1: Open the AWS DevOps Agent console
+
+1. Open the [AWS DevOps Agent console](https://console.aws.amazon.com/devops-agent/ "https://console.aws.amazon.com/devops-agent/").
+2. Open an Agent Space, and choose the **Capabilities** tab.
+3. Under **Communications**, choose **Add** or **Add integration**.
+
+![The Communications section with the Add integration button.](images/slack-step1-communications.png)
+
+### Step 2: Register Slack
+
+If Slack is already registered with your AWS account, choose **Add** under **Communications**, select the registered Slack workspace, and skip to [Step 5](#step-5-enter-the-slack-channel-id "#step-5-enter-the-slack-channel-id").
+
+1. In the **Add a capability** dialog, search for **Slack** and choose **Register**.
+
+![Add a capability dialog showing Slack under Communication with the Register option.](images/slack-step2-register.png)
+
+### Step 3: Review registration instructions
+
+1. On the **Register Slack with DevOps Agent** page, review the workspace installation steps.
+2. Choose **Next** to begin the Slack authorization flow.
+
+![Register Slack with DevOps Agent page showing the workspace installation steps.](images/slack-step3-registration-steps.png)
+
+### Step 4: Authorize the Slack app
+
+1. On the Slack authorization page, choose the workspace that you want to connect from the **Workspace** dropdown.
+2. Review the permissions that the app requests, and choose **Allow**.
+
+![Slack authorization page showing the workspace selector, requested permissions, and the Allow button.](images/slack-step4-authorize.png)
+
+After authorization, Slack redirects you to the AWS DevOps Agent console and displays a success message.
+
+### Step 5: Enter the Slack channel ID
+
+1. Under **Slack channel for communication**, enter the **Channel ID** of the Slack channel that you want to associate with this Agent Space.
+
+To find the channel ID, open the channel in Slack, choose the channel name at the top, and copy the **Channel ID** from the channel details panel.
+
+![Associate this Agent Space to your Slack channel page showing the Channel ID field and the Bidirectional communication section.](images/slack-step5-channel-id.png)
+
+### Step 6: (Optional) Enable bidirectional communication
+
+To use one-way notifications only, leave **Bidirectional mode** turned off and skip to [Step 9](#step-9-complete-the-association "#step-9-complete-the-association").
+
+To enable bidirectional communication:
+
+1. Under **Bidirectional communication**, turn on **Bidirectional mode**.
+
+1. Under **IAM role configuration**, choose one of the following options:
+
+   - **Auto-create a new DevOps Agent role** — The console creates the role with the AIDevOpsChannelAccessPolicy AWS managed policy attached. You can modify the role later.
+   - **Assign an existing role** — Provide the ARN of a role that AWS DevOps Agent verifies.
+   - **Create a new DevOps Agent role using a policy template** — Use the provided details to create the role manually in the IAM console.
+
+1. Choose **Next**.
+
+![Bidirectional communication section with Bidirectional mode enabled and IAM role configuration options.](images/slack-step6-bidirectional.png)
+
+### Step 7: Invite DevOps Agent to the channel
+
+For private channels with bidirectional mode enabled, you must add the AWS DevOps Agent app to the channel. You can skip this step for public channels used for one-way notifications only.
+
+1. Go to the private channel in Slack.
+2. Add the AWS DevOps Agent app using one of the following methods:
+
+   - Open the channel details, choose the **Integrations** tab, choose **Add** under Apps, and search for **AWS DevOps Agent**.
+   - Enter the following command in the channel, replacing `<Region>` with your Region suffix:
+
+`text /invite @AWS DevOps Agent - <Region>`
+
+For example, for an Agent Space in Europe (Frankfurt):
+
+`text /invite @AWS DevOps Agent - EU (Frankfurt)`
+
+![Instructions for inviting the AWS DevOps Agent app to a private Slack channel with the /invite command.](images/slack-step7-invite.png)
+
+### Step 8: Confirm the invite in Slack
+
+1. In Slack, verify that you see a confirmation that the app was added to the channel. The message includes the full regional app name.
+
+![Slack message bar showing the /invite command with the regional AWS DevOps Agent app name.](images/slack-step8-invite-slack.png)
+
+### Step 9: Complete the association
+
+1. Return to the AWS DevOps Agent console.
+2. Choose **Add** to create the channel association.
+
+![Step 2 of the Add Slack channel wizard showing the Invite DevOps Agent instructions and the Add button to complete the association.](images/slack-step9-add.png)
+
+### Step 10: Verify the association
+
+1. On the **Communications** page, confirm that the Slack association appears in the **Integrations** table.
+2. If you enabled bidirectional communication, verify that the **Bidirectional** column shows **Enabled** and the **Bidirectional role** column shows the IAM role ARN.
+
+![Communications page showing two Slack integrations with Bidirectional Enabled and IAM role ARNs.](images/slack-step10-success.png)
+
+Your Agent Space is now connected to Slack.
+
+## Setting up bidirectional communication in Slack
+
+After you complete the association with bidirectional mode enabled, set up the channel binding from Slack:
+
+1. In the associated private channel, send this exact app mention as a new top-level message:
+
+`text @AWS DevOps Agent - <Region> setup`
+
+![A Slack message sending the setup command to the AWS DevOps Agent app.](images/slack-setup-command.png)
+
+1. If the channel has one eligible Agent Space association, AWS DevOps Agent configures the binding and posts a confirmation.
+2. If the channel has multiple eligible associations, AWS DevOps Agent posts a picker. Select the Agent Space that you want the channel to use, and wait for the confirmation.
+
+Run setup again to repair a stale binding or to select an eligible association again. You don't need the `/setup` slash command.
+
+## Chatting with AWS DevOps Agent in Slack
+
+To start a conversation, mention the AWS DevOps Agent app in a new top-level message in the associated private channel and include your request. For example:
+
+```
+@AWS DevOps Agent - <Region> What can you do?
+```
+
+AWS DevOps Agent replies in a thread under your message. Open the thread to view the response, and send follow-up messages in the same thread to continue the conversation.
+
+![A Slack channel showing a message that mentions the AWS DevOps Agent app with a reply indicator.](images/slack-chat-channel.png)
+
+![A conversation thread showing the AWS DevOps Agent app responding with a list of capabilities.](images/slack-chat-thread.png)
+
+Mention the app in each message, including replies within the thread. Replace `<Region>` with the AWS Region suffix shown in your app name. For example:
+
+```
+@AWS DevOps Agent - <Region> Tell me more about the Lambda errors
+```
+
+Use separate top-level messages to start separate conversations. AWS DevOps Agent can help with tasks supported by your Agent Space, including:
+
+- Starting, viewing, and guiding investigations into incidents and operational issues
+- Exploring AWS resources, metrics, logs, and topology
+- Reviewing and responding to prevention recommendations
+- Running supported release management and testing workflows
+
+The responses and actions available in Slack depend on the configuration and permissions of the associated Agent Space.
+
+## Switching between bidirectional communication and one-way notifications
+
+You can edit the Slack association at any time. Bidirectional mode can be enabled only for private channel associations:
+
+1. Open the Agent Space, and choose **Capabilities**.
+2. Under **Communications**, select the Slack association and choose **Edit**.
+3. Turn **Bidirectional mode** on to allow conversations in the private channel, or turn it off to use the channel for one-way notifications only.
+4. Save your changes.
+
+To stop using a channel with the Agent Space, select its association and choose **Remove**. Removing a channel association does not unregister the Slack workspace from AWS DevOps Agent.
 
 ## Sharing a Slack workspace across multiple AWS accounts
 
-You can share a single Slack workspace across multiple AWS accounts. This works even when your Agent Space uses a customer managed key (CMK) for encryption. If you have multiple AWS accounts, you don't need a separate Slack workspace for each account.
+You can share one Slack workspace across multiple AWS accounts. This works even when an Agent Space uses a customer managed key for encryption. You do not need a separate Slack workspace for each AWS account.
 
-## Overlapping and duplicate workspace installations
+You can register the same Slack workspace with more than one Agent Space or AWS account. Each registration is independent. Registering a workspace again does not overwrite an existing registration.
 
-Your organization might have overlapping or duplicate Slack workspaces across Agent Spaces or AWS accounts. You can register the same Slack workspace with more than one Agent Space. Each registration is independent. Registering the same workspace in another Agent Space doesn't collide with or overwrite your existing registration.
+## Troubleshooting Slack communication
 
-## Associate Slack with your DevOps Agent Space(s)
+If AWS DevOps Agent does not respond to a message in a bidirectional channel, verify the following:
 
-After registering Slack, you can associate one or more channels with your DevOps Agent Space(s). Repeat these steps for each channel you want to add:
+- The Slack channel ID matches the private channel associated with the Agent Space.
+- **Bidirectional** is **Enabled** for the association in the AWS DevOps Agent console.
+- The IAM role shown for the association exists and has the permissions created by the console.
+- The regional AWS DevOps Agent app is a member of the private channel.
+- The channel binding is active. Run `@AWS DevOps Agent - <Region> setup` again if the binding appears stale.
+- The correct Agent Space association was selected if setup showed a picker.
+- The first message in a conversation mentions the regional AWS DevOps Agent app.
+- The response is not already available in a thread under the original message.
 
-1. From the **Capabilities** tab within your configured AgentSpace, navigate to **Communications** > **Slack**.
-2. Select **Add Slack**
-3. Enter the Channel ID
-4. Choose **Create** to complete the Slack configuration.
+If the workspace is not available when you create an association, confirm that you registered Slack in the same AWS account and Region as your Agent Space.
 
-###### Note
+## Providing feedback through Slack
 
-The agent’s bot user must be added to private channels before it can post messages.
+You can submit product feedback directly in a bidirectional Slack channel. Mention the app and describe the feedback you want to file. AWS DevOps Agent summarizes your input, confirms the details with you, and submits it to the product team. Replace `<Region>` with the AWS Region suffix shown in your app name. For example:
 
-###### Important
+```
+@AWS DevOps Agent - <Region> I want to share feedback on how notifications work
+```
 
-Uninstalling the Slack app may result in the Slack app not being able to be reinstalled. Please avoid uninstalling the Slack app.
-
-## AI-generated content
+### AI-generated content
 
 We use large language models to generate investigation findings, root-cause analyses, mitigation recommendations, and conversational responses. These outputs might be inaccurate or incomplete. Verify AI-generated information before acting on it.
 
-## Data handling and privacy
+### Data handling and privacy
 
 We retain data associated with your Agent Space for as long as necessary to provide the service. This data includes investigation journals, chat messages, and operational data. You can delete your Agent Space at any time to remove all associated data.
 

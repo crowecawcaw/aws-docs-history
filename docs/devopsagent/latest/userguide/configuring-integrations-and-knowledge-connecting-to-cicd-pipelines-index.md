@@ -13,7 +13,7 @@ AWS DevOps Agent supports integration with popular CI/CD platforms through a two
 AWS DevOps Agent supports the following CI/CD platforms:
 
 - **GitHub** – Connect repositories from [GitHub.com](http://GitHub.com "http://GitHub.com") using the AWS DevOps Agent GitHub app.
-- **GitLab** – Connect projects from [GitLab.com,](http://gitlab.com "http://gitlab.com") managed GitLab instances, or publicly accessible self-hosted GitLab deployments.
+- **GitLab** – Connect projects from [GitLab.com](http://gitlab.com "http://gitlab.com"), managed GitLab instances, or GitLab Self-Managed deployments. A GitLab Self-Managed deployment can be publicly accessible, or reachable through an AWS DevOps Agent private connection (see: [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md")).
 
 **Topics**
 

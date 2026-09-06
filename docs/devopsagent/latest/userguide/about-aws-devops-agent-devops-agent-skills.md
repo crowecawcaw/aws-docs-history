@@ -14,7 +14,7 @@ Every skill requires a SKILL.md file containing instructions you want to provide
 
 - **Investigation workflows** for specific scenarios or infrastructure types.
 - **Reference materials** including architecture patterns and operational procedures.
-- **Agent type targeting** – Skills can be targeted to specific agent types (Generic, On-demand, Incident Triage, Incident RCA, Incident Mitigation, Evaluation, Release testing) to reduce context consumption and improve agent focus.
+- **Agent type targeting** – Skills can be targeted to specific agent types (Generic, On-demand, Incident Triage, Incident RCA, Incident Mitigation, Incident UI, Evaluation, Release testing) to reduce context consumption and improve agent focus.
 
 ## Why use Skills
 

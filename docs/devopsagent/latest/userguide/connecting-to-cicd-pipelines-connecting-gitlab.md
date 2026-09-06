@@ -25,11 +25,11 @@ On the GitLab registration page, configure the following:
 **GitLab instance type** – Choose which type of GitLab instance you're connecting to:
 
 - **GitLab.com** (default) – The public GitLab service
-- **Publicly accessible self-hosted GitLab** – Check the **Use GitLab self hosted endpoint** box and provide the URL to your GitLab instance
+- **GitLab Self-Managed** – Check the **Use GitLab self hosted endpoint** box and provide the URL to your GitLab instance
 
-###### Note
+#### Private connectivity for GitLab Self-Managed
 
-Currently, only publicly accessible GitLab instances are supported.
+**Connect to endpoint using a private connection** – If your GitLab Self-Managed instance isn't reachable over the public internet, select this option to have AWS DevOps Agent reach it through a private connection to your VPC. Create the private connection before you register GitLab, then select the existing connection here. For more information, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 
 **Access token** – Provide a GitLab personal access token:
 
@@ -116,6 +116,42 @@ To configure trigger filters:
 5. Choose **Save** to apply your configuration.
 
 You can define up to 5 filter groups per project, with up to 20 patterns per group. Each pattern must be a valid regular expression of up to 256 characters. If you don't add any filter groups, reviews trigger on all applicable events for all target branches.
+
+## Troubleshooting
+
+For DNS, network reachability, security group, or TLS errors when you use GitLab Self-Managed with a private connection, see [Troubleshooting private connections](configuring-integrations-and-knowledge-troubleshooting-private-connections.md "configuring-integrations-and-knowledge-troubleshooting-private-connections.md").
+
+### Some projects don't appear in the project list
+
+**Symptom**
+
+You can register GitLab successfully, but one or more projects that you expect to connect do not appear in the project list.
+
+**Cause**
+
+For a Personal connection, AWS DevOps Agent lists projects where the access token's user is a member. A project does not appear if that user is not a member, even if the user can view the project through another GitLab access path.
+
+**Resolution**
+
+- Confirm that the access token's user is a member of each project that you want to connect.
+- Confirm that the token has not expired and includes the scopes listed in [Step 2: Configure GitLab connection](#step-2-configure-gitlab-connection "#step-2-configure-gitlab-connection").
+- After changing project membership or replacing the token, refresh the project list.
+
+### A GitLab project can't be connected
+
+**Symptom**
+
+Connecting a project fails with `GitLab project '<path>' (ID: <id>) is not accessible to this GitLab token.` or `GitLab is currently throttling requests (HTTP 429). Please retry the association later.`
+
+**Cause**
+
+The token cannot read the selected project, or GitLab is temporarily throttling project validation requests.
+
+**Resolution**
+
+- Confirm that the token is valid and its user or group can access the selected project.
+- Confirm that the token includes the required scopes from [Step 2: Configure GitLab connection](#step-2-configure-gitlab-connection "#step-2-configure-gitlab-connection").
+- If GitLab returns HTTP 429, wait and retry the association.
 
 ## Managing GitLab connections
 

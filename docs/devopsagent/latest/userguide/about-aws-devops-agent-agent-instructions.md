@@ -52,6 +52,7 @@ The managed agents available for agent-specific instructions are:
 - **Incident triage** - Alarm filtering, severity classification, and initial scoping.
 - **Incident RCA** - Root cause analysis with evidence collection and validation.
 - **Incident mitigation** - Short-term remediation and long-term fix recommendations.
+- **Incident UI** – Generation of an investigation's outputs, including those posted to other platforms.
 - **Evaluation** - Agent performance scoring and policy compliance checks.
 - **Release testing** – Automated UI and API testing against deployed web applications and REST APIs.
 
@@ -102,7 +103,7 @@ Each agent has exactly one set of instructions. When you save new content, it ov
 
 1. Navigate to the **Knowledge** page in your Agent Space Operator Web App.
 2. Choose the **Instructions** tab.
-3. Choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, **Evaluation**, or **Release testing**.
+3. Choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, **Incident UI**, **Evaluation**, or **Release testing**.
 4. Enter your markdown instructions in the editor.
 5. Choose **Save**.
 

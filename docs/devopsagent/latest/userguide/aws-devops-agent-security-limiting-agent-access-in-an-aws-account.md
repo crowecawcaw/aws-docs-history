@@ -63,10 +63,10 @@ We have fully tested and verified that only the permissions in the `AIDevOpsAgen
 
 The following table lists the additional permissions the guardrail supports beyond the `ReadOnlyAccess` managed policy.
 
-| Service       | Actions                                                   | Use case                                       |
-| ------------- | --------------------------------------------------------- | ---------------------------------------------- |
-| Amazon Athena | `athena:StartQueryExecution`, `athena:StopQueryExecution` | Run Athena queries against your data catalog   |
-| AWS KMS       | `kms:Decrypt`                                             | Decrypt encrypted resources such as S3 objects |
+| Service       | Actions                                                   | Use case                                                                                                                                                                                                                                                                 |
+| ------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Amazon Athena | `athena:StartQueryExecution`, `athena:StopQueryExecution` | Run Athena queries against your data catalog. The workgroup must use managed query results because the agent lacks `s3:PutObject` permissions. See [Managed query results](../../../athena/latest/ug/managed-results.md "../../../athena/latest/ug/managed-results.md"). |
+| AWS KMS       | `kms:Decrypt`                                             | Decrypt encrypted resources such as S3 objects                                                                                                                                                                                                                           |
 
 ### Permissions blocked by the guardrail
 

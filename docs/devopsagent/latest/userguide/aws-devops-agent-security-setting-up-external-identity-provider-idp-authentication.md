@@ -43,7 +43,7 @@ Choose your identity provider and follow the corresponding setup instructions.
 Okta does not enable the Refresh Token grant type by default. You must explicitly enable it.
 
 1. Leave the **Sign-in redirect URIs** as the default value for now — you will update it after configuring the Agent Space
-2. Under **Assignments**, assign the users or groups that should have access
+2. Under **Assignments**, assign the users or groups that should have access. Application assignment controls who can sign in. For more information, see [Managing user and group access](#managing-user-and-group-access "#managing-user-and-group-access").
 3. Choose **Save**
 4. On the application's **General** tab, note the following values:
 
@@ -158,6 +158,62 @@ After choosing **Connect**, the console displays the **External Identity Provide
 3. Sign in with your corporate credentials
 4. After successful authentication, you are redirected back to the Agent Space web app
 
+## Managing user and group access
+
+With external IdP authentication, your identity provider is where you grant and revoke access to the Agent Space web app.
+
+### Managing access in Okta
+
+Assignment to the OIDC application you created in [Step 1](#option-a-okta "#option-a-okta") governs access.
+
+#### Grant access in Okta
+
+1. In the Okta Admin Console, navigate to **Applications and Resources** > **Applications** and select your application
+2. Choose the **Assignments** tab
+3. Choose **Assign**, then choose **Assign to People** or **Assign to Groups**
+4. Choose **Assign** next to each person or group, then choose **Done**
+
+Assign groups rather than individual people where you can. Ongoing maintenance then happens in **Directory** > **Groups**. Adding someone to the group grants access; removing them revokes it, without editing the application.
+
+#### Remove access in Okta
+
+1. On the **Assignments** tab, find the person or group
+2. Choose the **X** (Unassign) icon and confirm
+
+Removing a group revokes access for everyone whose only assignment came through that group. If a person is also assigned directly, remove the direct assignment as well.
+
+To revoke a person's access to all applications in a single action, deactivate or suspend them in **Directory** > **People**.
+
+### Managing access in Microsoft Entra ID
+
+Entra ID represents your application as two objects, and the second object manages user and group assignment:
+
+- The **app registration** (under **App registrations**) stores the client ID, client secret, and redirect URIs. You configured it in Step 1 and Step 3.
+- The **enterprise application** (under **Enterprise applications**), also called the service principal, manages user and group assignments and sign-in properties.
+
+#### Require assignment
+
+By default, an application registered in your tenant is available to every user in the tenant who authenticates successfully. Entra ID does not enforce assignment until you turn it on.
+
+1. In the Azure portal or Microsoft Entra admin center, navigate to **Enterprise applications** and select your application
+2. Choose **Properties**
+3. Set **Assignment required?** to **Yes**
+4. Choose **Save**
+
+#### Grant access in Entra ID
+
+1. Navigate to **Enterprise applications** and select your application
+2. Choose **Users and groups**
+3. Choose **Add user/group**
+4. Select the users or groups, then choose **Assign**
+
+#### Remove access in Entra ID
+
+1. On the **Users and groups** page, select the assignment
+2. Choose **Remove** and confirm
+
+To remove a user's access to all applications, disable the account. Navigate to **Users**, select the user, and set **Account enabled** to **No**.
+
 ## Updating IdP configuration
 
 You can rotate the client secret without disconnecting:
@@ -174,6 +230,7 @@ To change any other IdP configuration field (such as Issuer URL, Client ID, or i
 
 After configuring external IdP authentication:
 
+- Confirm the users are assigned to the OIDC application in your identity provider. For more information, see [Managing user and group access](#managing-user-and-group-access "#managing-user-and-group-access").
 - Share the Agent Space web app URL with authorized users
 - When users navigate to the URL, they are redirected to your identity provider's login page
 - After entering their credentials (and completing MFA if configured by your IdP), they are redirected back to the Agent Space web app

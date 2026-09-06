@@ -4,25 +4,28 @@ GitHub integration enables AWS DevOps Agent to access code repositories and rece
 
 AWS DevOps Agent supports GitHub.com (SaaS), GitHub Enterprise Cloud with data residency (`*.ghe.com`), and GitHub Enterprise Server (self-hosted) instances.
 
+You can register GitHub in two ways. **App registration** installs the AWS DevOps Agent GitHub App in your account or organization. The GitHub App supports webhooks and fine-grained permissions, and we recommend it for most use cases. **Personal access token** authenticates with a token from your GitHub account. Use it for individual access when you do not need webhook-based features. For more information, see [Registering GitHub with a personal access token](#registering-github-with-a-personal-access-token "#registering-github-with-a-personal-access-token").
+
 ## Prerequisites
 
-Before connecting GitHub, ensure you have:
+Before you connect GitHub, confirm that you meet the following prerequisites:
 
-- Access to the AWS DevOps Agent admin console
-- A GitHub user account or organization with admin permissions
-- Authorization to install GitHub Apps in your account or organization
+- You have access to the AWS DevOps Agent admin console.
+- You have a GitHub user account or organization with admin permissions.
+- For App registration, you have authorization to install GitHub Apps in your account or organization.
+- For personal access token registration, you have a personal access token with the permissions described in [Creating a personal access token](#creating-a-personal-access-token "#creating-a-personal-access-token").
 
-For GitHub Enterprise Server, you also need:
+For GitHub Enterprise Server, also confirm the following:
 
-- A GitHub Enterprise Server instance (version 3.x or later) accessible over HTTPS
-- The HTTPS URL of your GitHub Enterprise Server instance (for example, `https://github.example.com`)
-- (Optional) A private connection, if your GitHub Enterprise Server instance is not publicly accessible
+- You have a GitHub Enterprise Server instance (version 3.x or later) that is accessible over HTTPS.
+- You have the HTTPS URL of your GitHub Enterprise Server instance (for example, `https://github.example.com`).
+- (Optional) You have a private connection, if your GitHub Enterprise Server instance is not publicly accessible.
 
-For GitHub Enterprise Cloud with data residency, you also need:
+For GitHub Enterprise Cloud with data residency, also confirm the following:
 
-- A GitHub Enterprise Cloud organization with data residency enabled, hosted on your dedicated `*.ghe.com` subdomain
-- Organization admin permissions, including permission to create and install GitHub Apps
-- The HTTPS URL of your data residency instance (for example, `https://octocorp.ghe.com`)
+- You have a GitHub Enterprise Cloud organization with data residency enabled, hosted on your dedicated `*.ghe.com` subdomain.
+- You have organization admin permissions, including permission to create and install GitHub Apps.
+- You have the HTTPS URL of your data residency instance (for example, `https://octocorp.ghe.com`).
 
 ## Registering GitHub (account-level)
 
@@ -40,7 +43,14 @@ If GitHub hasn't been registered yet, you'll be prompted to register it first.
 
 ### Step 2: Choose connection type
 
-On the "Register GitHub Account / Organization" screen, select whether you're connecting as a user or organization:
+On the **Register GitHub account / organization** screen, under **Connection type**, choose how AWS DevOps Agent connects to GitHub:
+
+- **App registration** (recommended) – Install the AWS DevOps Agent GitHub App in your account or organization. The GitHub App supports webhooks and fine-grained permissions. Continue with [Step 3](#step-3-configure-the-github-app-registration "#step-3-configure-the-github-app-registration").
+- **Personal access token** – Authenticate with a personal access token from your GitHub account. This option provides individual access and does not support webhooks. Skip the remaining steps in this section and see [Registering GitHub with a personal access token](#registering-github-with-a-personal-access-token "#registering-github-with-a-personal-access-token").
+
+### Step 3: Configure the GitHub App registration
+
+Select whether you're connecting as a user or organization:
 
 - **User** – Your personal GitHub account with a username and profile
 - **Organization** – A shared GitHub account where multiple people can collaborate across many projects at once. If you select **Organization**, enter the GitHub organization name. The name must match your GitHub organization name exactly, because you must authorize and install the app on that organization in the following steps.
@@ -49,6 +59,24 @@ Select the **GitHub App permissions** for your GitHub App. The permission level 
 
 - **Read & Write** (default): The GitHub App requests both read and write permissions. This enables all features. DevOps Agent can post inline pull request comments, propose fixes, and trigger workflows.
 - **Read Only**: The GitHub App requests only read permissions. DevOps Agent can view code and pull requests but cannot post comments, propose fixes, or trigger workflows.
+
+#### Verification method
+
+Under **Verification method**, choose how AWS DevOps Agent confirms that the GitHub App is installed in the account or organization you specified:
+
+- **Browser-based callback** (default) – After you choose **Submit**, AWS DevOps Agent redirects you to GitHub to authorize the GitHub App and, if needed, install it. Continue with [Step 4](#step-4-set-up-the-github-app "#step-4-set-up-the-github-app").
+- **Verify with a personal access token** – Enter a personal access token. AWS DevOps Agent uses the token once to confirm that the GitHub App is installed in the account or organization you specified, and then discards it. The token is not stored. Registration completes when you choose **Submit**, with no redirect to GitHub.
+
+Use **Verify with a personal access token** when the GitHub App is already installed. For example, use it when you connect the same organization from another AWS account or Region. If the GitHub App is not installed yet, register with **Browser-based callback** first.
+
+The verification token needs the following permissions:
+
+- For an organization, the token owner must be an organization owner. The token also needs organization read permission. For a classic token, use the `read:org` scope. For a fine-grained token, use the **Administration: Read-only** organization permission.
+- For a personal account, the token needs no additional scopes.
+
+###### Note
+
+Verification with a personal access token is available only for GitHub.com. For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, use **Browser-based callback**.
 
 If you are connecting to a GitHub Enterprise Server instance, choose **Use GitHub Enterprise** and enter the HTTPS URL of your instance (for example, `https://github.example.com`).
 
@@ -60,15 +88,17 @@ Do not include `/api/v3` or any trailing path in the URL — enter only the base
 
 For GitHub Enterprise Cloud with data residency, choose **Use GitHub Enterprise** and enter the HTTPS URL of your data residency instance (for example, `https://octocorp.ghe.com`).
 
-### Step 3: Set up the GitHub App
+### Step 4: Set up the GitHub App
 
 Choose **Submit** to begin the app setup process. The next steps differ depending on whether you connect to GitHub.com, GitHub Enterprise Server, or GitHub Enterprise Cloud with data residency.
+
+If you chose **Verify with a personal access token** in Step 3, registration completes without a redirect. Skip Step 4 and Step 5.
 
 #### For GitHub.com
 
 1. GitHub redirects you to sign in and authorize AWS DevOps Agent.
 2. Review the authorization request and authorize AWS DevOps Agent.
-3. After you authorize, AWS DevOps Agent completes the registration. If the GitHub App is not yet installed on the account or organization you specified, you continue to the installation page (see Step 4). If the app is already installed, registration completes without reinstalling it.
+3. After you authorize, AWS DevOps Agent completes the registration. If the GitHub App is not yet installed on the account or organization you specified, you continue to the installation page (see Step 5). If the app is already installed, registration completes without reinstalling it.
 4. After installation, AWS DevOps Agent receives events from your connected repositories, including deployment events.
 
 ###### Note
@@ -87,7 +117,7 @@ GitHub Enterprise Server and GitHub Enterprise Cloud with data residency both us
 2. The app name is pre-filled. Change the name if needed, then choose **Create GitHub App**.
 3. After AWS DevOps Agent redirects your browser back, it exchanges the manifest code for app credentials.
 
-### Step 4: Select repositories and complete installation
+### Step 5: Select repositories and complete installation
 
 Skip this step if the GitHub App is already installed on your account or organization.
 
@@ -99,6 +129,67 @@ Skip this step if the GitHub App is already installed on your account or organiz
 
 3. Choose **Install & Authorize**.
 4. You'll be redirected back to the AWS DevOps Agent console, where GitHub will appear as registered at the account level.
+
+## Registering GitHub with a personal access token
+
+A personal access token registration connects GitHub without installing the AWS DevOps Agent GitHub App. AWS DevOps Agent stores the token and uses it to authenticate GitHub API requests on your behalf. Use this option when you cannot install a GitHub App, or when you need only individual repository access without webhook-based features.
+
+A personal access token registration supports GitHub.com, GitHub Enterprise Server, and GitHub Enterprise Cloud with data residency. For a GitHub Enterprise Server instance that is not publicly accessible, you can use a private connection.
+
+Consider the following limitations before you choose this option:
+
+- **No webhooks** – GitHub does not send webhook events to a personal access token registration. AWS DevOps Agent does not receive real-time events such as pull request, push, or deployment notifications. Automated release readiness code reviews and automated verification testing do not trigger for repositories connected through a personal access token registration. You can still request a release readiness code review through DevOps Agent chat or through coding agent integrations. For more information, see [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md"). If you need real-time events, use App registration.
+- **Repository access follows the token** – When you scope the registration to an organization, AWS DevOps Agent lists the repositories in that organization that the token can access. When you connect the token owner's personal account, AWS DevOps Agent lists only the repositories that the token owner owns. The agent can perform only the operations that the token permits.
+- **No token update** – You cannot update the token of an existing GitHub registration. To replace an expired or rotated token, deregister the registration and register GitHub again with the new token. Then reconnect the repositories to your Agent Spaces.
+
+### Creating a personal access token
+
+Create the token in GitHub before you register. You can use a classic token or a fine-grained token.
+
+For a classic token, select the following scopes:
+
+- `repo` – Required to read repository contents and metadata
+- `read:org` – Required when you scope the registration to an organization. AWS DevOps Agent uses it to confirm that the token owner is an active member of the organization.
+
+For a fine-grained token, configure the following:
+
+- If you scope the registration to an organization, set the **Resource owner** to that organization. Select the repositories that AWS DevOps Agent can access.
+- Under **Repository permissions**, grant **Contents: Read-only** and **Metadata: Read-only**.
+- Under **Organization permissions**, grant **Members: Read-only** when you scope the registration to an organization.
+
+Set an expiration that fits your security policy. AWS DevOps Agent cannot renew the token. Before the token expires, create a new token, deregister the GitHub registration, and register again.
+
+### Registering with a personal access token
+
+1. Complete [Step 1: Navigate to pipeline providers](#step-1-navigate-to-pipeline-providers "#step-1-navigate-to-pipeline-providers").
+2. On the **Register GitHub account / organization** screen, under **Connection type**, choose **Personal access token**.
+3. In **Personal access token**, enter your token.
+4. (Optional) Configure the following fields:
+
+   - **GitHub organization** – Enter the name of the organization to scope the registration to. The token owner must be an active member of the organization. Leave this field blank to connect the token owner's personal GitHub account. This field is required when you enter a GitHub Enterprise Cloud with data residency URL.
+   - **GitHub Enterprise URL** – Enter the HTTPS root URL of your GitHub Enterprise instance (for example, `https://github.example.com` or `https://octocorp.ghe.com`). This applies to GitHub Enterprise Server and GitHub Enterprise Cloud with data residency. Leave this field blank to connect to GitHub.com. Do not include `/api/v3` or any trailing path.
+   - **Private connection** – If your GitHub Enterprise Server instance is not publicly accessible, select a private connection. For more information, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
+
+5. Choose **Submit**. AWS DevOps Agent validates the token with GitHub and confirms the identity of the token owner. When you enter an organization, it also confirms that the token owner is an active member of that organization.
+
+After registration completes, GitHub appears as registered at the account level. Connect repositories to your Agent Spaces as described in [Connecting repositories to an Agent Space](#connecting-repositories-to-an-agent-space "#connecting-repositories-to-an-agent-space").
+
+### Troubleshooting personal access token registration
+
+If registration with a personal access token fails, compare the error message with the following list.
+
+- `Invalid GitHub personal access token` – The token is invalid or has expired. Create a new token and try again.
+- `GitHub personal access token does not have sufficient permissions` – Add the `repo` scope to a classic token, or grant read access to the repositories that you intend to use with a fine-grained token.
+- `The GitHub token's user is not a member of organization "<name>"` – Verify the organization name. Confirm that the token has the `read:org` scope (classic) or organization members read access (fine-grained).
+- `membership in organization "<name>" is "<state>", not active` – The token owner has a pending invitation to the organization. Accept the invitation and try again.
+- `Failed to reach GitHub` – Check the GitHub Enterprise URL and your network configuration. For a private connection, see [Troubleshooting private connections](configuring-integrations-and-knowledge-troubleshooting-private-connections.md "configuring-integrations-and-knowledge-troubleshooting-private-connections.md").
+- `A GitHub service for "<owner>" is already registered with this account` – The AWS account already has a registration for this GitHub account or organization. Use the existing registration, or deregister it first.
+
+The following errors apply to **Verify with a personal access token**:
+
+- `The DevOps Agent GitHub App is not installed on the requested organization or account` – Register with **Browser-based callback** first to install the GitHub App, and then try again.
+- `You do not have permission to install or access the DevOps Agent GitHub App on this organization` – Use a GitHub account with owner (admin) permissions on the organization.
+- `GitHub App verification is only supported for github.com` – For GitHub Enterprise Server and GitHub Enterprise Cloud with data residency, use **Browser-based callback**.
 
 ## Connecting repositories to an Agent Space
 
@@ -117,6 +208,10 @@ You can connect different sets of repositories to different Agent Spaces based o
 ## Configuring Code Review and Automated Testing
 
 When you select repositories in the GitHub connection step, they are automatically added to the **Code Review and Automated Testing** section. This section configures which repositories automatically trigger a [Release readiness code reviews](release-management-release-readiness-code-review.md "release-management-release-readiness-code-review.md") and automated testing capabilities.
+
+###### Note
+
+Automated triggers depend on webhook events from the GitHub App. For repositories connected through a [personal access token registration](#registering-github-with-a-personal-access-token "#registering-github-with-a-personal-access-token"), automated reviews and automated testing do not run. Request a release readiness code review through DevOps Agent chat or coding agent integrations instead.
 
 The Code Review and Automated Testing configuration includes:
 
@@ -207,6 +302,7 @@ If you selected **Read Only** during registration, the GitHub App requests read-
 
 - **Updating repository access** – To change which repositories the GitHub App can access, go to your GitHub account or organization settings. For GitHub Enterprise Server or GitHub Enterprise Cloud with data residency, go to your instance settings. Then navigate to installed GitHub Apps and modify the AWS DevOps Agent app configuration.
 - **Viewing connected repositories** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected repositories in the Pipeline section.
+- **Replacing a personal access token** – You cannot update the token of an existing GitHub registration. To replace a token, deregister the registration from the **Capability Providers** page. Then register GitHub again with the new token, and reconnect the repositories to your Agent Spaces. Revoke the old token in your GitHub settings.
 - **Removing GitHub connection** – To disconnect GitHub from an Agent Space, choose the connection in the Pipeline section, then choose **Remove**. To remove the GitHub registration from your account, navigate to the **Capability Providers** page, locate your registration within the **GitHub** section, and choose **Deregister**.
 
 To fully remove the GitHub integration, do the following:

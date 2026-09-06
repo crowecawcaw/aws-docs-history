@@ -32,15 +32,21 @@ By default, a private connection resolves the host address using **public DNS** 
 
 **Symptom**
 
-After you create a private connection, the console shows the status as **Connection Failed** (and `describe-private-connection` returns a status of `CREATE_FAILED`). The response often doesn't include a detailed reason for the failure, so you're left without an error message to act on.
+After you create a private connection, the console shows the status as **Connection Failed** (and `describe-private-connection` returns a status of `CREATE_FAILED`).
 
 **Cause**
 
-Create failed most often results from a configuration problem in the request or in your VPC, rather than a service error. Because a detailed failure reason isn't always surfaced, work through the following checklist even when no error message is shown.
+Create failed most often results from a configuration problem in the request or in your VPC, rather than a service error. When a connection has a failed status, AWS DevOps Agent describes the reason in the `failureMessage` field, so read that field before you work through the checklist.
 
 **Resolution**
 
 Verify the following, in order:
+
+1. **Read `failureMessage` in the connection's details.** This field describes why a connection has a failed status, and is present when the status is `CREATE_FAILED` or `DELETE_FAILED`:
+
+`aws devops-agent describe-private-connection \ --name my-mcp-tool-connection`
+
+`failureMessage` also appears in the output of `list-private-connections`. If the field names the cause, act on it. If the field is absent, no reason was returned, so continue with the remaining checks.
 
 1. **Port ranges use a valid format.** Specify each port range as either a single port (for example, `443`) or a genuine range with different start and end ports (for example, `8080-8090`). A "range" whose start and end are the same (for example, `443-443`) is rejected. You can specify up to 11 port ranges.
 2. **Your subnets have available IP addresses.** The resource gateway provisions elastic network interfaces (ENIs) in the subnets you specify. If those subnets are exhausted, creation fails. Choose subnets with free address space.
@@ -68,18 +74,72 @@ The private connection reaches the **Active** state, but when you register a cap
 
 A private connection reaching **Active** confirms that the network path to your VPC is established. It doesn't confirm that your target service is answering on the expected address and port. When you register a capability provider, AWS DevOps Agent validates that the endpoint is reachable and responding, and this is where a misconfigured target surfaces. The message tells you which layer failed:
 
-- A **timed out** message means the connection never reached a listening service. Most often the host address, port, or DNS resolution is wrong, or a security group is blocking the traffic.
+- A **timed out** message means the connection never reached a listening service. Most often the connection's port ranges don't include the endpoint's port, the host address or DNS resolution is wrong, or a security group is blocking the traffic.
 - A **connection was interrupted** message means the connection was reset or dropped, typically by a TLS handshake failure or the service closing the connection.
 - An **unable to access tools** message means the endpoint responded but rejected the request. This is usually an authorization or provider-side error rather than a network problem.
 - A **Could not complete request to provider** message is a general failure to complete the request to your endpoint through the private connection. Review the resolution steps that follow.
 
+A successful request from an Amazon EC2 instance or AWS CloudShell session in your VPC confirms that the service is reachable from that test environment. It does not confirm that the resource gateway uses the same endpoint URL, port, DNS target, or TLS configuration.
+
+**How to confirm**
+
+1. Repeat the test with the exact endpoint URL that you registered, including its path and any non-default port.
+2. Confirm that the endpoint URL's port is included in the private connection's port ranges.
+3. Confirm that the private connection's host address resolves to the load balancer or service that terminates TLS on that port, rather than to a task or instance IP on a different application port.
+4. Confirm that the target serves HTTPS with TLS 1.2 or later and presents the expected certificate chain.
+5. Confirm that the resource gateway security group allows outbound traffic on the target port and that the target security group allows the corresponding inbound traffic.
+
 **Resolution**
+
+- **Confirm the connection's port ranges include the endpoint's port.** A private connection only forwards traffic on the port ranges you configure when you create it. **If you didn't specify port ranges, the connection allows only port `443`.** The connection drops traffic to any other port without a descriptive error. The dropped traffic surfaces as a timeout, an `Unable to access tools` error, or a `Could not complete request to provider.` error. This commonly affects endpoints on non-standard ports (for example, `https://tools.example.com:8089/mcp`). A successful `curl` from an EC2 instance in the same VPC does **not** rule this out—that test bypasses the private connection entirely. You can't change port ranges after creation. Delete the private connection, recreate it with port ranges that include every port in your endpoint URL, and register the capability provider again.
+- **Confirm the resource gateway can reach your target at all.** This is the first thing to rule out when the target runs in a different AWS account or on premises. In service-managed mode, the resource gateway is created in the VPC and subnets you specified, in the same account as the private connection, so that VPC needs a route to your target. A connection reaching **Active** only means the gateway's network interfaces were created and are healthy; it doesn't mean they can reach your service. Check the connection's mode and the gateway's VPC, then confirm the route:
+
+`aws devops-agent list-private-connections aws vpc-lattice list-resource-gateways`
+
+If the gateway's VPC has no route to the target, either add one through VPC peering, AWS Transit Gateway, or a virtual private network (VPN) connection, or move the gateway to the target's account using self-managed mode. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
 
 - **Point DNS at the load balancer, not a task or instance IP.** A frequent cause is a DNS record or host address that resolves to a container task or instance IP on an application port (for example, `8100`) instead of the load balancer that terminates TLS on the port you configured (for example, `443`). Confirm the host address resolves to the endpoint that actually serves HTTPS on the target port.
 - **Confirm the service serves HTTPS on the configured port.** The target must serve HTTPS with a minimum TLS version of 1.2 on a port included in the connection's port ranges.
 - **Check security group rules in both directions.** Verify that the security group attached to the resource gateway ENIs allows outbound traffic on the target port, and that your service's security group allows inbound traffic on that port. Traffic arrives from Amazon VPC Lattice data plane IPs within your VPC CIDR range. You can use security group referencing (allow the ENI security group as a source) or allow inbound from the VPC CIDR. See [Configuring firewall rules for private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
-- **Verify the full certificate chain for a private CA.** If a private certificate authority issued your service's TLS certificate, provide the full PEM-encoded certificate chain when you create the connection. Place the leaf certificate first, then the intermediates, then the root. If the chain is incomplete, the TLS handshake fails even though the network path is up.
+- **Verify the full certificate chain for a private CA.** If a private certificate authority issued your service's TLS certificate, provide the full PEM-encoded certificate chain when you create the connection. Place the leaf certificate first, then the intermediates, then the root. If the chain is incomplete, the TLS handshake fails even though the network path is up. For the error messages this produces, see [The provider's TLS certificate isn't trusted](#the-providers-tls-certificate-isnt-trusted "#the-providers-tls-certificate-isnt-trusted").
 - **Confirm the target is running.** Make sure your service is up and accepting connections on the expected port before you complete registration.
+
+## The provider's TLS certificate isn't trusted
+
+**Symptom**
+
+Registering or using a capability provider fails with a certificate error. The wording depends on the capability type, but all of these describe the same class of problem:
+
+- `Could not establish a trusted TLS connection to the provider host: its certificate could not be validated against a publicly trusted certificate authority.`
+- `The server is using a self-signed TLS certificate. Use a certificate from a publicly trusted certificate authority.`
+- `The server's TLS certificate could not be verified. Ensure the full certificate chain is served and issued by a publicly trusted certificate authority.`
+- `The server's TLS certificate has expired. Renew the certificate.`
+- `The server's TLS certificate does not match the endpoint hostname. Ensure the certificate covers the endpoint's domain.`
+
+**Cause**
+
+AWS DevOps Agent couldn't validate the certificate chain that your service presented. The common causes are a certificate issued by a private or internal certificate authority (CA), a chain that's missing its intermediate certificates, an expired certificate in the chain, or a certificate that doesn't cover the hostname in your endpoint URL.
+
+###### Note
+
+These messages ask for a certificate from a publicly trusted CA, but a private CA is supported. Supply the chain on the private connection, as described in the resolution steps.
+
+**How to confirm**
+
+From an Amazon EC2 instance or AWS CloudShell session that can reach your target, inspect the chain your service presents on the port you configured, and check which CA signed the top of it:
+
+```
+openssl s_client -connect <your-host-address>:<port> -showcerts
+```
+
+If an internal CA signed the certificate, supply the chain on the connection. If a public CA signed it, the chain your service sends is probably incomplete.
+
+**Resolution**
+
+- **For a certificate from a private CA, supply the full chain on the private connection.** Set **Certificate public key** in the console, or the `certificate` field in `create-private-connection`, to the full PEM-encoded chain: the leaf certificate first, then all intermediate CA certificates, then the root. See [Create a private connection](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
+- **For a certificate from a public CA, send the complete chain.** Configure your service to send the leaf certificate plus all intermediate certificates, not the leaf alone.
+- **Replace any expired certificate in the chain.**
+- **Confirm the certificate covers the hostname in your endpoint URL.**
 
 ## OAuth token exchange can't be reached
 
@@ -95,6 +155,23 @@ For OAuth-based capability providers, AWS DevOps Agent calls two endpoints: the 
 
 - If both endpoints are reachable through the same path, ensure the private connection's host address can route to both the MCP server or remote agent endpoint and the token exchange endpoint.
 - If the endpoints require different network paths, use the per-endpoint fields instead of a single `privateConnectionName`. Set `targetUrlPrivateConnectionName` for the MCP server or remote agent endpoint and `exchangeUrlPrivateConnectionName` for the token exchange endpoint. If you set only one, the other endpoint is reached over the public internet, and it does not fall back to the other private connection. You can't combine the per-endpoint names with `privateConnectionName` in the same request. See [Routing the endpoint and the OAuth token exchange through different private connections](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md "configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md").
+
+## A private connection can't be deleted while it's in use
+
+**Symptom**
+
+Deleting a private connection fails with `Private connection '<name>' is in use by one or more services. Deregister the services first.`
+
+**Cause**
+
+A private connection can't be deleted while a registered capability provider still references it. AWS DevOps Agent refuses the deletion before it removes any resources, so your connection stays in its current state.
+
+**Resolution**
+
+1. Identify the capability providers that use the connection, and either deregister them or update them so they no longer use it.
+2. Delete the private connection.
+
+Removing a capability provider from an Agent Space isn't the same as deregistering it. A registration exists at the account level, so remove it from all Agent Spaces and then delete the registration before you delete the connection.
 
 ## Resource gateway or ENIs remain after you delete a connection
 
