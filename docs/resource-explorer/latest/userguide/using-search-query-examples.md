@@ -1,173 +1,123 @@
+
+
 # Example Resource Explorer search queries
+<a name="using-search-query-examples"></a>
 
-The following examples show the syntax for common types of queries that you can use in
-AWS Resource Explorer.
+The following examples show the syntax for common types of queries that you can use in AWS Resource Explorer.
 
-###### Important
-
-If you use the AWS CLI `search` command and your `--query-string`
-parameter value has the `-` operator as the first character, you must
-separate the parameter name from its value with an equal sign character (`=`)
-instead of the usual space character. If you use the space character, the CLI
-misinterprets the string. For example, the following query fails.
+**Important**  
+If you use the AWS CLI `search` command and your `--query-string` parameter value has the `-` operator as the first character, you must separate the parameter name from its value with an equal sign character (`=`) instead of the usual space character. If you use the space character, the CLI misinterprets the string. For example, the following query fails.  
 
 ```
 aws resource-explorer-2 search --query-string "-tag:none region:us-east-1"
 ```
-
-The following corrected query, with an `=` replacing the space, works as
-expected.
+The following corrected query, with an `=` replacing the space, works as expected.  
 
 ```
-aws resource-explorer-2 search --query-string`=`"-tag:none region:us-east-1"
+aws resource-explorer-2 search --query-string{{=}}"-tag:none region:us-east-1"
 ```
-
-If you change the order of the filters in the query string so that the `-`
-isn't the first character in the parameter value, you can use the standard space
-character. The following query works.
+If you change the order of the filters in the query string so that the `-` isn't the first character in the parameter value, you can use the standard space character. The following query works.  
 
 ```
 aws resource-explorer-2 search --query-string "region:us-east-1 -tag:none"
 ```
 
 ## Search for untagged resources
+<a name="example-1"></a>
 
-If you want to use [attribute-based access control
-(ABAC)](https://aws.amazon.com/identity/attribute-based-access-control/ "https://aws.amazon.com/identity/attribute-based-access-control/") in your account, use [cost-based
-allocation](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md"), or perform tag-based automation against your resources, you need
-to know which resources in your account might be missing tags. The following example
-query uses the special case filter [tag: none](using-search-query-syntax.md#query-syntax-filters "using-search-query-syntax.md#query-syntax-filters")
-to return all resources that are missing user-generated tags.
+If you want to use [attribute-based access control (ABAC)](https://aws.amazon.com/identity/attribute-based-access-control/) in your account, use [cost-based allocation](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html), or perform tag-based automation against your resources, you need to know which resources in your account might be missing tags. The following example query uses the special case filter [tag: none](using-search-query-syntax.md#query-syntax-filters) to return all resources that are missing user-generated tags.
 
-The `tag:none` filter applies to only tags that are _created by the user_. Tags that are generated and maintained by AWS are
-exempt from this filter and still appear in the results.
+The `tag:none` filter applies to only tags that are *created by the user*. Tags that are generated and maintained by AWS are exempt from this filter and still appear in the results.
 
 ```
 tag:none
 ```
 
-To also exclude all AWS created system tags, add a second filter as shown in the
-following example. The first element in the query string duplicates the previous example
-by filtering out all user-created tags. AWS created system tags _always_ begin with the letters `aws`. Therefore,
-you can use the [logical NOT operator ( - )](using-search-query-syntax.md#query-syntax-operators "using-search-query-syntax.md#query-syntax-operators")
-with the [tag.key filter](using-search-query-syntax.md#query-syntax-filters "using-search-query-syntax.md#query-syntax-filters") to also exclude any
-resources that have a tag with a key name that begins with `aws`.
+To also exclude all AWS created system tags, add a second filter as shown in the following example. The first element in the query string duplicates the previous example by filtering out all user-created tags. AWS created system tags *always* begin with the letters `aws`. Therefore, you can use the [logical NOT operator ( - )](using-search-query-syntax.md#query-syntax-operators) with the [tag.key filter](using-search-query-syntax.md#query-syntax-filters) to also exclude any resources that have a tag with a key name that begins with `aws`.
 
 ```
 tag:none -tag.key:aws*
 ```
 
 ## Search for tagged resources
+<a name="example-2"></a>
 
-To find all resources that have a tag of any type, you can use the [logical NOT operator ( - )](using-search-query-syntax.md#query-syntax-operators "using-search-query-syntax.md#query-syntax-operators") with the special
-case [tag: none](using-search-query-syntax.md#query-syntax-filters "using-search-query-syntax.md#query-syntax-filters") filter as follows.
+To find all resources that have a tag of any type, you can use the [logical NOT operator ( - )](using-search-query-syntax.md#query-syntax-operators) with the special case [tag: none](using-search-query-syntax.md#query-syntax-filters) filter as follows.
 
 ```
 -tag:none
 ```
 
 ## Search for resources that are missing a specific tag
+<a name="example-3"></a>
 
-Also related to ABAC, you might want to search for all resources that don't have a tag
-with a specified key. The following example uses the [logical NOT operator -](using-search-query-syntax.md#query-syntax-operators "using-search-query-syntax.md#query-syntax-operators") to
-return all resources that are missing a tag with the key name
-`Department`.
+Also related to ABAC, you might want to search for all resources that don't have a tag with a specified key. The following example uses the [logical NOT operator `-`](using-search-query-syntax.md#query-syntax-operators) to return all resources that are missing a tag with the key name `Department`.
 
 ```
 -tag.key:Department
 ```
 
 ## Search for resources that have invalid tag values
+<a name="example-4"></a>
 
-For compliance reasons, you might want to search for all resources that have missing
-or misspelled tag values on important tags. The following example returns all resources
-that have a tag with the key name `environment`. However, the query filters
-out any resource that has one of the valid values `prod`, `integ`,
-or `dev`. Any results that appear from this query have some other value that
-you should investigate and correct.
+For compliance reasons, you might want to search for all resources that have missing or misspelled tag values on important tags. The following example returns all resources that have a tag with the key name `environment`. However, the query filters out any resource that has one of the valid values `prod`, `integ`, or `dev`. Any results that appear from this query have some other value that you should investigate and correct.
 
-###### Important
-
-Resource Explorer searches are _**not**_ case sensitive and can't distinguish between key
-names and values that differ only by how they're capitalized. For example, the
-values in the following example match `PROD`, `prod`,
-`PrOd`, or any variation. However, some applications use tags in
-case-sensitive ways. We recommend that you standardize on a capitalization strategy
-for your organization, such as using only lower-case tag key names and values. A
-consistent approach can help avoid the confusion that can be caused by having tags
-that differ only by how they're capitalized.
+**Important**  
+Resource Explorer searches are ***not*** case sensitive and can't distinguish between key names and values that differ only by how they're capitalized. For example, the values in the following example match `PROD`, `prod`, `PrOd`, or any variation. However, some applications use tags in case-sensitive ways. We recommend that you standardize on a capitalization strategy for your organization, such as using only lower-case tag key names and values. A consistent approach can help avoid the confusion that can be caused by having tags that differ only by how they're capitalized.
 
 ```
 tag.key:environment -tag:environment=prod -tag:environment=integ -tag:environment=dev
 ```
 
 ## Search for resources in a subset of AWS Regions
+<a name="example-5"></a>
 
-Use the ['\*' wildcard
-operator](using-search-query-syntax.md#query-syntax-operators "using-search-query-syntax.md#query-syntax-operators") to match all Regions in a certain area of the world. The following
-example returns all resources that are in Regions in Europe (EU).
+Use the [`'*'` wildcard operator](using-search-query-syntax.md#query-syntax-operators) to match all Regions in a certain area of the world. The following example returns all resources that are in Regions in Europe (EU).
 
 ```
 region:eu-*
 ```
 
 ## Search for global resources
+<a name="example-6"></a>
 
-Use the special case `global` value for the `region:` filter to
-find your resources that are considered to be global and not associated with an
-individual Region.
+Use the special case `global` value for the `region:` filter to find your resources that are considered to be global and not associated with an individual Region.
 
 ```
 region:global
 ```
 
 ## Search for resources of a certain type that are located in a specific Region
+<a name="example-7"></a>
 
-When you use multiple filters, Resource Explorer evaluates the expression by combining the
-prefixes with implicit logical `AND` operators. The following example returns
-all resources that are in the Asia Pacific (Hong Kong) Region `AND` are Amazon EC2
-instances.
+When you use multiple filters, Resource Explorer evaluates the expression by combining the prefixes with implicit logical `AND` operators. The following example returns all resources that are in the Asia Pacific (Hong Kong) Region `AND` are Amazon EC2 instances.
 
 ```
 region:ap-east-1 resourcetype:ec2:instance
 ```
 
-###### Note
-
-Because of the implicit `AND`, you can successfully use only one filter
-for an attribute that can have only one value associated with the resource. For
-example, a resource can be part of only one AWS Region. Therefore, the following
-query returns no results.
+**Note**  
+Because of the implicit `AND`, you can successfully use only one filter for an attribute that can have only one value associated with the resource. For example, a resource can be part of only one AWS Region. Therefore, the following query returns no results.  
 
 ```
 region:us-east-1 region:us-west-1
 ```
-
-This limitation does _**not**_ apply to the filters for attributes that can have
-multiple values at the same time, such as `tag:`, `tag.key:`,
-and `tag.value:`.
+This limitation does ***not*** apply to the filters for attributes that can have multiple values at the same time, such as `tag:`, `tag.key:`, and `tag.value:`.
 
 ## Search for resources that have a multi-word term
+<a name="example-8"></a>
 
-Surround a multi-word term with [double
-quotation marks (")](using-search-query-syntax.md#query-syntax-operators "using-search-query-syntax.md#query-syntax-operators") to return only results that have the entire
-term in the specified order. Without double quotation marks, Resource Explorer returns resources
-that match any individual words that make up the term. For example, the following query
-uses the double quotation marks to return only resources that match the term `"west
- wing"`. The query does _**not**_ match resources in the `us-west-2`
-AWS Region (or any other Region that includes `west` in its code) or
-resources that match the word "wing" without the word "west".
+Surround a multi-word term with [double quotation marks (`"`)](using-search-query-syntax.md#query-syntax-operators) to return only results that have the entire term in the specified order. Without double quotation marks, Resource Explorer returns resources that match any individual words that make up the term. For example, the following query uses the double quotation marks to return only resources that match the term `"west wing"`. The query does ***not*** match resources in the `us-west-2` AWS Region (or any other Region that includes `west` in its code) or resources that match the word "wing" without the word "west".
 
 ```
 "west wing"
 ```
 
 ## Search for resources that are part of a specified CloudFormation stack
+<a name="example-9"></a>
 
-When you create a resource as part of an CloudFormation stack, they are all tagged with the
-stack's name _automatically_. The following example
-returns all resources that were created as part of the specified stack.
+When you create a resource as part of an CloudFormation stack, they are all tagged with the stack's name *automatically*. The following example returns all resources that were created as part of the specified stack.
 
 ```
-tag:aws:cloudformation:stack-name=`my-stack-name`
+tag:aws:cloudformation:stack-name={{my-stack-name}}
 ```

@@ -1,1495 +1,1447 @@
+
+
 # Resource types you can search for with Resource Explorer
+<a name="supported-resource-types"></a>
 
-Resource Explorer supports resource types across numerous AWS services. Resource discovery happens
-automatically when you access Resource Explorer with appropriate permissions. If you have, at minimum,
-the permissions in the `AWSResourceExplorerReadOnlyAccess` managed policy, you can
-immediately search all tagged resources and supported untagged resources created after the
-[immediate resource discovery](manage-immediate-resource-discovery-experience.md "manage-immediate-resource-discovery-experience.md") release. For complete resource discovery with automatic updates, you'll
-also need the `iam:CreateServiceLinkedRole` permission (included in the [AWSResourceExplorerFullAccess](../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md "../../../aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.md") managed policy). After the service-linked role is
-created in your account by any user, subsequent users need only the permissions in the
-`AWSResourceExplorerReadOnlyAccess` managed policy to get complete
-results.
+Resource Explorer supports resource types across numerous AWS services. Resource discovery happens automatically when you access Resource Explorer with appropriate permissions. If you have, at minimum, the permissions in the `[AWSResourceExplorerReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSResourceExplorerReadOnlyAccess.html)` managed policy, you can immediately search all tagged resources and supported untagged resources created after the [immediate resource discovery](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-immediate-resource-discovery-experience.html) release. For complete resource discovery with automatic updates, you'll also need the `iam:CreateServiceLinkedRole` permission (included in the [AWSResourceExplorerFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSResourceExplorerFullAccess.html) managed policy). After the service-linked role is created in your account by any user, subsequent users need only the permissions in the `[AWSResourceExplorerReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSResourceExplorerReadOnlyAccess.html)` managed policy to get complete results. 
 
-###### Topics
+**Topics**
++ [Supported services and resource types](#types-list)
++ [Programmatically accessing the list of supported resource types](#programmatic-access)
++ [Resource types that appear as other types](#resource-type-exceptions)
 
-- [Supported services and resource types](#types-list "#types-list")
-- [Programmatically accessing the list of supported resource types](#programmatic-access "#programmatic-access")
-- [Resource types that appear as other types](#resource-type-exceptions "#resource-type-exceptions")
-  Some resource types are identified by [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") strings that share a common format
-  with another resource type. When this happens, Resource Explorer can report such resources as that
-  other resource type. For list of resource types affected by this issue, see [Resource types that appear as other types](#resource-type-exceptions "#resource-type-exceptions").
+Some resource types are identified by [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) strings that share a common format with another resource type. When this happens, Resource Explorer can report such resources as that other resource type. For list of resource types affected by this issue, see [Resource types that appear as other types](#resource-type-exceptions).
 
-At this time, tags attached to AWS Identity and Access Management (IAM) resources, such as roles or users, can't
-be used for searching.
+At this time, tags attached to AWS Identity and Access Management (IAM) resources, such as roles or users, can't be used for searching.
 
-If you have encrypted access to some of your resources, Resource Explorer is unable to discover them.
-You will not see these resources in your search results.
+If you have encrypted access to some of your resources, Resource Explorer is unable to discover them. You will not see these resources in your search results.
 
-The following tables list the resource types that are supported for searching in
-AWS Resource Explorer.
+The following tables list the resource types that are supported for searching in AWS Resource Explorer.
 
-###### Note
-
-As of May 20, 2026, Resource Explorer no longer supports the following resource types:
-
-- **Amazon Inspector**—
-  `inspector:target/template`
-- **AWS Panorama**—
-  `panorama:device`
-- **AWS Panorama**—
-  `panorama:package`
-  As of May 15, 2026, Resource Explorer no longer supports the following resource types:
-
-- **AWS IoT Events**—
-  `iotevents:alarmModel`
-- **AWS IoT Events**—
-  `iotevents:detectorModel`
-- **AWS IoT Events**—
-  `iotevents:input`
-  As of February 10, 2026, Resource Explorer no longer supports the following resource types:
-
-- **Amazon Chime**—
-  `chime:media-pipeline`
-  As of February 10, 2026, Resource Explorer no longer supports the following resource types:
-
-- **Amazon Location Service**—
-  `geo:map`
-- **Amazon Location Service**—
-  `geo:place-index`
-- **Amazon Location Service**—
-  `geo:tracker`
-  As of December 5, 2025, Resource Explorer no longer supports the following resource types:
-
-- **AWS IoT Analytics**—
-  `iotanalytics:channel`
-- **AWS IoT Analytics**—
-  `iotanalytics:dataset`
-- **AWS IoT Analytics**—
-  `iotanalytics:datastore`
-- **AWS IoT Analytics**—
-  `iotanalytics:pipeline`
-  As of November 21, 2025, Resource Explorer no longer supports the following resource types:
-
-- **AWS IoT FleetWise**—
-  `iotfleethub:application`
-  As of November 3, 2025, Resource Explorer no longer supports the following resource types:
-
-- **Amazon Lookout for Metrics**—
-  `lookoutmetrics:Alert`
-- **Amazon Lookout for Metrics**—
-  `lookoutmetrics:AnomalyDetector`
-- **Amazon Lookout for Vision**—
-  `lookoutvision:project`
-  As of October 13, 2025, Resource Explorer no longer supports the following resource types:
-
-- **Amazon CloudWatch Evidently**—
-  `evidently:project`
-- **Amazon CloudWatch Evidently**—
-  `evidently:project/experiment`
-- **Amazon CloudWatch Evidently**—
-  `evidently:project/feature`
-- **Amazon CloudWatch Evidently**—
-  `evidently:project/launch`
-  As of October 1, 2025, Resource Explorer no longer supports the following resource types:
-
-- **Amazon Quantum Ledger Database (Amazon QLDB)** —
-  `qldb:ledger`
-- **Amazon Quantum Ledger Database (Amazon QLDB)** —
-  `qldb:stream`
-  As of July 9, 2024, Resource Explorer no longer supports the following resource types:
-
-- **Amazon Elastic Container Service** —
-  `ecs:task`
-- **AWS Systems Manager** —
-  `ssm:automation-execution`
-- **AWS Systems Manager** —
-  `ssm:patchbaseline`
+**Note**  
+As of May 20, 2026, Resource Explorer no longer supports the following resource types:  
+**Amazon Inspector**— `inspector:target/template`
+**AWS Panorama**— `panorama:device`
+**AWS Panorama**— `panorama:package`
+As of May 15, 2026, Resource Explorer no longer supports the following resource types:  
+**AWS IoT Events**— `iotevents:alarmModel`
+**AWS IoT Events**— `iotevents:detectorModel`
+**AWS IoT Events**— `iotevents:input`
+As of February 10, 2026, Resource Explorer no longer supports the following resource types:  
+**Amazon Chime**— `chime:media-pipeline`
+As of February 10, 2026, Resource Explorer no longer supports the following resource types:  
+**Amazon Location Service**— `geo:map`
+**Amazon Location Service**— `geo:place-index`
+**Amazon Location Service**— `geo:tracker`
+As of December 5, 2025, Resource Explorer no longer supports the following resource types:  
+**AWS IoT Analytics**— `iotanalytics:channel`
+**AWS IoT Analytics**— `iotanalytics:dataset`
+**AWS IoT Analytics**— `iotanalytics:datastore`
+**AWS IoT Analytics**— `iotanalytics:pipeline`
+As of November 21, 2025, Resource Explorer no longer supports the following resource types:  
+**AWS IoT FleetWise**— `iotfleethub:application`
+As of November 3, 2025, Resource Explorer no longer supports the following resource types:  
+**Amazon Lookout for Metrics**— `lookoutmetrics:Alert`
+**Amazon Lookout for Metrics**— `lookoutmetrics:AnomalyDetector`
+**Amazon Lookout for Vision**— `lookoutvision:project`
+As of October 13, 2025, Resource Explorer no longer supports the following resource types:  
+**Amazon CloudWatch Evidently**— `evidently:project`
+**Amazon CloudWatch Evidently**— `evidently:project/experiment`
+**Amazon CloudWatch Evidently**— `evidently:project/feature`
+**Amazon CloudWatch Evidently**— `evidently:project/launch`
+As of October 1, 2025, Resource Explorer no longer supports the following resource types:  
+**Amazon Quantum Ledger Database (Amazon QLDB)** — `qldb:ledger`
+**Amazon Quantum Ledger Database (Amazon QLDB)** — `qldb:stream`
+As of July 9, 2024, Resource Explorer no longer supports the following resource types:  
+**Amazon Elastic Container Service** — `ecs:task`
+**AWS Systems Manager** — `ssm:automation-execution`
+**AWS Systems Manager** — `ssm:patchbaseline`
 
 ## Supported services and resource types
+<a name="types-list"></a>
 
-###### Supported AWS services
-
-- [Amazon API Gateway](#services-apigateway "#services-apigateway")
-- [Direct Connect](#services-directconnect "#services-directconnect")
-- [AWS Partner Network](#services-partnercentral "#services-partnercentral")
-- [AWS Shield](#services-shield "#services-shield")
-- [AWS Systems Manager Incident Manager](#services-ssm-incidents "#services-ssm-incidents")
-- [AWS WAFV2](#services-wafv2 "#services-wafv2")
-- [Amazon Macie](#services-macie2 "#services-macie2")
-- [OpenSearch Service Serverless Service](#services-aoss "#services-aoss")
-- [Amazon S3 Express](#services-s3express "#services-s3express")
-- [Amazon VPC Lattice](#services-vpc-lattice "#services-vpc-lattice")
-- [Amazon Verified Permissions](#services-verifiedpermissions "#services-verifiedpermissions")
-- [Amazon WorkSpaces Web](#services-workspaces-web "#services-workspaces-web")
-- [AWS Amplify](#services-amplify "#services-amplify")
-- [AWS App Runner](#services-apprunner "#services-apprunner")
-- [AWS AppConfig](#services-appconfig "#services-appconfig")
-- [Amazon AppFlow](#services-appflow "#services-appflow")
-- [AppIntegrations](#services-app-integrations "#services-app-integrations")
-- [AWS App Mesh](#services-appmesh "#services-appmesh")
-- [Amazon AppStream](#services-appstream "#services-appstream")
-- [AWS AppSync](#services-appsync "#services-appsync")
-- [AWS Application Discovery Service](#services-ds "#services-ds")
-- [Amazon Application Recovery Controller (ARC)](#services-route53-recovery-control "#services-route53-recovery-control")
-- [Amazon Athena](#services-athena "#services-athena")
-- [AWS Audit Manager](#services-auditmanager "#services-auditmanager")
-- [AWS Backup](#services-backup "#services-backup")
-- [AWS Backup gateway](#services-backup-gateway "#services-backup-gateway")
-- [AWS Batch](#services-batch "#services-batch")
-- [Amazon Bedrock](#services-bedrock "#services-bedrock")
-- [AWS Certificate Manager](#services-acm "#services-acm")
-- [Amazon Chime](#services-chime "#services-chime")
-- [AWS Cloud Map](#services-servicediscovery "#services-servicediscovery")
-- [AWS Cloud9](#services-cloud9 "#services-cloud9")
-- [CloudFormation](#services-cloudformation "#services-cloudformation")
-- [Amazon CloudFront](#services-cloudfront "#services-cloudfront")
-- [AWS CloudTrail](#services-cloudtrail "#services-cloudtrail")
-- [Amazon CloudWatch](#services-cloudwatch "#services-cloudwatch")
-- [Amazon CloudWatch Logs](#services-logs "#services-logs")
-- [Amazon CloudWatch Observability Access Manager](#services-oam "#services-oam")
-- [Amazon CloudWatch RUM](#services-rum "#services-rum")
-- [Amazon CloudWatch Synthetics](#services-synthetics "#services-synthetics")
-- [AWS CodeArtifact](#services-codeartifact "#services-codeartifact")
-- [AWS CodeBuild](#services-codebuild "#services-codebuild")
-- [AWS CodeCommit](#services-codecommit "#services-codecommit")
-- [AWS CodeConnections](#services-codeconnections "#services-codeconnections")
-- [AWS CodeDeploy](#services-codedeploy "#services-codedeploy")
-- [Amazon CodeGuru Profiler](#services-codeguru-profiler "#services-codeguru-profiler")
-- [Amazon CodeGuru Reviewer](#services-codeguru-reviewer "#services-codeguru-reviewer")
-- [AWS CodePipeline](#services-codepipeline "#services-codepipeline")
-- [AWS CodeStar Connections](#services-codestar-connections "#services-codestar-connections")
-- [Amazon Cognito Identity](#services-cognito-identity "#services-cognito-identity")
-- [Amazon Cognito IdentityPool](#services-cognito-idp "#services-cognito-idp")
-- [Amazon Comprehend](#services-comprehend "#services-comprehend")
-- [AWS Config](#services-config "#services-config")
-- [Amazon Connect Customer](#services-connect "#services-connect")
-- [Amazon Connect Customer Customer Profiles](#services-profile "#services-profile")
-- [Connect Customer Wisdom](#services-wisdom "#services-wisdom")
-- [AWS Cost Explorer](#services-ce "#services-ce")
-- [AWS Data Exchange](#services-dataexchange "#services-dataexchange")
-- [AWS Data Pipeline](#services-datapipeline "#services-datapipeline")
-- [AWS DataSync](#services-datasync "#services-datasync")
-- [AWS Database Migration Service](#services-dms "#services-dms")
-- [Amazon Detective](#services-detective "#services-detective")
-- [AWS Device Farm](#services-devicefarm "#services-devicefarm")
-- [Amazon DynamoDB](#services-dynamodb "#services-dynamodb")
-- [DynamoDB Accelerator](#services-dax "#services-dax")
-- [Amazon EC2 Auto Scaling](#services-autoscaling "#services-autoscaling")
-- [EC2 Image Builder](#services-imagebuilder "#services-imagebuilder")
-- [Amazon EMR](#services-elasticmapreduce "#services-elasticmapreduce")
-- [Amazon EMR Serverless](#services-emr-serverless "#services-emr-serverless")
-- [Amazon EMR on EKS](#services-emr-containers "#services-emr-containers")
-- [Amazon ElastiCache](#services-elasticache "#services-elasticache")
-- [AWS Elastic Beanstalk](#services-elasticbeanstalk "#services-elasticbeanstalk")
-- [Amazon Elastic Compute Cloud (Amazon EC2)](#services-ec2 "#services-ec2")
-- [Amazon Elastic Container Registry](#services-ecr "#services-ecr")
-- [Amazon Elastic Container Registry Public](#services-ecr-public "#services-ecr-public")
-- [Amazon Elastic Container Service](#services-ecs "#services-ecs")
-- [Amazon Elastic File System](#services-elasticfilesystem "#services-elasticfilesystem")
-- [Amazon Elastic Kubernetes Service (Amazon EKS)](#services-eks "#services-eks")
-- [Elastic Load Balancing](#services-elasticloadbalancing "#services-elasticloadbalancing")
-- [AWS Elemental MediaPackage](#services-mediapackage "#services-mediapackage")
-- [AWS Elemental MediaPackage VoD](#services-mediapackage-vod "#services-mediapackage-vod")
-- [AWS Elemental MediaStore](#services-mediastore "#services-mediastore")
-- [AWS Elemental MediaTailor](#services-mediatailor "#services-mediatailor")
-- [Amazon CloudWatch Events](#services-events "#services-events")
-- [Amazon EventBridge Pipes](#services-pipes "#services-pipes")
-- [Amazon EventBridge Scheduler](#services-scheduler "#services-scheduler")
-- [Amazon EventBridge Schemas](#services-schemas "#services-schemas")
-- [Amazon FSx](#services-fsx "#services-fsx")
-- [AWS Fault Injection Service](#services-fis "#services-fis")
-- [Amazon FinSpace](#services-finspace "#services-finspace")
-- [Firehose](#services-firehose "#services-firehose")
-- [Amazon Forecast](#services-forecast "#services-forecast")
-- [Amazon Fraud Detector](#services-frauddetector "#services-frauddetector")
-- [Amazon GameLift Servers](#services-gamelift "#services-gamelift")
-- [AWS Global Accelerator](#services-globalaccelerator "#services-globalaccelerator")
-- [AWS Glue](#services-glue "#services-glue")
-- [AWS Glue DataBrew](#services-databrew "#services-databrew")
-- [AWS Ground Station](#services-groundstation "#services-groundstation")
-- [Amazon GuardDuty](#services-guardduty "#services-guardduty")
-- [AWS HealthLake](#services-healthlake "#services-healthlake")
-- [AWS HealthOmics](#services-omics "#services-omics")
-- [IAM Access Analyzer](#services-access-analyzer "#services-access-analyzer")
-- [Amazon IVS](#services-ivschat "#services-ivschat")
-- [AWS Identity and Access Management](#services-iam "#services-iam")
-- [Amazon Inspector](#services-inspector "#services-inspector")
-- [Amazon Interactive Video Service](#services-ivs "#services-ivs")
-- [AWS IoT](#services-iot "#services-iot")
-- [AWS IoT Core Device Advisor](#services-iotdeviceadvisor "#services-iotdeviceadvisor")
-- [AWS IoT FleetWise](#services-iotfleetwise "#services-iotfleetwise")
-- [AWS IoT Greengrass](#services-greengrass "#services-greengrass")
-- [AWS IoT SiteWise](#services-iotsitewise "#services-iotsitewise")
-- [AWS IoT TwinMaker](#services-iottwinmaker "#services-iottwinmaker")
-- [AWS IoT Wireless](#services-iotwireless "#services-iotwireless")
-- [Amazon Kendra](#services-kendra "#services-kendra")
-- [AWS Key Management Service](#services-kms "#services-kms")
-- [Amazon Kinesis](#services-kinesis "#services-kinesis")
-- [Amazon Managed Service for Apache Flink](#services-kinesisanalytics "#services-kinesisanalytics")
-- [Amazon Kinesis Video Streams](#services-kinesisvideo "#services-kinesisvideo")
-- [AWS Lambda](#services-lambda "#services-lambda")
-- [Amazon Lex](#services-lex "#services-lex")
-- [AWS License Manager](#services-license-manager "#services-license-manager")
-- [Amazon MQ](#services-mq "#services-mq")
-- [AWS Mainframe Modernization](#services-m2 "#services-m2")
-- [Amazon Managed Blockchain](#services-managedblockchain "#services-managedblockchain")
-- [Amazon Managed Grafana](#services-grafana "#services-grafana")
-- [Amazon Managed Service for Prometheus](#services-aps "#services-aps")
-- [Amazon Managed Streaming for Apache Kafka](#services-kafka "#services-kafka")
-- [Amazon Managed Workflows for Apache Airflow](#services-airflow "#services-airflow")
-- [Amazon MemoryDB](#services-memorydb "#services-memorydb")
-- [AWS Migration Hub Refactor Spaces](#services-refactor-spaces "#services-refactor-spaces")
-- [AWS Mobile Targeting](#services-mobiletargeting "#services-mobiletargeting")
-- [AWS Network Firewall](#services-network-firewall "#services-network-firewall")
-- [AWS Network Manager](#services-networkmanager "#services-networkmanager")
-- [Amazon OpenSearch Service](#services-es "#services-es")
-- [AWS Outposts](#services-outposts "#services-outposts")
-- [Amazon Personalize](#services-personalize "#services-personalize")
-- [AWS Private Certificate Authority](#services-acm-pca "#services-acm-pca")
-- [AWS Proton](#services-proton "#services-proton")
-- [Amazon Quick](#services-quicksight "#services-quicksight")
-- [Amazon Redshift](#services-redshift "#services-redshift")
-- [Amazon Rekognition](#services-rekognition "#services-rekognition")
-- [Amazon Relational Database Service (Amazon RDS)](#services-rds "#services-rds")
-- [AWS Resilience Hub](#services-resiliencehub "#services-resiliencehub")
-- [AWS Resource Access Manager](#services-ram "#services-ram")
-- [AWS Resource Groups](#services-resource-groups "#services-resource-groups")
-- [AWS Resource Explorer](#services-resource-explorer-2 "#services-resource-explorer-2")
-- [Amazon Route 53](#services-route53 "#services-route53")
-- [Amazon Route 53 Recovery Readiness](#services-route53-recovery-readiness "#services-route53-recovery-readiness")
-- [Amazon Route 53 Resolver](#services-route53resolver "#services-route53resolver")
-- [Amazon Glacier](#services-glacier "#services-glacier")
-- [Amazon SageMaker AI](#services-sagemaker "#services-sagemaker")
-- [AWS Secrets Manager](#services-secretsmanager "#services-secretsmanager")
-- [AWS Service Catalog](#services-servicecatalog "#services-servicecatalog")
-- [AWS Signer](#services-signer "#services-signer")
-- [Amazon Simple Email Service](#services-ses "#services-ses")
-- [Amazon Simple Notification Service](#services-sns "#services-sns")
-- [Amazon Simple Queue Service](#services-sqs "#services-sqs")
-- [Amazon Simple Storage Service (Amazon S3)](#services-s3 "#services-s3")
-- [AWS Step Functions States Language](#services-states "#services-states")
-- [Storage Gateway](#services-storagegateway "#services-storagegateway")
-- [AWS Systems Manager](#services-ssm "#services-ssm")
-- [AWS Transfer Family](#services-transfer "#services-transfer")
-- [Amazon WorkSpaces](#services-workspaces "#services-workspaces")
-- [Amazon Bedrock AgentCore](#services-bedrock-agentcore "#services-bedrock-agentcore")
-- [AWS Budgets](#services-budgets "#services-budgets")
-- [AWS Clean Rooms](#services-cleanrooms "#services-cleanrooms")
-- [Amazon Data Lifecycle Manager](#services-dlm "#services-dlm")
-- [Amazon Kendra Intelligent Ranking](#services-kendra-ranking "#services-kendra-ranking")
-- [AWS Elemental MediaConnect](#services-mediaconnect "#services-mediaconnect")
-- [AWS Well-Architected Tool](#services-wellarchitected "#services-wellarchitected")
-- [AWS X-Ray](#services-xray "#services-xray")
+**Topics**
++ [Amazon API Gateway](#services-apigateway)
++ [Direct Connect](#services-directconnect)
++ [AWS Partner Network](#services-partnercentral)
++ [AWS Shield](#services-shield)
++ [AWS Systems Manager Incident Manager](#services-ssm-incidents)
++ [AWS WAFV2](#services-wafv2)
++ [Amazon Macie](#services-macie2)
++ [OpenSearch Service Serverless Service](#services-aoss)
++ [Amazon S3 Express](#services-s3express)
++ [Amazon VPC Lattice](#services-vpc-lattice)
++ [Amazon Verified Permissions](#services-verifiedpermissions)
++ [Amazon WorkSpaces Web](#services-workspaces-web)
++ [AWS Amplify](#services-amplify)
++ [AWS App Runner](#services-apprunner)
++ [AWS AppConfig](#services-appconfig)
++ [Amazon AppFlow](#services-appflow)
++ [AppIntegrations](#services-app-integrations)
++ [AWS App Mesh](#services-appmesh)
++ [Amazon AppStream](#services-appstream)
++ [AWS AppSync](#services-appsync)
++ [AWS Application Discovery Service](#services-ds)
++ [Amazon Application Recovery Controller (ARC)](#services-route53-recovery-control)
++ [Amazon Athena](#services-athena)
++ [AWS Audit Manager](#services-auditmanager)
++ [AWS Backup](#services-backup)
++ [AWS Backup gateway](#services-backup-gateway)
++ [AWS Batch](#services-batch)
++ [Amazon Bedrock](#services-bedrock)
++ [AWS Certificate Manager](#services-acm)
++ [Amazon Chime](#services-chime)
++ [AWS Cloud Map](#services-servicediscovery)
++ [AWS Cloud9](#services-cloud9)
++ [CloudFormation](#services-cloudformation)
++ [Amazon CloudFront](#services-cloudfront)
++ [AWS CloudTrail](#services-cloudtrail)
++ [Amazon CloudWatch](#services-cloudwatch)
++ [Amazon CloudWatch Logs](#services-logs)
++ [Amazon CloudWatch Observability Access Manager](#services-oam)
++ [Amazon CloudWatch RUM](#services-rum)
++ [Amazon CloudWatch Synthetics](#services-synthetics)
++ [AWS CodeArtifact](#services-codeartifact)
++ [AWS CodeBuild](#services-codebuild)
++ [AWS CodeCommit](#services-codecommit)
++ [AWS CodeConnections](#services-codeconnections)
++ [AWS CodeDeploy](#services-codedeploy)
++ [Amazon CodeGuru Profiler](#services-codeguru-profiler)
++ [Amazon CodeGuru Reviewer](#services-codeguru-reviewer)
++ [AWS CodePipeline](#services-codepipeline)
++ [AWS CodeStar Connections](#services-codestar-connections)
++ [Amazon Cognito Identity](#services-cognito-identity)
++ [Amazon Cognito IdentityPool](#services-cognito-idp)
++ [Amazon Comprehend](#services-comprehend)
++ [AWS Config](#services-config)
++ [Amazon Connect Customer](#services-connect)
++ [Amazon Connect Customer Customer Profiles](#services-profile)
++ [Connect Customer Wisdom](#services-wisdom)
++ [AWS Cost Explorer](#services-ce)
++ [AWS Data Exchange](#services-dataexchange)
++ [AWS Data Pipeline](#services-datapipeline)
++ [AWS DataSync](#services-datasync)
++ [AWS Database Migration Service](#services-dms)
++ [Amazon Detective](#services-detective)
++ [AWS Device Farm](#services-devicefarm)
++ [Amazon DynamoDB](#services-dynamodb)
++ [DynamoDB Accelerator](#services-dax)
++ [Amazon EC2 Auto Scaling](#services-autoscaling)
++ [EC2 Image Builder](#services-imagebuilder)
++ [Amazon EMR](#services-elasticmapreduce)
++ [Amazon EMR Serverless](#services-emr-serverless)
++ [Amazon EMR on EKS](#services-emr-containers)
++ [Amazon ElastiCache](#services-elasticache)
++ [AWS Elastic Beanstalk](#services-elasticbeanstalk)
++ [Amazon Elastic Compute Cloud (Amazon EC2)](#services-ec2)
++ [Amazon Elastic Container Registry](#services-ecr)
++ [Amazon Elastic Container Registry Public](#services-ecr-public)
++ [Amazon Elastic Container Service](#services-ecs)
++ [Amazon Elastic File System](#services-elasticfilesystem)
++ [Amazon Elastic Kubernetes Service (Amazon EKS)](#services-eks)
++ [Elastic Load Balancing](#services-elasticloadbalancing)
++ [AWS Elemental MediaPackage](#services-mediapackage)
++ [AWS Elemental MediaPackage VoD](#services-mediapackage-vod)
++ [AWS Elemental MediaStore](#services-mediastore)
++ [AWS Elemental MediaTailor](#services-mediatailor)
++ [Amazon CloudWatch Events](#services-events)
++ [Amazon EventBridge Pipes](#services-pipes)
++ [Amazon EventBridge Scheduler](#services-scheduler)
++ [Amazon EventBridge Schemas](#services-schemas)
++ [Amazon FSx](#services-fsx)
++ [AWS Fault Injection Service](#services-fis)
++ [Amazon FinSpace](#services-finspace)
++ [Firehose](#services-firehose)
++ [Amazon Forecast](#services-forecast)
++ [Amazon Fraud Detector](#services-frauddetector)
++ [Amazon GameLift Servers](#services-gamelift)
++ [AWS Global Accelerator](#services-globalaccelerator)
++ [AWS Glue](#services-glue)
++ [AWS Glue DataBrew](#services-databrew)
++ [AWS Ground Station](#services-groundstation)
++ [Amazon GuardDuty](#services-guardduty)
++ [AWS HealthLake](#services-healthlake)
++ [AWS HealthOmics](#services-omics)
++ [IAM Access Analyzer](#services-access-analyzer)
++ [Amazon IVS](#services-ivschat)
++ [AWS Identity and Access Management](#services-iam)
++ [Amazon Inspector](#services-inspector)
++ [Amazon Interactive Video Service](#services-ivs)
++ [AWS IoT](#services-iot)
++ [AWS IoT Core Device Advisor](#services-iotdeviceadvisor)
++ [AWS IoT FleetWise](#services-iotfleetwise)
++ [AWS IoT Greengrass](#services-greengrass)
++ [AWS IoT SiteWise](#services-iotsitewise)
++ [AWS IoT TwinMaker](#services-iottwinmaker)
++ [AWS IoT Wireless](#services-iotwireless)
++ [Amazon Kendra](#services-kendra)
++ [AWS Key Management Service](#services-kms)
++ [Amazon Kinesis](#services-kinesis)
++ [Amazon Managed Service for Apache Flink](#services-kinesisanalytics)
++ [Amazon Kinesis Video Streams](#services-kinesisvideo)
++ [AWS Lambda](#services-lambda)
++ [Amazon Lex](#services-lex)
++ [AWS License Manager](#services-license-manager)
++ [Amazon MQ](#services-mq)
++ [AWS Mainframe Modernization](#services-m2)
++ [Amazon Managed Blockchain](#services-managedblockchain)
++ [Amazon Managed Grafana](#services-grafana)
++ [Amazon Managed Service for Prometheus](#services-aps)
++ [Amazon Managed Streaming for Apache Kafka](#services-kafka)
++ [Amazon Managed Workflows for Apache Airflow](#services-airflow)
++ [Amazon MemoryDB](#services-memorydb)
++ [AWS Migration Hub Refactor Spaces](#services-refactor-spaces)
++ [AWS Mobile Targeting](#services-mobiletargeting)
++ [AWS Network Firewall](#services-network-firewall)
++ [AWS Network Manager](#services-networkmanager)
++ [Amazon OpenSearch Service](#services-es)
++ [AWS Outposts](#services-outposts)
++ [Amazon Personalize](#services-personalize)
++ [AWS Private Certificate Authority](#services-acm-pca)
++ [AWS Proton](#services-proton)
++ [Amazon Quick](#services-quicksight)
++ [Amazon Redshift](#services-redshift)
++ [Amazon Rekognition](#services-rekognition)
++ [Amazon Relational Database Service (Amazon RDS)](#services-rds)
++ [AWS Resilience Hub](#services-resiliencehub)
++ [AWS Resource Access Manager](#services-ram)
++ [AWS Resource Groups](#services-resource-groups)
++ [AWS Resource Explorer](#services-resource-explorer-2)
++ [Amazon Route 53](#services-route53)
++ [Amazon Route 53 Recovery Readiness](#services-route53-recovery-readiness)
++ [Amazon Route 53 Resolver](#services-route53resolver)
++ [Amazon Glacier](#services-glacier)
++ [Amazon SageMaker AI](#services-sagemaker)
++ [AWS Secrets Manager](#services-secretsmanager)
++ [AWS Service Catalog](#services-servicecatalog)
++ [AWS Signer](#services-signer)
++ [Amazon Simple Email Service](#services-ses)
++ [Amazon Simple Notification Service](#services-sns)
++ [Amazon Simple Queue Service](#services-sqs)
++ [Amazon Simple Storage Service (Amazon S3)](#services-s3)
++ [AWS Step Functions States Language](#services-states)
++ [Storage Gateway](#services-storagegateway)
++ [AWS Systems Manager](#services-ssm)
++ [AWS Transfer Family](#services-transfer)
++ [Amazon WorkSpaces](#services-workspaces)
++ [Amazon Bedrock AgentCore](#services-bedrock-agentcore)
++ [AWS Budgets](#services-budgets)
++ [AWS Clean Rooms](#services-cleanrooms)
++ [Amazon Data Lifecycle Manager](#services-dlm)
++ [Amazon Kendra Intelligent Ranking](#services-kendra-ranking)
++ [AWS Elemental MediaConnect](#services-mediaconnect)
++ [AWS Well-Architected Tool](#services-wellarchitected)
++ [AWS X-Ray](#services-xray)
 
 ### Amazon API Gateway
-
-- `apigateway:apis`
-- `apigateway:apis/integrations`
-- `apigateway:apis/routes`
-- `apigateway:apis/stages`
-- `apigateway:restapis`
-- `apigateway:restapis/deployments`
-- `apigateway:restapis/resources`
-- `apigateway:restapis/resources/methods`
-- `apigateway:restapis/stages`
-- `apigateway:vpclinks`
+<a name="services-apigateway"></a>
++ `apigateway:apis`
++ `apigateway:apis/integrations`
++ `apigateway:apis/routes`
++ `apigateway:apis/stages`
++ `apigateway:restapis`
++ `apigateway:restapis/deployments`
++ `apigateway:restapis/resources`
++ `apigateway:restapis/resources/methods`
++ `apigateway:restapis/stages`
++ `apigateway:vpclinks`
 
 ### Direct Connect
-
-- `directconnect:dx-gateway`
+<a name="services-directconnect"></a>
++ `directconnect:dx-gateway`
 
 ### AWS Partner Network
-
-- `partnercentral:catalog/engagement`
-- `partnercentral:catalog/engagement-invitation`
-- `partnercentral:catalog/opportunity`
-- `partnercentral:catalog/resource-snapshot-job`
-- `partnercentral:resourcesnapshot`
+<a name="services-partnercentral"></a>
++ `partnercentral:catalog/engagement`
++ `partnercentral:catalog/engagement-invitation`
++ `partnercentral:catalog/opportunity`
++ `partnercentral:catalog/resource-snapshot-job`
++ `partnercentral:resourcesnapshot`
 
 ### AWS Shield
-
-- `shield:protection`
-- `shield:protection-group`
+<a name="services-shield"></a>
++ `shield:protection`
++ `shield:protection-group`
 
 ### AWS Systems Manager Incident Manager
-
-- `ssm-incidents:response-plan`
+<a name="services-ssm-incidents"></a>
++ `ssm-incidents:response-plan`
 
 ### AWS WAFV2
-
-- `wafv2:ipset`
-- `wafv2:regexpatternset`
-- `wafv2:rulegroup`
-- `wafv2:webacl`
+<a name="services-wafv2"></a>
++ `wafv2:ipset`
++ `wafv2:regexpatternset`
++ `wafv2:rulegroup`
++ `wafv2:webacl`
 
 ### Amazon Macie
-
-- `macie2:allow-list`
-- `macie2:custom-data-identifier`
-- `macie2:findings-filter`
-- `macie2:member`
+<a name="services-macie2"></a>
++ `macie2:allow-list`
++ `macie2:custom-data-identifier`
++ `macie2:findings-filter`
++ `macie2:member`
 
 ### OpenSearch Service Serverless Service
-
-- `aoss:collection`
+<a name="services-aoss"></a>
++ `aoss:collection`
 
 ### Amazon S3 Express
-
-- `s3express:bucket`
+<a name="services-s3express"></a>
++ `s3express:bucket`
 
 ### Amazon VPC Lattice
-
-- `vpc-lattice:service`
-- `vpc-lattice:service/listener`
-- `vpc-lattice:servicenetwork`
-- `vpc-lattice:servicenetworkserviceassociation`
-- `vpc-lattice:targetgroup`
+<a name="services-vpc-lattice"></a>
++ `vpc-lattice:service`
++ `vpc-lattice:service/listener`
++ `vpc-lattice:servicenetwork`
++ `vpc-lattice:servicenetworkserviceassociation`
++ `vpc-lattice:targetgroup`
 
 ### Amazon Verified Permissions
-
-- `verifiedpermissions:policy-store`
+<a name="services-verifiedpermissions"></a>
++ `verifiedpermissions:policy-store`
 
 ### Amazon WorkSpaces Web
-
-- `workspaces-web:portal`
+<a name="services-workspaces-web"></a>
++ `workspaces-web:portal`
 
 ### AWS Amplify
-
-- `amplify:apps`
-- `amplify:apps/branches`
-- `amplify:apps/domains`
+<a name="services-amplify"></a>
++ `amplify:apps`
++ `amplify:apps/branches`
++ `amplify:apps/domains`
 
 ### AWS App Runner
-
-- `apprunner:autoscalingconfiguration`
-- `apprunner:connection`
-- `apprunner:service`
-- `apprunner:vpcconnector`
+<a name="services-apprunner"></a>
++ `apprunner:autoscalingconfiguration`
++ `apprunner:connection`
++ `apprunner:service`
++ `apprunner:vpcconnector`
 
 ### AWS AppConfig
-
-- `appconfig:application`
-- `appconfig:application/environment`
-- `appconfig:deploymentstrategy`
-- `appconfig:extensionassociation`
+<a name="services-appconfig"></a>
++ `appconfig:application`
++ `appconfig:application/environment`
++ `appconfig:deploymentstrategy`
++ `appconfig:extensionassociation`
 
 ### Amazon AppFlow
-
-- `appflow:flow`
+<a name="services-appflow"></a>
++ `appflow:flow`
 
 ### AppIntegrations
-
-- `app-integrations:application`
-- `app-integrations:event-integration`
+<a name="services-app-integrations"></a>
++ `app-integrations:application`
++ `app-integrations:event-integration`
 
 ### AWS App Mesh
-
-- `appmesh:mesh`
-- `appmesh:mesh/virtualGateway`
-- `appmesh:mesh/virtualGateway/gatewayRoute`
-- `appmesh:mesh/virtualNode`
-- `appmesh:mesh/virtualRouter`
-- `appmesh:mesh/virtualRouter/route`
-- `appmesh:mesh/virtualService`
+<a name="services-appmesh"></a>
++ `appmesh:mesh`
++ `appmesh:mesh/virtualGateway`
++ `appmesh:mesh/virtualGateway/gatewayRoute`
++ `appmesh:mesh/virtualNode`
++ `appmesh:mesh/virtualRouter`
++ `appmesh:mesh/virtualRouter/route`
++ `appmesh:mesh/virtualService`
 
 ### Amazon AppStream
-
-- `appstream:app-block`
-- `appstream:application`
-- `appstream:fleet`
-- `appstream:image-builder`
-- `appstream:stack`
+<a name="services-appstream"></a>
++ `appstream:app-block`
++ `appstream:application`
++ `appstream:fleet`
++ `appstream:image-builder`
++ `appstream:stack`
 
 ### AWS AppSync
-
-- `appsync:apis`
+<a name="services-appsync"></a>
++ `appsync:apis`
 
 ### AWS Application Discovery Service
-
-- `ds:directory`
+<a name="services-ds"></a>
++ `ds:directory`
 
 ### Amazon Application Recovery Controller (ARC)
-
-- `route53-recovery-control:cluster`
-- `route53-recovery-control:controlpanel/routingcontrol`
-- `route53-recovery-control:controlpanel/safetyrule`
+<a name="services-route53-recovery-control"></a>
++ `route53-recovery-control:cluster`
++ `route53-recovery-control:controlpanel/routingcontrol`
++ `route53-recovery-control:controlpanel/safetyrule`
 
 ### Amazon Athena
-
-- `athena:datacatalog`
-- `athena:workgroup`
+<a name="services-athena"></a>
++ `athena:datacatalog`
++ `athena:workgroup`
 
 ### AWS Audit Manager
-
-- `auditmanager:assessment`
+<a name="services-auditmanager"></a>
++ `auditmanager:assessment`
 
 ### AWS Backup
-
-- `backup:backup-plan`
-- `backup:backup-vault`
-- `backup:report-plan`
+<a name="services-backup"></a>
++ `backup:backup-plan`
++ `backup:backup-vault`
++ `backup:report-plan`
 
 ### AWS Backup gateway
-
-- `backup-gateway:hypervisor`
+<a name="services-backup-gateway"></a>
++ `backup-gateway:hypervisor`
 
 ### AWS Batch
-
-- `batch:compute-environment`
-- `batch:job-definition`
-- `batch:job-queue`
-- `batch:scheduling-policy`
+<a name="services-batch"></a>
++ `batch:compute-environment`
++ `batch:job-definition`
++ `batch:job-queue`
++ `batch:scheduling-policy`
 
 ### Amazon Bedrock
-
-- `bedrock:agent`
-- `bedrock:agent-alias`
-- `bedrock:application-inference-profile`
-- `bedrock:data-automation-project`
-- `bedrock:flow`
-- `bedrock:flow/alias`
-- `bedrock:guardrail`
-- `bedrock:knowledge-base`
-- `bedrock:prompt`
-- `bedrock:prompt-router`
+<a name="services-bedrock"></a>
++ `bedrock:agent`
++ `bedrock:agent-alias`
++ `bedrock:application-inference-profile`
++ `bedrock:data-automation-project`
++ `bedrock:flow`
++ `bedrock:flow/alias`
++ `bedrock:guardrail`
++ `bedrock:knowledge-base`
++ `bedrock:prompt`
++ `bedrock:prompt-router`
 
 ### AWS Certificate Manager
-
-- `acm:certificate`
+<a name="services-acm"></a>
++ `acm:certificate`
 
 ### Amazon Chime
-
-- `chime:app-instance`
-- `chime:app-instance/bot`
-- `chime:app-instance/user`
-- `chime:media-insights-pipeline-configuration`
-- `chime:media-pipeline-kinesis-video-stream-pool`
-- `chime:sma`
-- `chime:vc`
+<a name="services-chime"></a>
++ `chime:app-instance`
++ `chime:app-instance/bot`
++ `chime:app-instance/user`
++ `chime:media-insights-pipeline-configuration`
++ `chime:media-pipeline-kinesis-video-stream-pool`
++ `chime:sma`
++ `chime:vc`
 
 ### AWS Cloud Map
-
-- `servicediscovery:service`
+<a name="services-servicediscovery"></a>
++ `servicediscovery:service`
 
 ### AWS Cloud9
-
-- `cloud9:environment`
+<a name="services-cloud9"></a>
++ `cloud9:environment`
 
 ### CloudFormation
-
-- `cloudformation:stack`
-- `cloudformation:stackset`
+<a name="services-cloudformation"></a>
++ `cloudformation:stack`
++ `cloudformation:stackset`
 
 ### Amazon CloudFront
-
-- `cloudfront:cache-policy`
-- `cloudfront:continuous-deployment-policy`
-- `cloudfront:distribution`
-- `cloudfront:field-level-encryption-config`
-- `cloudfront:field-level-encryption-profile`
-- `cloudfront:function`
-- `cloudfront:origin-access-control`
-- `cloudfront:origin-access-identity`
-- `cloudfront:origin-request-policy`
-- `cloudfront:realtime-log-config`
-- `cloudfront:response-headers-policy`
+<a name="services-cloudfront"></a>
++ `cloudfront:cache-policy`
++ `cloudfront:continuous-deployment-policy`
++ `cloudfront:distribution`
++ `cloudfront:field-level-encryption-config`
++ `cloudfront:field-level-encryption-profile`
++ `cloudfront:function`
++ `cloudfront:origin-access-control`
++ `cloudfront:origin-access-identity`
++ `cloudfront:origin-request-policy`
++ `cloudfront:realtime-log-config`
++ `cloudfront:response-headers-policy`
 
 ### AWS CloudTrail
-
-- `cloudtrail:channel`
-- `cloudtrail:dashboard`
-- `cloudtrail:eventdatastore`
-- `cloudtrail:trail`
+<a name="services-cloudtrail"></a>
++ `cloudtrail:channel`
++ `cloudtrail:dashboard`
++ `cloudtrail:eventdatastore`
++ `cloudtrail:trail`
 
 ### Amazon CloudWatch
-
-- `cloudwatch:alarm`
-- `cloudwatch:dashboard`
-- `cloudwatch:insight-rule`
-- `cloudwatch:metric-stream`
+<a name="services-cloudwatch"></a>
++ `cloudwatch:alarm`
++ `cloudwatch:dashboard`
++ `cloudwatch:insight-rule`
++ `cloudwatch:metric-stream`
 
 ### Amazon CloudWatch Logs
-
-- `logs:destination`
-- `logs:log-group`
+<a name="services-logs"></a>
++ `logs:destination`
++ `logs:log-group`
 
 ### Amazon CloudWatch Observability Access Manager
-
-- `oam:sink`
+<a name="services-oam"></a>
++ `oam:sink`
 
 ### Amazon CloudWatch RUM
-
-- `rum:appmonitor`
+<a name="services-rum"></a>
++ `rum:appmonitor`
 
 ### Amazon CloudWatch Synthetics
-
-- `synthetics:canary`
-- `synthetics:group`
+<a name="services-synthetics"></a>
++ `synthetics:canary`
++ `synthetics:group`
 
 ### AWS CodeArtifact
-
-- `codeartifact:domain`
-- `codeartifact:repository`
+<a name="services-codeartifact"></a>
++ `codeartifact:domain`
++ `codeartifact:repository`
 
 ### AWS CodeBuild
-
-- `codebuild:project`
+<a name="services-codebuild"></a>
++ `codebuild:project`
 
 ### AWS CodeCommit
-
-- `codecommit:repository`
+<a name="services-codecommit"></a>
++ `codecommit:repository`
 
 ### AWS CodeConnections
-
-- `codeconnections:connection`
+<a name="services-codeconnections"></a>
++ `codeconnections:connection`
 
 ### AWS CodeDeploy
-
-- `codedeploy:application`
-- `codedeploy:deploymentconfig`
+<a name="services-codedeploy"></a>
++ `codedeploy:application`
++ `codedeploy:deploymentconfig`
 
 ### Amazon CodeGuru Profiler
-
-- `codeguru-profiler:profilingGroup`
+<a name="services-codeguru-profiler"></a>
++ `codeguru-profiler:profilingGroup`
 
 ### Amazon CodeGuru Reviewer
-
-- `codeguru-reviewer:association`
+<a name="services-codeguru-reviewer"></a>
++ `codeguru-reviewer:association`
 
 ### AWS CodePipeline
-
-- `codepipeline:pipeline`
-- `codepipeline:webhook`
+<a name="services-codepipeline"></a>
++ `codepipeline:pipeline`
++ `codepipeline:webhook`
 
 ### AWS CodeStar Connections
-
-- `codestar-connections:connection`
-- `codestar-connections:host`
+<a name="services-codestar-connections"></a>
++ `codestar-connections:connection`
++ `codestar-connections:host`
 
 ### Amazon Cognito Identity
-
-- `cognito-identity:identitypool`
+<a name="services-cognito-identity"></a>
++ `cognito-identity:identitypool`
 
 ### Amazon Cognito IdentityPool
-
-- `cognito-idp:userpool`
+<a name="services-cognito-idp"></a>
++ `cognito-idp:userpool`
 
 ### Amazon Comprehend
-
-- `comprehend:document-classifier`
-- `comprehend:entity-recognizer`
-- `comprehend:flywheel`
+<a name="services-comprehend"></a>
++ `comprehend:document-classifier`
++ `comprehend:entity-recognizer`
++ `comprehend:flywheel`
 
 ### AWS Config
-
-- `config:config-rule`
+<a name="services-config"></a>
++ `config:config-rule`
 
 ### Amazon Connect Customer
-
-- `connect:instance`
-- `connect:instance/agent`
-- `connect:instance/operating-hours`
-- `connect:instance/queue`
-- `connect:instance/rule`
-- `connect:instance/task-template`
-- `connect:instance/transfer-destination`
-- `connect:phone-number`
+<a name="services-connect"></a>
++ `connect:instance`
++ `connect:instance/agent`
++ `connect:instance/operating-hours`
++ `connect:instance/queue`
++ `connect:instance/rule`
++ `connect:instance/task-template`
++ `connect:instance/transfer-destination`
++ `connect:phone-number`
 
 ### Amazon Connect Customer Customer Profiles
-
-- `profile:domains`
-- `profile:domains/integrations`
-- `profile:domains/object-types`
+<a name="services-profile"></a>
++ `profile:domains`
++ `profile:domains/integrations`
++ `profile:domains/object-types`
 
 ### Connect Customer Wisdom
-
-- `wisdom:assistant`
-- `wisdom:association`
-- `wisdom:content`
-- `wisdom:knowledge-base`
+<a name="services-wisdom"></a>
++ `wisdom:assistant`
++ `wisdom:association`
++ `wisdom:content`
++ `wisdom:knowledge-base`
 
 ### AWS Cost Explorer
-
-- `ce:anomalymonitor`
-- `ce:anomalysubscription`
+<a name="services-ce"></a>
++ `ce:anomalymonitor`
++ `ce:anomalysubscription`
 
 ### AWS Data Exchange
-
-- `dataexchange:data-sets`
-- `dataexchange:data-sets/revisions`
+<a name="services-dataexchange"></a>
++ `dataexchange:data-sets`
++ `dataexchange:data-sets/revisions`
 
 ### AWS Data Pipeline
-
-- `datapipeline:pipeline`
+<a name="services-datapipeline"></a>
++ `datapipeline:pipeline`
 
 ### AWS DataSync
-
-- `datasync:location`
-- `datasync:task`
+<a name="services-datasync"></a>
++ `datasync:location`
++ `datasync:task`
 
 ### AWS Database Migration Service
-
-- `dms:cert`
-- `dms:endpoint`
-- `dms:es`
-- `dms:rep`
-- `dms:subgrp`
-- `dms:task`
+<a name="services-dms"></a>
++ `dms:cert`
++ `dms:endpoint`
++ `dms:es`
++ `dms:rep`
++ `dms:subgrp`
++ `dms:task`
 
 ### Amazon Detective
-
-- `detective:graph`
+<a name="services-detective"></a>
++ `detective:graph`
 
 ### AWS Device Farm
-
-- `devicefarm:instanceprofile`
-- `devicefarm:project`
-- `devicefarm:testgrid-project`
+<a name="services-devicefarm"></a>
++ `devicefarm:instanceprofile`
++ `devicefarm:project`
++ `devicefarm:testgrid-project`
 
 ### Amazon DynamoDB
-
-- `dynamodb:table`
+<a name="services-dynamodb"></a>
++ `dynamodb:table`
 
 ### DynamoDB Accelerator
-
-- `dax:cache`
+<a name="services-dax"></a>
++ `dax:cache`
 
 ### Amazon EC2 Auto Scaling
-
-- `autoscaling:autoScalingGroup`
+<a name="services-autoscaling"></a>
++ `autoscaling:autoScalingGroup`
 
 ### EC2 Image Builder
-
-- `imagebuilder:component`
-- `imagebuilder:container-recipe`
-- `imagebuilder:distribution-configuration`
-- `imagebuilder:image`
-- `imagebuilder:image-pipeline`
-- `imagebuilder:image-recipe`
-- `imagebuilder:infrastructure-configuration`
+<a name="services-imagebuilder"></a>
++ `imagebuilder:component`
++ `imagebuilder:container-recipe`
++ `imagebuilder:distribution-configuration`
++ `imagebuilder:image`
++ `imagebuilder:image-pipeline`
++ `imagebuilder:image-recipe`
++ `imagebuilder:infrastructure-configuration`
 
 ### Amazon EMR
-
-- `elasticmapreduce:cluster`
+<a name="services-elasticmapreduce"></a>
++ `elasticmapreduce:cluster`
 
 ### Amazon EMR Serverless
-
-- `emr-serverless:applications`
+<a name="services-emr-serverless"></a>
++ `emr-serverless:applications`
 
 ### Amazon EMR on EKS
-
-- `emr-containers:jobtemplates`
-- `emr-containers:securityconfigurations`
-- `emr-containers:virtualclusters`
-- `emr-containers:virtualclusters/endpoints`
+<a name="services-emr-containers"></a>
++ `emr-containers:jobtemplates`
++ `emr-containers:securityconfigurations`
++ `emr-containers:virtualclusters`
++ `emr-containers:virtualclusters/endpoints`
 
 ### Amazon ElastiCache
-
-- `elasticache:cluster`
-- `elasticache:globalreplicationgroup`
-- `elasticache:parametergroup`
-- `elasticache:replicationgroup`
-- `elasticache:reserved-instance`
-- `elasticache:snapshot`
-- `elasticache:subnetgroup`
-- `elasticache:user`
-- `elasticache:usergroup`
+<a name="services-elasticache"></a>
++ `elasticache:cluster`
++ `elasticache:globalreplicationgroup`
++ `elasticache:parametergroup`
++ `elasticache:replicationgroup`
++ `elasticache:reserved-instance`
++ `elasticache:snapshot`
++ `elasticache:subnetgroup`
++ `elasticache:user`
++ `elasticache:usergroup`
 
 ### AWS Elastic Beanstalk
-
-- `elasticbeanstalk:application`
-- `elasticbeanstalk:applicationversion`
-- `elasticbeanstalk:configurationtemplate`
-- `elasticbeanstalk:environment`
+<a name="services-elasticbeanstalk"></a>
++ `elasticbeanstalk:application`
++ `elasticbeanstalk:applicationversion`
++ `elasticbeanstalk:configurationtemplate`
++ `elasticbeanstalk:environment`
 
 ### Amazon Elastic Compute Cloud (Amazon EC2)
-
-- `ec2:capacity-reservation`
-- `ec2:capacity-reservation-fleet`
-- `ec2:carrier-gateway`
-- `ec2:client-vpn-endpoint`
-- `ec2:customer-gateway`
-- `ec2:dedicated-host`
-- `ec2:dhcp-options`
-- `ec2:egress-only-internet-gateway`
-- `ec2:elastic-ip`
-- `ec2:fleet`
-- `ec2:fpga-image`
-- `ec2:host-reservation`
-- `ec2:image`
-- `ec2:instance`
-- `ec2:instance-event-window`
-- `ec2:internet-gateway`
-- `ec2:ipam`
-- `ec2:ipam-pool`
-- `ec2:ipam-resource-discovery`
-- `ec2:ipam-resource-discovery-association`
-- `ec2:ipam-scope`
-- `ec2:ipv4pool-ec2`
-- `ec2:key-pair`
-- `ec2:launch-template`
-- `ec2:natgateway`
-- `ec2:network-acl`
-- `ec2:network-insights-access-scope`
-- `ec2:network-insights-access-scope-analysis`
-- `ec2:network-insights-analysis`
-- `ec2:network-insights-path`
-- `ec2:network-interface`
-- `ec2:placement-group`
-- `ec2:prefix-list`
-- `ec2:reserved-instances`
-- `ec2:route-table`
-- `ec2:security-group`
-- `ec2:security-group-rule`
-- `ec2:snapshot`
-- `ec2:spot-fleet-request`
-- `ec2:spot-instances-request`
-- `ec2:subnet`
-- `ec2:subnet-cidr-reservation`
-- `ec2:traffic-mirror-filter`
-- `ec2:traffic-mirror-filter-rule`
-- `ec2:traffic-mirror-session`
-- `ec2:traffic-mirror-target`
-- `ec2:transit-gateway`
-- `ec2:transit-gateway-attachment`
-- `ec2:transit-gateway-connect-peer`
-- `ec2:transit-gateway-multicast-domain`
-- `ec2:transit-gateway-policy-table`
-- `ec2:transit-gateway-route-table`
-- `ec2:transit-gateway-route-table-announcement`
-- `ec2:verified-access-endpoint`
-- `ec2:verified-access-group`
-- `ec2:verified-access-instance`
-- `ec2:verified-access-trust-provider`
-- `ec2:volume`
-- `ec2:vpc`
-- `ec2:vpc-endpoint`
-- `ec2:vpc-flow-log`
-- `ec2:vpc-peering-connection`
-- `ec2:vpn-connection`
-- `ec2:vpn-gateway`
+<a name="services-ec2"></a>
++ `ec2:capacity-reservation`
++ `ec2:capacity-reservation-fleet`
++ `ec2:carrier-gateway`
++ `ec2:client-vpn-endpoint`
++ `ec2:customer-gateway`
++ `ec2:dedicated-host`
++ `ec2:dhcp-options`
++ `ec2:egress-only-internet-gateway`
++ `ec2:elastic-ip`
++ `ec2:fleet`
++ `ec2:fpga-image`
++ `ec2:host-reservation`
++ `ec2:image`
++ `ec2:instance`
++ `ec2:instance-event-window`
++ `ec2:internet-gateway`
++ `ec2:ipam`
++ `ec2:ipam-pool`
++ `ec2:ipam-resource-discovery`
++ `ec2:ipam-resource-discovery-association`
++ `ec2:ipam-scope`
++ `ec2:ipv4pool-ec2`
++ `ec2:key-pair`
++ `ec2:launch-template`
++ `ec2:natgateway`
++ `ec2:network-acl`
++ `ec2:network-insights-access-scope`
++ `ec2:network-insights-access-scope-analysis`
++ `ec2:network-insights-analysis`
++ `ec2:network-insights-path`
++ `ec2:network-interface`
++ `ec2:placement-group`
++ `ec2:prefix-list`
++ `ec2:reserved-instances`
++ `ec2:route-table`
++ `ec2:security-group`
++ `ec2:security-group-rule`
++ `ec2:snapshot`
++ `ec2:spot-fleet-request`
++ `ec2:spot-instances-request`
++ `ec2:subnet`
++ `ec2:subnet-cidr-reservation`
++ `ec2:traffic-mirror-filter`
++ `ec2:traffic-mirror-filter-rule`
++ `ec2:traffic-mirror-session`
++ `ec2:traffic-mirror-target`
++ `ec2:transit-gateway`
++ `ec2:transit-gateway-attachment`
++ `ec2:transit-gateway-connect-peer`
++ `ec2:transit-gateway-multicast-domain`
++ `ec2:transit-gateway-policy-table`
++ `ec2:transit-gateway-route-table`
++ `ec2:transit-gateway-route-table-announcement`
++ `ec2:verified-access-endpoint`
++ `ec2:verified-access-group`
++ `ec2:verified-access-instance`
++ `ec2:verified-access-trust-provider`
++ `ec2:volume`
++ `ec2:vpc`
++ `ec2:vpc-endpoint`
++ `ec2:vpc-flow-log`
++ `ec2:vpc-peering-connection`
++ `ec2:vpn-connection`
++ `ec2:vpn-gateway`
 
 ### Amazon Elastic Container Registry
-
-- `ecr:repository`
+<a name="services-ecr"></a>
++ `ecr:repository`
 
 ### Amazon Elastic Container Registry Public
-
-- `ecr-public:repository`
+<a name="services-ecr-public"></a>
++ `ecr-public:repository`
 
 ### Amazon Elastic Container Service
-
-- `ecs:capacity-provider`
-- `ecs:cluster`
-- `ecs:container-instance`
-- `ecs:service`
-- `ecs:task-definition`
-- `ecs:task-set`
+<a name="services-ecs"></a>
++ `ecs:capacity-provider`
++ `ecs:cluster`
++ `ecs:container-instance`
++ `ecs:service`
++ `ecs:task-definition`
++ `ecs:task-set`
 
 ### Amazon Elastic File System
-
-- `elasticfilesystem:access-point`
-- `elasticfilesystem:file-system`
+<a name="services-elasticfilesystem"></a>
++ `elasticfilesystem:access-point`
++ `elasticfilesystem:file-system`
 
 ### Amazon Elastic Kubernetes Service (Amazon EKS)
-
-- `eks:cluster`
-- `eks:daemonset`
-- `eks:deployment`
-- `eks:eks-anywhere-subscription`
-- `eks:endpointslice`
-- `eks:ingress`
-- `eks:namespace`
-- `eks:persistentvolume`
-- `eks:podidentityassociation`
-- `eks:replicaset`
-- `eks:service`
-- `eks:statefulset`
+<a name="services-eks"></a>
++ `eks:cluster`
++ `eks:daemonset`
++ `eks:deployment`
++ `eks:eks-anywhere-subscription`
++ `eks:endpointslice`
++ `eks:ingress`
++ `eks:namespace`
++ `eks:persistentvolume`
++ `eks:podidentityassociation`
++ `eks:replicaset`
++ `eks:service`
++ `eks:statefulset`
 
 ### Elastic Load Balancing
-
-- `elasticloadbalancing:listener-rule/app`
-- `elasticloadbalancing:listener/app`
-- `elasticloadbalancing:listener/gwy`
-- `elasticloadbalancing:listener/net`
-- `elasticloadbalancing:loadbalancer`
-- `elasticloadbalancing:loadbalancer/app`
-- `elasticloadbalancing:loadbalancer/gwy`
-- `elasticloadbalancing:loadbalancer/net`
-- `elasticloadbalancing:targetgroup`
+<a name="services-elasticloadbalancing"></a>
++ `elasticloadbalancing:listener-rule/app`
++ `elasticloadbalancing:listener/app`
++ `elasticloadbalancing:listener/gwy`
++ `elasticloadbalancing:listener/net`
++ `elasticloadbalancing:loadbalancer`
++ `elasticloadbalancing:loadbalancer/app`
++ `elasticloadbalancing:loadbalancer/gwy`
++ `elasticloadbalancing:loadbalancer/net`
++ `elasticloadbalancing:targetgroup`
 
 ### AWS Elemental MediaPackage
-
-- `mediapackage:channels`
-- `mediapackage:origin_endpoints`
+<a name="services-mediapackage"></a>
++ `mediapackage:channels`
++ `mediapackage:origin_endpoints`
 
 ### AWS Elemental MediaPackage VoD
-
-- `mediapackage-vod:assets`
-- `mediapackage-vod:packaging-configurations`
-- `mediapackage-vod:packaging-groups`
+<a name="services-mediapackage-vod"></a>
++ `mediapackage-vod:assets`
++ `mediapackage-vod:packaging-configurations`
++ `mediapackage-vod:packaging-groups`
 
 ### AWS Elemental MediaStore
-
-- `mediastore:container`
+<a name="services-mediastore"></a>
++ `mediastore:container`
 
 ### AWS Elemental MediaTailor
-
-- `mediatailor:channel`
-- `mediatailor:liveSource`
-- `mediatailor:playbackConfiguration`
-- `mediatailor:vodSource`
+<a name="services-mediatailor"></a>
++ `mediatailor:channel`
++ `mediatailor:liveSource`
++ `mediatailor:playbackConfiguration`
++ `mediatailor:vodSource`
 
 ### Amazon CloudWatch Events
-
-- `events:api-destination`
-- `events:archive`
-- `events:connection`
-- `events:endpoint`
-- `events:event-bus`
-- `events:rule`
+<a name="services-events"></a>
++ `events:api-destination`
++ `events:archive`
++ `events:connection`
++ `events:endpoint`
++ `events:event-bus`
++ `events:rule`
 
 ### Amazon EventBridge Pipes
-
-- `pipes:pipe`
+<a name="services-pipes"></a>
++ `pipes:pipe`
 
 ### Amazon EventBridge Scheduler
-
-- `scheduler:schedule-group`
+<a name="services-scheduler"></a>
++ `scheduler:schedule-group`
 
 ### Amazon EventBridge Schemas
-
-- `schemas:discoverer`
+<a name="services-schemas"></a>
++ `schemas:discoverer`
 
 ### Amazon FSx
-
-- `fsx:backup`
-- `fsx:file-system`
+<a name="services-fsx"></a>
++ `fsx:backup`
++ `fsx:file-system`
 
 ### AWS Fault Injection Service
-
-- `fis:experiment`
-- `fis:experiment-template`
+<a name="services-fis"></a>
++ `fis:experiment`
++ `fis:experiment-template`
 
 ### Amazon FinSpace
-
-- `finspace:environment`
+<a name="services-finspace"></a>
++ `finspace:environment`
 
 ### Firehose
-
-- `firehose:deliverystream`
+<a name="services-firehose"></a>
++ `firehose:deliverystream`
 
 ### Amazon Forecast
-
-- `forecast:dataset`
-- `forecast:dataset-group`
-- `forecast:dataset-import-job`
-- `forecast:forecast`
-- `forecast:forecast-export-job`
-- `forecast:predictor`
-- `forecast:predictor-backtest-export-job`
+<a name="services-forecast"></a>
++ `forecast:dataset`
++ `forecast:dataset-group`
++ `forecast:dataset-import-job`
++ `forecast:forecast`
++ `forecast:forecast-export-job`
++ `forecast:predictor`
++ `forecast:predictor-backtest-export-job`
 
 ### Amazon Fraud Detector
-
-- `frauddetector:detector`
-- `frauddetector:entity-type`
-- `frauddetector:event-type`
-- `frauddetector:external-model`
-- `frauddetector:label`
-- `frauddetector:model`
-- `frauddetector:outcome`
-- `frauddetector:variable`
+<a name="services-frauddetector"></a>
++ `frauddetector:detector`
++ `frauddetector:entity-type`
++ `frauddetector:event-type`
++ `frauddetector:external-model`
++ `frauddetector:label`
++ `frauddetector:model`
++ `frauddetector:outcome`
++ `frauddetector:variable`
 
 ### Amazon GameLift Servers
-
-- `gamelift:alias`
-- `gamelift:build`
-- `gamelift:gamesessionqueue`
-- `gamelift:location`
-- `gamelift:matchmakingconfiguration`
-- `gamelift:matchmakingruleset`
-- `gamelift:script`
+<a name="services-gamelift"></a>
++ `gamelift:alias`
++ `gamelift:build`
++ `gamelift:gamesessionqueue`
++ `gamelift:location`
++ `gamelift:matchmakingconfiguration`
++ `gamelift:matchmakingruleset`
++ `gamelift:script`
 
 ### AWS Global Accelerator
-
-- `globalaccelerator:accelerator`
-- `globalaccelerator:accelerator/listener`
-- `globalaccelerator:accelerator/listener/endpoint-group`
+<a name="services-globalaccelerator"></a>
++ `globalaccelerator:accelerator`
++ `globalaccelerator:accelerator/listener`
++ `globalaccelerator:accelerator/listener/endpoint-group`
 
 ### AWS Glue
-
-- `glue:crawler`
-- `glue:dataQualityRuleset`
-- `glue:database`
-- `glue:job`
-- `glue:mlTransform`
-- `glue:registry`
-- `glue:table`
-- `glue:trigger`
+<a name="services-glue"></a>
++ `glue:crawler`
++ `glue:dataQualityRuleset`
++ `glue:database`
++ `glue:job`
++ `glue:mlTransform`
++ `glue:registry`
++ `glue:table`
++ `glue:trigger`
 
 ### AWS Glue DataBrew
-
-- `databrew:dataset`
-- `databrew:job`
-- `databrew:project`
-- `databrew:recipe`
-- `databrew:ruleset`
-- `databrew:schedule`
+<a name="services-databrew"></a>
++ `databrew:dataset`
++ `databrew:job`
++ `databrew:project`
++ `databrew:recipe`
++ `databrew:ruleset`
++ `databrew:schedule`
 
 ### AWS Ground Station
-
-- `groundstation:config`
-- `groundstation:dataflow-endpoint-group`
-- `groundstation:mission-profile`
+<a name="services-groundstation"></a>
++ `groundstation:config`
++ `groundstation:dataflow-endpoint-group`
++ `groundstation:mission-profile`
 
 ### Amazon GuardDuty
-
-- `guardduty:detector`
-- `guardduty:detector/filter`
-- `guardduty:detector/ipset`
-- `guardduty:detector/publishingDestination`
-- `guardduty:detector/threatintelset`
-- `guardduty:malware-protection-plan`
+<a name="services-guardduty"></a>
++ `guardduty:detector`
++ `guardduty:detector/filter`
++ `guardduty:detector/ipset`
++ `guardduty:detector/publishingDestination`
++ `guardduty:detector/threatintelset`
++ `guardduty:malware-protection-plan`
 
 ### AWS HealthLake
-
-- `healthlake:datastore/fhir`
+<a name="services-healthlake"></a>
++ `healthlake:datastore/fhir`
 
 ### AWS HealthOmics
-
-- `omics:referenceStore`
-- `omics:runGroup`
-- `omics:workflow`
+<a name="services-omics"></a>
++ `omics:referenceStore`
++ `omics:runGroup`
++ `omics:workflow`
 
 ### IAM Access Analyzer
-
-- `access-analyzer:analyzer`
+<a name="services-access-analyzer"></a>
++ `access-analyzer:analyzer`
 
 ### Amazon IVS
-
-- `ivschat:logging-configuration`
-- `ivschat:room`
+<a name="services-ivschat"></a>
++ `ivschat:logging-configuration`
++ `ivschat:room`
 
 ### AWS Identity and Access Management
-
-- `iam:group`
-- `iam:instance-profile`
-- `iam:mfa`
-- `iam:oidc-provider`
-- `iam:policy`
-- `iam:role`
-- `iam:saml-provider`
-- `iam:server-certificate`
-- `iam:user`
+<a name="services-iam"></a>
++ `iam:group`
++ `iam:instance-profile`
++ `iam:mfa`
++ `iam:oidc-provider`
++ `iam:policy`
++ `iam:role`
++ `iam:saml-provider`
++ `iam:server-certificate`
++ `iam:user`
 
 ### Amazon Inspector
-
-- `inspector2:filter`
+<a name="services-inspector"></a>
++ `inspector2:filter`
 
 ### Amazon Interactive Video Service
-
-- `ivs:channel`
-- `ivs:encoder-configuration`
-- `ivs:ingest-configuration`
-- `ivs:playback-key`
-- `ivs:playback-restriction-policy`
-- `ivs:recording-configuration`
-- `ivs:storage-configuration`
-- `ivs:stream-key`
+<a name="services-ivs"></a>
++ `ivs:channel`
++ `ivs:encoder-configuration`
++ `ivs:ingest-configuration`
++ `ivs:playback-key`
++ `ivs:playback-restriction-policy`
++ `ivs:recording-configuration`
++ `ivs:storage-configuration`
++ `ivs:stream-key`
 
 ### AWS IoT
-
-- `iot:authorizer`
-- `iot:billinggroup`
-- `iot:cacert`
-- `iot:cert`
-- `iot:fleetmetric`
-- `iot:job`
-- `iot:jobtemplate`
-- `iot:mitigationaction`
-- `iot:policy`
-- `iot:provisioningtemplate`
-- `iot:rolealias`
-- `iot:rule`
-- `iot:ruledestination`
-- `iot:scheduledaudit`
-- `iot:securityprofile`
-- `iot:thing`
-- `iot:thinggroup`
-- `iot:thingtype`
+<a name="services-iot"></a>
++ `iot:authorizer`
++ `iot:billinggroup`
++ `iot:cacert`
++ `iot:cert`
++ `iot:fleetmetric`
++ `iot:job`
++ `iot:jobtemplate`
++ `iot:mitigationaction`
++ `iot:policy`
++ `iot:provisioningtemplate`
++ `iot:rolealias`
++ `iot:rule`
++ `iot:ruledestination`
++ `iot:scheduledaudit`
++ `iot:securityprofile`
++ `iot:thing`
++ `iot:thinggroup`
++ `iot:thingtype`
 
 ### AWS IoT Core Device Advisor
-
-- `iotdeviceadvisor:suitedefinition`
+<a name="services-iotdeviceadvisor"></a>
++ `iotdeviceadvisor:suitedefinition`
 
 ### AWS IoT FleetWise
-
-- `iotfleetwise:decoder-manifest`
-- `iotfleetwise:model-manifest`
-- `iotfleetwise:signal-catalog`
-- `iotfleetwise:vehicle`
+<a name="services-iotfleetwise"></a>
++ `iotfleetwise:decoder-manifest`
++ `iotfleetwise:model-manifest`
++ `iotfleetwise:signal-catalog`
++ `iotfleetwise:vehicle`
 
 ### AWS IoT Greengrass
-
-- `greengrass:components:versions`
-- `greengrass:connectorsDefinition`
-- `greengrass:coresDefinition`
-- `greengrass:devicesDefinition`
-- `greengrass:functionsDefinition`
-- `greengrass:groups`
-- `greengrass:loggersDefinition`
-- `greengrass:resourcesDefinition`
-- `greengrass:subscriptionsDefinition`
+<a name="services-greengrass"></a>
++ `greengrass:components:versions`
++ `greengrass:connectorsDefinition`
++ `greengrass:coresDefinition`
++ `greengrass:devicesDefinition`
++ `greengrass:functionsDefinition`
++ `greengrass:groups`
++ `greengrass:loggersDefinition`
++ `greengrass:resourcesDefinition`
++ `greengrass:subscriptionsDefinition`
 
 ### AWS IoT SiteWise
-
-- `iotsitewise:access-policy`
-- `iotsitewise:asset`
-- `iotsitewise:asset-model`
-- `iotsitewise:dashboard`
-- `iotsitewise:gateway`
-- `iotsitewise:portal`
-- `iotsitewise:project`
+<a name="services-iotsitewise"></a>
++ `iotsitewise:access-policy`
++ `iotsitewise:asset`
++ `iotsitewise:asset-model`
++ `iotsitewise:dashboard`
++ `iotsitewise:gateway`
++ `iotsitewise:portal`
++ `iotsitewise:project`
 
 ### AWS IoT TwinMaker
-
-- `iottwinmaker:workspace`
-- `iottwinmaker:workspace/component-type`
-- `iottwinmaker:workspace/entity`
-- `iottwinmaker:workspace/sync-job`
+<a name="services-iottwinmaker"></a>
++ `iottwinmaker:workspace`
++ `iottwinmaker:workspace/component-type`
++ `iottwinmaker:workspace/entity`
++ `iottwinmaker:workspace/sync-job`
 
 ### AWS IoT Wireless
-
-- `iotwireless:Destination`
-- `iotwireless:DeviceProfile`
-- `iotwireless:FuotaTask`
-- `iotwireless:MulticastGroup`
-- `iotwireless:ServiceProfile`
-- `iotwireless:SidewalkAccount`
-- `iotwireless:WirelessDevice`
-- `iotwireless:WirelessGateway`
-- `iotwireless:WirelessGatewayTaskDefinition`
+<a name="services-iotwireless"></a>
++ `iotwireless:Destination`
++ `iotwireless:DeviceProfile`
++ `iotwireless:FuotaTask`
++ `iotwireless:MulticastGroup`
++ `iotwireless:ServiceProfile`
++ `iotwireless:SidewalkAccount`
++ `iotwireless:WirelessDevice`
++ `iotwireless:WirelessGateway`
++ `iotwireless:WirelessGatewayTaskDefinition`
 
 ### Amazon Kendra
-
-- `kendra:index`
-- `kendra:index/access-control-configuration`
-- `kendra:index/data-source`
-- `kendra:index/experience`
-- `kendra:index/faq`
-- `kendra:index/featured-results-set`
-- `kendra:index/query-suggestions-block-list`
-- `kendra:index/thesaurus`
+<a name="services-kendra"></a>
++ `kendra:index`
++ `kendra:index/access-control-configuration`
++ `kendra:index/data-source`
++ `kendra:index/experience`
++ `kendra:index/faq`
++ `kendra:index/featured-results-set`
++ `kendra:index/query-suggestions-block-list`
++ `kendra:index/thesaurus`
 
 ### AWS Key Management Service
-
-- `kms:key`
+<a name="services-kms"></a>
++ `kms:key`
 
 ### Amazon Kinesis
-
-- `kinesis:stream`
+<a name="services-kinesis"></a>
++ `kinesis:stream`
 
 ### Amazon Managed Service for Apache Flink
-
-- `kinesisanalytics:application`
+<a name="services-kinesisanalytics"></a>
++ `kinesisanalytics:application`
 
 ### Amazon Kinesis Video Streams
-
-- `kinesisvideo:channel`
-- `kinesisvideo:stream`
+<a name="services-kinesisvideo"></a>
++ `kinesisvideo:channel`
++ `kinesisvideo:stream`
 
 ### AWS Lambda
-
-- `lambda:code-signing-config`
-- `lambda:event-source-mapping`
-- `lambda:function`
-- `lambda:function/version`
-- `lambda:layer/version`
+<a name="services-lambda"></a>
++ `lambda:code-signing-config`
++ `lambda:event-source-mapping`
++ `lambda:function`
++ `lambda:function/version`
++ `lambda:layer/version`
 
 ### Amazon Lex
-
-- `lex:bot`
-- `lex:bot-alias`
+<a name="services-lex"></a>
++ `lex:bot`
++ `lex:bot-alias`
 
 ### AWS License Manager
-
-- `license-manager:grant`
+<a name="services-license-manager"></a>
++ `license-manager:grant`
 
 ### Amazon MQ
-
-- `mq:broker`
-- `mq:configuration`
+<a name="services-mq"></a>
++ `mq:broker`
++ `mq:configuration`
 
 ### AWS Mainframe Modernization
-
-- `m2:env`
+<a name="services-m2"></a>
++ `m2:env`
 
 ### Amazon Managed Blockchain
-
-- `managedblockchain:accessors`
+<a name="services-managedblockchain"></a>
++ `managedblockchain:accessors`
 
 ### Amazon Managed Grafana
-
-- `grafana:workspaces`
+<a name="services-grafana"></a>
++ `grafana:workspaces`
 
 ### Amazon Managed Service for Prometheus
-
-- `aps:rulegroupsnamespace`
-- `aps:workspace`
+<a name="services-aps"></a>
++ `aps:rulegroupsnamespace`
++ `aps:workspace`
 
 ### Amazon Managed Streaming for Apache Kafka
-
-- `kafka:cluster`
-- `kafka:configuration`
+<a name="services-kafka"></a>
++ `kafka:cluster`
++ `kafka:configuration`
 
 ### Amazon Managed Workflows for Apache Airflow
-
-- `airflow:environment`
+<a name="services-airflow"></a>
++ `airflow:environment`
 
 ### Amazon MemoryDB
-
-- `memorydb:acl`
-- `memorydb:cluster`
-- `memorydb:parametergroup`
-- `memorydb:snapshot`
-- `memorydb:subnetgroup`
-- `memorydb:user`
+<a name="services-memorydb"></a>
++ `memorydb:acl`
++ `memorydb:cluster`
++ `memorydb:parametergroup`
++ `memorydb:snapshot`
++ `memorydb:subnetgroup`
++ `memorydb:user`
 
 ### AWS Migration Hub Refactor Spaces
-
-- `refactor-spaces:environment`
-- `refactor-spaces:environment/application`
-- `refactor-spaces:environment/application/route`
-- `refactor-spaces:environment/application/service`
+<a name="services-refactor-spaces"></a>
++ `refactor-spaces:environment`
++ `refactor-spaces:environment/application`
++ `refactor-spaces:environment/application/route`
++ `refactor-spaces:environment/application/service`
 
 ### AWS Mobile Targeting
-
-- `mobiletargeting:apps/campaigns`
-- `mobiletargeting:apps/segments`
-- `mobiletargeting:templates/EMAIL`
-- `mobiletargeting:templates/PUSH`
-- `mobiletargeting:templates/SMS`
+<a name="services-mobiletargeting"></a>
++ `mobiletargeting:apps/campaigns`
++ `mobiletargeting:apps/segments`
++ `mobiletargeting:templates/EMAIL`
++ `mobiletargeting:templates/PUSH`
++ `mobiletargeting:templates/SMS`
 
 ### AWS Network Firewall
-
-- `network-firewall:firewall`
-- `network-firewall:firewall-policy`
-- `network-firewall:stateful-rulegroup`
-- `network-firewall:stateless-rulegroup`
+<a name="services-network-firewall"></a>
++ `network-firewall:firewall`
++ `network-firewall:firewall-policy`
++ `network-firewall:stateful-rulegroup`
++ `network-firewall:stateless-rulegroup`
 
 ### AWS Network Manager
-
-- `networkmanager:attachment`
-- `networkmanager:core-network`
-- `networkmanager:device`
-- `networkmanager:global-network`
-- `networkmanager:link`
+<a name="services-networkmanager"></a>
++ `networkmanager:attachment`
++ `networkmanager:core-network`
++ `networkmanager:device`
++ `networkmanager:global-network`
++ `networkmanager:link`
 
 ### Amazon OpenSearch Service
-
-- `es:domain`
+<a name="services-es"></a>
++ `es:domain`
 
 ### AWS Outposts
-
-- `outposts:site`
+<a name="services-outposts"></a>
++ `outposts:site`
 
 ### Amazon Personalize
-
-- `personalize:dataset`
-- `personalize:dataset-group`
-- `personalize:schema`
-- `personalize:solution`
+<a name="services-personalize"></a>
++ `personalize:dataset`
++ `personalize:dataset-group`
++ `personalize:schema`
++ `personalize:solution`
 
 ### AWS Private Certificate Authority
-
-- `acm-pca:certificate-authority`
+<a name="services-acm-pca"></a>
++ `acm-pca:certificate-authority`
 
 ### AWS Proton
-
-- `proton:environment-account-connection`
-- `proton:environment-template`
-- `proton:service-template`
+<a name="services-proton"></a>
++ `proton:environment-account-connection`
++ `proton:environment-template`
++ `proton:service-template`
 
 ### Amazon Quick
-
-- `quicksight:dataset`
-- `quicksight:datasource`
-- `quicksight:template`
-- `quicksight:theme`
+<a name="services-quicksight"></a>
++ `quicksight:dataset`
++ `quicksight:datasource`
++ `quicksight:template`
++ `quicksight:theme`
 
 ### Amazon Redshift
-
-- `redshift:cluster`
-- `redshift:eventsubscription`
-- `redshift:hsmclientcertificate`
-- `redshift:parametergroup`
-- `redshift:snapshot`
-- `redshift:snapshotcopygrant`
-- `redshift:snapshotschedule`
-- `redshift:subnetgroup`
-- `redshift:usagelimit`
+<a name="services-redshift"></a>
++ `redshift:cluster`
++ `redshift:eventsubscription`
++ `redshift:hsmclientcertificate`
++ `redshift:parametergroup`
++ `redshift:snapshot`
++ `redshift:snapshotcopygrant`
++ `redshift:snapshotschedule`
++ `redshift:subnetgroup`
++ `redshift:usagelimit`
 
 ### Amazon Rekognition
-
-- `rekognition:project`
+<a name="services-rekognition"></a>
++ `rekognition:project`
 
 ### Amazon Relational Database Service (Amazon RDS)
-
-- `rds:auto-backup`
-- `rds:cev`
-- `rds:cluster`
-- `rds:cluster-endpoint`
-- `rds:cluster-pg`
-- `rds:cluster-snapshot`
-- `rds:db`
-- `rds:db-proxy`
-- `rds:db-proxy-endpoint`
-- `rds:deployment`
-- `rds:es`
-- `rds:global-cluster`
-- `rds:og`
-- `rds:pg`
-- `rds:ri`
-- `rds:secgrp`
-- `rds:snapshot`
-- `rds:subgrp`
+<a name="services-rds"></a>
++ `rds:auto-backup`
++ `rds:cev`
++ `rds:cluster`
++ `rds:cluster-endpoint`
++ `rds:cluster-pg`
++ `rds:cluster-snapshot`
++ `rds:db`
++ `rds:db-proxy`
++ `rds:db-proxy-endpoint`
++ `rds:deployment`
++ `rds:es`
++ `rds:global-cluster`
++ `rds:og`
++ `rds:pg`
++ `rds:ri`
++ `rds:secgrp`
++ `rds:snapshot`
++ `rds:subgrp`
 
 ### AWS Resilience Hub
-
-- `resiliencehub:app`
-- `resiliencehub:resiliency-policy`
+<a name="services-resiliencehub"></a>
++ `resiliencehub:app`
++ `resiliencehub:resiliency-policy`
 
 ### AWS Resource Access Manager
-
-- `ram:permission`
-- `ram:resource-share`
+<a name="services-ram"></a>
++ `ram:permission`
++ `ram:resource-share`
 
 ### AWS Resource Groups
-
-- `resource-groups:group`
+<a name="services-resource-groups"></a>
++ `resource-groups:group`
 
 ### AWS Resource Explorer
-
-- `resource-explorer-2:index`
-- `resource-explorer-2:view`
+<a name="services-resource-explorer-2"></a>
++ `resource-explorer-2:index`
++ `resource-explorer-2:view`
 
 ### Amazon Route 53
-
-- `route53:domain`
-- `route53:healthcheck`
-- `route53:hostedzone`
+<a name="services-route53"></a>
++ `route53:domain`
++ `route53:healthcheck`
++ `route53:hostedzone`
 
 ### Amazon Route 53 Recovery Readiness
-
-- `route53-recovery-readiness:cell`
-- `route53-recovery-readiness:readiness-check`
-- `route53-recovery-readiness:recovery-group`
-- `route53-recovery-readiness:resource-set`
+<a name="services-route53-recovery-readiness"></a>
++ `route53-recovery-readiness:cell`
++ `route53-recovery-readiness:readiness-check`
++ `route53-recovery-readiness:recovery-group`
++ `route53-recovery-readiness:resource-set`
 
 ### Amazon Route 53 Resolver
-
-- `route53resolver:firewall-domain-list`
-- `route53resolver:firewall-rule-group`
-- `route53resolver:firewall-rule-group-association`
-- `route53resolver:resolver-endpoint`
-- `route53resolver:resolver-query-log-config`
-- `route53resolver:resolver-rule`
+<a name="services-route53resolver"></a>
++ `route53resolver:firewall-domain-list`
++ `route53resolver:firewall-rule-group`
++ `route53resolver:firewall-rule-group-association`
++ `route53resolver:resolver-endpoint`
++ `route53resolver:resolver-query-log-config`
++ `route53resolver:resolver-rule`
 
 ### Amazon Glacier
-
-- `glacier:vaults`
+<a name="services-glacier"></a>
++ `glacier:vaults`
 
 ### Amazon SageMaker AI
-
-- `sagemaker:action`
-- `sagemaker:algorithm`
-- `sagemaker:app`
-- `sagemaker:app-image-config`
-- `sagemaker:artifact`
-- `sagemaker:cluster`
-- `sagemaker:code-repository`
-- `sagemaker:context`
-- `sagemaker:domain`
-- `sagemaker:endpoint`
-- `sagemaker:endpoint-config`
-- `sagemaker:experiment`
-- `sagemaker:experiment-trial`
-- `sagemaker:experiment-trial-component`
-- `sagemaker:feature-group`
-- `sagemaker:flow-definition`
-- `sagemaker:hub`
-- `sagemaker:hub-content`
-- `sagemaker:human-loop`
-- `sagemaker:human-task-ui`
-- `sagemaker:image`
-- `sagemaker:image-version`
-- `sagemaker:inference-component`
-- `sagemaker:inference-experiment`
-- `sagemaker:mlflow-tracking-server`
-- `sagemaker:model`
-- `sagemaker:model-card`
-- `sagemaker:model-package`
-- `sagemaker:model-package-group`
-- `sagemaker:monitoring-schedule`
-- `sagemaker:notebook-instance`
-- `sagemaker:notebook-instance-lifecycle-config`
-- `sagemaker:partner-app`
-- `sagemaker:pipeline`
-- `sagemaker:project`
-- `sagemaker:space`
-- `sagemaker:studio-lifecycle-config`
-- `sagemaker:user-profile`
-- `sagemaker:workforce`
-- `sagemaker:workteam`
+<a name="services-sagemaker"></a>
++ `sagemaker:action`
++ `sagemaker:algorithm`
++ `sagemaker:app`
++ `sagemaker:app-image-config`
++ `sagemaker:artifact`
++ `sagemaker:cluster`
++ `sagemaker:code-repository`
++ `sagemaker:context`
++ `sagemaker:domain`
++ `sagemaker:endpoint`
++ `sagemaker:endpoint-config`
++ `sagemaker:experiment`
++ `sagemaker:experiment-trial`
++ `sagemaker:experiment-trial-component`
++ `sagemaker:feature-group`
++ `sagemaker:flow-definition`
++ `sagemaker:hub`
++ `sagemaker:hub-content`
++ `sagemaker:human-loop`
++ `sagemaker:human-task-ui`
++ `sagemaker:image`
++ `sagemaker:image-version`
++ `sagemaker:inference-component`
++ `sagemaker:inference-experiment`
++ `sagemaker:mlflow-tracking-server`
++ `sagemaker:model`
++ `sagemaker:model-card`
++ `sagemaker:model-package`
++ `sagemaker:model-package-group`
++ `sagemaker:monitoring-schedule`
++ `sagemaker:notebook-instance`
++ `sagemaker:notebook-instance-lifecycle-config`
++ `sagemaker:partner-app`
++ `sagemaker:pipeline`
++ `sagemaker:project`
++ `sagemaker:space`
++ `sagemaker:studio-lifecycle-config`
++ `sagemaker:user-profile`
++ `sagemaker:workforce`
++ `sagemaker:workteam`
 
 ### AWS Secrets Manager
-
-- `secretsmanager:secret`
+<a name="services-secretsmanager"></a>
++ `secretsmanager:secret`
 
 ### AWS Service Catalog
-
-- `servicecatalog:applications`
-- `servicecatalog:attribute-groups`
+<a name="services-servicecatalog"></a>
++ `servicecatalog:applications`
++ `servicecatalog:attribute-groups`
 
 ### AWS Signer
-
-- `signer:signing-profiles`
+<a name="services-signer"></a>
++ `signer:signing-profiles`
 
 ### Amazon Simple Email Service
-
-- `ses:configuration-set`
-- `ses:contact-list`
-- `ses:dedicated-ip-pool`
-- `ses:identity`
+<a name="services-ses"></a>
++ `ses:configuration-set`
++ `ses:contact-list`
++ `ses:dedicated-ip-pool`
++ `ses:identity`
 
 ### Amazon Simple Notification Service
-
-- `sns:topic`
+<a name="services-sns"></a>
++ `sns:topic`
 
 ### Amazon Simple Queue Service
-
-- `sqs:queue`
+<a name="services-sqs"></a>
++ `sqs:queue`
 
 ### Amazon Simple Storage Service (Amazon S3)
-
-- `s3:accesspoint`
-- `s3:bucket`
-- `s3:multiregionaccesspoint`
-- `s3:storage-lens`
-- `s3:storage-lens-group`
+<a name="services-s3"></a>
++ `s3:accesspoint`
++ `s3:bucket`
++ `s3:multiregionaccesspoint`
++ `s3:storage-lens`
++ `s3:storage-lens-group`
 
 ### AWS Step Functions States Language
-
-- `states:activity`
-- `states:stateMachine`
+<a name="services-states"></a>
++ `states:activity`
++ `states:stateMachine`
 
 ### Storage Gateway
-
-- `storagegateway:gateway`
-- `storagegateway:share`
+<a name="services-storagegateway"></a>
++ `storagegateway:gateway`
++ `storagegateway:share`
 
 ### AWS Systems Manager
-
-- `ssm:association`
-- `ssm:document`
-- `ssm:maintenancewindow`
-- `ssm:managed-instance`
-- `ssm:parameter`
-- `ssm:resource-data-sync`
-- `ssm:session`
-- `ssm:windowtarget`
-- `ssm:windowtask`
+<a name="services-ssm"></a>
++ `ssm:association`
++ `ssm:document`
++ `ssm:maintenancewindow`
++ `ssm:managed-instance`
++ `ssm:parameter`
++ `ssm:resource-data-sync`
++ `ssm:session`
++ `ssm:windowtarget`
++ `ssm:windowtask`
 
 ### AWS Transfer Family
-
-- `transfer:agreement`
-- `transfer:certificate`
-- `transfer:connector`
-- `transfer:profile`
-- `transfer:server`
-- `transfer:user`
-- `transfer:workflow`
+<a name="services-transfer"></a>
++ `transfer:agreement`
++ `transfer:certificate`
++ `transfer:connector`
++ `transfer:profile`
++ `transfer:server`
++ `transfer:user`
++ `transfer:workflow`
 
 ### Amazon WorkSpaces
-
-- `workspaces:connectionalias`
-- `workspaces:workspace`
+<a name="services-workspaces"></a>
++ `workspaces:connectionalias`
++ `workspaces:workspace`
 
 ### Amazon Bedrock AgentCore
-
-- `bedrock-agentcore:runtime`
+<a name="services-bedrock-agentcore"></a>
++ `bedrock-agentcore:runtime`
 
 ### AWS Budgets
-
-- `budgets:budget`
-- `budgets:budget/action`
+<a name="services-budgets"></a>
++ `budgets:budget`
++ `budgets:budget/action`
 
 ### AWS Clean Rooms
-
-- `cleanrooms:collaboration`
+<a name="services-cleanrooms"></a>
++ `cleanrooms:collaboration`
 
 ### Amazon Data Lifecycle Manager
-
-- `dlm:policy`
+<a name="services-dlm"></a>
++ `dlm:policy`
 
 ### Amazon Kendra Intelligent Ranking
-
-- `kendra-ranking:rescore-execution-plan`
+<a name="services-kendra-ranking"></a>
++ `kendra-ranking:rescore-execution-plan`
 
 ### AWS Elemental MediaConnect
-
-- `mediaconnect:flow`
-- `mediaconnect:gateway`
+<a name="services-mediaconnect"></a>
++ `mediaconnect:flow`
++ `mediaconnect:gateway`
 
 ### AWS Well-Architected Tool
-
-- `wellarchitected:workload`
+<a name="services-wellarchitected"></a>
++ `wellarchitected:workload`
 
 ### AWS X-Ray
-
-- `xray:sampling-rule`
+<a name="services-xray"></a>
++ `xray:sampling-rule`
 
 ## Programmatically accessing the list of supported resource types
+<a name="programmatic-access"></a>
 
-To access the list of supported resource types from code, you can invoke the [ListSupportedResourceTypes](../apireference/API_ListSupportedResourceTypes.md "../apireference/API_ListSupportedResourceTypes.md") operation from any AWS SDK.
+To access the list of supported resource types from code, you can invoke the [ListSupportedResourceTypes](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_ListSupportedResourceTypes.html) operation from any AWS SDK.
 
-For example, you can run the [list-supported-resource-types](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/resource-explorer-2/list-supported-resource-types.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/resource-explorer-2/list-supported-resource-types.html") AWS Command Line Interface (AWS CLI) command, as shown in the
-following example.
+For example, you can run the [list-supported-resource-types](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/resource-explorer-2/list-supported-resource-types.html) AWS Command Line Interface (AWS CLI) command, as shown in the following example.
 
 ```
-`$` `aws resource-explorer-2 list-supported-resource-types``{
- "ResourceTypes": [
- {
- "ResourceType": "acm-pca:certificate-authority",
- "Service": "acm-pca"
- },
- {
- "ResourceType": "airflow:environment",
- "Service": "airflow"
- },
- {
- "ResourceType": "amplify:branches",
- "Service": "amplify"
- },
-***... truncated for brevity ...***`
+$ aws resource-explorer-2 list-supported-resource-types
+{
+    "ResourceTypes": [
+        {
+            "ResourceType": "acm-pca:certificate-authority",
+            "Service": "acm-pca"
+        },
+        {
+            "ResourceType": "airflow:environment",
+            "Service": "airflow"
+        },
+        {
+            "ResourceType": "amplify:branches",
+            "Service": "amplify"
+        },
+... truncated for brevity ...
 ```
 
 ## Resource types that appear as other types
+<a name="resource-type-exceptions"></a>
 
-Some resource types are identified by [Amazon resource name (ARN)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") strings that share a common
-format with another resource type. When this happens, Resource Explorer can report such resources
-as that other resource type. This affects the resource types in the following
-table.
+Some resource types are identified by [Amazon resource name (ARN)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) strings that share a common format with another resource type. When this happens, Resource Explorer can report such resources as that other resource type. This affects the resource types in the following table.
 
-| Actual resource type                                                                                  | Reported as resource type           |
-| ----------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| `ec2:securitygroupegress`<br>`ec2:securitygroupingress`                                               | `ec2:security-group-rule`           |
-| `elasticloadbalancingv2:loadbalancer`                                                                 | `elasticloadbalancing:loadbalancer` |
-| `docdb:dbcluster`<br>`neptune:dbcluster`<br>`rds:dbcluster`                                           | `rds:cluster`                       |
-| `docdb:dbclusterparametergroup`<br>`neptune:dbclusterparametergroup`<br>`rds:dbclusterparametergroup` | `rds:cluster-pg`                    |
-| `docdb:clustersnapshot`<br>`neptune:dbclustersnapshot`<br>`rds:clustersnapshot`                       | `rds:cluster-snapshot`              |
-| `docdb:dbinstance`<br>`neptune:dbinstance`<br>`rds:dbinstance`                                        | `rds:db`                            |
-| `docdb:eventsubscription`<br>`neptune:eventsubscription`<br>`rds:eventsubscription`                   | `rds:es`                            |
-| `docdb:globalcluster`<br>`rds:globalcluster`                                                          | `rds:global-cluster`                |
-| `neptune:dbparametergroup`<br>`rds:dbparametergroup`                                                  | `rds:pg`                            |
-| `docdb:dbsubnetgroup`<br>`neptune:dbsubnetgroup`<br>`rds:dbsubnetgroup`                               | `rds:subgrp`                        |
+
+| Actual resource type | Reported as resource type | 
+| --- | --- | 
+| `ec2:securitygroupegress`<br />`ec2:securitygroupingress` | `ec2:security-group-rule` | 
+| `elasticloadbalancingv2:loadbalancer` | `elasticloadbalancing:loadbalancer` | 
+| `docdb:dbcluster`<br />`neptune:dbcluster`<br />`rds:dbcluster` | `rds:cluster` | 
+| `docdb:dbclusterparametergroup`<br />`neptune:dbclusterparametergroup`<br />`rds:dbclusterparametergroup` | `rds:cluster-pg` | 
+| `docdb:clustersnapshot`<br />`neptune:dbclustersnapshot`<br />`rds:clustersnapshot` | `rds:cluster-snapshot` | 
+| `docdb:dbinstance`<br />`neptune:dbinstance`<br />`rds:dbinstance` | `rds:db` | 
+| `docdb:eventsubscription`<br />`neptune:eventsubscription`<br />`rds:eventsubscription` | `rds:es` | 
+| `docdb:globalcluster`<br />`rds:globalcluster` | `rds:global-cluster` | 
+| `neptune:dbparametergroup`<br />`rds:dbparametergroup` | `rds:pg` | 
+| `docdb:dbsubnetgroup`<br />`neptune:dbsubnetgroup`<br />`rds:dbsubnetgroup` | `rds:subgrp` | 

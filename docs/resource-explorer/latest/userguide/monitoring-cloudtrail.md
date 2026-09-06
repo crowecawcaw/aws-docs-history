@@ -1,93 +1,60 @@
+
+
 # Logging AWS Resource Explorer API calls using AWS CloudTrail
+<a name="monitoring-cloudtrail"></a>
 
-AWS Resource Explorer is integrated with AWS CloudTrail, a service that provides a record of actions taken
-by a user, role, or an AWS service in Resource Explorer. CloudTrail captures all API calls for Resource Explorer
-as events. The calls captured include calls from the Resource Explorer console and code calls to the
-Resource Explorer API operations.
+AWS Resource Explorer is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Resource Explorer. CloudTrail captures all API calls for Resource Explorer as events. The calls captured include calls from the Resource Explorer console and code calls to the Resource Explorer API operations. 
 
-If you create a _trail_, you can enable continuous
-delivery of CloudTrail events to an Amazon S3 bucket, including events for Resource Explorer. A trail is a
-configuration that enables delivery of events as log files to an Amazon S3 bucket that you
-specify. If you don't configure a trail, you can still view the most recent events in the
-CloudTrail console in **Event history**. Using the information collected by CloudTrail,
-you can determine the request that was made to Resource Explorer, the IP address from which the
-request was made, who made the request, when it was made, and additional details.
+If you create a *trail*, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Resource Explorer. A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Resource Explorer, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/).
 
 ## Resource Explorer information in CloudTrail
+<a name="service-name-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in Resource Explorer, that activity is recorded in a CloudTrail event along with other
-AWS service events in **Event history**. You can view, search, and
-download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event
-history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Resource Explorer, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-###### Important
+**Important**  
+You can find all Resource Explorer events by searching for **Event source** = **resource-explorer-2.amazonaws.com**
 
-You can find all Resource Explorer events by searching for **Event source**
-= **resource-explorer-2.amazonaws.com**
+For an ongoing record of events in your AWS account, including events for Resource Explorer, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following topics in the *AWS CloudTrail User Guide*:
++ [Creating a trail for your AWS account](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [AWS service integrations with CloudTrail Logs](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
++ [Receiving CloudTrail log files from multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html)
++ [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-For an ongoing record of events in your AWS account, including events for Resource Explorer,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an
-Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs. For more information, see the following topics in the _AWS CloudTrail User Guide_:
+All Resource Explorer actions are logged by CloudTrail and are documented in the [AWS Resource Explorer API Reference](https://docs.aws.amazon.com/resource-explorer/latest/apireference/). For example, calls to the `CreateIndex`, `DeleteIndex`, and `UpdateIndex` actions generate entries in the CloudTrail log files.
 
-- [Creating a
-  trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [AWS service integrations with CloudTrail Logs](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring
-  Amazon SNS notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail log files from multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-- [Receiving CloudTrail log files from multiple accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+Every event or log entry contains information that helps you determine who made the request.
++ AWS account root credentials
++ Temporary security credentials from an AWS Identity and Access Management (IAM) role or federated user.
++ Long-term security credentials from an IAM user.
++ Another AWS service.
 
-All Resource Explorer actions are logged by CloudTrail and are documented in the [AWS Resource Explorer API Reference](../apireference.md "../apireference.md"). For example,
-calls to the `CreateIndex`, `DeleteIndex`, and
-`UpdateIndex` actions generate entries in the CloudTrail log files.
+**Important**  
+For security reasons, all `Tags`, `Filters`, and `QueryString` values are redacted from the CloudTrail trail entries.
 
-Every event or log entry contains information that helps you determine who made the
-request.
-
-- AWS account root credentials
-- Temporary security credentials from an AWS Identity and Access Management (IAM) role or federated
-  user.
-- Long-term security credentials from an IAM user.
-- Another AWS service.
-
-###### Important
-
-For security reasons, all `Tags`, `Filters`, and
-`QueryString` values are redacted from the CloudTrail trail entries.
-
-For more information, see the [CloudTrail userIdentity
-element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding Resource Explorer log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-###### Topics
-
-- [CreateIndex](#ct-createindex "#ct-createindex")
-- [DeleteIndex](#ct-deleteindex "#ct-deleteindex")
-- [UpdateIndexType](#ct-updateindextype "#ct-updateindextype")
-- [Search](#ct-search "#ct-search")
-- [CreateView](#ct-createview "#ct-createview")
-- [DeleteView](#ct-deleteview "#ct-deleteview")
-- [DisassociateDefaultView](#ct-disassociatedefaultview "#ct-disassociatedefaultview")
+**Topics**
++ [CreateIndex](#ct-createindex)
++ [DeleteIndex](#ct-deleteindex)
++ [UpdateIndexType](#ct-updateindextype)
++ [Search](#ct-search)
++ [CreateView](#ct-createview)
++ [DeleteView](#ct-deleteview)
++ [DisassociateDefaultView](#ct-disassociatedefaultview)
 
 ### CreateIndex
+<a name="ct-createindex"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateIndex` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateIndex` action.
 
 ```
 {
@@ -138,15 +105,12 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DeleteIndex
+<a name="ct-deleteindex"></a>
 
-The following example shows a CloudTrail long entry that demonstrates the
-`DeleteIndex` action.
+The following example shows a CloudTrail long entry that demonstrates the `DeleteIndex` action.
 
-###### Note
-
-This action also asynchronously deletes all views for the account in that
-Region, which results in a `DeleteView` event for each deleted
-view.
+**Note**  
+This action also asynchronously deletes all views for the account in that Region, which results in a `DeleteView` event for each deleted view.
 
 ```
 {
@@ -197,10 +161,9 @@ view.
 ```
 
 ### UpdateIndexType
+<a name="ct-updateindextype"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`UpdateIndexType` action to promote an index from type
-`LOCAL` to `AGGREGATOR`.
+The following example shows a CloudTrail log entry that demonstrates the `UpdateIndexType` action to promote an index from type `LOCAL` to `AGGREGATOR`.
 
 ```
 {
@@ -253,15 +216,12 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### Search
+<a name="ct-search"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`Search` action.
+The following example shows a CloudTrail log entry that demonstrates the `Search` action.
 
-###### Note
-
-For security reasons, all references to `Tag`,
-`Filters`, and `QueryString` parameters are redacted in
-the CloudTrail trail entries.
+**Note**  
+For security reasons, all references to `Tag`, `Filters`, and `QueryString` parameters are redacted in the CloudTrail trail entries.
 
 ```
 {
@@ -308,9 +268,9 @@ the CloudTrail trail entries.
 ```
 
 ### CreateView
+<a name="ct-createview"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the
-`CreateView` action.
+The following example shows a CloudTrail log entry that demonstrates the `CreateView` action.
 
 ```
 {
@@ -367,16 +327,12 @@ The following example shows a CloudTrail log entry that demonstrates the
 ```
 
 ### DeleteView
+<a name="ct-deleteview"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the event that can
-occur when the `DeleteView` action starts automatically because of a
-`DeleteIndex` operation in the same AWS Region.
+The following example shows a CloudTrail log entry that demonstrates the event that can occur when the `DeleteView` action starts automatically because of a `DeleteIndex` operation in the same AWS Region.
 
-###### Note
-
-If the deleted view is the default view for the Region, this action
-asynchronously also disassociates the view as the default. This produces a
-`DisassociateDefaultView` event.
+**Note**  
+If the deleted view is the default view for the Region, this action asynchronously also disassociates the view as the default. This produces a `DisassociateDefaultView` event.
 
 ```
 {
@@ -425,10 +381,9 @@ asynchronously also disassociates the view as the default. This produces a
 ```
 
 ### DisassociateDefaultView
+<a name="ct-disassociatedefaultview"></a>
 
-The following example shows a CloudTrail log entry that demonstrates the event that can
-occur when the `DisassociateDefaultView` action starts automatically
-because of a `DeleteView` operation on the current default view.
+The following example shows a CloudTrail log entry that demonstrates the event that can occur when the `DisassociateDefaultView` action starts automatically because of a `DeleteView` operation on the current default view.
 
 ```
 {
