@@ -1,12 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Create scheduled query
+<a name="code-samples.create-scheduledquery"></a>
 
-You can use the following code snippets to create a scheduled query with multi-measure
-mapping.
+You can use the following code snippets to create a scheduled query with multi-measure mapping.
 
-Java
+------
+#### [  Java  ]
 
 ```
 public static String DATABASE_NAME = "devops_sample_application";
@@ -30,9 +32,9 @@ public static String QUERY = "SELECT region, az, hostname, BIN(time, 15s) AS bin
 "LIMIT 5";
 
 
-public String createScheduledQuery(String topic_arn,
-    String role_arn,
-    String database_name,
+public String createScheduledQuery(String topic_arn, 
+    String role_arn, 
+    String database_name, 
     String table_name) {
     System.out.println("Creating Scheduled Query");
 
@@ -91,7 +93,8 @@ public String createScheduledQuery(String topic_arn,
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 public static String DATABASE_NAME = "testJavaV2DB";
@@ -116,7 +119,7 @@ public static String VALID_QUERY = "SELECT region, az, hostname, BIN(time, 15s) 
 
 
 private String createScheduledQueryHelper(String topicArn, String roleArn,
-        String s3ErrorReportBucketName, String query,
+        String s3ErrorReportBucketName, String query, 
         TargetConfiguration targetConfiguration) {
     System.out.println("Creating Scheduled Query");
 
@@ -197,7 +200,8 @@ public String createScheduledQuery(String topicArn, String roleArn,
 }}
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 SQ_ERROR_CONFIGURATION_S3_BUCKET_NAME_PREFIX = "sq-error-configuration-sample-s3-bucket-"
@@ -312,7 +316,8 @@ return "", err
  }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 HOSTNAME = "host-24Gju"
@@ -394,8 +399,10 @@ def create_valid_scheduled_query(self, topic_arn, role_arn):
     return self.create_scheduled_query_helper(topic_arn, role_arn, QUERY, target_configuration)
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js).
 
 ```
 const DATABASE_NAME = 'devops_sample_application';
@@ -497,7 +504,8 @@ async function createScheduledQuery(topicArn, roleArn, s3ErrorReportBucketName) 
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 public const string Hostname = "host-24Gju";
@@ -628,3 +636,5 @@ private async Task<String> CreateScheduledQuery(string topicArn, string roleArn,
      }
  }
 ```
+
+------

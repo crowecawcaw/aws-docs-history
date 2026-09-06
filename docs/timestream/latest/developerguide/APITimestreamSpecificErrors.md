@@ -1,72 +1,60 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Timestream for LiveAnalytics specific error codes
+<a name="APITimestreamSpecificErrors"></a>
 
-This section contains the specific error codes for Timestream for LiveAnalytics.
+This section contains the specific error codes for Timestream for LiveAnalytics. 
 
 ## Timestream for LiveAnalytics write API errors
+<a name="APITimestreamSpecificErrors.write"></a>
 
-****InternalServerException****
+****InternalServerException****  
+ HTTP Status Code: 500
 
-HTTP Status Code: 500
+**ThrottlingException**  
+ HTTP Status Code: 429
 
-**ThrottlingException**
+**ValidationException**  
+ HTTP Status Code: 400
 
-HTTP Status Code: 429
+**ConflictException**  
+ HTTP Status Code: 409
 
-**ValidationException**
+**AccessDeniedException**  
+You do not have sufficient access to perform this action.  
+ HTTP Status Code: 403
 
-HTTP Status Code: 400
+**ServiceQuotaExceededException**  
+ HTTP Status Code: 402
 
-**ConflictException**
+**ResourceNotFoundException**  
+ HTTP Status Code: 404
 
-HTTP Status Code: 409
+**RejectedRecordsException**  
+ HTTP Status Code: 419
 
-**AccessDeniedException**
-
-You do not have sufficient access to perform this action.
-
-HTTP Status Code: 403
-
-**ServiceQuotaExceededException**
-
-HTTP Status Code: 402
-
-**ResourceNotFoundException**
-
-HTTP Status Code: 404
-
-**RejectedRecordsException**
-
-HTTP Status Code: 419
-
-**InvalidEndpointException**
-
-HTTP Status Code: 421
+**InvalidEndpointException**  
+ HTTP Status Code: 421
 
 ## Timestream for LiveAnalytics query API errors
+<a name="APITimestreamSpecificErrors.query"></a>
 
-**ValidationException**
+**ValidationException**  
+ HTTP Status Code: 400
 
-HTTP Status Code: 400
+**QueryExecutionException**  
+ HTTP Status Code: 400
 
-**QueryExecutionException**
+**ConflictException**  
+ HTTP Status Code: 409
 
-HTTP Status Code: 400
+**ThrottlingException**  
+ HTTP Status Code: 429
 
-**ConflictException**
+**InternalServerException**  
+ HTTP Status Code: 500
 
-HTTP Status Code: 409
-
-**ThrottlingException**
-
-HTTP Status Code: 429
-
-**InternalServerException**
-
-HTTP Status Code: 500
-
-**InvalidEndpointException**
-
-HTTP Status Code: 421
+**InvalidEndpointException**  
+ HTTP Status Code: 421

@@ -1,16 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # List databases
+<a name="code-samples.list-db"></a>
 
 You can use the following code snippets to list your databases.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void listDatabases() {
@@ -29,7 +30,7 @@ Java
             nextToken = nextResult.getNextToken();
         }
     }
-
+    
     private void printDatabases(List<Database> databases) {
         for (Database db : databases) {
             System.out.println(db.getDatabaseName());
@@ -37,7 +38,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void listDatabases() {
@@ -51,7 +53,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // List databases.
@@ -72,7 +75,8 @@ Go
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def list_databases(self):
@@ -89,10 +93,12 @@ Python
             print("List databases failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class ListDatabasesCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listdatabasescommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listdatabasescommand.md") and [ListDatabases](API_ListDatabases.md "API_ListDatabases.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class ListDatabasesCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listdatabasescommand.html) and [ListDatabases](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListDatabases.html).
 
 ```
 import { TimestreamWriteClient, ListDatabasesCommand } from "@aws-sdk/client-timestream-write";
@@ -127,7 +133,7 @@ async function getDatabasesList(nextToken) {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function listDatabases() {
@@ -163,7 +169,8 @@ function getDatabasesList(nextToken, databases = []) {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task ListDatabases()
@@ -194,3 +201,5 @@ function getDatabasesList(nextToken, databases = []) {
 
         }
 ```
+
+------

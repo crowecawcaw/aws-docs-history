@@ -1,11 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Execute scheduled query
+<a name="code-samples.execute-scheduledquery"></a>
 
 You can use the following code snippets to run a scheduled query.
 
-Java
+------
+#### [  Java  ]
 
 ```
 public void executeScheduledQueries(String scheduledQueryArn, Date invocationTime) {
@@ -26,11 +29,10 @@ public void executeScheduledQueries(String scheduledQueryArn, Date invocationTim
         throw e;
     }
 }
-
-
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 public void executeScheduledQuery(String scheduledQueryArn) {
@@ -56,17 +58,18 @@ public void executeScheduledQuery(String scheduledQueryArn) {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 func (timestreamBuilder TimestreamBuilder) ExecuteScheduledQuery(scheduledQueryArn string, invocationTime time.Time) error {
-
+ 
      executeScheduledQueryInput := &timestreamquery.ExecuteScheduledQueryInput{
          ScheduledQueryArn: aws.String(scheduledQueryArn),
          InvocationTime:    aws.Time(invocationTime),
      }
      executeScheduledQueryOutput, err := timestreamBuilder.QuerySvc.ExecuteScheduledQuery(executeScheduledQueryInput)
-
+ 
      if err != nil {
          if aerr, ok := err.(awserr.Error); ok {
              switch aerr.Code() {
@@ -87,7 +90,8 @@ func (timestreamBuilder TimestreamBuilder) ExecuteScheduledQuery(scheduledQueryA
  }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def execute_scheduled_query(self, scheduled_query_arn, invocation_time):
@@ -103,8 +107,10 @@ def execute_scheduled_query(self, scheduled_query_arn, invocation_time):
         raise err
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js).
 
 ```
 async function executeScheduledQuery(scheduledQueryArn, invocationTime) {
@@ -122,7 +128,8 @@ async function executeScheduledQuery(scheduledQueryArn, invocationTime) {
  }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 private async Task ExecuteScheduledQuery(string scheduledQueryArn, DateTime invocationTime)
@@ -149,3 +156,5 @@ private async Task ExecuteScheduledQuery(string scheduledQueryArn, DateTime invo
      }
  }
 ```
+
+------

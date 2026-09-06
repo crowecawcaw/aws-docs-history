@@ -1,11 +1,18 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # `catalog-sync-interval`
+<a name="catalog-sync-interval"></a>
 
-Parameter Details| **Default** | 1 second |
-| **Allowed Values** | Duration |
-| **Category** | Catalog Synchronization |
+
+**Parameter Details**  
+
+|  |  | 
+| --- |--- |
+| Default | 1 second | 
+| Allowed Values | Duration | 
+| Category | Catalog Synchronization | 
 
 **Detailed Explanation:**
 

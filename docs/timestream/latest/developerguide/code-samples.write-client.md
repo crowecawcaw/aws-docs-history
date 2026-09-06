@@ -1,18 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Write SDK client
+<a name="code-samples.write-client"></a>
 
-You can use the following code snippets to create a Timestream client for the Write SDK.
-The Write SDK is used to perform CRUD operations and to insert your time series data into
-Timestream.
+You can use the following code snippets to create a Timestream client for the Write SDK. The Write SDK is used to perform CRUD operations and to insert your time series data into Timestream.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     private static AmazonTimestreamWrite buildWriteClient() {
@@ -29,7 +28,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     private static TimestreamWriteClient buildWriteClient() {
@@ -54,7 +54,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 tr := &http.Transport{
@@ -79,14 +80,17 @@ tr := &http.Transport{
     writeSvc := timestreamwrite.New(sess)
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 write_client = session.client('timestream-write', config=Config(read_timeout=20, max_pool_connections = 5000, retries={'max_attempts': 10})) 
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
+
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
 
 An additional command import is shown here. The `CreateDatabaseCommand` import is not required to create the client.
 
@@ -95,7 +99,7 @@ import { TimestreamWriteClient, CreateDatabaseCommand } from "@aws-sdk/client-ti
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 var https = require('https');
@@ -109,10 +113,10 @@ writeClient = new AWS.TimestreamWrite({
             agent: agent
         }
     });
-
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 var writeClientConfig = new AmazonTimestreamWriteConfig
@@ -125,9 +129,10 @@ var writeClientConfig = new AmazonTimestreamWriteConfig
 var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
 ```
 
-We recommend you use the following configuration.
+------
 
-- Set the SDK retry count to `10`.
-- Use `SDK DEFAULT_BACKOFF_STRATEGY`.
-- Set `RequestTimeout` to `20` seconds.
-- Set the max connections to `5000` or higher.
+We recommend you use the following configuration.
++ Set the SDK retry count to `10`.
++ Use `SDK DEFAULT_BACKOFF_STRATEGY`.
++ Set `RequestTimeout` to `20` seconds.
++ Set the max connections to `5000` or higher.

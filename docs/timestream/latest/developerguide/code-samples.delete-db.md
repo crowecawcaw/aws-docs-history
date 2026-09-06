@@ -1,37 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Delete database
+<a name="code-samples.delete-db"></a>
 
 You can use the following code snippet to delete a database.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
-
-```
-    public void deleteDatabase() {
-        System.out.println("Deleting database");
-        final DeleteDatabaseRequest deleteDatabaseRequest = new DeleteDatabaseRequest();
-        deleteDatabaseRequest.setDatabaseName(DATABASE_NAME);
-        try {
-            DeleteDatabaseResult result =
-                    amazonTimestreamWrite.deleteDatabase(deleteDatabaseRequest);
-            System.out.println("Delete database status: " + result.getSdkHttpMetadata().getHttpStatusCode());
-        } catch (final ResourceNotFoundException e) {
-            System.out.println("Database " + DATABASE_NAME + " doesn't exist = " + e);
-            throw e;
-        } catch (final Exception e) {
-            System.out.println("Could not delete Database " + DATABASE_NAME + " = " + e);
-            throw e;
-        }
-    }
-```
-
-Java v2
+------
+#### [  Java  ]
 
 ```
     public void deleteDatabase() {
@@ -52,7 +32,30 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Java v2  ]
+
+```
+    public void deleteDatabase() {
+        System.out.println("Deleting database");
+        final DeleteDatabaseRequest deleteDatabaseRequest = new DeleteDatabaseRequest();
+        deleteDatabaseRequest.setDatabaseName(DATABASE_NAME);
+        try {
+            DeleteDatabaseResult result =
+                    amazonTimestreamWrite.deleteDatabase(deleteDatabaseRequest);
+            System.out.println("Delete database status: " + result.getSdkHttpMetadata().getHttpStatusCode());
+        } catch (final ResourceNotFoundException e) {
+            System.out.println("Database " + DATABASE_NAME + " doesn't exist = " + e);
+            throw e;
+        } catch (final Exception e) {
+            System.out.println("Could not delete Database " + DATABASE_NAME + " = " + e);
+            throw e;
+        }
+    }
+```
+
+------
+#### [  Go  ]
 
 ```
 deleteDatabaseInput := &timestreamwrite.DeleteDatabaseInput{
@@ -69,7 +72,8 @@ deleteDatabaseInput := &timestreamwrite.DeleteDatabaseInput{
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def delete_database(self):
@@ -83,10 +87,12 @@ Python
             print("Delete database failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class DeleteDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.md") and [DeleteDatabase](API_DeleteDatabase.md "API_DeleteDatabase.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class DeleteDatabaseCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletedatabasecommand.html) and [DeleteDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteDatabase.html).
 
 ```
 import { TimestreamWriteClient, DeleteDatabaseCommand } from "@aws-sdk/client-timestream-write";
@@ -100,45 +106,46 @@ const command = new DeleteDatabaseCommand(params);
 
 try {
     const data = await writeClient.send(command);
-    console.log("Deleted database");
+    console.log("Deleted database"); 
 } catch (error) {
-    if (error.code === 'ResourceNotFoundException') {
-        console.log(`Database ${params.DatabaseName} doesn't exists.`);
-    } else {
-        console.log("Delete database failed.", error);
-        throw error;
-    }
+    if (error.code === 'ResourceNotFoundException') { 
+        console.log(`Database ${params.DatabaseName} doesn't exists.`); 
+    } else { 
+        console.log("Delete database failed.", error); 
+        throw error; 
+    } 
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
-async function deleteDatabase() {
-    console.log("Deleting Database");
-    const params = {
-        DatabaseName: constants.DATABASE_NAME
-    };
-
-    const promise = writeClient.deleteDatabase(params).promise();
-
-    await promise.then(
-        function (data) {
-            console.log("Deleted database");
-         },
-        function(err) {
-            if (err.code === 'ResourceNotFoundException') {
-                console.log(`Database ${params.DatabaseName} doesn't exists.`);
-            } else {
-                console.log("Delete database failed.", err);
-                throw err;
-            }
-        }
-    );
+async function deleteDatabase() { 
+    console.log("Deleting Database"); 
+    const params = { 
+        DatabaseName: constants.DATABASE_NAME 
+    }; 
+ 
+    const promise = writeClient.deleteDatabase(params).promise(); 
+ 
+    await promise.then( 
+        function (data) { 
+            console.log("Deleted database"); 
+         }, 
+        function(err) { 
+            if (err.code === 'ResourceNotFoundException') { 
+                console.log(`Database ${params.DatabaseName} doesn't exists.`); 
+            } else { 
+                console.log("Delete database failed.", err); 
+                throw err; 
+            } 
+        } 
+    ); 
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task DeleteDatabase()
@@ -163,3 +170,5 @@ async function deleteDatabase() {
             }
         }
 ```
+
+------

@@ -1,17 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Describe database
+<a name="code-samples.describe-db"></a>
 
-You can use the following code snippets to get information about the attributes of your
-newly created database.
+You can use the following code snippets to get information about the attributes of your newly created database.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void describeDatabase() {
@@ -30,7 +30,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void describeDatabase() {
@@ -49,7 +50,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 describeDatabaseOutput, err := writeSvc.DescribeDatabase(describeDatabaseInput)
@@ -63,7 +65,8 @@ describeDatabaseOutput, err := writeSvc.DescribeDatabase(describeDatabaseInput)
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def describe_database(self):
@@ -77,10 +80,12 @@ Python
             print("Describe database failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class DescribeDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.md") and [DescribeDatabase](API_DescribeDatabase.md "API_DescribeDatabase.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class DescribeDatabaseCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.html) and [DescribeDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeDatabase.html).
 
 ```
 import { TimestreamWriteClient, DescribeDatabaseCommand } from "@aws-sdk/client-timestream-write";
@@ -105,7 +110,7 @@ try {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function describeDatabase () {
@@ -113,9 +118,9 @@ async function describeDatabase () {
     const params = {
         DatabaseName: constants.DATABASE_NAME
     };
-
+ 
     const promise = writeClient.describeDatabase(params).promise();
-
+ 
     await promise.then(
         (data) => {
             console.log(`Database ${data.Database.DatabaseName} has id ${data.Database.Arn}`);
@@ -132,7 +137,8 @@ async function describeDatabase () {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task DescribeDatabase()
@@ -159,3 +165,5 @@ async function describeDatabase () {
 
         }
 ```
+
+------

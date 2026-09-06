@@ -1,11 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Create batch load task
+<a name="code-samples.create-batch-load"></a>
 
 You can use the following code snippets to create batch load tasks.
 
-Java
+------
+#### [  Java  ]
 
 ```
 package com.example.tryit;
@@ -28,11 +31,11 @@ import software.amazon.awssdk.services.timestreamwrite.model.TimeUnit;
 import software.amazon.awssdk.services.timestreamwrite.TimestreamWriteClient;
 
 public class BatchLoadExample {
-    public static final String DATABASE_NAME = `<database name>`;
-    public static final String TABLE_NAME = `<table name>`;
-    public static final String INPUT_BUCKET = `<S3 location>`;
-    public static final String INPUT_OBJECT_KEY_PREFIX = `<CSV filename>`;
-    public static final String REPORT_BUCKET = `<S3 location>`;
+    public static final String DATABASE_NAME = {{<database name>}};
+    public static final String TABLE_NAME = {{<table name>}};
+    public static final String INPUT_BUCKET = {{<S3 location>}};
+    public static final String INPUT_OBJECT_KEY_PREFIX = {{<CSV filename>}};
+    public static final String REPORT_BUCKET = {{<S3 location>}};
     public static final long HT_TTL_HOURS = 24L;
     public static final long CT_TTL_DAYS = 7L;
 
@@ -88,7 +91,7 @@ public class BatchLoadExample {
                                         .bucketName(INPUT_BUCKET)
                                         .objectKeyPrefix(INPUT_OBJECT_KEY_PREFIX)
                                         .build())
-                        .dataFormat("CSV")
+                        .dataFormat("CSV")                
                         .build())
                 .reportConfiguration(ReportConfiguration.builder()
                         .reportS3Configuration(ReportS3Configuration.builder()
@@ -111,7 +114,8 @@ public class BatchLoadExample {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 package main
@@ -199,24 +203,24 @@ func main() {
 
 	fmt.Println(aws.ToString(response.TaskId))
 }
-
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 import boto3
 from botocore.config import Config
 
-INGEST_ENDPOINT = "`<URL>`"
+INGEST_ENDPOINT = "{{<URL>}}"
 REGION = "us-west-2"
 HT_TTL_HOURS = 24
 CT_TTL_DAYS = 7
-DATABASE_NAME = "`<database name>`"
-TABLE_NAME = "`<table name>`"
-INPUT_BUCKET_NAME = "`<S3 location>`"
-INPUT_OBJECT_KEY_PREFIX = "`<CSV file name>`"
-REPORT_BUCKET_NAME = "`<S3 location>`"
+DATABASE_NAME = "{{<database name>}}"
+TABLE_NAME = "{{<table name>}}"
+INPUT_BUCKET_NAME = "{{<S3 location>}}"
+INPUT_OBJECT_KEY_PREFIX = "{{<CSV file name>}}"
+REPORT_BUCKET_NAME = "{{<S3 location>}}"
 
 
 def create_batch_load_task(client, database_name, table_name, input_bucket_name, input_object_key_prefix, report_bucket_name):
@@ -289,13 +293,14 @@ if __name__ == '__main__':
 
     task_id = create_batch_load_task(write_client, DATABASE_NAME, TABLE_NAME,
                                      INPUT_BUCKET_NAME, INPUT_OBJECT_KEY_PREFIX, REPORT_BUCKET_NAME)
-
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-For API details, see [Class CreateBatchLoadCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createbatchloadtaskcommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createbatchloadtaskcommand.md") and [CreateBatchLoadTask](API_CreateBatchLoadTask.md "API_CreateBatchLoadTask.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+For API details, see [Class CreateBatchLoadCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createbatchloadtaskcommand.html) and [CreateBatchLoadTask](https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateBatchLoadTask.html).
 
 ```
 import { TimestreamWriteClient, CreateBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write";
@@ -363,7 +368,8 @@ try {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 using System;
@@ -478,7 +484,6 @@ namespace TimestreamDotNetSample
         }
     }
 }
-
 ```
 
 ```
@@ -517,7 +522,7 @@ namespace TimestreamDotNetSample
                 Timeout = TimeSpan.FromSeconds(20),
                 MaxErrorRetry = 10
             };
-
+            
             var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
             var example = new CreateBatchLoadTaskExample(writeClient);
             await example.CreateBatchLoadTask();
@@ -525,3 +530,5 @@ namespace TimestreamDotNetSample
     }
 }
 ```
+
+------

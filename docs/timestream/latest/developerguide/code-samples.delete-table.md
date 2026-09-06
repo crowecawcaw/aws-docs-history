@@ -1,16 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Delete table
+<a name="code-samples.delete-table"></a>
 
 You can use the following code snippets to delete a table.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void deleteTable() {
@@ -32,7 +33,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void deleteTable() {
@@ -53,7 +55,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 deleteTableInput := &timestreamwrite.DeleteTableInput{
@@ -70,7 +73,8 @@ deleteTableInput := &timestreamwrite.DeleteTableInput{
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def delete_table(self):
@@ -84,9 +88,12 @@ Python
             print("Delete table failed:", err)
 ```
 
-Node.js The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class DeleteTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletetablecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletetablecommand.md") and [DeleteTable](API_DeleteTable.md "API_DeleteTable.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class DeleteTableCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/deletetablecommand.html) and [DeleteTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DeleteTable.html).
 
 ```
 import { TimestreamWriteClient, DeleteTableCommand } from "@aws-sdk/client-timestream-write";
@@ -101,46 +108,47 @@ const command = new DeleteTableCommand(params);
 
 try {
     const data = await writeClient.send(command);
-    console.log("Deleted table");
+    console.log("Deleted table"); 
 } catch (error) {
-    if (error.code === 'ResourceNotFoundException') {
-        console.log(`Table ${params.TableName} or Database ${params.DatabaseName} doesn't exist.`);
-    } else {
-        console.log("Delete table failed.", error);
-        throw error;
-    }
+    if (error.code === 'ResourceNotFoundException') { 
+        console.log(`Table ${params.TableName} or Database ${params.DatabaseName} doesn't exist.`); 
+    } else { 
+        console.log("Delete table failed.", error); 
+        throw error; 
+    } 
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
-async function deleteTable() {
-    console.log("Deleting Table");
-    const params = {
-        DatabaseName: constants.DATABASE_NAME,
-        TableName: constants.TABLE_NAME
-    };
+async function deleteTable() { 
+    console.log("Deleting Table"); 
+    const params = { 
+        DatabaseName: constants.DATABASE_NAME, 
+        TableName: constants.TABLE_NAME 
+    }; 
+ 
+    const promise = writeClient.deleteTable(params).promise(); 
 
-    const promise = writeClient.deleteTable(params).promise();
-
-    await promise.then(
-        function (data) {
-            console.log("Deleted table");
-        },
-        function(err) {
-            if (err.code === 'ResourceNotFoundException') {
-                console.log(`Table ${params.TableName} or Database ${params.DatabaseName} doesn't exists.`);
-            } else {
-                console.log("Delete table failed.", err);
-                throw err;
-            }
-        }
-    );
+    await promise.then( 
+        function (data) { 
+            console.log("Deleted table"); 
+        }, 
+        function(err) { 
+            if (err.code === 'ResourceNotFoundException') { 
+                console.log(`Table ${params.TableName} or Database ${params.DatabaseName} doesn't exists.`); 
+            } else { 
+                console.log("Delete table failed.", err); 
+                throw err; 
+            } 
+        } 
+    ); 
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task DeleteTable()
@@ -166,3 +174,5 @@ async function deleteTable() {
             }
         }
 ```
+
+------

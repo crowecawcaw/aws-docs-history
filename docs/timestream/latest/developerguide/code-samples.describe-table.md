@@ -1,17 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Describe table
+<a name="code-samples.describe-table"></a>
 
-You can use the following code snippets to get information about the attributes of your
-table.
+You can use the following code snippets to get information about the attributes of your table.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void describeTable() {
@@ -30,7 +30,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void describeTable() {
@@ -48,7 +49,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Describe table.
@@ -67,7 +69,8 @@ Go
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def describe_table(self):
@@ -81,10 +84,12 @@ Python
             print("Describe table failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class DescribeTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.md") and [DescribeTable](API_DescribeTable.md "API_DescribeTable.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class DescribeTableCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describedatabasecommand.html) and [DescribeTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeTable.html).
 
 ```
 import { TimestreamWriteClient, DescribeTableCommand } from "@aws-sdk/client-timestream-write";
@@ -110,7 +115,7 @@ try {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function describeTable() {
@@ -138,7 +143,8 @@ async function describeTable() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task DescribeTable()
@@ -166,3 +172,5 @@ async function describeTable() {
 
         }
 ```
+
+------

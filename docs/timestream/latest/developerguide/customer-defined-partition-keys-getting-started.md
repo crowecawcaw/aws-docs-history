@@ -1,18 +1,19 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Getting started with customer-defined partition keys
+<a name="customer-defined-partition-keys-getting-started"></a>
 
-From the console, choose **Tables** and create a new table. You can
-also use an SDK to access the `CreateTable` action to create new tables that
-can include a customer-defined partition key.
+From the console, choose **Tables** and create a new table. You can also use an SDK to access the `CreateTable` action to create new tables that can include a customer-defined partition key.
 
 ## Create a table with a dimension type partition key
+<a name="code-samples.create-table-with-dimension-type-partition-key"></a>
 
-You can use the following code snippets to create a table with a dimension type
-partition key.
+You can use the following code snippets to create a table with a dimension type partition key.
 
-Java
+------
+#### [  Java  ]
 
 ```
 public void createTableWithDimensionTypePartitionKeyExample() {
@@ -33,7 +34,7 @@ public void createTableWithDimensionTypePartitionKeyExample() {
         Schema schema = new Schema();
         schema.setCompositePartitionKey(partitionKeyWithDimensionAndOptionalEnforcement);
         createTableRequest.setSchema(schema);
-
+        
         try {
             writeClient.createTable(createTableRequest);
             System.out.println("Table [" + TABLE_NAME + "] successfully created.");
@@ -43,11 +44,12 @@ public void createTableWithDimensionTypePartitionKeyExample() {
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 public void createTableWithDimensionTypePartitionKeyExample() {
-        System.out.println("Creating table");
+        System.out.println("Creating table"); 
         final RetentionProperties retentionProperties = RetentionProperties.builder()
                 .memoryStoreRetentionPeriodInHours(HT_TTL_HOURS)
                 .magneticStoreRetentionPeriodInDays(CT_TTL_DAYS)
@@ -77,10 +79,11 @@ public void createTableWithDimensionTypePartitionKeyExample() {
     }
 ```
 
-Go v1
+------
+#### [  Go v1 ]
 
 ```
-func createTableWithDimensionTypePartitionKeyExample(){
+func createTableWithDimensionTypePartitionKeyExample(){ 
         // Can specify enforcement level with OPTIONAL or REQUIRED
         partitionKeyWithDimensionAndOptionalEnforcement := []*timestreamwrite.PartitionKey{
                 {
@@ -88,7 +91,7 @@ func createTableWithDimensionTypePartitionKeyExample(){
                     EnforcementInRecord: aws.String("OPTIONAL"),
                     Type:                aws.String("DIMENSION"),
                 },
-        }
+        }     
         createTableInput := &timestreamwrite.CreateTableInput{
              DatabaseName: aws.String(*databaseName),
              TableName:    aws.String(*tableName),
@@ -103,7 +106,7 @@ func createTableWithDimensionTypePartitionKeyExample(){
                          EncryptionOption: aws.String("SSE_S3"),
                      },
                  },
-             },
+             },   
              Schema: &timestreamwrite.Schema{
                  CompositePartitionKey: partitionKeyWithDimensionAndOptionalEnforcement,
              }
@@ -112,7 +115,8 @@ func createTableWithDimensionTypePartitionKeyExample(){
     }
 ```
 
-Go v2
+------
+#### [  Go v2 ]
 
 ```
   func (timestreamBuilder TimestreamBuilder) CreateTableWithDimensionTypePartitionKeyExample() error {
@@ -140,7 +144,7 @@ Go v2
                  CompositePartitionKey: partitionKeyWithDimensionAndOptionalEnforcement,
              },
          })
-
+      
          if err != nil {
              fmt.Println("Error:")
              fmt.Println(err)
@@ -151,7 +155,8 @@ Go v2
      }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def create_table_with_measure_name_type_partition_key(self):
@@ -176,3 +181,5 @@ def create_table_with_measure_name_type_partition_key(self):
         except Exception as err:
             print("Create table failed:", err)
 ```
+
+------

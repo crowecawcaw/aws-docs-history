@@ -1,28 +1,27 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Write data (inserts and upserts)
+<a name="code-samples.write"></a>
 
-###### Topics
-
-- [Writing batches of records](#code-samples.write.write-batches "#code-samples.write.write-batches")
-- [Writing batches of records with common attributes](#code-samples.write.write-batches-common-attrs "#code-samples.write.write-batches-common-attrs")
-- [Upserting records](#code-samples.write.upserts "#code-samples.write.upserts")
-- [Multi-measure attribute example](#code-samples.write.data.multivalue "#code-samples.write.data.multivalue")
-- [Handling write failures](#code-samples.write.rejectedRecordException "#code-samples.write.rejectedRecordException")
+**Topics**
++ [Writing batches of records](#code-samples.write.write-batches)
++ [Writing batches of records with common attributes](#code-samples.write.write-batches-common-attrs)
++ [Upserting records](#code-samples.write.upserts)
++ [Multi-measure attribute example](#code-samples.write.data.multivalue)
++ [Handling write failures](#code-samples.write.rejectedRecordException)
 
 ## Writing batches of records
+<a name="code-samples.write.write-batches"></a>
 
-You can use the following code snippets to write data into an Amazon Timestream table.
-Writing data in batches helps to optimize the cost of writes. See [Calculating the number of writes](metering-and-pricing.writes.md#metering-and-pricing.writes.write-size-multiple-events "metering-and-pricing.writes.md#metering-and-pricing.writes.write-size-multiple-events") for more
-information.
+You can use the following code snippets to write data into an Amazon Timestream table. Writing data in batches helps to optimize the cost of writes. See [Calculating the number of writes](metering-and-pricing.writes.md#metering-and-pricing.writes.write-size-multiple-events) for more information. 
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
   public void writeRecords() {
@@ -77,7 +76,8 @@ Java
   }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
   public void writeRecords() {
@@ -131,7 +131,8 @@ Java v2
   }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 now := time.Now()
@@ -195,7 +196,8 @@ if err != nil {
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
   def write_records(self):
@@ -248,8 +250,10 @@ Python
     return str(int(round(time.time() * 1000)))
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function writeRecords() {
@@ -304,7 +308,8 @@ async function writeRecords() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
    public async Task WriteRecords()
@@ -369,19 +374,18 @@ async function writeRecords() {
    }
 ```
 
+------
+
 ## Writing batches of records with common attributes
+<a name="code-samples.write.write-batches-common-attrs"></a>
 
-If your time series data has measures and/or dimensions that are common across many
-data points, you can also use the following optimized version of the writeRecords API to
-insert data into Timestream for LiveAnalytics. Using common attributes with batching can further optimize the
-cost of writes as described in [Calculating the number of writes](metering-and-pricing.writes.md#metering-and-pricing.writes.write-size-multiple-events "metering-and-pricing.writes.md#metering-and-pricing.writes.write-size-multiple-events").
+If your time series data has measures and/or dimensions that are common across many data points, you can also use the following optimized version of the writeRecords API to insert data into Timestream for LiveAnalytics. Using common attributes with batching can further optimize the cost of writes as described in [Calculating the number of writes](metering-and-pricing.writes.md#metering-and-pricing.writes.write-size-multiple-events). 
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
   public void writeRecordsWithCommonAttributes() {
@@ -436,7 +440,8 @@ Java
   }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
   public void writeRecordsWithCommonAttributes() {
@@ -491,7 +496,8 @@ Java v2
   }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 now = time.Now()
@@ -540,7 +546,8 @@ if err != nil {
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
   def write_records_with_common_attributes(self):
@@ -593,8 +600,10 @@ Python
     return str(int(round(time.time() * 1000)))
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function writeRecordsWithCommonAttributes() {
@@ -650,7 +659,8 @@ async function writeRecordsWithCommonAttributes() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
   public async Task WriteRecordsWithCommonAttributes()
@@ -716,29 +726,20 @@ async function writeRecordsWithCommonAttributes() {
   }
 ```
 
+------
+
 ## Upserting records
+<a name="code-samples.write.upserts"></a>
 
-While the default writes in Amazon Timestream follow the _first writer
-wins_ semantics, where data is stored as append only and duplicate records
-are rejected, there are applications that require the ability to write data into Amazon
-Timestream using the _last writer wins_ semantics, where the record
-with the highest version is stored in the system. There are also applications that
-require the ability to update existing records. To address these scenarios, Amazon
-Timestream provides the ability to _upsert_ data. Upsert is an
-operation that inserts a record in to the system when the record does not exist or
-updates the record, when one exists.
+While the default writes in Amazon Timestream follow the *first writer wins* semantics, where data is stored as append only and duplicate records are rejected, there are applications that require the ability to write data into Amazon Timestream using the *last writer wins* semantics, where the record with the highest version is stored in the system. There are also applications that require the ability to update existing records. To address these scenarios, Amazon Timestream provides the ability to *upsert* data. Upsert is an operation that inserts a record in to the system when the record does not exist or updates the record, when one exists. 
 
-You can upsert records by including the `Version` in record definition
-while sending a `WriteRecords` request. Amazon Timestream will store the
-record with the record with highest `Version`. The code sample below shows
-how you can upsert data:
+You can upsert records by including the `Version` in record definition while sending a `WriteRecords` request. Amazon Timestream will store the record with the record with highest `Version`. The code sample below shows how you can upsert data:
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
   public void writeRecordsWithUpsert() {
@@ -848,7 +849,8 @@ Java
   }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
   public void writeRecordsWithUpsert() {
@@ -973,7 +975,8 @@ Java v2
   }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Below code will ingest and upsert cpu_utilization and memory_utilization metric for a host on
@@ -1087,10 +1090,10 @@ if err != nil {
 } else {
 	fmt.Println("Write records with higher version is successful")
 }
-
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
   def write_records_with_upsert(self):
@@ -1181,8 +1184,10 @@ Python
     return str(int(round(time.time() * 1000)))
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function writeRecordsWithUpsert() {
@@ -1328,7 +1333,8 @@ async function writeRecordsWithUpsert() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
   public async Task WriteRecordsWithUpsert()
@@ -1472,18 +1478,18 @@ async function writeRecordsWithUpsert() {
   }
 ```
 
+------
+
 ## Multi-measure attribute example
+<a name="code-samples.write.data.multivalue"></a>
 
-This example illustrates writing multi-mearure attributes. [Multi-measure attributes](data-modeling.md#data-modeling-multiVsinglerecords "data-modeling.md#data-modeling-multiVsinglerecords")
-are useful when a device or an application you are tracking emits multiple metrics or
-events at the same timestamp..
+This example illustrates writing multi-mearure attributes. [Multi-measure attributes](data-modeling.md#data-modeling-multiVsinglerecords) are useful when a device or an application you are tracking emits multiple metrics or events at the same timestamp..
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
 package com.amazonaws.services.timestream;
@@ -1636,7 +1642,8 @@ public class multimeasureAttributeExample {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 package com.amazonaws.services.timestream;
@@ -1801,7 +1808,8 @@ public class multimeasureAttributeExample {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
   now := time.Now()
@@ -1834,7 +1842,7 @@ Go
         Name:  aws.String("cpu_utilization"),
         Value: aws.String("13.5"),
         Type:  aws.String("DOUBLE"),
-      },
+      }, 
       &timestreamwrite.MeasureValue{
         Name:  aws.String("memory_utilization"),
         Value: aws.String("40"),
@@ -1844,9 +1852,9 @@ Go
     },
     },
   }
-
+   
   _, err = writeSvc.WriteRecords(writeRecordsInput)
-
+   
   if err != nil {
     fmt.Println("Error:")
     fmt.Println(err)
@@ -1855,7 +1863,8 @@ Go
   }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 import time
@@ -1958,8 +1967,10 @@ if __name__ == '__main__':
     time.sleep(INTERVAL)
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
   async function writeRecords() {
@@ -2005,7 +2016,8 @@ The following snippet uses the AWS SDK for JavaScript V2 style. It is based on t
   }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 using System;
@@ -2173,41 +2185,27 @@ namespace TimestreamDotNetSample
 }
 ```
 
+------
+
 ## Handling write failures
+<a name="code-samples.write.rejectedRecordException"></a>
 
 Writes in Amazon Timestream can fail for one or more of the following reasons:
++ There are records with timestamps that lie outside the retention duration of the memory store.
++ There are records containing dimensions and/or measures that exceed the Timestream defined limits.
++ Amazon Timestream has detected duplicate records. Records are marked as duplicate, when there are multiple records with the same dimensions, timestamps, and measure names but:
+  + Measure values are different.
+  + Version is not present in the request or the value of version in the new record is equal to or lower than the existing value. If Amazon Timestream rejects data for this reason, the `ExistingVersion` field in the `RejectedRecords` will contain the record's current version as stored in Amazon Timestream. To force an update, you can resend the request with a version for the record set to a value greater than the `ExistingVersion`.
 
-- There are records with timestamps that lie outside the retention
-  duration of the memory store.
-- There are records containing dimensions and/or measures that exceed the
-  Timestream defined limits.
-- Amazon Timestream has detected duplicate records. Records are marked as
-  duplicate, when there are multiple records with the same dimensions, timestamps,
-  and measure names but:
+For more information about errors and rejected records, see [Errors](https://docs.aws.amazon.com/timestream/latest/developerguide/API_WriteRecords.html#API_WriteRecords_Errors) and [RejectedRecord](https://docs.aws.amazon.com/timestream/latest/developerguide/API_RejectedRecord.html).
 
-  - Measure values are different.
-  - Version is not present in the request or the value of version in the
-    new record is equal to or lower than the existing value. If Amazon
-    Timestream rejects data for this reason, the
-    `ExistingVersion` field in the
-    `RejectedRecords` will contain the record's current
-    version as stored in Amazon Timestream. To force an update, you can
-    resend the request with a version for the record set to a value greater
-    than the `ExistingVersion`.
+If your application receives a `RejectedRecordsException` when attempting to write records to Timestream, you can parse the rejected records to learn more about the write failures as shown below.
 
-For more information about errors and rejected records, see [Errors](API_WriteRecords.md#API_WriteRecords_Errors "API_WriteRecords.md#API_WriteRecords_Errors")
-and [RejectedRecord](API_RejectedRecord.md "API_RejectedRecord.md").
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-If your application receives a `RejectedRecordsException` when attempting
-to write records to Timestream, you can parse the rejected records to learn more about
-the write failures as shown below.
-
-###### Note
-
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
   try {
@@ -2225,7 +2223,8 @@ Java
   }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     try {
@@ -2243,7 +2242,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 _, err = writeSvc.WriteRecords(writeRecordsInput)
@@ -2256,7 +2256,8 @@ if err != nil {
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 try:
@@ -2271,8 +2272,10 @@ except Exception as err:
   print("Error:", err)
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 await request.promise().then(
@@ -2290,7 +2293,8 @@ await request.promise().then(
   );
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
   try
@@ -2317,3 +2321,5 @@ await request.promise().then(
     Console.WriteLine("Write records failure:" + e.ToString());
   }
 ```
+
+------

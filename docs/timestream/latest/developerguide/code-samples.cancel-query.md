@@ -1,16 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Cancel query
+<a name="code-samples.cancel-query"></a>
 
 You can use the following code snippets to cancel a query.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void cancelQuery() {
@@ -18,7 +19,7 @@ Java
         QueryRequest queryRequest = new QueryRequest();
         queryRequest.setQueryString(SELECT_ALL_QUERY);
         QueryResult queryResult = queryClient.query(queryRequest);
-
+ 
         System.out.println("Cancelling the query: " + SELECT_ALL_QUERY);
         final CancelQueryRequest cancelQueryRequest = new CancelQueryRequest();
         cancelQueryRequest.setQueryId(queryResult.getQueryId());
@@ -31,7 +32,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void cancelQuery() {
@@ -51,7 +53,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 cancelQueryInput := &timestreamquery.CancelQueryInput{
@@ -73,7 +76,8 @@ cancelQueryInput := &timestreamquery.CancelQueryInput{
   }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def cancel_query(self):
@@ -87,43 +91,46 @@ Python
             print("Cancelling query failed:", err)
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
-async function tryCancelQuery() {
-    const params = {
-        QueryString: SELECT_ALL_QUERY
-    };
-    console.log(`Running query: ${SELECT_ALL_QUERY}`);
-
-    await queryClient.query(params).promise()
-        .then(
-            async (response) => {
-                await cancelQuery(response.QueryId);
-            },
-            (err) => {
-                console.error("Error while executing select all query:", err);
-            });
-}
-
-async function cancelQuery(queryId) {
-    const cancelParams = {
-        QueryId: queryId
-    };
-    console.log(`Sending cancellation for query: ${SELECT_ALL_QUERY}`);
-    await queryClient.cancelQuery(cancelParams).promise()
-        .then(
-            (response) => {
-                console.log("Query has been cancelled successfully");
-            },
-            (err) => {
-                console.error("Error while cancelling select all:", err);
-            });
+async function tryCancelQuery() { 
+    const params = { 
+        QueryString: SELECT_ALL_QUERY 
+    }; 
+    console.log(`Running query: ${SELECT_ALL_QUERY}`); 
+  
+    await queryClient.query(params).promise() 
+        .then( 
+            async (response) => { 
+                await cancelQuery(response.QueryId); 
+            }, 
+            (err) => { 
+                console.error("Error while executing select all query:", err); 
+            }); 
+} 
+  
+async function cancelQuery(queryId) { 
+    const cancelParams = { 
+        QueryId: queryId 
+    }; 
+    console.log(`Sending cancellation for query: ${SELECT_ALL_QUERY}`); 
+    await queryClient.cancelQuery(cancelParams).promise() 
+        .then( 
+            (response) => { 
+                console.log("Query has been cancelled successfully"); 
+            }, 
+            (err) => { 
+                console.error("Error while cancelling select all:", err); 
+            }); 
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task CancelQuery()
@@ -147,3 +154,5 @@ async function cancelQuery(queryId) {
             }
         }
 ```
+
+------

@@ -1,28 +1,25 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Run query
+<a name="code-samples.run-query"></a>
 
-###### Topics
-
-- [Paginating results](#code-samples.run-query.pagination "#code-samples.run-query.pagination")
-- [Parsing result sets](#code-samples.run-query.parsing "#code-samples.run-query.parsing")
-- [Accessing the query status](#code-samples.run-query.query-status "#code-samples.run-query.query-status")
+**Topics**
++ [Paginating results](#code-samples.run-query.pagination)
++ [Parsing result sets](#code-samples.run-query.parsing)
++ [Accessing the query status](#code-samples.run-query.query-status)
 
 ## Paginating results
+<a name="code-samples.run-query.pagination"></a>
 
-When you run a query, Timestream returns the result set in a paginated manner to
-optimize the responsiveness of your applications. The code snippet below shows how you
-can paginate through the result set. You must loop through all the result set pages
-until you encounter a null value. Pagination tokens expire 3 hours after being issued by
-Timestream for LiveAnalytics.
+When you run a query, Timestream returns the result set in a paginated manner to optimize the responsiveness of your applications. The code snippet below shows how you can paginate through the result set. You must loop through all the result set pages until you encounter a null value. Pagination tokens expire 3 hours after being issued by Timestream for LiveAnalytics. 
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     private void runQuery(String queryString) {
@@ -45,7 +42,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     private void runQuery(String queryString) {
@@ -62,7 +60,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 func runQuery(queryPtr *string, querySvc *timestreamquery.TimestreamQuery, f *os.File) {
@@ -111,7 +110,8 @@ func runQuery(queryPtr *string, querySvc *timestreamquery.TimestreamQuery, f *os
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def run_query(self, query_string):
@@ -123,8 +123,10 @@ Python
             print("Exception while running query:", err)
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function getAllRows(query, nextToken) {
@@ -150,7 +152,8 @@ async function getAllRows(query, nextToken) {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         private async Task RunQueryAsync(string queryString)
@@ -178,48 +181,49 @@ async function getAllRows(query, nextToken) {
         }
 ```
 
+------
+
 ## Parsing result sets
+<a name="code-samples.run-query.parsing"></a>
 
-You can use the following code snippets to extract data from the result set. Query
-results are accessible for up to 24 hours after a query completes.
+You can use the following code snippets to extract data from the result set. Query results are accessible for up to 24 hours after a query completes.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     private static final DateTimeFormatter TIMESTAMP_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSSSSS");
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss.SSSSSSSSS");
-
+    
     private static final long ONE_GB_IN_BYTES = 1073741824L;
-
+    
     private void parseQueryResult(QueryResult response) {
         final QueryStatus currentStatusOfQuery = queryResult.getQueryStatus();
-
+    
         System.out.println("Query progress so far: " + currentStatusOfQuery.getProgressPercentage() + "%");
-
+        
         double bytesScannedSoFar = ((double) currentStatusOfQuery.getCumulativeBytesScanned() / ONE_GB_IN_BYTES);
         System.out.println("Bytes scanned so far: " + bytesScannedSoFar + " GB");
-
+        
         double bytesMeteredSoFar = ((double) currentStatusOfQuery.getCumulativeBytesMetered() / ONE_GB_IN_BYTES);
         System.out.println("Bytes metered so far: " + bytesMeteredSoFar + " GB");
-
+        
         List<ColumnInfo> columnInfo = response.getColumnInfo();
         List<Row> rows = response.getRows();
-
+ 
         System.out.println("Metadata: " + columnInfo);
         System.out.println("Data: ");
-
+ 
         // iterate every row
         for (Row row : rows) {
             System.out.println(parseRow(columnInfo, row));
         }
     }
-
+ 
     private String parseRow(List<ColumnInfo> columnInfo, Row row) {
         List<Datum> data = row.getData();
         List<String> rowOutput = new ArrayList<>();
@@ -231,7 +235,7 @@ Java
         }
         return String.format("{%s}", rowOutput.stream().map(Object::toString).collect(Collectors.joining(",")));
     }
-
+ 
     private String parseDatum(ColumnInfo info, Datum datum) {
         if (datum.isNullValue() != null && datum.isNullValue()) {
             return info.getName() + "=" + "NULL";
@@ -257,7 +261,7 @@ Java
             return parseScalarType(info, datum);
         }
     }
-
+ 
     private String parseTimeSeries(ColumnInfo info, Datum datum) {
         List<String> timeSeriesOutput = new ArrayList<>();
         for (TimeSeriesDataPoint dataPoint : datum.getTimeSeriesValue()) {
@@ -266,7 +270,7 @@ Java
         }
         return String.format("[%s]", timeSeriesOutput.stream().map(Object::toString).collect(Collectors.joining(",")));
     }
-
+ 
     private String parseScalarType(ColumnInfo info, Datum datum) {
         switch (ScalarType.fromValue(info.getType().getScalarType())) {
             case VARCHAR:
@@ -298,11 +302,11 @@ Java
                 throw new IllegalArgumentException("Given type is not valid: " + info.getType().getScalarType());
         }
     }
-
+ 
     private String parseColumnName(ColumnInfo info) {
         return info.getName() == null ? "" : info.getName() + "=";
     }
-
+ 
     private String parseArray(ColumnInfo arrayColumnInfo, List<Datum> arrayValues) {
         List<String> arrayOutput = new ArrayList<>();
         for (Datum datum : arrayValues) {
@@ -312,7 +316,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     private static final long ONE_GB_IN_BYTES = 1073741824L;
@@ -321,13 +326,13 @@ Java v2
         final QueryStatus currentStatusOfQuery = response.queryStatus();
 
         System.out.println("Query progress so far: " + currentStatusOfQuery.progressPercentage() + "%");
-
+        
         double bytesScannedSoFar = ((double) currentStatusOfQuery.cumulativeBytesScanned() / ONE_GB_IN_BYTES);
         System.out.println("Bytes scanned so far: " + bytesScannedSoFar + " GB");
-
+        
         double bytesMeteredSoFar = ((double) currentStatusOfQuery.cumulativeBytesMetered() / ONE_GB_IN_BYTES);
         System.out.println("Bytes metered so far: " + bytesMeteredSoFar + " GB");
-
+        
         List<ColumnInfo> columnInfo = response.columnInfo();
         List<Row> rows = response.rows();
 
@@ -404,7 +409,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 func processScalarType(data *timestreamquery.Datum) string {
@@ -497,7 +503,8 @@ func processRowType(data []*timestreamquery.Datum, metadata []*timestreamquery.C
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def _parse_query_result(self, query_result):
@@ -569,7 +576,7 @@ Python
             array_output.append(self._parse_datum(array_column_info, datum))
 
         return "[%s]" % str(array_output)
-
+        
     @staticmethod
     def _parse_column_name(info):
         if 'Name' in info:
@@ -578,14 +585,16 @@ Python
             return ""
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 function parseQueryResult(response) {
     const queryStatus = response.QueryStatus;
     console.log("Current query status: " + JSON.stringify(queryStatus));
-
+    
     const columnInfo = response.ColumnInfo;
     const rows = response.Rows;
 
@@ -665,7 +674,8 @@ function parseArray(arrayColumnInfo, arrayValues) {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         private void ParseQueryResult(QueryResponse response)
@@ -677,10 +687,10 @@ function parseArray(arrayColumnInfo, arrayValues) {
             };
             List<String> columnInfoStrings = columnInfo.ConvertAll(x => JsonSerializer.Serialize(x, options));
             List<Row> rows = response.Rows;
-
+            
             QueryStatus queryStatus = response.QueryStatus;
             Console.WriteLine("Current Query status:" + JsonSerializer.Serialize(queryStatus, options));
-
+            
             Console.WriteLine("Metadata:" + string.Join(",", columnInfoStrings));
             Console.WriteLine("Data:");
 
@@ -757,23 +767,18 @@ function parseArray(arrayColumnInfo, arrayValues) {
         }
 ```
 
+------
+
 ## Accessing the query status
+<a name="code-samples.run-query.query-status"></a>
 
-You can access the query status through `QueryResponse`, which contains
-information about progress of a query, the bytes scanned by a query and the bytes
-metered by a query. The `bytesMetered` and `bytesScanned` values
-are cumulative and continuously updated while paging query results. You can use this
-information to understand the bytes scanned by an individual query and also use it to
-make certain decisions. For example, assuming that the query price is $0.01 per GB
- scanned, you may want to cancel queries that exceed $25 per query, or `X` GB.
-The code snippet below shows how this can be done.
+ You can access the query status through `QueryResponse`, which contains information about progress of a query, the bytes scanned by a query and the bytes metered by a query. The `bytesMetered` and `bytesScanned` values are cumulative and continuously updated while paging query results. You can use this information to understand the bytes scanned by an individual query and also use it to make certain decisions. For example, assuming that the query price is $0.01 per GB scanned, you may want to cancel queries that exceed $25 per query, or `X` GB. The code snippet below shows how this can be done. 
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     private static final long ONE_GB_IN_BYTES = 1073741824L;
@@ -805,7 +810,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     private static final long ONE_GB_IN_BYTES = 1073741824L;
@@ -830,7 +836,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 const OneGbInBytes = 1073741824
@@ -888,12 +895,13 @@ func cancelQueryBasedOnQueryStatus(queryPtr *string, querySvc *timestreamquery.T
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 ONE_GB_IN_BYTES = 1073741824
 # Assuming the price of query is $0.01 per GB
-QUERY_COST_PER_GB_IN_DOLLARS = 0.01
+QUERY_COST_PER_GB_IN_DOLLARS = 0.01 
 
     def cancel_query_based_on_query_status(self):
         try:
@@ -913,14 +921,16 @@ QUERY_COST_PER_GB_IN_DOLLARS = 0.01
             traceback.print_exc(file=sys.stderr)
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 function parseQueryResult(response) {
     const queryStatus = response.QueryStatus;
     console.log("Current query status: " + JSON.stringify(queryStatus));
-
+    
     const columnInfo = response.ColumnInfo;
     const rows = response.Rows;
 
@@ -1000,7 +1010,8 @@ function parseArray(arrayColumnInfo, arrayValues) {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 private static readonly long ONE_GB_IN_BYTES = 1073741824L;
@@ -1040,4 +1051,6 @@ private async Task CancelQueryBasedOnQueryStatus(string queryString)
 }
 ```
 
-For additional details on how to cancel a query, see [Cancel query](code-samples.cancel-query.md "code-samples.cancel-query.md").
+------
+
+ For additional details on how to cancel a query, see [Cancel query](code-samples.cancel-query.md). 

@@ -1,31 +1,31 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Telegraf integration with Timestream for InfluxDB 3
+<a name="telegraf-integration"></a>
 
-Telegraf is a plugin-based data collection agent with over 300 input plugins for collecting
-metrics from various sources and output plugins for writing data to different destinations. Its
-"plug-and-play" architecture makes it ideal for quickly collecting and reporting
-metrics to InfluxDB 3.
+ Telegraf is a plugin-based data collection agent with over 300 input plugins for collecting metrics from various sources and output plugins for writing data to different destinations. Its "plug-and-play" architecture makes it ideal for quickly collecting and reporting metrics to InfluxDB 3. 
 
 ## Requirements
-
-- Telegraf 1.9.2 or greater – For installation instructions, see the [Telegraf Installation
-  documentation.](https://docs.influxdata.com/telegraf/latest/install/ "https://docs.influxdata.com/telegraf/latest/install/")
-- InfluxDB 3 cluster endpoint and credentials.
-- Network connectivity to your InfluxDB 3 cluster.
+<a name="requirements"></a>
++  Telegraf 1.9.2 or greater – For installation instructions, see the [Telegraf Installation documentation.](https://docs.influxdata.com/telegraf/latest/install/) 
++  InfluxDB 3 cluster endpoint and credentials. 
++  Network connectivity to your InfluxDB 3 cluster. 
 
 ## Telegraf configuration options
+<a name="telegraf-configuration-options"></a>
 
-Telegraf provides two output plugins compatible with InfluxDB 3:
+ Telegraf provides two output plugins compatible with InfluxDB 3: 
 
-1. `outputs.influxdb_v2` - Recommended for new deployments.
-2. `outputs.influxdb` (v1) - For existing v1 configurations.
+1.  `outputs.influxdb_v2` - Recommended for new deployments. 
+
+1.  `outputs.influxdb` (v1) - For existing v1 configurations. 
 
 ### Using the v2 output plugin
+<a name="using-the-v2-output-plugin-recommended"></a>
 
-We recommend that you use the `outputs.influxdb_v2` plugin to connect to the
-InfluxDB v2 compatibility API:
+ We recommend that you use the `outputs.influxdb_v2` plugin to connect to the InfluxDB v2 compatibility API: 
 
 ```
 [[outputs.influxdb_v2]]
@@ -33,22 +33,22 @@ InfluxDB v2 compatibility API:
   token = "${INFLUX_TOKEN}"  # Use environment variable for security
   organization = ""           # Can be left empty for InfluxDB 3
   bucket = "DATABASE_NAME"
-
+  
   ## Optional: Enable gzip compression
   content_encoding = "gzip"
-
+  
   ## Optional: Increase timeout for high-latency networks
   timeout = "10s"
-
+  
   ## Optional: Configure batching
   metric_batch_size = 5000
   metric_buffer_limit = 50000
-
 ```
 
 ### Using the legacy v1 output plugin
+<a name="using-the-v1-output-plugin-legacy-support"></a>
 
-For existing Telegraf configurations using the v1 plugin:
+ For existing Telegraf configurations using the v1 plugin: 
 
 ```
 [[outputs.influxdb]]
@@ -58,18 +58,17 @@ For existing Telegraf configurations using the v1 plugin:
   username = "ignored"           # Required but ignored
   password = "${INFLUX_TOKEN}"   # Use environment variable
   content_encoding = "gzip"
-
+  
   ## Optional: Configure write parameters
   timeout = "10s"
   metric_batch_size = 5000
   metric_buffer_limit = 50000
-
 ```
 
 ## Basic Telegraf configuration Example
+<a name="basic-telegraf-configuration-example"></a>
 
-The following is a complete example that collects system metrics and writes them to
-InfluxDB 3:
+ The following is a complete example that collects system metrics and writes them to InfluxDB 3: 
 
 ```
 # Global Agent Configuration
@@ -109,45 +108,36 @@ InfluxDB 3:
   organization = ""
   bucket = "telegraf_metrics"
   content_encoding = "gzip"
-
 ```
 
 ## Best practices for Telegraf with InfluxDB 3
-
-- **Security**
-
-  - Store tokens in environment variables or secret stores.
-  - Never hardcode tokens in configuration files.
-  - Use HTTPS endpoints for production deployments.
-
-- **Performance optimization**
-
-  - Enable gzip compression with content\_encoding = "gzip".
-  - Configure appropriate batch sizes (5000-10000 metrics).
-  - Set buffer limits based on available memory.
-  - Use precision appropriate for your use case (seconds often sufficient).
-
-- **Network configuration**
-
-  - For private clusters, run Telegraf within the same VPC.
-  - Configure appropriate timeouts for your network latency.
-  - Use the writer/reader endpoint for write operations.
-
-- **Monitoring**
-
-  - Enable Telegraf's internal metrics plugin to monitor agent performance.
-  - Monitor write errors and retries.
-  - Set up alerts for buffer overflow conditions.
-
-- **Data organization**
-
-  - Use consistent tag naming across input plugins.
-  - Leverage Telegraf's processor plugins to normalize data.
-  - Apply tag filtering to control cardinality.
+<a name="best-practices-for-telegraf-with-influxdb-3"></a>
++  **Security** 
+  +  Store tokens in environment variables or secret stores. 
+  +  Never hardcode tokens in configuration files. 
+  +  Use HTTPS endpoints for production deployments. 
++  **Performance optimization** 
+  +  Enable gzip compression with content\_encoding = "gzip". 
+  +  Configure appropriate batch sizes (5000-10000 metrics). 
+  +  Set buffer limits based on available memory. 
+  +  Use precision appropriate for your use case (seconds often sufficient). 
++  **Network configuration** 
+  +  For private clusters, run Telegraf within the same VPC. 
+  +  Configure appropriate timeouts for your network latency. 
+  +  Use the writer/reader endpoint for write operations. 
++  **Monitoring** 
+  +  Enable Telegraf's internal metrics plugin to monitor agent performance. 
+  +  Monitor write errors and retries. 
+  +  Set up alerts for buffer overflow conditions. 
++  **Data organization** 
+  +  Use consistent tag naming across input plugins. 
+  +  Leverage Telegraf's processor plugins to normalize data. 
+  +  Apply tag filtering to control cardinality. 
 
 ## Running Telegraf
+<a name="running-telegraf"></a>
 
-To start Telegraf with your configuration, do the following:
+ To start Telegraf with your configuration, do the following: 
 
 ```
 # Test configuration
@@ -158,27 +148,23 @@ telegraf --config telegraf.conf
 
 # Run as a service (systemd)
 sudo systemctl start telegraf
-
 ```
 
 ### Common Telegraf plugins for time series data
+<a name="common-telegraf-plugins-for-time-series-data"></a>
 
-**Popular input plugins:**
+ **Popular input plugins:** 
++  `inputs.cpu`, `inputs.mem`, `inputs.disk` - System metrics. 
++  `inputs.docker`, `inputs.kubernetes` - Container metrics. 
++  `inputs.prometheus` - Scrape Prometheus endpoints. 
++  `inputs.snmp` - Network device monitoring. 
++  `inputs.mqtt_consumer` - IoT data collection. 
++  `inputs.http_listener_v2` - HTTP webhook receiver. 
 
-- `inputs.cpu`, `inputs.mem`, `inputs.disk` - System metrics.
-- `inputs.docker`, `inputs.kubernetes` - Container metrics.
-- `inputs.prometheus` - Scrape Prometheus endpoints.
-- `inputs.snmp` - Network device monitoring.
-- `inputs.mqtt_consumer` - IoT data collection.
-- `inputs.http_listener_v2` - HTTP webhook receiver.
+ **Useful processor plugins:** 
++  `processors.regex` - Transform tag/field names. 
++  `processors.converter` - Change field data types. 
++  `processors.aggregator` - Aggregate metrics. 
++  `processors.filter` - Filter metrics based on conditions. 
 
-**Useful processor plugins:**
-
-- `processors.regex` - Transform tag/field names.
-- `processors.converter` - Change field data types.
-- `processors.aggregator` - Aggregate metrics.
-- `processors.filter` - Filter metrics based on conditions.
-
-By leveraging Telegraf's extensive plugin ecosystem with InfluxDB 3, you can build
-comprehensive monitoring solutions that collect data from diverse sources and efficiently write
-it to your time-series database.
+ By leveraging Telegraf's extensive plugin ecosystem with InfluxDB 3, you can build comprehensive monitoring solutions that collect data from diverse sources and efficiently write it to your time-series database. 

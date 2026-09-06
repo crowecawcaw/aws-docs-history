@@ -1,16 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Update table
+<a name="code-samples.update-table"></a>
 
 You can use the following code snippets to update a table.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void updateTable() {
@@ -30,7 +31,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void updateTable() {
@@ -47,7 +49,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Update table.
@@ -73,7 +76,8 @@ Go
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def update_table(self):
@@ -90,10 +94,12 @@ Python
             print("Update table failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class UpdateTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatetablecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatetablecommand.md") and [UpdateTable](API_UpdateTable.md "API_UpdateTable.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class UpdateTableCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatetablecommand.html) and [UpdateTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateTable.html).
 
 ```
 import { TimestreamWriteClient, UpdateTableCommand } from "@aws-sdk/client-timestream-write";
@@ -118,7 +124,7 @@ try {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function updateTable() {
@@ -146,7 +152,8 @@ async function updateTable() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task UpdateTable()
@@ -179,3 +186,5 @@ async function updateTable() {
 
         }
 ```
+
+------

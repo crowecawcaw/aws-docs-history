@@ -1,16 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # List tables
+<a name="code-samples.list-table"></a>
 
 You can use the following code snippets to list tables.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void listTables() {
@@ -29,7 +30,7 @@ Java
             nextToken = nextResult.getNextToken();
         }
     }
-
+    
      private void printTables(List<Table> tables) {
         for (Table table : tables) {
             System.out.println(table.getTableName());
@@ -37,7 +38,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void listTables() {
@@ -51,7 +53,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 listTablesMaxResult := int64(15)
@@ -71,7 +74,8 @@ listTablesMaxResult := int64(15)
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def list_tables(self):
@@ -89,10 +93,12 @@ Python
             print("List tables failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class ListTablesCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listtablescommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listtablescommand.md") and [ListTables](API_ListTables.md "API_ListTables.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class ListTablesCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/listtablescommand.html) and [ListTables](https://docs.aws.amazon.com/timestream/latest/developerguide/API_ListTables.html).
 
 ```
 import { TimestreamWriteClient, ListTablesCommand } from "@aws-sdk/client-timestream-write";
@@ -128,7 +134,7 @@ async function getTablesList(nextToken) {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function listTables() {
@@ -165,7 +171,8 @@ function getTablesList(nextToken, tables = []) {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task ListTables()
@@ -203,3 +210,5 @@ function getTablesList(nextToken, tables = []) {
                 Console.WriteLine($"Table: {table.TableName}");
         }
 ```
+
+------

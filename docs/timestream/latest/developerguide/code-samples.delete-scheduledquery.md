@@ -1,11 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Delete scheduled query
+<a name="code-samples.delete-scheduledquery"></a>
 
 You can use the following code snippets to delete a scheduled query.
 
-Java
+------
+#### [  Java  ]
 
 ```
 public void deleteScheduledQuery(String scheduledQueryArn) {
@@ -21,7 +24,8 @@ public void deleteScheduledQuery(String scheduledQueryArn) {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 public void deleteScheduledQuery(String scheduledQueryArn) {
@@ -38,16 +42,17 @@ public void deleteScheduledQuery(String scheduledQueryArn) {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 func (timestreamBuilder TimestreamBuilder) DeleteScheduledQuery(scheduledQueryArn string) error {
-
+ 
      deleteScheduledQueryInput := &timestreamquery.DeleteScheduledQueryInput{
          ScheduledQueryArn: aws.String(scheduledQueryArn),
      }
      _, err := timestreamBuilder.QuerySvc.DeleteScheduledQuery(deleteScheduledQueryInput)
-
+ 
      if err != nil {
          fmt.Println("Error:")
          if aerr, ok := err.(awserr.Error); ok {
@@ -68,7 +73,8 @@ func (timestreamBuilder TimestreamBuilder) DeleteScheduledQuery(scheduledQueryAr
  }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def delete_scheduled_query(self, scheduled_query_arn):
@@ -81,8 +87,10 @@ def delete_scheduled_query(self, scheduled_query_arn):
         raise err
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js).
 
 ```
 async function deleteScheduleQuery(scheduledQueryArn) {
@@ -99,7 +107,8 @@ async function deleteScheduleQuery(scheduledQueryArn) {
  }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 private async Task DeleteScheduledQuery(string scheduledQueryArn)
@@ -120,3 +129,5 @@ private async Task DeleteScheduledQuery(string scheduledQueryArn)
      }
  }
 ```
+
+------

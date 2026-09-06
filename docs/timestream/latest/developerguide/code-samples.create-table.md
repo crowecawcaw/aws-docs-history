@@ -1,25 +1,24 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Create table
+<a name="code-samples.create-table"></a>
 
-###### Topics
-
-- [Memory store writes](#code-samples.create-table-memorystore "#code-samples.create-table-memorystore")
-- [Magnetic store writes](#code-samples.create-table-magneticstore "#code-samples.create-table-magneticstore")
+**Topics**
++ [Memory store writes](#code-samples.create-table-memorystore)
++ [Magnetic store writes](#code-samples.create-table-magneticstore)
 
 ## Memory store writes
+<a name="code-samples.create-table-memorystore"></a>
 
-You can use the following code snippet to create a table that has magnetic store
-writes disabled, as a result you can only write data into your memory store retention
-window.
+You can use the following code snippet to create a table that has magnetic store writes disabled, as a result you can only write data into your memory store retention window.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void createTable() {
@@ -41,7 +40,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void createTable() {
@@ -62,7 +62,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Create table.
@@ -80,7 +81,8 @@ Go
     }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def create_table(self):
@@ -100,10 +102,12 @@ Python
             print("Create table failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class CreateTableCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.md") and [CreateTable](API_CreateTable.md "API_CreateTable.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class CreateTableCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/createtablecommand.html) and [CreateTable](https://docs.aws.amazon.com/timestream/latest/developerguide/API_CreateTable.html).
 
 ```
 import { TimestreamWriteClient, CreateTableCommand } from "@aws-sdk/client-timestream-write";
@@ -133,7 +137,7 @@ try {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
 async function createTable() {
@@ -165,7 +169,8 @@ async function createTable() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task CreateTable()
@@ -199,18 +204,18 @@ async function createTable() {
         }
 ```
 
+------
+
 ## Magnetic store writes
+<a name="code-samples.create-table-magneticstore"></a>
 
-You can use the following code snippet to create a table with magnetic store writes
-enabled. With magnetic store writes you can write data into both your memory store
-retention window and magnetic store retention window.
+You can use the following code snippet to create a table with magnetic store writes enabled. With magnetic store writes you can write data into both your memory store retention window and magnetic store retention window.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void createTable(String databaseName, String tableName) {
@@ -236,7 +241,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void createTable(String databaseName, String tableName) {
@@ -267,7 +273,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Create table.
@@ -282,7 +289,8 @@ Go
     _, err = writeSvc.CreateTable(createTableInput)
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def create_table(self):
@@ -306,7 +314,8 @@ Python
             print("Create table failed:", err)
 ```
 
-Node.js
+------
+#### [  Node.js  ]
 
 ```
 async function createTable() {
@@ -342,7 +351,8 @@ async function createTable() {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task CreateTable()
@@ -361,7 +371,7 @@ async function createTable() {
                         MemoryStoreRetentionPeriodInHours = Constants.HT_TTL_HOURS
                     },
                     // Enable MagneticStoreWrite
-                    MagneticStoreWriteProperties = new MagneticStoreWriteProperties
+                    MagneticStoreWriteProperties = new MagneticStoreWriteProperties 
                     {
                         EnableMagneticStoreWrites = true,
                     }
@@ -380,3 +390,5 @@ async function createTable() {
 
         }
 ```
+
+------

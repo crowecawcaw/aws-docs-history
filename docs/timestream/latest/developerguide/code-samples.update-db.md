@@ -1,16 +1,17 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Update database
+<a name="code-samples.update-db"></a>
 
 You can use the following code snippets to update your databases.
 
-###### Note
+**Note**  
+These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps). For more information about how to get started with the sample applications, see [Sample application](sample-apps.md).
 
-These code snippets are based on full sample applications on [GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps").
-For more information about how to get started with the sample applications, see [Sample application](sample-apps.md "sample-apps.md").
-
-Java
+------
+#### [  Java  ]
 
 ```
     public void updateDatabase(String kmsId) {
@@ -33,7 +34,8 @@ Java
     }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
     public void updateDatabase(String kmsKeyId) {
@@ -60,7 +62,8 @@ Java v2
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Update Database.
@@ -80,7 +83,8 @@ Go
         }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
     def update_database(self, kms_id):
@@ -95,15 +99,17 @@ Python
             print("Update database failed:", err)
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-Also see [Class UpdateDatabaseCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.md") and [UpdateDatabase](API_UpdateDatabase.md "API_UpdateDatabase.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+Also see [Class UpdateDatabaseCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/updatedatabasecommand.html) and [UpdateDatabase](https://docs.aws.amazon.com/timestream/latest/developerguide/API_UpdateDatabase.html).
 
 ```
 import { TimestreamWriteClient, UpdateDatabaseCommand } from "@aws-sdk/client-timestream-write";
 const writeClient = new TimestreamWriteClient({ region: "us-east-1" });
-let updatedKmsKeyId = "`<updatedKmsKeyId>`";
+let updatedKmsKeyId = "{{<updatedKmsKeyId>}}";
 
 const params = {
     DatabaseName: "testDbFromNode",
@@ -124,39 +130,40 @@ try {
 }
 ```
 
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js "https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js").
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/tree/mainline/sample_apps/js).
 
 ```
-async function updateDatabase(updatedKmsKeyId) {
-
-    if (updatedKmsKeyId === undefined) {
-        console.log("Skipping UpdateDatabase; KmsKeyId was not given");
-        return;
-    }
-    console.log("Updating Database");
-    const params = {
-        DatabaseName: constants.DATABASE_NAME,
-        KmsKeyId: updatedKmsKeyId
-    }
-
-    const promise = writeClient.updateDatabase(params).promise();
-
-    await promise.then(
-        (data) => {
-            console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`);
-        },
-        (err) => {
-            if (err.code === 'ResourceNotFoundException') {
-                console.log("Database doesn't exist.");
-            } else {
-                console.log("Update database failed.", err);
-            }
-        }
-    );
+async function updateDatabase(updatedKmsKeyId) { 
+ 
+    if (updatedKmsKeyId === undefined) { 
+        console.log("Skipping UpdateDatabase; KmsKeyId was not given"); 
+        return; 
+    } 
+    console.log("Updating Database"); 
+    const params = { 
+        DatabaseName: constants.DATABASE_NAME, 
+        KmsKeyId: updatedKmsKeyId 
+    } 
+ 
+    const promise = writeClient.updateDatabase(params).promise(); 
+ 
+    await promise.then( 
+        (data) => { 
+            console.log(`Database ${data.Database.DatabaseName} updated kmsKeyId to ${updatedKmsKeyId}`); 
+        }, 
+        (err) => { 
+            if (err.code === 'ResourceNotFoundException') { 
+                console.log("Database doesn't exist."); 
+            } else { 
+                console.log("Update database failed.", err); 
+            } 
+        } 
+    ); 
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
         public async Task UpdateDatabase(String updatedKmsKeyId)
@@ -183,10 +190,12 @@ async function updateDatabase(updatedKmsKeyId) {
             }
 
         }
-
+                
         private void PrintDatabases(List<Database> databases)
         {
             foreach (Database database in databases)
                 Console.WriteLine($"Database:{database.DatabaseName}");
         }
 ```
+
+------

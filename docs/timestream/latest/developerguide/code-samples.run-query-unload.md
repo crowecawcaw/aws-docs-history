@@ -1,22 +1,23 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Run UNLOAD query
+<a name="code-samples.run-query-unload"></a>
 
-The following code examples call an UNLOAD query. For information about
-`UNLOAD`, see [Using UNLOAD to export query results to S3 from Timestream for LiveAnalytics](export-unload.md "export-unload.md").
-For examples of `UNLOAD` queries, see [Example use case for UNLOAD from Timestream for LiveAnalytics](export-unload-example-use-case.md "export-unload-example-use-case.md").
+The following code examples call an UNLOAD query. For information about `UNLOAD`, see [Using UNLOAD to export query results to S3 from Timestream for LiveAnalytics](export-unload.md). For examples of `UNLOAD` queries, see [Example use case for UNLOAD from Timestream for LiveAnalytics](export-unload-example-use-case.md).
 
-###### Topics
-
-- [Build and run an UNLOAD query](#code-samples.run-query-unload-build-and-run "#code-samples.run-query-unload-build-and-run")
-- [Parse UNLOAD response, and get row count, manifest link, and metadata link](#code-samples.run-query-unload-parse-response "#code-samples.run-query-unload-parse-response")
-- [Read and parse manifest content](#code-samples.run-query-unload-parse-manifest "#code-samples.run-query-unload-parse-manifest")
-- [Read and parse metadata content](#code-samples.run-query-unload-parse-metadata "#code-samples.run-query-unload-parse-metadata")
+**Topics**
++ [Build and run an UNLOAD query](#code-samples.run-query-unload-build-and-run)
++ [Parse UNLOAD response, and get row count, manifest link, and metadata link](#code-samples.run-query-unload-parse-response)
++ [Read and parse manifest content](#code-samples.run-query-unload-parse-manifest)
++ [Read and parse metadata content](#code-samples.run-query-unload-parse-metadata)
 
 ## Build and run an UNLOAD query
+<a name="code-samples.run-query-unload-build-and-run"></a>
 
-Java
+------
+#### [  Java  ]
 
 ```
 // When you have a SELECT like below
@@ -142,7 +143,8 @@ static class UnloadQuery {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 // When you have a SELECT like below
@@ -264,7 +266,8 @@ static class UnloadQuery {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // When you have a SELECT like below
@@ -273,7 +276,7 @@ var Query = "SELECT user_id, ip_address, event, session_id, measure_name, time, 
 
 // You can construct UNLOAD query as follows
 var unloadQuery = UnloadQuery{
-    Query: "SELECT user_id, ip_address, session_id, measure_name, time, query, quantity, product_id, channel, event FROM " + *databaseName + "." + *tableName +
+    Query: "SELECT user_id, ip_address, session_id, measure_name, time, query, quantity, product_id, channel, event FROM " + *databaseName + "." + *tableName + 
     " WHERE time BETWEEN ago(2d) AND now()",
     Partitioned_by: []string{},
     Compression: "GZIP",
@@ -337,7 +340,8 @@ func build_query(unload_query UnloadQuery) *string {
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 # When you have a SELECT like below
@@ -381,7 +385,8 @@ class UnloadQuery:
         return unload_query
 ```
 
-Node.js
+------
+#### [  Node.js ]
 
 ```
 // When you have a SELECT like below
@@ -448,15 +453,18 @@ class UnloadQuery {
         return unload_query
     }
 }
-
 ```
+
+------
 
 ## Parse UNLOAD response, and get row count, manifest link, and metadata link
+<a name="code-samples.run-query-unload-parse-response"></a>
 
-Java
+------
+#### [  Java  ]
 
 ```
-// Parsing UNLOAD query response is similar to how you parse SELECT query response:
+// Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 // https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
 // But unlike SELECT, UNLOAD only has 1 row * 3 columns outputed
@@ -486,10 +494,11 @@ class UnloadResponse {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
-// Parsing UNLOAD query response is similar to how you parse SELECT query response:
+// Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 // https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
 // But unlike SELECT, UNLOAD only has 1 row * 3 columns outputed
@@ -519,10 +528,11 @@ class UnloadResponse {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
-// Parsing UNLOAD query response is similar to how you parse SELECT query response:
+// Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 // https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
 // But unlike SELECT, UNLOAD only has 1 row * 3 columns outputed
@@ -546,10 +556,11 @@ func parseResponse(columnInfo []*timestreamquery.ColumnInfo, row *timestreamquer
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
-# Parsing UNLOAD query response is similar to how you parse SELECT query response:
+# Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 # https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
 # But unlike SELECT, UNLOAD only has 1 row * 3 columns outputed
@@ -578,10 +589,11 @@ def parse_unload_response(self, column_info, row):
    return response
 ```
 
-Node.js
+------
+#### [  Node.js ]
 
 ```
-# Parsing UNLOAD query response is similar to how you parse SELECT query response:
+# Parsing UNLOAD query response is similar to how you parse SELECT query response: 
 # https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html#code-samples.run-query.parsing
 
 # But unlike SELECT, UNLOAD only has 1 row * 3 columns outputed
@@ -601,18 +613,21 @@ async parseResponse(columnInfo, row, query) {
     columnInfo.forEach((column, i) => {
         response[column['Name']] = data[i]['ScalarValue']
     })
-
+    
    console.log("Manifest file", response['manifestFile']);
    console.log("Metadata file", response['metadataFile']);
-
-   return response
+   
+   return response 
 }
-
 ```
 
-## Read and parse manifest content
+------
 
-Java
+## Read and parse manifest content
+<a name="code-samples.run-query-unload-parse-manifest"></a>
+
+------
+#### [  Java  ]
 
 ```
 // Read and parse manifest content
@@ -659,7 +674,8 @@ class UnloadManifest {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 // Read and parse manifest content
@@ -710,7 +726,8 @@ class UnloadManifest {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Read and parse manifest content
@@ -749,7 +766,8 @@ type Manifest struct {
 }}
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def __get_manifest_file(self, response):
@@ -768,7 +786,8 @@ def get_object(self, uri):
         raise err
 ```
 
-Node.js
+------
+#### [  Node.js ]
 
 ```
 // Read and parse manifest content
@@ -800,9 +819,13 @@ getBucketAndKey(uri) {
 }
 ```
 
-## Read and parse metadata content
+------
 
-Java
+## Read and parse metadata content
+<a name="code-samples.run-query-unload-parse-metadata"></a>
+
+------
+#### [  Java  ]
 
 ```
 // Read and parse metadata content
@@ -832,7 +855,8 @@ class UnloadMetadata {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 // Read and parse metadata content
@@ -867,7 +891,8 @@ class UnloadMetadata {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 // Read and parse metadata content
@@ -905,14 +930,15 @@ type Metadata struct {
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def __get_metadata_file(self, response):
     metadata = self.get_object(response['metadataFile']).read().decode('utf-8')
     parsed_metadata = json.loads(metadata)
    print("Metadata contents: \n%s" % parsed_metadata)
-
+    
 def get_object(self, uri):
     try:
         bucket, key = uri.replace("s3://", "").split("/", 1)
@@ -922,12 +948,10 @@ def get_object(self, uri):
     except Exception as err:
         print("Failed to get the object for URI:", uri)
         raise err
-
-
-
 ```
 
-Node.js
+------
+#### [  Node.js ]
 
 ```
 // Read and parse metadata content
@@ -957,3 +981,5 @@ getBucketAndKey(uri) {
     return {bucketName, key};
 }
 ```
+
+------

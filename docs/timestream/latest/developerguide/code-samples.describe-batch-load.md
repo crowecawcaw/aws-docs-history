@@ -1,11 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Describe batch load task
+<a name="code-samples.describe-batch-load"></a>
 
 You can use the following code snippets to describe batch load tasks.
 
-Java
+------
+#### [  Java  ]
 
 ```
     public void describeBatchLoadTask(String taskId) {
@@ -21,7 +24,8 @@ Java
     }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 package main
@@ -48,33 +52,33 @@ func main() {
 	})
 
 	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver), config.WithRegion("us-west-2"))
-
+	
 	if err != nil {
   		log.Fatalf("failed to load configuration, %v", err)
 	}
 
 	client := timestreamwrite.NewFromConfig(cfg)
-
+	
 	response, err := client.DescribeBatchLoadTask(context.TODO(), &timestreamwrite.DescribeBatchLoadTaskInput{
 		TaskId: aws.String("<TaskId>"),
 	})
 
 	fmt.Println(aws.ToString(response.BatchLoadTaskDescription.TaskId))
 }
-
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 import boto3
 from botocore.config import Config
 
-INGEST_ENDPOINT="`<url>`"
+INGEST_ENDPOINT="{{<url>}}"
 REGION="us-west-2"
 HT_TTL_HOURS = 24
 CT_TTL_DAYS = 7
-TASK_ID = "`<task id>`"
+TASK_ID = "{{<task id>}}"
 
 def describe_batch_load_task(client, task_id):
     try:
@@ -92,20 +96,21 @@ if __name__ == '__main__':
         config=Config(read_timeout=20, max_pool_connections = 5000, retries={'max_attempts': 10}))
 
     describe_batch_load_task(write_client, TASK_ID)
-
 ```
 
-Node.js
-The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.md").
+------
+#### [  Node.js  ]
 
-For API details, see [Class DescribeBatchLoadCommand](../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.md") and [DescribeBatchLoadTask](API_DescribeBatchLoadTask.md "API_DescribeBatchLoadTask.md").
+The following snippet uses AWS SDK for JavaScript v3. For more information about how to install the client and usage, see [Timestream Write Client - AWS SDK for JavaScript v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/index.html).
+
+For API details, see [Class DescribeBatchLoadCommand](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-timestream-write/classes/describebatchloadtaskcommand.html) and [DescribeBatchLoadTask](https://docs.aws.amazon.com/timestream/latest/developerguide/API_DescribeBatchLoadTask.html).
 
 ```
 import { TimestreamWriteClient, DescribeBatchLoadTaskCommand } from "@aws-sdk/client-timestream-write";
-const writeClient = new TimestreamWriteClient({ region: "`<region>`", endpoint: "`<endpoint>`" });
+const writeClient = new TimestreamWriteClient({ region: "{{<region>}}", endpoint: "{{<endpoint>}}" });
 
 const params = {
-    TaskId: "`<TaskId>`"
+    TaskId: "{{<TaskId>}}"
 };
 
 const command = new DescribeBatchLoadTaskCommand(params);
@@ -123,7 +128,8 @@ try {
 }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 using System;
@@ -166,7 +172,6 @@ namespace TimestreamDotNetSample
         }
     }
 }
-
 ```
 
 ```
@@ -205,7 +210,7 @@ namespace TimestreamDotNetSample
                 Timeout = TimeSpan.FromSeconds(20),
                 MaxErrorRetry = 10
             };
-
+            
             var writeClient = new AmazonTimestreamWriteClient(writeClientConfig);
             var example = new DescribeBatchLoadTaskExample(writeClient);
             await example.DescribeBatchLoadTask("<batch load task id>");
@@ -213,3 +218,5 @@ namespace TimestreamDotNetSample
     }
 }
 ```
+
+------

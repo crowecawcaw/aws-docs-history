@@ -1,14 +1,20 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # `compaction-multipliers`
+<a name="compaction-multipliers"></a>
 
-Parameter Details| **Default** | `3,4,6,5` |
-| **Allowed Values** | Four comma-separated integers |
-| **Category** | Compaction |
 
-###### Note
+**Parameter Details**  
 
+|  |  | 
+| --- |--- |
+| Default | 3,4,6,5 | 
+| Allowed Values | Four comma-separated integers | 
+| Category | Compaction | 
+
+**Note**  
 **IMMUTABLE AFTER INITIAL SETUP:** This parameter is persisted in the catalog. Changing it after the cluster's first start affects all higher generation durations and causes silent data divergence. Set this at cluster creation time only. When cloning parameter groups, this value must be copied unchanged.
 
 **Detailed Explanation:**

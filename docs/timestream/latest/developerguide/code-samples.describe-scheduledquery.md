@@ -1,11 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Describe scheduled query
+<a name="code-samples.describe-scheduledquery"></a>
 
 You can use the following code snippets to describe a scheduled query.
 
-Java
+------
+#### [  Java  ]
 
 ```
 public void describeScheduledQueries(String scheduledQueryArn) {
@@ -25,7 +28,8 @@ public void describeScheduledQueries(String scheduledQueryArn) {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 public void describeScheduledQueries(String scheduledQueryArn) {
@@ -48,16 +52,17 @@ public void describeScheduledQueries(String scheduledQueryArn) {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 func (timestreamBuilder TimestreamBuilder) DescribeScheduledQuery(scheduledQueryArn string) error {
-
+ 
      describeScheduledQueryInput := &timestreamquery.DescribeScheduledQueryInput{
          ScheduledQueryArn: aws.String(scheduledQueryArn),
      }
      describeScheduledQueryOutput, err := timestreamBuilder.QuerySvc.DescribeScheduledQuery(describeScheduledQueryInput)
-
+ 
      if err != nil {
          if aerr, ok := err.(awserr.Error); ok {
              switch aerr.Code() {
@@ -78,7 +83,8 @@ func (timestreamBuilder TimestreamBuilder) DescribeScheduledQuery(scheduledQuery
  }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def describe_scheduled_query(self, scheduled_query_arn):
@@ -97,8 +103,10 @@ def describe_scheduled_query(self, scheduled_query_arn):
         raise err
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js).
 
 ```
 async function describeScheduledQuery(scheduledQueryArn) {
@@ -116,7 +124,8 @@ async function describeScheduledQuery(scheduledQueryArn) {
  }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 private async Task DescribeScheduledQuery(string scheduledQueryArn)
@@ -143,3 +152,5 @@ private async Task DescribeScheduledQuery(string scheduledQueryArn)
      }
  }
 ```
+
+------

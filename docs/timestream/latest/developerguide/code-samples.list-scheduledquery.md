@@ -1,11 +1,14 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # List scheduled query
+<a name="code-samples.list-scheduledquery"></a>
 
 You can use the following code snippets to list your scheduled queries.
 
-Java
+------
+#### [  Java  ]
 
 ```
 public void listScheduledQueries() {
@@ -37,7 +40,8 @@ public void printScheduledQuery(List<ScheduledQuery> scheduledQueryList) {
 }
 ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
 public void listScheduledQueries() {
@@ -69,11 +73,12 @@ public void printScheduledQuery(List<ScheduledQuery> scheduledQueryList) {
 }
 ```
 
-Go
+------
+#### [  Go  ]
 
 ```
 func (timestreamBuilder TimestreamBuilder) ListScheduledQueries() ([]*timestreamquery.ScheduledQuery, error) {
-
+ 
      var nextToken *string = nil
      var scheduledQueries []*timestreamquery.ScheduledQuery
      for ok := true; ok; ok = nextToken != nil {
@@ -83,7 +88,7 @@ func (timestreamBuilder TimestreamBuilder) ListScheduledQueries() ([]*timestream
          if nextToken != nil {
              listScheduledQueriesInput.NextToken = aws.String(*nextToken)
          }
-
+ 
          listScheduledQueriesOutput, err := timestreamBuilder.QuerySvc.ListScheduledQueries(listScheduledQueriesInput)
          if err != nil {
              fmt.Printf("Error: %s", err.Error())
@@ -96,7 +101,8 @@ func (timestreamBuilder TimestreamBuilder) ListScheduledQueries() ([]*timestream
  }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
 def list_scheduled_queries(self):
@@ -119,8 +125,10 @@ def print_scheduled_queries(scheduled_queries):
         print(scheduled_query['Arn'])
 ```
 
-Node.js
-The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js").
+------
+#### [  Node.js  ]
+
+The following snippet uses the AWS SDK for JavaScript V2 style. It is based on the sample application at [Node.js sample Amazon Timestream for LiveAnalytics application on GitHub](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps_reinvent2021/js/schedule-query-example.js).
 
 ```
 async function listScheduledQueries() {
@@ -149,7 +157,8 @@ async function listScheduledQueries() {
  }
 ```
 
-.NET
+------
+#### [  .NET  ]
 
 ```
 private async Task ListScheduledQueries()
@@ -177,3 +186,5 @@ private async Task ListScheduledQueries()
      }
  }
 ```
+
+------

@@ -1,18 +1,19 @@
-For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
-data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html).
 
 # Checking partitioning schema configuration
+<a name="customer-defined-partition-keys-checking-configuration"></a>
 
-You can check how a table configuration for partitioning schema in a couple of ways.
-From the console, choose **Databases** and choose the table to check.
-You can also use an SDK to access the `DescribeTable` action.
+You can check how a table configuration for partitioning schema in a couple of ways. From the console, choose **Databases** and choose the table to check. You can also use an SDK to access the `DescribeTable` action.
 
 ## Describe a table with a partition key
+<a name="code-samples.describe-table-checking-partition-key"></a>
 
-You can use the following code snippets to describe a table with a partition
-key.
+You can use the following code snippets to describe a table with a partition key.
 
-Java
+------
+#### [  Java  ]
 
 ```
     public void describeTable() {
@@ -37,24 +38,24 @@ The following is an example output.
 
 1. Table has dimension type partition key
 
-```
-[{Type: DIMENSION,Name: hostId,EnforcementInRecord: OPTIONAL}]
-```
+   ```
+   [{Type: DIMENSION,Name: hostId,EnforcementInRecord: OPTIONAL}]
+   ```
 
-2. Table has measure name type partition key
+1. Table has measure name type partition key
 
-```
-[{Type: MEASURE,}]
-```
+   ```
+   [{Type: MEASURE,}]
+   ```
 
-3. Getting composite partition key from a table created without
-   specifying composite partition key
+1. Getting composite partition key from a table created without specifying composite partition key
 
-```
-[{Type: MEASURE,}]
-```
+   ```
+   [{Type: MEASURE,}]
+   ```
 
-Java v2
+------
+#### [  Java v2  ]
 
 ```
   public void describeTable() {
@@ -78,24 +79,24 @@ The following is an example output.
 
 1. Table has dimension type partition key
 
-```
-[PartitionKey(Type=DIMENSION, Name=hostId, EnforcementInRecord=OPTIONAL)]
-```
+   ```
+   [PartitionKey(Type=DIMENSION, Name=hostId, EnforcementInRecord=OPTIONAL)]
+   ```
 
-2. Table has measure name type partition key
+1. Table has measure name type partition key
 
-```
-[PartitionKey(Type=MEASURE)]
-```
+   ```
+   [PartitionKey(Type=MEASURE)]
+   ```
 
-3. Getting composite partition key from a table created without
-   specifying composite partition key will return
+1. Getting composite partition key from a table created without specifying composite partition key will return
 
-```
-[PartitionKey(Type=MEASURE)]
-```
+   ```
+   [PartitionKey(Type=MEASURE)]
+   ```
 
-Go v1
+------
+#### [  Go v1 ]
 
 ```
     <tablistentry>
@@ -142,7 +143,8 @@ The following is an example output.
 }
 ```
 
-Go v2
+------
+#### [  Go v2 ]
 
 ```
  func (timestreamBuilder TimestreamBuilder) DescribeTable() (*timestreamwrite.DescribeTableOutput, error) {
@@ -151,14 +153,14 @@ Go v2
              TableName:    aws.String(tableName),
          }
         describeTableOutput, err := timestreamBuilder.WriteSvc.DescribeTable(context.TODO(), describeTableInput)
-
+    
         if err != nil {
             fmt.Printf("Failed to describe table with Error: %s", err.Error())
         } else {
             fmt.Printf("Describe table is successful : %s\n", JsonMarshalIgnoreError(*describeTableOutput))
             // If table is created with composite partition key, it will be included in the output
         }
-
+    
         return describeTableOutput, err
     }
 ```
@@ -200,7 +202,8 @@ The following is an example output.
 }
 ```
 
-Python
+------
+#### [  Python  ]
 
 ```
   def describe_table(self):
@@ -220,19 +223,20 @@ The following is an example output.
 
 1. Table has dimension type partition key
 
-```
-[{'CompositePartitionKey': [{'Type': 'DIMENSION', 'Name': 'hostId', 'EnforcementInRecord': 'OPTIONAL'}]}]
-```
+   ```
+   [{'CompositePartitionKey': [{'Type': 'DIMENSION', 'Name': 'hostId', 'EnforcementInRecord': 'OPTIONAL'}]}]
+   ```
 
-2. Table has measure name type partition key
+1. Table has measure name type partition key
 
-```
-[{'CompositePartitionKey': [{'Type': 'MEASURE'}]}]
-```
+   ```
+   [{'CompositePartitionKey': [{'Type': 'MEASURE'}]}]
+   ```
 
-3. Getting composite partition key from a table created without
-   specifying composite partition key
+1. Getting composite partition key from a table created without specifying composite partition key 
 
-```
-[{'CompositePartitionKey': [{'Type': 'MEASURE'}]}]
-```
+   ```
+   [{'CompositePartitionKey': [{'Type': 'MEASURE'}]}]
+   ```
+
+------
