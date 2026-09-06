@@ -1080,7 +1080,7 @@ class TheNavigationDrawer extends ConsumerWidget {
      resolvers were not updated properly. To resolve the issue, add an empty line to
      the **schema.graphql** file and run the **amplify push** command.
 
-![Amplify Trip Planner animation](images/amplify-activities.gif)
+![Amplify Trip Planner animation](/images/hands-on/latest/build-flutter-mobile-app-part-two/images/amplify-activities.gif)
 
 ## Conclusion
 
