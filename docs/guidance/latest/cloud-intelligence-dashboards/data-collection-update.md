@@ -46,7 +46,7 @@ Watch [demo of update process from legacy version to v3](https://www.youtube.com
 
 To ensure full visibility of data across your organization accounts, in the parameters section, we recommend to pass the Organization Root ID as the organizational unit parameter (OrganizationalUnitID), to ensure the data read role stack is deployed to all accounts in your organization, allowing data collectors to access data from all your organization.
 
-![Data Read Role CloudFormation stack - parameters](images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
+![Data Read Role CloudFormation stack - parameters](/images/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
 
 1. Make sure to select all modules that you want to allow access to your organization accounts data.
 

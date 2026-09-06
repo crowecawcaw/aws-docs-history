@@ -67,7 +67,7 @@ Stack](https://github.com/awslabs/cid-framework/tree/main/data-collection/deploy
    check it here:
    https://console.aws.amazon.com/organizations/v2/home/accounts
 
-![Organization Root ID](images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
+![Organization Root ID](/images/guidance/latest/cloud-intelligence-dashboards/images/data-collection/update-process/data-read-permissions/2a-find-organisation-root-id.png)
 
 ![Data Read Role CloudFormation stack - parameters](images/data-collection/update-process/data-read-permissions/2b-data-read-permissions-stack-create-parameters.png)
 
