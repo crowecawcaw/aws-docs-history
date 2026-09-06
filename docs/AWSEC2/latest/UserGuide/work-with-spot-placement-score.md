@@ -1,342 +1,272 @@
+
+
 # Calculate the Spot placement score
+<a name="work-with-spot-placement-score"></a>
 
-You can calculate a Spot placement score based on target capacity and compute requirements. For more
-information, see [How Spot placement score works](how-sps-works.md "how-sps-works.md").
+You can calculate a Spot placement score based on target capacity and compute requirements. For more information, see [How Spot placement score works](how-sps-works.md).
 
-###### Required permissions
+**Required permissions**  
+Ensure that you have the required permissions. For more information, see [Required permissions for Spot placement score](sps-iam-permission.md).
 
-Ensure that you have the required permissions. For more information, see [Required permissions for Spot placement score](sps-iam-permission.md "sps-iam-permission.md").
+**Topics**
++ [Calculate using instance attributes](#sps-specify-instance-attributes-console)
++ [Calculate using instance types](#sps-specify-instance-types-console)
++ [Calculate using the AWS CLI](#calculate-sps-cli)
 
-###### Options
+**Looking for an automated solution?** Instead of following the manual steps in this user guide, you can build a Spot placement score tracker dashboard that automatically captures and stores the scores in Amazon CloudWatch. For more information, see [Guidance for Building a Spot Placement Score Tracker Dashboard on AWS](https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/).
 
-- [Calculate using instance attributes](#sps-specify-instance-attributes-console "#sps-specify-instance-attributes-console")
-- [Calculate using instance types](#sps-specify-instance-types-console "#sps-specify-instance-types-console")
-- [Calculate using the AWS CLI](#calculate-sps-cli "#calculate-sps-cli")
-  **Looking for an automated solution?** Instead of following the
-  manual steps in this user guide, you can build a Spot placement score tracker dashboard that
-  automatically captures and stores the scores in Amazon CloudWatch. For more information, see
-  [Guidance for Building a Spot Placement Score Tracker Dashboard on
-  AWS](https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/ "https://aws.amazon.com/solutions/guidance/building-a-spot-placement-score-tracker-dashboard-on-aws/").
-
-###### Local Zones
-
-To include Local Zones when using the Amazon EC2 console, your account must have at least
-one Local Zone enabled. For more information, see [Getting started with AWS
-Local Zones](../../../local-zones/latest/ug/getting-started.md "../../../local-zones/latest/ug/getting-started.md") in the _AWS Local Zones User Guide_.
+**Local Zones**  
+To include Local Zones when using the Amazon EC2 console, your account must have at least one Local Zone enabled. For more information, see [Getting started with AWS Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html) in the *AWS Local Zones User Guide*.
 
 ## Calculate using instance attributes
+<a name="sps-specify-instance-attributes-console"></a>
 
-###### To calculate a Spot placement score by specifying instance attributes
+**To calculate a Spot placement score by specifying instance attributes**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Spot Requests**.
-3. Choose the down arrow next to **Request Spot Instances** and choose
-   **Calculate Spot Placement Score**.
-4. Choose **Enter requirements**.
-5. For **Target capacity**, enter your desired capacity in
-   terms of the number of **instances** or
-   **vCPUs**, or the amount of **memory
-   (MiB)**.
-6. For **Instance type requirements**, to specify your
-   compute requirements and let Amazon EC2 identify the optimal instance types with
-   these requirements, choose **Specify instance attributes that match
-   your compute requirements**.
-7. For **vCPUs**, enter the desired minimum and maximum
-   number of vCPUs. To specify no limit, select **No
-   minimum**, **No maximum**, or both.
-8. For **Memory (GiB)**, enter the desired minimum and
-   maximum amount of memory. To specify no limit, select **No
-   minimum**, **No maximum**, or both.
-9. For **CPU architecture**, select the required instance
-   architecture.
-10. (Optional) For **Additional instance attributes**, you
-    can optionally specify one or more attributes to express your compute
-    requirements in more detail. Each additional attribute adds a further
-    constraint to your request. You can omit the additional attributes; when
-    omitted, the default values are used. For a description of each attribute
-    and their default values, see [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md").
-11. (Optional) To view the instance types with your specified attributes,
-    expand **Preview matching instance types**. To exclude
-    instance types from being used in the placement evaluation, select the
-    instances and then choose **Exclude selected instance
-    types**.
-12. Choose **Load placement scores**, and review the results.
-13. (Optional) To display the Spot placement score for specific Regions, for
-    **Regions to evaluate**, select the Regions to
-    evaluate, and then choose **Calculate placement
-    scores**.
-14. (Optional) Under **Score options**, select
-    **Include Local Zones**.
-15. (Optional) To display the Spot placement score for the Availability Zones in the
-    displayed Regions, select the **Provide placement scores per
-    Availability Zone** checkbox. A list of scored Availability
-    Zones is useful if you want to launch all of your Spot capacity into a
-    single Availability Zone.
-16. (Optional) To edit your compute requirements and get a new placement
-    score, choose **Edit**, make the necessary adjustments, and
-    then choose **Calculate placement scores**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. In the navigation pane, choose **Spot Requests**.
+
+1. Choose the down arrow next to **Request Spot Instances** and choose **Calculate Spot Placement Score**.
+
+1. Choose **Enter requirements**.
+
+1. For **Target capacity**, enter your desired capacity in terms of the number of **instances** or **vCPUs**, or the amount of **memory (MiB)**.
+
+1. For **Instance type requirements**, to specify your compute requirements and let Amazon EC2 identify the optimal instance types with these requirements, choose **Specify instance attributes that match your compute requirements**.
+
+1. For **vCPUs**, enter the desired minimum and maximum number of vCPUs. To specify no limit, select **No minimum**, **No maximum**, or both.
+
+1. For **Memory (GiB)**, enter the desired minimum and maximum amount of memory. To specify no limit, select **No minimum**, **No maximum**, or both.
+
+1. For **CPU architecture**, select the required instance architecture.
+
+1. (Optional) For **Additional instance attributes**, you can optionally specify one or more attributes to express your compute requirements in more detail. Each additional attribute adds a further constraint to your request. You can omit the additional attributes; when omitted, the default values are used. For a description of each attribute and their default values, see [get-spot-placement-scores](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-spot-placement-scores.html).
+
+1. (Optional) To view the instance types with your specified attributes, expand **Preview matching instance types**. To exclude instance types from being used in the placement evaluation, select the instances and then choose **Exclude selected instance types**.
+
+1. Choose **Load placement scores**, and review the results.
+
+1. (Optional) To display the Spot placement score for specific Regions, for **Regions to evaluate**, select the Regions to evaluate, and then choose **Calculate placement scores**.
+
+1. (Optional) Under **Score options**, select **Include Local Zones**.
+
+1. (Optional) To display the Spot placement score for the Availability Zones in the displayed Regions, select the **Provide placement scores per Availability Zone** checkbox. A list of scored Availability Zones is useful if you want to launch all of your Spot capacity into a single Availability Zone.
+
+1. (Optional) To edit your compute requirements and get a new placement score, choose **Edit**, make the necessary adjustments, and then choose **Calculate placement scores**.
 
 ## Calculate using instance types
+<a name="sps-specify-instance-types-console"></a>
 
-###### To calculate a Spot placement score by specifying instance types
+**To calculate a Spot placement score by specifying instance types**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Spot Requests**.
-3. Choose the down arrow next to **Request Spot Instances** and
-   choose **Calculate Spot Placement Score**.
-4. Choose **Enter requirements**.
-5. For **Target capacity**, enter your desired capacity in
-   terms of the number of **instances** or
-   **vCPUs**, or the amount of **memory
-   (MiB)**.
-6. For **Instance type requirements**, to specify the
-   instance types to use, choose **Manually select instance
-   types**.
-7. Choose **Select instance types**, select the instance
-   types to use, and then choose **Select**. To quickly find
-   instance types, you can use the filter bar to filter the instance types by
-   different properties.
-8. Choose **Load placement scores**, and review the results.
-9. (Optional) To display the Spot placement score for specific Regions, for
-   **Regions to evaluate**, select the Regions to
-   evaluate, and then choose **Calculate placement
-   scores**.
-10. (Optional) Under **Score options**, select
-    **Include Local Zones**.
-11. (Optional) To display the Spot placement score for the Availability Zones in the
-    displayed Regions, select the **Provide placement scores per
-    Availability Zone** checkbox. A list of scored Availability
-    Zones is useful if you want to launch all of your Spot capacity into a
-    single Availability Zone.
-12. (Optional) To edit the list of instance types and get a new placement
-    score, choose **Edit**, make the necessary adjustments, and
-    then choose **Calculate placement scores**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. In the navigation pane, choose **Spot Requests**.
+
+1. Choose the down arrow next to **Request Spot Instances** and choose **Calculate Spot Placement Score**.
+
+1. Choose **Enter requirements**.
+
+1. For **Target capacity**, enter your desired capacity in terms of the number of **instances** or **vCPUs**, or the amount of **memory (MiB)**.
+
+1. For **Instance type requirements**, to specify the instance types to use, choose **Manually select instance types**.
+
+1. Choose **Select instance types**, select the instance types to use, and then choose **Select**. To quickly find instance types, you can use the filter bar to filter the instance types by different properties.
+
+1. Choose **Load placement scores**, and review the results.
+
+1. (Optional) To display the Spot placement score for specific Regions, for **Regions to evaluate**, select the Regions to evaluate, and then choose **Calculate placement scores**.
+
+1. (Optional) Under **Score options**, select **Include Local Zones**.
+
+1. (Optional) To display the Spot placement score for the Availability Zones in the displayed Regions, select the **Provide placement scores per Availability Zone** checkbox. A list of scored Availability Zones is useful if you want to launch all of your Spot capacity into a single Availability Zone.
+
+1. (Optional) To edit the list of instance types and get a new placement score, choose **Edit**, make the necessary adjustments, and then choose **Calculate placement scores**.
 
 ## Calculate using the AWS CLI
+<a name="calculate-sps-cli"></a>
 
-###### To calculate the Spot placement score
+**To calculate the Spot placement score**
 
-1. (Optional) To generate all of the possible parameters that can be
-   specified for the Spot placement score configuration, use the [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md") command and the
-   `--generate-cli-skeleton` parameter.
+1. (Optional) To generate all of the possible parameters that can be specified for the Spot placement score configuration, use the [get-spot-placement-scores](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-spot-placement-scores.html) command and the `--generate-cli-skeleton` parameter.
 
-```
-aws ec2 get-spot-placement-scores \
-    --region `us-east-1` \
-    --generate-cli-skeleton
-```
+   ```
+   aws ec2 get-spot-placement-scores \
+       --region {{us-east-1}} \
+       --generate-cli-skeleton
+   ```
 
-The following is example output.
+   The following is example output.
 
-```
-{
-    "InstanceTypes": [
-        ""
-    ],
-    "TargetCapacity": 0,
-    "TargetCapacityUnitType": "vcpu",
-    "SingleAvailabilityZone": true,
-    "RegionNames": [
-        ""
-    ],
-    "InstanceRequirementsWithMetadata": {
-        "ArchitectureTypes": [
-            "x86_64_mac"
-        ],
-        "VirtualizationTypes": [
-            "hvm"
-        ],
-        "InstanceRequirements": {
-            "VCpuCount": {
-                "Min": 0,
-                "Max": 0
-            },
-            "MemoryMiB": {
-                "Min": 0,
-                "Max": 0
-            },
-            "CpuManufacturers": [
-                "amd"
-            ],
-            "MemoryGiBPerVCpu": {
-                "Min": 0.0,
-                "Max": 0.0
-            },
-            "ExcludedInstanceTypes": [
-                ""
-            ],
-            "InstanceGenerations": [
-                "previous"
-            ],
-            "SpotMaxPricePercentageOverLowestPrice": 0,
-            "OnDemandMaxPricePercentageOverLowestPrice": 0,
-            "BareMetal": "excluded",
-            "BurstablePerformance": "excluded",
-            "RequireHibernateSupport": true,
-            "NetworkInterfaceCount": {
-                "Min": 0,
-                "Max": 0
-            },
-            "LocalStorage": "included",
-            "LocalStorageTypes": [
-                "hdd"
-            ],
-            "TotalLocalStorageGB": {
-                "Min": 0.0,
-                "Max": 0.0
-            },
-            "BaselineEbsBandwidthMbps": {
-                "Min": 0,
-                "Max": 0
-            },
-            "AcceleratorTypes": [
-                "fpga"
-            ],
-            "AcceleratorCount": {
-                "Min": 0,
-                "Max": 0
-            },
-            "AcceleratorManufacturers": [
-                "amd"
-            ],
-            "AcceleratorNames": [
-                "vu9p"
-            ],
-            "AcceleratorTotalMemoryMiB": {
-                "Min": 0,
-                "Max": 0
-            }
-        }
-    },
-    "DryRun": true,
-    "MaxResults": 0,
-    "NextToken": "",
-    "IncludeLocalZones": true
-}
+   ```
+   {
+       "InstanceTypes": [
+           ""
+       ],
+       "TargetCapacity": 0,
+       "TargetCapacityUnitType": "vcpu",
+       "SingleAvailabilityZone": true,
+       "RegionNames": [
+           ""
+       ],
+       "InstanceRequirementsWithMetadata": {
+           "ArchitectureTypes": [
+               "x86_64_mac"
+           ],
+           "VirtualizationTypes": [
+               "hvm"
+           ],
+           "InstanceRequirements": {
+               "VCpuCount": {
+                   "Min": 0,
+                   "Max": 0
+               },
+               "MemoryMiB": {
+                   "Min": 0,
+                   "Max": 0
+               },
+               "CpuManufacturers": [
+                   "amd"
+               ],
+               "MemoryGiBPerVCpu": {
+                   "Min": 0.0,
+                   "Max": 0.0
+               },
+               "ExcludedInstanceTypes": [
+                   ""
+               ],
+               "InstanceGenerations": [
+                   "previous"
+               ],
+               "SpotMaxPricePercentageOverLowestPrice": 0,
+               "OnDemandMaxPricePercentageOverLowestPrice": 0,
+               "BareMetal": "excluded",
+               "BurstablePerformance": "excluded",
+               "RequireHibernateSupport": true,
+               "NetworkInterfaceCount": {
+                   "Min": 0,
+                   "Max": 0
+               },
+               "LocalStorage": "included",
+               "LocalStorageTypes": [
+                   "hdd"
+               ],
+               "TotalLocalStorageGB": {
+                   "Min": 0.0,
+                   "Max": 0.0
+               },
+               "BaselineEbsBandwidthMbps": {
+                   "Min": 0,
+                   "Max": 0
+               },
+               "AcceleratorTypes": [
+                   "fpga"
+               ],
+               "AcceleratorCount": {
+                   "Min": 0,
+                   "Max": 0
+               },
+               "AcceleratorManufacturers": [
+                   "amd"
+               ],
+               "AcceleratorNames": [
+                   "vu9p"
+               ],
+               "AcceleratorTotalMemoryMiB": {
+                   "Min": 0,
+                   "Max": 0
+               }
+           }
+       },
+       "DryRun": true,
+       "MaxResults": 0,
+       "NextToken": "",
+       "IncludeLocalZones": true
+   }
+   ```
 
-```
+1. Create a JSON configuration file using the output from the previous step, and configure it as follows:
 
-2. Create a JSON configuration file using the output from the previous step,
-   and configure it as follows:
+   1. For `TargetCapacity`, enter your desired Spot capacity in terms of the number of instances or vCPUs, or the amount of memory (MiB).
 
-   1. For `TargetCapacity`, enter your desired Spot capacity
-      in terms of the number of instances or vCPUs, or the amount of
-      memory (MiB).
-   2. For `TargetCapacityUnitType`, enter the unit for the
-      target capacity. If you omit this parameter, it defaults to
-      `units`.
+   1. For `TargetCapacityUnitType`, enter the unit for the target capacity. If you omit this parameter, it defaults to `units`.
 
-   Valid values: `units` (which translates to number of
-   instances) | `vcpu` | `memory-mib` 3. For `SingleAvailabilityZone`, specify `true`
-   for a response that returns a list of scored Availability Zones. A
-   list of scored Availability Zones is useful if you want to launch
-   all of your Spot capacity into a single Availability Zone. If you
-   omit this parameter, it defaults to `false`, and the
-   response returns a list of scored
-   Regions. 4. (Optional) For `IncludeLocalZones`, specify
-   `true` to include Local Zones. For regional scores, Local Zone
-   capacity counts toward the parent Region. For zonal scores, the
-   response can include individual Local Zone scores. If omitted or set to
-   `false`, Local Zones are ignored. 5. (Optional) For `RegionNames`, specify the Regions to use as a filter. You must specify the Region
-   code, for example, `us-east-1`.
+      Valid values: `units` (which translates to number of instances) \| `vcpu` \| `memory-mib`
 
-   With a Region filter, the response returns only the Regions that you specify. If you specified
-   `true` for `SingleAvailabilityZone`, the
-   response returns only the Availability Zones in the specified
-   Regions. 6. You can include either `InstanceTypes` or
-   `InstanceRequirements`, but not both in the same
-   configuration.
+   1. For `SingleAvailabilityZone`, specify `true` for a response that returns a list of scored Availability Zones. A list of scored Availability Zones is useful if you want to launch all of your Spot capacity into a single Availability Zone. If you omit this parameter, it defaults to `false`, and the response returns a list of scored Regions.
 
-   Specify one of the following in your JSON configuration:
+   1. (Optional) For `IncludeLocalZones`, specify `true` to include Local Zones. For regional scores, Local Zone capacity counts toward the parent Region. For zonal scores, the response can include individual Local Zone scores. If omitted or set to `false`, Local Zones are ignored.
 
-        * To specify a list of instance types, specify the instance
-         types in the `InstanceTypes` parameter. Specify
-         at least three different instance types. If you specify only
-         one or two instance types, Spot placement score returns a low score. For
-         the list of instance types, see [Amazon EC2 Instance
-         Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
-        * To specify the instance attributes so that Amazon EC2 will
-         identify the instance types that match those attributes,
-         specify the attributes that are located in the
-         `InstanceRequirements` structure.
+   1. (Optional) For `RegionNames`, specify the Regions to use as a filter. You must specify the Region code, for example, `us-east-1`.
 
+      With a Region filter, the response returns only the Regions that you specify. If you specified `true` for `SingleAvailabilityZone`, the response returns only the Availability Zones in the specified Regions.
 
-        You must provide values for `VCpuCount`,
-         `MemoryMiB`, and
-         `CpuManufacturers`. You can omit the other
-         attributes; when omitted, the default values are used. For a
-         description of each attribute and their default values, see
-         [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md").
+   1. You can include either `InstanceTypes` or `InstanceRequirements`, but not both in the same configuration.
 
-   For example configurations, see [Example configurations](#sps-example-configs "#sps-example-configs").
+      Specify one of the following in your JSON configuration:
+      + To specify a list of instance types, specify the instance types in the `InstanceTypes` parameter. Specify at least three different instance types. If you specify only one or two instance types, Spot placement score returns a low score. For the list of instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
+      + To specify the instance attributes so that Amazon EC2 will identify the instance types that match those attributes, specify the attributes that are located in the `InstanceRequirements` structure.
 
-3. To get the Spot placement score for the requirements that you specified in the JSON file,
-   use the [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md") command, and specify the name and
-   path to your JSON file by using the `--cli-input-json`
-   parameter.
+        You must provide values for `VCpuCount`, `MemoryMiB`, and `CpuManufacturers`. You can omit the other attributes; when omitted, the default values are used. For a description of each attribute and their default values, see [get-spot-placement-scores](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-spot-placement-scores.html).
 
-```
-aws ec2 get-spot-placement-scores \
-    --region `us-east-1` \
-    --cli-input-json file://`file_name`.json
-```
+      For example configurations, see [Example configurations](#sps-example-configs).
 
-Example output if `SingleAvailabilityZone` is set to
-`false` or omitted (if omitted, it defaults to
-`false`) – a scored list of
-Regions is
-returned.
+1. To get the Spot placement score for the requirements that you specified in the JSON file, use the [get-spot-placement-scores](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-spot-placement-scores.html) command, and specify the name and path to your JSON file by using the `--cli-input-json` parameter.
 
-```
-"SpotPlacementScores": [
-    {
-        "Region": "us-east-1",
-        "Score": 7
-    },
-    {
-        "Region": "us-west-1",
-        "Score": 5
-    },
-   ...
-```
+   ```
+   aws ec2 get-spot-placement-scores \
+       --region {{us-east-1}} \
+       --cli-input-json file://{{file_name}}.json
+   ```
 
-Example output if `SingleAvailabilityZone` is set to
-`true` – a scored list of Availability Zones and, when
-`IncludeLocalZones` is `true`, Local Zones is
-returned.
+   Example output if `SingleAvailabilityZone` is set to `false` or omitted (if omitted, it defaults to `false`) – a scored list of Regions is returned.
 
-```
-"SpotPlacementScores": [
-    {
-        "Region": "us-east-1",
-        "AvailabilityZoneId": "use1-az1",
-        "Score": 8
-    },
-    {
-        "Region": "us-east-1",
-        "AvailabilityZoneId": "usw2-az3",
-        "Score": 6
-    },
-   ...
-```
+   ```
+   "SpotPlacementScores": [
+       {
+           "Region": "us-east-1",
+           "Score": 7
+       },
+       {
+           "Region": "us-west-1",
+           "Score": 5
+       },  
+      ...
+   ```
+
+   Example output if `SingleAvailabilityZone` is set to `true` – a scored list of Availability Zones and, when `IncludeLocalZones` is `true`, Local Zones is returned.
+
+   ```
+   "SpotPlacementScores": [
+       {
+           "Region": "us-east-1",
+           "AvailabilityZoneId": "use1-az1",
+           "Score": 8
+       },
+       {
+           "Region": "us-east-1",
+           "AvailabilityZoneId": "usw2-az3",
+           "Score": 6
+       },
+      ...
+   ```
 
 ### Example configurations
+<a name="sps-example-configs"></a>
 
 When using the AWS CLI, you can use the following example configurations.
 
-###### Example configurations
-
-- [Example: Specify instance types and target capacity](#example-config-instance-type-override "#example-config-instance-type-override")
-- [Example: Specify instance types, and target capacity in terms of memory](#example-config-instance-type-memory-unit-override "#example-config-instance-type-memory-unit-override")
-- [Example: Specify attributes for attribute-based instance type selection](#example-config-attribute-based-instance-type-selection "#example-config-attribute-based-instance-type-selection")
-- [Example: Specify attributes for attribute-based instance type selection and return a scored list of Availability Zones](#example-config-sps-singleAZ "#example-config-sps-singleAZ")
+**Topics**
++ [Example: Specify instance types and target capacity](#example-config-instance-type-override)
++ [Example: Specify instance types, and target capacity in terms of memory](#example-config-instance-type-memory-unit-override)
++ [Example: Specify attributes for attribute-based instance type selection](#example-config-attribute-based-instance-type-selection)
++ [Example: Specify attributes for attribute-based instance type selection and return a scored list of Availability Zones](#example-config-sps-singleAZ)
 
 #### Example: Specify instance types and target capacity
+<a name="example-config-instance-type-override"></a>
 
-The following example configuration specifies three different instance
-types and a target Spot capacity of 500 Spot Instances.
+The following example configuration specifies three different instance types and a target Spot capacity of 500 Spot Instances.
 
 ```
 {
@@ -344,16 +274,15 @@ types and a target Spot capacity of 500 Spot Instances.
         "m5.4xlarge",
         "r5.2xlarge",
         "m4.4xlarge"
-    ],
+    ], 
     "TargetCapacity": 500
 }
 ```
 
 #### Example: Specify instance types, and target capacity in terms of memory
+<a name="example-config-instance-type-memory-unit-override"></a>
 
-The following example configuration specifies three different instance
-types and a target Spot capacity of 500,000 MiB of memory, where the number
-of Spot Instances to launch must provide a total of 500,000 MiB of memory.
+The following example configuration specifies three different instance types and a target Spot capacity of 500,000 MiB of memory, where the number of Spot Instances to launch must provide a total of 500,000 MiB of memory.
 
 ```
 {
@@ -361,17 +290,16 @@ of Spot Instances to launch must provide a total of 500,000 MiB of memory.
         "m5.4xlarge",
         "r5.2xlarge",
         "m4.4xlarge"
-    ],
+    ], 
     "TargetCapacity": 500000,
     "TargetCapacityUnitType": "memory-mib"
 }
 ```
 
 #### Example: Specify attributes for attribute-based instance type selection
+<a name="example-config-attribute-based-instance-type-selection"></a>
 
-The following example configuration is configured for attribute-based
-instance type selection, and is followed by a text explanation of the
-example configuration.
+The following example configuration is configured for attribute-based instance type selection, and is followed by a text explanation of the example configuration.
 
 ```
 {
@@ -393,43 +321,24 @@ example configuration.
 }
 ```
 
-###### **`InstanceRequirementsWithMetadata`**
+****`InstanceRequirementsWithMetadata`****  
+To use attribute-based instance type selection, you must include the `InstanceRequirementsWithMetadata` structure in your configuration, and specify the desired attributes for the Spot Instances.
 
-To use attribute-based instance type selection, you must include the
-`InstanceRequirementsWithMetadata` structure in your
-configuration, and specify the desired attributes for the Spot Instances.
+In the preceding example, the following required instance attributes are specified:
++ `ArchitectureTypes` – The architecture type of the instance types must be `arm64`.
++ `VirtualizationTypes` – The virtualization type of the instance types must be `hvm`.
++ `VCpuCount` – The instance types must have a minimum of 1 and a maximum of 12 vCPUs.
++ `MemoryMiB` – The instance types must have a minimum of 512 MiB of memory. By omitting the `Max` parameter, you are indicating that there is no maximum limit.
 
-In the preceding example, the following required instance attributes are
-specified:
+Note that there are several other optional attributes that you can specify. For the list of attributes, see [get-spot-placement-scores](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-spot-placement-scores.html).
 
-- `ArchitectureTypes` – The architecture type of
-  the instance types must be `arm64`.
-- `VirtualizationTypes` – The virtualization type
-  of the instance types must be `hvm`.
-- `VCpuCount` – The instance types must have a
-  minimum of 1 and a maximum of 12 vCPUs.
-- `MemoryMiB` – The instance types must have a
-  minimum of 512 MiB of memory. By omitting the `Max`
-  parameter, you are indicating that there is no maximum limit.
-
-Note that there are several other optional attributes that you can
-specify. For the list of attributes, see [get-spot-placement-scores](../../../cli/latest/reference/ec2/get-spot-placement-scores.md "../../../cli/latest/reference/ec2/get-spot-placement-scores.md").
-
-###### `**TargetCapacityUnitType**`
-
-The `TargetCapacityUnitType` parameter specifies the unit
-for the target capacity. In the example, the target capacity is
-`5000` and the target capacity unit type is
-`vcpu`, which together specify a desired target capacity
-of 5000 vCPUs, where the number of Spot Instances to launch must provide a total
-of 5000 vCPUs.
+**`TargetCapacityUnitType`**  
+The `TargetCapacityUnitType` parameter specifies the unit for the target capacity. In the example, the target capacity is `5000` and the target capacity unit type is `vcpu`, which together specify a desired target capacity of 5000 vCPUs, where the number of Spot Instances to launch must provide a total of 5000 vCPUs.
 
 #### Example: Specify attributes for attribute-based instance type selection and return a scored list of Availability Zones
+<a name="example-config-sps-singleAZ"></a>
 
-The following example configuration is configured for attribute-based
-instance type selection. By specifying `"SingleAvailabilityZone":
- true`, the response will return a list of scored Availability
-Zones.
+The following example configuration is configured for attribute-based instance type selection. By specifying `"SingleAvailabilityZone": true`, the response will return a list of scored Availability Zones.
 
 ```
 {

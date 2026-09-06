@@ -1,169 +1,142 @@
+
+
 # Track your Spot Instance costs using the Spot Instance data feed
+<a name="spot-data-feeds"></a>
 
-To help you understand the charges for your Spot Instances, Amazon EC2 provides a data feed that describes
-your Spot Instance usage and pricing. This data feed is sent to an Amazon S3 bucket that you specify
-when you subscribe to the data feed.
+To help you understand the charges for your Spot Instances, Amazon EC2 provides a data feed that describes your Spot Instance usage and pricing. This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
 
-Data feed files arrive in your bucket typically once an hour. If you don't have a Spot Instance
-running during a certain hour, you don't receive a data feed file for that hour.
+Data feed files arrive in your bucket typically once an hour. If you don't have a Spot Instance running during a certain hour, you don't receive a data feed file for that hour.
 
-Each hour of Spot Instance usage is typically covered in a single data file. These files are
-compressed (gzip) before they are delivered to your bucket. Amazon EC2 can write multiple
-files for a given hour of usage where files are large (for example, when file contents
-for the hour exceed 50 MB before compression).
+Each hour of Spot Instance usage is typically covered in a single data file. These files are compressed (gzip) before they are delivered to your bucket. Amazon EC2 can write multiple files for a given hour of usage where files are large (for example, when file contents for the hour exceed 50 MB before compression).
 
-###### Note
-
+**Note**  
 You can create only one Spot Instance data feed per AWS account.
 
-Spot Instance data feed is supported in all AWS Regions except China (Beijing),
-China (Ningxia), AWS GovCloud (US), and the [Regions that are disabled by default](using-regions-availability-zones.md#concepts-available-regions "using-regions-availability-zones.md#concepts-available-regions").
+Spot Instance data feed is supported in all AWS Regions except China (Beijing), China (Ningxia), AWS GovCloud (US), and the [Regions that are disabled by default](using-regions-availability-zones.md#concepts-available-regions).
 
-###### Contents
-
-- [Data feed file name and format](#using-spot-instances-format "#using-spot-instances-format")
-- [Amazon S3 bucket requirements](#using-spot-instances-dfs3 "#using-spot-instances-dfs3")
-- [Subscribe to your Spot Instance data feed](#using-spot-instances-datafeed-all "#using-spot-instances-datafeed-all")
-- [View the data in your data feed](#using-spot-instances-datafeed-view-data "#using-spot-instances-datafeed-view-data")
-- [Delete your Spot Instance data feed](#using-spot-instances-datafeed-delete "#using-spot-instances-datafeed-delete")
+**Topics**
++ [Data feed file name and format](#using-spot-instances-format)
++ [Amazon S3 bucket requirements](#using-spot-instances-dfs3)
++ [Subscribe to your Spot Instance data feed](#using-spot-instances-datafeed-all)
++ [View the data in your data feed](#using-spot-instances-datafeed-view-data)
++ [Delete your Spot Instance data feed](#using-spot-instances-datafeed-delete)
 
 ## Data feed file name and format
+<a name="using-spot-instances-format"></a>
 
-The Spot Instance data feed file name uses the following format (with the date and hour in
-UTC):
+The Spot Instance data feed file name uses the following format (with the date and hour in UTC): 
 
 ```
-`bucket-name`.s3.amazonaws.com`/optional-prefix`/`aws-account-id`.`YYYY`-`MM`-`DD`-`HH`.`n`.`unique-id`.gz
+{{bucket-name}}.s3.amazonaws.com{{/optional-prefix}}/{{aws-account-id}}.{{YYYY}}-{{MM}}-{{DD}}-{{HH}}.{{n}}.{{unique-id}}.gz
 ```
 
-For example, if your bucket name is `amzn-s3-demo-bucket` and your
-prefix is `my-prefix`, your file names are similar to the
-following:
+For example, if your bucket name is **amzn-s3-demo-bucket** and your prefix is **my-prefix**, your file names are similar to the following:
 
 ```
 amzn-s3-demo-bucket.s3.amazonaws.com/my-prefix/111122223333.2023-12-09-07.001.b959dbc6.gz
 ```
 
-For more information about bucket names, see [Bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md") in the _Amazon S3 User Guide_.
+For more information about bucket names, see [Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html) in the *Amazon S3 User Guide*.
 
-The Spot Instance data feed files are tab-delimited. Each line in the data file corresponds
-to one clock hour of instance usage and contains the fields listed in the following table.
+The Spot Instance data feed files are tab-delimited. Each line in the data file corresponds to one clock hour of instance usage and contains the fields listed in the following table.
 
-| Field         | Description                                                                                                                                                                                                                                                  |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Timestamp`   | The timestamp used to determine the price charged for this<br>instance usage.                                                                                                                                                                                |
-| `UsageType`   | The type of usage and instance type being charged for. For<br>`m1.small` Spot Instances, this field is set to<br>`SpotUsage`. For all other instance types, this<br>field is set to<br>`SpotUsage:`{_instance-type_}.<br>For example, `SpotUsage:c1.medium`. |
-| `Operation`   | The product being charged for. For Linux Spot Instances, this field is<br>set to `RunInstances`. For Windows Spot Instances, this field<br>is set to `RunInstances:0002`. Spot usage is grouped<br>according to Availability Zone.                           |
-| `InstanceID`  | The ID of the Spot Instance that generated this instance usage.                                                                                                                                                                                              |
-| `MyBidID`     | The ID for the Spot Instance request that generated this instance<br>usage.                                                                                                                                                                                  |
-| `MyMaxPrice`  | The maximum price specified for this Spot request.                                                                                                                                                                                                           |
-| `MarketPrice` | The Spot price at the time specified in the<br>`Timestamp` field.                                                                                                                                                                                            |
-| `Charge`      | The price charged for this instance usage.                                                                                                                                                                                                                   |
-| `Version`     | The data feed version. The possible version is 1.0.                                                                                                                                                                                                          |
+
+|  Field  |  Description  | 
+| --- | --- | 
+|  `Timestamp`  | The timestamp used to determine the price charged for this instance usage. | 
+|  `UsageType`  | The type of usage and instance type being charged for. For `m1.small` Spot Instances, this field is set to `SpotUsage`. For all other instance types, this field is set to `SpotUsage:`{*instance-type*}. For example, `SpotUsage:c1.medium`. | 
+|  `Operation`  | The product being charged for. For Linux Spot Instances, this field is set to `RunInstances`. For Windows Spot Instances, this field is set to `RunInstances:0002`. Spot usage is grouped according to Availability Zone. | 
+|  `InstanceID`  | The ID of the Spot Instance that generated this instance usage. | 
+|  `MyBidID`  | The ID for the Spot Instance request that generated this instance usage. | 
+|  `MyMaxPrice`  | The maximum price specified for this Spot request. | 
+|  `MarketPrice`  | The Spot price at the time specified in the `Timestamp` field. | 
+|  `Charge`  | The price charged for this instance usage. | 
+|  `Version`  | The data feed version. The possible version is 1.0. | 
 
 ## Amazon S3 bucket requirements
+<a name="using-spot-instances-dfs3"></a>
 
-When you subscribe to the data feed, you must specify an Amazon S3 bucket to store the data feed
-files.
+When you subscribe to the data feed, you must specify an Amazon S3 bucket to store the data feed files.
 
 Before you choose an Amazon S3 bucket for the data feed, consider the following:
++ You must have `FULL_CONTROL` permission to the bucket. If you're the bucket owner, you have this permission by default. Otherwise, the bucket owner must grant your AWS account this permission.
++ When you subscribe to a data feed, these permissions are used to update the bucket ACL to give the AWS data feed account `FULL_CONTROL` permission. The AWS data feed account writes data feed files to the bucket. If your account doesn't have the required permissions, the data feed files cannot be written to the bucket. For more information, see [Logs sent to Amazon S3](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-S3) in the *Amazon CloudWatch Logs User Guide*.
 
-- You must have `FULL_CONTROL` permission to the bucket.
-  If you're the bucket owner, you have this permission by default.
-  Otherwise, the bucket owner must grant your AWS account this permission.
-- When you subscribe to a data feed, these permissions are used to update
-  the bucket ACL to give the AWS data feed account `FULL_CONTROL`
-  permission. The AWS data feed account writes data feed files to the bucket.
-  If your account doesn't have the required permissions, the data feed files
-  cannot be written to the bucket. For more information, see [Logs sent to Amazon S3](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3") in the _Amazon CloudWatch Logs User Guide_.
-
-If you update the ACL and remove the permissions for the AWS data feed
-account, the data feed files cannot be written to the bucket. You must
-resubscribe to the data feed to receive the data feed files.
-
-- Each data feed file has its own ACL (separate from the ACL for the
-  bucket). The bucket owner has `FULL_CONTROL` permission to the
-  data files. The AWS data feed account has read and write permissions.
-- If you delete your data feed subscription, Amazon EC2 doesn't remove the read
-  and write permissions for the AWS data feed account on either the bucket or
-  the data files. You must remove these permissions yourself.
-- If you encrypt your Amazon S3 bucket using server-side encryption with a AWS KMS key stored in
-  AWS Key Management Service (SSE-KMS), you must use a customer managed key. For more information, see [Amazon S3 bucket server-side encryption](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3") in the _Amazon CloudWatch Logs User Guide_.
+  If you update the ACL and remove the permissions for the AWS data feed account, the data feed files cannot be written to the bucket. You must resubscribe to the data feed to receive the data feed files.
++ Each data feed file has its own ACL (separate from the ACL for the bucket). The bucket owner has `FULL_CONTROL` permission to the data files. The AWS data feed account has read and write permissions.
++ If you delete your data feed subscription, Amazon EC2 doesn't remove the read and write permissions for the AWS data feed account on either the bucket or the data files. You must remove these permissions yourself.
++ If you encrypt your Amazon S3 bucket using server-side encryption with a AWS KMS key stored in AWS Key Management Service (SSE-KMS), you must use a customer managed key. For more information, see [Amazon S3 bucket server-side encryption](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-SSE-KMS-S3) in the *Amazon CloudWatch Logs User Guide*.
 
 ## Subscribe to your Spot Instance data feed
+<a name="using-spot-instances-datafeed-all"></a>
 
-You can subscribe to your Spot Instance data feed at any time. You can't complete this task using the
-Amazon EC2 console.
+You can subscribe to your Spot Instance data feed at any time. You can't complete this task using the Amazon EC2 console.
 
-If you get an error that the bucket does not have enough permissions, see the
-following article for troubleshooting information: [Troubleshoot
-the data feed for Spot Instances](https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances "https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances").
+If you get an error that the bucket does not have enough permissions, see the following article for troubleshooting information: [Troubleshoot the data feed for Spot Instances](https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances).
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To subscribe to your data feed
-
-Use the [create-spot-datafeed-subscription](../../../cli/latest/reference/ec2/create-spot-datafeed-subscription.md "../../../cli/latest/reference/ec2/create-spot-datafeed-subscription.md") command.
+**To subscribe to your data feed**  
+Use the [create-spot-datafeed-subscription](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-spot-datafeed-subscription.html) command.
 
 To specify a bucket with a prefix, use the following example:
 
 ```
 aws ec2 create-spot-datafeed-subscription \
-    --bucket `amzn-s3-demo-bucket` \
-    --prefix `my-prefix`
+    --bucket {{amzn-s3-demo-bucket}} \
+    --prefix {{my-prefix}}
 ```
 
 To specify a bucket without a prefix, use the following example:
 
 ```
 aws ec2 create-spot-datafeed-subscription \
-    --bucket `amzn-s3-demo-bucket`
+    --bucket {{amzn-s3-demo-bucket}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To subscribe to your data feed
-
-Use the [New-EC2SpotDatafeedSubscription](../../../powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.md "../../../powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.md")
-cmdlet.
+**To subscribe to your data feed**  
+Use the [New-EC2SpotDatafeedSubscription](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.html) cmdlet.
 
 To specify a bucket with a prefix, use the following example:
 
 ```
 New-EC2SpotDatafeedSubscription `
-    -Bucket `amzn-s3-demo-bucket` `
-    -Prefix `my-prefix`
+    -Bucket {{amzn-s3-demo-bucket}} `
+    -Prefix {{my-prefix}}
 ```
 
 To specify a bucket without a prefix, use the following example:
 
 ```
 New-EC2SpotDatafeedSubscription `
-    -Bucket `amzn-s3-demo-bucket`
+    -Bucket {{amzn-s3-demo-bucket}}
 ```
+
+------
 
 ## View the data in your data feed
+<a name="using-spot-instances-datafeed-view-data"></a>
 
-In the AWS Management Console, open AWS CloudShell. Use the following [s3 sync](../../../cli/latest/reference/s3/sync.md "../../../cli/latest/reference/s3/sync.md") command to get the .gz files from the S3 bucket for your data
-feed and store them in the folder that you specify.
-
-```
-aws s3 sync s3://`amzn-s3-demo-bucket` ./`data-feed`
-```
-
-To display the contents of a .gz file, change to the folder where you stored
-the contents of the S3 bucket.
+In the AWS Management Console, open AWS CloudShell. Use the following [s3 sync](https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html) command to get the .gz files from the S3 bucket for your data feed and store them in the folder that you specify.
 
 ```
-cd `data-feed`
+aws s3 sync s3://{{amzn-s3-demo-bucket}} ./{{data-feed}}
 ```
 
-Use the **ls** command to view the names of the files. Use the
-**zcat** command with the name of the file to display the contents
-of the compressed file. The following is an example command.
+To display the contents of a .gz file, change to the folder where you stored the contents of the S3 bucket.
 
 ```
-zcat  `111122223333.2023-12-09-07.001.b959dbc6`.gz
+cd {{data-feed}}
+```
+
+Use the **ls** command to view the names of the files. Use the **zcat** command with the name of the file to display the contents of the compressed file. The following is an example command.
+
+```
+zcat  {{111122223333.2023-12-09-07.001.b959dbc6}}.gz
 ```
 
 The following is example output.
@@ -175,25 +148,28 @@ The following is example output.
 ```
 
 ## Delete your Spot Instance data feed
+<a name="using-spot-instances-datafeed-delete"></a>
 
 When you are finished with the Spot Instance data feed, you can delete it.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To delete your data feed
-
-Use the [delete-spot-datafeed-subscription](../../../cli/latest/reference/ec2/delete-spot-datafeed-subscription.md "../../../cli/latest/reference/ec2/delete-spot-datafeed-subscription.md") command.
+**To delete your data feed**  
+Use the [delete-spot-datafeed-subscription](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-spot-datafeed-subscription.html) command.
 
 ```
 aws ec2 delete-spot-datafeed-subscription
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To delete your data feed
-
-Use the [Remove-EC2SpotDatafeedSubscription](../../../powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.md "../../../powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.md") cmdlet.
+**To delete your data feed**  
+Use the [Remove-EC2SpotDatafeedSubscription](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.html) cmdlet.
 
 ```
 Remove-EC2SpotDatafeedSubscription
 ```
+
+------

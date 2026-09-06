@@ -1,78 +1,63 @@
+
+
 # Share an Amazon EC2 Dedicated Host across AWS accounts
+<a name="sharing-dh"></a>
 
-When an owner shares a Dedicated Host, it enables consumers to launch instances on the host.
-Consumers can launch as many instances onto the shared host as its available
-capacity allows.
+When an owner shares a Dedicated Host, it enables consumers to launch instances on the host. Consumers can launch as many instances onto the shared host as its available capacity allows.
 
-###### Important
+**Important**  
+Note that you are responsible for ensuring that you have appropriate license rights to share any BYOL licenses on your Dedicated Hosts.
 
-Note that you are responsible for ensuring that you have appropriate license
-rights to share any BYOL licenses on your Dedicated Hosts.
+If you share a Dedicated Host with auto-placement enabled, keep the following in mind as it could lead to unintended Dedicated Host usage:
++ If consumers launch instances with Dedicated Host tenancy and they do not have capacity on a Dedicated Host that they own in their account, the instance is automatically launched onto the shared Dedicated Host.
 
-If you share a Dedicated Host with auto-placement enabled, keep the following in mind as it
-could lead to unintended Dedicated Host usage:
+To share a Dedicated Host, you must add it to a resource share. A resource share is an AWS RAM resource that lets you share your resources across AWS accounts. A resource share specifies the resources to share, and the consumers with whom they are shared. You can add the Dedicated Host to an existing resource, or you can add it to a new resource share.
 
-- If consumers launch instances with Dedicated Host tenancy and they do not have
-  capacity on a Dedicated Host that they own in their account, the instance is
-  automatically launched onto the shared Dedicated Host.
-  To share a Dedicated Host, you must add it to a resource share. A resource share is an AWS RAM
-  resource that lets you share your resources across AWS accounts. A resource share
-  specifies the resources to share, and the consumers with whom they are shared. You
-  can add the Dedicated Host to an existing resource, or you can add it to a new resource
-  share.
+If you are part of an organization in AWS Organizations and sharing within your organization is enabled, consumers in your organization are automatically granted access to the shared Dedicated Host. Otherwise, consumers receive an invitation to join the resource share and are granted access to the shared Dedicated Host after accepting the invitation.
 
-If you are part of an organization in AWS Organizations and sharing within your
-organization is enabled, consumers in your organization are automatically granted
-access to the shared Dedicated Host. Otherwise, consumers receive an invitation to join the
-resource share and are granted access to the shared Dedicated Host after accepting the
-invitation.
+**Note**  
+After you share a Dedicated Host, it could take a few minutes for consumers to have access to it.
 
-###### Note
+------
+#### [ Console ]
 
-After you share a Dedicated Host, it could take a few minutes for consumers to have
-access to it.
+**To share a Dedicated Host that you own using the Amazon EC2 console**
 
-Console
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### To share a Dedicated Host that you own using the Amazon EC2 console
+1. In the navigation pane, choose **Dedicated Hosts**.
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **Dedicated Hosts**.
-3. Choose the Dedicated Host to share and choose
-   **Actions**, **Share
-   host**.
-4. Select the resource share to which to add the Dedicated Host and choose
-   **Share host**.
+1. Choose the Dedicated Host to share and choose **Actions**, **Share host**.
 
-It could take a few minutes for consumers to get access to the
-shared host.
+1. Select the resource share to which to add the Dedicated Host and choose **Share host**.
 
-###### To share a Dedicated Host that you own using the AWS RAM console
+   It could take a few minutes for consumers to get access to the shared host.
 
-See [Create a resource share](../../../ram/latest/userguide/working-with-sharing-create.md "../../../ram/latest/userguide/working-with-sharing-create.md") in the _AWS RAM User Guide_.
+**To share a Dedicated Host that you own using the AWS RAM console**  
+See [Create a resource share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing-create.html) in the *AWS RAM User Guide*.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To share a Dedicated Host that you own
-
-Use the [create-resource-share](../../../cli/latest/reference/ram/create-resource-share.md "../../../cli/latest/reference/ram/create-resource-share.md") command.
+**To share a Dedicated Host that you own**  
+Use the [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command.
 
 ```
 aws ram create-resource-share \
-    --name `my-resource-share` \
-    --resource-arns arn:aws:ec2:`us-east-2`:`123456789012`:dedicated-host/`h-07879acf49EXAMPLE`
+    --name {{my-resource-share}} \
+    --resource-arns arn:aws:ec2:{{us-east-2}}:{{123456789012}}:dedicated-host/{{h-07879acf49EXAMPLE}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To share a Dedicated Host that you own
-
-Use the [New-RAMResourceShare](../../../powershell/latest/reference/items/New-RAMResourceShare.md "../../../powershell/latest/reference/items/New-RAMResourceShare.md") cmdlet.
+**To share a Dedicated Host that you own**  
+Use the [New-RAMResourceShare](https://docs.aws.amazon.com/powershell/latest/reference/items/New-RAMResourceShare.html) cmdlet.
 
 ```
 New-RAMResourceShare `
-    -Name `my-resource-share` `
-    -ResourceArn arn:aws:ec2:`us-east-2`:`123456789012`:dedicated-host/`h-07879acf49EXAMPLE`
+    -Name {{my-resource-share}} `
+    -ResourceArn arn:aws:ec2:{{us-east-2}}:{{123456789012}}:dedicated-host/{{h-07879acf49EXAMPLE}}
 ```
+
+------

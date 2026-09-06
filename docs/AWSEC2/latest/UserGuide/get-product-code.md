@@ -1,13 +1,14 @@
+
+
 # Retrieve the AWS Marketplace product code from your instance
+<a name="get-product-code"></a>
 
-You can retrieve the AWS Marketplace product code for your instance using its instance metadata.
-If the instance has a product code, Amazon EC2 returns it. For more information about
-retrieving metadata, see [Access instance metadata for an EC2 instance](instancedata-data-retrieval.md "instancedata-data-retrieval.md").
+You can retrieve the AWS Marketplace product code for your instance using its instance metadata. If the instance has a product code, Amazon EC2 returns it. For more information about retrieving metadata, see [Access instance metadata for an EC2 instance](instancedata-data-retrieval.md).
 
-IMDSv2
+------
+#### [ IMDSv2 ]
 
-###### Linux
-
+**Linux**  
 Run the following command from your Linux instance.
 
 ```
@@ -15,8 +16,7 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
     && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/product-codes
 ```
 
-###### Windows
-
+**Windows**  
 Run the following cmdlets from your Windows instance.
 
 ```
@@ -29,20 +29,21 @@ Invoke-RestMethod -Headers @{"X-aws-ec2-metadata-token" = $token} `
     -Method GET -Uri http://169.254.169.254/latest/meta-data/product-codes
 ```
 
-IMDSv1
+------
+#### [ IMDSv1 ]
 
-###### Linux
-
+**Linux**  
 Run the following command from your Linux instance.
 
 ```
 curl http://169.254.169.254/latest/meta-data/product-codes
 ```
 
-###### Windows
-
+**Windows**  
 Run the following command from your Windows instance.
 
 ```
 Invoke-RestMethod -Uri http://169.254.169.254/latest/meta-data/product-codes
 ```
+
+------

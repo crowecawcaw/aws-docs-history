@@ -1,206 +1,198 @@
+
+
 # Manage the settings for Allowed AMIs
+<a name="manage-settings-allowed-amis"></a>
 
-You can manage the settings for Allowed AMIs. These settings are per Region per
-account.
+You can manage the settings for Allowed AMIs. These settings are per Region per account.
 
-###### Tasks
-
-- [Enable Allowed AMIs](#enable-allowed-amis-criteria "#enable-allowed-amis-criteria")
-- [Set the Allowed AMIs criteria](#update-allowed-amis-criteria "#update-allowed-amis-criteria")
-- [Disable Allowed AMIs](#disable-allowed-amis-criteria "#disable-allowed-amis-criteria")
-- [Get the Allowed AMIs criteria](#identify-allowed-amis-state-and-criteria "#identify-allowed-amis-state-and-criteria")
-- [Find AMIs that are allowed](#identify-amis-that-meet-allowed-amis-criteria "#identify-amis-that-meet-allowed-amis-criteria")
-- [Find instances launched from AMIs that aren't allowed](#identify-instances-with-allowed-AMIs "#identify-instances-with-allowed-AMIs")
+**Topics**
++ [Enable Allowed AMIs](#enable-allowed-amis-criteria)
++ [Set the Allowed AMIs criteria](#update-allowed-amis-criteria)
++ [Disable Allowed AMIs](#disable-allowed-amis-criteria)
++ [Get the Allowed AMIs criteria](#identify-allowed-amis-state-and-criteria)
++ [Find AMIs that are allowed](#identify-amis-that-meet-allowed-amis-criteria)
++ [Find instances launched from AMIs that aren't allowed](#identify-instances-with-allowed-AMIs)
 
 ## Enable Allowed AMIs
+<a name="enable-allowed-amis-criteria"></a>
 
-You can enable Allowed AMIs and specify Allowed AMIs criteria. We recommend that
-you begin in audit mode, which shows you which AMIs would be affected by the
-criteria without actually restricting access.
+You can enable Allowed AMIs and specify Allowed AMIs criteria. We recommend that you begin in audit mode, which shows you which AMIs would be affected by the criteria without actually restricting access.
 
-Console
+------
+#### [ Console ]
 
-###### To enable Allowed AMIs
+**To enable Allowed AMIs**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **Dashboard**.
-3. On the **Account attributes** card,
-   under **Settings**,
-   choose **Allowed AMIs**.
-4. On the **Allowed AMIs** tab, choose
-   **Manage**.
-5. For **Allowed AMIs settings**, choose
-   **Audit mode** or
-   **Enabled**. We recommend that you begin in
-   audit mode, test the criteria, and then return to this step to
-   enable Allowed AMIs.
-6. (Optional) For **AMI criteria**, enter the
-   criteria in JSON format.
-7. Choose **Update**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Dashboard**.
 
-###### To enable Allowed AMIs
+1. On the **Account attributes** card, under **Settings**, choose **Allowed AMIs**.
 
-Use the [enable-allowed-images-settings](../../../cli/latest/reference/ec2/enable-allowed-images-settings.md "../../../cli/latest/reference/ec2/enable-allowed-images-settings.md") command.
+1. On the **Allowed AMIs** tab, choose **Manage**.
+
+1. For **Allowed AMIs settings**, choose **Audit mode** or **Enabled**. We recommend that you begin in audit mode, test the criteria, and then return to this step to enable Allowed AMIs.
+
+1. (Optional) For **AMI criteria**, enter the criteria in JSON format.
+
+1. Choose **Update**.
+
+------
+#### [ AWS CLI ]
+
+**To enable Allowed AMIs**  
+Use the [enable-allowed-images-settings](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-allowed-images-settings.html) command.
 
 ```
 aws ec2 enable-allowed-images-settings --allowed-images-settings-state enabled
 ```
 
-To enable audit mode instead, specify `audit-mode` instead
-of `enabled`.
+To enable audit mode instead, specify `audit-mode` instead of `enabled`.
 
 ```
 aws ec2 enable-allowed-images-settings --allowed-images-settings-state audit-mode
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To enable Allowed AMIs
-
-Use the [Enable-EC2AllowedImagesSetting](../../../powershell/latest/reference/items/Enable-EC2AllowedImagesSetting.md "../../../powershell/latest/reference/items/Enable-EC2AllowedImagesSetting.md") cmdlet.
+**To enable Allowed AMIs**  
+Use the [Enable-EC2AllowedImagesSetting](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2AllowedImagesSetting.html) cmdlet.
 
 ```
 Enable-EC2AllowedImagesSetting -AllowedImagesSettingsState enabled
 ```
 
-To enable audit mode instead, specify `audit-mode` instead
-of `enabled`.
+To enable audit mode instead, specify `audit-mode` instead of `enabled`.
 
 ```
 Enable-EC2AllowedImagesSetting -AllowedImagesSettingsState audit-mode
 ```
 
+------
+
 ## Set the Allowed AMIs criteria
+<a name="update-allowed-amis-criteria"></a>
 
-After you enable Allowed AMIs, you can set or replace the Allowed AMIs
-criteria.
+After you enable Allowed AMIs, you can set or replace the Allowed AMIs criteria.
 
-For the correct configuration and valid values, see [Allowed AMIs configuration](ec2-allowed-amis.md#allowed-amis-json-configuration "ec2-allowed-amis.md#allowed-amis-json-configuration") and [Allowed AMIs parameters](ec2-allowed-amis.md#allowed-amis-criteria "ec2-allowed-amis.md#allowed-amis-criteria").
+For the correct configuration and valid values, see [Allowed AMIs configuration](ec2-allowed-amis.md#allowed-amis-json-configuration) and [Allowed AMIs parameters](ec2-allowed-amis.md#allowed-amis-criteria).
 
-Console
+------
+#### [ Console ]
 
-###### To set the Allowed AMIs criteria
+**To set the Allowed AMIs criteria**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **Dashboard**.
-3. On the **Account attributes** card,
-   under **Settings**,
-   choose **Allowed AMIs**.
-4. On the **Allowed AMIs** tab, choose
-   **Manage**.
-5. For **AMI criteria**, enter the criteria in
-   JSON format.
-6. Choose **Update**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Dashboard**.
 
-###### To set the Allowed AMIs criteria
+1. On the **Account attributes** card, under **Settings**, choose **Allowed AMIs**.
 
-Use the [replace-image-criteria-in-allowed-images-settings](../../../cli/latest/reference/ec2/replace-image-criteria-in-allowed-images-settings.md "../../../cli/latest/reference/ec2/replace-image-criteria-in-allowed-images-settings.md")
-command and specify the JSON file that contains the Allowed AMIs
-criteria.
+1. On the **Allowed AMIs** tab, choose **Manage**.
+
+1. For **AMI criteria**, enter the criteria in JSON format.
+
+1. Choose **Update**.
+
+------
+#### [ AWS CLI ]
+
+**To set the Allowed AMIs criteria**  
+Use the [replace-image-criteria-in-allowed-images-settings](https://docs.aws.amazon.com/cli/latest/reference/ec2/replace-image-criteria-in-allowed-images-settings.html) command and specify the JSON file that contains the Allowed AMIs criteria.
 
 ```
-aws ec2 replace-image-criteria-in-allowed-images-settings --cli-input-json file://`file_name.json`
+aws ec2 replace-image-criteria-in-allowed-images-settings --cli-input-json file://{{file_name.json}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To set the Allowed AMIs criteria
-
-Use the [Set-EC2ImageCriteriaInAllowedImagesSetting](../../../powershell/latest/reference/items/Set-EC2ImageCriteriaInAllowedImagesSetting.md "../../../powershell/latest/reference/items/Set-EC2ImageCriteriaInAllowedImagesSetting.md") cmdlet and
-specify the JSON file that contains the Allowed AMIs
-criteria.
+**To set the Allowed AMIs criteria**  
+Use the [Set-EC2ImageCriteriaInAllowedImagesSetting](https://docs.aws.amazon.com/powershell/latest/reference/items/Set-EC2ImageCriteriaInAllowedImagesSetting.html) cmdlet and specify the JSON file that contains the Allowed AMIs criteria.
 
 ```
-$imageCriteria = Get-Content -Path .\`file_name.json` | ConvertFrom-Json
+$imageCriteria = Get-Content -Path .\{{file_name.json}} | ConvertFrom-Json
 Set-EC2ImageCriteriaInAllowedImagesSetting -ImageCriterion $imageCriteria
 ```
 
+------
+
 ## Disable Allowed AMIs
+<a name="disable-allowed-amis-criteria"></a>
 
 You can disable Allowed AMIs as follows.
 
-Console
+------
+#### [ Console ]
 
-###### To disable Allowed AMIs
+**To disable Allowed AMIs**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **Dashboard**.
-3. On the **Account attributes** card,
-   under **Settings**,
-   choose **Allowed AMIs**.
-4. On the **Allowed AMIs** tab, choose
-   **Manage**.
-5. For **Allowed AMIs settings**, choose
-   **Disabled**.
-6. Choose **Update**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Dashboard**.
 
-###### To disable Allowed AMIs
+1. On the **Account attributes** card, under **Settings**, choose **Allowed AMIs**.
 
-Use the [disable-allowed-images-settings](../../../cli/latest/reference/ec2/disable-allowed-images-settings.md "../../../cli/latest/reference/ec2/disable-allowed-images-settings.md") command.
+1. On the **Allowed AMIs** tab, choose **Manage**.
+
+1. For **Allowed AMIs settings**, choose **Disabled**.
+
+1. Choose **Update**.
+
+------
+#### [ AWS CLI ]
+
+**To disable Allowed AMIs**  
+Use the [disable-allowed-images-settings](https://docs.aws.amazon.com/cli/latest/reference/ec2/disable-allowed-images-settings.html) command.
 
 ```
 aws ec2 disable-allowed-images-settings
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To disable Allowed AMIs
-
-Use the [Disable-EC2AllowedImagesSetting](../../../powershell/latest/reference/items/Disable-EC2AllowedImagesSetting.md "../../../powershell/latest/reference/items/Disable-EC2AllowedImagesSetting.md") cmdlet.
+**To disable Allowed AMIs**  
+Use the [Disable-EC2AllowedImagesSetting](https://docs.aws.amazon.com/powershell/latest/reference/items/Disable-EC2AllowedImagesSetting.html) cmdlet.
 
 ```
 Disable-EC2AllowedImagesSetting
 ```
 
+------
+
 ## Get the Allowed AMIs criteria
+<a name="identify-allowed-amis-state-and-criteria"></a>
 
-You can get the current state of the Allowed AMIs setting and the Allowed AMIs
-criteria.
+You can get the current state of the Allowed AMIs setting and the Allowed AMIs criteria.
 
-Console
+------
+#### [ Console ]
 
-###### To get the Allowed AMIs state and criteria
+**To get the Allowed AMIs state and criteria**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **Dashboard**.
-3. On the **Account attributes** card,
-   under **Settings**,
-   choose **Allowed AMIs**.
-4. On the **Allowed AMIs** tab,
-   **Allowed AMIs settings** is set to
-   **Enabled**, **Disabled**,
-   or **Audit mode**.
-5. If the state of Allowed AMIs is either
-   **Enabled** or **Audit
-   mode**, **AMI criteria**, displays
-   the AMI criteria in JSON format.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Dashboard**.
 
-###### To get the Allowed AMIs state and criteria
+1. On the **Account attributes** card, under **Settings**, choose **Allowed AMIs**.
 
-Use the [get-allowed-images-settings](../../../cli/latest/reference/ec2/get-allowed-images-settings.md "../../../cli/latest/reference/ec2/get-allowed-images-settings.md") command.
+1. On the **Allowed AMIs** tab, **Allowed AMIs settings** is set to **Enabled**, **Disabled**, or **Audit mode**.
+
+1. If the state of Allowed AMIs is either **Enabled** or **Audit mode**, **AMI criteria**, displays the AMI criteria in JSON format.
+
+------
+#### [ AWS CLI ]
+
+**To get the Allowed AMIs state and criteria**  
+Use the [get-allowed-images-settings](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-allowed-images-settings.html) command.
 
 ```
 aws ec2 get-allowed-images-settings
 ```
 
-In the following example output, the state is `audit-mode`
-and the image criteria are set in the account.
+In the following example output, the state is `audit-mode` and the image criteria are set in the account.
 
 ```
 {
@@ -241,11 +233,11 @@ and the image criteria are set in the account.
 }
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To get the Allowed AMIs state and criteria
-
-Use the [Get-EC2AllowedImagesSetting](../../../powershell/latest/reference/items/Get-EC2AllowedImagesSetting.md "../../../powershell/latest/reference/items/Get-EC2AllowedImagesSetting.md") cmdlet.
+**To get the Allowed AMIs state and criteria**  
+Use the [Get-EC2AllowedImagesSetting](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2AllowedImagesSetting.html) cmdlet.
 
 ```
 Get-EC2AllowedImagesSetting | Select-Object `
@@ -258,8 +250,7 @@ Get-EC2AllowedImagesSetting | Select-Object `
     @{Name='MaximumDaysSinceDeprecated'; Expression={($_.ImageCriteria.DeprecationTimeCondition.MaximumDaysSinceDeprecated)}}
 ```
 
-In the following example output, the state is `audit-mode`
-and the image criteria are set in the account.
+In the following example output, the state is `audit-mode` and the image criteria are set in the account.
 
 ```
 State      : audit-mode
@@ -271,53 +262,44 @@ MaximumDaysSinceCreated  : 300
 MaximumDaysSinceDeprecated: 0
 ```
 
+------
+
 ## Find AMIs that are allowed
+<a name="identify-amis-that-meet-allowed-amis-criteria"></a>
 
-You can find the AMIs that are allowed or not allowed by the current Allowed AMIs
-criteria.
+You can find the AMIs that are allowed or not allowed by the current Allowed AMIs criteria.
 
-###### Note
-
+**Note**  
 Allowed AMIs must be in audit mode.
 
-Console
+------
+#### [ Console ]
 
-###### To check whether an AMI meets the Allowed AMIs criteria
+**To check whether an AMI meets the Allowed AMIs criteria**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **AMIs**.
-3. Select the AMI.
-4. On the **Details** tab (if you selected the
-   checkbox) or in the summary area (if you selected the AMI ID),
-   find the **Allowed image**
-   field.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-   - **Yes** – The AMI meets the
-     Allowed AMIs criteria. This AMI will be available to
-     users in your account after you enable Allowed
-     AMIs.
-   - **No** – The AMI does not meet
-     the Allowed AMIs criteria.
+1. In the navigation pane, choose **AMIs**.
 
-5. In the navigation pane, choose **AMI
-   Catalog**.
+1. Select the AMI.
 
-An AMI marked **Not allowed** indicates an
-AMI that does not meet the Allowed AMIs criteria. This AMI won't
-be visible or available to users in your account when Allowed
-AMIs is enabled.
+1. On the **Details** tab (if you selected the checkbox) or in the summary area (if you selected the AMI ID), find the **Allowed image** field.
+   + **Yes** – The AMI meets the Allowed AMIs criteria. This AMI will be available to users in your account after you enable Allowed AMIs.
+   + **No** – The AMI does not meet the Allowed AMIs criteria.
 
-AWS CLI
+1. In the navigation pane, choose **AMI Catalog**.
 
-###### To check whether an AMI meets the Allowed AMIs criteria
+   An AMI marked **Not allowed** indicates an AMI that does not meet the Allowed AMIs criteria. This AMI won't be visible or available to users in your account when Allowed AMIs is enabled.
 
-Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command.
+------
+#### [ AWS CLI ]
+
+**To check whether an AMI meets the Allowed AMIs criteria**  
+Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
 
 ```
 aws ec2 describe-images \
-    --image-id `ami-0abcdef1234567890` \
+    --image-id {{ami-0abcdef1234567890}} \
     --query Images[].ImageAllowed \
     --output text
 ```
@@ -328,16 +310,14 @@ The following is example output.
 True
 ```
 
-###### To find AMIs that meet the Allowed AMIs criteria
-
-Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command.
+**To find AMIs that meet the Allowed AMIs criteria**  
+Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
 
 ```
 aws ec2 describe-images \
     --filters "Name=image-allowed,Values=true" \
     --max-items 10 \
     --query Images[].ImageId
-
 ```
 
 The following is example output.
@@ -355,14 +335,14 @@ ami-001112565ffcafa5e
 ami-0011e45aaee9fba88
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To check whether an AMI meets the Allowed AMIs criteria
-
-Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md") cmdlet.
+**To check whether an AMI meets the Allowed AMIs criteria**  
+Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet.
 
 ```
-(Get-EC2Image -ImageId `ami-0abcdef1234567890`).ImageAllowed
+(Get-EC2Image -ImageId {{ami-0abcdef1234567890}}).ImageAllowed
 ```
 
 The following is example output.
@@ -371,9 +351,8 @@ The following is example output.
 True
 ```
 
-###### To find AMIs that meet the Allowed AMIs criteria
-
-Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md") cmdlet.
+**To find AMIs that meet the Allowed AMIs criteria**  
+Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet.
 
 ```
 Get-EC2Image `
@@ -397,35 +376,33 @@ ami-001112565ffcafa5e
 ami-0011e45aaee9fba88
 ```
 
+------
+
 ## Find instances launched from AMIs that aren't allowed
+<a name="identify-instances-with-allowed-AMIs"></a>
 
-You can identify the instances that were launched using an AMI that does not meet
-the Allowed AMIs criteria.
+You can identify the instances that were launched using an AMI that does not meet the Allowed AMIs criteria.
 
-Console
+------
+#### [ Console ]
 
-###### To check whether an instance was launched using an AMI that isn't allowed
+**To check whether an instance was launched using an AMI that isn't allowed**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose
-   **Instances**.
-3. Select the instance.
-4. On the **Details** tab, under
-   **Instance details**, find
-   **Allowed image**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-   - **Yes** – The AMI meets the
-     Allowed AMIs criteria.
-   - **No** – The AMI does not meet
-     the Allowed AMIs criteria.
+1. In the navigation pane, choose **Instances**.
 
-AWS CLI
+1. Select the instance.
 
-###### To find instances launched using AMIs that aren't allowed
+1. On the **Details** tab, under **Instance details**, find **Allowed image**.
+   + **Yes** – The AMI meets the Allowed AMIs criteria.
+   + **No** – The AMI does not meet the Allowed AMIs criteria.
 
-Use the [describe-instance-image-metadata](../../../cli/latest/reference/ec2/describe-instance-image-metadata.md "../../../cli/latest/reference/ec2/describe-instance-image-metadata.md") command with the
-`image-allowed` filter.
+------
+#### [ AWS CLI ]
+
+**To find instances launched using AMIs that aren't allowed**  
+Use the [describe-instance-image-metadata](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-image-metadata.html) command with the `image-allowed` filter.
 
 ```
 aws ec2 describe-instance-image-metadata \
@@ -449,11 +426,11 @@ The following is example output.
 +----------------------+-------------------------+
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To find instances launched using AMIs that aren't allowed
-
-Use the [Get-EC2InstanceImageMetadata](../../../powershell/latest/reference/items/Get-EC2InstanceImageMetadata.md "../../../powershell/latest/reference/items/Get-EC2InstanceImageMetadata.md") cmdlet.
+**To find instances launched using AMIs that aren't allowed**  
+Use the [Get-EC2InstanceImageMetadata](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceImageMetadata.html) cmdlet.
 
 ```
 Get-EC2InstanceImageMetadata `
@@ -474,11 +451,11 @@ i-0781e91cfeca3179d ami-00c257e12d6828491
 i-02b631e2a6ae7c2d9 ami-0bfddf4206f1fa7b9
 ```
 
-AWS Config
-You can add the
-**ec2-instance-launched-with-allowed-ami** AWS Config
-rule, configure it for your requirements, and then use it to evaluate
-your instances.
+------
+#### [ AWS Config ]
 
-For more information, see [Adding AWS Config rules](../../../config/latest/developerguide/evaluate-config_add-rules.md "../../../config/latest/developerguide/evaluate-config_add-rules.md") and [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") in the
-_AWS Config Developer Guide_.
+You can add the **ec2-instance-launched-with-allowed-ami** AWS Config rule, configure it for your requirements, and then use it to evaluate your instances.
+
+For more information, see [Adding AWS Config rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_add-rules.html) and [ec2-instance-launched-with-allowed-ami](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-launched-with-allowed-ami.html) in the *AWS Config Developer Guide*.
+
+------

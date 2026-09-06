@@ -1,16 +1,19 @@
+
+
 # AWS public certificates for instance identity document signatures
+<a name="regions-certs"></a>
 
-The following AWS public certificates can be used to verify the contents of an instance's
-instance identity document as described in [Verify instance identity document](verify-iid.md "verify-iid.md").
+The following AWS public certificates can be used to verify the contents of an instance's instance identity document as described in [Verify instance identity document](verify-iid.md).
 
-Ensure that you use the correct certificate for your Region and for the verification procedure
-that you're using. If you're verifying the PKCS7 signature, use the DSA certificate. If you're
-verifying the base64-encoded signature, use the RSA certificate. If you're verifying the
-RSA-2048 signature, use the RSA-2048 certificate.
+Ensure that you use the correct certificate for your Region and for the verification procedure that you're using. If you're verifying the PKCS7 signature, use the DSA certificate. If you're verifying the base64-encoded signature, use the RSA certificate. If you're verifying the RSA-2048 signature, use the RSA-2048 certificate.
 
 **Expand each Region below to view the Region-specific certificates.**
 
-DSA
+## US East (N. Virginia) — us-east-1
+<a name="us-east-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -33,7 +36,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -55,10 +59,10 @@ AAOBgQAlxSmwcWnhT4uAeSinJuz+1BTcKhVSWb5jT8pYjQb8ZoZkXXRGb09mvYeU
 NeqOBr27rvRAnaQ/9LUQf72+SahDFuS4CMI8nwowytqbmwquqFr4dxA/SDADyRiF
 ea1UoMuNHTY49J/1vPomqsVn7mugTp+TbjqCfOJTpu0temHcFA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -85,10 +89,15 @@ N9a6FAplpNRsWAnbP8JBlAP93oJzblX2LQXgykTghMkQO7NaY5hg/H5o4dMPclTK
 lYGqlFUCH6A2vdrxmpKDLmTn5//5pujdD2MN0df6sZWtxwZ0osljV4rDjm9Q3VpA
 NWIsDEcp3GUB4proOR+C7PNkY+VGODitBOw09qBGosCBstwyEqY=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## US East (Ohio) — us-east-2
+<a name="us-east-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -111,7 +120,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -133,10 +143,10 @@ AAOBgQAywJQaVNWJqW0R0T0xVOSoN1GLk9x9kKEuN67RN9CLin4dA97qa7Mr5W4P
 FZ6vnh5CjOhQBRXV9xJUeYSdqVItNAUFK/fEzDdjf1nUfPlQ3OJ49u6CV01NoJ9m
 usvY9kWcV46dqn2bk2MyfTTgvmeqP8fiMRPxxnVRkSzlldP5Fg==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -163,10 +173,15 @@ n6FYnluIcDbmpcQePoVQwX7W3oOYLB1QLN7fE6H1j4TBIsFdO3OuKzmaifQlwLYt
 DVxVCNDabpOr6Uozd5ASm4ihPPoEoKo7Ilp0fOT6fZ41U2xWA4+HF/89UoygZSo7
 K+cQ90xGxJ+gmlYbLFR5rbJOLfjrgDAb2ogbFy8LzHo2ZtSe60M=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## US West (N. California) — us-west-1
+<a name="us-west-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -189,7 +204,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -211,10 +227,10 @@ AAOBgQA1Ng4QmN4n7iPh5CnadSOc0ZfM7by0dBePwZJyGvOHdaw6P6E/vEk76KsC
 Q8p+akuzVzVPkU4kBK/TRqLp19wEWoVwhhTaxHjQ1tTRHqXIVlrkw4JrtFbeNM21
 GlkSLonuzmNZdivn9WuQYeGe7nUD4w3q9GgiF3CPorJe+UxtbA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -241,10 +257,15 @@ B1KJi9l1lxvuc/Igy/xeHOAZEjAXzVvHp8Bne33VVwMiMxWECZCiJxE4I7+Y6fqJ
 pLLSFFJKbNaFyXlDiJ3kXyePEZSc1xiWeyRB2ZbTi5eu7vMG4i3AYWuFVLthaBgu
 lPfHafJpj/JDcqt2vKUKfur5edQ6j1CGdxqqjawhOTEqcN8m7us=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## US West (Oregon) — us-west-2
+<a name="us-west-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -267,7 +288,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -289,10 +311,10 @@ AAOBgQBzOl+9Xy1+UsbUBI95HO9mbbdnuX+aMJXgG9uFZNjgNEbMcvx+h8P9IMko
 z7PzFdheQQ1NLjsHH9mSR1SyC4m9ja6BsejH5nLBWyCdjfdP3muZM4O5+r7vUa1O
 dWU+hP/T7DUrPAIVMOE7mpYa+WPWJrN6BlRwQkKQ7twm9kDalA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -319,10 +341,15 @@ aBm03SEt5v8mcc7sXWvgFjCnUpzosmky6JheCD4O1Cf8k0olZ93FQnTrbg62OK0h
 oukS3csyUxZyTU2hQfdjyo1nqW9yhvFAKjnnggiwxNKTTPZzstKW8+cnYwiiTwJN
 QpVoZdt0SfbuNnmwRUMi+QbuccXweav29QeQ3ADqjgB0CZdSRKk=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Africa (Cape Town) — af-south-1
+<a name="af-south-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -343,10 +370,10 @@ hlN8rGxEZYYJjEUKMGvsc0DW85jonXz0bNfcP0aaKH0lKKVjL+OZi5n2kn9wgdo5
 F3CVnMl8BUra8A1Tr2yrrE6TVZ4wCQYHKoZIzjgEAwMvADAsAhQfa7MCJZ+/TEY5
 AUr0J4wm8VzjoAIUSYZVu2NdRJ/ERPmDfhW5EsjHlCA=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -365,7 +392,8 @@ s5gbPOnokhKTMPXbTdRn5ZifCbWlx+bYN/mTYKvxho7b5SVg2o1La9aK
 -----END CERTIFICATE-----
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -388,10 +416,15 @@ EXC3G/IXrXicFEe6YyE1Rakl62VncYSXiGe/i2XvsiNH3Qlmnx5XS7W0SCN0oAxW
 EH9twibauv82DVg1WOkQu8EwFw8hFde9X0Rkiu0qVcuU8lJgFEvPWMDFU5sGB6ZM
 gkEKTzMvlZpPbBhg99Jl
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Hong Kong) — ap-east-1
+<a name="ap-east-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -414,7 +447,8 @@ cLoM4p/jtVFOj26xbgIUUS4pDKyHaG/eaygLTtFpFJqzWHc=
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -434,7 +468,8 @@ Ezk5zb3eIf10/sqt4756
 -----END CERTIFICATE-----
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -457,19 +492,24 @@ jDFsihUMLqgmOV2hXKUpIsmiWMGrFQV4AeV0iXP8L/ZhcepLf1t5SbsGdUA3AUY1
 3If8s81uTheiQjwY5t9nM0SY/1Th/tL3+RaEI79VNEVfG1FQ8mgqCK0ar4m0oZJl
 tmmEJM7xeURdpBBx36Di
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Hyderabad) — ap-south-2
+<a name="ap-south-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC8DCCArCgAwIBAgIGAXjrQ4+XMAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMDQxOTE3NTI1NloXDTQ3MDQxOTE3NTI1NlowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBuDCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYUAAoGBAJCKGBBoxIUxqBk94JHhwZZbgvbP0DAOoHENQWxp/98lI7/YOfYJOVMJS22aCnHDurofmo5rvNIkgXi7Rztbhu+lko9rK6DgpmpUwBU0WZtf34aZ2IWNBwHaVhHvWAQf9/46u18dMa2YucK1Wi+Vc+M+KldrvgXmhym6ErNlzhJyMAkGByqGSM44BAMDLwAwLAIUaaPKxaOHoYvwz709xXpsQueIq+UCFFa/GpzoDOSokl1057NU/2hnsiW4
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -491,10 +531,10 @@ vzwwOB0XpQ1AqQBYZXmm6+Ggc3nQLoOKLG1oRlc38psWtxBjGRL+ktvyAjgwk+BL
 xM7Yx+wDf8m2nfrvIdaMHk0i+U7bWaiFod3cD6XICfwg/tFz50auWTtlIPcNOXAU
 qPuHbYlFgMUlNuNp78nB
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -521,19 +561,24 @@ SI8/Q9mm+uvYtSTZECI6Zh57QZPoETAG/yl+9jiOy2lAelqa/k1i+Qo8gMfOc+Pm
 dwY7o6fV+oucgRlsdey6VM45LeyILQqv0RXtVzjuowanzmCCFMjgqiO9oZAWu4Oh
 +F3unijELo01vZJs8s2N3KGlo3/jtUFTX6RTKShZlAPLwBi5GMI=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Jakarta) — ap-southeast-3
+<a name="ap-southeast-3-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC8DCCArCgAwIBAgIGAXbVDEikMAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMDEwNjAwMTUyMFoXDTQ3MDEwNjAwMTUyMFowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBuDCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYUAAoGBAPjuiEx05N3JQ6cVwntJie67D8OuNo4jGRn+crEtL7YO0jSVB9zGE1ga+UgRPIaYETL293S8rTJTVgXAqdpBwfaHC6NUzre8U8iJ8FMNnlP9Gw1oUIlgQBjORyynVJexoB31TDZM+/52g9O/bpq1QqNyKbeIgyBBlc1dAtr1QLnsMAkGByqGSM44BAMDLwAwLAIUK8E6RDIRtwK+9qnaTOBhvO/njuQCFFocyT1OxK+UDR888oNsdgtif2Sf
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -555,10 +600,10 @@ AAOBgQCFibNMMdZF13osIpWxjb7uXrqpDYFat+196JVSdq+WMYLfcQtudZOcTclo
 Zh+OXR49nRv9x/Q4XRfMWGCdptp4q/6NCScEUPBbY2+7CJyH0gyC6vYcGmLfJbUi
 kMB27EWJ4tm18a/qZockIeGgJgqt5/KSZb5iN5CuxRHRDGZI+Q==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -585,10 +630,15 @@ q8dXeCH3N0DZgQsSgQWwmdNQXZZej6RHLU/8In5trHKLY0ppnLBjn/UZQbeTyW5q
 RJB3GaveXjfgFUWj2qOcDuRGaikdS+dYaLsi5z9cA3FolHzWxx9MOs8io8vKqQzV
 XUrLTNWwuhZy88cOlqGPxnoRbw7TmifwPw/cunNrsjUUOgs6ZTk=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Malaysia) — ap-southeast-5
+<a name="ap-southeast-5-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -609,10 +659,10 @@ BDmPilXvfi04INPTnw4IxFJKDzzC0kVH7esVas982Po8v3megH32H9Rl87r7UG1c
 ZEbkSkKVX6YKYg1PR3rfjXgdwVZv/zAJBgcqhkjOOAQDAzAAMC0CFFWeRe2fYW2i
 6mMd26Wzbx87Y0DXAhUAoPCnF+5hGJw0jT9aL7QsgcfLi9Y=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -629,10 +679,10 @@ DQEBCwUAA4GBADD9C4pWL8RUvF1CJW8kExj35xmozlFlmrKs8Zpi8+Eg6q+W9dgd
 xMdH95tgZtmVMDqlvVR+DK0iO1BNpqPjrqWkk2tTLivpS+sGzCE/jCl18Q28Rk71
 /A3gLD7Rtbq5TKNvuFCHwYMjrTDHI6aBjIaAlDm4e2/j/OxVtHyZGTre
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -655,19 +705,24 @@ adGCdKCp2lQ2YDKOD9TCEjYIli8XSoyevoWHUjfDYrCrCp8l4s/p7HOgYr8fJBAs
 EuVy8211LVz1/X4EMBRNtNjXK9sklsxAOX14NDfBFSS0toxl3K6Tf9t/PviBl95d
 hncyDAcFgDCK4w8LLlVW
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Melbourne) — ap-southeast-4
+<a name="ap-southeast-4-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC7zCCAq+gAwIBAgIGAXjWF7P2MAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMDQxNTE1MTMwMFoXDTQ3MDQxNTE1MTMwMFowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAPRXSsQP9E3dw8QXKlrgBgEVCprLHdK/bbrMas0XMu1EhOD+q+0PcTr8+iwbtoXlY5MCeatWIp1GrXQjVqsF8vQqxlEuRuYKbR3nq4mWwaeGlx9AG5EjQHRa3GQ44wWHOdof0M3NRI1MPrx2gQtEf4jWhuenOah6+G5xQ7Iw8JtkwCQYHKoZIzjgEAwMvADAsAhRy2y65od7euQhmqdNkadeep9YDJAIUX5LjQjT4Nvp1P3a7WbNiDd2nz5E=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -689,10 +744,10 @@ AAOBgQBRI72kM+Q6PCU584L6UZ8rk6uERCeq5g8dDzlLZMaMpV4n/s2MJbFP2hO+
 ovahJnxLTrs7jP3VXZeVj5Eb0dfYneg0+zNtycnHe+9jH+GTKS8+QkwGj3zmwxqG
 mZ9V6XoGwtO/aEz24Yp7CRf8etCYEnVI2ChD7xClRV3DJwliEA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -719,10 +774,15 @@ uw0cIp3Ch8JoNwcgTHKRRGzePmBeR4PNqhHTArG4/dJk6/aUO4OpX0WzI6L67CGY
 6Nex3dau+gkLCK93dTEkrXtyXHu4wB0J9zd1w+iQ0SEa9eKc78/NjEsF/FZdGrWC
 t57lIMOOXJhQ1kRgSwNeZdQWV1dRakvO6sfcvVYkfj1wAvZvvAw=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Mumbai) — ap-south-1
+<a name="ap-south-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -745,7 +805,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -767,10 +828,10 @@ AAOBgQAZ7rYKoAwwiiH1M5GJbrT/BEk3OO2VrEPw8ZxgpqQ/EKlzMlOs/0Cyrmp7
 UYyUgYFQe5nq37Z94rOUSeMgv/WRxaMwrLlLqD78cuF9DSkXaZIX/kECtVaUnjk8
 BZx0QhoIHOpQocJUSlm/dLeMuE0+0A3HNR6JVktGsUdv9ulmKw==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -795,7 +856,13 @@ OP2CclCHoZ8XDQcvvKAh
 -----END CERTIFICATE-----
 ```
 
-DSA
+------
+
+## Asia Pacific (New Zealand) — ap-southeast-6
+<a name="ap-southeast-6-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -816,10 +883,10 @@ LxKjUXVM0KB69SksGLEqjO4ps80EcZ/0W3g1hGLnSX/RjYfAS60hbKK1GX9PpcaO
 QP3p3pa7XI9NaXpKGT3yZsJ0BWY2xTAJBgcqhkjOOAQDAzAAMC0CFBs4KQmrxHjQ
 OHh0r8JqB8UiwlutAhUAwgxid7wT6FNm8Zwq9hioQ2v2K0A=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -836,10 +903,10 @@ DQEBCwUAA4GBAHatyQIy612kio8neI4r5VBg8pgKwW+mFGpAzOQ2NOyLCNoOeD1D
 lPRaSipBN7WW6jpIozbz7JG7Kqc3N+piPGGzfjH9gZjqUqfOGrNHB5nsxvMHI2iL
 e+DwsOcV7qnEVRgYbmLYOVKJv25wCsM/Tcn/6f6scEX2x+H0hAh7rwiP
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -862,10 +929,15 @@ ekFCGOUmFSItFXOHy5hD2xmctKNk3l12m6cKydYvONtk/3DovKNnw3c5k40WHQW/
 Zdh/LWd4/Jrkan+kQnqm4rkrXF+x3aF0qrKTtHMICvpkZ8g7/588hBs4mZnCmFLa
 q/g9WqIcd9SMmBkT6KZ8
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Osaka) — ap-northeast-3
+<a name="ap-northeast-3-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -888,7 +960,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -910,10 +983,10 @@ AAOBgQAUZx7DcYbhWNTD4BNGhr5beruT2OUoGHH9J73UKxwdqeb9bH1LIWhIZO0X
 /1mjn3bWBgCwfoS8gjZwsVB6fZbNBRy8urdBZJ87xF/4JPBjt7S9oGx/zthDUYrC
 yK0Y0v4G0PgiS81CvYLg09LpmYhLSJbXENlkC04v5yxdKxZxyg==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -936,10 +1009,15 @@ NaspCAFm+6HA/K7BD9zXB1IKsprLgqhiIUgEaW3UFEbThJT+z8UfHG9fQjzzfN/J
 nT6vuY/0RRu1xAZPyh2gr5okN/s6rnmh2zmBHU1n8cbCc64MVfXe2g3EZ9Glq/9n
 izPrI09hMypJDP04ugQc
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Seoul) — ap-northeast-2
+<a name="ap-northeast-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -962,7 +1040,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -984,10 +1063,10 @@ AAOBgQAmjTjalG8MGLqWTC2uYqEM8nzI3px1eo0ArvFRsyqQ3fgmWcQpxExqUqRy
 l3+2134Kv8dFab04Gut5wlfRtc2OwPKKicmv/IXGN+9bKFnQFjTqif08NIzrDZch
 aFT/uvxrIiM+oN2YsHq66GUhO2+xVRXDXVxM/VObFgPERbJpyA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1012,7 +1091,13 @@ jmXe0aMy3thyK6g5sJVg
 -----END CERTIFICATE-----
 ```
 
-DSA
+------
+
+## Asia Pacific (Singapore) — ap-southeast-1
+<a name="ap-southeast-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1035,7 +1120,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1057,10 +1143,10 @@ AAOBgQAw13BxW11U/JL58j//Fmk7qqtrZTqXmaz1qm2WlIpJpW750MOcP4ux1uPy
 eM0RdVZ4jHSMv5gtLAv/PjExBfw9n6vNCk+5GZG4Xec5DoapBZHXmfMo93sjxBFP
 4x9rWn0GuwAVO9ukjYPevq2Rerilrq5VvppHtbATVNY2qecXDA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1087,10 +1173,15 @@ EjeXF6qS4iPIvBaQQ0cvdddNh/pE33/ceghbkZNTYkrwMyBkQlRTTVKXFN7pCRUV
 +L9FuQ9y8mP0BYZa5e1sdkwebydU+eqVzsil98ntkhpjvRkaJ5+Drs8TjGaJWlRw
 5WuOr8unKj7YxdL1bv7//RtVYVVi296ldoRUYv4SCvJF11z0OdQ=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Sydney) — ap-southeast-2
+<a name="ap-southeast-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1113,7 +1204,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1135,10 +1227,10 @@ AAOBgQByjeQe6lr7fiIhoGdjBXYzDfkX0lGGvMIhRh57G1bbceQfaYdZd7Ptc0jl
 bpycKGaTvhUdkpMOiV2Hi9dOOYawkdhyJDstmDNKu6P9+b6Kak8He5z3NU1tUR2Y
 uTwcz7Ye8Nldx//ws3raErfTI7D6s9m63OX8cAJ/f8bNgikwpw==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1165,10 +1257,15 @@ hCjWeIyBXUZOZKFCb0DSJeUElsTRSXSFuVrZ9EAwjLvHni3BaC9Ve34iP71ifr75
 TMIJLJKv4QQQqPsNdjiB7G9bfkB6trP8fUVYLHLsVlIy5lGx+tgwFEYkG1N8IOO/
 2LCawwaWm8FYAFd3IZl04RImNs/IMG7VmH1bf4swHOBHgCN1uYo=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Taipei) — ap-east-2
+<a name="ap-east-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1189,10 +1286,10 @@ qEYfko0b/xWpDEQQPsWBgolpEYP7RIT85IxrTCrC9ohz85n7v6m9oF6BiBQGtZdk
 GBN7iqemg85UaF6mXfHvl3tUYjsB2jAJBgcqhkjOOAQDAy8AMCwCFED9Ybn6fEVF
 wLNjDvULmki5bPBWAhR64pxsHFRHz0ZQi+SYMWdIpEs5RQ==
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1209,10 +1306,10 @@ DQEBCwUAA4GBABM+WL9MSb7z3bNOTMkM7ufPucvj+LQ+zEAJiuG0rcB8GI2DhGB5
 8ohDPUGlq1cP7vYmDkWG/FrLqx7qgIzkbE3zfb62JpdOuX73oHgCmikMfq8ifoS1
 CUxMQ36PDZBFNPzGZxv5kEORqhmGBkYCoIUCQ43jh3aALR/A/rfzfij8
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1235,10 +1332,15 @@ jr00opK0r731iBd1z/5hjIjkHn5NizAdiJEh3lVY/A3WS82aygW8LvYnKZeaBfZJ
 J4NgxeflxocLFKBJD+hyf5u1hhvl7Mn/aGr5VI8/0F2oUqYo+xsHLT3keNghywO4
 NNcyLcD9u16HVXhRhGvo
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Thailand) — ap-southeast-7
+<a name="ap-southeast-7-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1259,10 +1361,10 @@ L3+W4N05NdiKSGI8e8t452wTZv/RODivPZ3RtuCDywOBhQACgYEAjVS1Huwzdn1J
 eoJ9ztIwjB9DMoKL+E1vSLsTGhehqRowCQYHKoZIzjgEAwMxADAuAhUAmljDM3c9
 hf0j4XbMjjpnzrx1xhkCFQCASR9pgFNgLK8y6Kojj+P1KJkrSQ==
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1279,10 +1381,10 @@ DQEBCwUAA4GBAE4G5G+FvKTsX3T7BEcId7f5LSCc2J9gZRDiWn2oTr40CrBMOzJT
 KsWr9W89YXW3gaGWltzc0WCwYQbJZgAkuEAZItJjbhdnns87ZbsFO+NZhc6gDtjA
 WC3dPlSB9b6rfVoVW9O6Xwa7iNXZo8ddYVJ/ZOIv/totUz9qJt4DmmKk
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1305,10 +1407,15 @@ VHuNU+9UsntNB676gRl9ag3Wfxq3yx5Ee1CeQf+US3HJn/pKk1H8dExXmBHvHwO6
 GKUVNPN1rxfjTiaSt8wuO80uElAnyHIM3VOR8rJO7PKsobyEeJV0WI1hURO+wxpL
 h3IsW7iBrFVvhX5xx7ZU
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Asia Pacific (Tokyo) — ap-northeast-1
+<a name="ap-northeast-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1331,7 +1438,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1353,10 +1461,10 @@ AAOBgQBtjAglBde1t4F9EHCZOj4qnY6Gigy07Ou54i+lR77MhbpzE8V28Li9l+YT
 QMIn6SzJqU3/fIycIro1OVY1lHmaKYgPGSEZxBenSBHfzwDLRmC9oRp4QMe0BjOC
 gepj1lUoiN7OA6PtA+ycNlsP0oJvdBjhvayLiuM3tUfLTrgHbw==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1383,10 +1491,15 @@ L/6VGINXYs7uP8v/2VBS7r6XZRnPBUy/R4hv5efYXnjwA9gq8+a3stC2ur8m5ySl
 faKSwE4H320yAyaZWH4gpwUdbUlYgPHtm/ohRtiWPrN7KEG5Wq/REzMIjZCnxOfS
 6KR6PNjlhxBsImQhmBvz6j5PLQxOxBZIpDoiK278e/1Wqm9LrBc=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Canada (Central) — ca-central-1
+<a name="ca-central-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1409,7 +1522,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1431,10 +1545,10 @@ AAOBgQBHiQJmzyFAaSYs8SpiRijIDZW2RIo7qBKb/pI3rqK6yOWDlPuMr6yNI81D
 IrKGGftg4Z+2KETYU4x76HSf0s//vfH3QA57qFaAwddhKYy4BhteFQl/Wex3xTlX
 LiwI07kwJvJy3mS6UfQ4HcvZy219tY+0iyOWrz/jVxwq7TOkCw==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1459,16 +1573,22 @@ KtDujDnB+ttEHwRRngX7
 -----END CERTIFICATE-----
 ```
 
-DSA
+------
+
+## Canada West (Calgary) — ca-west-1
+<a name="ca-west-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC7zCCAq+gAwIBAgIGAYPouptUMAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIyMTAxODAxMzQ0N1oXDTQ4MTAxODAxMzQ0N1owXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAMITzTJUa6cBsIfdHN69zW/aHjUB4r1ZfKb1FMhIp9EZtEf5n+06oXjUG2+dKRSlFQeEK333ehNZsPd6uqey6TYKtHpFb5XRLS8BpqB+7gnbAd0CBZM5o4NWesSQ1GLnTdQcGZkYG/QESkbadoCXQTifCujJE682hTDLIVt1d4ewwCQYHKoZIzjgEAwMvADAsAhRJc4gRS/HWTkCR2MESaQEe/jOMNQIUNoTwLvuPrmGPupPlGiHe0veZiO8=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1490,10 +1610,10 @@ AAOBgQCuorFtp2WcEreUMNlL44zF8JDSkju0ik27J4OdKRow6tPvqYDmyGTvybWh
 N4GtOuNEhWzmj4E7eMHzRslxaHXNhxIa8l+M/GRaq9jJwAb6aU9YWcVH9FT/6Jr0
 q6myzukFBNLZ9zCrrclp8dOFdGf0310RDpmGmF3qzU0MlHh+Iw==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1520,10 +1640,15 @@ aPjzedehJLhmZVALwnfqfLrgv6/gmraP9Vmoa8U4D6AljNiQGYaLwyoPoRm3bUs2
 v1Mh9GkEQ1b9+1pFXcqgzJJTGRuiPCyPbECI79FAnx5JM/CkGJV8HlOmjIW1qkK1
 Y2qT7wzErrKLJyB53Pw15BdIM1onbDAQreZb0yZQLdoEl/tx7Uk=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## China (Beijing) — cn-north-1
+<a name="cn-north-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1546,10 +1671,10 @@ KHB2rlWSxta+2panSEO1JX2q5jhcFP90rDOtZjlpYv57N/Z9iQ+dvQPJnChdq3BK
 c96nE98sYFj0ZVBzXw8Sq4Gh8FiVmFHbQp1peGC19idOUqxPxWsasWxQXO0azYsP
 9RyWLHKxH1dMuA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1571,10 +1696,10 @@ oADS0ph+YUz5P/bUCm61wFjlxaTfwKcuTR3ytj7bFLoW5Bm7Sa+TCl3lOGb2taon
 2h+9NirRK6JYk87LMNvbS40HGPFumJL2NzEsGUeK+MRiWu+Oh5/lJGii3qw4YByx
 SUDlRyNy1jJFstEZjOhs
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1597,10 +1722,15 @@ LKbyfK/532xJPqO9abx4Ddn89ZEC6vvWVNDgTsxERg992Wi+/xoSw3XxkgAryIv1
 zQ4dQ6irFmXwCWJqc6kHg/M5W+z60S/94+wGTXmp+19U6Rkq5jVMLh16XJXrXwHe
 4KcgIS/aQGVgjM6wivVA
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## China (Ningxia) — cn-northwest-1
+<a name="cn-northwest-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1623,10 +1753,10 @@ KHB2rlWSxta+2panSEO1JX2q5jhcFP90rDOtZjlpYv57N/Z9iQ+dvQPJnChdq3BK
 c96nE98sYFj0ZVBzXw8Sq4Gh8FiVmFHbQp1peGC19idOUqxPxWsasWxQXO0azYsP
 9RyWLHKxH1dMuA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1648,10 +1778,10 @@ oADS0ph+YUz5P/bUCm61wFjlxaTfwKcuTR3ytj7bFLoW5Bm7Sa+TCl3lOGb2taon
 2h+9NirRK6JYk87LMNvbS40HGPFumJL2NzEsGUeK+MRiWu+Oh5/lJGii3qw4YByx
 SUDlRyNy1jJFstEZjOhs
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1674,10 +1804,15 @@ qQraczUJ9EXDhrv7VmngIk9H3YsxYrlDGEqh/oz4Ze4ULOgnfkauanHikk+BUEsg
 RLPdNse7N6UvSnuXcOokwu6l6kfzigGkJBxkcq4gre3szZFdCQcUioj7Z4xtuTL8
 YMqfiDtN5cbD8R8ojw9Y
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Frankfurt) — eu-central-1
+<a name="eu-central-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1700,7 +1835,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1722,10 +1858,10 @@ AAOBgQBBh0WaXlBsW56Hqk588MmJxsOrvcKfDjF57RgEDgnGnQaJcStCVWDO9UYO
 JX2tdsPw+E7AjDqjsuxYaotLn3Mr3mK0sNOXq9BljBnWD4pARg89KZnZI8FN35HQ
 O/LYOVHCknuPL123VmVRNs51qQA9hkPjvw21UzpDLxaUxt9Z/w==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1752,10 +1888,15 @@ w+SwDLnm5NF4yZchIcTs2fdpoyZpOHDXy0xgxO1gWhKTnYbaZOxkJvEvcckxVAwJ
 obF8NyJla0/pWdjhlHafEXEN8lyxyTTyOa0BGTuYOBD2cTYYynauVKY4fqHUkr3v
 Z6fboaHEd4RFamShM8uvSu6eEFD+qRmvqlcodbpsSOhuGNLzhOQ=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Ireland) — eu-west-1
+<a name="eu-west-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1778,7 +1919,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1800,10 +1942,10 @@ AAOBgQADIkn/MqaLGPuK5+prZZ5Ox4bBZLPtreO2C7r0pqU2kPM2lVPyYYydkvP0
 lgSmmsErGu/oL9JNztDe2oCA+kNy17ehcsf8cw0uP861czNFKCeU8b7FgBbL+sIm
 qi33rAq6owWGi/5uEcfCR+JP7W+oSYVir5r/yDmWzx+BVH5S/g==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1830,10 +1972,15 @@ avB0vTIgoW41G58sfw5b+wjXCsh0nROon79RcQFFhGnvup0MZ+JbljyhZUYFzCli
 31jPZiKzqWa87xh2DbAyvj2KZrZtTe2LQ48Z4G8wWytJzxEeZdREe4NoETf+Mu5G
 4CqoaPR05KWkdNUdGNwXewydb3+agdCgfTs+uAjeXKNdSpbhMYg=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (London) — eu-west-2
+<a name="eu-west-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1856,7 +2003,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1878,10 +2026,10 @@ AAOBgQATPu/sOE2esNa4+XPEGKlEJSgqzyBSQLQc+VWo6FAJhGG9fp7D97jhHeLC
 5vwfmtTAfnGBxadfAOT3ASkxnOZhXtnRna460LtnNHm7ArCVgXKJo7uBn6ViXtFh
 uEEw4y6p9YaLQna+VC8Xtgw6WKq2JXuKzuhuNKSFaGGw9vRcHg==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1904,10 +2052,15 @@ HngBCdFI04CMagM+pwTO9XN1Ivt+NzUj208ca3oP1IwEAd5KhIhPLcihBQA5/Lpi
 h1s3170z1JQ1HZbDrH1pgp+8hSI0DwwDVb3IIH8kPR/J0Qn+hvOl2HOpaUg2Ly0E
 pt1RCZe+W7/dF4zsbqwK
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Milan) — eu-south-1
+<a name="eu-south-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1928,10 +2081,10 @@ wDUbeu65DcRdw2rSwCbBTU342sitFo/iGCV/Gjf+BaiAJtxniZze7J1ob8vOBeLv
 uaMQmgOYeZ5e0fl04GtqPl+lhcQwCQYHKoZIzjgEAwMwADAtAhQdoeWLrkm0K49+
 AeBK+j6m2h9SKQIVAIBNhS2a8cQVABDCQXVXrc0tOmO8
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1950,7 +2103,8 @@ wx8JGMvowtuKB1iMsbwyRqZkFYLcvH+Opfb/Aayi20/ChQLdI6M2R5VU
 -----END CERTIFICATE-----
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1973,10 +2127,15 @@ xjL57LHIZCssD+XPifXay69OFlsCIgLim11HgPkRIHEOXLSf3dsW9r+4CjoZqB/Z
 jj/P4TLCxbYCLkvglwaMjgEWF40Img0fhx7yT2X92MiSrs3oncv/IqfdVTiN8OXq
 jgnq1bf+EZEZKvb6UCQV
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Paris) — eu-west-3
+<a name="eu-west-3-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -1999,7 +2158,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2021,10 +2181,10 @@ AAOBgQCARv1bQEDaMEzYI0nPlu8GHcMXgmgA94HyrXhMMcaIlQwocGBs6VILGVhM
 TXP2r3JFaPEpmXSQNQHvGA13clKwAZbni8wtzv6qXb4L4muF34iQRHF0nYrEDoK7
 mMPR8+oXKKuPO/mv/XKo6XAV5DDERdSYHX5kkA2R9wtvyZjPnQ==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2047,19 +2207,24 @@ cl5WKTFDMapnzb9RV/DTaVzWx3cMYT77vm1Hl1XGjhx611CGcENH1egI3lOTILsa
 V+U0QiGiuT5cYgY/QihxdHt99zwGaE0ZBC7213NKrlNuLSrqhDI2NLu8NsExqOFy
 OmY0v/xVmQUQl26jJXaM
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Spain) — eu-south-2
+<a name="eu-south-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC8DCCAq+gAwIBAgIGAXjwLk46MAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMDQyMDE2NDc0OVoXDTQ3MDQyMDE2NDc0OVowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAGG2m8EKmaf5qQqj3Z+rzSaTaXE3B/R/4A2VuGqRYR7MljPtwdmU6/3CPjCACcZmTIcOAKbFiDHqadQgBZXfzGpzw8Zo+eYmmk5fXycgnj57PYH1dIWU6I7mCbAah5MZMcmHaTmIsomGrhcnWB8d8qOU7oZ0UWK4lbiAQs1MihoUwCQYHKoZIzjgEAwMwADAtAhUAjO0FsFMLThbHO4f/WmbaU7YM5GwCFCvIJOesO5hZ8PHC52dAR8WWC6oe
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2081,10 +2246,10 @@ AAOBgQANhLKjQrxeWPzqlTkLK8b44iyITsV0E+o8+gJN6tKmC0Cgapp1+rCcYDzt
 4R3uglYdoRDRrEPJVLjS8XcX5cefteIJRKJGm06d+fTvgzVY11IXo77tnzJF356m
 Nwunpudg2r1diQCWQKKftqbdTsQxPGPVTVOFv+tXyW1s1TYj9Q==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2111,10 +2276,15 @@ MW+QChq/20F6niyaRK4bXrZq14as7h+F9u3A9xHEOVP7Zk9C2ehrBXzCMLSDt3GV
 fEuMea2RxMhozwz34Hkdb6j18qoCfygubulovRNQjKw/cEmgPR16KfZPP5caILVt
 9qkYPvePmbiVswZDee73cDymJYxLqILpOZwyXvUH8StiH42FHZQ=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Stockholm) — eu-north-1
+<a name="eu-north-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2137,7 +2307,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2159,10 +2330,10 @@ AAOBgQBTIQdoFSDRHkpqNPUbZ9WXR2O5v/9bpmHojMYZb3Hw46wsaRso7STiGGX/
 tRqjIkPUIXsdhZ3+7S/RmhFznmZc8e0bjU4n5vi9CJtQSt+1u4E17+V2bF+D3h/7
 wcfE0l3414Q8JaTDtfEf/aF3F0uyBvr4MDMd7mFvAMmDmBPSlA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2185,19 +2356,24 @@ S+F/gDADGJgmPXfjogICb4Kvshq0H5Lm/xZlDULF2g/cYhyNY6EOI/eS5m1I7R8p
 D/m6WoyZdpInxJfxW616OMkxQMRVsruLTNGtby3u1g6ScjmpFtvAMhYejBSdzKG4
 FEyxIdEjoeO1jhTsck3R
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Europe (Zurich) — eu-central-2
+<a name="eu-central-2-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC7zCCAq+gAwIBAgIGAXjXiKJnMAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMDQxNTIxNTU1OVoXDTQ3MDQxNTIxNTU1OVowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAYNjaCNg/cfgQOl1BUj5ClUulqwZ9Q+SfDzPZh9D2C0VbiRANiZoxrV8RdgmzzC5T7VcriVwjwvta2Ch//b+sZ86E5h0XWWr+BeEjD9cu3eDj12XB5sWEbNHNx49p5Tmtu5r2LDtlL8X/Rpfalu2Z2OJgjFJWGf7hRwxe456n+lowCQYHKoZIzjgEAwMvADAsAhRChsLcj4U5CVb2cp5M0RE1XbXmhAIUeGSnH+aiUQIWmPEFja+itWDufIk=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2219,10 +2395,10 @@ oBWc/w6DTMCltWl7+q6a7C7uTIymgfsbug31ClwB7O3dhy26Ae9gNzXfpRnWN7iK
 chhz057HHESzeogH1rTHD2RkJE5z6KCC0F8JgEg+JQSSCuTFKzUuBkW4S8WMQ3Tj
 kCniK/KM2bEKllCqvINx
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2249,19 +2425,24 @@ YdggAVkZtY/PnFVmzf2bMVlSQPrqCl7U0zaw2Kvnj4zgX0rZyCetgrRZSUSxotyp
 W85q+s6AVr49eppEx8SLJsl0C23yB+L+t32tAveQImRWtJMpzZ5cxh/sYgDVeoC0
 85H1NK/7H9fAzT1cPu1oHSnB0xYzzHGOAmXmusMfwUk8fL1RQkE=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Israel (Tel Aviv) — il-central-1
+<a name="il-central-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC7zCCAq+gAwIBAgIGAX0QPi+9MAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMTExMTE4MjQxMFoXDTQ3MTExMTE4MjQxMFowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAbazCL5XXyPmcw3+oMYQUF5/9YogW6D0FZbYuyPgjOoUwWdl6fjlzWca3iLBUQbhIiHKAOLDFUCJ7xphSWtZ2tplG5HNjQL5Orn7N/6Ibaw4SiHxSKVXsxT6RXEQept1jEDAzMvpk06oDFkimXhoH6/pq+l1ezuK2DFOzNTEyPEwwCQYHKoZIzjgEAwMvADAsAhRt1jkpXsvrS+xTo2M9h2s2uLAhEQIUOZ2FcnTSrshF2EIdixZZwtNv66Q=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2283,10 +2464,10 @@ AAOBgQDOq6yTQkIXzAZffpLDBss1R8VZzRoLvRzsFa1xpOcRnPqIm0untEHsOGX/
 q34FiGQBOVY6btNaZb7aQXDlZGX+sGvst6BYC2u6H6Zpyo0qy0mz6AGA3eVEonJ2
 lKpvAwBkrGajRC8JW0Gx31UZDmAcn3gjQi5zMWFead9mJJJA3g==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2313,10 +2494,15 @@ LXCiOLoVT+y9tRYsxw5MyO0Bi6fxQIIADl2bE9xkunTN1Jkkwqo3LxNy/ryz4QWR
 8K7jHUItifv4h/hxBKpHEquN8CkdvM9oeGl7I8PFrSFEpGr1euDXY0euZzzYiDBV
 m6GpTJgzpVsEuIX52dPcPemwQncoIfZyhWDW85MJUnby2WTEcFo=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Mexico (Central) — mx-central-1
+<a name="mx-central-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2337,10 +2523,10 @@ jwPy9V5zRC0ZezwnRTyGSJwiErUKDGeVekEAoNJL1USy8jKkgBajlskZrR+0JHDN
 Jv3UwYIPplc4ZS2f2E7btrtlaWt/P70wCQYHKoZIzjgEAwMvADAsAhRXljPWKWYf
 61DkDVdgPPHsS2/LuwIUejcGV9WuS3uPvJ6lmn4opxUGBZw=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2358,10 +2544,10 @@ P0sGdUcRAdxzU3Bwq/hhtzNWnfwo0aCEQKmLM7xyd3nUa0VvKXLq+DDuayipWINr
 OATnNxFRe99d38qHTR1dgkjZdKbbtnl6O4fgM57tVEuQJd/N4ILl9jaRcJ5Ip+9t
 3y5t
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2384,10 +2570,15 @@ wmUhSel5hdy5MwOsyUKVGnAdaS5Vd9oL4kLszS9nBZ7ny6BC9odIkFAdGqQ5vM4z
 vcbfOq14hjatQmJgJhksN/0Dpl78Gheq0pIhP8LTkAOEG2832nQLzCa3oxSk8otG
 GJXkzzyQjse+13r8+yNJ
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Middle East (Bahrain) — me-south-1
+<a name="me-south-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2408,10 +2599,10 @@ mpMPsZDg6RXo9BF7Hn0DoZ6PJTamkFA6md+NyTJWJKvXC7iJ8fGDBJqTciUHuCKr
 12AztQ8bFWsrTgTzPE3p6U5ckcgV1TAJBgcqhkjOOAQDAy8AMCwCFB2NZGWm5EDl
 86ayV3c1PEDukgQIAhQow38rQkN/VwHVeSW9DqEshXHjuQ==
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2434,10 +2625,10 @@ DAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOBgQBhkNTBIFgWFd+ZhC/LhRUY
 NTpxxcXmUKquX+pHmIkK1LKDO8rNE84jqxrxRsfDi6by82fjVYf2pgjJW8R1FAw+
 mL5WQRFexbfB5aXhcMo0AA==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2460,28 +2651,33 @@ WGZO+98kxCS4n6tTwVt+nSuJr9BJRVC17apfHBgSS8c5OWna0VU/Cc9ka4eAfQR4
 ZJyvfXsIPh0Na76PaBIs6ZlqAOflLrjGzxBPiwRM/XrGmF8ze4KzoUqJEnK13O6A
 KHKgfiigQZ1+gv5FlyXH
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## Middle East (UAE) — me-central-1
+<a name="me-central-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIIC7zCCAq+gAwIBAgIGAXjXhqnnMAkGByqGSM44BAMwXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMB4XDTIxMDQxNTIxNTM1MFoXDTQ3MDQxNTIxNTM1MFowXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIIBtzCCASwGByqGSM44BAEwggEfAoGBAP1/U4EddRIpUt9KnC7s5Of2EbdSPO9EAMMeP4C2USZpRV1AIlH7WT2NWPq/xfW6MPbLm1Vs14E7gB00b/JmYLdrmVClpJ+f6AR7ECLCT7up1/63xhv4O1fnxqimFQ8E+4P208UewwI1VBNaFpEy9nXzrith1yrv8iIDGZ3RSAHHAhUAl2BQjxUjC8yykrmCouuEC/BYHPUCgYEA9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKLZl6Ae1UlZAFMO/7PSSoDgYQAAoGAW+csuHsWp/7/pv8CTKFwxsYudxuR6rbWaHCykIeAydXL9AWnphK6yp1ODEMBFl68Xq8Hp23sOWyf8moOhqCom9+0+ovuUFdpvCie86bpEZW5G8QbGebFr1F/TOZU568Ty1ff3dDWbdRzeNQRHodRG+XEQSizMkAreeWt4kBa+PUwCQYHKoZIzjgEAwMvADAsAhQD3Z+XGmzKmgaLgGcVX/Qf1+Tn4QIUH1cgksBSVKbWj81tovBMJeKgdYo=
 -----END CERTIFICATE-----
-
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
 MIICMzCCAZygAwIBAgIGAXjRrnDjMA0GCSqGSIb3DQEBBQUAMFwxCzAJBgNVBAYTAlVTMRkwFwYDVQQIDBBXYXNoaW5ndG9uIFN0YXRlMRAwDgYDVQQHDAdTZWF0dGxlMSAwHgYDVQQKDBdBbWF6b24gV2ViIFNlcnZpY2VzIExMQzAgFw0yMTA0MTQxODM5MzNaGA8yMjAwMDQxNDE4MzkzM1owXDELMAkGA1UEBhMCVVMxGTAXBgNVBAgMEFdhc2hpbmd0b24gU3RhdGUxEDAOBgNVBAcMB1NlYXR0bGUxIDAeBgNVBAoMF0FtYXpvbiBXZWIgU2VydmljZXMgTExDMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDcaTgW/KyA6zyruJQrYy00a6wqLA7eeUzk3bMiTkLsTeDQfrkaZMfBAjGaaOymRo1C3qzE4rIenmahvUplu9ZmLwL1idWXMRX2RlSvIt+d2SeoKOKQWoc2UOFZMHYxDue7zkyk1CIRaBukTeY13/RIrlc6X61zJ5BBtZXlHwayjQIDAQABMA0GCSqGSIb3DQEBBQUAA4GBABTqTy3R6RXKPW45FA+cgo7YZEj/Cnz5YaoUivRRdX2A83BHuBTvJE2+WX00FTEj4hRVjameE1nENoO8Z7fUVloAFDlDo69fhkJeSvn51D1WRrPnoWGgEfr1+OfK1bAcKTtfkkkP9r4RdwSjKzO5Zu/B+Wqm3kVEz/QNcz6npmA6
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2508,10 +2704,15 @@ sMpuVezqnRUdvVRoVQP4jFgNsE7kNvtn2NiPhb/CtrxpcwIQ7r6YeoHcBSheuV1Z
 xZDHynC3KUprQGx1+Z9QqPrDf180MaoqAlTl4+W6Pr2NJYrVUFGS/ivYshMg574l
 CPU6r4wWZSKwEUXq4BInYX6z6iclp/p/J5QnJp2mAwyi6M+I13Y=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## South America (Sao Paulo) — sa-east-1
+<a name="sa-east-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2534,7 +2735,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2556,10 +2758,10 @@ AAOBgQBnhocfH6ZIX6F5K9+Y9V4HFk8vSaaKL5ytw/P5td1h9ej94KF3xkZ5fyjN
 URvGQv3kNmNJBoNarcP9I7JIMjsNPmVzqWawyCEGCZImoARxSS3Fc5EAs2PyBfcD
 9nCtzMTaKO09Xyq0wqXVYn1xJsE5d5yBDsGrzaTHKjxo61+ezQ==
 -----END CERTIFICATE-----
-
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2586,10 +2788,15 @@ cY33KdHA/3PNLdn9CaEsHmcmj3ctaaXLFIzZhQyyjtsrgGfTLvXeXRokktvsLDS/
 YgKedQ+jFjzVJqgr4NjfY/Wt7/8kbbdhzaqlB5pCPjLLzv0zp/XmO6k+JvOePOGh
 JzGk5t1QrSju+MqNPFk3+1O7o910Vrhqw1QRB0gr1ExrviLbyfU=
 -----END CERTIFICATE-----
-
 ```
 
-DSA
+------
+
+## AWS GovCloud (US-East) — us-gov-east-1
+<a name="us-gov-east-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2612,7 +2819,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2636,7 +2844,8 @@ Z2oCM68u6GGbj0jZjg7GJonkReG9N72kDva/ukwZKgq8zErQVQ==
 -----END CERTIFICATE-----
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2661,7 +2870,13 @@ SD11SximGIYCjfZpRqI3q50mbxCd7ckULz+UUPwLrfOds4VrVVSj+x0ZdY19Plv2
 -----END CERTIFICATE-----
 ```
 
-DSA
+------
+
+## AWS GovCloud (US-West) — us-gov-west-1
+<a name="us-gov-west-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2684,7 +2899,8 @@ vSeDCOUMYQR7R9LINYwouHIziqQYMAkGByqGSM44BAMDLwAwLAIUWXBlk40xTwSw
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2708,7 +2924,8 @@ KyM4rUsBrljpG2aOCm12iACEyrvgJJrS8VZwUDZS6mZEnn/lhA==
 -----END CERTIFICATE-----
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2733,7 +2950,13 @@ WOwTObEf9ouTnjG9OZ20
 -----END CERTIFICATE-----
 ```
 
-DSA
+------
+
+## AWS European Sovereign Cloud — eusc-de-east-1
+<a name="eusc-de-east-1-cert"></a>
+
+------
+#### [ DSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2756,7 +2979,8 @@ RvdPXMFcMc6qrD0svAIVAMvsN3NwOY4KRYlFv9Dnok8D/ixI
 -----END CERTIFICATE-----
 ```
 
-RSA
+------
+#### [ RSA ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2775,7 +2999,8 @@ Q1mThJgLaWVIblllGJK7+EogR7gfqlPhc0Ql5bYuaozdt+r69xNuJlyR
 -----END CERTIFICATE-----
 ```
 
-RSA-2048
+------
+#### [ RSA-2048 ]
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -2803,3 +3028,5 @@ Qf8xdt1SaPKC26zJsrCkiMZJNm4aa8KqvhqBHVjV4NrGeVGCcdlmSDiL71Egk9kh
 744eGQxNnhZNvePW2kVcSuh0HpAo4Q4vfpjN+jz2Ves3kjFsrgc=
 -----END CERTIFICATE-----
 ```
+
+------

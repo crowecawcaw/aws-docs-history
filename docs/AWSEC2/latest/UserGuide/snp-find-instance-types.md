@@ -1,13 +1,15 @@
+
+
 # Find EC2 instance types that support AMD SEV-SNP
+<a name="snp-find-instance-types"></a>
 
-You can find instance types that support AMD SEV-SNP. The Amazon EC2 console
-does not display this information for an instance type.
+You can find instance types that support AMD SEV-SNP. The Amazon EC2 console does not display this information for an instance type.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To find the instance types that support AMD SEV-SNP
-
-Use the following [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md") command.
+**To find the instance types that support AMD SEV-SNP**  
+Use the following [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) command.
 
 ```
 aws ec2 describe-instance-types \
@@ -37,12 +39,11 @@ r6a.large
 r6a.xlarge
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To find the instance types that support AMD SEV-SNP
-
-Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md")
-cmdlet.
+**To find the instance types that support AMD SEV-SNP**  
+Use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) cmdlet.
 
 ```
 (Get-EC2InstanceType `
@@ -69,3 +70,5 @@ r6a.4xlarge
 r6a.large
 r6a.xlarge
 ```
+
+------

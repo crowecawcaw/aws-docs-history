@@ -1,15 +1,13 @@
+
+
 # Monitor billing assignment requests for shared Capacity Reservations
+<a name="billing-ownership-events"></a>
 
-Amazon EC2 sends Amazon EventBridge events when the state of a billing assignment request
-changes.
+Amazon EC2 sends Amazon EventBridge events when the state of a billing assignment request changes.
++ Events are sent to the Capacity Reservation owner when a request enters the following states: `accepted` \| `rejected` \| `expired` \| `revoked`.
++ Events are sent to the requested consumer account when a request enters the following states: `pending` \| `expired` \| `cancelled` \| `revoked`.
 
-- Events are sent to the Capacity Reservation owner when a request enters the following
-  states: `accepted` | `rejected` |
-  `expired` | `revoked`.
-- Events are sent to the requested consumer account when a request
-  enters the following states: `pending` | `expired`
-  | `cancelled` | `revoked`.
-  For more information about Amazon EventBridge, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md").
+For more information about Amazon EventBridge, see the [ Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/).
 
 The following is the Amazon EventBridge event pattern.
 
@@ -17,29 +15,26 @@ The following is the Amazon EventBridge event pattern.
 {
    "version":"0",
    "id":"12345678-1234-1234-1234-123456789012",
-   "detail-type":"On-Demand Capacity Reservation Billing Ownership Request `pending|accepted|rejected|cancelled|revoked|expired`",
+   "detail-type":"On-Demand Capacity Reservation Billing Ownership Request {{pending|accepted|rejected|cancelled|revoked|expired}}",
    "source":"aws.ec2",
-   "account":"`account_id`",
-   "time":"`state_change_timestamp`",
-   "region":"`region`",
+   "account":"{{account_id}}",
+   "time":"{{state_change_timestamp}}",
+   "region":"{{region}}",
    "resources":[
-      "arn:aws:ec2:`region`:`cr_owner_account_id`:capacity-reservation/`cr_id`"
+      "arn:aws:ec2:{{region}}:{{cr_owner_account_id}}:capacity-reservation/{{cr_id}}"
    ],
    "detail":{
-      "capacity-reservation-id":"`cr_id`",
-      "updateTime":`timestamp`,
-      "ownerAccountId":"`cr_owner_account_id`",
-      "unusedReservationChargesOwnerID":"`consumer_account_id`",
-      "status":"`pending|accepted|rejected|cancelled|revoked|expired`",
-      "statusMessage":"`message`
+      "capacity-reservation-id":"{{cr_id}}",
+      "updateTime":{{timestamp}},
+      "ownerAccountId":"{{cr_owner_account_id}}",
+      "unusedReservationChargesOwnerID":"{{consumer_account_id}}",
+      "status":"{{pending|accepted|rejected|cancelled|revoked|expired}}",
+      "statusMessage":"{{message}}
    }
 }
 ```
 
-The following is an example of an event that is sent to the Capacity Reservation owner
-(`222222222222`) when a consumer account
-(`111111111111`) accepts a billing assignment request for a
-shared Capacity Reservation (`cr-01234567890abcdef`).
+The following is an example of an event that is sent to the Capacity Reservation owner (`222222222222`) when a consumer account (`111111111111`) accepts a billing assignment request for a shared Capacity Reservation (`cr-01234567890abcdef`).
 
 ```
 {

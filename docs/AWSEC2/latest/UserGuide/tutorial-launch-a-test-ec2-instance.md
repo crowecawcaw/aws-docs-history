@@ -1,553 +1,311 @@
-# Tutorial 2: Launch a test EC2 instance and connect to it
 
-| Attribute              | Value                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tutorial objective** | Learn how to launch an Amazon EC2 instance that you can use for testing<br>purposes. This instance will have no advanced configuration and<br>won't store sensitive information. You will also learn about the<br>essential instance configuration settings, how to connect to the<br>instance, and how to stop it.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| **EC2 experience**     | Beginner                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Duration**           | 30 minutes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Cost**               | Free Tier eligible<br>When you create your AWS account, you can get started with Amazon EC2<br>for free using the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").<br>If you created your AWS account before July 15, 2025, it's less<br>than 12 months old, and you haven't already exceeded the Free Tier<br>benefits for Amazon EC2, it won't cost you anything to complete this<br>tutorial, because we help you select options that are within the<br>Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2<br>usage fees from the time that you launch the instance (even if it<br>remains idle) until you terminate it.<br>If you created your AWS account on or after July 15, 2025, it's<br>less than 6 months old, and you haven't used up all your credits, it<br>won't cost you anything to complete this tutorial, because we help<br>you select options that are within the Free Tier benefits.<br>For information on how to determine whether<br>you're eligible for the Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md"). |
-| **Prerequisites**      | Complete [Tutorial 1: Launch my very first Amazon EC2 instance](tutorial-launch-my-first-ec2-instance.md "tutorial-launch-my-first-ec2-instance.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+# Tutorial 2: Launch a test EC2 instance and connect to it
+<a name="tutorial-launch-a-test-ec2-instance"></a>
+
+
+| Attribute | Value | 
+| --- | --- | 
+| Tutorial objective | Learn how to launch an Amazon EC2 instance that you can use for testing purposes. This instance will have no advanced configuration and won't store sensitive information. You will also learn about the essential instance configuration settings, how to connect to the instance, and how to stop it. | 
+| EC2 experience | Beginner | 
+| **Duration** | 30 minutes | 
+| **Cost** | Free Tier eligible<br />When you create your AWS account, you can get started with Amazon EC2 for free using the [AWS Free Tier](https://aws.amazon.com/free/).<br />If you created your AWS account before July 15, 2025, it's less than 12 months old, and you haven't already exceeded the Free Tier benefits for Amazon EC2, it won't cost you anything to complete this tutorial, because we help you select options that are within the Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2 usage fees from the time that you launch the instance (even if it remains idle) until you terminate it. <br />If you created your AWS account on or after July 15, 2025, it's less than 6 months old, and you haven't used up all your credits, it won't cost you anything to complete this tutorial, because we help you select options that are within the Free Tier benefits.<br />For information on how to determine whether you're eligible for the Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md). | 
+| Prerequisites | Complete [Tutorial 1: Launch my very first Amazon EC2 instance](tutorial-launch-my-first-ec2-instance.md). | 
 
 ## Tutorial overview
+<a name="tutorial-launch-a-test-ec2-instance-overview"></a>
 
-This tutorial is designed for beginners who want to launch an EC2 instance that
-they can use for testing purposes.
+This tutorial is designed for beginners who want to launch an EC2 instance that they can use for testing purposes. 
 
-We'll explain the key instance configuration fields, and then guide you through
-the steps for launching a test instance using the default values in the EC2 console.
-After launching your instance, we'll show you how to log into—we call it
-_connect to_—your instance. We'll also
-show you how to create a key pair, which is required for connecting to your instance
-in this tutorial. Finally, to help manage costs, we'll show you to stop your
-instance to avoid usage charges.
+We'll explain the key instance configuration fields, and then guide you through the steps for launching a test instance using the default values in the EC2 console. After launching your instance, we'll show you how to log into—we call it *connect to*—your instance. We'll also show you how to create a key pair, which is required for connecting to your instance in this tutorial. Finally, to help manage costs, we'll show you to stop your instance to avoid usage charges.
 
-You'll launch a Linux instance in this tutorial. While the steps in this tutorial
-can be used for launching instances with other operating systems, the instructions
-for _connecting_ to an instance are specific to
-Linux instances.
+You'll launch a Linux instance in this tutorial. While the steps in this tutorial can be used for launching instances with other operating systems, the instructions for *connecting* to an instance are specific to Linux instances.
 
-This tutorial is divided into the following short tasks. You must complete each
-task before moving to the next one.
-
-- [Task 1: Familiarize yourself with key components for launching an instance](#tut2-task-1-familiarize-with-the-tutorial-components "#tut2-task-1-familiarize-with-the-tutorial-components")
-- [Task 2: Review a technical diagram](#tut2-task-2-technical-diagram "#tut2-task-2-technical-diagram")
-- [Task 3: Create a key pair](#tut2-task-3-create-key-pair "#tut2-task-3-create-key-pair")
-- [Task 4: Launch your test instance](#tut2-task-4-launch-test-instance "#tut2-task-4-launch-test-instance")
-- [Task 5: Find your instance](#tut2-task-5-find-test-instance-in-the-console "#tut2-task-5-find-test-instance-in-the-console")
-- [Task 6: View your instance configuration](#tut2-task-6-view-test-instance-configuration "#tut2-task-6-view-test-instance-configuration")
-- [Task 7: Familiarize yourself with key components for connecting to an instance](#tut2-task-7-familiarize-with-connection-components "#tut2-task-7-familiarize-with-connection-components")
-- [Task 8: Connect to your instance](#tut2-task-8-connect-to-test-ec2-instance "#tut2-task-8-connect-to-test-ec2-instance")
-- [Task 9: Stop your instance](#tut2-task-9-stop-test-ec2-instance "#tut2-task-9-stop-test-ec2-instance")
+This tutorial is divided into the following short tasks. You must complete each task before moving to the next one.
++ [Task 1: Familiarize yourself with key components for launching an instance](#tut2-task-1-familiarize-with-the-tutorial-components)
++ [Task 2: Review a technical diagram](#tut2-task-2-technical-diagram)
++ [Task 3: Create a key pair](#tut2-task-3-create-key-pair)
++ [Task 4: Launch your test instance](#tut2-task-4-launch-test-instance)
++ [Task 5: Find your instance](#tut2-task-5-find-test-instance-in-the-console)
++ [Task 6: View your instance configuration](#tut2-task-6-view-test-instance-configuration)
++ [Task 7: Familiarize yourself with key components for connecting to an instance](#tut2-task-7-familiarize-with-connection-components)
++ [Task 8: Connect to your instance](#tut2-task-8-connect-to-test-ec2-instance)
++ [Task 9: Stop your instance](#tut2-task-9-stop-test-ec2-instance)
 
 ## Task 1: Familiarize yourself with key components for launching an instance
+<a name="tut2-task-1-familiarize-with-the-tutorial-components"></a>
 
-In this task, you'll explore the key components required to launch an EC2
-instance. These are the AMI, instance type, key pair, security group, network (VPC
-and subnet), and Amazon EBS volume. You'll also explore an optional component, the
-**Name** tag.
+In this task, you'll explore the key components required to launch an EC2 instance. These are the AMI, instance type, key pair, security group, network (VPC and subnet), and Amazon EBS volume. You'll also explore an optional component, the **Name** tag.
 
-To help visualize these components, think of an instance like a rental house. Just
-as renting a house gives you a place to live without your needing to own and
-maintain the property, EC2 instances provide computing power without your needing to
-own and maintain the underlying infrastructure.
+To help visualize these components, think of an instance like a rental house. Just as renting a house gives you a place to live without your needing to own and maintain the property, EC2 instances provide computing power without your needing to own and maintain the underlying infrastructure.
 
-When deciding on the kind of instance to launch, you'll consider the configuration
-criteria for the instance, just as you would consider the criteria you want from a
-house. While this analogy simplifies things, it offers a helpful way to visualize
-the components until you're more familiar with them.
-
-- **AMI – House building materials and
-  amenities:** The Amazon Machine Image (AMI) determines the
-  operating system and applications your instance starts with. This is like
-  choosing the building materials (like brick, steel, or wood) and amenities
-  (like appliances and furnishings) of your house. A base AMI is like an
-  unfurnished house with basic appliances, while a custom AMI with
-  pre-installed software is like a fully furnished house.
-- **Instance type – House size and
-  power:** The instance type defines the size and capabilities of
-  your EC2 instance, much like choosing the size of a house, number of rooms,
-  and energy capacity. Each instance type determines the amount of CPU,
-  memory, storage, and networking capacity of your instance. The selected AMI
-  might limit what instance types you can choose.
-- **Key pair – Front door key**: A key
-  pair is like the lock and key to the front door of your house. The public
-  key acts as the lock on your instance, while the private key is the key you
-  must keep securely on your local computer. If someone else gets hold of your
-  private key, they can access your instance, much like how someone with your
-  front door key can enter your house.
-- **Network (VPC and subnet) – Property boundary,
-  sectioned areas, and house number**: Your virtual private cloud
-  (VPC) is like the entire property where your house is located, and the
-  subnet is the sectioned-off area around the house. If you have multiple
-  houses (instances) on your property, you might want to section them off into
-  distinct areas (different subnets) depending on their purpose. Some houses
-  allow visitors to roam freely through the gardens (public subnets with
-  internet access), while others have fenced-off gardens to restrict entry
-  (private subnets without internet access). Each subnet contains a range of
-  IP addresses, much like house numbers, which can be assigned to instances
-  within the subnet.
-- **Security group – The gatekeeper**:
-  The security group acts like a gatekeeper, controlling who is allowed to
-  visit your house. It enforces a set of rules that controls what traffic is
-  allowed to reach your instance. For example, a rule that allows SSH traffic
-  from a specific IP address is like the gatekeeper letting in only a specific
-  person to deliver groceries. Similarly, allowing HTTPS traffic from anywhere
-  is like letting the public come and take a look at the exterior of your
-  house.
-- **Amazon EBS volume – Storage units**:
-  EBS volumes are like storage units where you can store your belongings. Each
-  instance has a root volume (where the AMI is stored), and you can add more
-  volumes (storage) at any time as needed.
-- **Name tag – The house name:** The
-  **Name** tag functions like a sign on a house, helping
-  you easily identify who lives there. While the **Name** tag
-  makes it easier to distinguish between instances, it's not required when
-  launching an instance.
+When deciding on the kind of instance to launch, you'll consider the configuration criteria for the instance, just as you would consider the criteria you want from a house. While this analogy simplifies things, it offers a helpful way to visualize the components until you're more familiar with them.
++ **AMI – House building materials and amenities:** The Amazon Machine Image (AMI) determines the operating system and applications your instance starts with. This is like choosing the building materials (like brick, steel, or wood) and amenities (like appliances and furnishings) of your house. A base AMI is like an unfurnished house with basic appliances, while a custom AMI with pre-installed software is like a fully furnished house.
++ **Instance type – House size and power:** The instance type defines the size and capabilities of your EC2 instance, much like choosing the size of a house, number of rooms, and energy capacity. Each instance type determines the amount of CPU, memory, storage, and networking capacity of your instance. The selected AMI might limit what instance types you can choose.
++ **Key pair – Front door key**: A key pair is like the lock and key to the front door of your house. The public key acts as the lock on your instance, while the private key is the key you must keep securely on your local computer. If someone else gets hold of your private key, they can access your instance, much like how someone with your front door key can enter your house.
++ **Network (VPC and subnet) – Property boundary, sectioned areas, and house number**: Your virtual private cloud (VPC) is like the entire property where your house is located, and the subnet is the sectioned-off area around the house. If you have multiple houses (instances) on your property, you might want to section them off into distinct areas (different subnets) depending on their purpose. Some houses allow visitors to roam freely through the gardens (public subnets with internet access), while others have fenced-off gardens to restrict entry (private subnets without internet access). Each subnet contains a range of IP addresses, much like house numbers, which can be assigned to instances within the subnet.
++ **Security group – The gatekeeper**: The security group acts like a gatekeeper, controlling who is allowed to visit your house. It enforces a set of rules that controls what traffic is allowed to reach your instance. For example, a rule that allows SSH traffic from a specific IP address is like the gatekeeper letting in only a specific person to deliver groceries. Similarly, allowing HTTPS traffic from anywhere is like letting the public come and take a look at the exterior of your house.
++ **Amazon EBS volume – Storage units**: EBS volumes are like storage units where you can store your belongings. Each instance has a root volume (where the AMI is stored), and you can add more volumes (storage) at any time as needed.
++ **Name tag – The house name:** The **Name** tag functions like a sign on a house, helping you easily identify who lives there. While the **Name** tag makes it easier to distinguish between instances, it's not required when launching an instance.
 
 ## Task 2: Review a technical diagram
+<a name="tut2-task-2-technical-diagram"></a>
 
-In this task, you'll become familiar with a typical technical diagram that we use
-in the AWS documentation. The following diagram represents the configuration for
-the test instance you'll launch in this tutorial. In the previous task, we
-introduced these components using the analogy of a rental house. Now, we'll focus on
-the actual EC2 components themselves. The numbered labels correspond to the
-descriptions that follow.
+In this task, you'll become familiar with a typical technical diagram that we use in the AWS documentation. The following diagram represents the configuration for the test instance you'll launch in this tutorial. In the previous task, we introduced these components using the analogy of a rental house. Now, we'll focus on the actual EC2 components themselves. The numbered labels correspond to the descriptions that follow.
 
-![EC2 instance with a security group, key pair, and EBS volume in a public subnet within a VPC.](images/tutorial-test-instance.png)
+![EC2 instance with a security group, key pair, and EBS volume in a public subnet within a VPC.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/tutorial-test-instance.png)
 
-1. AMI – The AMI is the image you
-   choose when launching an instance. It's a template that contains the
-   operating system and software to run on your instance. For example, if you
-   want to launch a Linux instance, you can choose the Amazon Linux 2023 AMI. Or, if
-   you want to launch a Windows instance, you can choose the Microsoft Windows
-   Server 2022 Base AMI. The AMI catalog in the Amazon EC2 console contains 1000s of
-   images to choose from.
-2. **Instance type** – The instance type
-   is the hardware that determines the CPU, memory, storage, and networking
-   capacity of the host computer used for your instance. Amazon EC2 offers over 600
-   instance types to choose from, each varying in hardware configuration and
-   size, allowing you to choose the best fit for your application's
-   needs.
-3. Key pair – A key pair is set of
-   security credentials that you use to prove your identity when connecting to
-   your instance. The public key is on your instance and the private key is on
-   your local computer.
 
-In EC2, _connecting to your instance_
-refers to logging into your instance from your local computer. While there
-are other ways to securely connect to your instance, in this tutorial we use
-a key pair. 4. Network – The network is made up of
-a VPC and one or more subnets. A VPC is a virtual network within the
-AWS Cloud. Every AWS customer has their own VPC dedicated to their
-AWS account. You’ll launch your instance into a subnet in your VPC. A
-subnet is a range of IP addresses within a VPC. Your default subnet is a
-public subnet, which means it will assign a public IP address and provide
-internet access to your instance from outside the Amazon network. 5. Security group – A security group
-acts as a firewall to control the traffic to your instance. A security group
-contains rules that allow certain types of traffic to enter your instance.
-To connect through SSH from your local computer to your instance (using your
-key pair), you need a rule that allows SSH traffic from your local
-computer. 6. EBS volume – An Amazon EBS volume is a
-storage device that functions like a physical hard drive. Your instance
-comes with a root volume, which is a special EBS volume that stores the AMI
-with the operating system and software needed to boot your instance. You can
-optionally add data volumes. However, since your test instance won't store
-any sensitive data, you don't need additional encrypted data volumes.
+1. **AMI** – The AMI is the image you choose when launching an instance. It's a template that contains the operating system and software to run on your instance. For example, if you want to launch a Linux instance, you can choose the Amazon Linux 2023 AMI. Or, if you want to launch a Windows instance, you can choose the Microsoft Windows Server 2022 Base AMI. The AMI catalog in the Amazon EC2 console contains 1000s of images to choose from.
 
-**Congratulations!** You've completed the conceptual
-tasks in this tutorial. In the following tasks, you'll use the Amazon EC2 console to
-create the components you've learned about.
+1. **Instance type** – The instance type is the hardware that determines the CPU, memory, storage, and networking capacity of the host computer used for your instance. Amazon EC2 offers over 600 instance types to choose from, each varying in hardware configuration and size, allowing you to choose the best fit for your application's needs.
+
+1. **Key pair** – A key pair is set of security credentials that you use to prove your identity when connecting to your instance. The public key is on your instance and the private key is on your local computer. 
+
+   In EC2, *connecting to your instance* refers to logging into your instance from your local computer. While there are other ways to securely connect to your instance, in this tutorial we use a key pair.
+
+1. **Network** – The network is made up of a VPC and one or more subnets. A VPC is a virtual network within the AWS Cloud. Every AWS customer has their own VPC dedicated to their AWS account. You’ll launch your instance into a subnet in your VPC. A subnet is a range of IP addresses within a VPC. Your default subnet is a public subnet, which means it will assign a public IP address and provide internet access to your instance from outside the Amazon network.
+
+1. **Security group** – A security group acts as a firewall to control the traffic to your instance. A security group contains rules that allow certain types of traffic to enter your instance. To connect through SSH from your local computer to your instance (using your key pair), you need a rule that allows SSH traffic from your local computer.
+
+1. **EBS volume** – An Amazon EBS volume is a storage device that functions like a physical hard drive. Your instance comes with a root volume, which is a special EBS volume that stores the AMI with the operating system and software needed to boot your instance. You can optionally add data volumes. However, since your test instance won't store any sensitive data, you don't need additional encrypted data volumes.
+
+**Congratulations\!** You've completed the conceptual tasks in this tutorial. In the following tasks, you'll use the Amazon EC2 console to create the components you've learned about.
 
 ## Task 3: Create a key pair
+<a name="tut2-task-3-create-key-pair"></a>
 
-In this task, you'll create a key pair. A key pair consists of two parts: a public
-key, which you'll add to your instance, and a matching private key, which you'll use
-to securely connect to your instance. In the next task, you'll select this key pair
-when launching your instance, which automatically adds the public key to the
-instance. It's crucial to store the private key securely on your local computer,
-because anyone with access to it can connect to your instance.
+In this task, you'll create a key pair. A key pair consists of two parts: a public key, which you'll add to your instance, and a matching private key, which you'll use to securely connect to your instance. In the next task, you'll select this key pair when launching your instance, which automatically adds the public key to the instance. It's crucial to store the private key securely on your local computer, because anyone with access to it can connect to your instance.
 
-If you prefer to use an existing key pair when you launch your test instance, feel
-free to skip this task. Otherwise, proceed to create a new key pair.
+If you prefer to use an existing key pair when you launch your test instance, feel free to skip this task. Otherwise, proceed to create a new key pair.
 
-###### Before you start
+**Before you start**  
+Make sure you've completed the prerequisites listed in the preceding table, including signing into the AWS Management Console with your administrator user.
 
-Make sure you've completed the prerequisites listed in the preceding table,
-including signing into the AWS Management Console with your administrator user.
-
-###### Follow these steps to create a key pair
+**Follow these steps to create a key pair**
 
 1. **Open the Amazon EC2 console:**
 
-Go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. **Navigate to the Key pairs console
-page:**
+   Go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-In the navigation pane, under **Network & Security**,
-choose **Key Pairs**.
+1. **Navigate to the Key pairs console page:**
 
-    * If you previously created key pairs, they appear in the
-     table.
-    * If no key pairs exist, the table is empty.
+   In the navigation pane, under **Network & Security**, choose **Key Pairs**.
+   + If you previously created key pairs, they appear in the table.
+   + If no key pairs exist, the table is empty.
 
-3. **Create a new key pair:**
+1. **Create a new key pair:**
 
-Choose the **Create key pair** button (top right) to open
-the **Create key pair** web-based form, and enter your key
-pair details, as follows:
+   Choose the **Create key pair** button (top right) to open the **Create key pair** web-based form, and enter your key pair details, as follows:
 
-    1. **Name your key pair:** For
-     **Name**, enter a name that will help you
-     recognize the key pair, like
-     `test-instance-key-pair`.
+   1. **Name your key pair:** For **Name**, enter a name that will help you recognize the key pair, like **test-instance-key-pair**.
 
+      The name can be up to 255 ASCII characters long. It can’t include leading or trailing spaces.
 
-    The name can be up to 255 ASCII characters long. It can’t include
-     leading or trailing spaces.
-    2. **Choose the key pair type:** For
-     **Key pair type**, choose
-     **ED25519**.
+   1. **Choose the key pair type:** For **Key pair type**, choose **ED25519**.
 
+      Linux instances support both RSA and ED25519 key types, while Windows instances support only RSA. Since you'll be launching a Linux instance in this tutorial, you can use an ED25519 key.
 
-    Linux instances support both RSA and ED25519 key types, while
-     Windows instances support only RSA. Since you'll be launching a
-     Linux instance in this tutorial, you can use an ED25519 key.
-    3. **Choose the private key file
-     format:** For **Private key file
-     format**, choose **.pem**.
+   1. **Choose the private key file format:** For **Private key file format**, choose **.pem**.
 
+      This is the format in which your private key file will be saved. 
 
-    This is the format in which your private key file will be saved.
+1. **Save the public key to Amazon EC2 and download the private key:**
 
-4. **Save the public key to Amazon EC2 and download the
-private key:**
+   Choose the **Create key pair** button (bottom right).
 
-Choose the **Create key pair** button (bottom
-right).
+   Amazon EC2 saves the public key, while your browser downloads the private key file automatically to your local computer. The file is named according to the name that you specified for the key pair, and the extension is the file format that you chose. Move the private key file to a secure location on your computer.
+**Important**  
+This is the only chance you'll have to save the private key file.
 
-Amazon EC2 saves the public key, while your browser downloads the private key
-file automatically to your local computer. The file is named according to
-the name that you specified for the key pair, and the extension is the file
-format that you chose. Move the private key file to a secure location on
-your computer.
+1. **Set the permissions on the key (for macOS and Linux users):**
 
-###### Important
+   If you plan to connect to your instance using SSH on a macOS or Linux computer, you must set the correct permissions for your private key file. Open a terminal window and run the following command, replacing {{test-instance-key-pair}} with the name of your key pair:
 
-This is the only chance you'll have to save the private key
-file. 5. **Set the permissions on the key (for macOS and Linux
-users):**
+   ```
+   chmod 400 {{test-instance-key-pair}}.pem
+   ```
 
-If you plan to connect to your instance using SSH on a macOS or Linux
-computer, you must set the correct permissions for your private key file.
-Open a terminal window and run the following command, replacing
-`test-instance-key-pair` with the name of your
-key pair:
+   This command ensures that only you can read the private key file, which is necessary for establishing a secure connection to your instance. Without these permissions, you won’t be able to connect using this key pair.
 
-```
-chmod 400 `test-instance-key-pair`.pem
-```
-
-This command ensures that only you can read the private key file, which is
-necessary for establishing a secure connection to your instance. Without
-these permissions, you won’t be able to connect using this key pair.
-
-**Congratulations!** You've successfully created a
-key pair!
+**Congratulations\!** You've successfully created a key pair\!
 
 ## Task 4: Launch your test instance
+<a name="tut2-task-4-launch-test-instance"></a>
 
-In this task, you'll quickly launch a test instance using the EC2 launch instance
-wizard. You'll configure the main instance configuration settings for a Linux
-instance and use the default values for the other fields.
+In this task, you'll quickly launch a test instance using the EC2 launch instance wizard. You'll configure the main instance configuration settings for a Linux instance and use the default values for the other fields.
 
-To help you manage costs, we recommend choosing **Free tier
-eligible** components.
+To help you manage costs, we recommend choosing **Free tier eligible** components.
 
-###### Follow these steps to launch a test instance
+**Follow these steps to launch a test instance**
 
 1. **Open the Amazon EC2 console:**
 
-Go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. **Open the EC2 launch instance
-wizard:**
+   Go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-From the EC2 dashboard, choose **Launch
-instance**.
+1. **Open the EC2 launch instance wizard:**
 
-The **Launch an instance** web-based form opens. This is
-the EC2 launch instance wizard. 3. **Name your instance:**
+   From the EC2 dashboard, choose **Launch instance**.
 
-Under **Name and tags**, for **Name**,
-enter a descriptive name like `Test instance`.
+   The **Launch an instance** web-based form opens. This is the EC2 launch instance wizard.
 
-The instance name is a tag, where the key is **Name**,
-and the value is the name that you specify.
+1. **Name your instance:**
 
-**Tip:** For test instances, a name tag is
-sufficient. However, for production instances, it’s best practice to
-establish a tagging policy to standardize tagging across all your resources. 4. **Choose your operating system and software—the
-Amazon Machine Image (AMI):**
+   Under **Name and tags**, for **Name**, enter a descriptive name like **Test instance**.
 
-Under **Application and OS Images (Amazon Machine
-Image)**, for **Amazon Machine Image (AMI)**,
-the default selection is **Amazon Linux 2023 AMI**. This
-AMI is marked **Free tier eligible**. In this tutorial,
-you'll be launching a Linux instance, so leave the default setting to keep
-under the Free Tier limits. 5. **Choose your hardware—the instance
-type:**
+   The instance name is a tag, where the key is **Name**, and the value is the name that you specify.
 
-Under **Instance type**, for **Instance
-type**, keep the default selection for this tutorial. The
-default instance type can be used under the Free Tier and its hardware is
-suitable for your test instance. 6. **Prepare for secure login with a key
-pair:**
+   **Tip:** For test instances, a name tag is sufficient. However, for production instances, it’s best practice to establish a tagging policy to standardize tagging across all your resources. 
 
-Under **Key pair (login)**, for **Key pair
-name**, choose the key pair you created in the previous task.
-If you don't see your key pair in the list, choose the refresh icon (to the
-right of the list).
+1. **Choose your operating system and software—the Amazon Machine Image (AMI):**
 
-When your instance launches, it will place the public key on the instance.
-To connect to your instance after it has launched, you'll use the
-corresponding private key that you downloaded in the previous task. 7. **Configure the network settings to enable internet
-access:**
+   Under **Application and OS Images (Amazon Machine Image)**, for **Amazon Machine Image (AMI)**, the default selection is **Amazon Linux 2023 AMI**. This AMI is marked **Free tier eligible**. In this tutorial, you'll be launching a Linux instance, so leave the default setting to keep under the Free Tier limits.
 
-Under **Network settings**, the
-**Network** (your VPC) and **Subnet**
-fields are configured by default. Keep the default settings for this
-tutorial to help you get started quickly. If you haven’t modified your
-default subnet, your instance will have internet access.
+1. **Choose your hardware—the instance type:**
 
-**Tip:** Your default subnet is a public
-subnet, which means it will assign a public IP address and provide internet
-access to your instance from outside the Amazon network. For test instances,
-it’s okay to use the default subnet settings that provide internet access.
-However, for production instances, it’s best practice to only assign a
-public IP address and use a subnet with internet access when absolutely
-necessary. 8. **Set up the instance firewall (security
-group):**
+   Under **Instance type**, for **Instance type**, keep the default selection for this tutorial. The default instance type can be used under the Free Tier and its hardware is suitable for your test instance.
 
-Under **Network settings**, under **Firewall
-(security groups)**, keep the checkbox **Allow SSH traffic from Anywhere (0.0.0.0)** selected. This
-will create a new security group for your test instance that allows SSH
-traffic from any IP address.
+1. **Prepare for secure login with a key pair:**
 
-A security group acts as a firewall to control the traffic to your
-instance. To connect through SSH from your local computer to your instance,
-you need a rule that allows SSH traffic from your local computer.
+   Under **Key pair (login)**, for **Key pair name**, choose the key pair you created in the previous task. If you don't see your key pair in the list, choose the refresh icon (to the right of the list).
 
-**Tip:** The IP address of your local
-computer might change over time if your internet service provider uses
-dynamic IP assignment. We're assuming that when you use an instance for
-testing purposes, you won't use the instance to store sensitive information,
-and therefore security measures can be less restrictive. For test instances,
-it's generally acceptable to allow traffic from any IP address
-(`0.0.0.0/0`) so that you can always connect even if your IP
-address changes. However, for production instances, especially those with
-sensitive data, it's best practice to allow traffic only from known IP
-addresses. 9. **Configure the instance storage:**
+   When your instance launches, it will place the public key on the instance. To connect to your instance after it has launched, you'll use the corresponding private key that you downloaded in the previous task.
 
-Under **Configure storage**, the **Root volume
-(Encrypted)** fields are configured by default. Leave the
-settings as they are to keep under the Free Tier limits.
+1. **Configure the network settings to enable internet access:**
 
-Since our test instance won't store any sensitive data, we don't need
-additional encrypted data volumes. 10. **Review the instance configuration:**
+   Under **Network settings**, the **Network** (your VPC) and **Subnet** fields are configured by default. Keep the default settings for this tutorial to help you get started quickly. If you haven’t modified your default subnet, your instance will have internet access. 
 
-In the **Summary** panel on the right, you can review
-your high-level settings before launching your instance. 11. **Launch your instance:**
+   **Tip:** Your default subnet is a public subnet, which means it will assign a public IP address and provide internet access to your instance from outside the Amazon network. For test instances, it’s okay to use the default subnet settings that provide internet access. However, for production instances, it’s best practice to only assign a public IP address and use a subnet with internet access when absolutely necessary.
 
-When you're ready to launch your instance, in the
-**Summary** panel, choose **Launch
-instance**.
+1. **Set up the instance firewall (security group):**
 
-Amazon EC2 quickly launches your instance using the settings that you
-specified. If you didn't specify a setting, the default is used. A
-**Success** banner confirms the launch.
+   Under **Network settings**, under **Firewall (security groups)**, keep the checkbox **Allow SSH traffic from Anywhere (0.0.0.0)** selected. This will create a new security group for your test instance that allows SSH traffic from any IP address.
 
-**Congratulations!** You've successfully launched
-your test instance!
+   A security group acts as a firewall to control the traffic to your instance. To connect through SSH from your local computer to your instance, you need a rule that allows SSH traffic from your local computer.
+
+   **Tip:** The IP address of your local computer might change over time if your internet service provider uses dynamic IP assignment. We're assuming that when you use an instance for testing purposes, you won't use the instance to store sensitive information, and therefore security measures can be less restrictive. For test instances, it's generally acceptable to allow traffic from any IP address (`0.0.0.0/0`) so that you can always connect even if your IP address changes. However, for production instances, especially those with sensitive data, it's best practice to allow traffic only from known IP addresses.
+
+1. **Configure the instance storage:**
+
+   Under **Configure storage**, the **Root volume (Encrypted)** fields are configured by default. Leave the settings as they are to keep under the Free Tier limits.
+
+   Since our test instance won't store any sensitive data, we don't need additional encrypted data volumes.
+
+1. **Review the instance configuration:**
+
+   In the **Summary** panel on the right, you can review your high-level settings before launching your instance.
+
+1. **Launch your instance:**
+
+   When you're ready to launch your instance, in the **Summary** panel, choose **Launch instance**.
+
+   Amazon EC2 quickly launches your instance using the settings that you specified. If you didn't specify a setting, the default is used. A **Success** banner confirms the launch.
+
+**Congratulations\! **You've successfully launched your test instance\!
 
 ## Task 5: Find your instance
+<a name="tut2-task-5-find-test-instance-in-the-console"></a>
 
-In this task, you'll locate the instance that you just launched in the EC2
-console.
+In this task, you'll locate the instance that you just launched in the EC2 console.
 
-###### Follow these steps to find your instance in the EC2 console
+**Follow these steps to find your instance in the EC2 console**
 
-1. **Open the **Instances**
-   page:**
+1. **Open the **Instances** page:**
 
-If you're still on the success page, choose the instance ID in the
-**Success** banner.
+   If you're still on the success page, choose the instance ID in the **Success** banner.
 
-If you've navigated away, choose **Instances** from the
-navigation pane. 2. **Locate your instance:**
-
-In the **Name** column, find your instance by the name
-you gave it.
-
-## Task 6: View your instance configuration
-
-In this task, you'll become familiar with viewing your instance's configuration
-details.
-
-###### Follow these steps to view your instance's configuration
+   If you've navigated away, choose **Instances** from the navigation pane.
 
 1. **Locate your instance:**
 
-In the **Name** column, find your instance by the name
-you gave it. 2. **Open the instance details page:**
+   In the **Name** column, find your instance by the name you gave it.
 
-Select the checkbox next to the name of your instance, and then choose
-the **Actions** menu (top right), and choose **View
-details** to open the instance details page where you can
-review its configuration.
+## Task 6: View your instance configuration
+<a name="tut2-task-6-view-test-instance-configuration"></a>
 
-In the previous tutorial, you chose the instance's ID link to open the
-instance details page. You'll discover that there's more than one way to
-accomplish a task in the EC2 console. 3. **Explore instance configuration
-details:**
+In this task, you'll become familiar with viewing your instance's configuration details.
 
-Take a few minutes to explore the configuration details of your
-instance.
+**Follow these steps to view your instance's configuration**
 
-**Tip:** To quickly find a field, press
-Ctrl+F or command+F on your keyboard.
+1. **Locate your instance:**
 
-    1. **AMI:** Can you find the AMI that
-     you used to launch your instance? You can find the information in
-     **AMI ID** and **AMI name** on
-     the **Details** tab.
-    2. **Instance type:** Can you find the
-     instance type? It's might be **t3.micro**, for
-     example.
-    3. **Key pair:** Can you find the key
-     pair that you selected when you launched your instance? It's
-     specified for **Key pair assigned at launch**. Note
-     that if you change the key pair in the future, the value here won't
-     change.
-    4. **VPC:** Can you find the ID of your
-     VPC? You'll find all networking-related configuration settings on
-     the **Networking** tab. The VPC ID is in a format
-     similar to the following example:
-     **vpc-1a2b3c4d**
-    5. **Subnet:** Can you find the ID of
-     the subnet in which you launched your instance? It's in a format
-     similar to the following example:
-     **subnet-1a2b3c4d**
-    6. **Public IPv4 address:** Can you find
-     the public IPv4 address that was allocated to your instance? It's in
-     a format similar to the following example:
-     **34.242.148.128**.
-    7. **Security group:** Can you find the
-     inbound rule that was created to allow SSH traffic from anywhere
-     (0.0.0.0./0)? You'll find all security-related configuration
-     settings on the **Security** tab.
-    8. **Storage:** Can you find the volume
-     that was created for this instance? You'll find all storage-related
-     configuration settings on the **Storage**
-     tab.
-    9. **Instance tags:** The name you gave
-     your instance is actually a tag. Can you find your instance tags?
-     Choose the **Tags** tab. The key is
-     **Name**, and the value is the name you
-     provided.
-    10. **Instance state:** Can you verify
-     the state of your instance? It should be
-     **Running**.
+   In the **Name** column, find your instance by the name you gave it.
 
-Take a few more minutes to explore the other instance configuration fields. When
-you're ready, proceed to the next task.
+1. **Open the instance details page:**
+
+   Select the checkbox next to the name of your instance, and then choose the **Actions** menu (top right), and choose **View details** to open the instance details page where you can review its configuration.
+
+   In the previous tutorial, you chose the instance's ID link to open the instance details page. You'll discover that there's more than one way to accomplish a task in the EC2 console.
+
+1. **Explore instance configuration details:**
+
+   Take a few minutes to explore the configuration details of your instance.
+
+   **Tip:** To quickly find a field, press Ctrl\+F or command\+F on your keyboard.
+
+   1. **AMI:** Can you find the AMI that you used to launch your instance? You can find the information in **AMI ID** and **AMI name** on the **Details** tab.
+
+   1. **Instance type:** Can you find the instance type? It's might be **t3.micro**, for example.
+
+   1. **Key pair:** Can you find the key pair that you selected when you launched your instance? It's specified for **Key pair assigned at launch**. Note that if you change the key pair in the future, the value here won't change.
+
+   1. **VPC:** Can you find the ID of your VPC? You'll find all networking-related configuration settings on the **Networking** tab. The VPC ID is in a format similar to the following example: **vpc-1a2b3c4d**
+
+   1. **Subnet:** Can you find the ID of the subnet in which you launched your instance? It's in a format similar to the following example: **subnet-1a2b3c4d**
+
+   1. **Public IPv4 address:** Can you find the public IPv4 address that was allocated to your instance? It's in a format similar to the following example: **34.242.148.128**.
+
+   1. **Security group:** Can you find the inbound rule that was created to allow SSH traffic from anywhere (0.0.0.0./0)? You'll find all security-related configuration settings on the **Security** tab. 
+
+   1. **Storage:** Can you find the volume that was created for this instance? You'll find all storage-related configuration settings on the **Storage** tab.
+
+   1. **Instance tags:** The name you gave your instance is actually a tag. Can you find your instance tags? Choose the **Tags** tab. The key is **Name**, and the value is the name you provided.
+
+   1. **Instance state:** Can you verify the state of your instance? It should be **Running**.
+
+Take a few more minutes to explore the other instance configuration fields. When you're ready, proceed to the next task.
 
 ## Task 7: Familiarize yourself with key components for connecting to an instance
+<a name="tut2-task-7-familiarize-with-connection-components"></a>
 
-In this task, you'll explore the key components required to connect to an EC2
-instance. These are the connection protocol, public DNS, security group, key pair,
-and instance username.
+In this task, you'll explore the key components required to connect to an EC2 instance. These are the connection protocol, public DNS, security group, key pair, and instance username.
 
-To help visualize these components, think of connecting to an instance like going
-to your house:
-
-- **Connection protocol – Your mode of
-  transport:** Just like choosing how to get home, you choose the
-  connection protocol that will take you to your instance. In this tutorial,
-  we'll use SSH (Secure Shell), which creates a secure tunnel for connecting
-  your computer to your instance over the internet.
-- **Public DNS – The house address:**
-  Just like your house has a unique address, your EC2 instance has its own
-  public DNS name (for example,
-  `ec2-18-201-118-201.eu-west-1.compute.amazonaws.com`). This
-  public DNS name enables SSH to connect directly to your instance.
-- **Security group – The gatekeeper:**
-  Imagine your house has a gatekeeper who controls who may enter or leave.
-  Similarly, the EC2 instance has a security group that acts like a
-  gatekeeper, controlling which types of network traffic are allowed in or out
-  of your instance. Only the traffic you explicitly permit (for example, SSH
-  traffic from your computer's IP address) is allowed in.
-- **Private key – Your front door key:**
-  When you launched the instance, you specified a key pair. The public key was
-  placed on the instance, and you kept the private key on your computer. The
-  private key acts as your front door key—without it, you can’t get
-  into your instance.
-- **Instance username – The resident:**
-  When you arrive at your house, you need to identify yourself to prove you're
-  a resident. Similarly, when connecting to an instance, you provide a
-  username. Different instances have different default usernames, depending on
-  their operating system. For example, Amazon Linux instances use
-  `ec2-user` as the default username.
+To help visualize these components, think of connecting to an instance like going to your house:
++ **Connection protocol – Your mode of transport:** Just like choosing how to get home, you choose the connection protocol that will take you to your instance. In this tutorial, we'll use SSH (Secure Shell), which creates a secure tunnel for connecting your computer to your instance over the internet.
++ **Public DNS – The house address:** Just like your house has a unique address, your EC2 instance has its own public DNS name (for example, `ec2-18-201-118-201.eu-west-1.compute.amazonaws.com`). This public DNS name enables SSH to connect directly to your instance.
++ **Security group – The gatekeeper:** Imagine your house has a gatekeeper who controls who may enter or leave. Similarly, the EC2 instance has a security group that acts like a gatekeeper, controlling which types of network traffic are allowed in or out of your instance. Only the traffic you explicitly permit (for example, SSH traffic from your computer's IP address) is allowed in.
++ **Private key – Your front door key:** When you launched the instance, you specified a key pair. The public key was placed on the instance, and you kept the private key on your computer. The private key acts as your front door key—without it, you can’t get into your instance.
++ **Instance username – The resident:** When you arrive at your house, you need to identify yourself to prove you're a resident. Similarly, when connecting to an instance, you provide a username. Different instances have different default usernames, depending on their operating system. For example, Amazon Linux instances use `ec2-user` as the default username.
 
 **The connection command**
 
-To connect to your EC2 instance, use the following command in a terminal
-window:
+To connect to your EC2 instance, use the following command in a terminal window:
 
 ```
 ssh -i "test-instance-key-pair.pem" ec2-user@ec2-18-201-118-201.eu-west-1.compute.amazonaws.com
 ```
 
 Here's a breakdown of what the command does:
-
-- `ssh` – This command specifies the connection protocol,
-  initiating an SSH (Secure Shell) connection to your instance.
-- `-i "test-instance-key-pair.pem"` – The `-i`
-  flag indicates the private key file needed to authenticate the connection.
-  This private key file must match the key pair you specified when launching
-  the instance. If your private key file is saved in a specific folder,
-  specify the full path to the file.
-- `ec2-user` – This is the username for logging into the
-  instance. For Amazon Linux instances, the default username is
-  `ec2-user`. Other AMIs might use different default usernames,
-  such as `ubuntu` for Ubuntu instances.
-- `@` – This symbol separates the username from the
-  instance's address.
-- `ec2-18-201-118-201.eu-west-1.compute.amazonaws.com` –
-  This is the public address of your instance (the public DNS), which includes
-  the public IPv4 address and the AWS Region. It uniquely identifies the
-  instance.
++ `ssh` – This command specifies the connection protocol, initiating an SSH (Secure Shell) connection to your instance.
++ `-i "test-instance-key-pair.pem"` – The `-i` flag indicates the private key file needed to authenticate the connection. This private key file must match the key pair you specified when launching the instance. If your private key file is saved in a specific folder, specify the full path to the file.
++ `ec2-user` – This is the username for logging into the instance. For Amazon Linux instances, the default username is `ec2-user`. Other AMIs might use different default usernames, such as `ubuntu` for Ubuntu instances.
++ `@` – This symbol separates the username from the instance's address.
++ `ec2-18-201-118-201.eu-west-1.compute.amazonaws.com` – This is the public address of your instance (the public DNS), which includes the public IPv4 address and the AWS Region. It uniquely identifies the instance.
 
 **What happens when you run the command**
 
-After you run the command, SSH establishes a secure tunnel and authenticates with
-your private key. If the instance's security group permits the traffic, you gain
-access to your EC2 instance. You can now control the instance from your computer as
-if you were sitting right in front of it. You can run commands, install software,
-and manage files—just like you would on your local machine.
+After you run the command, SSH establishes a secure tunnel and authenticates with your private key. If the instance's security group permits the traffic, you gain access to your EC2 instance. You can now control the instance from your computer as if you were sitting right in front of it. You can run commands, install software, and manage files—just like you would on your local machine.
 
 ## Task 8: Connect to your instance
+<a name="tut2-task-8-connect-to-test-ec2-instance"></a>
 
-In this task, you'll connect to your instance using an SSH client on your
-computer. In the previous task, we introduced the components for connecting to an
-instance using the analogy of going to your house. Now, we'll focus on connecting to
-the actual EC2 instance.
+In this task, you'll connect to your instance using an SSH client on your computer. In the previous task, we introduced the components for connecting to an instance using the analogy of going to your house. Now, we'll focus on connecting to the actual EC2 instance.
 
-There are different ways to connect to an instance. The method you use to connect
-depends on the instance's operating system. Since you've launched a Linux instance,
-you'll use an SSH client on your local computer.
+There are different ways to connect to an instance. The method you use to connect depends on the instance's operating system. Since you've launched a Linux instance, you'll use an SSH client on your local computer.
 
-**First, check if your computer has an SSH client
-installed**
+**First, check if your computer has an SSH client installed**
 
-Most computers come with an SSH client pre-installed. To check, open a terminal
-window on your computer and run the following command:
+Most computers come with an SSH client pre-installed. To check, open a terminal window on your computer and run the following command:
 
 ```
 ssh
@@ -555,156 +313,109 @@ ssh
 
 If the command is recognized, you're ready to connect.
 
-If the command isn't recognized, you must install an SSH client. Instructions for
-installing an SSH client are beyond the scope of this tutorial. If you need help,
-see [SSH connection prerequisites](connect-linux-inst-ssh.md#ssh-prereqs-linux-from-linux-macos "connect-linux-inst-ssh.md#ssh-prereqs-linux-from-linux-macos") in this user guide or
-search online for instructions on how to install an SSH client on your operating
-system.
+If the command isn't recognized, you must install an SSH client. Instructions for installing an SSH client are beyond the scope of this tutorial. If you need help, see [SSH connection prerequisites](connect-linux-inst-ssh.md#ssh-prereqs-linux-from-linux-macos) in this user guide or search online for instructions on how to install an SSH client on your operating system.
 
-###### Follow these steps to connect to your instance
+**Follow these steps to connect to your instance**
 
 1. **Initiate connecting:**
 
-If you're on the instance details page in the Amazon EC2 console, choose the
-**Connect** button (top right).
+   If you're on the instance details page in the Amazon EC2 console, choose the **Connect** button (top right).
 
-If you've navigated away, choose **Instances** from the
-navigation pane. Then, on the **Instances** page, select
-the checkbox next to the name of your instance and choose the
-**Connect** button (top right).
+   If you've navigated away, choose **Instances** from the navigation pane. Then, on the **Instances** page, select the checkbox next to the name of your instance and choose the **Connect** button (top right).
 
-This opens the **Connect to instance** page. 2. **Choose the connection method:**
+   This opens the **Connect to instance** page.
 
-On the **Connect to instance** page, choose the
-**SSH client** tab.
+1. **Choose the connection method:**
 
-Take a moment to review the text on this page, as these are the steps that
-you'll follow next. 3. **Review the SSH command:**
+   On the **Connect to instance** page, choose the **SSH client** tab.
 
-Under **Example**, you'll see a command that is
-automatically generated and customized with your instance's details. The
-private key name is derived from the name of the public key specified at
-launch.
+   Take a moment to review the text on this page, as these are the steps that you'll follow next.
 
-The command looks something like this:
+1. **Review the SSH command:**
 
-```
-ssh -i "test-instance-key-pair.pem" ec2-user@ec2-18-201-118-201.eu-west-1.compute.amazonaws.com
-```
+   Under **Example**, you'll see a command that is automatically generated and customized with your instance's details. The private key name is derived from the name of the public key specified at launch.
 
-4. **Copy the SSH command:**
+   The command looks something like this:
 
-Choose the copy icon next to the example SSH command. 5. **Open a terminal window:**
+   ```
+   ssh -i "test-instance-key-pair.pem" ec2-user@ec2-18-201-118-201.eu-west-1.compute.amazonaws.com
+   ```
 
-On your local computer, open a terminal window. 6. **Paste and run the SSH command:**
+1. **Copy the SSH command:**
 
-Paste the SSH command into the terminal window. If you saved your private
-key file in a specific folder, edit the command to include the full file
-path.
+   Choose the copy icon next to the example SSH command.
 
-Press Enter on your keyboard.
+1. **Open a terminal window:**
 
-You'll see a response similar to the following:
+   On your local computer, open a terminal window.
 
-```
-The authenticity of host 'ec2-18-201-118-201.eu-west-1.compute.amazonaws.com (18-201-118-201)' can't be established.
-ED25519 key fingerprint is SHA256:examplehxj9aOr1MogvKOoMNskVVIRBQBoq0example.This key is not known by any other names.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-```
+1. **Paste and run the SSH command:**
 
-7. **Complete the connection:**
+   Paste the SSH command into the terminal window. If you saved your private key file in a specific folder, edit the command to include the full file path. 
 
-Enter `yes` and press Return on your keyboard.
+   Press Enter on your keyboard.
 
-Verifying the fingerprint is beyond the scope of this tutorial. To learn
-more, see [(Optional) Get the instance fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint "connection-prereqs-general.md#connection-prereqs-fingerprint").
+   You'll see a response similar to the following:
 
-Upon a successful connection, the terminal prompt changes to display your
-instance's public DNS.
+   ```
+   The authenticity of host 'ec2-18-201-118-201.eu-west-1.compute.amazonaws.com (18-201-118-201)' can't be established.
+   ED25519 key fingerprint is SHA256:examplehxj9aOr1MogvKOoMNskVVIRBQBoq0example.This key is not known by any other names.
+   Are you sure you want to continue connecting (yes/no/[fingerprint])?
+   ```
 
-**Congratulations!** You've successfully connected to
-your instance!
+1. **Complete the connection:**
+
+   Enter **yes** and press Return on your keyboard.
+
+   Verifying the fingerprint is beyond the scope of this tutorial. To learn more, see [(Optional) Get the instance fingerprint](connection-prereqs-general.md#connection-prereqs-fingerprint).
+
+   Upon a successful connection, the terminal prompt changes to display your instance's public DNS.
+
+**Congratulations\!** You've successfully connected to your instance\!
 
 ## Task 9: Stop your instance
+<a name="tut2-task-9-stop-test-ec2-instance"></a>
 
-In this task, you'll stop your instance to preserve your Free Tier benefits. When
-your instance is stopped, you stop incurring costs for it. If you created your
-AWS account before July 15, 2025 and you qualify for the Free Tier, you will
-continue to incur costs for the EBS storage.
+In this task, you'll stop your instance to preserve your Free Tier benefits. When your instance is stopped, you stop incurring costs for it. If you created your AWS account before July 15, 2025 and you qualify for the Free Tier, you will continue to incur costs for the EBS storage.
 
-###### Follow these steps to stop your instance
+**Follow these steps to stop your instance**
 
 1. **Initiate stopping:**
 
-If you're still on the **Connect to instance** page,
-choose **Instances** from the breadcrumb. If you've
-navigated away, choose **Instances** from the navigation
-pane.
+   If you're still on the **Connect to instance** page, choose **Instances** from the breadcrumb. If you've navigated away, choose **Instances** from the navigation pane. 
 
-Then, on the **Instances** page, select the checkbox next
-to the name of your instance, and then choose the **Instance
-state** menu (top right), and choose **Stop
-instance**. When prompted, choose
-**Stop**. 2. **Monitor instance state:**
+   Then, on the **Instances** page, select the checkbox next to the name of your instance, and then choose the **Instance state** menu (top right), and choose **Stop instance**. When prompted, choose **Stop**.
 
-On the **Instances** page, check the **Instance
-state** column. The state of your instance changes to
-**Stopping** and then **Stopped**. If
-you don't see the full text, try widening the column.
+1. **Monitor instance state:**
 
-If you think the instance state has changed from
-**Stopping** to **Stopped**, but you
-don't see it yet, choose the refresh icon (above the table) to refresh the
-**Instances** table.
+   On the **Instances** page, check the **Instance state** column. The state of your instance changes to **Stopping** and then **Stopped**. If you don't see the full text, try widening the column.
+
+   If you think the instance state has changed from **Stopping** to **Stopped**, but you don't see it yet, choose the refresh icon (above the table) to refresh the **Instances** table.
 
 ## Key takeaways
+<a name="tutorial-launch-a-test-ec2-instance-key-takeaways"></a>
 
 In this tutorial, you covered the following key concepts:
-
-- _AMI_ refers to an Amazon Machine Image,
-  which is a template that contains the operating system and software required
-  to launch an instance.
-- _Instance type_ refers to the hardware of
-  the host computer used for your instance. It determines the CPU, memory,
-  storage, and networking capacity of your instance.
-- _Key pair_ refers to the set of public
-  and private keys that you can use for securely connecting to your
-  instance.
-- _Network_ refers to a _VPC_ (a virtual private cloud dedicated to your
-  account within the AWS Cloud) and a _subnet_ (a range of IP addresses within your VPC).
-- _Security group_ refers to a set of rules
-  that controls what traffic can reach your instance.
-- _EBS volume_ refers to the data storage
-  for your instance. Every instance has a root volume for storing the AMI and
-  one or more optional data volumes.
-- _Tags_ are metadata that you can
-  optionally assign to your instance. The instance name is a tag, whose
-  **Key** is **Name**, and the
-  **Value** is your choice.
-- _Connecting_ refers to accessing your
-  instance over the internet.
-- _SSH_ refers to the Secure Shell
-  connection protocol that you can use to connect to your instance.
-- _Public DNS_ is your instance's unique
-  public address.
-- _Instance username_ is determined by the
-  operating system of your instance and required for connecting.
-- _Stopping_ your instance stops the
-  charges for the instance, but EBS storage charges continue.
++ *AMI* refers to an Amazon Machine Image, which is a template that contains the operating system and software required to launch an instance.
++ *Instance type* refers to the hardware of the host computer used for your instance. It determines the CPU, memory, storage, and networking capacity of your instance.
++ *Key pair* refers to the set of public and private keys that you can use for securely connecting to your instance.
++ *Network* refers to a *VPC* (a virtual private cloud dedicated to your account within the AWS Cloud) and a *subnet* (a range of IP addresses within your VPC).
++ *Security group* refers to a set of rules that controls what traffic can reach your instance.
++ *EBS volume* refers to the data storage for your instance. Every instance has a root volume for storing the AMI and one or more optional data volumes.
++ *Tags* are metadata that you can optionally assign to your instance. The instance name is a tag, whose **Key** is **Name**, and the **Value** is your choice.
++ *Connecting* refers to accessing your instance over the internet.
++ *SSH* refers to the Secure Shell connection protocol that you can use to connect to your instance.
++ *Public DNS* is your instance's unique public address.
++ *Instance username* is determined by the operating system of your instance and required for connecting.
++ *Stopping* your instance stops the charges for the instance, but EBS storage charges continue.
 
 ## Next steps
+<a name="tutorial-launch-a-test-ec2-instance-next-steps"></a>
 
-To build confidence in launching, connecting to, and stopping instances, consider
-repeating the steps in this tutorial. Be sure to terminate any instances that you
-launch to preserve your Free Tier benefits.
+To build confidence in launching, connecting to, and stopping instances, consider repeating the steps in this tutorial. Be sure to terminate any instances that you launch to preserve your Free Tier benefits.
 
-After you're comfortable with these basics, you can explore more advanced
-tutorials. For more tutorials, see [Looking for other tutorials?](ec2-instance-launch-tutorials.md#looking-for-other-tutorials "ec2-instance-launch-tutorials.md#looking-for-other-tutorials")
+After you're comfortable with these basics, you can explore more advanced tutorials. For more tutorials, see [Looking for other tutorials?](ec2-instance-launch-tutorials.md#looking-for-other-tutorials)
 
-If you created your AWS account before July 15, 2025, consider watching the
-following 6-minute video: [How can I avoid
-charges on my account when using AWS Free Tier services](https://youtu.be/pZLG8McSugQ "https://youtu.be/pZLG8McSugQ")
+If you created your AWS account before July 15, 2025, consider watching the following 6-minute video: [How can I avoid charges on my account when using AWS Free Tier services](https://youtu.be/pZLG8McSugQ)
 
-If you created your AWS account on or after July 15, 2025, consider reviewing
-the following information: [Explore AWS services
-with AWS Free Tier](../../../awsaccountbilling/latest/aboutv2/free-tier.md "../../../awsaccountbilling/latest/aboutv2/free-tier.md") in the _AWS Billing User Guide_
+If you created your AWS account on or after July 15, 2025, consider reviewing the following information: [Explore AWS services with AWS Free Tier](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier.html) in the *AWS Billing User Guide*

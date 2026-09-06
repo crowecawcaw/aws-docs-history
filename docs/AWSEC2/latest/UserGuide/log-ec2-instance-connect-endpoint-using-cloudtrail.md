@@ -1,36 +1,30 @@
+
+
 # Log connections established over EC2 Instance Connect Endpoint
+<a name="log-ec2-instance-connect-endpoint-using-cloudtrail"></a>
 
-You can log resource operations and audit connections established over the
-EC2 Instance Connect Endpoint with AWS CloudTrail logs.
+You can log resource operations and audit connections established over the EC2 Instance Connect Endpoint with AWS CloudTrail logs.
 
-For more information about using AWS CloudTrail with Amazon EC2, see [Log Amazon EC2 API calls using AWS CloudTrail](monitor-with-cloudtrail.md "monitor-with-cloudtrail.md").
+For more information about using AWS CloudTrail with Amazon EC2, see [Log Amazon EC2 API calls using AWS CloudTrail](monitor-with-cloudtrail.md).
 
 ## Log EC2 Instance Connect Endpoint API calls with AWS CloudTrail
+<a name="ec2-instance-connect-endpoint-api-calls-cloudtrail"></a>
 
-EC2 Instance Connect Endpoint resource operations are logged to CloudTrail as management events. When
-the following API calls are made, the activity is recorded as a CloudTrail event in
-**Event history**:
+EC2 Instance Connect Endpoint resource operations are logged to CloudTrail as management events. When the following API calls are made, the activity is recorded as a CloudTrail event in **Event history**:
++ `CreateInstanceConnectEndpoint`
++ `DescribeInstanceConnectEndpoints`
++ `DeleteInstanceConnectEndpoint`
 
-- `CreateInstanceConnectEndpoint`
-- `DescribeInstanceConnectEndpoints`
-- `DeleteInstanceConnectEndpoint`
-
-You can view, search, and download recent events in your AWS account. For more
-information, see [Viewing events
-with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the _AWS CloudTrail User Guide_.
+You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*.
 
 ## Use AWS CloudTrail to audit users who connect to an instance using EC2 Instance Connect Endpoint
+<a name="ec2-instance-connect-endpoint-audit-users-cloudtrail"></a>
 
-Connection attempts to instances through EC2 Instance Connect Endpoint are logged in CloudTrail in
-**Event history**. When a connection to an instance is
-initiated through an EC2 Instance Connect Endpoint, the connection is logged as a CloudTrail management
-event with the `eventName` of `OpenTunnel`.
+Connection attempts to instances through EC2 Instance Connect Endpoint are logged in CloudTrail in **Event history**. When a connection to an instance is initiated through an EC2 Instance Connect Endpoint, the connection is logged as a CloudTrail management event with the `eventName` of `OpenTunnel`.
 
-You can create Amazon EventBridge rules that route the CloudTrail event to a target. For more
-information, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+You can create Amazon EventBridge rules that route the CloudTrail event to a target. For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
-The following is an example of an `OpenTunnel` management event that
-was logged in CloudTrail.
+The following is an example of an `OpenTunnel` management event that was logged in CloudTrail.
 
 ```
 {
@@ -45,7 +39,7 @@ was logged in CloudTrail.
      },
      "eventTime": "2023-04-11T23:50:40Z",
      "eventSource": "ec2-instance-connect.amazonaws.com",
-     **"eventName": "OpenTunnel",**
+     "eventName": "OpenTunnel",
      "awsRegion": "us-east-1",
      "sourceIPAddress": "1.2.3.4",
      "userAgent": "aws-cli/1.15.61 Python/2.7.10 Darwin/16.7.0 botocore/1.10.60",

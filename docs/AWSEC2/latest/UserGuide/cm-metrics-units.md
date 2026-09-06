@@ -1,89 +1,84 @@
-# EC2 Capacity Manager metrics
 
-Capacity Manager offers a comprehensive selection of metrics for tracking your capacity across different resource types. Metrics can
-be measured using different units depending on your analysis needs.
+
+# EC2 Capacity Manager metrics
+<a name="cm-metrics-units"></a>
+
+Capacity Manager offers a comprehensive selection of metrics for tracking your capacity across different resource types. Metrics can be measured using different units depending on your analysis needs.
 
 The metric names in Capacity Manager use four different prefixes to categorize the type of capacity being measured:
++ `Reservation` — Capacity Reservations themselves, including total reserved capacity, utilization rates, unused capacity, and reservation counts. 
++ `Reserved` — On-Demand Instance usage that is covered by your Capacity Reservations. 
++ `Unreserved` — On-Demand Instance usage that runs outside of any Capacity Reservations. 
++ `Spot` — Specifically for Spot Instance usage, including runtime and estimated costs. These metrics are separate from reservation-based capacity.
 
-- `Reservation` — Capacity Reservations themselves, including total reserved capacity, utilization rates, unused capacity, and reservation counts.
-- `Reserved` — On-Demand Instance usage that is covered by your Capacity Reservations.
-- `Unreserved` — On-Demand Instance usage that runs outside of any Capacity Reservations.
-- `Spot` — Specifically for Spot Instance usage, including runtime and estimated costs. These metrics are separate from reservation-based capacity.
-  The following table also provides the _Dimensions available_ for each metric. The dimension categories are broken down as follows:
+The following table also provides the *Dimensions available* for each metric. The dimension categories are broken down as follows:
++ **General capacity dimensions** — Account ID, Account Name, Region, Instance Family, Availability Zone, Instance Type, Platform, and Tenancy
++ **Capacity Reservation dimensions** — Reservation ID (Capacity Reservation ID), Reservation ARN, Unused Financial Owner, Reservation Type (ODCR/Capacity Block), Create timestamp, Start timestamp, End timestamp, State, and Instance match criteria.
++ **Reserved usage dimensions** — Reservation ID (CRID), Reservation ARN, Reservation type
++ **Tag dimensions** — Customer-managed tag keys and Capacity Manager-provided tags. You must activate a tag key before you can use it as a dimension. For more information, see [Managing monitored tag keys](managing-monitored-tag-keys.md).
 
-- **General capacity dimensions** — Account ID, Account Name, Region, Instance Family, Availability
-  Zone, Instance Type, Platform, and Tenancy
-- **Capacity Reservation dimensions** — Reservation ID (Capacity Reservation ID), Reservation
-  ARN, Unused Financial Owner, Reservation Type (ODCR/Capacity Block), Create timestamp, Start timestamp, End timestamp, State, and Instance match criteria.
-- **Reserved usage dimensions** — Reservation ID (CRID), Reservation ARN, Reservation type
-- **Tag dimensions** — Customer-managed tag keys and Capacity Manager-provided tags. You must activate a tag key before you can use
-  it as a dimension. For more information, see [Managing monitored tag keys](managing-monitored-tag-keys.md "managing-monitored-tag-keys.md").
 
-| Metric                                | Description                                                                                                                                                                                                                                   | Dimensions available                                 | Units available |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- | --------------- |
-| `ReservationAvgCommittedSize`         | The average total amount of capacity in an active or scheduled state with a commitment. The size is summed across dimensions and averaged over time.                                                                                          | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationAvgFutureSize`            | The average amount of Capacity Reservations that are scheduled to start in the future but have not yet become active during the selected period. The size is summed across dimensions and averaged over time.                                 | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationAvgUtilization`           | The average percentage of your reserved capacity that was used during the selected period.                                                                                                                                                    | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMaxCommittedSize`         | The maximum total capacity in an active or scheduled state with a commitment. The size is summed across dimensions and the maximum value is taken for the period.                                                                             | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMaxFutureSize`            | The maximum amount of Capacity Reservations that are scheduled to start in the future but have not yet become active during the selected period. The size is summed across dimensions and the maximum value is taken for the period.          | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMaxSize`                  | The maximum size your Capacity Reservation reached at any point during the selected period. **Reservation ID Required**.                                                                                                                      | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMaxUnusedSize`            | The maximum amount of unused capacity in your Capacity Reservation at any point during the selected period. **Reservation ID Required**.                                                                                                      | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMaxUtilization`           | The maximum utilization percentage your Capacity Reservation achieved at any point during the selected period. **Reservation ID Required**.                                                                                                   | General capacity and Capacity Reservation dimensions |                 |
-| `ReservationMinCommittedSize`         | The minimum total amount of capacity in an active or scheduled state with a commitment. The size is summed across dimensions and minimum value is taken for the period.                                                                       | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMinFutureSize`            | The minimum amount of Capacity Reservations that are scheduled to start in the future but have not yet become active at any point during the selected period. The size is summed across dimensions and minimum value is taken for the period. | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMinSize`                  | The minimum size your Capacity Reservation reached at any point during the selected period. **Reservation ID Required**.                                                                                                                      | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMinUnusedSize`            | The minimum amount of unused capacity in your Capacity Reservation at any point during the selected period. **Reservation ID Required**.                                                                                                      | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationMinUtilization`           | The minimum utilization percentage your Capacity Reservation achieved at any point during the selected period. **Reservation ID Required**.                                                                                                   | General capacity and Capacity Reservation dimensions |                 |
-| `ReservationTotalCapacityHrs`         | Total amount of capacity you have reserved through Capacity Reservations during the selected period.                                                                                                                                          | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationTotalCount`               | The total number of different Capacity Reservations you had during the selected period.                                                                                                                                                       | General capacity and Capacity Reservation dimensions |                 |
-| `ReservationTotalEstimatedCost`       | Estimated cost of the total capacity hours reserved during the selected period.                                                                                                                                                               | General capacity and Capacity Reservation dimensions |                 |
-| `ReservationUnusedTotalCapacityHrs`   | Total amount of reserved capacity that you had but didn't use during the selected period.                                                                                                                                                     | General capacity and Capacity Reservation dimensions | vCPU, Instance  |
-| `ReservationUnusedTotalEstimatedCost` | Estimated cost of the reserved capacity you had but didn't use during the selected period (calculated using On-Demand rates).                                                                                                                 | General capacity and Capacity Reservation dimensions |                 |
-| `ReservedTotalEstimatedCost`          | Estimated cost of On-Demand Instance usage that was covered by a Capacity Reservation during the selected period. This excludes Spot usage.                                                                                                   | General capacity and Reserved usage dimensions       |                 |
-| `ReservedTotalUsageHrs`               | Total hours of On-Demand Instance usage that were covered by a Capacity Reservation during the selected period. This excludes Spot usage.                                                                                                     | General capacity and Reserved usage dimensions       | vCPU, Instance  |
-| `SpotAvgRunTimeBeforeInterruption`    | Average runtime in hours for instances interrupted in the selected period.                                                                                                                                                                    | Region, AZ, and Account ID dimensions only           | Instance        |
-| `SpotInterruptionRate`                | Percentage of running Spot Instances that were interrupted in the selected period.                                                                                                                                                            | Region, AZ, and Account ID dimensions only           | vCPU, Instance  |
-| `SpotMaxRunTimeBeforeInterruption`    | Maximum runtime in hours for instances interrupted in the selected period.                                                                                                                                                                    | Region, AZ, and Account ID dimensions only           | Instance        |
-| `SpotMinRunTimeBeforeInterruption`    | Minimum runtime in hours for instances interrupted in the selected period.                                                                                                                                                                    | Region, AZ, and Account ID dimensions only           | Instance        |
-| `SpotTotalCount`                      | Number of Spot Instances or vCPUs that ran during the selected period.                                                                                                                                                                        | Region, AZ, and Account ID dimensions only           | vCPU, Instance  |
-| `SpotTotalEstimatedCost`              | Estimated cost of Spot Instance usage during the selected period (calculated using published Spot rates).                                                                                                                                     | General capacity dimensions                          |                 |
-| `SpotTotalInterruptions`              | Number of interrupted Spot Instances or vCPUs during the selected period.                                                                                                                                                                     | Region, AZ, and Account ID dimensions only           | vCPU, Instance  |
-| `SpotTotalUsageHrs`                   | Total hours of Spot Instance usage during the selected period.                                                                                                                                                                                | General capacity dimensions                          | vCPU, Instance  |
-| `UnreservedTotalEstimatedCost`        | Estimated cost of On-Demand Instance usage that was not covered by a Capacity Reservation during the selected period. This excludes Spot usage.                                                                                               | General capacity dimensions                          |                 |
-| `UnreservedTotalUsageHrs`             | Total hours of On-Demand Instance usage that were not covered by a Capacity Reservation during the selected period. This excludes Spot usage.                                                                                                 | General capacity dimensions                          | vCPU, Instance  |
+| Metric | Description | Dimensions available | Units available | 
+| --- | --- | --- | --- | 
+| ReservationAvgCommittedSize | The average total amount of capacity in an active or scheduled state with a commitment. The size is summed across dimensions and averaged over time. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationAvgFutureSize | The average amount of Capacity Reservations that are scheduled to start in the future but have not yet become active during the selected period. The size is summed across dimensions and averaged over time. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationAvgUtilization | The average percentage of your reserved capacity that was used during the selected period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMaxCommittedSize | The maximum total capacity in an active or scheduled state with a commitment. The size is summed across dimensions and the maximum value is taken for the period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMaxFutureSize | The maximum amount of Capacity Reservations that are scheduled to start in the future but have not yet become active during the selected period. The size is summed across dimensions and the maximum value is taken for the period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMaxSize | The maximum size your Capacity Reservation reached at any point during the selected period. Reservation ID Required. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMaxUnusedSize | The maximum amount of unused capacity in your Capacity Reservation at any point during the selected period. Reservation ID Required. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMaxUtilization | The maximum utilization percentage your Capacity Reservation achieved at any point during the selected period. Reservation ID Required. | General capacity and Capacity Reservation dimensions |  | 
+| ReservationMinCommittedSize | The minimum total amount of capacity in an active or scheduled state with a commitment. The size is summed across dimensions and minimum value is taken for the period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMinFutureSize | The minimum amount of Capacity Reservations that are scheduled to start in the future but have not yet become active at any point during the selected period. The size is summed across dimensions and minimum value is taken for the period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMinSize | The minimum size your Capacity Reservation reached at any point during the selected period. Reservation ID Required. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMinUnusedSize | The minimum amount of unused capacity in your Capacity Reservation at any point during the selected period. Reservation ID Required. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationMinUtilization | The minimum utilization percentage your Capacity Reservation achieved at any point during the selected period. Reservation ID Required. | General capacity and Capacity Reservation dimensions |  | 
+| ReservationTotalCapacityHrs | Total amount of capacity you have reserved through Capacity Reservations during the selected period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationTotalCount | The total number of different Capacity Reservations you had during the selected period. | General capacity and Capacity Reservation dimensions |  | 
+| ReservationTotalEstimatedCost | Estimated cost of the total capacity hours reserved during the selected period. | General capacity and Capacity Reservation dimensions  |  | 
+| ReservationUnusedTotalCapacityHrs | Total amount of reserved capacity that you had but didn't use during the selected period. | General capacity and Capacity Reservation dimensions | vCPU, Instance | 
+| ReservationUnusedTotalEstimatedCost | Estimated cost of the reserved capacity you had but didn't use during the selected period (calculated using On-Demand rates). | General capacity and Capacity Reservation dimensions |  | 
+| ReservedTotalEstimatedCost | Estimated cost of On-Demand Instance usage that was covered by a Capacity Reservation during the selected period. This excludes Spot usage. | General capacity and Reserved usage dimensions |  | 
+| ReservedTotalUsageHrs | Total hours of On-Demand Instance usage that were covered by a Capacity Reservation during the selected period. This excludes Spot usage. | General capacity and Reserved usage dimensions | vCPU, Instance | 
+| SpotAvgRunTimeBeforeInterruption | Average runtime in hours for instances interrupted in the selected period. | Region, AZ, and Account ID dimensions only | Instance | 
+| SpotInterruptionRate | Percentage of running Spot Instances that were interrupted in the selected period. | Region, AZ, and Account ID dimensions only | vCPU, Instance | 
+| SpotMaxRunTimeBeforeInterruption | Maximum runtime in hours for instances interrupted in the selected period. | Region, AZ, and Account ID dimensions only | Instance | 
+| SpotMinRunTimeBeforeInterruption | Minimum runtime in hours for instances interrupted in the selected period. | Region, AZ, and Account ID dimensions only | Instance | 
+| SpotTotalCount | Number of Spot Instances or vCPUs that ran during the selected period. | Region, AZ, and Account ID dimensions only | vCPU, Instance | 
+| SpotTotalEstimatedCost | Estimated cost of Spot Instance usage during the selected period (calculated using published Spot rates). | General capacity dimensions |  | 
+| SpotTotalInterruptions | Number of interrupted Spot Instances or vCPUs during the selected period. | Region, AZ, and Account ID dimensions only | vCPU, Instance | 
+| SpotTotalUsageHrs | Total hours of Spot Instance usage during the selected period. | General capacity dimensions | vCPU, Instance | 
+| UnreservedTotalEstimatedCost | Estimated cost of On-Demand Instance usage that was not covered by a Capacity Reservation during the selected period. This excludes Spot usage. | General capacity dimensions |  | 
+| UnreservedTotalUsageHrs | Total hours of On-Demand Instance usage that were not covered by a Capacity Reservation during the selected period. This excludes Spot usage. | General capacity dimensions | vCPU, Instance | 
 
-###### Note
-
+**Note**  
 If you include instances in your units, we recommend including the instance type in your dimensions.
 
 ## Tag dimensions
+<a name="tag-dimensions"></a>
 
-In addition to the built-in dimensions in the preceding section, Capacity Manager supports tag dimensions. Tag dimensions allow you to
-group and filter metrics using tag keys from your Amazon EC2 resources.
+In addition to the built-in dimensions in the preceding section, Capacity Manager supports tag dimensions. Tag dimensions allow you to group and filter metrics using tag keys from your Amazon EC2 resources.
 
 **Customer-managed tag dimensions**
 
-You can activate up to five tag keys to use as dimensions. After activation and in `activated` status,
-tag dimensions are available for metrics that support General capacity dimensions. For the full list of dimension
-categories, see [EC2 Capacity Manager metrics](cm-metrics-units.md "cm-metrics-units.md").
+You can activate up to five tag keys to use as dimensions. After activation and in `activated` status, tag dimensions are available for metrics that support General capacity dimensions. For the full list of dimension categories, see [EC2 Capacity Manager metrics](#cm-metrics-units).
 
-| Dimension    | Description                                                | Example values                       |
-| ------------ | ---------------------------------------------------------- | ------------------------------------ |
-| Tag key name | A customer-managed tag key from your Amazon EC2 resources. | `environment`, `team`, `cost-center` |
+
+| Dimension | Description | Example values | 
+| --- | --- | --- | 
+| Tag key name | A customer-managed tag key from your Amazon EC2 resources. | environment, team, cost-center | 
 
 **Capacity Manager-provided tag dimensions**
 
-Capacity Manager provides the following Capacity Manager-provided tags by default. Capacity Manager-provided tags are always
-available and do not count toward your tag key limit.
+Capacity Manager provides the following Capacity Manager-provided tags by default. Capacity Manager-provided tags are always available and do not count toward your tag key limit.
 
-| Dimension                           | Description                                                          |
-| ----------------------------------- | -------------------------------------------------------------------- |
-| `tag:aws:autoscaling:groupName`     | The name of the EC2 Auto Scaling group associated with the instance. |
-| `tag:aws:eks:cluster-name`          | The name of the EKS cluster associated with the instance.            |
-| `tag:eks:kubernetes-node-pool-name` | The EKS Kubernetes node pool associated with the instance.           |
-| `tag:karpenter.sh/nodepool`         | The Karpenter node pool associated with the instance.                |
 
-###### Note
+| Dimension | Description | 
+| --- | --- | 
+| tag:aws:autoscaling:groupName | The name of the EC2 Auto Scaling group associated with the instance. | 
+| tag:aws:eks:cluster-name | The name of the EKS cluster associated with the instance. | 
+| tag:eks:kubernetes-node-pool-name | The EKS Kubernetes node pool associated with the instance. | 
+| tag:karpenter.sh/nodepool | The Karpenter node pool associated with the instance. | 
 
-When you group by a tag dimension, resources that do not have a value for that tag are included in a separate bucket with
-an empty string value. This ensures that totals account for all resources.
+**Note**  
+When you group by a tag dimension, resources that do not have a value for that tag are included in a separate bucket with an empty string value. This ensures that totals account for all resources.

@@ -1,65 +1,47 @@
+
+
 # Savings from purchasing Spot Instances
+<a name="spot-savings"></a>
 
-You can view the usage and savings information for Spot Instances at the per-fleet level, or
-for all running Spot Instances. At the per-fleet level, the usage and savings information
-includes all instances launched and terminated by the fleet. You can view this
-information from the last hour or the last three days.
+You can view the usage and savings information for Spot Instances at the per-fleet level, or for all running Spot Instances. At the per-fleet level, the usage and savings information includes all instances launched and terminated by the fleet. You can view this information from the last hour or the last three days.
 
-The following screenshot from the **Savings** section shows the Spot usage
-and savings information for a Spot Fleet.
+The following screenshot from the **Savings** section shows the Spot usage and savings information for a Spot Fleet.
 
-![The Savings section on the Spot Fleet details page.](images/spot-savings.png)
+![The Savings section on the Spot Fleet details page.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/spot-savings.png)
+
+
 You can view the following usage and savings information:
++ **Spot Instances** – The number of Spot Instances launched and terminated by the Spot Fleet. When viewing the savings summary, the number represents all your running Spot Instances.
++ **vCPU-hours** – The number of vCPU hours used across all the Spot Instances for the selected time frame.
++ **Mem(GiB)-hours** – The number of GiB hours used across all the Spot Instances for the selected time frame.
++ **On-Demand total** – The total amount you would've paid for the selected time frame had you launched these instances as On-Demand Instances.
++ **Spot total** – The total amount to pay for the selected time frame.
++ **Savings** – The percentage that you are saving by not paying the On-Demand price.
++ **Average cost per vCPU-hour** – The average hourly cost of using the vCPUs across all the Spot Instances for the selected time frame, calculated as follows: **Average cost per vCPU-hour** = **Spot total** / **vCPU-hours**.
++ **Average cost per mem(GiB)-hour** – The average hourly cost of using the GiBs across all the Spot Instances for the selected time frame, calculated as follows: **Average cost per mem(GiB)-hour** = **Spot total** / **Mem(GiB)-hours**.
++ **Details** table – The different instance types (the number of instances per instance type is in parentheses) that comprise the Spot Fleet. When viewing the savings summary, these comprise all your running Spot Instances.
 
-- **Spot Instances** – The number of Spot Instances launched and
-  terminated by the Spot Fleet. When viewing the savings summary, the number represents
-  all your running Spot Instances.
-- **vCPU-hours** – The number of vCPU hours used across
-  all the Spot Instances for the selected time frame.
-- **Mem(GiB)-hours** – The number of GiB hours used
-  across all the Spot Instances for the selected time frame.
-- **On-Demand total** – The total amount you would've
-  paid for the selected time frame had you launched these instances as
-  On-Demand Instances.
-- **Spot total** – The total amount to pay for the
-  selected time frame.
-- **Savings** – The percentage that you are saving by
-  not paying the On-Demand price.
-- **Average cost per vCPU-hour** – The average hourly
-  cost of using the vCPUs across all the Spot Instances for the selected time frame,
-  calculated as follows: **Average cost per vCPU-hour** =
-  **Spot total** / **vCPU-hours**.
-- **Average cost per mem(GiB)-hour** – The average
-  hourly cost of using the GiBs across all the Spot Instances for the selected time frame,
-  calculated as follows: **Average cost per mem(GiB)-hour** =
-  **Spot total** /
-  **Mem(GiB)-hours**.
-- **Details** table – The different instance types (the
-  number of instances per instance type is in parentheses) that comprise the Spot Fleet.
-  When viewing the savings summary, these comprise all your running Spot Instances.
-  Savings information can only be viewed using the Amazon EC2 console.
+Savings information can only be viewed using the Amazon EC2 console.
 
-###### Note
+**Note**  
+Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md).
 
-Spot Fleet uses a legacy API with no planned investment. We recommend using EC2 Fleet or an Auto Scaling group instead. For more information, see [Which is the best fleet method to use?](which-fleet-method-to-use.md "which-fleet-method-to-use.md").
+**To view the savings information for a Spot Fleet**
 
-###### To view the savings information for a Spot Fleet
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, choose **Spot Requests**.
-3. Select the ID of a Spot Fleet request and scroll to the **Savings**
-   section.
+1. On the navigation pane, choose **Spot Requests**.
 
-Alternatively, select the checkbox next to the Spot Fleet request ID and choose the
-**Savings** tab. 4. By default, the page displays usage and savings information for the last three
-days. You can choose **last hour** or the **last three
-days**. For Spot Fleets that were launched less than an hour ago, the
-page shows the estimated savings for the hour.
+1. Select the ID of a Spot Fleet request and scroll to the **Savings** section.
 
-###### To view the savings information for all running Spot Instances
+   Alternatively, select the checkbox next to the Spot Fleet request ID and choose the **Savings** tab.
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. On the navigation pane, choose **Spot Requests**.
-3. Choose **Savings summary**.
+1. By default, the page displays usage and savings information for the last three days. You can choose **last hour** or the **last three days**. For Spot Fleets that were launched less than an hour ago, the page shows the estimated savings for the hour.
+
+**To view the savings information for all running Spot Instances**
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. On the navigation pane, choose **Spot Requests**.
+
+1. Choose **Savings summary**.

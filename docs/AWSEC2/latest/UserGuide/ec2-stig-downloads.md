@@ -1,684 +1,713 @@
+
+
 # STIG hardening script downloads
+<a name="ec2-stig-downloads"></a>
 
-Amazon groups STIG hardening scripts together into operating system related bundles for
-each release. Bundles are archive files that are appropriate for the target operating
-system where they download and run. Linux script bundles are stored as TAR files
-(.tgz file extension). Windows script bundles are stored as ZIP files (.zip file
-extension).
+Amazon groups STIG hardening scripts together into operating system related bundles for each release. Bundles are archive files that are appropriate for the target operating system where they download and run. Linux script bundles are stored as TAR files (.tgz file extension). Windows script bundles are stored as ZIP files (.zip file extension).
 
-Amazon stores the script bundles in the EC2 Windows S3 `STIG` bucket in each
-AWS Region. The Linux bundles do not have a separate bucket. Use SSL/TLS to communicate
-with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
+Amazon stores the script bundles in the EC2 Windows S3 `STIG` bucket in each AWS Region. The Linux bundles do not have a separate bucket. Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
 
-###### Topics
-
-- [STIG download bundle details](#ec2-stig-download-details "#ec2-stig-download-details")
-- [Linux STIG version history](#ec2-linux-version-hist "#ec2-linux-version-hist")
-- [Windows STIG version history](#ec2-windows-version-hist "#ec2-windows-version-hist")
+**Topics**
++ [STIG download bundle details](#ec2-stig-download-details)
++ [Linux STIG version history](#ec2-linux-version-hist)
++ [Windows STIG version history](#ec2-windows-version-hist)
 
 ## STIG download bundle details
+<a name="ec2-stig-download-details"></a>
 
-###### Important
+**Important**  
+With few exceptions, the STIG hardening scripts that the Systems Manager document downloads do not install third-party packages. If third-party packages are already installed on the instance or the `InstallPackage` parameter is set to `yes`, related STIGs that Amazon EC2 supports for that package are applied.
 
-With few exceptions, the STIG hardening scripts that the Systems Manager document downloads
-do not install third-party packages. If third-party packages are already installed on
-the instance or the `InstallPackage` parameter is set to `yes`,
-related STIGs that Amazon EC2 supports for that package are applied.
-
-When you run the following command from the AWS CLI, Amazon S3 downloads the latest STIG
-hardening script bundle file from the bucket.
+When you run the following command from the AWS CLI, Amazon S3 downloads the latest STIG hardening script bundle file from the bucket.
 
 ```
-`aws s3 cp s3://aws-windows-downloads-`region`/STIG/`operating system`/Latest/`bundle-name` `destination-directory``
+aws s3 cp s3://aws-windows-downloads-{{region}}/STIG/{{operating system}}/Latest/{{bundle-name}} {{destination-directory}}
 ```
 
-###### Example: Download to a temporary directory
-
+**Example: Download to a temporary directory**  
 This example shows a Linux bundle that's downloaded to the `/tmp` directory
 
 ```
-aws s3 cp s3://aws-windows-downloads-`us-east-1`/STIG/`Linux`/Latest/`LinuxAWSConfigureSTIG.tgz` `/tmp`
+aws s3 cp s3://aws-windows-downloads-{{us-east-1}}/STIG/{{Linux}}/Latest/{{LinuxAWSConfigureSTIG.tgz}} {{/tmp}}
 ```
 
-Patterns and examples for download file storage paths and bundle file names are as
-follows:
+Patterns and examples for download file storage paths and bundle file names are as follows:
 
-###### Download file storage path
+**Download file storage path**  
+`s3://aws-windows-downloads-{{<region>}}/STIG/{{<operating system>}}/Latest/{{<bundle file name>}}`Download path variables
 
-`s3://aws-windows-downloads-`<region>`/STIG/`<operating system>`/Latest/`<bundle file name>``
-
-###### Download path variables
-
-region
-
+**region**  
 AWS Region (Each Region has its own download bucket.)
 
-operating system
+**operating system**  
+The operating system platform of the instance where STIGs are applied – either `Linux` or `Windows`.
 
-The operating system platform of the instance where STIGs are applied –
-either `Linux` or `Windows`.
-
-bundle file name
-
-The format is `<os bundle name>`.`<file extension>`.
-
-os bundle name
-
-The standard name prefix for the operating system bundle is either
-`LinuxAWSConfigureSTIG` or `AWSConfigureSTIG`.
-To maintain backwards compatibility, the download for Windows doesn't
-include a platform prefix.
-
-file extension
-
+**bundle file name**  
+The format is {{<os bundle name>}}.{{<file extension>}}.    
+**os bundle name**  
+The standard name prefix for the operating system bundle is either `LinuxAWSConfigureSTIG` or `AWSConfigureSTIG`. To maintain backwards compatibility, the download for Windows doesn't include a platform prefix.  
+**file extension**  
 Compressed file format `tgz` (Linux) or `zip` (Windows).
 
-###### Example bundle file names
-
-- `LinuxAWSConfigureSTIG.tgz`
-- `AWSConfigureSTIG.zip`
+**Example bundle file names**
++ `LinuxAWSConfigureSTIG.tgz`
++ `AWSConfigureSTIG.zip`
 
 ## Linux STIG version history
-
-This section logs version history for Linux script bundles that are updated quarterly.
-To see the changes and published versions for a quarter, choose the title to expand the
-information. If there are no changes for the quarter, you'll see that reflected in the title.
-
-Added support for the RHEL 10 operating system and updated the following STIG versions and applied STIGS for the
-2026 first quarter release for all compliance levels (low/medium/high):
-
-###### STIG-Build-Linux version 1.0.x
-
-- RHEL 8 STIG Version 2 Release 6
-- RHEL 9 STIG Version 2 Release 7
-- RHEL 10 STIG Version 1 Release 1
-- Amazon Linux 2023 STIG Version 1 Release 2
-- SLES 12 STIG Version 3 Release 4
-- SLES 15 STIG Version 2 Release 6
-- Ubuntu 20.04 STIG Version 2 Release 4
-- Ubuntu 22.04 STIG Version 2 Release 7
-- Ubuntu 24.04 STIG Version 1 Release 4
-  Added support for the SUSE Linux Enterprise Server (SLES) operating system and
-  Amazon Linux 2023. Updated the following STIG versions and applied STIGS for the
-  2025 third quarter release for all compliance levels (low/medium/high):
-
-###### STIG-Build-Linux version 1.0.x
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 4
-- RHEL 9 STIG Version 2 Release 5
-- Amazon Linux 2023 STIG Version 1 Release 1
-- SLES 12 STIG Version 3 Release 3
-- SLES 15 STIG Version 2 Release 5
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 3
-- Ubuntu 22.04 STIG Version 2 Release 5
-- Ubuntu 24.04 STIG Version 1 Release 2
-  Updated the following STIG versions, applied STIGS for the 2025 second quarter release:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 3
-- RHEL 9 STIG Version 2 Release 4
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 2
-- Ubuntu 22.04 STIG Version 2 Release 4
-- Ubuntu 24.04 STIG Version 1 Release 1
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 3
-- RHEL 9 STIG Version 2 Release 4
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 2
-- Ubuntu 22.04 STIG Version 2 Release 4
-- Ubuntu 24.04 STIG Version 1 Release 1
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 3
-- RHEL 9 STIG Version 2 Release 4
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 2
-- Ubuntu 22.04 STIG Version 2 Release 4
-- Ubuntu 24.04 STIG Version 1 Release 1
-  Updated the following STIG versions, applied STIGS for the 2025 first quarter release,
-  and added support for Ubuntu 24.04:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 2
-- RHEL 9 STIG Version 2 Release 3
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 2
-- Ubuntu 22.04 STIG Version 2 Release 3
-- Ubuntu 24.04 STIG Version 1 Release 1
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 2
-- RHEL 9 STIG Version 2 Release 3
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 2
-- Ubuntu 22.04 STIG Version 2 Release 3
-- Ubuntu 24.04 STIG Version 1 Release 1
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 2
-- RHEL 9 STIG Version 2 Release 3
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 2
-- Ubuntu 22.04 STIG Version 2 Release 3
-- Ubuntu 24.04 STIG Version 1 Release 1
-  Updated the following STIG versions, applied STIGS for the 2024 fourth quarter release,
-  and added information about two new input parameters for the Linux components:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 1
-- RHEL 9 STIG Version 2 Release 2
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 1
-- Ubuntu 22.04 STIG Version 2 Release 2
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 1
-- RHEL 9 STIG Version 2 Release 2
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 1
-- Ubuntu 22.04 STIG Version 2 Release 2
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 15
-- RHEL 8 STIG Version 2 Release 1
-- RHEL 9 STIG Version 2 Release 2
-- Ubuntu 18.04 STIG Version 2 Release 15
-- Ubuntu 20.04 STIG Version 2 Release 1
-- Ubuntu 22.04 STIG Version 2 Release 2
-  There were no changes for Linux component STIGS for the 2024 third quarter release.
-
-Updated STIG versions and applied STIGS for the 2024 second quarter release.
-Also added support for RHEL 9, CentOS Stream 9, and Ubuntu 22.04, as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 14
-- RHEL 8 STIG Version 1 Release 14
-- RHEL 9 STIG Version 1 Release 3
-- Ubuntu 18.04 STIG Version 2 Release 14
-- Ubuntu 20.04 STIG Version 1 Release 12
-- Ubuntu 22.04 STIG Version 1 Release 1
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 14
-- RHEL 8 STIG Version 1 Release 14
-- RHEL 9 STIG Version 1 Release 3
-- Ubuntu 18.04 STIG Version 2 Release 14
-- Ubuntu 20.04 STIG Version 1 Release 12
-- Ubuntu 22.04 STIG Version 1 Release 1
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 14
-- RHEL 8 STIG Version 1 Release 14
-- RHEL 9 STIG Version 1 Release 3
-- Ubuntu 18.04 STIG Version 2 Release 14
-- Ubuntu 20.04 STIG Version 1 Release 12
-- Ubuntu 22.04 STIG Version 1 Release 1
-  Updated STIG versions and applied STIGS for the 2024 first quarter release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 14
-- RHEL 8 STIG Version 1 Release 13
-- Ubuntu 18.04 STIG Version 2 Release 13
-- Ubuntu 20.04 STIG Version 1 Release 11
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 14
-- RHEL 8 STIG Version 1 Release 13
-- Ubuntu 18.04 STIG Version 2 Release 13
-- Ubuntu 20.04 STIG Version 1 Release 11
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 14
-- RHEL 8 STIG Version 1 Release 13
-- Ubuntu 18.04 STIG Version 2 Release 13
-- Ubuntu 20.04 STIG Version 1 Release 11
-  Updated STIG versions and applied STIGS for the 2023 fourth quarter release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 13
-- RHEL 8 STIG Version 1 Release 12
-- Ubuntu 18.04 STIG Version 2 Release 12
-- Ubuntu 20.04 STIG Version 1 Release 10
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 13
-- RHEL 8 STIG Version 1 Release 12
-- Ubuntu 18.04 STIG Version 2 Release 12
-- Ubuntu 20.04 STIG Version 1 Release 10
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 13
-- RHEL 8 STIG Version 1 Release 12
-- Ubuntu 18.04 STIG Version 2 Release 12
-- Ubuntu 20.04 STIG Version 1 Release 10
-  Updated STIG versions and applied STIGS for the 2023 third quarter release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 12
-- RHEL 8 STIG Version 1 Release 11
-- Ubuntu 18.04 STIG Version 2 Release 11
-- Ubuntu 20.04 STIG Version 1 Release 9
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 12
-- RHEL 8 STIG Version 1 Release 11
-- Ubuntu 18.04 STIG Version 2 Release 11
-- Ubuntu 20.04 STIG Version 1 Release 9
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 12
-- RHEL 8 STIG Version 1 Release 11
-- Ubuntu 18.04 STIG Version 2 Release 11
-- Ubuntu 20.04 STIG Version 1 Release 9
-  Updated STIG versions and applied STIGS for the 2023 second quarter release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 11
-- RHEL 8 STIG Version 1 Release 10
-- Ubuntu 18.04 STIG Version 2 Release 11
-- Ubuntu 20.04 STIG Version 1 Release 8
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 11
-- RHEL 8 STIG Version 1 Release 10
-- Ubuntu 18.04 STIG Version 2 Release 11
-- Ubuntu 20.04 STIG Version 1 Release 8
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 11
-- RHEL 8 STIG Version 1 Release 10
-- Ubuntu 18.04 STIG Version 2 Release 11
-- Ubuntu 20.04 STIG Version 1 Release 8
-  Updated STIG versions and applied STIGS for the 2023 first quarter release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 10
-- RHEL 8 STIG Version 1 Release 9
-- Ubuntu 18.04 STIG Version 2 Release 10
-- Ubuntu 20.04 STIG Version 1 Release 7
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 10
-- RHEL 8 STIG Version 1 Release 9
-- Ubuntu 18.04 STIG Version 2 Release 10
-- Ubuntu 20.04 STIG Version 1 Release 7
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 10
-- RHEL 8 STIG Version 1 Release 9
-- Ubuntu 18.04 STIG Version 2 Release 10
-- Ubuntu 20.04 STIG Version 1 Release 7
-  Updated STIG versions and applied STIGS for the 2022 fourth quarter release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 9
-- RHEL 8 STIG Version 1 Release 8
-- Ubuntu 18.04 STIG Version 2 Release 9
-- Ubuntu 20.04 STIG Version 1 Release 6
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 9
-- RHEL 8 STIG Version 1 Release 8
-- Ubuntu 18.04 STIG Version 2 Release 9
-- Ubuntu 20.04 STIG Version 1 Release 6
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 9
-- RHEL 8 STIG Version 1 Release 8
-- Ubuntu 18.04 STIG Version 2 Release 9
-- Ubuntu 20.04 STIG Version 1 Release 6
-  There were no changes for Linux component STIGS for the 2022 third quarter release.
-
-Introduced Ubuntu support, updated STIG versions and applied STIGS for the 2022 second quarter
-release as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 7
-- RHEL 8 STIG Version 1 Release 6
-- Ubuntu 18.04 STIG Version 2 Release 6 (new)
-- Ubuntu 20.04 STIG Version 1 Release 4 (new)
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 7
-- RHEL 8 STIG Version 1 Release 6
-- Ubuntu 18.04 STIG Version 2 Release 6 (new)
-- Ubuntu 20.04 STIG Version 1 Release 4 (new)
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 7
-- RHEL 8 STIG Version 1 Release 6
-- Ubuntu 18.04 STIG Version 2 Release 6 (new)
-- Ubuntu 20.04 STIG Version 1 Release 4 (new)
-  Refactored to include better support for containers. Combined the previous AL2 script with
-  RHEL 7. Updated STIG versions and applied STIGS for the 2022 first quarter release
-  as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 6
-- RHEL 8 STIG Version 1 Release 5
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 6
-- RHEL 8 STIG Version 1 Release 5
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 6
-- RHEL 8 STIG Version 1 Release 5
-  Updated STIG versions, and applied STIGS for the 2021 fourth quarter release
-  as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 5
-- RHEL 8 STIG Version 1 Release 4
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 5
-- RHEL 8 STIG Version 1 Release 4
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 5
-- RHEL 8 STIG Version 1 Release 4
-  Updated STIG versions, and applied STIGS for the 2021 third quarter release
-  as follows:
-
-###### Linux STIG Low (Category III)
-
-- RHEL 7 STIG Version 3 Release 4
-- RHEL 8 STIG Version 1 Release 3
-
-###### Linux STIG Medium (Category II)
-
-- RHEL 7 STIG Version 3 Release 4
-- RHEL 8 STIG Version 1 Release 3
-
-###### Linux STIG High (Category I)
-
-- RHEL 7 STIG Version 3 Release 4
-- RHEL 8 STIG Version 1 Release 3
+<a name="ec2-linux-version-hist"></a>
+
+This section logs version history for Linux script bundles that are updated quarterly. To see the changes and published versions for a quarter, choose the title to expand the information. If there are no changes for the quarter, you'll see that reflected in the title.
+
+### 2026 Q1 changes - 04/07/2026:
+<a name="2026-q1-linux"></a>
+
+Added support for the RHEL 10 operating system and updated the following STIG versions and applied STIGS for the 2026 first quarter release for all compliance levels (low/medium/high):
+
+**STIG-Build-Linux version 1.0.x**
++ RHEL 8 STIG Version 2 Release 6
++ RHEL 9 STIG Version 2 Release 7
++ RHEL 10 STIG Version 1 Release 1
++ Amazon Linux 2023 STIG Version 1 Release 2
++ SLES 12 STIG Version 3 Release 4
++ SLES 15 STIG Version 2 Release 6
++ Ubuntu 20.04 STIG Version 2 Release 4
++ Ubuntu 22.04 STIG Version 2 Release 7
++ Ubuntu 24.04 STIG Version 1 Release 4
+
+### 2025 Q3 changes - 09/04/2025:
+<a name="2025-q3-linux"></a>
+
+Added support for the SUSE Linux Enterprise Server (SLES) operating system and Amazon Linux 2023. Updated the following STIG versions and applied STIGS for the 2025 third quarter release for all compliance levels (low/medium/high):
+
+**STIG-Build-Linux version 1.0.x**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 4
++ RHEL 9 STIG Version 2 Release 5
++ Amazon Linux 2023 STIG Version 1 Release 1
++ SLES 12 STIG Version 3 Release 3
++ SLES 15 STIG Version 2 Release 5
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 3
++ Ubuntu 22.04 STIG Version 2 Release 5
++ Ubuntu 24.04 STIG Version 1 Release 2
+
+### 2025 Q2 changes - 06/26/2025:
+<a name="2025-q2-linux"></a>
+
+Updated the following STIG versions, applied STIGS for the 2025 second quarter release:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 3
++ RHEL 9 STIG Version 2 Release 4
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 2
++ Ubuntu 22.04 STIG Version 2 Release 4
++ Ubuntu 24.04 STIG Version 1 Release 1
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 3
++ RHEL 9 STIG Version 2 Release 4
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 2
++ Ubuntu 22.04 STIG Version 2 Release 4
++ Ubuntu 24.04 STIG Version 1 Release 1
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 3
++ RHEL 9 STIG Version 2 Release 4
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 2
++ Ubuntu 22.04 STIG Version 2 Release 4
++ Ubuntu 24.04 STIG Version 1 Release 1
+
+### 2025 Q1 changes - 04/11/2025:
+<a name="2025-q1-linux"></a>
+
+Updated the following STIG versions, applied STIGS for the 2025 first quarter release, and added support for Ubuntu 24.04:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 2
++ RHEL 9 STIG Version 2 Release 3
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 2
++ Ubuntu 22.04 STIG Version 2 Release 3
++ Ubuntu 24.04 STIG Version 1 Release 1
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 2
++ RHEL 9 STIG Version 2 Release 3
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 2
++ Ubuntu 22.04 STIG Version 2 Release 3
++ Ubuntu 24.04 STIG Version 1 Release 1
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 2
++ RHEL 9 STIG Version 2 Release 3
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 2
++ Ubuntu 22.04 STIG Version 2 Release 3
++ Ubuntu 24.04 STIG Version 1 Release 1
+
+### 2024 Q4 changes - 12/10/2024:
+<a name="2024-q4-linux"></a>
+
+Updated the following STIG versions, applied STIGS for the 2024 fourth quarter release, and added information about two new input parameters for the Linux components:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 1
++ RHEL 9 STIG Version 2 Release 2
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 1
++ Ubuntu 22.04 STIG Version 2 Release 2
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 1
++ RHEL 9 STIG Version 2 Release 2
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 1
++ Ubuntu 22.04 STIG Version 2 Release 2
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 15
++ RHEL 8 STIG Version 2 Release 1
++ RHEL 9 STIG Version 2 Release 2
++ Ubuntu 18.04 STIG Version 2 Release 15
++ Ubuntu 20.04 STIG Version 2 Release 1
++ Ubuntu 22.04 STIG Version 2 Release 2
+
+### 2024 Q3 changes - 10/04/2024 (no changes):
+<a name="2024-q3-linux"></a>
+
+There were no changes for Linux component STIGS for the 2024 third quarter release.
+
+### 2024 Q2 changes - 05/10/2024:
+<a name="2024-q2-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2024 second quarter release. Also added support for RHEL 9, CentOS Stream 9, and Ubuntu 22.04, as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 14
++ RHEL 8 STIG Version 1 Release 14
++ RHEL 9 STIG Version 1 Release 3
++ Ubuntu 18.04 STIG Version 2 Release 14
++ Ubuntu 20.04 STIG Version 1 Release 12
++ Ubuntu 22.04 STIG Version 1 Release 1
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 14
++ RHEL 8 STIG Version 1 Release 14
++ RHEL 9 STIG Version 1 Release 3
++ Ubuntu 18.04 STIG Version 2 Release 14
++ Ubuntu 20.04 STIG Version 1 Release 12
++ Ubuntu 22.04 STIG Version 1 Release 1
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 14
++ RHEL 8 STIG Version 1 Release 14
++ RHEL 9 STIG Version 1 Release 3
++ Ubuntu 18.04 STIG Version 2 Release 14
++ Ubuntu 20.04 STIG Version 1 Release 12
++ Ubuntu 22.04 STIG Version 1 Release 1
+
+### 2024 Q1 changes - 02/06/2024:
+<a name="2024-q1-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2024 first quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 14
++ RHEL 8 STIG Version 1 Release 13
++ Ubuntu 18.04 STIG Version 2 Release 13
++ Ubuntu 20.04 STIG Version 1 Release 11
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 14
++ RHEL 8 STIG Version 1 Release 13
++ Ubuntu 18.04 STIG Version 2 Release 13
++ Ubuntu 20.04 STIG Version 1 Release 11
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 14
++ RHEL 8 STIG Version 1 Release 13
++ Ubuntu 18.04 STIG Version 2 Release 13
++ Ubuntu 20.04 STIG Version 1 Release 11
+
+### 2023 Q4 changes - 12/07/2023:
+<a name="2023-q4-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2023 fourth quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 13
++ RHEL 8 STIG Version 1 Release 12
++ Ubuntu 18.04 STIG Version 2 Release 12
++ Ubuntu 20.04 STIG Version 1 Release 10
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 13
++ RHEL 8 STIG Version 1 Release 12
++ Ubuntu 18.04 STIG Version 2 Release 12
++ Ubuntu 20.04 STIG Version 1 Release 10
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 13
++ RHEL 8 STIG Version 1 Release 12
++ Ubuntu 18.04 STIG Version 2 Release 12
++ Ubuntu 20.04 STIG Version 1 Release 10
+
+### 2023 Q3 changes - 10/04/2023:
+<a name="2023-q3-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2023 third quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 12
++ RHEL 8 STIG Version 1 Release 11
++ Ubuntu 18.04 STIG Version 2 Release 11
++ Ubuntu 20.04 STIG Version 1 Release 9
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 12
++ RHEL 8 STIG Version 1 Release 11
++ Ubuntu 18.04 STIG Version 2 Release 11
++ Ubuntu 20.04 STIG Version 1 Release 9
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 12
++ RHEL 8 STIG Version 1 Release 11
++ Ubuntu 18.04 STIG Version 2 Release 11
++ Ubuntu 20.04 STIG Version 1 Release 9
+
+### 2023 Q2 changes - 05/03/2023:
+<a name="2023-q2-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2023 second quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 11
++ RHEL 8 STIG Version 1 Release 10
++ Ubuntu 18.04 STIG Version 2 Release 11
++ Ubuntu 20.04 STIG Version 1 Release 8
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 11
++ RHEL 8 STIG Version 1 Release 10
++ Ubuntu 18.04 STIG Version 2 Release 11
++ Ubuntu 20.04 STIG Version 1 Release 8
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 11
++ RHEL 8 STIG Version 1 Release 10
++ Ubuntu 18.04 STIG Version 2 Release 11
++ Ubuntu 20.04 STIG Version 1 Release 8
+
+### 2023 Q1 changes - 03/27/2023:
+<a name="2023-q1-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2023 first quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 10
++ RHEL 8 STIG Version 1 Release 9
++ Ubuntu 18.04 STIG Version 2 Release 10
++ Ubuntu 20.04 STIG Version 1 Release 7
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 10
++ RHEL 8 STIG Version 1 Release 9
++ Ubuntu 18.04 STIG Version 2 Release 10
++ Ubuntu 20.04 STIG Version 1 Release 7
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 10
++ RHEL 8 STIG Version 1 Release 9
++ Ubuntu 18.04 STIG Version 2 Release 10
++ Ubuntu 20.04 STIG Version 1 Release 7
+
+### 2022 Q4 changes - 02/01/2023:
+<a name="2022-q4-linux"></a>
+
+Updated STIG versions and applied STIGS for the 2022 fourth quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 9
++ RHEL 8 STIG Version 1 Release 8
++ Ubuntu 18.04 STIG Version 2 Release 9
++ Ubuntu 20.04 STIG Version 1 Release 6
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 9
++ RHEL 8 STIG Version 1 Release 8
++ Ubuntu 18.04 STIG Version 2 Release 9
++ Ubuntu 20.04 STIG Version 1 Release 6
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 9
++ RHEL 8 STIG Version 1 Release 8
++ Ubuntu 18.04 STIG Version 2 Release 9
++ Ubuntu 20.04 STIG Version 1 Release 6
+
+### 2022 Q3 changes - 09/30/2022 (no changes):
+<a name="2022-q3-linux"></a>
+
+There were no changes for Linux component STIGS for the 2022 third quarter release.
+
+### 2022 Q2 changes - 08/02/2022:
+<a name="2022-q2-linux"></a>
+
+Introduced Ubuntu support, updated STIG versions and applied STIGS for the 2022 second quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 7
++ RHEL 8 STIG Version 1 Release 6
++ Ubuntu 18.04 STIG Version 2 Release 6 (new)
++ Ubuntu 20.04 STIG Version 1 Release 4 (new)
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 7
++ RHEL 8 STIG Version 1 Release 6
++ Ubuntu 18.04 STIG Version 2 Release 6 (new)
++ Ubuntu 20.04 STIG Version 1 Release 4 (new)
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 7
++ RHEL 8 STIG Version 1 Release 6
++ Ubuntu 18.04 STIG Version 2 Release 6 (new)
++ Ubuntu 20.04 STIG Version 1 Release 4 (new)
+
+### 2022 Q1 changes - 04/26/2022:
+<a name="2022-q1-linux"></a>
+
+Refactored to include better support for containers. Combined the previous AL2 script with RHEL 7. Updated STIG versions and applied STIGS for the 2022 first quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 6
++ RHEL 8 STIG Version 1 Release 5
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 6
++ RHEL 8 STIG Version 1 Release 5
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 6
++ RHEL 8 STIG Version 1 Release 5
+
+### 2021 Q4 changes - 12/20/2021:
+<a name="2021-q4-linux"></a>
+
+Updated STIG versions, and applied STIGS for the 2021 fourth quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 5
++ RHEL 8 STIG Version 1 Release 4
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 5
++ RHEL 8 STIG Version 1 Release 4
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 5
++ RHEL 8 STIG Version 1 Release 4
+
+### 2021 Q3 changes - 09/30/2021:
+<a name="2021-q3-linux"></a>
+
+Updated STIG versions, and applied STIGS for the 2021 third quarter release as follows:
+
+**Linux STIG Low (Category III)**
++ RHEL 7 STIG Version 3 Release 4
++ RHEL 8 STIG Version 1 Release 3
+
+**Linux STIG Medium (Category II)**
++ RHEL 7 STIG Version 3 Release 4
++ RHEL 8 STIG Version 1 Release 3
+
+**Linux STIG High (Category I)**
++ RHEL 7 STIG Version 3 Release 4
++ RHEL 8 STIG Version 1 Release 3
 
 ## Windows STIG version history
+<a name="ec2-windows-version-hist"></a>
 
-This section logs version history for Windows script bundles that are updated quarterly.
-To see the changes and published versions for a quarter, choose the title to expand the
-information. If there are no changes for the quarter, you'll see that reflected in the title.
+This section logs version history for Windows script bundles that are updated quarterly. To see the changes and published versions for a quarter, choose the title to expand the information. If there are no changes for the quarter, you'll see that reflected in the title.
 
-Adding support for the Windows Server 2025 operating system and updated the following STIG versions and applied STIGS for the
-2026 first quarter release for all compliance levels (low/medium/high):
+### 2026 Q1 changes - 04/07/2026:
+<a name="2026-q1-windows"></a>
 
-###### STIG-Build-Windows version 1.0.x
+Adding support for the Windows Server 2025 operating system and updated the following STIG versions and applied STIGS for the 2026 first quarter release for all compliance levels (low/medium/high):
 
-- Windows Server 2025 STIG Version 1 Release 1
-- Windows Server 2022 STIG Version 2 Release 7
-- Windows Server 2019 STIG Version 3 Release 7
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 7
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 6
-- Microsoft Edge STIG Version 2 Release 4 (Windows Server 2022 and 2025 only)
-  There were no changes for Windows component STIGS for the 2025 fourth quarter release.
+**STIG-Build-Windows version 1.0.x**
++ Windows Server 2025 STIG Version 1 Release 1
++ Windows Server 2022 STIG Version 2 Release 7
++ Windows Server 2019 STIG Version 3 Release 7
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 7
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 6
++ Microsoft Edge STIG Version 2 Release 4 (Windows Server 2022 and 2025 only)
+
+### 2025 Q4 changes - 12/10/2025 (no changes):
+<a name="2025-q4-windows"></a>
+
+There were no changes for Windows component STIGS for the 2025 fourth quarter release.
+
+### 2025 Q3 changes - 9/04/2025 (no changes):
+<a name="2025-q3-windows"></a>
 
 There were no changes for Windows component STIGS for the 2025 third quarter release.
 
+### 2025 Q2 changes - 06/26/2025:
+<a name="2025-q2-windows"></a>
+
 Updated STIG versions and applied STIGS for the 2025 Q2 release as follows:
 
-###### Windows STIG Low (Category III)
+**Windows STIG Low (Category III)**
++ Windows Server 2022 STIG Version 2 Release 4
++ Windows Server 2019 STIG Version 3 Release 4
++ Windows Server 2016 STIG Version 2 Release 10
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 6
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 5
++ Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
 
-- Windows Server 2022 STIG Version 2 Release 4
-- Windows Server 2019 STIG Version 3 Release 4
-- Windows Server 2016 STIG Version 2 Release 10
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 6
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 5
-- Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
+**Windows STIG Medium (Category II)**
++ Windows Server 2022 STIG Version 2 Release 4
++ Windows Server 2019 STIG Version 3 Release 4
++ Windows Server 2016 STIG Version 2 Release 10
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 6
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 5
++ Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
++ Defender STIG Version 2 Release 4
 
-###### Windows STIG Medium (Category II)
+**Windows STIG High (Category I)**
++ Windows Server 2022 STIG Version 2 Release 4
++ Windows Server 2019 STIG Version 3 Release 4
++ Windows Server 2016 STIG Version 2 Release 10
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 6
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 5
++ Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
++ Defender STIG Version 2 Release 4
 
-- Windows Server 2022 STIG Version 2 Release 4
-- Windows Server 2019 STIG Version 3 Release 4
-- Windows Server 2016 STIG Version 2 Release 10
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 6
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 5
-- Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
-- Defender STIG Version 2 Release 4
+### 2025 Q1 changes - 05/04/2025:
+<a name="2025-q1-windows"></a>
 
-###### Windows STIG High (Category I)
+Updated STIGS for Internet Explorer 11 STIG Version 2 Release 5 for all STIG components for the 2025 first quarter release.
 
-- Windows Server 2022 STIG Version 2 Release 4
-- Windows Server 2019 STIG Version 3 Release 4
-- Windows Server 2016 STIG Version 2 Release 10
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 6
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 5
-- Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
-- Defender STIG Version 2 Release 4
-  Updated STIGS for Internet Explorer 11 STIG Version 2 Release 5 for all STIG
-  components for the 2025 first quarter release.
+### 2024 Q4 changes - 12/10/2024:
+<a name="2024-q4-windows"></a>
 
 Updated STIG versions and applied STIGS for the 2024 Q4 release as follows:
 
-###### Windows STIG Low (Category III)
+**Windows STIG Low (Category III)**
++ Windows Server 2022 STIG Version 2 Release 2
++ Windows Server 2019 STIG Version 3 Release 2
++ Windows Server 2016 STIG Version 2 Release 9
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 2
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 5
++ Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
 
-- Windows Server 2022 STIG Version 2 Release 2
-- Windows Server 2019 STIG Version 3 Release 2
-- Windows Server 2016 STIG Version 2 Release 9
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 2
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 5
-- Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
+**Windows STIG Medium (Category II)**
++ Windows Server 2022 STIG Version 2 Release 2
++ Windows Server 2019 STIG Version 3 Release 2
++ Windows Server 2016 STIG Version 2 Release 9
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 2
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 5
++ Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
++ Defender STIG Version 2 Release 4
 
-###### Windows STIG Medium (Category II)
+**Windows STIG High (Category I)**
++ Windows Server 2022 STIG Version 2 Release 2
++ Windows Server 2019 STIG Version 3 Release 2
++ Windows Server 2016 STIG Version 2 Release 9
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 2
++ Windows Firewall STIG Version 2 Release 2
++ Internet Explorer 11 STIG Version 2 Release 5
++ Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
++ Defender STIG Version 2 Release 4
 
-- Windows Server 2022 STIG Version 2 Release 2
-- Windows Server 2019 STIG Version 3 Release 2
-- Windows Server 2016 STIG Version 2 Release 9
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 2
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 5
-- Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
-- Defender STIG Version 2 Release 4
+### 2024 Q3 changes - 10/04/2024 (no changes):
+<a name="2024-q3-windows"></a>
 
-###### Windows STIG High (Category I)
+There were no changes for Windows component STIGS for the 2024 third quarter release.
 
-- Windows Server 2022 STIG Version 2 Release 2
-- Windows Server 2019 STIG Version 3 Release 2
-- Windows Server 2016 STIG Version 2 Release 9
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 2
-- Windows Firewall STIG Version 2 Release 2
-- Internet Explorer 11 STIG Version 2 Release 5
-- Microsoft Edge STIG Version 2 Release 2 (Windows Server 2022 only)
-- Defender STIG Version 2 Release 4
-  There were no changes for Windows component STIGS for the 2024 third quarter release.
+### 2024 Q2 changes - 05/10/2024 (no changes):
+<a name="2024-q2-windows"></a>
 
 There were no changes for Windows component STIGS for the 2024 second quarter release.
 
+### 2024 Q1 changes - 02/23/2024 (no changes):
+<a name="2024-q1-windows"></a>
+
 There were no changes for Windows component STIGS for the 2024 first quarter release.
+
+### 2023 Q4 changes - 12/07/2023 (no changes):
+<a name="2023-q4-windows"></a>
 
 There were no changes for Windows component STIGS for the 2023 fourth quarter release.
 
+### 2023 Q3 changes - 10/04/2023 (no changes):
+<a name="2023-q3-windows"></a>
+
 There were no changes for Windows component STIGS for the 2023 third quarter release.
+
+### 2023 Q2 changes - 05/03/2023 (no changes):
+<a name="2023-q2-windows"></a>
 
 There were no changes for Windows component STIGS for the 2023 second quarter release.
 
+### 2023 Q1 changes - 03/27/2023 (no changes):
+<a name="2023-q1-windows"></a>
+
 There were no changes for Windows component STIGS for the 2023 first quarter release.
+
+### 2022 Q4 changes - 02/01/2023:
+<a name="2022-q4-windows"></a>
 
 Updated STIG versions and applied STIGS for the 2022 Q4 release as follows:
 
-###### Windows STIG Low (Category III)
+**Windows STIG Low (Category III)**
++ Windows Server 2022 STIG Version 1 Release 1
++ Windows Server 2019 STIG Version 2 Release 5
++ Windows Server 2016 STIG Version 2 Release 5
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 2
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 2 Release 3
++ Microsoft Edge STIG Version 1 Release 6 (Windows Server 2022 only)
 
-- Windows Server 2022 STIG Version 1 Release 1
-- Windows Server 2019 STIG Version 2 Release 5
-- Windows Server 2016 STIG Version 2 Release 5
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 2
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 2 Release 3
-- Microsoft Edge STIG Version 1 Release 6 (Windows Server 2022 only)
+**Windows STIG Medium (Category II)**
++ Windows Server 2022 STIG Version 1 Release 1
++ Windows Server 2019 STIG Version 2 Release 5
++ Windows Server 2016 STIG Version 2 Release 5
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 2
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 2 Release 3
++ Microsoft Edge STIG Version 1 Release 6 (Windows Server 2022 only)
++ Defender STIG Version 2 Release 4 (Windows Server 2022 only)
 
-###### Windows STIG Medium (Category II)
+**Windows STIG High (Category I)**
++ Windows Server 2022 STIG Version 1 Release 1
++ Windows Server 2019 STIG Version 2 Release 5
++ Windows Server 2016 STIG Version 2 Release 5
++ Windows Server 2012 R2 MS STIG Version 3 Release 5
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 2
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 2 Release 3
++ Microsoft Edge STIG Version 1 Release 6 (Windows Server 2022 only)
++ Defender STIG Version 2 Release 4 (Windows Server 2022 only)
 
-- Windows Server 2022 STIG Version 1 Release 1
-- Windows Server 2019 STIG Version 2 Release 5
-- Windows Server 2016 STIG Version 2 Release 5
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 2
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 2 Release 3
-- Microsoft Edge STIG Version 1 Release 6 (Windows Server 2022 only)
-- Defender STIG Version 2 Release 4 (Windows Server 2022 only)
+### 2022 Q3 changes - 09/30/2022 (no changes):
+<a name="2022-q3-windows"></a>
 
-###### Windows STIG High (Category I)
+There were no changes for Windows component STIGS for the 2022 third quarter release.
 
-- Windows Server 2022 STIG Version 1 Release 1
-- Windows Server 2019 STIG Version 2 Release 5
-- Windows Server 2016 STIG Version 2 Release 5
-- Windows Server 2012 R2 MS STIG Version 3 Release 5
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 2
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 2 Release 3
-- Microsoft Edge STIG Version 1 Release 6 (Windows Server 2022 only)
-- Defender STIG Version 2 Release 4 (Windows Server 2022 only)
-  There were no changes for Windows component STIGS for the 2022 third quarter release.
+### 2022 Q2 changes - 08/02/2022:
+<a name="2022-q2-windows"></a>
 
 Updated STIG versions and applied STIGS for the 2022 Q2 release.
 
-###### Windows STIG Low (Category III)
+**Windows STIG Low (Category III)**
++ Windows Server 2019 STIG Version 2 Release 4
++ Windows Server 2016 STIG Version 2 Release 4
++ Windows Server 2012 R2 MS STIG Version 3 Release 3
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 1 Release 19
 
-- Windows Server 2019 STIG Version 2 Release 4
-- Windows Server 2016 STIG Version 2 Release 4
-- Windows Server 2012 R2 MS STIG Version 3 Release 3
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 1 Release 19
+**Windows STIG Medium (Category II)**
++ Windows Server 2019 STIG Version 2 Release 4
++ Windows Server 2016 STIG Version 2 Release 4
++ Windows Server 2012 R2 MS STIG Version 3 Release 3
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 1 Release 19
 
-###### Windows STIG Medium (Category II)
+**Windows STIG High (Category I)**
++ Windows Server 2019 STIG Version 2 Release 4
++ Windows Server 2016 STIG Version 2 Release 4
++ Windows Server 2012 R2 MS STIG Version 3 Release 3
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 1 Release 19
 
-- Windows Server 2019 STIG Version 2 Release 4
-- Windows Server 2016 STIG Version 2 Release 4
-- Windows Server 2012 R2 MS STIG Version 3 Release 3
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 1 Release 19
+### 2022 Q1 changes - 08/02/2022 (no changes):
+<a name="2022-q1-windows"></a>
 
-###### Windows STIG High (Category I)
+There were no changes for Windows component STIGS for the 2022 first quarter release.
 
-- Windows Server 2019 STIG Version 2 Release 4
-- Windows Server 2016 STIG Version 2 Release 4
-- Windows Server 2012 R2 MS STIG Version 3 Release 3
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 1 Release 19
-  There were no changes for Windows component STIGS for the 2022 first quarter release.
+### 2021 Q4 changes - 12/20/2021:
+<a name="2021-q4-windows"></a>
 
 Updated STIG versions and applied STIGS for the 2021 fourth quarter release.
 
-###### Windows STIG Low (Category III)
+**Windows STIG Low (Category III)**
++ Windows Server 2019 STIG Version 2 Release 3
++ Windows Server 2016 STIG Version 2 Release 3
++ Windows Server 2012 R2 MS STIG Version 3 Release 3
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 1 Release 19
 
-- Windows Server 2019 STIG Version 2 Release 3
-- Windows Server 2016 STIG Version 2 Release 3
-- Windows Server 2012 R2 MS STIG Version 3 Release 3
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 1 Release 19
+**Windows STIG Medium (Category II)**
++ Windows Server 2019 STIG Version 2 Release 3
++ Windows Server 2016 STIG Version 2 Release 3
++ Windows Server 2012 R2 MS STIG Version 3 Release 3
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 1 Release 19
 
-###### Windows STIG Medium (Category II)
+**Windows STIG High (Category I)**
++ Windows Server 2019 STIG Version 2 Release 3
++ Windows Server 2016 STIG Version 2 Release 3
++ Windows Server 2012 R2 MS STIG Version 3 Release 3
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 2 Release 1
++ Internet Explorer 11 STIG Version 1 Release 19
 
-- Windows Server 2019 STIG Version 2 Release 3
-- Windows Server 2016 STIG Version 2 Release 3
-- Windows Server 2012 R2 MS STIG Version 3 Release 3
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 1 Release 19
+### 2021 Q3 changes - 09/30/2021:
+<a name="2021-q3-windows"></a>
 
-###### Windows STIG High (Category I)
+Updated STIG versions and applied STIGS for the 2021 third quarter release.
 
-- Windows Server 2019 STIG Version 2 Release 3
-- Windows Server 2016 STIG Version 2 Release 3
-- Windows Server 2012 R2 MS STIG Version 3 Release 3
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 2 Release 1
-- Internet Explorer 11 STIG Version 1 Release 19
-  Updated STIG versions and applied STIGS for the 2021 third quarter release.
+**Windows STIG Low (Category III)**
++ Windows Server 2019 STIG Version 2 Release 2
++ Windows Server 2016 STIG Version 2 Release 2
++ Windows Server 2012 R2 MS STIG Version 3 Release 2
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 1 Release 7
++ Internet Explorer 11 STIG Version 1 Release 19
 
-###### Windows STIG Low (Category III)
+**Windows STIG Medium (Category II)**
++ Windows Server 2019 STIG Version 2 Release 2
++ Windows Server 2016 STIG Version 2 Release 2
++ Windows Server 2012 R2 MS STIG Version 3 Release 2
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 1 Release 7
++ Internet Explorer 11 STIG Version 1 Release 19
 
-- Windows Server 2019 STIG Version 2 Release 2
-- Windows Server 2016 STIG Version 2 Release 2
-- Windows Server 2012 R2 MS STIG Version 3 Release 2
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 1 Release 7
-- Internet Explorer 11 STIG Version 1 Release 19
-
-###### Windows STIG Medium (Category II)
-
-- Windows Server 2019 STIG Version 2 Release 2
-- Windows Server 2016 STIG Version 2 Release 2
-- Windows Server 2012 R2 MS STIG Version 3 Release 2
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 1 Release 7
-- Internet Explorer 11 STIG Version 1 Release 19
-
-###### Windows STIG High (Category I)
-
-- Windows Server 2019 STIG Version 2 Release 2
-- Windows Server 2016 STIG Version 2 Release 2
-- Windows Server 2012 R2 MS STIG Version 3 Release 2
-- Microsoft .NET Framework 4.0 STIG Version 2 Release 1
-- Windows Firewall STIG Version 1 Release 7
-- Internet Explorer 11 STIG Version 1 Release 19
+**Windows STIG High (Category I)**
++ Windows Server 2019 STIG Version 2 Release 2
++ Windows Server 2016 STIG Version 2 Release 2
++ Windows Server 2012 R2 MS STIG Version 3 Release 2
++ Microsoft .NET Framework 4.0 STIG Version 2 Release 1
++ Windows Firewall STIG Version 1 Release 7
++ Internet Explorer 11 STIG Version 1 Release 19

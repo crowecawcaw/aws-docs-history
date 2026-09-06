@@ -1,52 +1,42 @@
+
+
 # Review ENA Express settings for your EC2 instance
+<a name="ena-express-list-view"></a>
 
-You can verify the ENA Express settings by instance or by network interface. To update
-the ENA Express settings, see [Configure ENA Express settings for your EC2 instance](ena-express-configure.md "ena-express-configure.md").
+You can verify the ENA Express settings by instance or by network interface. To update the ENA Express settings, see [Configure ENA Express settings for your EC2 instance](ena-express-configure.md).
 
-Console
+------
+#### [ Console ]
 
-###### To view ENA Express settings for a network interface
+**To view ENA Express settings for a network interface**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the left navigation pane, choose **Network
-   interfaces**.
-3. Select a network interface to see the details for that instance.
-   You can choose the **Network interface ID** link to
-   open the detail page, or you can select the checkbox on the left side of the list to view details in the
-   detail pane at the bottom of the page.
-4. In the **Network interface attachment** section
-   on the **Details** tab or detail page, review
-   settings for **ENA Express** and **ENA
-   Express UDP**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### To view ENA Express settings for an instance
+1. In the left navigation pane, choose **Network interfaces**.
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the left navigation pane, choose
-   **Instances**.
-3. Select an instance to see the details for that instance. You can
-   choose the **Instance ID** link to open the detail
-   page, or you can select the checkbox on the left side of the list to view details in the
-   detail pane at the bottom of the page.
-4. In the **Network interfaces** section on the
-   **Networking** tab, scroll right to review
-   settings for **ENA Express** and **ENA
-   Express UDP**.
+1. Select a network interface to see the details for that instance. You can choose the **Network interface ID** link to open the detail page, or you can select the checkbox on the left side of the list to view details in the detail pane at the bottom of the page.
 
-AWS CLI
+1. In the **Network interface attachment** section on the **Details** tab or detail page, review settings for **ENA Express** and **ENA Express UDP**.
 
-###### To get the ENA Express settings for an instance
+**To view ENA Express settings for an instance**
 
-Use the [describe-instances](../../../cli/latest/reference/describe-instances.md "../../../cli/latest/reference/describe-instances.md") command. This command
-example returns a list of ENA Express configurations for the network
-interfaces attached to each of the running instances that are specified
-by the `--instance-ids` parameter.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. In the left navigation pane, choose **Instances**.
+
+1. Select an instance to see the details for that instance. You can choose the **Instance ID** link to open the detail page, or you can select the checkbox on the left side of the list to view details in the detail pane at the bottom of the page.
+
+1. In the **Network interfaces** section on the **Networking** tab, scroll right to review settings for **ENA Express** and **ENA Express UDP**.
+
+------
+#### [ AWS CLI ]
+
+**To get the ENA Express settings for an instance**  
+Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/describe-instances.html) command. This command example returns a list of ENA Express configurations for the network interfaces attached to each of the running instances that are specified by the `--instance-ids` parameter.
 
 ```
 aws ec2 describe-instances \
-    --instance-ids `i-1234567890abcdef0` `i-0598c7d356eba48d7` \
+    --instance-ids {{i-1234567890abcdef0}} {{i-0598c7d356eba48d7}} \
     --query 'Reservations[*].Instances[*].[InstanceId, NetworkInterfaces[*].Attachment.EnaSrdSpecification]'
 ```
 
@@ -83,14 +73,12 @@ The following is example output.
 ]
 ```
 
-###### To get the ENA Express settings for a network interface
-
-Use the [describe-network-interfaces](../../../cli/latest/reference/describe-network-interfaces.md "../../../cli/latest/reference/describe-network-interfaces.md")
-command.
+**To get the ENA Express settings for a network interface**  
+Use the [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/describe-network-interfaces.html) command.
 
 ```
 aws ec2 describe-network-interfaces \
-    --network-interface-ids `eni-1234567890abcdef0` \
+    --network-interface-ids {{eni-1234567890abcdef0}} \
     --query NetworkInterfaces[].[NetworkInterfaceId,Attachment.EnaSrdSpecification]
 ```
 
@@ -110,19 +98,19 @@ The following is example output.
 ]
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To get the ENA Express settings for a network interface
-
-Use the [Get-EC2NetworkInterface](../../../powershell/latest/reference/items/Get-EC2NetworkInterface.md "../../../powershell/latest/reference/items/Get-EC2NetworkInterface.md") cmdlet.
+**To get the ENA Express settings for a network interface**  
+Use the [Get-EC2NetworkInterface](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2NetworkInterface.html) cmdlet.
 
 ```
 Get-EC2NetworkInterface `
-    -NetworkInterfaceId `eni-1234567890abcdef0` | `
+    -NetworkInterfaceId {{eni-1234567890abcdef0}} | `
 Select-Object `
-    Association,
-    NetworkInterfaceId,
-    OwnerId,
+    Association, 
+    NetworkInterfaceId, 
+    OwnerId, 
     @{Name = 'AttachTime'; Expression = { $_.Attachment.AttachTime } },
     @{Name = 'AttachmentId'; Expression = { $_.Attachment.AttachmentId } },
     @{Name = 'DeleteOnTermination'; Expression = { $_.Attachment.DeleteOnTermination } },
@@ -137,7 +125,7 @@ Select-Object `
 The following is example output.
 
 ```
-Association         :
+Association         : 
 NetworkInterfaceId  : eni-0d1234e5f6a78901b
 OwnerId             : 111122223333
 AttachTime          : 6/11/2022 1:13:11 AM
@@ -150,3 +138,5 @@ Status              : attached
 EnaSrdEnabled       : True
 EnaSrdUdpEnabled    : False
 ```
+
+------

@@ -1,110 +1,88 @@
+
+
 # Use AMI watermarks to track and identify AMIs
+<a name="ami-watermark"></a>
 
-An AMI watermark is an identifier that you attach to your private AMIs to track
-provenance and enforce governance policies. Watermarks persist across the full AMI
-lifecycle:
+An AMI watermark is an identifier that you attach to your private AMIs to track provenance and enforce governance policies. Watermarks persist across the full AMI lifecycle:
++ If you create a new AMI from a running instance that was launched from a watermarked AMI, the new AMI inherits the watermark.
++ If you copy a watermarked AMI, the copy carries the watermark.
++ If you share a watermarked AMI with another account, the watermark remains visible to the recipient.
 
-- If you create a new AMI from a running instance that was launched from a
-  watermarked AMI, the new AMI inherits the watermark.
-- If you copy a watermarked AMI, the copy carries the watermark.
-- If you share a watermarked AMI with another account, the watermark remains
-  visible to the recipient.
+**Key benefits**
++ Track provenance across accounts and Regions—identify which AMIs derive from your approved base images.
++ Filter and find related AMIs across your accounts.
++ Help AMI consumers discover and identify trusted AMIs associated with a project or organization.
++ Enforce governance by combining watermarks with [Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html) to restrict instance launches to only AMIs carrying approved watermarks.
 
-###### Key benefits
-
-- Track provenance across accounts and Regions—identify which AMIs derive
-  from your approved base images.
-- Filter and find related AMIs across your accounts.
-- Help AMI consumers discover and identify trusted AMIs associated with a project or
-  organization.
-- Enforce governance by combining watermarks with [Allowed
-  AMIs](ec2-allowed-amis.md "ec2-allowed-amis.md") to restrict instance launches to only AMIs carrying
-  approved watermarks.
-
-###### Topics
-
-- [How AMI watermarks work](#ami-watermark-how-it-works "#ami-watermark-how-it-works")
-- [Required permissions](#ami-watermark-permissions "#ami-watermark-permissions")
-- [Attach a watermark to an AMI](#ami-watermark-attach "#ami-watermark-attach")
-- [Detach a watermark from an AMI](#ami-watermark-detach "#ami-watermark-detach")
-- [View AMI watermarks](#ami-watermark-view "#ami-watermark-view")
-- [Filter AMIs by watermark](#ami-watermark-filter "#ami-watermark-filter")
+**Topics**
++ [How AMI watermarks work](#ami-watermark-how-it-works)
++ [Required permissions](#ami-watermark-permissions)
++ [Attach a watermark to an AMI](#ami-watermark-attach)
++ [Detach a watermark from an AMI](#ami-watermark-detach)
++ [View AMI watermarks](#ami-watermark-view)
++ [Filter AMIs by watermark](#ami-watermark-filter)
 
 ## How AMI watermarks work
+<a name="ami-watermark-how-it-works"></a>
 
-AMI watermarks are structured identifiers that you attach to your AMIs. The
-following describes the key characteristics of watermarks:
-
-- **Persists** – When you attach a watermark
-  to an AMI, it carries forward to all derivative AMIs.
-- **Owner-only** – Only the AMI owner can attach
-  watermarks to an AMI.
-- **Visible to everyone** – Anyone with access to the AMI
-  can view its watermarks.
-- **Limit of 5** – An AMI can have up to a total of 5
-  watermarks.
-- **Not available on public AMIs** – You can't attach
-  watermarks to public AMIs or make AMIs public if they have a watermark.
-- **Filterable** – You can filter AMIs by watermark when
-  using `describe-images`.
+AMI watermarks are structured identifiers that you attach to your AMIs. The following describes the key characteristics of watermarks:
++ **Persists** – When you attach a watermark to an AMI, it carries forward to all derivative AMIs.
++ **Owner-only** – Only the AMI owner can attach watermarks to an AMI.
++ **Visible to everyone** – Anyone with access to the AMI can view its watermarks.
++ **Limit of 5** – An AMI can have up to a total of 5 watermarks.
++ **Not available on public AMIs** – You can't attach watermarks to public AMIs or make AMIs public if they have a watermark.
++ **Filterable** – You can filter AMIs by watermark when using `describe-images`.
 
 ### Watermark format
+<a name="ami-watermark-format"></a>
 
 A watermark is a structured object with the following fields:
++ `WatermarkKey` – The unique identifier for the watermark, composed of `{{account-id}}:{{watermark-name}}`. The account ID portion is the 12-digit AWS account ID of the AMI owner. The watermark name portion is a customer-specified name.
++ `SourceImageRegion` – The Region of the AMI to which you originally attached the watermark.
++ `SourceImageId` – The AMI to which you originally attached the watermark.
++ `SourceImageCreationDate` – The creation date of the AMI to which you originally attached the watermark.
++ `WatermarkCreationTime` – The timestamp of when you applied the watermark.
 
-- `WatermarkKey` – The unique identifier for the watermark, composed of
-  ``account-id`:`watermark-name``.
-  The account ID portion is the 12-digit AWS account ID of the AMI owner.
-  The watermark name portion is a customer-specified name.
-- `SourceImageRegion` – The Region of the AMI to which you originally
-  attached the watermark.
-- `SourceImageId` – The AMI to which you originally attached the
-  watermark.
-- `SourceImageCreationDate` – The creation date of the AMI to which you
-  originally attached the watermark.
-- `WatermarkCreationTime` – The timestamp of when you applied the
-  watermark.
-
-The watermark name must be 3–128 characters and can contain alphanumeric
-characters, parentheses (()), square brackets ([]), spaces, periods (.), slashes (/),
-dashes (-), single quotes ('), at-signs (@), or underscores (\_).
+The watermark name must be 3–128 characters and can contain alphanumeric characters, parentheses (()), square brackets ([]), spaces, periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores (\_).
 
 ## Required permissions
+<a name="ami-watermark-permissions"></a>
 
 To work with AMI watermarks, you need the following IAM permissions:
-
-- `ec2:AttachImageWatermark` – To attach a watermark to an AMI.
-- `ec2:DetachImageWatermark` – To detach a watermark from an AMI.
-- `ec2:DescribeImages` – To view watermarks on AMIs.
++ `ec2:AttachImageWatermark` – To attach a watermark to an AMI.
++ `ec2:DetachImageWatermark` – To detach a watermark from an AMI.
++ `ec2:DescribeImages` – To view watermarks on AMIs.
 
 ## Attach a watermark to an AMI
+<a name="ami-watermark-attach"></a>
 
 You can attach a watermark to an AMI by using the console, the AWS CLI, or PowerShell.
 
-Console
+------
+#### [ Console ]
 
-###### To attach a watermark to an AMI
+**To attach a watermark to an AMI**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **AMIs**.
-3. Select the AMI.
-4. On the **Details** tab, in the
-   **Watermarks** section, choose
-   **Manage watermarks**.
-5. Enter a watermark name and choose
-   **Attach**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **AMIs**.
 
-###### To attach a watermark to an AMI
+1. Select the AMI.
 
-Use the [attach-image-watermark](../../../cli/latest/reference/ec2/attach-image-watermark.md "../../../cli/latest/reference/ec2/attach-image-watermark.md") command.
+1. On the **Details** tab, in the **Watermarks** section, choose **Manage watermarks**.
+
+1. Enter a watermark name and choose **Attach**.
+
+------
+#### [ AWS CLI ]
+
+**To attach a watermark to an AMI**  
+Use the [attach-image-watermark](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-image-watermark.html) command.
 
 ```
 aws ec2 attach-image-watermark \
-    --image-id `ami-1111111111EXAMPLE` \
-    --image-watermark-name "`prod-baseline`"
+    --image-id {{ami-1111111111EXAMPLE}} \
+    --image-watermark-name "{{prod-baseline}}"
 ```
 
 The following is example output.
@@ -115,93 +93,99 @@ The following is example output.
 }
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To attach a watermark to an AMI
-
-Use the [Add-EC2ImageWatermark](../../../powershell/latest/reference/items/Add-EC2ImageWatermark.md "../../../powershell/latest/reference/items/Add-EC2ImageWatermark.md") cmdlet.
+**To attach a watermark to an AMI**  
+Use the [Add-EC2ImageWatermark](https://docs.aws.amazon.com/powershell/latest/reference/items/Add-EC2ImageWatermark.html) cmdlet.
 
 ```
 Add-EC2ImageWatermark `
-    -ImageId `ami-1111111111EXAMPLE` `
-    -ImageWatermarkName "`prod-baseline`"
+    -ImageId {{ami-1111111111EXAMPLE}} `
+    -ImageWatermarkName "{{prod-baseline}}"
 ```
+
+------
 
 You can attach up to 5 watermarks to a single AMI.
 
 ## Detach a watermark from an AMI
+<a name="ami-watermark-detach"></a>
 
 You can detach a watermark from an AMI by using the console, the AWS CLI, or PowerShell.
 
-Console
+------
+#### [ Console ]
 
-###### To detach a watermark from an AMI
+**To detach a watermark from an AMI**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **AMIs**.
-3. Select the AMI.
-4. On the **Details** tab, in the
-   **Watermarks** section, choose
-   **Manage watermarks**.
-5. Select the watermark to remove, then choose
-   **Remove**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **AMIs**.
 
-###### To detach a watermark from an AMI
+1. Select the AMI.
 
-Use the [detach-image-watermark](../../../cli/latest/reference/ec2/detach-image-watermark.md "../../../cli/latest/reference/ec2/detach-image-watermark.md") command.
+1. On the **Details** tab, in the **Watermarks** section, choose **Manage watermarks**.
+
+1. Select the watermark to remove, then choose **Remove**.
+
+------
+#### [ AWS CLI ]
+
+**To detach a watermark from an AMI**  
+Use the [detach-image-watermark](https://docs.aws.amazon.com/cli/latest/reference/ec2/detach-image-watermark.html) command.
 
 ```
 aws ec2 detach-image-watermark \
-    --image-id `ami-1111111111EXAMPLE` \
-    --image-watermark-key "`111122223333:prod-baseline`"
+    --image-id {{ami-1111111111EXAMPLE}} \
+    --image-watermark-key "{{111122223333:prod-baseline}}"
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To detach a watermark from an AMI
-
-Use the [Remove-EC2ImageWatermark](../../../powershell/latest/reference/items/Remove-EC2ImageWatermark.md "../../../powershell/latest/reference/items/Remove-EC2ImageWatermark.md") cmdlet.
+**To detach a watermark from an AMI**  
+Use the [Remove-EC2ImageWatermark](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2ImageWatermark.html) cmdlet.
 
 ```
 Remove-EC2ImageWatermark `
-    -ImageId `ami-1111111111EXAMPLE` `
-    -ImageWatermarkKey "`111122223333:prod-baseline`"
+    -ImageId {{ami-1111111111EXAMPLE}} `
+    -ImageWatermarkKey "{{111122223333:prod-baseline}}"
 ```
 
-###### Note
+------
 
-Detaching a watermark from an AMI does not remove it from derivative AMIs
-that already carry the watermark. To ensure watermarks remain persistent, grant the
-`ec2:DetachImageWatermark` permission only to trusted administrators
-who need to manage watermarks.
+**Note**  
+Detaching a watermark from an AMI does not remove it from derivative AMIs that already carry the watermark. To ensure watermarks remain persistent, grant the `ec2:DetachImageWatermark` permission only to trusted administrators who need to manage watermarks.
 
 ## View AMI watermarks
+<a name="ami-watermark-view"></a>
 
 You can view watermarks for an AMI by using the console, the AWS CLI, or PowerShell.
 
-Console
+------
+#### [ Console ]
 
-###### To view watermarks for an AMI
+**To view watermarks for an AMI**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **AMIs**.
-3. Select the AMI.
-4. View the watermarks in the **Watermarks** section of the **Details** tab.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **AMIs**.
 
-###### To view watermarks for an AMI
+1. Select the AMI.
 
-Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command.
+1. View the watermarks in the **Watermarks** section of the **Details** tab.
+
+------
+#### [ AWS CLI ]
+
+**To view watermarks for an AMI**  
+Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command.
 
 ```
 aws ec2 describe-images \
-    --image-ids `ami-046863d776a820ccd` \
-    --region `us-east-1`
+    --image-ids {{ami-046863d776a820ccd}} \
+    --region {{us-east-1}}
 ```
 
 The response includes the `ImageWatermarks` array for each AMI.
@@ -235,56 +219,58 @@ The response includes the `ImageWatermarks` array for each AMI.
 }
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To view watermarks for an AMI
-
-Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md") cmdlet.
+**To view watermarks for an AMI**  
+Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet.
 
 ```
-(Get-EC2Image -ImageId `ami-046863d776a820ccd`).ImageWatermarks
+(Get-EC2Image -ImageId {{ami-046863d776a820ccd}}).ImageWatermarks
 ```
+
+------
 
 ## Filter AMIs by watermark
+<a name="ami-watermark-filter"></a>
 
 You can filter AMIs by watermark by using the console, the AWS CLI, or PowerShell.
 
-Console
+------
+#### [ Console ]
 
-###### To filter AMIs by watermark
+**To filter AMIs by watermark**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **AMIs**.
-3. In the search bar, choose the **Watermark key**
-   filter and enter the watermark key value.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **AMIs**.
 
-###### To filter AMIs by watermark
+1. In the search bar, choose the **Watermark key** filter and enter the watermark key value.
 
-Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command with the `image-watermark-key`
-filter.
+------
+#### [ AWS CLI ]
+
+**To filter AMIs by watermark**  
+Use the [describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html) command with the `image-watermark-key` filter.
 
 ```
 aws ec2 describe-images \
-    --filters "Name=image-watermark-key,Values=`111122223333:prod-baseline`"
+    --filters "Name=image-watermark-key,Values={{111122223333:prod-baseline}}"
 ```
 
-This returns all AMIs you have access to that carry the specified watermark,
-including derivative AMIs that inherited it through copy operations.
+This returns all AMIs you have access to that carry the specified watermark, including derivative AMIs that inherited it through copy operations.
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To filter AMIs by watermark
-
-Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md") cmdlet with the `-Filter`
-parameter.
+**To filter AMIs by watermark**  
+Use the [Get-EC2Image](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2Image.html) cmdlet with the `-Filter` parameter.
 
 ```
 Get-EC2Image `
-    -Filter @{Name="image-watermark-key"; Values="`111122223333:prod-baseline`"}
+    -Filter @{Name="image-watermark-key"; Values="{{111122223333:prod-baseline}}"}
 ```
 
-This returns all AMIs you have access to that carry the specified watermark,
-including derivative AMIs that inherited it through copy operations.
+This returns all AMIs you have access to that carry the specified watermark, including derivative AMIs that inherited it through copy operations.
+
+------

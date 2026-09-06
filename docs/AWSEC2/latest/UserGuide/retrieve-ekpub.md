@@ -1,22 +1,23 @@
+
+
 # Retrieve the public endorsement key for an EC2 instance
+<a name="retrieve-ekpub"></a>
 
 You can securely retrieve the public endorsement key for an instance at any time.
 
-AWS CLI
+------
+#### [ AWS CLI ]
 
-###### To retrieve the public endorsement key for an instance
+**To retrieve the public endorsement key for an instance**  
+Use the [get-instance-tpm-ek-pub](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-instance-tpm-ek-pub.html) command.
 
-Use the [get-instance-tpm-ek-pub](../../../cli/latest/reference/ec2/get-instance-tpm-ek-pub.md "../../../cli/latest/reference/ec2/get-instance-tpm-ek-pub.md") command.
-
-###### Example 1
-
-The following example gets the `rsa-2048` public endorsement key in
-`tpmt` format for the specified instance.
+**Example 1**  
+The following example gets the `rsa-2048` public endorsement key in `tpmt` format for the specified instance.
 
 ```
 aws ec2 get-instance-tpm-ek-pub \
-    --instance-id `i-1234567890abcdef0` \
-    --key-format tpmt \
+    --instance-id {{i-1234567890abcdef0}} \
+    --key-format tpmt \ 
     --key-type rsa-2048
 ```
 
@@ -36,15 +37,13 @@ The following is the example output.
 }
 ```
 
-###### Example 2
-
-The following example gets the `rsa-2048` public endorsement key in
-`der` format for the specified instance.
+**Example 2**  
+The following example gets the `rsa-2048` public endorsement key in `der` format for the specified instance.
 
 ```
 aws ec2 get-instance-tpm-ek-pub \
-    --instance-id `i-1234567890abcdef0` \
-    --key-format der \
+    --instance-id {{i-1234567890abcdef0}} \
+    --key-format der \ 
     --key-type rsa-2048
 ```
 
@@ -64,33 +63,30 @@ The following is the example output.
 }
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To retrieve the public endorsement key for an instance
+**To retrieve the public endorsement key for an instance**  
+Use the [Get-EC2InstanceTpmEkPub](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceTpmEkPub.html) cmdlet.
 
-Use the [Get-EC2InstanceTpmEkPub](../../../powershell/latest/reference/items/Get-EC2InstanceTpmEkPub.md "../../../powershell/latest/reference/items/Get-EC2InstanceTpmEkPub.md")
-cmdlet.
-
-###### Example 1
-
-The following example gets the `rsa-2048` public endorsement key in
-`tpmt` format for the specified instance.
+**Example 1**  
+The following example gets the `rsa-2048` public endorsement key in `tpmt` format for the specified instance.
 
 ```
 Get-EC2InstanceTpmEkPub `
-    -InstanceId `i-1234567890abcdef0` `
+    -InstanceId {{i-1234567890abcdef0}} `
     -KeyFormat tpmt `
     -KeyType rsa-2048
 ```
 
-###### Example 2
-
-The following example gets the `rsa-2048` public endorsement key in
-`der` format for the specified instance.
+**Example 2**  
+The following example gets the `rsa-2048` public endorsement key in `der` format for the specified instance.
 
 ```
 Get-EC2InstanceTpmEkPub `
-    -InstanceId `i-1234567890abcdef0` `
+    -InstanceId {{i-1234567890abcdef0}} `
     -KeyFormat der `
     -KeyType rsa-2048
 ```
+
+------

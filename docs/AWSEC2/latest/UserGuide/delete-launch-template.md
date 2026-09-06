@@ -1,111 +1,97 @@
+
+
 # Delete a launch template or a launch template version
+<a name="delete-launch-template"></a>
 
-If you no longer require a launch template, you can delete it. Deleting a launch
-template deletes all of its versions. If you only want to delete a specific version of a
-launch template, you can do so while retaining the other versions of the launch
-template.
+If you no longer require a launch template, you can delete it. Deleting a launch template deletes all of its versions. If you only want to delete a specific version of a launch template, you can do so while retaining the other versions of the launch template.
 
-Deleting a launch template or launch template version doesn't affect any instances
-that you've launched from the launch template.
+Deleting a launch template or launch template version doesn't affect any instances that you've launched from the launch template. 
 
 ## Delete a launch template and all of its versions
+<a name="delete-launch-template-including-versions"></a>
 
-If you no longer require a launch template, including all of its versions, you can
-delete the launch template. Deleting a launch template deletes all of its
-versions.
+If you no longer require a launch template, including all of its versions, you can delete the launch template. Deleting a launch template deletes all of its versions.
 
-Console
+------
+#### [ Console ]
 
-###### To delete a launch template and all its versions
+**To delete a launch template and all its versions**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Launch
-   Templates**.
-3. Choose the launch template and choose
-   **Actions**, **Delete
-   template**.
-4. Enter `Delete` to confirm deletion, and
-   then choose **Delete**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-AWS CLI
+1. In the navigation pane, choose **Launch Templates**.
 
-###### To delete a launch template and all its versions
+1. Choose the launch template and choose **Actions**, **Delete template**.
 
-Use the [delete-launch-template](../../../cli/latest/reference/ec2/delete-launch-template.md "../../../cli/latest/reference/ec2/delete-launch-template.md") command and specify the
-launch template.
+1. Enter **Delete** to confirm deletion, and then choose **Delete**.
+
+------
+#### [ AWS CLI ]
+
+**To delete a launch template and all its versions**  
+Use the [delete-launch-template](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-launch-template.html) command and specify the launch template.
 
 ```
-aws ec2 delete-launch-template --launch-template-id `lt-01238c059e3466abc`
+aws ec2 delete-launch-template --launch-template-id {{lt-01238c059e3466abc}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To delete a launch template and all its versions
-
-Use the [Remove-EC2LaunchTemplate](../../../powershell/latest/reference/items/Remove-EC2LaunchTemplate.md "../../../powershell/latest/reference/items/Remove-EC2LaunchTemplate.md") (AWS Tools for PowerShell) command and
-specify the launch template. If `-Force` is omitted,
-PowerShell prompts for a confirmation.
+**To delete a launch template and all its versions**  
+Use the [Remove-EC2LaunchTemplate](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2LaunchTemplate.html) (AWS Tools for PowerShell) command and specify the launch template. If `-Force` is omitted, PowerShell prompts for a confirmation.
 
 ```
-Remove-EC2LaunchTemplate -LaunchTemplateId `lt-0123456789example` -Force
+Remove-EC2LaunchTemplate -LaunchTemplateId {{lt-0123456789example}} -Force
 ```
+
+------
 
 ## Delete a launch template version
+<a name="delete-launch-template-version"></a>
 
 If you no longer require a launch template version, you can delete it.
 
-###### Considerations
+**Considerations**
++ You can't replace the version number after you delete it.
++ You can't delete the default version of the launch template; you must first assign a different version as the default. If the default version is the only version for the launch template, you must [delete the entire launch template](#delete-launch-template).
++ When using the console, you can delete one launch template version at a time. When using the AWS CLI, you can delete up to 200 launch template versions in a single request. To delete more than 200 versions in a single request, you can [delete the launch template](#delete-launch-template), which also deletes all of its versions.
 
-- You can't replace the version number after you delete it.
-- You can't delete the default version of the launch template; you must
-  first assign a different version as the default. If the default version is
-  the only version for the launch template, you must [delete the entire launch
-  template](delete-launch-template.md "delete-launch-template.md").
-- When using the console, you can delete one launch template version at a
-  time. When using the AWS CLI, you can delete up to 200 launch template
-  versions in a single request. To delete more than 200 versions in a single
-  request, you can [delete the launch
-  template](delete-launch-template.md "delete-launch-template.md"), which also deletes all of its versions.
+------
+#### [ Console ]
 
-Console
+**To delete a launch template version**
 
-###### To delete a launch template version
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, choose **Launch
-   Templates**.
-3. Choose the launch template and choose
-   **Actions**, **Delete template
-   version**.
-4. Choose the version to delete and choose
-   **Delete**.
+1. In the navigation pane, choose **Launch Templates**.
 
-AWS CLI
+1. Choose the launch template and choose **Actions**, **Delete template version**.
 
-###### To delete a launch template version
+1. Choose the version to delete and choose **Delete**.
 
-Use the [delete-launch-template-versions](../../../cli/latest/reference/ec2/delete-launch-template-versions.md "../../../cli/latest/reference/ec2/delete-launch-template-versions.md") command and specify
-the version numbers to delete. You can specify up to 200 launch
-template versions to delete in a single request.
+------
+#### [ AWS CLI ]
+
+**To delete a launch template version**  
+Use the [delete-launch-template-versions](https://docs.aws.amazon.com/cli/latest/reference/ec2/delete-launch-template-versions.html) command and specify the version numbers to delete. You can specify up to 200 launch template versions to delete in a single request.
 
 ```
 aws ec2 delete-launch-template-versions \
-    --launch-template-id `lt-0abcd290751193123` \
-    --versions `1`
+    --launch-template-id {{lt-0abcd290751193123}} \
+    --versions {{1}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To delete a launch template version
-
-Use the [Remove-EC2TemplateVersion](../../../powershell/latest/reference/items/Remove-EC2TemplateVersion.md "../../../powershell/latest/reference/items/Remove-EC2TemplateVersion.md") cmdlet and specify the version
-numbers to delete. You can specify up to 200 launch template versions to
-delete in a single request.
+**To delete a launch template version**  
+Use the [Remove-EC2TemplateVersion](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2TemplateVersion.html) cmdlet and specify the version numbers to delete. You can specify up to 200 launch template versions to delete in a single request.
 
 ```
 Remove-EC2TemplateVersion `
-    -LaunchTemplateId `lt-0abcd290751193123` `
-    -Version `1`
+    -LaunchTemplateId {{lt-0abcd290751193123}} `
+    -Version {{1}}
 ```
+
+------

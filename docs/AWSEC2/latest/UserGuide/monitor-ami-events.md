@@ -1,81 +1,65 @@
+
+
 # Monitor AMI events using Amazon EventBridge
+<a name="monitor-ami-events"></a>
 
-When the state of an Amazon Machine Image (AMI) changes, Amazon EC2 generates an event that is
-sent to Amazon EventBridge (formerly known as Amazon CloudWatch Events). The events are sent to the default EventBridge event
-bus in JSON format. You can use Amazon EventBridge to detect and react to these events. You do this by
-creating rules in EventBridge that trigger an action in response to an event. For example, you can
-create an EventBridge rule that detects when the AMI creation process has completed and then invokes
-an Amazon SNS topic to send an email notification to you.
+When the state of an Amazon Machine Image (AMI) changes, Amazon EC2 generates an event that is sent to Amazon EventBridge (formerly known as Amazon CloudWatch Events). The events are sent to the default EventBridge event bus in JSON format. You can use Amazon EventBridge to detect and react to these events. You do this by creating rules in EventBridge that trigger an action in response to an event. For example, you can create an EventBridge rule that detects when the AMI creation process has completed and then invokes an Amazon SNS topic to send an email notification to you.
 
-Amazon EC2 generates an `EC2 AMI State Change` event when an AMI enters any of
-the following states:
+Amazon EC2 generates an `EC2 AMI State Change` event when an AMI enters any of the following states:
++ `available`
++ `failed`
++ `deregistered`
++ `disabled`
 
-- `available`
-- `failed`
-- `deregistered`
-- `disabled`
-  Events are generated on a best effort basis.
+Events are generated on a best effort basis.
 
-The following table lists the AMI operations and the states that an AMI can enter. In the
-table, **Yes** indicates the states that the AMI can enter when the
-corresponding operation runs.
+The following table lists the AMI operations and the states that an AMI can enter. In the table, **Yes** indicates the states that the AMI can enter when the corresponding operation runs.
 
-| AMI operations         | available | failed | deregistered | disabled |
-| ---------------------- | --------- | ------ | ------------ | -------- |
-| CopyImage              | Yes       | Yes    |              |          |
-| CreateImage            | Yes       | Yes    |              |          |
-| CreateRestoreImageTask | Yes       | Yes    |              |          |
-| DeregisterImage        |           |        | Yes          |          |
-| DisableImage           |           |        |              | Yes      |
-| EnableImage            | Yes       |        |              |          |
-| RegisterImage          | Yes       | Yes    |              |          |
 
-###### EC2 AMI State Change events
+| AMI operations | available | failed | deregistered | disabled | 
+| --- | --- | --- | --- | --- | 
+| CopyImage | Yes | Yes |  |  | 
+| CreateImage | Yes | Yes |  |  | 
+| CreateRestoreImageTask | Yes | Yes |  |  | 
+| DeregisterImage |  |  | Yes |  | 
+| DisableImage |  |  |  | Yes | 
+| EnableImage | Yes |  |  |  | 
+| RegisterImage | Yes | Yes |  |  | 
 
-- [Event details](#ami-events "#ami-events")
-- [available events](#ami-event-available "#ami-event-available")
-- [failed events](#ami-event-failed "#ami-event-failed")
-- [deregistered events](#ami-event-deregistered "#ami-event-deregistered")
-- [disabled events](#ami-event-disabled "#ami-event-disabled")
+**EC2 AMI State Change events**
++ [Event details](#ami-events)
++ [available events](#ami-event-available)
++ [failed events](#ami-event-failed)
++ [deregistered events](#ami-event-deregistered)
++ [disabled events](#ami-event-disabled)
 
 ## Event details
+<a name="ami-events"></a>
 
-You can use the following fields in the event to create rules that trigger an
-action:
+You can use the following fields in the event to create rules that trigger an action:
 
-`"source": "aws.ec2"`
-
+`"source": "aws.ec2"`  
 Identifies that the event is from Amazon EC2.
 
-`"detail-type": "EC2 AMI State Change"`
-
+`"detail-type": "EC2 AMI State Change"`  
 Identifies the event name.
 
-`"detail": { "ImageId": "ami-0abcdef1234567890", "State": "available", }`
+`"detail": { "ImageId": "ami-0abcdef1234567890", "State": "available", }`  
+Provides the AMI ID and the state of the AMI (`available`, `failed`, `deregistered`, or `disabled`).
 
-Provides the AMI ID and the state of the AMI (`available`,
-`failed`, `deregistered`, or `disabled`).
+For more information, see the following in the *Amazon EventBridge User Guide*:
++ [Amazon EventBridge events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html)
++ [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html)
++ [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html)
 
-For more information, see the following in the _Amazon EventBridge User Guide_:
-
-- [Amazon EventBridge events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md")
-- [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
-- [Amazon EventBridge rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md")
-
-For a tutorial about how to create a Lambda function and an EventBridge rule that runs the Lambda
-function, see [Tutorial: Log the
-state of an Amazon EC2 instance using EventBridge](../../../eventbridge/latest/userguide/eb-log-ec2-instance-state.md "../../../eventbridge/latest/userguide/eb-log-ec2-instance-state.md") in the _AWS Lambda Developer Guide_.
+For a tutorial about how to create a Lambda function and an EventBridge rule that runs the Lambda function, see [Tutorial: Log the state of an Amazon EC2 instance using EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-log-ec2-instance-state.html) in the *AWS Lambda Developer Guide*.
 
 ## available events
+<a name="ami-event-available"></a>
 
-The following is an example of an event that Amazon EC2 generates when the AMI enters the
-`available` state following a successful `CreateImage`,
-`CopyImage`, `RegisterImage`,
-`CreateRestoreImageTask`, or `EnableImage`
-operation.
+The following is an example of an event that Amazon EC2 generates when the AMI enters the `available` state following a successful `CreateImage`, `CopyImage`, `RegisterImage`, `CreateRestoreImageTask`, or `EnableImage` operation.
 
-`"State": "available"` indicates that the operation was
-successful.
+`"State": "available"` indicates that the operation was successful.
 
 ```
 {
@@ -97,18 +81,13 @@ successful.
 ```
 
 ## failed events
+<a name="ami-event-failed"></a>
 
-The following is an example of an event that Amazon EC2 generates when the AMI enters the
-`failed` state following a failed `CreateImage`,
-`CopyImage`, `RegisterImage`, or
-`CreateRestoreImageTask` operation.
+The following is an example of an event that Amazon EC2 generates when the AMI enters the `failed` state following a failed `CreateImage`, `CopyImage`, `RegisterImage`, or `CreateRestoreImageTask` operation.
 
 The following fields provide pertinent information:
-
-- `"State": "failed"` – Indicates that the operation
-  failed.
-- `"ErrorMessage": ""` – Provides the reason for the
-  failed operation.
++ `"State": "failed"` – Indicates that the operation failed.
++ `"ErrorMessage": ""` – Provides the reason for the failed operation.
 
 ```
 {
@@ -130,15 +109,11 @@ The following fields provide pertinent information:
 ```
 
 ## deregistered events
+<a name="ami-event-deregistered"></a>
 
-The following is an example of an event that Amazon EC2 generates when the AMI enters the
-`deregistered` state following a successful
-`DeregisterImage` operation. If the operation fails, no event is
-generated. Any failure is known immediately because `DeregisterImage` is
-a synchronous operation.
+The following is an example of an event that Amazon EC2 generates when the AMI enters the `deregistered` state following a successful `DeregisterImage` operation. If the operation fails, no event is generated. Any failure is known immediately because `DeregisterImage` is a synchronous operation.
 
-`"State": "deregistered"` indicates that the `DeregisterImage`
-operation was successful.
+`"State": "deregistered"` indicates that the `DeregisterImage` operation was successful.
 
 ```
 {
@@ -160,14 +135,11 @@ operation was successful.
 ```
 
 ## disabled events
+<a name="ami-event-disabled"></a>
 
-The following is an example of an event that Amazon EC2 generates when the AMI enters the
-`disabled` state following a successful `DisableImage`
-operation. If the operation fails, no event is generated. Any failure is known
-immediately because `DisableImage` is a synchronous operation.
+The following is an example of an event that Amazon EC2 generates when the AMI enters the `disabled` state following a successful `DisableImage` operation. If the operation fails, no event is generated. Any failure is known immediately because `DisableImage` is a synchronous operation.
 
-`"State": "disabled"` indicates that the `DisableImage` operation was
-successful.
+`"State": "disabled"` indicates that the `DisableImage` operation was successful.
 
 ```
 {

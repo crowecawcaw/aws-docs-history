@@ -1,95 +1,73 @@
+
+
 # Windows Service administration for EC2Launch v2 and EC2Config agents
+<a name="launch-agents-service-admin"></a>
 
-If you've logged into your instance as a user with administrative rights, you can manage the
-EC2Launch v2 and EC2Config launch agents just as you would any other Windows service. EC2Launch v1 is a
-set of PowerShell scripts that is managed through a scheduled task by default. This section covers service
-administration for EC2Launch v2 and EC2Config.
+If you've logged into your instance as a user with administrative rights, you can manage the EC2Launch v2 and EC2Config launch agents just as you would any other Windows service. EC2Launch v1 is a set of PowerShell scripts that is managed through a scheduled task by default. This section covers service administration for EC2Launch v2 and EC2Config.
 
-To apply updated settings to your instance, you can stop and restart the EC2Launch v2 agent or the
-EC2Config service launch agent from the Microsoft Management Console (MMC) interface for Services.
-Similarly, when you install a new version of the launch agent, you must stop the agent first, then
-restart it when the installation is complete.
+To apply updated settings to your instance, you can stop and restart the EC2Launch v2 agent or the EC2Config service launch agent from the Microsoft Management Console (MMC) interface for Services. Similarly, when you install a new version of the launch agent, you must stop the agent first, then restart it when the installation is complete.
 
-###### Note
+**Note**  
+You must open the MMC Services interface as an administrator to select these actions. To do this, you can select **Run as administrator** from the context menu. Alternatively, to open the interface using your keyboard, follow these steps:  
+Using the `Tab` key or arrow keys, select the **Services** menu item from the **Administrative Tools** menu.
+Use the following keyboard combination to open as an administrator: `Ctrl` \+ `Shift` \+ `Enter`.
 
-You must open the MMC Services interface as an administrator to select these actions. To
-do this, you can select **Run as administrator** from the context menu.
-Alternatively, to open the interface using your keyboard, follow these steps:
+The following procedures list steps to stop and start the launch agent on your instance.
 
-1. Using the `Tab` key or arrow keys, select the **Services**
-   menu item from the **Administrative Tools** menu.
-2. Use the following keyboard combination to open as an administrator:
-   `Ctrl` + `Shift` + `Enter`.
-   The following procedures list steps to stop and start the launch agent on your instance.
-
-###### Stop the launch agent
+**Stop the launch agent**
 
 1. Launch and connect to your Windows instance.
-2. Select **Administrative Tools** from the Windows
-   **Start** menu.
-3. Open the **Services** console as an administrator, as
-   described at the beginning of this section.
-4. In the list of services, select the agent that's running on your instance
-   (**EC2Launch** or **EC2Config**),
-   then choose **Stop** from the **Action**
-   menu. Alternatively, you can use the context menu to stop the agent.
 
-###### Restart the launch agent
+1. Select **Administrative Tools** from the Windows **Start** menu.
+
+1. Open the **Services** console as an administrator, as described at the beginning of this section.
+
+1. In the list of services, select the agent that's running on your instance (**EC2Launch** or **EC2Config**), then choose **Stop** from the **Action** menu. Alternatively, you can use the context menu to stop the agent.
+
+**Restart the launch agent**
 
 1. Launch and connect to your Windows instance.
-2. Select **Administrative Tools** from the Windows
-   **Start** menu.
-3. Open the **Services** console as an administrator, as
-   described at the beginning of this section.
-4. In the list of services, select the agent that's running on your instance
-   (**EC2Launch** or **EC2Config**), then
-   choose **Start** or **Restart** from the
-   **Action** menu. Alternatively, you can use the context menu
-   to restart the agent.
-   If you don't need to update the configuration settings, create your own AMI, or use
-   AWS Systems Manager, you can delete or uninstall the launch agent.
 
-_Delete_
+1. Select **Administrative Tools** from the Windows **Start** menu.
 
-Deleting a service removes
-its registry subkey.
+1. Open the **Services** console as an administrator, as described at the beginning of this section.
 
-_Uninstall_
+1. In the list of services, select the agent that's running on your instance (**EC2Launch** or **EC2Config**), then choose **Start** or **Restart** from the **Action** menu. Alternatively, you can use the context menu to restart the agent.
 
-Uninstalling a service removes the files, the registry subkey, and
-any shortcuts to the service.
+If you don't need to update the configuration settings, create your own AMI, or use AWS Systems Manager, you can delete or uninstall the launch agent.
 
-###### Delete the launch agent
+*Delete*  
+Deleting a service removes its registry subkey.
+
+*Uninstall*  
+Uninstalling a service removes the files, the registry subkey, and any shortcuts to the service.
+
+**Delete the launch agent**
 
 1. Launch and connect to your Windows instance.
-2. Start a Windows Command Prompt window.
-3. Run one of the following commands to delete the launch agent.
 
-   - Run the following command to delete the EC2Launch or EC2Launch v2:
+1. Start a Windows Command Prompt window.
 
-   ```
-   `sc delete ec2launch`
-   ```
-   - Run the following command to delete the EC2Config service:
+1. Run one of the following commands to delete the launch agent.
+   + Run the following command to delete the EC2Launch or EC2Launch v2:
 
-   ```
-   `sc delete ec2config`
-   ```
+     ```
+     sc delete ec2launch
+     ```
+   + Run the following command to delete the EC2Config service:
 
-###### Uninstall the launch agent
+     ```
+     sc delete ec2config
+     ```
+
+**Uninstall the launch agent**
 
 1. Launch and connect to your Windows instance.
-2. Choose **Windows System**, then
-   **Control Panel** from the Windows
-   **Start** menu.
-3. Choose **Programs and Features** to open the list of
-   programs that are installed on your instance.
-4. Select your launch agent from the list (**Amazon EC2Launch** or
-   **EC2ConfigService**), then choose **Uninstall**
-   from the **File** menu. Alternatively, you can use the
-   context menu.
 
-###### Note
+1. Choose **Windows System**, then **Control Panel** from the Windows **Start** menu.
 
-You can see what launch agent version is installed in the
-**Version** column.
+1. Choose **Programs and Features** to open the list of programs that are installed on your instance.
+
+1. Select your launch agent from the list (**Amazon EC2Launch** or **EC2ConfigService**), then choose **Uninstall** from the **File** menu. Alternatively, you can use the context menu.
+**Note**  
+You can see what launch agent version is installed in the **Version** column.

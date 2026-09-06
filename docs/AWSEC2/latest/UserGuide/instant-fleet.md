@@ -1,122 +1,82 @@
-# Configure an EC2 Fleet of type instant
 
-The EC2 Fleet of type _instant_ is a synchronous one-time
-request that makes only one attempt to launch your desired capacity. The API response lists
-the instances that launched, along with errors for those instances that could not be
-launched. There are several benefits to using an EC2 Fleet of type _instant_, which are described in this article. Example configurations are
-provided at the end of the article.
+
+# Configure an EC2 Fleet of type instant
+<a name="instant-fleet"></a>
+
+The EC2 Fleet of type *instant* is a synchronous one-time request that makes only one attempt to launch your desired capacity. The API response lists the instances that launched, along with errors for those instances that could not be launched. There are several benefits to using an EC2 Fleet of type *instant*, which are described in this article. Example configurations are provided at the end of the article.
 
 For workloads that need a launch-only API to launch EC2 instances, you can use the RunInstances API. However, with RunInstances, you can only launch On-Demand Instances or Spot Instances, but not both in the same request. Furthermore, when you use RunInstances to launch Spot Instances, your Spot Instance request is limited to one instance type and one Availability Zone. This targets a single Spot capacity pool (a set of unused instances with the same instance type and Availability Zone). If the Spot capacity pool does not have sufficient Spot Instance capacity for your request, the RunInstances call fails.
 
-Instead of using RunInstances to launch Spot Instances, we recommend that you rather use the
-CreateFleet API with the `type` parameter set to `instant` for the
-following benefits:
+Instead of using RunInstances to launch Spot Instances, we recommend that you rather use the CreateFleet API with the `type` parameter set to `instant` for the following benefits: 
++ **Launch On-Demand Instances and Spot Instances in one request.** An EC2 Fleet can launch On-Demand Instances, Spot Instances, or both. The request for Spot Instances is fulfilled if there is available capacity and the maximum price per hour for your request exceeds the Spot price.
++ **Increase the availability of Spot Instances.** By using an EC2 Fleet of type `instant`, you can launch Spot Instances following [Spot best practices](spot-best-practices.md) with the resulting benefits:
+  + **Spot best practice: Be flexible about instance types and Availability Zones.**
 
-- **Launch On-Demand Instances and Spot Instances in one
-  request.** An EC2 Fleet can launch On-Demand Instances, Spot Instances,
-  or both. The request for Spot Instances is fulfilled if there is available capacity
-  and the maximum price per hour for your request exceeds the Spot price.
-- **Increase the availability of Spot Instances.** By using an
-  EC2 Fleet of type `instant`, you can launch Spot Instances following [Spot best practices](spot-best-practices.md "spot-best-practices.md") with the resulting benefits:
+    Benefit: By specifying several instance types and Availability Zones, you increase the number of Spot capacity pools. This gives the Spot service a better chance of finding and allocating your desired Spot compute capacity. A good rule of thumb is to be flexible across at least 10 instance types for each workload and make sure that all Availability Zones are configured for use in your VPC.
+  + **Spot best practice: Use the price-capacity-optimized allocation strategy.**
 
-  - **Spot best practice: Be flexible about instance types and
-    Availability Zones.**
+    Benefit: The `price-capacity-optimized` allocation strategy identifies instances from the most-available Spot capacity pools, and then automatically provisions instances from the lowest priced of these pools. Because your Spot Instance capacity is sourced from pools with optimal capacity, this decreases the possibility that your Spot Instances will be interrupted when Amazon EC2 needs the capacity back.
++ **Get access to a wider set of capabilities.** For workloads that need a launch-only API, and where you prefer to manage the lifecycle of your instance rather than let EC2 Fleet manage it for you, use the EC2 Fleet of type `instant` instead of the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API. EC2 Fleet provides a wider set of capabilities than RunInstances, as demonstrated in the following examples. For all other workloads, you should use Amazon EC2 Auto Scaling because it supplies a more comprehensive feature set for a wide variety of workloads, like ELB-backed applications, containerized workloads, and queue processing jobs.
 
-  Benefit: By specifying several instance types and Availability Zones, you increase the number of Spot capacity pools. This gives the Spot service a better chance of finding and allocating your desired Spot compute capacity. A good rule of thumb is to be flexible across at least 10 instance types for each workload and make sure that all Availability Zones are configured for use in your VPC.
-  - **Spot best practice: Use the
-    price-capacity-optimized allocation
-    strategy.**
+You can use EC2 Fleet of type *instant* to launch instances into Capacity Blocks. For more information, see [Tutorial: Configure your EC2 Fleet to launch instances into Capacity Blocks](ec2-fleet-launch-instances-capacity-blocks-walkthrough.md).
 
-  Benefit: The `price-capacity-optimized` allocation strategy identifies
-  instances from the most-available Spot capacity pools, and then automatically
-  provisions instances from the lowest priced of these pools. Because your Spot Instance
-  capacity is sourced from pools with optimal capacity, this decreases the
-  possibility that your Spot Instances will be interrupted when Amazon EC2 needs the capacity
-  back.
-
-- **Get access to a wider set of capabilities.** For
-  workloads that need a launch-only API, and where you prefer to manage the lifecycle of
-  your instance rather than let EC2 Fleet manage it for you, use the EC2 Fleet of type
-  `instant` instead of the [RunInstances](../APIReference/API_RunInstances.md "../APIReference/API_RunInstances.md") API. EC2 Fleet provides a wider set of
-  capabilities than RunInstances, as demonstrated in the following examples. For all other
-  workloads, you should use Amazon EC2 Auto Scaling because it supplies a more comprehensive feature set
-  for a wide variety of workloads, like ELB-backed applications, containerized workloads,
-  and queue processing jobs.
-  You can use EC2 Fleet of type _instant_ to launch instances
-  into Capacity Blocks. For more information, see [Tutorial: Configure your EC2 Fleet to launch instances into Capacity Blocks](ec2-fleet-launch-instances-capacity-blocks-walkthrough.md "ec2-fleet-launch-instances-capacity-blocks-walkthrough.md").
-
-AWS services like Amazon EC2 Auto Scaling and Amazon EMR use EC2 Fleet of type _instant_ to launch EC2 instances.
+AWS services like Amazon EC2 Auto Scaling and Amazon EMR use EC2 Fleet of type *instant* to launch EC2 instances.
 
 ## Prerequisites for EC2 Fleet of type instant
+<a name="instant-fleet-prerequisites"></a>
 
-For the prerequisites for creating an EC2 Fleet, see [EC2 Fleet prerequisites](ec2-fleet-prerequisites.md "ec2-fleet-prerequisites.md").
+For the prerequisites for creating an EC2 Fleet, see [EC2 Fleet prerequisites](ec2-fleet-prerequisites.md).
 
 ## How instant EC2 Fleet works
+<a name="how-instant-fleet-works"></a>
 
-When working with an EC2 Fleet of type `instant`, the sequence of events is as
-follows:
+When working with an EC2 Fleet of type `instant`, the sequence of events is as follows:
 
-1. **Configure:** Configure the [CreateFleet](../APIReference/API_CreateFleet.md "../APIReference/API_CreateFleet.md") request type as `instant`. For more information,
-   see [Create an EC2 Fleet](create-ec2-fleet.md "create-ec2-fleet.md"). Note that
-   after you make the API call, you can't modify it.
-2. **Request:** When you make the API call, Amazon EC2
-   places a synchronous one-time request for your desired capacity.
-3. **Response:** The API response lists the
-   instances that launched, along with errors for those instances that could not be
-   launched.
-4. **Describe:** You can describe your EC2 Fleet, list
-   the instances associated with your EC2 Fleet, and view the history of your EC2 Fleet.
-5. **Terminate instances:** You can terminate the
-   instances at any time.
-6. **Delete fleet request:** The fleet request can
-   be deleted either manually or automatically:
+1. **Configure:** Configure the [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) request type as `instant`. For more information, see [Create an EC2 Fleet](create-ec2-fleet.md). Note that after you make the API call, you can't modify it.
 
-   - Manual: You can [delete the fleet
-     request](delete-fleet.md "delete-fleet.md") after your instances launch.
+1. **Request:** When you make the API call, Amazon EC2 places a synchronous one-time request for your desired capacity.
 
-   Note that a deleted `instant` fleet with running instances is not
-   supported. When you delete an `instant` fleet, Amazon EC2 automatically
-   terminates all its instances. For fleets with more than 1000 instances, the
-   deletion request might fail. If your fleet has more than 1000 instances, first
-   terminate most of the instances manually, leaving 1000 or fewer. Then delete
-   the fleet, and the remaining instances will be terminated automatically.
-   - Automatic: Amazon EC2 deletes the fleet request some time after either:
+1. **Response:** The API response lists the instances that launched, along with errors for those instances that could not be launched.
 
-     - All the instances are terminated.
-     - The fleet fails to launch any instances.
+1. **Describe:** You can describe your EC2 Fleet, list the instances associated with your EC2 Fleet, and view the history of your EC2 Fleet.
+
+1. **Terminate instances:** You can terminate the instances at any time.
+
+1. **Delete fleet request:** The fleet request can be deleted either manually or automatically:
+   + Manual: You can [delete the fleet request](delete-fleet.md) after your instances launch.
+
+     Note that a deleted `instant` fleet with running instances is not supported. When you delete an `instant` fleet, Amazon EC2 automatically terminates all its instances. For fleets with more than 1000 instances, the deletion request might fail. If your fleet has more than 1000 instances, first terminate most of the instances manually, leaving 1000 or fewer. Then delete the fleet, and the remaining instances will be terminated automatically.
+   + Automatic: Amazon EC2 deletes the fleet request some time after either: 
+     + All the instances are terminated.
+     + The fleet fails to launch any instances.
 
 ## Examples
+<a name="instant-fleet-examples"></a>
 
-The following examples show how to use EC2 Fleet of type `instant` for different
-use cases. For more information about using the EC2 CreateFleet API parameters, see [CreateFleet](../APIReference/API_CreateFleet.md "../APIReference/API_CreateFleet.md") in the _Amazon EC2 API Reference_.
+The following examples show how to use EC2 Fleet of type `instant` for different use cases. For more information about using the EC2 CreateFleet API parameters, see [CreateFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) in the *Amazon EC2 API Reference*.
 
-###### Examples
-
-- [Example 1: Launch Spot Instances with the capacity-optimized allocation strategy](#instant-fleet-example-1 "#instant-fleet-example-1")
-- [Example 2: Launch a single Spot Instance with the capacity-optimized allocation strategy](#instant-fleet-example-2 "#instant-fleet-example-2")
-- [Example 3: Launch Spot Instances using instance weighting](#instant-fleet-example-3 "#instant-fleet-example-3")
-- [Example 4: Launch Spot Instances within single Availability Zone](#instant-fleet-example-4 "#instant-fleet-example-4")
-- [Example 5: Launch Spot Instances of single instance type within single Availability zone](#instant-fleet-example-5 "#instant-fleet-example-5")
-- [Example 6: Launch Spot Instances only if minimum target capacity can be launched](#instant-fleet-example-6 "#instant-fleet-example-6")
-- [Example 7: Launch Spot Instances only if minimum target capacity can be launched of same Instance Type in a single Availability Zone](#instant-fleet-example-7 "#instant-fleet-example-7")
-- [Example 8: Launch instances with multiple Launch Templates](#instant-fleet-example-8 "#instant-fleet-example-8")
-- [Example 9: Launch Spot Instance with a base of On-Demand Instances](#instant-fleet-example-9 "#instant-fleet-example-9")
-- [Example 10: Launch Spot Instances using capacity-optimized allocation strategy with a base of On-Demand Instances using Capacity Reservations and the prioritized allocation strategy](#instant-fleet-example-10 "#instant-fleet-example-10")
-- [Example 11: Launch Spot Instances using capacity-optimized-prioritized allocation strategy](#instant-fleet-example-11 "#instant-fleet-example-11")
-- [Example 12: Specify a Systems Manager parameter instead of an AMI ID](#instant-fleet-example-12 "#instant-fleet-example-12")
+**Topics**
++ [Example 1: Launch Spot Instances with the capacity-optimized allocation strategy](#instant-fleet-example-1)
++ [Example 2: Launch a single Spot Instance with the capacity-optimized allocation strategy](#instant-fleet-example-2)
++ [Example 3: Launch Spot Instances using instance weighting](#instant-fleet-example-3)
++ [Example 4: Launch Spot Instances within single Availability Zone](#instant-fleet-example-4)
++ [Example 5: Launch Spot Instances of single instance type within single Availability zone](#instant-fleet-example-5)
++ [Example 6: Launch Spot Instances only if minimum target capacity can be launched](#instant-fleet-example-6)
++ [Example 7: Launch Spot Instances only if minimum target capacity can be launched of same Instance Type in a single Availability Zone](#instant-fleet-example-7)
++ [Example 8: Launch instances with multiple Launch Templates](#instant-fleet-example-8)
++ [Example 9: Launch Spot Instance with a base of On-Demand Instances](#instant-fleet-example-9)
++ [Example 10: Launch Spot Instances using capacity-optimized allocation strategy with a base of On-Demand Instances using Capacity Reservations and the prioritized allocation strategy](#instant-fleet-example-10)
++ [Example 11: Launch Spot Instances using capacity-optimized-prioritized allocation strategy](#instant-fleet-example-11)
++ [Example 12: Specify a Systems Manager parameter instead of an AMI ID](#instant-fleet-example-12)
 
 ### Example 1: Launch Spot Instances with the capacity-optimized allocation strategy
+<a name="instant-fleet-example-1"></a>
 
-The following example specifies the parameters required in an EC2 Fleet of type
-`instant`: a launch template, target capacity, default purchasing option,
-and launch template overrides.
-
-- The launch template is identified by its launch template name and version number.
-- The 12 launch template overrides specify 4 different instance types and 3 different subnets, each in a separate Availability Zone. Each instance type and subnet combination defines a Spot capacity pool, resulting in 12 Spot capacity pools.
-- The target capacity for the fleet is 20 instances.
-- The default purchasing option is `spot`, which results in the fleet
-  attempting to launch 20 Spot Instances into the Spot capacity pool with optimal capacity
-  for the number of instances that are launching.
+The following example specifies the parameters required in an EC2 Fleet of type `instant`: a launch template, target capacity, default purchasing option, and launch template overrides.
++ The launch template is identified by its launch template name and version number.
++ The 12 launch template overrides specify 4 different instance types and 3 different subnets, each in a separate Availability Zone. Each instance type and subnet combination defines a Spot capacity pool, resulting in 12 Spot capacity pools.
++ The target capacity for the fleet is 20 instances.
++ The default purchasing option is `spot`, which results in the fleet attempting to launch 20 Spot Instances into the Spot capacity pool with optimal capacity for the number of instances that are launching.
 
 ```
 {
@@ -190,17 +150,11 @@ and launch template overrides.
 ```
 
 ### Example 2: Launch a single Spot Instance with the capacity-optimized allocation strategy
+<a name="instant-fleet-example-2"></a>
 
-You can optimally launch one Spot Instance at a time by making multiple EC2 Fleet API calls of
-type `instant`, by setting the TotalTargetCapacity to 1.
+You can optimally launch one Spot Instance at a time by making multiple EC2 Fleet API calls of type `instant`, by setting the TotalTargetCapacity to 1.
 
-The following example specifies the parameters required in an EC2 Fleet of type instant: a launch template,
-target capacity, default purchasing option, and launch template overrides. The launch template is
-identified by its launch template name and version number. The 12 launch template overrides have 4
-different instance types and 3 different subnets, each in a separate Availability Zone. The target
-capacity for the fleet is 1 instance, and the default purchasing option is spot, which results in
-the fleet attempting to launch a Spot Instance from one of the 12 Spot capacity pools based on the capacity-optimized
-allocation strategy, to launch a Spot Instance from the most-available capacity pool.
+The following example specifies the parameters required in an EC2 Fleet of type instant: a launch template, target capacity, default purchasing option, and launch template overrides. The launch template is identified by its launch template name and version number. The 12 launch template overrides have 4 different instance types and 3 different subnets, each in a separate Availability Zone. The target capacity for the fleet is 1 instance, and the default purchasing option is spot, which results in the fleet attempting to launch a Spot Instance from one of the 12 Spot capacity pools based on the capacity-optimized allocation strategy, to launch a Spot Instance from the most-available capacity pool.
 
 ```
 {
@@ -274,10 +228,11 @@ allocation strategy, to launch a Spot Instance from the most-available capacity 
 ```
 
 ### Example 3: Launch Spot Instances using instance weighting
+<a name="instant-fleet-example-3"></a>
 
 The following examples use instance weighting, which means that the price is per unit hour instead of per instance hour. Each launch configuration lists a different instance type and a different weight based on how many units of the workload can run on the instance assuming a unit of the workload requires a 15 GB of memory and 4 vCPUs. For example an m5.xlarge (4 vCPUs and 16 GB of memory) can run one unit and is weighted 1, m5.2xlarge (8 vCPUs and 32 GB of memory) can run 2 units and is weighted 2, and so on. The total target capacity is set to 40 units. The default purchasing option is spot, and the allocation strategy is capacity-optimized, which results in either 40 m5.xlarge (40 divided by 1), 20 m5.2xlarge (40 divided by 2), 10 m5.4xlarge (40 divided by 4), 5 m5.8xlarge (40 divided by 8), or a mix of the instance types with weights adding up to the desired capacity based on the capacity-optimized allocation strategy.
 
-For more information, see [Use instance weighting to manage cost and performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md "ec2-fleet-instance-weighting.md").
+For more information, see [Use instance weighting to manage cost and performance of your EC2 Fleet or Spot Fleet](ec2-fleet-instance-weighting.md).
 
 ```
 {
@@ -363,6 +318,7 @@ For more information, see [Use instance weighting to manage cost and performance
 ```
 
 ### Example 4: Launch Spot Instances within single Availability Zone
+<a name="instant-fleet-example-4"></a>
 
 You can configure a fleet to launch all instances in a single Availability Zone by setting the Spot options SingleAvailabilityZone to true.
 
@@ -441,6 +397,7 @@ The 12 launch template overrides have different instance types and subnets (each
 ```
 
 ### Example 5: Launch Spot Instances of single instance type within single Availability zone
+<a name="instant-fleet-example-5"></a>
 
 You can configure a fleet to launch all instances of the same instance type and in a single Availability Zone by setting the SpotOptions SingleInstanceType to true and SingleAvailabilityZone to true.
 
@@ -520,22 +477,13 @@ The 12 launch template overrides have different instance types and subnets (each
 ```
 
 ### Example 6: Launch Spot Instances only if minimum target capacity can be launched
+<a name="instant-fleet-example-6"></a>
 
-You can configure a fleet to launch instances only if the minimum target capacity
-can be launched by setting the Spot options MinTargetCapacity to the minimum target
-capacity you want to launch together.
+You can configure a fleet to launch instances only if the minimum target capacity can be launched by setting the Spot options MinTargetCapacity to the minimum target capacity you want to launch together.
 
-When specifying MinTargetCapacity, you must specify at least one of these parameters:
-SingleInstanceType or SingleAvailabilityZone. In this example, SingleInstanceType is
-specified, so that all 20 instances must use the same instance type.
+When specifying MinTargetCapacity, you must specify at least one of these parameters: SingleInstanceType or SingleAvailabilityZone. In this example, SingleInstanceType is specified, so that all 20 instances must use the same instance type.
 
-The 12 launch template overrides have different instance types and subnets (each
-in a separate Availability Zone) but the same weighted capacity. The total target
-capacity and the minimum target capacity are both set to 20 instances, the default
-purchasing option is spot, and the Spot allocation strategy is capacity-optimized. The
-EC2 Fleet launches 20 Spot Instances from the Spot capacity pool with optimal capacity using the
-launch template overrides, only if it can launch all 20 instances at the same
-time.
+The 12 launch template overrides have different instance types and subnets (each in a separate Availability Zone) but the same weighted capacity. The total target capacity and the minimum target capacity are both set to 20 instances, the default purchasing option is spot, and the Spot allocation strategy is capacity-optimized. The EC2 Fleet launches 20 Spot Instances from the Spot capacity pool with optimal capacity using the launch template overrides, only if it can launch all 20 instances at the same time.
 
 ```
 {
@@ -611,6 +559,7 @@ time.
 ```
 
 ### Example 7: Launch Spot Instances only if minimum target capacity can be launched of same Instance Type in a single Availability Zone
+<a name="instant-fleet-example-7"></a>
 
 You can configure a fleet to launch instances only if the minimum target capacity can be launched with a single instance type in a single Availability Zone by setting the Spot options MinTargetCapacity to the minimum target capacity you want to launch together along with SingleInstanceType and SingleAvailabilityZone options.
 
@@ -691,6 +640,7 @@ The 12 launch specifications which override the launch template, have different 
 ```
 
 ### Example 8: Launch instances with multiple Launch Templates
+<a name="instant-fleet-example-8"></a>
 
 You can configure a fleet to launch instances with different launch specifications for different instance types or a group of instance types, by specifying multiple launch templates. In this example we want have different EBS volume sizes for different instance types and we have that configured in the launch templates ec2-fleet-lt-4xl, ec2-fleet-lt-9xl and ec2-fleet-lt-18xl.
 
@@ -781,6 +731,7 @@ In this example, we are using 3 different launch templates for the 3 instance ty
 ```
 
 ### Example 9: Launch Spot Instance with a base of On-Demand Instances
+<a name="instant-fleet-example-9"></a>
 
 The following example specifies the total target capacity of 20 instances for the fleet, and a target capacity of 5 On-Demand Instances. The default purchasing option is spot. The fleet launches 5 On-Demand Instance as specified, but needs to launch 15 more instances to fulfill the total target capacity. The purchasing option for the difference is calculated as TotalTargetCapacity – OnDemandTargetCapacity = DefaultTargetCapacityType, which results in the fleet launching 15 Spot Instances form one of the 12 Spot capacity pools based on the capacity-optimized allocation strategy.
 
@@ -857,6 +808,7 @@ The following example specifies the total target capacity of 20 instances for th
 ```
 
 ### Example 10: Launch Spot Instances using capacity-optimized allocation strategy with a base of On-Demand Instances using Capacity Reservations and the prioritized allocation strategy
+<a name="instant-fleet-example-10"></a>
 
 You can configure a fleet to use On-Demand Capacity Reservations first when launching a base of On-Demand Instances with the default target capacity type as spot by setting the usage strategy for Capacity Reservations to use-capacity-reservations-first. And if multiple instance pools have unused Capacity Reservations, the chosen On-Demand allocation strategy is applied. In this example, the On-Demand allocation strategy is prioritized.
 
@@ -866,22 +818,22 @@ The account has the following 6 unused Capacity Reservations in 2 pools. The num
 
 ```
 {
-    "CapacityReservationId": "cr-111",
-    "InstanceType": "m5.large",
-    "InstancePlatform": "Linux/UNIX",
-    "AvailabilityZone": "us-east-1a",
-    "AvailableInstanceCount": 3,
-    "InstanceMatchCriteria": "open",
+    "CapacityReservationId": "cr-111", 
+    "InstanceType": "m5.large", 
+    "InstancePlatform": "Linux/UNIX", 
+    "AvailabilityZone": "us-east-1a", 
+    "AvailableInstanceCount": 3, 
+    "InstanceMatchCriteria": "open", 
     "State": "active"
 }
-
+ 
 {
-    "CapacityReservationId": "cr-222",
-    "InstanceType": "c5.large",
-    "InstancePlatform": "Linux/UNIX",
-    "AvailabilityZone": "us-east-1a",
-    "AvailableInstanceCount": 3,
-    "InstanceMatchCriteria": "open",
+    "CapacityReservationId": "cr-222", 
+    "InstanceType": "c5.large", 
+    "InstancePlatform": "Linux/UNIX", 
+    "AvailabilityZone": "us-east-1a", 
+    "AvailableInstanceCount": 3, 
+    "InstanceMatchCriteria": "open", 
     "State": "active"
 }
 ```
@@ -979,32 +931,28 @@ The following fleet configuration shows only the pertinent configurations for th
 ```
 
 After you create the instant fleet using the preceding configuration, the following 20 instances are launched to meet the target capacity:
++ 7 c5.large On-Demand Instances in us-east-1a – c5.large in us-east-1a is prioritized first, and there are 3 available unused c5.large Capacity Reservations. The Capacity Reservations are used first to launch 3 On-Demand Instances plus 4 additional On-Demand Instances are launched according to the On-Demand allocation strategy, which is prioritized in this example.
++ 3 m5.large On-Demand Instances in us-east-1a – m5.large in us-east-1a is prioritized second, and there are 3 available unused m5.large Capacity Reservations.
++ 10 Spot Instances from one of the 12 Spot capacity pools that has the optimal capacity according to the capacity-optimized allocation strategy.
 
-- 7 c5.large On-Demand Instances in us-east-1a – c5.large in us-east-1a is prioritized first, and there are
-  3 available unused c5.large Capacity Reservations. The Capacity Reservations are used first to launch 3 On-Demand Instances plus 4 additional On-Demand Instances are launched according to the On-Demand allocation strategy, which is prioritized in this example.
-- 3 m5.large On-Demand Instances in us-east-1a – m5.large in us-east-1a is prioritized second, and there are
-  3 available unused m5.large Capacity Reservations.
-- 10 Spot Instances from one of the 12 Spot capacity pools that has the optimal capacity according to the capacity-optimized
-  allocation strategy.
-
-After the fleet is launched, you can run [describe-capacity-reservations](../../../cli/latest/reference/ec2/describe-capacity-reservations.md "../../../cli/latest/reference/ec2/describe-capacity-reservations.md")
-to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the c5.large and m5.large Capacity Reservations were used.
+After the fleet is launched, you can run [describe-capacity-reservations](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-capacity-reservations.html) to see how many unused Capacity Reservations are remaining. In this example, you should see the following response, which shows that all of the c5.large and m5.large Capacity Reservations were used.
 
 ```
 {
     "CapacityReservationId": "cr-111",
-    "InstanceType": "m5.large",
+    "InstanceType": "m5.large",  
     "AvailableInstanceCount": 0
 }
-
+ 
 {
     "CapacityReservationId": "cr-222",
-    "InstanceType": "c5.large",
+    "InstanceType": "c5.large", 
     "AvailableInstanceCount": 0
 }
 ```
 
 ### Example 11: Launch Spot Instances using capacity-optimized-prioritized allocation strategy
+<a name="instant-fleet-example-11"></a>
 
 The following example specifies the parameters required in an EC2 Fleet of type instant: a launch template, target capacity, default purchasing option, and launch template overrides. The launch template is identified by its launch template name and version number. The 12 launch specifications which override the launch template have 4 different instance types with a priority assigned, and 3 different subnets, each in a separate Availability Zone. The target capacity for the fleet is 20 instances, and the default purchasing option is spot, which results in the fleet attempting to launch 20 Spot Instances from one of the 12 Spot capacity pools based on the capacity-optimized-prioritized allocation strategy, which implements priorities on a best-effort basis, but optimizes for capacity first.
 
@@ -1092,31 +1040,25 @@ The following example specifies the parameters required in an EC2 Fleet of type 
 ```
 
 ### Example 12: Specify a Systems Manager parameter instead of an AMI ID
+<a name="instant-fleet-example-12"></a>
 
-The following example uses a launch template to specify the configuration for the
-instances in the fleet. In this example, for `ImageId`, instead of specifying
-an AMI ID, the AMI is referenced with a System Manager parameter. On instance launch,
-the Systems Manager parameter will resolve to an AMI ID.
+The following example uses a launch template to specify the configuration for the instances in the fleet. In this example, for `ImageId`, instead of specifying an AMI ID, the AMI is referenced with a System Manager parameter. On instance launch, the Systems Manager parameter will resolve to an AMI ID.
 
-In this example, the Systems Manager parameter is specified in a valid format:
-`resolve:ssm:golden-ami`. There are other valid formats for the Systems
-Manager parameter. For more information, see [Use a Systems Manager parameter instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id "create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id").
+In this example, the Systems Manager parameter is specified in a valid format: `resolve:ssm:golden-ami`. There are other valid formats for the Systems Manager parameter. For more information, see [Use a Systems Manager parameter instead of an AMI ID](create-launch-template.md#use-an-ssm-parameter-instead-of-an-ami-id).
 
-###### Note
-
-The fleet type must be of type `instant`. Other fleet types do not
-support specifying a System Manager parameter instead of an AMI ID.
+**Note**  
+The fleet type must be of type `instant`. Other fleet types do not support specifying a System Manager parameter instead of an AMI ID.
 
 ```
 {
     "LaunchTemplateData": {
-        **"ImageId": "resolve:ssm:golden-ami",**
-        "InstanceType": "`m5.4xlarge`",
+        "ImageId": "resolve:ssm:golden-ami",
+        "InstanceType": "{{m5.4xlarge}}",
         "TagSpecifications": [{
             "ResourceType": "instance",
             "Tags": [{
-                "Key": "`Name`",
-                "Value": "`webserver`"
+                "Key": "{{Name}}",
+                "Value": "{{webserver}}"
             }]
         }]
     }

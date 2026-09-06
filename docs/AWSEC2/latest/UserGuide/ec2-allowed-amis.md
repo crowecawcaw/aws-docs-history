@@ -1,183 +1,113 @@
+
+
 # Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs
+<a name="ec2-allowed-amis"></a>
 
-To control the discovery and use of Amazon Machine Images (AMIs) by users in your
-AWS account, you can use the _Allowed AMIs_ feature. You
-specify criteria that AMIs must meet to be visible and available within your account. When
-the criteria are enabled, users launching instances will only see and have access to AMIs
-that comply with the specified criteria. For example, you can specify a list of trusted AMI
-providers as the criteria, and only AMIs from these providers will be visible and available
-for use.
+To control the discovery and use of Amazon Machine Images (AMIs) by users in your AWS account, you can use the *Allowed AMIs* feature. You specify criteria that AMIs must meet to be visible and available within your account. When the criteria are enabled, users launching instances will only see and have access to AMIs that comply with the specified criteria. For example, you can specify a list of trusted AMI providers as the criteria, and only AMIs from these providers will be visible and available for use.
 
-Before enabling the Allowed AMIs settings, you can enable _audit
-mode_ to preview which AMIs will or won't be visible and available for use.
-This lets you refine the criteria as needed to ensure that only the intended AMIs are
-visible and available to users in your account. Additionally, use the [describe-instance-image-metadata](../../../cli/latest/reference/ec2/describe-instance-image-metadata.md "../../../cli/latest/reference/ec2/describe-instance-image-metadata.md") command to find instances that were launched
-with AMIs that don't meet the specified criteria. This information can guide your decision
-to either update your launch configurations to use compliant AMIs (for example, specifying a
-different AMI in a launch template) or adjust your criteria to allow these AMIs.
+Before enabling the Allowed AMIs settings, you can enable *audit mode* to preview which AMIs will or won't be visible and available for use. This lets you refine the criteria as needed to ensure that only the intended AMIs are visible and available to users in your account. Additionally, use the [describe-instance-image-metadata](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-image-metadata.html) command to find instances that were launched with AMIs that don't meet the specified criteria. This information can guide your decision to either update your launch configurations to use compliant AMIs (for example, specifying a different AMI in a launch template) or adjust your criteria to allow these AMIs.
 
-You specify the Allowed AMIs settings at the account level, either directly in the account
-or by using a declarative policy. These settings must be configured in each AWS Region
-where you want to control AMI usage. Using a declarative policy allows you to apply the
-settings across multiple Regions simultaneously, as well as across multiple accounts
-simultaneously. When a declarative policy is in use, you can't modify the settings directly
-within an account. This topic describes how to configure the settings directly within an
-account. For information about using declarative policies, see [Declarative
-policies](../../../organizations/latest/userguide/orgs_manage_policies_declarative.md "../../../organizations/latest/userguide/orgs_manage_policies_declarative.md") in the _AWS Organizations User Guide_.
+You specify the Allowed AMIs settings at the account level, either directly in the account or by using a declarative policy. These settings must be configured in each AWS Region where you want to control AMI usage. Using a declarative policy allows you to apply the settings across multiple Regions simultaneously, as well as across multiple accounts simultaneously. When a declarative policy is in use, you can't modify the settings directly within an account. This topic describes how to configure the settings directly within an account. For information about using declarative policies, see [Declarative policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_declarative.html) in the *AWS Organizations User Guide*.
 
-###### Note
+**Note**  
+The Allowed AMIs feature only controls the discovery and use of public AMIs or AMIs shared with your account. It does not restrict the AMIs owned by your account. Regardless of the criteria you set, the AMIs created by your account are always discoverable and usable by users in your account.
 
-The Allowed AMIs feature only controls the discovery and use of public AMIs or AMIs
-shared with your account. It does not restrict the AMIs owned by your account.
-Regardless of the criteria you set, the AMIs created by your account are always
-discoverable and usable by users in your account.
+**Key benefits of Allowed AMIs**
++ **Compliance and security**: Users can only discover and use AMIs that meet the specified criteria, reducing the risk of non-compliant AMI usage.
++ **Efficient management**: By reducing the number of allowed AMIs, managing the remaining ones becomes easier and more efficient.
++ **Centralized account-level implementation**: Configure the Allowed AMIs settings at the account level, either directly within the account or through a declarative policy. This provides a centralized and efficient way to control AMI usage across the entire account.
 
-###### Key benefits of Allowed AMIs
-
-- **Compliance and security**: Users can only discover
-  and use AMIs that meet the specified criteria, reducing the risk of non-compliant
-  AMI usage.
-- **Efficient management**: By reducing the number of
-  allowed AMIs, managing the remaining ones becomes easier and more efficient.
-- **Centralized account-level implementation**:
-  Configure the Allowed AMIs settings at the account level, either directly within the
-  account or through a declarative policy. This provides a centralized and efficient
-  way to control AMI usage across the entire account.
-
-###### Contents
-
-- [How Allowed AMIs works](#how-allowed-amis-works "#how-allowed-amis-works")
-- [Best practices for implementing Allowed AMIs](#best-practice-for-implementing-allowed-amis "#best-practice-for-implementing-allowed-amis")
-- [Required IAM permissions](#iam-permissions-for-allowed-amis "#iam-permissions-for-allowed-amis")
-- [Manage the settings for Allowed AMIs](manage-settings-allowed-amis.md "manage-settings-allowed-amis.md")
+**Topics**
++ [How Allowed AMIs works](#how-allowed-amis-works)
++ [Best practices for implementing Allowed AMIs](#best-practice-for-implementing-allowed-amis)
++ [Required IAM permissions](#iam-permissions-for-allowed-amis)
++ [Manage the settings for Allowed AMIs](manage-settings-allowed-amis.md)
 
 ## How Allowed AMIs works
+<a name="how-allowed-amis-works"></a>
 
-To control which AMIs can be discovered and used in your account, you define a set of
-criteria against which to evaluate the AMIs. The criteria are made up of one or more
-`ImageCriterion` as shown in the following diagram. An explanation
-follows the diagram.
+To control which AMIs can be discovered and used in your account, you define a set of criteria against which to evaluate the AMIs. The criteria are made up of one or more `ImageCriterion` as shown in the following diagram. An explanation follows the diagram.
 
-![The Allowed AMIs ImageCriteria configuration hierarchy.](images/ami_allowed-amis-imagecriteria.png)
+![The Allowed AMIs ImageCriteria configuration hierarchy.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/ami_allowed-amis-imagecriteria.png)
+
 
 The configuration has three levels:
++ **1** – Parameter values
+  + Multi-value parameters:
+    + `ImageProviders`
+    + `ImageNames`
+    + `MarketplaceProductCodes`
 
-- **1** – Parameter values
+      An AMI can match *any* values within a parameter to be allowed.
 
-  - Multi-value parameters:
+      Example: `ImageProviders` = `amazon` **OR** account `111122223333` **OR** account `444455556666` (The evaluation logic for parameter values is not shown in the diagram.)
+    + `ImageWatermarks`
+  + Single-value parameters:
+    + `CreationDateCondition`
+    + `DeprecationTimeCondition`
++ **2** – `ImageCriterion`
+  + Groups multiple parameters with **AND** logic.
+  + An AMI must match *all* parameters within an `ImageCriterion` to be allowed.
+  + Example: `ImageProviders` = `amazon` **AND** `CreationDateCondition` = 300 days or less
++ **3** – `ImageCriteria`
+  + Groups multiple `ImageCriterion` with **OR** logic.
+  + An AMI can match *any* `ImageCriterion` to be allowed.
+  + Forms the complete configuration against which AMIs are evaluated. 
 
-    - `ImageProviders`
-    - `ImageNames`
-    - `MarketplaceProductCodes`
-
-    An AMI can match _any_ values within a parameter to
-    be allowed.
-
-    Example: `ImageProviders` = `amazon`
-    **OR** account
-    `111122223333`
-    **OR** account
-    `444455556666` (The evaluation logic
-    for parameter values is not shown in the diagram.)
-    - `ImageWatermarks`
-
-  - Single-value parameters:
-
-    - `CreationDateCondition`
-    - `DeprecationTimeCondition`
-
-- **2** – `ImageCriterion`
-
-  - Groups multiple parameters with **AND** logic.
-  - An AMI must match _all_ parameters
-    within an `ImageCriterion` to be allowed.
-  - Example: `ImageProviders` = `amazon`
-    **AND**
-    `CreationDateCondition` = 300 days or less
-
-- **3** – `ImageCriteria`
-
-  - Groups multiple `ImageCriterion` with **OR** logic.
-  - An AMI can match _any_
-    `ImageCriterion` to be allowed.
-  - Forms the complete configuration against which AMIs are evaluated.
-
-###### Topics
-
-- [Allowed AMIs parameters](#allowed-amis-criteria "#allowed-amis-criteria")
-- [Allowed AMIs configuration](#allowed-amis-json-configuration "#allowed-amis-json-configuration")
-- [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated")
-- [Limits](#allowed-amis-json-configuration-limits "#allowed-amis-json-configuration-limits")
-- [Allowed AMIs operations](#allowed-amis-operations "#allowed-amis-operations")
+**Topics**
++ [Allowed AMIs parameters](#allowed-amis-criteria)
++ [Allowed AMIs configuration](#allowed-amis-json-configuration)
++ [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated)
++ [Limits](#allowed-amis-json-configuration-limits)
++ [Allowed AMIs operations](#allowed-amis-operations)
 
 ### Allowed AMIs parameters
+<a name="allowed-amis-criteria"></a>
 
 The following parameters can be configured to create `ImageCriterion`:
 
-`ImageProviders`
+`ImageProviders`  
+The AMI providers whose AMIs are allowed.  
+Valid values are aliases that are defined by AWS, and AWS account IDs, as follows:  
++ `amazon` – An alias that identifies AMIs created by Amazon or verified providers
++ `aws-marketplace` – An alias that identifies AMIs created by verified providers in the AWS Marketplace
++ `aws-backup-vault` – An alias that identifies backup AMIs that reside in logically air-gapped AWS Backup vault accounts. If you use the AWS Backup logically air-gapped vault feature, ensure this alias is included as an AMI provider.
++ AWS account IDs – One or more 12-digit AWS account IDs
++ `none` – Indicates that only AMIs created by your account can be discovered and used. Public or shared AMIs can't be discovered and used. When specified, no other criteria can be specified.
 
-The AMI providers whose AMIs are allowed.
+`ImageNames`  
+The names of allowed AMIs, using exact matches or wildcards (`?` or `*`).
 
-Valid values are aliases that are defined by AWS, and AWS account
-IDs, as follows:
-
-- `amazon` – An alias that identifies AMIs created by Amazon or
-  verified providers
-- `aws-marketplace` – An alias that identifies
-  AMIs created by verified providers in the AWS Marketplace
-- `aws-backup-vault` – An alias that
-  identifies backup AMIs that reside in logically air-gapped AWS
-  Backup vault accounts. If you use the AWS Backup logically
-  air-gapped vault feature, ensure this alias is included as an
-  AMI provider.
-- AWS account IDs – One or more 12-digit AWS account
-  IDs
-- `none` – Indicates that only AMIs created by
-  your account can be discovered and used. Public or shared AMIs
-  can't be discovered and used. When specified,
-  no other criteria can be specified.
-
-`ImageNames`
-
-The names of allowed AMIs, using exact matches or wildcards
-(`?` or `*`).
-
-`MarketplaceProductCodes`
-
+`MarketplaceProductCodes`  
 The AWS Marketplace product codes for allowed AMIs.
 
-`CreationDateCondition`
-
+`CreationDateCondition`  
 The maximum age for allowed AMIs.
 
-`DeprecationTimeCondition`
-
+`DeprecationTimeCondition`  
 The maximum period since deprecation for allowed AMIs.
 
-`ImageWatermarks`
+`ImageWatermarks`  
+A list of watermark filters. The filter allows an AMI if any watermark on the AMI matches any filter entry (OR logic). Each filter can include the following fields:  
++ `WatermarkKey` – The watermark key to match (`account-id:watermark-name`)
++ `SourceImageRegion` – The Region of the AMI to which you originally attached the watermark
++ `MaximumDaysSinceSourceImageCreated` – The maximum age of the source AMI when you applied the watermark
++ `MaximumDaysSinceWatermarkCreated` – The maximum number of days since you applied the watermark
 
-A list of watermark filters. The filter allows an AMI if any watermark on the AMI matches any filter entry (OR logic). Each filter can include the following fields:
-
-- `WatermarkKey` – The watermark key to match (`account-id:watermark-name`)
-- `SourceImageRegion` – The Region of the AMI to which you originally attached the watermark
-- `MaximumDaysSinceSourceImageCreated` – The maximum age of the source AMI when you applied the watermark
-- `MaximumDaysSinceWatermarkCreated` – The maximum number of days since you applied the watermark
-
-For the valid values and constraints for each criterion, see [ImageCriterionRequest](../APIReference/API_ImageCriterionRequest.md "../APIReference/API_ImageCriterionRequest.md") in the _Amazon EC2 API Reference_.
+For the valid values and constraints for each criterion, see [ImageCriterionRequest](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImageCriterionRequest.html) in the *Amazon EC2 API Reference*.
 
 ### Allowed AMIs configuration
+<a name="allowed-amis-json-configuration"></a>
 
-The core configuration for Allowed AMIs is the `ImageCriteria` configuration
-that defines the criteria for allowed AMIs. The following JSON structure shows the
-parameters that can be specified:
+The core configuration for Allowed AMIs is the `ImageCriteria` configuration that defines the criteria for allowed AMIs. The following JSON structure shows the parameters that can be specified:
 
 ```
 {
-    "State": "enabled" | "disabled" | "audit-mode",
+    "State": "enabled" | "disabled" | "audit-mode",  
     "ImageCriteria" : [
         {
             "ImageProviders": ["string",...],
-            "MarketplaceProductCodes": ["string",...],
+            "MarketplaceProductCodes": ["string",...],           
             "ImageNames":["string",...],
             "CreationDateCondition" : {
                 "MaximumDaysSinceCreated": integer
@@ -199,11 +129,9 @@ parameters that can be specified:
 ```
 
 #### ImageCriteria example
+<a name="allowed-amis-json-configuration-example"></a>
 
-The following `ImageCriteria` example configures five
-`ImageCriterion`. An AMI is allowed if it matches any one of
-these `ImageCriterion`. For information about how the criteria are
-evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated "#how-allowed-amis-criteria-are-evaluated").
+The following `ImageCriteria` example configures five `ImageCriterion`. An AMI is allowed if it matches any one of these `ImageCriterion`. For information about how the criteria are evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evaluated).
 
 ```
 {
@@ -211,38 +139,38 @@ evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evalu
         // ImageCriterion 1: Allow AWS Marketplace AMIs with product code "abcdefg1234567890"
         {
             "MarketplaceProductCodes": [
-                "`abcdefg1234567890`"
+                "{{abcdefg1234567890}}"
             ]
         },
         // ImageCriterion 2: Allow AMIs from providers whose accounts are
         // "123456789012" OR "123456789013" AND AMI age is less than 300 days
         {
             "ImageProviders": [
-                "`123456789012`",
-                "`123456789013`"
+                "{{123456789012}}",
+                "{{123456789013}}"
             ],
             "CreationDateCondition": {
-                "MaximumDaysSinceCreated": `300`
+                "MaximumDaysSinceCreated": {{300}}
             }
         },
-        // ImageCriterion 3: Allow AMIs from provider whose account is "123456789014"
+        // ImageCriterion 3: Allow AMIs from provider whose account is "123456789014" 
         // AND with names following the pattern "golden-ami-*"
         {
             "ImageProviders": [
-                "`123456789014`"
+                "{{123456789014}}"
             ],
             "ImageNames": [
-                "`golden-ami-*`"
+                "{{golden-ami-*}}"
             ]
         },
-        // ImageCriterion 4: Allow AMIs from Amazon or verified providers
+        // ImageCriterion 4: Allow AMIs from Amazon or verified providers 
         // AND which aren't deprecated
         {
             "ImageProviders": [
                 "amazon"
             ],
             "DeprecationTimeCondition": {
-                "MaximumDaysSinceDeprecated": `0`
+                "MaximumDaysSinceDeprecated": {{0}}
             }
         },
         // ImageCriterion 5: Allow AMIs that carry an approved watermark
@@ -250,8 +178,8 @@ evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evalu
         {
             "ImageWatermarks": [
                 {
-                    "WatermarkKey": "`111122223333:prod-baseline`",
-                    "MaximumDaysSinceWatermarkCreated": `90`
+                    "WatermarkKey": "{{111122223333:prod-baseline}}",
+                    "MaximumDaysSinceWatermarkCreated": {{90}}
                 }
             ]
         }
@@ -260,212 +188,138 @@ evaluated, see [How criteria are evaluated](#how-allowed-amis-criteria-are-evalu
 ```
 
 ### How criteria are evaluated
+<a name="how-allowed-amis-criteria-are-evaluated"></a>
 
-The following table explains the evaluation rules that determine if an AMI is allowed,
-showing how the `AND` or `OR` operator is applied at each
-level:
+The following table explains the evaluation rules that determine if an AMI is allowed, showing how the `AND` or `OR` operator is applied at each level:
 
-| Evaluation level                                                                                         | Operator | Requirement to be an Allowed AMI                         |
-| -------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------- |
-| Parameter values for `ImageProviders`, `ImageNames`,<br>`MarketplaceProductCodes`, and `ImageWatermarks` | `OR`     | AMI must match at least one value in each parameter list |
-| `ImageCriterion`                                                                                         | `AND`    | AMI must match all parameters in each `ImageCriterion`   |
-| `ImageCriteria`                                                                                          | `OR`     | AMI must match any one of the `ImageCriterion`           |
 
-Using the preceding evaluation rules, let's see how to apply them to the [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"):
+| Evaluation level | Operator | Requirement to be an Allowed AMI | 
+| --- | --- | --- | 
+| Parameter values for ImageProviders, ImageNames, MarketplaceProductCodes, and ImageWatermarks | OR | AMI must match at least one value in each parameter list | 
+| ImageCriterion | AND | AMI must match all parameters in each ImageCriterion | 
+| ImageCriteria | OR | AMI must match any one of the ImageCriterion | 
 
-- `ImageCriterion` 1: Allows AMIs that have the AWS Marketplace product code
-  `abcdefg1234567890`
+Using the preceding evaluation rules, let's see how to apply them to the [ImageCriteria example](#allowed-amis-json-configuration-example):
++ `ImageCriterion` 1: Allows AMIs that have the AWS Marketplace product code `abcdefg1234567890`
 
-`OR`
+  `OR`
++ `ImageCriterion` 2: Allows AMIs that meet both of these criteria:
+  + Owned by either account `123456789012` `OR` `123456789013`
+    + `AND`
+  + Created within the last 300 days
 
-- `ImageCriterion` 2: Allows AMIs that meet both of these criteria:
+  `OR`
++ `ImageCriterion` 3: Allows AMIs that meet both of these criteria:
+  + Owned by account `123456789014`
+    + `AND`
+  + Named with the pattern `golden-ami-*`
 
-  - Owned by either account `123456789012`
-    `OR`
-    `123456789013`
+  `OR`
++ `ImageCriterion` 4: Allows AMIs that meet both of these criteria:
+  + Published by Amazon or verified providers (specified by the `amazon` alias)
+    + `AND`
+  + Not deprecated (maximum days since deprecation is `0`)
 
-    - `AND`
-
-  - Created within the last 300 days
-    `OR`
-
-- `ImageCriterion` 3: Allows AMIs that meet both of these criteria:
-
-  - Owned by account `123456789014`
-
-    - `AND`
-
-  - Named with the pattern `golden-ami-*`
-    `OR`
-
-- `ImageCriterion` 4: Allows AMIs that meet both of these criteria:
-
-  - Published by Amazon or verified providers (specified by the `amazon`
-    alias)
-
-    - `AND`
-
-  - Not deprecated (maximum days since deprecation is
-    `0`)
-    `OR`
-
-- `ImageCriterion` 5: Allows AMIs that carry a watermark matching:
-
-  - Watermark key `111122223333:prod-baseline`
-
-    - `AND`
-
-  - You applied the watermark less than 90 days ago
+  `OR`
++ `ImageCriterion` 5: Allows AMIs that carry a watermark matching:
+  + Watermark key `111122223333:prod-baseline`
+    + `AND`
+  + You applied the watermark less than 90 days ago
 
 ### Limits
+<a name="allowed-amis-json-configuration-limits"></a>
 
 The `ImageCriteria` can include up to:
-
-- 10 `ImageCriterion`
++ 10 `ImageCriterion`
 
 Each `ImageCriterion` can include up to:
-
-- 200 values for `ImageProviders`
-- 50 values for `ImageNames`
-- 50 values for `MarketplaceProductCodes`
-- 50 values for `ImageWatermarks`
++ 200 values for `ImageProviders`
++ 50 values for `ImageNames` 
++ 50 values for `MarketplaceProductCodes` 
++ 50 values for `ImageWatermarks`
 
 **Example of limits**
 
-Using the preceding [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"):
-
-- There are 5 `ImageCriterion`. Up to 5 more can be added to the request to
-  reach the limit of 10.
-- In the first `ImageCriterion`, there is 1 value for
-  `MarketplaceProductCodes`. Up to 49 more can be added to this
-  `ImageCriterion` to reach the limit of 50.
-- In the second `ImageCriterion`, there are 2 values for
-  `ImageProviders`. Up to 198 more can be added to this
-  `ImageCriterion` to reach the limit of 200.
-- In the third `ImageCriterion`, there is 1 value for `ImageNames`.
-  Up to 49 more can be added to this `ImageCriterion` to reach the
-  limit of 50.
+Using the preceding [ImageCriteria example](#allowed-amis-json-configuration-example):
++ There are 5 `ImageCriterion`. Up to 5 more can be added to the request to reach the limit of 10.
++ In the first `ImageCriterion`, there is 1 value for `MarketplaceProductCodes`. Up to 49 more can be added to this `ImageCriterion` to reach the limit of 50.
++ In the second `ImageCriterion`, there are 2 values for `ImageProviders`. Up to 198 more can be added to this `ImageCriterion` to reach the limit of 200.
++ In the third `ImageCriterion`, there is 1 value for `ImageNames`. Up to 49 more can be added to this `ImageCriterion` to reach the limit of 50.
 
 ### Allowed AMIs operations
+<a name="allowed-amis-operations"></a>
 
-The Allowed AMIs feature has three operational states for managing the image
-criteria: **enabled**, **disabled**, and
-**audit mode**. These allow you to enable or disable the image
-criteria, or review them as needed.
+The Allowed AMIs feature has three operational states for managing the image criteria: **enabled**, **disabled**, and **audit mode**. These allow you to enable or disable the image criteria, or review them as needed.
 
-###### Enabled
+**Enabled**
 
-When Allowed AMIs is enabled:
+When Allowed AMIs is enabled: 
++ The `ImageCriteria` are applied.
++ Only allowed AMIs are discoverable in the EC2 console and by APIs that use images (for example, that describe, copy, store, or perform other actions that use images).
++ Instances can only be launched using allowed AMIs.
 
-- The `ImageCriteria` are applied.
-- Only allowed AMIs are discoverable in the EC2 console and by APIs that use
-  images (for example, that describe, copy, store, or perform other actions
-  that use images).
-- Instances can only be launched using allowed AMIs.
+**Disabled**
 
-###### Disabled
+When Allowed AMIs is disabled: 
++ The `ImageCriteria` are not applied.
++ No restrictions are placed on AMI discoverability or usage. 
 
-When Allowed AMIs is disabled:
+**Audit mode**
 
-- The `ImageCriteria` are not applied.
-- No restrictions are placed on AMI discoverability or usage.
-
-###### Audit mode
-
-In audit mode:
-
-- The `ImageCriteria` are applied, but no restrictions are placed
-  on AMI discoverability or usage.
-- In the EC2 console, for each AMI, the **Allowed
-  image** field displays either **Yes** or
-  **No** to indicate whether the AMI will be discoverable
-  and available to users in the account when Allowed AMIs is enabled.
-- In the command line, the response for the `describe-image`
-  operation includes `"ImageAllowed": true` or
-  `"ImageAllowed": false` to indicate whether the AMI will be
-  discoverable and available to users in the account when Allowed AMIs is
-  enabled.
-- In the EC2 console, the AMI Catalog displays **Not
-  allowed** next to AMIs that won't be discoverable or available
-  to users in the account when Allowed AMIs is enabled.
+ In audit mode:
++ The `ImageCriteria` are applied, but no restrictions are placed on AMI discoverability or usage.
++ In the EC2 console, for each AMI, the **Allowed image** field displays either **Yes** or **No** to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled.
++ In the command line, the response for the `describe-image` operation includes `"ImageAllowed": true` or `"ImageAllowed": false` to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled.
++ In the EC2 console, the AMI Catalog displays **Not allowed** next to AMIs that won't be discoverable or available to users in the account when Allowed AMIs is enabled.
 
 ## Best practices for implementing Allowed AMIs
+<a name="best-practice-for-implementing-allowed-amis"></a>
 
-When implementing Allowed AMIs, consider these best practices to ensure a smooth
-transition and minimize potential disruptions to your AWS environment.
+When implementing Allowed AMIs, consider these best practices to ensure a smooth transition and minimize potential disruptions to your AWS environment.
 
 1. **Enable audit mode**
 
-Begin by enabling Allowed AMIs in audit mode. This state allows you to see
-which AMIs would be affected by your criteria without actually restricting
-access, providing a risk-free evaluation period. 2. **Set Allowed AMIs criteria**
+   Begin by enabling Allowed AMIs in audit mode. This state allows you to see which AMIs would be affected by your criteria without actually restricting access, providing a risk-free evaluation period.
 
-Carefully establish which AMI providers align with your organization's
-security policies, compliance requirements, and operational needs.
+1. **Set Allowed AMIs criteria**
 
-###### Note
+   Carefully establish which AMI providers align with your organization's security policies, compliance requirements, and operational needs.
+**Note**  
+When using AWS managed services, such as Amazon ECS, Amazon EKS, or AWS Lambda Managed Instances, we recommend specifying the `amazon` alias to allow AMIs created by AWS. These services depend on Amazon-published AMIs to launch instances.   
+Be cautious when setting `CreationDateCondition` restrictions for any AMIs. Setting overly restrictive date conditions (for example, AMIs must be less than 5 days old) can cause instance launch failures if the AMIs, whether from AWS or other providers, are not updated within your specified time frame.  
+We recommend pairing `ImageNames` with `ImageProviders` for better control and specificity. Using `ImageNames` alone might not uniquely identify an AMI.
 
-When using AWS managed services, such as Amazon ECS, Amazon EKS, or AWS Lambda Managed Instances, we recommend specifying the
-`amazon` alias to allow AMIs created by AWS. These services
-depend on Amazon-published AMIs to launch instances.
+1. **Check for impact on expected business processes**
 
-Be cautious when setting `CreationDateCondition` restrictions for any AMIs.
-Setting overly restrictive date conditions (for example, AMIs must be less
-than 5 days old) can cause instance launch failures if the AMIs, whether
-from AWS or other providers, are not updated within your specified time
-frame.
+   You can use the console or the CLI to identify any instances that were launched with AMIs that don't meet the specified criteria. This information can guide your decision to either update your launch configurations to use compliant AMIs (for example, specifying a different AMI in a launch template) or adjust your criteria to allow these AMIs.
 
-We recommend pairing `ImageNames` with `ImageProviders` for better
-control and specificity. Using `ImageNames` alone might not
-uniquely identify an AMI. 3. **Check for impact on expected business
-processes**
+   Console: Use the [ec2-instance-launched-with-allowed-ami](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-launched-with-allowed-ami.html) AWS Config rule to check if running or stopped instances were launched with AMIs that meet your Allowed AMIs criteria. The rule is **NON\_COMPLIANT** if an AMI doesn't meet the Allowed AMIs criteria, and **COMPLIANT** if it does. The rule only operates when the Allowed AMIs setting is set to **enabled** or **audit mode**.
 
-You can use the console or the CLI to identify any instances that were
-launched with AMIs that don't meet the specified criteria. This information can
-guide your decision to either update your launch configurations to use compliant
-AMIs (for example, specifying a different AMI in a launch template) or adjust
-your criteria to allow these AMIs.
+   CLI: Run the [describe-instance-image-metadata](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-image-metadata.html) command and filter the response to identify any instances that were launched with AMIs that don't meet the specified criteria.
 
-Console: Use the [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") AWS Config rule to check if
-running or stopped instances were launched with AMIs that meet your Allowed AMIs
-criteria. The rule is **NON\_COMPLIANT** if an AMI doesn't meet
-the Allowed AMIs criteria, and **COMPLIANT** if it does. The
-rule only operates when the Allowed AMIs setting is set to
-**enabled** or **audit mode**.
+   For the console and CLI instructions, see [Find instances launched from AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs).
 
-CLI: Run the [describe-instance-image-metadata](../../../cli/latest/reference/ec2/describe-instance-image-metadata.md "../../../cli/latest/reference/ec2/describe-instance-image-metadata.md") command and filter the response to
-identify any instances that were launched with AMIs that don't meet the
-specified criteria.
+1. **Enable Allowed AMIs**
 
-For the console and CLI instructions, see [Find instances launched from AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs "manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs"). 4. **Enable Allowed AMIs**
+   After you've confirmed that the criteria will not adversely affect expected business processes, enable Allowed AMIs.
 
-After you've confirmed that the criteria will not adversely affect expected
-business processes, enable Allowed AMIs. 5. **Monitor instance launches**
+1. **Monitor instance launches**
 
-Continue to monitor instance launches from AMIs across your applications and
-the AWS managed services you use, such as Amazon EMR, Amazon ECR, Amazon EKS, and AWS Elastic Beanstalk.
-Check for any unexpected issues and make necessary adjustments to the Allowed
-AMIs criteria. 6. **Pilot new AMIs**
+   Continue to monitor instance launches from AMIs across your applications and the AWS managed services you use, such as Amazon EMR, Amazon ECR, Amazon EKS, and AWS Elastic Beanstalk. Check for any unexpected issues and make necessary adjustments to the Allowed AMIs criteria.
 
-To test third-party AMIs that do not comply with your current Allowed AMIs
-settings, AWS recommends the following approaches:
+1. **Pilot new AMIs**
 
-    * Use a separate AWS account: Create an account with no access to your
-     business-critical resources. Ensure that the Allowed AMIs setting is not
-     enabled in this account, or that the AMIs you want to test are
-     explicitly allowed, so that you can test them.
-    * Test in another AWS Region: Use a Region where the third-party AMIs
-     are available, but where you have not yet enabled the Allowed AMIs
-     settings.
+   To test third-party AMIs that do not comply with your current Allowed AMIs settings, AWS recommends the following approaches:
+   + Use a separate AWS account: Create an account with no access to your business-critical resources. Ensure that the Allowed AMIs setting is not enabled in this account, or that the AMIs you want to test are explicitly allowed, so that you can test them. 
+   + Test in another AWS Region: Use a Region where the third-party AMIs are available, but where you have not yet enabled the Allowed AMIs settings. 
 
-These approaches help ensure your business-critical resources remain secure
-while you test new AMIs.
+   These approaches help ensure your business-critical resources remain secure while you test new AMIs.
 
 ## Required IAM permissions
+<a name="iam-permissions-for-allowed-amis"></a>
 
 To use the Allowed AMIs feature, you need the following IAM permissions:
-
-- `GetAllowedImagesSettings`
-- `EnableAllowedImagesSettings`
-- `DisableAllowedImagesSettings`
-- `ReplaceImageCriteriaInAllowedImagesSettings`
++ `GetAllowedImagesSettings`
++ `EnableAllowedImagesSettings`
++ `DisableAllowedImagesSettings`
++ `ReplaceImageCriteriaInAllowedImagesSettings`

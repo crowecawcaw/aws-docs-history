@@ -1,137 +1,76 @@
+
+
 # Device names for volumes on Amazon EC2 instances
+<a name="device_naming"></a>
 
-When you attach a volume to your instance, you include a device name for the volume. This
-device name is used by Amazon EC2. The block device driver for the instance assigns the actual
-volume name when mounting the volume, and the name assigned can be different from the name
-that Amazon EC2 uses.
+When you attach a volume to your instance, you include a device name for the volume. This device name is used by Amazon EC2. The block device driver for the instance assigns the actual volume name when mounting the volume, and the name assigned can be different from the name that Amazon EC2 uses.
 
-The number of volumes that your instance can support is determined by the operating system.
-For more information, see [Amazon EBS volume limits for Amazon EC2 instances](volume_limits.md "volume_limits.md").
+The number of volumes that your instance can support is determined by the operating system. For more information, see [Amazon EBS volume limits for Amazon EC2 instances](volume_limits.md).
 
-###### Contents
-
-- [Available device names](#available-ec2-device-names "#available-ec2-device-names")
-- [Device name considerations](#device-name-limits "#device-name-limits")
+**Topics**
++ [Available device names](#available-ec2-device-names)
++ [Device name considerations](#device-name-limits)
 
 ## Available device names
+<a name="available-ec2-device-names"></a>
 
-There are two types of virtualization available for Linux instances:
-paravirtual (PV) and hardware virtual machine (HVM). The virtualization type of an
-instance is determined by the AMI used to launch the instance. All instance types
-support HVM AMIs. Some previous generation instance types support PV AMIs. Be sure to
-note the virtualization type of your AMI because the recommended and available device
-names that you can use depend on the virtualization type of your instance. For more
-information, see [Virtualization types](ComponentsAMIs.md#virtualization_types "ComponentsAMIs.md#virtualization_types").
+### Linux instances
+<a name="device-names-linux"></a>
 
-The following table lists the available device names that you can specify in a block
-device mapping or when attaching an EBS volume.
+There are two types of virtualization available for Linux instances: paravirtual (PV) and hardware virtual machine (HVM). The virtualization type of an instance is determined by the AMI used to launch the instance. All instance types support HVM AMIs. Some previous generation instance types support PV AMIs. Be sure to note the virtualization type of your AMI because the recommended and available device names that you can use depend on the virtualization type of your instance. For more information, see [Virtualization types](ComponentsAMIs.md#virtualization_types).
 
-| Virtualization type | Available                                                                | Reserved for root volume                 | Recommended for EBS data volumes     | Instance store volumes                                                                                       |
-| ------------------- | ------------------------------------------------------------------------ | ---------------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| Paravirtual         | /dev/sd[a-z]<br>/dev/sd[a-z][1-15]<br>/dev/hd[a-z]<br>/dev/hd[a-z][1-15] | /dev/sda1                                | /dev/sd[f-p]<br>/dev/sd[f-p][1-6]    | /dev/sd[b-e]                                                                                                 |
-| HVM                 | /dev/sd[a-z]<br>/dev/xvd[a-c][a-z]<br>/dev/xvdd[a-x]                     | Differs by AMI<br>/dev/sda1 or /dev/xvda | /dev/sd[b-z]<br>/dev/xvdb[b-z]<br>\* | /dev/sd[b-e]<br>/dev/sd[b-h] (h1.16xlarge)<br>/dev/sd[b-y] (d2.8xlarge)<br>/dev/sd[b-i] (i2.8xlarge)<br>\*\* |
+The following table lists the available device names that you can specify in a block device mapping or when attaching an EBS volume.
 
-\* The device names that you specify for NVMe EBS volumes in a
-block device mapping are renamed using NVMe device names (`/dev/nvme[0-26]n1`).
-The block device driver can assign NVMe device names in a different order
-than you specified for the volumes in the block device mapping.
 
-\*\* NVMe instance store volumes are automatically enumerated and assigned an
-NVMe device name.
+| Virtualization type | Available | Reserved for root volume | Recommended for EBS data volumes  | Instance store volumes | 
+| --- | --- | --- | --- | --- | 
+| Paravirtual | /dev/sd[a-z]<br />/dev/sd[a-z][1-15]<br />/dev/hd[a-z]<br />/dev/hd[a-z][1-15] | /dev/sda1 | /dev/sd[f-p]<br />/dev/sd[f-p][1-6] | /dev/sd[b-e] | 
+| HVM | /dev/sd[a-z]<br />/dev/xvd[a-c][a-z]<br />/dev/xvdd[a-x] | Differs by AMI<br />/dev/sda1 or /dev/xvda | /dev/sd[b-z] <br />/dev/xvdb[b-z]<br />\* | /dev/sd[b-e]<br />/dev/sd[b-h] (h1.16xlarge)<br />/dev/sd[b-y] (d2.8xlarge)<br />/dev/sd[b-i] (i2.8xlarge)<br />\*\* | 
 
-AWS Windows AMIs use one of the following sets of drivers to permit access to
-virtualized hardware:
+\* The device names that you specify for NVMe EBS volumes in a block device mapping are renamed using NVMe device names (`/dev/nvme[0-26]n1`). The block device driver can assign NVMe device names in a different order than you specified for the volumes in the block device mapping.
 
-- AWS PV: [Paravirtual drivers for Windows instances](xen-drivers-overview.md "xen-drivers-overview.md")
-- AWS NVMe: [NVMe drivers](aws-nvme-drivers.md "aws-nvme-drivers.md")
+\*\* NVMe instance store volumes are automatically enumerated and assigned an NVMe device name.
 
-###### Device names for Nitro based instances
+### Windows instances
+<a name="device-names-windows"></a>
 
-The following table lists the available device names that you can specify in
-a block device mapping or when attaching an EBS volume to a Nitro based instance.
+AWS Windows AMIs use one of the following sets of drivers to permit access to virtualized hardware:
++ AWS PV: [Paravirtual drivers for Windows instances](xen-drivers-overview.md)
++ AWS NVMe: [NVMe drivers](aws-nvme-drivers.md)
 
-| Driver type | Available                                           | Reserved for root volume | Recommended for EBS volumes | Instance store volumes |
-| ----------- | --------------------------------------------------- | ------------------------ | --------------------------- | ---------------------- |
-| AWS NVMe    | xvd[a-z]<br>xvd[a-c][a-z]<br>xvdd[a-x]<br>/dev/sda1 | /dev/sda1                | xvd[b-z]<br>xvdb[b-z]       | \*                     |
+**Device names for Nitro based instances**  
+The following table lists the available device names that you can specify in a block device mapping or when attaching an EBS volume to a Nitro based instance.
 
-\* NVMe instance store volumes are automatically enumerated and are assigned a Windows
-drive letter.
 
-###### Device names for Xen based instances
+| Driver type | Available | Reserved for root volume | Recommended for EBS volumes | Instance store volumes | 
+| --- | --- | --- | --- | --- | 
+| AWS NVMe | xvd[a-z]<br />xvd[a-c][a-z]<br />xvdd[a-x]<br />/dev/sda1 | /dev/sda1 | xvd[b-z]<br />xvdb[b-z] | \* | 
 
-The following table lists the available device names that you can specify in
-a block device mapping or when attaching an EBS volume to a Xen based instance.
+\* NVMe instance store volumes are automatically enumerated and are assigned a Windows drive letter.
 
-| Driver type                      | Available                                              | Reserved for root volume | Recommended for EBS volumes | Instance store volumes |
-| -------------------------------- | ------------------------------------------------------ | ------------------------ | --------------------------- | ---------------------- |
-| AWS PV                           | xvd[b-z]<br>xvd[b-c][a-z]<br>/dev/sda1<br>/dev/sd[b-e] | /dev/sda1                | xvd[f-z]                    | xvdc[a-x]<br>xvd[a-e]  |
-| Citrix PV (no longer supported)  | xvd[b-z]<br>xvd[b-c][a-z]<br>/dev/sda1<br>/dev/sd[b-e] | /dev/sda1                | xvd[f-z]                    | xvdc[a-x]<br>xvd[a-e]  |
-| Red Hat PV (no longer supported) | xvd[a-z]<br>xvd[b-c][a-z]<br>/dev/sda1<br>/dev/sd[b-e] | /dev/sda1                | xvd[f-p]                    | xvdc[a-x]<br>xvd[a-e]  |
+**Device names for Xen based instances**  
+The following table lists the available device names that you can specify in a block device mapping or when attaching an EBS volume to a Xen based instance.
 
-For more information about instance store volumes, see [Instance store temporary block storage for EC2 instances](InstanceStorage.md "InstanceStorage.md"). For more information about NVMe EBS volumes
-(Nitro-based instances), including how to identify the EBS device, see [Amazon EBS and NVMe](../../../ebs/latest/userguide/nvme-ebs-volumes.md "../../../ebs/latest/userguide/nvme-ebs-volumes.md")
-in the _Amazon EBS User Guide_.
+
+| Driver type | Available | Reserved for root volume | Recommended for EBS volumes | Instance store volumes | 
+| --- | --- | --- | --- | --- | 
+| AWS PV | xvd[b-z]<br />xvd[b-c][a-z]<br />/dev/sda1<br />/dev/sd[b-e] | /dev/sda1 | xvd[f-z] | xvdc[a-x]<br />xvd[a-e] | 
+| Citrix PV (no longer supported) | xvd[b-z]<br />xvd[b-c][a-z]<br />/dev/sda1<br />/dev/sd[b-e] | /dev/sda1 | xvd[f-z] | xvdc[a-x]<br />xvd[a-e] | 
+| Red Hat PV (no longer supported) | xvd[a-z]<br />xvd[b-c][a-z]<br />/dev/sda1<br />/dev/sd[b-e] | /dev/sda1 | xvd[f-p] | xvdc[a-x]<br />xvd[a-e] | 
+
+For more information about instance store volumes, see [Instance store temporary block storage for EC2 instances](InstanceStorage.md). For more information about NVMe EBS volumes (Nitro-based instances), including how to identify the EBS device, see [Amazon EBS and NVMe](https://docs.aws.amazon.com/ebs/latest/userguide/nvme-ebs-volumes.html) in the *Amazon EBS User Guide*.
 
 ## Device name considerations
+<a name="device-name-limits"></a>
 
 Keep the following in mind when selecting a device name:
++ The ending portion of device names that you use shouldn't overlap as it can cause issues when you start your instance. For example, avoid using combinations such as `/dev/xvdf` and `xvdf` for volumes attached to the same instance.
++ Although you can attach your EBS volumes using the device names used to attach instance store volumes, we strongly recommend that you don't because the behavior can be unpredictable.
++ The number of NVMe instance store volumes for an instance depends on the size of the instance. NVMe instance store volumes are automatically enumerated and assigned an NVMe device name (Linux instances) or a Windows drive letter (Windows instances).
++ (Windows instances) AWS Windows AMIs come with additional software that prepares an instance when it first boots up. This is either the EC2Config service (Windows AMIs prior to Windows Server 2016) or EC2Launch (Windows Server 2016 and later). After the devices have been mapped to drives, they are initialized and mounted. The root drive is initialized and mounted as `C:\`. By default, when an EBS volume is attached to a Windows instance, it can show up as any drive letter on the instance. You can change the settings to set the drive letters of the volumes per your specifications. For instance store volumes, the default depends on the driver. AWS PV drivers and Citrix PV drivers assign instance store volumes drive letters going from Z: to A:. Red Hat drivers assign instance store volumes drive letters going from D: to Z:. For more information, see [Windows launch agents on Amazon EC2 Windows instances](configure-launch-agents.md), and [How volumes are attached and mapped for Amazon EC2 Windows instances](ec2-windows-volumes.md).
++ (Linux instances) Depending on the block device driver of the kernel, the device could be attached with a different name than you specified. For example, if you specify a device name of `/dev/sdh`, your device could be renamed `/dev/xvdh` or `/dev/hdh`. In most cases, the trailing letter remains the same. In some versions of Red Hat Enterprise Linux (and its variants, such as CentOS), the trailing letter could change (`/dev/sda` could become `/dev/xvde`). In these cases, the trailing letter of each device name is incremented the same number of times. For example, if `/dev/sdb` is renamed `/dev/xvdf`, then `/dev/sdc` is renamed `/dev/xvdg`. Amazon Linux creates a symbolic link for the name you specified to the renamed device. Other operating systems could behave differently.
++ (Linux instances) HVM AMIs do not support the use of trailing numbers on device names, except for `/dev/sda1`, which is reserved for the root volume, and `/dev/sda2`. While using `/dev/sda2` is possible, we do not recommend using this device mapping with HVM instances.
++ (Linux instances) When using PV AMIs, you cannot attach volumes that share the same device letters both with and without trailing digits. For example, if you attach a volume as `/dev/sdc` and another volume as `/dev/sdc1`, only `/dev/sdc` is visible to the instance. To use trailing digits in device names, you must use trailing digits on all device names that share the same base letters (such as `/dev/sdc1`, `/dev/sdc2`, `/dev/sdc3`).
++ (Linux instances) Some custom kernels might have restrictions that limit use to `/dev/sd[f-p]` or `/dev/sd[f-p][1-6]`. If you're having trouble using `/dev/sd[q-z]` or `/dev/sd[q-z][1-6]`, try switching to `/dev/sd[f-p]` or `/dev/sd[f-p][1-6]`.
 
-- The ending portion of device names that you use shouldn't overlap as it can
-  cause issues when you start your instance. For example, avoid using combinations
-  such as `/dev/xvdf` and `xvdf` for volumes attached to the
-  same instance.
-- Although you can attach your EBS volumes using the device names used to attach
-  instance store volumes, we strongly recommend that you don't because the
-  behavior can be unpredictable.
-- The number of NVMe instance store volumes for an instance depends on the size
-  of the instance. NVMe instance store volumes are automatically enumerated and
-  assigned an NVMe device name (Linux instances) or a Windows drive letter (Windows
-  instances).
-- (Windows instances) AWS Windows AMIs come with additional software that prepares an instance when
-  it first boots up. This is either the EC2Config service (Windows AMIs prior to
-  Windows Server 2016) or EC2Launch (Windows Server 2016 and later). After the
-  devices have been mapped to drives, they are initialized and mounted. The root
-  drive is initialized and mounted as `C:\`. By default, when an EBS
-  volume is attached to a Windows instance, it can show up as any drive letter
-  on the instance. You can change the settings to set the drive letters of the
-  volumes per your specifications. For instance store volumes, the default depends
-  on the driver. AWS PV drivers and Citrix PV drivers assign instance store
-  volumes drive letters going from Z: to A:. Red Hat drivers assign instance store
-  volumes drive letters going from D: to Z:. For more information, see
-  [Windows launch agents on Amazon EC2 Windows instances](configure-launch-agents.md "configure-launch-agents.md"), and
-  [How volumes are attached and mapped for Amazon EC2 Windows instances](ec2-windows-volumes.md "ec2-windows-volumes.md").
-- (Linux instances) Depending on the block device driver of the kernel, the device could be
-  attached with a different name than you specified. For example, if you specify a
-  device name of `/dev/sdh`, your device could be renamed
-  `/dev/xvdh` or `/dev/hdh`. In most
-  cases, the trailing letter remains the same. In some versions of Red Hat
-  Enterprise Linux (and its variants, such as CentOS), the trailing letter could
-  change (`/dev/sda` could become
-  `/dev/xvde`). In these cases, the trailing letter of each
-  device name is incremented the same number of times. For example, if
-  `/dev/sdb` is renamed `/dev/xvdf`,
-  then `/dev/sdc` is renamed `/dev/xvdg`.
-  Amazon Linux creates a symbolic link for the name you specified to the renamed device.
-  Other operating systems could behave differently.
-- (Linux instances) HVM AMIs do not support the use of trailing numbers on device
-  names, except for `/dev/sda1`, which is reserved for the root volume,
-  and `/dev/sda2`. While using `/dev/sda2` is possible, we
-  do not recommend using this device mapping with HVM instances.
-- (Linux instances) When using PV AMIs, you cannot attach volumes that share the same device letters both with
-  and without trailing digits. For example, if you attach a volume as `/dev/sdc` and
-  another volume as `/dev/sdc1`, only `/dev/sdc` is visible to the instance.
-  To use trailing digits in device names, you must use trailing digits on all device names that
-  share the same base letters (such as `/dev/sdc1`, `/dev/sdc2`,
-  `/dev/sdc3`).
-- (Linux instances) Some custom kernels might have restrictions that limit use to
-  `/dev/sd[f-p]` or `/dev/sd[f-p][1-6]`.
-  If you're having trouble using `/dev/sd[q-z]` or
-  `/dev/sd[q-z][1-6]`, try switching to
-  `/dev/sd[f-p]` or
-  `/dev/sd[f-p][1-6]`.
-
-Before you specify the device name that you've selected, verify that it is available.
-Otherwise, you'll get an error that the device name is already in use. To view the disk
-devices and their mount points, use the **lsblk** command (Linux instances),
-or the Disk Management utility or the **diskpart** command (Windows
-instances).
+Before you specify the device name that you've selected, verify that it is available. Otherwise, you'll get an error that the device name is already in use. To view the disk devices and their mount points, use the **lsblk** command (Linux instances), or the Disk Management utility or the **diskpart** command (Windows instances).

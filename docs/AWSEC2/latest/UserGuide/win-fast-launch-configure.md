@@ -1,68 +1,52 @@
+
+
 # Configure EC2 Fast Launch settings for your Amazon EC2 Windows Server AMI
+<a name="win-fast-launch-configure"></a>
 
-You can configure EC2 Fast Launch for Windows AMIs that you own, or AMIs
-that are shared with you from the AWS Management Console, API, SDKs, CloudFormation, or AWS Command Line Interface (AWS CLI).
-Before you configure EC2 Fast Launch, verify that your AMI meets all of the prerequisites
-that are required to create the pre-provisioned snapshots. For more information, see
-[EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md "win-start-fast-launch-prereqs.md").
+You can configure EC2 Fast Launch for Windows AMIs that you own, or AMIs that are shared with you from the AWS Management Console, API, SDKs, CloudFormation, or AWS Command Line Interface (AWS CLI). Before you configure EC2 Fast Launch, verify that your AMI meets all of the prerequisites that are required to create the pre-provisioned snapshots. For more information, see [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md).
 
-When you enable faster launching for Windows instances, Amazon EC2 checks to make sure that
-you have the required permissions to launch instances from the specified AMI and Launch Template
-(if provided), including permissions for encrypted AMIs. To prevent errors during the
-instance launch process, the service validates your permissions before EC2 Fast Launch
-is enabled. If you don't have the required permissions, the service returns an error, and
-does not enable EC2 Fast Launch.
+When you enable faster launching for Windows instances, Amazon EC2 checks to make sure that you have the required permissions to launch instances from the specified AMI and Launch Template (if provided), including permissions for encrypted AMIs. To prevent errors during the instance launch process, the service validates your permissions before EC2 Fast Launch is enabled. If you don't have the required permissions, the service returns an error, and does not enable EC2 Fast Launch.
 
-EC2 Fast Launch integrates with EC2 Image Builder to help you create custom
-images with EC2 Fast Launch enabled. For more information, see [Create distribution settings for a Windows AMI with EC2 Fast Launch enabled (AWS CLI)](../../../imagebuilder/latest/userguide/cr-upd-ami-distribution-settings.md#create-ami-dist-win-fast-launch "../../../imagebuilder/latest/userguide/cr-upd-ami-distribution-settings.md#create-ami-dist-win-fast-launch")
-in the _EC2 Image Builder User Guide_.
+EC2 Fast Launch integrates with EC2 Image Builder to help you create custom images with EC2 Fast Launch enabled. For more information, see [Create distribution settings for a Windows AMI with EC2 Fast Launch enabled (AWS CLI)](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cr-upd-ami-distribution-settings.html#create-ami-dist-win-fast-launch) in the *EC2 Image Builder User Guide*.
 
 ## Enable EC2 Fast Launch
+<a name="win-start-fast-launch"></a>
 
-Before changing these settings, make sure that your AMI, and the Region
-that you run in meet all [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md "win-start-fast-launch-prereqs.md").
+Before changing these settings, make sure that your AMI, and the Region that you run in meet all [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md).
 
-Console
+------
+#### [ Console ]
 
-###### To enable EC2 Fast Launch
+**To enable EC2 Fast Launch**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Images**, choose
-   **AMIs**.
-3. Choose the AMI to update by selecting the check box next to the
-   **Name**.
-4. From the **Actions** menu above the list of AMIs,
-   choose **Configure fast launch**. This opens
-   the **Configure fast launch** page, where you
-   configure the settings for EC2 Fast Launch.
-5. To start using pre-provisioned snapshots to launch instances from
-   your Windows AMI faster, select the **Enable fast launch for Windows**
-   checkbox.
-6. From the **Set anticipated launch frequency**
-   drop-down list, choose a value to specify the number of snapshots
-   that are created and maintained to cover your expected instance
-   launch volume.
-7. When you're done making changes, choose **Save
-   changes**.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### Note
+1. In the navigation pane, under **Images**, choose **AMIs**.
 
-If you need to use a launch template to specify a VPC, or to configure
-metadata settings for IMDSv2, see [Use a launch template when you set up EC2 Fast Launch](#win-fast-launch-with-template "#win-fast-launch-with-template").
+1. Choose the AMI to update by selecting the check box next to the **Name**.
 
-AWS CLI
+1. From the **Actions** menu above the list of AMIs, choose **Configure fast launch**. This opens the **Configure fast launch** page, where you configure the settings for EC2 Fast Launch.
 
-###### To enable EC2 Fast Launch
+1. To start using pre-provisioned snapshots to launch instances from your Windows AMI faster, select the **Enable fast launch for Windows** checkbox.
 
-Use the following [enable-fast-launch](../../../cli/latest/reference/ec2/enable-fast-launch.md "../../../cli/latest/reference/ec2/enable-fast-launch.md") command to enable EC2 Fast Launch for the
-specified AMI, launching six parallel instances for pre-provisioning.
+1. From the **Set anticipated launch frequency** drop-down list, choose a value to specify the number of snapshots that are created and maintained to cover your expected instance launch volume.
+
+1. When you're done making changes, choose **Save changes**.
+
+**Note**  
+If you need to use a launch template to specify a VPC, or to configure metadata settings for IMDSv2, see [Use a launch template when you set up EC2 Fast Launch](#win-fast-launch-with-template).
+
+------
+#### [ AWS CLI ]
+
+**To enable EC2 Fast Launch**  
+Use the following [enable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-fast-launch.html) command to enable EC2 Fast Launch for the specified AMI, launching six parallel instances for pre-provisioning.
 
 ```
 aws ec2 enable-fast-launch \
-    --image-id `ami-0abcdef1234567890`  \
-    --max-parallel-launches `6` \
-    --resource-type `snapshot`
+    --image-id {{ami-0abcdef1234567890}}  \
+    --max-parallel-launches {{6}} \
+    --resource-type {{snapshot}}
 ```
 
 The following is example output.
@@ -83,27 +67,25 @@ The following is example output.
 }
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To enable EC2 Fast Launch
-
-Use the [Enable-EC2FastLaunch](../../../powershell/latest/reference/items/Enable-EC2FastLaunch.md "../../../powershell/latest/reference/items/Enable-EC2FastLaunch.md") cmdlet to enable EC2 Fast Launch for
-the specified AMI, launching six parallel instances for
-pre-provisioning.
+**To enable EC2 Fast Launch**  
+Use the [Enable-EC2FastLaunch](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2FastLaunch.html) cmdlet to enable EC2 Fast Launch for the specified AMI, launching six parallel instances for pre-provisioning.
 
 ```
 Enable-EC2FastLaunch `
-	-ImageId `ami-0abcdef1234567890` `
-	-MaxParallelLaunch `6` `
-	-Region `us-west-2` `
-	-ResourceType `snapshot`
+	-ImageId {{ami-0abcdef1234567890}} `
+	-MaxParallelLaunch {{6}} `
+	-Region {{us-west-2}} `
+	-ResourceType {{snapshot}}
 ```
 
 The following is example output.
 
 ```
 ImageId               : ami-0abcdef1234567890
-	LaunchTemplate        :
+	LaunchTemplate        : 
 	MaxParallelLaunches   : 6
 	OwnerId               : 0123456789123
 	ResourceType          : snapshot
@@ -113,47 +95,40 @@ ImageId               : ami-0abcdef1234567890
 	StateTransitionTime   : 2/25/2022 12:24:11 PM
 ```
 
+------
+
 ## Disable EC2 Fast Launch
+<a name="win-stop-fast-launch"></a>
 
-Before changing these settings, make sure that your AMI, and the Region
-that you run in meet all [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md "win-start-fast-launch-prereqs.md").
+Before changing these settings, make sure that your AMI, and the Region that you run in meet all [EC2 Fast Launch prerequisites for Windows](win-start-fast-launch-prereqs.md).
 
-Console
+------
+#### [ Console ]
 
-###### To disable EC2 Fast Launch
+**To disable EC2 Fast Launch**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Images**, choose
-   **AMIs**.
-3. Choose the AMI to update by selecting the check box next to the
-   **Name**.
-4. From the **Actions** menu above the list of AMIs,
-   choose **Configure fast launch**. This opens
-   the **Configure fast launch** page, where you
-   configure the settings for EC2 Fast Launch.
-5. Clear the **Enable fast launch for Windows**
-   checkbox to disable EC2 Fast Launch and to remove
-   pre-provisioned snapshots. This results in the AMI using the
-   standard launch process for each instance, going forward.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-###### Note
+1. In the navigation pane, under **Images**, choose **AMIs**.
 
-When you disable Windows image optimization, any existing
-pre-provisioned snapshots are automatically deleted. This step
-must be completed before you can start using the feature
-again. 6. When you're done making changes, choose **Save
-changes**.
+1. Choose the AMI to update by selecting the check box next to the **Name**.
 
-AWS CLI
+1. From the **Actions** menu above the list of AMIs, choose **Configure fast launch**. This opens the **Configure fast launch** page, where you configure the settings for EC2 Fast Launch.
 
-###### To disable EC2 Fast Launch
+1. Clear the **Enable fast launch for Windows** checkbox to disable EC2 Fast Launch and to remove pre-provisioned snapshots. This results in the AMI using the standard launch process for each instance, going forward.
+**Note**  
+When you disable Windows image optimization, any existing pre-provisioned snapshots are automatically deleted. This step must be completed before you can start using the feature again.
 
-Use the following [disable-fast-launch](../../../cli/latest/reference/ec2/disable-fast-launch.md "../../../cli/latest/reference/ec2/disable-fast-launch.md") command to disable EC2 Fast Launch on the
-specified AMI, and clean up existing pre-provisioned snapshots.
+1. When you're done making changes, choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To disable EC2 Fast Launch**  
+Use the following [disable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/disable-fast-launch.html) command to disable EC2 Fast Launch on the specified AMI, and clean up existing pre-provisioned snapshots.
 
 ```
-aws ec2 disable-fast-launch --image-id `ami-01234567890abcedf`
+aws ec2 disable-fast-launch --image-id ami-01234567890abcedf
 ```
 
 The following is example output.
@@ -176,15 +151,14 @@ The following is example output.
 }
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To disable EC2 Fast Launch
-
-Use the [Disable-EC2FastLaunch](../../../powershell/latest/reference/items/Disable-EC2FastLaunch.md "../../../powershell/latest/reference/items/Disable-EC2FastLaunch.md") cmdlet to disable EC2 Fast Launch on the
-specified AMI, and clean up existing pre-provisioned snapshots.
+**To disable EC2 Fast Launch**  
+Use the [Disable-EC2FastLaunch](https://docs.aws.amazon.com/powershell/latest/reference/items/Disable-EC2FastLaunch.html) cmdlet to disable EC2 Fast Launch on the specified AMI, and clean up existing pre-provisioned snapshots.
 
 ```
-Disable-EC2FastLaunch -ImageId `ami-0abcdef1234567890`
+Disable-EC2FastLaunch -ImageId {{ami-0abcdef1234567890}}
 ```
 
 The following is example output.
@@ -195,153 +169,99 @@ ImageId               : ami-0abcdef1234567890
 	MaxParallelLaunches   : 6
 	OwnerId               : 0123456789123
 	ResourceType          : snapshot
-	SnapshotConfiguration :
+	SnapshotConfiguration : 
 	State                 : disabling
 	StateTransitionReason : Client.UserInitiated
 	StateTransitionTime   : 2/25/2022 1:10:08 PM
 ```
 
+------
+
 ## Use a launch template when you set up EC2 Fast Launch
+<a name="win-fast-launch-with-template"></a>
 
-With a launch template, you can configure a set of launch parameters that Amazon EC2 uses
-each time it launches an instance from that template. You can specify such things as
-an AMI to use for your base image, instance types, storage, network settings, and more.
+With a launch template, you can configure a set of launch parameters that Amazon EC2 uses each time it launches an instance from that template. You can specify such things as an AMI to use for your base image, instance types, storage, network settings, and more.
 
-Launch templates are optional, except for the following specific cases, where you must
-use a launch template for your Windows AMI when you configure faster launching:
+Launch templates are optional, except for the following specific cases, where you must use a launch template for your Windows AMI when you configure faster launching:
++ You must use a launch template to specify an existing VPC for your Windows AMI. This doesn't apply if you use the default VPC for your AWS account.
++ If your account includes a policy that enforces IMDSv2 for Amazon EC2 instances, you must create a launch template that specifies the metadata configuration to enforce IMDSv2.
 
-- You must use a launch template to specify an existing VPC for your Windows AMI.
-  This doesn't apply if you use the default VPC for your AWS account.
-- If your account includes a policy that enforces IMDSv2 for Amazon EC2 instances, you
-  must create a launch template that specifies the metadata configuration to enforce
-  IMDSv2.
+  Use the launch template that includes your metadata configuration from the EC2 console, or when you run the [enable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-fast-launch.html) command in the AWS CLI, or call the [EnableFastLaunch](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableFastLaunch.html) API action.
 
-Use the launch template that includes your metadata configuration from the EC2 console,
-or when you run the [enable-fast-launch](../../../cli/latest/reference/ec2/enable-fast-launch.md "../../../cli/latest/reference/ec2/enable-fast-launch.md")
-command in the AWS CLI, or call the [EnableFastLaunch](../APIReference/API_EnableFastLaunch.md "../APIReference/API_EnableFastLaunch.md")
-API action.
-
-EC2 Fast Launch doesn't support the following configuration when you use a launch
-template. If you use a launch template for EC2 Fast Launch, you must not specify any of
-the following:
-
-- User data scripts
-- Termination protection
-- Disabled metadata
-- Spot option
-- Shutdown behavior that terminates the instance
-- Resource tags for network interface, elastic graphic, or spot instance requests
+EC2 Fast Launch doesn't support the following configuration when you use a launch template. If you use a launch template for EC2 Fast Launch, you must not specify any of the following:
++ User data scripts
++ Termination protection
++ Disabled metadata
++ Spot option
++ Shutdown behavior that terminates the instance
++ Resource tags for network interface, elastic graphic, or spot instance requests
 
 ### Specify a VPC
+<a name="win-fast-launch-specify-vpc"></a>
 
-###### Step 1: Create a launch template
+**Step 1: Create a launch template**  
+Create a launch template that specifies the following details for your Windows instances:
++ The VPC subnet.
++ An instance type of `t3.xlarge`.
 
-Create a launch template that specifies the following details for your
-Windows instances:
-
-- The VPC subnet.
-- An instance type of `t3.xlarge`.
-
-For more information, see [Create an Amazon EC2 launch template](create-launch-template.md "create-launch-template.md").
+For more information, see [Create an Amazon EC2 launch template](create-launch-template.md).
 
 **Step 2: Specify the launch template for your EC2 Fast Launch AMI**
 
-Console
+------
+#### [ Console ]
 
-###### To specify the launch template for EC2 Fast Launch
+**To specify the launch template for EC2 Fast Launch**
 
-1. Open the Amazon EC2 console at
-   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
-2. In the navigation pane, under **Images**, choose
-   **AMIs**.
-3. Choose the AMI to update by selecting the check box next to the
-   **Name**.
-4. From the **Actions** menu above the list of AMIs,
-   choose **Configure fast launch**. This opens
-   the **Configure fast launch** page, where you
-   configure the settings for EC2 Fast Launch.
-5. The **Launch template** box performs a filtered search
-   that finds launch templates in your account in the current Region that
-   match the text you've entered. Specify all or part of the launch template
-   name or ID in the box to show a list of matching launch templates. For
-   example, if you enter `fast` in the box, Amazon EC2 finds all of the
-   launch templates in your account in the current Region that have "fast" in
-   the name.
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-To create a new launch template, you can choose **Create launch
-template**. 6. When you select a launch template, Amazon EC2 shows the default version for
-that template in the **Source template version** box. To
-specify a different version, highlight the default version to replace it,
-and enter the version number you want in the box. 7. When you're done making changes, choose **Save
-changes**.
+1. In the navigation pane, under **Images**, choose **AMIs**.
 
-AWS CLI
+1. Choose the AMI to update by selecting the check box next to the **Name**.
 
-###### To specify the launch template for EC2 Fast Launch
+1. From the **Actions** menu above the list of AMIs, choose **Configure fast launch**. This opens the **Configure fast launch** page, where you configure the settings for EC2 Fast Launch.
 
-Use the [enable-fast-launch](../../../cli/latest/reference/ec2/enable-fast-launch.md "../../../cli/latest/reference/ec2/enable-fast-launch.md")
-command with the `--launch-template` option, specifying
-either the name or the ID of the launch template.
+1. The **Launch template** box performs a filtered search that finds launch templates in your account in the current Region that match the text you've entered. Specify all or part of the launch template name or ID in the box to show a list of matching launch templates. For example, if you enter `fast` in the box, Amazon EC2 finds all of the launch templates in your account in the current Region that have "fast" in the name.
+
+   To create a new launch template, you can choose **Create launch template**.
+
+1. When you select a launch template, Amazon EC2 shows the default version for that template in the **Source template version** box. To specify a different version, highlight the default version to replace it, and enter the version number you want in the box.
+
+1. When you're done making changes, choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To specify the launch template for EC2 Fast Launch**  
+Use the [enable-fast-launch](https://docs.aws.amazon.com/cli/latest/reference/ec2/enable-fast-launch.html) command with the `--launch-template` option, specifying either the name or the ID of the launch template.
 
 ```
---launch-template LaunchTemplateName=`my-launch-template`
+--launch-template LaunchTemplateName={{my-launch-template}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To specify the launch template for EC2 Fast Launch
-
-Use the [Enable-EC2FastLaunch](../../../powershell/latest/reference/items/Enable-EC2FastLaunch.md "../../../powershell/latest/reference/items/Enable-EC2FastLaunch.md")
-cmdlet with the `-LaunchTemplate_LaunchTemplateId` or
-`-LaunchTemplate_LaunchTemplateName` parameter.
+**To specify the launch template for EC2 Fast Launch**  
+Use the [Enable-EC2FastLaunch](https://docs.aws.amazon.com/powershell/latest/reference/items/Enable-EC2FastLaunch.html) cmdlet with the `-LaunchTemplate_LaunchTemplateId` or `-LaunchTemplate_LaunchTemplateName` parameter.
 
 ```
--LaunchTemplate_LaunchTemplateName `my-launch-template`
+-LaunchTemplate_LaunchTemplateName {{my-launch-template}}
 ```
 
-For more information about EC2 launch templates, see
-[Store instance launch parameters in Amazon EC2 launch templates](ec2-launch-templates.md "ec2-launch-templates.md").
+------
+
+For more information about EC2 launch templates, see [Store instance launch parameters in Amazon EC2 launch templates](ec2-launch-templates.md).
 
 ## Permissions checks for EC2 Fast Launch
+<a name="win-fast-launch-permissions"></a>
 
-When you enable EC2 Fast Launch with a launch template, you can
-specify a numbered version of the template. You can also use the
-`$Latest` or `$Default` version. If you use one of
-the aliases, the alias can override the `ec2:RunInstances`
-and `iam:PassRole` permissions that you intended to
-restrict.
+When you enable EC2 Fast Launch with a launch template, you can specify a numbered version of the template. You can also use the `$Latest` or `$Default` version. If you use one of the aliases, the alias can override the `ec2:RunInstances` and `iam:PassRole` permissions that you intended to restrict.
 
-When you enable EC2 Fast Launch, Amazon EC2 checks your permissions
-against the current launch template version. `$Latest` and
-`$Default` each resolve to a specific version at that time.
-This check runs before
-Amazon EC2 enables the feature. It validates the permissions required to
-launch instances, such as the `ec2:RunInstances` and
-`iam:PassRole` permissions. To do this, EC2 Fast Launch
-issues a `RunInstances` dry run call that checks your
-permissions without launching an instance. If your permissions don't
-allow a required action, Amazon EC2 fails the request and returns an error
-that describes the missing permission. Amazon EC2 does not enable
-EC2 Fast Launch.
+When you enable EC2 Fast Launch, Amazon EC2 checks your permissions against the current launch template version. `$Latest` and `$Default` each resolve to a specific version at that time. This check runs before Amazon EC2 enables the feature. It validates the permissions required to launch instances, such as the `ec2:RunInstances` and `iam:PassRole` permissions. To do this, EC2 Fast Launch issues a `RunInstances` dry run call that checks your permissions without launching an instance. If your permissions don't allow a required action, Amazon EC2 fails the request and returns an error that describes the missing permission. Amazon EC2 does not enable EC2 Fast Launch.
 
-After this initial check is complete, EC2 Fast Launch creates the
-pre-provisioned snapshots in the background. It then launches instances
-by using the permissions of its service-linked role. Each time it
-launches an instance, it uses the version that `$Latest` or
-`$Default` resolves to at that time. This is true even if
-the version has changed after the initial check. It does not recheck
-your permissions. As a result, someone who can update the launch
-template could pass an IAM role or instance profile to an instance.
-This can happen even if they don't have the
-`iam:PassRole` permission for that role.
+After this initial check is complete, EC2 Fast Launch creates the pre-provisioned snapshots in the background. It then launches instances by using the permissions of its service-linked role. Each time it launches an instance, it uses the version that `$Latest` or `$Default` resolves to at that time. This is true even if the version has changed after the initial check. It does not recheck your permissions. As a result, someone who can update the launch template could pass an IAM role or instance profile to an instance. This can happen even if they don't have the `iam:PassRole` permission for that role.
 
-To make sure that Amazon EC2 always uses the version it validated when you
-enabled the feature, specify a numbered launch template version. Do not
-use `$Latest` or `$Default`.
+To make sure that Amazon EC2 always uses the version it validated when you enabled the feature, specify a numbered launch template version. Do not use `$Latest` or `$Default`.
 
-If you configure EC2 Fast Launch to use the `$Latest`
-or `$Default` launch template version, we recommend that you
-limit who can create and manage launch template versions. Use IAM
-policies to restrict access to actions such as
-`ec2:CreateLaunchTemplateVersion` and
-`ec2:ModifyLaunchTemplate`.
+If you configure EC2 Fast Launch to use the `$Latest` or `$Default` launch template version, we recommend that you limit who can create and manage launch template versions. Use IAM policies to restrict access to actions such as `ec2:CreateLaunchTemplateVersion` and `ec2:ModifyLaunchTemplate`.

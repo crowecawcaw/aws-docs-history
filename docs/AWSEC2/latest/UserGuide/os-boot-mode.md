@@ -1,69 +1,71 @@
-# Determine the boot mode of the operating system for your EC2 instance
 
-The boot mode of the AMI guides Amazon EC2 on which boot mode to use to boot an instance. To view
-whether the operating system of your instance is configured for UEFI, you need to
-connect to your instance using SSH (Linux instances) or RDP (Windows instances).
+
+# Determine the boot mode of the operating system for your EC2 instance
+<a name="os-boot-mode"></a>
+
+The boot mode of the AMI guides Amazon EC2 on which boot mode to use to boot an instance. To view whether the operating system of your instance is configured for UEFI, you need to connect to your instance using SSH (Linux instances) or RDP (Windows instances).
 
 Use the instructions for your instance's operating system.
 
-###### To determine the boot mode of the instance’s operating system
+## Linux
+<a name="os-boot-mode-linux"></a>
 
-1. [Connect to your Linux instance using SSH](connect-linux-inst-ssh.md "connect-linux-inst-ssh.md").
-2. To view the boot mode of the operating system, try one of the following:
+**To determine the boot mode of the instance’s operating system**
 
-   - Run the following command.
+1. [Connect to your Linux instance using SSH](connect-linux-inst-ssh.md).
 
-   ```
-   `[ec2-user ~]$` sudo /usr/sbin/efibootmgr
-   ```
+1. To view the boot mode of the operating system, try one of the following:
+   + Run the following command.
 
-   Expected output from an instance booted in UEFI boot mode
+     ```
+     [ec2-user ~]$ sudo /usr/sbin/efibootmgr
+     ```
 
-   ```
-   BootCurrent: 0001
-   Timeout: 0 seconds
-   BootOrder: 0000,0001
-   Boot0000* UiApp
-   Boot0001* UEFI Amazon Elastic Block Store vol-xyz
-   ```
-   - Run the following command to verify the existence of the `/sys/firmware/efi`
-     directory. This directory exists only if the instance boots using UEFI.
-     If this directory doesn't exist, the command returns `Legacy BIOS
-  Boot Detected`.
+     Expected output from an instance booted in UEFI boot mode
 
-   ```
-   `[ec2-user ~]$` [ -d /sys/firmware/efi ] && echo "UEFI Boot Detected" || echo "Legacy BIOS Boot Detected"
-   ```
+     ```
+     BootCurrent: 0001
+     Timeout: 0 seconds
+     BootOrder: 0000,0001
+     Boot0000* UiApp
+     Boot0001* UEFI Amazon Elastic Block Store vol-xyz
+     ```
+   + Run the following command to verify the existence of the `/sys/firmware/efi` directory. This directory exists only if the instance boots using UEFI. If this directory doesn't exist, the command returns `Legacy BIOS Boot Detected`.
 
-   Expected output from an instance booted in UEFI boot mode
+     ```
+     [ec2-user ~]$ [ -d /sys/firmware/efi ] && echo "UEFI Boot Detected" || echo "Legacy BIOS Boot Detected"
+     ```
 
-   ```
-   UEFI Boot Detected
-   ```
+     Expected output from an instance booted in UEFI boot mode
 
-   Expected output from an instance booted in Legacy BIOS boot mode
+     ```
+     UEFI Boot Detected
+     ```
 
-   ```
-   Legacy BIOS Boot Detected
-   ```
-   - Run the following command to verify that EFI appears in the `dmesg`
-     output.
+     Expected output from an instance booted in Legacy BIOS boot mode
 
-   ```
-   `[ec2-user ~]$` dmesg | grep -i "EFI"
-   ```
+     ```
+     Legacy BIOS Boot Detected
+     ```
+   + Run the following command to verify that EFI appears in the `dmesg` output.
 
-   Expected output from an instance booted in UEFI boot mode
+     ```
+     [ec2-user ~]$ dmesg | grep -i "EFI"
+     ```
 
-   ```
-   [    0.000000] efi: Getting EFI parameters from FDT:
-   [    0.000000] efi: EFI v2.70 by EDK II
-   ```
+     Expected output from an instance booted in UEFI boot mode
 
-###### To determine the boot mode of the instance’s operating system
+     ```
+     [    0.000000] efi: Getting EFI parameters from FDT:
+     [    0.000000] efi: EFI v2.70 by EDK II
+     ```
 
-1. [Connect to your Windows instance using RDP](connecting_to_windows_instance.md "connecting_to_windows_instance.md").
-2. Go to **System Information** and check the **BIOS Mode**
-   row.
+## Windows
+<a name="os-boot-mode-windows"></a>
 
-![System Information window showing the BIOS Mode row selected. The value for BIOS Mode is Legacy.](images/BIOS-mode-win.png)
+**To determine the boot mode of the instance’s operating system**
+
+1. [Connect to your Windows instance using RDP](connecting_to_windows_instance.md).
+
+1. Go to **System Information** and check the **BIOS Mode** row.  
+![System Information window showing the BIOS Mode row selected. The value for BIOS Mode is Legacy.](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/BIOS-mode-win.png)

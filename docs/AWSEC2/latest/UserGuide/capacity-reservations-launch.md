@@ -1,90 +1,55 @@
+
+
 # Launch instances into an existing Capacity Reservation
+<a name="capacity-reservations-launch"></a>
 
 You can only launch an instance into a Capacity Reservation that:
++ Has matching attributes (instance type, platform, Availability Zone, and tenancy)
++ Has sufficient available capacity
++ Is in the `active` state
 
-- Has matching attributes (instance type, platform, Availability Zone, and
-  tenancy)
-- Has sufficient available capacity
-- Is in the `active` state
-  When you launch an instance, you can specify whether to launch the instance into any
-  `open` Capacity Reservation, into a specific Capacity Reservation, or into a group of Capacity Reservations.
+When you launch an instance, you can specify whether to launch the instance into any `open` Capacity Reservation, into a specific Capacity Reservation, or into a group of Capacity Reservations.
 
-Alternatively, you can configure the instance to avoid running in a Capacity Reservation, even if you
-have an `open` Capacity Reservation that has matching attributes and available capacity.
+Alternatively, you can configure the instance to avoid running in a Capacity Reservation, even if you have an `open` Capacity Reservation that has matching attributes and available capacity. 
 
-Launching an instance into a Capacity Reservation reduces its available capacity by the number of
-instances launched. For example, if you launch three instances, the available capacity
-of the Capacity Reservation is reduced by three.
+Launching an instance into a Capacity Reservation reduces its available capacity by the number of instances launched. For example, if you launch three instances, the available capacity of the Capacity Reservation is reduced by three.
 
-Console
+------
+#### [ Console ]
 
-###### To launch instances into an existing Capacity Reservation
+**To launch instances into an existing Capacity Reservation**
 
-1. Follow the procedure to [launch an instance](ec2-launch-instance-wizard.md "ec2-launch-instance-wizard.md"), but don't launch the instance until
-   you've completed the following steps to specify the settings for the
-   placement group and Capacity Reservation.
-2. Expand **Advanced details** and do the
-   following:
+1. Follow the procedure to [launch an instance](ec2-launch-instance-wizard.md), but don't launch the instance until you've completed the following steps to specify the settings for the placement group and Capacity Reservation.
 
-   1. For **Placement group**, select the
-      cluster placement group in which to launch the
-      instance.
-   2. For **Capacity Reservation**, choose one of the following
-      options depending on the configuration of the Capacity Reservation:
+1. Expand **Advanced details** and do the following:
 
-      - **None** – Prevents the
-        instances from launching into a Capacity Reservation. The instances
-        run in On-Demand capacity.
-      - **Open** – Launches the
-        instances into any Capacity Reservation that has matching attributes
-        and sufficient capacity for the number of instances
-        you selected. If there is no matching Capacity Reservation with
-        sufficient capacity, the instance uses On-Demand
-        capacity.
-      - **Specify Capacity Reservation** – Launches
-        the instances into the selected Capacity Reservation. If the
-        selected Capacity Reservation does not have sufficient capacity for
-        the number of instances you selected, the instance
-        launch fails.
-      - **Specify Capacity Reservation Resource Group**
-        – Launches the instances into any Capacity Reservation with
-        matching attributes and available capacity in the
-        selected Capacity Reservation group. If the selected group does not
-        have a Capacity Reservation with matching attributes and available
-        capacity, the instances launch into On-Demand
-        capacity.
-      - **Specify Capacity Reservation only** –
-        Launches the instances into a Capacity Reservation. If a Capacity Reservation ID
-        isn't specified, the instances launch into an open
-        Capacity Reservation. If capacity isn't available, the instances
-        fail to launch.
-      - **Specify Capacity Reservation Resource Group
-        only** – Launches the instances
-        into a Capacity Reservation in a Capacity Reservation Resource Group. If a Capacity Reservation
-        Resource Group ARN isn't specified, the instances
-        launch into an open Capacity Reservation. If capacity isn't
-        available, the instances fail to launch.
+   1. For **Placement group**, select the cluster placement group in which to launch the instance.
 
-3. In the **Summary** panel, review your instance
-   configuration, and then choose **Launch instance**.
+   1. For **Capacity Reservation**, choose one of the following options depending on the configuration of the Capacity Reservation:
+      + **None** – Prevents the instances from launching into a Capacity Reservation. The instances run in On-Demand capacity.
+      + **Open** – Launches the instances into any Capacity Reservation that has matching attributes and sufficient capacity for the number of instances you selected. If there is no matching Capacity Reservation with sufficient capacity, the instance uses On-Demand capacity.
+      + **Specify Capacity Reservation** – Launches the instances into the selected Capacity Reservation. If the selected Capacity Reservation does not have sufficient capacity for the number of instances you selected, the instance launch fails.
+      + **Specify Capacity Reservation Resource Group** – Launches the instances into any Capacity Reservation with matching attributes and available capacity in the selected Capacity Reservation group. If the selected group does not have a Capacity Reservation with matching attributes and available capacity, the instances launch into On-Demand capacity.
+      + **Specify Capacity Reservation only** – Launches the instances into a Capacity Reservation. If a Capacity Reservation ID isn't specified, the instances launch into an open Capacity Reservation. If capacity isn't available, the instances fail to launch.
+      + **Specify Capacity Reservation Resource Group only** – Launches the instances into a Capacity Reservation in a Capacity Reservation Resource Group. If a Capacity Reservation Resource Group ARN isn't specified, the instances launch into an open Capacity Reservation. If capacity isn't available, the instances fail to launch.
 
-AWS CLI
+1. In the **Summary** panel, review your instance configuration, and then choose **Launch instance**.
 
-###### To launch an instance into an existing Capacity Reservation
+------
+#### [ AWS CLI ]
 
-Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command and specify the
-`--capacity-reservation-specification` option.
+**To launch an instance into an existing Capacity Reservation**  
+Use the [run-instances](https://docs.aws.amazon.com/cli/latest/reference/ec2/run-instances.html) command and specify the `--capacity-reservation-specification` option.
 
-The following example launches an instance into any open Capacity Reservation
-with matching attributes and available capacity:
+The following example launches an instance into any open Capacity Reservation with matching attributes and available capacity:
 
 ```
 aws ec2 run-instances \
-    --image-id `ami-0abcdef1234567890` \
-    --count `1` \
-    --instance-type `t2.micro` \
-    --key-name `my-key-pair` \
-    --subnet-id `subnet-0abcdef1234567890` \
+    --image-id {{ami-0abcdef1234567890}} \
+    --count {{1}} \
+    --instance-type {{t2.micro}} \
+    --key-name {{my-key-pair}} \
+    --subnet-id {{subnet-0abcdef1234567890}} \
     --capacity-reservation-specification CapacityReservationPreference=open
 ```
 
@@ -92,73 +57,69 @@ The following example launches an instance into a `targeted` Capacity Reservatio
 
 ```
 aws ec2 run-instances \
-    --image-id `ami-0abcdef1234567890` \
-    --count `1` \
-    --instance-type `t2.micro` \
-    --key-name `my-key-pair` \
-    --subnet-id `subnet-0abcdef1234567890` \
+    --image-id {{ami-0abcdef1234567890}} \
+    --count {{1}} \
+    --instance-type {{t2.micro}} \
+    --key-name {{my-key-pair}} \
+    --subnet-id {{subnet-0abcdef1234567890}} \
     --capacity-reservation-specification \
-        CapacityReservationTarget={CapacityReservationId=`cr-1234abcd56EXAMPLE`}
+        CapacityReservationTarget={CapacityReservationId={{cr-1234abcd56EXAMPLE}}}
 ```
 
 The following example launches an instance into the specified Capacity Reservation group:
 
 ```
 aws ec2 run-instances \
-    --image-id `ami-0abcdef1234567890` \
-    --count `1` \
-    --instance-type `t2.micro` \
-    --key-name `my-key-pair` \
-    --subnet-id `subnet-0abcdef1234567890` \
+    --image-id {{ami-0abcdef1234567890}} \
+    --count {{1}} \
+    --instance-type {{t2.micro}} \
+    --key-name {{my-key-pair}} \
+    --subnet-id {{subnet-0abcdef1234567890}} \
     --capacity-reservation-specification \
-        CapacityReservationTarget={CapacityReservationResourceGroupArn=arn:aws:resource-groups:`us-west-2`:`123456789012`:group/`my-cr-group`}
+        CapacityReservationTarget={CapacityReservationResourceGroupArn=arn:aws:resource-groups:{{us-west-2}}:{{123456789012}}:group/{{my-cr-group}}}
 ```
 
-The following example launches an instance into a Capacity Reservation only. Because it
-does not specify a Capacity Reservation ID, the instance launches in any open Capacity Reservation with
-matching attributes and available capacity:
+The following example launches an instance into a Capacity Reservation only. Because it does not specify a Capacity Reservation ID, the instance launches in any open Capacity Reservation with matching attributes and available capacity:
 
 ```
 aws ec2 run-instances \
-    --image-id `ami-0abcdef1234567890` \
-    --count `1` \
-    --instance-type `t2.micro` \
-    --key-name `my-key-pair` \
-    --subnet-id `subnet-0abcdef1234567890` \
+    --image-id {{ami-0abcdef1234567890}} \
+    --count {{1}} \
+    --instance-type {{t2.micro}} \
+    --key-name {{my-key-pair}} \
+    --subnet-id {{subnet-0abcdef1234567890}} \
     --capacity-reservation-specification \
         CapacityReservationPreference=capacity-reservations-only
 ```
 
-The following example launches an instance into a specific Capacity Reservation only.
-If capacity isn't available in the specified Capacity Reservation, the instance fails to launch.
+The following example launches an instance into a specific Capacity Reservation only. If capacity isn't available in the specified Capacity Reservation, the instance fails to launch.
 
 ```
 aws ec2 run-instances \
-    --image-id `ami-0abcdef1234567890` \
-    --count `1` \
-    --instance-type `t2.micro` \
-    --key-name `my-key-pair` \
-    --subnet-id `subnet-0abcdef1234567890` \
+    --image-id {{ami-0abcdef1234567890}} \
+    --count {{1}} \
+    --instance-type {{t2.micro}} \
+    --key-name {{my-key-pair}} \
+    --subnet-id {{subnet-0abcdef1234567890}} \
     --capacity-reservation-specification \
-        CapacityReservationPreference=`capacity-reservations-only` \
-        CapacityReservationTarget={CapacityReservationId=`cr-1234abcd56EXAMPLE`}
+        CapacityReservationPreference={{capacity-reservations-only}} \
+        CapacityReservationTarget={CapacityReservationId={{cr-1234abcd56EXAMPLE}}}
 ```
 
-PowerShell
+------
+#### [ PowerShell ]
 
-###### To launch an instance into an existing Capacity Reservation
+**To launch an instance into an existing Capacity Reservation**  
+Use the [New-EC2Instance](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2Instance.html) cmdlet.
 
-Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet.
-
-The following example launches an instance into any open Capacity Reservation
-with matching attributes and available capacity:
+The following example launches an instance into any open Capacity Reservation with matching attributes and available capacity:
 
 ```
 New-EC2Instance `
-    -ImageId `ami-0abcdef1234567890` `
-    -InstanceType `t2.micro` `
-    -KeyName "`my-key-pair`" `
-    -SubnetId `subnet-0abcdef1234567890` `
+    -ImageId {{ami-0abcdef1234567890}} `
+    -InstanceType {{t2.micro}} `
+    -KeyName "{{my-key-pair}}" `
+    -SubnetId {{subnet-0abcdef1234567890}} `
     -CapacityReservationSpecification_CapacityReservationPreference "open"
 ```
 
@@ -166,47 +127,46 @@ The following example launches an instance into a `targeted` Capacity Reservatio
 
 ```
 New-EC2Instance `
-    -ImageId `ami-0abcdef1234567890` `
-    -InstanceType `t2.micro` `
-    -KeyName "`my-key-pair`" `
-    -SubnetId `subnet-0abcdef1234567890` `
-    -CapacityReservationTarget_CapacityReservationId `cr-1234abcd56EXAMPLE`
+    -ImageId {{ami-0abcdef1234567890}} `
+    -InstanceType {{t2.micro}} `
+    -KeyName "{{my-key-pair}}" `
+    -SubnetId {{subnet-0abcdef1234567890}} `
+    -CapacityReservationTarget_CapacityReservationId {{cr-1234abcd56EXAMPLE}}
 ```
 
 The following example launches an instance into the specified Capacity Reservation group:
 
 ```
 New-EC2Instance `
-    -ImageId `ami-0abcdef1234567890` `
-    -InstanceType `t2.micro` `
-    -KeyName "`my-key-pair`" `
-    -SubnetId `subnet-0abcdef1234567890` `
+    -ImageId {{ami-0abcdef1234567890}} `
+    -InstanceType {{t2.micro}} `
+    -KeyName "{{my-key-pair}}" `
+    -SubnetId {{subnet-0abcdef1234567890}} `
     -CapacityReservationTarget_CapacityReservationResourceGroupArn `
-        "arn:aws:resource-groups:`us-west-2`:`123456789012`:group/`my-cr-group`"
+        "arn:aws:resource-groups:{{us-west-2}}:{{123456789012}}:group/{{my-cr-group}}"
 ```
 
-The following example launches an instance into a Capacity Reservation only. Because it
-does not specify a Capacity Reservation ID, the instance launches in any open Capacity Reservation with
-matching attributes and available capacity:
+The following example launches an instance into a Capacity Reservation only. Because it does not specify a Capacity Reservation ID, the instance launches in any open Capacity Reservation with matching attributes and available capacity:
 
 ```
 New-EC2Instance `
-    -ImageId `ami-0abcdef1234567890` `
-    -InstanceType `t2.micro` `
-    -KeyName "`my-key-pair`" `
-    -SubnetId `subnet-0abcdef1234567890` `
+    -ImageId {{ami-0abcdef1234567890}} `
+    -InstanceType {{t2.micro}} `
+    -KeyName "{{my-key-pair}}" `
+    -SubnetId {{subnet-0abcdef1234567890}} `
     -CapacityReservationSpecification_CapacityReservationPreference "capacity-reservations-only"
 ```
 
-The following example launches an instance into a specific Capacity Reservation only.
-If capacity isn't available in the specified Capacity Reservation, the instance fails to launch.
+The following example launches an instance into a specific Capacity Reservation only. If capacity isn't available in the specified Capacity Reservation, the instance fails to launch.
 
 ```
 New-EC2Instance `
-    -ImageId `ami-0abcdef1234567890` `
-    -InstanceType `t2.micro` `
-    -KeyName "`my-key-pair`" `
-    -SubnetId `subnet-0abcdef1234567890` `
+    -ImageId {{ami-0abcdef1234567890}} `
+    -InstanceType {{t2.micro}} `
+    -KeyName "{{my-key-pair}}" `
+    -SubnetId {{subnet-0abcdef1234567890}} `
     -CapacityReservationSpecification_CapacityReservationPreference "capacity-reservations-only" `
-    -CapacityReservationTarget_CapacityReservationId `cr-1234abcd56EXAMPLE`
+    -CapacityReservationTarget_CapacityReservationId {{cr-1234abcd56EXAMPLE}}
 ```
+
+------
