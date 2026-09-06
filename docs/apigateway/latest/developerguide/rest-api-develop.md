@@ -40,7 +40,7 @@ synchronously.
 
 Non-proxy integration
 
-![Diagram of API Gateway non-proxy integration](/images/apigateway/latest/developerguide/images/develop-non-proxy.png)
+![Diagram of API Gateway non-proxy integration](images/develop-non-proxy.png)
 
 Proxy integration
 ![Diagram of API Gateway proxy integration](images/develop-proxy.png)
