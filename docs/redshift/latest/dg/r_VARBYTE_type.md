@@ -23,7 +23,7 @@ follows:
   refresh of materialized views that contain VARBYTE columns is supported.
   However, aggregate functions other than COUNT, MIN, and MAX and GROUP BY on
   VARBYTE columns don't support incremental refresh.
-  To ensure that all bytes are printable characters, Amazon Redshift uses the hex format to
+  To make sure that all bytes are printable characters, Amazon Redshift uses the hex format to
   print VARBYTE values. For example, the following SQL converts the hexadecimal
   string `6162` into a binary value. Even though the returned value is a
   binary value, the results are printed as hexadecimal `6162`.

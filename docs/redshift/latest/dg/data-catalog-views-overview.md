@@ -9,7 +9,7 @@ This topic describes how to create views in the AWS Glue Data Catalog. You can u
 data in different data sources using the same schema.
 
 By creating views in the Data Catalog, you can create a single common view schema and
-metadata object to use across engines such as Amazon Athena and Amazon EMR Spark. Doing so lets you
+metadata object to use across engines such as Amazon Athena and Amazon EMR Spark. By doing so, you can
 use the same views across your data lakes and data warehouses to fit your use cases. Views
 in the Data Catalog are special in that they are categorized as definer views, where access permissions
 are defined by the user who created the view instead of the user querying the view. The

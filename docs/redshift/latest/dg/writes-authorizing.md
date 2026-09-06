@@ -6,7 +6,7 @@ and migration options, see the
 # Authorizing a datashare in Amazon Redshift
 
 With Amazon Redshift, you can control access to datashares by authorizing specified
-consumers. Datashares allow you to share live data across Amazon Redshift clusters in the
+consumers. With datashares, you can share live data across Amazon Redshift clusters in the
 same or different AWS accounts, providing a seamless way to distribute and
 consume analytical data. This section provides step-by-step instructions for
 authorizing and revoking consumer access to your datashares in Amazon Redshift.

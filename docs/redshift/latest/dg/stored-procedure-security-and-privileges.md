@@ -42,7 +42,7 @@ DEFINER procedures can't be misused, do the following:
   of this procedure from creating objects (for example, tables or views) that mask
   objects intended to be used by the procedure. For more information about the SET
   option, see [CREATE PROCEDURE](r_CREATE_PROCEDURE.md "r_CREATE_PROCEDURE.md").
-  The following example sets `search_path` to `admin` to ensure that the `user_creds` table
+  The following example sets `search_path` to `admin` to make sure that the `user_creds` table
   is accessed from the `admin` schema and not from public or any other schema in the caller's `search_path`.
 
 ```

@@ -60,7 +60,7 @@ role must at least have the following permissions:
 - SELECT, INSERT, UPDATE permission on the external table
 - Data location permission on the Amazon S3 path of the external table
 
-To ensure that file names are unique, Amazon Redshift uses the following format for the name of
+To make sure that file names are unique, Amazon Redshift uses the following format for the name of
 each file uploaded to Amazon S3 by default.
 
 ``<date>`_`<time>`_`<microseconds>`_`<query_id>`_`<slice-number>`_part_`<part-number>`.`<format>``.

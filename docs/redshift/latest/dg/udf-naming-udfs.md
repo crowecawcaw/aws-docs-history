@@ -27,7 +27,7 @@ command.
 
 We recommend that you name all UDFs using the prefix `f_`. Amazon Redshift
 reserves the `f_` prefix exclusively for UDFs and by prefixing your UDF names
-with `f_`, you ensure that your UDF name won't conflict with any existing or
+with `f_`, you make sure that your UDF name won't conflict with any existing or
 future Amazon Redshift built-in SQL function names. For example, by naming a new UDF
 `f_sum`, you avoid conflict with the Amazon Redshift SUM function. Similarly, if
 you name a new function `f_fibonacci`, you avoid conflict if Amazon Redshift adds a

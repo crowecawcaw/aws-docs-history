@@ -64,9 +64,7 @@ The following example drops the view called _event_:
 drop view event;
 ```
 
-To remove a view that has dependencies, use the CASCADE option. For example, say we
-start with a table called EVENT. We then create the eventview view of the EVENT table,
-using the CREATE VIEW command, as shown in the following example:
+To remove a view that has dependencies, use the CASCADE option. For example, suppose you start with a table called EVENT. You then create the eventview view of the EVENT table by using the CREATE VIEW command, as shown in the following example:
 
 ```
 create view eventview as
@@ -74,8 +72,7 @@ select dateid, eventname, catid
 from event where catid = 1;
 ```
 
-Now, we create a second view called _myeventview_, that is based
-on the first view _eventview_:
+Now, you create a second view called _myeventview_ that is based on the first view _eventview_:
 
 ```
 create view myeventview as

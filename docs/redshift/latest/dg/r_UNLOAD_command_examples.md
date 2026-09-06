@@ -590,7 +590,7 @@ Atlanta|GA|2008-01-11|268.00|7630.00
 UNLOAD outputs null values as empty strings by default. The following examples
 show how to use NULL AS to substitute a text string for nulls.
 
-For these examples, we add some null values to the VENUE table.
+For these examples, add some null values to the VENUE table.
 
 ```
 update venue set venuestate = NULL

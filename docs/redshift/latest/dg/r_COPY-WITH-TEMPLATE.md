@@ -5,7 +5,7 @@ and migration options, see the
 
 # COPY with TEMPLATE
 
-You can use Redshift templates with COPY commands to simplify command syntax and ensure consistency across data loading operations.
+You can use Redshift templates with COPY commands to simplify command syntax and maintain consistency across data loading operations.
 Instead of specifying the same formatting parameters repeatedly, you define them once in a template and reference the template in your COPY commands.
 When you use a template, the COPY command combines the parameters from the template with any parameters specified directly in the command.
 If the same parameter appears in both the template and the command, the command parameter takes precedence.

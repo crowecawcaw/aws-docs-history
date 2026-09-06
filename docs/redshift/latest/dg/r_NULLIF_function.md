@@ -82,7 +82,7 @@ listid  | salesid
 (9 rows)
 ```
 
-You can use NULLIF to ensure that empty strings are always returned as nulls. In
+You can use NULLIF to make sure that empty strings are always returned as nulls. In
 the example below, the NULLIF expression returns either a null value or a string that
 contains at least one character.
 

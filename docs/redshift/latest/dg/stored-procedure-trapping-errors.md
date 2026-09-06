@@ -103,7 +103,7 @@ CONTEXT:  SQL statement "select invalid"
 PL/pgSQL function "update_employee_sp" line 3 at execute statement
 ```
 
-In this example, if we call `update_employee_sp`, the informational message
+In this example, if you call `update_employee_sp`, the informational message
 _An exception occurred._ is raised and the error message is
 inserted in the logging table's `employee_error_log` log. The original
 exception is thrown again before the stored procedure exits. The following queries show records that result from running the example.

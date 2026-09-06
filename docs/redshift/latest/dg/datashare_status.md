@@ -6,7 +6,7 @@ and migration options, see the
 # Datashare status values in Amazon Redshift
 
 With Amazon Redshift, you can securely share live data across Amazon Redshift clusters without having to copy
-or transfer data. Datashares for Amazon Redshift enables you to share live query results, including
+or transfer data. With datashares for Amazon Redshift, you can share live query results, including
 updates to the source data, with any Amazon Redshift cluster in the same or different AWS accounts
 and AWS Regions. This topic describes the possible statuses that datashares can have in
 Amazon Redshift.

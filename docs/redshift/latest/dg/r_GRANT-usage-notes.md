@@ -79,8 +79,7 @@ object privileges.
 ## Usage notes for column-level access control
 
 The following usage notes apply to column-level privileges on Amazon Redshift tables and
-views. These notes describe tables; the same notes apply to views unless we
-explicitly note an exception.
+views. These notes describe tables; the same notes apply to views unless an exception is explicitly noted.
 
 - For an Amazon Redshift table, you can grant only the SELECT and UPDATE privileges at
   the column level. For an Amazon Redshift view, you can grant only the SELECT privilege at

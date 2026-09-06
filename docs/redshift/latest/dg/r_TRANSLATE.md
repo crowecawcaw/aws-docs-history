@@ -16,7 +16,7 @@ value.
 
 TRANSLATE is similar to the [REPLACE function](r_REPLACE.md "r_REPLACE.md") and
 the [REGEXP\_REPLACE function](REGEXP_REPLACE.md "REGEXP_REPLACE.md"), except that REPLACE
-substitutes one entire string with another string and REGEXP\_REPLACE lets you search a
+substitutes one entire string with another string and with REGEXP\_REPLACE, you can search a
 string for a regular expression pattern, while TRANSLATE makes multiple single-character
 substitutions.
 

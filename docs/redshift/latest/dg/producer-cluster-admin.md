@@ -87,7 +87,7 @@ database to query the data. For more information, see [Authorizing or removing a
 
 With Amazon Redshift, you can share data across AWS accounts and grant write
 permissions, enabling collaboration and data sharing between teams or
-organizations. Cross-account data sharing allows you to establish a data
+organizations. With cross-account data sharing, you can establish a data
 provider account that creates and manages databases, schemas, and tables, which
 can then be securely shared with data consumer accounts. The following sections
 demonstrate the process of configuring cross-account data sharing and granting

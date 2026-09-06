@@ -395,7 +395,7 @@ loads three files.
 You can make the inclusion of a particular file mandatory. To do this,
 include a `mandatory` option at the file level in the manifest. When
 you query an external table with a mandatory file that is missing, the SELECT
-statement fails. Ensure that all files included in the definition of the
+statement fails. Make sure that all files included in the definition of the
 external table are present. If they aren't all present, an error appears
 showing the first mandatory file that isn't found. The following example
 shows the JSON for a manifest with the `mandatory` option set to

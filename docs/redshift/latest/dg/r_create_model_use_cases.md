@@ -756,7 +756,7 @@ select customer_id, customers_cluster(...) from customers;`
 ## CREATE MODEL with Forecast
 
 Forecast models in Redshift ML use Amazon Forecast to create accurate time-series
-forecasts. Doing so lets you use historical data over a time period to make
+forecasts. By doing so, you can use historical data over a time period to make
 predictions about future events. Common use cases of Amazon Forecast include using retail
 product data to decide how to price inventory, manufacturing quantity data to predict
 how much of one item to order, and web traffic data to forecast how much traffic a
@@ -854,8 +854,7 @@ and its contents.
 
 HORIZON integer
 
-The maximum number of predictions the forecast model can return. Once
-the model is trained, you can't change this integer.
+The maximum number of predictions the forecast model can return. After the model is trained, you can't change this integer.
 
 FREQUENCY forecast\_frequency
 

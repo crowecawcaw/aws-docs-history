@@ -51,7 +51,7 @@ about valid names, see [Names and identifiers](r_names.md "r_names.md").
 
 We recommend that you prefix all UDF names with `f_`. Amazon Redshift
 reserves the `f_` prefix for UDF names. By using the `f_`
-prefix, you help ensure that your UDF name won't conflict with any
+prefix, you help make sure that your UDF name won't conflict with any
 built-in SQL function names for Amazon Redshift now or in the future. For more
 information, see [Preventing UDF naming conflicts](udf-naming-udfs.md "udf-naming-udfs.md").
 

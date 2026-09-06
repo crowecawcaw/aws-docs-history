@@ -5,7 +5,7 @@ and migration options, see the
 
 # Amazon Redshift federated permissions
 
-Amazon Redshift federated permissions simplifies permissions management across multiple Redshift data warehouses by enabling you to
+Amazon Redshift federated permissions simplifies permissions management across multiple Redshift data warehouses so you can
 define data permissions once and automatically enforce them across all warehouses in your AWS account.
 This eliminates the need to redefine, manage permissions and fine grained access control policies across multiple warehouses.
 
@@ -38,7 +38,7 @@ These permissions are stored along with the warehouse data and enforced consiste
 
 **Enhanced security and compliance**
 
-- Ensure consistent security policy enforcement across all warehouses
+- Maintain consistent security policy enforcement across all warehouses
 - Implement fine-grained access controls at table, and column level
 - Audit permissions from any warehouse
 - Enhanced compliance tooling with additional SHOW commands

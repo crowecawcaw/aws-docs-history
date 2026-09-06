@@ -90,7 +90,7 @@ b integer ENCODE az64, PRIMARY KEY (a)
 DISTSTYLE AUTO;
 ```
 
-In this example, we create a table where column `a` inherits the database's default
+This example creates a table where column `a` inherits the database's default
 CASE\_SENSITIVE collation, while `b` and `c` are explicitly set to CASE\_INSENSITIVE collation.
 
 ```

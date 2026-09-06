@@ -19,7 +19,7 @@ ST_GeomFromEWKB(*ewkb\_string*)
 
 _ewkb\_string_
 
-A value of data type `VARCHAR` that is a hexadecimal EWKB representation of a geometry.
+A value of data type `VARCHAR` or `VARBYTE` that is a hexadecimal EWKB representation of a geometry.
 
 ## Return type
 

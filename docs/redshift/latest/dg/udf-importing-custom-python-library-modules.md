@@ -28,7 +28,7 @@ you upload the library package. You then install the package in your cluster. Fo
 more information about creating buckets, go to [Creating a bucket](../../../AmazonS3/latest/userguide/CreatingaBucket.md "../../../AmazonS3/latest/userguide/CreatingaBucket.md") in the
 _Amazon Simple Storage Service User Guide_.
 
-In this example, let's suppose that you create UDFs to work with positions and
+In this example, suppose that you create UDFs to work with positions and
 distances in your data. Connect to your Amazon Redshift cluster from a SQL client tool, and
 run the following commands to create the functions.
 
@@ -123,8 +123,8 @@ geometry.zip
 
 ###### Important
 
-If the Amazon S3 bucket does not reside in the same region as your Amazon Redshift
-cluster, you must use the REGION option to specify the region in which the
+If the Amazon S3 bucket does not reside in the same Region as your Amazon Redshift
+cluster, you must use the REGION option to specify the Region in which the
 data is located. For more information, see [CREATE LIBRARY](r_CREATE_LIBRARY.md "r_CREATE_LIBRARY.md"). 3. From your SQL client tool, run the following command to install the
 library. Replace `<bucket_name>` with the name
 of your bucket, and replace `<access key id>`

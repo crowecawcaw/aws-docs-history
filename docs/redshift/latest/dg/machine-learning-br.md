@@ -193,7 +193,7 @@ Note the following when using inference functions with Amazon Redshift ML integr
 - The names of the parameters for all Amazon Bedrock models are case sensitive.
   If your parameters do not match the ones required by the model, Amazon Bedrock might quietly ignore them.
 - The throughput of inference queries is limited by the runtime quotas of the different models offered
-  by Amazon Bedrock in different regions. For more information, see
+  by Amazon Bedrock in different Regions. For more information, see
   [Quotas for Amazon Bedrock](../../../bedrock/latest/userguide/quotas.md "../../../bedrock/latest/userguide/quotas.md") in the
   _Amazon Bedrock User Guide_.
 - If you need guaranteed and consistent throughput, consider getting provisioned

@@ -63,7 +63,7 @@ from the datashare on a consumer as a consumer administrator.
 
 ###### Note
 
-Once the datashare is created, you can't edit the
+After the datashare is created, you can't edit the
 configuration to publish to the other option. 9. Choose **Create datashare**.
 
 SQL

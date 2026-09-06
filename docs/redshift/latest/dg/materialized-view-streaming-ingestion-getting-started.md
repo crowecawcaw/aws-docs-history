@@ -124,7 +124,7 @@ IAM_ROLE { default | 'iam-role-arn' };
 Streaming ingestion for Kinesis Data Streams doesn't require an authentication type. It uses the IAM role
 defined in the `CREATE EXTERNAL SCHEMA` statement for making Kinesis Data Streams requests.
 
-Optional: Use the REGION keyword to specify the region where the Amazon Kinesis Data Streams or Amazon MSK stream resides.
+Optional: Use the REGION keyword to specify the Region where the Amazon Kinesis Data Streams or Amazon MSK stream resides.
 
 ```
 CREATE EXTERNAL SCHEMA kds
@@ -133,7 +133,7 @@ REGION 'us-west-2'
 IAM_ROLE { default | 'iam-role-arn' };
 ```
 
-In this sample, the region specifies the location of the source stream. The IAM\_ROLE is a sample. 4. Create a materialized view to consume the stream data. With a statement like the following, if a record can't be parsed, it causes an error. Use a command like this if you don't
+In this sample, the Region specifies the location of the source stream. The IAM\_ROLE is a sample. 4. Create a materialized view to consume the stream data. With a statement like the following, if a record can't be parsed, it causes an error. Use a command like this if you don't
 want error records to be skipped.
 
 ```

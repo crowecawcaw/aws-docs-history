@@ -6,13 +6,13 @@ and migration options, see the
 # REGEXP\_REPLACE function
 
 Searches a string for a regular expression pattern and replaces every occurrence of
-the pattern with the specified string. REGEXP\_REPLACE is similar to the [REPLACE function](r_REPLACE.md "r_REPLACE.md"), but lets you search a string for a
+the pattern with the specified string. REGEXP\_REPLACE is similar to the [REPLACE function](r_REPLACE.md "r_REPLACE.md"), but with REGEXP\_REPLACE, you can search a string for a
 regular expression pattern. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md "pattern-matching-conditions-posix.md") and
 [Regular expression](https://en.wikipedia.org/wiki/Regular_expression "https://en.wikipedia.org/wiki/Regular_expression") in Wikipedia.
 
 REGEXP\_REPLACE is similar to the [TRANSLATE function](r_TRANSLATE.md "r_TRANSLATE.md") and the [REPLACE function](r_REPLACE.md "r_REPLACE.md"), except that TRANSLATE makes multiple single-character
 substitutions and REPLACE substitutes one entire string with another string, while
-REGEXP\_REPLACE lets you search a string for a regular expression pattern.
+with REGEXP\_REPLACE, you can search a string for a regular expression pattern.
 
 ## Syntax
 

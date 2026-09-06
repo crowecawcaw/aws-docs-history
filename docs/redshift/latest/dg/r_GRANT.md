@@ -345,7 +345,7 @@ The following is the syntax for granting permissions for AWS IAM Identity Center
 
 ```
 GRANT CONNECT [ON WORKGROUP]
-TO [USER] *<prefix>:<username>* | ROLE *<prefix>:<rolename>* | PUBLIC;
+TO *<prefix>:<username>* | ROLE *<prefix>:<rolename>* | PUBLIC;
 ```
 
 ## Parameters
@@ -507,7 +507,7 @@ granted to the user individually.
 Granting PUBLIC to a Lake Formation EXTERNAL TABLE results in granting the permission
 to the Lake Formation _everyone_ group.
 
-CONNECT [ON WORKGROUP] TO { [USER] <prefix>:<username> | ROLE <prefix>:<rolename> | PUBLIC }
+CONNECT [ON WORKGROUP] TO { <prefix>:<username> | ROLE <prefix>:<rolename> | PUBLIC }
 
 Grants the permission to connect to a workgroup or cluster to AWS IAM Identity Center federated
 users or groups. The prefix identifies the identity provider. When granted to PUBLIC, the

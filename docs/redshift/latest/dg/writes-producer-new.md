@@ -6,7 +6,7 @@ and migration options, see the
 # Producer actions for new datashares in Amazon Redshift
 
 With Amazon Redshift, you can share live data across Amazon Redshift clusters or AWS accounts using
-datashares. A datashare is a consumer-producer object that allows you to share live
+datashares. A datashare is a consumer-producer object that you use to share live
 data from your Amazon Redshift cluster with other clusters or AWS accounts. Creating
 datashares enables secure data sharing while maintaining control over access and
 ensuring data remains up-to-date. The following sections provide details on creating

@@ -52,7 +52,7 @@ updates and use STATUPDATE with COPY operations. For more information, see
 - **Nested loop**
 
 A nested loop is usually a Cartesian product. Evaluate your query to
-ensure that all participating tables are joined efficiently.
+make sure that all participating tables are joined efficiently.
 
 - **Very selective filter**
 

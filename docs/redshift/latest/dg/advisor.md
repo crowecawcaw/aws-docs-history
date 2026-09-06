@@ -21,7 +21,7 @@ creates a recommendation about how to bring the observed value back into the bes
 range.
 
 For multi cluster architectures using Amazon Redshift Data Sharing, Advisor now provides enhanced optimization
-by analyzing workload patterns across all clusters/workgroups in your data mesh, including clusters/workgroups across different regions.
+by analyzing workload patterns across all clusters/workgroups in your data mesh, including clusters/workgroups across different Regions.
 When you share tables between producer and consumer clusters/workgroups, Advisor automatically collects query patterns
 from all consumer endpoints in the data mesh, unless they are explicitly denylisted, and combines them with
 producer workloads to generate more effective recommendations.

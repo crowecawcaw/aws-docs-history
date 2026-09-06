@@ -9,7 +9,7 @@ When you register an Amazon Redshift data warehouse to the AWS Glue Data Catalog
 
 ## Prerequisites
 
-Before querying federated databases, ensure you have:
+Before querying federated databases, make sure you have:
 
 - The [AmazonRedshiftFederatedAuthorization](../../../aws-managed-policy/latest/reference/AmazonRedshiftFederatedAuthorization.md "../../../aws-managed-policy/latest/reference/AmazonRedshiftFederatedAuthorization.md") AWS managed policy attached to your IAM user or role. For fine-grained access control, you can grant specific IAM actions from this policy instead of attaching the full policy.
 - Proper permissions configured for the catalog objects in the source data warehouse

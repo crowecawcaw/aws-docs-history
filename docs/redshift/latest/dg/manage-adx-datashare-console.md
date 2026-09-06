@@ -6,8 +6,8 @@ and migration options, see the
 # Managing AWS Data Exchange datashares
 
 With Amazon Redshift, you can securely share and receive live data from AWS Data Exchange without
-having to create and manage data extracts or pipelines. Managing AWS Data Exchange datashares
-allows you to subscribe to third-party data products and integrate live data streams
+having to create and manage data extracts or pipelines. By managing AWS Data Exchange datashares,
+you can subscribe to third-party data products and integrate live data streams
 directly into your Amazon Redshift data warehouse. The following sections demonstrate managing
 AWS Data Exchange datashares within your Amazon Redshift clusters.
 

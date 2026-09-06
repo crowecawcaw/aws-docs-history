@@ -10,7 +10,7 @@ specified characters.
 
 REPLACE is similar to the [TRANSLATE function](r_TRANSLATE.md "r_TRANSLATE.md")
 and the [REGEXP\_REPLACE function](REGEXP_REPLACE.md "REGEXP_REPLACE.md"), except that
-TRANSLATE makes multiple single-character substitutions and REGEXP\_REPLACE lets you
+TRANSLATE makes multiple single-character substitutions and with REGEXP\_REPLACE, you can
 search a string for a regular expression pattern, while REPLACE substitutes one entire
 string with another string.
 

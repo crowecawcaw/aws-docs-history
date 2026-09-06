@@ -111,7 +111,7 @@ Query [SVL\_S3PARTITION](r_SVL_S3PARTITION.md "r_SVL_S3PARTITION.md") to
 view total partitions and qualified partitions.
 
 - Use AWS Glue's statistics generator to compute column-level statistics for AWS Glue Data Catalog
-  tables. Once AWS Glue generates statistics for tables in the Data Catalog, Amazon Redshift Spectrum automatically
+  tables. After AWS Glue generates statistics for tables in the Data Catalog, Amazon Redshift Spectrum automatically
   uses those statistics to optimize the query plan. For more information about computing
   column-level statistics using AWS Glue, see
   [Working with column statistics](../../../glue/latest/dg/column-statistics.md "../../../glue/latest/dg/column-statistics.md")

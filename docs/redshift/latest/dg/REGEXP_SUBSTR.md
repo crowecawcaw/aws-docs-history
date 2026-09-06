@@ -6,7 +6,7 @@ and migration options, see the
 # REGEXP\_SUBSTR function
 
 Returns characters from a string by searching it for a regular expression
-pattern. REGEXP\_SUBSTR is similar to the [SUBSTRING function](r_SUBSTRING.md "r_SUBSTRING.md") function, but lets you search a string for a regular
+pattern. REGEXP\_SUBSTR is similar to the [SUBSTRING function](r_SUBSTRING.md "r_SUBSTRING.md") function, but with REGEXP\_SUBSTR, you can search a string for a regular
 expression pattern. If the function can't match the regular expression to any characters
 in the string, it returns an empty string. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md "pattern-matching-conditions-posix.md") and
 [Regular expression](https://en.wikipedia.org/wiki/Regular_expression "https://en.wikipedia.org/wiki/Regular_expression") in Wikipedia.

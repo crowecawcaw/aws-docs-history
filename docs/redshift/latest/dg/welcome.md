@@ -12,7 +12,7 @@ with databases as a designer, software developer, or administrator, this guide g
 information you need to design, build, query, and maintain your data warehouse.
 
 Amazon Redshift is a fully managed,
-petabyte-scale data warehouse service in the cloud. Amazon Redshift Serverless lets you access and
+petabyte-scale data warehouse service in the cloud. With Amazon Redshift Serverless, you can access and
 analyze data without the usual configurations of a provisioned data warehouse. Resources are
 automatically provisioned and data warehouse capacity is intelligently scaled to deliver
 fast performance for even the most demanding and unpredictable workloads. You don't incur

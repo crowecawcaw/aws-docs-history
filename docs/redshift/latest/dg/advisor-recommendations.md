@@ -44,7 +44,7 @@ generates a recommendation to implement compression on the source files in Amazo
 
 **Recommendation**
 
-Ensure that each COPY that loads a significant amount of data, or runs for a
+Make sure that each COPY that loads a significant amount of data, or runs for a
 significant duration, ingests compressed data objects from Amazon S3. You can identify the
 COPY commands that load large uncompressed datasets from Amazon S3 by running the
 following SQL command as a superuser.
@@ -97,7 +97,7 @@ clusters.
 
 Consider moving each actively queried database to a separate dedicated cluster.
 Using a separate cluster can reduce resource contention and improve query
-performance. It can do so because it allows you to set the size for each cluster for
+performance. It can do so because you can set the size for each cluster for
 the storage, cost, and performance needs of each workload. Also, unrelated workloads
 often benefit from different workload management configurations.
 
@@ -262,7 +262,7 @@ WHERE b.complyze_sec IS NOT NULL ORDER BY a.copy_sql, a.starttime;
 
 **Implementation tips**
 
-- Ensure that all tables of significant size created during your ETL processes
+- Make sure that all tables of significant size created during your ETL processes
   (for example, staging tables and temporary tables) declare a compression
   encoding for all columns except the first sort key.
 - Estimate the expected lifetime size of the table being loaded for each of

@@ -6,7 +6,7 @@ and migration options, see the
 # Data sharing in Amazon Redshift
 
 With Amazon Redshift, you can securely share data across Amazon Redshift clusters or with other AWS services.
-Data sharing lets you share live data, without having to create a copy or move it. Database
+With data sharing, you can share live data, without having to create a copy or move it. Database
 administrators and data engineers can use data sharing to provide secure, read-only access to
 data for analytics purposes, while maintaining control over the data. Data analysts, business
 intelligence professionals, and data scientists can leverage shared data to gain insights

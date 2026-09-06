@@ -5,7 +5,7 @@ and migration options, see the
 
 # Query Amazon S3 Tables from Amazon Redshift
 
-Amazon Redshift integrates with Amazon S3 table buckets, allowing you to access S3 table
+Amazon Redshift integrates with Amazon S3 table buckets, so you can access S3 table
 resources using Amazon Redshift. Whether you are just getting started or managing thousands
 of tables in your Iceberg environment, table buckets simplify data lake management at any
 scale. For more information, see [Table
@@ -260,7 +260,7 @@ This command creates a resource link named `sales_resource_link` in your
 default AWS Glue Data Catalog that points to the `sales` database in the S3
 table bucket `analytics-bucket`.
 
-Once resource links are created, Amazon Redshift provides three methods to query S3
+After resource links are created, Amazon Redshift provides three methods to query S3
 Tables. Choose the method that best fits your use case.
 
 ###### Note
@@ -362,7 +362,7 @@ Redshift Management Guide_.
 
 **Query S3 Tables**
 
-Once federated access is configured, verify the mounted schemas and query your
+After federated access is configured, verify the mounted schemas and query your
 S3 Tables.
 
 Verify mounted schemas:

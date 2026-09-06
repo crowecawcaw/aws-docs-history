@@ -62,7 +62,7 @@ schema. For more information about valid names, see [Names and identifiers](r_na
 
 We recommend that you prefix all stored procedure names with
 `sp_`. Amazon Redshift reserves the `sp_` prefix for stored
-procedure names. By using the `sp_` prefix, you ensure that your
+procedure names. By using the `sp_` prefix, you make sure that your
 stored procedure name doesn't conflict with any existing or future Amazon Redshift
 built-in stored procedure or function names. For more information, see [Naming stored procedures](stored-procedure-naming.md "stored-procedure-naming.md").
 
@@ -163,7 +163,7 @@ following:
   a procedure in NONATOMIC mode.
 - Any cursor that is opened (explicitly or implicitly) is closed
   automatically when an implicit commit is processed. Therefore, you must
-  open an explicit transaction before beginning a cursor loop to ensure
+  open an explicit transaction before beginning a cursor loop to make sure
   that any SQL within the loop's iteration is not implicitly
   committed.
 

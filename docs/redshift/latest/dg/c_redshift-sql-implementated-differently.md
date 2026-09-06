@@ -32,7 +32,7 @@ differently in Amazon Redshift.
 - [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md")
 
 Amazon Redshift does not support tablespaces, table partitioning, inheritance, and
-certain constraints. The Amazon Redshift implementation of CREATE TABLE enables you to
+certain constraints. With the Amazon Redshift implementation of CREATE TABLE, you can
 define the sort and distribution algorithms for tables to optimize parallel
 processing.
 

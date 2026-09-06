@@ -65,7 +65,7 @@ Region when you create the bucket by using the Amazon S3 Management Console, or 
 specifying an endpoint when you create the bucket using the Amazon S3 API or CLI. For
 more information, see [Uploading files to Amazon S3 to use with COPY](t_uploading-data-to-S3.md "t_uploading-data-to-S3.md").
 
-For more information about Amazon S3 regions, see [Accessing a
+For more information about Amazon S3 Regions, see [Accessing a
 Bucket](../../../AmazonS3/latest/userguide/UsingBucket.md#access-bucket-intro "../../../AmazonS3/latest/userguide/UsingBucket.md#access-bucket-intro") in the _Amazon Simple Storage Service User Guide_.
 
 Alternatively, you can specify the Region using the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") option with the COPY command.

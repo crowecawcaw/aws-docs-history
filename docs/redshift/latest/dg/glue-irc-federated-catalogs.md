@@ -5,8 +5,8 @@ and migration options, see the
 
 # Querying AWS Glue IRC federated catalogs with Amazon Redshift
 
-AWS Glue Iceberg REST Catalog (IRC) enables you to federate external data catalogs, such as
-Databricks Unity Catalog, into the AWS Glue Data Catalog. Once federated, Amazon Redshift can query these external
+With AWS Glue Iceberg REST Catalog (IRC), you can federate external data catalogs, such as
+Databricks Unity Catalog, into the AWS Glue Data Catalog. After the catalog is federated, Amazon Redshift can query these external
 tables directly without requiring data movement. This chapter describes how to access
 Databricks Unity Catalog tables using federation from Amazon Redshift.
 
@@ -16,7 +16,7 @@ The architecture involves three components that may reside in different accounts
 
 - **Source data (Amazon S3 bucket)** – The Amazon S3 bucket
   managed by the external data platform (for example, Databricks). This is where the actual
-  Iceberg table data files reside. To read Delta tables, ensure Iceberg metadata is available
+  Iceberg table data files reside. To read Delta tables, make sure Iceberg metadata is available
   for these tables using UniForm.
 - **AWS Glue IRC federated catalog** – The Data Catalog entry
   that federates the external catalog (for example, Databricks Unity Catalog) and exposes its
@@ -126,7 +126,7 @@ in the _AWS Lake Formation Developer Guide_.
 #### Setting the cross-account version
 
 Set the cross-account version to V4 in AWS Lake Formation settings. If catalog-level permissions
-already exist, ensure AWS RAM has permission to share resources by adding the following Data Catalog
+already exist, make sure AWS RAM has permission to share resources by adding the following Data Catalog
 resource policy:
 
 ```
@@ -265,5 +265,5 @@ SELECT * FROM "awsdatacatalog"."`resource_link_database`"."`table_name`" LIMIT 1
   overhead.
 - **Use same-Region deployment when external schemas are required.**
   If your workflow requires external schemas (for example, to control schema-level permissions
-  or naming), ensure the AWS Glue federated catalog, Amazon Redshift compute, and source Amazon S3 bucket are
+  or naming), make sure the AWS Glue federated catalog, Amazon Redshift compute, and source Amazon S3 bucket are
   all in the same Region.

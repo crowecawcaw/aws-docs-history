@@ -16,8 +16,7 @@ statement.
 ###### Note
 
 Some applications use the term _database_ and
-_schema_ interchangeably. In Amazon Redshift, we use the term
-_schema_.
+_schema_ interchangeably. Amazon Redshift uses the term "schema".
 
 An Amazon Redshift external schema references an external database in an external data catalog. You
 can create the external database in Amazon Redshift, in [Amazon Athena](../../../athena/latest/ug/catalog.md "../../../athena/latest/ug/catalog.md"), in [AWS Glue Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro"), or in

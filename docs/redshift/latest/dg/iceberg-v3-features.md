@@ -65,25 +65,35 @@ MERGE operations, Amazon Redshift merges v2 positional deletes into
 deletion vectors for the data files affected by the
 operation.
 
-### Limitations
+###### Important
 
-- Downgrading from v3 to v2 is not
-  supported.
-- Amazon Redshift does not support reading or writing
-  complex types (struct, list, map, variant) in
-  Iceberg v3 tables.
-- Amazon Redshift does not support the following data types
-  in Iceberg v3 tables: struct, list, map, variant,
-  geometry, geography, binary, uuid, time,
-  timestamp\_ns, timestamptz\_ns, and
-  unknown.
-- After upgrading a table to v3, the Iceberg
-  `timestamptz` type is mapped to the
-  Amazon Redshift TIMESTAMPTZ type. In v2 tables,
-  `timestamptz` is mapped to the Amazon Redshift
-  TIMESTAMP type. With v3, this means your queries
-  output the timestamp based on their
-  timezone.
+Before upgrading to Iceberg v3, review the
+[Limitations](#iceberg-v3-limitations "#iceberg-v3-limitations") section, as
+some features are not yet supported for v3 tables.
+Since downgrading from v3 to v2 is not supported,
+ensure that the unsupported features won't impact your
+workloads before proceeding with the upgrade.
+
+## Limitations
+
+- You can use Iceberg v3 only on Amazon Redshift Serverless
+  clusters and on provisioned clusters that use RG
+  instance types.
+- You can't read or write complex types (struct,
+  list, map, variant) in Iceberg v3 tables.
+- You can't use the following data types in Iceberg
+  v3 tables: struct, list, map, variant, geometry,
+  geography, binary, uuid, time, timestamp\_ns,
+  timestamptz\_ns, and unknown.
+- You can't use Iceberg v3 tables that contain
+  equality deletes.
+- You can't create materialized views on Iceberg v3
+  tables.
+- After upgrading a table to v3, Iceberg's
+  `timestamptz` type maps to the Amazon Redshift
+  TIMESTAMPTZ type instead of TIMESTAMP (used in v2).
+  As a result, your queries return timestamps that
+  include timezone information.
 
 ## Default column values
 
@@ -92,7 +102,7 @@ tables. Amazon Redshift returns an error if you specify a default value
 on an Iceberg v2 table.
 
 Default values specify a literal value that a column falls
-back to when no explicit value is present. This lets you add
+back to when no explicit value is present. With this, you can add
 new columns to an existing table without rewriting data
 files. Reads of previously written data files automatically
 return the default value for the new column. The default is

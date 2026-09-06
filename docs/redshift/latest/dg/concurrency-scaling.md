@@ -86,7 +86,7 @@ and [Controlling access from VPC endpoints with bucket policies](../../../Amazon
 ## AWS Regions for concurrency scaling
 
 With Amazon Redshift, you can use concurrency scaling to manage concurrent workload demands
-across Redshift clusters. This topic details in which regions you can use concurrency
+across Redshift clusters. This topic details in which Regions you can use concurrency
 scaling with Amazon Redshift.
 
 Concurrency scaling is available in these AWS Regions:
@@ -148,9 +148,9 @@ meets the following requirements:
 ## Configuring concurrency scaling queues
 
 With Amazon Redshift, you can manage concurrency and system resources by configuring concurrency scaling.
-Concurrency scaling queues allow you to set limits on the number of queries or user
+With concurrency scaling queues, you can set limits on the number of queries or user
 sessions that can be executed concurrently. The following section provides instructions on
-how to enable concurrency scaling queues in Amazon Redshift, enabling you to effectively handle concurrent
+how to enable concurrency scaling queues in Amazon Redshift, so you can effectively handle concurrent
 queries and user sessions.
 
 You route queries to concurrency scaling clusters by enabling concurrency scaling in a workload manager

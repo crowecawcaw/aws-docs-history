@@ -16,7 +16,7 @@ AWS Key Management Service key (SSE-KMS).
 By default, the format of the unloaded file is pipe-delimited ( `|` ) text.
 
 You can manage the size of files on Amazon S3, and by extension the number of files, by
-setting the MAXFILESIZE parameter. Ensure that the S3 IP ranges are added to your allow list. To learn more about
+setting the MAXFILESIZE parameter. Make sure that the S3 IP ranges are added to your allow list. To learn more about
 the required S3 IP ranges, see [Network isolation](../mgmt/security-network-isolation.md#network-isolation "../mgmt/security-network-isolation.md#network-isolation").
 
 You can unload the result of an Amazon Redshift query to your Amazon S3 data lake in Apache Parquet, an

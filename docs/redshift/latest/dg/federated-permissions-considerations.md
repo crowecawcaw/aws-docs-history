@@ -72,7 +72,7 @@ DDM protected objects from the federated permissions catalog if the policies con
   **Alter User Set Global identity**
 
 - Supported only on "Select", "Delete", "Update", "Show", "Insert"
-- IAM role associated with a user via ALTER USER SET GLOBAL IDENTITY is only used when the query is against Redshift Warehouse with Federated Permissions and only when the query targets a relation, such as SELECT, UDPATE and DELETE queries.
+- IAM role associated with a user by using ALTER USER SET GLOBAL IDENTITY is only used when the query is against Redshift Warehouse with Federated Permissions and only when the query targets a relation, such as SELECT, UDPATE and DELETE queries.
 - Such IAM role is also used SHOW DATABASES, SHOW SCHEMAS and SHOW TABLES queries against resources in Redshift Warehouse with Federated Permissions.
 - Such IAM role is not used on data definition queries such as CREATE, ALTER and DROP.
   **Error Message**

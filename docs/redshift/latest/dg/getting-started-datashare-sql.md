@@ -6,7 +6,7 @@ and migration options, see the
 # Getting started with read-only data sharing with the SQL interface
 
 With Amazon Redshift, you can securely share data across Amazon Redshift clusters, enabling data consumers
-to query and access live data without copying or replicating it. Data sharing lets you
+to query and access live data without copying or replicating it. With data sharing, you can
 create and configure datashares, which are producer-side objects that reference the
 database objects you want to share.
 

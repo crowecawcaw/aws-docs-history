@@ -141,7 +141,7 @@ following:
   definition includes mutable functions or external schemas. You also can't use it
   when you define a materialized view on another materialized view.
 - You don't have to manually run [ANALYZE](r_ANALYZE.md "r_ANALYZE.md") on materialized views. This happens currently only
-  via AUTO ANALYZE. For more information, see [Analyzing tables](t_Analyzing_tables.md "t_Analyzing_tables.md").
+  by using AUTO ANALYZE. For more information, see [Analyzing tables](t_Analyzing_tables.md "t_Analyzing_tables.md").
 - RLS-protected or DDM-protected tables.
 - Materialized view creation from remote datasharing clusters does not support references on other materialized views, Spectrum tables, tables defined in a different Redshift cluster and UDFs.
   These are supported for materialized view creation from the local (producer) cluster.

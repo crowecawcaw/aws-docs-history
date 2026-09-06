@@ -7,7 +7,7 @@ and migration options, see the
 
 This section describes how you can use other services as sources and destinations for Amazon Redshift data.
 
-Amazon Redshift integrates with other AWS services to enable you to move, transform, and load
+Amazon Redshift integrates with other AWS services so you can move, transform, and load
 your data quickly and reliably, using data security features.
 
 S3

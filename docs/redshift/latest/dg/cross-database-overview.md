@@ -30,7 +30,7 @@ multiple databases in your Amazon Redshift cluster quickly and easily.
 You can also join datasets from multiple databases in a single query and analyze the
 data using business intelligence (BI) or analytics tools. You can continue to set up
 granular table-level read access controls for users by using standard Amazon Redshift SQL commands.
-By doing so, you can help ensure that users see only the relevant subsets of the data
+By doing so, you can help make sure that users see only the relevant subsets of the data
 that they have permissions for.
 
 - **Write data across databases in your Amazon Redshift

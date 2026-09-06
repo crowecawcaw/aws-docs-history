@@ -15,7 +15,7 @@ the same logic each time, because they can retrieve records from the existing re
 Developers and analysts create materialized views after analyzing their workloads to
 determine which queries would benefit, and whether the maintenance cost of each
 materialized view is worthwhile. As workloads grow or change, these materialized views
-must be reviewed to ensure they continue to provide tangible performance benefits.
+must be reviewed to make sure they continue to provide tangible performance benefits.
 
 The Automated Materialized Views (AutoMV) feature in Redshift enhances query performance by
 automatically creating and managing materialized views based on workload monitoring and machine

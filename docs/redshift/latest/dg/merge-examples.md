@@ -17,11 +17,7 @@ information about the sample data set is found at [Sample database](c_sampledb.m
 
 **Sample merge data source**
 
-The examples in this section need a sample data source that includes both updates and
-inserts. For the examples, we will create a sample table named SALES\_UPDATE that uses
-data from the SALES table. We'll populate the new table with random data that represents
-new sales activity for December. We will use the SALES\_UPDATE sample table to create the
-staging table in the examples that follow.
+The examples in this section use a sample data source that includes both updates and inserts. To set up the sample data, you create a table named SALES\_UPDATE from the SALES table and populate it with random data that represents new sales activity for December. The following examples use the SALES\_UPDATE table as the staging table.
 
 ```
 -- Create a sample table as a copy of the SALES table.
@@ -51,10 +47,7 @@ and mod(sellerid, 4) = 0;
 **Example of a merge that replaces existing
 rows based on matching keys**
 
-The following script uses the SALES\_UPDATE table to perform a merge operation on the
-SALES table with new data for December sales activity. This example replaces rows in the
-SALES table that have updates. For this example, we will update the qtysold and pricepaid columns,
-but leave commission and saletime unchanged.
+The following example uses the SALES\_UPDATE table to perform a merge operation on the SALES table with new data for December sales activity. The merge replaces rows in the SALES table that have updates, modifying the `qtysold` and `pricepaid` columns while leaving `commission` and `saletime` unchanged.
 
 ```
 MERGE into tickit.sales
@@ -89,11 +82,7 @@ OR sales.salestime != sales_update.salestime);
 
 **Example of a merge that specifies a column list without using MERGE**
 
-The following example performs a merge operation to update SALES with new data for
-December sales activity. We need sample data that includes both updates and inserts,
-along with rows that have not changed. For this example, we want to update the QTYSOLD
-and PRICEPAID columns but leave COMMISSION and SALETIME unchanged. The following script
-uses the SALES\_UPDATE table to perform a merge operation on the SALES table.
+The following example performs a merge operation on the SALES table with new data for December activity, using the SALES\_UPDATE table as the data source. The sample data includes updates, inserts, and unchanged rows. The merge updates the `qtysold` and `pricepaid` columns but leaves `commission` and `saletime` unchanged.
 
 ```
 -- Create a staging table and populate it with rows from SALES_UPDATE for Dec

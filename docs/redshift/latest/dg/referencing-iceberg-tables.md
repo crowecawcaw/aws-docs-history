@@ -37,7 +37,7 @@ ON r.customer_id = i.customer_id;
 
 ## Using three-part notation with auto-mounted catalogs
 
-Three-part notation allows you to directly reference tables in auto-mounted catalogs without creating external schemas. This method is particularly useful when working with Amazon S3 table buckets federated with AWS Lake Formation. For information about setting up automatic mounting of the Data Catalog, see [Simplify external object access in Amazon Redshift using automatic mounting of the AWS Glue Data Catalog](https://aws.amazon.com/blogs/big-data/simplify-external-object-access-in-amazon-redshift-using-automatic-mounting-of-the-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/simplify-external-object-access-in-amazon-redshift-using-automatic-mounting-of-the-aws-glue-data-catalog/").
+With three-part notation, you can directly reference tables in auto-mounted catalogs without creating external schemas. This method is particularly useful when working with Amazon S3 table buckets federated with AWS Lake Formation. For information about setting up automatic mounting of the Data Catalog, see [Simplify external object access in Amazon Redshift using automatic mounting of the AWS Glue Data Catalog](https://aws.amazon.com/blogs/big-data/simplify-external-object-access-in-amazon-redshift-using-automatic-mounting-of-the-aws-glue-data-catalog/ "https://aws.amazon.com/blogs/big-data/simplify-external-object-access-in-amazon-redshift-using-automatic-mounting-of-the-aws-glue-data-catalog/").
 
 The syntax for three-part notation is:
 
@@ -98,16 +98,16 @@ To improve query performance, Amazon Redshift caches Iceberg metadata files (inc
 
 Amazon S3 allows you to set permissions at the individual object level, which means it is technically possible to grant access to an Iceberg table's metadata while restricting access to some of its underlying data files. This creates a permission inconsistency that can lead to query failures or unexpected access errors in Amazon Redshift.
 
-Amazon Redshift validates access to the cached root metadata file periodically but does not validate or enforce consistency between metadata-level and data-file-level permissions within your Amazon S3 bucket. It is the customer's responsibility to ensure that permissions are applied consistently across all files that constitute an Iceberg table.
+Amazon Redshift validates access to the cached root metadata file periodically but does not validate or enforce consistency between metadata-level and data-file-level permissions within your Amazon S3 bucket. It is the customer's responsibility to make sure that permissions are applied consistently across all files that constitute an Iceberg table.
 
 To avoid this, consider the following best practices when referencing Iceberg tables in Amazon Redshift:
 
 - Use descriptive schema names – When creating external schemas, use names that clearly indicate the source and purpose of the data, such as `sales_data_lake` or `customer_analytics`.
-- Leverage table statistics – Ensure that column statistics are generated for your Iceberg tables using AWS Glue to optimize query performance. Amazon Redshift uses these statistics for query planning and optimization.
+- Leverage table statistics – Make sure that column statistics are generated for your Iceberg tables using AWS Glue to optimize query performance. Amazon Redshift uses these statistics for query planning and optimization.
 - Consider data freshness – Iceberg tables may be updated by other services while you're querying them. Amazon Redshift provides transactional consistency, ensuring you see a consistent snapshot of the data during your query execution.
-- Use appropriate IAM permissions – Ensure that your Amazon Redshift cluster or workgroup has the necessary IAM permissions to access the Amazon S3 locations where your Iceberg tables are stored, as well as the Data Catalog metadata.
+- Use appropriate IAM permissions – Make sure that your Amazon Redshift cluster or workgroup has the necessary IAM permissions to access the Amazon S3 locations where your Iceberg tables are stored, as well as the Data Catalog metadata.
 - Table level permissions – Grant permissions at the table level, not at the individual file level.
-- Uniform permissions – Ensure uniform access across the entire Amazon S3 path for your Iceberg table, including all metadata, manifest, and data files.
+- Uniform permissions – Maintain uniform access across the entire Amazon S3 path for your Iceberg table, including all metadata, manifest, and data files.
 - Avoid restrictive object-level policies – Do not set restrictive object-level policies on individual Parquet files within an Iceberg table's prefix.
 - Understand caching TTL for permission changes – When you revoke Amazon S3 permissions on an Iceberg table, queries may continue to succeed using cached root metadata for up to the configured TTL duration (default: 2 minutes).
 - Monitor query performance – Use Amazon Redshift query monitoring features to track the performance of queries against Iceberg tables and optimize as needed.

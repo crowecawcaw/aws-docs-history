@@ -30,7 +30,7 @@ The nodes all participate in running parallel queries, working on data that is
 distributed as evenly as possible across the slices. If you have a cluster with
 two dc2.large nodes, you might split your data into four files or some multiple of
 four. Amazon Redshift doesn't take file size into account when dividing the
-workload. Thus, you need to ensure that the files are roughly the same size, from
+workload. Thus, you need to make sure that the files are roughly the same size, from
 1 MB to 1 GB after compression.
 
 To use object prefixes to identify the load files, name each file with a common

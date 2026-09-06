@@ -50,7 +50,7 @@ When sorting arrays containing mixed data types, elements are ordered according 
 - Arrays
 - Objects/Dictionaries
 
-Within each type category, elements are sorted according to their natural ordering (e.g., numbers are sorted numerically, strings alphabetically).
+Within each type category, elements are sorted according to their natural ordering (for example, numbers are sorted numerically, strings alphabetically).
 
 ## Example
 

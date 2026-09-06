@@ -321,7 +321,7 @@ the maximum amount of time the training should take. The default is 5,400 (90
 minutes).
 
 HORIZON specifies the maximum number of predictions the forecast model can
-return. Once the model is trained, you can't change this integer. This
+return. After the model is trained, you can't change this integer. This
 parameter is required if training a forecast model.
 
 FREQUENCY specifies how granular in time units you want the forecasts to be.

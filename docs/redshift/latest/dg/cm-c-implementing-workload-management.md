@@ -8,7 +8,7 @@ and migration options, see the
 You can configure Amazon Redshift WLM to run with either automatic WLM or manual WLM.
 
 With Amazon Redshift, you can manage and prioritize concurrent queries and user workloads to optimize performance and resource
-utilization. Workload management (WLM) allows you to define queues, user groups, and other constructs to control the
+utilization. With workload management (WLM), you can define queues, user groups, and other constructs to control the
 resources allocated to different types of queries or users.
 
 The following sections outline the specific workload management features in Amazon Redshift, and guide you through their

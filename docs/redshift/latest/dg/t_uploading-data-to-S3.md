@@ -19,7 +19,7 @@ The Amazon S3 bucket that holds the data files must be created in the same AWS
 Region as your cluster unless you use the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") option to
 specify the Region in which the Amazon S3 bucket is located.
 
-Ensure that the S3 IP ranges are added to your allowlist. To learn more about the
+Make sure that the S3 IP ranges are added to your allowlist. To learn more about the
 required S3 IP ranges, see [Network isolation](../mgmt/security-network-isolation.md#network-isolation "../mgmt/security-network-isolation.md#network-isolation").
 
 You can create an Amazon S3 bucket in a specific Region either by selecting the Region

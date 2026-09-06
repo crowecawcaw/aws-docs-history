@@ -176,7 +176,7 @@ record to be truncated.
 
 You can't use the ESCAPE parameter for FIXEDWIDTH loads, and you can't
 specify the escape character itself; the escape character is always the
-backslash character. Also, you must ensure that the input data contains the
+backslash character. Also, you must make sure that the input data contains the
 escape character in the appropriate places.
 
 Here are some examples of input data and the resulting loaded data when

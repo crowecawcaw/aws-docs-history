@@ -83,7 +83,7 @@ JSON 's3://amzn-s3-demo-bucket/jsonpaths.txt';
 
 ## Using a manifest to specify data files
 
-You can use a manifest to ensure that your COPY command loads all of the required
+You can use a manifest to make sure that your COPY command loads all of the required
 files, and only the required files, from Amazon S3. You can also use a manifest when you need
 to load multiple files from different buckets or files that don't share the same
 prefix.
@@ -106,7 +106,7 @@ contains an unwanted file that happens to use the same prefix, such as a file na
 `custdata.backup` for example, COPY loads that file as well, resulting in
 unwanted data being loaded.
 
-To ensure that all of the required files are loaded and to prevent unwanted files
+To make sure that all of the required files are loaded and to prevent unwanted files
 from being loaded, you can use a manifest file. The manifest is a JSON-formatted text
 file that lists the files to be processed by the COPY command. For example, the
 following manifest loads the three files in the previous example.
@@ -1020,7 +1020,7 @@ cat nlTest1.txt | perl -p -e 's/>\s*\n/>\\\n/g' > nlTest2.txt
 ```
 
 To accommodate loading the data from the `nlTest2.txt` file into
-Amazon Redshift, we created a two-column table in Amazon Redshift. The first column c1, is a character
+Amazon Redshift, this example creates a two-column table in Amazon Redshift. The first column c1, is a character
 column that holds XML-formatted content from the `nlTest2.txt` file.
 The second column c2 holds integer values loaded from the same file.
 

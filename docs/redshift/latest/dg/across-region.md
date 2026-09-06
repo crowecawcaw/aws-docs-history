@@ -24,7 +24,7 @@ specific namespaces within an AWS Region. For more information about sharing dat
 across AWS accounts, see [Sharing data across AWS accounts](across-account.md "across-account.md").
 
 When consuming data from a different Region, the consumer pays the Cross-Region
-data transfer fee from the producer region to the consumer Region.
+data transfer fee from the producer Region to the consumer Region.
 
 To use the datashare, a consumer account administrator can associate the datashare
 in one of the following three ways.

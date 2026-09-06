@@ -6,7 +6,7 @@ and migration options, see the
 # SUPER data type and materialized views
 
 With Amazon Redshift, you can use materialized views to enhance the performance and flexibility of
-queries run against the SUPER data type. The SUPER data type lets you store a superset of columns from the
+queries run against the SUPER data type. With the SUPER data type, you can store a superset of columns from the
 base tables in a materialized view, letting you query the materialized view directly
 without joining the base tables. The following sections show you how to create and use
 materialized views with the SUPER data type in Amazon Redshift.

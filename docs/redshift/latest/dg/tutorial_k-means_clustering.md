@@ -21,8 +21,7 @@ Language, and Tone (GDELT)](https://aws.amazon.com/public-datasets/gdelt/ "https
 world, and the data is stored for every second of every day. K-means will group
 events that have similar tone, actors, or locations. The data is stored as multiple
 files on Amazon Simple Storage Service, in two different folders. The folders are historical, which cover
-the years 1979–2013, and daily updates, which cover the years 2013 and later. For
-this example, we use the historical format and bring in 1979 data.
+the years 1979–2013, and daily updates, which cover the years 2013 and later. This example uses the historical format and brings in 1979 data.
 
 ## Use case examples
 

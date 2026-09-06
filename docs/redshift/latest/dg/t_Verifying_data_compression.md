@@ -17,18 +17,16 @@ encodings for existing data. For details about applying automatic compression,
 see [Loading tables with automatic compression](c_Loading_tables_auto_compress.md "c_Loading_tables_auto_compress.md").
 
 To perform a meaningful test of data compression, you must have a large number of
-rows. For this example, we create a table and insert rows by using a statement that
-selects from two tables; VENUE and LISTING. We leave out the WHERE clause that would
-normally join the two tables. The result is that _each_ row in
+rows. For this example, create a table and insert rows by using a statement that selects from two tables: VENUE and LISTING. Leave out the WHERE clause that would normally join the two tables. The result is that _each_ row in
 the VENUE table is joined to _all_ of the rows in the LISTING
 table, for a total of over 32 million rows. This is known as a Cartesian join and
 normally is not recommended. However, for this purpose, it's a convenient
 method of creating many rows. If you have an existing table with data that you want
 to test, you can skip this step.
 
-After we have a table with sample data, we create a table with seven columns. Each
+After you have a table with sample data, create a table with seven columns. Each
 has a different compression encoding: raw, bytedict, lzo, run length, text255,
-text32k, and zstd. We populate each column with exactly the same data by running an
+text32k, and zstd. Populate each column with exactly the same data by running an
 INSERT command that selects the data from the first table.
 
 To test compression encodings, do the following:

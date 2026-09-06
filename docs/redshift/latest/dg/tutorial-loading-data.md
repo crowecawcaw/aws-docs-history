@@ -164,8 +164,8 @@ For more information about creating a bucket, see
 
 
     The bucket name you choose must be unique among all existing
-     bucket names in Amazon S3. One way to help ensure uniqueness is to prefix
-     your bucket names with the name of your organization. Bucket names
+     bucket names in Amazon S3. One way to help make your bucket names unique is to prefix
+     them with the name of your organization. Bucket names
      must comply with certain rules. For more information, go to [Bucket restrictions
      and limitations](../../../AmazonS3/latest/userguide/BucketRestrictions.md "../../../AmazonS3/latest/userguide/BucketRestrictions.md") in the
      *Amazon Simple Storage Service User Guide.*
@@ -479,15 +479,15 @@ options;
 For each COPY command, do the following:
 
 1. Replace `<your-bucket-name>` with the
-   name of a bucket in the same region as your cluster.
+   name of a bucket in the same Region as your cluster.
 
-This step assumes the bucket and the cluster are in the same region.
-Alternatively, you can specify the region using the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") option with the COPY command. 2. Replace `<aws-account-id>` and
+This step assumes the bucket and the cluster are in the same Region.
+Alternatively, you can specify the Region using the [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region") option with the COPY command. 2. Replace `<aws-account-id>` and
 `<role-name>` with your
 own AWS account and IAM role. The segment of the credentials
 string that is enclosed in single quotation marks must not contain any
 spaces or line breaks. Note that the ARN might differ slightly in format than the sample. It's best to
-copy the ARN for the role from the IAM console, to ensure that it's accurate, when you run the COPY commands.
+copy the ARN for the role from the IAM console, to make sure that it's accurate, when you run the COPY commands.
 
 #### Load the PART table using NULL AS
 
@@ -524,7 +524,7 @@ part-csv.tbl-007
 
 CSV, which stands for comma separated values, is a common format used for
 importing and exporting spreadsheet data. CSV is more flexible than
-comma-delimited format because it enables you to include quoted strings
+comma-delimited format because you can include quoted strings
 within fields. The default quotation mark character for COPY from CSV format is a
 double quotation mark ( " ), but you can specify another quotation mark character by
 using the QUOTE AS option. When you use the quotation mark character within the
@@ -609,7 +609,7 @@ of data.
 By default, COPY treats a NUL terminator character as an EOR character and
 terminates the record, which often results in unexpected results or an error.
 There is no single standard method of indicating NULL in text data. Thus, the
-NULL AS COPY command option enables you to specify which character to substitute
+With the NULL AS COPY command option, you can specify which character to substitute
 with NULL when loading the table. In this example, you want COPY to treat the
 NUL terminator character as a NULL value.
 
@@ -668,15 +668,15 @@ format.
 
 ###### REGION
 
-Whenever possible, you should locate your load data in the same AWS region
+Whenever possible, you should locate your load data in the same AWS Region
 as your Amazon Redshift cluster. If your data and your cluster are in the same
-region, you reduce latency and avoid
+Region, you reduce latency and avoid
 cross-region data transfer costs. For more information, see [Amazon Redshift best practices for loading data](c_loading-data-best-practices.md "c_loading-data-best-practices.md").
 
-If you must load data from a different AWS region, use the REGION option to
-specify the AWS region in which the load data is located. If you specify a
-region, all of the load data, including manifest files, must be in the named
-region. For more information, see [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region").
+If you must load data from a different AWS Region, use the REGION option to
+specify the AWS Region in which the load data is located. If you specify a
+Region, all of the load data, including manifest files, must be in the named
+Region. For more information, see [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region").
 
 For example, if your cluster is in the US East (N. Virginia) Region, and your Amazon S3 bucket
 is located in the US West (Oregon) Region, the following COPY
@@ -753,7 +753,7 @@ Execution time: 2.95s
 By default, the first time COPY encounters an error, the command fails and
 returns an error message. To save time during testing, you can use the
 MAXERROR option to instruct COPY to skip a specified number of errors before
-it fails. Because we expect errors the first time we test loading the
+it fails. Because you can expect errors the first time you test loading the
 CUSTOMER table data, add `maxerror 10` to the COPY command.
 
 To test using the FIXEDWIDTH and MAXERROR options, run the following
@@ -904,7 +904,7 @@ folder contains eight data files that share the key prefix
 also contains the extraneous files `customer-fw.tbl.log` and
 `customer-fw.tbl-0001.bak`.
 
-To ensure that you load all of the correct files, and only the correct files,
+To make sure that you load all of the correct files, and only the correct files,
 use a manifest file. The manifest is a text file in JSON format that explicitly
 lists the unique object key for each source file to be loaded. The file objects
 can be in different folders or different buckets, but they must be in the same

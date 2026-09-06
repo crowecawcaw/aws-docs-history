@@ -99,7 +99,7 @@ features eligible for incremental refresh. For example:
 
 The CASCADE option refreshes the specified materialized view and all its dependent
 materialized views, in order of dependence: base MVs are REFRESHed before the MVs on top
-(topological ordering). This allows you to update a nested set of materialized views in
+(topological ordering). With this, you can update a nested set of materialized views in
 a single command.
 
 The RESTRICT option (the default if neither RESTRICT nor CASCADE is specified)

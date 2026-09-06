@@ -17,8 +17,8 @@ DynamoDB table name.
 
 ###### Important
 
-If the DynamoDB table doesn't reside in the same region as your Amazon Redshift cluster,
-you must use the REGION parameter to specify the region in which the data is
+If the DynamoDB table doesn't reside in the same Region as your Amazon Redshift cluster,
+you must use the REGION parameter to specify the Region in which the data is
 located.
 
 ## Syntax

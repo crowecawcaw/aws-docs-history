@@ -55,7 +55,7 @@ FROM *data\_source*
 You can perform a COPY operation with as few as three parameters: a table name, a data
 source, and authorization to access the data.
 
-Amazon Redshift extends the functionality of the COPY command to enable you to load data in
+Amazon Redshift extends the functionality of the COPY command so you can load data in
 several data formats from multiple data sources, control access to load data, manage data
 transformations, and manage the load operation.
 
@@ -103,7 +103,7 @@ region 'us-east-1';
 ```
 
 For complete instructions on how to use COPY commands to load
-sample data, including instructions for loading data from other AWS regions, see [Load Sample Data from Amazon
+sample data, including instructions for loading data from other AWS Regions, see [Load Sample Data from Amazon
 S3](../gsg/rs-gsg-create-sample-db.md "../gsg/rs-gsg-create-sample-db.md") in the Amazon Redshift Getting Started Guide.
 
 _table-name_

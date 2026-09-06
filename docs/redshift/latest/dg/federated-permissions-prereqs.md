@@ -7,7 +7,7 @@ and migration options, see the
 
 ## IAM policy requirements for Amazon Redshift federated permissions setup
 
-Amazon Redshift federated permissions enables you to centrally manage data access across your analytics workloads, with permissions managed by the Redshift warehouse directly.
+With Amazon Redshift federated permissions, you can centrally manage data access across your analytics workloads, with permissions managed by the Redshift warehouse directly.
 
 To enable Amazon Redshift federated permissions, specific IAM permissions are required beyond the standard permissions needed for creating Redshift provisioned clusters and serverless namespaces.
 
@@ -38,7 +38,7 @@ configuring dedicated IdC applications.
 
 _Required IAM Permissions_
 
-To create and manage the identity center application for identity center identity propagation, ensure your IAM permissions include the following permissions:
+To create and manage the identity center application for identity center identity propagation, make sure your IAM permissions include the following permissions:
 
 _For Amazon Redshift IdC application management:_
 
@@ -354,7 +354,7 @@ over the AWS IAM Identity Center user access at each workgroup or cluster.
 
 ```
 GRANT CONNECT [ON WORKGROUP]
-TO [USER] <prefix>:<username> | ROLE <prefix>:<rolename> | PUBLIC;
+TO <prefix>:<username> | ROLE <prefix>:<rolename> | PUBLIC;
 ```
 
 CONNECT [ON WORKGROUP]

@@ -16,7 +16,7 @@ Note that Python 3 isn't available for Python UDFs. To get Python 3 support for 
 use [Scalar Lambda UDFs](udf-creating-a-lambda-sql-udf.md "udf-creating-a-lambda-sql-udf.md") instead.
 
 You can also create AWS Lambda UDFs that use custom functions defined in Lambda as part of
-your SQL queries. Lambda UDFs enable you to write complex UDFs and integrate with third-party
+your SQL queries. With Lambda UDFs, you can write complex UDFs and integrate with third-party
 components. They also can help you overcome some of the limitations of current Python and SQL
 UDFs. For example, they can help you access network and storage resources and write more
 full-fledged SQL statements. You can create Lambda UDFs in any of the programming languages

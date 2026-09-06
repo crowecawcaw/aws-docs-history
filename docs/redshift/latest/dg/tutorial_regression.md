@@ -6,7 +6,7 @@ and migration options, see the
 # Tutorial: Building regression models
 
 In this tutorial, you use Amazon Redshift ML to create a machine learning regression model
-and run prediction queries on the model. Regression models allow you to predict
+and run prediction queries on the model. With regression models, you can predict
 numerical outcomes, such as the price of a house, or how many people will use a city’s
 bike rental service. You use the CREATE MODEL command in Amazon Redshift with your training
 data. Then, Amazon Redshift ML compiles the model, imports the trained model to Redshift, and

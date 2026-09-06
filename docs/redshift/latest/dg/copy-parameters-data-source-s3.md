@@ -9,7 +9,7 @@ To load data from files located in one or more S3 buckets, use the FROM clause t
 indicate how COPY locates the files in Amazon S3. You can provide the object path to the
 data files as part of the FROM clause, or you can provide the location of a manifest
 file that contains a list of Amazon S3 object paths. COPY from Amazon S3 uses an HTTPS
-connection. Ensure that the S3 IP ranges are added to your allow list. To learn more about
+connection. Make sure that the S3 IP ranges are added to your allow list. To learn more about
 the required S3 IP ranges, see [Network isolation](../mgmt/security-network-isolation.md#network-isolation "../mgmt/security-network-isolation.md#network-isolation").
 
 ###### Important

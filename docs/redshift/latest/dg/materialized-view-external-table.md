@@ -15,7 +15,7 @@ When you use materialized views on at least one external table, materialized vie
 creation is incremental on:
 
 - Standard data lake tables, partitioned and unpartitioned, with data files
-  in any supported format (Parquet, Avro, CSV, etc.).
+  in any supported format (Parquet, Avro, CSV, and so on).
 - Apache Iceberg tables, partitioned and unpartitioned, with copy-on-write
   and merge-on-read.
 - Amazon Redshift Spectrum tables joined with any Amazon Redshift table in the same database.
@@ -57,8 +57,7 @@ external data lake tables.
     refresh.
 
 - On Apache Iceberg tables, materialized view refresh can handle only up to
-  4 million positions deleted in a single data file. Once this limit is
-  reached, the Apache Iceberg base table must be compacted to continue
+  4 million positions deleted in a single data file. After this limit is reached, the Apache Iceberg base table must be compacted to continue
   refreshing the materialized view.
 - On Apache Iceberg tables, concurrency scaling is not supported for
   materialized view creation and refresh.

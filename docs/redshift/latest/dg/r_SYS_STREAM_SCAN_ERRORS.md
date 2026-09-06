@@ -5,7 +5,7 @@ and migration options, see the
 
 # SYS\_STREAM\_SCAN\_ERRORS
 
-Records errors for records loaded via streaming ingestion.
+Records errors for records loaded through streaming ingestion.
 
 SYS\_STREAM\_SCAN\_ERRORS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
 

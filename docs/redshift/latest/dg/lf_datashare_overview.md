@@ -24,7 +24,7 @@ You can also use tags in Lake Formation to configure permissions on Lake Formati
 information, see [Lake Formation Tag-based access
 control](../../../lake-formation/latest/dg/tag-based-access-control.md "../../../lake-formation/latest/dg/tag-based-access-control.md").
 
-Amazon Redshift currently supports data sharing via Lake Formation when sharing within the same
+Amazon Redshift currently supports data sharing through Lake Formation when sharing within the same
 account or across accounts. Cross-Region sharing is currently not supported.
 
 The following is a high-level overview of how to use Lake Formation to control datashare

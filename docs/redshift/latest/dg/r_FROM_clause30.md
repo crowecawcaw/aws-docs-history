@@ -220,7 +220,7 @@ For examples, see [UNNEST examples](r_FROM_clause-unnest-examples.md "r_FROM_cla
 
 _offset\_column\_name_
 
-A custom name for the offset column that lets you
+A custom name for the offset column that you use to
 explicitly define how the index column will appear
 in the output. This parameter is optional.
 By default, the offset column name is `offset_col`.

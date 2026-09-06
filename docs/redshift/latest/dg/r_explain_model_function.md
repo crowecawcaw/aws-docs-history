@@ -25,10 +25,9 @@ explainability report is available. Otherwise, the state becomes `Processing job
  failed`.
 
 When you run the CREATE MODEL statement, you can use the optional `MAX_RUNTIME` parameter
-to specify the maximum amount of time the training should take. Once model creation reaches that amount of time,
+to specify the maximum amount of time the training should take. After model creation reaches that amount of time,
 Amazon Redshift stops creating the model. If you reach that time limit while creating an autopilot
-model, Amazon Redshift will return the best model so far. Model explainability becomes available once the model
-training finishes, so if `MAX_RUNTIME` is set to a low amount of time, the explainability report might
+model, Amazon Redshift will return the best model so far. Model explainability becomes available after the model training finishes, so if `MAX_RUNTIME` is set to a low amount of time, the explainability report might
 not be available. Training time varies and depends on
 model complexity, data size, and other factors.
 

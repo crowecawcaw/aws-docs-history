@@ -79,7 +79,7 @@ practices:
 
 If you load your tables in small increments (such as daily updates that
 represent a small percentage of the total number of rows in the table), running
-VACUUM regularly will help ensure that individual vacuum operations go
+VACUUM regularly will help make sure that individual vacuum operations go
 quickly.
 
 - Run the largest load first.

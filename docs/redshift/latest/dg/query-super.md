@@ -8,7 +8,7 @@ and migration options, see the
 With Amazon Redshift, you can query and analyze semi-structured data, such as JSON, Avro, or Ion,
 alongside your structured data. Semi-structured data refers to data that has a flexible
 schema, allowing for hierarchical or nested structures. The following sections demonstrate
-querying semi-structured data using Amazon Redshift's support for open data formats, allowing you to
+querying semi-structured data using Amazon Redshift's support for open data formats, so you can
 unlock valuable information from complex data structures.
 
 Amazon Redshift uses the PartiQL language to offer SQL-compatible access to relational,

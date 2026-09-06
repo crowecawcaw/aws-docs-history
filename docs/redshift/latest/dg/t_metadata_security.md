@@ -8,7 +8,7 @@ and migration options, see the
 Like Amazon Redshift’s row-level security, metadata security gives you more granular control
 over your metadata. If metadata security is enabled for your provisioned cluster or
 serverless workgroup, users can see metadata for the objects for which they have viewing
-access. Metadata security lets you separate visibility based on your needs. For example,
+access. With metadata security, you can separate visibility based on your needs. For example,
 you can use a single data warehouse to centralize all of your data storage. However, if you
 store data for multiple sectors, managing security can become troublesome. With metadata
 security enabled, you can configure your visibility. Users of one sector can have more

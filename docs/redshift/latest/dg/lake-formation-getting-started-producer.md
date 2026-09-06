@@ -9,12 +9,12 @@ With Amazon Redshift, you can access and analyze data shared through AWS Lake Fo
 AWS Lake Formation datashares enable secure data sharing across AWS accounts and Amazon Redshift
 clusters without having to copy or move the underlying data.
 
-Sharing data to AWS Lake Formation lets you centrally define AWS Lake Formation permissions of
+By sharing data to AWS Lake Formation, you can centrally define AWS Lake Formation permissions of
 Amazon Redshift datashares and restrict user access to objects within a datashare.
 
 With Amazon Redshift, you can securely share live data across AWS accounts and Amazon Redshift
 clusters using AWS Lake Formation-managed datashares as a producer. A Lake Formation-managed datashare
-is an object that allows you to share live data from your Amazon Redshift cluster with other
+is an object that you use to share live data from your Amazon Redshift cluster with other
 AWS accounts and services.
 
 As a producer cluster or workgroup administrator, follow these steps to share

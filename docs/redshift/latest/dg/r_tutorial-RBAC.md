@@ -581,7 +581,7 @@ To use the user\_is\_member\_of function
 
 ## System views for RBAC (optional)
 
-To view the roles, the assignment of roles to users, the role hierarchy, and the privileges for database objects via roles, use the system views for Amazon Redshift. These views are available to superusers and regular users. Superusers can check all role details. Regular users can only check details for roles that they have been granted access to.
+To view the roles, the assignment of roles to users, the role hierarchy, and the privileges for database objects through roles, use the system views for Amazon Redshift. These views are available to superusers and regular users. Superusers can check all role details. Regular users can only check details for roles that they have been granted access to.
 
 1. To view a list of users that are explicitly granted roles in the cluster, use the following example.
 

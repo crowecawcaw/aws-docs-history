@@ -6,7 +6,7 @@ and migration options, see the
 # Sharing read access to data within an AWS account
 
 With Amazon Redshift, you can share read access to data across different database
-users or groups within the same AWS account. This feature allows you to control
+users or groups within the same AWS account. With this feature, you can control
 data access privileges at a granular level, ensuring that only authorized users or
 groups can read specific data sets.
 
@@ -246,8 +246,8 @@ CREATE DATABASE sales_db FROM DATASHARE salesshare OF NAMESPACE '13b8833d-17c6-4
 ```
 
 If you want more granular control over access to the objects in the local
-database, use the WITH PERMISSIONS clause when creating the database. This
-lets you grant object-level permissions for objects in the database in step 4.
+database, use the WITH PERMISSIONS clause when creating the database. With
+this clause, you can grant object-level permissions for objects in the database in step 4.
 
 ```
 CREATE DATABASE sales_db WITH PERMISSIONS FROM DATASHARE salesshare OF NAMESPACE '13b8833d-17c6-4f16-8fe4-1a018f5ed00d';

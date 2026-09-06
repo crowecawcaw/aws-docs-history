@@ -149,5 +149,5 @@ Also important are the following:
   _Amazon SageMaker AI Developer Guide_.
 - _Amazon Bedrock_ is a fully managed service that offers a choice
   of high-performing foundation models (FMs) from leading AI companies like AI21 Labs, Anthropic,
-  Cohere, Meta, Mistral AI, Stability AI, and Amazon via a single API, along with a broad set of
+  Cohere, Meta, Mistral AI, Stability AI, and Amazon through a single API, along with a broad set of
   capabilities needed to build generative AI applications.

@@ -30,7 +30,7 @@ data:**
 1. On the AWS Data Exchange console, discover and subscribe to data products that
    contains AWS Data Exchange datashares.
 
-Once your subscription starts, you can access licensed Amazon Redshift data that is
+After your subscription starts, you can access licensed Amazon Redshift data that is
 imported as assets to datasets that contain AWS Data Exchange datashares.
 
 For more information on how to get started with using data products that
@@ -85,8 +85,8 @@ CREATE DATABASE sales_db FROM DATASHARE salesshare OF ACCOUNT '123456789012' NAM
 ```
 
 If you want more granular control over access to the objects in the local
-database, use the WITH PERMISSIONS clause when creating the database. This
-lets you grant object-level permissions for objects in the database in step 6.
+database, use the WITH PERMISSIONS clause when creating the database. With
+this clause, you can grant object-level permissions for objects in the database in step 6.
 
 ```
 CREATE DATABASE sales_db WITH PERMISSIONS FROM DATASHARE salesshare OF ACCOUNT '123456789012' NAMESPACE '13b8833d-17c6-4f16-8fe4-1a018f5ed00d';

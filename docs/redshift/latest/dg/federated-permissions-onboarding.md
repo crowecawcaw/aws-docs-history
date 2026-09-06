@@ -273,7 +273,7 @@ Requirements and limitations:
 - IAM role must be attached to the cluster.
 - IAM role must have permissions to access resources needed to run queries on Redshift warehouses with federated permissions.
   We recommend using `AmazonRedshiftFederatedAuthorization` AWS managed policy.
-- The users authenticating via GLOBAL IDENTITY IAM role can query views in Redshift Warehouses with Federated Permissions, but cannot CREATE, ALTER, REFRESH or DROP them.
+- The users authenticating by using the GLOBAL IDENTITY IAM role can query views in Redshift Warehouses with Federated Permissions, but cannot CREATE, ALTER, REFRESH or DROP them.
 
 ### Syntax
 

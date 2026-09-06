@@ -23,7 +23,7 @@ When a consumer cluster queries a shared object that references this function,
 such as a view, RLS policy, or DDM policy, the function evaluates using the consumer
 cluster's security context. The consumer's local users, roles, and group memberships
 determine the result, not those defined on the producer cluster. If you intend to
-enforce the same permissions context that is implemented on the producer, ensure that
+enforce the same permissions context that is implemented on the producer, make sure that
 the corresponding role names, group names, and user memberships exist on the consumer
 cluster and match those on the producer.
 

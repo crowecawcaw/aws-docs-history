@@ -112,7 +112,7 @@ Queries submitted from users from one of these groups run with priority `highest
 
 ## Changing query priority with query monitoring rules
 
-Query monitoring rules (QMR) enable you to change the priority of a query based on
+With query monitoring rules (QMR), you can change the priority of a query based on
 its behavior while it is running. You do this by specifying the priority attribute in
 a QMR predicate in addition to an action. For more information, see [WLM query monitoring rules](cm-c-wlm-query-monitoring-rules.md "cm-c-wlm-query-monitoring-rules.md").
 

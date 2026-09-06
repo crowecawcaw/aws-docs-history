@@ -8,7 +8,7 @@ and migration options, see the
 With a datashare, a data _producer_ can securely share database
 objects of fine granularity, such as schemas and tables, with
 _consumers_ in the same AWS account or in different accounts.
-The producer can also share objects across regions. This topic describes how to add
+The producer can also share objects across Regions. This topic describes how to add
 objects from a data lake, specifically, from the AWS Glue data catalog, to a datashare.
 It covers two use cases:
 

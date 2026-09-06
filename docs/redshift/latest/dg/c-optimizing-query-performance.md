@@ -10,7 +10,7 @@ objects in the system. Data manipulation language (DML) is the subset of SQL tha
 view, add, change, and delete data. Data definition language (DDL) is the subset of SQL that
 you use to add, change, and delete database objects such as tables and views.
 
-Once your system is set up, you typically work with DML the most, especially the [SELECT](r_SELECT_synopsis.md "r_SELECT_synopsis.md") command for retrieving and
+After your system is set up, you typically work with DML the most, especially the [SELECT](r_SELECT_synopsis.md "r_SELECT_synopsis.md") command for retrieving and
 viewing data. To write effective data retrieval queries in Amazon Redshift, become familiar with
 SELECT and apply the tips outlined in [Amazon Redshift best practices for designing tables](c_designing-tables-best-practices.md "c_designing-tables-best-practices.md") to maximize query efficiency.
 

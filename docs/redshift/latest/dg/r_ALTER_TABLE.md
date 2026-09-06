@@ -685,7 +685,7 @@ clause is not supported on a database with Amazon Redshift federated permissions
 
 - [ CONJUNCTION TYPE { AND | OR } ]
 
-A clause that allows you to choose the conjunction type of row-level
+A clause that you use to choose the conjunction type of row-level
 security policy for a relation. When multiple row-level security policies
 are attached to a relation, you can combine the policies with the AND or
 OR clause. By default, Amazon Redshift combines RLS policies with the AND

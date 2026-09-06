@@ -7,7 +7,7 @@ and migration options, see the
 
 With Amazon Redshift, you can manage cost control for cross-Region data sharing by
 configuring data sharing to limit the amount of data that is transferred between
-AWS Regions. Managing cost control for cross-Region data sharing allows you to
+AWS Regions. By managing cost control for cross-Region data sharing, you can
 set data transfer limits, monitor data transfer usage, and receive notifications
 when approaching or exceeding those limits.
 

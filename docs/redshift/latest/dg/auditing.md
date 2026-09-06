@@ -5,7 +5,7 @@ and migration options, see the
 
 # Monitoring and auditing data sharing in Amazon Redshift
 
-With Amazon Redshift, you can monitor and audit data sharing activities to ensure compliance and
+With Amazon Redshift, you can monitor and audit data sharing activities to maintain compliance and
 security.
 
 By auditing data sharing, producers can track the datashare evolution. For example,

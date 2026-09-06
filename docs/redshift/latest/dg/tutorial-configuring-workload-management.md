@@ -598,8 +598,8 @@ overriding the concurrency level by using slot count, see [wlm\_query\_slot\_cou
 
 ### Step 1: Override the concurrency level using wlm\_query\_slot\_count
 
-For the purposes of this tutorial, we run the same long-running SELECT query.
-We run it as the `adminwlm` user using wlm\_query\_slot\_count to
+For the purposes of this tutorial, run the same long-running SELECT query.
+Run it as the `adminwlm` user by using wlm\_query\_slot\_count to
 increase the number of slots available for the query.
 
 #### To override the concurrency level using wlm\_query\_slot\_count

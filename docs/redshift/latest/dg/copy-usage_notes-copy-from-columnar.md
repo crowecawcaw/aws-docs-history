@@ -38,7 +38,7 @@ and MAXERROR aren't supported for columnar data types.
   columns occur in the columnar data files. The number of columns in the target
   table and the number of columns in the data file must match.
 - If the file you specify for the COPY operation includes one of the following
-  extensions, we decompress the data without the need for adding any parameters:
+  extensions, Amazon Redshift decompresses the data without the need for adding any parameters:
 
   - `.gz`
   - `.snappy`

@@ -33,7 +33,7 @@ Follow the steps in these tutorials to learn about Amazon Redshift ML features:
   implementation of the gradient boosted trees algorithm.
 - [Tutorial: Building regression models](tutorial_regression.md "tutorial_regression.md") –
   In this tutorial, you use Amazon Redshift ML to create a machine learning regression model
-  and run prediction queries on the model. Regression models allow you to predict
+  and run prediction queries on the model. With regression models, you can predict
   numerical outcomes, such as the price of a house, or how many people will use a city’s
   bike rental service.
 - [Tutorial: Building regression models with linear learner](tutorial_linear_learner_regression.md "tutorial_linear_learner_regression.md") –

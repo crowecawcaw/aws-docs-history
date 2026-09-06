@@ -98,14 +98,14 @@ The `LOCATION` clause defines the table location for this newly
 created Iceberg table. `LOCATION` is required for tables created
 using external schemas or the `awsdatacatalog` root catalog. It
 should be an empty location, meaning there are no existing Amazon S3 objects sharing
-this same bucket and prefix. The Amazon S3 bucket region must be in the same region
+this same bucket and prefix. The Amazon S3 bucket Region must be in the same Region
 as the Amazon Redshift cluster. For Amazon S3 table buckets, `LOCATION` cannot
 be specified as the table location is determined by the Amazon S3 tables catalog
 (`s3tablescatalog`).
 
 However, AWS provides a method to replicate data from Iceberg tables stored
 in an AWS Glue Data Catalog in one AWS Region to a different AWS Region, which allows
-you to replicate the write to a different region. For more information, see
+you to replicate the write to a different Region. For more information, see
 [Replicate data across AWS Regions](../../../prescriptive-guidance/latest/apache-iceberg-on-aws/best-practices-workloads.md#workloads-replication "../../../prescriptive-guidance/latest/apache-iceberg-on-aws/best-practices-workloads.md#workloads-replication").
 
 `PARTITIONED BY` defines the Iceberg table partition. Amazon Redshift supports
@@ -246,9 +246,8 @@ This is similar to the `CREATE TABLE` statement except that
 `CREATE` is followed by a `SELECT` statement to
 populate the table with `SELECT` query results.
 
-The `CREATE TABLE` clause here no longer allows you to specify the
-data types as the column data types will be decided by the `SELECT`
-query.
+You can no longer specify the data types with the `CREATE TABLE`
+clause here, because the `SELECT` query determines the column data types.
 
 If the `SELECT` query fails for any reason, this query will fail
 and the Iceberg table will not be created.
@@ -416,7 +415,7 @@ Since Iceberg uses hidden partition scheme, user can use `DELETE` query
 to remove partitions, achieving the same effect as `ALTER TABLE ... DROP
  PARTITION ...` for Hive tables.
 
-For example, when we have partitioned Iceberg table like below:
+For example, consider a partitioned Iceberg table like the following:
 
 ```
 CREATE TABLE my_external_schema.lineitem
@@ -429,7 +428,7 @@ LOCATION ...
 PARTITIONED BY l_ship_date;
 ```
 
-Then we can easily remove a partition using query like this:
+Then you can remove a partition by using a query like the following:
 
 ```
 DELETE FROM my_external_schema.lineitem WHERE l_ship_date = '20251231';
@@ -493,7 +492,7 @@ The source tables can be either Iceberg tables or Amazon Redshift RMS tables.
 spec, the new updated row would be inserted into the new partition based on the
 newly updated value.
 
-For example, when we have a partitioned Iceberg table like below:
+For example, consider a partitioned Iceberg table like the following:
 
 ```
 CREATE TABLE my_external_schema.lineitem
@@ -508,15 +507,15 @@ PARTITIONED BY l_ship_date;
 INSERT INTO my_external_schema.lineitem VALUES (10099, '20251231', ...);
 ```
 
-And when we run below update query:
+And when you run the following update query:
 
 ```
 UPDATE my_external_schema.lineitem SET l_ship_date = '20260101'
 WHERE l_item_id = 10099;
 ```
 
-we will move this row with `l_item_id` 10099 from partition
-`20251231` to new partition `20260101`.
+the row with `l_item_id` 10099 moves from partition
+`20251231` to the new partition `20260101`.
 
 It's also important to note that it's possible `UPDATE` has multiple
 candidate values. Consider below query:

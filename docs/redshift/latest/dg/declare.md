@@ -89,6 +89,7 @@ node type. Maximum result set sizes are in megabytes.
 | rg.4xlarge multiple nodes   | 1,600,000                                      |
 | rg.xlarge multiple nodes    | 240,000                                        |
 | rg.large multiple nodes     | 100,000                                        |
+| rg.large single node        | 8,000                                          |
 | ra3.16xlarge multiple nodes | 14,400,000                                     |
 | ra3.4xlarge multiple nodes  | 3,200,000                                      |
 | ra3.xlplus multiple nodes   | 1,000,000                                      |

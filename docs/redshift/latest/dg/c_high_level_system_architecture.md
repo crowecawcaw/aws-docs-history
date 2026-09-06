@@ -63,7 +63,7 @@ the _Amazon Redshift Management Guide_.
 
 Data warehouse data is stored in a separate storage tier Redshift Managed Storage
 (RMS). RMS provides the ability to scale your storage to petabytes using Amazon S3 storage.
-RMS lets you scale and pay for computing and storage independently, so that you can
+With RMS, you can scale and pay for computing and storage independently, so that you can
 size your cluster based only on your computing needs. It automatically uses
 high-performance SSD-based local storage as tier-1 cache. It also takes advantage of
 optimizations, such as data block temperature, data block age, and workload patterns to

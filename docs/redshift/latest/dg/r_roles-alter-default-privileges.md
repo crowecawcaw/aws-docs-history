@@ -11,6 +11,6 @@ user. By default, users can change only their own default access permissions. Wi
 you can set the default access permissions for roles. For more information, see the
 [ALTER DEFAULT PRIVILEGES](r_ALTER_DEFAULT_PRIVILEGES.md "r_ALTER_DEFAULT_PRIVILEGES.md") command.
 
-RBAC enables you to assign database object permissions to roles, similarly to system
+With RBAC, you can assign database object permissions to roles, similarly to system
 permissions. Then you can assign roles to users, authorize users with system and/or
 database permissions.

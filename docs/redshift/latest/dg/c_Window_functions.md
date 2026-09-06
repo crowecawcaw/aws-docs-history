@@ -167,7 +167,7 @@ ordering.
 _frame\_clause_
 
 For aggregate functions, the frame clause further refines the set of rows
-in a function's window when using ORDER BY. It enables you to include or
+in a function's window when using ORDER BY. With the frame clause, you can include or
 exclude sets of rows within the ordered result. The frame clause consists of
 the ROWS keyword and associated
 specifiers.

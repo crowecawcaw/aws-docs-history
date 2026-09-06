@@ -316,7 +316,7 @@ SETTINGS ( S3_BUCKET 'amzn-s3-demo-bucket'
 
 ### Get probabilities
 
-Once the probability function is ready, running the command returns a
+After the probability function is ready, running the command returns a
 [SUPER type](r_SUPER_type.md "r_SUPER_type.md") that contains arrays
 of the returned probabilities and their associated labels. For example,
 the result `"probabilities" : [0.7, 0.3], "labels" : ["False.", "True."]`

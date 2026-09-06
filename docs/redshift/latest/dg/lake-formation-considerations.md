@@ -25,12 +25,12 @@ datashares in Lake Formation](../../../lake-formation/latest/dg/notes-rs-datasha
   table if the table has Lake Formation filters configured.
 - The Lake Formation administrator must have [data lake administrator](../../../lake-formation/latest/dg/getting-started-setup.md#create-data-lake-admin "../../../lake-formation/latest/dg/getting-started-setup.md#create-data-lake-admin") permissions and the [required permissions to accept a datashare](../../../lake-formation/latest/dg/redshift-ds-prereqs.md "../../../lake-formation/latest/dg/redshift-ds-prereqs.md").
 - The producer consumer cluster must be an RG or RA3 cluster with the latest Amazon Redshift
-  cluster version or a serverless workgroup to share datashares via Lake Formation.
+  cluster version or a serverless workgroup to share datashares through Lake Formation.
 - Both the producer and consumer clusters must be encrypted.
 - Redshift row-level and column-level access control policies implemented in the
   producer cluster or workgroup are ignored when the datashare is shared to Lake Formation.
   The Lake Formation administrator must configure these policies in Lake Formation. The producer cluster
   or workgroup administrator can turn off RLS for a table by using the [ALTER
   TABLE](r_ALTER_TABLE.md "r_ALTER_TABLE.md") command.
-- Sharing datashares via Lake Formation is only available to users who have access to both
+- Sharing datashares through Lake Formation is only available to users who have access to both
   Redshift and Lake Formation.

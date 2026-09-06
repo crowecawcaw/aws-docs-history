@@ -7,7 +7,7 @@ and migration options, see the
 
 Conditionally merges rows from a source table into a target table. Traditionally, this
 can only be achieved by using multiple insert, update or delete statements separately. For
-more information on the operations that MERGE lets you combine, see [UPDATE](r_UPDATE.md "r_UPDATE.md"), [DELETE](r_DELETE.md "r_DELETE.md"), and [INSERT](r_INSERT_30.md "r_INSERT_30.md").
+more information on the operations that you can combine with MERGE, see [UPDATE](r_UPDATE.md "r_UPDATE.md"), [DELETE](r_DELETE.md "r_DELETE.md"), and [INSERT](r_INSERT_30.md "r_INSERT_30.md").
 
 ## Syntax
 

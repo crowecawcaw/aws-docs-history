@@ -20,7 +20,7 @@ Redshift offers automatic workload management, called **automatic WLM**, which i
 default. With automatic WLM, Redshift determines resource utilization as queries arrive and dynamically determines whether to run them on the main cluster,
 on a concurrency scaling cluster, or to send each to a queue. (When queries are queued, automatic WLM
 prioritizes shorter-duration queries.) Automatic WLM maximizes total
-throughput and enables you to maintain efficient data-warehouse resources. You run workloads without having to be concerned with their size or how they're
+throughput, so you can maintain efficient data-warehouse resources. You run workloads without having to be concerned with their size or how they're
 scheduled. Automatic WLM is the default
 for provisioned clusters. For more information, see [Implementing automatic WLM](automatic-wlm.md "automatic-wlm.md").
 

@@ -8,7 +8,7 @@ and migration options, see the
 If your input data is not compatible with the table columns that will receive it, the
 COPY command will fail.
 
-Use the following guidelines to help ensure that your input data is valid:
+Use the following guidelines to help make sure that your input data is valid:
 
 - Your data can only contain UTF-8 characters up to four bytes long.
 - Verify that CHAR and VARCHAR strings are no longer than the lengths of the

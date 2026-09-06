@@ -6,7 +6,7 @@ and migration options, see the
 # Allocating extra compute resources for automatic database optimization
 
 Autonomics improve query performances on your cluster and help manage storage costs
-and optimization. You can choose to allocate extra compute resources to ensure that
+and optimization. You can choose to allocate extra compute resources to make sure that
 autonomics features run consistently, even during times of high traffic, to benefit
 from the optimization. Note that autonomics run using these extra resources are billable.
 For more information on billing for autonomics, see [Billing for autonomics operations](t_autonomics-billing.md "t_autonomics-billing.md")
@@ -153,7 +153,7 @@ limits you might have set for concurrency scaling and vice versa.
 To create a usage limit for extra compute using the console:
 
 - Navigate to the cluster details page and select the **Maintenance** tab from the cluster navigation menu.
-- Scroll down and click **Create usage limits**, it will navigate to **Manage usage limits** page.
+- Scroll down and choose **Create usage limits**, it will navigate to **Manage usage limits** page.
 - On the **Manage usage limits** page, locate the section titled **Usage limit for extra compute for automatic optimization** and select **Add limit**.
 
 To create a usage limit for extra compute using the AWS CLI, use the `create-usage-limit` command

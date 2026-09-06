@@ -73,8 +73,7 @@ authorization, which can affect association settings on consumers.
 If you're associating the datashare with a Lake Formation account, go to the
 Lake Formation console to create a database, then define permissions over the
 database. For more information, see [Setting up
-permissions for Amazon Redshift datashares](../../../lake-formation/latest/dg/setup-ds-perms.md "../../../lake-formation/latest/dg/setup-ds-perms.md") in the AWS Lake Formation Developer Guide. Once
-you create a AWS Glue database or a federated database, you can use query editor v2
+permissions for Amazon Redshift datashares](../../../lake-formation/latest/dg/setup-ds-perms.md "../../../lake-formation/latest/dg/setup-ds-perms.md") in the AWS Lake Formation Developer Guide. After you create a AWS Glue database or a federated database, you can use query editor v2
 or any preferred SQL client with your consumer cluster to query the data.
 
 After the datashare is associated, the datashares become
@@ -101,7 +100,7 @@ producer security administrator authorizes access.
 The consumer security administrator determines the following:
 
 - Whether or not all namespaces in an account, namespaces in
-  specific regions in the account, or specific namespaces have access
+  specific Regions in the account, or specific namespaces have access
   to the datashare.
 - If namespaces have access to the datashare, whether or not those
   namespace have write permissions.

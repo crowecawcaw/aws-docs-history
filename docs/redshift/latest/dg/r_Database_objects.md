@@ -38,11 +38,11 @@ users, roles, or groups decides which database objects they can access.
   Additionally, Amazon Redshift employs the following features to give you finer control over
   which users have access to which database objects:
 
-- Role-based access control (RBAC) lets you assign permissions to roles which you can then
+- With role-based access control (RBAC), you can assign permissions to roles which you can then
   apply to users, letting you control permissions for large groups of users. Unlike groups,
   roles can inherit permissions from other roles.
 
-Row-level security (RLS) lets you define policies that restrict access to rows of your choosing,
+With row-level security (RLS), you can define policies that restrict access to rows of your choosing,
 then apply those policies to users or groups.
 
 Dynamic data masking (DDM) further protects your data by transforming it at query runtime so that

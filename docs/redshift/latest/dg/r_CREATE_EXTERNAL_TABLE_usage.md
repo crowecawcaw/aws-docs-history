@@ -22,7 +22,7 @@ in the catalog. In this case, it must also have the data lake location permissio
 the target Amazon S3 path. This IAM role becomes the owner of the new AWS Lake Formation
 table.
 
-To ensure that file names are unique, Amazon Redshift uses the following format for the name
+To make sure that file names are unique, Amazon Redshift uses the following format for the name
 of each file uploaded to Amazon S3 by default.
 
 ``<date>`_`<time>`_`<microseconds>`_`<query_id>`_`<slice-number>`_part_`<part-number>`.`<format>``.

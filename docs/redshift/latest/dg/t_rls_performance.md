@@ -5,7 +5,7 @@ and migration options, see the
 
 # Best practices for RLS performance
 
-Following are best practices to ensure better performance from Amazon Redshift on tables
+Following are best practices for better performance from Amazon Redshift on tables
 protected by RLS.
 
 ## Safety of operators and functions

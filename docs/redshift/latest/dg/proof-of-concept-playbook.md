@@ -113,7 +113,7 @@ for step-by-step guidance.
 To load data from an Amazon S3 bucket into Amazon Redshift, begin by using the
 [COPY command](t_loading-tables-from-s3.md "t_loading-tables-from-s3.md"),
 specifying the source Amazon S3 location and target Amazon Redshift table.
-Ensure that the IAM roles and permissions are properly configured to allow Amazon Redshift access to the designated Amazon S3 bucket.
+Make sure that the IAM roles and permissions are properly configured to allow Amazon Redshift access to the designated Amazon S3 bucket.
 Follow [Tutorial: Loading data from Amazon S3](tutorial-loading-data.md "tutorial-loading-data.md")
 for step-by-step guidance. You can also choose the **Load data** option in query editor v2 to directly load data from your S3 bucket.
 

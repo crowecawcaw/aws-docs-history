@@ -28,7 +28,7 @@ ways:
 
 If you are using Amazon Bedrock models, we encourage you to read the AWS policies about how the Amazon Bedrock service handles your data. You should determine
 if you need to use an opt-out policy to prevent the service from using your data for model or service improvements, should Amazon Bedrock implement such
-functionality in the future. To ensure that the service doesn't use your data for such purposes, use the general AWS opt-out policy.
+functionality in the future. To make sure that the service doesn't use your data for such purposes, use the general AWS opt-out policy.
 
 For more information, see the following:
 
@@ -38,7 +38,7 @@ For more information, see the following:
 ###### Note
 
 LLMs can generate inaccurate
-or incomplete information. We recommend verifying the information that LLMs produce to ensure that it is accurate and complete.
+or incomplete information. We recommend verifying the information that LLMs produce to make sure that it is accurate and complete.
 
 **How Amazon Redshift ML works with Amazon SageMaker AI**
 

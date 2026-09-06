@@ -35,7 +35,7 @@ _database\_name_
 The name of the database that contains the tables to list.
 
 To show tables in an AWS Glue Data Catalog, specify (`awsdatacatalog`) as
-the database name, and ensure the system configuration
+the database name, and make sure the system configuration
 `data_catalog_auto_mount` is set to `true`. For more
 information, see [ALTER SYSTEM](r_ALTER_SYSTEM.md "r_ALTER_SYSTEM.md").
 

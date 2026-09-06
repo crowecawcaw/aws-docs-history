@@ -144,7 +144,7 @@ select * from pg_table_def where tablename like 'sales%';
 
 ```
 
-The following table summarizes the results. For simplicity, we omit cost, rows,
+The following table summarizes the results. For simplicity, this table omits cost, rows,
 and width details from the explain plan.
 
 | Table                 | CTAS SELECT statement                                                       | Explain plan top node                | Dist key    | Sort key |

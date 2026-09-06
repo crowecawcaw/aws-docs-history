@@ -59,7 +59,7 @@ value for the spatial reference system identifier (SRID), then an error is retur
 
 ## Examples
 
-The following SQL returns a new linestring where we set the second point of the input linestring with the specified point.
+The following SQL returns a new linestring where the second point of the input linestring is set to the specified point.
 
 ```
 SELECT ST_AsText(ST_SetPoint(ST_GeomFromText('LINESTRING(1 2, 3 2, 5 2, 1 2)'), 2, ST_GeomFromText('POINT(7 9)')));
@@ -73,8 +73,8 @@ st_astext
 
 ```
 
-The following SQL example returns a new linestring where we set the third point
-from the right (the index is negative) of the linestring with the specified point.
+The following SQL example returns a new linestring where the third point
+from the right (the index is negative) of the linestring is set to the specified point.
 
 ```
 SELECT ST_AsText(ST_SetPoint(ST_GeomFromText('LINESTRING(1 2, 3 2, 5 2, 1 2)'), -3, ST_GeomFromText('POINT(7 9)')));

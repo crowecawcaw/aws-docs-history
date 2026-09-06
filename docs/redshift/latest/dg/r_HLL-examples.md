@@ -197,7 +197,7 @@ distinct_buyers
 Suppose that you want the number of distinct users who bought an item on a certain
 range of dates. An example might be from the Friday after Thanksgiving to the following
 Monday. To get this, the following query uses the `hll_combine` aggregate
-function. This function enables you to avoid double-counting buyers who purchased an
+function. With this function, you can avoid double-counting buyers who purchased an
 item on more than one day of the selected range.
 
 ```

@@ -123,7 +123,7 @@ To address this serialization isolation error, you can try to move the start of
 the transaction to a point where you know the table exists.
 
 If the table is created by another transaction, this point is at least after
-that transaction has been committed. Also, ensure that no concurrent transaction
+that transaction has been committed. Also, make sure that no concurrent transaction
 has been committed that might have dropped the table.
 
 ```

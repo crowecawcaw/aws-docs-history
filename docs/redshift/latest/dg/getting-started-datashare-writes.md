@@ -7,13 +7,13 @@ and migration options, see the
 
 You can share database objects for both reads and writes across different Amazon Redshift
 clusters or Amazon Redshift Serverless workgroups within the same AWS account, across accounts,
-and across regions. The procedures in this topic show how to set up data sharing that
+and across Regions. The procedures in this topic show how to set up data sharing that
 includes write permissions. You can grant permissions such as SELECT, INSERT, and UPDATE
 for different tables and USAGE and CREATE for schemas.
 
 Data is live and available to all warehouses as soon as you commit a write
 transaction Producer account administrators can determine whether or not specific
-namespaces or regions get read-only, read-and-write, or any access to the data. The
+namespaces or Regions get read-only, read-and-write, or any access to the data. The
 procedures assume you're working in a database in a provisioned cluster or
 Amazon Redshift Serverless workgroup.
 

@@ -7,13 +7,13 @@ and migration options, see the
 
 With Amazon Redshift, you can leverage Machine Learning (ML) capabilities to gain insights from
 your data, whether you are a novice or an expert in ML. Machine Learning is an Amazon Redshift
-feature that enables you to create, train, and deploy ML models using SQL commands,
+feature that you use to create, train, and deploy ML models using SQL commands,
 without the need for extensive ML expertise or complex data engineering.
 
 The following sections guide you through the process of utilizing Machine Learning,
 empowering you to unlock the full potential of your data with Amazon Redshift.
 
-Amazon Redshift ML enables you to train models with one single SQL CREATE MODEL command. The
+With Amazon Redshift ML, you can train models with one single SQL CREATE MODEL command. The
 CREATE MODEL command creates a model that Amazon Redshift uses to generate model-based predictions
 with familiar SQL constructs.
 

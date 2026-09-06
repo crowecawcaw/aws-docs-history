@@ -222,7 +222,7 @@ public key:
 
 ###### Note
 
-Amazon Redshift only supports RSA keys. We do not support DSA keys.
+Amazon Redshift only supports RSA keys. Amazon Redshift does not support DSA keys.
 
 When you create your manifest file in Step 5, you will paste the text of the
 public key into the "Public Key" field in the manifest file entry.

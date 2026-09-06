@@ -28,8 +28,7 @@ SYS\_AUTOMATIC\_OPTIMIZATION is visible only to superusers. For more information
 
 ## Usage notes
 
-The compute\_type column will be empty for serverless clusters because we do not
-differentiate primary or primary-scale compute resources. Serverless cluster compute
+The compute\_type column will be empty for serverless clusters because Amazon Redshift does not differentiate primary or primary-scale compute resources. Serverless cluster compute
 resources are measured by Redshift Processing Units (RPUs) usage. For more
 information, see [Compute capacity
 for Amazon Redshift Serverless](../mgmt/serverless-capacity.md "../mgmt/serverless-capacity.md").

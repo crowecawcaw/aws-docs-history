@@ -13,7 +13,7 @@ a single set of permissions while leveraging Amazon Redshift features such as ma
 All catalogs created from registered Amazon Redshift provisioned clusters and serverless namespaces in the AWS Glue Data Catalog are automatically mounted as
 external databases on all provisioned clusters and serverless workgroups in the same AWS Region under the same account.
 Catalogs created in the AWS Glue Data Catalog to store data in Redshift Managed Storage (RMS) are similarly mounted as external databases.
-Once mounted, you can directly connect to these databases and query the objects using the three-part notation
+After the databases are mounted, you can directly connect to these databases and query the objects using the three-part notation
 `database@namespace-catalog.schema.table`.
 
 ## Regions where Apache Iceberg compatibility is available

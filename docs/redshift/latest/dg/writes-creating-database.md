@@ -91,7 +91,7 @@ CREATE DATABASE sales_db FROM DATASHARE salesshare OF NAMESPACE '13b8833d-17c6-4
 
 If you want more granular control over access to the objects in
 the local database, use the WITH PERMISSIONS clause when creating
-the database. This lets you grant object-level permissions for
+the database. With this clause, you can grant object-level permissions for
 objects in the database in step 4.
 
 ```
