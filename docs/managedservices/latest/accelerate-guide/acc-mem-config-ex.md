@@ -1,4 +1,7 @@
+
+
 # Accelerate alarm configuration examples
+<a name="acc-mem-config-ex"></a>
 
 In the following example, the system creates an alarm for each disk attached to the matching Linux instance.
 

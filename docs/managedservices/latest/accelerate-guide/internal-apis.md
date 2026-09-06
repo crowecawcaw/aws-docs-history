@@ -1,16 +1,18 @@
+
+
 # Internal API operations
+<a name="internal-apis"></a>
 
 If you monitor API operations, you might see calls to the following internal-only operations:
-
-- `GetDashboardUrl`
-- `ListReportsV2`
++ `GetDashboardUrl`
++ `ListReportsV2`
 
 ## Internal API operation: GetDashboardUrl
+<a name="internal-apis-getdashboardurl"></a>
 
 This operation appears in system logs when invoked by the AMS console. It has no other use case. It is not available for your direct use.
 
-Returns the embedded dashboard URL for the corresponding report. This operation accepts
-a `dashboardName` returned by `ListReports`.
+Returns the embedded dashboard URL for the corresponding report. This operation accepts a `dashboardName` returned by `ListReports`.
 
 **Request syntax**
 
@@ -24,9 +26,7 @@ Content-type: application/json
 
 **Request elements**
 
-**`dashboardName`**: The name of the Quick
-dashboard that the URL is being requested for. The dashboard name is returned in
-ListReportsV2.
+**`dashboardName`**: The name of the Quick dashboard that the URL is being requested for. The dashboard name is returned in ListReportsV2.
 
 Type: String
 
@@ -50,13 +50,11 @@ Type: String
 
 **Errors**
 
-For information about the errors that are common to all actions, see
-[Common errors](../../../apigateway/latest/api/CommonErrors.md "../../../apigateway/latest/api/CommonErrors.md").
+For information about the errors that are common to all actions, see [Common errors](https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html).
 
 **`BadRequestException`**:
 
-The submitted request is not valid. For example, if the input is incomplete or
-incorrect. See the accompanying error message for details.
+The submitted request is not valid. For example, if the input is incomplete or incorrect. See the accompanying error message for details.
 
 HTTP Status Code: 400
 
@@ -68,8 +66,7 @@ HTTP Status Code: 404
 
 **`TooManyRequestsException`**:
 
-The request has reached its throttling limit. Retry after the specified time
-period.
+The request has reached its throttling limit. Retry after the specified time period.
 
 HTTP Status Code: 429
 
@@ -80,6 +77,7 @@ The request is denied because the caller has insufficient permissions.
 HTTP Status Code: 401
 
 ## Internal API operation: ListReportsV2
+<a name="internal-apis-listreportsv2"></a>
 
 This API appears in system logs when invoked by the AMS console. It has no other use case. It is not available for your direct use.
 
@@ -119,13 +117,11 @@ Type: String
 
 **Errors**
 
-For information about the errors that are common to all actions, see
-[Common errors](../../../apigateway/latest/api/CommonErrors.md "../../../apigateway/latest/api/CommonErrors.md").
+For information about the errors that are common to all actions, see [Common errors](https://docs.aws.amazon.com/apigateway/latest/api/CommonErrors.html).
 
 **`BadRequestException`**:
 
-The submitted request is not valid. For example, the input is incomplete or incorrect.
-See the accompanying error message for details.
+The submitted request is not valid. For example, the input is incomplete or incorrect. See the accompanying error message for details.
 
 HTTP Status Code: 400
 
@@ -137,8 +133,7 @@ HTTP Status Code: 404
 
 **`TooManyRequestsException`**:
 
-The request has reached its throttling limit. Retry after the specified time
-period.
+The request has reached its throttling limit. Retry after the specified time period.
 
 HTTP Status Code: 429
 

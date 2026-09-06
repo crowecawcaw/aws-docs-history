@@ -1,7 +1,8 @@
+
+
 # Execution mode decision workflow
+<a name="tr-ex-mode-workflow"></a>
 
-There are multiple levels to configure execution mode for your resources and each Trusted Advisor check. The following diagram shows how Trusted Remediator decides which execution mode
-to use based on your
-configurations:
+There are multiple levels to configure execution mode for your resources and each Trusted Advisor check. The following diagram shows how Trusted Remediator decides which execution mode to use based on your configurations:
 
-![An illustration of Trusted Remediator execution mode decision workflow.](images/tr-ex-mode-workflow.png)
+![An illustration of Trusted Remediator execution mode decision workflow.](http://docs.aws.amazon.com/managedservices/latest/accelerate-guide/images/tr-ex-mode-workflow.png)

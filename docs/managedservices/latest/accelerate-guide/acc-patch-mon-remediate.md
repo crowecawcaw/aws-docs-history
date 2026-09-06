@@ -1,32 +1,32 @@
+
+
 # Understand patch notifications and patch failures in AMS Accelerate
+<a name="acc-patch-mon-remediate"></a>
 
-###### Important
-
+**Important**  
 Beginning February 1, 2025, AMS customers will no longer receive notifications for empty Patch Maintenance Windows in their managed accounts.
 
 ## Patch service requests and email notifications
+<a name="acc-patch-notification"></a>
 
 AMS creates a new service request four days before the next Patch Maintenance Window. For example, four days before a Patch Maintenance Window named **App1 PROD** runs, AMS creates a service request titled **April Patch Maintenance Window for App1 Prod for Account [account id]**. Use the patch service request to communicate with AMS if you need adjustments to your scheduled patch, or to skip an upcoming patch. When a service request is created, an email is sent to your patch notification address with a link to the service request. You receive an additional email each time that AMS updates the service request.
 
-###### Note
-
-AMS creates a new service request, even if the Patch Maintenance Window is created less than four days before it's scheduled to run.
-
-The [Patch Maintenance window must be in an “enabled” state](../../../systems-manager/latest/userguide/sysman-maintenance-disable.md "../../../systems-manager/latest/userguide/sysman-maintenance-disable.md") to receive Service Request notifications.
+**Note**  
+AMS creates a new service request, even if the Patch Maintenance Window is created less than four days before it's scheduled to run.  
+The [Patch Maintenance window must be in an “enabled” state](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-disable.html) to receive Service Request notifications.
 
 One hour before patching begins, AMS notifies you through the patch service request. After patching completes, AMS updates the patch service request with a link to the Patch Manager console. Use the link to view patch compliance for the instances targeted by the Patch Maintenance Window.
 
-###### Note
-
+**Note**  
 The links in the Patch Manager console show the current compliance of the instances. Patch Manager shows an instance as non-compliant if new patches are released between the time that AMS completes patching and you access the link.
 
 ## Patch notifications through CloudWatch Events
+<a name="acc-patch-event-notification"></a>
 
 AMS sends CloudWatch Events three times during the patch process including the following:
-
-- Four days before the Patch Maintenance Window runs.
-- One hour before the Patch Maintenance Window runs.
-- When the Patch Maintenance Window completes.
++ Four days before the Patch Maintenance Window runs.
++ One hour before the Patch Maintenance Window runs.
++ When the Patch Maintenance Window completes.
 
 The following is the Patch Maintenance Window advanced notice event schema:
 
@@ -55,13 +55,16 @@ The following is the Patch Maintenance Window advanced notice event schema:
 
 The following table describes the Patch Maintenance Window advance notice event schema:
 
-Patch notification details| Property name | Description | Sample values |
-| --- | --- | --- |
-| State | The state of the patching maintenance window | PREEMPTIVE<br>• The patching window scheduled to begin soon |
-| Status | The status of the patching maintenance window | SUCCESS<br>• All instances were patch without failure<br>FAILED – At least one instance has failed to patch |
-| StartTime | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308 |
-| WindowArn | The unique identifier of the Patching Maintenance Window | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235 |
-| Results | The list of instances that are targeted by the patch window | InstanceId – the instance ID of the targeted instance |
+
+**Patch notification details**  
+
+| Property name | Description | Sample values | 
+| --- | --- | --- | 
+| State | The state of the patching maintenance window | PREEMPTIVE - The patching window scheduled to begin soon | 
+| Status | The status of the patching maintenance window | SUCCESS - All instances were patch without failure<br />FAILED – At least one instance has failed to patch | 
+| StartTime | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308 | 
+| WindowArn | The unique identifier of the Patching Maintenance Window | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235 | 
+| Results | The list of instances that are targeted by the patch window | InstanceId – the instance ID of the targeted instance | 
 
 The following is the Patch Maintenance Window end event schema:
 
@@ -91,18 +94,20 @@ The following is the Patch Maintenance Window end event schema:
 
 The following table describes the Patch Maintenance Window end event schema:
 
-Patch window end details| Property name | Description | Sample values |
-| --- | --- | --- |
-| State | The state of the patching maintenance window | COMPLETED – The patching window is finished |
-| Status | The status of the patching maintenance window | SUCCESS – All instances were patch without failure<br>FAILED – At least one instance has failed to patch |
-| StartTime | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308 |
-| EndTime | The end time, in ISO format, of the patching maintenance window | 2021-02-03T23:14:05.814308 |
-| WindowArn | The unique identifier of the patching maintenance window. | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235 |
-| WindowExecutionId | The window execution ID, which can be seen from the SSM Maintenance Window Console | e32088eb-c05f-4c63-b766-6866e163c818 |
-| Results | The list of instances that will be targeted by the patch window | InstanceId – the instance ID targeted<br>status – the instance patch status<br>missing\_critical\_patch\_count<br>• the count of critical patches missing on the instance<br>missing\_total\_patch\_count<br>• the count of total patches missing on the instance |
 
-You can use the CloudWatch Events event to trigger a CloudWatch rule that notifies you when a Patching Maintenance Window
-advance notice is sent. To do this, configure the CloudWatch rule with the following configuration:
+**Patch window end details**  
+
+| Property name | Description | Sample values | 
+| --- | --- | --- | 
+| State | The state of the patching maintenance window | COMPLETED – The patching window is finished | 
+| Status | The status of the patching maintenance window | SUCCESS – All instances were patch without failure<br />FAILED – At least one instance has failed to patch | 
+| StartTime | The start time, in ISO format, of the patching maintenance window | 2021-02-03T22:14:05.814308 | 
+| EndTime | The end time, in ISO format, of the patching maintenance window | 2021-02-03T23:14:05.814308 | 
+| WindowArn | The unique identifier of the patching maintenance window. | arn:aws:ssm:us-east-1: 123456789012:maintenancewindow/mw-00000001235 | 
+| WindowExecutionId | The window execution ID, which can be seen from the SSM Maintenance Window Console | e32088eb-c05f-4c63-b766-6866e163c818 | 
+| Results | The list of instances that will be targeted by the patch window | InstanceId – the instance ID targeted<br />status – the instance patch status<br />missing\_critical\_patch\_count - the count of critical patches missing on the instance<br />missing\_total\_patch\_count - the count of total patches missing on the instance | 
+
+You can use the CloudWatch Events event to trigger a CloudWatch rule that notifies you when a Patching Maintenance Window advance notice is sent. To do this, configure the CloudWatch rule with the following configuration:
 
 ```
 {
@@ -118,21 +123,17 @@ advance notice is sent. To do this, configure the CloudWatch rule with the follo
 }
 ```
 
-###### Note
-
+**Note**  
 Patch failure alerts aren't created for instances that have unsupported operating systems, or that are stopped during the maintenance window.
 
 ## Patch failure investigation in AMS
+<a name="acc-patch-remediation"></a>
 
-AWS Managed Services (AMS) manages patching and includes patch failure remediation. When patching fails,
-AMS Operations is alerted and attempts remediation by following AWS and AMS best practices to address the issue.
+AWS Managed Services (AMS) manages patching and includes patch failure remediation. When patching fails, AMS Operations is alerted and attempts remediation by following AWS and AMS best practices to address the issue.
 
-If a patch fails, then AMS creates an SSM OpsItem in the account with the following title:
-**AWS Managed Services – Patch Instance failure for instance <instance-id>**.
+If a patch fails, then AMS creates an SSM OpsItem in the account with the following title: **AWS Managed Services – Patch Instance failure for instance <instance-id>**.
 
-AMS then investigates the OpsItem. If AMS can correct the failure without your intervention, then AMS resolves the OpsItem. If your intervention is required,
-then AMS notifies you through a service request that contains the investigation results and the recommended remediation steps. If you don't take action to resolve the issue, then AMS attempts to patch the instance during the next scheduled Patch Maintenance Window.
+AMS then investigates the OpsItem. If AMS can correct the failure without your intervention, then AMS resolves the OpsItem. If your intervention is required, then AMS notifies you through a service request that contains the investigation results and the recommended remediation steps. If you don't take action to resolve the issue, then AMS attempts to patch the instance during the next scheduled Patch Maintenance Window.
 
-###### Note
-
+**Note**  
 Patch failure OpsItems aren't created for instances that have unsupported operating systems, or that are in the Stopped state during the Patch Maintenance Window.
