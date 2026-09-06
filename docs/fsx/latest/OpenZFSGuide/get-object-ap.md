@@ -1,25 +1,24 @@
+
+
 # Downloading a file using an S3 access point
+<a name="get-object-ap"></a>
 
-The following `get-object` example command shows how you can
-use the AWS CLI to download a file through an access point. You must include an outfile, which
-is a file name for the downloaded object.
+The following `get-object` example command shows how you can use the AWS CLI to download a file through an access point. You must include an outfile, which is a file name for the downloaded object.
 
-The example requests the file `my-image.jpg`
-through the access point `my-openzfs-ap` and saves the
-downloaded file as `download.jpg`.
+The example requests the file {{`my-image.jpg`}} through the access point {{`my-openzfs-ap`}} and saves the downloaded file as {{`download.jpg`}}.
 
 ```
-`$` `aws s3api get-object --key `my-image.jpg` --bucket `my-openzfs-ap-hrzrlukc5m36ft7okagglf3gmwluquse1b`-ext-s3alias `download.jpg``
-`{
- "AcceptRanges": "bytes",
- "LastModified": "Mon, 14 Oct 2024 17:01:48 GMT",
- "ContentLength": 141756,
- "ETag": "\"00751974dc146b76404bb7290f8f51bb\"",
- "ContentType": "binary/octet-stream",
- "ServerSideEncryption": "SSE_FSX",
- "Metadata": {},
- "StorageClass": "FSX_OPENZFS"
-}`
+$ aws s3api get-object --key {{my-image.jpg}} --bucket {{my-openzfs-ap-hrzrlukc5m36ft7okagglf3gmwluquse1b}}-ext-s3alias {{download.jpg}}
+{
+    "AcceptRanges": "bytes",
+    "LastModified": "Mon, 14 Oct 2024 17:01:48 GMT",
+    "ContentLength": 141756,
+    "ETag": "\"00751974dc146b76404bb7290f8f51bb\"",
+    "ContentType": "binary/octet-stream",
+    "ServerSideEncryption": "SSE_FSX",
+    "Metadata": {},
+    "StorageClass": "FSX_OPENZFS"
+}
 ```
 
-You can also use the REST API to download an object through an access point. For more information, see [GetObject](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md") in the _Amazon Simple Storage Service API Reference_.
+You can also use the REST API to download an object through an access point. For more information, see [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html) in the *Amazon Simple Storage Service API Reference*.
