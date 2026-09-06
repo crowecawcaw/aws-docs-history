@@ -1,14 +1,11 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Reviewing query plan steps
+<a name="reviewing-query-plan-steps"></a>
 
-You can see the steps in a query plan by running the EXPLAIN command. The following
-example shows an SQL query and explains the output. Reading the query plan from the
-bottom up, you can see each of the logical operations used to perform the query. For
-more information, see [Creating and interpreting a query plan](c-the-query-plan.md "c-the-query-plan.md").
+You can see the steps in a query plan by running the EXPLAIN command. The following example shows an SQL query and explains the output. Reading the query plan from the bottom up, you can see each of the logical operations used to perform the query. For more information, see [Creating and interpreting a query plan](c-the-query-plan.md).
 
 ```
 explain
@@ -33,37 +30,21 @@ XN Merge  (cost=1002815366604.92..1002815366606.36 rows=576 width=27)
                                 ->  XN Seq Scan on event  (cost=0.00..87.98 rows=8798 width=21)
 ```
 
-As part of generating a query plan, the query optimizer breaks down the plan into
-streams, segments, and steps. The query optimizer breaks the plan down to prepare for
-distributing the data and query workload to the compute nodes. For more information
-about streams, segments, and steps, see [Query planning and execution workflow](c-query-planning.md "c-query-planning.md").
+As part of generating a query plan, the query optimizer breaks down the plan into streams, segments, and steps. The query optimizer breaks the plan down to prepare for distributing the data and query workload to the compute nodes. For more information about streams, segments, and steps, see [Query planning and execution workflow](c-query-planning.md). 
 
-The following illustration shows the preceding query and associated query plan. It
-displays how the query operations involved map to steps that Amazon Redshift uses to generate
-compiled code for the compute node slices. Each query plan operation maps to multiple
-steps within the segments, and sometimes to multiple segments within the streams.
+The following illustration shows the preceding query and associated query plan. It displays how the query operations involved map to steps that Amazon Redshift uses to generate compiled code for the compute node slices. Each query plan operation maps to multiple steps within the segments, and sometimes to multiple segments within the streams.
 
-![A query and its associated query plan mapped to three streams.](images/map-plan-to-streams.png)
+![A query and its associated query plan mapped to three streams.](http://docs.aws.amazon.com/redshift/latest/dg/images/map-plan-to-streams.png)
+
+
 In this illustration, the query optimizer runs the query plan as follows:
 
-1. In `Stream 0`, the query runs `Segment 0` with a sequential scan operation to scan the `events`
-   table. The query continues to `Segment 1` with a hash operation to create the hash
-   table for the inner table in the join.
-2. In `Stream 1`, the query runs `Segment 2` with a sequential scan
-   operation to scan the `sales` table. It continues with `Segment
- 2` with a hash join to join tables where the join columns are not both
-   distribution keys and sort keys. It again continues with `Segment 2`
-   with a hash aggregate to aggregate results. Then the query runs `Segment
- 3` with a hash aggregate operation to perform unsorted grouped aggregate
-   functions, and a sort operation to evaluate the ORDER BY clause and other sort
-   operations.
-3. In `Stream 2`, the query runs a network operation in `Segment 4` and
-   `Segment 5` to send intermediate results to the leader node for
-   further processing.
-   The last segment of a query returns the data. If the return set is aggregated or
-   sorted, the compute nodes each send their piece of the intermediate result to the leader
-   node. The leader node then merges the data so the final result can be sent back to the
-   requesting client.
+1. In `Stream 0`, the query runs `Segment 0` with a sequential scan operation to scan the `events` table. The query continues to `Segment 1` with a hash operation to create the hash table for the inner table in the join.
 
-For more information about EXPLAIN operators, see
-[EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md").
+1. In `Stream 1`, the query runs `Segment 2` with a sequential scan operation to scan the `sales` table. It continues with `Segment 2` with a hash join to join tables where the join columns are not both distribution keys and sort keys. It again continues with `Segment 2` with a hash aggregate to aggregate results. Then the query runs `Segment 3` with a hash aggregate operation to perform unsorted grouped aggregate functions, and a sort operation to evaluate the ORDER BY clause and other sort operations.
+
+1. In `Stream 2`, the query runs a network operation in `Segment 4` and `Segment 5` to send intermediate results to the leader node for further processing.
+
+The last segment of a query returns the data. If the return set is aggregated or sorted, the compute nodes each send their piece of the intermediate result to the leader node. The leader node then merges the data so the final result can be sent back to the requesting client.
+
+For more information about EXPLAIN operators, see [EXPLAIN](r_EXPLAIN.md).

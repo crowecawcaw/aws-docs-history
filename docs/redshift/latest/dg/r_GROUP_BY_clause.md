@@ -1,40 +1,32 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # GROUP BY clause
+<a name="r_GROUP_BY_clause"></a>
 
-The GROUP BY clause identifies the grouping columns for the query.
-It is used to group together those rows in a table that have the same values in all the columns listed.
-The order in which the columns are listed does not matter.
-The outcome is to combine each set of rows having common values into one group row that represents all rows in the group.
-Use a GROUP BY to eliminate redundancy in the output and to compute aggregates that apply to the groups.
-Grouping columns must be declared when the query computes aggregates with standard functions such as SUM, AVG, and COUNT.
-For more information, see [Aggregate functions](c_Aggregate_Functions.md "c_Aggregate_Functions.md").
+The GROUP BY clause identifies the grouping columns for the query. It is used to group together those rows in a table that have the same values in all the columns listed. The order in which the columns are listed does not matter. The outcome is to combine each set of rows having common values into one group row that represents all rows in the group. Use a GROUP BY to eliminate redundancy in the output and to compute aggregates that apply to the groups. Grouping columns must be declared when the query computes aggregates with standard functions such as SUM, AVG, and COUNT. For more information, see [Aggregate functions](c_Aggregate_Functions.md).
 
 ## Syntax
+<a name="r_GROUP_BY_clause-syntax"></a>
 
 ```
-[ GROUP BY  *expression* [, ...] | ALL | *aggregation\_extension*  ]
+[ GROUP BY  expression [, ...] | ALL | aggregation_extension  ]
 ```
 
-where _aggregation\_extension_ is one of the following:
+where *aggregation\_extension* is one of the following:
 
 ```
-GROUPING SETS ( () | *aggregation\_extension* [, ...] ) |
-ROLLUP ( *expr* [, ...] ) |
-CUBE ( *expr* [, ...] )
-
+GROUPING SETS ( () | aggregation_extension [, ...] ) |
+ROLLUP ( expr [, ...] ) |
+CUBE ( expr [, ...] )
 ```
 
 ## Parameters
+<a name="r_GROUP_BY_clause-parameters"></a>
 
-_expression_
-
-The list of columns or expressions must match the list of non-aggregate
-expressions in the select list of the query. For example, consider the
-following simple query.
+ *expression*  
+The list of columns or expressions must match the list of non-aggregate expressions in the select list of the query. For example, consider the following simple query.  
 
 ```
 select listid, eventid, sum(pricepaid) as revenue,
@@ -53,14 +45,8 @@ listid | eventid | revenue | numtix
 147685 |     429 |   20.00 |      1
 (5 rows)
 ```
-
-In this query, the select list consists of two aggregate expressions. The first
-uses the SUM function and the second uses the COUNT function. The remaining two
-columns, LISTID and EVENTID, must be declared as grouping columns.
-
-Expressions in the GROUP BY clause can also reference the select list
-by using ordinal numbers. For example, the previous example could be
-abbreviated as follows.
+In this query, the select list consists of two aggregate expressions. The first uses the SUM function and the second uses the COUNT function. The remaining two columns, LISTID and EVENTID, must be declared as grouping columns.  
+Expressions in the GROUP BY clause can also reference the select list by using ordinal numbers. For example, the previous example could be abbreviated as follows.  
 
 ```
 select listid, eventid, sum(pricepaid) as revenue,
@@ -80,59 +66,49 @@ listid | eventid | revenue | numtix
 (5 rows)
 ```
 
-ALL
-
-ALL indicates to group by all columns specified in the SELECT list except those that are aggregated. For example, consider the
-following query which groups by `col1` and `col2`
-without having to specify them individually in the GROUP BY clause.
-The column `col3` is the argument of the `SUM` function and thus not grouped.
+ALL  
+ALL indicates to group by all columns specified in the SELECT list except those that are aggregated. For example, consider the following query which groups by `col1` and `col2` without having to specify them individually in the GROUP BY clause. The column `col3` is the argument of the `SUM` function and thus not grouped.  
 
 ```
 SELECT col1, col2 sum(col3) FROM testtable GROUP BY ALL
 ```
-
-If you EXCLUDE a column in the SELECT list, the GROUP BY ALL clause does not group the results based on that specific column.
+If you EXCLUDE a column in the SELECT list, the GROUP BY ALL clause does not group the results based on that specific column.  
 
 ```
 SELECT * EXCLUDE col3 FROM testtable GROUP BY ALL
 ```
 
-**aggregation\_extension**
-
-You can use the aggregation extensions GROUPING SETS, ROLLUP, and CUBE
-to perform the work of multiple GROUP BY operations in a single statement.
-For more information on aggregation extensions and related functions, see
-[Aggregation extensions](r_GROUP_BY_aggregation-extensions.md "r_GROUP_BY_aggregation-extensions.md").
+ * *aggregation\_extension* *   
+You can use the aggregation extensions GROUPING SETS, ROLLUP, and CUBE to perform the work of multiple GROUP BY operations in a single statement. For more information on aggregation extensions and related functions, see [Aggregation extensions](r_GROUP_BY_aggregation-extensions.md). 
 
 ## Examples
+<a name="r_GROUP_BY_clause-examples"></a>
 
-The following examples use the SALES table that contains columns: salesid, listid, sellerid, buyerid, eventid, dateid, qtysold, pricepaid, commission, and saletime.
-For more information about the SALES table, see
-[Sample database](c_sampledb.md "c_sampledb.md").
+The following examples use the SALES table that contains columns: salesid, listid, sellerid, buyerid, eventid, dateid, qtysold, pricepaid, commission, and saletime. For more information about the SALES table, see [Sample database](c_sampledb.md).
 
-The following example query groups by `salesid` and `listid`
-without having to specify them individually in the GROUP BY clause.
-The column `qtysold` is the argument of the `SUM` function and thus not grouped.
+The following example query groups by `salesid` and `listid` without having to specify them individually in the GROUP BY clause. The column `qtysold` is the argument of the `SUM` function and thus not grouped.
 
 ```
-`SELECT salesid, listid, sum(qtysold) FROM sales GROUP BY ALL;`
-`salesid | listid | sum
+SELECT salesid, listid, sum(qtysold) FROM sales GROUP BY ALL;
+
+salesid | listid  | sum
 --------+---------+------
-33095 | 36572 | 2
-88268 | 100813 | 4
-110917 | 127048 | 1
-...`
+33095   | 36572   | 2	
+88268   | 100813  | 4	
+110917  | 127048  | 1	
+...
 ```
 
 The following example query excludes several columns in the SELECT list, so GROUP BY ALL only groups salesid and listid.
 
 ```
-`SELECT * EXCLUDE sellerid, buyerid, eventid, dateid, qtysold, pricepaid, commission, saletime
-FROM sales GROUP BY ALL;`
-`salesid | listid
+SELECT * EXCLUDE sellerid, buyerid, eventid, dateid, qtysold, pricepaid, commission, saletime 
+FROM sales GROUP BY ALL;
+
+salesid | listid 
 --------+---------
-33095 | 36572
-88268 | 100813
-110917 | 127048
-...`
+33095   | 36572   	
+88268   | 100813 	
+110917  | 127048 	
+...
 ```

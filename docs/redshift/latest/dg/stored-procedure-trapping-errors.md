@@ -1,19 +1,16 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Trapping errors
+<a name="stored-procedure-trapping-errors"></a>
 
 This topic describes how Amazon Redshift handles errors.
 
-When a query or command in a stored procedure causes an error, subsequent queries don't run and the transaction is rolled back. But
-you can handle errors using an EXCEPTION block.
+When a query or command in a stored procedure causes an error, subsequent queries don't run and the transaction is rolled back. But you can handle errors using an EXCEPTION block.
 
-###### Note
-
-The default behavior is that an error will cause subsequent queries not to run, even when there are no additional error-generating
-conditions in the stored procedure.
+**Note**  
+The default behavior is that an error will cause subsequent queries not to run, even when there are no additional error-generating conditions in the stored procedure.
 
 ```
 [ <<label>> ]
@@ -25,33 +22,19 @@ EXCEPTION
   WHEN OTHERS THEN
     statements
 END;
-
 ```
 
-When an exception occurs, and you add an exception-handling block, you can write RAISE
-statements and most other PL/pgSQL statements. For example, you can raise an
-exception with a custom message or insert a record into a logging table.
+When an exception occurs, and you add an exception-handling block, you can write RAISE statements and most other PL/pgSQL statements. For example, you can raise an exception with a custom message or insert a record into a logging table.
 
-When entering the exception-handling block, the current transaction is rolled back and a new
-transaction is created to run the statements in the block. If the statements in the block run without error, the
-transaction is committed and the exception is re-thrown. Lastly, the stored procedure exits.
+When entering the exception-handling block, the current transaction is rolled back and a new transaction is created to run the statements in the block. If the statements in the block run without error, the transaction is committed and the exception is re-thrown. Lastly, the stored procedure exits.
 
-The only supported condition in an exception block is OTHERS, which matches every error
-type except query cancellation. Also, if an error occurs in an exception-handling
-block, it can be caught by an outer exception-handling block.
+The only supported condition in an exception block is OTHERS, which matches every error type except query cancellation. Also, if an error occurs in an exception-handling block, it can be caught by an outer exception-handling block.
 
-When an error occurs inside the NONATOMIC procedure, the error is not re-thrown if it is handled by an exception block.
-See the PL/pgSQL statement `RAISE` to throw an exception caught by the exception handling block.
-This statement is only valid in exception handling blocks.
-For more information see [RAISE](c_PLpgSQL-statements.md#r_PLpgSQL-messages-errors "c_PLpgSQL-statements.md#r_PLpgSQL-messages-errors").
+When an error occurs inside the NONATOMIC procedure, the error is not re-thrown if it is handled by an exception block. See the PL/pgSQL statement `RAISE` to throw an exception caught by the exception handling block. This statement is only valid in exception handling blocks. For more information see [RAISE](c_PLpgSQL-statements.md#r_PLpgSQL-messages-errors).
 
 **Controlling what happens after an error in a stored procedure, with the CONTINUE handler**
 
-The `CONTINUE` handler is a type of exception handler that controls the flow of execution within a NONATOMIC stored procedure. By using it, you can
-catch and handle exceptions without ending the existing statement block. Normally, when an error occurs in a stored
-procedure, the flow is interrupted and the error is returned to the caller. However,
-in some use cases, the error condition isn't severe enough to warrant interrupting the flow. You might want to handle the
-error gracefully, using error-handling logic of your choosing in a seperate transaction, and then continue running statements that follow the error. The following shows the syntax.
+ The `CONTINUE` handler is a type of exception handler that controls the flow of execution within a NONATOMIC stored procedure. By using it, you can catch and handle exceptions without ending the existing statement block. Normally, when an error occurs in a stored procedure, the flow is interrupted and the error is returned to the caller. However, in some use cases, the error condition isn't severe enough to warrant interrupting the flow. You might want to handle the error gracefully, using error-handling logic of your choosing in a seperate transaction, and then continue running statements that follow the error. The following shows the syntax. 
 
 ```
 [ DECLARE
@@ -62,21 +45,14 @@ EXCEPTION
   [ CONTINUE_HANDLER | EXIT_HANDLER ] WHEN OTHERS THEN
     handler_statements
 END;
-
 ```
 
-There are several system tables available to help you gather
-information about various types of errors. For more information,
-see [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md"),
-[STL\_ERROR](r_STL_ERROR.md "r_STL_ERROR.md"),
-and [SYS\_STREAM\_SCAN\_ERRORS](r_SYS_STREAM_SCAN_ERRORS.md "r_SYS_STREAM_SCAN_ERRORS.md"). There are
-also additional system tables you can use to troubleshoot errors. More information about
-these can be found at [System tables and views reference](cm_chap_system-tables.md "cm_chap_system-tables.md").
+There are several system tables available to help you gather information about various types of errors. For more information, see [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md), [STL\_ERROR](r_STL_ERROR.md), and [SYS\_STREAM\_SCAN\_ERRORS](r_SYS_STREAM_SCAN_ERRORS.md). There are also additional system tables you can use to troubleshoot errors. More information about these can be found at [System tables and views reference](cm_chap_system-tables.md).
 
 ## Example
+<a name="stored-procedure-trapping-errors-examples"></a>
 
-The following example shows how to write statements in the exception-handling block.
-The stored procedure is using default transaction management behavior.
+The following example shows how to write statements in the exception-handling block. The stored procedure is using default transaction management behavior.
 
 ```
 CREATE TABLE employee (firstname varchar, lastname varchar);
@@ -92,7 +68,7 @@ EXCEPTION WHEN OTHERS THEN
     RAISE INFO 'An exception occurred.';
     INSERT INTO employee_error_log VALUES ('Error message: ' || SQLERRM);
 END;
-$$
+$$ 
 LANGUAGE plpgsql;
 
 CALL update_employee_sp();
@@ -103,37 +79,29 @@ CONTEXT:  SQL statement "select invalid"
 PL/pgSQL function "update_employee_sp" line 3 at execute statement
 ```
 
-In this example, if you call `update_employee_sp`, the informational message
-_An exception occurred._ is raised and the error message is
-inserted in the logging table's `employee_error_log` log. The original
-exception is thrown again before the stored procedure exits. The following queries show records that result from running the example.
+In this example, if you call `update_employee_sp`, the informational message *An exception occurred.* is raised and the error message is inserted in the logging table's `employee_error_log` log. The original exception is thrown again before the stored procedure exits. The following queries show records that result from running the example.
 
 ```
 SELECT * from employee;
 
-firstname | lastname
+firstname | lastname 
 -----------+----------
  Tomas     | Smith
 
 SELECT * from employee_error_log;
 
-          message
+          message                     
 ------------------------------------------------
  Error message: column "invalid" does not exist
 ```
 
-For more information about RAISE, including formatting
-help and a list of additional levels, see [Supported PL/pgSQL statements](c_PLpgSQL-statements.md "c_PLpgSQL-statements.md").
+For more information about RAISE, including formatting help and a list of additional levels, see [Supported PL/pgSQL statements](c_PLpgSQL-statements.md).
 
-The following example shows how to write statements in the exception-handling block.
-The stored procedure is using NONATOMIC transaction management behavior.
-In this example, there is no error thrown back to caller after the procedure call completes.
-The UPDATE statement is not rolled back due to the error in the next statement.
-The informational message is raised and the error message is inserted in the logging table.
+The following example shows how to write statements in the exception-handling block. The stored procedure is using NONATOMIC transaction management behavior. In this example, there is no error thrown back to caller after the procedure call completes. The UPDATE statement is not rolled back due to the error in the next statement. The informational message is raised and the error message is inserted in the logging table.
 
 ```
-CREATE TABLE employee (firstname varchar, lastname varchar);
-INSERT INTO employee VALUES ('Tomas','Smith');
+CREATE TABLE employee (firstname varchar, lastname varchar); 
+INSERT INTO employee VALUES ('Tomas','Smith'); 
 CREATE TABLE employee_error_log (message varchar);
 
 -- Create the SP in NONATOMIC mode
@@ -146,7 +114,7 @@ EXCEPTION WHEN OTHERS THEN
     RAISE INFO 'An exception occurred.';
     INSERT INTO employee_error_log VALUES ('Error message: ' || SQLERRM);
 END;
-$$
+$$ 
 LANGUAGE plpgsql;
 
 CALL update_employee_sp_2();
@@ -155,31 +123,24 @@ CALL
 
 SELECT * from employee;
 
- firstname | lastname
+ firstname | lastname 
 -----------+----------
  Adam      | Smith
 (1 row)
 
 SELECT * from employee_error_log;
 
-                    message
+                    message                     
 ------------------------------------------------
  Error message: column "invalid" does not exist
 (1 row)
-
 ```
 
-This example shows how to create a procedure with two sub blocks. When the stored
-procedure is called, the error from the first sub block is handled by its exception
-handling block. After the first sub block completes, the procedure continues to execute
-the second sub block. You can see from the result that no error is thrown when the
-procedure call completes. The UPDATE and INSERT operations on table employee are
-committed. Error messages from both exception blocks are inserted in the logging
-table.
+This example shows how to create a procedure with two sub blocks. When the stored procedure is called, the error from the first sub block is handled by its exception handling block. After the first sub block completes, the procedure continues to execute the second sub block. You can see from the result that no error is thrown when the procedure call completes. The UPDATE and INSERT operations on table employee are committed. Error messages from both exception blocks are inserted in the logging table.
 
 ```
-CREATE TABLE employee (firstname varchar, lastname varchar);
-INSERT INTO employee VALUES ('Tomas','Smith');
+CREATE TABLE employee (firstname varchar, lastname varchar); 
+INSERT INTO employee VALUES ('Tomas','Smith'); 
 CREATE TABLE employee_error_log (message varchar);
 
 CREATE OR REPLACE PROCEDURE update_employee_sp_3() NONATOMIC AS
@@ -200,7 +161,7 @@ BEGIN
         INSERT INTO employee_error_log VALUES ('Error message: ' || SQLERRM);
     END;
 END;
-$$
+$$ 
 LANGUAGE plpgsql;
 
 CALL update_employee_sp_3();
@@ -210,7 +171,7 @@ CALL
 
 SELECT * from employee;
 
- firstname | lastname
+ firstname | lastname  
 -----------+-----------
  Adam      | Smith
  Edie      | Robertson
@@ -218,16 +179,14 @@ SELECT * from employee;
 
 SELECT * from employee_error_log;
 
-                     message
+                     message                     
 -------------------------------------------------
  Error message: column "invalid1" does not exist
  Error message: column "invalid2" does not exist
 (2 rows)
-
 ```
 
-The following example shows how to use the CONTINUE exception handler. This sample creates two tables and uses them in a stored
-procedure. The CONTINUE handler controls the flow of execution in a stored procedure with NONATOMIC transaction-management behavior.
+The following example shows how to use the CONTINUE exception handler. This sample creates two tables and uses them in a stored procedure. The CONTINUE handler controls the flow of execution in a stored procedure with NONATOMIC transaction-management behavior.
 
 ```
 CREATE TABLE tbl_1 (a int);
@@ -254,17 +213,15 @@ CALL sp_exc_handling_1();
 
 Flow proceeds like so:
 
-1. An error occurs because an attempt is made to insert an incompatible data type in a column. Control passes to the EXCEPTION block. When the
-   exception-handling block is entered, the current transaction is rolled back and a new implicit transaction is created to run the statements in it.
-2. If the statements in CONTINUE\_HANDLER run without error, control passes to the statement immediately following the statement
-   causing the exception. (If a statement in CONTINUE\_HANDLER raises a new exception, you can handle it with an exception handler within the EXCEPTION block.)
-   After you call the sample stored procedure, the tables contain the following records:
+1. An error occurs because an attempt is made to insert an incompatible data type in a column. Control passes to the EXCEPTION block. When the exception-handling block is entered, the current transaction is rolled back and a new implicit transaction is created to run the statements in it.
 
-- If you run `SELECT * FROM tbl_1;`, it returns two records. These contain the values `1` and `2`.
-- If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: _Encountered error_, _42703_,
-  and _column "val" does not exist in tbl\_1_.
-  The following additional error-handling example uses both an EXIT handler and a CONTINUE handler. It creates two tables: a data table and a logging table. It also creates a stored procedure
-  that demonstrates error handling:
+1. If the statements in CONTINUE\_HANDLER run without error, control passes to the statement immediately following the statement causing the exception. (If a statement in CONTINUE\_HANDLER raises a new exception, you can handle it with an exception handler within the EXCEPTION block.)
+
+After you call the sample stored procedure, the tables contain the following records:
++ If you run `SELECT * FROM tbl_1;`, it returns two records. These contain the values `1` and `2`.
++ If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: *Encountered error*, *42703*, and *column "val" does not exist in tbl\_1*.
+
+The following additional error-handling example uses both an EXIT handler and a CONTINUE handler. It creates two tables: a data table and a logging table. It also creates a stored procedure that demonstrates error handling:
 
 ```
 CREATE TABLE tbl_1 (a int);
@@ -298,18 +255,15 @@ After you create the stored procedure, call it with the following:
 CALL sp_exc_handling_2();
 ```
 
-When an error occurs in the inner exception block, which is bracketed by the inner set of BEGIN and END, it's handled by the EXIT handler. Any errors that occur
-in the outer block are handled by the CONTINUE handler.
+When an error occurs in the inner exception block, which is bracketed by the inner set of BEGIN and END, it's handled by the EXIT handler. Any errors that occur in the outer block are handled by the CONTINUE handler. 
 
 After you call the sample stored procedure, the tables contain the following records:
++ If you run `SELECT * FROM tbl_1;`, it returns four records, with the values 1, 2, 3, and 100.
++ If you run `SELECT * FROM tbl_error_logging;`, it returns two records. They have these values: *Encountered error*, *42703*, and *column "val" does not exist in tbl\_1*.
 
-- If you run `SELECT * FROM tbl_1;`, it returns four records, with the values 1, 2, 3, and 100.
-- If you run `SELECT * FROM tbl_error_logging;`, it returns two records. They have these values: _Encountered error_, _42703_,
-  and _column "val" does not exist in tbl\_1_.
-  If the table **tbl\_error\_logging** doesn't exist, it raises an exception.
+If the table **tbl\_error\_logging** doesn't exist, it raises an exception.
 
-The following example shows how to use the CONTINUE exception handler with the FOR loop. This sample creates three tables and uses them in a FOR loop within a stored procedure. The FOR loop
-is result set variant, meaning that it iterates over the results of a query:
+The following example shows how to use the CONTINUE exception handler with the FOR loop. This sample creates three tables and uses them in a FOR loop within a stored procedure. The FOR loop is result set variant, meaning that it iterates over the results of a query:
 
 ```
 CREATE TABLE tbl_1 (a int);
@@ -344,10 +298,9 @@ CALL sp_exc_handling_loop();
 ```
 
 After you call the sample stored procedure, the tables contain the following records:
++  If you run `SELECT * FROM tbl_2;`, it returns two records. These contain the values 1 and 3.
++ If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: *Encountered error*, *42703*, and *column "val" does not exist in tbl\_2*.
 
-- If you run `SELECT * FROM tbl_2;`, it returns two records. These contain the values 1 and 3.
-- If you run `SELECT * FROM tbl_error_logging;`, it returns one record with these values: _Encountered error_, _42703_, and _column "val" does not exist in tbl\_2_.
-  Usage notes regarding the CONTINUE handler:
-
-- CONTINUE\_HANDLER and EXIT\_HANDLER keywords can be used only in NONATOMIC stored procedures.
-- CONTINUE\_HANDLER and EXIT\_HANDLER keywords are optional. EXIT\_HANDLER is the default.
+Usage notes regarding the CONTINUE handler:
++ CONTINUE\_HANDLER and EXIT\_HANDLER keywords can be used only in NONATOMIC stored procedures.
++ CONTINUE\_HANDLER and EXIT\_HANDLER keywords are optional. EXIT\_HANDLER is the default.

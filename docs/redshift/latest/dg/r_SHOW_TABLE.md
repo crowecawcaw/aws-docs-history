@@ -1,36 +1,34 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW TABLE
+<a name="r_SHOW_TABLE"></a>
 
-Shows the definition of a table, including table attributes, table constraints, column
-attributes, column collation and column constraints. You can use the output of the SHOW TABLE statement to
-recreate the table.
+Shows the definition of a table, including table attributes, table constraints, column attributes, column collation and column constraints. You can use the output of the SHOW TABLE statement to recreate the table. 
 
-For more information on table creation, see [CREATE TABLE](r_CREATE_TABLE_NEW.md "r_CREATE_TABLE_NEW.md").
+For more information on table creation, see [CREATE TABLE](r_CREATE_TABLE_NEW.md). 
 
 ## Syntax
+<a name="r_SHOW_TABLE-synopsis"></a>
 
 ```
-SHOW TABLE [*schema\_name*.]*table\_name*
+SHOW TABLE [schema_name.]table_name 
 ```
 
 ## Parameters
+<a name="r_SHOW_TABLE-parameters"></a>
 
-_schema\_name_
+ *schema\_name*   
+(Optional) The name of the related schema. 
 
-(Optional) The name of the related schema.
-
-_table\_name_
-
-The name of the table to show.
+ *table\_name*   
+The name of the table to show. 
 
 ## Examples
+<a name="r_SHOW_TABLE-examples"></a>
 
-Following is an example of the SHOW TABLE output for the table
-`sales`.
+Following is an example of the SHOW TABLE output for the table `sales`.
 
 ```
 show table sales;
@@ -52,8 +50,7 @@ saletime timestamp without time zone ENCODE az64
 DISTSTYLE KEY SORTKEY ( dateid );
 ```
 
-Following is an example of the SHOW TABLE output for the table `category`
-in the schema `public`. The collation of the database is CASE\_SENSITIVE.
+Following is an example of the SHOW TABLE output for the table `category` in the schema `public`. The collation of the database is CASE\_SENSITIVE.
 
 ```
 show table public.category;
@@ -65,7 +62,7 @@ catid smallint NOT NULL distkey,
 catgroup character varying(10) ENCODE lzo COLLATE case_sensitive,
 catname character varying(10) ENCODE lzo COLLATE case_sensitive,
 catdesc character varying(50) ENCODE lzo COLLATE case_sensitive
-)
+) 
 DISTSTYLE KEY SORTKEY ( catid );
 ```
 
@@ -75,34 +72,31 @@ The following example creates table `foo` with a primary key.
 create table foo(a int PRIMARY KEY, b int);
 ```
 
-The SHOW TABLE results display the create statement with all properties of the
-`foo` table.
+The SHOW TABLE results display the create statement with all properties of the `foo` table.
 
 ```
 show table foo;
 ```
 
 ```
-CREATE TABLE public.foo (
-a integer NOT NULL ENCODE az64,
-b integer ENCODE az64, PRIMARY KEY (a)
-)
+CREATE TABLE public.foo ( 
+a integer NOT NULL ENCODE az64, 
+b integer ENCODE az64, PRIMARY KEY (a) 
+) 
 DISTSTYLE AUTO;
 ```
 
-This example creates a table where column `a` inherits the database's default
-CASE\_SENSITIVE collation, while `b` and `c` are explicitly set to CASE\_INSENSITIVE collation.
+This example creates a table where column `a` inherits the database's default CASE\_SENSITIVE collation, while `b` and `c` are explicitly set to CASE\_INSENSITIVE collation.
 
 ```
 CREATE TABLE public.foo (
-a CHAR,
-b VARCHAR(10) COLLATE CASE_INSENSITIVE,
+a CHAR, 
+b VARCHAR(10) COLLATE CASE_INSENSITIVE, 
 c SUPER COLLATE CASE_INSENSITIVE
 );
 ```
 
-The SHOW TABLE results display the create statement with all properties of the
-`foo` table.
+The SHOW TABLE results display the create statement with all properties of the `foo` table.
 
 ```
 show table public.foo;

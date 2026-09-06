@@ -1,43 +1,39 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE GROUP
+<a name="r_CREATE_GROUP"></a>
 
 Defines a new user group. Only a superuser can create a group.
 
 ## Syntax
+<a name="r_CREATE_GROUP-synopsis"></a>
 
 ```
-CREATE GROUP *group\_name*
-[ [ WITH ] [ USER *username* ] [, ...] ]
+CREATE GROUP group_name
+[ [ WITH ] [ USER username ] [, ...] ]
 ```
 
 ## Parameters
+<a name="r_CREATE_GROUP-parameters"></a>
 
-_group\_name_
+ *group\_name*   
+Name of the new user group. Group names beginning with two underscores are reserved for Amazon Redshift internal use. For more information about valid names, see [Names and identifiers](r_names.md).
 
-Name of the new user group. Group names beginning with two underscores are
-reserved for Amazon Redshift internal use. For more information about valid names, see
-[Names and identifiers](r_names.md "r_names.md").
-
-WITH
-
+WITH  
 Optional syntax to indicate additional parameters for CREATE GROUP.
 
-USER
-
+USER  
 Add one or more users to the group.
 
-_username_
-
+ *username*   
 Name of the user to add to the group.
 
 ## Examples
+<a name="r_CREATE_GROUP-examples"></a>
 
-The following example creates a user group named ADMIN\_GROUP with a two users, ADMIN1
-and ADMIN2.
+The following example creates a user group named ADMIN\_GROUP with a two users, ADMIN1 and ADMIN2.
 
 ```
 create group admin_group with user admin1, admin2;

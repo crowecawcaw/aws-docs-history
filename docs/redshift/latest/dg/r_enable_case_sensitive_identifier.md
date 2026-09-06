@@ -1,37 +1,34 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # enable\_case\_sensitive\_identifier
+<a name="r_enable_case_sensitive_identifier"></a>
 
 ## Values (default in bold)
+<a name="r_enable_case_sensitive_identifier-values"></a>
 
 true, **false**
 
 ## Description
+<a name="r_enable_case_sensitive_identifier-description"></a>
 
-A configuration value that determines whether name identifiers of databases,
-schemas, tables, and columns are case sensitive. The case of name identifiers is
-preserved when you enclose identifiers within double quotation marks and set
-`enable_case_sensitive_identifier` to `true`. The case of name
-identifiers is not preserved, and instead converted to lowercase, when you do not
-enclose identifiers within double quotation marks or when you set
-`enable_case_sensitive_identifier` to `false`.
+A configuration value that determines whether name identifiers of databases, schemas, tables, and columns are case sensitive. The case of name identifiers is preserved when you enclose identifiers within double quotation marks and set `enable_case_sensitive_identifier` to `true`. The case of name identifiers is not preserved, and instead converted to lowercase, when you do not enclose identifiers within double quotation marks or when you set `enable_case_sensitive_identifier` to `false`. 
 
-The case of a _username_ enclosed in double quotation marks is always preserved regardless of the setting of the `enable_case_sensitive_identifier` configuration option.
+The case of a *username* enclosed in double quotation marks is always preserved regardless of the setting of the `enable_case_sensitive_identifier` configuration option.
 
 ## Examples
+<a name="w2aac61c49b7"></a>
 
 The following example shows how to create and use case sensitive identifiers for a table and column name.
 
 ```
 -- To create and use case sensitive identifiers
 SET enable_case_sensitive_identifier TO true;
-
+        
 -- Create tables and columns with case sensitive identifiers
 CREATE TABLE public."MixedCasedTable" ("MixedCasedColumn" int);
-
+            
 INSERT INTO public."MixedCasedTable" VALUES (1);
 INSERT INTO public."MixedCasedTable" VALUES (2);
 INSERT INTO public."MixedCasedTable" VALUES (3);
@@ -39,8 +36,9 @@ INSERT INTO public."MixedCasedTable" VALUES (4);
 INSERT INTO public."MixedCasedTable" VALUES (5);
 
 -- Now query with case sensitive identifiers
-SELECT "MixedCasedColumn" FROM public."MixedCasedTable";
-`MixedCasedColumn
+SELECT "MixedCasedColumn" FROM public."MixedCasedTable";           
+
+MixedCasedColumn
 ------------------
 1
 2
@@ -48,14 +46,16 @@ SELECT "MixedCasedColumn" FROM public."MixedCasedTable";
 4
 5
 
-(5 rows)`
+(5 rows)
 
-SELECT * FROM public."MixedCasedTable" WHERE "MixedCasedColumn" = 1;
-`mixedcasedcolumn
+            
+SELECT * FROM public."MixedCasedTable" WHERE "MixedCasedColumn" = 1;            
+
+mixedcasedcolumn
 ------------------
 1
 
-(1 row)`
+(1 row)
 ```
 
 The following example shows when the case of identifiers is not preserved.
@@ -69,76 +69,55 @@ RESET enable_case_sensitive_identifier;
 CREATE TABLE "MixedCasedTable2" ("MixedCasedColumn" int);
 
 CREATE TABLE MixedCasedTable2 (MixedCasedColumn int);
-`ERROR: Relation "mixedcasedtable2" already exists`
+
+ERROR:  Relation "mixedcasedtable2" already exists
+
 
 SELECT "MixedCasedColumn" FROM "MixedCasedTable2";
-`mixedcasedcolumn
+
+ mixedcasedcolumn
 ------------------
-(0 rows)`
+(0 rows)
+
 
 SELECT MixedCasedColumn FROM MixedCasedTable2;
-`mixedcasedcolumn
+
+ mixedcasedcolumn
 ------------------
-(0 rows)`
+(0 rows)
 ```
 
 ## Usage Notes
+<a name="r_enable_case_sensitive_identifier-usage-notes"></a>
++  If you're using autorefresh for materialized views, we recommend setting the `enable_case_sensitive_identifier` value in your cluster or workgroup's parameter group. This ensures that `enable_case_sensitive_identifier` stays constant when your materialized views are refreshed. For information on autorefresh for materialized views, see [Refreshing a materialized view](materialized-view-refresh.md). For information on setting configuration values in parameter groups, see [Amazon Redshift parameter groups](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html) in the *Amazon Redshift Management Guide*. 
++  If you're using row-level security or dynamic data masking features, we recommend setting the `enable_case_sensitive_identifier` value in your cluster or workgroup's parameter group. This ensures that `enable_case_sensitive_identifier` stays constant throughout creating and attaching a policy, and then querying a relation that has a policy applied. For information on row-level security, see [Row-level security](t_rls.md). For information on dynamic data masking, see [Dynamic data masking](t_ddm.md). 
++  When you set `enable_case_sensitive_identifier` to on and create a table, you can set case sensitive column names. When you set `enable_case_sensitive_identifier` to off and query the table, the column names are downcased. This can produce query results different from when `enable_case_sensitive_identifier` is set to on. Consider the following example: 
 
-- If you're using autorefresh for materialized views, we
-  recommend setting the `enable_case_sensitive_identifier` value in your cluster
-  or workgroup's parameter group. This ensures that `enable_case_sensitive_identifier`
-  stays constant when your materialized views are refreshed. For information on autorefresh
-  for materialized views, see [Refreshing a materialized view](materialized-view-refresh.md "materialized-view-refresh.md").
-  For information on setting configuration values in parameter groups,
-  see
-  [Amazon Redshift parameter groups](../mgmt/working-with-parameter-groups.md "../mgmt/working-with-parameter-groups.md") in the
-  _Amazon Redshift Management Guide_.
-- If you're using row-level security or dynamic data masking features, we
-  recommend setting the `enable_case_sensitive_identifier` value in your cluster
-  or workgroup's parameter group. This ensures that `enable_case_sensitive_identifier`
-  stays constant throughout creating and attaching a policy, and then querying a relation
-  that has a policy applied. For information on row-level security, see
-  [Row-level security](t_rls.md "t_rls.md").
-  For information on dynamic data masking, see
-  [Dynamic data masking](t_ddm.md "t_ddm.md").
-- When you set `enable_case_sensitive_identifier` to on and create a table,
-  you can set case sensitive column names. When you set
-  `enable_case_sensitive_identifier` to off and query the table, the column
-  names are downcased. This can produce query results different from when `enable_case_sensitive_identifier`
-  is set to on. Consider the following example:
-
-```
-SET enable_case_sensitive_identifier TO on;
---Amazon Redshift preserves case for column names and other identifiers.
-
---Create a table with two columns that are identical except for the case.
-CREATE TABLE t ("c" int, "C" int);
-
-INSERT INTO t VALUES (1, 2);
-
-SELECT * FROM t;
-
- c | C
----+---
- 1 | 2
-(1 row)
-
-SET enable_case_sensitive_identifier TO off;
---Amazon Redshift no longer preserves case for column names and other identifiers.
-
-SELECT * FROM t;
-
- c | c
----+---
- 1 | 1
-(1 row)
-```
-
-- We recommend that regular users querying tables with dynamic data masking or row-level security policies attached
-  have the default enable\_case\_sensitive\_identifier setting. For information on row-level security, see
-  [Row-level security](t_rls.md "t_rls.md").
-  For information on dynamic data masking, see
-  [Dynamic data masking](t_ddm.md "t_ddm.md").
-- To reference identifiers with mixed case using dot notation, wrap each
-  case-sensitive identifier in double quotation marks. For example,
-  `public."MixedCasedTable"."MixedCasedColumn"`.
+  ```
+  SET enable_case_sensitive_identifier TO on;
+  --Amazon Redshift preserves case for column names and other identifiers.
+  
+  --Create a table with two columns that are identical except for the case.
+  CREATE TABLE t ("c" int, "C" int);
+  
+  INSERT INTO t VALUES (1, 2);
+  
+  SELECT * FROM t;
+  
+   c | C 
+  ---+---
+   1 | 2
+  (1 row)
+  
+  SET enable_case_sensitive_identifier TO off;
+  --Amazon Redshift no longer preserves case for column names and other identifiers.
+  
+  SELECT * FROM t;
+  
+   c | c 
+  ---+---
+   1 | 1
+  (1 row)
+  ```
++  We recommend that regular users querying tables with dynamic data masking or row-level security policies attached have the default enable\_case\_sensitive\_identifier setting. For information on row-level security, see [Row-level security](t_rls.md). For information on dynamic data masking, see [Dynamic data masking](t_ddm.md). 
++ To reference identifiers with mixed case using dot notation, wrap each case-sensitive identifier in double quotation marks. For example, `public."MixedCasedTable"."MixedCasedColumn"`.

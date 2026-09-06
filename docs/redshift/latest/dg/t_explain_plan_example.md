@@ -1,18 +1,17 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Query plan example
+<a name="t_explain_plan_example"></a>
 
-This example shows how to evaluate a query plan to find opportunities to optimize
-the distribution.
+This example shows how to evaluate a query plan to find opportunities to optimize the distribution.
 
 Run the following query with an EXPLAIN command to produce a query plan.
 
 ```
 explain
-select lastname, catname, venuename, venuecity, venuestate, eventname,
+select lastname, catname, venuename, venuecity, venuestate, eventname, 
 month, sum(pricepaid) as buyercost, max(totalprice) as maxtotalprice
 from category join event on category.catid = event.catid
 join venue on venue.venueid = event.venueid
@@ -23,14 +22,9 @@ join users on users.userid = sales.buyerid
 group by lastname, catname, venuename, venuecity, venuestate, eventname, month
 having sum(pricepaid)>9999
 order by catname, buyercost desc;
-
 ```
 
-In the TICKIT database, SALES is a fact table and LISTING is its largest
-dimension. In order to collocate the tables, SALES is distributed on the LISTID,
-which is the foreign key for LISTING, and LISTING is distributed on its primary key,
-LISTID. The following example shows the CREATE TABLE commands for SALES and
-LISTING.
+In the TICKIT database, SALES is a fact table and LISTING is its largest dimension. In order to collocate the tables, SALES is distributed on the LISTID, which is the foreign key for LISTING, and LISTING is distributed on its primary key, LISTID. The following example shows the CREATE TABLE commands for SALES and LISTING.
 
 ```
 create table sales(
@@ -66,12 +60,7 @@ create table listing(
 	foreign key(dateid) references date(dateid));
 ```
 
-In the following query plan, the Merge Join step for the join on SALES and LISTING
-shows DS\_DIST\_NONE, which indicates that no redistribution is required for the step.
-However, moving up the query plan, the other inner joins show DS\_BCAST\_INNER, which
-indicates that the inner table is broadcast as part of the query execution. Because
-only one pair of tables can be collocated using key distribution, five tables must
-be rebroadcast.
+In the following query plan, the Merge Join step for the join on SALES and LISTING shows DS\_DIST\_NONE, which indicates that no redistribution is required for the step. However, moving up the query plan, the other inner joins show DS\_BCAST\_INNER, which indicates that the inner table is broadcast as part of the query execution. Because only one pair of tables can be collocated using key distribution, five tables must be rebroadcast.
 
 ```
 QUERY PLAN
@@ -119,9 +108,7 @@ ALTER TABLE date ALTER DISTSTYLE ALL;
 ALTER TABLE event ALTER DISTSTYLE ALL;
 ```
 
-Run the same query with EXPLAIN again, and examine the new query plan. The joins
-now show DS\_DIST\_ALL\_NONE, indicating that no redistribution is required because the
-data was distributed to every node using DISTSTYLE ALL.
+Run the same query with EXPLAIN again, and examine the new query plan. The joins now show DS\_DIST\_ALL\_NONE, indicating that no redistribution is required because the data was distributed to every node using DISTSTYLE ALL.
 
 ```
 QUERY PLAN

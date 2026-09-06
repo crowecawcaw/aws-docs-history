@@ -1,17 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Conditional dynamic data masking
+<a name="t_ddm-conditional"></a>
 
-You can mask data at the cell level by creating masking policies with conditional
-expressions in the masking expression. For example, you can create a masking policy
-that applies different masks to a value, depending on another column's value in that row.
+You can mask data at the cell level by creating masking policies with conditional expressions in the masking expression. For example, you can create a masking policy that applies different masks to a value, depending on another column's value in that row.
 
-The following is an example of using conditional data masking to create and
-attach a masking policy that partially redacts credit card numbers involved in fraud,
-while completely hiding all other credit card numbers. You must be a superuser or have the [`sys:secadmin`](r_roles-default.md "r_roles-default.md") role to run this example.
+The following is an example of using conditional data masking to create and attach a masking policy that partially redacts credit card numbers involved in fraud, while completely hiding all other credit card numbers. You must be a superuser or have the [`sys:secadmin`](https://docs.aws.amazon.com/redshift/latest/dg/r_roles-default.html) role to run this example.
 
 ```
 --Create an analyst role.
@@ -27,7 +23,7 @@ RETURNS VARCHAR(16) IMMUTABLE
 AS $$
     import re
     regexp = re.compile("^([0-9]{6})[0-9]{5,6}([0-9]{4})")
-
+ 
     match = regexp.search(credit_card)
     if match != None:
         first = match.group(1)
@@ -35,19 +31,19 @@ AS $$
     else:
         first = "000000"
         last = "0000"
-
+    
     return "{}XXXXX{}".format(first, last)
 $$ LANGUAGE plpythonu;
 
 --Create a masking policy that partially redacts credit card numbers if the is_fraud value for that row is TRUE,
 --and otherwise blanks out the credit card number completely.
 CREATE MASKING POLICY card_number_conditional_mask
-    WITH (fraudulent BOOLEAN, pan varchar(16))
+    WITH (fraudulent BOOLEAN, pan varchar(16)) 
     USING (CASE WHEN fraudulent THEN REDACT_CREDIT_CARD(pan)
                 ELSE Null
            END);
 
---Attach the masking policy to the credit_cards/analyst table/role pair.
+--Attach the masking policy to the credit_cards/analyst table/role pair. 
 ATTACH MASKING POLICY card_number_conditional_mask ON credit_cards (credit_card_number)
  USING (is_fraud, credit_card_number)
  TO ROLE analyst PRIORITY 100;

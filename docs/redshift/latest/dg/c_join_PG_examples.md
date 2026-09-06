@@ -1,18 +1,16 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples of catalog queries
+<a name="c_join_PG_examples"></a>
 
-The following queries show a few of the ways in which you can query the catalog
-tables to get useful information about an Amazon Redshift database.
+The following queries show a few of the ways in which you can query the catalog tables to get useful information about an Amazon Redshift database.
 
 ## View table ID, database, schema, and table name
+<a name="c_join_PG_examples-view-tableid-db-schema-tablename"></a>
 
-The following view definition joins the STV\_TBL\_PERM system table with the
-PG\_CLASS, PG\_NAMESPACE, and PG\_DATABASE system catalog tables to return the
-table ID, database name, schema name, and table name.
+The following view definition joins the STV\_TBL\_PERM system table with the PG\_CLASS, PG\_NAMESPACE, and PG\_DATABASE system catalog tables to return the table ID, database name, schema name, and table name.
 
 ```
 create view tables_vw as
@@ -39,11 +37,9 @@ table_id | db_name   | schema_name | table_name
 ```
 
 ## List the number of columns per Amazon Redshift table
+<a name="c_join_PG_examples-list-the-number-of-columns-per-amazon-redshift-table"></a>
 
-The following query joins some catalog tables to find out how many columns
-each Amazon Redshift table contains. Amazon Redshift table names are stored in both PG\_TABLES
-and STV\_TBL\_PERM; where possible, use PG\_TABLES to return Amazon Redshift table
-names.
+The following query joins some catalog tables to find out how many columns each Amazon Redshift table contains. Amazon Redshift table names are stored in both PG\_TABLES and STV\_TBL\_PERM; where possible, use PG\_TABLES to return Amazon Redshift table names.
 
 This query does not involve any Amazon Redshift tables.
 
@@ -69,12 +65,12 @@ public  | venue    |        5
 (7 rows)
 ```
 
-## List the schemas and tables in a database
 
-The following query joins STV\_TBL\_PERM to some PG tables to return a list of
-tables in the TICKIT database and their schema names (NSPNAME column). The query
-also returns the total number of rows in each table. (This query is helpful when
-multiple schemas in your system have the same table names.)
+
+## List the schemas and tables in a database
+<a name="c_join_PG_examples-list-the-schemas-and-tables-in-a-database"></a>
+
+The following query joins STV\_TBL\_PERM to some PG tables to return a list of tables in the TICKIT database and their schema names (NSPNAME column). The query also returns the total number of rows in each table. (This query is helpful when multiple schemas in your system have the same table names.)
 
 ```
 select datname, nspname, relname, sum(rows) as rows
@@ -99,10 +95,9 @@ tickit  | public  | venue    |    202
 ```
 
 ## List table IDs, data types, column names, and table names
+<a name="c_join_PG_examples-list-table-ids-data-types-column-names-and-table-names"></a>
 
-The following query lists some information about each user table and its
-columns: the table ID, the table name, its column names, and the data type of
-each column:
+The following query lists some information about each user table and its columns: the table ID, the table name, its column names, and the data type of each column:
 
 ```
 select distinct attrelid, rtrim(name), attname, typname
@@ -126,9 +121,9 @@ attrelid |  rtrim   |    attname     |  typname
 ```
 
 ## Count the number of data blocks for each column in a table
+<a name="c_join_PG_examples-count-the-number-of-data-blocks-for-each-column-in-a-table"></a>
 
-The following query joins the STV\_BLOCKLIST table to PG\_CLASS to return
-storage information for the columns in the SALES table.
+The following query joins the STV\_BLOCKLIST table to PG\_CLASS to return storage information for the columns in the SALES table.
 
 ```
 select col, count(*)

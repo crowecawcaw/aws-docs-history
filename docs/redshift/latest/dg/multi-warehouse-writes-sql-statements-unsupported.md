@@ -1,36 +1,23 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Unsupported SQL statements for data sharing writes on consumers
+<a name="multi-warehouse-writes-sql-statements-unsupported"></a>
 
 The following aren't supported:
-
-- Multi-statement queries to consumer warehouses when writing to
-  producers.
-- Multi-statement queries to consumer warehouses in a different database, if the
-  previous command is a read statement.
-- Object references other than three-dot notations, such as one.dot or two.dot
-  notations, if not connected to shared database.
-- Concurrency scaling queries writing from consumers to producers.
-- Auto-copy jobs writing from consumers to producers.
-- Streaming jobs writing from consumers to producers.
-- Consumers creating zero-ETL integration tables on producer clusters. For more
-  information about zero-ETL integrations, see [Working with zero-ETL
-  integrations](../mgmt/zero-etl-using.md "../mgmt/zero-etl-using.md").
-- Writing to a table with an interleaved sort key through a data share.
-- Writing to a stored procedure through a data share.
-- Writing to a SQL user-defined functions (UDF) through a data share. These
-  include nested, Python, and Lambda UDFs.
-- UPDATE, INSERT, or COPY statements on identity columns to consumer warehouses
-  with more compute slices than producer.
-- MERGE statements on non-RMS external tables to consumer warehouses, when
-  writing to producers.
-- CREATE TABLE statements with:
-
-  - DEFAULT expression set to data type VARBYTE. The VARBYTE data type can't
-    be implicitly converted to any other data type. For more information, see
-    [CAST function](r_CAST_function.md "r_CAST_function.md").
-  - AS OF SELECT statements with NULL parameter to consumer warehouses, when
-    writing to producers.
++ Multi-statement queries to consumer warehouses when writing to producers.
++ Multi-statement queries to consumer warehouses in a different database, if the previous command is a read statement.
++ Object references other than three-dot notations, such as one.dot or two.dot notations, if not connected to shared database.
++ Concurrency scaling queries writing from consumers to producers.
++ Auto-copy jobs writing from consumers to producers.
++ Streaming jobs writing from consumers to producers.
++ Consumers creating zero-ETL integration tables on producer clusters. For more information about zero-ETL integrations, see [Working with zero-ETL integrations](https://docs.aws.amazon.com/redshift/latest/mgmt/zero-etl-using.html).
++ Writing to a table with an interleaved sort key through a data share.
++ Writing to a stored procedure through a data share.
++ Writing to a SQL user-defined functions (UDF) through a data share. These include nested, Python, and Lambda UDFs.
++ UPDATE, INSERT, or COPY statements on identity columns to consumer warehouses with more compute slices than producer. 
++ MERGE statements on non-RMS external tables to consumer warehouses, when writing to producers.
++ CREATE TABLE statements with:
+  + DEFAULT expression set to data type VARBYTE. The VARBYTE data type can't be implicitly converted to any other data type. For more information, see [CAST function](r_CAST_function.md).
+  + AS OF SELECT statements with NULL parameter to consumer warehouses, when writing to producers. 

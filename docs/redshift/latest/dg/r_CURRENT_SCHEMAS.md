@@ -1,43 +1,37 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CURRENT\_SCHEMAS
+<a name="r_CURRENT_SCHEMAS"></a>
 
-Returns an array of the names of any schemas in the current search path. The current
-search path is defined in the search\_path parameter.
+Returns an array of the names of any schemas in the current search path. The current search path is defined in the search\_path parameter. 
 
 ## Syntax
+<a name="r_CURRENT_SCHEMAS-synopsis"></a>
 
-###### Note
-
-This is a leader-node function. This function returns an error if it references
-a user-created table, an STL or STV system table, or an SVV or SVL system
-view.
+**Note**  
+This is a leader-node function. This function returns an error if it references a user-created table, an STL or STV system table, or an SVV or SVL system view.
 
 ```
-current_schemas(*include\_implicit*)
+current_schemas(include_implicit)
 ```
 
 ## Argument
+<a name="r_CURRENT_SCHEMAS-argument"></a>
 
-_include\_implicit_
-
-If true, specifies that the search path should include any implicitly
-included system schemas. Valid values are `true` and
-`false`. Typically, if `true`, this parameter
-returns the `pg_catalog` schema in addition to the current
-schema.
+ *include\_implicit*   
+If true, specifies that the search path should include any implicitly included system schemas. Valid values are `true` and `false`. Typically, if `true`, this parameter returns the `pg_catalog` schema in addition to the current schema. 
 
 ## Return type
+<a name="r_CURRENT_SCHEMAS-return-type"></a>
 
-Returns a CHAR or VARCHAR string.
+Returns a CHAR or VARCHAR string. 
 
 ## Examples
+<a name="r_CURRENT_SCHEMAS-examples"></a>
 
-The following example returns the names of the schemas in the current search path,
-not including implicitly included system schemas:
+The following example returns the names of the schemas in the current search path, not including implicitly included system schemas: 
 
 ```
 select current_schemas(false);
@@ -48,8 +42,7 @@ current_schemas
 (1 row)
 ```
 
-The following example returns the names of the schemas in the current search path,
-including implicitly included system schemas:
+The following example returns the names of the schemas in the current search path, including implicitly included system schemas: 
 
 ```
 select current_schemas(true);

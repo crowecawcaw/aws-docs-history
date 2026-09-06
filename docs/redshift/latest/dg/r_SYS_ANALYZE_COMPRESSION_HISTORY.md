@@ -1,56 +1,57 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_ANALYZE\_COMPRESSION\_HISTORY
+<a name="r_SYS_ANALYZE_COMPRESSION_HISTORY"></a>
 
-Records details for compression analysis operations during COPY or ANALYZE COMPRESSION
-commands.
+Records details for compression analysis operations during COPY or ANALYZE COMPRESSION commands.
 
-SYS\_ANALYZE\_COMPRESSION\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_ANALYZE\_COMPRESSION\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_SYS_ANALYZE_COMPRESSION_HISTORY-table-columns2"></a>
 
-| Column name      | Data type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ---------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user\_id         | integer        | The ID of the user who generated the<br>entry.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| start\_time      | timestamp      | The time when the compression analysis operation<br>started.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| transaction\_id  | bigint         | The transaction ID of the compression analysis<br>operation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| table\_id        | integer        | The table ID of the table that was<br>analyzed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| table\_name      | character(128) | The name of the table that was analyzed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| column\_position | integer        | The index of the column in the table that was<br>analyzed to determine the compression encoding.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| old\_encoding    | character(15)  | The encoding type before compression<br>analysis.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| new\_encoding    | character(15)  | The encoding type after compression<br>analysis.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| mode             | character(14)  | The possible values are:<br>**PRESET**<br>Specifies that the `new_encoding` is<br>determined by the Amazon Redshift COPY command based on the<br>column data type. No data is sampled.<br>**ON**<br>Specifies that the `new_encoding` is<br>determined by the Amazon Redshift COPY command based on an<br>analysis of sample data.<br>**ANALYZE ONLY**<br>Specifies that the `new_encoding` is<br>determined by the Amazon Redshift ANALYZE COMPRESSION command<br>based on an analysis of sample data. However, the<br>encoding type of the analyzed column is not<br>changed. |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | The ID of the user who generated the entry. | 
+| start\_time | timestamp | The time when the compression analysis operation started. | 
+| transaction\_id | bigint | The transaction ID of the compression analysis operation. | 
+| table\_id | integer | The table ID of the table that was analyzed. | 
+| table\_name | character(128) | The name of the table that was analyzed. | 
+| column\_position | integer | The index of the column in the table that was analyzed to determine the compression encoding. | 
+| old\_encoding | character(15) | The encoding type before compression analysis. | 
+| new\_encoding | character(15) | The encoding type after compression analysis. | 
+| mode | character(14) | **PRESET**<br /> Specifies that the `new_encoding` is determined by the Amazon Redshift COPY command based on the column data type. No data is sampled.  <br />**ON**<br /> Specifies that the `new_encoding` is determined by the Amazon Redshift COPY command based on an analysis of sample data. <br />**ANALYZE ONLY**<br /> Specifies that the `new_encoding` is determined by the Amazon Redshift ANALYZE COMPRESSION command based on an analysis of sample data. However, the encoding type of the analyzed column is not changed.   | 
 
 ## Sample queries
+<a name="r_SYS_ANALYZE_COMPRESSION_HISTORY-sample-queries2"></a>
 
-The following example inspects the details of compression analysis on the
-`lineitem` table by the last COPY command run in the same session.
+The following example inspects the details of compression analysis on the `lineitem` table by the last COPY command run in the same session. 
 
 ```
-`select transaction_id, table_id, btrim(table_name) as table_name, column_position, old_encoding, new_encoding, mode
+select transaction_id, table_id, btrim(table_name) as table_name, column_position, old_encoding, new_encoding, mode 
 from sys_analyze_compression_history
-where transaction_id = (select transaction_id from sys_query_history where query_id = pg_last_copy_id()) order by column_position;`
-
- `transaction_id | table_id | table_name | column_position | old_encoding | new_encoding | mode
+where transaction_id = (select transaction_id from sys_query_history where query_id = pg_last_copy_id()) order by column_position;
+                
+ transaction_id  |  table_id   | table_name | column_position |  old_encoding   |  new_encoding   |      mode
 -----------------+-------------+------------+-----------------+-----------------+-----------------+-------------
- 8196 | 248126 | lineitem | 0 | mostly32 | mostly32 | ON
- 8196 | 248126 | lineitem | 1 | mostly32 | lzo | ON
- 8196 | 248126 | lineitem | 2 | lzo | delta32k | ON
- 8196 | 248126 | lineitem | 3 | delta | delta | ON
- 8196 | 248126 | lineitem | 4 | bytedict | bytedict | ON
- 8196 | 248126 | lineitem | 5 | mostly32 | mostly32 | ON
- 8196 | 248126 | lineitem | 6 | delta | delta | ON
- 8196 | 248126 | lineitem | 7 | delta | delta | ON
- 8196 | 248126 | lineitem | 8 | lzo | zstd | ON
- 8196 | 248126 | lineitem | 9 | runlength | zstd | ON
- 8196 | 248126 | lineitem | 10 | delta | lzo | ON
- 8196 | 248126 | lineitem | 11 | delta | delta | ON
- 8196 | 248126 | lineitem | 12 | delta | delta | ON
- 8196 | 248126 | lineitem | 13 | bytedict | zstd | ON
- 8196 | 248126 | lineitem | 14 | bytedict | zstd | ON
- 8196 | 248126 | lineitem | 15 | text255 | zstd | ON
-(16 rows)`
+      8196       |   248126    | lineitem   |        0        | mostly32        | mostly32        | ON
+      8196       |   248126    | lineitem   |        1        | mostly32        | lzo             | ON
+      8196       |   248126    | lineitem   |        2        | lzo             | delta32k        | ON
+      8196       |   248126    | lineitem   |        3        | delta           | delta           | ON
+      8196       |   248126    | lineitem   |        4        | bytedict        | bytedict        | ON
+      8196       |   248126    | lineitem   |        5        | mostly32        | mostly32        | ON
+      8196       |   248126    | lineitem   |        6        | delta           | delta           | ON
+      8196       |   248126    | lineitem   |        7        | delta           | delta           | ON
+      8196       |   248126    | lineitem   |        8        | lzo             | zstd            | ON
+      8196       |   248126    | lineitem   |        9        | runlength       | zstd            | ON
+      8196       |   248126    | lineitem   |       10        | delta           | lzo             | ON
+      8196       |   248126    | lineitem   |       11        | delta           | delta           | ON
+      8196       |   248126    | lineitem   |       12        | delta           | delta           | ON
+      8196       |   248126    | lineitem   |       13        | bytedict        | zstd            | ON
+      8196       |   248126    | lineitem   |       14        | bytedict        | zstd            | ON
+      8196       |   248126    | lineitem   |       15        | text255         | zstd            | ON
+(16 rows)
 ```

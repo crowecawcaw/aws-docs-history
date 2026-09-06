@@ -1,77 +1,74 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_QUERY\_HISTORY
+<a name="SYS_QUERY_HISTORY"></a>
 
-Use SYS\_QUERY\_HISTORY to view details of user queries. Each row represents a user
-query with accumulated statistics for some of the fields. This view contains many types
-of queries, such as data definition language (DDL), data manipulation language (DML),
-copy, unload, and Amazon Redshift Spectrum. It contains both running and finished queries.
+Use SYS\_QUERY\_HISTORY to view details of user queries. Each row represents a user query with accumulated statistics for some of the fields. This view contains many types of queries, such as data definition language (DDL), data manipulation language (DML), copy, unload, and Amazon Redshift Spectrum. It contains both running and finished queries.
 
-SYS\_QUERY\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_QUERY\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-To verify whether a transaction containing the executed query was successfully
-committed, you need to perform a join operation between system tables and the
-`sys_transaction_history` table. For example:
+**Note**  
+To verify whether a transaction containing the executed query was successfully committed, you need to perform a join operation between system tables and the `sys_transaction_history` table. For example:  
 
 ```
-SELECT
+SELECT 
     qh.transaction_id,
     qh.query_id,
     qh.status AS query_status,
     qh.query_type,
     TRIM(qh.query_text) AS query_text,
     th.status AS transaction_status
-FROM
+FROM 
     sys_query_history qh
-LEFT JOIN
+LEFT JOIN 
     sys_transaction_history th ON qh.transaction_id = th.transaction_id;
 ```
 
 ## Table columns
+<a name="SYS_QUERY_HISTORY-table-columns"></a>
 
-| Column name               | Data type       | Description                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user\_id                  | integer         | The identifier of the user who submitted the<br>query.                                                                                                                                                                                                                                                                                                              |
-| query\_id                 | bigint          | The query identifier.                                                                                                                                                                                                                                                                                                                                               |
-| query\_label              | character(320)  | The short name for the query.                                                                                                                                                                                                                                                                                                                                       |
-| transaction\_id           | bigint          | The transaction identifier.                                                                                                                                                                                                                                                                                                                                         |
-| session\_id               | integer         | The process identifier of the process running the<br>query.                                                                                                                                                                                                                                                                                                         |
-| database\_name            | character(128)  | The name of the database the user was connected to<br>when the query was issued.                                                                                                                                                                                                                                                                                    |
-| query\_type               | character(32)   | The type of query, such as, SELECT, INSERT,<br>UPDATE, UNLOAD, COPY, COMMAND, DDL, UTILITY, CTAS, and<br>OTHER.                                                                                                                                                                                                                                                     |
-| status                    | character(10)   | The status of the query. Valid values: planning,<br>queued, running, returning, failed, canceled, and success.                                                                                                                                                                                                                                                      |
-| result\_cache\_hit        | Boolean         | Indicates whether the query matches the result<br>cache.                                                                                                                                                                                                                                                                                                            |
-| start\_time               | timestamp       | The time when the query began.                                                                                                                                                                                                                                                                                                                                      |
-| end\_time                 | timestamp       | The time when the query completed.                                                                                                                                                                                                                                                                                                                                  |
-| elapsed\_time             | bigint          | The total amount of time (microseconds) spent on<br>the query.                                                                                                                                                                                                                                                                                                      |
-| queue\_time               | bigint          | The total time (microseconds) spent on the service<br>class query queue.                                                                                                                                                                                                                                                                                            |
-| execution\_time           | bigint          | The total time (microseconds) running in the<br>service class.                                                                                                                                                                                                                                                                                                      |
-| error\_message            | character(512)  | The reason a query failed.                                                                                                                                                                                                                                                                                                                                          |
-| returned\_rows            | bigint          | The number of rows returned to the client.                                                                                                                                                                                                                                                                                                                          |
-| returned\_bytes           | bigint          | The number of bytes returned to the client.                                                                                                                                                                                                                                                                                                                         |
-| query\_text               | character(4000) | The query string. This string might be truncated.                                                                                                                                                                                                                                                                                                                   |
-| redshift\_version         | character(256)  | The Amazon Redshift version when the query ran.                                                                                                                                                                                                                                                                                                                     |
-| usage\_limit              | character(150)  | List of usage limit IDs reached by the<br>query.                                                                                                                                                                                                                                                                                                                    |
-| compute\_type             | varchar(32)     | Indicates whether the query runs on the main<br>cluster or concurrency scaling cluster. Possible values are<br>`primary` (query runs on the main cluster),<br>`secondary` (query runs on the secondary cluster), or<br>`primary-scale` (query runs on the concurrency<br>cluster). This is only applicable to provisioned cluster.                                  |
-| compile\_time             | bigint          | The total time (microseconds) spent on compilation<br>of the query.                                                                                                                                                                                                                                                                                                 |
-| planning\_time            | bigint          | The total time (microseconds) spent on planning of<br>the query.                                                                                                                                                                                                                                                                                                    |
-| lock\_wait\_time          | bigint          | The total time (microseconds) spent on waiting for<br>relation lock.                                                                                                                                                                                                                                                                                                |
-| service\_class\_id        | integer         | The service class's ID. For a list of<br>service class IDs, go to [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids").<br>This column is only used for queries run on provisioned<br>clusters. For queries run on Redshift Serverless, this column contains<br>-1.       |
-| service\_class\_name      | character(64)   | The service class name.<br>This column is only used for queries run on provisioned<br>clusters. For queries run on Amazon Redshift Redshift Serverless, this column<br>is empty.                                                                                                                                                                                    |
-| query\_priority           | character(20)   | The priority of the queue in which the query<br>ran. Possible values are as follows:<br>• NULL<br>• lowest<br>• low<br>• normal<br>• high<br>• highest<br>NULL means that query priority isn't supported for the<br>query.<br>This column is only used for queries run on provisioned<br>clusters. For queries run on Redshift Serverless, this column is<br>empty. |
-| short\_query\_accelerated | character(10)   | Whether the query was accelerated using<br>short query acceleration (SQA). Possible values are as<br>follows:<br>• true<br>• false<br>• NULL<br>This column is only used for queries run on provisioned<br>clusters. For queries run on Redshift Serverless, this column is<br>empty.                                                                               |
-| user\_query\_hash         | character(40)   | The query hash generated from the query,<br>including its query literals. Repeated queries with the same query<br>text will have the same user\_query\_hash values.                                                                                                                                                                                                 |
-| generic\_query\_hash      | character(40)   | The query hash generated from the query,<br>excluding its query literals. Repeated queries with the same query<br>text, but different query literals, will have the same<br>generic\_query\_hash values.                                                                                                                                                            |
-| query\_hash\_version      | integer         | The version number for the<br>query hash generated from the query.                                                                                                                                                                                                                                                                                                  |
-| result\_cache\_query\_id  | integer         | If the query used result caching,<br>this field value is the query ID of the query that was the<br>source of the cached results. If result caching was not used,<br>this field value is `0`.                                                                                                                                                                        |
-| username                  | character(128)  | The username of the user who submitted the query.                                                                                                                                                                                                                                                                                                                   |
-| query\_uuid               | character(36)   | A globally unique identifier (UUID) of the query.                                                                                                                                                                                                                                                                                                                   |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | The identifier of the user who submitted the query. | 
+| query\_id | bigint | The query identifier. | 
+| query\_label | character(320) | The short name for the query. | 
+| transaction\_id | bigint | The transaction identifier. | 
+| session\_id | integer | The process identifier of the process running the query. | 
+| database\_name | character(128) | The name of the database the user was connected to when the query was issued. | 
+| query\_type | character(32) | The type of query, such as, SELECT, INSERT, UPDATE, UNLOAD, COPY, COMMAND, DDL, UTILITY, CTAS, and OTHER. | 
+| status | character(10) | The status of the query. Valid values: planning, queued, running, returning, failed, canceled, and success. | 
+| result\_cache\_hit | Boolean | Indicates whether the query matches the result cache. | 
+| start\_time | timestamp | The time when the query began. | 
+| end\_time | timestamp | The time when the query completed. | 
+| elapsed\_time | bigint | The total amount of time (microseconds) spent on the query. | 
+| queue\_time | bigint | The total time (microseconds) spent on the service class query queue. | 
+| execution\_time | bigint | The total time (microseconds) running in the service class. | 
+| error\_message | character(512) | The reason a query failed. | 
+| returned\_rows | bigint | The number of rows returned to the client.  | 
+| returned\_bytes | bigint | The number of bytes returned to the client.  | 
+| query\_text | character(4000) | The query string. This string might be truncated.  | 
+| redshift\_version | character(256) | The Amazon Redshift version when the query ran. | 
+| usage\_limit | character(150) | List of usage limit IDs reached by the query. | 
+| compute\_type | varchar(32) | Indicates whether the query runs on the main cluster or concurrency scaling cluster. Possible values are primary (query runs on the main cluster), secondary (query runs on the secondary cluster), or primary-scale (query runs on the concurrency cluster). This is only applicable to provisioned cluster. | 
+| compile\_time | bigint | The total time (microseconds) spent on compilation of the query. | 
+| planning\_time | bigint | The total time (microseconds) spent on planning of the query. | 
+| lock\_wait\_time | bigint | The total time (microseconds) spent on waiting for relation lock. | 
+| service\_class\_id | integer | The service class's ID. For a list of service class IDs, go to [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids).<br />This column is only used for queries run on provisioned clusters. For queries run on Redshift Serverless, this column contains -1. | 
+| service\_class\_name | character(64) | The service class name.<br />This column is only used for queries run on provisioned clusters. For queries run on Amazon Redshift Redshift Serverless, this column is empty. | 
+| query\_priority | character(20) | The priority of the queue in which the query ran. Possible values are as follows:+   NULL  <br />+   lowest  <br />+   low  <br />+   normal  <br />+   high  <br />+   highest  <br />NULL means that query priority isn't supported for the query.<br />This column is only used for queries run on provisioned clusters. For queries run on Redshift Serverless, this column is empty. | 
+| short\_query\_accelerated | character(10) | Whether the query was accelerated using short query acceleration (SQA). Possible values are as follows:+   true  <br />+   false  <br />+   NULL  <br />This column is only used for queries run on provisioned clusters. For queries run on Redshift Serverless, this column is empty. | 
+| user\_query\_hash | character(40) | The query hash generated from the query, including its query literals. Repeated queries with the same query text will have the same user\_query\_hash values. | 
+| generic\_query\_hash | character(40) | The query hash generated from the query, excluding its query literals. Repeated queries with the same query text, but different query literals, will have the same generic\_query\_hash values. | 
+| query\_hash\_version | integer | The version number for the query hash generated from the query. | 
+| result\_cache\_query\_id | integer | If the query used result caching, this field value is the query ID of the query that was the source of the cached results. If result caching was not used, this field value is `0`. | 
+| username | character(128) | The username of the user who submitted the query. | 
+| query\_uuid | character(36) | A globally unique identifier (UUID) of the query. | 
 
 ## Sample queries
+<a name="SYS_QUERY_HISTORY-sample-queries"></a>
 
 The following query returns running and queued queries.
 
@@ -101,8 +98,7 @@ Sample output.
      101 |   760705 |         852337 | 1073832321 | running | tpcds_1t      | 2022-02-15 19:03:19.67849 | 2022-02-15 19:03:19.739811 | f                |        61321 |          0 |              0
 ```
 
-The following query returns the query start time, end time, queue time, elapsed
-time, planning time, and other metadata for a specific query.
+The following query returns the query start time, end time, queue time, elapsed time, planning time, and other metadata for a specific query.
 
 ```
 SELECT user_id,
@@ -151,7 +147,6 @@ ORDER BY start_time DESC limit 10;
 Sample output.
 
 ```
-
  query_id | transaction_id | session_id |         start_time         | elapsed_time | queue_time | execution_time | returned_rows | returned_bytes
 ----------+----------------+------------+----------------------------+--------------+------------+----------------+---------------+----------------
    526532 |          61093 | 1073840313 | 2022-02-09 04:43:24.149603 |       520571 |          0 |         481293 |             1 |           3794
@@ -166,8 +161,7 @@ Sample output.
    511584 |         617931 | 1074030019 | 2022-01-20 06:21:42.764088 |       609033 |          0 |         485887 |           100 |           8438
 ```
 
-The following query shows the daily select query count and average query elapsed
-time.
+ The following query shows the daily select query count and average query elapsed time. 
 
 ```
 SELECT date_trunc('day',start_time) AS exec_day,
@@ -219,7 +213,6 @@ ORDER BY exec_day;
 Sample output.
 
 ```
-
       exec_day       | query_count | p50_runtime | p80_runtime | p90_runtime | p99_runtime  | max_runtime
 ---------------------+-------------+-------------+-------------+-------------+--------------+--------------
  2022-01-14 00:00:00 |        5253 |  16816922.0 |  69525096.0 | 158524917.8 | 486322477.52 | 1582078873.0
@@ -256,9 +249,7 @@ Sample output.
  COMMAND    |          92
 ```
 
-The following example shows the difference in
-query hash results between several queries.
-Observe the following queries:
+The following example shows the difference in query hash results between several queries. Observe the following queries:
 
 ```
 CREATE TABLE test_table (col1 INT);
@@ -294,9 +285,4 @@ query_id | user_query_hash | generic_query_hash | text
 24723021 | YSVnlivZHeo=    | YSVnlivZHeo=       | create table test_table (col1 int)
 ```
 
-`SELECT * FROM test_table;` and `SELECT col1 FROM test_table;` have
-the same user\_query\_hash value, since test\_table has only one column.
-`SELECT * FROM test_table WHERE col1=1;` and
-`SELECT * FROM test_table WHERE col1=2;` have different user\_query\_hash values,
-but identical generic\_query\_hash values, since the two queries are
-identical outside of the query literals 1 and 2.
+`SELECT * FROM test_table;` and `SELECT col1 FROM test_table;` have the same user\_query\_hash value, since test\_table has only one column. `SELECT * FROM test_table WHERE col1=1;` and `SELECT * FROM test_table WHERE col1=2;` have different user\_query\_hash values, but identical generic\_query\_hash values, since the two queries are identical outside of the query literals 1 and 2.

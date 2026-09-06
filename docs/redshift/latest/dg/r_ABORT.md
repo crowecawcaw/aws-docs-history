@@ -1,37 +1,34 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ABORT
+<a name="r_ABORT"></a>
 
-Stops the currently running transaction and discards all updates made by that
-transaction. ABORT has no effect on already completed transactions.
+Stops the currently running transaction and discards all updates made by that transaction. ABORT has no effect on already completed transactions.
 
-This command performs the same function as the ROLLBACK command. For information, see
-[ROLLBACK](r_ROLLBACK.md "r_ROLLBACK.md").
+This command performs the same function as the ROLLBACK command. For information, see [ROLLBACK](r_ROLLBACK.md).
 
 ## Syntax
+<a name="r_ABORT-synopsis"></a>
 
 ```
 ABORT [ WORK | TRANSACTION ]
 ```
 
 ## Parameters
+<a name="r_ABORT-parameters"></a>
 
-WORK
-
+WORK  
 Optional keyword.
 
-TRANSACTION
-
+TRANSACTION  
 Optional keyword; WORK and TRANSACTION are synonyms.
 
 ## Example
+<a name="r_ABORT-example"></a>
 
-The following example creates a table then starts a transaction where data is
-inserted into the table. The ABORT command then rolls back the data insertion to leave
-the table empty.
+The following example creates a table then starts a transaction where data is inserted into the table. The ABORT command then rolls back the data insertion to leave the table empty.
 
 The following command creates an example table called MOVIE\_GROSS:
 
@@ -39,8 +36,7 @@ The following command creates an example table called MOVIE\_GROSS:
 create table movie_gross( name varchar(30), gross bigint );
 ```
 
-The next set of commands starts a transaction that inserts two data rows into the
-table:
+The next set of commands starts a transaction that inserts two data rows into the table:
 
 ```
 begin;
@@ -50,8 +46,7 @@ insert into movie_gross values ( 'Raiders of the Lost Ark', 23400000);
 insert into movie_gross values ( 'Star Wars', 10000000 );
 ```
 
-Next, the following command selects the data from the table to show that it was
-successfully inserted:
+Next, the following command selects the data from the table to show that it was successfully inserted:
 
 ```
 select * from movie_gross;

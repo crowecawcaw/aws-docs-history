@@ -1,17 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Aggregation extensions
+<a name="r_GROUP_BY_aggregation-extensions"></a>
 
-Amazon Redshift supports aggregation extensions to do
-the work of multiple GROUP BY operations in a single statement.
+Amazon Redshift supports aggregation extensions to do the work of multiple GROUP BY operations in a single statement.
 
-The examples for aggregation extensions use the `orders` table, which
-holds sales data for an electronics company. You can create `orders` with
-the
-following.
+ The examples for aggregation extensions use the `orders` table, which holds sales data for an electronics company. You can create `orders` with the following.
 
 ```
 CREATE TABLE ORDERS (
@@ -30,23 +26,14 @@ INSERT INTO ORDERS VALUES
     (4, 'mouse',        'computers',    'F', 50);
 ```
 
-## _GROUPING SETS_
+## *GROUPING SETS*
+<a name="r_GROUP_BY_aggregation-extensions-grouping-sets"></a>
 
-Computes one or more grouping sets in a single statement.
-A grouping set is the set of a single GROUP BY clause,
-a set of 0 or more columns by which you
-can group a query's result set.
-GROUP BY GROUPING SETS is equivalent to running a UNION ALL
-query on one result set grouped by different columns.
-For example, GROUP BY GROUPING SETS((a), (b))
-is equivalent to GROUP BY a UNION ALL GROUP BY b.
+ Computes one or more grouping sets in a single statement. A grouping set is the set of a single GROUP BY clause, a set of 0 or more columns by which you can group a query's result set. GROUP BY GROUPING SETS is equivalent to running a UNION ALL query on one result set grouped by different columns. For example, GROUP BY GROUPING SETS((a), (b)) is equivalent to GROUP BY a UNION ALL GROUP BY b. 
 
-The following example returns the
-cost of the order table's products grouped according to
-both the products' categories and the kind of products sold.
+ The following example returns the cost of the order table's products grouped according to both the products' categories and the kind of products sold. 
 
 ```
-
 SELECT category, product, sum(cost) as total
 FROM orders
 GROUP BY GROUPING SETS(category, product);
@@ -62,22 +49,14 @@ GROUP BY GROUPING SETS(category, product);
 (5 rows)
 ```
 
-## _ROLLUP_
+## *ROLLUP*
+<a name="r_GROUP_BY_aggregation-extensions-rollup"></a>
 
-Assumes a hierarchy where preceding columns are considered the parents
-of subsequent columns. ROLLUP groups data by the provided columns, returning extra
-subtotal rows representing the totals throughout all levels of grouping columns,
-in addition to the grouped rows. For example, you can use GROUP BY ROLLUP((a),
-(b)) to return a result set grouped first by a, then by b while assuming that b is
-a subsection of a. ROLLUP also returns a row with the whole result set without
-grouping columns.
+ Assumes a hierarchy where preceding columns are considered the parents of subsequent columns. ROLLUP groups data by the provided columns, returning extra subtotal rows representing the totals throughout all levels of grouping columns, in addition to the grouped rows. For example, you can use GROUP BY ROLLUP((a), (b)) to return a result set grouped first by a, then by b while assuming that b is a subsection of a. ROLLUP also returns a row with the whole result set without grouping columns. 
 
-GROUP BY ROLLUP((a), (b)) is equivalent to GROUP BY GROUPING SETS((a,b), (a),
-()).
+GROUP BY ROLLUP((a), (b)) is equivalent to GROUP BY GROUPING SETS((a,b), (a), ()). 
 
-The following example returns the cost of the order table's products grouped
-first by category and then product, with product as a subdivision of
-category.
+The following example returns the cost of the order table's products grouped first by category and then product, with product as a subdivision of category.
 
 ```
 SELECT category, product, sum(cost) as total
@@ -95,24 +74,14 @@ GROUP BY ROLLUP(category, product) ORDER BY 1,2;
 (6 rows)
 ```
 
-## _CUBE_
+## *CUBE*
+<a name="r_GROUP_BY_aggregation-extensions-cube"></a>
 
-Groups data by the provided columns, returning extra subtotal rows
-representing the totals throughout all levels of grouping columns, in addition to
-the grouped rows. CUBE returns the same rows as ROLLUP, while adding additional
-subtotal rows for every combination of grouping column not covered by ROLLUP.
-For example, you can use GROUP BY CUBE ((a), (b)) to return a result set grouped first by a, then by b
-while assuming that b is a subsection of a, then by b alone. CUBE also returns a
-row with the whole result set without grouping columns.
+ Groups data by the provided columns, returning extra subtotal rows representing the totals throughout all levels of grouping columns, in addition to the grouped rows. CUBE returns the same rows as ROLLUP, while adding additional subtotal rows for every combination of grouping column not covered by ROLLUP. For example, you can use GROUP BY CUBE ((a), (b)) to return a result set grouped first by a, then by b while assuming that b is a subsection of a, then by b alone. CUBE also returns a row with the whole result set without grouping columns.
 
-GROUP BY CUBE((a), (b)) is equivalent to GROUP BY GROUPING SETS((a, b), (a),
-(b), ()).
+GROUP BY CUBE((a), (b)) is equivalent to GROUP BY GROUPING SETS((a, b), (a), (b), ()). 
 
-The following example returns the
-cost of the order table's products grouped first by category and then
-product, with product as a subdivision of category. Unlike the preceding
-example for ROLLUP, the statement returns results for every combination
-of grouping column.
+The following example returns the cost of the order table's products grouped first by category and then product, with product as a subdivision of category. Unlike the preceding example for ROLLUP, the statement returns results for every combination of grouping column. 
 
 ```
 SELECT category, product, sum(cost) as total
@@ -133,55 +102,33 @@ GROUP BY CUBE(category, product) ORDER BY 1,2;
 (9 rows)
 ```
 
-## _GROUPING/GROUPING\_ID functions_
+## *GROUPING/GROUPING\_ID functions*
+<a name="r_GROUP_BY_aggregation-extentions-grouping"></a>
 
-ROLLUP and CUBE add NULL values to the result set to indicate subtotal rows.
-For example, GROUP BY ROLLUP((a), (b)) returns one or more rows that
-have a value of NULL in the b grouping column to indicate they are subtotals
-of fields in the a grouping column. These NULL values serve
-only to satisfy the format of returning tuples.
+ ROLLUP and CUBE add NULL values to the result set to indicate subtotal rows. For example, GROUP BY ROLLUP((a), (b)) returns one or more rows that have a value of NULL in the b grouping column to indicate they are subtotals of fields in the a grouping column. These NULL values serve only to satisfy the format of returning tuples.
 
-When you run GROUP BY operations with ROLLUP and CUBE on
-relations that store NULL values themselves, this can produce
-result sets with rows that appear to have identical grouping columns.
-Returning to the previous example, if the b grouping column contains
-a stored NULL value, GROUP BY ROLLUP((a), (b)) returns
-a row with a value of NULL in the b grouping column that isn't a subtotal.
+ When you run GROUP BY operations with ROLLUP and CUBE on relations that store NULL values themselves, this can produce result sets with rows that appear to have identical grouping columns. Returning to the previous example, if the b grouping column contains a stored NULL value, GROUP BY ROLLUP((a), (b)) returns a row with a value of NULL in the b grouping column that isn't a subtotal. 
 
-To distinguish between NULL values created by ROLLUP and CUBE, and the NULL
-values stored in the tables themselves, you can use the GROUPING function, or its
-alias GROUPING\_ID. GROUPING takes a single grouping set as its argument, and for
-each row in the result set returns a 0 or 1 bit value corresponding to the
-grouping column in that position, and then converts that value into an integer.
-If the value in that
-position is a NULL value created by an aggregation extension, GROUPING returns 1.
-It returns 0 for all other values, including stored NULL values.
+ To distinguish between NULL values created by ROLLUP and CUBE, and the NULL values stored in the tables themselves, you can use the GROUPING function, or its alias GROUPING\_ID. GROUPING takes a single grouping set as its argument, and for each row in the result set returns a 0 or 1 bit value corresponding to the grouping column in that position, and then converts that value into an integer. If the value in that position is a NULL value created by an aggregation extension, GROUPING returns 1. It returns 0 for all other values, including stored NULL values.
 
-For example, GROUPING(category, product) can return
-the following values for a given row, depending on
-the grouping column values for that row.
-For the purposes of this example, all NULL values in
-the table are NULL values created by an aggregation extension.
+ For example, GROUPING(category, product) can return the following values for a given row, depending on the grouping column values for that row. For the purposes of this example, all NULL values in the table are NULL values created by an aggregation extension.
 
-| category column | product column | GROUPING function bit value | Decimal value |
-| --------------- | -------------- | --------------------------- | ------------- |
-| not NULL        | not NULL       | 00                          | 0             |
-| not NULL        | NULL           | 01                          | 1             |
-| NULL            | not NULL       | 10                          | 2             |
-| NULL            | NULL           | 11                          | 3             |
 
-GROUPING functions appear in the SELECT list portion of the query in the
-following
-format.
+| category column | product column | GROUPING function bit value | Decimal value | 
+| --- | --- | --- | --- | 
+| not NULL | not NULL | 00 | 0 | 
+| not NULL | NULL | 01 | 1 | 
+| NULL | not NULL | 10 | 2 | 
+| NULL | NULL | 11 | 3 | 
+
+GROUPING functions appear in the SELECT list portion of the query in the following format.
 
 ```
-SELECT ... [GROUPING( *expr* )...] ...
-  GROUP BY ... {CUBE | ROLLUP| GROUPING SETS} ( *expr* ) ...
-
+SELECT ... [GROUPING( expr )...] ...
+  GROUP BY ... {CUBE | ROLLUP| GROUPING SETS} ( expr ) ...
 ```
 
-The following example is the same as the preceding example for CUBE,
-but with the addition of GROUPING functions for its grouping sets.
+The following example is the same as the preceding example for CUBE, but with the addition of GROUPING functions for its grouping sets.
 
 ```
 SELECT category, product,
@@ -206,24 +153,20 @@ GROUP BY CUBE(category, product) ORDER BY 3,1,2;
 (9 rows)
 ```
 
-## _Partial ROLLUP and CUBE_
+## *Partial ROLLUP and CUBE*
+<a name="r_GROUP_BY_aggregation-extentions-partial"></a>
 
-You can run ROLLUP and CUBE operations with only a portion
-of the subtotals.
+ You can run ROLLUP and CUBE operations with only a portion of the subtotals. 
 
-The syntax for partial ROLLUP and CUBE operations is as
-follows.
+ The syntax for partial ROLLUP and CUBE operations is as follows.
 
 ```
-GROUP BY *expr1*, { ROLLUP | CUBE }(*expr2*, [, ...])
+GROUP BY expr1, { ROLLUP | CUBE }(expr2, [, ...])
 ```
 
-Here, the GROUP BY clause only
-creates subtotal rows at the level of _expr2_ and onwards.
+Here, the GROUP BY clause only creates subtotal rows at the level of *expr2* and onwards.
 
-The following examples show partial ROLLUP and CUBE operations
-on the orders table, grouping first by whether a product is pre-owned and
-then running ROLLUP and CUBE on the category and product columns.
+The following examples show partial ROLLUP and CUBE operations on the orders table, grouping first by whether a product is pre-owned and then running ROLLUP and CUBE on the category and product columns.
 
 ```
 SELECT pre_owned, category, product,
@@ -269,27 +212,21 @@ GROUP BY pre_owned, CUBE(category, product) ORDER BY 4,1,2,3;
 (13 rows)
 ```
 
-Since the pre-owned column isn't included in the ROLLUP
-and CUBE operations, there's no grand total row that includes
-all other rows.
+Since the pre-owned column isn't included in the ROLLUP and CUBE operations, there's no grand total row that includes all other rows. 
 
-## _Concatenated grouping_
+## *Concatenated grouping*
+<a name="r_GROUP_BY_aggregation-extentions-concat"></a>
 
-You can concatenate multiple GROUPING SETS/ROLLUP/CUBE clauses
-to calculate different levels of subtotals. Concatenated groupings
-return the Cartesian product of the provided grouping sets.
+ You can concatenate multiple GROUPING SETS/ROLLUP/CUBE clauses to calculate different levels of subtotals. Concatenated groupings return the Cartesian product of the provided grouping sets. 
 
-The syntax for concatenating GROUPING SETS/ROLLUP/CUBE clauses is as
-follows.
+ The syntax for concatenating GROUPING SETS/ROLLUP/CUBE clauses is as follows.
 
 ```
-GROUP BY {ROLLUP|CUBE|GROUPING SETS}(*expr1*[, ...]),
-         {ROLLUP|CUBE|GROUPING SETS}(*expr1*[, ...])[, ...]
+GROUP BY {ROLLUP|CUBE|GROUPING SETS}(expr1[, ...]),
+         {ROLLUP|CUBE|GROUPING SETS}(expr1[, ...])[, ...]
 ```
 
-Consider the following example to see how a small concatenated grouping can
-produce a large final result
-set.
+Consider the following example to see how a small concatenated grouping can produce a large final result set.
 
 ```
 SELECT pre_owned, category, product,
@@ -326,21 +263,18 @@ ORDER BY 4,1,2,3;
 (22 rows)
 ```
 
-## _Nested grouping_
+## *Nested grouping*
+<a name="r_GROUP_BY_aggregation-extentions-nested"></a>
 
-You can use GROUPING SETS/ROLLUP/CUBE operations as your GROUPING SETS
-_expr_ to form a nested grouping. The sub grouping inside nested GROUPING SETS is
-flattened.
+ You can use GROUPING SETS/ROLLUP/CUBE operations as your GROUPING SETS *expr* to form a nested grouping. The sub grouping inside nested GROUPING SETS is flattened. 
 
-The syntax for nested grouping is as
-follows.
+ The syntax for nested grouping is as follows.
 
 ```
-GROUP BY GROUPING SETS({ROLLUP|CUBE|GROUPING SETS}(*expr*[, ...])[, ...])
+GROUP BY GROUPING SETS({ROLLUP|CUBE|GROUPING SETS}(expr[, ...])[, ...])
 ```
 
-Consider the following
-example.
+Consider the following example.
 
 ```
 SELECT category, product, pre_owned,
@@ -368,18 +302,10 @@ ORDER BY 4,1,2,3;
 (13 rows)
 ```
 
-Note that because both ROLLUP(category) and CUBE(product, pre\_owned)
-contain the grouping set (), the row representing the grand total is
-duplicated.
+Note that because both ROLLUP(category) and CUBE(product, pre\_owned) contain the grouping set (), the row representing the grand total is duplicated.
 
-## _Usage notes_
-
-- The GROUP BY clause supports up to 64 grouping sets. In the case of
-  ROLLUP and CUBE, or some combination of GROUPING SETS,
-  ROLLUP, and CUBE, this limitation applies to the implied number of grouping sets.
-  For example, GROUP BY CUBE((a), (b)) counts as 4 grouping sets, not
-
-2.
-
-- You can't use constants as grouping columns when using aggregation extensions.
-- You can't make a grouping set that contains duplicate columns.
+## *Usage notes*
+<a name="r_GROUP_BY_aggregation-extensions-usage-notes"></a>
++ The GROUP BY clause supports up to 64 grouping sets. In the case of ROLLUP and CUBE, or some combination of GROUPING SETS, ROLLUP, and CUBE, this limitation applies to the implied number of grouping sets. For example, GROUP BY CUBE((a), (b)) counts as 4 grouping sets, not 2.
++ You can't use constants as grouping columns when using aggregation extensions.
++ You can't make a grouping set that contains duplicate columns.

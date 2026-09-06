@@ -1,223 +1,144 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # MERGE
+<a name="r_MERGE"></a>
 
-Conditionally merges rows from a source table into a target table. Traditionally, this
-can only be achieved by using multiple insert, update or delete statements separately. For
-more information on the operations that you can combine with MERGE, see [UPDATE](r_UPDATE.md "r_UPDATE.md"), [DELETE](r_DELETE.md "r_DELETE.md"), and [INSERT](r_INSERT_30.md "r_INSERT_30.md").
+Conditionally merges rows from a source table into a target table. Traditionally, this can only be achieved by using multiple insert, update or delete statements separately. For more information on the operations that you can combine with MERGE, see [UPDATE](https://docs.aws.amazon.com/redshift/latest/dg/r_UPDATE.html), [DELETE](https://docs.aws.amazon.com/redshift/latest/dg/r_DELETE.html), and [INSERT](https://docs.aws.amazon.com/redshift/latest/dg/r_INSERT_30.html).
 
 ## Syntax
+<a name="r_MERGE-synopsis"></a>
 
 ```
-MERGE INTO *target\_table*
-USING *source\_table* [ [ AS ] *alias* ]
-ON *match\_condition*
-[ WHEN MATCHED THEN { UPDATE SET *col\_name* = { *expr* } [,...] | DELETE }
-WHEN NOT MATCHED THEN INSERT [ ( *col\_name* [,...] ) ] VALUES ( { *expr* } [, ...] ) |
+MERGE INTO target_table 
+USING source_table [ [ AS ] alias ] 
+ON match_condition 
+[ WHEN MATCHED THEN { UPDATE SET col_name = { expr } [,...] | DELETE }
+WHEN NOT MATCHED THEN INSERT [ ( col_name [,...] ) ] VALUES ( { expr } [, ...] ) |
 REMOVE DUPLICATES ]
 ```
 
 ## Parameters
+<a name="r_MERGE-parameters"></a>
 
-_target\_table_
+ *target\_table*  
+The temporary or permanent table that the MERGE statement merges into.
 
-The temporary or permanent table that the MERGE statement merges
-into.
+ *source\_table*  
+The temporary or permanent table supplying the rows to merge into *target\_table*. *source\_table* can also be a Spectrum table. 
 
-_source\_table_
+ *alias*  
+The temporary alternative name for *source\_table*.  
+This parameter is optional. Preceding *alias* with AS is also optional.
 
-The temporary or permanent table supplying the rows to merge into
-_target\_table_. _source\_table_ can
-also be a Spectrum table.
+ *match\_condition*  
+Specifies equal predicates between the source table column and target table column that are used to determine whether the rows in *source\_table* can be matched with rows in *target\_table*. If the condition is met, MERGE runs *matched\_clause* for that row. Otherwise MERGE runs *not\_matched\_clause* for that row.
 
-_alias_
+WHEN MATCHED  
+ Specifies the action to be run when the match condition between a source row and a target row evaluates to True. You can specify either an UPDATE action or a DELETE action. 
 
-The temporary alternative name for _source\_table_.
+UPDATE  
+ Updates the matched row in *target\_table*. Only values in the *col\_name* you specify are updated. 
 
-This parameter is optional. Preceding _alias_ with AS is
-also optional.
+DELETE  
+ Deletes the matched row in *target\_table*. 
 
-_match\_condition_
+WHEN NOT MATCHED  
+ Specifies the action to be run when the match condition is evaluated to False or Unknown. You can only specify the INSERT insert action for this clause. 
 
-Specifies equal predicates between the source table column and target table
-column that are used to determine whether the rows in
-_source\_table_ can be matched with rows in
-_target\_table_. If the condition is met, MERGE runs
-_matched\_clause_ for that row. Otherwise MERGE runs
-_not\_matched\_clause_ for that row.
+INSERT  
+ Inserts into *target\_table* rows from *source\_table* that don't match any rows in *target\_table*, according to *match\_condition*. The target *col\_name* can be listed in any order. If you don’t provide any *col\_name* values, the default order is all the table’s columns in their declared order. 
 
-WHEN MATCHED
+ *col\_name*  
+One or more column names that you want to modify. Don't include the table name when specifying the target column.
 
-Specifies the action to be run when the match condition between a source
-row and a target row evaluates to True. You can specify either an UPDATE action
-or a DELETE action.
+ *expr*  
+The expression defining the new value for *col\_name*.
 
-UPDATE
-
-Updates the matched row in _target\_table_. Only values
-in the _col\_name_ you specify are updated.
-
-DELETE
-
-Deletes the matched row in _target\_table_.
-
-WHEN NOT MATCHED
-
-Specifies the action to be run when the match condition is evaluated to
-False or Unknown. You can only specify the INSERT insert action for this
-clause.
-
-INSERT
-
-Inserts into _target\_table_ rows from
-_source\_table_ that don't match any rows in
-_target\_table_, according to
-_match\_condition_. The target
-_col\_name_ can be listed in any order. If you don’t
-provide any _col\_name_ values, the default order is all the
-table’s columns in their declared order.
-
-_col\_name_
-
-One or more column names that you want to modify. Don't include the table
-name when specifying the target column.
-
-_expr_
-
-The expression defining the new value for
-_col\_name_.
-
-REMOVE DUPLICATES
-
-Specifies that the MERGE command runs in simplified mode. Simplified mode
-has the following requirements:
-
-- _target\_table_ and _source\_table_
-  must have the same number of columns, compatible column types, and the same column order.
-- Omit the WHEN clause and the UPDATE and INSERT clauses from your
-  MERGE command.
-- Use the REMOVE DUPLICATES clause in your MERGE command.
-
-In simplified mode, MERGE does the following:
-
-- Rows in _target\_table_ that have a match in
-  _source\_table_ are updated to match the values in
-  _source\_table_.
-- Rows in _source\_table_ that don't have a match in
-  _target\_table_ are inserted into
-  _target\_table_.
-- When multiple rows in _target\_table_ match the
-  same row in _source\_table_, the duplicate rows are
-  removed. Amazon Redshift keeps one row and updates it. Duplicate rows that don’t
-  match a row in _source\_table_ remain unchanged.
-
-Using REMOVE DUPLICATES gives better performance than using WHEN MATCHED and
-WHEN NOT MATCHED. We recommend using REMOVE DUPLICATES if
-_target\_table_ and _source\_table_ are
-compatible and you don't need to preserve duplicate rows in
-_target\_table_.
+ REMOVE DUPLICATES  
+Specifies that the MERGE command runs in simplified mode. Simplified mode has the following requirements:  
++  *target\_table* and *source\_table* must have the same number of columns, compatible column types, and the same column order. 
++  Omit the WHEN clause and the UPDATE and INSERT clauses from your MERGE command. 
++  Use the REMOVE DUPLICATES clause in your MERGE command. 
+In simplified mode, MERGE does the following:  
++  Rows in *target\_table* that have a match in *source\_table* are updated to match the values in *source\_table*. 
++  Rows in *source\_table* that don't have a match in *target\_table* are inserted into *target\_table*. 
++  When multiple rows in *target\_table* match the same row in *source\_table*, the duplicate rows are removed. Amazon Redshift keeps one row and updates it. Duplicate rows that don’t match a row in *source\_table* remain unchanged. 
+Using REMOVE DUPLICATES gives better performance than using WHEN MATCHED and WHEN NOT MATCHED. We recommend using REMOVE DUPLICATES if *target\_table* and *source\_table* are compatible and you don't need to preserve duplicate rows in *target\_table*.
 
 ## Usage notes
+<a name="r_MERGE_usage_notes"></a>
++ To run MERGE statements, you must be the owner of both *source\_table* and *target\_table*, or have the SELECT permission for those tables. Additionally, you must have UPDATE, DELETE, and INSERT permissions for *target\_table* depending on the operations included in your MERGE statement.
++  *target\_table* can't be a system table, catalog table, or external table. 
++  *source\_table* and *target\_table* can't be the same table. 
++  You can't use the WITH clause in a MERGE statement. 
++  Rows in *target\_table* can't match multiple rows in *source\_table*. 
 
-- To run MERGE statements, you must be the owner of both
-  _source\_table_ and _target\_table_, or
-  have the SELECT permission for those tables. Additionally, you must have UPDATE,
-  DELETE, and INSERT permissions for _target\_table_ depending on
-  the operations included in your MERGE statement.
-- _target\_table_ can't be a system table, catalog table, or
-  external table.
-- _source\_table_ and _target\_table_ can't be
-  the same table.
-- You can't use the WITH clause in a MERGE statement.
-- Rows in _target\_table_ can't match multiple rows in
-  _source\_table_.
+  Consider the following example:
 
-Consider the following example:
+  ```
+  CREATE TABLE target (id INT, name CHAR(10));
+  CREATE TABLE source (id INT, name CHAR(10));
+  
+  INSERT INTO target VALUES (1, 'Bob'), (2, 'John');
+  INSERT INTO source VALUES (1, 'Tony'), (1, 'Alice'), (3, 'Bill');
+  
+  MERGE INTO target USING source ON target.id = source.id
+  WHEN MATCHED THEN UPDATE SET id = source.id, name = source.name
+  WHEN NOT MATCHED THEN INSERT VALUES (source.id, source.name);
+  ERROR: Found multiple matches to update the same tuple.
+  
+  MERGE INTO target USING source ON target.id = source.id
+  WHEN MATCHED THEN DELETE
+  WHEN NOT MATCHED THEN INSERT VALUES (source.id, source.name);
+  ERROR: Found multiple matches to update the same tuple.
+  ```
 
-```
-CREATE TABLE target (id INT, name CHAR(10));
-CREATE TABLE source (id INT, name CHAR(10));
+  In both MERGE statements, the operation fails because there are multiple rows in the `source` table with an ID value of `1`.
++  *match\_condition* and *expr* can't partially reference SUPER type columns. For example, if your SUPER type object is an array or a structure, you can't use individual elements of that column for *match\_condition* or *expr*, but you can use the entire column. 
 
-INSERT INTO target VALUES (1, 'Bob'), (2, 'John');
-INSERT INTO source VALUES (1, 'Tony'), (1, 'Alice'), (3, 'Bill');
+  Consider the following example:
 
-MERGE INTO target USING source ON target.id = source.id
-WHEN MATCHED THEN UPDATE SET id = source.id, name = source.name
-WHEN NOT MATCHED THEN INSERT VALUES (source.id, source.name);
-ERROR: Found multiple matches to update the same tuple.
+  ```
+  CREATE TABLE IF NOT EXISTS target (key INT, value SUPER);
+  CREATE TABLE IF NOT EXISTS source (key INT, value SUPER);
+  
+  INSERT INTO target VALUES (1, JSON_PARSE('{"key": 88}'));
+  INSERT INTO source VALUES (1, ARRAY(1, 'John')), (2, ARRAY(2, 'Bill'));
+  
+  MERGE INTO target USING source ON target.key = source.key
+  WHEN matched THEN UPDATE SET value = source.value[0]
+  WHEN NOT matched THEN INSERT VALUES (source.key, source.value[0]);
+  ERROR: Partial reference of SUPER column is not supported in MERGE statement.
+  ```
 
-MERGE INTO target USING source ON target.id = source.id
-WHEN MATCHED THEN DELETE
-WHEN NOT MATCHED THEN INSERT VALUES (source.id, source.name);
-ERROR: Found multiple matches to update the same tuple.
-```
+  For more information on the SUPER type, see [ SUPER type](https://docs.aws.amazon.com/redshift/latest/dg/r_SUPER_type.html).
++ If *source\_table* is large, defining the join columns from both *target\_table* and *source\_table* as the distribution keys can improve performance.
++ To use the REMOVE DUPLICATES clause, you need SELECT, INSERT, and DELETE permissions for *target\_table*.
++  *source\_table* can be a view or subquery. Following is an example of a MERGE statement where *source\_table* is a subquery that removes duplicate rows. 
 
-In both MERGE statements, the operation fails because there are multiple rows
-in the `source` table with an ID value of `1`.
+  ```
+  MERGE INTO target
+  USING (SELECT id, name FROM source GROUP BY 1, 2) as my_source
+  ON target.id = my_source.id
+  WHEN MATCHED THEN UPDATE SET id = my_source.id, name = my_source.name
+  WHEN NOT MATCHED THEN INSERT VALUES (my_source.id, my_source.name);
+  ```
++ The target cannot be a data source of any subquery of the same MERGE statement. For example, the following SQL command returns an error like ERROR: Source view/subquery in Merge statement cannot reference target table. because the subquery references `target` instead of `source`.
 
-- _match\_condition_ and _expr_ can't partially
-  reference SUPER type columns. For example, if your SUPER type object is an array
-  or a structure, you can't use individual elements of that column for
-  _match\_condition_ or _expr_, but you can
-  use the entire column.
-
-Consider the following example:
-
-```
-CREATE TABLE IF NOT EXISTS target (key INT, value SUPER);
-CREATE TABLE IF NOT EXISTS source (key INT, value SUPER);
-
-INSERT INTO target VALUES (1, JSON_PARSE('{"key": 88}'));
-INSERT INTO source VALUES (1, ARRAY(1, 'John')), (2, ARRAY(2, 'Bill'));
-
-MERGE INTO target USING source ON target.key = source.key
-WHEN matched THEN UPDATE SET value = source.value[0]
-WHEN NOT matched THEN INSERT VALUES (source.key, source.value[0]);
-ERROR: Partial reference of SUPER column is not supported in MERGE statement.
-```
-
-For more information on the SUPER type, see [SUPER type](r_SUPER_type.md "r_SUPER_type.md").
-
-- If _source\_table_ is large, defining the join columns from
-  both _target\_table_ and _source\_table_ as
-  the distribution keys can improve performance.
-- To use the REMOVE DUPLICATES clause, you need SELECT, INSERT, and DELETE
-  permissions for _target\_table_.
-- _source\_table_ can be a view or subquery. Following is an
-  example of a MERGE statement where _source\_table_ is a subquery
-  that removes duplicate rows.
-
-```
-MERGE INTO target
-USING (SELECT id, name FROM source GROUP BY 1, 2) as my_source
-ON target.id = my_source.id
-WHEN MATCHED THEN UPDATE SET id = my_source.id, name = my_source.name
-WHEN NOT MATCHED THEN INSERT VALUES (my_source.id, my_source.name);
-```
-
-- The target cannot be a data source of any subquery of the same MERGE statement.
-  For example, the following SQL command returns an error like **`ERROR:
- Source view/subquery in Merge statement cannot reference target
- table.`** because the subquery references `target` instead
-  of `source`.
-
-```
-MERGE INTO target
-USING (SELECT id, name FROM `target` GROUP BY 1, 2) as my_source
-ON target.id = my_source.id
-WHEN MATCHED THEN UPDATE SET id = my_source.id, name = my_source.name
-WHEN NOT MATCHED THEN INSERT VALUES (my_source.id, my_source.name);
-```
+  ```
+  MERGE INTO target
+  USING (SELECT id, name FROM {{target}} GROUP BY 1, 2) as my_source
+  ON target.id = my_source.id
+  WHEN MATCHED THEN UPDATE SET id = my_source.id, name = my_source.name
+  WHEN NOT MATCHED THEN INSERT VALUES (my_source.id, my_source.name);
+  ```
 
 ## Examples
+<a name="sub-examples-merge"></a>
 
-The following example creates two tables, then runs a MERGE operation on them,
-updating matching rows in the target table and inserting rows that don't match. Then it
-inserts another value into the source table and runs another MERGE operation, this time
-deleting matching rows and inserting the new row from the source table.
+The following example creates two tables, then runs a MERGE operation on them, updating matching rows in the target table and inserting rows that don't match. Then it inserts another value into the source table and runs another MERGE operation, this time deleting matching rows and inserting the new row from the source table.
 
 First create and populate the source and target tables.
 
@@ -245,8 +166,7 @@ SELECT * FROM source;
 (3 rows)
 ```
 
-Next, merge the source table into the target table, updating the target table with
-matching rows and insert rows from the source table that have no match.
+Next, merge the source table into the target table, updating the target table with matching rows and insert rows from the source table that have no match.
 
 ```
 MERGE INTO target USING source ON target.id = source.id
@@ -263,9 +183,7 @@ SELECT * FROM target;
 (4 rows)
 ```
 
-Note that the rows with id values of 102 and 103 are updated to match the name values
-from the target table. Also, a new row with an id value of 104 and name value of Bill is
-inserted into the target table.
+Note that the rows with id values of 102 and 103 are updated to match the name values from the target table. Also, a new row with an id value of 104 and name value of Bill is inserted into the target table.
 
 Next, insert a new row into the source table.
 
@@ -282,8 +200,7 @@ SELECT * FROM source;
 (4 rows)
 ```
 
-Finally, run a merge operation deleting matching rows in the target table, and
-inserting rows that don't match.
+Finally, run a merge operation deleting matching rows in the target table, and inserting rows that don't match.
 
 ```
 MERGE INTO target USING source ON target.id = source.id
@@ -298,12 +215,9 @@ SELECT * FROM target;
 (2 rows)
 ```
 
-The rows with id values 102, 103, and 104 are deleted from the target table, and a
-new row with an id value of 105 and name value of David is inserted into the target
-table.
+The rows with id values 102, 103, and 104 are deleted from the target table, and a new row with an id value of 105 and name value of David is inserted into the target table.
 
-The following example shows the simplified syntax of a MERGE command that uses the
-REMOVE DUPLICATES clause.
+The following example shows the simplified syntax of a MERGE command that uses the REMOVE DUPLICATES clause.
 
 ```
 CREATE TABLE target (id INT, name CHAR(10));
@@ -324,9 +238,7 @@ id | name
 (4 rows)
 ```
 
-The following example shows the simplified syntax of a MERGE command that uses the
-REMOVE DUPLICATES clause, removing duplicate rows from _target\_table_
-if they have matching rows in _source\_table_.
+The following example shows the simplified syntax of a MERGE command that uses the REMOVE DUPLICATES clause, removing duplicate rows from *target\_table* if they have matching rows in *source\_table*.
 
 ```
 CREATE TABLE target (id INT, name CHAR(10));
@@ -348,11 +260,9 @@ id | name
 (5 rows)
 ```
 
-After MERGE runs, there's only one row with an ID value of 23 in
-_target\_table_. Because there was no row in
-_source\_table_ with the ID value 30, the two duplicate rows with
-ID values of 30 remain in _target\_table_.
+After MERGE runs, there's only one row with an ID value of 23 in *target\_table*. Because there was no row in *source\_table* with the ID value 30, the two duplicate rows with ID values of 30 remain in *target\_table*.
 
 ## See also
+<a name="r_MERGE-see-also"></a>
 
-[INSERT](r_INSERT_30.md "r_INSERT_30.md"), [UPDATE](r_UPDATE.md "r_UPDATE.md"), [DELETE](r_DELETE.md "r_DELETE.md")
+ [INSERT](r_INSERT_30.md), [UPDATE](r_UPDATE.md), [DELETE](r_DELETE.md) 

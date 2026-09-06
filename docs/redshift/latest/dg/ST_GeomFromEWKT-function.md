@@ -1,56 +1,52 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeomFromEWKT
+<a name="ST_GeomFromEWKT-function"></a>
 
-ST\_GeomFromEWKT constructs a geometry object from the extended well-known text (EWKT) representation of an input geometry.
+ST\_GeomFromEWKT constructs a geometry object from the extended well-known text (EWKT) representation of an input geometry. 
 
 ST\_GeomFromEWKT accepts 3DZ, 3DM, and 4D where the geometry type is prefixed with Z, M, or ZM, respectively.
 
 ## Syntax
+<a name="ST_GeomFromEWKT-function-syntax"></a>
 
 ```
-ST_GeomFromEWKT(*ewkt\_string*)
+ST_GeomFromEWKT(ewkt_string)
 ```
 
 ## Arguments
+<a name="ST_GeomFromEWKT-function-arguments"></a>
 
-_ewkt\_string_
-
-A value of data type `VARCHAR` or an expression that evaluates to a `VARCHAR` type,
-that is an EWKT representation of a geometry.
-
-You can use the WKT keyword `EMPTY` to designate an empty
-point, a multipoint with an empty point, or a geometry collection with an empty
-point. The following example creates an empty point.
+ *ewkt\_string*   
+A value of data type `VARCHAR` or an expression that evaluates to a `VARCHAR` type, that is an EWKT representation of a geometry.  
+You can use the WKT keyword `EMPTY` to designate an empty point, a multipoint with an empty point, or a geometry collection with an empty point. The following example creates an empty point.   
 
 ```
 ST_GeomFromEWKT('SRID=4326;POINT EMPTY');
 ```
 
 ## Return type
+<a name="ST_GeomFromEWKT-function-return"></a>
 
 `GEOMETRY`
 
-If _ewkt\_string_ is null, then null is returned.
+If *ewkt\_string* is null, then null is returned. 
 
-If _ewkt\_string_ is not valid, then an error is returned.
+If *ewkt\_string* is not valid, then an error is returned. 
 
 ## Examples
+<a name="ST_GeomFromEWKT-function-examples"></a>
 
-The following SQL constructs a multilinestring from an EWKT value and returns a geometry.
-It also returns the ST\_AsEWKT result of the geometry.
+The following SQL constructs a multilinestring from an EWKT value and returns a geometry. It also returns the ST\_AsEWKT result of the geometry. 
 
 ```
 SELECT ST_GeomFromEWKT('SRID=4326;MULTILINESTRING((1 0,1 0),(2 0,3 0),(4 0,5 0,6 0))') as geom, ST_AsEWKT(geom);
 ```
 
 ```
-
-                                                                                                                                                       geom                                                                                                                                                       |                          st_asewkt
+                                                                                                                                                       geom                                                                                                                                                       |                          st_asewkt                           
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------
  0105000020E610000003000000010200000002000000000000000000F03F0000000000000000000000000000F03F00000000000000000102000000020000000000000000000040000000000000000000000000000008400000000000000000010200000003000000000000000000104000000000000000000000000000001440000000000000000000000000000018400000000000000000 | SRID=4326;MULTILINESTRING((1 0,1 0),(2 0,3 0),(4 0,5 0,6 0))
-
 ```

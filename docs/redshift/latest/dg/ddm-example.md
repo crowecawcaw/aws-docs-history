@@ -1,21 +1,19 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Dynamic data masking end-to-end example
+<a name="ddm-example"></a>
 
-The following is an end-to-end example showing how you can create and attach
-masking policies to a column. These policies let users access a column and see different
-values, depending on the degree of obfuscation in the policies attached to their
-roles. You must be a superuser or have the [`sys:secadmin`](r_roles-default.md "r_roles-default.md") role to run this example.
+The following is an end-to-end example showing how you can create and attach masking policies to a column. These policies let users access a column and see different values, depending on the degree of obfuscation in the policies attached to their roles. You must be a superuser or have the [`sys:secadmin`](https://docs.aws.amazon.com/redshift/latest/dg/r_roles-default.html) role to run this example.
 
 ## Creating a masking policy
+<a name="ddm-example-create"></a>
 
 First, create a table and populate it with credit card values.
 
 ```
---create the table
+--create the table         
 CREATE TABLE credit_cards (
   customer_id INT,
   credit_card TEXT
@@ -61,7 +59,7 @@ RETURNS TEXT IMMUTABLE
 AS $$
     import re
     regexp = re.compile("^([0-9]{6})[0-9]{5,6}([0-9]{4})")
-
+ 
     match = regexp.search(credit_card)
     if match != None:
         first = match.group(1)
@@ -69,7 +67,7 @@ AS $$
     else:
         first = "000000"
         last = "0000"
-
+    
     return "{}XXXXX{}".format(first, last)
 $$ LANGUAGE plpythonu;
 
@@ -85,6 +83,7 @@ SELECT * FROM svv_attached_masking_policy;
 ```
 
 ## Attaching a masking policy
+<a name="ddm-example-attach"></a>
 
 Attach the masking policies to the credit card table.
 
@@ -117,6 +116,7 @@ SELECT * FROM credit_cards;
 ```
 
 ## Altering a masking policy
+<a name="ddm-example-alter"></a>
 
 The following section shows how to alter a dynamic data masking policy.
 
@@ -126,29 +126,28 @@ RESET SESSION AUTHORIZATION;
 
 --alter the mask_credit_card_full policy
 ALTER MASKING POLICY mask_credit_card_full
-USING ('00000000000000'::TEXT);
-
+USING ('00000000000000'::TEXT);	
+	
 --confirm the full masking policy is in place after altering the policy, and that results are altered from '000000XXXX0000' to '00000000000000'
 SELECT * FROM credit_cards;
 ```
 
 ## Detaching and dropping a masking policy
+<a name="ddm-example-detach"></a>
 
-The following section shows how to detach and drop masking
-policies by removing all dynamic data masking policies
-from the table.
+The following section shows how to detach and drop masking policies by removing all dynamic data masking policies from the table.
 
 ```
 --reset session authorization to the default
 RESET SESSION AUTHORIZATION;
 
 --detach both masking policies from the credit_cards table
-DETACH MASKING POLICY mask_credit_card_full
-ON credit_cards(credit_card)
+DETACH MASKING POLICY mask_credit_card_full 
+ON credit_cards(credit_card) 
 FROM PUBLIC;
 
-DETACH MASKING POLICY mask_credit_card_partial
-ON credit_cards(credit_card)
+DETACH MASKING POLICY mask_credit_card_partial 
+ON credit_cards(credit_card) 
 FROM ROLE analytics_role;
 
 --drop both masking policies

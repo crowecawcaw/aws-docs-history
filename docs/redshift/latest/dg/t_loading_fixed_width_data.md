@@ -1,39 +1,25 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Loading fixed-width data from Amazon S3
+<a name="t_loading_fixed_width_data"></a>
 
-Fixed-width data files have uniform lengths for each column of data. Each field
-in a fixed-width data file has exactly the same length and position. For character
-data (CHAR and VARCHAR) in a fixed-width data file, you must include leading or
-trailing spaces as placeholders in order to keep the width uniform. For integers,
-you must use leading zeros as placeholders. A fixed-width data file has no
-delimiter to separate columns.
+Fixed-width data files have uniform lengths for each column of data. Each field in a fixed-width data file has exactly the same length and position. For character data (CHAR and VARCHAR) in a fixed-width data file, you must include leading or trailing spaces as placeholders in order to keep the width uniform. For integers, you must use leading zeros as placeholders. A fixed-width data file has no delimiter to separate columns.
 
-To load a fixed-width data file into an existing table, USE the FIXEDWIDTH
-parameter in the COPY command. Your table specifications must match the value of
-fixedwidth\_spec in order for the data to load correctly.
+To load a fixed-width data file into an existing table, USE the FIXEDWIDTH parameter in the COPY command. Your table specifications must match the value of fixedwidth\_spec in order for the data to load correctly.
 
-To load fixed-width data from a file to a table, issue the following
-command:
+To load fixed-width data from a file to a table, issue the following command:
 
 ```
-COPY *table\_name* FROM 's3://amzn-s3-demo-bucket/prefix'
-IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
-FIXEDWIDTH '*fixedwidth\_spec*';
+COPY table_name FROM 's3://amzn-s3-demo-bucket/prefix' 
+IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole' 
+FIXEDWIDTH 'fixedwidth_spec';
 ```
 
-The _fixedwidth\_spec_ parameter is a string that contains an
-identifier for each column and the width of each column, separated by a colon. The
-`column:width` pairs are delimited by commas. The
-identifier can be anything that you choose: numbers, letters, or a combination of
-the two. The identifier has no relation to the table itself, so the specification
-must contain the columns in the same order as the table.
+The *fixedwidth\_spec* parameter is a string that contains an identifier for each column and the width of each column, separated by a colon. The **column:width** pairs are delimited by commas. The identifier can be anything that you choose: numbers, letters, or a combination of the two. The identifier has no relation to the table itself, so the specification must contain the columns in the same order as the table.
 
-The following two examples show the same specification, with the first using
-numeric identifiers and the second using string identifiers:
+The following two examples show the same specification, with the first using numeric identifiers and the second using string identifiers:
 
 ```
 '0:3,1:25,2:12,3:2,4:6'
@@ -43,11 +29,9 @@ numeric identifiers and the second using string identifiers:
 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6'
 ```
 
-The following example shows fixed-width sample data that could be loaded into
-the VENUE table using the preceding specifications:
+The following example shows fixed-width sample data that could be loaded into the VENUE table using the preceding specifications:
 
 ```
-
 1  Toyota Park               Bridgeview  IL0
 2  Columbus Crew Stadium     Columbus    OH0
 3  RFK Stadium               Washington  DC0
@@ -59,7 +43,7 @@ The following COPY command loads this data set into the VENUE table:
 
 ```
 COPY venue
-FROM 's3://amzn-s3-demo-bucket/data/venue_fw.txt'
-IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole'
+FROM 's3://amzn-s3-demo-bucket/data/venue_fw.txt' 
+IAM_ROLE 'arn:aws:iam::0123456789012:role/MyRedshiftRole' 
 FIXEDWIDTH 'venueid:3,venuename:25,venuecity:12,venuestate:2,venueseats:6';
 ```

@@ -1,24 +1,19 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Data handling options
+<a name="t_setting-data-handling-options"></a>
 
 This topic describes how to configure how Redshift Spectrum handles data in unexpected formats.
 
-You can set table parameters when you create external tables to tailor the data being
-queried in external tables. Otherwise, scan errors can occur. For more information,
-see TABLE PROPERTIES in [CREATE EXTERNAL TABLE](r_CREATE_EXTERNAL_TABLE.md "r_CREATE_EXTERNAL_TABLE.md"). For examples, see [Data handling examples](r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling "r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling"). For a list of errors,
-see [SVL\_SPECTRUM\_SCAN\_ERROR](r_SVL_SPECTRUM_SCAN_ERROR.md "r_SVL_SPECTRUM_SCAN_ERROR.md").
+You can set table parameters when you create external tables to tailor the data being queried in external tables. Otherwise, scan errors can occur. For more information, see TABLE PROPERTIES in [CREATE EXTERNAL TABLE](r_CREATE_EXTERNAL_TABLE.md). For examples, see [Data handling examples](r_CREATE_EXTERNAL_TABLE_examples.md#r_CREATE_EXTERNAL_TABLE_examples-data-handling). For a list of errors, see [SVL\_SPECTRUM\_SCAN\_ERROR](r_SVL_SPECTRUM_SCAN_ERROR.md).
 
-You can set the following TABLE PROPERTIES when you create external tables to specify input handling for
-data being queried in external tables.
+You can set the following TABLE PROPERTIES when you create external tables to specify input handling for data being queried in external tables.
++ `column_count_mismatch_handling` to identify if the file contains less or more values for a row than the number of columns specified in the external table definition. 
++ `invalid_char_handling` to specify input handling for invalid characters in columns containing VARCHAR, CHAR, and string data. When you specify REPLACE for `invalid_char_handling`, you can specify the replacement character to use.
++ `numeric_overflow_handling` to specify cast overflow handling in columns containing integer and decimal data.
++ `surplus_bytes_handling` to specify input handling for surplus bytes in columns containing VARBYTE data. 
++ `surplus_char_handling` to specify input handling for surplus characters in columns containing VARCHAR, CHAR, and string data.
 
-- `column_count_mismatch_handling` to identify if the file contains less or more values for a row
-  than the number of columns specified in the external table definition.
-- `invalid_char_handling` to specify input handling for invalid characters in columns containing VARCHAR, CHAR, and string data. When you specify REPLACE for `invalid_char_handling`, you can specify the replacement character to use.
-- `numeric_overflow_handling` to specify cast overflow handling in columns containing integer and decimal data.
-- `surplus_bytes_handling` to specify input handling for surplus bytes in columns containing VARBYTE data.
-- `surplus_char_handling` to specify input handling for surplus characters in columns containing VARCHAR, CHAR, and string data.
-  You can set a configuration option to cancel queries that exceed a maximum number of errors. For more information, see [spectrum\_query\_maxerror](r_spectrum_query_maxerror.md "r_spectrum_query_maxerror.md").
+You can set a configuration option to cancel queries that exceed a maximum number of errors. For more information, see [spectrum\_query\_maxerror](r_spectrum_query_maxerror.md).

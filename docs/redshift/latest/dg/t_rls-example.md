@@ -1,15 +1,11 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Row-level security end-to-end example
+<a name="t_rls-example"></a>
 
-The following is an end-to-end example to illustrate how a superuser creates some users and
-roles. Then, a user with the secadmin role creates, attaches, detaches, and drops RLS
-policies. This example uses the tickit sample database. For more
-information, see [Load data from Amazon S3 to Amazon Redshift](../gsg/rs-gsg-create-sample-db.md "../gsg/rs-gsg-create-sample-db.md") in
-the _Amazon Redshift Getting Started Guide_.
+The following is an end-to-end example to illustrate how a superuser creates some users and roles. Then, a user with the secadmin role creates, attaches, detaches, and drops RLS policies. This example uses the tickit sample database. For more information, see [Load data from Amazon S3 to Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-create-sample-db.html) in the *Amazon Redshift Getting Started Guide*.
 
 ```
 -- Create users and roles referenced in the policy statements.

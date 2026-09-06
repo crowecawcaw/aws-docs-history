@@ -1,23 +1,17 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Merge examples
+<a name="merge-examples"></a>
 
-The following examples perform a merge to update the SALES table. The first example
-uses the simpler method of deleting from the target table and then inserting all of the
-rows from the staging table. The second example requires updating on select columns in
-the target table, so it includes an extra update step.
+The following examples perform a merge to update the SALES table. The first example uses the simpler method of deleting from the target table and then inserting all of the rows from the staging table. The second example requires updating on select columns in the target table, so it includes an extra update step. 
 
-The Merge examples use a sample dataset for Amazon Redshift, called the TICKIT data set. As a
-prerequisite, you can set up the TICKIT tables and data by following the instructions available in the
-guide [Getting started with common database tasks](../gsg/database-tasks.md "../gsg/database-tasks.md"). More detailed
-information about the sample data set is found at [Sample database](c_sampledb.md "c_sampledb.md").
+The [Merge examples](#merge-examples) use a sample dataset for Amazon Redshift, called the TICKIT data set. As a prerequisite, you can set up the TICKIT tables and data by following the instructions available in the guide [Getting started with common database tasks](https://docs.aws.amazon.com/redshift/latest/gsg/database-tasks.html). More detailed information about the sample data set is found at [Sample database](https://docs.aws.amazon.com/redshift/latest/dg/c_sampledb.html). 
 
 **Sample merge data source**
 
-The examples in this section use a sample data source that includes both updates and inserts. To set up the sample data, you create a table named SALES\_UPDATE from the SALES table and populate it with random data that represents new sales activity for December. The following examples use the SALES\_UPDATE table as the staging table.
+The examples in this section use a sample data source that includes both updates and inserts. To set up the sample data, you create a table named SALES\_UPDATE from the SALES table and populate it with random data that represents new sales activity for December. The following examples use the SALES\_UPDATE table as the staging table. 
 
 ```
 -- Create a sample table as a copy of the SALES table.
@@ -44,45 +38,44 @@ where saletime > '2008-11-30'
 and mod(sellerid, 4) = 0;
 ```
 
-**Example of a merge that replaces existing
-rows based on matching keys**
+**Example of a merge that replaces existing rows based on matching keys**
 
 The following example uses the SALES\_UPDATE table to perform a merge operation on the SALES table with new data for December sales activity. The merge replaces rows in the SALES table that have updates, modifying the `qtysold` and `pricepaid` columns while leaving `commission` and `saletime` unchanged.
 
 ```
-MERGE into tickit.sales
-USING tickit.sales_update sales_update
+MERGE into tickit.sales 
+USING tickit.sales_update sales_update  
 on ( sales.salesid = sales_update.salesid
 and sales.listid = sales_update.listid
 and sales_update.saletime > '2008-11-30'
-and (sales.qtysold != sales_update.qtysold
+and (sales.qtysold != sales_update.qtysold 
 or sales.pricepaid != sales_update.pricepaid))
 WHEN MATCHED THEN
 update SET qtysold = sales_update.qtysold,
 pricepaid = sales_update.pricepaid
-WHEN NOT MATCHED THEN
+WHEN NOT MATCHED THEN 
 INSERT (salesid, listid, sellerid, buyerid, eventid, dateid, qtysold , pricepaid, commission, saletime)
-values (sales_update.salesid, sales_update.listid, sales_update.sellerid, sales_update.buyerid, sales_update.eventid,
+values (sales_update.salesid, sales_update.listid, sales_update.sellerid, sales_update.buyerid, sales_update.eventid, 
 sales_update.dateid, sales_update.qtysold , sales_update.pricepaid, sales_update.commission, sales_update.saletime);
 
 -- Drop the staging table.
 drop table tickit.sales_update;
 
 -- Test to see that commission and salestime were not impacted.
-SELECT sales.salesid, sales.commission, sales.salestime, sales_update.commission, sales_update.salestime
-FROM tickit.sales
-INNER JOIN tickit.sales_update sales_update
-ON
+SELECT sales.salesid, sales.commission, sales.salestime, sales_update.commission, sales_update.salestime 
+FROM tickit.sales 
+INNER JOIN tickit.sales_update sales_update  
+ON 
 sales.salesid = sales_update.salesid
 AND sales.listid = sales_update.listid
 AND sales_update.saletime > '2008-11-30'
-AND (sales.commission != sales_update.commission
+AND (sales.commission != sales_update.commission 
 OR sales.salestime != sales_update.salestime);
 ```
 
 **Example of a merge that specifies a column list without using MERGE**
 
-The following example performs a merge operation on the SALES table with new data for December activity, using the SALES\_UPDATE table as the data source. The sample data includes updates, inserts, and unchanged rows. The merge updates the `qtysold` and `pricepaid` columns but leaves `commission` and `saletime` unchanged.
+The following example performs a merge operation on the SALES table with new data for December activity, using the SALES\_UPDATE table as the data source. The sample data includes updates, inserts, and unchanged rows. The merge updates the `qtysold` and `pricepaid` columns but leaves `commission` and `saletime` unchanged. 
 
 ```
 -- Create a staging table and populate it with rows from SALES_UPDATE for Dec
@@ -102,10 +95,10 @@ from stagesales
 where sales.salesid = stagesales.salesid
 and sales.listid = stagesales.listid
 and stagesales.saletime > '2008-11-30'
-and (sales.qtysold != stagesales.qtysold
+and (sales.qtysold != stagesales.qtysold 
 or sales.pricepaid != stagesales.pricepaid);
-
--- Delete matching rows from the staging table
+ 
+-- Delete matching rows from the staging table 
 -- using an inner join with the target table
 
 delete from stagesales

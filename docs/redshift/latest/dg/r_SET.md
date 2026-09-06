@@ -1,84 +1,64 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SET
+<a name="r_SET"></a>
 
-Sets the value of a server configuration parameter. Use the SET command to override a
-setting for the duration of the current session or transaction only.
+Sets the value of a server configuration parameter. Use the SET command to override a setting for the duration of the current session or transaction only.
 
-Use the [RESET](r_RESET.md "r_RESET.md") command to return a parameter
-to its default value.
+Use the [RESET](r_RESET.md) command to return a parameter to its default value. 
 
-You can change the server configuration parameters in several ways. For more
-information, see [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings").
+You can change the server configuration parameters in several ways. For more information, see [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings). 
 
 ## Syntax
+<a name="r_SET-synopsis"></a>
 
 ```
 SET { [ SESSION | LOCAL ]
-{ SEED | **parameter\_name** } { TO | = }
-{ *value* | '*value*' | DEFAULT } |
-SEED TO *value* }
+{ SEED | parameter_name } { TO | = }
+{ value | 'value' | DEFAULT } |
+SEED TO value }
 ```
 
 The following statement sets the value of a session context variable.
 
 ```
 SET { [ SESSION | LOCAL ]
-**variable\_name** { TO | = }
-{ *value* | '*value*'  }
+variable_name { TO | = }
+{ value | 'value'  }
 ```
 
 ## Parameters
+<a name="r_SET-parameters"></a>
 
-SESSION
+SESSION   
+Specifies that the setting is valid for the current session. Default value.
 
-Specifies that the setting is valid for the current session. Default
-value.
+*variable\_name*   
+Specifies the name of the context variable set for the session.  
+The naming convention is a two-part name separated by a dot, for example *identifier.identifier*. Only one dot separator is allowed. Use an *identifier* that follows the standard identifier rules for Amazon Redshift For more information, see [Names and identifiers](r_names.md). Delimited identifiers aren't allowed.
 
-_variable\_name_
+LOCAL   
+Specifies that the setting is valid for the current transaction. 
 
-Specifies the name of the context variable set for the session.
+SEED TO *value*   
+Sets an internal seed to be used by the RANDOM function for random number generation.  
+SET SEED takes a numeric *value* between 0 and 1, and multiplies this number by (231-1) for use with the [RANDOM function](r_RANDOM.md) function. If you use SET SEED before making multiple RANDOM calls, RANDOM generates numbers in a predictable sequence.
 
-The naming convention is a two-part name separated by a dot, for example
-_identifier.identifier_. Only one dot separator is
-allowed. Use an _identifier_ that follows the standard
-identifier rules for Amazon Redshift For more information, see [Names and identifiers](r_names.md "r_names.md"). Delimited identifiers aren't allowed.
+ *parameter\_name*   
+Name of the parameter to set. See [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings) for information about parameters.
 
-LOCAL
+ *value*   
+New parameter value. Use single quotation marks to set the value to a specific string. If using SET SEED, this parameter contains the SEED value. 
 
-Specifies that the setting is valid for the current transaction.
-
-SEED TO _value_
-
-Sets an internal seed to be used by the RANDOM function for random number
-generation.
-
-SET SEED takes a numeric _value_ between 0 and 1, and
-multiplies this number by (231-1) for use with the
-[RANDOM function](r_RANDOM.md "r_RANDOM.md") function. If you use SET
-SEED before making multiple RANDOM calls, RANDOM generates numbers in a
-predictable sequence.
-
-_parameter\_name_
-
-Name of the parameter to set. See [Modifying the server configuration](cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings "cm_chap_ConfigurationRef.md#t_Modifying_the_default_settings") for information about
-parameters.
-
-_value_
-
-New parameter value. Use single quotation marks to set the value to a
-specific string. If using SET SEED, this parameter contains the SEED value.
-
-DEFAULT
-
+DEFAULT   
 Sets the parameter to the default value.
 
 ## Examples
+<a name="r_SET-examples"></a>
 
-**Changing a parameter for the current session**
+ **Changing a parameter for the current session** 
 
 The following example sets the datestyle:
 
@@ -86,64 +66,46 @@ The following example sets the datestyle:
 set datestyle to 'SQL,DMY';
 ```
 
-**Setting a query group for workload management**
+ **Setting a query group for workload management** 
 
-If query groups are listed in a queue definition as part of the cluster's WLM
-configuration, you can set the QUERY\_GROUP parameter to a listed query group name.
-Subsequent queries are assigned to the associated query queue. The QUERY\_GROUP setting
-remains in effect for the duration of the session or until a RESET QUERY\_GROUP command
-is encountered.
+If query groups are listed in a queue definition as part of the cluster's WLM configuration, you can set the QUERY\_GROUP parameter to a listed query group name. Subsequent queries are assigned to the associated query queue. The QUERY\_GROUP setting remains in effect for the duration of the session or until a RESET QUERY\_GROUP command is encountered.
 
-This example runs two queries as part of the query group 'priority', then resets the
-query group.
+This example runs two queries as part of the query group 'priority', then resets the query group. 
 
 ```
 set query_group to 'priority';
 select tbl, count(*)from stv_blocklist;
 select query, elapsed, substring from svl_qlog order by query desc limit 5;
 reset query_group;
-
 ```
 
-For more information, see [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
+For more information, see [Workload management](cm-c-implementing-workload-management.md). 
 
-**Change the default identity namespace for the session**
+ **Change the default identity namespace for the session** 
 
-A database user can set `default_identity_namespace`. This sample shows
-how to use `SET SESSION` to override the setting for the duration of the
-current session and then show the new identity provider value. This is used most
-commonly when you are using an identity provider with Redshift and IAM Identity Center. For more
-information about using an identity provider with Redshift, see [Connect Redshift
-with IAM Identity Center to give users a single sign-on experience](../mgmt/redshift-iam-access-control-idp-connect.md "../mgmt/redshift-iam-access-control-idp-connect.md").
+A database user can set `default_identity_namespace`. This sample shows how to use `SET SESSION` to override the setting for the duration of the current session and then show the new identity provider value. This is used most commonly when you are using an identity provider with Redshift and IAM Identity Center. For more information about using an identity provider with Redshift, see [Connect Redshift with IAM Identity Center to give users a single sign-on experience](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html).
 
 ```
 SET SESSION default_identity_namespace = 'MYCO';
-
+         
 SHOW default_identity_namespace;
 ```
 
-After running the command, you can run a GRANT statement or a CREATE statement like
-the following:
+After running the command, you can run a GRANT statement or a CREATE statement like the following:
 
 ```
 GRANT SELECT ON TABLE mytable TO alice;
 
 GRANT UPDATE ON TABLE mytable TO salesrole;
-
+         
 CREATE USER bob password 'md50c983d1a624280812631c5389e60d48c';
 ```
 
-In this instance, the effect of setting the default identity namespace is equivalent
-to prefixing each identity with the namespace. In this example, `alice` is
-replaced with `MYCO:alice`. For more information about settings that pertain
-to Redshift configuration with IAM Identity Center, see [ALTER SYSTEM](r_ALTER_SYSTEM.md "r_ALTER_SYSTEM.md") and [ALTER IDENTITY PROVIDER](r_ALTER_IDENTITY_PROVIDER.md "r_ALTER_IDENTITY_PROVIDER.md").
+In this instance, the effect of setting the default identity namespace is equivalent to prefixing each identity with the namespace. In this example, `alice` is replaced with `MYCO:alice`. For more information about settings that pertain to Redshift configuration with IAM Identity Center, see [ALTER SYSTEM](r_ALTER_SYSTEM.md) and [ALTER IDENTITY PROVIDER](r_ALTER_IDENTITY_PROVIDER.md).
 
-**Setting a label for a group of queries**
+ **Setting a label for a group of queries** 
 
-The QUERY\_GROUP parameter defines a label for one or more queries that are run in the
-same session after a SET command. In turn, this label is logged when queries are run and
-can be used to constrain results returned from the STL\_QUERY and STV\_INFLIGHT system
-tables and the SVL\_QLOG view.
+The QUERY\_GROUP parameter defines a label for one or more queries that are run in the same session after a SET command. In turn, this label is logged when queries are run and can be used to constrain results returned from the STL\_QUERY and STV\_INFLIGHT system tables and the SVL\_QLOG view. 
 
 ```
 show query_group;
@@ -178,16 +140,13 @@ query | querygroup |  pid  |                  sql
 (1 row)
 ```
 
-Query group labels are a useful mechanism for isolating individual queries or groups
-of queries that are run as part of scripts. You don't need to identify and track
-queries by their IDs; you can track them by their labels.
+Query group labels are a useful mechanism for isolating individual queries or groups of queries that are run as part of scripts. You don't need to identify and track queries by their IDs; you can track them by their labels.
 
-**Setting a seed value for random number generation**
+ **Setting a seed value for random number generation** 
 
-The following example uses the SEED option with SET to cause the RANDOM function to
-generate numbers in a predictable sequence.
+The following example uses the SEED option with SET to cause the RANDOM function to generate numbers in a predictable sequence.
 
-First, return three RANDOM integers without setting the SEED value first:
+First, return three RANDOM integers without setting the SEED value first: 
 
 ```
 select cast (random() * 100 as int);
@@ -209,7 +168,7 @@ int4
 (1 row)
 ```
 
-Now, set the SEED value to `.25`, and return three more RANDOM numbers:
+Now, set the SEED value to `.25`, and return three more RANDOM numbers: 
 
 ```
 set seed to .25;
@@ -233,8 +192,7 @@ int4
 (1 row)
 ```
 
-Finally, reset the SEED value to `.25`, and verify that RANDOM returns the
-same results as the previous three calls:
+Finally, reset the SEED value to `.25`, and verify that RANDOM returns the same results as the previous three calls: 
 
 ```
 set seed to .25;
@@ -258,7 +216,7 @@ int4
 (1 row)
 ```
 
-The following example sets a customized context variable.
+The following example sets a customized context variable. 
 
 ```
 SET app_context.user_id TO 123;

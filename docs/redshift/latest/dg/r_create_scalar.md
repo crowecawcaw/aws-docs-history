@@ -1,17 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating Amazon Redshift scalar columns out of shredded data
+<a name="r_create_scalar"></a>
 
-Schemaless data stored in SUPER can affect the performance of Amazon Redshift. For instance,
-filter predicates or join conditions as range-restricted scans can't effectively
-use zone maps. Users and BI tools can use materialized views as the conventional
-presentation of the data and increase performance of analytical queries.
+Schemaless data stored in SUPER can affect the performance of Amazon Redshift. For instance, filter predicates or join conditions as range-restricted scans can't effectively use zone maps. Users and BI tools can use materialized views as the conventional presentation of the data and increase performance of analytical queries.
 
-The following query scans the materialized view `super_mv` and filters on
-`o_orderstatus`.
+The following query scans the materialized view `super_mv` and filters on `o_orderstatus`.
 
 ```
 SELECT c.c_name, v.o_totalprice
@@ -20,14 +16,13 @@ JOIN super_mv v ON c.c_custkey = v.c_custkey
 WHERE v.o_orderstatus = 'F';
 ```
 
-Inspect `stl_scan` to verify that Amazon Redshift can't effectively use zone
-maps on the range-restricted scan over `o_orderstatus`.
+Inspect `stl_scan` to verify that Amazon Redshift can't effectively use zone maps on the range-restricted scan over `o_orderstatus`.
 
 ```
 SELECT slice, is_rrscan FROM stl_scan
 WHERE query = pg_last_query_id() AND perm_table_name LIKE '%super_mv%';
 
- slice | is_rrscan
+ slice | is_rrscan 
 -------+-----------
      0 | f
      1 | f
@@ -38,10 +33,7 @@ WHERE query = pg_last_query_id() AND perm_table_name LIKE '%super_mv%';
 (6 rows)
 ```
 
-The following example adapts the materialized view `super_mv` to create
-scalar columns out of the shredded data. In this case, Amazon Redshift casts
-`o_orderstatus` from SUPER to VARCHAR. In addition, specify
-`o_orderstatus` as the sort key for `super_mv`.
+The following example adapts the materialized view `super_mv` to create scalar columns out of the shredded data. In this case, Amazon Redshift casts `o_orderstatus` from SUPER to VARCHAR. In addition, specify `o_orderstatus` as the sort key for `super_mv`.
 
 ```
 CREATE MATERIALIZED VIEW super_mv distkey(c_custkey) sortkey(c_custkey, o_orderstatus) AS (
@@ -64,7 +56,7 @@ You can verify that the range-restricted scan now uses zone maps as follows.
 SELECT slice, is_rrscan FROM stl_scan
 WHERE query = pg_last_query_id() AND perm_table_name LIKE '%super_mv%';
 
- slice | is_rrscan
+ slice | is_rrscan 
 -------+-----------
      0 | t
      1 | t

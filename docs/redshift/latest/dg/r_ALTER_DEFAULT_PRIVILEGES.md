@@ -1,181 +1,135 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER DEFAULT PRIVILEGES
+<a name="r_ALTER_DEFAULT_PRIVILEGES"></a>
 
-Defines the default set of access permissions to be applied to objects that are created
-in the future by the specified user. By default, users can change only their own default
-access permissions. Only a superuser can specify default permissions for other
-users.
+Defines the default set of access permissions to be applied to objects that are created in the future by the specified user. By default, users can change only their own default access permissions. Only a superuser can specify default permissions for other users.
 
-You can apply default privileges to roles, users, or user groups. You can set default
-permissions globally for all objects created in the current database, or for objects
-created only in the specified schemas.
+You can apply default privileges to roles, users, or user groups. You can set default permissions globally for all objects created in the current database, or for objects created only in the specified schemas. 
 
-Default permissions apply only to new objects. Running ALTER DEFAULT PRIVILEGES doesn’t
-change permissions on existing objects. To grant permissions on all current and future
-objects created by any user within a database or schema, see [Scoped permissions](t_scoped-permissions.md "t_scoped-permissions.md").
+Default permissions apply only to new objects. Running ALTER DEFAULT PRIVILEGES doesn’t change permissions on existing objects. To grant permissions on all current and future objects created by any user within a database or schema, see [Scoped permissions](https://docs.aws.amazon.com/redshift/latest/dg/t_scoped-permissions.html). 
 
-To view information about the default privileges for database users, query the [PG\_DEFAULT\_ACL](r_PG_DEFAULT_ACL.md "r_PG_DEFAULT_ACL.md") system catalog table.
+To view information about the default privileges for database users, query the [PG\_DEFAULT\_ACL](r_PG_DEFAULT_ACL.md) system catalog table. 
 
-For more information about privileges, see [GRANT](r_GRANT.md "r_GRANT.md").
+For more information about privileges, see [GRANT](r_GRANT.md).
 
 ## Required privileges
+<a name="r_ALTER_DEFAULT_PRIVILEGES-privileges"></a>
 
 Following are required privileges for ALTER DEFAULT PRIVILEGES:
-
-- Superuser
-- Users with the ALTER DEFAULT PRIVILEGES privilege
-- Users changing their own default access privileges
-- Users setting privileges for schemas that they have access privileges to
++ Superuser
++ Users with the ALTER DEFAULT PRIVILEGES privilege
++ Users changing their own default access privileges
++ Users setting privileges for schemas that they have access privileges to
 
 ## Syntax
+<a name="r_ALTER_DEFAULT_PRIVILEGES-synopsis"></a>
 
 ```
 ALTER DEFAULT PRIVILEGES
-    [ FOR USER *target\_user* [, ...] ]
-    [ IN SCHEMA *schema\_name* [, ...] ]
-    *grant\_or\_revoke\_clause*
+    [ FOR USER target_user [, ...] ]
+    [ IN SCHEMA schema_name [, ...] ]
+    grant_or_revoke_clause
 
-where *grant\_or\_revoke\_clause* is one of:
+where grant_or_revoke_clause is one of:
 
 GRANT { { SELECT | INSERT | UPDATE | DELETE | DROP | REFERENCES | TRUNCATE } [,...] | ALL [ PRIVILEGES ] }
 	ON TABLES
-	TO { *user\_name* [ WITH GRANT OPTION ] | ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
+	TO { user_name [ WITH GRANT OPTION ] | ROLE role_name | GROUP group_name | PUBLIC } [, ...]
 
 GRANT { EXECUTE | ALL [ PRIVILEGES ] }
 	ON FUNCTIONS
-	TO { *user\_name* [ WITH GRANT OPTION ] |  ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
+	TO { user_name [ WITH GRANT OPTION ] |  ROLE role_name | GROUP group_name | PUBLIC } [, ...]
 
 GRANT { EXECUTE | ALL [ PRIVILEGES ] }
 	ON PROCEDURES
-	TO { *user\_name* [ WITH GRANT OPTION ] |  ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...]
+	TO { user_name [ WITH GRANT OPTION ] |  ROLE role_name | GROUP group_name | PUBLIC } [, ...]
 
 REVOKE [ GRANT OPTION FOR ] { { SELECT | INSERT | UPDATE | DELETE | REFERENCES | TRUNCATE } [,...] | ALL [ PRIVILEGES ] }
 	ON TABLES
-	FROM *user\_name* [, ...] [ RESTRICT ]
+	FROM user_name [, ...] [ RESTRICT ]
 
 REVOKE  { { SELECT | INSERT | UPDATE | DELETE | REFERENCES | TRUNCATE } [,...] | ALL [ PRIVILEGES ] }
 	ON TABLES
-	FROM { ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...] [ RESTRICT ]
+	FROM { ROLE role_name | GROUP group_name | PUBLIC } [, ...] [ RESTRICT ]
 
 REVOKE [ GRANT OPTION FOR ] { EXECUTE | ALL [ PRIVILEGES ] }
 	ON FUNCTIONS
-	FROM *user\_name* [, ...] [ RESTRICT ]
+	FROM user_name [, ...] [ RESTRICT ]
 
 REVOKE { EXECUTE | ALL [ PRIVILEGES ] }
 	ON FUNCTIONS
-	FROM { ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...] [ RESTRICT ]
+	FROM { ROLE role_name | GROUP group_name | PUBLIC } [, ...] [ RESTRICT ]
 
 REVOKE [ GRANT OPTION FOR ] { EXECUTE | ALL [ PRIVILEGES ] }
 	ON PROCEDURES
-	FROM *user\_name* [, ...] [ RESTRICT ]
+	FROM user_name [, ...] [ RESTRICT ]
 
 REVOKE { EXECUTE | ALL [ PRIVILEGES ] }
 	ON PROCEDURES
-	FROM { ROLE *role\_name* | GROUP *group\_name* | PUBLIC } [, ...] [ RESTRICT ]
+	FROM { ROLE role_name | GROUP group_name | PUBLIC } [, ...] [ RESTRICT ]
 ```
 
 ## Parameters
+<a name="r_ALTER_DEFAULT_PRIVILEGES-parameters"></a>
 
-FOR USER _target\_user_
+FOR USER *target\_user*  <a name="default-for-user"></a>
+Optional. The name of the user for which default privileges are defined. Only a superuser can specify default privileges for other users. The default value is the current user.
 
-Optional. The name of the user for which default privileges are defined.
-Only a superuser can specify default privileges for other users. The default
-value is the current user.
+IN SCHEMA *schema\_name*   <a name="default-in-schema"></a>
+Optional. If an IN SCHEMA clause appears, the specified default privileges are applied to new objects created in the specified *schema\_name*. In this case, the user or user group that is the target of ALTER DEFAULT PRIVILEGES must have CREATE privilege for the specified schema. Default privileges that are specific to a schema are added to existing global default privileges. By default, default privileges are applied globally to the entire database. 
 
-IN SCHEMA _schema\_name_
+GRANT   <a name="default-grant"></a>
+The set of privileges to grant to the specified users or groups for all new tables and views, functions, or stored procedures created by the specified user. You can set the same privileges and options with the GRANT clause that you can with the [GRANT](r_GRANT.md) command. 
 
-Optional. If an IN SCHEMA clause appears, the specified default privileges
-are applied to new objects created in the specified
-_schema\_name_. In this case, the user or user group that
-is the target of ALTER DEFAULT PRIVILEGES must have CREATE privilege for the
-specified schema. Default privileges that are specific to a schema are added to
-existing global default privileges. By default, default privileges are applied
-globally to the entire database.
+WITH GRANT OPTION   <a name="default-grant-option"></a>
+A clause that indicates that the user receiving the privileges can in turn grant the same privileges to others. You can't grant WITH GRANT OPTION to a group or to PUBLIC. 
 
-GRANT
+TO *user\_name* \| ROLE *role\_name* \| GROUP *group\_name*   <a name="default-to"></a>
+The name of the user, role, or user group to which the specified default privileges are applied.
 
-The set of privileges to grant to the specified users or groups for all new
-tables and views, functions, or stored procedures created by the specified
-user. You can set the same privileges and options with the GRANT clause that
-you can with the [GRANT](r_GRANT.md "r_GRANT.md") command.
+REVOKE   <a name="default-revoke"></a>
+The set of privileges to revoke from the specified users or groups for all new tables, functions, or stored procedures created by the specified user. You can set the same privileges and options with the REVOKE clause that you can with the [REVOKE](r_REVOKE.md) command. 
 
-WITH GRANT OPTION
+GRANT OPTION FOR  <a name="default-revoke-option"></a>
+ A clause that revokes only the option to grant a specified privilege to other users and doesn't revoke the privilege itself. You can't revoke GRANT OPTION from a group or from PUBLIC. 
 
-A clause that indicates that the user receiving the privileges can in turn
-grant the same privileges to others. You can't grant WITH GRANT OPTION to
-a group or to PUBLIC.
+FROM *user\_name* \| ROLE *role\_name* \| GROUP *group\_name*  <a name="default-from"></a>
+The name of the user, role, or user group from which the specified privileges are revoked by default.
 
-TO _user\_name_ | ROLE _role\_name_ | GROUP
-_group\_name_
-
-The name of the user, role, or user group to which the specified default
-privileges are applied.
-
-REVOKE
-
-The set of privileges to revoke from the specified users or groups for all
-new tables, functions, or stored procedures created by the specified user. You
-can set the same privileges and options with the REVOKE clause that you can
-with the [REVOKE](r_REVOKE.md "r_REVOKE.md") command.
-
-GRANT OPTION FOR
-
-A clause that revokes only the option to grant a specified privilege to
-other users and doesn't revoke the privilege itself. You can't revoke
-GRANT OPTION from a group or from PUBLIC.
-
-FROM _user\_name_ | ROLE _role\_name_ |
-GROUP _group\_name_
-
-The name of the user, role, or user group from which the specified
-privileges are revoked by default.
-
-RESTRICT
-
-The RESTRICT option revokes only those privileges that the user directly
-granted. This is the default.
+RESTRICT   <a name="default-restrict"></a>
+The RESTRICT option revokes only those privileges that the user directly granted. This is the default.
 
 ## Examples
+<a name="r_ALTER_DEFAULT_PRIVILEGES-examples"></a>
 
-Suppose that you want to allow any user in the user group `report_readers`
-to view all tables and views created by the user `report_admin`. In this
-case, run the following command as a superuser.
-
-```
-alter default privileges for user report_admin grant select on tables to group report_readers;
-```
-
-In the following example, the first command grants SELECT privileges on all new
-tables that you create. Anytime you create a new view, you must explicitly grant
-privileges to the view or re-run the `alter default privileges` command
-again.
+Suppose that you want to allow any user in the user group `report_readers` to view all tables and views created by the user `report_admin`. In this case, run the following command as a superuser. 
 
 ```
-alter default privileges grant select on tables to public;
+alter default privileges for user report_admin grant select on tables to group report_readers; 
 ```
 
-The following example grants INSERT privilege to the `sales_admin` user
-group for all new tables and views that you create in the `sales` schema.
+In the following example, the first command grants SELECT privileges on all new tables that you create. Anytime you create a new view, you must explicitly grant privileges to the view or re-run the `alter default privileges` command again.
 
 ```
-alter default privileges in schema sales grant insert on tables to group sales_admin;
+alter default privileges grant select on tables to public; 
 ```
 
-The following example reverses the ALTER DEFAULT PRIVILEGES command in the preceding
-example.
+The following example grants INSERT privilege to the `sales_admin` user group for all new tables and views that you create in the `sales` schema. 
+
+```
+alter default privileges in schema sales grant insert on tables to group sales_admin; 
+```
+
+The following example reverses the ALTER DEFAULT PRIVILEGES command in the preceding example. 
 
 ```
 alter default privileges in schema sales revoke insert on tables from group sales_admin;
 ```
 
-By default, the PUBLIC user group has execute permission for all new user-defined
-functions. To revoke `public` execute permissions for your new functions and
-then grant execute permission only to the `dev_test` user group, run the
-following commands.
+By default, the PUBLIC user group has execute permission for all new user-defined functions. To revoke `public` execute permissions for your new functions and then grant execute permission only to the `dev_test` user group, run the following commands. 
 
 ```
 alter default privileges revoke execute on functions from public;

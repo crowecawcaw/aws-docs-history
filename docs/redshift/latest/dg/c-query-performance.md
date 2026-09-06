@@ -1,68 +1,18 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Factors affecting query performance
+<a name="c-query-performance"></a>
 
-A number of factors can affect query performance. The following aspects of your data,
-cluster, and database operations all play a part in how quickly your queries
-process.
+A number of factors can affect query performance. The following aspects of your data, cluster, and database operations all play a part in how quickly your queries process.
++ **Number of nodes, processors, or slices** – A compute node is partitioned into slices. More nodes means more processors and more slices, which enables your queries to process faster by running portions of the query concurrently across the slices. However, more nodes also means greater expense, so you need to find the balance of cost and performance that is appropriate for your system. For more information on Amazon Redshift cluster architecture, see [Data warehouse system architecture](c_high_level_system_architecture.md). 
++ **Node types** – An Amazon Redshift cluster can use one of several node types. Each node type offers different sizes and limits to help you scale your cluster appropriately. The node size determines the storage capacity, memory, CPU, and price of each node in the cluster. For more information about node types, see [Overview of Amazon Redshift clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#working-with-clusters-overview) in the *Amazon Redshift Management Guide*.
++ **Data distribution** – Amazon Redshift stores table data on the compute nodes according to a table's distribution style. When you run a query, the query optimizer redistributes the data to the compute nodes as needed to perform any joins and aggregations. Choosing the right distribution style for a table helps minimize the impact of the redistribution step by locating the data where it needs to be before the joins are performed. For more information, see [Data distribution for query optimization](t_Distributing_data.md). 
++ **Data sort order** – Amazon Redshift stores table data on disk in sorted order according to a table’s sort keys. The query optimizer and the query processor use the information about where the data is located to reduce the number of blocks that need to be scanned and thereby improve query speed. For more information, see [Sort keys](t_Sorting_data.md). 
++ **Dataset size** – A higher volume of data in the cluster can slow query performance for queries, because more rows need to be scanned and redistributed. You can mitigate this effect by regular vacuuming and archiving of data, and by using a predicate to restrict the query dataset. 
++ **Concurrent operations** – Running multiple operations at once can affect query performance. Each operation takes one or more slots in an available query queue and uses the memory associated with those slots. If other operations are running, enough query queue slots might not be available. In this case, the query has to wait for slots to open before it can begin processing. For more information about creating and configuring query queues, see [Workload management](cm-c-implementing-workload-management.md). 
++ **Query structure** – How your query is written affects its performance. As much as possible, write queries to process and return as little data as meets your needs. For more information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md). 
++ **Code compilation** – Amazon Redshift generates and compiles optimized code for each query execution plan. The compiled code runs faster because it eliminates the overhead of using an interpreter. To minimize latency for new queries while preserving the performance benefits of compiled code, Amazon Redshift uses a technique called composition. Composition generates a lightweight arrangement of pre-existing logic to process new queries immediately, while simultaneously compiling highly optimized, query-specific code in the background. This removes compilation from the critical path of query execution, so new queries start faster and deliver performance consistent with subsequent runs.
 
-- Number of nodes, processors, or slices – A
-  compute node is partitioned into slices. More nodes means more processors and more
-  slices, which enables your queries to process faster by running portions of the
-  query concurrently across the slices. However, more nodes also means greater
-  expense, so you need to find the balance of cost and performance that is
-  appropriate for your system. For more information on Amazon Redshift cluster
-  architecture, see [Data warehouse system architecture](c_high_level_system_architecture.md "c_high_level_system_architecture.md").
-- Node types – An Amazon Redshift cluster can use
-  one of several node types. Each node type offers different
-  sizes and limits to help you scale your cluster appropriately. The node size
-  determines the storage capacity, memory, CPU, and price of each node in the
-  cluster. For more information about node types, see
-  [Overview of Amazon Redshift clusters](../mgmt/working-with-clusters.md#working-with-clusters-overview "../mgmt/working-with-clusters.md#working-with-clusters-overview") in the _Amazon Redshift Management Guide_.
-- Data distribution – Amazon Redshift stores table
-  data on the compute nodes according to a table's distribution style. When you
-  run a query, the query optimizer redistributes the data to the compute nodes
-  as needed to perform any joins and aggregations. Choosing the right distribution
-  style for a table helps minimize the impact of the redistribution step by locating
-  the data where it needs to be before the joins are performed. For more
-  information, see [Data distribution for query optimization](t_Distributing_data.md "t_Distributing_data.md").
-- Data sort order – Amazon Redshift stores table
-  data on disk in sorted order according to a table’s sort keys. The query optimizer
-  and the query processor use the information about where the data is located to
-  reduce the number of blocks that need to be scanned and thereby improve query
-  speed. For more information, see [Sort keys](t_Sorting_data.md "t_Sorting_data.md").
-- Dataset size – A higher volume of data in
-  the cluster can slow query performance for queries, because more rows need to be
-  scanned and redistributed. You can mitigate this effect by regular vacuuming and
-  archiving of data, and by using a predicate to restrict the query dataset.
-- Concurrent operations – Running multiple
-  operations at once can affect query performance. Each operation takes one or more
-  slots in an available query queue and uses the memory associated with those slots.
-  If other operations are running, enough query queue slots might not be available.
-  In this case, the query has to wait for slots to open before it can begin
-  processing. For more information about creating and configuring query queues, see
-  [Workload management](cm-c-implementing-workload-management.md "cm-c-implementing-workload-management.md").
-- Query structure – How your query is
-  written affects its performance. As much as possible, write queries to process and
-  return as little data as meets your needs. For more information, see [Amazon Redshift best practices for designing queries](c_designing-queries-best-practices.md "c_designing-queries-best-practices.md").
-- Code compilation – Amazon Redshift generates and
-  compiles optimized code for each query execution plan.
-  The compiled code runs faster because it eliminates the overhead of using an
-  interpreter. To minimize latency for new queries while preserving the performance
-  benefits of compiled code, Amazon Redshift uses a technique called composition. Composition
-  generates a lightweight arrangement of pre-existing logic to process new queries
-  immediately, while simultaneously compiling highly optimized, query-specific code in
-  the background. This removes compilation from the critical path of query execution,
-  so new queries start faster and deliver performance consistent with subsequent
-  runs.
-
-Amazon Redshift also uses a serverless compilation service to scale query
-compilations beyond the compute resources of an Amazon Redshift cluster. Compiled code
-segments are cached both locally on the cluster and in a virtually unlimited remote
-cache that persists after cluster reboots. Subsequent executions of the same query
-run faster because they can skip the compilation phase. By using a scalable
-compilation service, Amazon Redshift compiles code in parallel to provide consistently fast
-performance.
+  Amazon Redshift also uses a serverless compilation service to scale query compilations beyond the compute resources of an Amazon Redshift cluster. Compiled code segments are cached both locally on the cluster and in a virtually unlimited remote cache that persists after cluster reboots. Subsequent executions of the same query run faster because they can skip the compilation phase. By using a scalable compilation service, Amazon Redshift compiles code in parallel to provide consistently fast performance. 

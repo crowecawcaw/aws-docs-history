@@ -1,44 +1,24 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Creating and interpreting a query plan
+<a name="c-the-query-plan"></a>
 
-You can use the query plan to get information on the individual operations required
-to run a query. Before you work with a query plan, we recommend that you first
-understand how Amazon Redshift handles processing queries and creating query plans. For more
-information, see [Query planning and execution workflow](c-query-planning.md "c-query-planning.md").
+You can use the query plan to get information on the individual operations required to run a query. Before you work with a query plan, we recommend that you first understand how Amazon Redshift handles processing queries and creating query plans. For more information, see [Query planning and execution workflow](c-query-planning.md).
 
-To create a query plan, run the [EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md")
-command followed by the actual query text. The query plan gives you the following
-information:
+To create a query plan, run the [EXPLAIN](r_EXPLAIN.md) command followed by the actual query text. The query plan gives you the following information:
++ What operations the execution engine performs, reading the results from bottom to top.
++ What type of step each operation performs.
++ Which tables and columns are used in each operation.
++ How much data is processed in each operation, in terms of number of rows and data width in bytes.
++ The relative cost of the operation. *Cost* is a measure that compares the relative execution times of the steps within a plan. Cost does not provide any precise information about actual execution times or memory consumption, nor does it provide a meaningful comparison between execution plans. It does give you an indication of which operations in a query are consuming the most resources.
 
-- What operations the execution engine performs, reading the results from bottom
-  to top.
-- What type of step each operation performs.
-- Which tables and columns are used in each operation.
-- How much data is processed in each operation, in terms of number of rows and
-  data width in bytes.
-- The relative cost of the operation. _Cost_ is a measure that
-  compares the relative execution times of the steps within a plan. Cost does not
-  provide any precise information about actual execution times or memory
-  consumption, nor does it provide a meaningful comparison between execution plans.
-  It does give you an indication of which operations in a query are consuming the
-  most resources.
-  The EXPLAIN command doesn't actually run the query. It only shows the plan that
-  Amazon Redshift runs if the query is run under current operating conditions. If you change the
-  schema or data for a table and run [ANALYZE](r_ANALYZE.md "r_ANALYZE.md")
-  again to update the statistical metadata, the query plan might be different.
+The EXPLAIN command doesn't actually run the query. It only shows the plan that Amazon Redshift runs if the query is run under current operating conditions. If you change the schema or data for a table and run [ANALYZE](r_ANALYZE.md) again to update the statistical metadata, the query plan might be different.
 
-The query plan output by EXPLAIN is a simplified, high-level view of query execution.
-It doesn't illustrate the details of parallel query processing. To see detailed
-information, run the query itself, and then get query summary information from the
-SVL\_QUERY\_SUMMARY or SVL\_QUERY\_REPORT view. For more information about using these
-views, see [Analyzing the query summary](c-analyzing-the-query-summary.md "c-analyzing-the-query-summary.md").
+The query plan output by EXPLAIN is a simplified, high-level view of query execution. It doesn't illustrate the details of parallel query processing. To see detailed information, run the query itself, and then get query summary information from the SVL\_QUERY\_SUMMARY or SVL\_QUERY\_REPORT view. For more information about using these views, see [Analyzing the query summary](c-analyzing-the-query-summary.md).
 
-The following example shows the EXPLAIN output for a simple GROUP BY query on the
-EVENT table:
+The following example shows the EXPLAIN output for a simple GROUP BY query on the EVENT table:
 
 ```
 explain select eventname, count(*) from event group by eventname;
@@ -51,187 +31,122 @@ XN HashAggregate  (cost=131.97..133.41 rows=576 width=17)
 
 EXPLAIN returns the following metrics for each operation:
 
-**Cost**
+**Cost**  
+A relative value that is useful for comparing operations within a plan. Cost consists of two decimal values separated by two periods, for example `cost=131.97..133.41`. The first value, in this case 131.97, provides the relative cost of returning the first row for this operation. The second value, in this case 133.41, provides the relative cost of completing the operation. The costs in the query plan are cumulative as you read up the plan, so the HashAggregate cost in this example (131.97..133.41) includes the cost of the Seq Scan below it (0.00..87.98).
 
-A relative value that is useful for comparing operations within a plan. Cost
-consists of two decimal values separated by two periods, for example
-`cost=131.97..133.41`. The first value, in this case 131.97,
-provides the relative cost of returning the first row for this operation. The
-second value, in this case 133.41, provides the relative cost of completing the
-operation. The costs in the query plan are cumulative as you read up the plan,
-so the HashAggregate cost in this example (131.97..133.41) includes the cost of
-the Seq Scan below it (0.00..87.98).
+**Rows**  
+The estimated number of rows to return. In this example, the scan is expected to return 8798 rows. The HashAggregate operator on its own is expected to return 576 rows (after duplicate event names are discarded from the result set).  
+The rows estimate is based on the available statistics generated by the ANALYZE command. If ANALYZE has not been run recently, the estimate is less reliable.
 
-**Rows**
-
-The estimated number of rows to return. In this example, the scan is
-expected to return 8798 rows. The HashAggregate operator on its own is expected
-to return 576 rows (after duplicate event names are discarded from the result
-set).
-
-###### Note
-
-The rows estimate is based on the available statistics generated by the
-ANALYZE command. If ANALYZE has not been run recently, the estimate is less
-reliable.
-
-**Width**
-
-The estimated width of the average row, in bytes. In this example, the
-average row is expected to be 17 bytes wide.
+**Width**  
+The estimated width of the average row, in bytes. In this example, the average row is expected to be 17 bytes wide.
 
 ## EXPLAIN operators
+<a name="EXPLAIN-operators"></a>
 
-This section briefly describes the operators that you see most often in the
-EXPLAIN output. For a complete list of operators, see [EXPLAIN](r_EXPLAIN.md "r_EXPLAIN.md") in the SQL Commands section.
+This section briefly describes the operators that you see most often in the EXPLAIN output. For a complete list of operators, see [EXPLAIN](r_EXPLAIN.md) in the SQL Commands section.
 
 ### Sequential scan operator
+<a name="scan-operator"></a>
 
-The sequential scan operator (Seq Scan) indicates a table scan. Seq Scan scans
-each column in the table sequentially from beginning to end and evaluates query
-constraints (in the WHERE clause) for every row.
+The sequential scan operator (Seq Scan) indicates a table scan. Seq Scan scans each column in the table sequentially from beginning to end and evaluates query constraints (in the WHERE clause) for every row.
 
 ### Join operators
+<a name="join-operators"></a>
 
-Amazon Redshift selects join operators based on the physical design of the tables
-being joined, the location of the data required for the join, and the specific
-requirements of the query itself.
+Amazon Redshift selects join operators based on the physical design of the tables being joined, the location of the data required for the join, and the specific requirements of the query itself.
++ **Nested Loop**
 
-- Nested Loop
+  The least optimal join, a nested loop is used mainly for cross-joins (Cartesian products) and some inequality joins.
++ **Hash Join and Hash**
 
-The least optimal join, a nested loop is used mainly for cross-joins
-(Cartesian products) and some inequality joins.
+  Typically faster than a nested loop join, a hash join and hash are used for inner joins and left and right outer joins. These operators are used when joining tables where the join columns are not both distribution keys *and* sort keys. The hash operator creates the hash table for the inner table in the join; the hash join operator reads the outer table, hashes the joining column, and finds matches in the inner hash table.
++ **Merge Join**
 
-- Hash Join and Hash
+  Typically the fastest join, a merge join is used for inner joins and outer joins. The merge join is not used for full joins. This operator is used when joining tables where the join columns are both distribution keys *and* sort keys, and when less than 20 percent of the joining tables are unsorted. It reads two sorted tables in order and finds the matching rows. To view the percent of unsorted rows, query the [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md) system table.
++ **Spatial Join**
 
-Typically faster than a nested loop join, a hash join and hash are used
-for inner joins and left and right outer joins. These operators are used
-when joining tables where the join columns are not both distribution keys
-_and_ sort keys. The hash operator creates the hash
-table for the inner table in the join; the hash join operator reads the
-outer table, hashes the joining column, and finds matches in the inner hash
-table.
-
-- Merge Join
-
-Typically the fastest join, a merge join is used for inner joins and
-outer joins. The merge join is not used for full joins. This operator is
-used when joining tables where the join columns are both distribution keys
-_and_ sort keys, and when less than 20 percent of the
-joining tables are unsorted. It reads two sorted tables in order and finds
-the matching rows. To view the percent of unsorted rows, query the [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") system
-table.
-
-- Spatial Join
-
-Typically a fast join based on proximity of spatial data, used for `GEOMETRY` and `GEOGRAPHY` data types.
+  Typically a fast join based on proximity of spatial data, used for `GEOMETRY` and `GEOGRAPHY` data types.
 
 ### Aggregate operators
+<a name="aggregate-operators"></a>
 
-The query plan uses the following operators in queries that involve aggregate
-functions and GROUP BY operations.
+The query plan uses the following operators in queries that involve aggregate functions and GROUP BY operations.
++ **Aggregate**
 
-- Aggregate
+  Operator for scalar aggregate functions such as AVG and SUM.
++ **HashAggregate**
 
-Operator for scalar aggregate functions such as AVG and SUM.
+  Operator for unsorted grouped aggregate functions.
++ **GroupAggregate**
 
-- HashAggregate
-
-Operator for unsorted grouped aggregate functions.
-
-- GroupAggregate
-
-Operator for sorted grouped aggregate functions.
+  Operator for sorted grouped aggregate functions.
 
 ### Sort operators
+<a name="sort-operators"></a>
 
-The query plan uses the following operators when queries have to sort or merge
-result sets.
+The query plan uses the following operators when queries have to sort or merge result sets.
++ **Sort**
 
-- Sort
+  Evaluates the ORDER BY clause and other sort operations, such as sorts required by UNION queries and joins, SELECT DISTINCT queries, and window functions.
++ **Merge**
 
-Evaluates the ORDER BY clause and other sort operations, such as sorts
-required by UNION queries and joins, SELECT DISTINCT queries, and window
-functions.
-
-- Merge
-
-Produces final sorted results according to intermediate sorted results
-that derive from parallel operations.
+  Produces final sorted results according to intermediate sorted results that derive from parallel operations.
 
 ### UNION, INTERSECT, and EXCEPT operators
+<a name="UNION-INTERSECT-and-EXCEPT-operators"></a>
 
-The query plan uses the following operators for queries that involve set
-operations with UNION, INTERSECT, and EXCEPT.
+The query plan uses the following operators for queries that involve set operations with UNION, INTERSECT, and EXCEPT.
++ **Subquery**
 
-- Subquery
+  Used to run UNION queries.
++ **Hash Intersect Distinct **
 
-Used to run UNION queries.
+  Used to run INTERSECT queries.
++ **SetOp Except**
 
-- Hash Intersect Distinct
-
-Used to run INTERSECT queries.
-
-- SetOp Except
-
-Used to run EXCEPT (or MINUS) queries.
+  Used to run EXCEPT (or MINUS) queries.
 
 ### Other operators
+<a name="other-operators"></a>
 
-The following operators also appear frequently in EXPLAIN output for routine
-queries.
+The following operators also appear frequently in EXPLAIN output for routine queries.
++ **Unique**
 
-- Unique
+  Removes duplicates for SELECT DISTINCT queries and UNION queries.
++ **Limit**
 
-Removes duplicates for SELECT DISTINCT queries and UNION queries.
+  Processes the LIMIT clause.
++ **Window**
 
-- Limit
+  Runs window functions.
++ **Result**
 
-Processes the LIMIT clause.
+  Runs scalar functions that do not involve any table access.
++ **Subplan**
 
-- Window
+  Used for certain subqueries.
++ **Network**
 
-Runs window functions.
+  Sends intermediate results to the leader node for further processing.
++ **Materialize**
 
-- Result
-
-Runs scalar functions that do not involve any table access.
-
-- Subplan
-
-Used for certain subqueries.
-
-- Network
-
-Sends intermediate results to the leader node for further
-processing.
-
-- Materialize
-
-Saves rows for input to nested loop joins and some merge joins.
+  Saves rows for input to nested loop joins and some merge joins.
 
 ## Joins in EXPLAIN
+<a name="joins-in-EXPLAIN"></a>
 
-The query optimizer uses different join types to retrieve table data, depending on
-the structure of the query and the underlying tables. The EXPLAIN output references
-the join type, the tables used, and the way the table data is distributed across the
-cluster to describe how the query is processed.
+The query optimizer uses different join types to retrieve table data, depending on the structure of the query and the underlying tables. The EXPLAIN output references the join type, the tables used, and the way the table data is distributed across the cluster to describe how the query is processed.
 
 ### Join type examples
+<a name="join-types"></a>
 
-The following examples show the different join types that the query optimizer
-can use. The join type used in the query plan depends on the physical design of
-the tables involved.
+The following examples show the different join types that the query optimizer can use. The join type used in the query plan depends on the physical design of the tables involved.
 
 #### Example: Hash join two tables
+<a name="hash-join-two-tables"></a>
 
-The following query joins EVENT and CATEGORY on the CATID column. CATID is
-the distribution and sort key for CATEGORY but not for EVENT. A hash join is
-performed with EVENT as the outer table and CATEGORY as the inner table.
-Because CATEGORY is the smaller table, the planner broadcasts a copy of it to
-the compute nodes during query processing by using DS\_BCAST\_INNER. The join
-cost in this example accounts for most of the cumulative cost of the
-plan.
+The following query joins EVENT and CATEGORY on the CATID column. CATID is the distribution and sort key for CATEGORY but not for EVENT. A hash join is performed with EVENT as the outer table and CATEGORY as the inner table. Because CATEGORY is the smaller table, the planner broadcasts a copy of it to the compute nodes during query processing by using DS\_BCAST\_INNER. The join cost in this example accounts for most of the cumulative cost of the plan.
 
 ```
 explain select * from category, event where category.catid=event.catid;
@@ -245,20 +160,13 @@ explain select * from category, event where category.catid=event.catid;
          ->  XN Seq Scan on category  (cost=0.00..0.11 rows=11 width=49)
 ```
 
-###### Note
-
-Aligned indents for operators in the EXPLAIN output sometimes indicate
-that those operations do not depend on each other and can start in parallel.
-In the preceding example, although the scan on the EVENT table and the hash
-operation are aligned, the EVENT scan must wait until the hash operation has
-fully completed.
+**Note**  
+Aligned indents for operators in the EXPLAIN output sometimes indicate that those operations do not depend on each other and can start in parallel. In the preceding example, although the scan on the EVENT table and the hash operation are aligned, the EVENT scan must wait until the hash operation has fully completed.
 
 #### Example: Merge join two tables
+<a name="merge-join-two-tables"></a>
 
-The following query also uses SELECT \*, but it joins SALES and LISTING on
-the LISTID column, where LISTID has been set as both the distribution and sort
-key for both tables. A merge join is chosen, and no redistribution of data is
-required for the join (DS\_DIST\_NONE).
+The following query also uses SELECT \*, but it joins SALES and LISTING on the LISTID column, where LISTID has been set as both the distribution and sort key for both tables. A merge join is chosen, and no redistribution of data is required for the join (DS\_DIST\_NONE).
 
 ```
 explain select * from sales, listing where sales.listid = listing.listid;
@@ -270,10 +178,7 @@ XN Merge Join DS_DIST_NONE  (cost=0.00..6285.93 rows=172456 width=97)
   ->  XN Seq Scan on sales  (cost=0.00..1724.56 rows=172456 width=53)
 ```
 
-The following example demonstrates the different types of joins within the
-same query. As in the previous example, SALES and LISTING are merge joined, but
-the third table, EVENT, must be hash joined with the results of the merge join.
-Again, the hash join incurs a broadcast cost.
+The following example demonstrates the different types of joins within the same query. As in the previous example, SALES and LISTING are merge joined, but the third table, EVENT, must be hash joined with the results of the merge join. Again, the hash join incurs a broadcast cost.
 
 ```
 explain select * from sales, listing, event
@@ -291,15 +196,12 @@ XN Hash Join DS_BCAST_INNER  (cost=109.98..3871130276.17 rows=172456 width=132)
 ```
 
 #### Example: Join, aggregate, and sort
+<a name="join-aggregate-and-sort-example"></a>
 
-The following query runs a hash join of the SALES and EVENT tables,
-followed by aggregation and sort operations to account for the grouped SUM
-function and the ORDER BY clause. The initial sort operator runs in parallel on
-the compute nodes. Then the Network operator sends the results to the leader
-node, where the Merge operator produces the final sorted results.
+The following query runs a hash join of the SALES and EVENT tables, followed by aggregation and sort operations to account for the grouped SUM function and the ORDER BY clause. The initial sort operator runs in parallel on the compute nodes. Then the Network operator sends the results to the leader node, where the Merge operator produces the final sorted results.
 
 ```
-explain select eventname, sum(pricepaid) from sales, event
+explain select eventname, sum(pricepaid) from sales, event 
 where sales.eventid=event.eventid group by eventname
 order by 2 desc;
                                            QUERY PLAN
@@ -319,60 +221,31 @@ order by 2 desc;
 ```
 
 ### Data redistribution
+<a name="data-redistribution"></a>
 
-The EXPLAIN output for joins also specifies a method for how data is moved
-around a cluster to facilitate the join. This data movement can be either a
-broadcast or a redistribution. In a broadcast, the data values from one side of a
-join are copied from each compute node to every other compute node, so that every
-compute node ends up with a complete copy of the data. In a redistribution,
-participating data values are sent from their current slice to a new slice
-(possibly on a different node). Data is typically redistributed to match the
-distribution key of the other table participating in the join if that distribution
-key is one of the joining columns. If neither of the tables has distribution keys
-on one of the joining columns, either both tables are distributed or the inner
-table is broadcast to every node.
+The EXPLAIN output for joins also specifies a method for how data is moved around a cluster to facilitate the join. This data movement can be either a broadcast or a redistribution. In a broadcast, the data values from one side of a join are copied from each compute node to every other compute node, so that every compute node ends up with a complete copy of the data. In a redistribution, participating data values are sent from their current slice to a new slice (possibly on a different node). Data is typically redistributed to match the distribution key of the other table participating in the join if that distribution key is one of the joining columns. If neither of the tables has distribution keys on one of the joining columns, either both tables are distributed or the inner table is broadcast to every node.
 
-The EXPLAIN output also references inner and outer tables. The inner table is
-scanned first, and appears nearer the bottom of the query plan. The inner table is
-the table that is probed for matches. It is usually held in memory, is usually the
-source table for hashing, and if possible, is the smaller table of the two being
-joined. The outer table is the source of rows to match against the inner table. It
-is usually read from disk. The query optimizer chooses the inner and outer table
-based on database statistics from the latest run of the ANALYZE command. The order
-of tables in the FROM clause of a query doesn't determine which table is inner and
-which is outer.
+The EXPLAIN output also references inner and outer tables. The inner table is scanned first, and appears nearer the bottom of the query plan. The inner table is the table that is probed for matches. It is usually held in memory, is usually the source table for hashing, and if possible, is the smaller table of the two being joined. The outer table is the source of rows to match against the inner table. It is usually read from disk. The query optimizer chooses the inner and outer table based on database statistics from the latest run of the ANALYZE command. The order of tables in the FROM clause of a query doesn't determine which table is inner and which is outer.
 
-Use the following attributes in query plans to identify how data is moved to
-facilitate a query:
+Use the following attributes in query plans to identify how data is moved to facilitate a query:
++ **DS\_BCAST\_INNER**
 
-- DS\_BCAST\_INNER
+  A copy of the entire inner table is broadcast to all compute nodes.
++ **DS\_DIST\_ALL\_NONE**
 
-A copy of the entire inner table is broadcast to all compute
-nodes.
+  No redistribution is required, because the inner table has already been distributed to every node using DISTSTYLE ALL.
++ **DS\_DIST\_NONE**
 
-- DS\_DIST\_ALL\_NONE
+  No tables are redistributed. Collocated joins are possible because corresponding slices are joined without moving data between nodes.
++ **DS\_DIST\_INNER**
 
-No redistribution is required, because the inner table has already been
-distributed to every node using DISTSTYLE ALL.
+  The inner table is redistributed.
++ **DS\_DIST\_OUTER**
 
-- DS\_DIST\_NONE
+  The outer table is redistributed.
++ **DS\_DIST\_ALL\_INNER**
 
-No tables are redistributed. Collocated joins are possible because
-corresponding slices are joined without moving data between nodes.
+  The entire inner table is redistributed to a single slice because the outer table uses DISTSTYLE ALL.
++ **DS\_DIST\_BOTH**
 
-- DS\_DIST\_INNER
-
-The inner table is redistributed.
-
-- DS\_DIST\_OUTER
-
-The outer table is redistributed.
-
-- DS\_DIST\_ALL\_INNER
-
-The entire inner table is redistributed to a single slice because the
-outer table uses DISTSTYLE ALL.
-
-- DS\_DIST\_BOTH
-
-Both tables are redistributed.
+  Both tables are redistributed.

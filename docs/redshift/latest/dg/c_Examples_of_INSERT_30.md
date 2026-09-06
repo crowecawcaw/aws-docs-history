@@ -1,11 +1,11 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # INSERT examples
+<a name="c_Examples_of_INSERT_30"></a>
 
-The CATEGORY table in the TICKIT database contains the following rows:
+The CATEGORY table in the TICKIT database contains the following rows: 
 
 ```
  catid | catgroup |  catname  |                  catdesc
@@ -24,8 +24,7 @@ The CATEGORY table in the TICKIT database contains the following rows:
 (11 rows)
 ```
 
-Create a CATEGORY\_STAGE table with a similar schema to the CATEGORY table but define
-default values for the columns:
+ Create a CATEGORY\_STAGE table with a similar schema to the CATEGORY table but define default values for the columns: 
 
 ```
 create table category_stage
@@ -35,8 +34,7 @@ catname varchar(10) default 'General',
 catdesc varchar(50) default 'General');
 ```
 
-The following INSERT statement selects all of the rows from the CATEGORY table and
-inserts them into the CATEGORY\_STAGE table.
+The following INSERT statement selects all of the rows from the CATEGORY table and inserts them into the CATEGORY\_STAGE table. 
 
 ```
 insert into category_stage
@@ -45,22 +43,21 @@ insert into category_stage
 
 The parentheses around the query are optional.
 
-This command inserts a new row into the CATEGORY\_STAGE table with a value specified
-for each column in order:
+This command inserts a new row into the CATEGORY\_STAGE table with a value specified for each column in order: 
 
 ```
 insert into category_stage values
 (12, 'Concerts', 'Comedy', 'All stand-up comedy performances');
 ```
 
-You can also insert a new row that combines specific values and default values:
+You can also insert a new row that combines specific values and default values: 
 
 ```
 insert into category_stage values
 (13, 'Concerts', 'Other', default);
 ```
 
-Run the following query to return the inserted rows:
+Run the following query to return the inserted rows: 
 
 ```
 select * from category_stage
@@ -73,9 +70,7 @@ where catid in(12,13) order by 1;
 (2 rows)
 ```
 
-The following examples show some multiple-row INSERT VALUES statements. The first
-example inserts specific CATID values for two rows and default values for the other
-columns in both rows.
+The following examples show some multiple-row INSERT VALUES statements. The first example inserts specific CATID values for two rows and default values for the other columns in both rows. 
 
 ```
 insert into category_stage values
@@ -90,8 +85,7 @@ select * from category_stage where catid in(14,15) order by 1;
 (2 rows)
 ```
 
-The next example inserts three rows with various combinations of specific and default
-values:
+The next example inserts three rows with various combinations of specific and default values: 
 
 ```
 insert into category_stage values
@@ -108,12 +102,9 @@ select * from category_stage where catid in(0,20,21) order by 1;
 (3 rows)
 ```
 
-The first set of VALUES in this example produces the same results as specifying
-DEFAULT VALUES for a single-row INSERT statement.
+The first set of VALUES in this example produces the same results as specifying DEFAULT VALUES for a single-row INSERT statement.
 
-The following examples show INSERT behavior when a table has an IDENTITY column.
-First, create a new version of the CATEGORY table, then insert rows into it from
-CATEGORY:
+The following examples show INSERT behavior when a table has an IDENTITY column. First, create a new version of the CATEGORY table, then insert rows into it from CATEGORY: 
 
 ```
 create table category_ident
@@ -125,14 +116,11 @@ catdesc varchar(50) default 'General');
 
 insert into category_ident(catgroup,catname,catdesc)
 select catgroup,catname,catdesc from category;
-
 ```
 
-Note that you can't insert specific integer values into the CATID IDENTITY
-column. IDENTITY column values are automatically generated.
+Note that you can't insert specific integer values into the CATID IDENTITY column. IDENTITY column values are automatically generated.
 
-The following example demonstrates that subqueries can't be used as expressions
-in multiple-row INSERT VALUES statements:
+The following example demonstrates that subqueries can't be used as expressions in multiple-row INSERT VALUES statements: 
 
 ```
 insert into category(catid) values
@@ -142,9 +130,7 @@ insert into category(catid) values
 ERROR: can't use subqueries in multi-row VALUES
 ```
 
-The following example shows an insert into a temporary table populated with data from
-the `venue` table using the `WITH SELECT` clause. For more
-information about the `venue` table, see [Sample database](c_sampledb.md "c_sampledb.md").
+The following example shows an insert into a temporary table populated with data from the `venue` table using the `WITH SELECT` clause. For more information about the `venue` table, see [Sample database](c_sampledb.md).
 
 First, create the temporary table `#venuetemp`.
 
@@ -155,19 +141,19 @@ CREATE TABLE #venuetemp AS SELECT * FROM venue;
 List the rows in the `#venuetemp` table.
 
 ```
-`SELECT * FROM #venuetemp ORDER BY venueid;`
-         `venueid | venuename | venuecity | venuestate| venueseats
+SELECT * FROM #venuetemp ORDER BY venueid;
+         
+venueid | venuename                | venuecity  | venuestate| venueseats
 --------+--------------------------+------------+-----------+------------
-1 Toyota Park Bridgeview IL 0
-2 Columbus Crew Stadium Columbus OH 0
-3 RFK Stadium Washington DC 0
-4 CommunityAmerica Ballpark Kansas City KS 0
-5 Gillette Stadium Foxborough MA 68756
-...`
+1        Toyota Park                Bridgeview   IL          0	
+2        Columbus Crew Stadium      Columbus     OH          0	
+3        RFK Stadium                Washington   DC          0	
+4        CommunityAmerica Ballpark  Kansas City  KS          0	
+5        Gillette Stadium           Foxborough   MA          68756	
+...
 ```
 
-Insert 10 duplicate rows in the `#venuetemp` table using the `WITH
- SELECT` clause.
+Insert 10 duplicate rows in the `#venuetemp` table using the `WITH SELECT` clause.
 
 ```
 INSERT INTO #venuetemp (WITH venuecopy AS (SELECT * FROM venue) SELECT * FROM venuecopy ORDER BY 1 LIMIT 10);
@@ -176,18 +162,19 @@ INSERT INTO #venuetemp (WITH venuecopy AS (SELECT * FROM venue) SELECT * FROM ve
 List the rows in the `#venuetemp` table.
 
 ```
-`SELECT * FROM #venuetemp ORDER BY venueid;`
-         `venueid | venuename | venuecity | venuestate| venueseats
+SELECT * FROM #venuetemp ORDER BY venueid;
+         
+venueid | venuename                | venuecity  | venuestate| venueseats
 --------+--------------------------+------------+-----------+------------
-1 Toyota Park Bridgeview IL 0
-1 Toyota Park Bridgeview IL 0
-2 Columbus Crew Stadium Columbus OH 0
-2 Columbus Crew Stadium Columbus OH 0
-3 RFK Stadium Washington DC 0
-3 RFK Stadium Washington DC 0
-4 CommunityAmerica Ballpark Kansas City KS 0
-4 CommunityAmerica Ballpark Kansas City KS 0
-5 Gillette Stadium Foxborough MA 68756
-5 Gillette Stadium Foxborough MA 68756
-...`
+1        Toyota Park                Bridgeview   IL          0	
+1        Toyota Park                Bridgeview   IL          0	
+2        Columbus Crew Stadium      Columbus     OH          0	
+2        Columbus Crew Stadium      Columbus     OH          0	
+3        RFK Stadium                Washington   DC          0
+3        RFK Stadium                Washington   DC          0	
+4        CommunityAmerica Ballpark  Kansas City  KS          0	
+4        CommunityAmerica Ballpark  Kansas City  KS          0	
+5        Gillette Stadium           Foxborough   MA          68756
+5        Gillette Stadium           Foxborough   MA          68756
+...
 ```

@@ -1,39 +1,39 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_TBL\_PERM
+<a name="r_STV_TBL_PERM"></a>
 
-The STV\_TBL\_PERM table contains information about the permanent tables in Amazon Redshift,
-including temporary tables created by a user for the current session. STV\_TBL\_PERM
-contains information for all tables in all databases.
+The STV\_TBL\_PERM table contains information about the permanent tables in Amazon Redshift, including temporary tables created by a user for the current session. STV\_TBL\_PERM contains information for all tables in all databases.
 
-This table differs from [STV\_TBL\_TRANS](r_STV_TBL_TRANS.md "r_STV_TBL_TRANS.md"), which contains information about transient
-database tables that the system creates during query processing.
+This table differs from [STV\_TBL\_TRANS](r_STV_TBL_TRANS.md), which contains information about transient database tables that the system creates during query processing.
 
-STV\_TBL\_PERM is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_TBL\_PERM is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_STV_TBL_PERM-table-columns"></a>
 
-| Column name      | Data type     | Description                                                                                                                                                                                                                                                                                                            |
-| ---------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| slice            | integer       | Node slice allocated to the table.                                                                                                                                                                                                                                                                                     |
-| id               | integer       | Table ID.                                                                                                                                                                                                                                                                                                              |
-| name             | character(72) | Table name.                                                                                                                                                                                                                                                                                                            |
-| rows             | bigint        | Number of data rows in the slice.                                                                                                                                                                                                                                                                                      |
-| sorted\_rows     | bigint        | Number of rows in the slice that are already<br>sorted on disk. If this number does not match the ROWS number,<br>vacuum the table to resort the rows.                                                                                                                                                                 |
-| temp             | integer       | Whether or not the table is a temporary table. 0 =<br>false; 1 = true.                                                                                                                                                                                                                                                 |
-| db\_id           | integer       | ID of the database where the table was created.                                                                                                                                                                                                                                                                        |
-| insert\_pristine | integer       | For internal use.                                                                                                                                                                                                                                                                                                      |
-| delete\_pristine | integer       | For internal use.                                                                                                                                                                                                                                                                                                      |
-| backup           | integer       | Value that indicates whether the table is included<br>in cluster snapshots. 0 = no; 1 = yes. For more information, see the<br>[BACKUP](r_CREATE_TABLE_NEW.md#create-table-backup "r_CREATE_TABLE_NEW.md#create-table-backup") parameter for the CREATE<br>TABLE command.                                               |
-| dist\_style      | integer       | Distribution style of the table that the slice<br>belongs to. For information on the values, see [Viewing distribution styles](viewing-distribution-styles.md "viewing-distribution-styles.md"). For information on distribution styles, see [Distribution styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md"). |
-| block\_count     | integer       | Number of blocks used by the slice. The value is -1 when the block count can't be calculated.                                                                                                                                                                                                                          |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| slice  | integer  | Node slice allocated to the table.  | 
+| id  | integer  | Table ID.  | 
+| name  | character(72)  | Table name.  | 
+| rows  | bigint  | Number of data rows in the slice.  | 
+| sorted\_rows  | bigint  | Number of rows in the slice that are already sorted on disk. If this number does not match the ROWS number, vacuum the table to resort the rows.  | 
+| temp  | integer  | Whether or not the table is a temporary table. 0 = false; 1 = true.  | 
+| db\_id  | integer  | ID of the database where the table was created.  | 
+| insert\_pristine | integer  | For internal use.  | 
+| delete\_pristine | integer  | For internal use. | 
+| backup | integer  | Value that indicates whether the table is included in cluster snapshots. 0 = no; 1 = yes. For more information, see the [BACKUP](r_CREATE_TABLE_NEW.md#create-table-backup) parameter for the CREATE TABLE command. | 
+| dist\_style | integer  | Distribution style of the table that the slice belongs to. For information on the values, see [Viewing distribution styles](viewing-distribution-styles.md). For information on distribution styles, see [Distribution styles](c_choosing_dist_sort.md). | 
+| block\_count | integer  | Number of blocks used by the slice. The value is -1 when the block count can't be calculated. | 
 
 ## Sample queries
+<a name="r_STV_TBL_PERM-sample-queries"></a>
 
-The following query returns a list of distinct table IDs and names:
+The following query returns a list of distinct table IDs and names: 
 
 ```
 select distinct id, name
@@ -50,12 +50,9 @@ from stv_tbl_perm order by name;
 ...
 ```
 
-Other system tables use table IDs, so knowing which table ID corresponds to a
-certain table can be very useful. In this example, SELECT DISTINCT is used to remove
-the duplicates (tables are distributed across multiple slices).
+Other system tables use table IDs, so knowing which table ID corresponds to a certain table can be very useful. In this example, SELECT DISTINCT is used to remove the duplicates (tables are distributed across multiple slices).
 
-To determine the number of blocks used by each column in the VENUE table, type the
-following query:
+To determine the number of blocks used by each column in the VENUE table, type the following query: 
 
 ```
 select col, count(*)
@@ -80,12 +77,9 @@ order by col;
 ```
 
 ## Usage notes
+<a name="r_STV_TBL_PERM-usage-notes"></a>
 
-The ROWS column includes counts of deleted rows that have not been vacuumed (or
-have been vacuumed but with the SORT ONLY option). Therefore, the SUM of the ROWS
-column in the STV\_TBL\_PERM table might not match the COUNT(\*) result when you query
-a given table directly. For example, if 2 rows are deleted from VENUE, the COUNT(\*)
-result is 200 but the SUM(ROWS) result is still 202:
+The ROWS column includes counts of deleted rows that have not been vacuumed (or have been vacuumed but with the SORT ONLY option). Therefore, the SUM of the ROWS column in the STV\_TBL\_PERM table might not match the COUNT(\*) result when you query a given table directly. For example, if 2 rows are deleted from VENUE, the COUNT(\*) result is 200 but the SUM(ROWS) result is still 202: 
 
 ```
 delete from venue

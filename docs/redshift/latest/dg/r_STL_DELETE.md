@@ -1,43 +1,40 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_DELETE
+<a name="r_STL_DELETE"></a>
 
 Analyzes delete execution steps for queries.
 
-STL\_DELETE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_DELETE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-STL\_DELETE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
-or on serverless namespaces.
-To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
-. The data in the SYS monitoring view is formatted to be easier to use and understand.
+**Note**  
+STL\_DELETE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters or on serverless namespaces. To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view [SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md) . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
+<a name="r_STL_DELETE-table-columns"></a>
 
-| Column name | Data type | Description                                                                                                                                                                   |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer   | ID of the user who generated the entry.                                                                                                                                       |
-| query       | integer   | Query ID. The query column can be used to join other system tables and views.                                                                                                 |
-| slice       | integer   | Number that identifies the slice where the query was running.                                                                                                                 |
-| segment     | integer   | Number that identifies the query segment.                                                                                                                                     |
-| step        | integer   | Query step that ran.                                                                                                                                                          |
-| starttime   | timestamp | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.  |
-| endtime     | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`. |
-| tasknum     | integer   | Number of the query task process that was assigned to run the step.                                                                                                           |
-| rows        | bigint    | Total number of rows that were processed.                                                                                                                                     |
-| tbl         | integer   | Table ID.                                                                                                                                                                     |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| query | integer | Query ID. The query column can be used to join other system tables and views. | 
+| slice | integer | Number that identifies the slice where the query was running. | 
+| segment | integer | Number that identifies the query segment. | 
+| step | integer | Query step that ran. | 
+| starttime | timestamp | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| endtime | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| tasknum | integer | Number of the query task process that was assigned to run the step. | 
+| rows | bigint | Total number of rows that were processed. | 
+| tbl | integer | Table ID. | 
 
 ## Sample queries
+<a name="r_STL_DELETE-sample-queries"></a>
 
-In order to create a row in STL\_DELETE, the following example inserts a row into
-the EVENT table and then deletes it.
+In order to create a row in STL\_DELETE, the following example inserts a row into the EVENT table and then deletes it.
 
-First, insert a row into the EVENT table and verify that it was inserted.
+First, insert a row into the EVENT table and verify that it was inserted. 
 
 ```
 insert into event(eventid,venueid,catid,dateid,eventname)
@@ -51,7 +48,6 @@ order by eventid;
 ```
 
 ```
-
  eventid | venueid | catid | dateid |  eventname   |      starttime
 ---------+---------+-------+--------+--------------+---------------------
     4274 |     102 |     9 |   1965 | Lollapalooza | 2008-05-01 19:00:00
@@ -65,14 +61,12 @@ order by eventid;
     8518 |      48 |     9 |   1904 | Lollapalooza | 2008-03-19 15:00:00
     8799 |      95 |     9 |   1857 | Lollapalooza |
 (10 rows)
-
 ```
 
-Now, delete the row that you added to the EVENT table and verify that it was
-deleted.
+Now, delete the row that you added to the EVENT table and verify that it was deleted. 
 
 ```
-delete from event
+delete from event 
 where eventname='Lollapalooza' and eventid=(select max(eventid) from event);
 ```
 
@@ -97,9 +91,7 @@ order by eventid;
 (9 rows)
 ```
 
-Then query stl\_delete to see the execution steps for the deletion. In this
-example, the query returned over 300 rows, so the output below is shortened for
-display purposes.
+ Then query stl\_delete to see the execution steps for the deletion. In this example, the query returned over 300 rows, so the output below is shortened for display purposes. 
 
 ```
 select query, slice, segment, step, tasknum, rows, tbl from stl_delete order by query;

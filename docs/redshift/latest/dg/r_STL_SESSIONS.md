@@ -1,34 +1,35 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_SESSIONS
+<a name="r_STL_SESSIONS"></a>
 
 Returns information about user session history.
 
-STL\_SESSIONS differs from STV\_SESSIONS in that STL\_SESSIONS contains session history,
-where STV\_SESSIONS contains the current active sessions.
+STL\_SESSIONS differs from STV\_SESSIONS in that STL\_SESSIONS contains session history, where STV\_SESSIONS contains the current active sessions.
 
-STL\_SESSIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_SESSIONS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_SESSION\_HISTORY](SYS_SESSION_HISTORY.md "SYS_SESSION_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
-We recommend that you use the SYS monitoring view for your queries.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_SESSION\_HISTORY](SYS_SESSION_HISTORY.md). The data in the SYS monitoring view is formatted to be easier to use and understand. We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
+<a name="r_STL_SESSIONS-table-columns"></a>
 
-| Column name  | Data type     | Description                                                                                                                                                                                                                                                                                                                          |
-| ------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| userid       | integer       | ID of the user who generated the entry.                                                                                                                                                                                                                                                                                              |
-| starttime    | timestamp     | Time in UTC that the session started.                                                                                                                                                                                                                                                                                                |
-| endtime      | timestamp     | Time in UTC that the session ended.                                                                                                                                                                                                                                                                                                  |
-| process      | integer       | Process ID for the session.                                                                                                                                                                                                                                                                                                          |
-| user\_name   | character(50) | User name associated with the session.                                                                                                                                                                                                                                                                                               |
-| db\_name     | character(50) | Name of the database associated with the<br>session.                                                                                                                                                                                                                                                                                 |
-| timeout\_sec | int           | The maximum time in seconds that a session remains<br>inactive or idle before timing out. 0 indicates that no timeout is<br>set.                                                                                                                                                                                                     |
-| timed\_out   | int           | A value that indicates why the connection was terminated. It can have the following values:<br>• `0`: The connection was terminated due to an unknown error.<br>• `1`: The connection timed out.<br>• `2`: The client side terminated the connection.<br>• `3`: An Amazon Redshift backend internal error terminated the connection. |
+
+| Column name | Data type | Description | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| starttime | timestamp | Time in UTC that the session started. | 
+| endtime | timestamp | Time in UTC that the session ended. | 
+| process | integer | Process ID for the session. | 
+| user\_name | character(50) | User name associated with the session. | 
+| db\_name | character(50) | Name of the database associated with the session. | 
+| timeout\_sec | int | The maximum time in seconds that a session remains inactive or idle before timing out. 0 indicates that no timeout is set. | 
+| timed\_out | int | A value that indicates why the connection was terminated. It can have the following values:+  `0`: The connection was terminated due to an unknown error. <br />+  `1`: The connection timed out. <br />+  `2`: The client side terminated the connection. <br />+  `3`: An Amazon Redshift backend internal error terminated the connection.  | 
 
 ## Sample queries
+<a name="r_STL_SESSIONS-sample-queries"></a>
 
 To view session history for the TICKIT database, type the following query:
 
@@ -41,7 +42,6 @@ where db_name='tickit' order by starttime;
 This query returns the following sample output:
 
 ```
-
     starttime              | process |  user_name             | timeout_sec | timed_out
 ---------------------------+---------+------------------------+-------------+-------------
 2008-09-15 09:54:06.746705 |   32358 | dwuser                 | 120         | 1

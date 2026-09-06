@@ -1,62 +1,52 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW USER LOCKOUT
+<a name="r_SHOW_USER_LOCKOUT"></a>
 
-Use SHOW USER LOCKOUT to audit which users are currently locked, determine whether each
-lockout was automatic or manual, and review recent failed-login activity before you unlock
-a user. Federated users aren't included. This command is available only to superusers. For
-more information, see [max\_failed\_login\_attempts](max_failed_login_attempts.md "max_failed_login_attempts.md").
+Use SHOW USER LOCKOUT to audit which users are currently locked, determine whether each lockout was automatic or manual, and review recent failed-login activity before you unlock a user. Federated users aren't included. This command is available only to superusers. For more information, see [max\_failed\_login\_attempts](max_failed_login_attempts.md).
 
 ## Required privileges
+<a name="r_SHOW_USER_LOCKOUT-privileges"></a>
 
 To use SHOW USER LOCKOUT, you must be a superuser.
 
 ## Syntax
+<a name="r_SHOW_USER_LOCKOUT-synopsis"></a>
 
 ```
 SHOW USER LOCKOUT
 ```
 
 ## Output columns
+<a name="r_SHOW_USER_LOCKOUT-output"></a>
 
-user\_name
-
+user\_name  
 The name of the database user.
 
-is\_locked
-
+is\_locked  
 Specifies whether the user is currently locked.
 
-lock\_reason
+lock\_reason  
+The reason the user was locked. The value is `automatic` when Amazon Redshift locks the user after reaching the failed-attempt threshold, or `manual` when a superuser locks the user with ALTER USER NOLOGIN. This value is null when the user isn't locked.
 
-The reason the user was locked. The value is `automatic` when Amazon Redshift
-locks the user after reaching the failed-attempt threshold, or
-`manual` when a superuser locks the user with ALTER USER NOLOGIN.
-This value is null when the user isn't locked.
-
-locked\_at
-
+locked\_at  
 The timestamp when the user was locked.
 
-last\_failed\_at
-
+last\_failed\_at  
 The timestamp of the most recent failed login attempt.
 
-failed\_login\_attempts
-
+failed\_login\_attempts  
 The number of consecutive failed login attempts.
 
-locked\_by
-
-The ID of the user that locked this user. This value is null for automatic
-lockout.
+locked\_by  
+The ID of the user that locked this user. This value is null for automatic lockout.
 
 ## Examples
+<a name="r_SHOW_USER_LOCKOUT-examples"></a>
 
-The following example displays the lockout status for all password-based users:
+The following example displays the lockout status for all password-based users: 
 
 ```
 SHOW USER LOCKOUT;

@@ -1,21 +1,12 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Amazon Redshift and PostgreSQL JDBC and ODBC
+<a name="c_redshift-postgres-jdbc"></a>
 
-Because Amazon Redshift is based on PostgreSQL, we previously recommended using JDBC4
-Postgresql driver version 8.4.703 and psqlODBC version 9.x drivers. If you are
-currently using those drivers, we recommend moving to the new Amazon Redshift–specific
-drivers going forward. For more information about drivers and configuring
-connections, see [JDBC and ODBC
-Drivers for Amazon Redshift](../mgmt/configuring-connections.md#connecting-drivers "../mgmt/configuring-connections.md#connecting-drivers") in the _Amazon Redshift Management Guide_.
+ Because Amazon Redshift is based on PostgreSQL, we previously recommended using JDBC4 Postgresql driver version 8.4.703 and psqlODBC version 9.x drivers. If you are currently using those drivers, we recommend moving to the new Amazon Redshift–specific drivers going forward. For more information about drivers and configuring connections, see [JDBC and ODBC Drivers for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/configuring-connections.html#connecting-drivers) in the *Amazon Redshift Management Guide*.
 
-To avoid client-side out-of-memory errors when retrieving large data sets using
-JDBC, you can enable your client to fetch data in batches by setting the JDBC fetch
-size parameter. For more information, see [Setting the JDBC fetch size parameter](set-the-JDBC-fetch-size-parameter.md "set-the-JDBC-fetch-size-parameter.md").
+To avoid client-side out-of-memory errors when retrieving large data sets using JDBC, you can enable your client to fetch data in batches by setting the JDBC fetch size parameter. For more information, see [Setting the JDBC fetch size parameter](set-the-JDBC-fetch-size-parameter.md).
 
-Amazon Redshift does not recognize the JDBC maxRows parameter. Instead, specify a [LIMIT](r_ORDER_BY_clause.md#order-by-clause-limit "r_ORDER_BY_clause.md#order-by-clause-limit") clause to restrict the result set. You can also
-use an [OFFSET](r_ORDER_BY_clause.md#order-by-clause-offset "r_ORDER_BY_clause.md#order-by-clause-offset") clause to skip to a specific starting
-point in the result set.
+Amazon Redshift does not recognize the JDBC maxRows parameter. Instead, specify a [LIMIT](r_ORDER_BY_clause.md#order-by-clause-limit) clause to restrict the result set. You can also use an [OFFSET](r_ORDER_BY_clause.md#order-by-clause-offset) clause to skip to a specific starting point in the result set.

@@ -1,149 +1,112 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TRY\_CAST function
+<a name="r_TRY_CAST"></a>
 
-Compared to the CAST function, TRY\_CAST
-first attempts to cast the expression to the specified type.
-If casting fails because of conversion errors, the operation
-returns null. If a conversion isn’t explicitly permitted,
-the operation returns an error. You can find the list of
-possible conversions in the usage notes below. For example,
-attempting to convert a boolean to a timestamp isn't permitted.
+Compared to the CAST function, TRY\_CAST first attempts to cast the expression to the specified type. If casting fails because of conversion errors, the operation returns null. If a conversion isn’t explicitly permitted, the operation returns an error. You can find the list of possible conversions in the usage notes below. For example, attempting to convert a boolean to a timestamp isn't permitted. 
 
 ## Syntax
+<a name="r_TRY_CAST-syntax"></a>
 
 ```
 TRY_CAST(expression AS type)
 ```
 
 ## Arguments
+<a name="r_TRY_CAST-arguments"></a>
 
-_expression_
+ *expression*   
+An expression that evaluates to one or more values, such as a column name or a literal. Converting null values returns nulls. The expression cannot contain blank or empty strings. 
 
-An expression that evaluates to one
-or more values, such as a column name or a literal.
-Converting null values returns nulls. The expression
-cannot contain blank or empty strings.
-
-_type_
-
-One of the supported data types. For a full list of data types, see
-[Data types](c_Supported_data_types.md "c_Supported_data_types.md").
-For the list of supported source data type and target data type pairs,
-see the usage notes below.
+ *type*   
+ One of the supported data types. For a full list of data types, see [Data types](c_Supported_data_types.md). For the list of supported source data type and target data type pairs, see the usage notes below. 
 
 ## Return type
+<a name="r_TRY_CAST-return-type"></a>
 
-TRY\_CAST returns a value of the data type specified by the
-_type_ argument. If the conversion fails,
-the operation returns null.
+TRY\_CAST returns a value of the data type specified by the *type* argument. If the conversion fails, the operation returns null. 
 
 ## Usage notes
+<a name="r_TRY_CAST-usage-notes"></a>
 
-Following is the list of source data type
-and target data type pairs that Amazon Redshift supports for
-TRY\_CAST.
+Following is the list of source data type and target data type pairs that Amazon Redshift supports for TRY\_CAST.
 
-_BOOL_
+ * BOOL *   
+ SMALLINT, INT, BIGINT, SUPER 
 
-SMALLINT, INT, BIGINT, SUPER
+ * SMALLINT *   
+ BOOL, INT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER 
 
-_SMALLINT_
+ * INT *   
+ BOOL, SMALLINT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER 
 
-BOOL, INT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER
+ * BIGINT *   
+ BOOL, SMALLINT, INT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER 
 
-_INT_
+ * DECIMAL *   
+ SMALLINT, INT, BIGINT, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER 
 
-BOOL, SMALLINT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER
+ * REAL *   
+ SMALLINT, INT, BIGINT, DECIMAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER 
 
-_BIGINT_
+ * FLOAT *   
+ SMALLINT, INT, BIGINT, DECIMAL, REAL, BPCHAR, TEXT, VARCHAR, SUPER 
 
-BOOL, SMALLINT, INT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER
+ * BPCHAR *   
+ SMALLINT, INT, BIGINT, DECIMAL, REAL, FLOAT, TEXT, VARCHAR, TIMESTAMP, TIMESTAMPTZ, DATE, TIME, TIMETZ, SUPER 
 
-_DECIMAL_
+ * TEXT *   
+ SMALLINT, INT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, VARCHAR, TIMESTAMP, TIMESTAMPTZ, DATE, TIME, TIMETZ, SUPER 
 
-SMALLINT, INT, BIGINT, REAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER
+ * VARCHAR *   
+ SMALLINT, INT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, TIMESTAMP, TIMESTAMPTZ, DATE, TIME, TIMETZ, SUPER 
 
-_REAL_
+ * TIMESTAMP *   
+ BPCHAR, TEXT, VARCHAR, TIMESTAMPTZ, DATE, TIME 
 
-SMALLINT, INT, BIGINT, DECIMAL, FLOAT, BPCHAR, TEXT, VARCHAR, SUPER
+ * TIMESTAMPTZ *   
+ BPCHAR, TEXT, VARCHAR, TIMESTAMP, DATE, TIME, TIMETZ 
 
-_FLOAT_
+ * DATE *   
+ BPCHAR, TEXT, VARCHAR, TIMESTAMP, TIMESTAMPTZ 
 
-SMALLINT, INT, BIGINT, DECIMAL, REAL, BPCHAR, TEXT, VARCHAR, SUPER
+ * TIME *   
+ BPCHAR, TEXT, VARCHAR 
 
-_BPCHAR_
+ * TIMETZ *   
+ BPCHAR, TEXT, VARCHAR 
 
-SMALLINT, INT, BIGINT, DECIMAL, REAL, FLOAT, TEXT, VARCHAR, TIMESTAMP, TIMESTAMPTZ, DATE, TIME, TIMETZ, SUPER
-
-_TEXT_
-
-SMALLINT, INT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, VARCHAR, TIMESTAMP, TIMESTAMPTZ, DATE, TIME, TIMETZ, SUPER
-
-_VARCHAR_
-
-SMALLINT, INT, BIGINT, DECIMAL, REAL, FLOAT, BPCHAR, TEXT, TIMESTAMP, TIMESTAMPTZ, DATE, TIME, TIMETZ, SUPER
-
-_TIMESTAMP_
-
-BPCHAR, TEXT, VARCHAR, TIMESTAMPTZ, DATE, TIME
-
-_TIMESTAMPTZ_
-
-BPCHAR, TEXT, VARCHAR, TIMESTAMP, DATE, TIME, TIMETZ
-
-_DATE_
-
-BPCHAR, TEXT, VARCHAR, TIMESTAMP, TIMESTAMPTZ
-
-_TIME_
-
-BPCHAR, TEXT, VARCHAR
-
-_TIMETZ_
-
-BPCHAR, TEXT, VARCHAR
-
-_SUPER_
-
-SUPER can be converted into any other data type, with the exception of DATE, TIME, TIMETZ, TIMESTAMP, and TIMESTAMPTZ.
+ * SUPER *   
+ SUPER can be converted into any other data type, with the exception of DATE, TIME, TIMETZ, TIMESTAMP, and TIMESTAMPTZ. 
 
 ## Examples
+<a name="r_TRY_CAST-examples"></a>
 
 The following example casts a STRING into an INTEGER.
 
 ```
 SELECT TRY_CAST('123' AS INT);
 
-`int
+int
 ----
-123`
+123
 ```
 
-The following example returns null.
-Converting a STRING to an INTEGER is permitted so TRY\_CAST doesn't
-return an error, but 'foo' isn't an integer so the function
-returns null.
+The following example returns null. Converting a STRING to an INTEGER is permitted so TRY\_CAST doesn't return an error, but 'foo' isn't an integer so the function returns null.
 
 ```
 SELECT TRY_CAST('foo' AS INT)
 ```
 
-The following example returns an error, because converting
-a BOOLEAN to a TIMESTAMP isn't permitted.
+The following example returns an error, because converting a BOOLEAN to a TIMESTAMP isn't permitted.
 
 ```
 SELECT TRY_CAST(true as timestamp);
 ```
 
-Because TRY\_CAST returns null instead of immediately
-returning an error if conversion fails, you can use
-TRY\_CAST to filter out invalid data. Consider the following
-example, where an invalid row is filtered out because of a
-conversion failure in the age column for Akua Mansa.
+Because TRY\_CAST returns null instead of immediately returning an error if conversion fails, you can use TRY\_CAST to filter out invalid data. Consider the following example, where an invalid row is filtered out because of a conversion failure in the age column for Akua Mansa.
 
 ```
 CREATE TABLE IF NOT EXISTS student_data(

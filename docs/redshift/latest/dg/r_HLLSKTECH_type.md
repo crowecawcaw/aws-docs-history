@@ -1,31 +1,24 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # HLLSKETCH type
+<a name="r_HLLSKTECH_type"></a>
 
-Use the HLLSKETCH data type for HyperLogLog sketches. Amazon Redshift supports
-HyperLogLog sketch representations that are either sparse or dense. Sketches begin
-as sparse and switch to dense when the dense format is more efficient to minimize
-the memory footprint that is used.
+Use the HLLSKETCH data type for HyperLogLog sketches. Amazon Redshift supports HyperLogLog sketch representations that are either sparse or dense. Sketches begin as sparse and switch to dense when the dense format is more efficient to minimize the memory footprint that is used.
 
-Amazon Redshift automatically transitions a sparse HyperLogLog sketch when importing,
-exporting, or printing sketches in the following JSON format.
+ Amazon Redshift automatically transitions a sparse HyperLogLog sketch when importing, exporting, or printing sketches in the following JSON format.
 
 ```
 {"logm":15,"sparse":{"indices":[4878,9559,14523],"values":[1,2,1]}}
 ```
 
-Amazon Redshift uses a string representation in a Base64 format to represent a dense
-HyperLogLog sketch.
+Amazon Redshift uses a string representation in a Base64 format to represent a dense HyperLogLog sketch.
 
-Amazon Redshift uses the following string representation in a Base64 format to
-represent a dense HyperLogLog sketch.
+Amazon Redshift uses the following string representation in a Base64 format to represent a dense HyperLogLog sketch.
 
 ```
 "ABAABA..."
 ```
 
-The maximum size of a HLLSKETCH object is 24,580 bytes when used in raw
-compression.
+The maximum size of a HLLSKETCH object is 24,580 bytes when used in raw compression.

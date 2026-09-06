@@ -1,46 +1,37 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # LISTAGG function
+<a name="r_LISTAGG"></a>
 
-For each group in a query, the LISTAGG aggregate function orders the rows for that
-group according to the ORDER BY expression, then concatenates the values into a single
-string.
+For each group in a query, the LISTAGG aggregate function orders the rows for that group according to the ORDER BY expression, then concatenates the values into a single string. 
 
 ## Syntax
+<a name="r_LISTAGG-synopsis"></a>
 
 ```
-LISTAGG( [DISTINCT] *aggregate\_expression* [, '*delimiter*' ] )
-[ WITHIN GROUP (ORDER BY *order\_list*) ]
+LISTAGG( [DISTINCT] aggregate_expression [, 'delimiter' ] ) 
+[ WITHIN GROUP (ORDER BY order_list) ]
 ```
 
 ## Arguments
+<a name="r_LISTAGG-arguments"></a>
 
-DISTINCT
+DISTINCT  
+A clause that eliminates duplicate values from the specified expression before concatenating. Trailing spaces are ignored. For example, the strings `'a'` and `'a '` are treated as duplicates. LISTAGG uses the first value encountered. For more information, see [Significance of trailing blanks](r_Character_types.md#r_Character_types-significance-of-trailing-blanks).
 
-A clause that eliminates duplicate values from the specified
-expression before concatenating. Trailing spaces are ignored. For example, the strings
-`'a'` and `'a '` are treated as duplicates. LISTAGG
-uses the first value encountered. For more information, see [Significance of trailing blanks](r_Character_types.md#r_Character_types-significance-of-trailing-blanks "r_Character_types.md#r_Character_types-significance-of-trailing-blanks").
+ *aggregate\_expression*   
+ Any valid expression, such as a column name, that provides the values to aggregate. NULL values and empty strings are ignored. 
 
-_aggregate\_expression_
+ *delimiter*   
+The string constant to separate the concatenated values. The default is NULL.
 
-Any valid expression, such as a column name, that provides the values to
-aggregate. NULL values and empty strings are ignored.
-
-_delimiter_
-
-The string constant to separate the concatenated values. The
-default is NULL.
-
-_WITHIN GROUP (ORDER BY order\_list)_
-
-A clause that specifies the sort order of the aggregated
-values.
+ *WITHIN GROUP (ORDER BY order\_list)*   
+A clause that specifies the sort order of the aggregated values. 
 
 ## Returns
+<a name="r_LISTAGG-data-types"></a>
 
 VARCHAR(MAX). If the result set is larger than the maximum VARCHAR size, LISTAGG returns the following error:
 
@@ -49,71 +40,69 @@ Invalid operation: Result size exceeds LISTAGG limit
 ```
 
 ## Usage notes
+<a name="r_LISTAGG-usage-notes"></a>
++ If a statement includes multiple LISTAGG functions that use WITHIN GROUP clauses, each WITHIN GROUP clause must use the same ORDER BY values.
 
-- If a statement includes multiple LISTAGG functions that use WITHIN GROUP clauses,
-  each WITHIN GROUP clause must use the same ORDER BY values.
+  For example, the following statement returns an error.
 
-For example, the following statement returns an error.
+  ```
+  SELECT LISTAGG(sellerid) 
+  WITHIN GROUP (ORDER BY dateid) AS sellers,
+  LISTAGG(dateid) 
+  WITHIN GROUP (ORDER BY sellerid) AS dates
+  FROM sales;
+  ```
 
-```
-SELECT LISTAGG(sellerid)
-WITHIN GROUP (ORDER BY dateid) AS sellers,
-LISTAGG(dateid)
-WITHIN GROUP (ORDER BY sellerid) AS dates
-FROM sales;
-```
+  The following statements runs successfully.
 
-The following statements runs successfully.
-
-```
-SELECT LISTAGG(sellerid)
-WITHIN GROUP (ORDER BY dateid) AS sellers,
-LISTAGG(dateid)
-WITHIN GROUP (ORDER BY dateid) AS dates
-FROM sales;
-
-SELECT LISTAGG(sellerid)
-WITHIN GROUP (ORDER BY dateid) AS sellers,
-LISTAGG(dateid) AS dates
-FROM sales;
-```
-
-- You can't use the LISTAGG, PERCENTILE\_CONT, and MEDIAN aggregate functions with other
-  distinct aggregate functions.
+  ```
+  SELECT LISTAGG(sellerid) 
+  WITHIN GROUP (ORDER BY dateid) AS sellers,
+  LISTAGG(dateid) 
+  WITHIN GROUP (ORDER BY dateid) AS dates
+  FROM sales;
+  
+  SELECT LISTAGG(sellerid) 
+  WITHIN GROUP (ORDER BY dateid) AS sellers,
+  LISTAGG(dateid) AS dates
+  FROM sales;
+  ```
++ You can't use the LISTAGG, PERCENTILE\_CONT, and MEDIAN aggregate functions with other distinct aggregate functions.
 
 ## Examples
+<a name="r_LISTAGG-examples"></a>
 
-The following example aggregates seller IDs, ordered by seller ID.
+The following example aggregates seller IDs, ordered by seller ID. 
 
 ```
-SELECT LISTAGG(sellerid, ', ')
-WITHIN GROUP (ORDER BY sellerid)
+SELECT LISTAGG(sellerid, ', ') 
+WITHIN GROUP (ORDER BY sellerid) 
 FROM sales
 WHERE eventid = 4337;
 
-`listagg
+listagg                                                                                                                                 
 ----------------------------------------------------------------------------------------------------------------------------------------
-380, 380, 1178, 1178, 1178, 2731, 8117, 12905, 32043, 32043, 32043, 32432, 32432, 38669, 38750, 41498, 45676, 46324, 47188, 47188, 48294`
+380, 380, 1178, 1178, 1178, 2731, 8117, 12905, 32043, 32043, 32043, 32432, 32432, 38669, 38750, 41498, 45676, 46324, 47188, 47188, 48294
 ```
 
 The following example uses DISTINCT to return a list of unique seller IDs.
 
 ```
-SELECT LISTAGG(DISTINCT sellerid, ', ')
-WITHIN GROUP (ORDER BY sellerid)
+SELECT LISTAGG(DISTINCT sellerid, ', ') 
+WITHIN GROUP (ORDER BY sellerid) 
 FROM sales
 WHERE eventid = 4337;
 
-`listagg
+listagg                                                                                    
 -------------------------------------------------------------------------------------------
-380, 1178, 2731, 8117, 12905, 32043, 32432, 38669, 38750, 41498, 45676, 46324, 47188, 48294`
+380, 1178, 2731, 8117, 12905, 32043, 32432, 38669, 38750, 41498, 45676, 46324, 47188, 48294
 ```
 
-The following example aggregates seller IDs in date order.
+The following example aggregates seller IDs in date order. 
 
 ```
-SELECT LISTAGG(sellerid, ', ')
-WITHIN GROUP (ORDER BY dateid)
+SELECT LISTAGG(sellerid, ', ')  
+WITHIN GROUP (ORDER BY dateid) 
 FROM sales
 WHERE eventid = 4337;
 
@@ -126,31 +115,31 @@ The following example returns a pipe-separated list of sales dates for the buyer
 
 ```
 SELECT LISTAGG(
-    (SELECT caldate FROM date WHERE date.dateid=sales.dateid), ' | '
+    (SELECT caldate FROM date WHERE date.dateid=sales.dateid), ' | '    
 )
 WITHIN GROUP (ORDER BY sellerid DESC, salesid ASC)
 FROM sales
 WHERE buyerid = 660;
 
- `listagg
+             listagg
 -------------------------------------------------
-2008-07-16 | 2008-07-09 | 2008-01-01 | 2008-10-26`
+2008-07-16 | 2008-07-09 | 2008-01-01 | 2008-10-26
 ```
 
 The following example returns a comma-separated list of sales IDs for the buyer IDs 660, 661, and 662.
 
 ```
-SELECT buyerid,
+SELECT buyerid, 
 LISTAGG(salesid,', ')
 WITHIN GROUP (ORDER BY salesid) AS sales_id
 FROM sales
 WHERE buyerid BETWEEN 660 AND 662
 GROUP BY buyerid
 ORDER BY buyerid;
-
-`buyerid | sales_id
+            
+buyerid |                sales_id
 --------+-----------------------------------------------------
-660 | 32872, 33095, 33514, 34548
-661 | 19951, 20517, 21695, 21931
-662 | 3318, 3823, 4215, 51980, 53202, 55908, 57832, 171603`
+660     | 32872, 33095, 33514, 34548
+661     | 19951, 20517, 21695, 21931
+662     | 3318, 3823, 4215, 51980, 53202, 55908, 57832, 171603
 ```

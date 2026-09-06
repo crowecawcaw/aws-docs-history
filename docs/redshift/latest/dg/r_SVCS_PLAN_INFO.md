@@ -1,40 +1,39 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_PLAN\_INFO
+<a name="r_SVCS_PLAN_INFO"></a>
 
-Use the SVCS\_PLAN\_INFO table to look at the EXPLAIN output for a query in terms of a
-set of rows. This is an alternative way to look at query plans.
+Use the SVCS\_PLAN\_INFO table to look at the EXPLAIN output for a query in terms of a set of rows. This is an alternative way to look at query plans. 
 
-###### Note
+**Note**  
+System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters. The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
 
-System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
-The views are similar to the tables with the prefix STL except that the STL tables provide information only for queries run on the main cluster.
-
-SVCS\_PLAN\_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVCS\_PLAN\_INFO is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_SVCS_PLAN_INFO-table-columns"></a>
 
-| Column name | Data type        | Description                                                                                                                                                                                              |
-| ----------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid      | integer          | ID of the user who generated the entry.                                                                                                                                                                  |
-| query       | integer          | Query ID. The query column can be used to join other system tables and views.                                                                                                                            |
-| nodeid      | integer          | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                                                           |
-| segment     | integer          | Number that identifies the query segment.                                                                                                                                                                |
-| step        | integer          | Number that identifies the query step.                                                                                                                                                                   |
-| locus       | integer          | Location where the step runs. 0 if on a<br>compute node and 1 if on the leader node.                                                                                                                     |
-| plannode    | integer          | Enumerated value of the plan node. See the<br>following table for enums for plannode. (The PLANNODE column in<br>[SVCS\_EXPLAIN](r_SVCS_EXPLAIN.md "r_SVCS_EXPLAIN.md")<br>contains the plan node text.) |
-| startupcost | double precision | The estimated relative cost of returning the first<br>row for this step.                                                                                                                                 |
-| totalcost   | double precision | The estimated relative cost of executing the<br>step.                                                                                                                                                    |
-| rows        | bigint           | The estimated number of rows that will be produced<br>by the step.                                                                                                                                       |
-| bytes       | bigint           | The estimated number of bytes that will be<br>produced by the step.                                                                                                                                      |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| query | integer | Query ID. The query column can be used to join other system tables and views. | 
+| nodeid  | integer  | Plan node identifier, where a node maps to one or more steps in the execution of the query.  | 
+| segment  | integer  | Number that identifies the query segment. | 
+| step  | integer  | Number that identifies the query step. | 
+| locus  | integer  | Location where the step runs. 0 if on a compute node and 1 if on the leader node.  | 
+| plannode  | integer | Enumerated value of the plan node. See the following table for enums for plannode. (The PLANNODE column in [SVCS\_EXPLAIN](r_SVCS_EXPLAIN.md) contains the plan node text.) | 
+| startupcost  | double precision | The estimated relative cost of returning the first row for this step. | 
+| totalcost  | double precision | The estimated relative cost of executing the step. | 
+| rows  | bigint | The estimated number of rows that will be produced by the step. | 
+| bytes  | bigint | The estimated number of bytes that will be produced by the step. | 
 
 ## Sample queries
+<a name="r_SVCS_PLAN_INFO-sample-queries"></a>
 
-The following examples compare the query plans for a simple SELECT query returned
-by using the EXPLAIN command and by querying the SVCS\_PLAN\_INFO table.
+The following examples compare the query plans for a simple SELECT query returned by using the EXPLAIN command and by querying the SVCS\_PLAN\_INFO table. 
 
 ```
 explain select * from category;
@@ -61,8 +60,7 @@ query | nodeid | segment | step | locus | plannode | startupcost | totalcost
 (2 rows)
 ```
 
-In this example, PLANNODE 104 refers to the sequential scan of the CATEGORY
-table.
+In this example, PLANNODE 104 refers to the sequential scan of the CATEGORY table.
 
 ```
 select distinct eventname from event order by 1;
@@ -97,7 +95,7 @@ select * from svcs_plan_info where query=240 order by nodeid desc;
 query | nodeid | segment | step | locus | plannode | startupcost |
 totalcost | rows | bytes
 -------+--------+---------+------+-------+----------+------------------+------------------+------+--------
-240 | 5 | 0 | 0 | 0 | 104 | 0                | 87.98   | 8798 | 149566
+240 | 5 | 0 | 0 | 0 | 104 | 0                | 87.98   | 8798 | 149566         
 240 | 5 | 0 | 1 | 0 | 104 | 0                | 87.98   | 8798 | 149566
 240 | 4 | 0 | 2 | 0 | 117 | 0                | 109.975 | 576  | 9792
 240 | 4 | 0 | 3 | 0 | 117 | 0                | 109.975 | 576  | 9792

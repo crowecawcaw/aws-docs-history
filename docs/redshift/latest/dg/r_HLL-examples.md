@@ -1,23 +1,22 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples
+<a name="r_HLL-examples"></a>
 
 This section contains examples for using HyperLogLog with Amazon Redshift.
 
-###### Topics
-
-- [Example: Return cardinality in a subquery](#hll-examples-subquery "#hll-examples-subquery")
-- [Example: Return an HLLSKETCH type from combined sketches in a subquery](#hll-examples-combined-subquery "#hll-examples-combined-subquery")
-- [Example: Return a HyperLogLog sketch from combining multiple sketches](#hll-examples-multiple-sketches "#hll-examples-multiple-sketches")
-- [Example: Generate HyperLogLog sketches over S3 data using external tables](#hll-examples-cache-sketches "#hll-examples-cache-sketches")
+**Topics**
++ [Example: Return cardinality in a subquery](#hll-examples-subquery)
++ [Example: Return an HLLSKETCH type from combined sketches in a subquery](#hll-examples-combined-subquery)
++ [Example: Return a HyperLogLog sketch from combining multiple sketches](#hll-examples-multiple-sketches)
++ [Example: Generate HyperLogLog sketches over S3 data using external tables](#hll-examples-cache-sketches)
 
 ## Example: Return cardinality in a subquery
+<a name="hll-examples-subquery"></a>
 
-The following example returns the cardinality for each sketch in a subquery for a table
-named _Sales_.
+The following example returns the cardinality for each sketch in a subquery for a table named *Sales*.
 
 ```
 CREATE TABLE Sales (customer VARCHAR, country VARCHAR, amount BIGINT);
@@ -31,7 +30,7 @@ SELECT hll_cardinality(sketch), country
 FROM (SELECT hll_create_sketch(customer) AS sketch, country
         FROM Sales
         GROUP BY country) AS hll_subquery;
-
+        
 hll_cardinality | country
 ----------------+---------
             1   | USA
@@ -40,30 +39,26 @@ hll_cardinality | country
 ```
 
 ## Example: Return an HLLSKETCH type from combined sketches in a subquery
+<a name="hll-examples-combined-subquery"></a>
 
-The following example returns a single HLLSKETCH type that represents the combination
-of individual sketches from a subquery. The sketches are combined by using the
-HLL\_COMBINE aggregate function.
+The following example returns a single HLLSKETCH type that represents the combination of individual sketches from a subquery. The sketches are combined by using the HLL\_COMBINE aggregate function. 
 
 ```
 SELECT hll_combine(sketch)
 FROM (SELECT hll_create_sketch(customer) AS sketch
         FROM Sales
         GROUP BY country) AS hll_subquery
-
+       
                                         hll_combine
 --------------------------------------------------------------------------------------------
  {"version":1,"logm":15,"sparse":{"indices":[29808639,35021072,47612452],"values":[1,1,1]}}
 (1 row)
-
 ```
 
 ## Example: Return a HyperLogLog sketch from combining multiple sketches
+<a name="hll-examples-multiple-sketches"></a>
 
-For the following example, suppose that the table `page-users` stores
-preaggregated sketches for each page that users visited on a given website. Each row
-in this table contains a HyperLogLog sketch that represents all user IDs that show
-the visited pages.
+For the following example, suppose that the table `page-users` stores preaggregated sketches for each page that users visited on a given website. Each row in this table contains a HyperLogLog sketch that represents all user IDs that show the visited pages.
 
 ```
 page_users
@@ -75,9 +70,7 @@ page_users
 -- +----------------+-------------+--------------+
 ```
 
-The following example unions the preaggregated multiple sketches and generates a single
-sketch. This sketch encapsulates the collective cardinality that each sketch
-encapsulates.
+The following example unions the preaggregated multiple sketches and generates a single sketch. This sketch encapsulates the collective cardinality that each sketch encapsulates.
 
 ```
 SELECT hll_combine(sketch) as sketch
@@ -94,17 +87,15 @@ The output looks similar to the following.
 -- +-----------------------------------------+
 ```
 
-When a new sketch is created, you can use the HLL\_CARDINALITY function to get the
-collective distinct values, as shown following.
+When a new sketch is created, you can use the HLL\_CARDINALITY function to get the collective distinct values, as shown following.
 
 ```
 SELECT hll_cardinality(sketch)
-FROM (
+FROM ( 
   SELECT
   hll_combine(sketch) as sketch
   FROM page_users
 ) AS hll_subquery
-
 ```
 
 The output looks similar to the following.
@@ -118,18 +109,13 @@ The output looks similar to the following.
 ```
 
 ## Example: Generate HyperLogLog sketches over S3 data using external tables
+<a name="hll-examples-cache-sketches"></a>
 
-The following examples cache HyperLogLog sketches to avoid directly accessing Amazon S3
-for cardinality estimation.
+The following examples cache HyperLogLog sketches to avoid directly accessing Amazon S3 for cardinality estimation. 
 
-You can preaggregate and cache HyperLogLog sketches in external tables defined to
-hold Amazon S3 data. By doing this, you can extract cardinality estimates without
-accessing the underlying base data.
+You can preaggregate and cache HyperLogLog sketches in external tables defined to hold Amazon S3 data. By doing this, you can extract cardinality estimates without accessing the underlying base data. 
 
-For example, suppose that you have unloaded a set of tab-delimited text files into
-Amazon S3. You run the following query to define an external table named
-`sales` in the Amazon Redshift external schema named `spectrum`.
-The Amazon S3 bucket for this example is in the US East (N. Virginia) AWS Region.
+For example, suppose that you have unloaded a set of tab-delimited text files into Amazon S3. You run the following query to define an external table named `sales` in the Amazon Redshift external schema named `spectrum`. The Amazon S3 bucket for this example is in the US East (N. Virginia) AWS Region.
 
 ```
 create external table spectrum.sales(
@@ -148,17 +134,14 @@ fields terminated by '\t' stored as textfile
 location 's3://redshift-downloads/tickit/spectrum/sales/';
 ```
 
-Suppose that you want to compute the distinct buyers who purchased an item on
-arbitrary dates. To do so, the following example generates sketches for the buyer IDs
-for each day of the year and stores the result in the Amazon Redshift table
-`hll_sales`.
+Suppose that you want to compute the distinct buyers who purchased an item on arbitrary dates. To do so, the following example generates sketches for the buyer IDs for each day of the year and stores the result in the Amazon Redshift table `hll_sales`.
 
 ```
 CREATE TABLE hll_sales AS
 SELECT saletime, hll_create_sketch(buyerid) AS sketch
 FROM spectrum.sales
 GROUP BY saletime;
-
+            
 SELECT TOP 5 * FROM hll_sales;
 ```
 
@@ -177,8 +160,7 @@ The output looks similar to the following.
 -- +---------------- +---------------------------------------------------------------------+
 ```
 
-The following query shows the estimated number of distinct buyers that purchased
-an item during the Friday after Thanksgiving in 2008.
+The following query shows the estimated number of distinct buyers that purchased an item during the Friday after Thanksgiving in 2008.
 
 ```
 SELECT hll_cardinality(hll_combine(sketch)) as distinct_buyers
@@ -194,11 +176,7 @@ distinct_buyers
 386
 ```
 
-Suppose that you want the number of distinct users who bought an item on a certain
-range of dates. An example might be from the Friday after Thanksgiving to the following
-Monday. To get this, the following query uses the `hll_combine` aggregate
-function. With this function, you can avoid double-counting buyers who purchased an
-item on more than one day of the selected range.
+Suppose that you want the number of distinct users who bought an item on a certain range of dates. An example might be from the Friday after Thanksgiving to the following Monday. To get this, the following query uses the `hll_combine` aggregate function. With this function, you can avoid double-counting buyers who purchased an item on more than one day of the selected range. 
 
 ```
 SELECT hll_cardinality(hll_combine(sketch)) as distinct_buyers
@@ -214,15 +192,12 @@ distinct_buyers
 1166
 ```
 
-To keep the `hll_sales` table up-to-date, run the following query at the
-end of each day. Doing this generates an HyperLogLog sketch based on the IDs of
-buyers that purchased an item today and adds it to the `hll_sales`
-table.
+To keep the `hll_sales` table up-to-date, run the following query at the end of each day. Doing this generates an HyperLogLog sketch based on the IDs of buyers that purchased an item today and adds it to the `hll_sales` table.
 
 ```
-INSERT INTO hll_sales
-SELECT saletime, hll_create_sketch(buyerid)
-FROM spectrum.sales
+INSERT INTO hll_sales 
+SELECT saletime, hll_create_sketch(buyerid) 
+FROM spectrum.sales 
 WHERE TRUNC(saletime) = to_char(GETDATE(), 'YYYY-MM-DD')
 GROUP BY saletime;
 ```

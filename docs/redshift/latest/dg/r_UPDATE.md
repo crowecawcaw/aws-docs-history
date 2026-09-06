@@ -1,117 +1,78 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # UPDATE
+<a name="r_UPDATE"></a>
 
-###### Topics
+**Topics**
++ [Syntax](#r_UPDATE-synopsis)
++ [Parameters](#r_UPDATE-parameters)
++ [Usage notes](#r_UPDATE_usage_notes)
++ [Examples of UPDATE statements](c_Examples_of_UPDATE_statements.md)
 
-- [Syntax](#r_UPDATE-synopsis "#r_UPDATE-synopsis")
-- [Parameters](#r_UPDATE-parameters "#r_UPDATE-parameters")
-- [Usage notes](#r_UPDATE_usage_notes "#r_UPDATE_usage_notes")
-- [Examples of UPDATE statements](c_Examples_of_UPDATE_statements.md "c_Examples_of_UPDATE_statements.md")
-  Updates values in one or more table columns when a condition is satisfied.
+Updates values in one or more table columns when a condition is satisfied. 
 
-###### Note
-
+**Note**  
 The maximum size for a single SQL statement is 16 MB.
 
 ## Syntax
+<a name="r_UPDATE-synopsis"></a>
 
 ```
-[ WITH [RECURSIVE] *common\_table\_expression* [, *common\_table\_expression* , ...] ]
-            UPDATE *table\_name* [ [ AS ] alias ] SET column = { *expression* | DEFAULT } [,...]
+[ WITH [RECURSIVE] common_table_expression [, common_table_expression , ...] ]
+            UPDATE table_name [ [ AS ] alias ] SET column = { expression | DEFAULT } [,...]
 
-[ FROM *fromlist* ]
-[ WHERE *condition* ]
+[ FROM fromlist ]
+[ WHERE condition ]
 ```
 
 ## Parameters
+<a name="r_UPDATE-parameters"></a>
 
-WITH clause
+WITH clause  
+Optional clause that specifies one or more *common-table-expressions*. See [WITH clause](r_WITH_clause.md). 
 
-Optional clause that specifies one or more
-_common-table-expressions_. See [WITH clause](r_WITH_clause.md "r_WITH_clause.md").
+ *table\_name*   
+A temporary or persistent table. Only the owner of the table or a user with UPDATE privilege on the table may update rows. If you use the FROM clause or select from tables in an expression or condition, you must have SELECT privilege on those tables. You can't give the table an alias here; however, you can specify an alias in the FROM clause.   
+Amazon Redshift Spectrum external tables are read-only. You can't UPDATE an external table.
 
-_table\_name_
+alias  
+Temporary alternative name for a target table. Aliases are optional. The AS keyword is always optional. 
 
-A temporary or persistent table. Only the owner of the table or a user with
-UPDATE privilege on the table may update rows. If you use the FROM clause or
-select from tables in an expression or condition, you must have SELECT
-privilege on those tables. You can't give the table an alias here;
-however, you can specify an alias in the FROM clause.
+SET *column* =   
+One or more columns that you want to modify. Columns that aren't listed retain their current values. Do not include the table name in the specification of a target column. For example, `UPDATE tab SET tab.col = 1` is invalid.
 
-###### Note
+ *expression*   
+An expression that defines the new value for the specified column. 
 
-Amazon Redshift Spectrum external tables are read-only. You can't UPDATE an
-external table.
+DEFAULT   
+Updates the column with the default value that was assigned to the column in the CREATE TABLE statement. 
 
-alias
+FROM *tablelist*   
+You can update a table by referencing information in other tables. List these other tables in the FROM clause or use a subquery as part of the WHERE condition. Tables listed in the FROM clause can have aliases. If you need to include the target table of the UPDATE statement in the list, use an alias. 
 
-Temporary alternative name for a target table. Aliases are optional. The AS
-keyword is always optional.
-
-SET _column_ =
-
-One or more columns that you want to modify. Columns that aren't listed
-retain their current values. Do not include the table name in the specification
-of a target column. For example, `UPDATE tab SET tab.col = 1` is
-invalid.
-
-_expression_
-
-An expression that defines the new value for the specified column.
-
-DEFAULT
-
-Updates the column with the default value that was assigned to the column in
-the CREATE TABLE statement.
-
-FROM _tablelist_
-
-You can update a table by referencing information in other tables. List
-these other tables in the FROM clause or use a subquery as part of the WHERE
-condition. Tables listed in the FROM clause can have aliases. If you need to
-include the target table of the UPDATE statement in the list, use an alias.
-
-WHERE _condition_
-
-Optional clause that restricts updates to rows that match a condition. When
-the condition returns `true`, the specified SET columns are updated.
-The condition can be a simple predicate on a column or a condition based on the
-result of a subquery.
-
-You can name any table in the subquery, including the target table for the
-UPDATE.
+WHERE *condition*   
+Optional clause that restricts updates to rows that match a condition. When the condition returns `true`, the specified SET columns are updated. The condition can be a simple predicate on a column or a condition based on the result of a subquery.   
+You can name any table in the subquery, including the target table for the UPDATE. 
 
 ## Usage notes
+<a name="r_UPDATE_usage_notes"></a>
 
-After updating a large number of rows in a table:
+After updating a large number of rows in a table: 
++ Vacuum the table to reclaim storage space and re-sort rows. 
++ Analyze the table to update statistics for the query planner. 
 
-- Vacuum the table to reclaim storage space and re-sort rows.
-- Analyze the table to update statistics for the query planner.
-
-Left, right, and full outer joins aren't supported in the FROM clause of an
-UPDATE statement; they return the following error:
+Left, right, and full outer joins aren't supported in the FROM clause of an UPDATE statement; they return the following error: 
 
 ```
 ERROR: Target table must be part of an equijoin predicate
 ```
 
-If you need to specify an outer join, use a subquery in the WHERE clause of the
-UPDATE statement.
+ If you need to specify an outer join, use a subquery in the WHERE clause of the UPDATE statement. 
 
-If your UPDATE statement requires a self-join to the target table, you need to
-specify the join condition, as well as the WHERE clause criteria that qualify rows for
-the update operation. In general, when the target table is joined to itself or another
-table, a best practice is to use a subquery that clearly separates the join conditions
-from the criteria that qualify rows for updates.
+If your UPDATE statement requires a self-join to the target table, you need to specify the join condition, as well as the WHERE clause criteria that qualify rows for the update operation. In general, when the target table is joined to itself or another table, a best practice is to use a subquery that clearly separates the join conditions from the criteria that qualify rows for updates. 
 
-UPDATE queries with multiple matches per row throw an error when the configuration
-parameter `error_on_nondeterministic_update` is set to
-_true_. For more information, see [error\_on\_nondeterministic\_update](r_error_on_nondeterministic_update.md "r_error_on_nondeterministic_update.md").
+UPDATE queries with multiple matches per row throw an error when the configuration parameter `error_on_nondeterministic_update` is set to *true*. For more information, see [error\_on\_nondeterministic\_update](r_error_on_nondeterministic_update.md).
 
-You can update a GENERATED BY DEFAULT AS IDENTITY column. Columns defined as
-GENERATED BY DEFAULT AS IDENTITY can be updated with values you supply. For more
-information, see [GENERATED BY DEFAULT AS IDENTITY](r_CREATE_TABLE_NEW.md#identity-generated-bydefault-clause "r_CREATE_TABLE_NEW.md#identity-generated-bydefault-clause").
+You can update a GENERATED BY DEFAULT AS IDENTITY column. Columns defined as GENERATED BY DEFAULT AS IDENTITY can be updated with values you supply. For more information, see [GENERATED BY DEFAULT AS IDENTITY](r_CREATE_TABLE_NEW.md#identity-generated-bydefault-clause). 

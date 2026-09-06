@@ -1,163 +1,123 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # REGEXP\_INSTR function
+<a name="REGEXP_INSTR"></a>
 
-Searches a string for a regular expression pattern and returns an integer that
-indicates the beginning position or ending position of the matched substring. If no
-match is found, then the function returns `0`. REGEXP\_INSTR is similar to the [POSITION](r_POSITION.md "r_POSITION.md") function, but with REGEXP\_INSTR, you can search a string for a
-regular expression pattern. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md "pattern-matching-conditions-posix.md") and
-[Regular expression](https://en.wikipedia.org/wiki/Regular_expression "https://en.wikipedia.org/wiki/Regular_expression") in Wikipedia.
+Searches a string for a regular expression pattern and returns an integer that indicates the beginning position or ending position of the matched substring. If no match is found, then the function returns `0`. REGEXP\_INSTR is similar to the [POSITION](r_POSITION.md) function, but with REGEXP\_INSTR, you can search a string for a regular expression pattern. For more information about regular expressions, see [POSIX operators](pattern-matching-conditions-posix.md) and [Regular expression](https://en.wikipedia.org/wiki/Regular_expression) in Wikipedia.
 
 ## Syntax
+<a name="REGEXP_INSTR-synopsis"></a>
 
 ```
-REGEXP_INSTR( *source\_string*, *pattern* [, *position* [, *occurrence*] [, *option* [, *parameters* ] ] ] ] )
+REGEXP_INSTR( source_string, pattern [, position [, occurrence] [, option [, parameters ] ] ] ] )
 ```
 
 ## Arguments
+<a name="REGEXP_INSTR-arguments"></a>
 
-_source\_string_
+ *source\_string*   
+A string expression, such as a column name, to be searched. 
 
-A string expression, such as a column name, to be searched.
+ *pattern*   
+A UTF-8 string literal that represents a regular expression pattern. For more information, see [POSIX operators](pattern-matching-conditions-posix.md).
 
-_pattern_
+ *position*   
+(Optional) A positive `INTEGER` that indicates the position within *source\_string* to begin searching. The position is based on the number of characters, not bytes, so that multibyte characters are counted as single characters. The default is `1`. If *position* is less than `1`, the search begins at the first character of *source\_string*. If *position* is greater than the number of characters in *source\_string*, the result is `0`.
 
-A UTF-8 string literal that represents a regular expression pattern. For more information, see
-[POSIX operators](pattern-matching-conditions-posix.md "pattern-matching-conditions-posix.md").
+ *occurrence*   
+(Optional) A positive `INTEGER` that indicates which occurrence of the pattern to use. REGEXP\_INSTR skips the first `occurrence-1` matches. The default is `1`. If *occurrence* is less than `1` or greater than the number of characters in *source\_string*, the search is ignored and the result is `0`.
 
-_position_
+ *option*   
+(Optional) A value that indicates whether to return the position of the first character of the match (`0`) or the position of the first character following the end of the match (`1`). A nonzero value is the same as `1`. The default value is `0`. 
 
-(Optional) A positive `INTEGER` that indicates the position within
-_source\_string_ to begin searching. The position is
-based on the number of characters, not bytes, so that multibyte characters
-are counted as single characters. The default is `1`. If
-_position_ is less than `1`, the search begins at the
-first character of _source\_string_. If
-_position_ is greater than the number of characters in
-_source\_string_, the result is `0`.
+ *parameters*   
+(Optional) One or more string literals that indicate how the function matches the pattern. The possible values are the following:  
++ c – Perform case-sensitive matching. The default is to use case-sensitive matching. 
++ i – Perform case-insensitive matching. 
++ e – Extract a substring using a subexpression. 
 
-_occurrence_
-
-(Optional) A positive `INTEGER` that indicates which occurrence of the pattern to use.
-REGEXP\_INSTR skips the first `*occurrence*-1` matches. The
-default is `1`. If _occurrence_ is less than `1` or greater
-than the number of characters in _source\_string_, the
-search is ignored and the result is `0`.
-
-_option_
-
-(Optional) A value that indicates whether to return the position of the first
-character of the match (`0`) or the position of the first
-character following the end of the match (`1`). A nonzero value
-is the same as `1`. The default value is `0`.
-
-_parameters_
-
-(Optional) One or more string literals that indicate how the function matches the
-pattern. The possible values are the following:
-
-- c – Perform case-sensitive matching. The default is to use
-  case-sensitive matching.
-- i – Perform case-insensitive matching.
-- e – Extract a substring using a subexpression.
-
-If _pattern_ includes a subexpression,
-REGEXP\_INSTR matches a substring using the first subexpression in
-_pattern_. REGEXP\_INSTR considers only the first
-subexpression; additional subexpressions are ignored. If the pattern
-doesn't have a subexpression, REGEXP\_INSTR ignores the 'e' parameter.
-
-- p – Interpret the pattern with Perl Compatible Regular Expression (PCRE) dialect.
-  For more information about PCRE, see
-  [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions "https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions") in Wikipedia.
+  If *pattern* includes a subexpression, REGEXP\_INSTR matches a substring using the first subexpression in *pattern*. REGEXP\_INSTR considers only the first subexpression; additional subexpressions are ignored. If the pattern doesn't have a subexpression, REGEXP\_INSTR ignores the 'e' parameter. 
++ p – Interpret the pattern with Perl Compatible Regular Expression (PCRE) dialect. For more information about PCRE, see [Perl Compatible Regular Expressions](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions) in Wikipedia.
 
 ## Return type
+<a name="REGEXP_INSTR-return-type"></a>
 
 Integer
 
 ## Examples
+<a name="REGEXP_INSTR-examples"></a>
 
-The following examples use data from the USERS table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+The following examples use data from the USERS table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md). 
 
-To search for the `@` character that begins a
-domain name and returns the starting position of the first match, use the following example.
+To search for the `@` character that begins a domain name and returns the starting position of the first match, use the following example.
 
 ```
-`SELECT email, REGEXP_INSTR(email, '@[^.]*')
+SELECT email, REGEXP_INSTR(email, '@[^.]*')
 FROM users
-ORDER BY userid LIMIT 4;`
+ORDER BY userid LIMIT 4;
 
-`+-----------------------------------------------+--------------+
-| email | regexp_instr |
 +-----------------------------------------------+--------------+
-| Etiam.laoreet.libero@sodalesMaurisblandit.edu | 21 |
-| Suspendisse.tristique@nonnisiAenean.edu | 22 |
-| amet.faucibus.ut@condimentumegetvolutpat.ca | 17 |
-| sed@lacusUtnec.ca | 4 |
-+-----------------------------------------------+--------------+`
+|                     email                     | regexp_instr |
++-----------------------------------------------+--------------+
+| Etiam.laoreet.libero@sodalesMaurisblandit.edu |           21 |
+| Suspendisse.tristique@nonnisiAenean.edu       |           22 |
+| amet.faucibus.ut@condimentumegetvolutpat.ca   |           17 |
+| sed@lacusUtnec.ca                             |            4 |
++-----------------------------------------------+--------------+
 ```
 
-To search for variants of the word `Center` and
-returns the starting position of the first match, use the following example.
+To search for variants of the word `Center` and returns the starting position of the first match, use the following example.
 
 ```
-`SELECT venuename, REGEXP_INSTR(venuename,'[cC]ent(er|re)$')
+SELECT venuename, REGEXP_INSTR(venuename,'[cC]ent(er|re)$')
 FROM venue
 WHERE REGEXP_INSTR(venuename,'[cC]ent(er|re)$') > 0
-ORDER BY venueid LIMIT 4;`
+ORDER BY venueid LIMIT 4;
 
-`+-----------------------+--------------+
-| venuename | regexp_instr |
 +-----------------------+--------------+
-| The Home Depot Center | 16 |
-| Izod Center | 6 |
-| Wachovia Center | 10 |
-| Air Canada Centre | 12 |
-+-----------------------+--------------+`
+|       venuename       | regexp_instr |
++-----------------------+--------------+
+| The Home Depot Center |           16 |
+| Izod Center           |            6 |
+| Wachovia Center       |           10 |
+| Air Canada Centre     |           12 |
++-----------------------+--------------+
 ```
 
-To find the starting position of the first occurrence of the
-string `FOX`, using case-insensitive matching logic, use the following example.
+To find the starting position of the first occurrence of the string `FOX`, using case-insensitive matching logic, use the following example. 
 
 ```
-`SELECT REGEXP_INSTR('the fox', 'FOX', 1, 1, 0, 'i');`
+SELECT REGEXP_INSTR('the fox', 'FOX', 1, 1, 0, 'i');
 
-`+--------------+
++--------------+
 | regexp_instr |
 +--------------+
-| 5 |
-+--------------+`
+|            5 |
++--------------+
 ```
 
-To use a pattern written in PCRE dialect to locate words
-containing at least one number and one lowercase letter, use the following example. It uses the `?=` operator,
-which has a specific look-ahead connotation in PCRE. This example finds the
-starting position of the second such word.
+To use a pattern written in PCRE dialect to locate words containing at least one number and one lowercase letter, use the following example. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example finds the starting position of the second such word.
 
 ```
-`SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 0, 'p');`
+SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 0, 'p');
 
-`+--------------+
++--------------+
 | regexp_instr |
 +--------------+
-| 21 |
-+--------------+`
+|           21 |
++--------------+
 ```
 
-To use a pattern written in PCRE dialect to locate words
-containing at least one number and one lowercase letter, use the following example. It uses
-the `?=` operator, which has a specific look-ahead connotation in
-PCRE. This example finds the starting position of the second such word, but differs from the previous example in that it uses case-insensitive matching.
+To use a pattern written in PCRE dialect to locate words containing at least one number and one lowercase letter, use the following example. It uses the `?=` operator, which has a specific look-ahead connotation in PCRE. This example finds the starting position of the second such word, but differs from the previous example in that it uses case-insensitive matching.
 
 ```
-`SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 0, 'ip');`
+SELECT REGEXP_INSTR('passwd7 plain A1234 a1234', '(?=[^ ]*[a-z])(?=[^ ]*[0-9])[^ ]+', 1, 2, 0, 'ip');
 
-`+--------------+
++--------------+
 | regexp_instr |
 +--------------+
-| 15 |
-+--------------+`
+|           15 |
++--------------+
 ```

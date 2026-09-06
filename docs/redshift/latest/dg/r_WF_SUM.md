@@ -1,74 +1,59 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SUM window function
+<a name="r_WF_SUM"></a>
 
-The SUM window function returns the sum of the input column or expression values.
-The SUM function works with numeric values and ignores NULL values.
+ The SUM window function returns the sum of the input column or expression values. The SUM function works with numeric values and ignores NULL values.
 
 ## Syntax
+<a name="r_WF_SUM-synopsis"></a>
 
 ```
-SUM ( [ ALL ] *expression* ) OVER
+SUM ( [ ALL ] expression ) OVER
 (
-[ PARTITION BY *expr\_list* ]
-[ ORDER BY *order\_list*
-                        *frame\_clause* ]
+[ PARTITION BY expr_list ]
+[ ORDER BY order_list 
+                        frame_clause ]
 )
 ```
 
 ## Arguments
+<a name="r_WF_SUM-arguments"></a>
 
-_expression_
+ *expression *   
+The target column or expression that the function operates on. 
 
-The target column or expression that the function operates on.
+ALL   
+With the argument ALL, the function retains all duplicate values from the expression. ALL is the default. DISTINCT is not supported.
 
-ALL
+OVER   
+Specifies the window clauses for the aggregation functions. The OVER clause distinguishes window aggregation functions from normal set aggregation functions.
 
-With the argument ALL, the function retains all duplicate values from the
-expression. ALL is the default. DISTINCT is not supported.
+PARTITION BY *expr\_list*   
+Defines the window for the SUM function in terms of one or more expressions.
 
-OVER
+ORDER BY *order\_list*   
+Sorts the rows within each partition. If no PARTITION BY is specified, ORDER BY uses the entire table.
 
-Specifies the window clauses for the aggregation functions. The OVER
-clause distinguishes window aggregation functions from normal set
-aggregation functions.
-
-PARTITION BY _expr\_list_
-
-Defines the window for the SUM function in terms of one or more
-expressions.
-
-ORDER BY _order\_list_
-
-Sorts the rows within each partition. If no PARTITION BY is specified,
-ORDER BY uses the entire table.
-
-_frame\_clause_
-
-If an ORDER BY clause is used for an aggregate function, an explicit
-frame clause is required. The frame clause refines the set of rows in a
-function's window, including or excluding sets of rows within the ordered
-result. The frame clause consists of the ROWS keyword and associated
-specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis "c_Window_functions.md#r_Window_function_synopsis").
+ *frame\_clause*   
+If an ORDER BY clause is used for an aggregate function, an explicit frame clause is required. The frame clause refines the set of rows in a function's window, including or excluding sets of rows within the ordered result. The frame clause consists of the ROWS keyword and associated specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis).
 
 ## Data types
+<a name="c_Supported_data_types_wf_sum"></a>
 
-The argument types supported by the SUM function are SMALLINT, INTEGER, BIGINT,
-NUMERIC, DECIMAL, REAL, and DOUBLE PRECISION.
+The argument types supported by the SUM function are SMALLINT, INTEGER, BIGINT, NUMERIC, DECIMAL, REAL, and DOUBLE PRECISION.
 
-The return types supported by the SUM function are:
-
-- BIGINT for SMALLINT or INTEGER arguments
-- NUMERIC for BIGINT arguments
-- DOUBLE PRECISION for floating-point arguments
+The return types supported by the SUM function are: 
++ BIGINT for SMALLINT or INTEGER arguments
++ NUMERIC for BIGINT arguments
++ DOUBLE PRECISION for floating-point arguments
 
 ## Examples
+<a name="r_WF_SUM-examples"></a>
 
-The following example creates a cumulative (rolling) sum of sales quantities
-ordered by date and sales ID:
+The following example creates a cumulative (rolling) sum of sales quantities ordered by date and sales ID: 
 
 ```
 select salesid, dateid, sellerid, qty,
@@ -92,11 +77,9 @@ salesid |   dateid   | sellerid | qty | sum
 (11 rows)
 ```
 
-For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+ For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example).
 
-The following example creates a cumulative (rolling) sum of sales quantities by
-date, partition the results by seller ID, and order the results by date and sales ID
-within the partition:
+The following example creates a cumulative (rolling) sum of sales quantities by date, partition the results by seller ID, and order the results by date and sales ID within the partition: 
 
 ```
 select salesid, dateid, sellerid, qty,
@@ -121,8 +104,7 @@ salesid |   dateid   | sellerid | qty | sum
 (11 rows)
 ```
 
-The following example numbers all of the rows sequentially in the result set,
-ordered by the SELLERID and SALESID columns:
+The following example numbers all of the rows sequentially in the result set, ordered by the SELLERID and SALESID columns: 
 
 ```
 select salesid, sellerid, qty,
@@ -146,11 +128,9 @@ salesid | sellerid |  qty | rownum
 (11 rows)
 ```
 
-For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example). 
 
-The following example numbers all rows sequentially in the result set, partition
-the results by SELLERID, and order the results by SELLERID and SALESID within the
-partition:
+The following example numbers all rows sequentially in the result set, partition the results by SELLERID, and order the results by SELLERID and SALESID within the partition: 
 
 ```
 select salesid, sellerid, qty,

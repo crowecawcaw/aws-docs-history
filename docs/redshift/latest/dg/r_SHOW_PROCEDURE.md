@@ -1,37 +1,32 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHOW PROCEDURE
+<a name="r_SHOW_PROCEDURE"></a>
 
-Shows the definition of a given stored procedure, including its signature. You can use
-the output of a SHOW PROCEDURE to recreate the stored procedure.
+Shows the definition of a given stored procedure, including its signature. You can use the output of a SHOW PROCEDURE to recreate the stored procedure. 
 
 ## Syntax
+<a name="r_SHOW_PROCEDURE-synopsis"></a>
 
 ```
 SHOW PROCEDURE sp_name [( [ [ argname ] [ argmode ] argtype [, ...] ] )]
-
 ```
 
 ## Parameters
+<a name="r_SHOW_PROCEDURE-parameters"></a>
 
-_sp\_name_
+ *sp\_name*   
+The name of the procedure to show. 
 
-The name of the procedure to show.
-
-_[argname] [ argmode] argtype_
-
-Input argument types to identify the stored procedure. Optionally, you can
-include the full argument data types, including OUT arguments. This part is
-optional if the name of the stored procedure is unique (that is, not
-overloaded).
+*[argname] [ argmode] argtype*   
+Input argument types to identify the stored procedure. Optionally, you can include the full argument data types, including OUT arguments. This part is optional if the name of the stored procedure is unique (that is, not overloaded).
 
 ## Examples
+<a name="r_SHOW_PROCEDURE-examples"></a>
 
-The following example shows the definition of the procedure
-`test_spl2`.
+The following example shows the definition of the procedure `test_spl2`.
 
 ```
 show procedure test_sp2(int, varchar);
@@ -57,5 +52,4 @@ END;
 $_$
 
 (1 row)
-
 ```

@@ -1,37 +1,38 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_VACUUM\_HISTORY
+<a name="SYS_VACUUM_HISTORY"></a>
 
-Use SYS\_VACUUM\_HISTORY to view details of vacuum queries. For information on the
-VACUUM command, see [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md").
+Use SYS\_VACUUM\_HISTORY to view details of vacuum queries. For information on the VACUUM command, see [VACUUM](r_VACUUM_command.md).
 
-SYS\_VACUUM\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_VACUUM\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SYS_VACUUM_HISTORY-table-columns"></a>
 
-| Column name                | Data type | Description                                                                                                                                                                                                                                                                                                                                     |
-| -------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user\_id                   | integer   | The ID of the user who initiated the<br>query.                                                                                                                                                                                                                                                                                                  |
-| transaction\_id            | long      | The transaction ID for the VACUUM<br>statement.                                                                                                                                                                                                                                                                                                 |
-| query\_id                  | long      | The query identifier for the VACUUM statement. You<br>can join this table to the SYS\_QUERY\_DETAIL view to see the<br>individual SQL statements that are run for a given VACUUM<br>transaction. If you vacuum the whole database, each table is<br>vacuumed in a separate transaction. For automated VACUUM operations,<br>this value is null. |
-| database\_name             | text      | The name of the database.                                                                                                                                                                                                                                                                                                                       |
-| schema\_name               | text      | The name of the schema.                                                                                                                                                                                                                                                                                                                         |
-| table\_name                | text      | The name of the table.                                                                                                                                                                                                                                                                                                                          |
-| table\_id                  | integer   | The ID of the table.                                                                                                                                                                                                                                                                                                                            |
-| vacuum\_type               | character | The type of the VACUUM operation. Possible values<br>are as follows:<br>• `Delete`<br>• `Sort`<br>• `Reindex`<br>• `Recluster`<br>• `Full`<br>For more information on vacuum types, see [VACUUM](r_VACUUM_command.md "r_VACUUM_command.md").                                                                                                    |
-| is\_automatic              | boolean   | `true` if the operation is an automatic<br>vacuum. Otherwise, `false`.                                                                                                                                                                                                                                                                          |
-| status                     | character | Description of the current activity being done as<br>part of the vacuum operation:<br>• Initialize<br>• Sort<br>• Merge<br>• Delete<br>• Select<br>• Failed<br>• Complete<br>• Skipped<br>• Building INTERLEAVED SORTKEY order                                                                                                                  |
-| start\_time                | timestamp | The time the vacuum operation started.                                                                                                                                                                                                                                                                                                          |
-| end\_time                  | timestamp | The time the vacuum operation ended. If the<br>operation is ongoing, this field is blank.                                                                                                                                                                                                                                                       |
-| record\_time               | timestamp | The time the vacuum operation was recorded in<br>SYS\_VACUUM\_HISTORY.                                                                                                                                                                                                                                                                          |
-| duration                   | integer   | The number of microseconds between the start and<br>end of the vacuum operation. If the vacuum operation is ongoing,<br>this field is blank.                                                                                                                                                                                                    |
-| rows\_before\_vacuum       | bigint    | The actual number of rows in the table plus any<br>deleted rows that are still stored on disk (waiting to be<br>vacuumed).                                                                                                                                                                                                                      |
-| size\_before\_vacuum       | integer   | The size of the table before the vacuum operation<br>began, in MB.                                                                                                                                                                                                                                                                              |
-| reclaimable\_rows          | bigint    | The number of rows the vacuum operation estimates<br>it will reclaim before starting.                                                                                                                                                                                                                                                           |
-| reclaimed\_rows            | bigint    | The number of rows the vacuum operation reclaimed.                                                                                                                                                                                                                                                                                              |
-| reclaimed\_blocks          | bigint    | The number of blocks the vacuum operation<br>reclaimed.                                                                                                                                                                                                                                                                                         |
-| sortedrows\_before\_vacuum | integer   | The number of sorted rows in the table before the<br>vacuum operation started.                                                                                                                                                                                                                                                                  |
-| sortedrows\_after\_vacuum  | integer   | The additional number of sorted rows in the table<br>after the vacuum operation finished. This doesn't include the rows<br>counted in `sortedrows_before_vacuum`.                                                                                                                                                                               |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | The ID of the user who initiated the query. | 
+| transaction\_id | long | The transaction ID for the VACUUM statement. | 
+| query\_id | long | The query identifier for the VACUUM statement. You can join this table to the SYS\_QUERY\_DETAIL view to see the individual SQL statements that are run for a given VACUUM transaction. If you vacuum the whole database, each table is vacuumed in a separate transaction. For automated VACUUM operations, this value is null. | 
+| database\_name | text | The name of the database. | 
+| schema\_name | text | The name of the schema. | 
+| table\_name | text | The name of the table. | 
+| table\_id | integer | The ID of the table. | 
+| vacuum\_type | character | The type of the VACUUM operation. Possible values are as follows:+  **Delete** <br />+  **Sort** <br />+  **Reindex** <br />+  **Recluster** <br />+  **Full** For more information on vacuum types, see [VACUUM](r_VACUUM_command.md).  | 
+| is\_automatic | boolean | true if the operation is an automatic vacuum. Otherwise, false. | 
+| status | character | Description of the current activity being done as part of the vacuum operation: +  Initialize <br />+  Sort <br />+  Merge <br />+  Delete <br />+  Select <br />+  Failed <br />+  Complete <br />+  Skipped <br />+  Building INTERLEAVED SORTKEY order  | 
+| start\_time | timestamp | The time the vacuum operation started. | 
+| end\_time | timestamp | The time the vacuum operation ended. If the operation is ongoing, this field is blank. | 
+| record\_time | timestamp | The time the vacuum operation was recorded in SYS\_VACUUM\_HISTORY. | 
+| duration | integer | The number of microseconds between the start and end of the vacuum operation. If the vacuum operation is ongoing, this field is blank. | 
+| rows\_before\_vacuum | bigint | The actual number of rows in the table plus any deleted rows that are still stored on disk (waiting to be vacuumed). | 
+| size\_before\_vacuum | integer | The size of the table before the vacuum operation began, in MB. | 
+| reclaimable\_rows  | bigint | The number of rows the vacuum operation estimates it will reclaim before starting.  | 
+| reclaimed\_rows  | bigint | The number of rows the vacuum operation reclaimed.  | 
+| reclaimed\_blocks  | bigint | The number of blocks the vacuum operation reclaimed.  | 
+| sortedrows\_before\_vacuum  | integer | The number of sorted rows in the table before the vacuum operation started.  | 
+| sortedrows\_after\_vacuum  | integer | The additional number of sorted rows in the table after the vacuum operation finished. This doesn't include the rows counted in sortedrows\_before\_vacuum.  | 

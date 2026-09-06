@@ -1,35 +1,33 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Permissions you can grant to datashares
+<a name="permissions-datashares"></a>
 
-Different object types and various permissions you can grant to them in a data
-sharing context.
+Different object types and various permissions you can grant to them in a data sharing context.
 
 Databases:
++ CREATE
++ USAGE
++ ALTER
++ DROP
 
-- CREATE
-- USAGE
-- ALTER
-- DROP
-  Schemas:
+Schemas:
++ CREATE
++ USAGE
++ ALTER
++ DROP
 
-- CREATE
-- USAGE
-- ALTER
-- DROP
-  Tables:
+Tables:
++ SELECT
++ INSERT
++ UPDATE
++ DELETE
++ TRUNCATE
++ DROP
++ ALTER
++ REFERENCES
 
-- SELECT
-- INSERT
-- UPDATE
-- DELETE
-- TRUNCATE
-- DROP
-- ALTER
-- REFERENCES
-  Functions:
-
-- EXECUTE
+Functions:
++ EXECUTE

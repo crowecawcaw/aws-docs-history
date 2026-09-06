@@ -1,79 +1,69 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL views for logging
+<a name="c_intro_STL_tables"></a>
 
-STL system views are generated from Amazon Redshift log files to provide a history of the
-system.
+STL system views are generated from Amazon Redshift log files to provide a history of the system.
 
-These files reside on every node in the data warehouse cluster. The STL views take the
-information from the logs and format them into usable views for system
-administrators.
+These files reside on every node in the data warehouse cluster. The STL views take the information from the logs and format them into usable views for system administrators.
 
-**Log retention** – STL system views retain seven
-days of log history. Log retention is guaranteed for all cluster sizes and node types, and
-it isn't affected by changes in cluster workload. Log retention also isn't affected by
-cluster status, such as when the cluster is paused. You have less than seven days of log history
-only in the case where the cluster is new. You don't need to take any action to retain logs,
-but you have to periodically copy log data to other tables or unload it to Amazon S3 to keep log data
-that's more than 7 days old.
+**Log retention** – STL system views retain seven days of log history. Log retention is guaranteed for all cluster sizes and node types, and it isn't affected by changes in cluster workload. Log retention also isn't affected by cluster status, such as when the cluster is paused. You have less than seven days of log history only in the case where the cluster is new. You don't need to take any action to retain logs, but you have to periodically copy log data to other tables or unload it to Amazon S3 to keep log data that's more than 7 days old.
 
-###### Topics
-
-- [STL\_AGGR](r_STL_AGGR.md "r_STL_AGGR.md")
-- [STL\_ALERT\_EVENT\_LOG](r_STL_ALERT_EVENT_LOG.md "r_STL_ALERT_EVENT_LOG.md")
-- [STL\_ANALYZE](r_STL_ANALYZE.md "r_STL_ANALYZE.md")
-- [STL\_ANALYZE\_COMPRESSION](r_STL_ANALYZE_COMPRESSION.md "r_STL_ANALYZE_COMPRESSION.md")
-- [STL\_BCAST](r_STL_BCAST.md "r_STL_BCAST.md")
-- [STL\_COMMIT\_STATS](r_STL_COMMIT_STATS.md "r_STL_COMMIT_STATS.md")
-- [STL\_CONNECTION\_LOG](r_STL_CONNECTION_LOG.md "r_STL_CONNECTION_LOG.md")
-- [STL\_DDLTEXT](r_STL_DDLTEXT.md "r_STL_DDLTEXT.md")
-- [STL\_DELETE](r_STL_DELETE.md "r_STL_DELETE.md")
-- [STL\_DISK\_FULL\_DIAG](r_STL_DISK_FULL_DIAG.md "r_STL_DISK_FULL_DIAG.md")
-- [STL\_DIST](r_STL_DIST.md "r_STL_DIST.md")
-- [STL\_ERROR](r_STL_ERROR.md "r_STL_ERROR.md")
-- [STL\_EXPLAIN](r_STL_EXPLAIN.md "r_STL_EXPLAIN.md")
-- [STL\_FILE\_SCAN](r_STL_FILE_SCAN.md "r_STL_FILE_SCAN.md")
-- [STL\_HASH](r_STL_HASH.md "r_STL_HASH.md")
-- [STL\_HASHJOIN](r_STL_HASHJOIN.md "r_STL_HASHJOIN.md")
-- [STL\_INSERT](r_STL_INSERT.md "r_STL_INSERT.md")
-- [STL\_LIMIT](r_STL_LIMIT.md "r_STL_LIMIT.md")
-- [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md "r_STL_LOAD_COMMITS.md")
-- [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md "r_STL_LOAD_ERRORS.md")
-- [STL\_LOADERROR\_DETAIL](r_STL_LOADERROR_DETAIL.md "r_STL_LOADERROR_DETAIL.md")
-- [STL\_MERGE](r_STL_MERGE.md "r_STL_MERGE.md")
-- [STL\_MERGEJOIN](r_STL_MERGEJOIN.md "r_STL_MERGEJOIN.md")
-- [STL\_MV\_STATE](r_STL_MV_STATE.md "r_STL_MV_STATE.md")
-- [STL\_NESTLOOP](r_STL_NESTLOOP.md "r_STL_NESTLOOP.md")
-- [STL\_PARSE](r_STL_PARSE.md "r_STL_PARSE.md")
-- [STL\_PLAN\_INFO](r_STL_PLAN_INFO.md "r_STL_PLAN_INFO.md")
-- [STL\_PROJECT](r_STL_PROJECT.md "r_STL_PROJECT.md")
-- [STL\_QUERY](r_STL_QUERY.md "r_STL_QUERY.md")
-- [STL\_QUERY\_METRICS](r_STL_QUERY_METRICS.md "r_STL_QUERY_METRICS.md")
-- [STL\_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md")
-- [STL\_REPLACEMENTS](r_STL_REPLACEMENTS.md "r_STL_REPLACEMENTS.md")
-- [STL\_RESTARTED\_SESSIONS](r_STL_RESTARTED_SESSIONS.md "r_STL_RESTARTED_SESSIONS.md")
-- [STL\_RETURN](r_STL_RETURN.md "r_STL_RETURN.md")
-- [STL\_S3CLIENT](r_STL_S3CLIENT.md "r_STL_S3CLIENT.md")
-- [STL\_S3CLIENT\_ERROR](r_STL_S3CLIENT_ERROR.md "r_STL_S3CLIENT_ERROR.md")
-- [STL\_SAVE](r_STL_SAVE.md "r_STL_SAVE.md")
-- [STL\_SCAN](r_STL_SCAN.md "r_STL_SCAN.md")
-- [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md")
-- [STL\_SESSIONS](r_STL_SESSIONS.md "r_STL_SESSIONS.md")
-- [STL\_SORT](r_STL_SORT.md "r_STL_SORT.md")
-- [STL\_SSHCLIENT\_ERROR](r_STL_SSHCLIENT_ERROR.md "r_STL_SSHCLIENT_ERROR.md")
-- [STL\_STREAM\_SEGS](r_STL_STREAM_SEGS.md "r_STL_STREAM_SEGS.md")
-- [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md")
-- [STL\_UNDONE](r_STL_UNDONE.md "r_STL_UNDONE.md")
-- [STL\_UNIQUE](r_STL_UNIQUE.md "r_STL_UNIQUE.md")
-- [STL\_UNLOAD\_LOG](r_STL_UNLOAD_LOG.md "r_STL_UNLOAD_LOG.md")
-- [STL\_USAGE\_CONTROL](r_STL_USAGE_CONTROL.md "r_STL_USAGE_CONTROL.md")
-- [STL\_USERLOG](r_STL_USERLOG.md "r_STL_USERLOG.md")
-- [STL\_UTILITYTEXT](r_STL_UTILITYTEXT.md "r_STL_UTILITYTEXT.md")
-- [STL\_VACUUM](r_STL_VACUUM.md "r_STL_VACUUM.md")
-- [STL\_WINDOW](r_STL_WINDOW.md "r_STL_WINDOW.md")
-- [STL\_WLM\_ERROR](r_STL_WLM_ERROR.md "r_STL_WLM_ERROR.md")
-- [STL\_WLM\_RULE\_ACTION](r_STL_WLM_RULE_ACTION.md "r_STL_WLM_RULE_ACTION.md")
-- [STL\_WLM\_QUERY](r_STL_WLM_QUERY.md "r_STL_WLM_QUERY.md")
+**Topics**
++ [STL\_AGGR](r_STL_AGGR.md)
++ [STL\_ALERT\_EVENT\_LOG](r_STL_ALERT_EVENT_LOG.md)
++ [STL\_ANALYZE](r_STL_ANALYZE.md)
++ [STL\_ANALYZE\_COMPRESSION](r_STL_ANALYZE_COMPRESSION.md)
++ [STL\_BCAST](r_STL_BCAST.md)
++ [STL\_COMMIT\_STATS](r_STL_COMMIT_STATS.md)
++ [STL\_CONNECTION\_LOG](r_STL_CONNECTION_LOG.md)
++ [STL\_DDLTEXT](r_STL_DDLTEXT.md)
++ [STL\_DELETE](r_STL_DELETE.md)
++ [STL\_DISK\_FULL\_DIAG](r_STL_DISK_FULL_DIAG.md)
++ [STL\_DIST](r_STL_DIST.md)
++ [STL\_ERROR](r_STL_ERROR.md)
++ [STL\_EXPLAIN](r_STL_EXPLAIN.md)
++ [STL\_FILE\_SCAN](r_STL_FILE_SCAN.md)
++ [STL\_HASH](r_STL_HASH.md)
++ [STL\_HASHJOIN](r_STL_HASHJOIN.md)
++ [STL\_INSERT](r_STL_INSERT.md)
++ [STL\_LIMIT](r_STL_LIMIT.md)
++ [STL\_LOAD\_COMMITS](r_STL_LOAD_COMMITS.md)
++ [STL\_LOAD\_ERRORS](r_STL_LOAD_ERRORS.md)
++ [STL\_LOADERROR\_DETAIL](r_STL_LOADERROR_DETAIL.md)
++ [STL\_MERGE](r_STL_MERGE.md)
++ [STL\_MERGEJOIN](r_STL_MERGEJOIN.md)
++ [STL\_MV\_STATE](r_STL_MV_STATE.md)
++ [STL\_NESTLOOP](r_STL_NESTLOOP.md)
++ [STL\_PARSE](r_STL_PARSE.md)
++ [STL\_PLAN\_INFO](r_STL_PLAN_INFO.md)
++ [STL\_PROJECT](r_STL_PROJECT.md)
++ [STL\_QUERY](r_STL_QUERY.md)
++ [STL\_QUERY\_METRICS](r_STL_QUERY_METRICS.md)
++ [STL\_QUERYTEXT](r_STL_QUERYTEXT.md)
++ [STL\_REPLACEMENTS](r_STL_REPLACEMENTS.md)
++ [STL\_RESTARTED\_SESSIONS](r_STL_RESTARTED_SESSIONS.md)
++ [STL\_RETURN](r_STL_RETURN.md)
++ [STL\_S3CLIENT](r_STL_S3CLIENT.md)
++ [STL\_S3CLIENT\_ERROR](r_STL_S3CLIENT_ERROR.md)
++ [STL\_SAVE](r_STL_SAVE.md)
++ [STL\_SCAN](r_STL_SCAN.md)
++ [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md)
++ [STL\_SESSIONS](r_STL_SESSIONS.md)
++ [STL\_SORT](r_STL_SORT.md)
++ [STL\_SSHCLIENT\_ERROR](r_STL_SSHCLIENT_ERROR.md)
++ [STL\_STREAM\_SEGS](r_STL_STREAM_SEGS.md)
++ [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md)
++ [STL\_UNDONE](r_STL_UNDONE.md)
++ [STL\_UNIQUE](r_STL_UNIQUE.md)
++ [STL\_UNLOAD\_LOG](r_STL_UNLOAD_LOG.md)
++ [STL\_USAGE\_CONTROL](r_STL_USAGE_CONTROL.md)
++ [STL\_USERLOG](r_STL_USERLOG.md)
++ [STL\_UTILITYTEXT](r_STL_UTILITYTEXT.md)
++ [STL\_VACUUM](r_STL_VACUUM.md)
++ [STL\_WINDOW](r_STL_WINDOW.md)
++ [STL\_WLM\_ERROR](r_STL_WLM_ERROR.md)
++ [STL\_WLM\_RULE\_ACTION](r_STL_WLM_RULE_ACTION.md)
++ [STL\_WLM\_QUERY](r_STL_WLM_QUERY.md)

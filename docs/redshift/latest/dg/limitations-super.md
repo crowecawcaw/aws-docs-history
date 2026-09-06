@@ -1,38 +1,28 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Limitations
+<a name="limitations-super"></a>
 
-With Amazon Redshift, you can work with the SUPER data type to store and query semi-structured data like
-JSON, Avro, or Ion. The SUPER data type limitations refer to the constraints and boundaries when
-using this data type in Amazon Redshift. The following sections provide details on the specific limitations
-of the SUPER data type, such as maximum size, nesting levels, and data types supported within
-semi-structured data.
+With Amazon Redshift, you can work with the SUPER data type to store and query semi-structured data like JSON, Avro, or Ion. The SUPER data type limitations refer to the constraints and boundaries when using this data type in Amazon Redshift. The following sections provide details on the specific limitations of the SUPER data type, such as maximum size, nesting levels, and data types supported within semi-structured data.
++ You can't define SUPER columns as either a distribution or sort key.
++ An individual SUPER object can hold up to 16 MB of data.
++ The maximum nesting depth for arrays and structures of the SUPER data type is 1,000.
++ Any string literal stored in a single SUPER object is limited to 16,000,000 bytes.
++ Otherwise, an individual value within a SUPER object is limited to the maximum length of the corresponding Amazon Redshift type.
++ When you use the COPY command to load data into a SUPER column from a row-based format (TEXT, CSV, JSON, AVRO), the entire row must fit within the COPY scanner buffer, which is 64 MB by default. The 64 MB scanner limit does not apply to columnar formats (PARQUET, ORC). In all cases, each SUPER object is limited to 16 MB regardless of source format.
++ The TRUNCATECOLUMNS option of the COPY command, where supported, applies only to VARCHAR columns and doesn't truncate string values in SUPER columns.
++ You can't perform partial update or transform operations on SUPER columns.
++ You can't use the SUPER data type and its alias in right joins or full outer joins.
++ The SUPER data type doesn't support XML as inbound or outbound serialization format. 
++ In the FROM clause of a subquery (that is correlated or not) that references a table variable for unnesting, the query can only refer to its parent table and not other tables.
++  You can’t perform unnesting or object unpivoting on SUPER columns produced by a recursive common table expression (`WITH RECURSIVE`). For more information on recursive CTEs, see [Recursive common table expressions](r_WITH_clause.md#r_WITH_clause-recursive-cte). 
++ Casting limitations
 
-- You can't define SUPER columns as either a distribution or sort key.
-- An individual SUPER object can hold up to 16 MB of data.
-- The maximum nesting depth for arrays and structures of the SUPER data type is 1,000.
-- Any string literal stored in a single SUPER object is limited to 16,000,000 bytes.
-- Otherwise, an individual value within a SUPER object is limited to the maximum length of the corresponding Amazon Redshift type.
-- When you use the COPY command to load data into a SUPER column from a row-based format (TEXT, CSV, JSON, AVRO), the entire row must fit within the COPY scanner buffer, which is 64 MB by default. The 64 MB scanner limit does not apply to columnar formats (PARQUET, ORC). In all cases, each SUPER object is limited to 16 MB regardless of source format.
-- The TRUNCATECOLUMNS option of the COPY command, where supported, applies only to VARCHAR columns and doesn't truncate string values in SUPER columns.
-- You can't perform partial update or transform operations on SUPER columns.
-- You can't use the SUPER data type and its alias in right joins or full outer joins.
-- The SUPER data type doesn't support XML as inbound or outbound serialization format.
-- In the FROM clause of a subquery (that is correlated or not) that references a table variable for unnesting, the query can only refer to its parent table and not other tables.
-- You can’t perform unnesting or object unpivoting on SUPER columns produced by a recursive common table expression (`WITH RECURSIVE`).
-  For more information on recursive CTEs, see [Recursive common table expressions](r_WITH_clause.md#r_WITH_clause-recursive-cte "r_WITH_clause.md#r_WITH_clause-recursive-cte").
-- Casting limitations
-
-SUPER values can be cast to and from other data types, with the following
-exceptions:
-
-    + Amazon Redshift doesn't differentiate integers and decimals of scale 0.
-    + If the scale isn't zero, SUPER data type has the same behavior as other Amazon Redshift data types, except that Amazon Redshift converts SUPER-related errors to null, as shown in the following example.
-
-
+  SUPER values can be cast to and from other data types, with the following exceptions:
+  + Amazon Redshift doesn't differentiate integers and decimals of scale 0.
+  + If the scale isn't zero, SUPER data type has the same behavior as other Amazon Redshift data types, except that Amazon Redshift converts SUPER-related errors to null, as shown in the following example.
 
     ```
     SELECT 5::bool;
@@ -40,29 +30,25 @@ exceptions:
     -------
      True
     (1 row)
-
+    
     SELECT 5::decimal::bool;
     ERROR:  cannot cast type numeric to boolean
-
+    
     SELECT 5::super::bool;
      bool
     -------
      True
     (1 row)
-
+    
     SELECT 5.0::bool;
     ERROR:  cannot cast type numeric to boolean
-
+    
     SELECT 5.0::super::bool;
      bool
     -------
     (1 row)
     ```
-    + Amazon Redshift doesn't cast the date and time types to SUPER data type. Amazon Redshift can only cast
-     the date and time data types from SUPER data type, as shown in the following
-     example.
-
-
+  + Amazon Redshift doesn't cast the date and time types to SUPER data type. Amazon Redshift can only cast the date and time data types from SUPER data type, as shown in the following example.
 
     ```
     SELECT o.o_orderdate FROM customer_orders_lineitem c,c.c_orders o;
@@ -70,34 +56,27 @@ exceptions:
     ------------------
      "2001-09-08"
     (1 row)
-
-
+    
+    
     SELECT JSON_TYPEOF(o.o_orderdate) FROM customer_orders_lineitem c,c.c_orders o;
      json_typeof
     -----------------
      string
     (1 row)
-
-
+    
+    
     SELECT o.o_orderdate::date FROM customer_orders_lineitem c,c.c_orders o;
      order_date
     ----------------
      2001-09-08
     (1 row)
-
-
-    --date/time cannot be cast to super
+    
+    
+    --date/time cannot be cast to super 
     SELECT '2019-09-09'::date::super;
     ERROR:  cannot cast type date to super
     ```
-    + Cast from non-scalar values (object and array) to string returns NULL. To properly serialize
-     these non-scalar values, don't cast them. Instead, use
-     `json_serialize` to cast non-scalar values. The
-     `json_serialize` function returns a varchar. Typically, you
-     don't need to cast non-scalar values to varchar since Amazon Redshift implicitly
-     serializes as shown in the following first example.
-
-
+  + Cast from non-scalar values (object and array) to string returns NULL. To properly serialize these non-scalar values, don't cast them. Instead, use `json_serialize` to cast non-scalar values. The `json_serialize` function returns a varchar. Typically, you don't need to cast non-scalar values to varchar since Amazon Redshift implicitly serializes as shown in the following first example. 
 
     ```
     SELECT r_nations FROM region_nations WHERE r_regionkey=300;
@@ -105,17 +84,16 @@ exceptions:
     ----------------
      [1,"abc",null]
     (1 row)
-
+    
     SELECT r_nations::varchar FROM region_nations WHERE r_regionkey=300;
      r_nations
     -------------
     (1 row)
-
+    
     SELECT JSON_SERIALIZE(r_nations) FROM region_nations WHERE r_regionkey=300;
      json_serialize
     -----------------
      [1,"abc",null]
     (1 row)
     ```
-
-- Amazon Redshift doesn't support volatile functions, such as RANDOM ( ) or TIMEOFDAY ( ), in subqueries that unnest an outer table or a left-hand side (LHS) of IN functions with such subqueries.
++ Amazon Redshift doesn't support volatile functions, such as RANDOM ( ) or TIMEOFDAY ( ), in subqueries that unnest an outer table or a left-hand side (LHS) of IN functions with such subqueries.

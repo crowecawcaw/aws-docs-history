@@ -1,63 +1,57 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TIMESTAMPTZ\_CMP\_DATE function
+<a name="r_TIMESTAMPTZ_CMP_DATE"></a>
 
-TIMESTAMPTZ\_CMP\_DATE compares the value of a timestamp and a date. If the timestamp and
-date values are identical, the function returns `0`. If the timestamp is greater
-chronologically, the function returns `1`. If the date is greater, the function
-returns `–1`.
+TIMESTAMPTZ\_CMP\_DATE compares the value of a timestamp and a date. If the timestamp and date values are identical, the function returns `0`. If the timestamp is greater chronologically, the function returns `1`. If the date is greater, the function returns `–1`.
 
 ## Syntax
+<a name="r_TIMESTAMPTZ_CMP_DATE-syntax"></a>
 
 ```
-TIMESTAMPTZ_CMP_DATE(*timestamptz, date*)
+TIMESTAMPTZ_CMP_DATE(timestamptz, date)
 ```
 
 ## Arguments
+<a name="r_TIMESTAMPTZ_CMP_DATE-arguments"></a>
 
-_timestamptz_
+ *timestamptz*   
+A column of data type `TIMESTAMPTZ` or an expression that implicitly evaluates to a `TIMESTAMPTZ` type.
 
-A column of data type `TIMESTAMPTZ` or an expression that
-implicitly evaluates to a `TIMESTAMPTZ` type.
-
-_date_
-
-A column of data type `DATE` or an expression that implicitly
-evaluates to a `DATE` type.
+ *date*   
+A column of data type `DATE` or an expression that implicitly evaluates to a `DATE` type.
 
 ## Return type
+<a name="r_TIMESTAMPTZ_CMP_DATE-return-type"></a>
 
 INTEGER
 
 ## Examples
+<a name="r_TIMESTAMPTZ_CMP_DATE-examples"></a>
 
-The following example compares LISTTIME as a timestamp with time zone to the date
-`2008-06-18`. Listings made after this date return `1`;
-listings made before this date return `-1`.
+The following example compares LISTTIME as a timestamp with time zone to the date `2008-06-18`. Listings made after this date return `1`; listings made before this date return `-1`. 
 
 ```
-`select listid, CAST(listtime as timestamptz) as tstz,
+select listid, CAST(listtime as timestamptz) as tstz,
 timestamp_cmp_date(tstz, '2008-06-18')
 from listing
 order by 1, 2, 3
-limit 10;`
+limit 10;
 
 
- `listid | tstz | timestamptz_cmp_date
+ listid |          tstz          | timestamptz_cmp_date
 --------+------------------------+----------------------
- 1 | 2008-01-24 06:43:29+00 | -1
- 2 | 2008-03-05 12:25:29+00 | -1
- 3 | 2008-11-01 07:35:33+00 | 1
- 4 | 2008-05-24 01:18:37+00 | -1
- 5 | 2008-05-17 02:29:11+00 | -1
- 6 | 2008-08-15 02:08:13+00 | 1
- 7 | 2008-11-15 09:38:15+00 | 1
- 8 | 2008-11-09 05:07:30+00 | 1
- 9 | 2008-09-09 08:03:36+00 | 1
- 10 | 2008-06-17 09:44:54+00 | -1
-(10 rows)`
-
+      1 | 2008-01-24 06:43:29+00 |              -1
+      2 | 2008-03-05 12:25:29+00 |              -1
+      3 | 2008-11-01 07:35:33+00 |               1
+      4 | 2008-05-24 01:18:37+00 |              -1
+      5 | 2008-05-17 02:29:11+00 |              -1
+      6 | 2008-08-15 02:08:13+00 |               1
+      7 | 2008-11-15 09:38:15+00 |               1
+      8 | 2008-11-09 05:07:30+00 |               1
+      9 | 2008-09-09 08:03:36+00 |               1
+     10 | 2008-06-17 09:44:54+00 |              -1
+(10 rows)
 ```

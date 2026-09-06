@@ -1,58 +1,49 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TEXT\_TO\_NUMERIC\_ALT
+<a name="r_TEXT_TO_NUMERIC_ALT"></a>
 
-TEXT\_TO\_NUMERIC\_ALT performs a Teradata-style cast operation to convert a character string to a numeric data
-format.
+TEXT\_TO\_NUMERIC\_ALT performs a Teradata-style cast operation to convert a character string to a numeric data format. 
 
 ## Syntax
+<a name="r_TEXT_TO_NUMERIC_ALT-synopsis"></a>
 
 ```
-TEXT_TO_NUMERIC_ALT (*expression* [, '*format*'] [, *precision*, *scale*])
+TEXT_TO_NUMERIC_ALT (expression [, 'format'] [, precision, scale])
 ```
 
 ## Arguments
+<a name="r_TEXT_TO_NUMERIC_ALT-arguments"></a>
 
-_expression_
+ *expression*   
+An expression that evaluates to one or more CHAR or VARCHAR values, such as a column name or a literal. Converting null values returns nulls. Blank or empty strings are converted to 0. 
 
-An expression that evaluates to one or more CHAR or VARCHAR values, such as a column name or a literal. Converting null values returns nulls. Blank or empty strings are converted to 0.
+ *format*   
+A string literal that defines the format of the input expression. For more information, see [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md). 
 
-_format_
+ *precision*   
+The number of digits in the numeric result. The default is 38. 
 
-A string literal that defines the format of the input expression. For more information, see [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md "r_Numeric-format-teradata.md").
-
-_precision_
-
-The number of digits in the numeric result. The default is 38.
-
-_scale_
-
-The number of digits to the right of the decimal point in the numeric
-result. The default is 0.
+ *scale*   
+The number of digits to the right of the decimal point in the numeric result. The default is 0. 
 
 ## Return type
+<a name="r_TEXT_TO_NUMERIC_ALT-return-type"></a>
 
 TEXT\_TO\_NUMERIC\_ALT returns a DECIMAL number.
 
-Amazon Redshift returns an error if the conversion to the _format_
-phrase that you specify isn't successful.
+Amazon Redshift returns an error if the conversion to the *format* phrase that you specify isn't successful.
 
-Amazon Redshift casts the input _expression_ string to the numeric
-type with the highest precision that you specify for that type in the
-_precision_ option. If the length of the numeric value exceeds the
-value that you specify for _precision_, Amazon Redshift rounds the
-numeric value according to the following rules:
-
-- If the length of the cast result exceeds the length that you specify in the
-  _format_ phrase, Amazon Redshift returns an error.
-- If the result is cast to a numeric value, the result is rounded to the closest value. If the fractional portion is exactly midway between the upper and lower cast result, the result is rounded to the nearest even value.
+Amazon Redshift casts the input *expression* string to the numeric type with the highest precision that you specify for that type in the *precision* option. If the length of the numeric value exceeds the value that you specify for *precision*, Amazon Redshift rounds the numeric value according to the following rules:
++ If the length of the cast result exceeds the length that you specify in the *format* phrase, Amazon Redshift returns an error.
++ If the result is cast to a numeric value, the result is rounded to the closest value. If the fractional portion is exactly midway between the upper and lower cast result, the result is rounded to the nearest even value.
 
 ## Examples
+<a name="r_TEXT_TO_NUMERIC_ALT-examples"></a>
 
-The following example converts the input _expression_ string '1.5' to the numeric value '2'. Because the statement doesn't specify _scale_, the _scale_ defaults to 0 and the cast result doesn't include a fraction result. Because .5 is midway between 1 and 2, the cast result is rounded to the even value of 2.
+The following example converts the input *expression* string '1.5' to the numeric value '2'. Because the statement doesn't specify *scale*, the *scale* defaults to 0 and the cast result doesn't include a fraction result. Because .5 is midway between 1 and 2, the cast result is rounded to the even value of 2.
 
 ```
 select text_to_numeric_alt('1.5');
@@ -64,7 +55,7 @@ select text_to_numeric_alt('1.5');
                    2
 ```
 
-The following example converts the input _expression_ string '2.51' to the numeric value 3. Because the statement doesn't specify a _scale_ value, the _scale_ defaults to 0 and the cast result doesn't include a fraction result. Because .51 is closer to 3 than 2, the cast result is rounded to the value of 3.
+The following example converts the input *expression* string '2.51' to the numeric value 3. Because the statement doesn't specify a *scale* value, the *scale* defaults to 0 and the cast result doesn't include a fraction result. Because .51 is closer to 3 than 2, the cast result is rounded to the value of 3.
 
 ```
 select text_to_numeric_alt('2.51');
@@ -76,7 +67,7 @@ select text_to_numeric_alt('2.51');
                    3
 ```
 
-The following example converts the input _expression_ string 123.52501 with a _precision_ of 10 and a _scale_ of 2 to the numeric value 123.53.
+The following example converts the input *expression* string 123.52501 with a *precision* of 10 and a *scale* of 2 to the numeric value 123.53. 
 
 ```
 select text_to_numeric_alt('123.52501', 10, 2);
@@ -88,9 +79,7 @@ select text_to_numeric_alt('123.52501', 10, 2);
                123.53
 ```
 
-The following example converts the input _expression_ string
-'123{' with the _format_ phrase '999S' to the numeric 1230. The S
-character indicates a Signed Zoned Decimal. For more information, see [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md "r_Numeric-format-teradata.md").
+The following example converts the input *expression* string '123{' with the *format* phrase '999S' to the numeric 1230. The S character indicates a Signed Zoned Decimal. For more information, see [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md).
 
 ```
 select text_to_numeric_alt('123{', '999S');
@@ -102,7 +91,7 @@ text_to_int_alt
       1230
 ```
 
-The following example converts the input _expression_ string 'USD123' with the _format_ phrase 'C9(I)' to the numeric 124. See [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md "r_Numeric-format-teradata.md").
+The following example converts the input *expression* string 'USD123' with the *format* phrase 'C9(I)' to the numeric 124. See [Teradata-style formatting characters for numeric data](r_Numeric-format-teradata.md).
 
 ```
 select text_to_numeric_alt('USD123.9', 'C9(I)');
@@ -114,7 +103,7 @@ text_to_numeric_alt
        124
 ```
 
-The following example specifies a table column as the input _expression_.
+The following example specifies a table column as the input *expression*.
 
 ```
 select text_to_numeric_alt(a), text_to_numeric_alt(b) from t_text2numeric order by 1;
@@ -143,5 +132,4 @@ insert into  t_text2numeric values
 ('-' || repeat('9', 38), '-' || repeat('9', 38)),
 (repeat('9', 38) || '+', repeat('9', 38) || '+'),
 ('-123E2', '-123E2');
-
 ```

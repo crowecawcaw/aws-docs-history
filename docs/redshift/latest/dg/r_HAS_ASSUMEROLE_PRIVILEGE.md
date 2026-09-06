@@ -1,56 +1,47 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # HAS\_ASSUMEROLE\_PRIVILEGE
+<a name="r_HAS_ASSUMEROLE_PRIVILEGE"></a>
 
-Returns Boolean `true` (`t`) if the specified user has the
-specified IAM role with the privilege to run the specified command. The function
-returns `false` (`f`) if the user doesn't have the specified IAM
-role with the privilege to run the specified command. For more information about
-privileges, see [GRANT](r_GRANT.md "r_GRANT.md").
+Returns Boolean `true` (`t`) if the specified user has the specified IAM role with the privilege to run the specified command. The function returns `false` (`f`) if the user doesn't have the specified IAM role with the privilege to run the specified command. For more information about privileges, see [GRANT](r_GRANT.md). 
 
 ## Syntax
+<a name="r_HAS_ASSUMEROLE_PRIVILEGE-synopsis"></a>
 
 ```
-has_assumerole_privilege( [ *user*, ] *iam\_role\_arn*, *cmd\_type*)
+has_assumerole_privilege( [ user, ] iam_role_arn, cmd_type)
 ```
 
 ## Arguments
+<a name="r_HAS_ASSUMEROLE_PRIVILEGE-arguments"></a>
 
-_user_
+ *user*   
+The name of the user to check for IAM role privileges. The default is to check the current user. Superusers and users can use this function. However, users can only view their own privileges.
 
-The name of the user to check for IAM role privileges. The default is
-to check the current user. Superusers and users can use this function.
-However, users can only view their own privileges.
+ *iam\_role\_arn*   
+The IAM role that has been granted the command privileges. 
 
-_iam\_role\_arn_
-
-The IAM role that has been granted the command privileges.
-
-_cmd\_type_
-
-The command for which access has been granted. Valid values are the
-following:
-
-- COPY
-- UNLOAD
-- EXTERNAL FUNCTION
-- CREATE MODEL
+ *cmd\_type*   
+The command for which access has been granted. Valid values are the following:   
++ COPY
++ UNLOAD
++ EXTERNAL FUNCTION
++ CREATE MODEL
 
 ## Return type
+<a name="r_HAS_ASSUMEROLE_PRIVILEGE-return-type"></a>
 
 BOOLEAN
 
 ## Example
+<a name="r_HAS_ASSUMEROLE_PRIVILEGE-example"></a>
 
-The following query confirms that the user `reg_user1` has the
-privilege for the `Redshift-S3-Read` role to run the COPY command.
+The following query confirms that the user `reg_user1` has the privilege for the `Redshift-S3-Read` role to run the COPY command.
 
 ```
 select has_assumerole_privilege('reg_user1', 'arn:aws:iam::123456789012:role/Redshift-S3-Read', 'copy');
-
 ```
 
 ```

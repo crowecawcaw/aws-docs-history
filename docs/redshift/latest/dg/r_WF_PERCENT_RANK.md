@@ -1,17 +1,15 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PERCENT\_RANK window function
+<a name="r_WF_PERCENT_RANK"></a>
 
-Calculates the percent rank of a given row. The percent rank is determined using this
-formula:
+Calculates the percent rank of a given row. The percent rank is determined using this formula:
 
 `(x - 1) / (the number of rows in the window or partition - 1)`
 
-where _x_ is the rank of the current row. The following dataset
-illustrates use of this formula:
+where *x* is the rank of the current row. The following dataset illustrates use of this formula:
 
 ```
 Row#	Value	Rank	Calculation	PERCENT_RANK
@@ -22,59 +20,50 @@ Row#	Value	Rank	Calculation	PERCENT_RANK
 5	30	5	(5-1)/(7-1)	0.6666
 6	30	5	(5-1)/(7-1)	0.6666
 7	40	7	(7-1)/(7-1)	1.0000
-
 ```
 
-The return value range is 0 to 1, inclusive. The first row in any set has a
-PERCENT\_RANK of 0.
+The return value range is 0 to 1, inclusive. The first row in any set has a PERCENT\_RANK of 0.
 
 ## Syntax
+<a name="r_WF_PERCENT_RANK-synopsis"></a>
 
 ```
 PERCENT_RANK ()
-OVER (
-[ PARTITION BY *partition\_expression* ]
-[ ORDER BY *order\_list* ]
+OVER ( 
+[ PARTITION BY partition_expression ] 
+[ ORDER BY order_list ]
 )
 ```
 
 ## Arguments
+<a name="r_WF_PERCENT_RANK-arguments"></a>
 
-( )
+( )   
+The function takes no arguments, but the empty parentheses are required. 
 
-The function takes no arguments, but the empty parentheses are required.
+OVER  
+A clause that specifies the window partitioning. The OVER clause cannot contain a window frame specification.
 
-OVER
+PARTITION BY *partition\_expression*   
+Optional. An expression that sets the range of records for each group in the OVER clause.
 
-A clause that specifies the window partitioning. The OVER clause cannot
-contain a window frame specification.
-
-PARTITION BY _partition\_expression_
-
-Optional. An expression that sets the range of records for each group in
-the OVER clause.
-
-ORDER BY _order\_list_
-
-Optional. The expression on which to calculate percent rank. The
-expression must have either a numeric data type or be implicitly convertible
-to one. If ORDER BY is omitted, the return value is 0 for all rows.
-
-If ORDER BY does not produce a unique ordering, the order of the rows is
-nondeterministic. For more information, see [Unique ordering of data for window functions](c_Window_functions.md#r_Examples_order_by_WF "c_Window_functions.md#r_Examples_order_by_WF").
+ORDER BY *order\_list*   
+Optional. The expression on which to calculate percent rank. The expression must have either a numeric data type or be implicitly convertible to one. If ORDER BY is omitted, the return value is 0 for all rows.  
+If ORDER BY does not produce a unique ordering, the order of the rows is nondeterministic. For more information, see [Unique ordering of data for window functions](c_Window_functions.md#r_Examples_order_by_WF). 
 
 ## Return type
+<a name="r_WF_PERCENT_RANK-return-type"></a>
 
 FLOAT8
 
 ## Examples
+<a name="r_WF_PERCENT_RANK-examples"></a>
 
-The following example calculates the percent rank of the sales quantities for each
-seller:
+The following example calculates the percent rank of the sales quantities for each seller:
 
 ```
-select sellerid, qty, percent_rank()
-over (partition by sellerid order by qty)
+select sellerid, qty, percent_rank() 
+over (partition by sellerid order by qty) 
 from winsales;
 
 sellerid	qty		percent_rank
@@ -90,7 +79,6 @@ sellerid	qty		percent_rank
 2		20.12		1.0
 4		10.12		0.0
 4		40.23		1.0
-
 ```
 
-For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example).

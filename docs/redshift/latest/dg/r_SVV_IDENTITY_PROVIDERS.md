@@ -1,43 +1,43 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_IDENTITY\_PROVIDERS
+<a name="r_SVV_IDENTITY_PROVIDERS"></a>
 
-The SVV\_IDENTITY\_PROVIDERS view returns the name and additional properties for
-identity providers. For more information about how to create an identity provider, see
-[CREATE IDENTITY PROVIDER](r_CREATE_IDENTITY_PROVIDER.md "r_CREATE_IDENTITY_PROVIDER.md").
+The SVV\_IDENTITY\_PROVIDERS view returns the name and additional properties for identity providers. For more information about how to create an identity provider, see [CREATE IDENTITY PROVIDER](r_CREATE_IDENTITY_PROVIDER.md).
 
-SVV\_IDENTITY\_PROVIDERS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_IDENTITY\_PROVIDERS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SVV_IDENTITY_PROVIDERS-table-columns"></a>
 
-| Column name | Data type | Description                                                      |
-| ----------- | --------- | ---------------------------------------------------------------- |
-| uid         | integer   | The unique ID of the registered identity<br>provider.            |
-| name        | text      | The identity provider name.                                      |
-| type        | text      | The identity provider type.                                      |
-| instanceid  | text      | The unique differentiator between instances of the<br>same type. |
-| namespc     | text      | The namespace prefix of the identity<br>provider.                |
-| params      | text      | The JSON object with parameters for the identity<br>provider.    |
-| enabled     | bool      | Indicates if the identity provider is<br>enabled.                |
+
+| Column name  | Data type  | Description | 
+| --- | --- | --- | 
+| uid | integer | The unique ID of the registered identity provider. | 
+| name | text | The identity provider name. | 
+| type | text | The identity provider type.  | 
+| instanceid | text | The unique differentiator between instances of the same type. | 
+| namespc | text | The namespace prefix of the identity provider. | 
+| params | text | The JSON object with parameters for the identity provider. | 
+| enabled | bool | Indicates if the identity provider is enabled. | 
 
 ### Sample queries
+<a name="SVV_IDENTITY_PROVIDERS-sample-queries"></a>
 
-To view identity provider properties, run a query like the following after
-creating identity providers.
+To view identity provider properties, run a query like the following after creating identity providers.
 
 ```
-SELECT name, type, instanceid, namespc, params, enabled
-FROM svv_identity_providers
+SELECT name, type, instanceid, namespc, params, enabled 
+FROM svv_identity_providers 
 ORDER BY 1;
 ```
 
 The sample output includes param descriptions for Microsoft Entra ID (formerly Azure AD):
 
 ```
-       name       | type  |              instanceid              | namespc |                                                                                                                                                params                                                                                                                                                 | enabled
+       name       | type  |              instanceid              | namespc |                                                                                                                                                params                                                                                                                                                 | enabled 
 ------------------+-------+--------------------------------------+---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------
  rs5517_azure_idp | azure | e40d4bb2-7670-44ae-bfb8-5db013221d73 | abc     | {"issuer":"https://login.microsoftonline.com/e40d4bb2-7670-44ae-bfb8-5db013221d73/v2.0", "client_id":"871c010f-5e61-4fb1-83ac-98610a7e9110", "client_secret":, "audience":["https://analysis.windows.net/powerbi/connector/AmazonRedshift", "https://analysis.windows.net/powerbi/connector/AWSRDS"]} | t
 (1 row)

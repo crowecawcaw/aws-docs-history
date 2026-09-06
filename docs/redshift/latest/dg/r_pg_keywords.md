@@ -1,19 +1,16 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Reserved words
+<a name="r_pg_keywords"></a>
 
-The following is a list of Amazon Redshift reserved words. You can use the reserved
-words with delimited identifiers (double quotation marks).
+The following is a list of Amazon Redshift reserved words. You can use the reserved words with delimited identifiers (double quotation marks).
 
-###### Note
+**Note**  
+While START and CONNECT are not reserved words, use delimited identifiers or AS if you're using START and CONNECT as table aliases in your query to avoid failure at runtime.
 
-While START and CONNECT are not reserved words, use delimited identifiers or AS if you're using START
-and CONNECT as table aliases in your query to avoid failure at runtime.
-
-For more information, see [Names and identifiers](r_names.md "r_names.md").
+For more information, see [Names and identifiers](r_names.md). 
 
 ```
 AES128
@@ -64,7 +61,7 @@ ELSE
 EMPTYASNULL
 ENABLE
 ENCODE
-ENCRYPT
+ENCRYPT     
 ENCRYPTION
 END
 EXCEPT
@@ -144,7 +141,7 @@ RIGHT
 SELECT
 SESSION_USER
 SIMILAR
-SNAPSHOT
+SNAPSHOT 
 SOME
 SYSDATE
 SYSTEM

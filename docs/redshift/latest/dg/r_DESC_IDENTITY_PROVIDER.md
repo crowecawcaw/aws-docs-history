@@ -1,26 +1,27 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DESC IDENTITY PROVIDER
+<a name="r_DESC_IDENTITY_PROVIDER"></a>
 
-Displays information about an identity provider. Only a superuser can describe an
-identity provider.
+Displays information about an identity provider. Only a superuser can describe an identity provider.
 
 ## Syntax
+<a name="r_DESC_IDENTITY_PROVIDER-synopsis"></a>
 
 ```
-DESC IDENTITY PROVIDER *identity\_provider\_name*
+DESC IDENTITY PROVIDER identity_provider_name
 ```
 
 ## Parameters
+<a name="r_DESC_IDENTITY_PROVIDER-parameters"></a>
 
-_identity\_provider\_name_
-
+ *identity\_provider\_name*   
 The name of the identity provider.
 
 ## Example
+<a name="r_DESC_IDENTITY_PROVIDER-examples"></a>
 
 The following example displays information about the identity provider.
 

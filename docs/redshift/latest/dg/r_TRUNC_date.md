@@ -1,79 +1,77 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TRUNC function
+<a name="r_TRUNC_date"></a>
 
 Truncates a `TIMESTAMP` and returns a `DATE`.
 
-This function can also truncate a number. For more information, see [TRUNC function](r_TRUNC.md "r_TRUNC.md").
+ This function can also truncate a number. For more information, see [TRUNC function](r_TRUNC.md).
 
 ## Syntax
+<a name="r_TRUNC_date-synopsis"></a>
 
 ```
-TRUNC(*timestamp*)
+TRUNC(timestamp)
 ```
 
 ## Arguments
+<a name="r_TRUNC_date-arguments"></a>
 
-_timestamp_
-
-A column of data type `TIMESTAMP` or an expression that
-implicitly evaluates to a `TIMESTAMP` type.
-
-To return a timestamp value with `00:00:00` as the time, cast the
-function result to a `TIMESTAMP`.
+ *timestamp*   
+A column of data type `TIMESTAMP` or an expression that implicitly evaluates to a `TIMESTAMP` type.  
+To return a timestamp value with `00:00:00` as the time, cast the function result to a `TIMESTAMP`.
 
 ## Return type
+<a name="r_TRUNC_date-return-type"></a>
 
 DATE
 
 ## Examples
+<a name="r_TRUNC_date-examples"></a>
 
-The following example returns the date portion from the result of the SYSDATE
-function (which returns a timestamp).
+The following example returns the date portion from the result of the SYSDATE function (which returns a timestamp). 
 
 ```
-`SELECT SYSDATE;`
+SELECT SYSDATE;
 
-`+----------------------------+
-| timestamp |
++----------------------------+
+|         timestamp          |
 +----------------------------+
 | 2011-07-21 10:32:38.248109 |
-+----------------------------+`
++----------------------------+
 
-`SELECT TRUNC(SYSDATE);`
+SELECT TRUNC(SYSDATE);
 
-`+------------+
-| trunc |
++------------+
+|   trunc    |
 +------------+
 | 2011-07-21 |
-+------------+`
++------------+
 ```
 
-The following example applies the TRUNC function to a `TIMESTAMP` column. The return
-type is a date.
+The following example applies the TRUNC function to a `TIMESTAMP` column. The return type is a date. 
 
 ```
-`SELECT TRUNC(starttime) FROM event
-ORDER BY eventid LIMIT 1;`
+SELECT TRUNC(starttime) FROM event
+ORDER BY eventid LIMIT 1;
 
-`+------------+
-| trunc |
++------------+
+|   trunc    |
 +------------+
 | 2008-01-25 |
-+------------+`
++------------+
 ```
 
 The following example returns a timestamp value with `00:00:00` as the time by casting the TRUNC function result to a `TIMESTAMP`.
 
 ```
-`SELECT CAST((TRUNC(SYSDATE)) AS TIMESTAMP);`
+SELECT CAST((TRUNC(SYSDATE)) AS TIMESTAMP);
 
-`+---------------------+
-| trunc |
++---------------------+
+|        trunc        |
 +---------------------+
 | 2011-07-21 00:00:00 |
-+---------------------+`
++---------------------+
 ```

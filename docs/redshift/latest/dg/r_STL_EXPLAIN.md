@@ -1,45 +1,43 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_EXPLAIN
+<a name="r_STL_EXPLAIN"></a>
 
 Displays the EXPLAIN plan for a query that has been submitted for execution.
 
-STL\_EXPLAIN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_EXPLAIN is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-STL\_EXPLAIN only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
-or on serverless namespaces.
-To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS\_QUERY\_EXPLAIN](SYS_QUERY_EXPLAIN.md "SYS_QUERY_EXPLAIN.md")
-. The data in the SYS monitoring view is formatted to be easier to use and understand.
+**Note**  
+STL\_EXPLAIN only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters or on serverless namespaces. To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view [SYS\_QUERY\_EXPLAIN](SYS_QUERY_EXPLAIN.md) . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
+<a name="r_STL_EXPLAIN-table-columns"></a>
 
-| Column name            | Data type      | Description                                                                                                                                                            |
-| ---------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid                 | integer        | ID of the user who generated the entry.                                                                                                                                |
-| query                  | integer        | Query ID. The query column can be used to join other system tables and views.                                                                                          |
-| nodeid                 | integer        | Plan node identifier, where a node maps to one or<br>more steps in the execution of the query.                                                                         |
-| parentid               | integer        | Plan node identifier for a parent node. A parent<br>node has some number of child nodes. For example, a merge join is<br>the parent of the scans on the joined tables. |
-| plannode               | character(400) | The node text from the EXPLAIN output. Plan nodes<br>that refer to execution on compute nodes are prefixed with<br>`XN` in the EXPLAIN output.                         |
-| info                   | character(400) | Qualifier and filter information for the plan<br>node. For example, join conditions and WHERE clause restrictions are<br>included in this column.                      |
-| user\_query\_id        | bigint         | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_QUERY\_EXPLAIN](SYS_QUERY_EXPLAIN.md "SYS_QUERY_EXPLAIN.md").           |
-| child\_query\_sequence | integer        | The sequence number of the rewritten child query<br>under the user query, starting with 1.                                                                             |
-| query\_uuid            | character(36)  | A globally unique identifier (UUID) of the query.                                                                                                                      |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| query | integer | Query ID. The query column can be used to join other system tables and views. | 
+| nodeid  | integer  | Plan node identifier, where a node maps to one or more steps in the execution of the query.  | 
+| parentid  | integer  | Plan node identifier for a parent node. A parent node has some number of child nodes. For example, a merge join is the parent of the scans on the joined tables.  | 
+| plannode  | character(400)  | The node text from the EXPLAIN output. Plan nodes that refer to execution on compute nodes are prefixed with XN in the EXPLAIN output.  | 
+| info  | character(400)  | Qualifier and filter information for the plan node. For example, join conditions and WHERE clause restrictions are included in this column.  | 
+| user\_query\_id  | bigint  | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_QUERY\_EXPLAIN](SYS_QUERY_EXPLAIN.md).  | 
+| child\_query\_sequence  | integer  | The sequence number of the rewritten child query under the user query, starting with 1.  | 
+| query\_uuid | character(36) | A globally unique identifier (UUID) of the query. | 
 
 ## Sample queries
+<a name="r_STL_EXPLAIN-sample-queries"></a>
 
-Consider the following EXPLAIN output for an aggregate join query:
+Consider the following EXPLAIN output for an aggregate join query: 
 
 ```
 explain select avg(datediff(day, listtime, saletime)) as avgwait
 from sales, listing where sales.listid = listing.listid;
                                   QUERY PLAN
-
+                                  
 ------------------------------------------------------------------------------
  XN Aggregate  (cost=6350.30..6350.31 rows=1 width=16)
   ->  XN Hash Join DS_DIST_NONE  (cost=47.08..6340.89 rows=3766 width=16)
@@ -50,8 +48,7 @@ from sales, listing where sales.listid = listing.listid;
 (6 rows)
 ```
 
-If you run this query and its query ID is 10, you can use the STL\_EXPLAIN table to
-see the same kind of information that the EXPLAIN command returns:
+If you run this query and its query ID is 10, you can use the STL\_EXPLAIN table to see the same kind of information that the EXPLAIN command returns: 
 
 ```
 select query,nodeid,parentid,substring(plannode from 1 for 30),
@@ -67,7 +64,7 @@ query| nodeid |parentid|           substring            |    substring
 (4 rows)
 ```
 
-Consider the following query:
+Consider the following query: 
 
 ```
 select event.eventid, sum(pricepaid)
@@ -85,9 +82,7 @@ eventid |   sum
 ...
 ```
 
-If this query's ID is 15, the following system view query returns the plan
-nodes that were completed. In this case, the order of the nodes is reversed to show
-the actual order of execution:
+ If this query's ID is 15, the following system view query returns the plan nodes that were completed. In this case, the order of the nodes is reversed to show the actual order of execution: 
 
 ```
 select query,nodeid,parentid,substring(plannode from 1 for 56)
@@ -106,8 +101,7 @@ query|nodeid|parentid|                          substring
 (8 rows)
 ```
 
-The following query retrieves the query IDs for any query plans that contain a
-window function:
+The following query retrieves the query IDs for any query plans that contain a window function: 
 
 ```
 select query, trim(plannode) from stl_explain

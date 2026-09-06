@@ -1,41 +1,43 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_AUTO\_WORKER\_ACTION
+<a name="r_SVL_AUTO_WORKER_ACTION"></a>
 
-Records automated actions taken by Amazon Redshift on tables defined for automatic optimization.
+Records automated actions taken by Amazon Redshift on tables defined for automatic optimization. 
 
-SVL\_AUTO\_WORKER\_ACTION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_AUTO\_WORKER\_ACTION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_SVL_AUTO_WORKER_ACTION-table-rows"></a>
 
-| Column name     | Data type      | Description                                                                                                                                                                                                                                     |
-| --------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| table\_id       | integer        | The table identifier.                                                                                                                                                                                                                           |
-| type            | character(32)  | The type of recommendation. Possible values are<br>distkey and sortkey.                                                                                                                                                                         |
-| status          | character(128) | The completion status of the recommendation.<br>Possible values are Start, Complete, Skipped, Abort, Checkpoint, and Failed.                                                                                                                    |
-| eventtime       | timestamp      | The timestamp of the `status` column.                                                                                                                                                                                                           |
-| sequence        | integer        | The sequence number of a truncated<br>`previous_state` value. When a single<br>`previous_state` contains more than 200 characters,<br>additional rows are logged for that value. Sequence is 0 is the<br>first row, 1 is the second, and so on. |
-| previous\_state | character(200) | The previous distribution style and sort keys of the table<br>before applying the recommendation. The value is truncated into 200-character increments.                                                                                         |
 
-Some examples of values of the `status` column are as follows:
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| table\_id  | integer | The table identifier.  | 
+| type  | character(32)  | The type of recommendation. Possible values are distkey and sortkey.  | 
+| status  | character(128)  | The completion status of the recommendation. Possible values are Start, Complete, Skipped, Abort, Checkpoint, and Failed.  | 
+| eventtime | timestamp  | The timestamp of the status column.  | 
+| sequence  | integer  | The sequence number of a truncated previous\_state value. When a single previous\_state contains more than 200 characters, additional rows are logged for that value. Sequence is 0 is the first row, 1 is the second, and so on.  | 
+| previous\_state  | character(200)  | The previous distribution style and sort keys of the table before applying the recommendation. The value is truncated into 200-character increments.  | 
 
-- Skipped:Table not found.
-- Skipped:Recommendation is empty.
-- Skipped:Apply sortkey recommendation is disabled.
-- Skipped:Retry exceeds the maximum limit for a table.
-- Skipped:Table column has changed.
-- Abort:This table is not AUTO.
-- Abort:This table has been recently converted.
-- Abort:This table exceeds table size threshold.
-- Abort:This table is already the recommended style.
-- Checkpoint: progress `21.9963`%.
+Some examples of values of the `status` column are as follows: 
++ Skipped:Table not found.
++ Skipped:Recommendation is empty.
++ Skipped:Apply sortkey recommendation is disabled.
++ Skipped:Retry exceeds the maximum limit for a table.
++ Skipped:Table column has changed.
++ Abort:This table is not AUTO.
++ Abort:This table has been recently converted.
++ Abort:This table exceeds table size threshold.
++ Abort:This table is already the recommended style.
++ Checkpoint: progress {{21.9963}}%.
 
 ## Sample queries
+<a name="r_SVL_AUTO_WORKER_ACTION-sample-queries"></a>
 
-In the following example, the rows in the result show actions taken by Amazon Redshift.
+In the following example, the rows in the result show actions taken by Amazon Redshift. 
 
 ```
 select table_id, type, status, eventtime, sequence, previous_state
@@ -43,7 +45,6 @@ from SVL_AUTO_WORKER_ACTION;
 ```
 
 ```
-
  table_id |  type   |                        status                        |         eventtime          | sequence | previous_state
 ----------+---------+------------------------------------------------------+----------------------------+----------+----------------
    118082 | sortkey | Start                                                | 2020-08-22 19:42:20.727049 | 0        |
@@ -59,8 +60,7 @@ from SVL_AUTO_WORKER_ACTION;
    118082 | sortkey | Start                                                | 2020-08-22 19:43:34.69531  | 0        |
    118072 | sortkey | Start                                                | 2020-08-22 19:44:46.703331 | 0        |
    118082 | sortkey | Checkpoint: progress 14.755079%                      | 2020-08-22 19:42:52.692828 | 0        |
-   118072 | sortkey | Failed                                               | 2020-08-22 19:44:14.796071 | 0        |
+   118072 | sortkey | Failed                                               | 2020-08-22 19:44:14.796071 | 0        |  
    116723 | sortkey | Abort:This table is not AUTO.                        | 2020-10-28 05:12:58.479233 | 0        |
    110203 | distkey | Abort:This table is not AUTO.                        | 2020-10-28 05:45:54.67259  | 0        |
-
 ```

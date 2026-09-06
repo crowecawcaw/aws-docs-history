@@ -1,47 +1,43 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Logical conditions
+<a name="r_logical_condition"></a>
 
-Logical conditions combine the result of two conditions to produce a single
-result. All logical conditions are binary operators with a Boolean return type.
+Logical conditions combine the result of two conditions to produce a single result. All logical conditions are binary operators with a Boolean return type. 
 
 ## Syntax
+<a name="r_logical_condition-synopsis"></a>
 
 ```
-*expression*
+expression
 { AND | OR }
-*expression*
-NOT *expression*
+expression
+NOT expression
 ```
 
-Logical conditions use a three-valued Boolean logic where the null value
-represents an unknown relationship. The following table describes the results for
-logical conditions, where `E1` and `E2` represent
-expressions:
+Logical conditions use a three-valued Boolean logic where the null value represents an unknown relationship. The following table describes the results for logical conditions, where `E1` and `E2` represent expressions:
 
-| E1      | E2      | E1 AND E2 | E1 OR E2 | NOT E2  |
-| ------- | ------- | --------- | -------- | ------- |
-| TRUE    | TRUE    | TRUE      | TRUE     | FALSE   |
-| TRUE    | FALSE   | FALSE     | TRUE     | TRUE    |
-| TRUE    | UNKNOWN | UNKNOWN   | TRUE     | UNKNOWN |
-| FALSE   | TRUE    | FALSE     | TRUE     |         |
-| FALSE   | FALSE   | FALSE     | FALSE    |         |
-| FALSE   | UNKNOWN | FALSE     | UNKNOWN  |         |
-| UNKNOWN | TRUE    | UNKNOWN   | TRUE     |         |
-| UNKNOWN | FALSE   | FALSE     | UNKNOWN  |         |
-| UNKNOWN | UNKNOWN | UNKNOWN   | UNKNOWN  |         |
 
-The NOT operator is evaluated before AND, and the AND operator is evaluated
-before the OR operator. Any parentheses used may override this default order of
-evaluation.
+| E1  | E2  | E1 AND E2  | E1 OR E2  | NOT E2  | 
+| --- | --- | --- | --- | --- | 
+| TRUE  | TRUE  | TRUE  | TRUE  | FALSE  | 
+| TRUE  | FALSE  | FALSE  | TRUE  | TRUE  | 
+| TRUE  | UNKNOWN  | UNKNOWN  | TRUE  | UNKNOWN  | 
+| FALSE  | TRUE  | FALSE  | TRUE  |   | 
+| FALSE  | FALSE  | FALSE  | FALSE  |   | 
+| FALSE  | UNKNOWN  | FALSE  | UNKNOWN  |   | 
+| UNKNOWN  | TRUE  | UNKNOWN  | TRUE  |   | 
+| UNKNOWN  | FALSE  | FALSE  | UNKNOWN  |   | 
+| UNKNOWN  | UNKNOWN  | UNKNOWN  | UNKNOWN  |   | 
+
+The NOT operator is evaluated before AND, and the AND operator is evaluated before the OR operator. Any parentheses used may override this default order of evaluation. 
 
 ### Examples
+<a name="r_logical_condition-examples"></a>
 
-The following example returns USERID and USERNAME from the USERS table where
-the user likes both Las Vegas and sports:
+The following example returns USERID and USERNAME from the USERS table where the user likes both Las Vegas and sports: 
 
 ```
 select userid, username from users
@@ -67,10 +63,7 @@ userid | username
 (2128 rows)
 ```
 
-The next example returns the USERID and USERNAME from the USERS table where
-the user likes Las Vegas, or sports, or both. This query returns all of the
-output from the previous example plus the users who like only Las Vegas or
-sports.
+The next example returns the USERID and USERNAME from the USERS table where the user likes Las Vegas, or sports, or both. This query returns all of the output from the previous example plus the users who like only Las Vegas or sports. 
 
 ```
 select userid, username from users
@@ -96,8 +89,7 @@ userid | username
 (18968 rows)
 ```
 
-The following query uses parentheses around the `OR` condition to
-find venues in New York or California where Macbeth was performed:
+The following query uses parentheses around the `OR` condition to find venues in New York or California where Macbeth was performed: 
 
 ```
 select distinct venuename, venuecity
@@ -117,10 +109,9 @@ Bernard B. Jacobs Theatre              | New York City
 ...
 ```
 
-Removing the parentheses in this example changes the logic and results of
-the query.
+Removing the parentheses in this example changes the logic and results of the query. 
 
-The following example uses the `NOT` operator:
+The following example uses the `NOT` operator: 
 
 ```
 select * from category
@@ -136,8 +127,7 @@ catid | catgroup |  catname  |                  catdesc
 ...
 ```
 
-The following example uses a `NOT` condition followed by an
-`AND` condition:
+The following example uses a `NOT` condition followed by an `AND` condition: 
 
 ```
 select * from category

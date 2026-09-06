@@ -1,38 +1,36 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # HLL\_COMBINE function
+<a name="r_HLL_COMBINE"></a>
 
-The HLL\_COMBINE aggregate function returns an HLLSKETCH data type that combines all
-input HLLSKETCH values.
+The HLL\_COMBINE aggregate function returns an HLLSKETCH data type that combines all input HLLSKETCH values. 
 
-The combination of two or more HyperLogLog sketches is a new HLLSKETCH that
-encapsulates information about the union of the distinct values that each input sketch
-represents. After combining sketches, Amazon Redshift extracts the cardinality of the union of two
-or more datasets. For more information on how to combine multiple sketches, see [Example: Return a HyperLogLog sketch from combining multiple sketches](r_HLL-examples.md#hll-examples-multiple-sketches "r_HLL-examples.md#hll-examples-multiple-sketches").
+The combination of two or more HyperLogLog sketches is a new HLLSKETCH that encapsulates information about the union of the distinct values that each input sketch represents. After combining sketches, Amazon Redshift extracts the cardinality of the union of two or more datasets. For more information on how to combine multiple sketches, see [Example: Return a HyperLogLog sketch from combining multiple sketches](r_HLL-examples.md#hll-examples-multiple-sketches).
 
 ## Syntax
+<a name="r_HLL_COMBINE-synopsis"></a>
 
 ```
-HLL_COMBINE (*hllsketch\_expression*)
+HLL_COMBINE (hllsketch_expression)
 ```
 
 ## Argument
+<a name="r_HLL_COMBINE-argument"></a>
 
-_hllsketch\_expression_
-
+ *hllsketch\_expression*   
 Any valid expression that evaluates to an HLLSKETCH type, such as a column name. The input value is the HLLSKETCH data type.
 
 ## Return type
+<a name="r_HLL_COMBINE-return-type"></a>
 
 The HLL\_COMBINE function returns an HLLSKETCH type.
 
 ## Examples
+<a name="r_HLL_COMBINE-examples"></a>
 
-The following example returns the combined HLLSKETCH values in the table
-`hll_table`.
+The following example returns the combined HLLSKETCH values in the table `hll_table`.
 
 ```
 CREATE TABLE a_table(an_int INT, b_int INT);

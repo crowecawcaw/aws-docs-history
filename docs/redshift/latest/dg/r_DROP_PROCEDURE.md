@@ -1,56 +1,46 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DROP PROCEDURE
+<a name="r_DROP_PROCEDURE"></a>
 
-Drops a procedure. To drop a procedure, both the procedure name and input argument data
-types (signature), are required. Optionally, you can include the full argument data types,
-including OUT arguments. To find the signature for a procedure, use the [SHOW PROCEDURE](r_SHOW_PROCEDURE.md "r_SHOW_PROCEDURE.md") command. For more
-information about procedure signatures, see [PG\_PROC\_INFO](r_PG_PROC_INFO.md "r_PG_PROC_INFO.md").
+Drops a procedure. To drop a procedure, both the procedure name and input argument data types (signature), are required. Optionally, you can include the full argument data types, including OUT arguments. To find the signature for a procedure, use the [SHOW PROCEDURE](r_SHOW_PROCEDURE.md) command. For more information about procedure signatures, see [PG\_PROC\_INFO](r_PG_PROC_INFO.md).
 
 ## Required privileges
+<a name="r_DROP_PROCEDURE-privileges"></a>
 
 Following are required privileges for DROP PROCEDURE:
-
-- Superuser
-- Users with the DROP PROCEDURE privilege
-- Procedure owner
++ Superuser
++ Users with the DROP PROCEDURE privilege
++ Procedure owner
 
 ## Syntax
+<a name="r_DROP_PROCEDURE-synopsis"></a>
 
 ```
 DROP PROCEDURE sp_name ( [ [ argname ] [ argmode ] argtype [, ...] ] )
-
 ```
 
 ## Parameters
+<a name="r_DROP_PROCEDURE-parameters"></a>
 
-_sp\_name_
+ *sp\_name*   
+The name of the procedure to be removed. 
 
-The name of the procedure to be removed.
+ *argname*   
+The name of an input argument. DROP PROCEDURE ignores argument names, because only the argument data types are needed to determine the procedure's identity. 
 
-_argname_
+ *argmode*   
+The mode of an argument, which can be IN, OUT, or INOUT. OUT arguments are optional because they aren't used to identify a stored procedure. 
 
-The name of an input argument. DROP PROCEDURE ignores argument names,
-because only the argument data types are needed to determine the
-procedure's identity.
-
-_argmode_
-
-The mode of an argument, which can be IN, OUT, or INOUT. OUT arguments are
-optional because they aren't used to identify a stored procedure.
-
-_argtype_
-
-The data type of the input argument. For a list of the supported data types,
-see [Data types](c_Supported_data_types.md "c_Supported_data_types.md").
+ *argtype*   
+The data type of the input argument. For a list of the supported data types, see [Data types](c_Supported_data_types.md). 
 
 ## Examples
+<a name="r_DROP_PROCEDURE-examples"></a>
 
-The following example drops a stored procedure named
-`quarterly_revenue`.
+The following example drops a stored procedure named `quarterly_revenue`.
 
 ```
 DROP PROCEDURE quarterly_revenue(volume INOUT bigint, at_price IN numeric,result OUT int);

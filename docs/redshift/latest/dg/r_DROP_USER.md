@@ -1,45 +1,35 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DROP USER
+<a name="r_DROP_USER"></a>
 
-Drops a user from a database. Multiple users can be dropped with a single DROP USER
-command. You must be a database superuser or have the DROP USER permission to run this
-command.
+Drops a user from a database. Multiple users can be dropped with a single DROP USER command. You must be a database superuser or have the DROP USER permission to run this command.
 
 ## Syntax
+<a name="r_DROP_USER-synopsis"></a>
 
 ```
-DROP USER [ IF EXISTS ] *name* [, ... ]
+DROP USER [ IF EXISTS ] name [, ... ]
 ```
 
 ## Parameters
+<a name="r_DROP_USER-parameters"></a>
 
-IF EXISTS
+IF EXISTS  
+Clause that indicates that if the specified user doesn’t exist, the command should make no changes and return a message that the user doesn't exist, rather than terminating with an error.  
+This clause is useful when scripting, so the script doesn’t fail if DROP USER runs against a nonexistent user.
 
-Clause that indicates that if the specified user doesn’t exist, the command
-should make no changes and return a message that the user doesn't exist,
-rather than terminating with an error.
-
-This clause is useful when scripting, so the script doesn’t fail if DROP
-USER runs against a nonexistent user.
-
-_name_
-
-Name of the user to remove. You can specify multiple users, with a comma
-separating each user name from the next.
+ *name*   
+Name of the user to remove. You can specify multiple users, with a comma separating each user name from the next.
 
 ## Usage notes
+<a name="r_DROP_USER-notes"></a>
 
-You can't drop the user named `rdsdb` or the administrator user of the
-database which is typically named `awsuser` or `admin`.
+You can't drop the user named `rdsdb` or the administrator user of the database which is typically named `awsuser` or `admin`.
 
-You can't drop a user if the user owns any database object, such as a schema,
-database, table, or view, or if the user has any privileges on a database, table,
-column, or group. If you attempt to drop such a user, you receive one of the following
-errors.
+You can't drop a user if the user owns any database object, such as a schema, database, table, or view, or if the user has any privileges on a database, table, column, or group. If you attempt to drop such a user, you receive one of the following errors.
 
 ```
 ERROR: user "username" can't be dropped because the user owns some object [SQL State=55006]
@@ -47,22 +37,12 @@ ERROR: user "username" can't be dropped because the user owns some object [SQL S
 ERROR: user "username" can't be dropped because the user has a privilege on some object [SQL State=55006]
 ```
 
-For detailed instructions on how to find the objects owned by a database user, see
-[How
-do I resolve the "user cannot be dropped" error in Amazon Redshift?](https://repost.aws/knowledge-center/redshift-user-cannot-be-dropped "https://repost.aws/knowledge-center/redshift-user-cannot-be-dropped") in
-_Knowledge Center_.
+For detailed instructions on how to find the objects owned by a database user, see [How do I resolve the "user cannot be dropped" error in Amazon Redshift?](https://repost.aws/knowledge-center/redshift-user-cannot-be-dropped) in *Knowledge Center*.
 
-###### Note
+**Note**  
+Amazon Redshift checks only the current database before dropping a user. DROP USER doesn't return an error if the user owns database objects or has any privileges on objects in another database. If you drop a user that owns objects in another database, the owner for those objects is changed to 'unknown'. 
 
-Amazon Redshift checks only the current database before dropping a user. DROP USER
-doesn't return an error if the user owns database objects or has any privileges
-on objects in another database. If you drop a user that owns objects in another
-database, the owner for those objects is changed to 'unknown'.
-
-If a user owns an object, first drop the object or change its ownership to another
-user before dropping the original user. If the user has privileges for an object, first
-revoke the privileges before dropping the user. The following example shows dropping an
-object, changing ownership, and revoking privileges before dropping the user.
+If a user owns an object, first drop the object or change its ownership to another user before dropping the original user. If the user has privileges for an object, first revoke the privileges before dropping the user. The following example shows dropping an object, changing ownership, and revoking privileges before dropping the user.
 
 ```
 drop database dwdatabase;
@@ -72,6 +52,7 @@ drop user dwuser;
 ```
 
 ## Examples
+<a name="r_DROP_USER-examples"></a>
 
 The following example drops a user called paulo:
 
@@ -85,8 +66,7 @@ The following example drops two users, paulo and martha:
 drop user paulo, martha;
 ```
 
-The following example drops the user paulo if it exists, or does nothing and returns
-a message if it doesn't:
+The following example drops the user paulo if it exists, or does nothing and returns a message if it doesn't:
 
 ```
 drop user if exists paulo;

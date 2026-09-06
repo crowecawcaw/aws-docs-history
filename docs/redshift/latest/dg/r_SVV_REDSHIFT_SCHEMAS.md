@@ -1,37 +1,34 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVV\_REDSHIFT\_SCHEMAS
+<a name="r_SVV_REDSHIFT_SCHEMAS"></a>
 
-Use SVV\_REDSHIFT\_SCHEMAS to view a list of all schemas that a user has access to. This
-set of schemas includes the schemas on the cluster and the schemas from datashares
-provided by remote clusters.
+Use SVV\_REDSHIFT\_SCHEMAS to view a list of all schemas that a user has access to. This set of schemas includes the schemas on the cluster and the schemas from datashares provided by remote clusters. 
 
-SVV\_REDSHIFT\_SCHEMAS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVV\_REDSHIFT\_SCHEMAS is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-For more information about best practices when querying system tables and views, see
-[Querying System Tables](../mgmt/discovering-metadata-system-tables.md "../mgmt/discovering-metadata-system-tables.md").
+For more information about best practices when querying system tables and views, see [Querying System Tables](https://docs.aws.amazon.com/redshift/latest/mgmt/discovering-metadata-system-tables.html).
 
-###### Note
-
-Use the [SHOW SCHEMAS](r_SHOW_SCHEMAS.md "r_SHOW_SCHEMAS.md") command for schema discovery. SHOW SCHEMAS works consistently across
-local, datashare, and external catalog contexts and is updated as new features are released.
-For more information, see [Best practices for discovering metadata](../mgmt/best-practices-discovering-metadata.md "../mgmt/best-practices-discovering-metadata.md").
+**Note**  
+Use the [SHOW SCHEMAS](r_SHOW_SCHEMAS.md) command for schema discovery. SHOW SCHEMAS works consistently across local, datashare, and external catalog contexts and is updated as new features are released. For more information, see [Best practices for discovering metadata](https://docs.aws.amazon.com/redshift/latest/mgmt/best-practices-discovering-metadata.html).
 
 ## Table columns
+<a name="r_SVV_REDSHIFT_SCHEMAS-table-columns"></a>
 
-| Column name    | Data type    | Description                                                                                     |
-| -------------- | ------------ | ----------------------------------------------------------------------------------------------- |
-| database\_name | varchar(128) | The name of the database where a specified schema<br>exists.                                    |
-| schema\_name   | varchar(128) | The namespace or schema name.                                                                   |
-| schema\_owner  | integer      | The internal user ID of the schema owner.                                                       |
-| schema\_type   | varchar(16)  | The type of the schema. Possible values are shared<br>and local schemas.                        |
-| schema\_acl    | varchar(128) | The string that defines the permissions for the<br>specified user or user group for the schema. |
-| schema\_option | varchar(128) | The options of the schema.                                                                      |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| database\_name | varchar(128) | The name of the database where a specified schema exists. | 
+| schema\_name | varchar(128) | The namespace or schema name. | 
+| schema\_owner | integer | The internal user ID of the schema owner. | 
+| schema\_type | varchar(16) | The type of the schema. Possible values are shared and local schemas. | 
+| schema\_acl | varchar(128) | The string that defines the permissions for the specified user or user group for the schema. | 
+| schema\_option | varchar(128) | The options of the schema. | 
 
 ## Sample query
+<a name="r_SVV_REDSHIFT_SCHEMAS-sample-query"></a>
 
 The following example returns the output of SVV\_REDSHIFT\_SCHEMAS.
 

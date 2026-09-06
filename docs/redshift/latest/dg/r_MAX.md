@@ -1,58 +1,52 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # MAX function
+<a name="r_MAX"></a>
 
-The MAX function returns the maximum value in a set of rows. DISTINCT or ALL might be
-used but do not affect the result.
+ The MAX function returns the maximum value in a set of rows. DISTINCT or ALL might be used but do not affect the result. 
 
 ## Syntax
+<a name="r_MAX-synopsis"></a>
 
 ```
-MAX ( [ DISTINCT | ALL ] *expression* )
+MAX ( [ DISTINCT | ALL ] expression )
 ```
 
 ## Arguments
+<a name="r_MAX-arguments"></a>
 
-_expression_
+ *expression *   
+The target column or expression that the function operates on. The *expression* is one of the following data types:  
++ SMALLINT
++ INTEGER
++ BIGINT
++ DECIMAL
++ REAL
++ DOUBLE PRECISON
++ CHAR
++ VARCHAR
++ DATE
++ TIMESTAMP
++ TIMESTAMPTZ
++ TIME
++ TIMETZ
++ VARBYTE
++ SUPER
 
-The target column or expression that the function operates on. The _expression_ is one of the following data types:
-
-- SMALLINT
-- INTEGER
-- BIGINT
-- DECIMAL
-- REAL
-- DOUBLE PRECISON
-- CHAR
-- VARCHAR
-- DATE
-- TIMESTAMP
-- TIMESTAMPTZ
-- TIME
-- TIMETZ
-- VARBYTE
-- SUPER
-
-DISTINCT | ALL
-
-With the argument DISTINCT, the function eliminates all duplicate values
-from the specified expression before calculating the maximum. With the
-argument ALL, the function retains all duplicate values from the expression
-for calculating the maximum. ALL is the default.
+DISTINCT \| ALL   
+With the argument DISTINCT, the function eliminates all duplicate values from the specified expression before calculating the maximum. With the argument ALL, the function retains all duplicate values from the expression for calculating the maximum. ALL is the default. 
 
 ## Data types
+<a name="c_Supported_data_types_max"></a>
 
-Returns the same data type as
-_expression_. The Boolean equivalent of the MIN function is the
-[BOOL\_AND function](r_BOOL_AND.md "r_BOOL_AND.md"), and the Boolean
-equivalent of MAX is the [BOOL\_OR function](r_BOOL_OR.md "r_BOOL_OR.md").
+Returns the same data type as *expression*. The Boolean equivalent of the MIN function is the [BOOL\_AND function](r_BOOL_AND.md), and the Boolean equivalent of MAX is the [BOOL\_OR function](r_BOOL_OR.md). 
 
 ## Examples
+<a name="r_MAX-examples"></a>
 
-Find the highest price paid from all sales:
+Find the highest price paid from all sales: 
 
 ```
 select max(pricepaid) from sales;
@@ -63,7 +57,7 @@ max
 (1 row)
 ```
 
-Find the highest price paid per ticket from all sales:
+Find the highest price paid per ticket from all sales: 
 
 ```
 select max(pricepaid/qtysold) as max_ticket_price

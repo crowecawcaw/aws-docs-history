@@ -1,90 +1,53 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # NVL2 function
+<a name="r_NVL2"></a>
 
-Returns one of two values based on whether a specified expression evaluates to NULL
-or NOT NULL.
+Returns one of two values based on whether a specified expression evaluates to NULL or NOT NULL.
 
 ## Syntax
+<a name="r_NVL2-synopsis"></a>
 
 ```
-NVL2 ( *expression*, *not\_null\_return\_value*, *null\_return\_value* )
+NVL2 ( expression, not_null_return_value, null_return_value )
 ```
 
 ## Arguments
+<a name="r_NVL2-arguments"></a>
 
-_expression_
+ *expression*   
+An expression, such as a column name, to be evaluated for null status.
 
-An expression, such as a column name, to be evaluated for null
-status.
+ *not\_null\_return\_value*   
+The value returned if *expression* evaluates to NOT NULL. The *not\_null\_return\_value* value must either have the same data type as *expression* or be implicitly convertible to that data type.
 
-_not\_null\_return\_value_
-
-The value returned if _expression_ evaluates to NOT
-NULL. The _not\_null\_return\_value_ value must either have
-the same data type as _expression_ or be implicitly
-convertible to that data type.
-
-_null\_return\_value_
-
-The value returned if _expression_ evaluates to NULL.
-The _null\_return\_value_ value must either have the same
-data type as _expression_ or be implicitly convertible to
-that data type.
+ *null\_return\_value*   
+The value returned if *expression* evaluates to NULL. The *null\_return\_value* value must either have the same data type as *expression* or be implicitly convertible to that data type.
 
 ## Return type
+<a name="r_NVL2-return-type"></a>
 
 The NVL2 return type is determined as follows:
++ If either *not\_null\_return\_value* or *null\_return\_value* is null, the data type of the not-null expression is returned.
 
-- If either _not\_null\_return\_value_ or
-  _null\_return\_value_ is null, the data type of the
-  not-null expression is returned.
+If both *not\_null\_return\_value* and *null\_return\_value* are not null:
++ If *not\_null\_return\_value* and *null\_return\_value* have the same data type, that data type is returned.
++ If *not\_null\_return\_value* and *null\_return\_value* have different numeric data types, the smallest compatible numeric data type is returned.
++ If *not\_null\_return\_value* and *null\_return\_value* have different datetime data types, a timestamp data type is returned.
++ If *not\_null\_return\_value* and *null\_return\_value* have different character data types, the data type of *not\_null\_return\_value* is returned.
++ If *not\_null\_return\_value* and *null\_return\_value* have mixed numeric and non-numeric data types, the data type of *not\_null\_return\_value* is returned.
 
-If both _not\_null\_return\_value_ and
-_null\_return\_value_ are not null:
-
-- If _not\_null\_return\_value_ and
-  _null\_return\_value_ have the same data type, that data
-  type is returned.
-- If _not\_null\_return\_value_ and
-  _null\_return\_value_ have different numeric data types,
-  the smallest compatible numeric data type is returned.
-- If _not\_null\_return\_value_ and
-  _null\_return\_value_ have different datetime data types, a
-  timestamp data type is returned.
-- If _not\_null\_return\_value_ and
-  _null\_return\_value_ have different character data types,
-  the data type of _not\_null\_return\_value_ is returned.
-- If _not\_null\_return\_value_ and
-  _null\_return\_value_ have mixed numeric and non-numeric
-  data types, the data type of _not\_null\_return\_value_ is
-  returned.
-
-###### Important
-
-In the last two cases where the data type of
-_not\_null\_return\_value_ is returned,
-_null\_return\_value_ is implicitly cast to that data type. If
-the data types are incompatible, the function fails.
+**Important**  
+In the last two cases where the data type of *not\_null\_return\_value* is returned, *null\_return\_value* is implicitly cast to that data type. If the data types are incompatible, the function fails.
 
 ## Usage notes
+<a name="nvl2-usage-notes"></a>
 
-[DECODE function](r_DECODE_expression.md "r_DECODE_expression.md") can be
-used in a similar way to NVL2 when the _expression_ and
-_search_ parameters are both null. The difference is that for
-DECODE, the return will have both the value and the data type of the
-_result_ parameter. In contrast, for NVL2, the return will have
-the value of either the _not\_null\_return\_value_ or
-_null\_return\_value_ parameter, whichever is selected by the
-function, but will have the data type of
-_not\_null\_return\_value_.
+[DECODE function](r_DECODE_expression.md) can be used in a similar way to NVL2 when the *expression* and *search* parameters are both null. The difference is that for DECODE, the return will have both the value and the data type of the *result* parameter. In contrast, for NVL2, the return will have the value of either the *not\_null\_return\_value* or *null\_return\_value* parameter, whichever is selected by the function, but will have the data type of *not\_null\_return\_value*.
 
-For example, assuming column1 is NULL, the following queries will return the same
-value. However, the DECODE return value data type will be INTEGER and the NVL2 return
-value data type will be VARCHAR.
+For example, assuming column1 is NULL, the following queries will return the same value. However, the DECODE return value data type will be INTEGER and the NVL2 return value data type will be VARCHAR.
 
 ```
 select decode(column1, null, 1234, '2345');
@@ -92,21 +55,21 @@ select nvl2(column1, '2345', 1234);
 ```
 
 ## Example
+<a name="r_NVL2-examples"></a>
 
-The following example modifies some sample data, then evaluates two fields to
-provide appropriate contact information for users:
+The following example modifies some sample data, then evaluates two fields to provide appropriate contact information for users: 
 
 ```
 update users set email = null where firstname = 'Aphrodite' and lastname = 'Acevedo';
 
-select (firstname + ' ' + lastname) as name,
+select (firstname + ' ' + lastname) as name, 
 nvl2(email, email, phone) AS contact_info
-from users
+from users 
 where state = 'WA'
 and lastname  like 'A%'
 order by lastname, firstname;
 
-name			     contact_info
+name			     contact_info	
 --------------------+-------------------------------------------
 Aphrodite Acevedo	(906) 632-4407
 Caldwell Acevedo 	Nunc.sollicitudin@Duisac.ca

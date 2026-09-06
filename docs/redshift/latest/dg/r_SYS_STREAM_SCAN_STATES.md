@@ -1,31 +1,33 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_STREAM\_SCAN\_STATES
+<a name="r_SYS_STREAM_SCAN_STATES"></a>
 
 Records scan states for records loaded through streaming ingestion.
 
-SYS\_STREAM\_SCAN\_STATES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_STREAM\_SCAN\_STATES is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_SYS_STREAM_SCAN_STATES-table-rows"></a>
 
-| Column name               | Data type                   | Description                                                                                                                                                      |
-| ------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| external\_schema\_name    | character(128)              | The external schema name. It is case<br>sensitive.                                                                                                               |
-| stream\_name              | character(255)              | The stream name. It is case sensitive.                                                                                                                           |
-| mv\_name                  | character(128)              | The name of the associated materialized view.<br>Empty if none. It is case sensitive.                                                                            |
-| transaction\_id           | bigint                      | The transaction ID.                                                                                                                                              |
-| query\_id                 | bigint                      | The query ID.                                                                                                                                                    |
-| record\_time              | timestamp without time zone | The time when the data was logged.                                                                                                                               |
-| partition\_id             | character(128)              | The partition or shard id. It is case<br>sensitive.                                                                                                              |
-| latest\_position          | character(128)              | The position of the last record read in the batch.<br>This corresponds with the sequence number in Kinesis or the offset in<br>Amazon MSK. It is case sensitive. |
-| scanned\_rows             | bigint                      | The number of records that were scanned in the<br>batch.                                                                                                         |
-| skipped\_rows             | bigint                      | The number of records that were skipped in the<br>batch.                                                                                                         |
-| scanned\_bytes            | bigint                      | The number of bytes that were scanned in the<br>batch.                                                                                                           |
-| stream\_record\_time\_min | timestamp without time zone | Kinesis or Amazon MSK arrival time for the earliest record<br>in the batch.                                                                                      |
-| stream\_record\_time\_max | timestamp without time zone | Kinesis or Amazon MSK arrival time for the latest record<br>in the batch.                                                                                        |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| external\_schema\_name  | character(128)  | The external schema name. It is case sensitive. | 
+| stream\_name  | character(255)  | The stream name. It is case sensitive. | 
+| mv\_name | character(128)  | The name of the associated materialized view. Empty if none. It is case sensitive. | 
+| transaction\_id | bigint  | The transaction ID. | 
+| query\_id  | bigint  | The query ID.  | 
+| record\_time | timestamp without time zone | The time when the data was logged. | 
+| partition\_id | character(128)  | The partition or shard id. It is case sensitive. | 
+| latest\_position | character(128)  | The position of the last record read in the batch. This corresponds with the sequence number in Kinesis or the offset in Amazon MSK. It is case sensitive. | 
+| scanned\_rows | bigint | The number of records that were scanned in the batch. | 
+| skipped\_rows | bigint | The number of records that were skipped in the batch. | 
+| scanned\_bytes | bigint | The number of bytes that were scanned in the batch. | 
+| stream\_record\_time\_min | timestamp without time zone | Kinesis or Amazon MSK arrival time for the earliest record in the batch. | 
+| stream\_record\_time\_max | timestamp without time zone | Kinesis or Amazon MSK arrival time for the latest record in the batch. | 
 
 The following query shows stream and topic data for specific queries.
 

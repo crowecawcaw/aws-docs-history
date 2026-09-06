@@ -1,79 +1,76 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_LOAD\_DETAIL
+<a name="SYS_LOAD_DETAIL"></a>
 
 Returns information to track or troubleshoot a data load.
 
-This view records the progress of each data file as it is loaded into a database
-table.
+This view records the progress of each data file as it is loaded into a database table. 
 
-This view is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+This view is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data). 
 
 ## Table columns
+<a name="SYS_LOAD_DETAIL-table-columns"></a>
 
-| Column name          | Data type                      | Description                                                                                                                                                                                                                                        |
-| -------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user\_id             | integer                        | ID of the user who generated the entry.                                                                                                                                                                                                            |
-| query\_id            | integer                        | Query ID.                                                                                                                                                                                                                                          |
-| file\_name           | character(256)                 | File name to be loaded.                                                                                                                                                                                                                            |
-| bytes\_scanned       | integer                        | The number of bytes scanned from the file in Amazon S3.                                                                                                                                                                                            |
-| lines\_scanned       | integer                        | Number of lines scanned from the load file. This<br>number may not match the number of rows that are actually loaded.<br>For example, the load may scan but tolerate a number of bad records,<br>based on the MAXERROR option in the COPY command. |
-| record\_time         | timestamp                      | Time that this entry was last updated.                                                                                                                                                                                                             |
-| splits\_scanned      | Number of splits of this file. | Number of splits of this file.                                                                                                                                                                                                                     |
-| start\_time          | timestamp                      | Time that this file processing started.                                                                                                                                                                                                            |
-| end\_time            | timestamp                      | Time that this file processing finished.                                                                                                                                                                                                           |
-| file\_etag           | character(256)                 | The ETag of the file in Amazon S3.                                                                                                                                                                                                                 |
-| file\_last\_modified | timestamp                      | The last modified timestamp of the file in Amazon S3.                                                                                                                                                                                              |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | ID of the user who generated the entry. | 
+| query\_id | integer | Query ID. | 
+| file\_name | character(256) | File name to be loaded. | 
+| bytes\_scanned | integer | The number of bytes scanned from the file in Amazon S3.  | 
+| lines\_scanned  | integer  | Number of lines scanned from the load file. This number may not match the number of rows that are actually loaded. For example, the load may scan but tolerate a number of bad records, based on the MAXERROR option in the COPY command.  | 
+| record\_time | timestamp  | Time that this entry was last updated. | 
+| splits\_scanned | Number of splits of this file. | Number of splits of this file. | 
+| start\_time | timestamp | Time that this file processing started. | 
+| end\_time | timestamp | Time that this file processing finished. | 
+| file\_etag | character(256) | The ETag of the file in Amazon S3. | 
+| file\_last\_modified | timestamp | The last modified timestamp of the file in Amazon S3. | 
 
 ## Sample queries
+<a name="SYS_LOAD_DETAIL-sample-queries"></a>
 
-The following example returns details for the last COPY operation.
+The following example returns details for the last COPY operation. 
 
 ```
 select query_id, trim(file_name) as file, record_time
 from sys_load_detail
 where query_id = pg_last_copy_id();
 
- query_id |               file               |          record_time
+ query_id |               file               |          record_time        
 ----------+----------------------------------+----------------------------
- 28554    | s3://dw-tickit/category_pipe.txt | 2013-11-01 17:14:52.648486
+ 28554    | s3://dw-tickit/category_pipe.txt | 2013-11-01 17:14:52.648486 
 (1 row)
 ```
 
-The following query contains entries for a fresh load of the tables in the TICKIT
-database:
+The following query contains entries for a fresh load of the tables in the TICKIT database: 
 
 ```
 select query_id, trim(file_name), record_time
 from sys_load_detail
 where file_name like '%tickit%' order by query_id;
 
- query_id |           btrim          |          record_time
+ query_id |           btrim          |          record_time          
 ----------+--------------------------+----------------------------
- 22475    | tickit/allusers_pipe.txt | 2013-02-08 20:58:23.274186
- 22478    | tickit/venue_pipe.txt    | 2013-02-08 20:58:25.070604
- 22480    | tickit/category_pipe.txt | 2013-02-08 20:58:27.333472
- 22482    | tickit/date2008_pipe.txt | 2013-02-08 20:58:28.608305
- 22485    | tickit/allevents_pipe.txt| 2013-02-08 20:58:29.99489
- 22487    | tickit/listings_pipe.txt | 2013-02-08 20:58:37.632939
- 22593    | tickit/allusers_pipe.txt | 2013-02-08 21:04:08.400491
- 22596    | tickit/venue_pipe.txt    | 2013-02-08 21:04:10.056055
- 22598    | tickit/category_pipe.txt | 2013-02-08 21:04:11.465049
- 22600    | tickit/date2008_pipe.txt | 2013-02-08 21:04:12.461502
- 22603    | tickit/allevents_pipe.txt| 2013-02-08 21:04:14.785124
- 22605    | tickit/listings_pipe.txt | 2013-02-08 21:04:20.170594
+ 22475    | tickit/allusers_pipe.txt | 2013-02-08 20:58:23.274186 
+ 22478    | tickit/venue_pipe.txt    | 2013-02-08 20:58:25.070604  
+ 22480    | tickit/category_pipe.txt | 2013-02-08 20:58:27.333472 
+ 22482    | tickit/date2008_pipe.txt | 2013-02-08 20:58:28.608305  
+ 22485    | tickit/allevents_pipe.txt| 2013-02-08 20:58:29.99489    
+ 22487    | tickit/listings_pipe.txt | 2013-02-08 20:58:37.632939 
+ 22593    | tickit/allusers_pipe.txt | 2013-02-08 21:04:08.400491  
+ 22596    | tickit/venue_pipe.txt    | 2013-02-08 21:04:10.056055  
+ 22598    | tickit/category_pipe.txt | 2013-02-08 21:04:11.465049  
+ 22600    | tickit/date2008_pipe.txt | 2013-02-08 21:04:12.461502  
+ 22603    | tickit/allevents_pipe.txt| 2013-02-08 21:04:14.785124  
+ 22605    | tickit/listings_pipe.txt | 2013-02-08 21:04:20.170594  
 
 (12 rows)
 ```
 
-The fact that a record is written to the log file for this system view does not
-mean that the load committed successfully as part of its containing transaction. To
-verify load commits, query the STL\_UTILITYTEXT view and look for the COMMIT record
-that corresponds with a COPY transaction. For example, this query joins
-SYS\_LOAD\_DETAIL and STL\_QUERY based on a subquery against STL\_UTILITYTEXT:
+The fact that a record is written to the log file for this system view does not mean that the load committed successfully as part of its containing transaction. To verify load commits, query the STL\_UTILITYTEXT view and look for the COMMIT record that corresponds with a COPY transaction. For example, this query joins SYS\_LOAD\_DETAIL and STL\_QUERY based on a subquery against STL\_UTILITYTEXT: 
 
 ```
 select l.query_id,rtrim(l.file_name),q.transaction_id

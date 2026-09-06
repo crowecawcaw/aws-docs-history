@@ -1,57 +1,58 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_USERLOG
+<a name="SYS_USERLOG"></a>
 
 Records details for the following changes to a database user:
++ Create user
++ Drop user
++ Alter user (rename)
++ Alter user (alter properties)
 
-- Create user
-- Drop user
-- Alter user (rename)
-- Alter user (alter properties)
-  You can query this view to see information about serverless workgroups and provisioned
-  clusters.
+You can query this view to see information about serverless workgroups and provisioned clusters.
 
-SYS\_USERLOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_USERLOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SYS_USERLOG-table-columns"></a>
 
-| Column name                 | Data type     | Description                                                                             |
-| --------------------------- | ------------- | --------------------------------------------------------------------------------------- |
-| user\_id                    | integer       | The identifier of the user who submitted the<br>unload.                                 |
-| user\_name                  | character(50) | Username of the user affected by the<br>change.                                         |
-| original\_user\_name        | character(50) | The original username in a rename action. This<br>field is empty for all other actions. |
-| action                      | character(10) | The action that occurred. Valid values are alter,<br>create, drop, and rename.          |
-| has\_create\_db\_privs      | integer       | If true (a value of 1), the user has create<br>database permissions.                    |
-| is\_superuser               | integer       | If true (a value of 1), the user can update system<br>catalogs.                         |
-| has\_update\_catalog\_privs | integer       | If true (a value of 1), the user can update system<br>catalogs.                         |
-| password\_expiration        | timestamp     | The password expiration date.                                                           |
-| session\_id                 | integer       | The process ID.                                                                         |
-| transaction\_id             | bigint        | The transaction ID.                                                                     |
-| record\_time                | timestamp     | Time in UTC of when the query started.                                                  |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | The identifier of the user who submitted the unload. | 
+| user\_name | character(50) | Username of the user affected by the change. | 
+| original\_user\_name | character(50) | The original username in a rename action. This field is empty for all other actions. | 
+| action | character(10) | The action that occurred. Valid values are alter, create, drop, and rename. | 
+| has\_create\_db\_privs | integer | If true (a value of 1), the user has create database permissions. | 
+| is\_superuser | integer | If true (a value of 1), the user can update system catalogs. | 
+| has\_update\_catalog\_privs | integer | If true (a value of 1), the user can update system catalogs. | 
+| password\_expiration | timestamp | The password expiration date. | 
+| session\_id | integer | The process ID. | 
+| transaction\_id | bigint | The transaction ID. | 
+| record\_time | timestamp | Time in UTC of when the query started. | 
 
 ## Sample queries
+<a name="SYS_USERLOG-sample-queries"></a>
 
-The following example performs four user actions, then queries the SYS\_USERLOG
-view.
+The following example performs four user actions, then queries the SYS\_USERLOG view.
 
 ```
-`CREATE USER userlog1 password 'Userlog1';
+CREATE USER userlog1 password 'Userlog1';
 ALTER USER userlog1 createdb createuser;
-ALTER USER userlog1 rename to userlog2;
+ALTER USER userlog1 rename  to userlog2;
 DROP user userlog2;
 
-SELECT user_id, user_name, original_user_name, action, has_create_db_privs, is_superuser from SYS_USERLOG order by record_time desc;`
+SELECT user_id, user_name, original_user_name, action, has_create_db_privs, is_superuser from SYS_USERLOG order by record_time desc;
 ```
 
 ```
-`user_id | user_name | original_user_name | action | has_create_db_privs | is_superuser
+user_id |  user_name | original_user_name |  action | has_create_db_privs | is_superuser
 --------+------------+--------------------+---------+---------------------+------------
- 108 | userlog2 | | drop | 1 | 1
- 108 | userlog2 | userlog1 | rename | 1 | 1
- 108 | userlog1 | | alter | 1 | 1
- 108 | userlog1 | | create | 0 | 0
- (4 rows)`
+    108 |  userlog2  |                    | drop    |                   1 |   1
+    108 |  userlog2  |     userlog1       | rename  |                   1 |   1
+    108 |  userlog1  |                    | alter   |                   1 |   1
+    108 |  userlog1  |                    | create  |                   0 |   0
+ (4 rows)
 ```

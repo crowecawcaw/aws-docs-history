@@ -1,17 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Examples
+<a name="r_CREATE_EXTERNAL_TABLE_examples"></a>
 
-The following example creates a table named SALES in the Amazon Redshift external schema named
-`spectrum`. The data is in tab-delimited text files. The TABLE PROPERTIES
-clause sets the numRows property to 170,000 rows.
+The following example creates a table named SALES in the Amazon Redshift external schema named `spectrum`. The data is in tab-delimited text files. The TABLE PROPERTIES clause sets the numRows property to 170,000 rows.
 
-Depending on the identity you use to run CREATE EXTERNAL TABLE, there may be IAM
-permissions that you have to configure. As a best practice, we recommend attaching permissions policies to an IAM role and then assigning it to users and groups as
-needed. For more information, see [Identity and access management in Amazon Redshift](../mgmt/redshift-iam-authentication-access-control.md "../mgmt/redshift-iam-authentication-access-control.md").
+Depending on the identity you use to run CREATE EXTERNAL TABLE, there may be IAM permissions that you have to configure. As a best practice, we recommend attaching permissions policies to an IAM role and then assigning it to users and groups as needed. For more information, see [Identity and access management in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-authentication-access-control.html).
 
 ```
 create external table spectrum.sales(
@@ -32,8 +28,7 @@ location 's3://redshift-downloads/tickit/spectrum/sales/'
 table properties ('numRows'='170000');
 ```
 
-The following example creates a table that uses the JsonSerDe to reference data in
-JSON format.
+The following example creates a table that uses the JsonSerDe to reference data in JSON format.
 
 ```
 create external table spectrum.cloudtrail_json (
@@ -54,9 +49,7 @@ with serdeproperties (
 ) location 's3://amzn-s3-demo-bucket/json/cloudtrail';
 ```
 
-The following CREATE EXTERNAL TABLE AS example creates a nonpartitioned external
-table. Then it writes the result of the SELECT query as Apache Parquet to the target
-Amazon S3 location.
+The following CREATE EXTERNAL TABLE AS example creates a nonpartitioned external table. Then it writes the result of the SELECT query as Apache Parquet to the target Amazon S3 location.
 
 ```
 CREATE EXTERNAL TABLE spectrum.lineitem
@@ -65,8 +58,7 @@ LOCATION 'S3://amzn-s3-demo-bucket/cetas/lineitem/'
 AS SELECT * FROM local_lineitem;
 ```
 
-The following example creates a partitioned external table and includes the partition
-columns in the SELECT query.
+The following example creates a partitioned external table and includes the partition columns in the SELECT query. 
 
 ```
 CREATE EXTERNAL TABLE spectrum.partitioned_lineitem
@@ -76,8 +68,7 @@ LOCATION 'S3://amzn-s3-demo-bucket/cetas/partitioned_lineitem/'
 AS SELECT l_orderkey, l_shipmode, l_shipdate, l_partkey FROM local_table;
 ```
 
-For a list of existing databases in the external data catalog, query the [SVV\_EXTERNAL\_DATABASES](r_SVV_EXTERNAL_DATABASES.md "r_SVV_EXTERNAL_DATABASES.md") system
-view.
+For a list of existing databases in the external data catalog, query the [SVV\_EXTERNAL\_DATABASES](r_SVV_EXTERNAL_DATABASES.md) system view. 
 
 ```
 select eskind,databasename,esoptions from svv_external_databases order by databasename;
@@ -89,10 +80,9 @@ eskind | databasename | esoptions
      1 | default      | {"REGION":"us-west-2","IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"}
      1 | sampledb     | {"REGION":"us-west-2","IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"}
      1 | spectrumdb   | {"REGION":"us-west-2","IAM_ROLE":"arn:aws:iam::123456789012:role/mySpectrumRole"}
-
 ```
 
-To view details of external tables, query the [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md "r_SVV_EXTERNAL_TABLES.md") and [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md "r_SVV_EXTERNAL_COLUMNS.md") system views.
+To view details of external tables, query the [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md) and [SVV\_EXTERNAL\_COLUMNS](r_SVV_EXTERNAL_COLUMNS.md) system views.
 
 The following example queries the SVV\_EXTERNAL\_TABLES view.
 
@@ -107,7 +97,7 @@ spectrum   | sales                | s3://redshift-downloads/tickit/spectrum/sale
 spectrum   | sales_part           | s3://redshift-downloads/tickit/spectrum/sales_partition
 ```
 
-The following example queries the SVV\_EXTERNAL\_COLUMNS view.
+The following example queries the SVV\_EXTERNAL\_COLUMNS view. 
 
 ```
 select * from svv_external_columns where schemaname like 'spectrum%' and tablename ='sales';
@@ -153,8 +143,7 @@ spectrum   | sales_part | ["2008-11-01"] | s3://redshift-downloads/tickit/spectr
 spectrum   | sales_part | ["2008-12-01"] | s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-12
 ```
 
-The following example returns the total size of related data files for an external
-table.
+The following example returns the total size of related data files for an external table.
 
 ```
 select distinct "$path", "$size"
@@ -165,10 +154,10 @@ select distinct "$path", "$size"
 s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-01/ |  1616
 s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-02/ |  1444
 s3://redshift-downloads/tickit/spectrum/sales_partition/saledate=2008-02/ |  1444
-
 ```
 
 ## Partitioning examples
+<a name="r_CREATE_EXTERNAL_TABLE_examples-partitioning"></a>
 
 To create an external table partitioned by date, run the following command.
 
@@ -260,8 +249,7 @@ eventid | sum
    5638 | 22551.00
 ```
 
-To view external table partitions, query the [SVV\_EXTERNAL\_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md "r_SVV_EXTERNAL_PARTITIONS.md")
-system view.
+To view external table partitions, query the [SVV\_EXTERNAL\_PARTITIONS](r_SVV_EXTERNAL_PARTITIONS.md) system view.
 
 ```
 select schemaname, tablename, values, location from svv_external_partitions
@@ -286,9 +274,9 @@ spectrum   | sales_part | ["2008-12-01"] | s3://redshift-downloads/tickit/spectr
 ```
 
 ## Row format examples
+<a name="r_CREATE_EXTERNAL_TABLE_examples-row-format"></a>
 
-The following shows an example of specifying the ROW FORMAT SERDE parameters for
-data files stored in AVRO format.
+The following shows an example of specifying the ROW FORMAT SERDE parameters for data files stored in AVRO format.
 
 ```
 create external table spectrum.sales(salesid int, listid int, sellerid int, buyerid int, eventid int, dateid int, qtysold int, pricepaid decimal(8,2), comment VARCHAR(255))
@@ -305,8 +293,7 @@ STORED AS AVRO
 location 's3://amzn-s3-demo-bucket/avro/sales' ;
 ```
 
-The following shows an example of specifying the ROW FORMAT SERDE parameters using
-RegEx.
+The following shows an example of specifying the ROW FORMAT SERDE parameters using RegEx.
 
 ```
 create external table spectrum.types(
@@ -320,8 +307,7 @@ stored as textfile
 location 's3://amzn-s3-demo-bucket/regex/types';
 ```
 
-The following shows an example of specifying the ROW FORMAT SERDE parameters using
-Grok.
+The following shows an example of specifying the ROW FORMAT SERDE parameters using Grok.
 
 ```
 create external table spectrum.grok_log(
@@ -336,8 +322,7 @@ stored as textfile
 location 's3://DOC-EXAMPLE-BUCKET/grok/logs';
 ```
 
-The following shows an example of defining an Amazon S3 server access log in an S3
-bucket. You can use Redshift Spectrum to query Amazon S3 access logs.
+The following shows an example of defining an Amazon S3 server access log in an S3 bucket. You can use Redshift Spectrum to query Amazon S3 access logs.
 
 ```
 CREATE EXTERNAL TABLE spectrum.mybucket_s3_logs(
@@ -366,43 +351,35 @@ ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.RegexSerDe'
 WITH SERDEPROPERTIES (
 'input.regex' = '([^ ]*) ([^ ]*) \\[(.*?)\\] ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) \"([^ ]*)\\s*([^ ]*)\\s*([^ ]*)\" (- |[^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) ([^ ]*) (\"[^\"]*\") ([^ ]*).*$')
 LOCATION 's3://amzn-s3-demo-bucket/s3logs’;
-
 ```
 
-The following shows an example of specifying the ROW FORMAT SERDE parameters for
-ION format data.
+The following shows an example of specifying the ROW FORMAT SERDE parameters for ION format data.
 
 ```
-CREATE EXTERNAL TABLE `tbl_name` (`columns`)
+CREATE EXTERNAL TABLE {{tbl_name}} ({{columns}})
 ROW FORMAT SERDE 'com.amazon.ionhiveserde.IonHiveSerDe'
 STORED AS
 INPUTFORMAT 'com.amazon.ionhiveserde.formats.IonInputFormat'
 OUTPUTFORMAT 'com.amazon.ionhiveserde.formats.IonOutputFormat'
-LOCATION '`s3://amzn-s3-demo-bucket/prefix`'
-
-
+LOCATION '{{s3://amzn-s3-demo-bucket/prefix}}'
 ```
 
 ## Data handling examples
+<a name="r_CREATE_EXTERNAL_TABLE_examples-data-handling"></a>
 
-The following examples access the file: [spi\_global\_rankings.csv](https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv "https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv"). You can upload the `spi_global_rankings.csv` file to
-an Amazon S3 bucket to try these examples.
+The following examples access the file: [spi\_global\_rankings.csv](https://s3.amazonaws.com/redshift-downloads/docs-downloads/spi_global_rankings.csv). You can upload the `spi_global_rankings.csv` file to an Amazon S3 bucket to try these examples.
 
-The following example creates the external schema
-`schema_spectrum_uddh` and database `spectrum_db_uddh`. For
-`aws-account-id`, enter your AWS account ID and for
-`role-name` enter your Redshift Spectrum role name.
+The following example creates the external schema `schema_spectrum_uddh` and database `spectrum_db_uddh`. For `aws-account-id`, enter your AWS account ID and for `role-name` enter your Redshift Spectrum role name.
 
 ```
 create external schema schema_spectrum_uddh
 from data catalog
 database 'spectrum_db_uddh'
-iam_role 'arn:aws:iam::`aws-account-id`:role/`role-name`'
+iam_role 'arn:aws:iam::{{aws-account-id}}:role/{{role-name}}'
 create external database if not exists;
 ```
 
-The following example creates the external table `soccer_league` in the
-external schema `schema_spectrum_uddh`.
+The following example creates the external table `soccer_league` in the external schema `schema_spectrum_uddh`.
 
 ```
 CREATE EXTERNAL TABLE schema_spectrum_uddh.soccer_league
@@ -437,8 +414,7 @@ count
 645
 ```
 
-The following query displays the top 10 clubs. Because club `Barcelona`
-has an invalid character in the string, a NULL is displayed for the name.
+The following query displays the top 10 clubs. Because club `Barcelona` has an invalid character in the string, a NULL is displayed for the name.
 
 ```
 select league_rank,club_name,league_name,league_nspi
@@ -460,18 +436,14 @@ league_rank	club_name	league_name			league_nspi
 10		Paris Saint-Ger	French Ligue 1			30929
 ```
 
-The following example alters the `soccer_league` table to specify the
-`invalid_char_handling`, `replacement_char`, and
-`data_cleansing_enabled` external table properties to insert a question
-mark (?) as a substitute for unexpected characters.
+The following example alters the `soccer_league` table to specify the `invalid_char_handling`, `replacement_char`, and `data_cleansing_enabled` external table properties to insert a question mark (?) as a substitute for unexpected characters.
 
 ```
 alter  table schema_spectrum_uddh.soccer_league
 set table properties ('invalid_char_handling'='REPLACE','replacement_char'='?','data_cleansing_enabled'='true');
 ```
 
-The following example queries the table `soccer_league` for teams with
-a rank from 1 to 10.
+The following example queries the table `soccer_league` for teams with a rank from 1 to 10.
 
 ```
 select league_rank,club_name,league_name,league_nspi
@@ -479,9 +451,7 @@ from schema_spectrum_uddh.soccer_league
 where league_rank between 1 and 10;
 ```
 
-Because the table properties were altered, the results show the top 10 clubs, with
-the question mark (?) replacement character in the eighth row for club
-`Barcelona`.
+Because the table properties were altered, the results show the top 10 clubs, with the question mark (?) replacement character in the eighth row for club `Barcelona`.
 
 ```
 league_rank	club_name	league_name		league_nspi
@@ -497,17 +467,14 @@ league_rank	club_name	league_name		league_nspi
 10		Paris Saint-Ger	French Ligue 1		30929
 ```
 
-The following example alters the `soccer_league` table to specify the
-`invalid_char_handling` external table properties to drop rows with
-unexpected characters.
+The following example alters the `soccer_league` table to specify the `invalid_char_handling` external table properties to drop rows with unexpected characters.
 
 ```
 alter table schema_spectrum_uddh.soccer_league
 set table properties ('invalid_char_handling'='DROP_ROW','data_cleansing_enabled'='true');
 ```
 
-The following example queries the table `soccer_league` for teams with
-a rank from 1 to 10.
+The following example queries the table `soccer_league` for teams with a rank from 1 to 10.
 
 ```
 select league_rank,club_name,league_name,league_nspi
@@ -515,11 +482,9 @@ from schema_spectrum_uddh.soccer_league
 where league_rank between 1 and 10;
 ```
 
-The results display the top clubs, not including the eighth row for club
-`Barcelona`.
+The results display the top clubs, not including the eighth row for club `Barcelona`.
 
 ```
-
 league_rank   club_name         league_name            league_nspi
 1             Manchester City   Barclays Premier Lea   34595
 2             Bayern Munich     German Bundesliga      34151
@@ -530,5 +495,4 @@ league_rank   club_name         league_name            league_nspi
 7             Real Madrid       Spanish Primera Divi   31469
 9             RB Leipzig        German Bundesliga      31014
 10            Paris Saint-Ger   French Ligue 1         30929
-
 ```

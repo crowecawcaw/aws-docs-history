@@ -1,69 +1,58 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_AddPoint
+<a name="ST_AddPoint-function"></a>
 
-ST\_AddPoint returns a linestring geometry that is the same as the input geometry with a point added.
-If an index is provided, then the point is added at the index position.
-If the index is -1 or not provided, then the point is appended to the linestring.
+ST\_AddPoint returns a linestring geometry that is the same as the input geometry with a point added. If an index is provided, then the point is added at the index position. If the index is -1 or not provided, then the point is appended to the linestring. 
 
-The index is zero-based. The spatial reference system identifier (SRID) of the result
-is the same as that of the input geometry.
+The index is zero-based. The spatial reference system identifier (SRID) of the result is the same as that of the input geometry. 
 
-The dimension of the returned geometry is the same as that of the
-_geom1_ value. If _geom1_ and
-_geom2_ have different dimensions, _geom2_ is
-projected to the dimension of _geom1_.
+The dimension of the returned geometry is the same as that of the *geom1* value. If *geom1* and *geom2* have different dimensions, *geom2* is projected to the dimension of *geom1*.
 
 ## Syntax
+<a name="ST_AddPoint-function-syntax"></a>
 
 ```
-ST_AddPoint(*geom1*, *geom2*)
+ST_AddPoint(geom1, geom2)
 ```
 
 ```
-ST_AddPoint(*geom1*, *geom2*, *index*)
+ST_AddPoint(geom1, geom2, index)
 ```
 
 ## Arguments
+<a name="ST_AddPoint-function-arguments"></a>
 
-_geom1_
+ *geom1*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. The subtype must be `LINESTRING`. 
 
-A value of data type `GEOMETRY` or an expression that
-evaluates to a `GEOMETRY` type. The subtype must be
-`LINESTRING`.
+ *geom2*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. The subtype must be `POINT`. The point can be the empty point.
 
-_geom2_
-
-A value of data type `GEOMETRY` or an expression that
-evaluates to a `GEOMETRY` type. The subtype must be
-`POINT`. The point can be the empty point.
-
-_index_
-
-A value of data type `INTEGER` that represents the position of a zero-based index.
+ *index*   
+A value of data type `INTEGER` that represents the position of a zero-based index. 
 
 ## Return type
+<a name="ST_AddPoint-function-return"></a>
 
-`GEOMETRY`
+`GEOMETRY` 
 
-If _geom1_, _geom2_, or _index_ is null, then null is returned.
+If *geom1*, *geom2*, or *index* is null, then null is returned. 
 
-If _geom2_ is the empty point, then a copy of _geom1_ is returned.
+If *geom2* is the empty point, then a copy of *geom1* is returned. 
 
-If _geom1_ is not a `LINESTRING`, then an error is returned.
+If *geom1* is not a `LINESTRING`, then an error is returned. 
 
-If _geom2_ is not a `POINT`, then an error is returned.
+If *geom2* is not a `POINT`, then an error is returned. 
 
-If _index_ is out of range, then an error is returned. Valid
-values for the index position are -1 or a value between 0 and
-`ST_NumPoints(geom1)`.
+If *index* is out of range, then an error is returned. Valid values for the index position are -1 or a value between 0 and `ST_NumPoints(geom1)`. 
 
 ## Examples
+<a name="ST_AddPoint-function-examples"></a>
 
-The following SQL adds a point to a linestring to make it a closed linestring.
+The following SQL adds a point to a linestring to make it a closed linestring. 
 
 ```
 WITH tmp(g) AS (SELECT ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5)',4326))
@@ -71,14 +60,12 @@ SELECT ST_AsEWKT(ST_AddPoint(g, ST_StartPoint(g))) FROM tmp;
 ```
 
 ```
-
  st_asewkt
 ------------------------------------------------
  SRID=4326;LINESTRING(0 0,10 0,10 10,5 5,0 5,0 0)
-
 ```
 
-The following SQL adds a point to a specific position in a linestring.
+The following SQL adds a point to a specific position in a linestring. 
 
 ```
 WITH tmp(g) AS (SELECT ST_GeomFromText('LINESTRING(0 0,10 0,10 10,5 5,0 5)',4326))
@@ -86,9 +73,7 @@ SELECT ST_AsEWKT(ST_AddPoint(g, ST_SetSRID(ST_Point(5, 10), 4326), 3)) FROM tmp;
 ```
 
 ```
-
  st_asewkt
 ------------------------------------------------
  SRID=4326;LINESTRING(0 0,10 0,10 10,5 10,5 5,0 5)
-
 ```

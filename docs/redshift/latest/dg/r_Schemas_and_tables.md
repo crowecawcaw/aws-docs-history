@@ -1,46 +1,28 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Schemas
+<a name="r_Schemas_and_tables"></a>
 
-A database contains one or more named schemas. Each schema in a database contains tables
-and other kinds of named objects. By default, a database has a single schema, which is
-named PUBLIC. You can use schemas to group database objects under a common name. Schemas
-are similar to file system directories, except that schemas cannot be nested.
+A database contains one or more named schemas. Each schema in a database contains tables and other kinds of named objects. By default, a database has a single schema, which is named PUBLIC. You can use schemas to group database objects under a common name. Schemas are similar to file system directories, except that schemas cannot be nested.
 
-Identical database object names can be used in different schemas in the same database
-without conflict. For example, both MY\_SCHEMA and YOUR\_SCHEMA can contain a table named
-MYTABLE. Users with the necessary permissions can access objects across multiple schemas in
-a database.
+Identical database object names can be used in different schemas in the same database without conflict. For example, both MY\_SCHEMA and YOUR\_SCHEMA can contain a table named MYTABLE. Users with the necessary permissions can access objects across multiple schemas in a database.
 
-By default, an object is created within the first schema in the search path of the
-database. For information, see [Search path](#c_Search_path "#c_Search_path") later in this section.
+By default, an object is created within the first schema in the search path of the database. For information, see [Search path](#c_Search_path) later in this section.
 
-Schemas can help with organization and concurrency issues in a multiuser environment in
-the following ways:
-
-- To let many developers work in the same database without interfering with each
-  other.
-- To organize database objects into logical groups to make them more
-  manageable.
-- To give applications the ability to put their objects into separate schemas so
-  that their names will not collide with the names of objects used by other
-  applications.
+Schemas can help with organization and concurrency issues in a multiuser environment in the following ways:
++ To let many developers work in the same database without interfering with each other.
++ To organize database objects into logical groups to make them more manageable.
++ To give applications the ability to put their objects into separate schemas so that their names will not collide with the names of objects used by other applications.
 
 ## Search path
+<a name="c_Search_path"></a>
 
-The search path is defined in the search\_path parameter with a comma-separated list
-of schema names. The search path specifies the order in which schemas are searched when
-an object, such as a table or function, is referenced by a simple name that does not
-include a schema qualifier.
+The search path is defined in the search\_path parameter with a comma-separated list of schema names. The search path specifies the order in which schemas are searched when an object, such as a table or function, is referenced by a simple name that does not include a schema qualifier.
 
-If an object is created without specifying a target schema, the object is added to
-the first schema that is listed in search path. When objects with identical names exist
-in different schemas, an object name that does not specify a schema will refer to the
-first schema in the search path that contains an object with that name.
+If an object is created without specifying a target schema, the object is added to the first schema that is listed in search path. When objects with identical names exist in different schemas, an object name that does not specify a schema will refer to the first schema in the search path that contains an object with that name.
 
-To change the default schema for the current session, use the [SET](r_SET.md "r_SET.md") command.
+To change the default schema for the current session, use the [SET](r_SET.md) command.
 
-For more information, see the [search\_path](r_search_path.md "r_search_path.md") description in the Configuration Reference.
+For more information, see the [search\_path](r_search_path.md) description in the Configuration Reference.

@@ -1,87 +1,75 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ADD\_MONTHS function
+<a name="r_ADD_MONTHS"></a>
 
-ADD\_MONTHS adds the specified number of months to a date or timestamp value or
-expression. The [DATEADD](r_DATEADD_function.md "r_DATEADD_function.md") function provides similar functionality.
+ADD\_MONTHS adds the specified number of months to a date or timestamp value or expression. The [DATEADD](r_DATEADD_function.md) function provides similar functionality. 
 
 ## Syntax
+<a name="r_ADD_MONTHS-synopsis"></a>
 
 ```
-ADD_MONTHS( {*date* | *timestamp*}, *integer*)
+ADD_MONTHS( {date | timestamp}, integer)
 ```
 
 ## Arguments
+<a name="r_ADD_MONTHS-arguments"></a>
 
-_date_ | _timestamp_
+ *date* \| *timestamp*   
+A column of data type `DATE` or `TIMESTAMP` or an expression that implicitly evaluates to a `DATE` or `TIMESTAMP` type. If the date is the last day of the month, or if the resulting month is shorter, the function returns the last day of the month in the result. For other dates, the result contains the same day number as the date expression. 
 
-A column of data type `DATE` or `TIMESTAMP` or an
-expression that implicitly evaluates to a `DATE` or
-`TIMESTAMP` type. If the date is the last day of the month, or if
-the resulting month is shorter, the function returns the last day of the month
-in the result. For other dates, the result contains the same day number as the
-date expression.
-
-_integer_
-
-A value of data type `INTEGER`. Use a negative number to subtract months
-from dates.
+ *integer*   
+A value of data type `INTEGER`. Use a negative number to subtract months from dates. 
 
 ## Return type
+<a name="r_ADD_MONTHS-return-type"></a>
 
 TIMESTAMP
 
 ## Examples
+<a name="r_ADD_MONTHS-example"></a>
 
-The following query uses the ADD\_MONTHS function inside a TRUNC function. The TRUNC
-function removes the time of day from the result of ADD\_MONTHS. The ADD\_MONTHS function
-adds 12 months to each value from the CALDATE column. The values in the CALDATE column
-are dates.
+The following query uses the ADD\_MONTHS function inside a TRUNC function. The TRUNC function removes the time of day from the result of ADD\_MONTHS. The ADD\_MONTHS function adds 12 months to each value from the CALDATE column. The values in the CALDATE column are dates. 
 
 ```
-`select distinct trunc(add_months(caldate, 12)) as calplus12,
+select distinct trunc(add_months(caldate, 12)) as calplus12,
 trunc(caldate) as cal
 from date
-order by 1 asc;`
+order by 1 asc;
 
- `calplus12 | cal
+ calplus12  |    cal
 ------------+------------
  2009-01-01 | 2008-01-01
  2009-01-02 | 2008-01-02
  2009-01-03 | 2008-01-03
 ...
-(365 rows)`
+(365 rows)
 ```
 
-The following example uses the ADD\_MONTHS function to add 1 month to a _timestamp_.
+The following example uses the ADD\_MONTHS function to add 1 month to a *timestamp*. 
 
 ```
-`select add_months('2008-01-01 05:07:30', 1);`
+select add_months('2008-01-01 05:07:30', 1); 
 
-`add_months
+add_months
 ---------------------
-2008-02-01 05:07:30`
+2008-02-01 05:07:30
 ```
 
-The following examples demonstrate the behavior when the ADD\_MONTHS function operates
-on dates with months that have different numbers of days. This example shows how the
-function handles adding 1 month to March 31 and adding 1 month to April 30. April has 30
-days, so adding 1 month to March 31 results in April 30. May has 31 days, so adding 1
-month to April 30 results in May 31.
+The following examples demonstrate the behavior when the ADD\_MONTHS function operates on dates with months that have different numbers of days. This example shows how the function handles adding 1 month to March 31 and adding 1 month to April 30. April has 30 days, so adding 1 month to March 31 results in April 30. May has 31 days, so adding 1 month to April 30 results in May 31. 
 
 ```
-`select add_months('2008-03-31',1);`
+select add_months('2008-03-31',1);
 
-`add_months
+add_months
 ---------------------
-2008-04-30 00:00:00`
+2008-04-30 00:00:00
 
-`select add_months('2008-04-30',1);`
+select add_months('2008-04-30',1); 
 
-`add_months
+add_months
 ---------------------
-2008-05-31 00:00:00`
+2008-05-31 00:00:00
 ```

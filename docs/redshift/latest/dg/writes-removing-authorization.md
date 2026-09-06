@@ -1,42 +1,34 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Removing authorization from a datashare in Amazon Redshift
+<a name="writes-removing-authorization"></a>
 
-With Amazon Redshift, you can control access to datashares by revoking authorization for
-specified consumers. This sections provides instructions for revoking consumer
-access to your datashares in Amazon Redshift.
+With Amazon Redshift, you can control access to datashares by revoking authorization for specified consumers. This sections provides instructions for revoking consumer access to your datashares in Amazon Redshift.
 
-###### Note
+**Note**  
+To remove authorization for the datashare, there must be at least one data consumer added to the datashare.
 
-To remove authorization for the datashare, there must be at least one data
-consumer added to the datashare.
+------
+#### [ Console ]
 
-Console
-Choose one or more consumer clusters that you want to remove
-authorization from. Then, choose **Remove
-authorization**.
+Choose one or more consumer clusters that you want to remove authorization from. Then, choose **Remove authorization**.
 
-After authorization is removed, data consumers lose access to the
-datashare immediately.
+After authorization is removed, data consumers lose access to the datashare immediately.
 
-API
+------
+#### [ API ]
+
 The producer security administrator determines the following:
++ Whether or not another account can have access to the datashare.
++ If an account has access to the datashare, whether or not that account has write permissions.
 
-- Whether or not another account can have access to the
-  datashare.
-- If an account has access to the datashare, whether or not that
-  account has write permissions.
-
-The following IAM permissions are required to deauthorize a
-datashare:
+The following IAM permissions are required to deauthorize a datashare: 
 
 **redshift:DeauthorizeDataShare**
 
-You can deauthorize usage and writes using either a CLI call or with
-the API:
+You can deauthorize usage and writes using either a CLI call or with the API:
 
 ```
 deauthorize-data-share
@@ -44,4 +36,6 @@ deauthorize-data-share
 --consumer-identifier <value>
 ```
 
-For more information about the command, see [deauthorize-data-share](../../../cli/latest/reference/redshift/deauthorize-data-share.md "../../../cli/latest/reference/redshift/deauthorize-data-share.md").
+For more information about the command, see [deauthorize-data-share](https://docs.aws.amazon.com/cli/latest/reference/redshift/deauthorize-data-share.html).
+
+------

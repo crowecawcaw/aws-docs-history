@@ -1,32 +1,28 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # statement\_timeout
+<a name="r_statement_timeout"></a>
 
 ## Values (default in bold)
+<a name="r_statement_timeout-values"></a>
 
-**0 (turns off limitation)**, x milliseconds
+ **0 (turns off limitation)**, x milliseconds
 
 ## Description
+<a name="r_statement_timeout-description"></a>
 
 Stops any statement that takes over the specified number of milliseconds.
 
-The `statement_timeout` value is the maximum amount of time a query can
-run before Amazon Redshift terminates it. This time includes planning, queueing in workload
-management (WLM), and execution time. Compare this time to WLM timeout
-(max\_execution\_time) and a QMR (query\_execution\_time), which include only execution
-time.
+The `statement_timeout` value is the maximum amount of time a query can run before Amazon Redshift terminates it. This time includes planning, queueing in workload management (WLM), and execution time. Compare this time to WLM timeout (max\_execution\_time) and a QMR (query\_execution\_time), which include only execution time.
 
-If WLM timeout (max\_execution\_time) is also specified as part of a WLM configuration,
-the lower of statement\_timeout and max\_execution\_time is used. For more information, see
-[WLM timeout](cm-c-defining-query-queues.md#wlm-timeout "cm-c-defining-query-queues.md#wlm-timeout").
+If WLM timeout (max\_execution\_time) is also specified as part of a WLM configuration, the lower of statement\_timeout and max\_execution\_time is used. For more information, see [WLM timeout](cm-c-defining-query-queues.md#wlm-timeout).
 
 ## Example
+<a name="r_statement_timeout-example"></a>
 
-Because the following query takes longer than 1 millisecond, it times out and is
-canceled.
+Because the following query takes longer than 1 millisecond, it times out and is canceled.
 
 ```
 set statement_timeout = 1;

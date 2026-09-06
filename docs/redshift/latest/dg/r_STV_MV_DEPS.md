@@ -1,37 +1,33 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_MV\_DEPS
+<a name="r_STV_MV_DEPS"></a>
 
-The STV\_MV\_DEPS table shows the dependencies of materialized views on other
-materialized views within Amazon Redshift.
+The STV\_MV\_DEPS table shows the dependencies of materialized views on other materialized views within Amazon Redshift. 
 
-For more information about materialized views, see [Materialized views in Amazon Redshift](materialized-view-overview.md "materialized-view-overview.md").
+For more information about materialized views, see [Materialized views in Amazon Redshift](materialized-view-overview.md).
 
-STV\_MV\_DEPS is visible to all users. Superusers can see all rows; regular users can
-only list materialized views residing in schemas they have access to. For more
-information, see [Visibility
-of data insystem tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_MV\_DEPS is visible to all users. Superusers can see all rows; regular users can only list materialized views residing in schemas they have access to. For more information, see [Visibility of data insystem tables and views](https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_system-tables.html#c_visibility-of-data).
 
 ## Table columns
+<a name="r_STV_MV_DEPS-table-columns"></a>
 
-| Column name         | Data type | Description                                                                   |
-| ------------------- | --------- | ----------------------------------------------------------------------------- |
-| db\_name            | char(128) | The database that contains the specified<br>materialized view.                |
-| schema              | char(128) | The schema of the materialized view.                                          |
-| name                | char(128) | The name of the materialized view.                                            |
-| ref\_schema         | char(128) | The materialized view schema on which this<br>materialized view depends.      |
-| ref\_name           | char(128) | The name of the materialized view on which this<br>materialized view depends. |
-| ref\_database\_name | char(128) | The name of the database on which this<br>materialized view depends.          |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| db\_name  | char(128)  | The database that contains the specified materialized view.  | 
+| schema  | char(128)  | The schema of the materialized view.  | 
+| name  | char(128)  | The name of the materialized view.  | 
+| ref\_schema | char(128)  | The materialized view schema on which this materialized view depends.  | 
+| ref\_name | char(128)  | The name of the materialized view on which this materialized view depends. | 
+| ref\_database\_name | char(128)  | The name of the database on which this materialized view depends. | 
 
 ## Sample query
+<a name="r_STV_MV_DEPS-sample-query"></a>
 
-The following query returns an output row that indicates that the materialized
-view `mv_over_foo` uses the materialized view `mv_foo` in its
-definition as a
-dependency.
+The following query returns an output row that indicates that the materialized view `mv_over_foo` uses the materialized view `mv_foo` in its definition as a dependency.
 
 ```
 CREATE SCHEMA test_ivm_setup;
@@ -40,7 +36,7 @@ CREATE MATERIALIZED VIEW test_ivm_setup.mv_foo AS SELECT * FROM test_ivm_setup.f
 CREATE MATERIALIZED VIEW test_ivm_setup.mv_over_foo AS SELECT * FROM test_ivm_setup.mv_foo;
 
 SELECT * FROM stv_mv_deps;
-
+                
  db_name | schema          | name        |   ref_schema   | ref_name | ref_database_name
 ---------+-----------------+-------------+----------------+----------+------------------
  dev     | test_ivm_setup  | mv_over_foo | test_ivm_setup | mv_foo   | dev

@@ -1,73 +1,58 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # COUNT window function
+<a name="r_WF_COUNT"></a>
 
-The COUNT window function counts the rows defined by the expression.
+ The COUNT window function counts the rows defined by the expression.
 
-The COUNT function has two variations. COUNT(\*) counts all the rows in the target
-table whether they include nulls or not. COUNT(expression) computes the number of rows
-with non-NULL values in a specific column or expression.
+The COUNT function has two variations. COUNT(\*) counts all the rows in the target table whether they include nulls or not. COUNT(expression) computes the number of rows with non-NULL values in a specific column or expression.
 
 ## Syntax
+<a name="r_WF_COUNT-synopsis"></a>
 
 ```
-COUNT ( *\** | [ ALL ] *expression*) OVER
+COUNT ( * | [ ALL ] expression) OVER
 (
-[ PARTITION BY *expr\_list* ]
-[ ORDER BY *order\_list*
-                        *frame\_clause* ]
+[ PARTITION BY expr_list ]
+[ ORDER BY order_list 
+                        frame_clause ]
 )
 ```
 
 ## Arguments
+<a name="r_WF_COUNT-arguments"></a>
 
-_expression_
+ *expression *   
+The target column or expression that the function operates on. 
 
-The target column or expression that the function operates on.
+ALL   
+With the argument ALL, the function retains all duplicate values from the expression for counting. ALL is the default. DISTINCT is not supported.
 
-ALL
+OVER   
+Specifies the window clauses for the aggregation functions. The OVER clause distinguishes window aggregation functions from normal set aggregation functions.
 
-With the argument ALL, the function retains all duplicate values from the
-expression for counting. ALL is the default. DISTINCT is not
-supported.
+PARTITION BY *expr\_list*   
+Defines the window for the COUNT function in terms of one or more expressions.
 
-OVER
+ORDER BY *order\_list*   
+Sorts the rows within each partition. If no PARTITION BY is specified, ORDER BY uses the entire table.
 
-Specifies the window clauses for the aggregation functions. The OVER
-clause distinguishes window aggregation functions from normal set
-aggregation functions.
-
-PARTITION BY _expr\_list_
-
-Defines the window for the COUNT function in terms of one or more
-expressions.
-
-ORDER BY _order\_list_
-
-Sorts the rows within each partition. If no PARTITION BY is specified,
-ORDER BY uses the entire table.
-
-_frame\_clause_
-
-If an ORDER BY clause is used for an aggregate function, an explicit
-frame clause is required. The frame clause refines the set of rows in a
-function's window, including or excluding sets of rows within the ordered
-result. The frame clause consists of the ROWS keyword and associated
-specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis "c_Window_functions.md#r_Window_function_synopsis").
+ *frame\_clause*   
+If an ORDER BY clause is used for an aggregate function, an explicit frame clause is required. The frame clause refines the set of rows in a function's window, including or excluding sets of rows within the ordered result. The frame clause consists of the ROWS keyword and associated specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis).
 
 ## Data types
+<a name="c_Supported_data_types_wf_count"></a>
 
 The COUNT function supports all argument data types.
 
 The return type supported by the COUNT function is BIGINT.
 
 ## Examples
+<a name="r_WF_COUNT-examples"></a>
 
-The following example shows the sales ID, quantity, and count of all rows from the beginning of the data
-window:
+ The following example shows the sales ID, quantity, and count of all rows from the beginning of the data window: 
 
 ```
 select salesid, qty,
@@ -91,10 +76,9 @@ salesid | qty | count
 (11 rows)
 ```
 
-For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example). 
 
-The following example shows how the sales ID, quantity, and count of non-null rows from the beginning of the
-data window. (In the WINSALES table, the QTY\_SHIPPED column contains some NULLs.)
+The following example shows how the sales ID, quantity, and count of non-null rows from the beginning of the data window. (In the WINSALES table, the QTY\_SHIPPED column contains some NULLs.) 
 
 ```
 select salesid, qty, qty_shipped,

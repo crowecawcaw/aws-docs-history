@@ -1,45 +1,45 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_LOAD\_HISTORY
+<a name="SYS_LOAD_HISTORY"></a>
 
-Use SYS\_LOAD\_HISTORY to view details of COPY commands. Each row represents a COPY
-command with accumulated statistics for some of the fields. It contains both running and
-finished COPY commands.
+Use SYS\_LOAD\_HISTORY to view details of COPY commands. Each row represents a COPY command with accumulated statistics for some of the fields. It contains both running and finished COPY commands.
 
-SYS\_LOAD\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_LOAD\_HISTORY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SYS_LOAD_HISTORY-table-columns"></a>
 
-| Column name          | Data type | Description                                                                          |
-| -------------------- | --------- | ------------------------------------------------------------------------------------ |
-| user\_id             | integer   | The identifier of the user who submitted the<br>copy.                                |
-| query\_id            | bigint    | The query identifier of the copy.                                                    |
-| transaction\_id      | bigint    | The transaction identifier.                                                          |
-| session\_id          | integer   | The process identifier of the process running the<br>copy.                           |
-| database\_name       | text      | The name of the database the user was connected to<br>when the operation was issued. |
-| status               | text      | The status of the copy. Valid values are<br>`running`, `completed`,<br>`aborted`.    |
-| table\_name          | text      | The name of the table copying into.                                                  |
-| start\_time          | timestamp | The time when the copy began.                                                        |
-| end\_time            | timestamp | The time when the copy completed.                                                    |
-| duration             | bigint    | The amount of time (microseconds) spent in the<br>COPY command.                      |
-| data\_source         | text      | The Amazon S3 location of files input to copy.                                       |
-| file\_format         | text      | The source file format. Formats include csv, txt,<br>json, avro, orc, or parquet.    |
-| loaded\_rows         | bigint    | The number of rows copied to a table.                                                |
-| loaded\_bytes        | bigint    | The number of bytes copied to a table.                                               |
-| source\_file\_count  | integer   | The number of files count in source files.                                           |
-| source\_file\_bytes  | bigint    | The number of bytes in source files.                                                 |
-| file\_count\_scanned | integer   | The number of scanned files from Amazon S3.                                          |
-| file\_bytes\_scanned | bigint    | The number of bytes scanned from the file in<br>Amazon S3.                           |
-| error\_count         | bigint    | The number of errors count.                                                          |
-| copy\_job\_id        | bigint    | The copy job identifier. A `0`<br>indicates no job identifier.                       |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | The identifier of the user who submitted the copy. | 
+| query\_id | bigint | The query identifier of the copy. | 
+| transaction\_id | bigint | The transaction identifier. | 
+| session\_id | integer | The process identifier of the process running the copy. | 
+| database\_name | text | The name of the database the user was connected to when the operation was issued. | 
+| status | text | The status of the copy. Valid values are running, completed, aborted. | 
+| table\_name | text | The name of the table copying into. | 
+| start\_time | timestamp | The time when the copy began. | 
+| end\_time | timestamp | The time when the copy completed. | 
+| duration | bigint | The amount of time (microseconds) spent in the COPY command. | 
+| data\_source | text | The Amazon S3 location of files input to copy. | 
+| file\_format | text | The source file format. Formats include csv, txt, json, avro, orc, or parquet. | 
+| loaded\_rows | bigint | The number of rows copied to a table.  | 
+| loaded\_bytes | bigint | The number of bytes copied to a table.  | 
+| source\_file\_count | integer | The number of files count in source files.  | 
+| source\_file\_bytes | bigint | The number of bytes in source files.  | 
+| file\_count\_scanned | integer | The number of scanned files from Amazon S3. | 
+| file\_bytes\_scanned | bigint | The number of bytes scanned from the file in Amazon S3. | 
+| error\_count | bigint | The number of errors count. | 
+| copy\_job\_id  | bigint  | The copy job identifier. A 0 indicates no job identifier. | 
 
 ## Sample queries
+<a name="SYS_LOAD_HISTORY-sample-queries"></a>
 
-The following query shows the loaded rows, bytes, tables, and datasource of
-specific copy commands.
+The following query shows the loaded rows, bytes, tables, and datasource of specific copy commands.
 
 ```
 SELECT query_id,
@@ -65,8 +65,7 @@ Sample output.
    490791 | customer_address | s3://load-test/data-sources/tpcds/2.8.0/textfile/1T/customer_address/ |     6000000 |     722924305
 ```
 
-The following query shows the loaded rows, bytes, tables, and datasource of copy
-commands.
+The following query shows the loaded rows, bytes, tables, and datasource of copy commands.
 
 ```
 SELECT query_id,
@@ -95,7 +94,7 @@ Sample output.
    490865 | store                  | s3://load-test/data-sources/tpcds/2.8.0/textfile/1T/store/                  |        1002 |          365507
 ```
 
-The following query shows the daily loaded rows and bytes of the copy command.
+ The following query shows the daily loaded rows and bytes of the copy command. 
 
 ```
 SELECT date_trunc('day',start_time) AS exec_day,

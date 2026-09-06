@@ -1,9 +1,9 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CTAS examples
+<a name="r_CTAS_examples"></a>
 
 The following example creates a table called EVENT\_BACKUP for the EVENT table:
 
@@ -11,7 +11,7 @@ The following example creates a table called EVENT\_BACKUP for the EVENT table:
 create table event_backup as select * from event;
 ```
 
-The resulting table inherits the distribution and sort keys from the EVENT table.
+The resulting table inherits the distribution and sort keys from the EVENT table. 
 
 ```
 select "column", type, encoding, distkey, sortkey
@@ -27,9 +27,7 @@ starttime | timestamp without time zone | none     | false   |       0
 venueid   | smallint                    | none     | false   |       0
 ```
 
-The following command creates a new table called EVENTDISTSORT by selecting four
-columns from the EVENT table. The new table is distributed by EVENTID and sorted by
-EVENTID and DATEID:
+The following command creates a new table called EVENTDISTSORT by selecting four columns from the EVENT table. The new table is distributed by EVENTID and sorted by EVENTID and DATEID: 
 
 ```
 create table eventdistsort
@@ -54,8 +52,7 @@ dateid    | smallint              | none     | f       | 2
 eventname | character varying(200)| none     | f       | 0
 ```
 
-You could create exactly the same table by using column names for the distribution
-and sort keys. For example:
+You could create exactly the same table by using column names for the distribution and sort keys. For example:
 
 ```
 create table eventdistsort1
@@ -66,8 +63,7 @@ select eventid, venueid, dateid, eventname
 from event;
 ```
 
-The following statement applies even distribution to the table but doesn't
-define an explicit sort key.
+The following statement applies even distribution to the table but doesn't define an explicit sort key. 
 
 ```
 create table eventdisteven
@@ -77,9 +73,7 @@ select eventid, venueid, dateid, eventname
 from event;
 ```
 
-The table doesn't inherit the sort key from the EVENT table (EVENTID) because
-EVEN distribution is specified for the new table. The new table has no sort key and no
-distribution key.
+The table doesn't inherit the sort key from the EVENT table (EVENTID) because EVEN distribution is specified for the new table. The new table has no sort key and no distribution key. 
 
 ```
 select "column", type, encoding, distkey, sortkey
@@ -93,14 +87,14 @@ dateid    | smallint               | none     | f       | 0
 eventname | character varying(200) | none     | f       | 0
 ```
 
-The following statement applies even distribution and defines a sort key:
+The following statement applies even distribution and defines a sort key: 
 
 ```
 create table eventdistevensort diststyle even sortkey (venueid)
 as select eventid, venueid, dateid, eventname from event;
 ```
 
-The resulting table has a sort key but no distribution key.
+ The resulting table has a sort key but no distribution key. 
 
 ```
 select "column", type, encoding, distkey, sortkey
@@ -114,16 +108,14 @@ dateid    | smallint               | none     | f       | 0
 eventname | character varying(200) | none     | f       | 0
 ```
 
-The following statement redistributes the EVENT table on a different key column from
-the incoming data, which is sorted on the EVENTID column, and defines no SORTKEY column;
-therefore the table isn't sorted.
+The following statement redistributes the EVENT table on a different key column from the incoming data, which is sorted on the EVENTID column, and defines no SORTKEY column; therefore the table isn't sorted. 
 
 ```
 create table venuedistevent distkey(venueid)
 as select * from event;
 ```
 
-The result is as follows:
+The result is as follows: 
 
 ```
 select "column", type, encoding, distkey, sortkey

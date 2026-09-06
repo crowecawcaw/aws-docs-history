@@ -1,63 +1,56 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_UNLOAD\_LOG
+<a name="r_STL_UNLOAD_LOG"></a>
 
 Records the details for an unload operation.
 
-STL\_UNLOAD\_LOG records one row for each file created by an UNLOAD statement. For
-example, if an UNLOAD creates 12 files, STL\_UNLOAD\_LOG will contain 12 corresponding
-rows.
+STL\_UNLOAD\_LOG records one row for each file created by an UNLOAD statement. For example, if an UNLOAD creates 12 files, STL\_UNLOAD\_LOG will contain 12 corresponding rows.
 
-STL\_UNLOAD\_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_UNLOAD\_LOG is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-STL\_UNLOAD\_LOG only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
-or on serverless namespaces.
-To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS\_UNLOAD\_HISTORY](SYS_UNLOAD_HISTORY.md "SYS_UNLOAD_HISTORY.md") and
-[SYS\_UNLOAD\_DETAIL](SYS_UNLOAD_DETAIL.md "SYS_UNLOAD_DETAIL.md")
-. The data in the SYS monitoring view is formatted to be easier to use and understand.
+**Note**  
+STL\_UNLOAD\_LOG only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters or on serverless namespaces. To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view [SYS\_UNLOAD\_HISTORY](SYS_UNLOAD_HISTORY.md) and [SYS\_UNLOAD\_DETAIL](SYS_UNLOAD_DETAIL.md) . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
+<a name="r_STL_UNLOAD_LOG-table-columns"></a>
 
-| Column name     | Data type       | Description                                                                                                                                                  |
-| --------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| userid          | integer         | ID of the user who generated the entry.                                                                                                                      |
-| query           | integer         | The query ID.                                                                                                                                                |
-| slice           | integer         | Number that identifies the slice where the query was running.                                                                                                |
-| pid             | integer         | Process ID associated with the query<br>statement.                                                                                                           |
-| path            | character(1280) | The complete Amazon S3 object path for the<br>file.                                                                                                          |
-| start\_time     | timestamp       | Start time for the transaction.                                                                                                                              |
-| end\_time       | timestamp       | End time for the transaction.                                                                                                                                |
-| line\_count     | bigint          | Number of lines (rows) unloaded to the<br>file.                                                                                                              |
-| transfer\_size  | bigint          | Number of bytes transferred.                                                                                                                                 |
-| file\_format    | character(10)   | Format of unloaded file.                                                                                                                                     |
-| user\_query\_id | bigint          | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_UNLOAD\_DETAIL](SYS_UNLOAD_DETAIL.md "SYS_UNLOAD_DETAIL.md"). |
-| transaction\_id | bigint          | The transaction identifier associated with the<br>statement.                                                                                                 |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+|  query  | integer  | The query ID.  | 
+| slice | integer | Number that identifies the slice where the query was running. | 
+| pid | integer | Process ID associated with the query statement. | 
+| path | character(1280) | The complete Amazon S3 object path for the file. | 
+| start\_time | timestamp  | Start time for the transaction.  | 
+| end\_time | timestamp  | End time for the transaction.  | 
+| line\_count | bigint | Number of lines (rows) unloaded to the file. | 
+| transfer\_size | bigint | Number of bytes transferred. | 
+| file\_format | character(10) | Format of unloaded file. | 
+| user\_query\_id  | bigint  | The query identifier of the user-submitted query, as recorded in the query\_id column of [SYS\_UNLOAD\_DETAIL](SYS_UNLOAD_DETAIL.md).  | 
+| transaction\_id  | bigint  | The transaction identifier associated with the statement.  | 
 
 ## Sample query
+<a name="r_STL_UNLOAD_LOG-sample-query"></a>
 
-To get a list of the files that were written to Amazon S3 by an UNLOAD command, you can
-call an Amazon S3 list operation after the UNLOAD completes. You can also query STL\_UNLOAD\_LOG.
+To get a list of the files that were written to Amazon S3 by an UNLOAD command, you can call an Amazon S3 list operation after the UNLOAD completes. You can also query STL\_UNLOAD\_LOG.
 
-The following query returns the pathname for files that were created by an UNLOAD
-for the last query completed:
+The following query returns the pathname for files that were created by an UNLOAD for the last query completed:
 
 ```
 select query, substring(path,0,40) as path
 from stl_unload_log
-where query = pg_last_query_id()
+where query = pg_last_query_id() 
 order by path;
 ```
 
-This command returns the following sample output:
+This command returns the following sample output: 
 
 ```
-
+ 
  query |             path
 -------+--------------------------------------
   2320 | s3://amzn-s3-demo-bucket/venue0000_part_00
@@ -65,5 +58,4 @@ This command returns the following sample output:
   2320 | s3://amzn-s3-demo-bucket/venue0002_part_00
   2320 | s3://amzn-s3-demo-bucket/venue0003_part_00
 (4 rows)
-
 ```

@@ -1,52 +1,29 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Overview of stored procedures in Amazon Redshift
+<a name="stored-procedure-create"></a>
 
 This topic describes details about the purpose and use of stored procedures.
 
-Stored procedures are commonly used to encapsulate logic for data transformation, data
-validation, and business-specific logic. By combining multiple SQL steps into a stored
-procedure, you can reduce round trips between your applications and the database.
+Stored procedures are commonly used to encapsulate logic for data transformation, data validation, and business-specific logic. By combining multiple SQL steps into a stored procedure, you can reduce round trips between your applications and the database.
 
-For fine-grained access control, you can create stored procedures to perform functions
-without giving a user access to the underlying tables. For example, only the owner or a
-superuser can truncate a table, and a user needs write privileges to insert data into a
-table. Instead of granting a user privileges on the underlying tables, you can create a
-stored procedure that performs the task. You then give the user privileges to run the
-stored procedure.
+For fine-grained access control, you can create stored procedures to perform functions without giving a user access to the underlying tables. For example, only the owner or a superuser can truncate a table, and a user needs write privileges to insert data into a table. Instead of granting a user privileges on the underlying tables, you can create a stored procedure that performs the task. You then give the user privileges to run the stored procedure. 
 
-A stored procedure with the DEFINER security attribute runs with the privileges of the
-stored procedure's owner. By default, a stored procedure has INVOKER security, which means
-the procedure uses the privileges of the user that calls the procedure.
+A stored procedure with the DEFINER security attribute runs with the privileges of the stored procedure's owner. By default, a stored procedure has INVOKER security, which means the procedure uses the privileges of the user that calls the procedure. 
 
-To create a stored procedure, use the [CREATE PROCEDURE](r_CREATE_PROCEDURE.md "r_CREATE_PROCEDURE.md") command. To run a procedure, use the [CALL](r_CALL_procedure.md "r_CALL_procedure.md") command. Examples follow
-later in this section.
+To create a stored procedure, use the [CREATE PROCEDURE](r_CREATE_PROCEDURE.md) command. To run a procedure, use the [CALL](r_CALL_procedure.md) command. Examples follow later in this section.
 
-###### Note
-
-Some clients might display the following error when creating an Amazon Redshift stored procedure.
+**Note**  
+Some clients might display the following error when creating an Amazon Redshift stored procedure.  
 
 ```
 ERROR: 42601: [Amazon](500310) unterminated dollar-quoted string at or near "$$
 ```
-
-This error occurs due to the inability of the client to correctly parse the CREATE PROCEDURE
-statement with semicolons delimiting statements and with dollar sign ($) quoting.
-This results in only a part of the statement sent to the Amazon Redshift server.
-You can often work around this error by using the `Run as batch` or `Execute selected` option of the client.
-
-For example, when using an Aginity client, use the `Run entire script as
- batch` option. When you use SQL Workbench/J, we recommend version 124. When you
-use SQL Workbench/J version 125, consider specifying an alternate delimiter as a
-workaround.
-
-CREATE PROCEDURE contains SQL statements delimited with a semicolon (;). Defining an
-alternate delimiter such as a slash (/) and placing it at the end of the CREATE
-PROCEDURE statement sends the statement to the Amazon Redshift server for processing. Following is
-an example.
+This error occurs due to the inability of the client to correctly parse the CREATE PROCEDURE statement with semicolons delimiting statements and with dollar sign ($) quoting. This results in only a part of the statement sent to the Amazon Redshift server. You can often work around this error by using the `Run as batch` or `Execute selected` option of the client.   
+For example, when using an Aginity client, use the `Run entire script as batch` option. When you use SQL Workbench/J, we recommend version 124. When you use SQL Workbench/J version 125, consider specifying an alternate delimiter as a workaround.   
+CREATE PROCEDURE contains SQL statements delimited with a semicolon (;). Defining an alternate delimiter such as a slash (/) and placing it at the end of the CREATE PROCEDURE statement sends the statement to the Amazon Redshift server for processing. Following is an example.  
 
 ```
 CREATE OR REPLACE PROCEDURE test()
@@ -58,24 +35,19 @@ $$
 LANGUAGE plpgsql
 ;
 /
-
 ```
+You can use a client with support for parsing CREATE PROCEDURE statements, such as the [query editor in the Amazon Redshift console](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor.html) or TablePlus. 
 
-You can use a client
-with support for parsing CREATE PROCEDURE statements, such as the [query editor in the Amazon Redshift console](../mgmt/query-editor.md "../mgmt/query-editor.md") or
-TablePlus.
+**Topics**
++ [Naming stored procedures](stored-procedure-naming.md)
++ [Security and privileges for stored procedures](stored-procedure-security-and-privileges.md)
++ [Returning a result set from a stored procedure](stored-procedure-result-set.md)
++ [Managing transactions](stored-procedure-transaction-management.md)
++ [Trapping errors](stored-procedure-trapping-errors.md)
++ [Logging stored procedures](c_PLpgSQL-logging.md)
++ [Stored procedure limitations](stored-procedure-constraints.md)
 
-###### Topics
-
-- [Naming stored procedures](stored-procedure-naming.md "stored-procedure-naming.md")
-- [Security and privileges for stored procedures](stored-procedure-security-and-privileges.md "stored-procedure-security-and-privileges.md")
-- [Returning a result set from a stored procedure](stored-procedure-result-set.md "stored-procedure-result-set.md")
-- [Managing transactions](stored-procedure-transaction-management.md "stored-procedure-transaction-management.md")
-- [Trapping errors](stored-procedure-trapping-errors.md "stored-procedure-trapping-errors.md")
-- [Logging stored procedures](c_PLpgSQL-logging.md "c_PLpgSQL-logging.md")
-- [Stored procedure limitations](stored-procedure-constraints.md "stored-procedure-constraints.md")
-  The following example shows a procedure with no output arguments.
-  By default, arguments are input (IN) arguments.
+The following example shows a procedure with no output arguments. By default, arguments are input (IN) arguments.
 
 ```
 CREATE OR REPLACE PROCEDURE test_sp1(f1 int, f2 varchar)
@@ -88,26 +60,16 @@ $$ LANGUAGE plpgsql;
 call test_sp1(5, 'abc');
 INFO: f1 = 5, f2 = abc
 CALL
-
 ```
 
-###### Note
 
-When you write stored procedures, we recommend a best practice for securing sensitive values:
 
-Don't hardcode any sensitive information in stored procedure logic. For example,
-don't assign a user password in a CREATE USER statement in the body of a stored
-procedure. This poses a security risk, because hardcoded values can be recorded as
-schema metadata in catalog tables. Instead, pass sensitive values, such as passwords, as
-arguments to the stored procedure, by means of parameters.
+**Note**  
+ When you write stored procedures, we recommend a best practice for securing sensitive values:   
+Don't hardcode any sensitive information in stored procedure logic. For example, don't assign a user password in a CREATE USER statement in the body of a stored procedure. This poses a security risk, because hardcoded values can be recorded as schema metadata in catalog tables. Instead, pass sensitive values, such as passwords, as arguments to the stored procedure, by means of parameters.   
+For more information about stored procedures, see [CREATE PROCEDURE](r_CREATE_PROCEDURE.md) and [Creating stored procedures in Amazon Redshift](stored-procedure-overview.md). For more information about catalog tables, see [System catalog tables](c_intro_catalog_views.md).
 
-For more information about stored procedures,
-see [CREATE PROCEDURE](r_CREATE_PROCEDURE.md "r_CREATE_PROCEDURE.md")
-and [Creating stored procedures in Amazon Redshift](stored-procedure-overview.md "stored-procedure-overview.md"). For more
-information about catalog tables, see [System catalog tables](c_intro_catalog_views.md "c_intro_catalog_views.md").
-
-The following example shows a procedure with output arguments.
-Arguments are input (IN), input and output (INOUT), and output (OUT).
+The following example shows a procedure with output arguments. Arguments are input (IN), input and output (INOUT), and output (OUT).
 
 ```
 CREATE OR REPLACE PROCEDURE test_sp2(f1 IN int, f2 INOUT varchar(256), out_var OUT varchar(256))
@@ -135,5 +97,4 @@ call test_sp2(2,'2019');
 ---------------------+---------
  2019+2019+2019+2019 | 2
 (1 row)
-
 ```

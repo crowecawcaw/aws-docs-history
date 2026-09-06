@@ -1,39 +1,40 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_WLM\_QUERY\_TASK\_STATE
+<a name="r_STV_WLM_QUERY_TASK_STATE"></a>
 
-Contains the current state of service class query tasks.
+Contains the current state of service class query tasks. 
 
-STV\_WLM\_QUERY\_TASK\_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_WLM\_QUERY\_TASK\_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_STV_WLM_QUERY_TASK_STATE-table-columns"></a>
 
-| Column name    | Data type | Description                                                                                                                                                                                                    |
-| -------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| service\_class | integer   | ID for the service class. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids"). |
-| task           | integer   | ID used to track a query through the workload<br>manager. Can be associated with multiple query IDs. If a query is<br>restarted, the query is assigned a new query ID but not a new task<br>ID.                |
-| query          | integer   | Query ID. If a query is restarted, the query is<br>assigned a new query ID but not a new task ID.                                                                                                              |
-| slot\_count    | integer   | Number of WLM query slots.                                                                                                                                                                                     |
-| start\_time    | timestamp | Time that the query began executing.                                                                                                                                                                           |
-| exec\_time     | bigint    | Number of microseconds that the query has been<br>executing.                                                                                                                                                   |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| service\_class  | integer  | ID for the service class. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids).  | 
+| task  | integer  | ID used to track a query through the workload manager. Can be associated with multiple query IDs. If a query is restarted, the query is assigned a new query ID but not a new task ID.  | 
+| query  | integer  | Query ID. If a query is restarted, the query is assigned a new query ID but not a new task ID.  | 
+| slot\_count | integer | Number of WLM query slots. | 
+| start\_time  | timestamp  | Time that the query began executing.  | 
+| exec\_time  | bigint  | Number of microseconds that the query has been executing.  | 
 
 ## Sample query
+<a name="r_STV_WLM_QUERY_TASK_STATE-sample-query"></a>
 
-The following query displays the current
-state of queries in service classes greater than 4. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids "cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids").
+The following query displays the current state of queries in service classes greater than 4. For a list of service class IDs, see [WLM service class IDs](cm-c-wlm-system-tables-and-views.md#wlm-service-class-ids).
 
 ```
 select * from stv_wlm_query_task_state
 where service_class > 4;
 ```
 
-This query returns the following sample output:
+This query returns the following sample output: 
 
 ```
-
 service_class | task | query |         start_time         | exec_time
 --------------+------+-------+----------------------------+-----------
     5         |  466 |   491 | 2010-10-06 13:29:23.063787 | 357618748

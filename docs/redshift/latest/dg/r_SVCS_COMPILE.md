@@ -1,48 +1,44 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVCS\_COMPILE
+<a name="r_SVCS_COMPILE"></a>
 
-Records compile time and location for each query segment of queries, including
-queries run on a scaling cluster as well as queries run on the main cluster.
+Records compile time and location for each query segment of queries, including queries run on a scaling cluster as well as queries run on the main cluster.
 
-###### Note
+**Note**  
+System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters. The views are similar to the views with the prefix SVL except that the SVL views provide information only for queries run on the main cluster.
 
-System views with the prefix SVCS provide details about queries on both the main and concurrency scaling clusters.
-The views are similar to the views with the prefix SVL except that the SVL views provide information only for queries run on the main cluster.
+SVCS\_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-SVCS\_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
-
-For information about SCL\_COMPILE, see [SVL\_COMPILE](r_SVL_COMPILE.md "r_SVL_COMPILE.md").
+For information about SCL\_COMPILE, see [SVL\_COMPILE](r_SVL_COMPILE.md).
 
 ## Table columns
+<a name="r_SVCS_COMPILE-table-rows"></a>
 
-| Column name | Data type | Description                                                                                        |
-| ----------- | --------- | -------------------------------------------------------------------------------------------------- |
-| userid      | integer   | The ID of the user who generated the entry.                                                        |
-| xid         | bigint    | The transaction ID associated with the statement.                                                  |
-| pid         | integer   | The process ID associated with the statement.                                                      |
-| query       | integer   | The query ID. You can use this ID to join various<br>other system tables and views.                |
-| segment     | integer   | The query segment to be compiled.                                                                  |
-| locus       | integer   | The location where the segment runs,<br>`1` if on a compute node and<br>`2` if on the leader node. |
-| starttime   | timestamp | The time in Universal Coordinated Time (UTC) that<br>the compile started.                          |
-| endtime     | timestamp | The time in UTC that the compile ended.                                                            |
-| compile     | integer   | A value that is `0` if the<br>compile was reused and `1` if the segment was<br>compiled.           |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | The ID of the user who generated the entry. | 
+| xid  | bigint  | The transaction ID associated with the statement.  | 
+| pid  | integer  | The process ID associated with the statement.  | 
+| query | integer  | The query ID. You can use this ID to join various other system tables and views.  | 
+| segment  | integer  | The query segment to be compiled.  | 
+| locus  | integer  | The location where the segment runs, 1 if on a compute node and 2 if on the leader node.  | 
+| starttime | timestamp | The time in Universal Coordinated Time (UTC) that the compile started. | 
+| endtime | timestamp | The time in UTC that the compile ended. | 
+| compile  | integer  | A value that is 0 if the compile was reused and 1 if the segment was compiled. | 
 
 ## Sample queries
+<a name="r_SVCS_COMPILE-sample-queries"></a>
 
-In this example, queries 35878 and 35879 ran the same SQL statement. The
-compile column for query 35878 shows `1` for four query segments, which
-indicates that the segments were compiled. Query 35879 shows `0` in the
-compile column for every segment, indicating that the segments did not need to be
-compiled again.
+In this example, queries 35878 and 35879 ran the same SQL statement. The compile column for query 35878 shows `1` for four query segments, which indicates that the segments were compiled. Query 35879 shows `0` in the compile column for every segment, indicating that the segments did not need to be compiled again.
 
 ```
-select userid, xid,  pid, query, segment, locus,
-datediff(ms, starttime, endtime) as duration, compile
-from svcs_compile
+select userid, xid,  pid, query, segment, locus,  
+datediff(ms, starttime, endtime) as duration, compile 
+from svcs_compile 
 where query = 35878 or query = 35879
 order by query, segment;
 
@@ -69,5 +65,4 @@ order by query, segment;
     100 | 112782 | 23028 | 35879 |       8 |     1 |        0 |       0
     100 | 112782 | 23028 | 35879 |       9 |     2 |        0 |       0
 (20 rows)
-
 ```

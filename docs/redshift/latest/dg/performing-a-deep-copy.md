@@ -1,97 +1,70 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Performing a deep copy
+<a name="performing-a-deep-copy"></a>
 
-A deep copy recreates and repopulates a table by using a bulk insert, which
-automatically sorts the table. If a table has a large unsorted Region, a deep copy is much
-faster than a vacuum. We recommend that you only make concurrent updates during a
-deep copy operation if you can track them. After the
-process has completed, move the delta updates into the new table. A VACUUM operation
-supports concurrent updates automatically.
+A deep copy recreates and repopulates a table by using a bulk insert, which automatically sorts the table. If a table has a large unsorted Region, a deep copy is much faster than a vacuum. We recommend that you only make concurrent updates during a deep copy operation if you can track them. After the process has completed, move the delta updates into the new table. A VACUUM operation supports concurrent updates automatically. 
 
-You can choose one of the following methods to create a copy of the original table:
+You can choose one of the following methods to create a copy of the original table: 
++ Use the original table DDL. 
 
-- Use the original table DDL.
+  If the CREATE TABLE DDL is available, this is the fastest and preferred method. If you create a new table, you can specify all table and column attributes, including primary key and foreign keys. You can find the original DDL by using the SHOW TABLE function.
++ Use CREATE TABLE LIKE. 
 
-If the CREATE TABLE DDL is available, this is the fastest and preferred method. If
-you create a new table, you can specify all table and column attributes, including
-primary key and foreign keys. You can find the original DDL by using the SHOW TABLE function.
+  If the original DDL is not available, you can use CREATE TABLE LIKE to recreate the original table. The new table inherits the encoding, distribution key, sort key, and not-null attributes of the parent table. The new table doesn't inherit the primary key and foreign key attributes of the parent table, but you can add them using [ALTER TABLE](r_ALTER_TABLE.md).
++ Create a temporary table and truncate the original table. 
 
-- Use CREATE TABLE LIKE.
+  If you must retain the primary key and foreign key attributes of the parent table. If the parent table has dependencies, you can use CREATE TABLE ... AS (CTAS) to create a temporary table. Then truncate the original table and populate it from the temporary table. 
 
-If the original DDL is not available, you can use CREATE TABLE LIKE to recreate
-the original table. The new table inherits the encoding, distribution key, sort key,
-and not-null attributes of the parent table. The new table doesn't inherit the
-primary key and foreign key attributes of the parent table, but you can add them
-using [ALTER TABLE](r_ALTER_TABLE.md "r_ALTER_TABLE.md").
+  Using a temporary table improves performance significantly compared to using a permanent table, but there is a risk of losing data. A temporary table is automatically dropped at the end of the session in which it is created. TRUNCATE commits immediately, even if it is inside a transaction block. If the TRUNCATE succeeds but the session shuts down before the following INSERT completes, the data is lost. If data loss is unacceptable, use a permanent table. 
 
-- Create a temporary table and truncate the original table.
+After you create a copy of a table, you might have to grant access to the new table. You can use [GRANT](r_GRANT.md) to define access privileges. To view and grant all of a table's access privileges, you must be one of the following: 
++  A superuser. 
++  The owner of the table you want to copy. 
++  A user with the ACCESS SYSTEM TABLE privilege to see the table's privileges, and with the grant privilege for all relevant permissions. 
 
-If you must retain the primary key and foreign key attributes of the parent table.
-If the parent table has dependencies, you can use CREATE TABLE ... AS (CTAS) to
-create a temporary table. Then truncate the original table and populate it from the
-temporary table.
+Additionally, you might have to grant usage permission for the schema your deep copy is in. Granting usage permission is necessary if your deep copy's schema is different from the original table's schema, and also isn't the `public` schema. To view and grant usage privileges you must be one of the following:
++  A superuser. 
++  A user who can grant the USAGE permission for the deep copy's schema. 
 
-Using a temporary table improves performance significantly compared to using a
-permanent table, but there is a risk of losing data. A temporary table is
-automatically dropped at the end of the session in which it is created. TRUNCATE
-commits immediately, even if it is inside a transaction block. If the TRUNCATE
-succeeds but the session shuts down before the following INSERT completes, the data
-is lost. If data loss is unacceptable, use a permanent table.
-After you create a copy of a table, you might have to grant access to the new table. You
-can use [GRANT](r_GRANT.md "r_GRANT.md") to define access privileges. To
-view and grant all of a table's access privileges, you must be one of the following:
+**To perform a deep copy using the original table DDL**
 
-- A superuser.
-- The owner of the table you want to copy.
-- A user with the ACCESS SYSTEM TABLE privilege to see the table's privileges, and
-  with the grant privilege for all relevant permissions.
-  Additionally, you might have to grant usage permission for the schema your deep copy is
-  in. Granting usage permission is necessary if your deep copy's schema is different from the
-  original table's schema, and also isn't the `public` schema. To view and grant
-  usage privileges you must be one of the following:
+1. (Optional) Recreate the table DDL by running a script called `v_generate_tbl_ddl`. 
 
-- A superuser.
-- A user who can grant the USAGE permission for the deep copy's
-  schema.
+1. Create a copy of the table using the original CREATE TABLE DDL.
 
-###### To perform a deep copy using the original table DDL
+1. Use an INSERT INTO … SELECT statement to populate the copy with data from the original table. 
 
-1. (Optional) Recreate the table DDL by running a script called
-   `v_generate_tbl_ddl`.
-2. Create a copy of the table using the original CREATE TABLE DDL.
-3. Use an INSERT INTO … SELECT statement to populate the copy with data from the
-   original table.
-4. Check for permissions granted on the old table.
-   You can see these permissions in the SVV\_RELATION\_PRIVILEGES system view.
-5. If necessary, grant the permissions of the old table to the new table.
-6. Grant usage permission to every group and user that has privileges in the original table.
-   This step isn't necessary if your deep copy table is in the `public` schema,
-   or is in the same schema as the original table.
-7. Drop the original table.
-8. Use an ALTER TABLE statement to rename the copy to the original table name.
-   The following example performs a deep copy on the SAMPLE table using a duplicate of SAMPLE
-   named sample\_copy.
+1. Check for permissions granted on the old table. You can see these permissions in the SVV\_RELATION\_PRIVILEGES system view.
+
+1. If necessary, grant the permissions of the old table to the new table.
+
+1. Grant usage permission to every group and user that has privileges in the original table. This step isn't necessary if your deep copy table is in the `public` schema, or is in the same schema as the original table.
+
+1. Drop the original table.
+
+1. Use an ALTER TABLE statement to rename the copy to the original table name.
+
+The following example performs a deep copy on the SAMPLE table using a duplicate of SAMPLE named sample\_copy.
 
 ```
 --Create a copy of the original table in the sample_namespace namespace using the original CREATE TABLE DDL.
-create table `sample_namespace`.sample_copy ( … );
+create table {{sample_namespace}}.sample_copy ( … );
 
 --Populate the copy with data from the original table in the public namespace.
-insert into sample_namespace.sample_copy (select * from `public`.sample);
+insert into sample_namespace.sample_copy (select * from {{public}}.sample);
 
 --Check SVV_RELATION_PRIVILEGES for the original table's privileges.
 select * from svv_relation_privileges where namespace_name = 'public' and relation_name = 'sample' order by identity_type, identity_id, privilege_type;
 
 --Grant the original table's privileges to the copy table.
-grant DELETE on table sample_namespace.sample_copy to group `group1`;
-grant INSERT, UPDATE on table sample_namespace.sample_copy to group `group2`;
-grant SELECT on table sample_namespace.sample_copy to `user1`;
-grant INSERT, SELECT, UPDATE on table sample_namespace.sample_copy to `user2`;
-
+grant DELETE on table sample_namespace.sample_copy to group {{group1}};
+grant INSERT, UPDATE on table sample_namespace.sample_copy to group {{group2}};
+grant SELECT on table sample_namespace.sample_copy to {{user1}};
+grant INSERT, SELECT, UPDATE on table sample_namespace.sample_copy to {{user2}};
+         
 --Grant usage permission to every group and user that has privileges in the original table.
 grant USAGE on schema sample_namespace to group group1, group group2, user1, user2;
 
@@ -102,25 +75,27 @@ drop table public.sample;
 alter table sample_namespace.sample_copy rename to sample;
 ```
 
-###### To perform a deep copy using CREATE TABLE LIKE
+**To perform a deep copy using CREATE TABLE LIKE**
 
-1. Create a new table using CREATE TABLE LIKE.
-2. Use an INSERT INTO … SELECT statement to copy the rows from the current table to
-   the new table.
-3. Check for permissions granted on the old table.
-   You can see these permissions in the SVV\_RELATION\_PRIVILEGES system view.
-4. If necessary, grant the permissions of the old table to the new table.
-5. Grant usage permission to every group and user that has privileges in the original table.
-   This step isn't necessary if your deep copy table is in the `public` schema,
-   or is in the same schema as the original table.
-6. Drop the current table.
-7. Use an ALTER TABLE statement to rename the new table to the original table name.
-   The following example performs a deep copy on the SAMPLE table using CREATE TABLE
-   LIKE.
+1. Create a new table using CREATE TABLE LIKE. 
+
+1. Use an INSERT INTO … SELECT statement to copy the rows from the current table to the new table. 
+
+1. Check for permissions granted on the old table. You can see these permissions in the SVV\_RELATION\_PRIVILEGES system view.
+
+1. If necessary, grant the permissions of the old table to the new table.
+
+1. Grant usage permission to every group and user that has privileges in the original table. This step isn't necessary if your deep copy table is in the `public` schema, or is in the same schema as the original table.
+
+1. Drop the current table. 
+
+1. Use an ALTER TABLE statement to rename the new table to the original table name. 
+
+The following example performs a deep copy on the SAMPLE table using CREATE TABLE LIKE.
 
 ```
 --Create a copy of the original table in the sample_namespace namespace using CREATE TABLE LIKE.
-create table `sameple_namespace`.sample_copy (like `public`.sample);
+create table {{sameple_namespace}}.sample_copy (like {{public}}.sample);
 
 --Populate the copy with data from the original table.
 insert into sample_namespace.sample_copy (select * from public.sample);
@@ -129,11 +104,11 @@ insert into sample_namespace.sample_copy (select * from public.sample);
 select * from svv_relation_privileges where namespace_name = 'public' and relation_name = 'sample' order by identity_type, identity_id, privilege_type;
 
 --Grant the original table's privileges to the copy table.
-grant DELETE on table sample_namespace.sample_copy to group `group1`;
-grant INSERT, UPDATE on table sample_namespace.sample_copy to group `group2`;
-grant SELECT on table sample_namespace.sample_copy to `user1`;
-grant INSERT, SELECT, UPDATE on table sample_namespace.sample_copy to `user2`;
-
+grant DELETE on table sample_namespace.sample_copy to group {{group1}};
+grant INSERT, UPDATE on table sample_namespace.sample_copy to group {{group2}};
+grant SELECT on table sample_namespace.sample_copy to {{user1}};
+grant INSERT, SELECT, UPDATE on table sample_namespace.sample_copy to {{user2}};
+         
 --Grant usage permission to every group and user that has privileges in the original table.
 grant USAGE on schema sample_namespace to group group1, group group2, user1, user2;
 
@@ -144,17 +119,17 @@ drop table public.sample;
 alter table sample_namespace.sample_copy rename to sample;
 ```
 
-###### To perform a deep copy by creating a temporary table and truncating the original table
+**To perform a deep copy by creating a temporary table and truncating the original table**
 
-1. Use CREATE TABLE AS to create a temporary table with the rows from the original
-   table.
-2. Truncate the current table.
-3. Use an INSERT INTO … SELECT statement to copy the rows from the temporary table to
-   the original table.
-4. Drop the temporary table.
-   The following example performs a deep copy on the SALES table by creating a temporary
-   table and truncating the original table. Since the original table remains, you don't need
-   to grant permissions to the copy table.
+1. Use CREATE TABLE AS to create a temporary table with the rows from the original table. 
+
+1. Truncate the current table. 
+
+1. Use an INSERT INTO … SELECT statement to copy the rows from the temporary table to the original table. 
+
+1. Drop the temporary table. 
+
+The following example performs a deep copy on the SALES table by creating a temporary table and truncating the original table. Since the original table remains, you don't need to grant permissions to the copy table.
 
 ```
 --Create a temp table copy using CREATE TABLE AS.

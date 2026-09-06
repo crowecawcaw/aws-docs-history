@@ -1,65 +1,44 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Unsupported PostgreSQL features
+<a name="c_unsupported-postgresql-features"></a>
 
 These PostgreSQL features are not supported in Amazon Redshift.
 
-###### Important
+**Important**  
+Do not assume that the semantics of elements that Amazon Redshift and PostgreSQL have in common are identical. Make sure to consult the *Amazon Redshift Developer Guide * [SQL commands](c_SQL_commands.md) to understand the often subtle differences.
++ The query tool *psql* is unsupported. The [Amazon Redshift RSQL](https://docs.aws.amazon.com/redshift/latest/mgmt/rsql-query-tool.html) client is supported.
++ Table partitioning (range and list partitioning)
++ Tablespaces
++ Constraints
+  + Unique
+  + Foreign key
+  + Primary key
+  + Check constraints
+  + Exclusion constraints
 
-Do not assume that the semantics of elements that Amazon Redshift and PostgreSQL have
-in common are identical. Make sure to consult the _Amazon Redshift Developer
-Guide_
-[SQL commands](c_SQL_commands.md "c_SQL_commands.md") to understand the
-often subtle differences.
+  Unique, primary key, and foreign key constraints are permitted, but they are informational only. They are not enforced by the system, but they are used by the query planner.
++ Inheritance
++ PostgreSQL system columns
 
-- The query tool _psql_ is unsupported. The [Amazon Redshift RSQL](../mgmt/rsql-query-tool.md "../mgmt/rsql-query-tool.md") client is
-  supported.
-- Table partitioning (range and list partitioning)
-- Tablespaces
-- Constraints
+  Amazon Redshift SQL does not implicitly define system columns. However, the following PostgreSQL system column names cannot be used as names of user-defined columns: `oid`, `tableoid`, `xmin`, `cmin`, `xmax`, `cmax`, and `ctid`. For more information, see [https://www.postgresql.org/docs/8.0/static/ddl-system-columns.html](https://www.postgresql.org/docs/8.0/static/ddl-system-columns.html).
++ Indexes
++ NULLS clause in Window functions
++ Collations
 
-  - Unique
-  - Foreign key
-  - Primary key
-  - Check constraints
-  - Exclusion constraints
-    Unique, primary key, and foreign key constraints are permitted, but they are
-    informational only. They are not enforced by the system, but they are used by
-    the query planner.
+  Amazon Redshift does not support locale-specific or user-defined collation sequences. See [Collation sequences](c_collation_sequences.md).
++ Value expressions
+  + Subscripted expressions
+  + Array constructors
+  + Row constructors
++ Triggers
++ Management of External Data (SQL/MED)
++ Table functions
++ VALUES list used as constant tables
++ Sequences
++ Full text search
++ The RULE and TRIGGER permissions.
 
-- Inheritance
-- PostgreSQL system columns
-
-Amazon Redshift SQL does not implicitly define system columns. However, the
-following PostgreSQL system column names cannot be used as names of
-user-defined columns: `oid`, `tableoid`,
-`xmin`, `cmin`, `xmax`, `cmax`,
-and `ctid`. For more information, see [https://www.postgresql.org/docs/8.0/static/ddl-system-columns.html](https://www.postgresql.org/docs/8.0/static/ddl-system-columns.html "https://www.postgresql.org/docs/8.0/static/ddl-system-columns.html").
-
-- Indexes
-- NULLS clause in Window functions
-- Collations
-
-Amazon Redshift does not support locale-specific or user-defined collation
-sequences. See [Collation sequences](c_collation_sequences.md "c_collation_sequences.md").
-
-- Value expressions
-
-  - Subscripted expressions
-  - Array constructors
-  - Row constructors
-
-- Triggers
-- Management of External Data (SQL/MED)
-- Table functions
-- VALUES list used as constant tables
-- Sequences
-- Full text search
-- The RULE and TRIGGER permissions.
-
-Amazon Redshift grants or revokes these permissions when you run GRANT ALL or
-REVOKE ALL, but the presence or absence of the RULE and TRIGGER permissions
-doesn’t affect the grantee’s access permissions in any way.
+  Amazon Redshift grants or revokes these permissions when you run GRANT ALL or REVOKE ALL, but the presence or absence of the RULE and TRIGGER permissions doesn’t affect the grantee’s access permissions in any way.

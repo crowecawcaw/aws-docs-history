@@ -1,68 +1,65 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_UDF\_LOG
+<a name="SYS_UDF_LOG"></a>
 
-Records system-defined error and warning messages generated during user-defined
-function (UDF) execution.
+Records system-defined error and warning messages generated during user-defined function (UDF) execution. 
 
-SYS\_UDF\_LOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_UDF\_LOG is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SYS_UDF_LOG-table-rows"></a>
 
-| Column name    | Data type     | Description                                       |
-| -------------- | ------------- | ------------------------------------------------- |
-| query\_id      | bigint        | The query identifier.                             |
-| function\_name | text          | The name of the user-defined function.            |
-| record\_time   | timestamp     | The time that the record was created.             |
-| sequence       | integer       | The sequence of a single log message.             |
-| message        | text          | The log message text.                             |
-| query\_uuid    | character(36) | A globally unique identifier (UUID) of the query. |
+
+| Column name | Data type | Description | 
+| --- | --- | --- | 
+| query\_id | bigint | The query identifier. | 
+| function\_name | text | The name of the user-defined function. | 
+| record\_time | timestamp | The time that the record was created. | 
+| sequence | integer | The sequence of a single log message. | 
+| message | text | The log message text. | 
+| query\_uuid | character(36) | A globally unique identifier (UUID) of the query. | 
 
 ## Sample queries
+<a name="SYS_UDF_LOG-sample-queries"></a>
 
-The following example shows how UDFs handle system-defined errors. The first block
-shows the definition for a UDF function that returns the inverse of an argument.
-When you run the function and provide a 0 as your argument, the function returns an
-error. The last statement returns the error message logged in SYS\_UDF\_LOG.
+The following example shows how UDFs handle system-defined errors. The first block shows the definition for a UDF function that returns the inverse of an argument. When you run the function and provide a 0 as your argument, the function returns an error. The last statement returns the error message logged in SYS\_UDF\_LOG.
 
 ```
 -- Create a function to find the inverse of a number.
-CREATE OR REPLACE FUNCTION f_udf_inv(a int)
+CREATE OR REPLACE FUNCTION f_udf_inv(a int) 
 
-RETURNS float
+RETURNS float 
 
-IMMUTABLE AS $$return 1/a
+IMMUTABLE AS $$return 1/a 
 
-$$ LANGUAGE plpythonu;
+$$ LANGUAGE plpythonu; 
 
 -- Run the function with 0 to create an error.
-Select f_udf_inv(0);
+Select f_udf_inv(0); 
 
 -- Query SYS_UDF_LOG to view the message.
-Select query_id, record_time, message::varchar from sys_udf_log;
+Select query_id, record_time, message::varchar from sys_udf_log; 
 
 
-`query_id | record_time | message
+query_id    |    record_time              |                 message
 ----------+----------------------------+-------------------------------------------------------
-2211 | 2023-08-23 15:53:11.360538 | ZeroDivisionError: integer division or modulo by zero line 2, in f_udf_inv\n return 1/a\n`
+2211        | 2023-08-23 15:53:11.360538 |  ZeroDivisionError: integer division or modulo by zero line 2, in f_udf_inv\n return 1/a\n
 ```
 
-The following example adds logging and a warning message to the UDF so that a
-divide by zero operation results in a warning message instead of stopping with an
-error message.
+The following example adds logging and a warning message to the UDF so that a divide by zero operation results in a warning message instead of stopping with an error message.
 
 ```
 -- Create a function to find the inverse of a number and log a warning if you input 0.
 CREATE OR REPLACE FUNCTION f_udf_inv_log(a int)
   RETURNS float IMMUTABLE
- AS $$
+ AS $$ 
   import logging
   logger = logging.getLogger() #get root logger
   if a==0:
-    logger.warning('You attempted to divide by zero.\nReturning zero instead of error.\n')
+    logger.warning('You attempted to divide by zero.\nReturning zero instead of error.\n') 
     return 0
   else:
      return 1/a
@@ -74,7 +71,7 @@ Select f_udf_inv_log(0);
 -- Query SYS_UDF_LOG to view the message.
 Select query_id, record_time, message::varchar from sys_udf_log;
 
- `query_id | record_time | message
+ query_id |        record_time         |                                    message
 ----------+----------------------------+-------------------------------------------------------------------------------
- 0 | 2023-08-23 16:10:48.833503 | WARNING: You attempted to divide by zero.\nReturning zero instead of error.\n`
+     0   | 2023-08-23 16:10:48.833503 | WARNING: You attempted to divide by zero.\nReturning zero instead of error.\n
 ```

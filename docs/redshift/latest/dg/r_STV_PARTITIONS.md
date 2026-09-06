@@ -1,64 +1,52 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_PARTITIONS
+<a name="r_STV_PARTITIONS"></a>
 
-Use the STV\_PARTITIONS table to find out the disk speed performance and disk
-utilization for Amazon Redshift.
+Use the STV\_PARTITIONS table to find out the disk speed performance and disk utilization for Amazon Redshift.
 
 STV\_PARTITIONS contains one row per node per logical disk volume.
 
-STV\_PARTITIONS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_PARTITIONS is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_STV_PARTITIONS-table-rows2"></a>
 
-| Column name   | Data type      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| owner         | integer        | Disk node that owns the partition.                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| host          | integer        | Node that is physically attached to the partition.                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| diskno        | integer        | Disk containing the partition.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| part\_begin   | bigint         | Offset of the partition. Raw devices are logically<br>partitioned to open space for mirror blocks.                                                                                                                                                                                                                                                                                                                                                                               |
-| part\_end     | bigint         | End of the partition.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| used          | integer        | Number of 1 MB disk blocks currently in use on the<br>partition.                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| tossed        | integer        | Number of blocks that are ready to be deleted but<br>are not yet removed because it is not safe to free their disk<br>addresses. If the addresses were freed immediately, a pending<br>transaction could write to the same location on disk. Therefore,<br>these tossed blocks are released as of the next commit. Disk blocks<br>might be marked as tossed, for example, when a table column is<br>dropped, during INSERT operations, or during disk-based query<br>operations. |
-| capacity      | integer        | Total capacity of the partition in 1 MB disk<br>blocks.                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| reads         | bigint         | Number of reads that have occurred since the last<br>cluster restart.                                                                                                                                                                                                                                                                                                                                                                                                            |
-| writes        | bigint         | Number of writes that have occurred since the last<br>cluster restart.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| seek\_forward | integer        | Number of times that a request is not for the<br>subsequent address given the previous request address.                                                                                                                                                                                                                                                                                                                                                                          |
-| seek\_back    | integer        | Number of times that a request is not for the<br>previous address given the subsequent address.                                                                                                                                                                                                                                                                                                                                                                                  |
-| is\_san       | integer        | Whether the partition belongs to a SAN. Valid<br>values are `0` (false) or<br>`1` (true).                                                                                                                                                                                                                                                                                                                                                                                        |
-| failed        | integer        | This column is deprecated.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| mbps          | integer        | Disk speed in megabytes per second.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| mount         | character(256) | Directory path to the device.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| owner  | integer  | Disk node that owns the partition.  | 
+| host  | integer  | Node that is physically attached to the partition.  | 
+| diskno  | integer  | Disk containing the partition.  | 
+| part\_begin  | bigint  | Offset of the partition. Raw devices are logically partitioned to open space for mirror blocks.  | 
+| part\_end  | bigint  | End of the partition.  | 
+| used  | integer  | Number of 1 MB disk blocks currently in use on the partition.  | 
+| tossed  | integer  | Number of blocks that are ready to be deleted but are not yet removed because it is not safe to free their disk addresses. If the addresses were freed immediately, a pending transaction could write to the same location on disk. Therefore, these tossed blocks are released as of the next commit. Disk blocks might be marked as tossed, for example, when a table column is dropped, during INSERT operations, or during disk-based query operations.  | 
+| capacity  | integer  | Total capacity of the partition in 1 MB disk blocks.  | 
+| reads  | bigint  | Number of reads that have occurred since the last cluster restart.  | 
+| writes  | bigint  | Number of writes that have occurred since the last cluster restart.  | 
+| seek\_forward  | integer  | Number of times that a request is not for the subsequent address given the previous request address.  | 
+| seek\_back  | integer  | Number of times that a request is not for the previous address given the subsequent address.  | 
+| is\_san  | integer  | Whether the partition belongs to a SAN. Valid values are 0 (false) or 1 (true).  | 
+| failed  | integer  | This column is deprecated.  | 
+| mbps  | integer  | Disk speed in megabytes per second.  | 
+| mount  | character(256)  | Directory path to the device.  | 
 
 ## Sample query
+<a name="r_STV_PARTITIONS-sample-query2"></a>
 
-The following query returns the disk space used and capacity, in 1 MB disk blocks,
-and calculates disk utilization as a percentage of raw disk space. The raw disk
-space includes space that is reserved by Amazon Redshift for internal use, so it is larger
-than the nominal disk capacity, which is the amount of disk space available to the
-user. The **Percentage of Disk Space Used** metric on the
-**Performance** tab of the Amazon Redshift Management Console reports
-the percentage of nominal disk capacity used by your cluster. We recommend that you
-monitor the **Percentage of Disk Space Used** metric to maintain
-your usage within your cluster's nominal disk capacity.
+The following query returns the disk space used and capacity, in 1 MB disk blocks, and calculates disk utilization as a percentage of raw disk space. The raw disk space includes space that is reserved by Amazon Redshift for internal use, so it is larger than the nominal disk capacity, which is the amount of disk space available to the user. The **Percentage of Disk Space Used** metric on the **Performance** tab of the Amazon Redshift Management Console reports the percentage of nominal disk capacity used by your cluster. We recommend that you monitor the **Percentage of Disk Space Used** metric to maintain your usage within your cluster's nominal disk capacity. 
 
-###### Important
+**Important**  
+We strongly recommend that you do not exceed your cluster's nominal disk capacity. While it might be technically possible under certain circumstances, exceeding your nominal disk capacity decreases your cluster's fault tolerance and increases your risk of losing data.
 
-We strongly recommend that you do not exceed your cluster's nominal disk
-capacity. While it might be technically possible under certain circumstances,
-exceeding your nominal disk capacity decreases your cluster's fault tolerance
-and increases your risk of losing data.
-
-This example was run on a two-node cluster with six logical disk partitions per
-node. Space is being used very evenly across the disks, with approximately 25% of
-each disk in use.
+This example was run on a two-node cluster with six logical disk partitions per node. Space is being used very evenly across the disks, with approximately 25% of each disk in use. 
 
 ```
 select owner, host, diskno, used, capacity,
-(used-tossed)/capacity::numeric *100 as pctused
+(used-tossed)/capacity::numeric *100 as pctused 
 from stv_partitions order by owner;
 
  owner | host | diskno |  used  | capacity | pctused
@@ -74,7 +62,7 @@ from stv_partitions order by owner;
    1   |  1   |    2   | 236320 |  949954  | 24.9
    1   |  0   |    2   | 237910 |  949954  | 25.0
    1   |  0   |    1   | 235640 |  949954  | 24.8
-   1   |  0   |    0   | 235380 |  949954  | 24.8
+   1   |  0   |    0   | 235380 |  949954  | 24.8 
 
 (12 rows)
 ```

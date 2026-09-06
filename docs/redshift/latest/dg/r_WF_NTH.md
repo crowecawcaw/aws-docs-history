@@ -1,78 +1,57 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # NTH\_VALUE window function
+<a name="r_WF_NTH"></a>
 
-The NTH\_VALUE window function returns the expression value of the specified row of
-the window frame relative to the first row of the window.
+ The NTH\_VALUE window function returns the expression value of the specified row of the window frame relative to the first row of the window. 
 
 ## Syntax
+<a name="r_WF_NTH-synopsis"></a>
 
 ```
-NTH_VALUE (*expr*, *offset*)
+NTH_VALUE (expr, offset)
 [ IGNORE NULLS | RESPECT NULLS ]
 OVER
-( [ PARTITION BY *window\_partition* ]
-[ ORDER BY *window\_ordering*
-                        *frame\_clause* ] )
+( [ PARTITION BY window_partition ]
+[ ORDER BY window_ordering 
+                        frame_clause ] )
 ```
 
 ## Arguments
+<a name="r_WF_NTH-arguments"></a>
 
-_expr_
+ *expr*   
+ The target column or expression that the function operates on. 
 
-The target column or expression that the function operates on.
+ *offset*   
+ Determines the row number relative to the first row in the window for which to return the expression. The *offset* can be a constant or an expression and must be a positive integer that is greater than 0. 
 
-_offset_
+IGNORE NULLS   
+An optional specification that indicates that Amazon Redshift should skip null values in the determination of which row to use. Null values are included if IGNORE NULLS is not listed. 
 
-Determines the row number relative to the first row in the window for
-which to return the expression. The _offset_ can be a
-constant or an expression and must be a positive integer that is greater
-than 0.
+RESPECT NULLS   
+ Indicates that Amazon Redshift should include null values in the determination of which row to use. RESPECT NULLS is supported by default if you do not specify IGNORE NULLS. 
 
-IGNORE NULLS
+OVER   
+Specifies the window partitioning, ordering, and window frame. 
 
-An optional specification that indicates that Amazon Redshift should skip null
-values in the determination of which row to use. Null values are included if
-IGNORE NULLS is not listed.
+PARTITION BY *window\_partition*   
+Sets the range of records for each group in the OVER clause. 
 
-RESPECT NULLS
+ORDER BY *window\_ordering*   
+Sorts the rows within each partition. If ORDER BY is omitted, the default frame consists of all rows in the partition. 
 
-Indicates that Amazon Redshift should include null values in the determination
-of which row to use. RESPECT NULLS is supported by default if you do not
-specify IGNORE NULLS.
+ *frame\_clause*   
+If an ORDER BY clause is used for an aggregate function, an explicit frame clause is required. The frame clause refines the set of rows in a function's window, including or excluding sets of rows in the ordered result. The frame clause consists of the ROWS keyword and associated specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis). 
 
-OVER
-
-Specifies the window partitioning, ordering, and window frame.
-
-PARTITION BY _window\_partition_
-
-Sets the range of records for each group in the OVER clause.
-
-ORDER BY _window\_ordering_
-
-Sorts the rows within each partition. If ORDER BY is omitted, the default
-frame consists of all rows in the partition.
-
-_frame\_clause_
-
-If an ORDER BY clause is used for an aggregate function, an explicit
-frame clause is required. The frame clause refines the set of rows in a
-function's window, including or excluding sets of rows in the ordered
-result. The frame clause consists of the ROWS keyword and associated
-specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis "c_Window_functions.md#r_Window_function_synopsis").
-
-The NTH\_VALUE window function supports expressions that use any of the Amazon Redshift
-data types. The return type is the same as the type of the _expr_.
+The NTH\_VALUE window function supports expressions that use any of the Amazon Redshift data types. The return type is the same as the type of the *expr*. 
 
 ## Examples
+<a name="r_WF_NTH-examples"></a>
 
-The following example shows the number of seats in the third largest venue in
-California, Florida, and New York compared to the number of seats in the other venues
-in those states:
+The following example shows the number of seats in the third largest venue in California, Florida, and New York compared to the number of seats in the other venues in those states: 
 
 ```
 select venuestate, venuename, venueseats,

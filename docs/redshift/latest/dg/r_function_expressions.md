@@ -1,31 +1,30 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Function expressions
+<a name="r_function_expressions"></a>
 
 ## Syntax
+<a name="r_function_expressions-syntax"></a>
 
-Any built-in can be used as an expression. The syntax for a function call is
-the name of a function followed by its argument list in parentheses.
+Any built-in can be used as an expression. The syntax for a function call is the name of a function followed by its argument list in parentheses. 
 
 ```
-*function* ( [*expression* [, *expression*...]] )
+function ( [expression [, expression...]] )
 ```
 
 ## Arguments
+<a name="r_function_expressions-arguments"></a>
 
-_function_
+ *function*   
+Any built-in function. For some example functions, see [SQL functions reference](c_SQL_functions.md).
 
-Any built-in function. For some example functions, see [SQL functions reference](c_SQL_functions.md "c_SQL_functions.md").
-
-_expression_
-
-Any expression(s) matching the data type and parameter count expected
-by the function.
+ *expression*   
+Any expression(s) matching the data type and parameter count expected by the function. 
 
 ## Examples
+<a name="r_function_expressions-examples"></a>
 
 ```
 abs (variable)

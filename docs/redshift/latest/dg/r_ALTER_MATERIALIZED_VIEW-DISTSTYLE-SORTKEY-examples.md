@@ -1,15 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DISTSTYLE and SORTKEY examples for ALTER MATERIALIZED VIEW
+<a name="r_ALTER_MATERIALIZED_VIEW-DISTSTYLE-SORTKEY-examples"></a>
 
-The examples in this topic show you how to perform DISTSTYLE and SORTKEY changes,
-using ALTER MATERIALIZED VIEW.
+The examples in this topic show you how to perform DISTSTYLE and SORTKEY changes, using ALTER MATERIALIZED VIEW.
 
-The following example queries show how to alter a DISTSTYLE KEY DISTKEY column using
-a sample base table:
+The following example queries show how to alter a DISTSTYLE KEY DISTKEY column using a sample base table:
 
 ```
 CREATE TABLE base_inventory(
@@ -54,8 +52,7 @@ SELECT "table", diststyle FROM svv_table_info WHERE "table" = 'inventory';
 DROP TABLE base_inventory CASCADE;
 ```
 
-The following commands show ALTER MATERIALIZED VIEW SORTKEY examples using a sample
-base table:
+The following commands show ALTER MATERIALIZED VIEW SORTKEY examples using a sample base table:
 
 ```
 CREATE TABLE base_inventory (c0 int, c1 int);

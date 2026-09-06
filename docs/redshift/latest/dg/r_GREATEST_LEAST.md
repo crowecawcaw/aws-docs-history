@@ -1,14 +1,14 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # GREATEST and LEAST functions
+<a name="r_GREATEST_LEAST"></a>
 
-Returns the largest or smallest value from a list of any number of
-expressions.
+Returns the largest or smallest value from a list of any number of expressions.
 
 ## Syntax
+<a name="r_GREATEST_LEAST-synopsis"></a>
 
 ```
 GREATEST (value [, ...])
@@ -16,22 +16,20 @@ LEAST (value [, ...])
 ```
 
 ## Parameters
+<a name="r_GREATEST_LEAST-arguments"></a>
 
-_expression\_list_
-
-A comma-separated list of expressions, such as column names. The
-expressions must all be convertible to a common data type. NULL values in
-the list are ignored. If all of the expressions evaluate to NULL, the result
-is NULL.
+*expression\_list*  
+A comma-separated list of expressions, such as column names. The expressions must all be convertible to a common data type. NULL values in the list are ignored. If all of the expressions evaluate to NULL, the result is NULL.
 
 ## Returns
+<a name="r_GREATEST_LEAST-returns"></a>
 
 Returns the greatest (for GREATEST) or least (for LEAST) value from the provided list of expressions.
 
 ## Example
+<a name="r_GREATEST_LEAST-examples"></a>
 
-The following example returns the highest value alphabetically for
-`firstname` or `lastname`.
+The following example returns the highest value alphabetically for `firstname` or `lastname`.
 
 ```
 select firstname, lastname, greatest(firstname,lastname) from users

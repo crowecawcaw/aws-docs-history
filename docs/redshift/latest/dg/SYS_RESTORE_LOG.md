@@ -1,38 +1,36 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_RESTORE\_LOG
+<a name="SYS_RESTORE_LOG"></a>
 
-Use SYS\_RESTORE\_LOG to monitor the migration progress of each table in the cluster
-during a classic resize to RG or RA3 nodes. It captures the historic throughput of data
-migration during the resize operation. For more information about classic resize to RG or RA3
-nodes, see [Classic
-resize](../mgmt/managing-cluster-operations.md#classic-resize-faster "../mgmt/managing-cluster-operations.md#classic-resize-faster").
+Use SYS\_RESTORE\_LOG to monitor the migration progress of each table in the cluster during a classic resize to RG or RA3 nodes. It captures the historic throughput of data migration during the resize operation. For more information about classic resize to RG or RA3 nodes, see [Classic resize](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html#classic-resize-faster). 
 
 SYS\_RESTORE\_LOG is visible only to superusers.
 
 ## Table columns
+<a name="SYS_RESTORE_LOG-table-columns"></a>
 
-| Column name            | Data type | Description                                                                                                                                                                                                                                                                                |
-| ---------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| event\_time            | timestamp | A timestamp that indicates when the log entry is<br>recorded.                                                                                                                                                                                                                              |
-| database\_name         | char(128) | The name of the database.                                                                                                                                                                                                                                                                  |
-| schema\_name           | char(128) | The name of the schema.                                                                                                                                                                                                                                                                    |
-| table\_name            | char(128) | The name of the table.                                                                                                                                                                                                                                                                     |
-| table\_id              | integer   | The ID of the table.                                                                                                                                                                                                                                                                       |
-| action                 | char(128) | The action taken at the time of the entry. Values<br>can include: Migration started, checkpoint, resumed, completed,<br>cancelled, or reset.                                                                                                                                               |
-| table\_size            | long      | The size of the table.                                                                                                                                                                                                                                                                     |
-| total\_data\_processed | long      | The size of the data in MB processed up to this<br>point for the table.                                                                                                                                                                                                                    |
-| delta\_data\_processed | long      | Size of data processed since the last event\_time<br>update, in MB. This helps you determine how much of the data has<br>been processed since the previous recorded time interval. You can<br>compare this with the table\_size to get a sense of how quickly data<br>processing is going. |
-| message                | char(512) | A detailed explanation for the value in the action<br>column.                                                                                                                                                                                                                              |
-| redistribution\_type   | char(32)  | The redistribution type for the table. Either KEY<br>conversion or an EVEN rebalancing task. For more information about<br>distribution styles, see [Distribution<br>styles](c_choosing_dist_sort.md "c_choosing_dist_sort.md").                                                           |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| event\_time | timestamp | A timestamp that indicates when the log entry is recorded. | 
+| database\_name | char(128) | The name of the database. | 
+| schema\_name | char(128) | The name of the schema. | 
+| table\_name | char(128) | The name of the table. | 
+| table\_id | integer | The ID of the table. | 
+| action | char(128) | The action taken at the time of the entry. Values can include: Migration started, checkpoint, resumed, completed, cancelled, or reset. | 
+| table\_size | long | The size of the table. | 
+| total\_data\_processed | long | The size of the data in MB processed up to this point for the table. | 
+| delta\_data\_processed | long | Size of data processed since the last event\_time update, in MB. This helps you determine how much of the data has been processed since the previous recorded time interval. You can compare this with the table\_size to get a sense of how quickly data processing is going. | 
+| message | char(512) | A detailed explanation for the value in the action column. | 
+| redistribution\_type | char(32) | The redistribution type for the table. Either KEY conversion or an EVEN rebalancing task. For more information about distribution styles, see [Distribution styles](https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html). | 
 
 ## Sample queries
+<a name="SYS_RESTORE_LOG-sample-queries"></a>
 
-The following query calculates the throughput of data processing, using
-SYS\_RESTORE\_LOG.
+The following query calculates the throughput of data processing, using SYS\_RESTORE\_LOG.
 
 ```
 SELECT
@@ -45,7 +43,7 @@ from sys_restore_log;
 Sample output.
 
 ```
- data_processed_gb | duration_hr | throughput_gb_per_hr
+ data_processed_gb | duration_hr | throughput_gb_per_hr 
 -------------------+-------------+----------------------
               0.91 |        8.37 |                 0.11
 (1 row)
@@ -58,7 +56,7 @@ SELECT * from sys_restore_log ORDER BY event_time;
 ```
 
 ```
- database_name |     schema_name      |      table_name      | table_id |          action             | total_data_processed | delta_data_processed |         event_time         | table_size | message |   redistribution_type
+ database_name |     schema_name      |      table_name      | table_id |          action             | total_data_processed | delta_data_processed |         event_time         | table_size | message |   redistribution_type    
 ---------------+----------------------+----------------------+----------+-----------------------------+----------------------+----------------------+----------------------------+------------+---------+--------------------------
  dev           | schemaaaa877096d844d | customer_key         |   106424 | Redistribution started      |                    0 |                      | 2024-01-05 02:18:00.744977 |        325 |         | Restore Distkey Table
  dev           | schemaaaa877096d844d | dp30907_t2_autokey   |   106430 | Redistribution started      |                    0 |                      | 2024-01-05 02:18:02.756675 |         90 |         | Restore Distkey Table

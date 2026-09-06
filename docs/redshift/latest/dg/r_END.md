@@ -1,36 +1,34 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # END
+<a name="r_END"></a>
 
-Commits the current transaction. Performs exactly the same function as the COMMIT
-command.
+Commits the current transaction. Performs exactly the same function as the COMMIT command.
 
-See [COMMIT](r_COMMIT.md "r_COMMIT.md") for more detailed
-documentation.
+See [COMMIT](r_COMMIT.md) for more detailed documentation.
 
 ## Syntax
+<a name="r_END-synopsis"></a>
 
 ```
 END [ WORK | TRANSACTION ]
 ```
 
 ## Parameters
+<a name="r_END-parameters"></a>
 
-WORK
-
+WORK  
 Optional keyword.
 
-TRANSACTION
-
+TRANSACTION  
 Optional keyword; WORK and TRANSACTION are synonyms.
 
 ## Examples
+<a name="r_END-examples"></a>
 
-The following examples all end the transaction block and commit the
-transaction:
+The following examples all end the transaction block and commit the transaction:
 
 ```
 end;
@@ -44,5 +42,4 @@ end work;
 end transaction;
 ```
 
-After any of these commands, Amazon Redshift ends the transaction block and commits the
-changes.
+After any of these commands, Amazon Redshift ends the transaction block and commits the changes.

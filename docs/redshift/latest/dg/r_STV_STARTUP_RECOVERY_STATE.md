@@ -1,37 +1,37 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_STARTUP\_RECOVERY\_STATE
+<a name="r_STV_STARTUP_RECOVERY_STATE"></a>
 
-Records the state of tables that are temporarily locked during cluster restart
-operations. Amazon Redshift places a temporary lock on tables while they are being processed to
-resolve stale transactions following a cluster restart.
+Records the state of tables that are temporarily locked during cluster restart operations. Amazon Redshift places a temporary lock on tables while they are being processed to resolve stale transactions following a cluster restart. 
 
-STV\_STARTUP\_RECOVERY\_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_STARTUP\_RECOVERY\_STATE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="r_STV_STARTUP_RECOVERY_STATE-table-columns"></a>
 
-| Column name | Data type      | Description  |
-| ----------- | -------------- | ------------ |
-| db\_id      | integer        | Database ID. |
-| table\_id   | integer        | Table ID.    |
-| table\_name | character(137) | Table name.  |
+
+| Column name | Data type | Description | 
+| --- | --- | --- | 
+| db\_id  | integer  | Database ID.  | 
+| table\_id  | integer  | Table ID.  | 
+| table\_name  | character(137)  | Table name.  | 
 
 ## Sample queries
+<a name="r_STV_STARTUP_RECOVERY_STATE-sample-queries"></a>
 
-To monitor which tables are temporarily locked, run the following query after
-a cluster restart.
+To monitor which tables are temporarily locked, run the following query after a cluster restart. 
 
 ```
 select * from STV_STARTUP_RECOVERY_STATE;
 
-  db_id | tbl_id | table_name
+  db_id | tbl_id | table_name 
 --------+--------+------------
- 100044 | 100058 | lineorder
- 100044 | 100068 | part
- 100044 | 100072 | customer
- 100044 | 100192 | supplier
+ 100044 | 100058 | lineorder  
+ 100044 | 100068 | part  
+ 100044 | 100072 | customer   
+ 100044 | 100192 | supplier  
 (4 rows)
 ```

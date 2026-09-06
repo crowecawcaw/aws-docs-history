@@ -1,16 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Example UNION queries
+<a name="c_example_union_query"></a>
 
-In the following UNION query, rows in the SALES table are merged with rows in the
-LISTING table. Three compatible columns are selected from each table; in this case,
-the corresponding columns have the same names and data types.
+In the following UNION query, rows in the SALES table are merged with rows in the LISTING table. Three compatible columns are selected from each table; in this case, the corresponding columns have the same names and data types. 
 
-The final result set is ordered by the first column in the LISTING table and
-limited to the 5 rows with the highest LISTID value.
+The final result set is ordered by the first column in the LISTING table and limited to the 5 rows with the highest LISTID value. 
 
 ```
 select listid, sellerid, eventid from listing
@@ -27,14 +24,9 @@ listid | sellerid | eventid
 (5 rows)
 ```
 
-The following example shows how you can add a literal value to the output of a
-UNION query so you can see which query expression produced each row in the result
-set. The query identifies rows from the first query expression as "B" (for buyers)
-and rows from the second query expression as "S" (for sellers).
+The following example shows how you can add a literal value to the output of a UNION query so you can see which query expression produced each row in the result set. The query identifies rows from the first query expression as "B" (for buyers) and rows from the second query expression as "S" (for sellers). 
 
-The query identifies buyers and sellers for ticket transactions that cost $10,000
-or more. The only difference between the two query expressions on either side of the
-UNION operator is the joining column for the SALES table.
+The query identifies buyers and sellers for ticket transactions that cost $10,000 or more. The only difference between the two query expressions on either side of the UNION operator is the joining column for the SALES table. 
 
 ```
 select listid, lastname, firstname, username,
@@ -61,22 +53,11 @@ listid | lastname | firstname | username |   price   | buyorsell
 (6 rows)
 ```
 
-The following example uses a UNION ALL operator because duplicate rows, if found,
-need to be retained in the result. For a specific series of event IDs, the query
-returns 0 or more rows for each sale associated with each event, and 0 or 1 row for
-each listing of that event. Event IDs are unique to each row in the LISTING and EVENT
-tables, but there might be multiple sales for the same combination of event and
-listing IDs in the SALES table.
+The following example uses a UNION ALL operator because duplicate rows, if found, need to be retained in the result. For a specific series of event IDs, the query returns 0 or more rows for each sale associated with each event, and 0 or 1 row for each listing of that event. Event IDs are unique to each row in the LISTING and EVENT tables, but there might be multiple sales for the same combination of event and listing IDs in the SALES table. 
 
-The third column in the result set identifies the source of the row. If it comes
-from the SALES table, it is marked "Yes" in the SALESROW column. (SALESROW is an
-alias for SALES.LISTID.) If the row comes from the LISTING table, it is marked "No"
-in the SALESROW column.
+The third column in the result set identifies the source of the row. If it comes from the SALES table, it is marked "Yes" in the SALESROW column. (SALESROW is an alias for SALES.LISTID.) If the row comes from the LISTING table, it is marked "No" in the SALESROW column. 
 
-In this case, the result set consists of three sales rows for listing 500, event 7787. In other words, three different transactions took place for this listing and
-event combination. The other two listings, 501 and 502, did not produce any sales, so
-the only row that the query produces for these list IDs comes from the LISTING table
-(SALESROW = 'No').
+In this case, the result set consists of three sales rows for listing 500, event 7787. In other words, three different transactions took place for this listing and event combination. The other two listings, 501 and 502, did not produce any sales, so the only row that the query produces for these list IDs comes from the LISTING table (SALESROW = 'No'). 
 
 ```
 select eventid, listid, 'Yes' as salesrow
@@ -99,8 +80,7 @@ eventid | listid | salesrow
 (6 rows)
 ```
 
-If you run the same query without the ALL keyword, the result retains only one of
-the sales transactions.
+If you run the same query without the ALL keyword, the result retains only one of the sales transactions. 
 
 ```
 select eventid, listid, 'Yes' as salesrow

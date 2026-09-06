@@ -1,67 +1,53 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # MIN window function
+<a name="r_WF_MIN"></a>
 
-The MIN window function returns the minimum of the input expression values. The MIN
-function works with numeric values and ignores NULL values.
+ The MIN window function returns the minimum of the input expression values. The MIN function works with numeric values and ignores NULL values. 
 
 ## Syntax
+<a name="r_WF_MIN-synopsis"></a>
 
 ```
-MIN ( [ ALL ] *expression* ) OVER
+MIN ( [ ALL ] expression ) OVER
 (
-[ PARTITION BY *expr\_list* ]
-[ ORDER BY *order\_list* *frame\_clause* ]
+[ PARTITION BY expr_list ]
+[ ORDER BY order_list frame_clause ]
 )
 ```
 
 ## Arguments
+<a name="r_WF_MIN-arguments"></a>
 
-_expression_
+ *expression *   
+The target column or expression that the function operates on. 
 
-The target column or expression that the function operates on.
+ALL   
+With the argument ALL, the function retains all duplicate values from the expression. ALL is the default. DISTINCT is not supported.
 
-ALL
+OVER   
+Specifies the window clauses for the aggregation functions. The OVER clause distinguishes window aggregation functions from normal set aggregation functions.
 
-With the argument ALL, the function retains all duplicate values from the
-expression. ALL is the default. DISTINCT is not supported.
+PARTITION BY *expr\_list*   
+Defines the window for the MIN function in terms of one or more expressions.
 
-OVER
+ORDER BY *order\_list*   
+Sorts the rows within each partition. If no PARTITION BY is specified, ORDER BY uses the entire table.
 
-Specifies the window clauses for the aggregation functions. The OVER
-clause distinguishes window aggregation functions from normal set
-aggregation functions.
-
-PARTITION BY _expr\_list_
-
-Defines the window for the MIN function in terms of one or more
-expressions.
-
-ORDER BY _order\_list_
-
-Sorts the rows within each partition. If no PARTITION BY is specified,
-ORDER BY uses the entire table.
-
-_frame\_clause_
-
-If an ORDER BY clause is used for an aggregate function, an explicit
-frame clause is required. The frame clause refines the set of rows in a
-function's window, including or excluding sets of rows within the ordered
-result. The frame clause consists of the ROWS keyword and associated
-specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis "c_Window_functions.md#r_Window_function_synopsis").
+ *frame\_clause*   
+If an ORDER BY clause is used for an aggregate function, an explicit frame clause is required. The frame clause refines the set of rows in a function's window, including or excluding sets of rows within the ordered result. The frame clause consists of the ROWS keyword and associated specifiers. See [Window function syntax summary](c_Window_functions.md#r_Window_function_synopsis).
 
 ## Data types
+<a name="r_WF_MIN-data-types"></a>
 
-Accepts any data type as input. Returns the same data type as
-_expression_.
+Accepts any data type as input. Returns the same data type as *expression*.
 
 ## Examples
+<a name="r_WF_MIN-examples"></a>
 
-The following example shows the sales ID, quantity, and minimum quantity from the beginning of the data
-window:
+The following example shows the sales ID, quantity, and minimum quantity from the beginning of the data window: 
 
 ```
 select salesid, qty,
@@ -86,10 +72,9 @@ salesid | qty | min
 (11 rows)
 ```
 
-For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+ For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example).
 
-The following example shows the sales ID, quantity, and minimum quantity in a
-restricted frame:
+The following example shows the sales ID, quantity, and minimum quantity in a restricted frame: 
 
 ```
 select salesid, qty,

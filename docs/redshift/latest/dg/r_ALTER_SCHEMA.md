@@ -1,74 +1,62 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER SCHEMA
+<a name="r_ALTER_SCHEMA"></a>
 
-Changes the definition of an existing schema. Use this command to rename a schema or
-change the owner of a schema. For example, rename an existing schema to preserve a backup
-copy of that schema when you plan to create a new version of that schema. For more
-information about schemas, see [CREATE SCHEMA](r_CREATE_SCHEMA.md "r_CREATE_SCHEMA.md").
+Changes the definition of an existing schema. Use this command to rename a schema or change the owner of a schema. For example, rename an existing schema to preserve a backup copy of that schema when you plan to create a new version of that schema. For more information about schemas, see [CREATE SCHEMA](r_CREATE_SCHEMA.md).
 
-To view the configured schema quotas, see [SVV\_SCHEMA\_QUOTA\_STATE](r_SVV_SCHEMA_QUOTA_STATE.md "r_SVV_SCHEMA_QUOTA_STATE.md").
+To view the configured schema quotas, see [SVV\_SCHEMA\_QUOTA\_STATE](r_SVV_SCHEMA_QUOTA_STATE.md).
 
-To view the records where schema quotas were exceeded, see [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md "r_STL_SCHEMA_QUOTA_VIOLATIONS.md").
+To view the records where schema quotas were exceeded, see [STL\_SCHEMA\_QUOTA\_VIOLATIONS](r_STL_SCHEMA_QUOTA_VIOLATIONS.md).
 
 ## Required privileges
+<a name="r_ALTER_SCHEMA-privileges"></a>
 
 Following are required privileges for ALTER SCHEMA:
++ Superuser
++ User with the ALTER SCHEMA privilege
++ Schema owner
 
-- Superuser
-- User with the ALTER SCHEMA privilege
-- Schema owner
-
-When you change a schema name, note that objects using the old name, such as stored
-procedures or materialized views, must be updated to use the new name.
+When you change a schema name, note that objects using the old name, such as stored procedures or materialized views, must be updated to use the new name.
 
 ## Syntax
+<a name="r_ALTER_SCHEMA-synopsis"></a>
 
 ```
-ALTER SCHEMA *schema\_name*
+ALTER SCHEMA schema_name
 {
-RENAME TO *new\_name* |
-OWNER TO *new\_owner* |
+RENAME TO new_name |
+OWNER TO new_owner |
 QUOTA { quota [MB | GB | TB] | UNLIMITED }
 }
 ```
 
 ## Parameters
+<a name="r_ALTER_SCHEMA-parameters"></a>
 
-_schema\_name_
+ *schema\_name*   
+The name of the database schema to be altered. 
 
-The name of the database schema to be altered.
+RENAME TO   
+A clause that renames the schema. 
 
-RENAME TO
+ *new\_name*   
+The new name of the schema. For more information about valid names, see [Names and identifiers](r_names.md). 
 
-A clause that renames the schema.
+OWNER TO   
+A clause that changes the owner of the schema. 
 
-_new\_name_
+ *new\_owner*   
+The new owner of the schema. 
 
-The new name of the schema. For more information about valid names, see
-[Names and identifiers](r_names.md "r_names.md").
-
-OWNER TO
-
-A clause that changes the owner of the schema.
-
-_new\_owner_
-
-The new owner of the schema.
-
-QUOTA
-
-The maximum amount of disk space that the specified schema can use. This
-space is the collective size of all tables under the specified schema. Amazon Redshift
-converts the selected value to megabytes. Gigabytes is the default unit of
-measurement when you don't specify a value.
-
-For more information about configuring schema quotas, see [CREATE SCHEMA](r_CREATE_SCHEMA.md "r_CREATE_SCHEMA.md").
+QUOTA   
+The maximum amount of disk space that the specified schema can use. This space is the collective size of all tables under the specified schema. Amazon Redshift converts the selected value to megabytes. Gigabytes is the default unit of measurement when you don't specify a value.   
+For more information about configuring schema quotas, see [CREATE SCHEMA](r_CREATE_SCHEMA.md).
 
 ## Examples
+<a name="r_ALTER_SCHEMA-examples"></a>
 
 The following example renames the SALES schema to US\_SALES.
 
@@ -77,8 +65,7 @@ alter schema sales
 rename to us_sales;
 ```
 
-The following example gives ownership of the US\_SALES schema to the user
-DWUSER.
+The following example gives ownership of the US\_SALES schema to the user DWUSER.
 
 ```
 alter schema us_sales

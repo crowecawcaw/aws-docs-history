@@ -1,90 +1,84 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_TABLE\_DEF
+<a name="r_PG_TABLE_DEF"></a>
 
 Stores information about table columns.
 
-PG\_TABLE\_DEF only returns information about tables that are visible to the user. If
-PG\_TABLE\_DEF does not return the expected results, verify that the [search\_path](r_search_path.md "r_search_path.md") parameter is set correctly
-to include the relevant schemas.
+PG\_TABLE\_DEF only returns information about tables that are visible to the user. If PG\_TABLE\_DEF does not return the expected results, verify that the [search\_path](r_search_path.md) parameter is set correctly to include the relevant schemas.
 
-You can use [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md "r_SVV_TABLE_INFO.md") to
-view more comprehensive information about a table, including data distribution skew, key
-distribution skew, table size, and statistics.
+You can use [SVV\_TABLE\_INFO](r_SVV_TABLE_INFO.md) to view more comprehensive information about a table, including data distribution skew, key distribution skew, table size, and statistics. 
 
 ## Table columns
+<a name="r_PG_TABLE_DEF-table-columns2"></a>
 
-| Column name | Data type     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| schemaname  | name          | Schema name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| tablename   | name          | Table name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| column      | name          | Column name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| type        | text          | Datatype of column.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| encoding    | character(32) | Encoding of column.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| distkey     | boolean       | True if this column is the distribution key for<br>the table.                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| sortkey     | integer       | Order of the column in the sort key. If the table<br>uses a compound sort key, then all columns that are part of the sort<br>key have a positive value that indicates the position of the column<br>in the sort key. If the table uses an interleaved sort key, then<br>each column that is part of the sort key has a value that is<br>alternately positive or negative, where the absolute value indicates<br>the position of the column in the sort key. If 0, the column is not<br>part of a sort key. |
-| notnull     | boolean       | True if the column has a NOT NULL<br>constraint.                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| schemaname | name | Schema name. | 
+| tablename | name | Table name. | 
+| column | name  | Column name. | 
+| type  | text | Datatype of column. | 
+| encoding  | character(32)  | Encoding of column. | 
+| distkey  | boolean | True if this column is the distribution key for the table. | 
+| sortkey | integer  | Order of the column in the sort key. If the table uses a compound sort key, then all columns that are part of the sort key have a positive value that indicates the position of the column in the sort key. If the table uses an interleaved sort key, then each column that is part of the sort key has a value that is alternately positive or negative, where the absolute value indicates the position of the column in the sort key. If 0, the column is not part of a sort key.  | 
+| notnull | boolean  | True if the column has a NOT NULL constraint. | 
 
 ## Example
+<a name="r_PG_TABLE_DEF-example2"></a>
 
-The following example shows the compound sort key columns for the
-LINEORDER\_COMPOUND table.
+The following example shows the compound sort key columns for the LINEORDER\_COMPOUND table.
 
 ```
-select "column", type, encoding, distkey, sortkey, "notnull"
+select "column", type, encoding, distkey, sortkey, "notnull" 
 from pg_table_def
-where tablename = 'lineorder_compound'
+where tablename = 'lineorder_compound' 
 and sortkey <> 0;
 
 column       | type    | encoding | distkey | sortkey | notnull
 -------------+---------+----------+---------+---------+--------
-lo_orderkey  | integer | delta32k | false   |       1 | true
-lo_custkey   | integer | none     | false   |       2 | true
-lo_partkey   | integer | none     | true    |       3 | true
-lo_suppkey   | integer | delta32k | false   |       4 | true
-lo_orderdate | integer | delta    | false   |       5 | true
+lo_orderkey  | integer | delta32k | false   |       1 | true   
+lo_custkey   | integer | none     | false   |       2 | true   
+lo_partkey   | integer | none     | true    |       3 | true   
+lo_suppkey   | integer | delta32k | false   |       4 | true   
+lo_orderdate | integer | delta    | false   |       5 | true   
 (5 rows)
 ```
 
-The following example shows the interleaved sort key columns for the
-LINEORDER\_INTERLEAVED table.
+ The following example shows the interleaved sort key columns for the LINEORDER\_INTERLEAVED table.
 
 ```
-select "column", type, encoding, distkey, sortkey, "notnull"
+select "column", type, encoding, distkey, sortkey, "notnull" 
 from pg_table_def
-where tablename = 'lineorder_interleaved'
+where tablename = 'lineorder_interleaved' 
 and sortkey <> 0;
 
 column       | type    | encoding | distkey | sortkey | notnull
 -------------+---------+----------+---------+---------+--------
-lo_orderkey  | integer | delta32k | false   |      -1 | true
-lo_custkey   | integer | none     | false   |       2 | true
-lo_partkey   | integer | none     | true    |      -3 | true
-lo_suppkey   | integer | delta32k | false   |       4 | true
-lo_orderdate | integer | delta    | false   |      -5 | true
+lo_orderkey  | integer | delta32k | false   |      -1 | true   
+lo_custkey   | integer | none     | false   |       2 | true   
+lo_partkey   | integer | none     | true    |      -3 | true   
+lo_suppkey   | integer | delta32k | false   |       4 | true   
+lo_orderdate | integer | delta    | false   |      -5 | true   
 (5 rows)
 ```
 
-PG\_TABLE\_DEF will only return information for tables in schemas that are included
-in the search path. For more information, see [search\_path](r_search_path.md "r_search_path.md").
+PG\_TABLE\_DEF will only return information for tables in schemas that are included in the search path. For more information, see [search\_path](r_search_path.md).
 
-For example, suppose you create a new schema and a new table, then query
-PG\_TABLE\_DEF.
+For example, suppose you create a new schema and a new table, then query PG\_TABLE\_DEF.
 
 ```
 create schema demo;
 create table demo.demotable (one int);
 select * from pg_table_def where tablename = 'demotable';
 
-schemaname|tablename|column| type | encoding | distkey | sortkey | notnull
+schemaname|tablename|column| type | encoding | distkey | sortkey | notnull 
 ----------+---------+------+------+----------+---------+---------+--------
 ```
 
-The query returns no rows for the new table. Examine the setting for
-`search_path`.
+The query returns no rows for the new table. Examine the setting for `search_path`.
 
 ```
 show search_path;
@@ -95,8 +89,7 @@ show search_path;
 (1 row)
 ```
 
-Add the `demo` schema to the search path and run the query
-again.
+Add the `demo` schema to the search path and run the query again.
 
 ```
 set search_path to '$user', 'public', 'demo';

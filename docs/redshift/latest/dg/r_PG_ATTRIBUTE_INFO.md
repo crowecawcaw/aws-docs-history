@@ -1,20 +1,18 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_ATTRIBUTE\_INFO
+<a name="r_PG_ATTRIBUTE_INFO"></a>
 
-PG\_ATTRIBUTE\_INFO is an Amazon Redshift system view built on the PostgreSQL catalog table
-PG\_ATTRIBUTE and the internal catalog table PG\_ATTRIBUTE\_ACL. PG\_ATTRIBUTE\_INFO includes
-details about columns of a table or view, including column access control lists, if
-any.
+PG\_ATTRIBUTE\_INFO is an Amazon Redshift system view built on the PostgreSQL catalog table PG\_ATTRIBUTE and the internal catalog table PG\_ATTRIBUTE\_ACL. PG\_ATTRIBUTE\_INFO includes details about columns of a table or view, including column access control lists, if any.
 
 ## Table columns
+<a name="r_PG_ATTRIBUTE_INFO-table-columns"></a>
 
-PG\_ATTRIBUTE\_INFO shows the following column in addition to the columns in
-PG\_ATTRIBUTE.
+PG\_ATTRIBUTE\_INFO shows the following column in addition to the columns in PG\_ATTRIBUTE.
 
-| Column name | Data type | Description                                                                                     |
-| ----------- | --------- | ----------------------------------------------------------------------------------------------- |
-| attacl      | aclitem[] | The column-level access privileges, if any, that have been granted specifically on this column. |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| attacl | aclitem[] | The column-level access privileges, if any, that have been granted specifically on this column. | 

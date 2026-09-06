@@ -1,48 +1,46 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # DEXP function
+<a name="r_DEXP"></a>
 
-The DEXP function returns the exponential value in scientific notation for a double
-precision number. The only difference between the DEXP and EXP functions is that the
-parameter for DEXP must be a `DOUBLE PRECISION`.
+The DEXP function returns the exponential value in scientific notation for a double precision number. The only difference between the DEXP and EXP functions is that the parameter for DEXP must be a `DOUBLE PRECISION`. 
 
 ## Syntax
+<a name="r_DEXP-synopsis"></a>
 
 ```
-DEXP(*number*)
+DEXP(number)
 ```
 
 ## Argument
+<a name="r_DEXP-argument"></a>
 
-_number_
-
-The input parameter is a `DOUBLE PRECISION` number.
+ *number*   
+The input parameter is a `DOUBLE PRECISION` number. 
 
 ## Return type
+<a name="r_DEXP-return-type"></a>
 
 `DOUBLE PRECISION`
 
 ## Example
+<a name="r_DEXP-example"></a>
 
-The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md).
 
-Use the DEXP function to forecast ticket sales based on a continuous growth
-pattern. In this example, the subquery returns the number of tickets sold in 2008.
-That result is multiplied by the result of the DEXP function, which specifies a
-continuous growth rate of 7% over 10 years.
+Use the DEXP function to forecast ticket sales based on a continuous growth pattern. In this example, the subquery returns the number of tickets sold in 2008. That result is multiplied by the result of the DEXP function, which specifies a continuous growth rate of 7% over 10 years. 
 
 ```
-`SELECT (SELECT SUM(qtysold)
+SELECT (SELECT SUM(qtysold) 
 FROM sales, date
 WHERE sales.dateid=date.dateid
-AND year=2008) * DEXP((7::FLOAT/100)*10) qty2010;`
+AND year=2008) * DEXP((7::FLOAT/100)*10) qty2010;
 
-`+-------------------+
-| qty2010 |
++-------------------+
+|      qty2010      |
 +-------------------+
 | 695447.4837722216 |
-+-------------------+`
++-------------------+
 ```

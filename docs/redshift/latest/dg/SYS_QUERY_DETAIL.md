@@ -1,93 +1,87 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_QUERY\_DETAIL
+<a name="SYS_QUERY_DETAIL"></a>
 
-Use SYS\_QUERY\_DETAIL to view details for queries at various metric levels, with each
-row representing details about a particular WLM query at a given metric level. This view contains many types of
-queries such as DDL, DML, and utility commands (for example, copy and unload). Some
-columns might not be relevant depending on the query type. For example,
-external\_scanned\_bytes is not relevant to internal tables.
+Use SYS\_QUERY\_DETAIL to view details for queries at various metric levels, with each row representing details about a particular WLM query at a given metric level. This view contains many types of queries such as DDL, DML, and utility commands (for example, copy and unload). Some columns might not be relevant depending on the query type. For example, external\_scanned\_bytes is not relevant to internal tables.
 
-SYS\_QUERY\_DETAIL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_QUERY\_DETAIL is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-To verify whether a transaction containing the executed query was successfully
-committed, you need to perform a join operation between system tables and the
-`sys_transaction_history` table. For example:
+**Note**  
+To verify whether a transaction containing the executed query was successfully committed, you need to perform a join operation between system tables and the `sys_transaction_history` table. For example:  
 
 ```
-SELECT
+SELECT 
     th.transaction_id,
     qd.query_id,
     th.status AS transaction_status
-FROM
+FROM 
     sys_query_detail qd
 LEFT JOIN sys_query_history qh ON qd.query_id = qh.query_id
 LEFT JOIN sys_transaction_history th on qh.transaction_id = th.transaction_id;
 ```
 
 ## Table columns
+<a name="SYS_QUERY_DETAIL-table-columns"></a>
 
-| Column name                  | Data type      | Description                                                                                                                                                                                                                                                        |
-| ---------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| user\_id                     | integer        | The identifier of the user who submitted the<br>query.                                                                                                                                                                                                             |
-| query\_id                    | bigint         | The query identifier.                                                                                                                                                                                                                                              |
-| child\_query\_sequence       | integer        | The sequence of the rewritten user query, starting<br>with 1.                                                                                                                                                                                                      |
-| stream\_id                   | integer        | The stream identifier of the query stream.                                                                                                                                                                                                                         |
-| segment\_id                  | integer        | The segment identifier of the query running<br>segment.                                                                                                                                                                                                            |
-| step\_id                     | integer        | The step identifier in a segment.                                                                                                                                                                                                                                  |
-| step\_name                   | text           | The step name in a segment. Possible values are<br>`aggregate`, `broadcast`,<br>`delete`, `distribute`, `hash`,<br>`hashjoin`, `insert`, `limit`,<br>`merge`, `nestloop`, `parse`,<br>`return`, `save`, `scan`,<br>`sort`, `sortlimit`, `unique`,<br>and `window`. |
-| table\_id                    | integer        | The table identifier for permanent table<br>scans.                                                                                                                                                                                                                 |
-| table\_name                  | character(136) | The table name of the step that is being<br>operated.                                                                                                                                                                                                              |
-| is\_rrscan                   | character      | A value that indicates whether a step is a scan<br>step. True (t) indicates that a range-restricted scan was<br>used.                                                                                                                                              |
-| start\_time                  | timestamp      | The time when the query step began.<br>This field is recorded at the segment level,<br>regardless of the value in the `metrics_level` column.                                                                                                                      |
-| end\_time                    | timestamp      | The time when the query step completed.<br>This field is recorded at the segment level,<br>regardless of the value in the `metrics_level` column.                                                                                                                  |
-| duration                     | bigint         | The amount of time (microseconds) spent on the<br>step. This field is recorded at the segment level,<br>regardless of the value in the `metrics_level` column.                                                                                                     |
-| alert                        | text           | The description of the alert event.                                                                                                                                                                                                                                |
-| input\_bytes                 | bigint         | The input bytes for the current step.                                                                                                                                                                                                                              |
-| input\_rows                  | bigint         | The input rows for the current step.                                                                                                                                                                                                                               |
-| output\_bytes                | bigint         | The output bytes for the current step.                                                                                                                                                                                                                             |
-| output\_rows                 | bigint         | The output rows for the current step.                                                                                                                                                                                                                              |
-| blocks\_read                 | bigint         | The number of blocks the step read.                                                                                                                                                                                                                                |
-| blocks\_write                | bigint         | The number of blocks the step wrote.                                                                                                                                                                                                                               |
-| local\_read\_IO              | bigint         | The number of blocks read from local disk<br>cache.                                                                                                                                                                                                                |
-| remote\_read\_IO             | bigint         | The number of blocks read from remote.                                                                                                                                                                                                                             |
-| source                       | text           | The type of database object that was scanned. This<br>column only has a value when the row's<br>*step\_name<br>• value is<br>`scan`.                                                                                                                               |
-| data\_skewness               | integer        | The skewness of output rows distribution among all<br>steps. It is a number in the range of 0% to 100%. The larger the<br>number, the more unbalanced is the distribution.                                                                                         |
-| time\_skewness               | integer        | The skewness of execution time distribution among<br>all steps. It is a number in the range of 0% to 100%. The larger the<br>number, the more unbalanced is the distribution.                                                                                      |
-| is\_active                   | character      | The state of the query at the step level. Possible<br>values are ‘t’ that shows the step is actively running or ‘f’ that<br>indicates the step completes running.                                                                                                  |
-| spilled\_block\_local\_disk  | bigint         | The number of blocks spilled to local<br>disk.                                                                                                                                                                                                                     |
-| spilled\_block\_remote\_disk | bigint         | The number of blocks spilled to Amazon Simple Storage Service.                                                                                                                                                                                                     |
-| step\_attribute              | character(64)  | Contains information about the associated step.<br>Possible values for scan steps:<br>`multi-dimensional`.                                                                                                                                                         |
-| metrics\_level               | character(64)  | The metric level of the query. Possible values are as follows:<br>• Child query<br>• Stream<br>• Segment<br>• Step                                                                                                                                                 |
-| plan\_parent\_id             | integer        | The identifier of the plan node's parent node.<br>A parent node can have multiple child nodes. For example,<br>a merge join is the parent node of the scans on the joined tables.                                                                                  |
-| plan\_node\_id               | integer        | The identifier of a plan node<br>that maps to one or more steps in the query.                                                                                                                                                                                      |
-| query\_uuid                  | character(36)  | A globally unique identifier (UUID) of the query.                                                                                                                                                                                                                  |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | The identifier of the user who submitted the query. | 
+| query\_id | bigint | The query identifier. | 
+| child\_query\_sequence | integer | The sequence of the rewritten user query, starting with 1. | 
+| stream\_id | integer | The stream identifier of the query stream. | 
+| segment\_id | integer | The segment identifier of the query running segment. | 
+| step\_id | integer | The step identifier in a segment. | 
+| step\_name | text | The step name in a segment. Possible values are aggregate, broadcast, delete, distribute, hash, hashjoin, insert, limit, merge, nestloop, parse, return, save, scan, sort, sortlimit, unique, and window. | 
+| table\_id | integer | The table identifier for permanent table scans. | 
+| table\_name | character(136) | The table name of the step that is being operated. | 
+| is\_rrscan | character | A value that indicates whether a step is a scan step. True (t) indicates that a range-restricted scan was used. | 
+| start\_time | timestamp | The time when the query step began. This field is recorded at the segment level, regardless of the value in the metrics\_level column. | 
+| end\_time | timestamp | The time when the query step completed. This field is recorded at the segment level, regardless of the value in the metrics\_level column. | 
+| duration | bigint | The amount of time (microseconds) spent on the step. This field is recorded at the segment level, regardless of the value in the metrics\_level column. | 
+| alert | text | The description of the alert event. | 
+| input\_bytes | bigint | The input bytes for the current step. | 
+| input\_rows | bigint | The input rows for the current step. | 
+| output\_bytes | bigint | The output bytes for the current step. | 
+| output\_rows | bigint | The output rows for the current step. | 
+| blocks\_read | bigint | The number of blocks the step read. | 
+| blocks\_write | bigint | The number of blocks the step wrote. | 
+| local\_read\_IO | bigint | The number of blocks read from local disk cache. | 
+| remote\_read\_IO | bigint | The number of blocks read from remote. | 
+| source | text | The type of database object that was scanned. This column only has a value when the row's step\_name value is scan. | 
+| data\_skewness | integer | The skewness of output rows distribution among all steps. It is a number in the range of 0% to 100%. The larger the number, the more unbalanced is the distribution. | 
+| time\_skewness | integer | The skewness of execution time distribution among all steps. It is a number in the range of 0% to 100%. The larger the number, the more unbalanced is the distribution. | 
+| is\_active | character | The state of the query at the step level. Possible values are ‘t’ that shows the step is actively running or ‘f’ that indicates the step completes running. | 
+| spilled\_block\_local\_disk | bigint | The number of blocks spilled to local disk. | 
+| spilled\_block\_remote\_disk | bigint | The number of blocks spilled to Amazon Simple Storage Service. | 
+| step\_attribute | character(64) | Contains information about the associated step. Possible values for scan steps: multi-dimensional. | 
+| metrics\_level | character(64) | The metric level of the query. Possible values are as follows:+  Child query <br />+  Stream <br />+  Segment <br />+  Step  | 
+| plan\_parent\_id | integer | The identifier of the plan node's parent node. A parent node can have multiple child nodes. For example, a merge join is the parent node of the scans on the joined tables.  | 
+| plan\_node\_id | integer | The identifier of a plan node that maps to one or more steps in the query. | 
+| query\_uuid | character(36) | A globally unique identifier (UUID) of the query. | 
 
 ## Usage notes
+<a name="SYS_QUERY_DETAIL-usage-notes"></a>
 
-SYS\_QUERY\_DETAIL can contain metrics at the step, steam, segment, and child query level.
-In addition to referencing the metrics\_level column, you can see which metric level a given
-row is showing by referencing the step\_id, segment\_id, and stream\_id fields according to
-the following table.
+SYS\_QUERY\_DETAIL can contain metrics at the step, steam, segment, and child query level. In addition to referencing the metrics\_level column, you can see which metric level a given row is showing by referencing the step\_id, segment\_id, and stream\_id fields according to the following table.
 
-| Metric level | stream\_id value   | segment\_id value  | step\_id value     |
-| ------------ | ------------------ | ------------------ | ------------------ |
-| child query  | -1                 | -1                 | -1                 |
-| stream       | A valid step value | -1                 | -1                 |
-| segment      | A valid step value | A valid step value | -1                 |
-| step         | A valid step value | A valid step value | A valid step value |
+
+| Metric level | stream\_id value | segment\_id value | step\_id value | 
+| --- | --- | --- | --- | 
+| child query | -1 | -1 | -1 | 
+| stream | A valid step value | -1 | -1 | 
+| segment | A valid step value | A valid step value | -1 | 
+| step | A valid step value | A valid step value | A valid step value | 
 
 ## Sample queries
+<a name="SYS_QUERY_DETAIL-sample-queries"></a>
 
 The following example returns the output of SYS\_QUERY\_DETAIL.
 
-The following query shows the query metadata detail at step level, including step
-name, input\_bytes, output\_bytes, input\_rows, output\_rows.
+The following query shows the query metadata detail at step level, including step name, input\_bytes, output\_bytes, input\_rows, output\_rows.
 
 ```
 SELECT query_id,
@@ -139,42 +133,38 @@ Sample output.
    193929 |                    3 |         0 |          0 |      -1 |            |           11033 |      114688 |            0 |          0 |           0
 ```
 
-To view the tables in your database in order from most used to least used, use the
-following example. Replace `sample_data_dev` with your own
-database. Note that this query will count queries starting when your cluster is
-created, but your system view data is not saved when your data warehouse is lacking
-space.
+To view the tables in your database in order from most used to least used, use the following example. Replace {{sample\_data\_dev}} with your own database. Note that this query will count queries starting when your cluster is created, but your system view data is not saved when your data warehouse is lacking space.
 
 ```
-`SELECT table_name, COUNT (DISTINCT query_id)
-FROM SYS_QUERY_DETAIL
+SELECT table_name, COUNT (DISTINCT query_id) 
+FROM SYS_QUERY_DETAIL 
 WHERE table_name LIKE 'sample_data_dev%'
 GROUP BY table_name
-ORDER BY COUNT(*) DESC;`
+ORDER BY COUNT(*) DESC;
 
-`+---------------------------------+-------+
-| table_name | count |
 +---------------------------------+-------+
-| sample_data_dev.tickit.venue | 4 |
-| sample_data_dev.myunload1.venue | 3 |
-| sample_data_dev.tickit.listing | 1 |
-| sample_data_dev.tickit.category | 1 |
-| sample_data_dev.tickit.users | 1 |
-| sample_data_dev.tickit.date | 1 |
-| sample_data_dev.tickit.sales | 1 |
-| sample_data_dev.tickit.event | 1 |
-+---------------------------------+-------+`
+|           table_name            | count |
++---------------------------------+-------+
+| sample_data_dev.tickit.venue    |     4 |
+| sample_data_dev.myunload1.venue |     3 |
+| sample_data_dev.tickit.listing  |     1 |
+| sample_data_dev.tickit.category |     1 |
+| sample_data_dev.tickit.users    |     1 |
+| sample_data_dev.tickit.date     |     1 |
+| sample_data_dev.tickit.sales    |     1 |
+| sample_data_dev.tickit.event    |     1 |
++---------------------------------+-------+
 ```
 
-The following example shows the various metric levels for a single WLM query.
+ The following example shows the various metric levels for a single WLM query. 
 
 ```
-SELECT query_id, child_query_sequence, stream_id, segment_id, step_id, step_name, start_time, end_time, metrics_level
-FROM sys_query_detail
-WHERE query_id = 1553 AND step_id = -1
+SELECT query_id, child_query_sequence, stream_id, segment_id, step_id, step_name, start_time, end_time, metrics_level 
+FROM sys_query_detail 
+WHERE query_id = 1553 AND step_id = -1 
 ORDER BY stream_id, segment_id, step_id;
 
- query_id | child_query_sequence | stream_id | segment_id | step_id | step_name |         start_time         |          end_time          | metrics_level
+ query_id | child_query_sequence | stream_id | segment_id | step_id | step_name |         start_time         |          end_time          | metrics_level 
 ----------+----------------------+-----------+------------+---------+-----------+----------------------------+----------------------------+---------------
      1553 |                    1 |        -1 |         -1 |      -1 |           | 2024-10-17 02:28:49.814721 | 2024-10-17 02:28:49.847838 | child query
      1553 |                    1 |         0 |         -1 |      -1 |           | 2024-10-17 02:28:49.814721 | 2024-10-17 02:28:49.835609 | stream

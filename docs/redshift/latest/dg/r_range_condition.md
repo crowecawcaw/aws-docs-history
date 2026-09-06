@@ -1,27 +1,25 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # BETWEEN range condition
+<a name="r_range_condition"></a>
 
-A `BETWEEN` condition tests expressions for inclusion in a range of
-values, using the keywords `BETWEEN` and `AND`.
+A `BETWEEN` condition tests expressions for inclusion in a range of values, using the keywords `BETWEEN` and `AND`. 
 
 ## Syntax
+<a name="r_range_condition-synopsis"></a>
 
 ```
-*expression* [ NOT ] BETWEEN *expression* AND *expression*
-
+expression [ NOT ] BETWEEN expression AND expression
 ```
 
-Expressions can be numeric, character, or datetime data types, but they must be
-compatible. The range is inclusive.
+Expressions can be numeric, character, or datetime data types, but they must be compatible. The range is inclusive.
 
 ## Examples
+<a name="r_range_condition-examples"></a>
 
-The first example counts how many transactions registered sales of either 2, 3,
-or 4 tickets:
+The first example counts how many transactions registered sales of either 2, 3, or 4 tickets: 
 
 ```
 select count(*) from sales
@@ -39,14 +37,12 @@ The range condition includes the begin and end values.
 select min(dateid), max(dateid) from sales
 where dateid between 1900 and 1910;
 
-min  | max
+min  | max 
 -----+-----
 1900 | 1910
 ```
 
-The first expression in a range condition must be the lesser value and the
-second expression the greater value. The following example will always return zero
-rows due to the values of the expressions:
+The first expression in a range condition must be the lesser value and the second expression the greater value. The following example will always return zero rows due to the values of the expressions: 
 
 ```
 select count(*) from sales
@@ -58,8 +54,7 @@ count
 (1 row)
 ```
 
-However, applying the NOT modifier will invert the logic and produce a count of
-all rows:
+However, applying the NOT modifier will invert the logic and produce a count of all rows: 
 
 ```
 select count(*) from sales
@@ -71,7 +66,7 @@ count
 (1 row)
 ```
 
-The following query returns a list of venues with 20000 to 50000 seats:
+The following query returns a list of venues with 20000 to 50000 seats: 
 
 ```
 select venueid, venuename, venueseats from venue
@@ -90,9 +85,9 @@ venueid |       venuename               | venueseats
 The following example demonstrates using BETWEEN for date values:
 
 ```
-select salesid, qtysold, pricepaid, commission, saletime
-from sales
-where eventid between 1000 and 2000
+select salesid, qtysold, pricepaid, commission, saletime 
+from sales 
+where eventid between 1000 and 2000 
    and saletime between '2008-01-01' and '2008-01-03'
 order by saletime asc;
 
@@ -109,6 +104,4 @@ salesid | qtysold | pricepaid | commission |   saletime
   68413 |       2 |       158 |       23.7 | 1/2/2008 08:12
 ```
 
-Note that although BETWEEN's range is inclusive, dates default to having a time
-value of 00:00:00. The only valid January 3 row for the sample query would be a
-row with a saletime of `1/3/2008 00:00:00`.
+Note that although BETWEEN's range is inclusive, dates default to having a time value of 00:00:00. The only valid January 3 row for the sample query would be a row with a saletime of `1/3/2008 00:00:00`.

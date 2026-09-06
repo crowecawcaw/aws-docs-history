@@ -1,37 +1,38 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SHA2 function
+<a name="SHA2"></a>
 
 The SHA2 function uses the SHA2 cryptographic hash function to convert a variable-length string into a character string. The character string is a text representation of the hexadecimal value of the checksum with the specified number of bits.
 
 ## Syntax
+<a name="SHA2-syntax"></a>
 
 ```
-SHA2(*string, bits*)
+SHA2(string, bits)
 ```
 
 ## Arguments
+<a name="SHA2-arguments"></a>
 
-_string_
-
+ *string*   
 A variable-length string.
 
-_integer_
-
+ *integer*   
 The number of bits in the hash functions. Valid values are 0 (same as 256), 224, 256, 384, and 512.
 
 ## Return type
+<a name="SHA2-returm-type"></a>
 
-The SHA2 function returns a character string that is a text representation of the hexadecimal value of the checksum or an empty string if the number of bits is invalid.
+The SHA2 function returns a character string that is a text representation of the hexadecimal value of the checksum or an empty string if the number of bits is invalid. 
 
 ## Example
+<a name="SHA2-example"></a>
 
-The following example returns the 256-bit value for the word 'Amazon Redshift':
+The following example returns the 256-bit value for the word 'Amazon Redshift': 
 
 ```
 select sha2('Amazon Redshift', 256);
-
 ```

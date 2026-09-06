@@ -1,36 +1,38 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_TRANSACTION\_HISTORY
+<a name="SYS_TRANSACTION_HISTORY"></a>
 
-Use SYS\_TRANSACTION\_HISTORY to see details of a transaction when tracking a
-query.
+Use SYS\_TRANSACTION\_HISTORY to see details of a transaction when tracking a query.
 
-SYS\_TRANSACTION\_HISTORY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_TRANSACTION\_HISTORY is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SYS_TRANSACTION_HISTORY-table-columns"></a>
 
-| Column name              | Data type | Description                                                                                                |
-| ------------------------ | --------- | ---------------------------------------------------------------------------------------------------------- |
-| user\_id                 | integer   | ID of the user who generated the entry.                                                                    |
-| transaction\_id          | bigint    | The ID of the transaction.                                                                                 |
-| isolation\_level         | text      | The isolation level of the transaction. Possible<br>values are `Serializable` and `Snapshot<br>Isolation`. |
-| status                   | text      | The status of the transaction. Possible statuses<br>are `committed` and `rolledback`.                      |
-| transaction\_start\_time | timestamp | The start time of the transaction.                                                                         |
-| commit\_start\_time      | timestamp | The start time of the commit.                                                                              |
-| commit\_end\_time        | timestamp | The end time of the commit.                                                                                |
-| blocks\_committed        | bigint    | The number of blocks that had to be written as<br>part of this commit.                                     |
-| undo\_transaction\_id    | bigint    | The ID of the undo transaction if any transactions<br>have been undone. Otherwise, this value is -1.       |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| user\_id | integer | ID of the user who generated the entry. | 
+| transaction\_id | bigint | The ID of the transaction. | 
+| isolation\_level | text | The isolation level of the transaction. Possible values are Serializable and Snapshot Isolation. | 
+| status | text | The status of the transaction. Possible statuses are committed and rolledback. | 
+| transaction\_start\_time | timestamp | The start time of the transaction. | 
+| commit\_start\_time | timestamp | The start time of the commit. | 
+| commit\_end\_time | timestamp | The end time of the commit. | 
+| blocks\_committed | bigint | The number of blocks that had to be written as part of this commit. | 
+| undo\_transaction\_id | bigint | The ID of the undo transaction if any transactions have been undone. Otherwise, this value is -1. | 
 
 ## Sample queries
+<a name="SYS_TRANSACTION_HISTORY-sample-queries"></a>
 
 ```
 select * from sys_transaction_history order by transaction_start_time desc;
-
- user_id | transaction_id | isolation_level |   status   |   transaction_start_time   |     commit_start_time      |      commit_end_time       | blocks_committed | undo_transaction_id
----------+----------------+-----------------+------------+----------------------------+----------------------------+----------------------------+------------------+---------------------
+                
+ user_id | transaction_id | isolation_level |   status   |   transaction_start_time   |     commit_start_time      |      commit_end_time       | blocks_committed | undo_transaction_id 
+---------+----------------+-----------------+------------+----------------------------+----------------------------+----------------------------+------------------+---------------------     
      100 |           1310 | Serializable    | committed  | 2023-08-27 21:03:11.822205 | 2023-08-28 21:03:11.825287 | 2023-08-28 21:03:11.854883 |               17 |                  -1
      101 |           1345 | Serializable    | committed  | 2023-08-27 21:03:12.000278 | 2023-08-28 21:03:12.003736 | 2023-08-28 21:03:12.030061 |               17 |                  -1
      102 |           1367 | Serializable    | committed  | 2023-08-27 21:03:12.1532   | 2023-08-28 21:03:12.156124 | 2023-08-28 21:03:12.186468 |               17 |                  -1
@@ -46,5 +48,4 @@ select * from sys_transaction_history order by transaction_start_time desc;
      101 |           1423 | Serializable    | committed  | 2023-08-27 21:04:28.78942  | 2023-08-28 21:04:28.791556 | 2023-08-28 21:04:28.817485 |               16 |                  -1
      100 |           1430 | Serializable    | committed  | 2023-08-27 21:04:28.917788 | 2023-08-28 21:04:28.919993 | 2023-08-28 21:04:28.944812 |               16 |                  -1
      102 |           1494 | Serializable    | committed  | 2023-08-27 21:04:37.029058 | 2023-08-28 21:04:37.033137 | 2023-08-28 21:04:37.062001 |               16 |                  -1
-
 ```

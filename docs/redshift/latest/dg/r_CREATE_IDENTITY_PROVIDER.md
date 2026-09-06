@@ -1,115 +1,74 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CREATE IDENTITY PROVIDER
+<a name="r_CREATE_IDENTITY_PROVIDER"></a>
 
-Defines a new identity provider. Only a superuser can create an identity
-provider.
+Defines a new identity provider. Only a superuser can create an identity provider.
 
 ## Syntax
+<a name="r_CREATE_IDENTITY_PROVIDER-synopsis"></a>
 
 ```
-CREATE IDENTITY PROVIDER *identity\_provider\_name* TYPE *type\_name*
-NAMESPACE *namespace\_name*
-[PARAMETERS *parameter\_string*]
-[APPLICATION_ARN *arn*]
-[IAM_ROLE *iam\_role*]
+CREATE IDENTITY PROVIDER identity_provider_name TYPE type_name
+NAMESPACE namespace_name
+[PARAMETERS parameter_string]
+[APPLICATION_ARN arn]
+[IAM_ROLE iam_role]
 [AUTO_CREATE_ROLES
-    [ TRUE [ { INCLUDE | EXCLUDE } GROUPS LIKE *filter\_pattern*] |
+    [ TRUE [ { INCLUDE | EXCLUDE } GROUPS LIKE filter_pattern] |
       FALSE
     ]
   ];
 ```
 
 ## Parameters
+<a name="r_CREATE_IDENTITY_PROVIDER-parameters"></a>
 
-_identity\_provider\_name_
+ *identity\_provider\_name*   
+Name of the new identity provider. For more information about valid names, see [Names and identifiers](r_names.md).
 
-Name of the new identity provider. For more information about valid names,
-see [Names and identifiers](r_names.md "r_names.md").
+*type\_name*  
+The identity provider to interface with. Azure and AWSIDC are currently the only supported identity providers.
 
-_type\_name_
+*namespace\_name*  
+The namespace. This is a unique, shorthand identifier for the identity provider directory.
 
-The identity provider to interface with. Azure and AWSIDC are currently the only
-supported identity providers.
+ *parameter\_string*   
+A string containing a properly formatted JSON object that contains parameters and values required for the identity provider.
 
-_namespace\_name_
+ *arn*   
+The Amazon resource name (ARN) for an IAM Identity Center managed application. This parameter is applicable only when the identity-provider type is AWSIDC.
 
-The namespace. This is a unique, shorthand identifier for the identity
-provider directory.
+ *iam\_role*   
+The IAM role that provides permissions to make the connection to IAM Identity Center. This parameter is applicable only when the identity-provider type is AWSIDC.
 
-_parameter\_string_
+ *auto\_create\_roles*   
+Enables or disables the auto-create role feature. If the value is TRUE, Amazon Redshift enables the auto-create role feature. If the value is FALSE, Amazon Redshift disables the auto-create role feature. If the value for this parameter isn't specified, Amazon Redshift determines the value using the following logic:   
++  If `AUTO_CREATE_ROLES` is provided but the value isn't specified, the value is set to TRUE. 
++  If `AUTO_CREATE_ROLES` isn't provided and the identity provider is AWSIDC, the value is set to FALSE. 
++  If `AUTO_CREATE_ROLES` isn't provided and the identity provider is Azure, the value is set to TRUE. 
+To include groups, specify `INCLUDE`. The default is empty, which means include all groups if `AUTO_CREATE_ROLES` is on.  
+To exclude groups, specify `EXCLUDE`. The default is empty, which means do not exclude any groups if `AUTO_CREATE_ROLES` is on.
 
-A string containing a properly formatted JSON object that contains
-parameters and values required for the identity provider.
+ *filter\_pattern*   
+A valid UTF-8 character expression with a pattern to match group names. The LIKE option performs a case-sensitive match that supports the following pattern-matching metacharacters:      
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_IDENTITY_PROVIDER.html)
+If *filter\_pattern* does not contain metacharacters, then the pattern only represents the string itself; in that case LIKE acts the same as the equals operator.   
+*filter\_pattern* supports the following characters:  
++  Uppercase and lowercase alphabetic characters (A-Z and a-z) 
++  Numerals (0-9) 
++  The following special characters: 
 
-_arn_
-
-The Amazon resource name (ARN) for an IAM Identity Center managed application. This
-parameter is applicable only when the identity-provider type is AWSIDC.
-
-_iam\_role_
-
-The IAM role that provides permissions to make the connection to IAM Identity Center.
-This parameter is applicable only when the identity-provider type is
-AWSIDC.
-
-_auto\_create\_roles_
-
-Enables or disables the auto-create role feature.
-If the value is TRUE, Amazon Redshift enables the
-auto-create role feature.
-If the value is FALSE, Amazon Redshift disables the
-auto-create role feature.
-If the value for this parameter isn't specified,
-Amazon Redshift determines the value using the following logic:
-
-- If `AUTO_CREATE_ROLES` is provided but the value isn't specified,
-  the value is set to TRUE.
-- If `AUTO_CREATE_ROLES` isn't provided and the identity provider is AWSIDC,
-  the value is set to FALSE.
-- If `AUTO_CREATE_ROLES` isn't provided and the identity provider is Azure,
-  the value is set to TRUE.
-
-To include groups, specify `INCLUDE`. The default is empty, which
-means include all groups if `AUTO_CREATE_ROLES` is on.
-
-To exclude groups, specify `EXCLUDE`. The default is empty, which
-means do not exclude any groups if `AUTO_CREATE_ROLES` is
-on.
-
-_filter\_pattern_
-
-A valid UTF-8 character expression with a pattern to match group names. The
-LIKE option performs a case-sensitive match that supports the following
-pattern-matching metacharacters:
-
-| Metacharacter | Description                                         |
-| ------------- | --------------------------------------------------- |
-| `%`           | Matches any sequence of zero or more<br>characters. |
-| `_`           | Matches any single character.                       |
-
-If _filter\_pattern_ does not contain metacharacters, then
-the pattern only represents the string itself; in that case LIKE acts the same
-as the equals operator.
-
-_filter\_pattern_ supports the following characters:
-
-- Uppercase and lowercase alphabetic characters (A-Z and a-z)
-- Numerals (0-9)
-- The following special characters:
-
-```
-_ % ^ * + ? { } , $
-```
+  ```
+  _ % ^ * + ? { } , $
+  ```
 
 ## Examples
+<a name="r_CREATE_IDENTITY_PROVIDER-examples"></a>
 
-The following example creates an identity provider named
-_oauth\_standard_, with a TYPE _azure_, to
-establish communication with Microsoft Azure Active Directory (AD).
+The following example creates an identity provider named *oauth\_standard*, with a TYPE *azure*, to establish communication with Microsoft Azure Active Directory (AD).
 
 ```
 CREATE IDENTITY PROVIDER oauth_standard TYPE azure
@@ -121,10 +80,7 @@ PARAMETERS '{"issuer":"https://sts.windows.net/2sdfdsf-d475-420d-b5ac-667adad7c7
 }'
 ```
 
-You can connect an IAM Identity Center managed application with an existing provisioned cluster or
-Amazon Redshift Serverless workgroup. This gives you the ability to manage access to a Redshift
-database through IAM Identity Center. To do so, run a SQL command like the following sample. You have
-to be a database administrator.
+You can connect an IAM Identity Center managed application with an existing provisioned cluster or Amazon Redshift Serverless workgroup. This gives you the ability to manage access to a Redshift database through IAM Identity Center. To do so, run a SQL command like the following sample. You have to be a database administrator.
 
 ```
 CREATE IDENTITY PROVIDER "redshift-idc-app" TYPE AWSIDC
@@ -133,10 +89,6 @@ APPLICATION_ARN 'arn:aws:sso::123456789012:application/ssoins-12345f67fe123d4/ap
 IAM_ROLE 'arn:aws:iam::123456789012:role/MyRedshiftRole';
 ```
 
-The application ARN in this case identifies the managed application to connect to.
-You can find it by running `SELECT * FROM SVV_IDENTITY_PROVIDERS;`.
+The application ARN in this case identifies the managed application to connect to. You can find it by running `SELECT * FROM SVV_IDENTITY_PROVIDERS;`.
 
-For more information about using CREATE IDENTITY PROVIDER, including additional
-examples, see [Native identity provider (IdP) federation for Amazon Redshift](../mgmt/redshift-iam-access-control-native-idp.md "../mgmt/redshift-iam-access-control-native-idp.md"). For more information
-about setting up a connection to IAM Identity Center from Redshift, see [Connect Redshift
-with IAM Identity Center to give users a single sign-on experience](../mgmt/redshift-iam-access-control-idp-connect.md "../mgmt/redshift-iam-access-control-idp-connect.md").
+For more information about using CREATE IDENTITY PROVIDER, including additional examples, see [Native identity provider (IdP) federation for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-native-idp.html). For more information about setting up a connection to IAM Identity Center from Redshift, see [Connect Redshift with IAM Identity Center to give users a single sign-on experience](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-idp-connect.html).

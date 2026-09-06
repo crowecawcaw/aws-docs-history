@@ -1,95 +1,91 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # QUOTE\_LITERAL function
+<a name="r_QUOTE_LITERAL"></a>
 
-The QUOTE\_LITERAL function returns the specified string as a single quoted string so that it
-can be used as a string literal in a SQL statement. If the input parameter is a number,
-QUOTE\_LITERAL treats it as a string. Appropriately doubles any embedded single quotation marks
-and backslashes.
+The QUOTE\_LITERAL function returns the specified string as a single quoted string so that it can be used as a string literal in a SQL statement. If the input parameter is a number, QUOTE\_LITERAL treats it as a string. Appropriately doubles any embedded single quotation marks and backslashes. 
 
 ## Syntax
+<a name="r_QUOTE_LITERAL-synopsis"></a>
 
 ```
-QUOTE_LITERAL(*string*)
+QUOTE_LITERAL(string)
 ```
 
 ## Argument
+<a name="r_QUOTE_LITERAL-argument"></a>
 
-_string_
-
-A `CHAR` or `VARCHAR` string.
+ *string*   
+A `CHAR` or `VARCHAR` string. 
 
 ## Return type
+<a name="r_QUOTE_LITERAL-return-type"></a>
 
-The QUOTE\_LITERAL function returns a `CHAR` or `VARCHAR` string that is the same data type as the
-input _string_.
+The QUOTE\_LITERAL function returns a `CHAR` or `VARCHAR` string that is the same data type as the input *string*. 
 
 ## Examples
+<a name="r_QUOTE_LITERAL-example"></a>
 
-To return the string `''CAT''` with SINGLE quotation
-marks, use the following example.
+To return the string `''CAT''` with SINGLE quotation marks, use the following example.
 
 ```
-`SELECT QUOTE_LITERAL('''CAT''');`
+SELECT QUOTE_LITERAL('''CAT''');
 
-`+---------------+
++---------------+
 | quote_literal |
 +---------------+
-| '''CAT''' |
-+---------------+`
+| '''CAT'''     |
++---------------+
 ```
 
-The following examples use data from the CATEGORY table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+The following examples use data from the CATEGORY table in the TICKIT sample database. For more information, see [Sample database](c_sampledb.md). 
 
-To return the CATNAME column surrounded by single quotation
-marks, use the following example.
+To return the CATNAME column surrounded by single quotation marks, use the following example.
 
 ```
-`SELECT catid, QUOTE_LITERAL(catname)
+SELECT catid, QUOTE_LITERAL(catname)
 FROM category
-ORDER BY 1,2;`
+ORDER BY 1,2;
 
-`+-------+---------------+
++-------+---------------+
 | catid | quote_literal |
 +-------+---------------+
-| 1 | 'MLB' |
-| 2 | 'NHL' |
-| 3 | 'NFL' |
-| 4 | 'NBA' |
-| 5 | 'MLS' |
-| 6 | 'Musicals' |
-| 7 | 'Plays' |
-| 8 | 'Opera' |
-| 9 | 'Pop' |
-| 10 | 'Jazz' |
-| 11 | 'Classical' |
-+-------+---------------+`
+|     1 | 'MLB'         |
+|     2 | 'NHL'         |
+|     3 | 'NFL'         |
+|     4 | 'NBA'         |
+|     5 | 'MLS'         |
+|     6 | 'Musicals'    |
+|     7 | 'Plays'       |
+|     8 | 'Opera'       |
+|     9 | 'Pop'         |
+|    10 | 'Jazz'        |
+|    11 | 'Classical'   |
++-------+---------------+
 ```
 
-To return the CATID column surrounded by single quotation
-marks, use the following example.
+To return the CATID column surrounded by single quotation marks, use the following example.
 
 ```
-`SELECT QUOTE_LITERAL(catid), catname
+SELECT QUOTE_LITERAL(catid), catname
 FROM category
-ORDER BY 1,2;`
+ORDER BY 1,2;
 
-`+---------------+-----------+
-| quote_literal | catname |
 +---------------+-----------+
-| '1' | MLB |
-| '10' | Jazz |
-| '11' | Classical |
-| '2' | NHL |
-| '3' | NFL |
-| '4' | NBA |
-| '5' | MLS |
-| '6' | Musicals |
-| '7' | Plays |
-| '8' | Opera |
-| '9' | Pop |
-+---------------+-----------+`
+| quote_literal |  catname  |
++---------------+-----------+
+| '1'           | MLB       |
+| '10'          | Jazz      |
+| '11'          | Classical |
+| '2'           | NHL       |
+| '3'           | NFL       |
+| '4'           | NBA       |
+| '5'           | MLS       |
+| '6'           | Musicals  |
+| '7'           | Plays     |
+| '8'           | Opera     |
+| '9'           | Pop       |
++---------------+-----------+
 ```

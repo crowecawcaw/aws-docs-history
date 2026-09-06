@@ -1,17 +1,16 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PIVOT and UNPIVOT examples
+<a name="r_FROM_clause-pivot-unpivot-examples"></a>
 
-PIVOT and UNPIVOT are parameters in the FROM clause that rotate query output from rows to columns and columns to
-rows, respectively. They represent tabular query results in a format that's easy to read. The
-following examples use test data and queries to show how to use them.
+PIVOT and UNPIVOT are parameters in the FROM clause that rotate query output from rows to columns and columns to rows, respectively. They represent tabular query results in a format that's easy to read. The following examples use test data and queries to show how to use them.
 
-For more information about these and other parameters, see [FROM clause](r_FROM_clause30.md "r_FROM_clause30.md").
+For more information about these and other parameters, see [FROM clause](https://docs.aws.amazon.com/redshift/latest/dg/r_FROM_clause30.html).
 
 ## PIVOT examples
+<a name="r_FROM_clause-pivot-examples"></a>
 
 Set up the sample table and data and use them to run the subsequent example queries.
 
@@ -53,8 +52,7 @@ The query results in the following output.
  10.33   | 2.71     | 11.50
 ```
 
-In the previous example, the results are transformed into columns. The following example shows a `GROUP BY` query that
-returns the average prices in rows, rather than in columns.
+In the previous example, the results are transformed into columns. The following example shows a `GROUP BY` query that returns the average prices in rows, rather than in columns.
 
 ```
 SELECT partname, avg(price)
@@ -92,16 +90,9 @@ The query results in the following output.
  small parts co    | 1  | 0  |  2
 ```
 
-Input table columns that are not referenced in the `PIVOT` definition are
-added implicitly to the result table. This is the case for the
-`manufacturer` column in the previous example. The example also shows that `NULL` is a
-valid value for the `IN` operator.
+ Input table columns that are not referenced in the `PIVOT` definition are added implicitly to the result table. This is the case for the `manufacturer` column in the previous example. The example also shows that `NULL` is a valid value for the `IN` operator. 
 
-`PIVOT` in the above example returns similar information as the following query, which includes `GROUP BY`. The
-difference is that `PIVOT` returns the value `0` for column `2` and the manufacturer `small parts co`. The `GROUP BY`
-query does not contain a corresponding row. In most
-cases, `PIVOT` inserts `NULL` if a row doesn't have input data for a given column. However, the count
-aggregate doesn't return `NULL` and `0` is the default value.
+`PIVOT` in the above example returns similar information as the following query, which includes `GROUP BY`. The difference is that `PIVOT` returns the value `0` for column `2` and the manufacturer `small parts co`. The `GROUP BY` query does not contain a corresponding row. In most cases, `PIVOT` inserts `NULL` if a row doesn't have input data for a given column. However, the count aggregate doesn't return `NULL` and `0` is the default value.
 
 ```
 SELECT manufacturer, quality, count(*)
@@ -126,10 +117,7 @@ The query results in the following output.
  small parts co      |         |     2
 ```
 
-The PIVOT operator accepts optional aliases on the aggregate expression and on each
-value for the `IN` operator. Use aliases to customize the column names. If there is no
-aggregate alias, only the `IN` list aliases are used. Otherwise, the aggregate alias is
-appended to the column name with an underscore to separate the names.
+ The PIVOT operator accepts optional aliases on the aggregate expression and on each value for the `IN` operator. Use aliases to customize the column names. If there is no aggregate alias, only the `IN` list aliases are used. Otherwise, the aggregate alias is appended to the column name with an underscore to separate the names. 
 
 ```
 SELECT *
@@ -148,9 +136,7 @@ The query results in the following output.
  small parts co    |           1 |         0 |        2
 ```
 
-Set up the following sample table and data and use them to run the
-subsequent example queries. The data represents booking dates for a
-collection of hotels.
+Set up the following sample table and data and use them to run the subsequent example queries. The data represents booking dates for a collection of hotels.
 
 ```
 CREATE TABLE bookings (
@@ -209,7 +195,7 @@ INSERT INTO bookings VALUES (35, 'CITY_BLD', '02/23/2023', 76.00);
 INSERT INTO bookings VALUES (36, 'CITY_BLD', '02/24/2023', 85.00);
 ```
 
-In this sample query, booking records are tallied to give a total for each week. The end date for each week becomes a column name.
+ In this sample query, booking records are tallied to give a total for each week. The end date for each week becomes a column name.
 
 ```
 SELECT * FROM
@@ -219,7 +205,7 @@ SELECT * FROM
        hotel_code AS "hotel code"
 FROM bookings
 ) PIVOT (
-    count(booking_id) FOR enddate IN ('2023-02-04','2023-02-11','2023-02-18')
+    count(booking_id) FOR enddate IN ('2023-02-04','2023-02-11','2023-02-18') 
 );
 ```
 
@@ -234,12 +220,10 @@ The query results in the following output.
  CITY_BLD   |           3 |          1 |        2
 ```
 
-Amazon Redshift doesn't support CROSSTAB to pivot on multiple columns. But you can change row data to columns, in a similar manner to
-an aggregation with PIVOT, with a query like the
-following. This uses the same booking sample data as the previous example.
+ Amazon Redshift doesn't support CROSSTAB to pivot on multiple columns. But you can change row data to columns, in a similar manner to an aggregation with PIVOT, with a query like the following. This uses the same booking sample data as the previous example.
 
 ```
-SELECT
+SELECT 
   booking_date,
   MAX(CASE WHEN hotel_code = 'FOREST_L' THEN 'forest is booked' ELSE '' END) AS FOREST_L,
   MAX(CASE WHEN hotel_code = 'DESERT_S' THEN 'desert is booked' ELSE '' END) AS DESERT_S,
@@ -257,30 +241,19 @@ The sample query results in booking dates listed next to short phrases that indi
  2023-02-01    | forest is booked | desert is booked |  ocean is booked
  2023-02-02    | forest is booked | desert is booked |  ocean is booked
  2023-02-04    | forest is booked | desert is booked |  ocean is booked
- 2023-02-05    |                  | desert is booked |
+ 2023-02-05    |                  | desert is booked |        
  2023-02-06    |                  | desert is booked |
 ```
 
 The following are usage notes for `PIVOT`:
-
-- `PIVOT` can be applied to tables, sub-queries, and common
-  table expressions (CTEs). `PIVOT` cannot be applied to any `JOIN`
-  expressions, recursive CTEs, `PIVOT`, or `UNPIVOT` expressions. Also not
-  supported are `SUPER` unnested expressions and Redshift Spectrum nested tables.
-- `PIVOT` supports the `COUNT`, `SUM`, `MIN`, `MAX`, and `AVG` aggregate functions.
-- The `PIVOT` aggregate expression has to be a call of a supported aggregate function.
-  Complex expressions on top of the aggregate are not supported. The aggregate arguments
-  cannot contain references to tables other than the `PIVOT` input table. Correlated references
-  to a parent query are also not supported. The aggregate argument may contain sub-queries. These
-  can be correlated internally or on the `PIVOT` input table.
-- The `PIVOT IN` list values cannot be column references or
-  sub-queries. Each value must be type compatible with the `FOR` column reference.
-- If the `IN` list values do not have aliases, `PIVOT` generates default column
-  names. For constant `IN` values such as ‘abc’ or 5 the default column
-  name is the constant itself. For any complex expression, the column name is a
-  standard Amazon Redshift default name such as `?column?`.
++ `PIVOT` can be applied to tables, sub-queries, and common table expressions (CTEs). `PIVOT` cannot be applied to any `JOIN` expressions, recursive CTEs, `PIVOT`, or `UNPIVOT` expressions. Also not supported are `SUPER` unnested expressions and Redshift Spectrum nested tables.
++  `PIVOT` supports the `COUNT`, `SUM`, `MIN`, `MAX`, and `AVG` aggregate functions. 
++ The `PIVOT` aggregate expression has to be a call of a supported aggregate function. Complex expressions on top of the aggregate are not supported. The aggregate arguments cannot contain references to tables other than the `PIVOT` input table. Correlated references to a parent query are also not supported. The aggregate argument may contain sub-queries. These can be correlated internally or on the `PIVOT` input table.
++  The `PIVOT IN` list values cannot be column references or sub-queries. Each value must be type compatible with the `FOR` column reference. 
++  If the `IN` list values do not have aliases, `PIVOT` generates default column names. For constant `IN` values such as ‘abc’ or 5 the default column name is the constant itself. For any complex expression, the column name is a standard Amazon Redshift default name such as `?column?`. 
 
 ## UNPIVOT examples
+<a name="r_FROM_clause-unpivot-examples"></a>
 
 Set up the sample data and use it to run the subsequent examples.
 
@@ -315,7 +288,7 @@ The query results in the following output.
  blue  |  40
 ```
 
-By default, `NULL` values in the input column are skipped and do not yield a result row.
+By default, `NULL` values in the input column are skipped and do not yield a result row. 
 
 The following example shows `UNPIVOT` with `INCLUDE NULLS`.
 
@@ -370,8 +343,7 @@ The query results in the following output.
  normal  | blue  |  40
 ```
 
-Columns of the input table that are not referenced in the `UNPIVOT` definition are
-added implicitly to the result table. In the example, this is the case for the `quality` column.
+Columns of the input table that are not referenced in the `UNPIVOT` definition are added implicitly to the result table. In the example, this is the case for the `quality` column.
 
 The following example shows `UNPIVOT` with aliases for values in the `IN` list.
 
@@ -396,14 +368,9 @@ The previous query results in the following output.
  normal  | b     |  40
 ```
 
-The `UNPIVOT` operator accepts optional aliases on each `IN` list value. Each alias
-provides customization of the data in each `value` column.
+The `UNPIVOT` operator accepts optional aliases on each `IN` list value. Each alias provides customization of the data in each `value` column.
 
 The following are usage notes for `UNPIVOT`.
-
-- `UNPIVOT` can be applied to tables, sub-queries, and common
-  table expressions (CTEs). `UNPIVOT` cannot be applied to any `JOIN` expressions, recursive CTEs, `PIVOT`,
-  or `UNPIVOT` expressions. Also not supported are `SUPER` unnested expressions and Redshift Spectrum nested tables.
-- The `UNPIVOT IN` list must contain only input table column references. The `IN` list columns must have a common type that
-  they are all compatible with. The `UNPIVOT` value column has this common type. The `UNPIVOT` name column is of type `VARCHAR`.
-- If an `IN` list value does not have an alias, `UNPIVOT` uses the column name as a default value.
++ `UNPIVOT` can be applied to tables, sub-queries, and common table expressions (CTEs). `UNPIVOT` cannot be applied to any `JOIN` expressions, recursive CTEs, `PIVOT`, or `UNPIVOT` expressions. Also not supported are `SUPER` unnested expressions and Redshift Spectrum nested tables.
++ The `UNPIVOT IN` list must contain only input table column references. The `IN` list columns must have a common type that they are all compatible with. The `UNPIVOT` value column has this common type. The `UNPIVOT` name column is of type `VARCHAR`.
++ If an `IN` list value does not have an alias, `UNPIVOT` uses the column name as a default value.

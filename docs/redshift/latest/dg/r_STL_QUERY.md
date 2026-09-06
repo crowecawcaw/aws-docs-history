@@ -1,65 +1,57 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_QUERY
+<a name="r_STL_QUERY"></a>
 
 Returns execution information about a database query.
 
-###### Note
+**Note**  
+The STL\_QUERY and STL\_QUERYTEXT views only contain information about queries, not other utility and DDL commands. For a listing and information on all statements run by Amazon Redshift, you can also query the STL\_DDLTEXT and STL\_UTILITYTEXT views. For a complete listing of all statements run by Amazon Redshift, you can query the SVL\_STATEMENTTEXT view.
 
-The STL\_QUERY and STL\_QUERYTEXT views only contain information about queries, not
-other utility and DDL commands. For a listing and information on all statements
-run by Amazon Redshift, you can also query the STL\_DDLTEXT and STL\_UTILITYTEXT views.
-For a complete listing of all statements run by Amazon Redshift, you can query the
-SVL\_STATEMENTTEXT view.
+STL\_QUERY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-STL\_QUERY is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md). The data in the SYS monitoring view is formatted to be easier to use and understand. We recommend that you use the SYS monitoring view for your queries.
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
-We recommend that you use the SYS monitoring view for your queries.
+Note that when your query text length is over 4000 characters, STL\_QUERY only displays truncated data. To get the full query text, you can use UNION on the query text across rows. 
 
-Note that when your query text length is over 4000 characters, STL\_QUERY only
-displays truncated data. To get the full query text, you can use UNION on the query text
-across rows.
-
-###### Note
-
-To verify whether a transaction containing the executed query was successfully
-committed, you need to perform a join operation between system tables and the
-`sys_transaction_history` table. For example:
+**Note**  
+To verify whether a transaction containing the executed query was successfully committed, you need to perform a join operation between system tables and the `sys_transaction_history` table. For example:  
 
 ```
-SELECT
+SELECT 
     stlq.xid AS transaction_id,
     stlq.query AS query_id,
     TRIM(stlq.querytxt) AS query_text,
     th.status AS transaction_status
-FROM
+FROM 
     stl_query stlq
-LEFT JOIN
+LEFT JOIN 
     sys_transaction_history th ON stlq.xid = th.transaction_id;
 ```
 
 ## Table columns
+<a name="sub-r_STL_QUERY-table-columns"></a>
 
-| Column name                  | Data type       | Description                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid                       | integer         | ID of the user who generated the entry.                                                                                                                                                                                                                                                                                                                                                                             |
-| query                        | integer         | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                                                                                                                                                                                                       |
-| label                        | character(320)  | Either the name of the file used to run the query<br>or a label defined with a SET QUERY\_GROUP command. If the query is<br>not file-based or the QUERY\_GROUP parameter is not set, this field<br>value is `default`.                                                                                                                                                                                              |
-| xid                          | bigint          | Transaction ID.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| pid                          | integer         | Process ID. Normally, all of the queries in a<br>session are run in the same process, so this value usually remains<br>constant if you run a series of queries in the same session.<br>Following certain internal events, Amazon Redshift might restart an active<br>session and assign a new PID. For more information, see [STL\_RESTARTED\_SESSIONS](r_STL_RESTARTED_SESSIONS.md "r_STL_RESTARTED_SESSIONS.md"). |
-| database                     | character(32)   | The name of the database the user was connected to<br>when the query was issued.                                                                                                                                                                                                                                                                                                                                    |
-| querytxt                     | character(4000) | Actual query text for the query.                                                                                                                                                                                                                                                                                                                                                                                    |
-| starttime                    | timestamp       | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                                                                                                                                                                                                                        |
-| endtime                      | timestamp       | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                                                                                                                                                                                                                       |
-| aborted                      | integer         | If a query was stopped by the system or canceled<br>by the user, this column contains `1`. If the<br>query ran to completion (including returning results to the client),<br>this column contains `0`. If a client<br>disconnects before receiving the results, the query will be marked<br>as canceled (`1`), even if it completed<br>successfully in the backend.                                                 |
-| insert\_pristine             | integer         | Whether write queries are/were able to run while<br>the current query is/was running. 1 = no write queries allowed. 0 =<br>write queries allowed. This column is intended for use in debugging.                                                                                                                                                                                                                     |
-| concurrency\_scaling\_status | integer         | Indicates whether the query ran on the main<br>cluster or on a concurrency scaling cluster.<br>Possible values are as follows:<br>0<br>• Ran on the main cluster<br>1<br>• Ran on a concurrency scaling cluster<br>Greater than 1<br>• Ran on the main cluster                                                                                                                                                      |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| query  | integer | Query ID. The query column can be used to join other system tables and views. | 
+| label  | character(320)  | Either the name of the file used to run the query or a label defined with a SET QUERY\_GROUP command. If the query is not file-based or the QUERY\_GROUP parameter is not set, this field value is default.  | 
+| xid  | bigint  | Transaction ID.  | 
+| pid  | integer  | Process ID. Normally, all of the queries in a session are run in the same process, so this value usually remains constant if you run a series of queries in the same session. Following certain internal events, Amazon Redshift might restart an active session and assign a new PID. For more information, see [STL\_RESTARTED\_SESSIONS](r_STL_RESTARTED_SESSIONS.md). | 
+| database | character(32) | The name of the database the user was connected to when the query was issued. | 
+| querytxt  | character(4000)  | Actual query text for the query.  | 
+| starttime | timestamp | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| endtime | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| aborted  | integer  | If a query was stopped by the system or canceled by the user, this column contains 1. If the query ran to completion (including returning results to the client), this column contains 0. If a client disconnects before receiving the results, the query will be marked as canceled (1), even if it completed successfully in the backend. | 
+| insert\_pristine  | integer  |  Whether write queries are/were able to run while the current query is/was running. 1 = no write queries allowed. 0 = write queries allowed. This column is intended for use in debugging.  | 
+| concurrency\_scaling\_status | integer  | Indicates whether the query ran on the main cluster or on a concurrency scaling cluster. Possible values are as follows: <br />0 - Ran on the main cluster <br />1 - Ran on a concurrency scaling cluster <br />Greater than 1 - Ran on the main cluster  | 
 
 ## Sample queries
+<a name="r_STL_QUERY-sample-queries"></a>
 
 The following query lists the five most recent queries.
 
@@ -78,8 +70,7 @@ query |                                   sqlquery
 (5 rows)
 ```
 
-The following query returns the time elapsed in descending order for queries that
-ran on February 15, 2013.
+The following query returns the time elapsed in descending order for queries that ran on February 15, 2013. 
 
 ```
 select query, datediff(seconds, starttime, endtime),
@@ -98,9 +89,7 @@ order by date_diff desc;
 (189 rows)
 ```
 
-The following query shows the queue time and execution time for queries. Queries
-with `concurrency_scaling_status = 1` ran on a concurrency scaling cluster. All other
-queries ran on the main cluster.
+The following query shows the queue time and execution time for queries. Queries with `concurrency_scaling_status = 1` ran on a concurrency scaling cluster. All other queries ran on the main cluster.
 
 ```
 SELECT w.service_class AS queue

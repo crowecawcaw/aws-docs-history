@@ -1,65 +1,52 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # RANK window function
+<a name="r_WF_RANK"></a>
 
-The RANK window function determines the rank of a value in a group of values, based
-on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause is
-present, the rankings are reset for each group of rows. Rows with equal values for the
-ranking criteria receive the same rank. Amazon Redshift adds the number of tied rows to the
-tied rank to calculate the next rank and thus the ranks might not be consecutive
-numbers. For example, if two rows are ranked 1, the next rank is 3.
+ The RANK window function determines the rank of a value in a group of values, based on the ORDER BY expression in the OVER clause. If the optional PARTITION BY clause is present, the rankings are reset for each group of rows. Rows with equal values for the ranking criteria receive the same rank. Amazon Redshift adds the number of tied rows to the tied rank to calculate the next rank and thus the ranks might not be consecutive numbers. For example, if two rows are ranked 1, the next rank is 3. 
 
-RANK differs from the [DENSE\_RANK window function](r_WF_DENSE_RANK.md "r_WF_DENSE_RANK.md") in one respect: For DENSE\_RANK, if two or more rows
-tie, there is no gap in the sequence of ranked values. For example, if two rows are
-ranked 1, the next rank is 2.
+ RANK differs from the [DENSE\_RANK window function](r_WF_DENSE_RANK.md) in one respect: For DENSE\_RANK, if two or more rows tie, there is no gap in the sequence of ranked values. For example, if two rows are ranked 1, the next rank is 2.
 
-You can have ranking functions with different PARTITION BY and ORDER BY clauses in
-the same query.
+You can have ranking functions with different PARTITION BY and ORDER BY clauses in the same query. 
 
 ## Syntax
+<a name="r_WF_RANK-synopsis"></a>
 
 ```
 RANK () OVER
 (
-[ PARTITION BY *expr\_list* ]
-[ ORDER BY *order\_list* ]
+[ PARTITION BY expr_list ]
+[ ORDER BY order_list ]
 )
 ```
 
 ## Arguments
+<a name="r_WF_RANK-arguments"></a>
 
-( )
+( )   
+The function takes no arguments, but the empty parentheses are required. 
 
-The function takes no arguments, but the empty parentheses are required.
-
-OVER
-
+OVER   
 The window clauses for the RANK function.
 
-PARTITION BY _expr\_list_
+PARTITION BY *expr\_list*   
+Optional. One or more expressions that define the window. 
 
-Optional. One or more expressions that define the window.
-
-ORDER BY _order\_list_
-
-Optional. Defines the columns on which the ranking values are based. If
-no PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is
-omitted, the return value is 1 for all rows.
-
-If ORDER BY does not produce a unique ordering, the order of the rows is
-nondeterministic. For more information, see [Unique ordering of data for window functions](c_Window_functions.md#r_Examples_order_by_WF "c_Window_functions.md#r_Examples_order_by_WF").
+ORDER BY *order\_list*   
+Optional. Defines the columns on which the ranking values are based. If no PARTITION BY is specified, ORDER BY uses the entire table. If ORDER BY is omitted, the return value is 1 for all rows.   
+If ORDER BY does not produce a unique ordering, the order of the rows is nondeterministic. For more information, see [Unique ordering of data for window functions](c_Window_functions.md#r_Examples_order_by_WF). 
 
 ## Return type
+<a name="c_Supported_data_types_wf_rank"></a>
 
 INTEGER
 
 ## Examples
+<a name="r_WF_RANK-examples"></a>
 
-The following example orders the table by the quantity sold (default ascending), and assign a rank to
-each row. A rank value of 1 is the highest ranked value. The results are sorted after the window function results are applied:
+The following example orders the table by the quantity sold (default ascending), and assign a rank to each row. A rank value of 1 is the highest ranked value. The results are sorted after the window function results are applied: 
 
 ```
 select salesid, qty,
@@ -83,15 +70,9 @@ salesid | qty | rnk
 (11 rows)
 ```
 
-Note that the outer ORDER BY clause in this example includes columns 2 and 1 to
-make sure that Amazon Redshift returns consistently sorted results each time this query
-is run. For example, rows with sales IDs 10001 and 10006 have identical QTY and
-RNK values. Ordering the final result set by column 1 ensures that row 10001
-always falls before 10006. For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+Note that the outer ORDER BY clause in this example includes columns 2 and 1 to make sure that Amazon Redshift returns consistently sorted results each time this query is run. For example, rows with sales IDs 10001 and 10006 have identical QTY and RNK values. Ordering the final result set by column 1 ensures that row 10001 always falls before 10006. For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example).
 
-In the following example, the ordering is reversed for the window function (`order
- by qty desc`). Now the highest rank value applies to the largest QTY
-value.
+In the following example, the ordering is reversed for the window function (`order by qty desc`). Now the highest rank value applies to the largest QTY value. 
 
 ```
 select salesid, qty,
@@ -115,11 +96,9 @@ order by 2,1;
 (11 rows)
 ```
 
-For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example "c_Window_functions.md#r_Window_function_example").
+For a description of the WINSALES table, see [Sample table for window function examples](c_Window_functions.md#r_Window_function_example). 
 
-The following example partitions the table by SELLERID and order each partition by the quantity (in
-descending order) and assign a rank to each row. The results are sorted after the
-window function results are applied.
+The following example partitions the table by SELLERID and order each partition by the quantity (in descending order) and assign a rank to each row. The results are sorted after the window function results are applied. 
 
 ```
 select salesid, sellerid, qty, rank() over

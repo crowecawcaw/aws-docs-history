@@ -1,64 +1,54 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STV\_BLOCKLIST
+<a name="r_STV_BLOCKLIST"></a>
 
-STV\_BLOCKLIST contains the number of 1 MB disk blocks that are used by each slice,
-table, or column in a database.
+STV\_BLOCKLIST contains the number of 1 MB disk blocks that are used by each slice, table, or column in a database.
 
-Use aggregate queries with STV\_BLOCKLIST, as the following examples show, to determine
-the number of 1 MB disk blocks allocated per database, table, slice, or column. You can
-also use [STV\_PARTITIONS](r_STV_PARTITIONS.md "r_STV_PARTITIONS.md") to view
-summary information about disk utilization.
+Use aggregate queries with STV\_BLOCKLIST, as the following examples show, to determine the number of 1 MB disk blocks allocated per database, table, slice, or column. You can also use [STV\_PARTITIONS](r_STV_PARTITIONS.md) to view summary information about disk utilization.
 
-STV\_BLOCKLIST is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STV\_BLOCKLIST is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-STV\_BLOCKLIST only records blocks owned by the provisioned cluster or serverless namespace.
-If the database includes blocks shared from a datashare producer, those blocks aren’t
-included in STV\_BLOCKLIST. For more information about datashares, go to
-[Data sharing in Amazon Redshift](datashare-overview.md "datashare-overview.md").
+**Note**  
+ STV\_BLOCKLIST only records blocks owned by the provisioned cluster or serverless namespace. If the database includes blocks shared from a datashare producer, those blocks aren’t included in STV\_BLOCKLIST. For more information about datashares, go to [Data sharing in Amazon Redshift](datashare-overview.md). 
 
 ## Table columns
+<a name="r_STV_BLOCKLIST-table-columns"></a>
 
-| Column name       | Data type | Description                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| slice             | integer   | Node slice.                                                                                                                                                                                                                                                                                                                                                                                                    |
-| col               | integer   | Zero-based index for the column. Every table you<br>create has three hidden columns appended to it: INSERT\_XID,<br>DELETE\_XID, and ROW\_ID (OID). A table with 3 user-defined columns<br>contains 6 actual columns, and the user-defined columns are<br>internally numbered as 0, 1, and 2. The INSERT\_XID, DELETE\_XID, and<br>ROW\_ID columns are numbered 3, 4, and 5, respectively, in this<br>example. |
-| tbl               | integer   | Table ID for the database table.                                                                                                                                                                                                                                                                                                                                                                               |
-| blocknum          | integer   | ID for the data block.                                                                                                                                                                                                                                                                                                                                                                                         |
-| num\_values       | integer   | Number of values contained on the block.                                                                                                                                                                                                                                                                                                                                                                       |
-| extended\_limits  | integer   | For internal use.                                                                                                                                                                                                                                                                                                                                                                                              |
-| minvalue          | bigint    | Minimum data value of the block. Stores first<br>eight characters as 64-bit integer for non-numeric data. Used for<br>disk scanning.                                                                                                                                                                                                                                                                           |
-| maxvalue          | bigint    | Maximum data value of the block. Stores first<br>eight characters as 64-bit integer for non-numeric data. Used for<br>disk scanning.                                                                                                                                                                                                                                                                           |
-| sb\_pos           | integer   | Internal Amazon Redshift identifier for super block<br>position on the disk.                                                                                                                                                                                                                                                                                                                                   |
-| pinned            | integer   | Whether or not the block is pinned into memory as<br>part of pre-load. 0 = false; 1 = true. Default is false.                                                                                                                                                                                                                                                                                                  |
-| on\_disk          | integer   | Whether or not the block is automatically stored<br>on disk. 0 = false; 1 = true. Default is false.                                                                                                                                                                                                                                                                                                            |
-| modified          | integer   | Whether or not the block has been modified. 0 =<br>false; 1 = true. Default is false.                                                                                                                                                                                                                                                                                                                          |
-| hdr\_modified     | integer   | Whether or not the block header has been modified.<br>0 = false; 1 = true. Default is false.                                                                                                                                                                                                                                                                                                                   |
-| unsorted          | integer   | Whether or not a block is unsorted. 0 = false; 1 =<br>true. Default is true.                                                                                                                                                                                                                                                                                                                                   |
-| tombstone         | integer   | For internal use.                                                                                                                                                                                                                                                                                                                                                                                              |
-| preferred\_diskno | integer   | Disk number that the block should be on, unless<br>the disk has failed. After the disk has been fixed, the block will<br>move back to this disk.                                                                                                                                                                                                                                                               |
-| temporary         | integer   | Whether or not the block contains temporary data,<br>such as from a temporary table or intermediate query results. 0 =<br>false; 1 = true. Default is false.                                                                                                                                                                                                                                                   |
-| newblock          | integer   | Indicates whether or not a block is new (true) or<br>was never committed to disk (false). 0 = false; 1 = true.                                                                                                                                                                                                                                                                                                 |
-| num\_readers      | integer   | Number of references on each block.                                                                                                                                                                                                                                                                                                                                                                            |
-| flags             | integer   | Internal Amazon Redshift flags for the block header.                                                                                                                                                                                                                                                                                                                                                           |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| slice  | integer  | Node slice.  | 
+| col  | integer  | Zero-based index for the column. Every table you create has three hidden columns appended to it: INSERT\_XID, DELETE\_XID, and ROW\_ID (OID). A table with 3 user-defined columns contains 6 actual columns, and the user-defined columns are internally numbered as 0, 1, and 2. The INSERT\_XID, DELETE\_XID, and ROW\_ID columns are numbered 3, 4, and 5, respectively, in this example.  | 
+| tbl  | integer  | Table ID for the database table.  | 
+| blocknum  | integer  | ID for the data block.  | 
+| num\_values  | integer  | Number of values contained on the block.  | 
+| extended\_limits  | integer  | For internal use. | 
+| minvalue  | bigint  | Minimum data value of the block. Stores first eight characters as 64-bit integer for non-numeric data. Used for disk scanning.  | 
+| maxvalue  | bigint  | Maximum data value of the block. Stores first eight characters as 64-bit integer for non-numeric data. Used for disk scanning.  | 
+| sb\_pos  | integer  | Internal Amazon Redshift identifier for super block position on the disk.  | 
+| pinned  | integer  | Whether or not the block is pinned into memory as part of pre-load. 0 = false; 1 = true. Default is false.  | 
+| on\_disk  | integer  | Whether or not the block is automatically stored on disk. 0 = false; 1 = true. Default is false.  | 
+| modified  | integer  | Whether or not the block has been modified. 0 = false; 1 = true. Default is false.  | 
+| hdr\_modified  | integer  | Whether or not the block header has been modified. 0 = false; 1 = true. Default is false.  | 
+| unsorted  | integer  | Whether or not a block is unsorted. 0 = false; 1 = true. Default is true.  | 
+| tombstone  | integer  | For internal use. | 
+| preferred\_diskno  | integer  | Disk number that the block should be on, unless the disk has failed. After the disk has been fixed, the block will move back to this disk.  | 
+| temporary  | integer  | Whether or not the block contains temporary data, such as from a temporary table or intermediate query results. 0 = false; 1 = true. Default is false.  | 
+| newblock  | integer  | Indicates whether or not a block is new (true) or was never committed to disk (false). 0 = false; 1 = true.  | 
+| num\_readers  | integer  | Number of references on each block.  | 
+| flags  | integer  | Internal Amazon Redshift flags for the block header.  | 
 
 ## Sample queries
+<a name="r_STV_BLOCKLIST-sample-queries"></a>
 
-STV\_BLOCKLIST contains one row per allocated disk block, so a query that selects
-all the rows potentially returns a very large number of rows. We recommend using
-only aggregate queries with STV\_BLOCKLIST.
+STV\_BLOCKLIST contains one row per allocated disk block, so a query that selects all the rows potentially returns a very large number of rows. We recommend using only aggregate queries with STV\_BLOCKLIST.
 
-The [SVV\_DISKUSAGE](r_SVV_DISKUSAGE.md "r_SVV_DISKUSAGE.md") view
-provides similar information in a more user-friendly format; however, the following
-example demonstrates one use of the STV\_BLOCKLIST table.
+The [SVV\_DISKUSAGE](r_SVV_DISKUSAGE.md) view provides similar information in a more user-friendly format; however, the following example demonstrates one use of the STV\_BLOCKLIST table.
 
-To determine the number of 1 MB blocks used by each column in the VENUE table,
-type the following query:
+To determine the number of 1 MB blocks used by each column in the VENUE table, type the following query: 
 
 ```
 select col, count(*)
@@ -70,8 +60,7 @@ group by col
 order by col;
 ```
 
-This query returns the number of 1 MB blocks allocated to each column in the VENUE
-table, shown by the following sample data:
+This query returns the number of 1 MB blocks allocated to each column in the VENUE table, shown by the following sample data: 
 
 ```
  col | count
@@ -85,11 +74,9 @@ table, shown by the following sample data:
    7 |  4
    8 |  4
 (8 rows)
-
 ```
 
-The following query shows whether or not table data is actually distributed over
-all slices:
+The following query shows whether or not table data is actually distributed over all slices: 
 
 ```
 select trim(name) as table, stv_blocklist.slice, stv_tbl_perm.rows
@@ -102,11 +89,9 @@ group by name, stv_blocklist.slice, stv_tbl_perm.rows
 order by 3 desc;
 ```
 
-This query produces the following sample output, showing the even data
-distribution for the table with the most rows:
+This query produces the following sample output, showing the even data distribution for the table with the most rows: 
 
 ```
-
 table   | slice | rows
 ----------+-------+-------
 listing  |    13 | 10527
@@ -131,11 +116,9 @@ listing  |     1 | 10523
 listing  |     0 | 10521
 ...
 (180 rows)
-
 ```
 
-The following query determines whether any tombstoned blocks were committed to
-disk:
+The following query determines whether any tombstoned blocks were committed to disk: 
 
 ```
 select slice, col, tbl, blocknum, newblock

@@ -1,33 +1,31 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_LAST\_QUERY\_ID
+<a name="PG_LAST_QUERY_ID"></a>
 
-Returns the query ID of the most recently completed query in the current session. If
-no queries have been run in the current session, PG\_LAST\_QUERY\_ID returns -1.
-PG\_LAST\_QUERY\_ID does not return the query ID for queries that run exclusively on the
-leader node. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md "c_SQL_functions_leader_node_only.md").
+Returns the query ID of the most recently completed query in the current session. If no queries have been run in the current session, PG\_LAST\_QUERY\_ID returns -1. PG\_LAST\_QUERY\_ID does not return the query ID for queries that run exclusively on the leader node. For more information, see [Leader node–only functions](c_SQL_functions_leader_node_only.md).
 
 ## Syntax
+<a name="PG_LAST_QUERY_ID-synopsis"></a>
 
 ```
 pg_last_query_id()
 ```
 
 ## Return type
+<a name="PG_LAST_QUERY_ID-return-type"></a>
 
-Returns an integer.
+Returns an integer. 
 
 ## Example
+<a name="PG_LAST_QUERY_ID-example"></a>
 
-The following query returns the ID of the latest query completed in the current
-session.
+The following query returns the ID of the latest query completed in the current session. 
 
 ```
 select pg_last_query_id();
-
 ```
 
 Results are the following.
@@ -37,11 +35,9 @@ pg_last_query_id
 ----------------
            5437
 (1 row)
-
 ```
 
-The following query returns the query ID and text of the most recently completed
-query in the current session.
+The following query returns the query ID and text of the most recently completed query in the current session.
 
 ```
 select query, trim(querytxt) as sqlquery

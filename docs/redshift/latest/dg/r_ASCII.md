@@ -1,77 +1,77 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ASCII function
+<a name="r_ASCII"></a>
 
-The ASCII function returns the ASCII code, or the Unicode code-point, of the first character in the
-string that you specify. The function returns `0` if the string is empty. It returns `NULL` if the string is null.
+The ASCII function returns the ASCII code, or the Unicode code-point, of the first character in the string that you specify. The function returns `0` if the string is empty. It returns `NULL` if the string is null. 
 
 ## Syntax
+<a name="r_ASCII-synopsis"></a>
 
 ```
-ASCII('*string*')
+ASCII('string')
 ```
 
 ## Argument
+<a name="r_ASCII-arguments"></a>
 
-_string_
-
-A `CHAR` string or a `VARCHAR` string.
+ *string*   
+A `CHAR` string or a `VARCHAR` string. 
 
 ## Return type
+<a name="r_ASCII-return-type"></a>
 
-INTEGER
+ INTEGER 
 
 ## Examples
+<a name="r_ASCII-examples"></a>
 
-To return `NULL`, use the following example. The NULLIF function returns `NULL` if the two arguments are the same, so the input argument for the ASCII function is `NULL`. For more information, see [NULLIF function](r_NULLIF_function.md "r_NULLIF_function.md").
+To return `NULL`, use the following example. The NULLIF function returns `NULL` if the two arguments are the same, so the input argument for the ASCII function is `NULL`. For more information, see [NULLIF function](r_NULLIF_function.md).
 
 ```
-`SELECT ASCII(NULLIF('',''));`
+SELECT ASCII(NULLIF('',''));
 
-`+-------+
++-------+
 | ascii |
 +-------+
-| NULL |
-+-------+`
+|  NULL |
++-------+
 ```
 
-To return the ASCII code 0, use the following example.
+To return the ASCII code 0, use the following example. 
 
 ```
-`SELECT ASCII('');`
+SELECT ASCII('');
 
-`+-------+
++-------+
 | ascii |
 +-------+
-| 0 |
-+-------+`
+|     0 |
++-------+
 ```
 
-To return the ASCII code 97 for the first letter of the word
-amazon, use the following example.
+To return the ASCII code 97 for the first letter of the word amazon, use the following example. 
 
 ```
-`SELECT ASCII('amazon');`
+SELECT ASCII('amazon');
 
-`+-------+
++-------+
 | ascii |
 +-------+
-| 97 |
-+-------+`
+|    97 |
++-------+
 ```
 
-To return the ASCII code 65 for the first letter of the word
-Amazon, use the following example.
+To return the ASCII code 65 for the first letter of the word Amazon, use the following example.
 
 ```
-`SELECT ASCII('Amazon');`
+SELECT ASCII('Amazon');
 
-`+-------+
++-------+
 | ascii |
 +-------+
-| 65 |
-+-------+`
+|    65 |
++-------+
 ```

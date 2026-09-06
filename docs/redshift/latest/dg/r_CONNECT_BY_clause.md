@@ -1,39 +1,36 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CONNECT BY clause
+<a name="r_CONNECT_BY_clause"></a>
 
-The CONNECT BY clause specifies the relationship between rows in a hierarchy. You can use CONNECT BY to select rows
-in a hierarchical order by joining the table to itself and processing the hierarchical data.
-For example, you can use it to recursively loop through an organization chart and list data.
+The CONNECT BY clause specifies the relationship between rows in a hierarchy. You can use CONNECT BY to select rows in a hierarchical order by joining the table to itself and processing the hierarchical data. For example, you can use it to recursively loop through an organization chart and list data.
 
 Hierarchical queries process in the following order:
 
 1. If the FROM clause has a join, it is processed first.
-2. The CONNECT BY clause is evaluated.
-3. The WHERE clause is evaluated.
+
+1. The CONNECT BY clause is evaluated.
+
+1. The WHERE clause is evaluated.
 
 ## Syntax
+<a name="r_CONNECT_BY_clause-synopsis"></a>
 
 ```
 [START WITH start_with_conditions]
 CONNECT BY connect_by_conditions
-
 ```
 
-###### Note
-
-While START and CONNECT are not reserved words, use delimited identifiers (double quotation marks) or AS if
-you're using START and CONNECT as table aliases in your query to avoid failure at runtime.
+**Note**  
+While START and CONNECT are not reserved words, use delimited identifiers (double quotation marks) or AS if you're using START and CONNECT as table aliases in your query to avoid failure at runtime.
 
 ```
 SELECT COUNT(*)
 FROM Employee "start"
 CONNECT BY PRIOR id = manager_id
 START WITH name = 'John'
-
 ```
 
 ```
@@ -41,44 +38,38 @@ SELECT COUNT(*)
 FROM Employee AS start
 CONNECT BY PRIOR id = manager_id
 START WITH name = 'John'
-
 ```
 
 ## Parameters
+<a name="r_CONNECT_BY_parameters"></a>
 
-_start\_with\_conditions_
-
+ *start\_with\_conditions*   
 Conditions that specify the root row(s) of the hierarchy
 
-_connect\_by\_conditions_
-
-Conditions that specify the relationship between parent rows and child rows of the hierarchy. At least one condition
-must be qualified with the unary operator used to refer to the parent row.
+ *connect\_by\_conditions*   
+Conditions that specify the relationship between parent rows and child rows of the hierarchy. At least one condition must be qualified with the ` ` unary operator used to refer to the parent row.  
 
 ```
 PRIOR column = expression
 -- or
 expression > PRIOR column
-
 ```
 
 ## Operators
+<a name="r_CONNECT_BY_operators"></a>
 
 You can use the following operators in a CONNECT BY query.
 
-_LEVEL_
+ *LEVEL*   
+Pseudocolumn that returns the current row level in the hierarchy. Returns 1 for the root row, 2 for the child of the root row, and so on.
 
-Pseudocolumn that returns the current row level in the hierarchy. Returns 1 for the root row,
-2 for the child of the root row, and so on.
-
-_PRIOR_
-
+ *PRIOR*   
 Unary operator that evaluates the expression for the parent row of the current row in the hierarchy.
 
 ## Examples
+<a name="r_CONNECT_BY_example"></a>
 
-The following example is a CONNECT BY query that returns the number of employees
-that report directly or indirectly to John, no deeper than 4 levels.
+The following example is a CONNECT BY query that returns the number of employees that report directly or indirectly to John, no deeper than 4 levels. 
 
 ```
 SELECT id, name, manager_id
@@ -86,7 +77,6 @@ FROM employee
 WHERE LEVEL < 4
 START WITH name = 'John'
 CONNECT BY PRIOR id = manager_id;
-
 ```
 
 Following is the result of the query.
@@ -106,10 +96,9 @@ id      name      manager_id
   120     Saanvi      104
   200     Shirley     104
   205     Zhang       104
-
 ```
 
-Table definition for this example:
+ Table definition for this example: 
 
 ```
 CREATE TABLE employee (
@@ -117,10 +106,9 @@ CREATE TABLE employee (
    name VARCHAR(20),
    manager_id INT
    );
-
 ```
 
-Following are the rows inserted into the table.
+ Following are the rows inserted into the table. 
 
 ```
 INSERT INTO employee(id, name, manager_id)  VALUES
@@ -137,9 +125,8 @@ INSERT INTO employee(id, name, manager_id)  VALUES
 (200, 'Shirley', 104),
 (201, 'Sofía', 102),
 (205, 'Zhang', 104);
-
 ```
 
 Following is an organization chart for John's department.
 
-![A diagram of an organization chart for John's department.](images/org-chart.png)
+![A diagram of an organization chart for John's department.](http://docs.aws.amazon.com/redshift/latest/dg/images/org-chart.png)

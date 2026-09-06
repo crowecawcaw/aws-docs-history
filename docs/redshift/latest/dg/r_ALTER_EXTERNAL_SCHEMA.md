@@ -1,32 +1,27 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER EXTERNAL SCHEMA
+<a name="r_ALTER_EXTERNAL_SCHEMA"></a>
 
-Alters an existing external schema in the current database. Only schema owners, super-users,
-or users with ALTER privileges on the schema can alter it. Only external schemas created from
-DATA CATALOG, KAFKA, or MSK can be altered.
+Alters an existing external schema in the current database. Only schema owners, super-users, or users with ALTER privileges on the schema can alter it. Only external schemas created from DATA CATALOG, KAFKA, or MSK can be altered.
 
-The owner of this schema is the issuer of the CREATE EXTERNAL SCHEMA command. To transfer
-ownership of an external schema, use ALTER SCHEMA to change the owner. To grant access to the
-schema to other users or user groups, use the GRANT command.
+The owner of this schema is the issuer of the CREATE EXTERNAL SCHEMA command. To transfer ownership of an external schema, use ALTER SCHEMA to change the owner. To grant access to the schema to other users or user groups, use the GRANT command.
 
-You can't use the GRANT or REVOKE commands for permissions on an external table. Instead,
-grant or revoke the permissions on the external schema.
+You can't use the GRANT or REVOKE commands for permissions on an external table. Instead, grant or revoke the permissions on the external schema. 
 
 For more information, see the following:
++ [ALTER SCHEMA](r_ALTER_SCHEMA.md)
++ [GRANT](r_GRANT.md)
++ [REVOKE](r_REVOKE.md)
++ [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md)
++ [Enabling mTLS authentication for an existing external schema](materialized-view-streaming-ingestion-mtls.md#materialized-view-streaming-ingestion-mtls-alter)
 
-- [ALTER SCHEMA](r_ALTER_SCHEMA.md "r_ALTER_SCHEMA.md")
-- [GRANT](r_GRANT.md "r_GRANT.md")
-- [REVOKE](r_REVOKE.md "r_REVOKE.md")
-- [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md")
-- [Enabling mTLS authentication for an existing external schema](materialized-view-streaming-ingestion-mtls.md#materialized-view-streaming-ingestion-mtls-alter "materialized-view-streaming-ingestion-mtls.md#materialized-view-streaming-ingestion-mtls-alter")
-  To view details for external schemas, query the SVV\_EXTERNAL\_SCHEMAS system view. For more
-  information, see [SVV\_EXTERNAL\_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md "r_SVV_EXTERNAL_SCHEMAS.md").
+To view details for external schemas, query the SVV\_EXTERNAL\_SCHEMAS system view. For more information, see [SVV\_EXTERNAL\_SCHEMAS](r_SVV_EXTERNAL_SCHEMAS.md).
 
 ## Syntax
+<a name="r_ALTER_EXTERNAL_SCHEMA-synopsis"></a>
 
 ```
 ALTER EXTERNAL SCHEMA schema_name
@@ -34,13 +29,12 @@ ALTER EXTERNAL SCHEMA schema_name
 [ AUTHENTICATION [ none | iam | mtls] ]
 [ AUTHENTICATION_ARN 'acm-certificate-arn' | SECRET_ARN 'asm-secret-arn' ]
 [ URI 'Kafka bootstrap URL' ]
-
 ```
 
-If you have an existing external schema that you use for streaming ingestion and you want to implement mutual TLS for authentication, you can run a command such as the following, which specifies mTLS authentication and the ACM certificate ARN in ACM.
+If you have an existing external schema that you use for streaming ingestion and you want to implement mutual TLS for authentication, you can run a command such as the following, which specifies mTLS authentication and the ACM certificate ARN in ACM. 
 
 ```
-ALTER EXTERNAL SCHEMA schema_name
+ALTER EXTERNAL SCHEMA schema_name 
 AUTHENTICATION mtls
 AUTHENTICATION_ARN 'arn:aws:acm:us-east-1:444455556666:certificate/certificate_ID';
 ```
@@ -48,7 +42,7 @@ AUTHENTICATION_ARN 'arn:aws:acm:us-east-1:444455556666:certificate/certificate_I
 Or you can modify mTLS authentication, with reference to the secret ARN in Secrets Manager.
 
 ```
-ALTER EXTERNAL SCHEMA schema_name
+ALTER EXTERNAL SCHEMA schema_name 
 AUTHENTICATION mtls
 SECRET_ARN 'arn:aws:secretsmanager:us-east-1:012345678910:secret:myMTLSSecret';
 ```
@@ -56,51 +50,33 @@ SECRET_ARN 'arn:aws:secretsmanager:us-east-1:012345678910:secret:myMTLSSecret';
 The following example shows how to modify the URI for ALTER EXTERNAL SCHEMA:
 
 ```
-ALTER EXTERNAL SCHEMA schema_name
+ALTER EXTERNAL SCHEMA schema_name  
 URI 'lkc-ghidef-67890.centralus.azure.glb.confluent.cloud:9092';
 ```
 
 The following example shows how to modify the IAM role for ALTER EXTERNAL SCHEMA:
 
 ```
-ALTER EXTERNAL SCHEMA schema_name
+ALTER EXTERNAL SCHEMA schema_name  
 IAM_ROLE 'arn:aws:iam::012345678901:role/testrole';
 ```
 
 ## Parameters
+<a name="r_ALTER_EXTERNAL_SCHEMA-parameters"></a>
 
-IAM\_ROLE[ default | 'SESSION' | 'arn:aws:iam::<AWS account-id>:role/<role-name>' ]
+ IAM\_ROLE[ default \| 'SESSION' \| 'arn:aws:iam::<AWS account-id>:role/<role-name>' ]   
+Use the `default` keyword to have Amazon Redshift use the IAM role that is set as default.  
+Use `'SESSION'` if you connect to your Amazon Redshift cluster using a federated identity and access the tables from the external schema created using this command.  
+See [CREATE EXTERNAL SCHEMA](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_SCHEMA.html) for more information.
 
-Use the `default` keyword to have Amazon Redshift use the IAM role that is set as default.
+AUTHENTICATION  
+The authentication type defined for streaming ingestion. Streaming ingestion with authentication types works with Apache Kafka, Confluent Cloud, and Amazon Managed Streaming for Apache Kafka. See [ CREATE EXTERNAL SCHEMA](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_SCHEMA.html) for more information.
 
-Use `'SESSION'` if you connect to your Amazon Redshift cluster using a federated
-identity and access the tables from the external schema created using this command.
+AUTHENTICATION\_ARN  
+The ARN of the AWS Certificate Manager certificate used by Amazon Redshift for mtls authentication with Apache Kafka, Confluent Cloud, or Amazon Managed Streaming for Apache Kafka (Amazon MSK). The ARN is available in the ACM console when you choose the issued certificate.
 
-See [CREATE EXTERNAL
-SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md") for more information.
+SECRET\_ARN  
+The Amazon Resource Name (ARN) of a supported secret created using AWS Secrets Manager. For information about how to create and retrieve an ARN for a secret, see [Manage secrets with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_create-basic-secret.html) in the *AWS Secrets Manager User Guide*, and [Retrieving the Amazon Resource Name (ARN) of the secret in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-secrets-manager-integration-retrieving-secret.html).
 
-AUTHENTICATION
-
-The authentication type defined for streaming ingestion. Streaming ingestion
-with authentication types works with Apache Kafka, Confluent Cloud, and Amazon Managed Streaming for Apache Kafka.
-See [CREATE EXTERNAL SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md") for more information.
-
-AUTHENTICATION\_ARN
-
-The ARN of the AWS Certificate Manager certificate used by Amazon Redshift for mtls authentication
-with Apache Kafka, Confluent Cloud, or Amazon Managed Streaming for Apache Kafka (Amazon MSK). The ARN is available in the ACM console when you choose the
-issued certificate.
-
-SECRET\_ARN
-
-The Amazon Resource Name (ARN) of a supported
-secret created using AWS Secrets Manager. For information about how to create and retrieve
-an ARN for a secret, see [Manage secrets with AWS Secrets Manager](../../../secretsmanager/latest/userguide/manage_create-basic-secret.md "../../../secretsmanager/latest/userguide/manage_create-basic-secret.md") in the
-_AWS Secrets Manager User Guide_, and [Retrieving the Amazon Resource Name (ARN) of the secret in Amazon Redshift](../mgmt/redshift-secrets-manager-integration-retrieving-secret.md "../mgmt/redshift-secrets-manager-integration-retrieving-secret.md").
-
-URI
-
-The bootstrap URL of the Apache Kafka, Confluent Cloud or Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.
-The endpoint must be reachable (routable) from the Amazon Redshift cluster.
-See [CREATE EXTERNAL
-SCHEMA](r_CREATE_EXTERNAL_SCHEMA.md "r_CREATE_EXTERNAL_SCHEMA.md") for more information.
+URI  
+The bootstrap URL of the Apache Kafka, Confluent Cloud or Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster. The endpoint must be reachable (routable) from the Amazon Redshift cluster. See [CREATE EXTERNAL SCHEMA](https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_EXTERNAL_SCHEMA.html) for more information.

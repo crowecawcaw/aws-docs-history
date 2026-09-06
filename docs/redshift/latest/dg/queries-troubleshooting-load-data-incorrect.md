@@ -1,16 +1,11 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Load data is incorrect
+<a name="queries-troubleshooting-load-data-incorrect"></a>
 
-Your COPY operation can load incorrect data in the following ways. We suggest the
-following troubleshooting approaches.
+Your COPY operation can load incorrect data in the following ways. We suggest the following troubleshooting approaches.
 
-###### Wrong files are loaded
-
-Using an object prefix to specify data files can cause unwanted files to be read.
-Instead, use a manifest file to specify exactly which files to load. For more
-information, see the [copy\_from\_s3\_manifest\_file](copy-parameters-data-source-s3.md#copy-manifest-file "copy-parameters-data-source-s3.md#copy-manifest-file") option for the COPY command
-and [Example: COPY from Amazon S3 using a manifest](r_COPY_command_examples.md#copy-command-examples-manifest "r_COPY_command_examples.md#copy-command-examples-manifest") in the COPY examples.
+**Wrong files are loaded**  
+Using an object prefix to specify data files can cause unwanted files to be read. Instead, use a manifest file to specify exactly which files to load. For more information, see the [copy_from_s3_manifest_file](copy-parameters-data-source-s3.md#copy-manifest-file) option for the COPY command and [Example: COPY from Amazon S3 using a manifest](r_COPY_command_examples.md#copy-command-examples-manifest) in the COPY examples.

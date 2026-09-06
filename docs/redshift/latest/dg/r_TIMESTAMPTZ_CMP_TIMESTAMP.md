@@ -1,47 +1,42 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TIMESTAMPTZ\_CMP\_TIMESTAMP function
+<a name="r_TIMESTAMPTZ_CMP_TIMESTAMP"></a>
 
-TIMESTAMPTZ\_CMP\_TIMESTAMP compares the value of a timestamp with time zone expression
-with a timestamp expression. If the timestamp with time zone and timestamp values are
-identical, the function returns `0`. If the timestamp with time zone is greater
-chronologically, the function returns `1`. If the timestamp is greater, the
-function returns `–1`.
+TIMESTAMPTZ\_CMP\_TIMESTAMP compares the value of a timestamp with time zone expression with a timestamp expression. If the timestamp with time zone and timestamp values are identical, the function returns `0`. If the timestamp with time zone is greater chronologically, the function returns `1`. If the timestamp is greater, the function returns `–1`. 
 
 ## Syntax
+<a name="r_TIMESTAMPTZ_CMP_TIMESTAMP-syntax"></a>
 
 ```
-TIMESTAMPTZ_CMP_TIMESTAMP(*timestamptz*, *timestamp*)
+TIMESTAMPTZ_CMP_TIMESTAMP(timestamptz, timestamp)
 ```
 
 ## Arguments
+<a name="r_TIMESTAMPTZ_CMP_TIMESTAMP-arguments"></a>
 
-_timestamptz_
+ *timestamptz*   
+A column of data type `TIMESTAMPTZ` or an expression that implicitly evaluates to a `TIMESTAMPTZ` type.
 
-A column of data type `TIMESTAMPTZ` or an expression that
-implicitly evaluates to a `TIMESTAMPTZ` type.
-
-_timestamp_
-
-A column of data type `TIMESTAMP` or an expression that
-implicitly evaluates to a `TIMESTAMP` type.
+ *timestamp*   
+A column of data type `TIMESTAMP` or an expression that implicitly evaluates to a `TIMESTAMP` type.
 
 ## Return type
+<a name="r_TIMESTAMPTZ_CMP_TIMESTAMP-return-type"></a>
 
 INTEGER
 
 ## Examples
+<a name="r_TIMESTAMPTZ_CMP_TIMESTAMP-examples"></a>
 
-The following example compares timestamps with time zones to timestamps and shows the
-results of the comparison.
+The following example compares timestamps with time zones to timestamps and shows the results of the comparison.
 
 ```
-`SELECT TIMESTAMPTZ_CMP_TIMESTAMP('2008-01-24 06:43:29+00', '2008-01-24 06:43:29'), TIMESTAMPTZ_CMP_TIMESTAMP('2008-01-24 06:43:29+00', '2008-02-18 02:36:48'), TIMESTAMPTZ_CMP_TIMESTAMP('2008-02-18 02:36:48+00', '2008-01-24 06:43:29');`
+SELECT TIMESTAMPTZ_CMP_TIMESTAMP('2008-01-24 06:43:29+00', '2008-01-24 06:43:29'), TIMESTAMPTZ_CMP_TIMESTAMP('2008-01-24 06:43:29+00', '2008-02-18 02:36:48'), TIMESTAMPTZ_CMP_TIMESTAMP('2008-02-18 02:36:48+00', '2008-01-24 06:43:29');
 
-`timestamptz_cmp_timestamp | timestamptz_cmp_timestamp | timestamptz_cmp_timestamp
+timestamptz_cmp_timestamp  | timestamptz_cmp_timestamp | timestamptz_cmp_timestamp
 ---------------------------+---------------------------+---------------------------
- 0 | -1 | 1`
+              0            |            -1             |             1
 ```

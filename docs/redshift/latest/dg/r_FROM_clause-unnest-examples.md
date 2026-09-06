@@ -1,18 +1,13 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # UNNEST examples
+<a name="r_FROM_clause-unnest-examples"></a>
 
-UNNEST is a parameter in the FROM clause that expands
-nested data into columns that hold the data’s unnested
-elements. For information on unnesting data, see
-[Querying semi-structured data](query-super.md "query-super.md").
+UNNEST is a parameter in the FROM clause that expands nested data into columns that hold the data’s unnested elements. For information on unnesting data, see [Querying semi-structured data](query-super.md).
 
-The following statement creates and populates the `orders` table,
-which contains a `products` column containing arrays of product
-IDs. The examples in this section use the sample data in this table.
+The following statement creates and populates the `orders` table, which contains a `products` column containing arrays of product IDs. The examples in this section use the sample data in this table. 
 
 ```
 CREATE TABLE orders (
@@ -57,24 +52,23 @@ INSERT INTO orders VALUES
 '));
 ```
 
-Following are some examples of unnesting queries
-with the sample data using PartiQL syntax.
+Following are some examples of unnesting queries with the sample data using PartiQL syntax.
 
 ## Unnesting an array without an OFFSET column
+<a name="r_FROM_clause-unnest-examples-no-offset"></a>
 
-The following query unnests the SUPER arrays in the products column,
-with each row representing an item from the order in `order_id`.
+The following query unnests the SUPER arrays in the products column, with each row representing an item from the order in `order_id`.
 
 ```
 SELECT o.order_id, unnested_products.product
 FROM orders o, UNNEST(o.products) AS unnested_products(product);
 
- `order_id | product
+ order_id |                                                           product                                                           
 ----------+-----------------------------------------------------------------------------------------------------------------------------
- 1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}}
- 1002 | {"product_id":"P567","name":"USB Cable","price":9.99,"quantity":3}
- 1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}}
-(3 rows)`
+     1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}}
+     1002 | {"product_id":"P567","name":"USB Cable","price":9.99,"quantity":3}
+     1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}}
+(3 rows)
 ```
 
 The following query finds the most expensive product in each order.
@@ -83,49 +77,45 @@ The following query finds the most expensive product in each order.
 SELECT o.order_id, MAX(unnested_products.product)
 FROM orders o, UNNEST(o.products) AS unnested_products(product);
 
- `order_id | product
+ order_id |                                                           product                                                           
 ----------+-----------------------------------------------------------------------------------------------------------------------------
- 1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}}
- 1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}}
-(2 rows)`
+     1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}}
+     1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}}
+(2 rows)
 ```
 
 ## Unnesting an array with an implicit OFFSET column
+<a name="r_FROM_clause-unnest-examples-implicit-offset"></a>
 
-The following query uses the `UNNEST ... WITH OFFSET`
-parameter to show the zero-based position of each product
-within its order array.
+The following query uses the `UNNEST ... WITH OFFSET` parameter to show the zero-based position of each product within its order array.
 
 ```
 SELECT o.order_id, up.product, up.offset_col
 FROM orders o, UNNEST(o.products) WITH OFFSET AS up(product);
 
- `order_id | product | offset_col
+ order_id |                                                           product                                                           | offset_col 
 ----------+-----------------------------------------------------------------------------------------------------------------------------+------------
- 1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}} | 0
- 1002 | {"product_id":"P567","name":"USB Cable","price":9.99,"quantity":3} | 0
- 1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}} | 1
-(3 rows)`
+     1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}}             |          0
+     1002 | {"product_id":"P567","name":"USB Cable","price":9.99,"quantity":3}                                                          |          0
+     1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}} |          1
+(3 rows)
 ```
 
 Since the statement doesn’t specify an alias for the offset column, Amazon Redshift defaults to naming it `offset_col`.
 
 ## Unnesting an array with an explicit OFFSET column
+<a name="r_FROM_clause-unnest-examples-explicit-offset"></a>
 
-The following query also uses the `UNNEST ... WITH OFFSET`
-parameter to show the products within their order arrays.
-The difference in this query compared to the query in
-the previous example is that it explicitly names
-the offset column with the alias `idx`.
+The following query also uses the `UNNEST ... WITH OFFSET` parameter to show the products within their order arrays. The difference in this query compared to the query in the previous example is that it explicitly names the offset column with the alias `idx`.
 
 ```
 SELECT o.order_id, up.product, up.idx
 FROM orders o, UNNEST(o.products) WITH OFFSET AS up(product, idx);
 
- `order_id | product | idx
+ order_id |                                                           product                                                           | idx 
 ----------+-----------------------------------------------------------------------------------------------------------------------------+-----
- 1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}} | 0
- 1002 | {"product_id":"P567","name":"USB Cable","price":9.99,"quantity":3} | 0
- 1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}} | 1
-(3 rows)`
+     1001 | {"product_id":"P456","name":"Monitor","price":299.99,"quantity":1,"specs":{"size":"27 inch","resolution":"4K"}}             |   0
+     1002 | {"product_id":"P567","name":"USB Cable","price":9.99,"quantity":3}                                                          |   0
+     1002 | {"product_id":"P678","name":"Headphones","price":159.99,"quantity":1,"specs":{"type":"Wireless","battery_life":"20 hours"}} |   1
+(3 rows)
 ```

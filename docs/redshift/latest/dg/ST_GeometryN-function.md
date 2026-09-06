@@ -1,49 +1,45 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_GeometryN
+<a name="ST_GeometryN-function"></a>
 
-ST\_GeometryN returns a geometry pointed to by the input index of the input geometry, as follows:
+ST\_GeometryN returns a geometry pointed to by the input index of the input geometry, as follows: 
++ If the input is a point, linestring, or polygon, then a geometry is returned as is if the index is equal to one (1), and null if the index is other than one (1).
++ If the input is a multipoint, multilinestring, multipolygon, or geometry collection, then a point, linestring, polygon, or geometry collection is returned as pointed to by an input index. 
 
-- If the input is a point, linestring, or polygon, then a geometry is returned as is if the
-  index is equal to one (1), and null if the index is other than one (1).
-- If the input is a multipoint, multilinestring, multipolygon, or geometry collection,
-  then a point, linestring, polygon, or geometry collection is returned as pointed to by an input index.
-  The index is one-based. The spatial reference system identifier (SRID) of the result
-  is the same as that of the input geometry.
-  The dimension of the returned geometry is the same as that of the input geometry.
+The index is one-based. The spatial reference system identifier (SRID) of the result is the same as that of the input geometry. The dimension of the returned geometry is the same as that of the input geometry.
 
 ## Syntax
+<a name="ST_GeometryN-function-syntax"></a>
 
 ```
-ST_GeometryN(*geom*, *index*)
+ST_GeometryN(geom, index)
 ```
 
 ## Arguments
+<a name="ST_GeometryN-function-arguments"></a>
 
-_geom_
+ *geom*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. 
 
-A value of data type `GEOMETRY` or an expression that
-evaluates to a `GEOMETRY` type.
-
-_index_
-
-A value of data type `INTEGER` that represents the position of
-a one-based index.
+ *index*   
+A value of data type `INTEGER` that represents the position of a one-based index. 
 
 ## Return type
+<a name="ST_GeometryN-function-return"></a>
 
-`GEOMETRY`
+`GEOMETRY` 
 
-If _geom_ or _index_ is null, then null is returned.
+If *geom* or *index* is null, then null is returned. 
 
-If _index_ is out of range, then an error is returned.
+If *index* is out of range, then an error is returned. 
 
 ## Examples
+<a name="ST_GeometryN-function-examples"></a>
 
-The following SQL returns the geometries in a geometry collection.
+The following SQL returns the geometries in a geometry collection. 
 
 ```
 WITH tmp1(idx) AS (SELECT 1 UNION SELECT 2),
@@ -52,10 +48,8 @@ SELECT idx, ST_AsEWKT(ST_GeometryN(g, idx)) FROM tmp1, tmp2 ORDER BY idx;
 ```
 
 ```
-
- idx |          st_asewkt
+ idx |          st_asewkt           
 -----+------------------------------
    1 | POLYGON((0 0,10 0,0 10,0 0))
    2 | LINESTRING(20 10,20 0,10 0)
-
 ```

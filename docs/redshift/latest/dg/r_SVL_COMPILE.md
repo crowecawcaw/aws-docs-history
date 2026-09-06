@@ -1,50 +1,44 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SVL\_COMPILE
+<a name="r_SVL_COMPILE"></a>
 
 Records compile time and location for each query segment of queries.
 
-SVL\_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SVL\_COMPILE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
+**Note**  
+SVL\_COMPILE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters or on serverless namespaces. To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md) . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
-SVL\_COMPILE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
-or on serverless namespaces.
-To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md")
-. The data in the SYS monitoring view is formatted to be easier to use and understand.
-
-For information about SVCS\_COMPILE, see [SVCS\_COMPILE](r_SVCS_COMPILE.md "r_SVCS_COMPILE.md").
+For information about SVCS\_COMPILE, see [SVCS\_COMPILE](r_SVCS_COMPILE.md).
 
 ## Table columns
+<a name="r_SVL_COMPILE-table-rows"></a>
 
-| Column name | Data type | Description                                                                                    |
-| ----------- | --------- | ---------------------------------------------------------------------------------------------- |
-| userid      | integer   | ID of the user who generated the entry.                                                        |
-| xid         | bigint    | Transaction ID associated with the statement.                                                  |
-| pid         | integer   | Process ID associated with the statement.                                                      |
-| query       | integer   | Query ID. Can be used to join various other system<br>tables and views.                        |
-| segment     | integer   | The query segment to be compiled.                                                              |
-| locus       | integer   | Location where the segment runs.<br>`1` if on a compute node and<br>`2` if on the leader node. |
-| starttime   | timestamp | Time in UTC that the compile started.                                                          |
-| endtime     | timestamp | Time in UTC that the compile ended.                                                            |
-| compile     | integer   | `0` if the compile was<br>reused, `1` if the segment was<br>compiled.                          |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| xid  | bigint  | Transaction ID associated with the statement.  | 
+| pid  | integer  | Process ID associated with the statement.  | 
+| query | integer  | Query ID. Can be used to join various other system tables and views.  | 
+| segment  | integer  | The query segment to be compiled.  | 
+| locus  | integer  | Location where the segment runs. 1 if on a compute node and 2 if on the leader node.  | 
+| starttime | timestamp | Time in UTC that the compile started. | 
+| endtime | timestamp | Time in UTC that the compile ended. | 
+| compile  | integer  | 0 if the compile was reused, 1 if the segment was compiled. | 
 
 ## Sample queries
+<a name="r_SVL_COMPILE-sample-queries"></a>
 
-In this example, queries 35878 and 35879 ran the same SQL statement. The
-compile column for query 35878 shows `1` for four query segments, which
-indicates that the segments were compiled. Query 35879 shows `0` in the
-compile column for every segment, indicating that the segments did not need to be
-compiled again.
+In this example, queries 35878 and 35879 ran the same SQL statement. The compile column for query 35878 shows `1` for four query segments, which indicates that the segments were compiled. Query 35879 shows `0` in the compile column for every segment, indicating that the segments did not need to be compiled again.
 
 ```
-select userid, xid,  pid, query, segment, locus,
-datediff(ms, starttime, endtime) as duration, compile
-from svl_compile
+select userid, xid,  pid, query, segment, locus,  
+datediff(ms, starttime, endtime) as duration, compile 
+from svl_compile 
 where query = 35878 or query = 35879
 order by query, segment;
 
@@ -71,5 +65,4 @@ order by query, segment;
     100 | 112782 | 23028 | 35879 |       8 |     1 |        0 |       0
     100 | 112782 | 23028 | 35879 |       9 |     2 |        0 |       0
 (20 rows)
-
 ```

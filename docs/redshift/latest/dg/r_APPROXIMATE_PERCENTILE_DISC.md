@@ -1,65 +1,56 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # APPROXIMATE PERCENTILE\_DISC function
+<a name="r_APPROXIMATE_PERCENTILE_DISC"></a>
 
-APPROXIMATE PERCENTILE\_DISC is an inverse distribution function that assumes a
-discrete distribution model. It takes a percentile value and a sort specification and
-returns an element from the given set. Approximation enables the function to run much
-faster, with a low relative error of around 0.5 percent.
+APPROXIMATE PERCENTILE\_DISC is an inverse distribution function that assumes a discrete distribution model. It takes a percentile value and a sort specification and returns an element from the given set. Approximation enables the function to run much faster, with a low relative error of around 0.5 percent.
 
-For a given _percentile_ value, APPROXIMATE PERCENTILE\_DISC uses a
-quantile summary algorithm to approximate the discrete percentile of the expression in
-the ORDER BY clause. APPROXIMATE PERCENTILE\_DISC returns the value with the smallest
-cumulative distribution value (with respect to the same sort specification) that is
-greater than or equal to _percentile_.
+For a given *percentile* value, APPROXIMATE PERCENTILE\_DISC uses a quantile summary algorithm to approximate the discrete percentile of the expression in the ORDER BY clause. APPROXIMATE PERCENTILE\_DISC returns the value with the smallest cumulative distribution value (with respect to the same sort specification) that is greater than or equal to *percentile*. 
 
 ## Syntax
+<a name="r_APPROXIMATE_PERCENTILE_DISC-synopsis"></a>
 
 ```
-APPROXIMATE  PERCENTILE_DISC ( *percentile* )
-WITHIN GROUP (ORDER BY *expr*)
+APPROXIMATE  PERCENTILE_DISC ( percentile )
+WITHIN GROUP (ORDER BY expr)
 ```
 
 ## Arguments
+<a name="r_APPROXIMATE_PERCENTILE_DISC-arguments"></a>
 
-_percentile_
+ *percentile*   
+Numeric constant between 0 and 1. Nulls are ignored in the calculation.
 
-Numeric constant between 0 and 1. Nulls are ignored in the
-calculation.
-
-WITHIN GROUP ( ORDER BY _expr_)
-
-Clause that specifies numeric or date/time values to sort and compute the
-percentile over.
+WITHIN GROUP ( ORDER BY *expr*)   
+Clause that specifies numeric or date/time values to sort and compute the percentile over. 
 
 ## Returns
+<a name="r_APPROXIMATE_PERCENTILE_DISC-returns"></a>
 
 The same data type as the ORDER BY expression in the WITHIN GROUP clause.
 
 ## Usage notes
+<a name="r_APPROXIMATE_PERCENTILE_DISC-usage-notes"></a>
 
-If the APPROXIMATE PERCENTILE\_DISC statement includes a GROUP BY clause, the
-result set is limited. The limit varies based on node type and the number of nodes.
-If the limit is exceeded, the function fails and returns the following error.
+If the APPROXIMATE PERCENTILE\_DISC statement includes a GROUP BY clause, the result set is limited. The limit varies based on node type and the number of nodes. If the limit is exceeded, the function fails and returns the following error.
 
 ```
 GROUP BY limit for approximate percentile_disc exceeded.
 ```
 
-If you need to evaluate more groups than the limit permits, consider using [PERCENTILE\_CONT function](r_PERCENTILE_CONT.md "r_PERCENTILE_CONT.md").
+If you need to evaluate more groups than the limit permits, consider using [PERCENTILE\_CONT function](r_PERCENTILE_CONT.md). 
 
 ## Examples
+<a name="r_APPROXIMATE_PERCENTILE_DISC-examples"></a>
 
-The following example returns the number of sales, total sales, and fiftieth
-percentile value for the top 10 dates.
+The following example returns the number of sales, total sales, and fiftieth percentile value for the top 10 dates. 
 
 ```
 select top 10 date.caldate,
 count(totalprice), sum(totalprice),
-approximate percentile_disc(0.5)
+approximate percentile_disc(0.5) 
 within group (order by totalprice)
 from listing
 join date on listing.dateid = date.dateid

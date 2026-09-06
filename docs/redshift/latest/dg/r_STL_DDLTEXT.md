@@ -1,57 +1,51 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_DDLTEXT
+<a name="r_STL_DDLTEXT"></a>
 
 Captures the following DDL statements that were run on the system.
 
-These DDL statements include the following queries and objects:
+These DDL statements include the following queries and objects: 
++ CREATE SCHEMA, TABLE, VIEW
++ DROP SCHEMA, TABLE, VIEW
++ ALTER SCHEMA, TABLE
 
-- CREATE SCHEMA, TABLE, VIEW
-- DROP SCHEMA, TABLE, VIEW
-- ALTER SCHEMA, TABLE
-  See also [STL\_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md"), [STL\_UTILITYTEXT](r_STL_UTILITYTEXT.md "r_STL_UTILITYTEXT.md"), and [SVL\_STATEMENTTEXT](r_SVL_STATEMENTTEXT.md "r_SVL_STATEMENTTEXT.md"). These views
-  provide a timeline of the SQL commands that are run on the system; this history is
-  useful for troubleshooting and for creating an audit trail of all system
-  activities.
+See also [STL\_QUERYTEXT](r_STL_QUERYTEXT.md), [STL\_UTILITYTEXT](r_STL_UTILITYTEXT.md), and [SVL\_STATEMENTTEXT](r_SVL_STATEMENTTEXT.md). These views provide a timeline of the SQL commands that are run on the system; this history is useful for troubleshooting and for creating an audit trail of all system activities.
 
-Use the STARTTIME and ENDTIME columns to find out which statements were logged during
-a given time period. Long blocks of SQL text are broken into lines 200 characters long;
-the SEQUENCE column identifies fragments of text that belong to a single
-statement.
+Use the STARTTIME and ENDTIME columns to find out which statements were logged during a given time period. Long blocks of SQL text are broken into lines 200 characters long; the SEQUENCE column identifies fragments of text that belong to a single statement.
 
-STL\_DDLTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_DDLTEXT is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md "SYS_QUERY_HISTORY.md"). The data in the SYS monitoring view is formatted to be easier to use and understand.
-We recommend that you use the SYS monitoring view for your queries.
+Some or all of the data in this table can also be found in the SYS monitoring view [SYS\_QUERY\_HISTORY](SYS_QUERY_HISTORY.md). The data in the SYS monitoring view is formatted to be easier to use and understand. We recommend that you use the SYS monitoring view for your queries.
 
 ## Table columns
+<a name="r_STL_DDLTEXT-table-columns2"></a>
 
-| Column name | Data type      | Description                                                                                                                                                                                                  |
-| ----------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| userid      | integer        | ID of the user who generated the entry.                                                                                                                                                                      |
-| xid         | bigint         | Transaction ID associated with the statement.                                                                                                                                                                |
-| pid         | integer        | Process ID associated with the statement.                                                                                                                                                                    |
-| label       | character(320) | Either the name of the file used to run the query<br>or a label defined with a SET QUERY\_GROUP command. If the query is<br>not file-based or the QUERY\_GROUP parameter is not set, this field<br>is blank. |
-| starttime   | timestamp      | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                 |
-| endtime     | timestamp      | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                |
-| sequence    | integer        | When a single statement contains more than 200<br>characters, additional rows are logged for that statement. Sequence<br>0 is the first row, 1 is the second, and so on.                                     |
-| text        | character(200) | SQL text, in 200-character increments. This field might contain special characters such as backslash (`\\`) and newline (`\n`).                                                                              |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| xid  | bigint  | Transaction ID associated with the statement.  | 
+| pid  | integer  | Process ID associated with the statement.  | 
+| label  | character(320)  | Either the name of the file used to run the query or a label defined with a SET QUERY\_GROUP command. If the query is not file-based or the QUERY\_GROUP parameter is not set, this field is blank.  | 
+| starttime | timestamp | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| endtime | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| sequence  | integer  | When a single statement contains more than 200 characters, additional rows are logged for that statement. Sequence 0 is the first row, 1 is the second, and so on.  | 
+| text  | character(200)  | SQL text, in 200-character increments. This field might contain special characters such as backslash (\\\\) and newline (\\n). | 
 
 ## Sample queries
+<a name="r_STL_DDLTEXT-sample-queries2"></a>
 
 The following query returns records that include previously run DDL statements.
 
 ```
 select xid, starttime, sequence, substring(text,1,40) as text
 from stl_ddltext order by xid desc, sequence;
-
 ```
 
-The following is sample output that shows four CREATE TABLE statements. The DDL statements appear in the `text`
-column, which is truncated for readability.
+The following is sample output that shows four CREATE TABLE statements. The DDL statements appear in the `text` column, which is truncated for readability.
 
 ```
  xid  |         starttime          | sequence |                   text
@@ -66,34 +60,26 @@ column, which is truncated for readability.
 ```
 
 ### Reconstructing Stored SQL
+<a name="r_STL_DDLTEXT-reconstruct-sql"></a>
 
-The following SQL lists rows stored in the `text` column of STL\_DDLTEXT.
-The rows are ordered by `xid` and `sequence`.
-If the original SQL was longer than 200 characters multiple rows, STL\_DDLTEXT can contain multiple rows by `sequence`.
+The following SQL lists rows stored in the `text` column of STL\_DDLTEXT. The rows are ordered by `xid` and `sequence`. If the original SQL was longer than 200 characters multiple rows, STL\_DDLTEXT can contain multiple rows by `sequence`. 
 
 ```
-SELECT xid, sequence, LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') WITHIN GROUP (ORDER BY sequence) as query_statement
+SELECT xid, sequence, LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END, '') WITHIN GROUP (ORDER BY sequence) as query_statement 
 FROM stl_ddltext GROUP BY xid, sequence ORDER BY xid, sequence;
 ```
 
 ```
-
 xid     |  sequence | query_statement
 --------+-----------+-----------------
-7886671    0          create external schema schema_spectrum_uddh\nfrom data catalog\ndatabase 'spectrum_db_uddh'\niam_role ''\ncreate external database if not exists;
-7886752    0          CREATE EXTERNAL TABLE schema_spectrum_uddh.soccer_league\n(\n  league_rank smallint,\n  prev_rank   smallint,\n  club_name   varchar(15),\n  league_name varchar(20),\n  league_off  decimal(6,2),\n  le
-7886752    1          ague_def  decimal(6,2),\n  league_spi  decimal(6,2),\n  league_nspi smallint\n)\nROW FORMAT DELIMITED \n    FIELDS TERMINATED BY ',' \n    LINES TERMINATED BY '\\n\\l'\nstored as textfile\nLOCATION 's
+7886671    0          create external schema schema_spectrum_uddh\nfrom data catalog\ndatabase 'spectrum_db_uddh'\niam_role ''\ncreate external database if not exists;	
+7886752    0          CREATE EXTERNAL TABLE schema_spectrum_uddh.soccer_league\n(\n  league_rank smallint,\n  prev_rank   smallint,\n  club_name   varchar(15),\n  league_name varchar(20),\n  league_off  decimal(6,2),\n  le	
+7886752    1          ague_def  decimal(6,2),\n  league_spi  decimal(6,2),\n  league_nspi smallint\n)\nROW FORMAT DELIMITED \n    FIELDS TERMINATED BY ',' \n    LINES TERMINATED BY '\\n\\l'\nstored as textfile\nLOCATION 's	
 7886752    2          3://mybucket-spectrum-uddh/'\ntable properties ('skip.header.line.count'='1');
 ...
-
 ```
 
-To reconstruct the SQL stored in the `text` column of STL\_DDLTEXT,
-run the following SQL statement.
-It puts together DDL statements from one or more segments in the
-`text` column. Before running the reconstructed SQL, replace
-any (`\n`) special characters with a new line in your SQL client. The results of the
-following SELECT statement puts together three rows in sequence order to reconstruct the SQL, in the `query_statement` field.
+To reconstruct the SQL stored in the `text` column of STL\_DDLTEXT, run the following SQL statement. It puts together DDL statements from one or more segments in the `text` column. Before running the reconstructed SQL, replace any (`\n`) special characters with a new line in your SQL client. The results of the following SELECT statement puts together three rows in sequence order to reconstruct the SQL, in the `query_statement` field. 
 
 ```
 SELECT LISTAGG(CASE WHEN LEN(RTRIM(text)) = 0 THEN text ELSE RTRIM(text) END) WITHIN GROUP (ORDER BY sequence) as query_statement
@@ -101,10 +87,8 @@ FROM stl_ddltext GROUP BY xid, endtime order by xid, endtime;
 ```
 
 ```
-
 query_statement
 --------------
-create external schema schema_spectrum_uddh\nfrom data catalog\ndatabase 'spectrum_db_uddh'\niam_role ''\ncreate external database if not exists;
+create external schema schema_spectrum_uddh\nfrom data catalog\ndatabase 'spectrum_db_uddh'\niam_role ''\ncreate external database if not exists;	
 CREATE EXTERNAL TABLE schema_spectrum_uddh.soccer_league\n(\n  league_rank smallint,\n  prev_rank   smallint,\n  club_name   varchar(15),\n  league_name varchar(20),\n  league_off  decimal(6,2),\n  league_def  decimal(6,2),\n  league_spi  decimal(6,2),\n  league_nspi smallint\n)\nROW FORMAT DELIMITED \n    FIELDS TERMINATED BY ',' \n    LINES TERMINATED BY '\\n\\l'\nstored as textfile\nLOCATION 's3://mybucket-spectrum-uddh/'\ntable properties ('skip.header.line.count'='1');
-
 ```

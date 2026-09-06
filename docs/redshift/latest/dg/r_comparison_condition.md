@@ -1,55 +1,42 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Comparison condition
+<a name="r_comparison_condition"></a>
 
-Comparison conditions state logical relationships between two values. All
-comparison conditions are binary operators with a Boolean return type. Amazon Redshift
-supports the comparison operators described in the following table:
+Comparison conditions state logical relationships between two values. All comparison conditions are binary operators with a Boolean return type. Amazon Redshift supports the comparison operators described in the following table:
 
-| Operator | Syntax                           | Description                                                    |
-| -------- | -------------------------------- | -------------------------------------------------------------- |
-| <        | `a < b`                          | Value a is less than value b.                                  |
-| >        | `a > b`                          | Value a is greater than value b.                               |
-| <=       | `a <= b`                         | Value a is less than or equal to value b.                      |
-| >=       | `a >= b`                         | Value a is greater than or equal to value b.                   |
-| =        | `a = b`                          | Value a is equal to value b.                                   |
-| <> or != | `a <> b or a != b`               | Value a is not equal to value b.                               |
-| ANY      | SOME                             | `a = ANY(subquery)`                                            | Value a is equal to any value returned by the<br>subquery. |
-| ALL      | `a <> ALL or != ALL (subquery))` | Value a is not equal to any value returned by the<br>subquery. |
-| IS TRUE  | FALSE                            | UNKNOWN                                                        | `a IS TRUE`                                                | Value a is Boolean TRUE. |
+
+| Operator  | Syntax  | Description  | 
+| --- | --- | --- | 
+| <  | a < b  | Value a is less than value b.  | 
+| >  | a > b  | Value a is greater than value b.  | 
+| <=  | a <= b  | Value a is less than or equal to value b.  | 
+| >=  | a >= b  | Value a is greater than or equal to value b.  | 
+| =  | a = b  | Value a is equal to value b.  | 
+| <> or \!=  | a <> b or a \!= b  | Value a is not equal to value b.  | 
+| ANY \| SOME  | a = ANY(subquery)  | Value a is equal to any value returned by the subquery.  | 
+| ALL | a <> ALL or \!= ALL (subquery))  | Value a is not equal to any value returned by the subquery. | 
+| IS TRUE \| FALSE \| UNKNOWN | a IS TRUE | Value a is Boolean TRUE. | 
 
 ## Usage notes
+<a name="r_comparison_condition_usage_notes"></a>
 
-= ANY | SOME
-
-The ANY and SOME keywords are synonymous with the
-_IN_ condition, and return true if the comparison
-is true for at least one value returned by a subquery that returns one or
-more values. Amazon Redshift supports only the = (equals) condition for ANY and
-SOME. Inequality conditions are not supported.
-
-###### Note
-
+= ANY \| SOME   
+The ANY and SOME keywords are synonymous with the *IN* condition, and return true if the comparison is true for at least one value returned by a subquery that returns one or more values. Amazon Redshift supports only the = (equals) condition for ANY and SOME. Inequality conditions are not supported.  
 The ALL predicate is not supported.
 
-<> ALL
+<> ALL  
+The ALL keyword is synonymous with NOT IN (see [IN condition](r_in_condition.md) condition) and returns true if the expression is not included in the results of the subquery. Amazon Redshift supports only the <> or \!= (not equals) condition for ALL. Other comparison conditions are not supported.
 
-The ALL keyword is synonymous with NOT IN (see [IN condition](r_in_condition.md "r_in_condition.md") condition)
-and returns true if the expression is not included in the results of the
-subquery. Amazon Redshift supports only the <> or != (not equals)
-condition for ALL. Other comparison conditions are not supported.
-
-IS TRUE/FALSE/UNKNOWN
-
-Non-zero values equate to TRUE, 0 equates to FALSE, and null equates
-to UNKNOWN. See the [Boolean type](r_Boolean_type.md "r_Boolean_type.md") data type.
+IS TRUE/FALSE/UNKNOWN  
+Non-zero values equate to TRUE, 0 equates to FALSE, and null equates to UNKNOWN. See the [Boolean type](r_Boolean_type.md) data type.
 
 ## Examples
+<a name="r_comparison_condition-examples"></a>
 
-Here are some simple examples of comparison conditions:
+Here are some simple examples of comparison conditions: 
 
 ```
 a = 5
@@ -58,8 +45,7 @@ min(x) >= 5
 qtysold = any (select qtysold from sales where dateid = 1882
 ```
 
-The following query returns venues with more than 10000 seats from the VENUE
-table:
+The following query returns venues with more than 10000 seats from the VENUE table: 
 
 ```
 select venueid, venuename, venueseats from venue
@@ -82,8 +68,7 @@ venueid |           venuename            | venueseats
 (57 rows)
 ```
 
-This example selects the users (USERID) from the USERS table who like rock
-music:
+This example selects the users (USERID) from the USERS table who like rock music:
 
 ```
 select userid from users where likerock = 't' order by 1 limit 5;
@@ -96,11 +81,9 @@ userid
 13
 16
 (5 rows)
-
 ```
 
-This example selects the users (USERID) from the USERS table where it is
-unknown whether they like rock music:
+This example selects the users (USERID) from the USERS table where it is unknown whether they like rock music:
 
 ```
 select firstname, lastname, likerock
@@ -124,13 +107,13 @@ Scarlett  | Mayer    |
 ```
 
 ## Examples with a TIME column
+<a name="r_comparison_condition-examples-time"></a>
 
-The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with
-three values inserted.
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three values inserted. 
 
 ```
 select time_val from time_test;
-
+            
 time_val
 ---------------------
 20:00:00
@@ -148,7 +131,7 @@ select time_val from time_test where time_val < '3:00';
  00:58:00
 ```
 
-The following example compares two time literals.
+The following example compares two time literals. 
 
 ```
 select time '18:25:33.123456' = time '18:25:33.123456';
@@ -158,13 +141,13 @@ select time '18:25:33.123456' = time '18:25:33.123456';
 ```
 
 ## Examples with a TIMETZ column
+<a name="r_comparison_condition-examples-timetz"></a>
 
-The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ)
-with three values inserted.
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three values inserted.
 
 ```
 select timetz_val from timetz_test;
-
+            
 timetz_val
 ------------------
 04:00:00+00
@@ -172,23 +155,21 @@ timetz_val
 05:58:00+00
 ```
 
-The following example selects only the TIMETZ values less than `3:00:00
- UTC`. The comparison is made after converting the value to UTC.
+The following example selects only the TIMETZ values less than `3:00:00 UTC`. The comparison is made after converting the value to UTC.
 
 ```
 select timetz_val from timetz_test where timetz_val < '3:00:00 UTC';
-
+                  
    timetz_val
 ---------------
  00:00:00.5550+00
 ```
 
-The following example compares two TIMETZ literals. The time zone is ignored
-for the comparison.
+The following example compares two TIMETZ literals. The time zone is ignored for the comparison. 
 
 ```
 select time '18:25:33.123456 PST' < time '19:25:33.123456 EST';
-
+                  
  ?column?
 ----------
  t

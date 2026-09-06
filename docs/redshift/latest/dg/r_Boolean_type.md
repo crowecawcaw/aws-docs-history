@@ -1,29 +1,25 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Boolean type
+<a name="r_Boolean_type"></a>
 
-Use the BOOLEAN data type to store true and false values in a single-byte
-column. The following table describes the three possible states for a Boolean
-value and the literal values that result in that state. Regardless of the input
-string, a Boolean column stores and outputs "t" for true and "f" for false.
+Use the BOOLEAN data type to store true and false values in a single-byte column. The following table describes the three possible states for a Boolean value and the literal values that result in that state. Regardless of the input string, a Boolean column stores and outputs "t" for true and "f" for false. 
 
-| State   | Valid literal values             | Storage |
-| ------- | -------------------------------- | ------- |
-| True    | `TRUE 't' 'true' 'y' 'yes' '1'`  | 1 byte  |
-| False   | `FALSE 'f' 'false' 'n' 'no' '0'` | 1 byte  |
-| Unknown | `NULL`                           | 1 byte  |
 
-You can use an IS comparison to check a Boolean value only as a predicate in
-the WHERE clause. You can't use the IS comparison with a Boolean value in the
-SELECT list.
+| State  | Valid literal values  | Storage  | 
+| --- | --- | --- | 
+| True  | TRUE 't' 'true' 'y' 'yes' '1'   | 1 byte  | 
+| False  | FALSE 'f' 'false' 'n' 'no' '0'  | 1 byte  | 
+| Unknown  | NULL  | 1 byte  | 
+
+You can use an IS comparison to check a Boolean value only as a predicate in the WHERE clause. You can't use the IS comparison with a Boolean value in the SELECT list.
 
 ## Examples
+<a name="r_Boolean_type-examples"></a>
 
-You could use a BOOLEAN column to store an "Active/Inactive" state for each
-customer in a CUSTOMER table.
+You could use a BOOLEAN column to store an "Active/Inactive" state for each customer in a CUSTOMER table.
 
 ```
 create table customer(
@@ -42,12 +38,9 @@ custid | active_flag
    100 | t
 ```
 
-If no default value (`true` or `false`) is specified
-in the CREATE TABLE statement, inserting a default value means inserting a
-null.
+If no default value (`true` or `false`) is specified in the CREATE TABLE statement, inserting a default value means inserting a null. 
 
-In this example, the query selects users from the USERS table who like
-sports but do not like theatre:
+In this example, the query selects users from the USERS table who like sports but do not like theatre: 
 
 ```
 select firstname, lastname, likesports, liketheatre
@@ -70,8 +63,7 @@ Lucian    | Montgomery | t          | f
 (10 rows)
 ```
 
-The following example selects users from the USERS table for whom is it
-unknown whether they like rock music.
+The following example selects users from the USERS table for whom is it unknown whether they like rock music.
 
 ```
 select firstname, lastname, likerock
@@ -94,8 +86,7 @@ Scarlett  | Mayer    |
 (10 rows)
 ```
 
-The following example returns an error because it uses an IS comparison in
-the SELECT list.
+The following example returns an error because it uses an IS comparison in the SELECT list.
 
 ```
 select firstname, lastname, likerock is true as "check"
@@ -105,8 +96,7 @@ order by userid limit 10;
 [Amazon](500310) Invalid operation: Not implemented
 ```
 
-The following example succeeds because it uses an equal comparison ( = ) in
-the SELECT list instead of the IS comparison.
+The following example succeeds because it uses an equal comparison ( = ) in the SELECT list instead of the IS comparison.
 
 ```
 select firstname, lastname, likerock = true as "check"
@@ -115,14 +105,14 @@ order by userid limit 10;
 
 firstname | lastname  | check
 ----------+-----------+------
-Rafael    | Taylor    |
-Vladimir  | Humphrey  |
-Lars      | Ratliff   | true
-Barry     | Roy       |
-Reagan    | Hodge     | true
-Victor    | Hernandez | true
-Tamekah   | Juarez    |
+Rafael    | Taylor    |      
+Vladimir  | Humphrey  |      
+Lars      | Ratliff   | true 
+Barry     | Roy       |      
+Reagan    | Hodge     | true 
+Victor    | Hernandez | true 
+Tamekah   | Juarez    |      
 Colton    | Roy       | false
-Mufutau   | Watkins   |
+Mufutau   | Watkins   |      
 Naida     | Calderon  |
 ```

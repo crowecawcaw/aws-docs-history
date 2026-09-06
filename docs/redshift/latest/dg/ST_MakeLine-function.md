@@ -1,68 +1,60 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_MakeLine
+<a name="ST_MakeLine-function"></a>
 
-ST\_MakeLine creates a linestring from the input geometries.
+ST\_MakeLine creates a linestring from the input geometries. 
 
 The dimension of the returned geometry is the same as that of the input geometries. Both input geometries must of the same dimension.
 
 ## Syntax
+<a name="ST_MakeLine-function-syntax"></a>
 
 ```
-ST_MakeLine(*geom1*, *geom2*)
+ST_MakeLine(geom1, geom2)
 ```
 
 ## Arguments
+<a name="ST_MakeLine-function-arguments"></a>
 
-_geom1_
+ *geom1*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. The subtype must be `POINT`, `LINESTRING`, or `MULTIPOINT`. 
 
-A value of data type `GEOMETRY` or an expression that
-evaluates to a `GEOMETRY` type. The subtype must be
-`POINT`, `LINESTRING`, or `MULTIPOINT`.
-
-_geom2_
-
-A value of data type `GEOMETRY` or an expression that
-evaluates to a `GEOMETRY` type. The subtype must be
-`POINT`, `LINESTRING`, or `MULTIPOINT`.
+ *geom2*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. The subtype must be `POINT`, `LINESTRING`, or `MULTIPOINT`. 
 
 ## Return type
+<a name="ST_MakeLine-function-return"></a>
 
-`GEOMETRY` of subtype `LINESTRING`.
+`GEOMETRY` of subtype `LINESTRING`. 
 
-If _geom1_ or _geom2_ is null, then null is returned.
+If *geom1* or *geom2* is null, then null is returned. 
 
-If _geom1_ and _geom2_ is the empty point or contains empty points,
-then these empty points are ignored.
+If *geom1* and *geom2* is the empty point or contains empty points, then these empty points are ignored. 
 
-If _geom1_ and _geom2_ are empty,
-then the empty `LINESTRING` is returned.
+If *geom1* and *geom2* are empty, then the empty `LINESTRING` is returned. 
 
-The spatial reference system identifier (SRID) value of the returned geometry is
-the SRID value of the input geometries.
+The spatial reference system identifier (SRID) value of the returned geometry is the SRID value of the input geometries. 
 
-If _geom1_ and _geom2_ have different SRID
-values, then an error is returned.
+If *geom1* and *geom2* have different SRID values, then an error is returned. 
 
-If _geom1_ or _geom2_ is not a `POINT`, `LINESTRING`, or `MULTIPOINT`, then an error is returned.
+If *geom1* or *geom2* is not a `POINT`, `LINESTRING`, or `MULTIPOINT`, then an error is returned. 
 
-If _geom1_ and _geom2_ have different dimensions, then an error is returned.
+If *geom1* and *geom2* have different dimensions, then an error is returned. 
 
 ## Examples
+<a name="ST_MakeLine-function-examples"></a>
 
-The following SQL constructs a linestring from two input linestrings.
+The following SQL constructs a linestring from two input linestrings. 
 
 ```
 SELECT ST_MakeLine(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'), ST_GeomFromText('LINESTRING(88.29 39.07,88.42 39.26,88.27 39.31,88.29 39.07)'));
 ```
 
 ```
-
 st_makeline
 -----------
  010200000008000000C3F5285C8F52534052B81E85EB113D407B14AE47E15A5340C3F5285C8F423D40E17A14AE475153408FC2F5285C4F3D40C3F5285C8F52534052B81E85EB113D40C3F5285C8F125640295C8FC2F58843407B14AE47E11A5640E17A14AE47A14340E17A14AE4711564048E17A14AEA74340C3F5285C8F125640295C8FC2F5884340
-
 ```

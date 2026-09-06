@@ -1,68 +1,69 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # NULLIF function
+<a name="r_NULLIF_function"></a>
 
 ## Syntax
+<a name="r_NULLIF_function-synopsis"></a>
 
-The NULLIF expression compares two arguments and returns null if the arguments are
-equal. If they are not equal, the first argument is returned. This expression is the
-inverse of the NVL or COALESCE expression.
+The NULLIF expression compares two arguments and returns null if the arguments are equal. If they are not equal, the first argument is returned. This expression is the inverse of the NVL or COALESCE expression.
 
 ```
-NULLIF ( *expression1*, *expression2* )
+NULLIF ( expression1, expression2 )
 ```
 
 ## Arguments
+<a name="r_NULLIF_function-arguments"></a>
 
-_expression1, expression2_
-
-The target columns or expressions that are compared. The return type is
-the same as the type of the first expression. The default column name of the
-NULLIF result is the column name of the first expression.
+ *expression1, expression2*   
+The target columns or expressions that are compared. The return type is the same as the type of the first expression. The default column name of the NULLIF result is the column name of the first expression.
 
 ## Examples
+<a name="r_NULLIF_function-examples"></a>
 
 In the following example, the query returns the string `first` because the arguments are not equal.
 
 ```
-`SELECT NULLIF('first', 'second');`
-`case
+SELECT NULLIF('first', 'second');
+
+case
 -------
-first`
+first
 ```
 
 In the following example, the query returns `NULL` because the string literal arguments are equal.
 
 ```
-`SELECT NULLIF('first', 'first');`
-`case
+SELECT NULLIF('first', 'first');
+
+case
 -------
-NULL`
+NULL
 ```
 
 In the following example, the query returns `1` because the integer arguments are not equal.
 
 ```
-`SELECT NULLIF(1, 2);`
-`case
+SELECT NULLIF(1, 2);
+
+case
 -------
-1`
+1
 ```
 
 In the following example, the query returns `NULL` because the integer arguments are equal.
 
 ```
-`SELECT NULLIF(1, 1);`
-`case
+SELECT NULLIF(1, 1);
+
+case
 -------
-NULL`
+NULL
 ```
 
-In the following example, the query returns null when the LISTID and SALESID
-values match:
+In the following example, the query returns null when the LISTID and SALESID values match:
 
 ```
 select nullif(listid,salesid), salesid
@@ -82,9 +83,7 @@ listid  | salesid
 (9 rows)
 ```
 
-You can use NULLIF to make sure that empty strings are always returned as nulls. In
-the example below, the NULLIF expression returns either a null value or a string that
-contains at least one character.
+You can use NULLIF to make sure that empty strings are always returned as nulls. In the example below, the NULLIF expression returns either a null value or a string that contains at least one character.
 
 ```
 insert into category
@@ -99,8 +98,7 @@ null
 (1 row)
 ```
 
-NULLIF ignores trailing blanks. If a string is not empty but contains blanks,
-NULLIF still returns null:
+NULLIF ignores trailing blanks. If a string is not empty but contains blanks, NULLIF still returns null:
 
 ```
 create table nulliftest(c1 char(2), c2 char(2));

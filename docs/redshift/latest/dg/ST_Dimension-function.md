@@ -1,56 +1,56 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_Dimension
+<a name="ST_Dimension-function"></a>
 
-ST\_Dimension returns the inherent dimension of an input geometry. The _inherent dimension_ is the dimension value of the subtype that
-is defined in the geometry.
+ST\_Dimension returns the inherent dimension of an input geometry. The *inherent dimension* is the dimension value of the subtype that is defined in the geometry. 
 
 For 3DM, 3DZ, and 4D geometry inputs, ST\_Dimension returns the same result as for 2D geometry inputs.
 
 ## Syntax
+<a name="ST_Dimension-function-syntax"></a>
 
 ```
-ST_Dimension(*geom*)
+ST_Dimension(geom)
 ```
 
 ## Arguments
+<a name="ST_Dimension-function-arguments"></a>
 
-_geom_
-
-A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type.
+ *geom*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. 
 
 ## Return type
+<a name="ST_Dimension-function-return"></a>
 
-`INTEGER` representing the inherent dimension of _geom_.
+`INTEGER` representing the inherent dimension of *geom*. 
 
-If _geom_ is null, then null is returned.
+If *geom* is null, then null is returned. 
 
 The values returned are as follows.
 
-| Returned value                                        | Geometry subtype                                                          |
-| ----------------------------------------------------- | ------------------------------------------------------------------------- |
-| 0                                                     | Returned if *geom<br>• is a `POINT` or `MULTIPOINT`<br>subtype            |
-| 1                                                     | Returned if *geom<br>• is a `LINESTRING` or<br>`MULTILINESTRING` subtype. |
-| 2                                                     | Returned if *geom<br>• is a `POLYGON` or `MULTIPOLYGON`<br>subtype        |
-| 0                                                     | Returned if *geom<br>• is an empty `GEOMETRYCOLLECTION`<br>subtype        |
-| Largest dimension of the components of the collection | Returned if *geom<br>• is a `GEOMETRYCOLLECTION` subtype                  |
+
+| Returned value | Geometry subtype | 
+| --- | --- | 
+| 0 | Returned if *geom* is a `POINT` or `MULTIPOINT` subtype | 
+| 1 | Returned if *geom* is a `LINESTRING` or `MULTILINESTRING` subtype. | 
+| 2 | Returned if *geom* is a `POLYGON` or `MULTIPOLYGON` subtype | 
+| 0 | Returned if *geom* is an empty `GEOMETRYCOLLECTION` subtype | 
+| Largest dimension of the components of the collection | Returned if *geom* is a `GEOMETRYCOLLECTION` subtype | 
 
 ## Examples
+<a name="ST_Dimension-function-examples"></a>
 
-The following SQL converts a well-known text (WKT) representation of a four-point
-LINESTRING to a GEOMETRY object and returns the dimension of the linestring.
+The following SQL converts a well-known text (WKT) representation of a four-point LINESTRING to a GEOMETRY object and returns the dimension of the linestring. 
 
 ```
 SELECT ST_Dimension(ST_GeomFromText('LINESTRING(77.29 29.07,77.42 29.26,77.27 29.31,77.29 29.07)'));
 ```
 
 ```
-
 st_dimension
 -------------
 1
-
 ```

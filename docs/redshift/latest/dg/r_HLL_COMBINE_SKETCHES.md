@@ -1,34 +1,36 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # HLL\_COMBINE\_SKETCHES function
+<a name="r_HLL_COMBINE_SKETCHES"></a>
 
 The HLL\_COMBINE\_SKETCHES is a scalar function that takes as input two HLLSKETCH values and combines them into a single HLLSKETCH.
 
 The combination of two or more HyperLogLog sketches is a new HLLSKETCH that encapsulates information about the union of the distinct values that each input sketch represents.
 
 ## Syntax
+<a name="r_HLL_COMBINE_SKETCHES-synopsis"></a>
 
 ```
-HLL_COMBINE_SKETCHES (*hllsketch\_expression1*, *hllsketch\_expression2*)
+HLL_COMBINE_SKETCHES (hllsketch_expression1, hllsketch_expression2)
 ```
 
 ## Argument
+<a name="r_HLL_COMBINE_SKETCHES-argument"></a>
 
-_hllsketch\_expression1_ and _hllsketch\_expression2_
-
+ *hllsketch\_expression1* and *hllsketch\_expression2*   
 Any valid expression that evaluates to an HLLSKETCH type, such as a column name.
 
 ## Return type
+<a name="r_HLL_COMBINE_SKETCHES-return-type"></a>
 
 The HLL\_COMBINE\_SKETCHES function returns an HLLSKETCH type.
 
 ## Examples
+<a name="r_HLL_COMBINE_SKETCHES-examples"></a>
 
-The following example returns the combined HLLSKETCH values in the table
-`hll_table`.
+The following example returns the combined HLLSKETCH values in the table `hll_table`.
 
 ```
 WITH tbl1(x, y)

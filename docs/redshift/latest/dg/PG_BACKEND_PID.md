@@ -1,32 +1,31 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # PG\_BACKEND\_PID
+<a name="PG_BACKEND_PID"></a>
 
-Returns the process ID (PID) of the server process handling the current
-session.
+Returns the process ID (PID) of the server process handling the current session.
 
-###### Note
-
+**Note**  
 The PID is not globally unique. It can be reused over time.
 
 ## Syntax
+<a name="PG_BACKEND_PID-synopsis"></a>
 
 ```
 pg_backend_pid()
 ```
 
 ## Return type
+<a name="PG_BACKEND_PID-return-type"></a>
 
 Returns an integer.
 
 ## Example
+<a name="PG_BACKEND_PID-example"></a>
 
-You can correlate PG\_BACKEND\_PID with log tables to retrieve information for the
-current session. For example, the following query returns the query ID and a portion
-of the query text for queries completed in the current session.
+You can correlate PG\_BACKEND\_PID with log tables to retrieve information for the current session. For example, the following query returns the query ID and a portion of the query text for queries completed in the current session.
 
 ```
 select query, substring(text,1,40)
@@ -44,21 +43,16 @@ order by query desc;
 (5 rows)
 ```
 
-You can correlate PG\_BACKEND\_PID with the pid column in the following log tables
-(exceptions are noted in parentheses):
-
-- [STL\_CONNECTION\_LOG](r_STL_CONNECTION_LOG.md "r_STL_CONNECTION_LOG.md")
-- [STL\_DDLTEXT](r_STL_DDLTEXT.md "r_STL_DDLTEXT.md")
-- [STL\_ERROR](r_STL_ERROR.md "r_STL_ERROR.md")
-- [STL\_QUERY](r_STL_QUERY.md "r_STL_QUERY.md")
-- [STL\_QUERYTEXT](r_STL_QUERYTEXT.md "r_STL_QUERYTEXT.md")
-- [STL\_SESSIONS](r_STL_SESSIONS.md "r_STL_SESSIONS.md")
-  (process)
-- [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md "r_STL_TR_CONFLICT.md")
-- [STL\_UTILITYTEXT](r_STL_UTILITYTEXT.md "r_STL_UTILITYTEXT.md")
-- [STV\_ACTIVE\_CURSORS](r_STV_ACTIVE_CURSORS.md "r_STV_ACTIVE_CURSORS.md")
-- [STV\_INFLIGHT](r_STV_INFLIGHT.md "r_STV_INFLIGHT.md")
-- [STV\_LOCKS](r_STV_LOCKS.md "r_STV_LOCKS.md")
-  (lock\_owner\_pid)
-- [STV\_RECENTS](r_STV_RECENTS.md "r_STV_RECENTS.md")
-  (process\_id)
+You can correlate PG\_BACKEND\_PID with the pid column in the following log tables (exceptions are noted in parentheses):
++ [STL\_CONNECTION\_LOG](r_STL_CONNECTION_LOG.md)
++ [STL\_DDLTEXT](r_STL_DDLTEXT.md)
++ [STL\_ERROR](r_STL_ERROR.md)
++ [STL\_QUERY](r_STL_QUERY.md)
++ [STL\_QUERYTEXT](r_STL_QUERYTEXT.md)
++ [STL\_SESSIONS](r_STL_SESSIONS.md) (process)
++ [STL\_TR\_CONFLICT](r_STL_TR_CONFLICT.md)
++ [STL\_UTILITYTEXT](r_STL_UTILITYTEXT.md)
++ [STV\_ACTIVE\_CURSORS](r_STV_ACTIVE_CURSORS.md)
++ [STV\_INFLIGHT](r_STV_INFLIGHT.md)
++ [STV\_LOCKS](r_STV_LOCKS.md) (lock\_owner\_pid)
++ [STV\_RECENTS](r_STV_RECENTS.md) (process\_id)

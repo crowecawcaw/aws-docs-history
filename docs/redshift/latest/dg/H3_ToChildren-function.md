@@ -1,42 +1,43 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # H3\_ToChildren
+<a name="H3_ToChildren-function"></a>
 
-H3\_ToChildren returns a list of child H3 cell IDs at a specified resolution for a given H3 index.
-For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3 "spatial-terminology.md#spatial-terminology-h3").
+H3\_ToChildren returns a list of child H3 cell IDs at a specified resolution for a given H3 index. For information about H3 indexing, see [H3](spatial-terminology.md#spatial-terminology-h3).
 
 ## Syntax
+<a name="H3_ToChildren-function-syntax"></a>
 
 ```
-H3_ToChildren(*index*, *resolution*)
+H3_ToChildren(index, resolution)
 ```
 
 ## Arguments
+<a name="H3_ToChildren-function-arguments"></a>
 
-_index_
-
+ *index*   
 A value of data type `BIGINT` or `VARCHAR` that represents the index of an H3 cell, or an expression that evaluates to one of these data types.
 
-_resolution_
-
-A value of data type `INTEGER` or an expression that evaluates to an `INTEGER` type. The value represents the resolution of the children cell IDs. The value must be an integer between the resolution of the input _index_ and 15, inclusive.
+ *resolution*   
+A value of data type `INTEGER` or an expression that evaluates to an `INTEGER` type. The value represents the resolution of the children cell IDs. The value must be an integer between the resolution of the input *index* and 15, inclusive.
 
 ## Return type
+<a name="H3_ToChildren-function-return"></a>
 
 `SUPER` – represents a list of H3 cell IDs.
 
-If either _index_ or _resolution_ is NULL, then NULL is returned.
+If either *index* or *resolution* is NULL, then NULL is returned.
 
-If _index_ is not valid, then an error is returned.
+If *index* is not valid, then an error is returned.
 
-If _resolution_ is not between the resolution of _index_ and 15, inclusive, then an error is returned.
+If *resolution* is not between the resolution of *index* and 15, inclusive, then an error is returned.
 
 If the output size exceeds the maximum SUPER size limit, then an error is returned.
 
 ## Examples
+<a name="H3_ToChildren-function-examples"></a>
 
 The following SQL inputs a VARCHAR that represents the index of an H3 cell, and an INTEGER that represents the desired resolution of all the children, and returns a SUPER array containing the children at resolution 6.
 
@@ -45,11 +46,9 @@ SELECT H3_ToChildren('85283473fffffff', 6);
 ```
 
 ```
-
- h3_tochildren
+ h3_tochildren                                                
 --------------------------------------------------------------------------------------------------------------------------------------
  [604189641121202175,604189641255419903,604189641389637631,604189641523855359,604189641658073087,604189641792290815,604189641926508543]
-
 ```
 
 The following SQL inputs a BIGINT that represents the index of an H3 cell, and an INTEGER that represents the desired resolution of all the children, and returns a SUPER array containing the children at resolution 6.
@@ -59,14 +58,12 @@ SELECT H3_ToChildren(599686042433355775, 6);
 ```
 
 ```
-
- h3_tochildren
+ h3_tochildren                                              
 --------------------------------------------------------------------------------------------------------------------------------------
  [604189641121202175,604189641255419903,604189641389637631,604189641523855359,604189641658073087,604189641792290815,604189641926508543]
-
 ```
 
-Note: A difference of 7 or less between _resolution_ and _index_ resolution is safe.
+Note: A difference of 7 or less between *resolution* and *index* resolution is safe.
 
 The following example demonstrates a workaround for queries that exceed the SUPER size limit. When the resolution difference between the input H3 index and the desired child resolution is too large (greater than 7). This procedure solves the problem by incrementally expanding children in smaller steps (maximum 5 resolution levels at a time) and storing the final results in a user-created table.
 

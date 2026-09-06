@@ -1,20 +1,18 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ALTER TABLE ADD and DROP COLUMN examples
+<a name="r_ALTER_TABLE_COL_ex-add-drop"></a>
 
-The following examples demonstrate how to use ALTER TABLE to add and then drop a
-basic table column and also how to drop a column with a dependent object.
+The following examples demonstrate how to use ALTER TABLE to add and then drop a basic table column and also how to drop a column with a dependent object. 
 
 ## ADD then DROP a basic column
+<a name="r_ALTER_TABLE_COL_ex-add-then-drop-a-basic-column"></a>
 
-The following example adds a standalone FEEDBACK\_SCORE column to the USERS table.
-This column simply contains an integer, and the default value for this column is NULL
-(no feedback score).
+The following example adds a standalone FEEDBACK\_SCORE column to the USERS table. This column simply contains an integer, and the default value for this column is NULL (no feedback score). 
 
-First, query the PG\_TABLE\_DEF catalog table to view the schema of the USERS table:
+First, query the PG\_TABLE\_DEF catalog table to view the schema of the USERS table: 
 
 ```
 column        | type                   | encoding | distkey | sortkey
@@ -37,43 +35,42 @@ likerock      | boolean                | none     | false   |       0
 likevegas     | boolean                | none     | false   |       0
 likebroadway  | boolean                | none     | false   |       0
 likemusicals  | boolean                | none     | false   |       0
-
 ```
 
-Now add the feedback\_score column:
+Now add the feedback\_score column: 
 
 ```
 alter table users
 add column feedback_score int
 default NULL;
-
 ```
 
-Select the FEEDBACK\_SCORE column from USERS to verify that it was added:
+Select the FEEDBACK\_SCORE column from USERS to verify that it was added: 
 
 ```
-`select feedback_score from users limit 5;`
-`feedback_score
+select feedback_score from users limit 5;
+
+feedback_score
 ----------------
 NULL
 NULL
 NULL
 NULL
-NULL`
+NULL
 ```
 
-Drop the column to reinstate the original DDL:
+Drop the column to reinstate the original DDL: 
 
 ```
 alter table users drop column feedback_score;
 ```
 
 ## Dropping a column with a dependent object
+<a name="r_ALTER_TABLE_COL_ex-dropping-a-column-with-a-dependent-object"></a>
 
-The following example drops a column that has a dependent object. As a result, the
-dependent object is also dropped.
+The following example drops a column that has a dependent object. As a result, the dependent object is also dropped. 
 
-To start, add the FEEDBACK\_SCORE column to the USERS table again:
+To start, add the FEEDBACK\_SCORE column to the USERS table again: 
 
 ```
 alter table users
@@ -81,24 +78,21 @@ add column feedback_score int
 default NULL;
 ```
 
-Next, create a view from the USERS table called USERS\_VIEW:
+Next, create a view from the USERS table called USERS\_VIEW: 
 
 ```
 create view users_view as select * from users;
 ```
 
-Now, try to drop the FEEDBACK\_SCORE column from the USERS table. This DROP
-statement uses the default behavior (RESTRICT):
+Now, try to drop the FEEDBACK\_SCORE column from the USERS table. This DROP statement uses the default behavior (RESTRICT): 
 
 ```
 alter table users drop column feedback_score;
 ```
 
-Amazon Redshift displays an error message that the column can't be dropped because
-another object depends on it.
+Amazon Redshift displays an error message that the column can't be dropped because another object depends on it. 
 
-Try dropping the FEEDBACK\_SCORE column again, this time specifying CASCADE to drop
-all dependent objects:
+Try dropping the FEEDBACK\_SCORE column again, this time specifying CASCADE to drop all dependent objects: 
 
 ```
 alter table users

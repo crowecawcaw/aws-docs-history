@@ -1,66 +1,60 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # TO\_DATE function
+<a name="r_TO_DATE_function"></a>
 
-TO\_DATE converts a date represented by a character string to a DATE data type.
+TO\_DATE converts a date represented by a character string to a DATE data type. 
 
-###### Note
-
+**Note**  
 TO\_DATE doesn't support format strings with Q (Quarter number).
 
 ## Syntax
+<a name="r_TO_DATE_function-synopsis"></a>
 
 ```
-TO_DATE(*string*, *format*)
+TO_DATE(string, format)
 ```
 
 ```
-TO_DATE(*string*, *format*, *is\_strict*)
+TO_DATE(string, format, is_strict)
 ```
 
 ## Arguments
+<a name="r_TO_DATE_function-arguments"></a>
 
-_string_
+ *string*   
+A string to be converted. 
 
-A string to be converted.
+ *format*   
+A string literal that defines the format of the input *string*, in terms of its date parts. For a list of valid day, month, and year formats, see [Datetime format strings](r_FORMAT_strings.md). 
 
-_format_
-
-A string literal that defines the format of the input _string_,
-in terms of its date parts. For a list of valid day, month, and year formats, see [Datetime format strings](r_FORMAT_strings.md "r_FORMAT_strings.md").
-
-_is\_strict_
-
-An optional Boolean value that specifies whether an error is returned if
-an input date value is out of range. When _is\_strict_ is
-set to `TRUE`, an error is returned if there is an out of range
-value. When _is\_strict_ is set to `FALSE`,
-which is the default, then overflow values are accepted.
+ *is\_strict*   
+An optional Boolean value that specifies whether an error is returned if an input date value is out of range. When *is\_strict* is set to `TRUE`, an error is returned if there is an out of range value. When *is\_strict* is set to `FALSE`, which is the default, then overflow values are accepted. 
 
 ## Return type
+<a name="r_TO_DATE_function-return-type"></a>
 
-TO\_DATE returns a DATE, depending on the _format_ value.
+TO\_DATE returns a DATE, depending on the *format* value. 
 
-If the conversion to _format_ fails, then an error is returned.
+If the conversion to *format* fails, then an error is returned. 
 
 ## Examples
+<a name="r_TO_DATE_function-example"></a>
 
-The following SQL statement converts the date `02 Oct 2001` into a
-date data type.
+ The following SQL statement converts the date `02 Oct 2001` into a date data type.
 
 ```
-`select to_date('02 Oct 2001', 'DD Mon YYYY');`
-`to_date
+select to_date('02 Oct 2001', 'DD Mon YYYY');
+
+to_date
 ------------
 2001-10-02
-(1 row)`
+(1 row)
 ```
 
-The following SQL statement converts the string `20010631` to a
-date.
+ The following SQL statement converts the string `20010631` to a date.
 
 ```
 select to_date('20010631', 'YYYYMMDD', FALSE);
@@ -69,20 +63,19 @@ select to_date('20010631', 'YYYYMMDD', FALSE);
 The result is July 1, 2001, because there are only 30 days in June.
 
 ```
-`to_date
+to_date
 ------------
-2001-07-01`
-
+2001-07-01
 ```
 
-The following SQL statement converts the string `20010631` to a date:
+ The following SQL statement converts the string `20010631` to a date: 
 
 ```
-`to_date('20010631', 'YYYYMMDD', TRUE);`
+to_date('20010631', 'YYYYMMDD', TRUE);
 ```
 
 The result is an error because there are only 30 days in June.
 
 ```
-`ERROR: date/time field date value out of range: 2001-6-31`
+ERROR:  date/time field date value out of range: 2001-6-31
 ```

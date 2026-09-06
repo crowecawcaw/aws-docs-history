@@ -1,40 +1,39 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION
+<a name="SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION"></a>
 
-Use SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION to view the usage periods in which
-Amazon Redshift ran automatic optimization tasks using extra compute resources. For more
-information on automatic optimization, see [Automatic database optimization](c_autonomics.md "c_autonomics.md"). For more information on automatic
-optimizations run using extra compute resources, see [Allocating extra compute resources for automatic database optimization](t_extra-compute-autonomics.md "t_extra-compute-autonomics.md").
+Use SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION to view the usage periods in which Amazon Redshift ran automatic optimization tasks using extra compute resources. For more information on automatic optimization, see [Automatic database optimization](c_autonomics.md). For more information on automatic optimizations run using extra compute resources, see [Allocating extra compute resources for automatic database optimization](t_extra-compute-autonomics.md).
 
 SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION is available only for provisioned clusters.
 
-SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+SYS\_EXTRA\_COMPUTE\_FOR\_AUTOMATIC\_OPTIMIZATION is visible only to superusers. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
 ## Table columns
+<a name="SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION-table-columns"></a>
 
-| Column name      | Data type                   | Description                                                                                                                                    |
-| ---------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| start\_time      | timestamp without time zone | The time that the extra compute optimization<br>period starts.                                                                                 |
-| end\_time        | timestamp without time zone | The time that the extra compute optimization<br>period ends.                                                                                   |
-| query\_count     | bigint                      | The number of automatic optimization queries run<br>during the usage period.                                                                   |
-| compute\_seconds | numeric(27,0)               | The number of seconds<br>in the usage period that Amazon Redshift spent running automatic<br>optimization tasks using extra compute resources. |
+
+| Column name | Data type | Description | 
+| --- | --- | --- | 
+| start\_time | timestamp without time zone | The time that the extra compute optimization period starts. | 
+| end\_time | timestamp without time zone | The time that the extra compute optimization period ends. | 
+| query\_count | bigint | The number of automatic optimization queries run during the usage period. | 
+| compute\_seconds | numeric(27,0) | The number of seconds in the usage period that Amazon Redshift spent running automatic optimization tasks using extra compute resources. | 
 
 ## Examples
+<a name="SYS_EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION-examples"></a>
 
-Following is an example query looking for automatic optimizations performed on
-September 16, 2025.
+Following is an example query looking for automatic optimizations performed on September 16, 2025.
 
 ```
-`SELECT *
+SELECT *
 FROM sys_extra_compute_for_automatic_optimization
-WHERE start_time BETWEEN '2025-09-16 00:00:00' AND '2025-09-16 23:59:59';`
+WHERE start_time BETWEEN '2025-09-16 00:00:00' AND '2025-09-16 23:59:59';
 
-`start_time | end_time | query_count | compute_seconds
+start_time           | end_time            | query_count | compute_seconds
 ---------------------+---------------------+-------------+-----------------
- 2025-09-16 00:00:00 | 2025-09-16 00:00:59 | 1 | 59
- 2025-09-16 00:01:05 | 2025-09-16 00:01:58 | 2 | 53`
+ 2025-09-16 00:00:00  | 2025-09-16 00:00:59 | 1           | 59
+ 2025-09-16 00:01:05  | 2025-09-16 00:01:58 | 2           | 53
 ```

@@ -1,61 +1,57 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # STL\_UNIQUE
+<a name="r_STL_UNIQUE"></a>
 
-Analyzes execution steps that occur when a DISTINCT function is used in the SELECT
-list or when duplicates are removed in a UNION or INTERSECT query.
+Analyzes execution steps that occur when a DISTINCT function is used in the SELECT list or when duplicates are removed in a UNION or INTERSECT query.
 
-STL\_UNIQUE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data "cm_chap_system-tables.md#c_visibility-of-data").
+STL\_UNIQUE is visible to all users. Superusers can see all rows; regular users can see only their own data. For more information, see [Visibility of data in system tables and views](cm_chap_system-tables.md#c_visibility-of-data).
 
-###### Note
-
-STL\_UNIQUE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters
-or on serverless namespaces.
-To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view
-[SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md "SYS_QUERY_DETAIL.md")
-. The data in the SYS monitoring view is formatted to be easier to use and understand.
+**Note**  
+STL\_UNIQUE only contains queries run on main provisioned clusters. It doesn't contain queries run on concurrency scaling clusters or on serverless namespaces. To access explain plans for queries run on both main clusters, concurrency scaling clusters, and serverless namespaces, we recommend that you use the SYS monitoring view [SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md) . The data in the SYS monitoring view is formatted to be easier to use and understand.
 
 ## Table columns
+<a name="r_STL_UNIQUE-table-columns"></a>
 
-| Column name               | Data type    | Description                                                                                                                                                                                                                                                          |
-| ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userid                    | integer      | ID of the user who generated the entry.                                                                                                                                                                                                                              |
-| query                     | integer      | Query ID. The query column can be used to join other system tables and views.                                                                                                                                                                                        |
-| slice                     | integer      | Number that identifies the slice where the query was running.                                                                                                                                                                                                        |
-| segment                   | integer      | Number that identifies the query segment.                                                                                                                                                                                                                            |
-| step                      | integer      | Query step that ran.                                                                                                                                                                                                                                                 |
-| starttime                 | timestamp    | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                                                                         |
-| endtime                   | timestamp    | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: `2009-06-12 11:29:19.131358`.                                                                                        |
-| tasknum                   | integer      | Number of the query task process that was assigned to run the step.                                                                                                                                                                                                  |
-| rows                      | bigint       | Total number of rows that were processed.                                                                                                                                                                                                                            |
-| `type`                    | character(6) | The type of step. Valid values are:<br>• HASHED. Indicates that the step used grouped, unsorted<br>aggregation.<br>• PLAIN. Indicates that the step used ungrouped, scalar<br>aggregation.<br>• SORTED. Indicates that the step used grouped, sorted<br>aggregation. |
-| is\_diskbased             | character(1) | If true (t), the query was performed as a<br>disk-based operation. If false (f), the query was performed in<br>memory.                                                                                                                                               |
-| slots                     | integer      | Total number of hash buckets.                                                                                                                                                                                                                                        |
-| workmem                   | bigint       | Total number of bytes in working memory that were<br>assigned to the step.                                                                                                                                                                                           |
-| max\_buffers\_used        | bigint       | Maximum number of buffers used in the hash table<br>before going to disk.                                                                                                                                                                                            |
-| resizes                   | integer      | This information is for internal use only.                                                                                                                                                                                                                           |
-| occupied                  | integer      | This information is for internal use only.                                                                                                                                                                                                                           |
-| flushable                 | integer      | This information is for internal use only.                                                                                                                                                                                                                           |
-| used\_unique\_prefetching | character(1) | This information is for internal use only.                                                                                                                                                                                                                           |
-| bytes                     | biginit      | The number of bytes of all the output rows for the step.                                                                                                                                                                                                             |
+
+| Column name  | Data type  | Description  | 
+| --- | --- | --- | 
+| userid | integer | ID of the user who generated the entry. | 
+| query | integer | Query ID. The query column can be used to join other system tables and views. | 
+| slice | integer | Number that identifies the slice where the query was running. | 
+| segment | integer | Number that identifies the query segment. | 
+| step | integer | Query step that ran. | 
+| starttime | timestamp | Time in UTC that the query started. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| endtime | timestamp | Time in UTC that the query finished. Total time includes queuing and execution. with 6 digits of precision for fractional seconds. For example: 2009-06-12 11:29:19.131358. | 
+| tasknum | integer | Number of the query task process that was assigned to run the step. | 
+| rows | bigint | Total number of rows that were processed. | 
+| type | character(6) | The type of step. Valid values are: +  HASHED. Indicates that the step used grouped, unsorted aggregation. <br />+  PLAIN. Indicates that the step used ungrouped, scalar aggregation. <br />+  SORTED. Indicates that the step used grouped, sorted aggregation.   | 
+| is\_diskbased | character(1) | If true (t), the query was performed as a disk-based operation. If false (f), the query was performed in memory. | 
+| slots | integer | Total number of hash buckets. | 
+| workmem | bigint | Total number of bytes in working memory that were assigned to the step. | 
+| max\_buffers\_used | bigint | Maximum number of buffers used in the hash table before going to disk. | 
+| resizes | integer | This information is for internal use only. | 
+| occupied | integer | This information is for internal use only. | 
+| flushable | integer | This information is for internal use only. | 
+| used\_unique\_prefetching | character(1) | This information is for internal use only. | 
+| bytes | biginit | The number of bytes of all the output rows for the step. | 
 
 ## Sample queries
+<a name="r_STL_UNIQUE-sample-queries"></a>
 
-Suppose you run the following query:
+Suppose you run the following query: 
 
 ```
 select distinct eventname
 from event order by 1;
 ```
 
-Assuming the ID for the previous query is 6313, the following example shows the
-number of rows produced by the unique step for each slice in segments 0 and 1.
+Assuming the ID for the previous query is 6313, the following example shows the number of rows produced by the unique step for each slice in segments 0 and 1. 
 
 ```
-select query, slice, segment, step, datediff(msec, starttime, endtime) as msec, tasknum, rows
+select query, slice, segment, step, datediff(msec, starttime, endtime) as msec, tasknum, rows 
 from stl_unique where query = 6313
 order by query desc, slice, segment, step;
 ```

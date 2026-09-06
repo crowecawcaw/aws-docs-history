@@ -1,45 +1,43 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # ST\_IsSimple
+<a name="ST_IsSimple-function"></a>
 
-ST\_IsSimple returns true if the 2D projection of the input geometry is simple.
-For more information about the definition of a simple geometry, see
-[Geometric simplicity](spatial-terminology.md#spatial-terminology-simplicity "spatial-terminology.md#spatial-terminology-simplicity").
+ST\_IsSimple returns true if the 2D projection of the input geometry is simple. For more information about the definition of a simple geometry, see [Geometric simplicity](spatial-terminology.md#spatial-terminology-simplicity). 
 
 ## Syntax
+<a name="ST_IsSimple-function-syntax"></a>
 
 ```
-ST_IsSimple(*geom*)
+ST_IsSimple(geom)
 ```
 
 ## Arguments
+<a name="ST_IsSimple-function-arguments"></a>
 
-_geom_
-
-A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type.
+ *geom*   
+A value of data type `GEOMETRY` or an expression that evaluates to a `GEOMETRY` type. 
 
 ## Return type
+<a name="ST_IsSimple-function-return"></a>
 
 `BOOLEAN`
 
-If _geom_ is null, then null is returned.
+If *geom* is null, then null is returned. 
 
 ## Examples
+<a name="ST_IsSimple-function-examples"></a>
 
-The following SQL checks if the specified linestring is simple. In this example,
-it isn't simple because it has self-intersection.
+The following SQL checks if the specified linestring is simple. In this example, it isn't simple because it has self-intersection. 
 
 ```
 SELECT ST_IsSimple(ST_GeomFromText('LINESTRING(0 0,10 0,5 5,5 -5)'));
 ```
 
 ```
-
  st_issimple
 -----------
  false
-
 ```

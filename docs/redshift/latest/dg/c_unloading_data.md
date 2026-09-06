@@ -1,22 +1,16 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Unloading data in Amazon Redshift
+<a name="c_unloading_data"></a>
 
-To unload data from database tables to a set of files in an Amazon S3 bucket, you can
-use the [UNLOAD](r_UNLOAD.md "r_UNLOAD.md") command with a SELECT
-statement. You can unload text data in either delimited format or fixed-width format,
-regardless of the data format that was used to load it. You can also specify whether to
-create compressed GZIP files.
+To unload data from database tables to a set of files in an Amazon S3 bucket, you can use the [UNLOAD](r_UNLOAD.md) command with a SELECT statement. You can unload text data in either delimited format or fixed-width format, regardless of the data format that was used to load it. You can also specify whether to create compressed GZIP files.
 
-You can limit the access users have to your Amazon S3 bucket by using temporary security
-credentials.
+You can limit the access users have to your Amazon S3 bucket by using temporary security credentials.
 
-###### Topics
-
-- [Unloading data to Amazon S3](t_Unloading_tables.md "t_Unloading_tables.md")
-- [Unloading encrypted data files](t_unloading_encrypted_files.md "t_unloading_encrypted_files.md")
-- [Unloading data in delimited or fixed-width format](t_unloading_fixed_width_data.md "t_unloading_fixed_width_data.md")
-- [Reloading unloaded data](t_Reloading_unload_files.md "t_Reloading_unload_files.md")
+**Topics**
++ [Unloading data to Amazon S3](t_Unloading_tables.md)
++ [Unloading encrypted data files](t_unloading_encrypted_files.md)
++ [Unloading data in delimited or fixed-width format](t_unloading_fixed_width_data.md)
++ [Reloading unloaded data](t_Reloading_unload_files.md)

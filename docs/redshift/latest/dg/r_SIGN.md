@@ -1,66 +1,65 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # SIGN function
+<a name="r_SIGN"></a>
 
-The SIGN function returns the sign (positive or negative) of a number. The
-result of the SIGN function is `1` if the argument is positive, `-1` if the argument is negative, or `0`
-if the argument is `0`.
+ The SIGN function returns the sign (positive or negative) of a number. The result of the SIGN function is `1` if the argument is positive, `-1` if the argument is negative, or `0` if the argument is `0`. 
 
 ## Syntax
+<a name="r_SIGN-synopsis"></a>
 
 ```
-SIGN(*number*)
+SIGN(number)
 ```
 
 ## Argument
+<a name="r_SIGN-argument"></a>
 
-_number_
-
+ *number*   
 Number or expression that evaluates to a number. It can be a `DECIMAL`, `FLOAT8`, or `SUPER` type. Amazon Redshift can convert other data types per the implicit conversion rules.
 
 ## Return type
+<a name="r_SIGN-return-type"></a>
 
-SIGN returns the same numeric data type as the input argument. If the input is `DECIMAL`, the output is `DECIMAL(1,0)`.
+SIGN returns the same numeric data type as the input argument. If the input is `DECIMAL`, the output is `DECIMAL(1,0)`. 
 
 When the input is of the `SUPER` type, the output retains the same dynamic type as the input while the static type remains the `SUPER` type. When the dynamic type of `SUPER` isn't a number, Amazon Redshift returns a `NULL`.
 
 ## Examples
+<a name="r_SIGN-examples"></a>
 
-The following example shows that column `d` in table t2 has `DOUBLE PRECISION` as its type since
-the input is `DOUBLE PRECISION` and that column `n` in table t2 has `NUMERIC(1,0)` as the
-output since the input is `NUMERIC`.
+The following example shows that column `d` in table t2 has `DOUBLE PRECISION` as its type since the input is `DOUBLE PRECISION` and that column `n` in table t2 has `NUMERIC(1,0)` as the output since the input is `NUMERIC`. 
 
 ```
-`CREATE TABLE t1(d DOUBLE PRECISION, n NUMERIC(12, 2));
+CREATE TABLE t1(d DOUBLE PRECISION, n NUMERIC(12, 2));
 INSERT INTO t1 VALUES (4.25, 4.25), (-4.25, -4.25);
 CREATE TABLE t2 AS SELECT SIGN(d) AS d, SIGN(n) AS n FROM t1;
-SELECT table_name, column_name, data_type FROM SVV_REDSHIFT_COLUMNS WHERE table_name='t1' OR table_name='t2';`
-
-`+------------+-------------+-----------------------+
-| table_name | column_name | data_type |
+SELECT table_name, column_name, data_type FROM SVV_REDSHIFT_COLUMNS WHERE table_name='t1' OR table_name='t2';
+ 
 +------------+-------------+-----------------------+
-| t1 | d | double precision |
-| t1 | n | numeric(12,2) |
-| t2 | d | double precision |
-| t2 | n | numeric(1,0) |
-| t1 | col1 | character varying(20) |
-+------------+-------------+-----------------------+`
+| table_name | column_name |       data_type       |
++------------+-------------+-----------------------+
+| t1         | d           | double precision      |
+| t1         | n           | numeric(12,2)         |
+| t2         | d           | double precision      |
+| t2         | n           | numeric(1,0)          |
+| t1         | col1        | character varying(20) |
++------------+-------------+-----------------------+
 ```
 
-The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md "c_sampledb.md").
+The following example uses the TICKIT sample database. For more information, see [Sample database](c_sampledb.md).
 
-To determine the sign of the commission paid for a given transaction from the SALES table, use the following example.
+To determine the sign of the commission paid for a given transaction from the SALES table, use the following example. 
 
 ```
-`SELECT commission, SIGN(commission)
-FROM sales WHERE salesid=10000;`
+SELECT commission, SIGN(commission)
+FROM sales WHERE salesid=10000;
 
-`+------------+------+
++------------+------+
 | commission | sign |
 +------------+------+
-| 28.05 | 1 |
-+------------+------+`
+|      28.05 |    1 |
++------------+------+
 ```

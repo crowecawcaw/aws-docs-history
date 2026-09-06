@@ -1,26 +1,28 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # CURRENT\_USER\_ID
+<a name="r_CURRENT_USER_ID"></a>
 
-Returns the unique identifier for the Amazon Redshift user logged in to the current
-session.
+Returns the unique identifier for the Amazon Redshift user logged in to the current session.
 
 ## Syntax
+<a name="r_CURRENT_USER_ID-synopsis"></a>
 
 ```
 CURRENT_USER_ID
 ```
 
 ## Return type
+<a name="r_CURRENT_USER_ID-return-type"></a>
 
-The CURRENT\_USER\_ID function returns an integer.
+The CURRENT\_USER\_ID function returns an integer. 
 
 ## Examples
+<a name="r_CURRENT_USER_ID-examples"></a>
 
-The following example returns the user name and current user ID for this session:
+The following example returns the user name and current user ID for this session: 
 
 ```
 select user, current_user_id;
