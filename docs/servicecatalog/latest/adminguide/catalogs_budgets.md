@@ -1,243 +1,163 @@
+
+
 # Managing Budgets
+<a name="catalogs_budgets"></a>
 
 You can use AWS Budgets to track your service costs and usage within AWS Service Catalog. You can associate budgets with AWS Service Catalog products and portfolios.
 
-###### Note
+**Note**  
+AWS Service Catalog does not support budgets for Terraform Open Source products. 
 
-AWS Service Catalog does not support budgets for Terraform Open Source products.
+AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount. Information about AWS Budgets is available at [https://aws.amazon.com/aws-cost-management/aws-budgets](https://aws.amazon.com/aws-cost-management/aws-budgets).
 
-AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.
-Information about AWS Budgets is available at [https://aws.amazon.com/aws-cost-management/aws-budgets](https://aws.amazon.com/aws-cost-management/aws-budgets "https://aws.amazon.com/aws-cost-management/aws-budgets").
-
-###### Tasks
-
-- [Prerequisites](#budgets-setup "#budgets-setup")
-- [Creating a budget](#budgets-create "#budgets-create")
-- [Associating a Budget](#budgets-associate "#budgets-associate")
-- [Viewing a Budget](#budgets-view "#budgets-view")
-- [Disassociating a Budget](#budgets-disassociate "#budgets-disassociate")
+**Topics**
++ [Prerequisites](#budgets-setup)
++ [Creating a budget](#budgets-create)
++ [Associating a Budget](#budgets-associate)
++ [Viewing a Budget](#budgets-view)
++ [Disassociating a Budget](#budgets-disassociate)
 
 ## Prerequisites
+<a name="budgets-setup"></a>
 
-Before using AWS Budgets, you need to activate cost allocation tags in the AWS Billing and Cost Management console.
-For more information, see
-[Activating User-Defined Cost Allocation Tags](../../../awsaccountbilling/latest/aboutv2/activating-tags.md "../../../awsaccountbilling/latest/aboutv2/activating-tags.md")
-in the _AWS Billing and Cost Management User Guide_.
+Before using AWS Budgets, you need to activate cost allocation tags in the AWS Billing and Cost Management console. For more information, see [Activating User-Defined Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html) in the *AWS Billing and Cost Management User Guide*. 
 
-###### Note
-
+**Note**  
 Tags take up to 24 hours to activate.
 
 You also need to enable user access to the AWS Billing and Cost Management console for any users or groups who will be using the Budgets feature. You can do this by creating a new policy for your users.
 
-To allow users to create budgets, you must also allow users to view billing information. If you want to use Amazon SNS notifications,
-you can give users the ability to create Amazon SNS notifications, as shown in the policy example below.
+To allow users to create budgets, you must also allow users to view billing information. If you want to use Amazon SNS notifications, you can give users the ability to create Amazon SNS notifications, as shown in the policy example below.
 
-###### To create the budgets policy
+**To create the budgets policy**
 
-1. Open the IAM console at
-   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
-2. In the navigation pane, choose **Policies**.
-3. In the content pane, choose **Create policy**.
-4. Choose the **JSON** tab and copy the text from the following JSON policy document. Paste this text into the **JSON** text box.
+1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/).
 
-JSON
+1. In the navigation pane, choose **Policies**. 
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Stmt1435216493000",
- "Effect": "Allow",
- "Action": [
- "aws-portal:ViewBilling",
- "aws-portal:ModifyBilling",
- "budgets:ViewBudget",
- "budgets:ModifyBudget"
- ],
- "Resource": [
- "*"
- ]
- },
- {
- "Sid": "Stmt1435216552000",
- "Effect": "Allow",
- "Action": [
- "sns:*"
- ],
- "Resource": [
- "arn:aws:sns:us-east-1:123456789012:*"
- ]
- }
- ]
-}`
+1. In the content pane, choose **Create policy**. 
 
-```
+1. Choose the **JSON** tab and copy the text from the following JSON policy document. Paste this text into the **JSON** text box. 
 
-5. When you are finished, choose **Review policy**. The Policy Validator reports any syntax errors.
-6. On the **Review** page, give your policy a name.
-   Review the policy **Summary** to see the permissions granted by your policy, and then choose **Create policy** to save your work.
+------
+#### [ JSON ]
 
-The new policy appears in the list of managed policies and is ready to attach to your users and groups. For more information, see [Create and Attach Customer Managed Policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md#step2-attach-policy "../../../IAM/latest/UserGuide/tutorial_managed-policies.md#step2-attach-policy") in the _AWS Identity and Access Management User Guide_.
+****  
+
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Sid": "Stmt1435216493000",
+               "Effect": "Allow",
+               "Action": [
+                   "aws-portal:ViewBilling",
+                   "aws-portal:ModifyBilling",
+                   "budgets:ViewBudget",
+                   "budgets:ModifyBudget"
+               ],
+               "Resource": [
+                   "*"
+               ]
+           },
+           {
+               "Sid": "Stmt1435216552000",
+               "Effect": "Allow",
+               "Action": [
+                   "sns:*"
+               ],
+               "Resource": [
+                   "arn:aws:sns:us-east-1:123456789012:*"
+               ]
+           }
+       ]
+   }
+   ```
+
+------
+
+1. When you are finished, choose **Review policy**. The Policy Validator reports any syntax errors.
+
+1. On the **Review** page, give your policy a name. Review the policy **Summary** to see the permissions granted by your policy, and then choose **Create policy** to save your work. 
+
+   The new policy appears in the list of managed policies and is ready to attach to your users and groups. For more information, see [Create and Attach Customer Managed Policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_managed-policies.html#step2-attach-policy) in the *AWS Identity and Access Management User Guide*.
 
 ## Creating a budget
+<a name="budgets-create"></a>
 
-In the AWS Service Catalog administrator console,
-the **Product list** and **Portfolios** pages list information
-about existing products and portfolios
-and allow you
-to take actions
-on them.
-To create a budget,
-first decide
-which product or portfolio
-that you want
-to associate the budget
-to.
+ In the AWS Service Catalog administrator console, the **Product list** and **Portfolios** pages list information about existing products and portfolios and allow you to take actions on them. To create a budget, first decide which product or portfolio that you want to associate the budget to. 
 
-###### To create a budget
+**To create a budget**
 
-1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
-2. Choose **Product list** or **Portfolios**.
-3. Select the product or portfolio
-   that you want
-   to add a budget to.
-4. Open the **Actions** menu,
-   and then choose **Create budget**.
-5. On the **Budget creation** page,
-   associate one tag type
-   to your budget.
+1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/).
 
-There are two types
-of tags:
-AutoTags and TagOptions.
-AutoTags identify the portfolio, product, and user
-that launched a product.
-AWS Service Catalog applies these tags automatically
-to provisioned resources.
-A TagOption is an administrator-defined key-value pair
-that's managed
-in AWS Service Catalog.
+1.  Choose **Product list** or **Portfolios**. 
 
-In order for spending that occurs on a portfolio or product to reflect on the associated budget, they must have the same tag. Note that a tag key being used for the first time can take 24 hours to activate. For more information, see [Prerequisites](#budgets-setup "#budgets-setup"). 6. Choose **Create in AWS Budgets**.
-You're directed
-to the **Set your budget** page.
-Continue setting up your budget
-by following the steps
-in [Creating a Budget](../../../awsaccountbilling/latest/aboutv2/budgets-create.md "../../../awsaccountbilling/latest/aboutv2/budgets-create.md").
+1.  Select the product or portfolio that you want to add a budget to. 
 
-###### Note
+1.  Open the **Actions** menu, and then choose **Create budget**. 
 
-After you create a budget,
-you must associate it
-to the product or portfolio.
+1.  On the **Budget creation** page, associate one tag type to your budget. 
+
+    There are two types of tags: AutoTags and TagOptions. AutoTags identify the portfolio, product, and user that launched a product. AWS Service Catalog applies these tags automatically to provisioned resources. A TagOption is an administrator-defined key-value pair that's managed in AWS Service Catalog. 
+
+    In order for spending that occurs on a portfolio or product to reflect on the associated budget, they must have the same tag. Note that a tag key being used for the first time can take 24 hours to activate. For more information, see [Prerequisites](#budgets-setup).
+
+1.  Choose **Create in AWS Budgets**. You're directed to the **Set your budget** page. Continue setting up your budget by following the steps in [Creating a Budget](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-create.html). 
+
+**Note**  
+ After you create a budget, you must associate it to the product or portfolio. 
 
 ## Associating a Budget
+<a name="budgets-associate"></a>
 
-Each portfolio or product can have one budget associated
-to it.
-Each budget can be associated
-to multiple portfolios and products.
+ Each portfolio or product can have one budget associated to it. Each budget can be associated to multiple portfolios and products. 
 
-When you associate a budget
-to a portfolio or product,
-you're able
-to view information
-about the budget
-from that portfolio or product's details page.
-In order
-for spending
-that occurs
-on the portfolio or product
-to be reflected
-on the budget,
-you must associate the same tags
-on the budget and portfolio or product.
+ When you associate a budget to a portfolio or product, you're able to view information about the budget from that portfolio or product's details page. In order for spending that occurs on the portfolio or product to be reflected on the budget, you must associate the same tags on the budget and portfolio or product. 
 
-###### Note
+**Note**  
+ If you delete a budget from AWS Budgets, existing associations with AWS Service Catalog products and portfolios still exist. AWS Service Catalog won't be able to display any information about the deleted budget. 
 
-If you delete a budget
-from AWS Budgets,
-existing associations
-with AWS Service Catalog products and portfolios still exist.
-AWS Service Catalog won't be able
-to display any information
-about the deleted budget.
+**To associate a budget**
 
-###### To associate a budget
+1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/).
 
-1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
-2. Choose **Product list** or **Portfolios**.
-3. Select the product or portfolio
-   that you want
-   to associate a budget
-   to.
-4. Open the **Actions** menu,
-   and then choose **Associate budget**.
-5. On the **Budget association** page,
-   select an existing budget,
-   and then choose **Continue**.
-6. The **products** or **portfolios** table now includes data
-   for the budget you just added.
+1.  Choose **Product list** or **Portfolios**. 
+
+1.  Select the product or portfolio that you want to associate a budget to. 
+
+1.  Open the **Actions** menu, and then choose **Associate budget**. 
+
+1.  On the **Budget association** page, select an existing budget, and then choose **Continue**. 
+
+1.  The **products** or **portfolios** table now includes data for the budget you just added. 
 
 ## Viewing a Budget
+<a name="budgets-view"></a>
 
-If a budget is associated
-to a product,
-you can view information
-about the budget
-on the **Product details** and **Product list** pages.
-If a budget is associated
-to a portfolio,
-you can view information
-about the budget
-on the **Portfolios** and **Portfolio details** pages.
+ If a budget is associated to a product, you can view information about the budget on the **Product details** and **Product list** pages. If a budget is associated to a portfolio, you can view information about the budget on the **Portfolios** and **Portfolio details** pages. 
 
-The **Portfolios** and **Product list** pages display budget information
-for existing resources.
-You can see columns displaying **Current vs. budget** and **Forecast vs. budget**.
+ The **Portfolios** and **Product list** pages display budget information for existing resources. You can see columns displaying **Current vs. budget** and **Forecast vs. budget**. 
 
-When you choose
-on a product or portfolio,
-you're directed
-to a details page.
-The **Portfolio details** and **Product details** pages have sections
-with detailed information
-about the associated budgets.
-You can see the budgeted amount, current spend, and forecasted spend.
-You also have the option
-to view budget details and edit the budget.
+ When you choose on a product or portfolio, you're directed to a details page. The **Portfolio details** and **Product details** pages have sections with detailed information about the associated budgets. You can see the budgeted amount, current spend, and forecasted spend. You also have the option to view budget details and edit the budget. 
 
 ## Disassociating a Budget
+<a name="budgets-disassociate"></a>
 
-You can disassociate a budget
-from a portfolio or product.
+ You can disassociate a budget from a portfolio or product. 
 
-###### Note
+**Note**  
+ If you delete a budget from AWS Budgets, existing associations with AWS Service Catalog products and portfolios still exist. AWS Service Catalog won't be able to display any information about the deleted budget. 
 
-If you delete a budget
-from AWS Budgets,
-existing associations
-with AWS Service Catalog products and portfolios still exist.
-AWS Service Catalog won't be able
-to display any information
-about the deleted budget.
+**To disassociate a budget**
 
-###### To disassociate a budget
+1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/).
 
-1. Open the Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
-2. Choose **Product list** or **Portfolios**.
-3. Select the product or portfolio
-   that you want
-   to disassociate a budget
-   from.
-4. Choose **Actions**.
-   From the dropdown,
-   choose **Disassociate budget**.
-   A confirmation alert appears.
-5. After you confirm
-   that you want to
-   dissacciate the budget
-   from the product or portfolio,
-   choose **Confirm**.
+1.  Choose **Product list** or **Portfolios**. 
+
+1.  Select the product or portfolio that you want to disassociate a budget from. 
+
+1.  Choose **Actions**. From the dropdown, choose **Disassociate budget**. A confirmation alert appears. 
+
+1.  After you confirm that you want to dissacciate the budget from the product or portfolio, choose **Confirm**. 

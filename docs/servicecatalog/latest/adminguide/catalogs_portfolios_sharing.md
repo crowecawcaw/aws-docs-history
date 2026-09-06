@@ -1,98 +1,55 @@
+
+
 # Sharing and Importing Portfolios
+<a name="catalogs_portfolios_sharing"></a>
 
-To make your AWS Service Catalog products available to users who are not in your AWS accounts, such as users
-who belong to other organizations or to other AWS accounts in your organization, you share your
-portfolios with them. You can share in several ways, including account-to-account sharing,
-organizational sharing, and deploying catalogs using stack sets.
+To make your AWS Service Catalog products available to users who are not in your AWS accounts, such as users who belong to other organizations or to other AWS accounts in your organization, you share your portfolios with them. You can share in several ways, including account-to-account sharing, organizational sharing, and deploying catalogs using stack sets.
 
-Before you share your products and portfolios to other accounts, you must decide whether
-you want to share a reference of the catalog or to deploy a copy of the catalog into each
-recipient account. Note that if you deploy a copy, you must redeploy if there are updates you
-want to propagate to the recipient accounts.
+ Before you share your products and portfolios to other accounts, you must decide whether you want to share a reference of the catalog or to deploy a copy of the catalog into each recipient account. Note that if you deploy a copy, you must redeploy if there are updates you want to propagate to the recipient accounts. 
 
-You can use stack sets to deploy your catalog to many accounts at the same time. If you want
-to share a reference (an imported version of your portfolio that stays in sync with the
-original), you can use account-to-account sharing or you can share using AWS Organizations.
+You can use stack sets to deploy your catalog to many accounts at the same time. If you want to share a reference (an imported version of your portfolio that stays in sync with the original), you can use account-to-account sharing or you can share using AWS Organizations. 
 
-To use stack sets to deploy a copy of your catalog, see
-[How to set up a multi-region, multi-account catalog of company standard AWS Service Catalog products](https://aws.amazon.com/blogs/mt/how-to-set-up-a-multi-region-multi-account-catalog-of-company-standard-aws-service-catalog-products/ "https://aws.amazon.com/blogs/mt/how-to-set-up-a-multi-region-multi-account-catalog-of-company-standard-aws-service-catalog-products/").
+To use stack sets to deploy a copy of your catalog, see [How to set up a multi-region, multi-account catalog of company standard AWS Service Catalog products](https://aws.amazon.com/blogs/mt/how-to-set-up-a-multi-region-multi-account-catalog-of-company-standard-aws-service-catalog-products/).
 
-When you share a portfolio using account-to-account sharing or AWS Organizations, you allow a AWS Service Catalog
-administrator of another AWS account to import your portfolio into their account and
-distribute the products to end users in that account.
+When you share a portfolio using account-to-account sharing or AWS Organizations, you allow a AWS Service Catalog administrator of another AWS account to import your portfolio into their account and distribute the products to end users in that account. 
 
-This _imported portfolio_ isn't an independent copy. The products and
-constraints in the imported portfolio stay in sync with changes that you make to the
-_shared portfolio_, the original portfolio that you shared. The
-_recipient administrator_, the administrator with whom you share a
-portfolio, cannot change the products or constraints, but can add AWS Identity and Access Management (IAM) access for
-end users. For more information, see [Granting Access to Users](catalogs_portfolios_users.md "catalogs_portfolios_users.md").
+This *imported portfolio* isn't an independent copy. The products and constraints in the imported portfolio stay in sync with changes that you make to the *shared portfolio*, the original portfolio that you shared. The *recipient administrator*, the administrator with whom you share a portfolio, cannot change the products or constraints, but can add AWS Identity and Access Management (IAM) access for end users. For more information, see [Granting Access to Users](catalogs_portfolios_users.md).
 
 The recipient administrator can distribute the products to end users who belong to their AWS account in the following ways:
++ By adding users, groups, and roles to the imported portfolio.
++ By adding products from the imported portfolio to a **local portfolio**, a separate portfolio that the recipient administrator creates and that belongs to their AWS account. The recipient administrator then adds users, groups, and roles to that local portfolio. Any constraints originally applied to products in the shared portfolio are also present in the local portfolio. The local portfolio recipient administrator can add additional constraints, but cannot remove the constraints that were originally imported from the shared portfolio.
 
-- By adding users, groups, and roles to the imported portfolio.
-- By adding products from the imported portfolio to a **local
-  portfolio**, a separate portfolio that the recipient administrator creates and that
-  belongs to their AWS account. The recipient administrator then adds users,
-  groups, and roles to that local portfolio. Any constraints originally applied to products
-  in the shared portfolio are also present in the local portfolio. The local portfolio
-  recipient administrator can add additional constraints, but cannot remove the constraints
-  that were originally imported from the shared portfolio.
-  When you add products or constraints to the shared portfolio or remove products or
-  constraints from it, the change propagates to all imported instances of the portfolio. For
-  example, if you remove a product from the shared portfolio, that product is also removed from
-  the imported portfolio. It is also removed from all local portfolios that the imported product
-  was added to. If an end user launched a product before you removed it, the end user's
-  provisioned product continues to run, but the product becomes unavailable for future
-  launches.
+When you add products or constraints to the shared portfolio or remove products or constraints from it, the change propagates to all imported instances of the portfolio. For example, if you remove a product from the shared portfolio, that product is also removed from the imported portfolio. It is also removed from all local portfolios that the imported product was added to. If an end user launched a product before you removed it, the end user's provisioned product continues to run, but the product becomes unavailable for future launches.
 
-If you apply a launch constraint to a product in a shared portfolio, it propagates to all
-imported instances of the product. To override this launch constraint, the recipient
-administrator adds the product to a local portfolio and then applies a different launch
-constraint to it. The launch constraint that is in effect sets a launch role for the product.
+If you apply a launch constraint to a product in a shared portfolio, it propagates to all imported instances of the product. To override this launch constraint, the recipient administrator adds the product to a local portfolio and then applies a different launch constraint to it. The launch constraint that is in effect sets a launch role for the product. 
 
-A _launch role_ is an IAM role that AWS Service Catalog uses to provision AWS
-resources (such as Amazon EC2 instances or Amazon RDS databases) when an end user launches the product. As an
-administrator, you can choose to designate a specific launch role ARN or a local role name. If
-you use the role ARN, the role will be used even if the end user belongs to a different AWS
-account than the one that owns the launch role. If you use a local role name, the IAM role with
-that name in the end user's account is used.
+A *launch role* is an IAM role that AWS Service Catalog uses to provision AWS resources (such as Amazon EC2 instances or Amazon RDS databases) when an end user launches the product. As an administrator, you can choose to designate a specific launch role ARN or a local role name. If you use the role ARN, the role will be used even if the end user belongs to a different AWS account than the one that owns the launch role. If you use a local role name, the IAM role with that name in the end user's account is used.
 
-For more information about launch constraints and launch roles, see [AWS Service Catalog Launch Constraints](constraints-launch.md "constraints-launch.md"). The AWS account that owns
-the launch role provisions the AWS resources, and this account incurs the usage charges for
-those resources. For more information, see [AWS Service Catalog Pricing](https://aws.amazon.com/servicecatalog/pricing/ "https://aws.amazon.com/servicecatalog/pricing/").
+For more information about launch constraints and launch roles, see [AWS Service Catalog Launch Constraints](constraints-launch.md). The AWS account that owns the launch role provisions the AWS resources, and this account incurs the usage charges for those resources. For more information, see [AWS Service Catalog Pricing](https://aws.amazon.com/servicecatalog/pricing/).
 
 This video shows you how to share portfolios across accounts in AWS Service Catalog.
 
-###### Note
+[![AWS Videos](http://img.youtube.com/vi/BVSohYOppjk/0.jpg)](http://www.youtube.com/watch?v=BVSohYOppjk)
 
-You cannot re-share products from a portfolio that has been imported or shared.
 
-###### Note
+**Note**  
+You cannot re-share products from a portfolio that has been imported or shared. 
 
-Portfolio imports must occur in the same region between the management and dependent
-accounts.
+**Note**  
+Portfolio imports must occur in the same region between the management and dependent accounts. 
 
-###### Note
-
-AWS Service Catalog processes portfolio share operations one at a time for each management account.
-Before you invoke `CreatePortfolioShare`, `UpdatePortfolioShare`, or
-`DeletePortfolioShare`, make sure that no other share operation is in progress in
-that account. Otherwise, the operation returns `InvalidStateException`. This limit
-applies to all portfolios in the account, not just the portfolio that you are modifying. To
-check the status of a share operation, use `DescribePortfolioShareStatus`. For more
-information, see [CreatePortfolioShare](../dg/API_CreatePortfolioShare.md "../dg/API_CreatePortfolioShare.md") in
-the _AWS Service Catalog API Reference_.
+**Note**  
+AWS Service Catalog processes portfolio share operations one at a time for each management account. Before you invoke `CreatePortfolioShare`, `UpdatePortfolioShare`, or `DeletePortfolioShare`, make sure that no other share operation is in progress in that account. Otherwise, the operation returns `InvalidStateException`. This limit applies to all portfolios in the account, not just the portfolio that you are modifying. To check the status of a share operation, use `DescribePortfolioShareStatus`. For more information, see [CreatePortfolioShare](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreatePortfolioShare.html) in the *AWS Service Catalog API Reference*. 
 
 ## Relationship Between Shared and Imported Portfolios
+<a name="shared-imported-portfolios-relationship"></a>
 
-This table summarizes the relationship between an imported portfolio and a shared
-portfolio, and the actions that an administrator who imports a portfolio can and can't take
-with that portfolio and the products in it.
+This table summarizes the relationship between an imported portfolio and a shared portfolio, and the actions that an administrator who imports a portfolio can and can't take with that portfolio and the products in it.
 
-| Element of Shared Portfolio   | Relationship to Imported Portfolio                                                                                                                                                                                                                                                                                                                                        | Recipient Administrator Can                                                                                                | Recipient Administrator Cannot                                                                      |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| Products and product versions | Inherited.<br>If the portfolio creator adds products to or removes products from the shared<br>portfolio, the change propagates to the imported portfolio.                                                                                                                                                                                                                | Add imported products to local portfolios. Products stay in sync with shared<br>portfolio.                                 | Upload or add products to the imported portfolio or remove products from the<br>imported portfolio. |
-| Launch constraints            | Inherited.<br>If the portfolio creator adds launch constraints to or removes launch<br>constraints from a _shared product_, the change propagates to all imported<br>instances of the product.<br>If the recipient administrator adds an imported product to their *local<br>• portfolio,<br>that imported launch constraint is not carried over to the shared portfolio. | In a local portfolio, the administrator can apply launch constraints that affect<br>the *local<br>• launch of the product. | Add launch constraints to or remove launch constraints from the imported<br>portfolio.              |
-| Template constraints          | Inherited.<br>If the portfolio creator adds a template constraint to or removes a template<br>constraints from a shared product, the change propagates to all imported instances<br>of the product.<br>If the recipient administrator adds an imported product to a local portfolio,<br>the imported template constraints are not carried over to the local<br>portfolio. | In a local portfolio, the administrator can add template constraints that<br>constrain the local product.                  | Remove the imported template constraints.                                                           |
-| Users, groups, and roles      | Not inherited.                                                                                                                                                                                                                                                                                                                                                            | Add users, groups, and roles that are in administrator's AWS<br>account.                                                   | Not applicable.                                                                                     |
+
+| Element of Shared Portfolio | Relationship to Imported Portfolio | Recipient Administrator Can | Recipient Administrator Cannot | 
+| --- | --- | --- | --- | 
+| Products and product versions | Inherited.<br />If the portfolio creator adds products to or removes products from the shared portfolio, the change propagates to the imported portfolio. | Add imported products to local portfolios. Products stay in sync with shared portfolio. | Upload or add products to the imported portfolio or remove products from the imported portfolio. | 
+| Launch constraints | Inherited.<br />If the portfolio creator adds launch constraints to or removes launch constraints from a *shared product*, the change propagates to all imported instances of the product.<br />If the recipient administrator adds an imported product to their *local* portfolio, that imported launch constraint is not carried over to the shared portfolio. | In a local portfolio, the administrator can apply launch constraints that affect the local launch of the product. | Add launch constraints to or remove launch constraints from the imported portfolio. | 
+| Template constraints | Inherited.<br />If the portfolio creator adds a template constraint to or removes a template constraints from a shared product, the change propagates to all imported instances of the product.<br />If the recipient administrator adds an imported product to a local portfolio, the imported template constraints are not carried over to the local portfolio. | In a local portfolio, the administrator can add template constraints that constrain the local product. | Remove the imported template constraints. | 
+| Users, groups, and roles | Not inherited. | Add users, groups, and roles that are in administrator's AWS account. | Not applicable. | 

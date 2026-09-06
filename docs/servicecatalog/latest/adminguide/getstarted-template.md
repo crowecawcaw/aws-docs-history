@@ -1,42 +1,20 @@
+
+
 # Step 1: Download the CloudFormation template
+<a name="getstarted-template"></a>
 
-You can use CloudFormation templates
-to configure and provision portfolios and products.
-These templates are text files
-that can be formatted
-in JSON or YAML
-and describe the resources
-that you want
-to provision.
-For more information,
-see [Template Formats](../../../AWSCloudFormation/latest/UserGuide/template-formats.md "../../../AWSCloudFormation/latest/UserGuide/template-formats.md")
-in the _CloudFormation User Guide_.
-You can use the AWS CloudFormation editor or a text editor
-of your choice
-to create and save templates.
-In this tutorial,
-we provide a simple template,
-so you can get started.
-The template launches a single Linux instance
-that's configured
-for SSH access.
+ You can use CloudFormation templates to configure and provision portfolios and products. These templates are text files that can be formatted in JSON or YAML and describe the resources that you want to provision. For more information, see [Template Formats](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-formats.html) in the *CloudFormation User Guide*. You can use the AWS CloudFormation editor or a text editor of your choice to create and save templates. In this tutorial, we provide a simple template, so you can get started. The template launches a single Linux instance that's configured for SSH access. 
 
-###### Note
-
-Using CloudFormation templates requires special permissions.
-Before you begin,
-make sure
-that you have the correct permissions.
-For more information,
-see the prerequisites
-in [Getting Started Library](getstarted-library.md "getstarted-library.md").
+**Note**  
+ Using CloudFormation templates requires special permissions. Before you begin, make sure that you have the correct permissions. For more information, see the prerequisites in [Getting Started Library](getstarted-library.md). 
 
 ## Template Download
+<a name="template-download"></a>
 
-The sample template provided for this tutorial, `development-environment.template`,
-is available at [https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template](https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template "https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template").
+The sample template provided for this tutorial, `development-environment.template`, is available at [https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template](https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template).
 
 ## Template Overview
+<a name="template-overview"></a>
 
 The text of the sample template follows:
 
@@ -44,11 +22,11 @@ The text of the sample template follows:
 {
   "AWSTemplateFormatVersion" : "2010-09-09",
 
-  "Description" : "AWS Service Catalog sample template. Creates an Amazon EC2 instance
-                    running the Amazon Linux AMI. The AMI is chosen based on the region
-                    in which the stack is run. This example creates an EC2 security
-                    group for the instance to give you SSH access. **WARNING** This
-                    template creates an Amazon EC2 instance. You will be billed for the
+  "Description" : "AWS Service Catalog sample template. Creates an Amazon EC2 instance 
+                    running the Amazon Linux AMI. The AMI is chosen based on the region 
+                    in which the stack is run. This example creates an EC2 security 
+                    group for the instance to give you SSH access. **WARNING** This 
+                    template creates an Amazon EC2 instance. You will be billed for the 
                     AWS resources used if you create a stack from this template.",
 
   "Parameters" : {
@@ -61,7 +39,7 @@ The text of the sample template follows:
       "Description" : "EC2 instance type.",
       "Type" : "String",
       "Default" : "t2.micro",
-      "AllowedValues" : [ "t2.micro", "t2.small", "t2.medium", "m3.medium", "m3.large",
+      "AllowedValues" : [ "t2.micro", "t2.small", "t2.medium", "m3.medium", "m3.large", 
         "m3.xlarge", "m3.2xlarge" ]
     },
 
@@ -147,58 +125,21 @@ The text of the sample template follows:
 }
 ```
 
-###### Template Resources
+**Template Resources**
 
-The template declares resources to be created when the product is launched. It consists of
-the following sections:
+The template declares resources to be created when the product is launched. It consists of the following sections:
++ **AWSTemplateFormatVersion** (optional) – The version of the [AWS Template Format](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html) used to create this template. The latest template format version is 2010-09-09 and is currently the only valid value.
++ **Description** (optional) – A description of the template.
++ **Parameters** (optional) – The parameters that your user must specify to launch the product. For each parameter, the template includes a description and constraints that must be met by the value typed. For more information about constraints, see [Using AWS Service Catalog Constraints](constraints.md).
 
-- **AWSTemplateFormatVersion** (optional)
-  – The version of the [AWS
-  Template Format](../../../AWSCloudFormation/latest/UserGuide/format-version-structure.md "../../../AWSCloudFormation/latest/UserGuide/format-version-structure.md") used to create this template. The latest template format version
-  is 2010-09-09 and is currently the only valid value.
-- **Description** (optional) – A description of the
-  template.
-- **Parameters** (optional) – The
-  parameters that your user must specify to launch the product. For each parameter, the
-  template includes a description and constraints that must be met by the value typed. For
-  more information about constraints, see [Using AWS Service Catalog Constraints](constraints.md "constraints.md").
+  The `KeyName` parameter allows you to specify an Amazon Elastic Compute Cloud (Amazon EC2) key pair name that end users must provide when they use AWS Service Catalog to launch your product. You will create the key pair in the next step.
++ **Metadata** (optional) – Objects that provide additional information about the template. The [AWS::CloudFormation::Interface](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html) key defines how the end user console view displays parameters. The `ParameterGroups` property defines how parameters are grouped and headings for those groups. The `ParameterLabels` property defines friendly parameter names. When a user is specifying parameters to launch a product that is based on this template, the end user console view displays the parameter labeled `Server size:` under the heading `Instance configuration`, and it displays the parameters labeled `Key pair:` and `CIDR range:` under the heading `Security configuration`.
++ **Mappings** (optional) – A mapping of keys and associated values that you can use to specify conditional parameter values, similar to a lookup table. You can match a key to a corresponding value by using the [Fn::FindInMap](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.html) intrinsic function in the Resources and Outputs sections. The template above includes a list of AWS Regions and the Amazon Machine Image (AMI) that corresponds to each. AWS Service Catalog uses this mapping to determine which AMI to use based on the AWS Region that the user selects in the AWS Management Console.
++ **Resources** (required) – Stack resources and their properties. You can refer to resources in the **Resources **and **Outputs** sections of the template. In the template above, we specify an EC2 instance running Amazon Linux and a security group that allows SSH access to the instance. The **Properties** section of the EC2 instance resource uses the information that the user types to configure the instance type and a key name for SSH access.
 
-The `KeyName` parameter allows you to specify an Amazon Elastic Compute Cloud (Amazon EC2) key pair
-name that end users must provide when they use AWS Service Catalog to launch your product. You will create
-the key pair in the next step.
+  CloudFormation uses the current AWS Region to select the AMI ID from the mappings defined earlier and assigns a security group to it. The security group is configured to allow inbound access on port 22 from the CIDR IP address range that the user specifies.
++ **Outputs** (optional) – Text that tells the user when the product launch is complete. The provided template gets the public DNS name of the launched instance and displays it to the user. The user needs the DNS name to connect to the instance using SSH.
 
-- **Metadata** (optional) – Objects that provide
-  additional information about the template. The [AWS::CloudFormation::Interface](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.md") key defines how the end user console view
-  displays parameters. The `ParameterGroups` property defines how parameters are
-  grouped and headings for those groups. The `ParameterLabels` property defines
-  friendly parameter names. When a user is specifying parameters to launch a product that is
-  based on this template, the end user console view displays the parameter labeled
-  `Server size:` under the heading `Instance configuration`, and it
-  displays the parameters labeled `Key pair:` and `CIDR range:` under
-  the heading `Security configuration`.
-- **Mappings** (optional) – A
-  mapping of keys and associated values that you can use to specify conditional parameter
-  values, similar to a lookup table. You can match a key to a corresponding value by using
-  the [Fn::FindInMap](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-findinmap.md") intrinsic function in the Resources and Outputs sections. The
-  template above includes a list of AWS Regions and the Amazon Machine Image (AMI) that
-  corresponds to each. AWS Service Catalog uses this mapping to determine which AMI to use based on the
-  AWS Region that the user selects in the AWS Management Console.
-- **Resources** (required) – Stack resources and
-  their properties. You can refer to resources in the **Resources** and **Outputs** sections of the template. In the
-  template above, we specify an EC2 instance running Amazon Linux and a security group that
-  allows SSH access to the instance. The **Properties** section
-  of the EC2 instance resource uses the information that the user types to configure the
-  instance type and a key name for SSH access.
+  
 
-CloudFormation uses the current AWS Region to select the AMI ID from the
-mappings defined earlier and assigns a security group to it. The security group is
-configured to allow inbound access on port 22 from the CIDR IP address range that the user
-specifies.
-
-- **Outputs** (optional) – Text that tells the user
-  when the product launch is complete. The provided template gets the public DNS name of the
-  launched instance and displays it to the user. The user needs the DNS name to connect to
-  the instance using SSH.
-
-For more information about the Template anatomy page, see [Template reference](../../../AWSCloudFormation/latest/UserGuide/template-reference.md "../../../AWSCloudFormation/latest/UserGuide/template-reference.md") in the _CloudFormation User
-Guide_.
+  For more information about the Template anatomy page, see [Template reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html) in the *CloudFormation User Guide*.
