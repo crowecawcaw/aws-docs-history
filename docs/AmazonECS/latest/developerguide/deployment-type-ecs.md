@@ -56,6 +56,10 @@ Use the following guidelines to help determine which method to use:
   application metrics.
   Both methods support rolling back to the previous service revision.
 
+You can configure early success criteria to have Amazon ECS complete a rolling deployment when a
+percentage of tasks that you define are healthy on the target service revision. For more
+information, see [Complete Amazon ECS rolling deployments early with early success criteria](early-success-criteria.md "early-success-criteria.md").
+
 ## Container image resolution
 
 By default, Amazon ECS resolves container image tags specified in the task

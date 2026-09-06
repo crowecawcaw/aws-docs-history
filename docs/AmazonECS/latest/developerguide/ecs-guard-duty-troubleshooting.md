@@ -126,8 +126,7 @@ The following is a snippet of an example policy.
       "Resource": "*",
       "Condition": {
          "StringEquals": {
-             "ecs:CreateAction" : "CreateCluster",
-             "ecs:CreateAction" : "UpdateCluster",
+             "ecs:CreateAction" : [ "CreateCluster", "UpdateCluster" ]
           }
        }
     }

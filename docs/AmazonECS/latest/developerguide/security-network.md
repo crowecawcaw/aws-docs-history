@@ -120,7 +120,7 @@ actions against only your Amazon ECR repositories:
       "Action": "*",
       "Effect": "Allow",
       "Resource": "arn:aws:ecr:`region`:`account_id`:repository/*"
-    },
+    }
   ]
 }
 

@@ -146,6 +146,20 @@ An email is sent to the registered email for the AWS account ID.
 
 For information about how to prepare for task retirement, see [Prepare for AWS Fargate task retirement on Amazon ECS](prepare-task-retirement.md "prepare-task-retirement.md").
 
+## Affected resource status in a task retirement notice
+
+Each affected resource listed in a task retirement notice has a status that reflects
+whether that task is still waiting to be retired. While a task's retirement is pending,
+its status is _Impaired_. This indicates that the task is still
+running on the platform version revision that is scheduled for retirement.
+
+After a task stops running, the status changes to
+_Resolved_ automatically, typically within 24 hours. This applies
+whether AWS retired the task as part of task maintenance, or you stopped or replaced
+the task yourself before the scheduled retirement. After all of the affected resources
+in a notice are _Resolved_, AWS closes the retirement
+notice.
+
 ## Can I opt-out of task retirement?
 
 No. As part of the AWS shared responsibility model, AWS is responsible for managing

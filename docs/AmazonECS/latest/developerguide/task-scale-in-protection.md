@@ -83,6 +83,11 @@ Consider the following points before using task scale-in protection:
   the `expiresInMinutes` property accordingly. If you set the
   protection expiration longer than necessary, then you will incur costs and face
   delays in the deployment of new tasks.
+- With `DEFERRED` source service revision cleanup, Amazon ECS cleans up
+  the tasks on the source service revision after the deployment completes, and
+  tries for up to two weeks. Amazon ECS can't stop tasks that have scale-in
+  protection. If tasks remain protected for more than two weeks after the
+  deployment, Amazon ECS can't clean them up. For more information, see [Complete Amazon ECS rolling deployments early with early success criteria](early-success-criteria.md "early-success-criteria.md").
 - Task scale-in protection is supported on Amazon ECS container agent
   `1.65.0` or later. You can add support for this feature on Amazon EC2 instances
   using older versions of the Amazon ECS container agent by updating the agent to

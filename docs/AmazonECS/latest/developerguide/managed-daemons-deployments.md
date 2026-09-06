@@ -28,6 +28,11 @@ Amazon ECS automatically rolls back to the previous daemon revision if the deplo
 circuit breaker detects failures or if a CloudWatch alarm triggers during the
 deployment.
 
+During a deployment, a non-critical daemon task failure doesn't drain or replace the
+instance, so the instance stays active and continues to run your application tasks.
+Daemon task launch failures still count toward the deployment circuit breaker, which
+can roll back an unstable target revision.
+
 ## Deployment configuration parameters
 
 You can customize deployment behavior by using the

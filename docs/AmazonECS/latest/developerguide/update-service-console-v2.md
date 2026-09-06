@@ -88,7 +88,23 @@ options.
     	5. (Optional) For **Hook details**, enter a key value pair that provides
     	 information about the hook.
 
-11. To configure how Amazon ECS detects and handles deployment failures, expand
+11. Under **Deployment configuration**, to complete
+the deployment before the target service revision reaches the full
+desired count, configure early success criteria. You can also choose
+when Amazon ECS cleans up the tasks on the source service revision.
+
+    1. Turn on **Early success
+     criteria**.
+    2. For **Healthy percent**, enter the
+     percentage of tasks that must be running and healthy on the
+     target service revision before Amazon ECS completes the
+     deployment.
+    3. For **Source service revision
+     cleanup**, choose
+     **Blocking** or
+     **Deferred**.
+
+12. To configure how Amazon ECS detects and handles deployment failures, expand
 **Deployment failure detection**, and then choose
 your options.
 
@@ -110,7 +126,7 @@ your options.
      deployment to a failed state, select **Rollback on
      failures**.
 
-12. To change the compute options, expand **Compute
+13. To change the compute options, expand **Compute
 configuration**, and then do the following:
 
     1. For services on AWS Fargate, for **Platform
@@ -134,7 +150,7 @@ configuration**, and then do the following:
      that's using a Fargate capacity provider can't be updated
      to use an Auto Scaling group capacity provider.
 
-13. (Optional) To configure service Auto Scaling, expand **Service auto
+14. (Optional) To configure service Auto Scaling, expand **Service auto
 scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
 
     1. To use service auto scaling, select **Service auto
@@ -154,7 +170,7 @@ scaling**, and then specify the following parameters.To use predicte auto scalin
     | Target tracking | 1. For **Scaling policy<br>type**, choose **Target<br>tracking**.<br>2. For **Policy name**, enter<br>the name of the policy.<br>3. For **ECS service metric**,<br>select one of the following metrics.<br>• **ECSServiceAverageCPUUtilization** –<br>Average CPU utilization of the service.<br>• **ECSServiceAverageMemoryUtilization** –<br>Average memory utilization of the service.<br>• **ALBRequestCountPerTarget**<br>– Number of requests completed per target<br>in an Application Load Balancer target group.<br>4. For **Target value**, enter<br>the value the service maintains for the selected<br>metric.<br>5. For **Scale-out cooldown<br>period**, enter the amount of time, in seconds, after a scale-out activity (add tasks) that must pass before another scale-out activity can start.<br>6. For **Scale-in cooldown<br>period**, enter the amount of time, in seconds, after a scale-in activity (remove tasks) that must pass before another scale-in activity can start.<br>7. To prevent the policy from performing a<br>scale-in activity, select **Turn off<br>scale-in**.<br>8. • (Optional) Select **Turn off scale-in*<br>• if you want your scaling policy to scale out for increased traffic but don’t need it to scale in when traffic decreases. |
     | Step scaling | 1. For **Scaling policy<br>type**, choose **Step<br>scaling**.<br>2. For **Policy name**, enter<br>the policy name.<br>3. For **Alarm name**, enter a<br>unique name for the alarm.<br>4. For **Amazon ECS service<br>metric**, choose the metric to use for<br>the alarm.<br>5. For **Statistic**, choose<br>the alarm statistic.<br>6. For **Period**, choose the<br>period for the alarm.<br>7. For **Alarm condition**,<br>choose how to compare the selected metric to the<br>defined threshold.<br>8. For **Threshold to compare<br>metrics*<br>• and **Evaluation period<br>to initiate alarm**, enter the threshold<br>used for the alarm and how long to evaluate the<br>threshold.<br>9. Under **Scaling actions**, do<br>the following:<br>• For **Action**,<br>select whether to add, remove, or set a<br>specific desired count for your service.<br>• If you chose to add or remove tasks,<br>for **Value**, enter the number<br>of tasks (or percent of existing tasks) to add or<br>remove when the scaling action is initiated. If<br>you chose to set the desired count, enter the<br>number of tasks. For **Type**,<br>select whether the **Value*<br>• is<br>an integer or a percent value of the existing<br>desired count.<br>• For **Lower bound** and<br>**Upper bound**, enter the lower<br>boundary and upper boundary of your step scaling<br>adjustment. By default, the lower bound for an add policy is the alarm threshold and the upper bound is positive (+) infinity. By default, the upper bound for a remove policy is the alarm threshold and the lower bound is negative (-) infinity.<br>• (Optional) Add additional scaling options.<br>Choose **Add new scaling<br>action**, and then repeat the<br>**Scaling actions*<br>• steps.<br>• For **Cooldown period**, enter the amount of time, in seconds, to wait for a previous scaling activity to take effect. For an add policy, this is the time after a scale-out activity that the scaling policy blocks scale-in activities and limits how many tasks can be scale out at a time. For a remove policy, this is the time after a scale-in activity that must pass before another scale-in activity can start. |
 
-14. (Optional) To use Service Connect, select **Turn on
+15. (Optional) To use Service Connect, select **Turn on
 Service Connect**, and then specify the
 following:
 
@@ -220,7 +236,7 @@ following:
 
     To disable access logs, for **Format**, choose **None**.
 
-15. If your task uses a data volume that's compatible with
+16. If your task uses a data volume that's compatible with
 configuration at deployment, you can configure the volume by
 expanding **Volume**.
 
@@ -234,7 +250,7 @@ revision.
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Amazon EBS                    | 1. For **EBS volume type**, choose<br>the type of EBS volume that you want<br>to attach to your task.<br>2. For **Size (GiB)**, enter a valid<br>value for the volume size in gibibytes (GiB). You<br>can specify a minimum of 1 GiB and a maximum of<br>16,384 GiB volume size. This value is required<br>unless you provide a snapshot ID.<br>3. For **IOPS**, enter the maximum<br>number of input/output operations (IOPS) that the<br>volume should provide. This value is configurable<br>only for `io1`,`io2`, and<br>`gp3` volume types.<br>4. For **Throughput (MiB/s)**, enter<br>the throughput that the volume should provide, in<br>mebibytes per second (MiBps, or MiB/s). This value<br>is configurable only for the `gp3` volume<br>type.<br>5. For **Snapshot ID**, choose an<br>existing Amazon EBS volume snapshot or enter the ARN of a<br>snapshot if you want to create a volume from a<br>snapshot. You can also create a new, empty volume by<br>not choosing or entering a snapshot<br>ID.<br>6. If you specify a **Snapshot ID**, you<br>can specify a **Volume initialization rate<br>(MiB/s)**. Enter a value between 100 and<br>300, in MiB/s, that will determine how fast data is<br>loaded from the snapshot specified using<br>*_Snapshot ID_<br>• for volume<br>creation.<br>7. For **File system type**, choose<br>the type of file system that will be used for data<br>storage and retrieval on the volume. You can choose<br>either the operating system default or a specific<br>file system type. The default for Linux is<br>`XFS`. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.<br>8. For **Infrastructure role**,<br>choose an IAM role with the necessary permissions<br>that allow Amazon ECS to manage Amazon EBS volumes for tasks.<br>You can attach the<br>`AmazonECSInfrastructureRolePolicyForVolumes`<br>managed policy to the role, or you can use the<br>policy as a guide to create and attach an your own<br>policy with permissions that meet your specific<br>needs. For more information about the necessary<br>permissions,<br>see<br>[Amazon ECS infrastructure IAM role](infrastructure_IAM_role.md "infrastructure_IAM_role.md").<br>9. For **Encryption**, choose<br>*_Default_<br>• if you want to use<br>the Amazon EBS encryption by default settings. If your<br>account has [Encryption by default](../../../ebs/latest/userguide/encryption-by-default.md "../../../ebs/latest/userguide/encryption-by-default.md") configured, the<br>volume will be encrypted with the AWS Key Management Service (AWS KMS)<br>key that's specified in the setting. If you choose<br>*_Default_<br>• and Amazon EBS default<br>encryption isn't turned on, the volume will be<br>unencrypted.<br>If you choose **Custom**, you can<br>specify an AWS KMS key of your choice for volume<br>encryption.<br>If you choose **None**, the<br>volume will be unencrypted unless you have<br>encryption by default configured,<br>or<br>if you create a volume from an encrypted<br>snapshot.<br>10. If you've chosen *_Custom_<br>• for<br>**Encryption**, you must specify<br>the AWS KMS key that you want to use. For<br>**KMS key**, choose an<br>AWS KMS key or enter a key ARN. If you choose to<br>encrypt your volume by using a symmetric customer managed key,<br>make sure that you have the right permissions<br>defined in your AWS KMS key policy. For more<br>information, see [Data encryption for Amazon EBS volumes](ebs-volumes.md#ebs-kms-encryption "ebs-volumes.md#ebs-kms-encryption").<br>11. (Optional) Under **Tags**, you can<br>add tags to your Amazon EBS volume by either propagating tags<br>from the task definition or service, or by providing your own<br>tags.<br>If you want to propagate tags from the task<br>definition, choose **Task definition**<br>for **Propagate tags from**. If you want to propagate tags from the service, choose **Service**<br>for **Propagate tags from**. If you<br>choose **Do not propagate**, or if you<br>don't choose a value, the tags aren't propagated.<br>If you want to provide your own tags, choose<br>*_Add tag_<br>• and then provide the<br>key and value for each tag you add.<br>For more information about tagging Amazon EBS volumes, see<br>[Tagging Amazon EBS volumes](specify-ebs-config.md#ebs-volume-tagging "specify-ebs-config.md#ebs-volume-tagging"). |
 
-16. (Optional) To help identify your service, expand the
+17. (Optional) To help identify your service, expand the
     **Tags** section, and then configure your
     tags.
 
@@ -249,7 +265,7 @@ revision.
     - [Remove a tag] Next to the tag, choose **Remove
       tag**.
 
-17. Choose **Update**.
+18. Choose **Update**.
 
 AWS CLI
 

@@ -31,6 +31,12 @@ You can view the most recent 90-day history for deployments created on or after 
 
 You can stop a deployment that has not completed. For more information, see [Stopping Amazon ECS service deployments](stop-service-deployment.md "stop-service-deployment.md").
 
+If a deployment uses early success criteria, `DescribeServiceDeployments`
+returns the configured early success criteria, and the running task counts that it reports
+are a snapshot from when the deployment completed rather than live counts. Deployments that
+complete early are included when you filter `ListServiceDeployments` by a status
+of `SUCCESSFUL`. For more information, see [Complete Amazon ECS rolling deployments early with early success criteria](early-success-criteria.md "early-success-criteria.md").
+
 ## Service deployment lifecycle
 
 Amazon ECS creates a new service deployment automatically when any of the following actions

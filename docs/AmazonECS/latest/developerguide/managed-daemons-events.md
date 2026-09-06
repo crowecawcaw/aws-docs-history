@@ -16,7 +16,8 @@ Amazon ECS supports the following daemon event types:
 
 Amazon ECS sends daemon service action events with the detail type `ECS Daemon
  Service Action`. These events notify you when Amazon ECS encounters issues
-starting daemon tasks on your container instances.
+starting daemon tasks on your container instances. Amazon ECS emits an EventBridge event
+when a daemon task fails to start, for both critical and non-critical daemons.
 
 ### DAEMON\_TASK\_START\_IMPAIRED
 

@@ -195,7 +195,20 @@ Under **Compute configuration**, choose your option.
    | Deployment type | Steps                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
    | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | Rolling update  | 1. For **Min running tasks**,<br>enter the lower limit on the number of tasks in<br>the service that must remain in the<br>`RUNNING` state during a deployment, as<br>a percentage of the desired number of tasks<br>(rounded up to the nearest integer). For more<br>information, see [Deployment configuration](service_definition_parameters.md#sd-deploymentconfiguration "service_definition_parameters.md#sd-deploymentconfiguration").<br>2. For **Max running tasks**,<br>enter the upper limit on the number of tasks in<br>the service that are allowed in the<br>`RUNNING` or `PENDING` state<br>during a deployment, as a percentage of the<br>desired number of tasks (rounded down to the<br>nearest integer). |
-   6. To configure how Amazon ECS detects and handles deployment failures, expand
+   6. Under **Deployment configuration**, to complete the
+      deployment before the target service revision reaches the full desired
+      count, configure early success criteria. You can also choose when Amazon ECS
+      cleans up the tasks on the source service revision.
+
+      1. Turn on **Early success criteria**.
+      2. For **Healthy percent**, enter the percentage
+         of tasks that must be running and healthy on the target service
+         revision before Amazon ECS completes the deployment.
+      3. For **Source service revision cleanup**,
+         choose **Blocking** or
+         **Deferred**.
+
+   7. To configure how Amazon ECS detects and handles deployment failures, expand
       **Deployment failure detection**, and then choose
       your options.
 

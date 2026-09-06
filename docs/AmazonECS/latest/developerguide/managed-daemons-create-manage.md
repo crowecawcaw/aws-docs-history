@@ -46,11 +46,13 @@ Before you create a daemon, verify that you have the following:
      the deployment if any alarm triggers. Default:
      `0`.
 
-8. (Optional) Add tags.
-9. (Optional) Turn on **Enable ECS Exec** to run
-   interactive commands in your daemon containers for
-   troubleshooting.
-10. Review your configuration and choose
+8. (Optional) For **Critical**, choose whether the daemon is
+   critical to instance health.
+9. (Optional) Add tags.
+10. (Optional) Turn on **Enable ECS Exec** to run
+    interactive commands in your daemon containers for
+    troubleshooting.
+11. Review your configuration and choose
     **Create**.
 
 ### AWS CLI
@@ -67,7 +69,8 @@ The following is an example JSON file:
     "daemonTaskDefinitionArn": "arn:aws:ecs:`us-east-1`:`123456789012`:daemon-task-definition/`my-daemon-task`:1",
     "capacityProviderArns": [
         "arn:aws:ecs:`us-east-1`:`123456789012`:capacity-provider/`my-daemon-capacity-provider`"
-    ]
+    ],
+    "critical": true
 }
 ```
 
@@ -91,6 +94,8 @@ aws ecs create-daemon --cli-input-json file://create-daemon.json
 - `deploymentConfiguration` - A
   `DaemonDeploymentConfiguration` object to customize
   deployment behavior.
+- `critical` - Whether the daemon is critical to instance
+  health.
 - `tags` - Key-value pairs for tagging.
 - `propagateTags` - Tag propagation setting.
 - `clientToken` - An idempotency token.
@@ -152,7 +157,8 @@ Run the `update-daemon` command:
 aws ecs update-daemon \
     --daemon-arn arn:aws:ecs:`us-east-1`:`123456789012`:daemon/`my-daemon-cluster`/`my-monitoring-daemon` \
     --daemon-task-definition-arn arn:aws:ecs:`us-east-1`:`123456789012`:daemon-task-definition/`my-daemon-task`:2 \
-    --capacity-provider-arns arn:aws:ecs:`us-east-1`:`123456789012`:capacity-provider/`my-daemon-capacity-provider`
+    --capacity-provider-arns arn:aws:ecs:`us-east-1`:`123456789012`:capacity-provider/`my-daemon-capacity-provider` \
+    --no-critical
 ```
 
 ###### Important
@@ -163,7 +169,9 @@ instead of the defaults. Daemon configuration settings, including tags and the
 enable execute command flag, are not persisted between updates. Each call to
 `UpdateDaemon` must include the full set of configuration
 settings you want applied. Any settings omitted from the request revert to
-their default values.
+their default values. The `critical` parameter defaults to
+`true`, so if you omit it from an `UpdateDaemon`
+request, the daemon becomes critical.
 
 ## Deleting a daemon
 

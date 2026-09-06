@@ -428,6 +428,61 @@ deployment types and is running tasks that use Fargate, the
 minimum healthy percent value is not used, although it is
 returned when describing your service.
 
+`earlySuccessCriteria`
+
+Type: Object
+
+Required: No
+
+The early success criteria that determine when Amazon ECS completes
+a rolling deployment. With early success criteria, Amazon ECS
+completes the deployment when a percentage of tasks that you
+define are running and healthy on the target service revision.
+You can also configure whether Amazon ECS cleans up the tasks on the
+source service revision before or after it completes the
+deployment. For more information, see [Complete Amazon ECS rolling deployments early with early success criteria](early-success-criteria.md "early-success-criteria.md").
+
+`enable`
+
+Type: Boolean
+
+Required: No
+
+Specifies whether early success criteria is
+turned on for the service. The default value is
+`false`.
+
+`healthyPercent`
+
+Type: Integer
+
+Required: No
+
+Specifies the percentage of the desired count
+that must be running and healthy on the target
+service revision before Amazon ECS completes the
+deployment, rounded up. The value must be between the
+service `minimumHealthyPercent` and 100,
+inclusive. The default value is 100.
+
+`sourceServiceRevisionCleanup`
+
+Type: String
+
+Valid values: `BLOCKING` |
+`DEFERRED`
+
+Required: No
+
+Determines when Amazon ECS cleans up the tasks on the
+source service revision. With `BLOCKING`,
+Amazon ECS cleans up the tasks on the source service
+revision before it completes the deployment. With
+`DEFERRED`, Amazon ECS completes the
+deployment first, and then cleans up the tasks on the
+source service revision outside of the deployment.
+The default value is `BLOCKING`.
+
 ## Deployment controller
 
 `deploymentController`
