@@ -234,6 +234,10 @@ Nitro v6 (EFA v4)
 | r8idb.96xlarge             | Yes               | Yes                |
 | r8idb.metal-48xl           | Yes               | Yes                |
 | r8idb.metal-96xl           | Yes               | Yes                |
+| r9g.48xlarge               | Yes               | Yes                |
+| r9g.metal-48xl             | Yes               | Yes                |
+| r9gd.48xlarge              | Yes               | Yes                |
+| r9gd.metal-48xl            | Yes               | Yes                |
 | x8aedz.24xlarge            | Yes               | Yes                |
 | x8aedz.metal-24xl          | Yes               | Yes                |
 | x8i.48xlarge               | Yes               | Yes                |

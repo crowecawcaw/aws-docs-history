@@ -427,11 +427,11 @@ access to high-precision time sources in AWS infrastructure.
 - Precision time placement groups support the following Gen7 and later Amazon EC2 instance families:
 
   - **General purpose**:
-    M7a, M7g, M7g-flex, M7gd, M7i, M7i-flex, M8a, M8g, M8g-flex
+    M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8g
   - **Compute optimized**:
-    C7a, C7gd, C7i, C7i-flex, C8g, C8g-flex, C8gd
+    C7a, C7gd, C7i, C7i-flex, C8g, C8gd
   - **Memory optimized**:
-    R7a, R7g, R7i, R7id, R8g, X8adez, X8adz-3tb, X8adz-6tb, X8adzs, X8aedez, X8aedz-3tb, X8aedz-6tb, X8aez, X8az, X8g, X8ge
+    R7a, R7g, R7i, R8g, X8g
   - **Storage optimized**:
     I8g, I8ge
 

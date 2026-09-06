@@ -97,7 +97,7 @@ to fail:
 - Exhausted memory
 - Corrupted file system
 - Incompatible kernel
-- During a reboot, an instance status check reports a failure until the
+- During a reboot, an instance status check can report a failure until the
   instance becomes available again.
 
 If an instance status check fails, we increment the [StatusCheckFailed\_Instance](viewing_metrics_with_cloudwatch.md#status-check-metrics "viewing_metrics_with_cloudwatch.md#status-check-metrics")

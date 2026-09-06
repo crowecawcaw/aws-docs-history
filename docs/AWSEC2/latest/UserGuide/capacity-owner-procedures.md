@@ -9,6 +9,7 @@ This section covers how you (the capacity owner) can create, modify, reclaim, an
 - [Creating an interruptible Capacity Reservation](#creating-interruptible-cr "#creating-interruptible-cr")
 - [View your interruptible Capacity Reservation](#view-interruptible-cr "#view-interruptible-cr")
 - [Modifying your interruptible Capacity Reservation](#modify-interruptible-cr "#modify-interruptible-cr")
+- [Retaining interruptible Capacity Reservation at zero capacity](#retain-interruptible-cr-zero-capacity "#retain-interruptible-cr-zero-capacity")
 - [Reclamation process and tracking](#reclamation-process "#reclamation-process")
 - [Sharing interruptible reservations](#sharing-interruptible-reservations "#sharing-interruptible-reservations")
 
@@ -25,7 +26,7 @@ Before creating an interruptible allocation, ensure your source On-Demand Capaci
 - You can create only one interruptible allocation per source Capacity Reservation. If an allocation already exists, you must modify or cancel it before creating a new one.
 - You can allocate a maximum of 1000 instances at once to an interruptible Capacity Reservation.
 
-Use can use the console or the AWS CLI to create an interruptible Capacity Reservation.
+You can use the console or the AWS CLI to create an interruptible Capacity Reservation.
 
 Console
 
@@ -34,10 +35,11 @@ Console
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Choose **Capacity Reservations**.
 3. Select your Capacity Reservation.
-4. Choose **Actions**, **Create interruptible allocation**.
-5. For **Instances to allocate**, enter the number of instances to allocate.
-6. (Optional) Add tags.
-7. Choose **Create interruptible capacity allocation**.
+4. Choose **Actions**, **Create interruptible reservation**.
+5. For **Quantity**, enter the number of instances to allocate.
+6. For **Allocation preference when all capacity is reclaimed**, choose **Default** or **Retain**.
+7. (Optional) Add tags.
+8. Choose **Create interruptible reservation**.
 
 AWS CLI
 
@@ -64,7 +66,7 @@ Console
 ###### To view the interruptible Capacity Reservations in your account
 
 1. Go to the Capacity Reservations page in the console.
-2. Look for reservations with **Interruptible** in the type column.
+2. In the **Interruptible** column, look for reservations marked **Yes**.
 3. Select the interruptible reservation to view details.
 
 AWS CLI
@@ -85,7 +87,7 @@ aws ec2 describe-capacity-reservations \
     --capacity-reservation-id `cr-source-id`
 ```
 
-In the response, you'll find an `interruptibleCapacityAllocations` object that contains the interruptible
+In the response, you'll find an `interruptibleCapacityAllocation` object that contains the interruptible
 Capacity Reservation ID and allocation details. For information about the response structure, see
 [InterruptibleCapacityAllocation](../APIReference/API_InterruptibleCapacityAllocation.md "../APIReference/API_InterruptibleCapacityAllocation.md") in
 the _Amazon EC2 API Reference_.
@@ -107,9 +109,8 @@ Use the following procedure to edit your interruptible Capacity Reservation.
 
 Console
 
-1. From the source Capacity Reservation details page, choose **Actions**. Then, **Edit
-   interruptible Capacity Reservation**.
-2. For **Instances to allocate**, enter the new number:
+1. From the source Capacity Reservation details page, choose the **Edit interruptible allocation** link.
+2. For **Quantity**, enter the new number:
 
    - Add more capacity to share
    - Reclaim capacity to your source Capacity Reservation
@@ -132,7 +133,7 @@ Console
 
 1. From the source Capacity Reservation details page, navigate to the interruptible capacity allocation details.
 2. Choose **Edit interruptible allocation**.
-3. For Instance count, enter **0**.
+3. For **Quantity**, enter `0`.
 4. Choose **Update**.
 
 AWS CLI
@@ -141,6 +142,35 @@ AWS CLI
 aws ec2 update-interruptible-capacity-reservation-allocation \
 --capacity-reservation-id `cr-1234567890abcdef0` \
 --target-instance-count `0`
+```
+
+###### Retain zero size preference
+
+If you configured `retain` for the zero size preference, the interruptible Capacity Reservation stays active at zero instances. To cancel it, update the zero size preference to `default`, and then reduce the allocation to zero. For more information, see [Retaining interruptible Capacity Reservation at zero capacity](#retain-interruptible-cr-zero-capacity "#retain-interruptible-cr-zero-capacity").
+
+## Retaining interruptible Capacity Reservation at zero capacity
+
+By default, Amazon EC2 cancels the interruptible reservation when you reduce its allocation to zero instances. The reclaimed capacity returns to your source Capacity Reservation.
+
+If you expect to share capacity again later, you can configure the interruptible reservation to remain active at zero instances. With this option, you can allocate instances to the same reservation later without recreating it.
+
+You control this behavior with the zero size preference. You can set it when you create or edit an interruptible Capacity Reservation allocation, either in the console or with the AWS CLI.
+
+Console
+On the **Create interruptible reservation** or **Edit interruptible allocation** page, for **Allocation preference when all capacity is reclaimed**, choose one of the following:
+
+- **Default** – Amazon EC2 cancels the interruptible Capacity Reservation when you reduce its allocation to zero.
+- **Retain** – The interruptible Capacity Reservation remains active at zero capacity when you reduce its allocation to zero. You can then allocate instances to it again later.
+
+After you save the change, the setting appears as the read-only **Zero size preference** field on the interruptible Capacity Reservation details.
+
+AWS CLI
+To keep the interruptible Capacity Reservation active at zero capacity, specify `--zero-size-preference retain` when you call [create-interruptible-capacity-reservation-allocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-interruptible-capacity-reservation-allocation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/create-interruptible-capacity-reservation-allocation.html") or [update-interruptible-capacity-reservation-allocation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/update-interruptible-capacity-reservation-allocation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/update-interruptible-capacity-reservation-allocation.html"). To cancel the reservation when its allocation reaches zero, specify `default`.
+
+```
+aws ec2 update-interruptible-capacity-reservation-allocation \
+    --capacity-reservation-id `cr-1234567890abcdef0` \
+    --zero-size-preference retain
 ```
 
 ## Reclamation process and tracking

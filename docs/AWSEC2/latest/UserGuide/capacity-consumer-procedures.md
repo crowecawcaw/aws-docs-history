@@ -20,7 +20,7 @@ Console
 
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Choose **Capacity Reservations**.
-3. In the **Type** column, look for reservations marked as **Interruptible**.
+3. In the **Interruptible** column, look for reservations marked **Yes**.
 4. Note the reservation IDs for use in your instance launches.
 
 AWS CLI

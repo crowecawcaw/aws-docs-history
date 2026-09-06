@@ -15,13 +15,13 @@ site. You create and use placement groups on Outposts in the same way that you c
 and use placement groups in regular Availability Zones. When you create a placement
 group with a spread strategy on an Outpost, you can choose to have the placement group
 spread instances across hosts or racks. Spreading instances across hosts allows you to
-use a spread strategy with a single rack Outpost.
+use a spread strategy with a single-rack Outpost.
 
 **Considerations**
 
-- A rack level spread placement group can hold as many instances as you have
+- A rack-level spread placement group can hold as many instances as you have
   racks in your Outpost deployment.
-- A host level spread placement group can hold as many instances as you have
+- A host-level spread placement group can hold as many instances as you have
   hosts in your Outpost deployment.
 
 ###### Prerequisite
@@ -34,8 +34,8 @@ User Guide_.
 1. Create a subnet on the Outpost. For more information, see [Create a
    subnet](../../../outposts/latest/userguide/launch-instance.md#create-subnet "../../../outposts/latest/userguide/launch-instance.md#create-subnet") in the _AWS Outposts User Guide_.
 2. Create a placement group in the associated Region of the Outpost. If you
-   create a placement group with a spread strategy, you can choose host or rack
-   level spread to determine how the group will spread instances across the
+   create a placement group with a spread strategy, you can choose host- or
+   rack-level spread to determine how the group spreads instances across the
    underlying hardware on your Outpost. For more information, see [Create a placement group for your EC2 instances](create-placement-group.md "create-placement-group.md").
 3. Launch an instance into the placement group. For **Subnet**
    choose the subnet that you created in Step 1, and for **Placement group

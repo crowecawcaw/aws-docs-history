@@ -80,13 +80,13 @@ is an AWS RAM resource that lets you share your resources across AWS accounts. A
 resource share specifies the resources to share, and the consumers with whom they
 are shared.
 
-If you are part of an organization in AWS Organizations sharing within your organization is
-enabled, consumers in your organization are granted access to the shared placement
-group.
+If you are part of an organization in AWS Organizations, sharing within your organization
+is enabled, and consumers in your organization are granted access to the shared
+placement group.
 
 If the placement group is shared with an AWS account outside of your
-organization, the AWS account owner will receive an invitation to join the
-resource share. They can access the shared placement group after accepting the
+organization, the AWS account owner receives an invitation to join the resource
+share. They can access the shared placement group after accepting the
 invitation.
 
 You can share a placement group across AWS accounts using AWS Resource Access Manager. For more

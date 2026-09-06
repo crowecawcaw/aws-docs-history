@@ -542,6 +542,28 @@ Memory optimized
 | `r8idb.96xlarge`    | 32                               | 128                              | 1536 \*                         |
 | `r8idb.metal-48xl`  | 32                               | 128                              | 768                             |
 | `r8idb.metal-96xl`  | 32                               | 128                              | 1536 \*                         |
+| `r9g.medium`        | 1                                | 1                                | 2                               |
+| `r9g.large`         | 2                                | 2                                | 6                               |
+| `r9g.xlarge`        | 4                                | 4                                | 16                              |
+| `r9g.2xlarge`       | 8                                | 8                                | 32                              |
+| `r9g.4xlarge`       | 8                                | 16                               | 64                              |
+| `r9g.8xlarge`       | 8                                | 32                               | 128                             |
+| `r9g.12xlarge`      | 16                               | 64                               | 192                             |
+| `r9g.16xlarge`      | 16                               | 64                               | 256                             |
+| `r9g.24xlarge`      | 16                               | 128                              | 384                             |
+| `r9g.48xlarge`      | 32                               | 128                              | 768                             |
+| `r9g.metal-48xl`    | 32                               | 128                              | 768                             |
+| `r9gd.medium`       | 1                                | 1                                | 2                               |
+| `r9gd.large`        | 2                                | 2                                | 6                               |
+| `r9gd.xlarge`       | 4                                | 4                                | 16                              |
+| `r9gd.2xlarge`      | 8                                | 8                                | 32                              |
+| `r9gd.4xlarge`      | 8                                | 16                               | 64                              |
+| `r9gd.8xlarge`      | 8                                | 32                               | 128                             |
+| `r9gd.12xlarge`     | 16                               | 64                               | 192                             |
+| `r9gd.16xlarge`     | 16                               | 64                               | 256                             |
+| `r9gd.24xlarge`     | 16                               | 128                              | 384                             |
+| `r9gd.48xlarge`     | 32                               | 128                              | 768                             |
+| `r9gd.metal-48xl`   | 32                               | 128                              | 768                             |
 | `x8aedz.large`      | 2                                | 2                                | 8                               |
 | `x8aedz.xlarge`     | 4                                | 4                                | 16                              |
 | `x8aedz.3xlarge`    | 4                                | 16                               | 48                              |
@@ -577,7 +599,7 @@ Storage optimized
 | `i8ge.12xlarge` | 16                               | 64                               | 192                             |
 | `i8ge.18xlarge` | 16                               | 128                              | 288                             |
 | `i8ge.24xlarge` | 16                               | 128                              | 384                             |
-| `i8ge.48xlarge` | 32                               | 128                              | 768                             |
+| `i8ge.48xlarge` | 32                               | 128                              | 1536 \*                         |
 
 Accelerated computing
 

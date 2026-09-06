@@ -309,11 +309,16 @@ VPC](../../../vpc/latest/userguide/vpc-dns.md "../../../vpc/latest/userguide/vpc
 
 ## Link-local addresses
 
-Link-local addresses are well-known, non-routable IP addresses. Amazon EC2 uses addresses
-from the link-local address space to provide services that are accessible only from an
-EC2 instance. These services do not run on the instance, they run on the underlying
-host. When you access the link-local addresses for these services, you're communicating
-with either the Xen hypervisor or the Nitro controller.
+Amazon EC2 reserves specific IPv4 link-local addresses for services that are accessible only
+from an EC2 instance. These services run on the underlying host, not on the instance. When
+you access the reserved link-local addresses for these services, you're communicating with
+either the Xen hypervisor or the Nitro controller. The underlying host handles
+traffic to these reserved addresses instead of forwarding it according to customer-configured
+routes. Security groups and network ACLs do not filter this traffic.
+
+AWS does not reserve every IPv4 address in `169.254.0.0/16`. Traffic to a
+non-reserved address in this range follows the applicable VPC route. Your security groups and
+network ACLs can filter this traffic.
 
 ###### Link-local address ranges
 
@@ -323,8 +328,9 @@ with either the Xen hypervisor or the Nitro controller.
 ###### Services that you access using link-local addresses
 
 - [Instance Metadata
-  Service](instancedata-data-retrieval.md "instancedata-data-retrieval.md")
+  Service](instancedata-data-retrieval.md "instancedata-data-retrieval.md") – `169.254.169.254`
 - [Amazon Route 53 Resolver](../../../vpc/latest/userguide/vpc-dns.md#AmazonDNS "../../../vpc/latest/userguide/vpc-dns.md#AmazonDNS") (also
-  known as the Amazon DNS server)
-- [Amazon Time Sync Service](set-time.md "set-time.md")
+  known as the Amazon DNS server) – `169.254.169.253`
+- [Amazon Time Sync Service](set-time.md "set-time.md") –
+  `169.254.169.123`
 - [AWS KMS servers](common-messages.md#activate-windows "common-messages.md#activate-windows")

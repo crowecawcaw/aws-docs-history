@@ -813,7 +813,7 @@ these instances.
 
 ###### Note
 
-- R8a, R8g, R8gd, R8i, R8id, R8i-flex, X8g, X8aedz, X8i instance types support configurable bandwidth weightings. With
+- R8a, R8g, R8gd, R8i, R8id, R8i-flex, R9g, R9gd, X8g, X8aedz, X8i instance types support configurable bandwidth weightings. With
   these instance types, you can optimize an instance's bandwidth for either networking performance or
   Amazon EBS performance. The following table shows the default Amazon EBS bandwidth performance for these
   instance types. For more information, see [EC2 instance bandwidth weighting configuration](configure-bandwidth-weighting.md "configure-bandwidth-weighting.md").
@@ -1154,6 +1154,28 @@ these instances.
 | r8idb.96xlarge 2       | 300000                    | 37500.0                  | 1440000                                 |
 | r8idb.metal-48xl 2     | 150000                    | 18750.0                  | 720000                                  |
 | r8idb.metal-96xl 2     | 300000                    | 37500.0                  | 1440000                                 |
+| r9g.medium 1           | 380                       | 12000                    | 47.50                                   | 1500.00                                | 2500                       | 48000                     |
+| r9g.large 1            | 760                       | 12000                    | 95.00                                   | 1500.00                                | 3600                       | 48000                     |
+| r9g.xlarge 1           | 1500                      | 12000                    | 187.50                                  | 1500.00                                | 6000                       | 48000                     |
+| r9g.2xlarge 1          | 3000                      | 12000                    | 375.00                                  | 1500.00                                | 12000                      | 48000                     |
+| r9g.4xlarge 1          | 6000                      | 12000                    | 750.00                                  | 1500.00                                | 24000                      | 48000                     |
+| r9g.8xlarge 2          | 12000                     | 1500.0                   | 48000                                   |
+| r9g.12xlarge 2         | 18000                     | 2250.0                   | 72000                                   |
+| r9g.16xlarge 2         | 24000                     | 3000.0                   | 96000                                   |
+| r9g.24xlarge 2         | 36000                     | 4500.0                   | 144000                                  |
+| r9g.48xlarge 2         | 72000                     | 9000.0                   | 288000                                  |
+| r9g.metal-48xl 2       | 72000                     | 9000.0                   | 288000                                  |
+| r9gd.medium 1          | 380                       | 12000                    | 47.50                                   | 1500.00                                | 2500                       | 48000                     |
+| r9gd.large 1           | 760                       | 12000                    | 95.00                                   | 1500.00                                | 3600                       | 48000                     |
+| r9gd.xlarge 1          | 1500                      | 12000                    | 187.50                                  | 1500.00                                | 6000                       | 48000                     |
+| r9gd.2xlarge 1         | 3000                      | 12000                    | 375.00                                  | 1500.00                                | 12000                      | 48000                     |
+| r9gd.4xlarge 1         | 6000                      | 12000                    | 750.00                                  | 1500.00                                | 24000                      | 48000                     |
+| r9gd.8xlarge 2         | 12000                     | 1500.0                   | 48000                                   |
+| r9gd.12xlarge 2        | 18000                     | 2250.0                   | 72000                                   |
+| r9gd.16xlarge 2        | 24000                     | 3000.0                   | 96000                                   |
+| r9gd.24xlarge 2        | 36000                     | 4500.0                   | 144000                                  |
+| r9gd.48xlarge 2        | 72000                     | 9000.0                   | 288000                                  |
+| r9gd.metal-48xl 2      | 72000                     | 9000.0                   | 288000                                  |
 | u-3tb1.56xlarge 2      | 19000                     | 2375.0                   | 80000                                   |
 | u-6tb1.56xlarge 2      | 38000                     | 4750.0                   | 160000                                  |
 | u-6tb1.112xlarge 2     | 38000                     | 4750.0                   | 160000                                  |
