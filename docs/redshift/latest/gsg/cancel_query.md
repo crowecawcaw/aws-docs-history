@@ -1,15 +1,11 @@
-Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
-We will start enforcing it in phases. For more information on the details of Python end of life
-and migration options, see the
-[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") that was published on June 30, 2025.
+
+
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
 # Cancel a query
+<a name="cancel_query"></a>
 
-If you run a query that is taking too long or is consuming excessive
-resources, cancel the query. For example, create a list of ticket sellers that includes
-the seller's name and quantity of tickets sold. The following query selects data from
-the `SALES` table and `USERS` table and joins the two tables by
-matching SELLERID and USERID in the WHERE clause.
+If you run a query that is taking too long or is consuming excessive resources, cancel the query. For example, create a list of ticket sellers that includes the seller's name and quantity of tickets sold. The following query selects data from the `SALES` table and `USERS` table and joins the two tables by matching SELLERID and USERID in the WHERE clause.
 
 ```
 SELECT sellerid, firstname, lastname, sum(qtysold)
@@ -36,10 +32,8 @@ The result looks something like the following.
   44956   |  Rachel   |Villarreal| 148
 ```
 
-###### Note
-
-This is a complex query. For this tutorial, you don't need to worry about how this
-query is constructed.
+**Note**  
+This is a complex query. For this tutorial, you don't need to worry about how this query is constructed.
 
 The previous query runs in seconds and returns 2,102 rows.
 
@@ -52,21 +46,13 @@ GROUP BY sellerid, firstname, lastname
 ORDER BY 4 desc;
 ```
 
-The result set includes all of the rows in the `SALES` table multiplied by
-all the rows in the `USERS` table (49989\*3766). This is called a
-Cartesian join, and it isn't recommended. The result is over 188 million rows and
-takes a long time to run.
+The result set includes all of the rows in the `SALES` table multiplied by all the rows in the `USERS` table (49989\*3766). This is called a Cartesian join, and it isn't recommended. The result is over 188 million rows and takes a long time to run.
 
-To cancel a running query, use the CANCEL command with the query's session ID.
-With the Amazon Redshift query editor v2 you can cancel a query by choosing the cancel button while the query is running.
+To cancel a running query, use the CANCEL command with the query's session ID. With the Amazon Redshift query editor v2 you can cancel a query by choosing the cancel button while the query is running.
 
-To find the session ID, start a new session and query the STV\_RECENTS table, as shown
-in the previous step. The following example shows how you can make the results more
-readable. To do this, use the TRIM function to trim trailing spaces and show only the
-first 20 characters of the query string.
+To find the session ID, start a new session and query the STV\_RECENTS table, as shown in the previous step. The following example shows how you can make the results more readable. To do this, use the TRIM function to trim trailing spaces and show only the first 20 characters of the query string.
 
-To determine the session ID of a running query, run the following SELECT
-statement.
+To determine the session ID of a running query, run the following SELECT statement.
 
 ```
 SELECT user_id, session_id, start_time, query_text
@@ -80,7 +66,6 @@ The result looks something like the following.
  user_id |   session_id  |   start_time               |   query_text
 ---------+---------------+----------------------------+----------------------------------------------------------------
  100     |    1073791534 | 2024-03-19 22:26:21.205739 | SELECT user_id, session_id, start_time, query_text FROM  ...
-
 ```
 
 To cancel the query with session ID `1073791534`, run the following command.
@@ -89,42 +74,27 @@ To cancel the query with session ID `1073791534`, run the following command.
 CANCEL 1073791534;
 ```
 
-###### Note
+**Note**  
+The CANCEL command doesn't stop a transaction. To stop or roll back a transaction, use the ABORT or ROLLBACK command. To cancel a query associated with a transaction, first cancel the query then stop the transaction.
 
-The CANCEL command doesn't stop a transaction. To stop or roll back a
-transaction, use the ABORT or ROLLBACK command. To cancel a query associated with a
-transaction, first cancel the query then stop the transaction.
-
-If the query that you canceled is associated with a transaction, use the ABORT or
-ROLLBACK command to cancel the transaction and discard any changes made to the
-data:
+If the query that you canceled is associated with a transaction, use the ABORT or ROLLBACK command to cancel the transaction and discard any changes made to the data:
 
 ```
 ABORT;
 ```
 
-Unless you are signed on as a superuser, you can cancel only your own queries. A
-superuser can cancel all queries.
+Unless you are signed on as a superuser, you can cancel only your own queries. A superuser can cancel all queries.
 
-If your query tool doesn't support running queries concurrently, start
-another session to cancel the query.
+If your query tool doesn't support running queries concurrently, start another session to cancel the query.
 
-For more information about canceling a query, see
-[CANCEL](../dg/r_CANCEL.md "../dg/r_CANCEL.md") in the
-_Amazon Redshift Database Developer Guide_.
+For more information about canceling a query, see [CANCEL](https://docs.aws.amazon.com/redshift/latest/dg/r_CANCEL.html) in the *Amazon Redshift Database Developer Guide*.
 
 ## Cancel a query using the superuser queue
+<a name="cancel_query-cancel-a-query-using-the-superuser-queue"></a>
 
-If your current session has too many queries running concurrently, you might not
-be able to run the CANCEL command until another query finishes. In that case, run
-the CANCEL command using a different workload management query queue.
+If your current session has too many queries running concurrently, you might not be able to run the CANCEL command until another query finishes. In that case, run the CANCEL command using a different workload management query queue.
 
-By using workload management, you can run queries in different query queues so
-that you don't need to wait for another query to complete. The workload manager
-creates a separate queue, called the Superuser queue, that you can use for
-troubleshooting. To use the Superuser queue, log on a superuser and set the query
-group to 'superuser' using the SET command. After running your commands, reset the
-query group using the RESET command.
+By using workload management, you can run queries in different query queues so that you don't need to wait for another query to complete. The workload manager creates a separate queue, called the Superuser queue, that you can use for troubleshooting. To use the Superuser queue, log on a superuser and set the query group to 'superuser' using the SET command. After running your commands, reset the query group using the RESET command.
 
 To cancel a query using the superuser queue, run these commands.
 
