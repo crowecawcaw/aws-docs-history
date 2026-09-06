@@ -1,4 +1,7 @@
+
+
 # VPC peering connections
+<a name="working-with-vpc-peering"></a>
 
 VPC peering enables you to connect two VPCs in the same or different AWS Regions. This enables instances in one VPC to communicate with instances in the other VPC as if they were all part of the same network.
 
@@ -10,12 +13,11 @@ VPC peering is an important tool for building multi-VPC architectures and sharin
 
 Use the following procedures to create and work with VPC peering connections.
 
-###### Tasks
-
-- [Create a VPC peering connection](create-vpc-peering-connection.md "create-vpc-peering-connection.md")
-- [Accept or reject a VPC peering connection](accept-vpc-peering-connection.md "accept-vpc-peering-connection.md")
-- [Update your route tables for a VPC peering connection](vpc-peering-routing.md "vpc-peering-routing.md")
-- [Update your security groups to reference peer security groups](vpc-peering-security-groups.md "vpc-peering-security-groups.md")
-- [Enable DNS resolution for a VPC peering connection](vpc-peering-dns.md "vpc-peering-dns.md")
-- [Delete a VPC peering connection](delete-vpc-peering-connection.md "delete-vpc-peering-connection.md")
-- [Troubleshoot a VPC peering connection](troubleshoot-vpc-peering-connections.md "troubleshoot-vpc-peering-connections.md")
+**Topics**
++ [Create a VPC peering connection](create-vpc-peering-connection.md)
++ [Accept or reject a VPC peering connection](accept-vpc-peering-connection.md)
++ [Update your route tables for a VPC peering connection](vpc-peering-routing.md)
++ [Update your security groups to reference peer security groups](vpc-peering-security-groups.md)
++ [Enable DNS resolution for a VPC peering connection](vpc-peering-dns.md)
++ [Delete a VPC peering connection](delete-vpc-peering-connection.md)
++ [Troubleshoot a VPC peering connection](troubleshoot-vpc-peering-connections.md)
