@@ -1,17 +1,14 @@
+
+
 # AWS Flow Framework Basic Concepts: Task Lists and Task Execution
+<a name="awsflow-basics-task-lists"></a>
 
-Amazon SWF manages workflow and activity tasks by posting them to named lists. Amazon SWF maintains
-at least two task lists, one for workflow workers and one for activity workers.
+ Amazon SWF manages workflow and activity tasks by posting them to named lists. Amazon SWF maintains at least two task lists, one for workflow workers and one for activity workers.
 
-###### Note
+**Note**  
+You can specify as many task lists as you need, with different workers assigned to each list. There is no limit to the number of task lists. You typically specify a worker's task list in the worker host application when you create the worker object.
 
-You can specify as many task lists as you need, with different workers assigned to each
-list. There is no limit to the number of task lists. You typically specify a worker's task
-list in the worker host application when you create the worker object.
-
-The following excerpt from the `HelloWorldWorkflow` host application creates a
-new activity worker and assigns it to the `HelloWorldList` activities task
-list.
+The following excerpt from the `HelloWorldWorkflow` host application creates a new activity worker and assigns it to the `HelloWorldList` activities task list.
 
 ```
 public class GreeterWorker  {
@@ -28,28 +25,15 @@ public class GreeterWorker  {
 }
 ```
 
-By default, Amazon SWF schedules the worker's tasks on the `HelloWorldList` list. Then
-the worker polls that list for tasks. You can assign any name to a task list. You can even use
-the same name for both workflow and activity lists. Internally, Amazon SWF puts workflow and activity
-task list names in different namespaces, so the two lists will be distinct.
+By default, Amazon SWF schedules the worker's tasks on the `HelloWorldList` list. Then the worker polls that list for tasks. You can assign any name to a task list. You can even use the same name for both workflow and activity lists. Internally, Amazon SWF puts workflow and activity task list names in different namespaces, so the two lists will be distinct.
 
-If you don't specify a task list, the AWS Flow Framework specifies a default list when the worker
-registers the type with Amazon SWF. For more information, see [Workflow and Activity Type Registration](features.registration.md "features.registration.md").
+If you don't specify a task list, the AWS Flow Framework specifies a default list when the worker registers the type with Amazon SWF. For more information, see [Workflow and Activity Type Registration](features.registration.md). 
 
-Sometimes it's useful to have a specific worker or group of workers perform certain tasks.
-For example, an image processing workflow might use one activity to download an image and
-another activity to process the image. It's more efficient to perform both tasks on the same
-system, and avoid the overhead of transferring large files over the network.
+Sometimes it's useful to have a specific worker or group of workers perform certain tasks. For example, an image processing workflow might use one activity to download an image and another activity to process the image. It's more efficient to perform both tasks on the same system, and avoid the overhead of transferring large files over the network. 
 
-To support such scenarios, you can explicitly specify a task list when you call an activity
-client method by using an overload that includes a `schedulingOptions` parameter. You
-specify the task list by passing the method an appropriately configured `ActivitySchedulingOptions` object.
+To support such scenarios, you can explicitly specify a task list when you call an activity client method by using an overload that includes a `schedulingOptions` parameter. You specify the task list by passing the method an appropriately configured `ActivitySchedulingOptions` object.
 
-For example, suppose that the `say` activity of the
-`HelloWorldWorkflow` application is hosted by an activity worker different from
-`getName` and `getGreeting`. The following example shows how to ensure
-that `say` uses the same task list as `getName` and
-`getGreeting`, even if they were originally assigned to different lists.
+For example, suppose that the `say` activity of the `HelloWorldWorkflow` application is hosted by an activity worker different from `getName` and `getGreeting`. The following example shows how to ensure that `say` uses the same task list as `getName` and `getGreeting`, even if they were originally assigned to different lists.
 
 ```
 public class GreeterWorkflowImpl implements GreeterWorkflow {
@@ -71,14 +55,7 @@ public class GreeterWorkflowImpl implements GreeterWorkflow {
 }
 ```
 
-The asynchronous `runSay` method gets the `getGreeting` task list from
-its client object. Then it creates and configures an `ActivitySchedulingOptions`
-object that ensures that `say` polls the same task list as
-`getGreeting`.
+The asynchronous `runSay` method gets the `getGreeting` task list from its client object. Then it creates and configures an `ActivitySchedulingOptions` object that ensures that `say` polls the same task list as `getGreeting`.
 
-###### Note
-
-When you pass a `schedulingOptions` parameter to an activity client method, it
-overrides the original task list only for that activity execution. If you call the activities
-client method again without specifying a task list, Amazon SWF assigns the task to the original
-list, and the activity worker will poll that list.
+**Note**  
+When you pass a `schedulingOptions` parameter to an activity client method, it overrides the original task list only for that activity execution. If you call the activities client method again without specifying a task list, Amazon SWF assigns the task to the original list, and the activity worker will poll that list. 

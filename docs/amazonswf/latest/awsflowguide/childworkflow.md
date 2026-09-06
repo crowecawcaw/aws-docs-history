@@ -1,26 +1,17 @@
+
+
 # Child Workflow Executions
+<a name="childworkflow"></a>
 
-In the examples so far, we have started workflow execution directly from an application.
-However, a workflow execution may be started from within a workflow by calling the workflow
-entry point method on the generated client. When a workflow execution is started from the context of another workflow
-execution, it is called a child workflow execution. This allows you to refactor complex
-workflows into smaller units and potentially share them across different workflows. For
-example, you can create a payment processing workflow and call it from an order processing
-workflow.
+In the examples so far, we have started workflow execution directly from an application. However, a workflow execution may be started from within a workflow by calling the workflow entry point method on the generated client. When a workflow execution is started from the context of another workflow execution, it is called a child workflow execution. This allows you to refactor complex workflows into smaller units and potentially share them across different workflows. For example, you can create a payment processing workflow and call it from an order processing workflow.
 
-Semantically, the child workflow execution behaves the same as a standalone workflow except
-for the following differences:
+Semantically, the child workflow execution behaves the same as a standalone workflow except for the following differences:
 
-1. When the parent workflow terminates due to an explicit action by the user—for example, by
-   calling the `TerminateWorkflowExecution` Amazon SWF API, or it is terminated due to a timeout—then the
-   fate of the child workflow execution will be determined by a child policy. You can set this
-   child policy to terminate, cancel, or abandon (keep running) child workflow executions.
-2. The output of the child workflow (return value of the entry point method) can be used by
-   the parent workflow execution just like the `Promise<T>` returned by an asynchronous method.
-   This is different from standalone executions where the application must get the output by using
-   Amazon SWF APIs.
-   In the following example, the `OrderProcessor` workflow creates a `PaymentProcessor` child
-   workflow:
+1. When the parent workflow terminates due to an explicit action by the user—for example, by calling the `TerminateWorkflowExecution` Amazon SWF API, or it is terminated due to a timeout—then the fate of the child workflow execution will be determined by a child policy. You can set this child policy to terminate, cancel, or abandon (keep running) child workflow executions.
+
+1. The output of the child workflow (return value of the entry point method) can be used by the parent workflow execution just like the `Promise<T>` returned by an asynchronous method. This is different from standalone executions where the application must get the output by using Amazon SWF APIs.
+
+In the following example, the `OrderProcessor` workflow creates a `PaymentProcessor` child workflow:
 
 ```
 @Workflow

@@ -1,26 +1,23 @@
+
+
 # Execution Context
+<a name="executioncontext"></a>
 
-###### Topics
+**Topics**
++ [Decision Context](#executioncontext.decision)
++ [Activity Execution Context](#activitycontext)
 
-- [Decision Context](#executioncontext.decision "#executioncontext.decision")
-- [Activity Execution Context](#activitycontext "#activitycontext")
-  The framework provides an ambient context to workflow and activity implementations. This context is
-  specific to the task being processed and provides some utilities that you can use in your
-  implementation. A context object is created every time a new task is processed by the
-  worker.
+The framework provides an ambient context to workflow and activity implementations. This context is specific to the task being processed and provides some utilities that you can use in your implementation. A context object is created every time a new task is processed by the worker.
 
 ## Decision Context
+<a name="executioncontext.decision"></a>
 
-When a decision task is executed, the framework provides the context to workflow implementation
-through the `DecisionContext` class. `DecisionContext` provides context-sensitive information like
-workflow execution run Id and clock and timer functionality.
+When a decision task is executed, the framework provides the context to workflow implementation through the `DecisionContext` class. `DecisionContext` provides context-sensitive information like workflow execution run Id and clock and timer functionality.
 
 ### Accessing DecisionContext in Workflow Implementation
+<a name="executioncontext.decision.access"></a>
 
-You can access the `DecisionContext` in your workflow implementation using the
-`DecisionContextProviderImpl` class. Alternatively, you can inject the context in a field or
-property of your workflow implementation using Spring as shown in the Testability and
-Dependency Injection section.
+You can access the `DecisionContext` in your workflow implementation using the `DecisionContextProviderImpl` class. Alternatively, you can inject the context in a field or property of your workflow implementation using Spring as shown in the Testability and Dependency Injection section.
 
 ```
 DecisionContextProvider contextProvider
@@ -29,20 +26,11 @@ DecisionContext context = contextProvider.getDecisionContext();
 ```
 
 ### Creating a Clock and Timer
+<a name="executioncontext.decision.timer"></a>
 
-The `DecisionContext` contains a property of type
-`WorkflowClock` that provides timer and clock functionality. Because the
-workflow logic needs to be deterministic, you should not directly use the system clock in
-your workflow implementation. The `currentTimeMills` method on the
-`WorkflowClock` returns the time of the start event of the decision being
-processed. This ensures that you get the same time value during replay, hence, making your
-workflow logic deterministic.
+The `DecisionContext` contains a property of type `WorkflowClock` that provides timer and clock functionality. Because the workflow logic needs to be deterministic, you should not directly use the system clock in your workflow implementation. The `currentTimeMills` method on the `WorkflowClock` returns the time of the start event of the decision being processed. This ensures that you get the same time value during replay, hence, making your workflow logic deterministic.
 
-`WorkflowClock` also has a `createTimer` method which returns a
-`Promise` object that becomes ready after the specified interval. You can use
-this value as a parameter to other asynchronous methods to delay their execution by the
-specified period of time. This way you can effectively schedule an asynchronous method or activity for execution at a later
-time.
+`WorkflowClock` also has a `createTimer` method which returns a `Promise` object that becomes ready after the specified interval. You can use this value as a parameter to other asynchronous methods to delay their execution by the specified period of time. This way you can effectively schedule an asynchronous method or activity for execution at a later time.
 
 The example in the following listing demonstrates how to periodically call an activity.
 
@@ -104,18 +92,12 @@ public class PeriodicActivityImpl implements PeriodicActivity
 }
 ```
 
-In the above listing, the `callPeriodicActivity` asynchronous method calls
-`activity1` and then creates a timer using the current
-`AsyncDecisionContext`. It passes the returned `Promise` as an
-argument to a recursive call to itself. This recursive call waits until the timer fires (1
-hour in this example) before executing.
+In the above listing, the `callPeriodicActivity` asynchronous method calls `activity1` and then creates a timer using the current `AsyncDecisionContext`. It passes the returned `Promise` as an argument to a recursive call to itself. This recursive call waits until the timer fires (1 hour in this example) before executing.
 
 ## Activity Execution Context
+<a name="activitycontext"></a>
 
-Just as the `DecisionContext` provides context information when a decision
-task is being processed, `ActivityExecutionContext` provides similar context
-information when an activity task is being processed. This context is available to your
-activity code through `ActivityExecutionContextProviderImpl` class.
+Just as the `DecisionContext` provides context information when a decision task is being processed, `ActivityExecutionContext` provides similar context information when an activity task is being processed. This context is available to your activity code through `ActivityExecutionContextProviderImpl` class.
 
 ```
 ActivityExecutionContextProvider provider
@@ -126,26 +108,16 @@ ActivityExecutionContext aec = provider.getActivityExecutionContext();
 Using `ActivityExecutionContext`, you can perform the following:
 
 ### Heartbeat a Long Running Activity
+<a name="activitycontext.heartbeat"></a>
 
-If the activity is long running, it must periodically report its progress to Amazon SWF to
-let it know that the task is still making progress. In the absence of such a heartbeat, the
-task may timeout if a task heartbeat timeout was set at activity type registration or
-while scheduling the activity. In order to send a heartbeat, you can use the `recordActivityHeartbeat`
-method on `ActivityExecutionContext`. Heartbeat also provides a mechanism for canceling
-ongoing activities. See the [Error Handling](errorhandling.md "errorhandling.md") section for more details and an example.
+If the activity is long running, it must periodically report its progress to Amazon SWF to let it know that the task is still making progress. In the absence of such a heartbeat, the task may timeout if a task heartbeat timeout was set at activity type registration or while scheduling the activity. In order to send a heartbeat, you can use the `recordActivityHeartbeat` method on `ActivityExecutionContext`. Heartbeat also provides a mechanism for canceling ongoing activities. See the [Error Handling](errorhandling.md) section for more details and an example.
 
 ### Get Details of the Activity Task
+<a name="activitycontext.details"></a>
 
-If you want, you can get all the details of the activity task that were passed by
-Amazon SWF when the executor got the task. This includes information regarding the inputs to
-the task, task type, task token, etc. If you want to implement an activity that is
-manually completed—for example, by a human action—then you must use the
-`ActivityExecutionContext` to retrieve the task token and pass it to the
-process that will eventually complete the activity task. See the section on [Manually Completing Activities](activityimpl.md#activityimpl.complete "activityimpl.md#activityimpl.complete") for more
-details.
+If you want, you can get all the details of the activity task that were passed by Amazon SWF when the executor got the task. This includes information regarding the inputs to the task, task type, task token, etc. If you want to implement an activity that is manually completed—for example, by a human action—then you must use the `ActivityExecutionContext` to retrieve the task token and pass it to the process that will eventually complete the activity task. See the section on [Manually Completing Activities](activityimpl.md#activityimpl.complete) for more details.
 
 ### Get the Amazon SWF Client Object that is Being Used by the Executor
+<a name="activitycontext.client"></a>
 
-The Amazon SWF client object being used by the executor can be retrieved by calling
-`getService` method on `ActivityExecutionContext`. This is useful
-if you want to make a direct call to the Amazon SWF service.
+The Amazon SWF client object being used by the executor can be retrieved by calling `getService` method on `ActivityExecutionContext`. This is useful if you want to make a direct call to the Amazon SWF service.
