@@ -11,6 +11,14 @@ pcluster update-compute-fleet [-h]
                 [--region `REGION`]
 ```
 
+###### Note
+
+This operation is asynchronous: the command only requests the status change. Use
+[pcluster describe-compute-fleet](pcluster.describe-compute-fleet-v3.md "pcluster.describe-compute-fleet-v3.md") to verify that
+the fleet reaches the final status (`RUNNING` or `STOPPED`). If it stays in
+`STARTING` or `STOPPING`, check `/var/log/parallelcluster/clusterstatusmgtd`
+on the head node for errors.
+
 ## Named arguments
 
 `-h, --help`
