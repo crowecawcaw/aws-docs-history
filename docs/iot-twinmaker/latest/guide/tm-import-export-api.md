@@ -1,184 +1,183 @@
+
+
 # Performing bulk import and export operations
+<a name="tm-import-export-api"></a>
 
-This topic covers how to perform bulk import and export operations and how to handle errors
-in your transfer jobs. It provides examples of transfer jobs using CLI commands.
+This topic covers how to perform bulk import and export operations and how to handle errors in your transfer jobs. It provides examples of transfer jobs using CLI commands.
 
-The AWS IoT TwinMaker API Reference contains information on the [CreateMetadataTransferJob](../apireference/API_CreateMetadataTransferJob.md "../apireference/API_CreateMetadataTransferJob.md") and other API actions.
+The AWS IoT TwinMaker API Reference contains information on the [ CreateMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateMetadataTransferJob.html) and other API actions.
 
-###### Topics
-
-- [metadataTransferJob prerequisites](#tm-import-export-prereqs "#tm-import-export-prereqs")
-- [IAM permissions](#tm-import-export-prereqs-permissions "#tm-import-export-prereqs-permissions")
-- [Run a bulk operation](#tm-import-export-procedure "#tm-import-export-procedure")
-- [Error handling](#tm-import-export-error-handling "#tm-import-export-error-handling")
-- [Import metadata templates](#tm-import-metadata-templates "#tm-import-metadata-templates")
-- [AWS IoT TwinMaker metadataTransferJob examples](#tm-import-export-cli-examples "#tm-import-export-cli-examples")
+**Topics**
++ [metadataTransferJob prerequisites](#tm-import-export-prereqs)
++ [IAM permissions](#tm-import-export-prereqs-permissions)
++ [Run a bulk operation](#tm-import-export-procedure)
++ [Error handling](#tm-import-export-error-handling)
++ [Import metadata templates](#tm-import-metadata-templates)
++ [AWS IoT TwinMaker metadataTransferJob examples](#tm-import-export-cli-examples)
 
 ## metadataTransferJob prerequisites
+<a name="tm-import-export-prereqs"></a>
 
 Please complete the following prerequisites before you run a metadataTransferJob:
-
-- Create an AWS IoT TwinMaker workspace. The workspace can be the import destination
-  or export source for a metadataTransferJob. For information on creating a workspace
-  see, [Create a workspace](twinmaker-gs-workspace.md "twinmaker-gs-workspace.md").
-- Create an Amazon S3 bucket to store resources. For more information on using
-  Amazon S3 see, [What is Amazon S3?](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md")
++ Create an AWS IoT TwinMaker workspace. The workspace can be the import destination or export source for a metadataTransferJob. For information on creating a workspace see, [Create a workspace](twinmaker-gs-workspace.md). 
++ Create an Amazon S3 bucket to store resources. For more information on using Amazon S3 see, [ What is Amazon S3?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 
 ## IAM permissions
+<a name="tm-import-export-prereqs-permissions"></a>
 
-When you perform bulk operations you need to create an IAM policy with permissions
-to allow for the exchange of AWS resources between Amazon S3, AWS IoT TwinMaker, AWS IoT SiteWise, and your
-local machine. For more information on creating IAM policies, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md").
+When you perform bulk operations you need to create an IAM policy with permissions to allow for the exchange of AWS resources between Amazon S3, AWS IoT TwinMaker, AWS IoT SiteWise, and your local machine. For more information on creating IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html). 
 
 The policy statements for AWS IoT TwinMaker, AWS IoT SiteWise and Amazon S3 are listed here:
++ **AWS IoT TwinMaker policy**:
 
-- **AWS IoT TwinMaker policy**:
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:GetObject",
- "s3:GetBucketLocation",
- "s3:ListBucket",
- "s3:AbortMultipartUpload",
- "s3:ListBucketMultipartUploads",
- "s3:ListMultipartUploadParts"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "iottwinmaker:GetWorkspace",
- "iottwinmaker:CreateEntity",
- "iottwinmaker:GetEntity",
- "iottwinmaker:UpdateEntity",
- "iottwinmaker:GetComponentType",
- "iottwinmaker:CreateComponentType",
- "iottwinmaker:UpdateComponentType",
- "iottwinmaker:ListEntities",
- "iottwinmaker:ListComponentTypes",
- "iottwinmaker:ListTagsForResource",
- "iottwinmaker:TagResource",
- "iottwinmaker:UntagResource"
- ],
- "Resource": "*"
- }
- ]
-}`
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [{
+          "Effect": "Allow",
+          "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:GetBucketLocation",
+              "s3:ListBucket",
+              "s3:AbortMultipartUpload",
+              "s3:ListBucketMultipartUploads",
+              "s3:ListMultipartUploadParts"
+          ],
+          "Resource": "*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "iottwinmaker:GetWorkspace",
+                  "iottwinmaker:CreateEntity",
+                  "iottwinmaker:GetEntity",
+                  "iottwinmaker:UpdateEntity",
+                  "iottwinmaker:GetComponentType",
+                  "iottwinmaker:CreateComponentType",
+                  "iottwinmaker:UpdateComponentType",
+                  "iottwinmaker:ListEntities",
+                  "iottwinmaker:ListComponentTypes",
+                  "iottwinmaker:ListTagsForResource",
+                  "iottwinmaker:TagResource",
+                  "iottwinmaker:UntagResource"
+              ],
+              "Resource": "*"
+          }
+      ]
+  }
+  ```
 
-```
+------
++ **AWS IoT SiteWise policy**:
 
-- **AWS IoT SiteWise policy**:
+------
+#### [ JSON ]
 
-JSON
+****  
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Action": [
- "s3:PutObject",
- "s3:GetObject",
- "s3:GetBucketLocation",
- "s3:ListBucket",
- "s3:AbortMultipartUpload",
- "s3:ListBucketMultipartUploads",
- "s3:ListMultipartUploadParts"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "iotsitewise:CreateAsset",
- "iotsitewise:CreateAssetModel",
- "iotsitewise:UpdateAsset",
- "iotsitewise:UpdateAssetModel",
- "iotsitewise:UpdateAssetProperty",
- "iotsitewise:ListAssets",
- "iotsitewise:ListAssetModels",
- "iotsitewise:ListAssetProperties",
- "iotsitewise:ListAssetModelProperties",
- "iotsitewise:ListAssociatedAssets",
- "iotsitewise:DescribeAsset",
- "iotsitewise:DescribeAssetModel",
- "iotsitewise:DescribeAssetProperty",
- "iotsitewise:AssociateAssets",
- "iotsitewise:DisassociateAssets",
- "iotsitewise:AssociateTimeSeriesToAssetProperty",
- "iotsitewise:DisassociateTimeSeriesFromAssetProperty",
- "iotsitewise:BatchPutAssetPropertyValue",
- "iotsitewise:BatchGetAssetPropertyValue",
- "iotsitewise:TagResource",
- "iotsitewise:UntagResource",
- "iotsitewise:ListTagsForResource"
- ],
- "Resource": "*"
- }
- ]
-}`
+  ```
+  {
+      "Version":"2012-10-17",		 	 	 
+      "Statement": [{
+          "Effect": "Allow",
+          "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:GetBucketLocation",
+              "s3:ListBucket",
+              "s3:AbortMultipartUpload",
+              "s3:ListBucketMultipartUploads",
+              "s3:ListMultipartUploadParts"
+          ],
+          "Resource": "*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "iotsitewise:CreateAsset",
+                  "iotsitewise:CreateAssetModel",
+                  "iotsitewise:UpdateAsset",
+                  "iotsitewise:UpdateAssetModel",
+                  "iotsitewise:UpdateAssetProperty",
+                  "iotsitewise:ListAssets",
+                  "iotsitewise:ListAssetModels",
+                  "iotsitewise:ListAssetProperties",
+                  "iotsitewise:ListAssetModelProperties",
+                  "iotsitewise:ListAssociatedAssets",
+                  "iotsitewise:DescribeAsset",
+                  "iotsitewise:DescribeAssetModel",
+                  "iotsitewise:DescribeAssetProperty",
+                  "iotsitewise:AssociateAssets",
+                  "iotsitewise:DisassociateAssets",
+                  "iotsitewise:AssociateTimeSeriesToAssetProperty",
+                  "iotsitewise:DisassociateTimeSeriesFromAssetProperty",
+                  "iotsitewise:BatchPutAssetPropertyValue",
+                  "iotsitewise:BatchGetAssetPropertyValue",
+                  "iotsitewise:TagResource",
+                  "iotsitewise:UntagResource",
+                  "iotsitewise:ListTagsForResource"
+              ],
+              "Resource": "*"
+          }
+      ]
+  }
+  ```
 
-```
+------
++ **Amazon S3 policy**:
 
-- **Amazon S3 policy**:
+  ```
+  {
+      "Effect": "Allow",
+      "Action": [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:GetBucketLocation",
+          "s3:ListBucket",
+          "s3:AbortMultipartUpload",
+          "s3:ListBucketMultipartUploads",
+          "s3:ListMultipartUploadParts"
+      ],
+      "Resource": "*"
+  }
+  ```
 
-```
-{
-    "Effect": "Allow",
-    "Action": [
-        "s3:PutObject",
-        "s3:GetObject",
-        "s3:GetBucketLocation",
-        "s3:ListBucket",
-        "s3:AbortMultipartUpload",
-        "s3:ListBucketMultipartUploads",
-        "s3:ListMultipartUploadParts"
-    ],
-    "Resource": "*"
-}
-```
+  Alternatively you can scope your Amazon S3 policy to only access a single Amazon S3 bucket, see the following policy.
 
-Alternatively you can scope your Amazon S3 policy to only access a single Amazon S3
-bucket, see the following policy.
+  **Amazon S3 single bucket scoped policy**
 
-**Amazon S3 single bucket scoped policy**
-
-```
-{
-    "Effect": "Allow",
-    "Action": [
-        "s3:PutObject",
-        "s3:GetObject",
-        "s3:GetBucketLocation",
-        "s3:ListBucket",
-        "s3:AbortMultipartUpload",
-        "s3:ListBucketMultipartUploads",
-        "s3:ListMultipartUploadParts"
-    ],
-    "Resource": [
-        "arn:aws:s3:::`bucket name`",
-        "arn:aws:s3:::`bucket name`/*"
-    ]
-}
-```
+  ```
+  {
+      "Effect": "Allow",
+      "Action": [
+          "s3:PutObject",
+          "s3:GetObject",
+          "s3:GetBucketLocation",
+          "s3:ListBucket",
+          "s3:AbortMultipartUpload",
+          "s3:ListBucketMultipartUploads",
+          "s3:ListMultipartUploadParts"
+      ],
+      "Resource": [
+          "arn:aws:s3:::{{bucket name}}",
+          "arn:aws:s3:::{{bucket name}}/*"
+      ]
+  }
+  ```
 
 ### Set access control for a metadataTransferJob
+<a name="tm-import-export-access-control"></a>
 
-To control what kind of jobs a user can access, add the following IAM policy
-to the role used to call AWS IoT TwinMaker.
+To control what kind of jobs a user can access, add the following IAM policy to the role used to call AWS IoT TwinMaker.
 
-###### Note
-
-This policy only allows access to AWS IoT TwinMaker import and export jobs
-that transfer resources to and from Amazon S3.
+**Note**  
+This policy only allows access to AWS IoT TwinMaker import and export jobs that transfer resources to and from Amazon S3.
 
 ```
 {
@@ -203,178 +202,151 @@ that transfer resources to and from Amazon S3.
 ```
 
 ## Run a bulk operation
+<a name="tm-import-export-procedure"></a>
 
 This section covers how to perform bulk import and export operations.
 
-###### Import data from Amazon S3 to AWS IoT TwinMaker
+**Import data from Amazon S3 to AWS IoT TwinMaker**
 
-1. Specify the resources you want to transfer using the AWS IoT TwinMaker metadataTransferJob
-   schema. Create and store your schema file in your Amazon S3 bucket.
+1. Specify the resources you want to transfer using the AWS IoT TwinMaker metadataTransferJob schema. Create and store your schema file in your Amazon S3 bucket.
 
-For example schemas, see [Import metadata templates](#tm-import-metadata-templates "#tm-import-metadata-templates"). 2. Create a request body and save it as a JSON file. The request body specifies
-the source and destination for the transfer job. Make sure to specify your Amazon S3
-bucket as the source and your AWS IoT TwinMaker workspace as the destination.
+   For example schemas, see [Import metadata templates](#tm-import-metadata-templates).
 
-The following is an example of a request body:
+1. Create a request body and save it as a JSON file. The request body specifies the source and destination for the transfer job. Make sure to specify your Amazon S3 bucket as the source and your AWS IoT TwinMaker workspace as the destination. 
 
-```
-{
-    "metadataTransferJobId": "`your-transfer-job-Id`",
-    "sources": [{
-        "type": "s3",
-        "s3Configuration": {
-            "location": "arn:aws:s3:::`amzn-s3-demo-bucket`/your_import_data.json"
-        }
-    }],
-    "destination": {
-        "type": "iottwinmaker",
-        "iotTwinMakerConfiguration": {
-            "workspace": "arn:aws:iottwinmaker:us-east-1:111122223333:workspace/`your-worksapce-name`"
-        }
-    }
-}
-```
+   The following is an example of a request body:
 
-Record the file name you gave your request body, you will need it in the next
-step. In this example the request body is named
-`createMetadataTransferJobImport.json`. 3. Run the following CLI command to invoke `CreateMetadataTransferJob`
-(replace the input-json file name with the name you gave your request body):
+   ```
+   {
+       "metadataTransferJobId": "{{your-transfer-job-Id}}",
+       "sources": [{
+           "type": "s3",
+           "s3Configuration": {
+               "location": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/your_import_data.json"
+           }
+       }],
+       "destination": {
+           "type": "iottwinmaker",
+           "iotTwinMakerConfiguration": {
+               "workspace": "arn:aws:iottwinmaker:us-east-1:111122223333:workspace/{{your-worksapce-name}}"
+           }
+       }
+   }
+   ```
 
-```
-aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
---cli-input-json file://createMetadataTransferJobImport.json
-```
+   Record the file name you gave your request body, you will need it in the next step. In this example the request body is named `createMetadataTransferJobImport.json`.
 
-This creates a metadataTransferJob and begins the process of the transferring
-your selected resources.
+1. Run the following CLI command to invoke `CreateMetadataTransferJob` (replace the input-json file name with the name you gave your request body):
 
-###### Export data from AWS IoT TwinMaker to Amazon S3
+   ```
+   aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
+   --cli-input-json file://createMetadataTransferJobImport.json
+   ```
 
-1. Create a JSON request body with the appropriate filters to choose the
-   resources you want to export. For this example we use:
+   This creates a metadataTransferJob and begins the process of the transferring your selected resources.
 
-```
-{
-    "metadataTransferJobId": "`your-transfer-job-Id`",
-    "sources": [{
-        "type": "iottwinmaker",
-        "iotTwinMakerConfiguration": {
-            "workspace": "arn:aws:iottwinmaker:us-east-1:111122223333:workspace/`your-workspace-name`",
-            "filters": [{
-                "filterByEntity": {
-                    "entityId": "parent"
-                }},
-                {
-                "filterByEntity": {
-                    "entityId": "child"
-                }},
-                {
-                "filterByComponentType": {
-                    "componentTypeId": "component.type.minimal"
-                }}
-            ]
-        }
-    }],
-    "destination": {
-        "type": "s3",
-        "s3Configuration": {
-            "location": "arn:aws:s3:::`amzn-s3-demo-bucket`"
-        }
-    }
-}
-```
+**Export data from AWS IoT TwinMaker to Amazon S3**
 
-The `filters` array lets you specify which resources will be
-exported. In this example we filter by `entity`, and
-`componentType`.
+1. Create a JSON request body with the appropriate filters to choose the resources you want to export. For this example we use:
 
-Make sure to specify your AWS IoT TwinMaker workspace as the source and your Amazon S3
-bucket as the destination of the metadata transfer job.
+   ```
+   {
+       "metadataTransferJobId": "{{your-transfer-job-Id}}",
+       "sources": [{
+           "type": "iottwinmaker",
+           "iotTwinMakerConfiguration": {
+               "workspace": "arn:aws:iottwinmaker:us-east-1:111122223333:workspace/{{your-workspace-name}}",
+               "filters": [{
+                   "filterByEntity": {
+                       "entityId": "parent"
+                   }},
+                   {
+                   "filterByEntity": {
+                       "entityId": "child"
+                   }},
+                   {
+                   "filterByComponentType": {
+                       "componentTypeId": "component.type.minimal"
+                   }}
+               ]
+           }
+       }],
+       "destination": {
+           "type": "s3",
+           "s3Configuration": {
+               "location": "arn:aws:s3:::{{amzn-s3-demo-bucket}}"
+           }
+       }
+   }
+   ```
 
-Save your request body and record the file name, you will need it in the
-next step. For this example, we named our request body
-`createMetadataTransferJobExport.json`. 2. Run the following CLI command to invoke `CreateMetadataTransferJob`
-(replace the input-json file name with the name you gave your request body):
+   The `filters` array lets you specify which resources will be exported. In this example we filter by `entity`, and `componentType`.
 
-```
-aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
---cli-input-json file://createMetadataTransferJobExport.json
-```
+   Make sure to specify your AWS IoT TwinMaker workspace as the source and your Amazon S3 bucket as the destination of the metadata transfer job.
 
-This creates a metadataTransferJob and begins the process of the transferring
-your selected resources.
+   Save your request body and record the file name, you will need it in the next step. For this example, we named our request body `createMetadataTransferJobExport.json`.
+
+1. Run the following CLI command to invoke `CreateMetadataTransferJob` (replace the input-json file name with the name you gave your request body):
+
+   ```
+   aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
+   --cli-input-json file://createMetadataTransferJobExport.json
+   ```
+
+   This creates a metadataTransferJob and begins the process of the transferring your selected resources.
 
 To check or update the status of a transfer job, use the following commands:
++ To cancel a job use the [ CancelMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CancelMetadataTransferJob.html) API action. When you call CancelMetadataTransferJob, the API only cancels a running metadataTransferJob, and any resources already exported or imported are not affected by this API call.
++ To retrieve information on a specific job use the [ GetMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetMetadataTransferJob.html) API action.
 
-- To cancel a job use the [CancelMetadataTransferJob](../apireference/API_CancelMetadataTransferJob.md "../apireference/API_CancelMetadataTransferJob.md") API action. When you call CancelMetadataTransferJob,
-  the API only cancels a running metadataTransferJob, and any resources already exported
-  or imported are not affected by this API call.
-- To retrieve information on a specific job use the [GetMetadataTransferJob](../apireference/API_GetMetadataTransferJob.md "../apireference/API_GetMetadataTransferJob.md") API action.
+  Or, you can call GetMetadataTransferJob on an existing transfer job with the following CLI command:
 
-Or, you can call GetMetadataTransferJob on an existing transfer job with the
-following CLI command:
+  ```
+  aws iottwinmaker get-metadata-transfer-job --job-id {{ExistingJobId}}
+  ```
 
-```
-aws iottwinmaker get-metadata-transfer-job --job-id `ExistingJobId`
-```
+  If you call GetMetadataTransferJob on a non-existing AWS IoT TwinMaker import or export job, you get a `ResourceNotFoundException` error in response.
++ To list current jobs, use the [ ListMetadataTransferJobs](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListMetadataTransferJobs.html) API action.
 
-If you call GetMetadataTransferJob on a non-existing AWS IoT TwinMaker import or export
-job, you get a `ResourceNotFoundException` error in response.
+  Here is a CLI example that calls ListMetadataTransferJobs with AWS IoT TwinMaker as the destinationType and `s3` as the sourceType:
 
-- To list current jobs, use the [ListMetadataTransferJobs](../apireference/API_ListMetadataTransferJobs.md "../apireference/API_ListMetadataTransferJobs.md") API action.
+  ```
+  aws iottwinmaker list-metadata-transfer-jobs --destination-type iottwinmaker --source-type s3
+  ```
+**Note**  
+You can change the values for the sourceType and destinationType parameters to match your import or export job's source and destination.
 
-Here is a CLI example that calls ListMetadataTransferJobs with AWS IoT TwinMaker as the
-destinationType and `s3` as the sourceType:
+For more examples of CLI commands that invoke these API actions, see [AWS IoT TwinMaker metadataTransferJob examples](#tm-import-export-cli-examples).
 
-```
-aws iottwinmaker list-metadata-transfer-jobs --destination-type iottwinmaker --source-type s3
-```
-
-###### Note
-
-You can change the values for the sourceType and destinationType
-parameters to match your import or export job's source and destination.
-
-For more examples of CLI commands that invoke these API actions, see
-[AWS IoT TwinMaker metadataTransferJob examples](#tm-import-export-cli-examples "#tm-import-export-cli-examples").
-
-If you encounter any errors during the transfer job, see
-[Error handling](#tm-import-export-error-handling "#tm-import-export-error-handling").
+If you encounter any errors during the transfer job, see [Error handling](#tm-import-export-error-handling).
 
 ## Error handling
+<a name="tm-import-export-error-handling"></a>
 
-After you create and run a transfer job, you can call GetMetadataTransferJob
-to diagnose any errors that occurred:
+After you create and run a transfer job, you can call GetMetadataTransferJob to diagnose any errors that occurred:
 
 ```
 aws iottwinmaker get-metadata-transfer-job \
---metadata-transfer-job-id `your_metadata_transfer_job_id` \
+--metadata-transfer-job-id {{your_metadata_transfer_job_id}} \
 --region us-east-1
 ```
 
-Once you see the state of the job turn to `COMPLETED`, you can verify
-the results of the job. GetMetadataTransferJob returns an object called
-[`MetadataTransferJobProgress`](../apireference/API_MetadataTransferJobProgress.md "../apireference/API_MetadataTransferJobProgress.md") which contains the following fields:
+Once you see the state of the job turn to `COMPLETED`, you can verify the results of the job. GetMetadataTransferJob returns an object called [`MetadataTransferJobProgress`](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_MetadataTransferJobProgress.html) which contains the following fields:
++ **failedCount:** Indicates the number of resources that failed during the transfer process.
++ **skippedCount:** Indicates the number of resources that were skipped during the transfer process.
++ **succeededCount:** Indicates the number of resources that succeeded during the transfer process.
++ **totalCount:** Indicates the total count of resources involved in the transfer process.
 
-- **failedCount:** Indicates the number of resources
-  that failed during the transfer process.
-- **skippedCount:** Indicates the number of resources
-  that were skipped during the transfer process.
-- **succeededCount:** Indicates the number of
-  resources that succeeded during the transfer process.
-- **totalCount:** Indicates the total count of
-  resources involved in the transfer process.
-
-Additionally, a reportUrl element is returned which contains a pre-signed URL.
-If your transfer job has errors you wish to investigate further, then you can download a full
-error report using this URL.
+Additionally, a reportUrl element is returned which contains a pre-signed URL. If your transfer job has errors you wish to investigate further, then you can download a full error report using this URL.
 
 ## Import metadata templates
+<a name="tm-import-metadata-templates"></a>
 
-You can import many components, componentTypes, or entities with a single bulk import
-operation. The examples in this section show how to do this.
+You can import many components, componentTypes, or entities with a single bulk import operation. The examples in this section show how to do this.
 
-template: Importing entities
+------
+#### [ template: Importing entities ]
+
 Use the following template format for a job that imports entities:
 
 ```
@@ -389,7 +361,7 @@ Use the following template format for a job that imports entities:
         "string": "string"
       },
       "components": {
-        "string": {
+        "string": {    
           "componentTypeId": "string",
           "description": "string",
           "properties": {
@@ -424,7 +396,9 @@ Use the following template format for a job that imports entities:
 }
 ```
 
-template: Importing componentTypes
+------
+#### [ template: Importing componentTypes ]
+
 Use the following template format for a job that imports componentTypes:
 
 ```
@@ -442,8 +416,8 @@ Use the following template format for a job that imports componentTypes:
           "implementedBy": {
             "isNative": "boolean",
             "lambda": {
-              "functionName": "`Telemetry-tsDataReader`",
-              "arn": "`Telemetry-tsDataReaderARN`"
+              "functionName": "{{Telemetry-tsDataReader}}",
+              "arn": "{{Telemetry-tsDataReaderARN}}"
             }
           },
           "requiredProperties": [
@@ -483,7 +457,9 @@ Use the following template format for a job that imports componentTypes:
 }
 ```
 
-template: Importing components
+------
+#### [ template: Importing components ]
+
 Use the following template format for a job that imports components:
 
 ```
@@ -524,72 +500,64 @@ Use the following template format for a job that imports components:
 }
 ```
 
+------
+
 ## AWS IoT TwinMaker metadataTransferJob examples
+<a name="tm-import-export-cli-examples"></a>
 
 Use the following commands to manage your metadata transfers:
++ [ CreateMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CreateMetadataTransferJob.html) API action.
 
-- [CreateMetadataTransferJob](../apireference/API_CreateMetadataTransferJob.md "../apireference/API_CreateMetadataTransferJob.md") API action.
+  CLI command example:
 
-CLI command example:
+  ```
+  aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
+  --cli-input-json file://{{yourTransferFileName}}.json
+  ```
++ To cancel a job use the [ CancelMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_CancelMetadataTransferJob.html) API action.
 
-```
-aws iottwinmaker create-metadata-transfer-job --region us-east-1 \
---cli-input-json file://`yourTransferFileName`.json
-```
+  CLI command example:
 
-- To cancel a job use the [CancelMetadataTransferJob](../apireference/API_CancelMetadataTransferJob.md "../apireference/API_CancelMetadataTransferJob.md") API action.
+  ```
+  aws iottwinmaker cancel-metadata-transfer-job 
+  --region us-east-1 \
+  --metadata-transfer-job-id {{job-to-cancel-id}}
+  ```
 
-CLI command example:
+  When you call CancelMetadataTransferJob, it only cancels a specific metadata transfer job, and any resources already exported or imported are not affected.
++ To retrieve information on a specific job use the [ GetMetadataTransferJob](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_GetMetadataTransferJob.html) API action.
 
-```
-aws iottwinmaker cancel-metadata-transfer-job
---region us-east-1 \
---metadata-transfer-job-id `job-to-cancel-id`
-```
+  CLI command example:
 
-When you call CancelMetadataTransferJob, it only cancels a specific
-metadata transfer job, and any resources already exported or imported are not
-affected.
+  ```
+  aws iottwinmaker get-metadata-transfer-job \
+  --metadata-transfer-job-id {{your_metadata_transfer_job_id}} \
+  --region us-east-1 \
+  ```
++ To list current jobs use the [ ListMetadataTransferJobs](https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_ListMetadataTransferJobs.html) API action.
 
-- To retrieve information on a specific job use the [GetMetadataTransferJob](../apireference/API_GetMetadataTransferJob.md "../apireference/API_GetMetadataTransferJob.md") API action.
+  You can filter the results returned by ListMetadataTransferJobs using a JSON file. See the following procedure using the CLI:
 
-CLI command example:
+  1. Create a CLI input JSON file to specify the filters you want to use:
 
-```
-aws iottwinmaker get-metadata-transfer-job \
---metadata-transfer-job-id `your_metadata_transfer_job_id` \
---region us-east-1 \
-```
+     ```
+     {
+         "sourceType": "s3",
+         "destinationType": "iottwinmaker",
+         "filters": [{
+             "workspaceId": "workspaceforbulkimport"
+         },
+         {
+             "state": "COMPLETED"
+         }]
+     }
+     ```
 
-- To list current jobs use the [ListMetadataTransferJobs](../apireference/API_ListMetadataTransferJobs.md "../apireference/API_ListMetadataTransferJobs.md") API action.
+     Save it and record the file name, you will need it when entering the CLI command.
 
-You can filter the results returned by ListMetadataTransferJobs using a JSON
-file. See the following procedure using the CLI:
+  1. Use the JSON file as an argument to the following CLI command:
 
-    1. Create a CLI input JSON file to specify the filters you want to use:
-
-
-
-    ```
-    {
-        "sourceType": "s3",
-        "destinationType": "iottwinmaker",
-        "filters": [{
-            "workspaceId": "workspaceforbulkimport"
-        },
-        {
-            "state": "COMPLETED"
-        }]
-    }
-    ```
-
-    Save it and record the file name, you will need it when entering
-     the CLI command.
-    2. Use the JSON file as an argument to the following CLI command:
-
-
-
-    ```
-    aws iottwinmaker list-metadata-transfer-job --region us-east-1 \
-    --cli-input-json file://ListMetadataTransferJobsExample.json
-    ```
+     ```
+     aws iottwinmaker list-metadata-transfer-job --region us-east-1 \
+     --cli-input-json file://ListMetadataTransferJobsExample.json
+     ```

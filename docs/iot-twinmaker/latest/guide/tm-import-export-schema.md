@@ -1,7 +1,9 @@
-# AWS IoT TwinMaker metadata transfer job schema
 
-**metadataTransferJob import schema:** Use this AWS IoT TwinMaker metadata schema to validate your
-data when you upload it to an Amazon S3 bucket:
+
+# AWS IoT TwinMaker metadata transfer job schema
+<a name="tm-import-export-schema"></a>
+
+**metadataTransferJob import schema:** Use this AWS IoT TwinMaker metadata schema to validate your data when you upload it to an Amazon S3 bucket:
 
 ```
 {
@@ -625,8 +627,7 @@ data when you upload it to an Amazon S3 bucket:
 }
 ```
 
-Here is an example that creates a new componentType called
-`component.type.intial` and creates an entity called `initial`:
+Here is an example that creates a new componentType called `component.type.intial` and creates an entity called `initial`:
 
 ```
 {
