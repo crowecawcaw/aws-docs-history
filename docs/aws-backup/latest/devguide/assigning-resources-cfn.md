@@ -1,25 +1,19 @@
+
+
 # Assign AWS Backup resources through CloudFormation
+<a name="assigning-resources-cfn"></a>
 
-This end-to-end CloudFormation template creates a resource assignment, a backup plan, and a
-destination backup vault:
-
-- A backup vault named
-  `CloudFormationTestBackupVault`.
-- A backup plan named `CloudFormationTestBackupPlan`. This
-  plan will run two contains two backup rules, both of which take backups daily at 12 noon
-  UTC and retain them for 210 days.
-- A resource selection named `BackupSelectionName`.
-- - The resource assignment backs up the following resources:
-
-        - Any resource tagged with the key-value pair
-         `backupplan:dsi-sandbox-daily`.
-        - Any resource tagged with the value `prod` or values beginning
-         with `prod/`.
-    - The resource assignment does not back up the following resources:
-
-      - Any RDS, Aurora, Neptune, or DocumentDB cluster.
-      - Any resource tagged with the value `test` or values beginning
-        with `test/`.
+This end-to-end CloudFormation template creates a resource assignment, a backup plan, and a destination backup vault:
++ A backup vault named {{CloudFormationTestBackupVault}}.
++ A backup plan named {{CloudFormationTestBackupPlan}}. This plan will run two contains two backup rules, both of which take backups daily at 12 noon UTC and retain them for 210 days.
++ A resource selection named {{BackupSelectionName}}.
++ 
+  + The resource assignment backs up the following resources:
+    + Any resource tagged with the key-value pair `backupplan:dsi-sandbox-daily`.
+    + Any resource tagged with the value `prod` or values beginning with `prod/`.
+  + The resource assignment does not back up the following resources:
+    + Any RDS, Aurora, Neptune, or DocumentDB cluster.
+    + Any resource tagged with the value `test` or values beginning with `test/`.
 
 ```
 Description: "Template that creates Backup Selection and its dependencies"
@@ -30,7 +24,7 @@ Parameters:
   BackupPlanName:
     Type: String
     Default: "CloudFormationTestBackupPlan"
-  BackupSelectionName:
+  BackupSelectionName: 
     Type: String
     Default: "CloudFormationTestBackupSelection"
   BackupPlanTagValue:
@@ -94,12 +88,12 @@ Resources:
       BackupPlanTags:
         test-key-1: !Ref BackupPlanTagValue
     DependsOn: CloudFormationTestBackupVault
-
+ 
   TestRole:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: "Allow"
             Principal:
@@ -108,7 +102,7 @@ Resources:
             Action:
               - "sts:AssumeRole"
       ManagedPolicyArns:
-        - !Sub "arn:`${AWS::Partition}`:iam::aws:policy/service-role/`AWSBackupServiceRolePolicyForBackup`"
+        - !Sub "arn:{{${AWS::Partition}}}:iam::aws:policy/service-role/{{AWSBackupServiceRolePolicyForBackup}}"
   BasicBackupSelection:
     Type: 'AWS::Backup::BackupSelection'
     Properties:

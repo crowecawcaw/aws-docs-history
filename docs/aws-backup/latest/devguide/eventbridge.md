@@ -1,55 +1,46 @@
-# Monitoring AWS Backup events using Amazon EventBridge
 
-AWS Backup sends events to Amazon EventBridge when the state of a backup or copy job changes. You can use
-EventBridge to monitor AWS Backup events. For example, you can receive an alarm when a backup job fails.
-AWS Backup emits events to EventBridge in a best-effort manner every 5 minutes.
+
+# Monitoring AWS Backup events using Amazon EventBridge
+<a name="eventbridge"></a>
+
+AWS Backup sends events to Amazon EventBridge when the state of a backup or copy job changes. You can use EventBridge to monitor AWS Backup events. For example, you can receive an alarm when a backup job fails. AWS Backup emits events to EventBridge in a best-effort manner every 5 minutes.
 
 To track events using EventBridge, see the following:
++ [Creating a rule that reacts to events](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html) (*Amazon EventBridge User Guide*)
++ [Amazon CloudWatch Events and Metrics for AWS Backup](https://aws.amazon.com/blogs/storage/amazon-cloudwatch-events-and-metrics-for-aws-backup/) (blog - see *Configure AWS Backup events to send to Amazon EventBridge*)
 
-- [Creating a rule that
-  reacts to events](../../../eventbridge/latest/userguide/create-eventbridge-rule.md "../../../eventbridge/latest/userguide/create-eventbridge-rule.md") (_Amazon EventBridge User Guide_)
-- [Amazon CloudWatch Events
-  and Metrics for AWS Backup](https://aws.amazon.com/blogs/storage/amazon-cloudwatch-events-and-metrics-for-aws-backup/ "https://aws.amazon.com/blogs/storage/amazon-cloudwatch-events-and-metrics-for-aws-backup/") (blog - see _Configure AWS Backup events to send to
-  Amazon EventBridge_)
-  Some events report `status: COMPLETED` whereas other events report `state:
- COMPLETED`. This is consistent with the AWS Backup API. Some statuses are specific to the
-  AWS Backup console: the status `Completed with issues` status is a representation of
-  `Completed` jobs with status messages. To monitor `Completed with
- issues` events, monitor `COMPLETED` jobs that have a status message. Please note this is only specific to backup jobs.
+Some events report `status: COMPLETED` whereas other events report `state: COMPLETED`. This is consistent with the AWS Backup API. Some statuses are specific to the AWS Backup console: the status `Completed with issues` status is a representation of `Completed` jobs with status messages. To monitor `Completed with issues` events, monitor `COMPLETED` jobs that have a status message. Please note this is only specific to backup jobs.
 
-You can alternatively use the AWS Backup notification API to track AWS Backup events with Amazon Simple Notification Service
-(Amazon SNS). However, EventBridge tracks more changes than the notification API does, including changes
-to backup vaults, copy job state, Region settings, and the number of cold or warm recovery
-points.
+You can alternatively use the AWS Backup notification API to track AWS Backup events with Amazon Simple Notification Service (Amazon SNS). However, EventBridge tracks more changes than the notification API does, including changes to backup vaults, copy job state, Region settings, and the number of cold or warm recovery points.
 
-###### Events
-
-- [Backup Job events](#aws-backup-events-backup-job "#aws-backup-events-backup-job")
-- [Backup Plan events](#aws-backup-events-backup-plan "#aws-backup-events-backup-plan")
-- [Backup Vault events](#aws-backup-events-backup-vault "#aws-backup-events-backup-vault")
-- [Copy Job events](#aws-backup-events-copy-job "#aws-backup-events-copy-job")
-- [Recovery Point events](#aws-backup-events-recovery-point "#aws-backup-events-recovery-point")
-- [Region Settings events](#aws-backup-events-region-settings "#aws-backup-events-region-settings")
-- [Restore Job events](#aws-backup-events-restore-job "#aws-backup-events-restore-job")
-- [Recovery point indexing events](#aws-backup-recovery-point-indexing "#aws-backup-recovery-point-indexing")
-- [Malware scan Job events](#aws-backup-events-malware-scan-job "#aws-backup-events-malware-scan-job")
-- [Backup access point events](#aws-backup-events-access-point "#aws-backup-events-access-point")
+**Topics**
++ [Backup Job events](#aws-backup-events-backup-job)
++ [Backup Plan events](#aws-backup-events-backup-plan)
++ [Backup Vault events](#aws-backup-events-backup-vault)
++ [Copy Job events](#aws-backup-events-copy-job)
++ [Recovery Point events](#aws-backup-events-recovery-point)
++ [Region Settings events](#aws-backup-events-region-settings)
++ [Restore Job events](#aws-backup-events-restore-job)
++ [Recovery point indexing events](#aws-backup-recovery-point-indexing)
++ [Malware scan Job events](#aws-backup-events-malware-scan-job)
++ [Backup access point events](#aws-backup-events-access-point)
 
 ## Backup Job events
+<a name="aws-backup-events-backup-job"></a>
 
 The following are example events.
 
-###### State
-
-- [FAILED](#backup-job-state-change-failed "#backup-job-state-change-failed")
-- [COMPLETED](#backup-job-state-change-completed "#backup-job-state-change-completed")
-- [RUNNING](#backup-job-state-change-running "#backup-job-state-change-running")
-- [ABORTED](#backup-job-state-change-aborted "#backup-job-state-change-aborted")
-- [EXPIRED](#backup-job-state-change-expired "#backup-job-state-change-expired")
-- [PENDING](#backup-job-state-change-pending "#backup-job-state-change-pending")
-- [CREATED](#backup-job-state-change-created "#backup-job-state-change-created")
+**Topics**
++ [FAILED](#backup-job-state-change-failed)
++ [COMPLETED](#backup-job-state-change-completed)
++ [RUNNING](#backup-job-state-change-running)
++ [ABORTED](#backup-job-state-change-aborted)
++ [EXPIRED](#backup-job-state-change-expired)
++ [PENDING](#backup-job-state-change-pending)
++ [CREATED](#backup-job-state-change-created)
 
 ### State: FAILED
+<a name="backup-job-state-change-failed"></a>
 
 ```
 {
@@ -73,13 +64,14 @@ The following are example events.
     "state": "FAILED",
     "statusMessage": "\"Backup job failed because backup vault arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86 does not exist.\"",
     "startBy": "2020-07-30T04:13:07.392Z",
-    "percentDone": 0,
+    "percentDone": 0, 
     "retryCount": 3
   }
 }
 ```
 
 ### State: COMPLETED
+<a name="backup-job-state-change-completed"></a>
 
 ```
 {
@@ -113,6 +105,7 @@ The following are example events.
 ```
 
 ### State: RUNNING
+<a name="backup-job-state-change-running"></a>
 
 ```
 {
@@ -149,6 +142,7 @@ The following are example events.
 ```
 
 ### State: ABORTED
+<a name="backup-job-state-change-aborted"></a>
 
 ```
 {
@@ -179,6 +173,7 @@ The following are example events.
 ```
 
 ### State: EXPIRED
+<a name="backup-job-state-change-expired"></a>
 
 ```
 {
@@ -215,6 +210,7 @@ The following are example events.
 ```
 
 ### State: PENDING
+<a name="backup-job-state-change-pending"></a>
 
 ```
 {
@@ -244,6 +240,7 @@ The following are example events.
 ```
 
 ### State: CREATED
+<a name="backup-job-state-change-created"></a>
 
 ```
 {
@@ -264,16 +261,17 @@ The following are example events.
 ```
 
 ## Backup Plan events
+<a name="aws-backup-events-backup-plan"></a>
 
 The following are example events.
 
-###### State
-
-- [MODIFIED](#backup-plan-state-change-modified "#backup-plan-state-change-modified")
-- [DELETED](#backup-plan-state-change-deleted "#backup-plan-state-change-deleted")
-- [CREATED](#backup-plan-state-change-created "#backup-plan-state-change-created")
+**Topics**
++ [MODIFIED](#backup-plan-state-change-modified)
++ [DELETED](#backup-plan-state-change-deleted)
++ [CREATED](#backup-plan-state-change-created)
 
 ### State: MODIFIED
+<a name="backup-plan-state-change-modified"></a>
 
 ```
 {
@@ -297,6 +295,7 @@ The following are example events.
 ```
 
 ### State: DELETED
+<a name="backup-plan-state-change-deleted"></a>
 
 ```
 {
@@ -320,6 +319,7 @@ The following are example events.
 ```
 
 ### State: CREATED
+<a name="backup-plan-state-change-created"></a>
 
 ```
 {
@@ -343,16 +343,17 @@ The following are example events.
 ```
 
 ## Backup Vault events
+<a name="aws-backup-events-backup-vault"></a>
 
 The following are example events.
 
-###### State
-
-- [CREATED](#backup-vault-state-change-created "#backup-vault-state-change-created")
-- [MODIFIED](#backup-vault-state-change-modified "#backup-vault-state-change-modified")
-- [DELETED](#backup-vault-state-change-deleted "#backup-vault-state-change-deleted")
+**Topics**
++ [CREATED](#backup-vault-state-change-created)
++ [MODIFIED](#backup-vault-state-change-modified)
++ [DELETED](#backup-vault-state-change-deleted)
 
 ### State: CREATED
+<a name="backup-vault-state-change-created"></a>
 
 ```
 {
@@ -369,11 +370,12 @@ The following are example events.
   "detail": {
     "backupVaultName": "d8864642-155c-4283-a168-a04f40e12c97",
     "state": "CREATED"
-  }
+  }  
 }
 ```
 
 ### State: MODIFIED
+<a name="backup-vault-state-change-modified"></a>
 
 ```
 {
@@ -391,11 +393,12 @@ The following are example events.
     "backupVaultName": "vaultName",
     "state": "MODIFIED",
     "isLocked": "true"
-  }
+  }  
 }
 ```
 
 ### State: DELETED
+<a name="backup-vault-state-change-deleted"></a>
 
 ```
 {
@@ -417,17 +420,18 @@ The following are example events.
 ```
 
 ## Copy Job events
+<a name="aws-backup-events-copy-job"></a>
 
 The following are example events.
 
-###### State
-
-- [FAILED](#copy-job-state-change-failed "#copy-job-state-change-failed")
-- [RUNNING](#copy-job-state-change-running "#copy-job-state-change-running")
-- [COMPLETED](#copy-job-state-change-completed "#copy-job-state-change-completed")
-- [CREATED](#copy-job-state-change-created "#copy-job-state-change-created")
+**Topics**
++ [FAILED](#copy-job-state-change-failed)
++ [RUNNING](#copy-job-state-change-running)
++ [COMPLETED](#copy-job-state-change-completed)
++ [CREATED](#copy-job-state-change-created)
 
 ### State: FAILED
+<a name="copy-job-state-change-failed"></a>
 
 ```
 {
@@ -459,6 +463,7 @@ The following are example events.
 ```
 
 ### State: RUNNING
+<a name="copy-job-state-change-running"></a>
 
 ```
 {
@@ -494,6 +499,7 @@ The following are example events.
 ```
 
 ### State: COMPLETED
+<a name="copy-job-state-change-completed"></a>
 
 ```
 {
@@ -530,6 +536,7 @@ The following are example events.
 ```
 
 ### State: CREATED
+<a name="copy-job-state-change-created"></a>
 
 ```
 {
@@ -553,20 +560,21 @@ The following are example events.
 ```
 
 ## Recovery Point events
+<a name="aws-backup-events-recovery-point"></a>
 
 The following are the events.
 
-###### State
-
-- [COMPLETED](#recovery-point-state-change-completed "#recovery-point-state-change-completed")
-- PARTIAL
-- DELETING
-- EXPIRED
-- AVAILABLE
-- STOPPED
-- CREATING
+**State**
++ [COMPLETED](#recovery-point-state-change-completed)
++ PARTIAL
++ DELETING
++ EXPIRED
++ AVAILABLE
++ STOPPED
++ CREATING
 
 ### State: COMPLETED
+<a name="recovery-point-state-change-completed"></a>
 
 ```
 {
@@ -608,6 +616,7 @@ The following are the events.
 ```
 
 ## Region Settings events
+<a name="aws-backup-events-region-settings"></a>
 
 The following is an example event.
 
@@ -632,21 +641,19 @@ The following is an example event.
 ```
 
 ## Restore Job events
+<a name="aws-backup-events-restore-job"></a>
 
-The following are example events. Note that your use case of a restore job will
-determine the required and optional parameters to include. For example, if your restore job
-is part of a restore testing plan, the parameter `restoreTestingPlanArn` is
-included. See `DescribeRestoreJob` for possible parameters.
+The following are example events. Note that your use case of a restore job will determine the required and optional parameters to include. For example, if your restore job is part of a restore testing plan, the parameter `restoreTestingPlanArn` is included. See `DescribeRestoreJob` for possible parameters.
 
-###### State
-
-- [FAILED](#restore-job-state-change-failed "#restore-job-state-change-failed")
-- [RUNNING](#restore-job-state-change-running "#restore-job-state-change-running")
-- [COMPLETED](#restore-job-state-change-completed "#restore-job-state-change-completed")
-- [PENDING](#restore-job-state-change-pending "#restore-job-state-change-pending")
-- [CREATED](#restore-job-state-change-created "#restore-job-state-change-created")
+**Topics**
++ [FAILED](#restore-job-state-change-failed)
++ [RUNNING](#restore-job-state-change-running)
++ [COMPLETED](#restore-job-state-change-completed)
++ [PENDING](#restore-job-state-change-pending)
++ [CREATED](#restore-job-state-change-created)
 
 ### State: FAILED
+<a name="restore-job-state-change-failed"></a>
 
 ```
 {
@@ -674,6 +681,7 @@ included. See `DescribeRestoreJob` for possible parameters.
 ```
 
 ### State: RUNNING
+<a name="restore-job-state-change-running"></a>
 
 ```
 {
@@ -700,6 +708,7 @@ included. See `DescribeRestoreJob` for possible parameters.
 ```
 
 ### State: COMPLETED
+<a name="restore-job-state-change-completed"></a>
 
 ```
 {
@@ -731,6 +740,7 @@ included. See `DescribeRestoreJob` for possible parameters.
 ```
 
 ### State: PENDING
+<a name="restore-job-state-change-pending"></a>
 
 ```
 {
@@ -757,6 +767,7 @@ included. See `DescribeRestoreJob` for possible parameters.
 ```
 
 ### State: CREATED
+<a name="restore-job-state-change-created"></a>
 
 ```
 {
@@ -779,16 +790,17 @@ included. See `DescribeRestoreJob` for possible parameters.
 ```
 
 ## Recovery point indexing events
+<a name="aws-backup-recovery-point-indexing"></a>
 
 The following are example events.
 
-###### State
-
-- [ACTIVE](#recovery-point-indexing-active "#recovery-point-indexing-active")
-- [DELETED](#recovery-point-indexing-deleted "#recovery-point-indexing-deleted")
-- [FAILED](#recovery-point-indexing-failed "#recovery-point-indexing-failed")
+**Topics**
++ [ACTIVE](#recovery-point-indexing-active)
++ [DELETED](#recovery-point-indexing-deleted)
++ [FAILED](#recovery-point-indexing-failed)
 
 ### State: ACTIVE
+<a name="recovery-point-indexing-active"></a>
 
 ```
 {
@@ -820,6 +832,7 @@ The following are example events.
 ```
 
 ### State: DELETED
+<a name="recovery-point-indexing-deleted"></a>
 
 ```
 {
@@ -851,6 +864,7 @@ The following are example events.
 ```
 
 ### State: FAILED
+<a name="recovery-point-indexing-failed"></a>
 
 ```
 {
@@ -881,33 +895,34 @@ The following are example events.
 ```
 
 ## Malware scan Job events
+<a name="aws-backup-events-malware-scan-job"></a>
 
 The following are example events.
 
-###### State
-
-- [CREATED](#malware-scan-job-state-change-created "#malware-scan-job-state-change-created")
-- [RUNNING](#malware-scan-job-state-change-running "#malware-scan-job-state-change-running")
-- [COMPLETED](#malware-scan-job-state-change-completed "#malware-scan-job-state-change-completed")
-- [COMPLETED WITH ISSUES](#malware-scan-job-state-change-completed-with-issues "#malware-scan-job-state-change-completed-with-issues")
-- [FAILED](#malware-scan-job-state-change-failed "#malware-scan-job-state-change-failed")
-- [CANCELED](#malware-scan-job-state-change-canceled "#malware-scan-job-state-change-canceled")
+**Topics**
++ [CREATED](#malware-scan-job-state-change-created)
++ [RUNNING](#malware-scan-job-state-change-running)
++ [COMPLETED](#malware-scan-job-state-change-completed)
++ [COMPLETED WITH ISSUES](#malware-scan-job-state-change-completed-with-issues)
++ [FAILED](#malware-scan-job-state-change-failed)
++ [CANCELED](#malware-scan-job-state-change-canceled)
 
 ### State: CREATED
+<a name="malware-scan-job-state-change-created"></a>
 
 ```
-{
-    "version": "0",
+{  
+    "version": "0",  
     "id": "60ce181d-67c7-496b-90fb-69636b42daee",
     "detail-type": "Scan Job State Change",
     "source": "aws.backup",
     "account": "1112233445566",
     "time": "2025-12-12T12:12:12Z",
     "region": "us-west-2",
-    "resources": [
+    "resources": [  
         "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
-    ],
-    "detail": {
+    ],  
+    "detail": {  
         "accountId": "1112233445566",
         "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
         "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
@@ -916,7 +931,7 @@ The following are example events.
             "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
             "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
             "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
-        },
+        },  
         "creationDate": "2025-12-12T12:12:00Z",
         "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
         "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
@@ -928,25 +943,26 @@ The following are example events.
         "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
         "malwareScanner": "GUARDDUTY",
         "state": "CREATED"
-    }
+    }  
 }
 ```
 
 ### State: RUNNING
+<a name="malware-scan-job-state-change-running"></a>
 
 ```
-{
-    "version": "0",
+{  
+    "version": "0",  
     "id": "60ce181d-67c7-496b-90fb-69636b42daee",
     "detail-type": "Scan Job State Change",
     "source": "aws.backup",
     "account": "1112233445566",
     "time": "2025-12-12T12:12:12Z",
     "region": "us-west-2",
-    "resources": [
+    "resources": [  
         "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
-    ],
-    "detail": {
+    ],  
+    "detail": {  
         "accountId": "1112233445566",
         "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
         "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
@@ -955,7 +971,7 @@ The following are example events.
             "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
             "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
             "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
-        },
+        },  
         "creationDate": "2025-12-12T12:12:00Z",
         "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
         "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
@@ -967,25 +983,26 @@ The following are example events.
         "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
         "malwareScanner": "GUARDDUTY",
         "state": "RUNNING"
-    }
+    }  
 }
 ```
 
 ### State: COMPLETED
+<a name="malware-scan-job-state-change-completed"></a>
 
 ```
-{
-    "version": "0",
+{  
+    "version": "0",  
     "id": "60ce181d-67c7-496b-90fb-69636b42daee",
     "detail-type": "Scan Job State Change",
     "source": "aws.backup",
     "account": "1112233445566",
     "time": "2025-12-12T12:12:12Z",
     "region": "us-west-2",
-    "resources": [
+    "resources": [  
         "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
-    ],
-    "detail": {
+    ],  
+    "detail": {  
         "accountId": "1112233445566",
         "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
         "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
@@ -995,7 +1012,7 @@ The following are example events.
             "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
             "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
             "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
-        },
+        },  
         "creationDate": "2025-12-12T12:12:00Z",
         "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
         "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
@@ -1006,30 +1023,31 @@ The following are example events.
         "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
         "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
         "malwareScanner": "GUARDDUTY",
-        "scanResult": {
+        "scanResult": {  
             "scanResultStatus": "THREATS_FOUND"
-        },
+        },  
         "state": "COMPLETED",
         "statusMessage": "An AWS Backup scan job was successful completed."
-    }
+    }  
 }
 ```
 
 ### State: COMPLETED WITH ISSUES
+<a name="malware-scan-job-state-change-completed-with-issues"></a>
 
 ```
-{
-    "version": "0",
+{  
+    "version": "0",  
     "id": "60ce181d-67c7-496b-90fb-69636b42daee",
     "detail-type": "Scan Job State Change",
     "source": "aws.backup",
     "account": "1112233445566",
     "time": "2025-12-12T12:12:12Z",
     "region": "us-west-2",
-    "resources": [
+    "resources": [  
         "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
-    ],
-    "detail": {
+    ],  
+    "detail": {  
         "accountId": "1112233445566",
         "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
         "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
@@ -1039,7 +1057,7 @@ The following are example events.
             "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
             "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
             "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
-        },
+        },  
         "creationDate": "2025-12-12T12:12:00Z",
         "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
         "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
@@ -1050,30 +1068,31 @@ The following are example events.
         "scanJobId": "4d5fc12e-7e33-4336-a981-bbe43c300298",
         "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
         "malwareScanner": "GUARDDUTY",
-        "scanResult": {
+        "scanResult": {  
             "scanResultStatus": "NO_THREATS_FOUND"
-        },
+        },  
         "state": "COMPLETED_WITH_ISSUES",
         "statusMessage": "Scan job partially completed. View more details in Amazon GuardDuty"
-    }
+    }  
 }
 ```
 
 ### State: FAILED
+<a name="malware-scan-job-state-change-failed"></a>
 
 ```
-{
-    "version": "0",
+{  
+    "version": "0",  
     "id": "60ce181d-67c7-496b-90fb-69636b42daee",
     "detail-type": "Scan Job State Change",
     "source": "aws.backup",
     "account": "1112233445566",
     "time": "2025-12-12T12:12:12Z",
     "region": "us-west-2",
-    "resources": [
+    "resources": [  
         "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
-    ],
-    "detail": {
+    ],  
+    "detail": {  
         "accountId": "1112233445566",
         "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
         "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
@@ -1083,7 +1102,7 @@ The following are example events.
             "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
             "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
             "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
-        },
+        },  
         "creationDate": "2025-12-12T12:12:00Z",
         "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
         "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
@@ -1095,26 +1114,27 @@ The following are example events.
         "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
         "malwareScanner": "GUARDDUTY",
         "state": "FAILED",
-        "statusMessage": "<failure reason>"
-    }
+        "statusMessage": "<failure reason>"  
+    }  
 }
 ```
 
 ### State: CANCELED
+<a name="malware-scan-job-state-change-canceled"></a>
 
 ```
-{
-    "version": "0",
+{  
+    "version": "0",  
     "id": "60ce181d-67c7-496b-90fb-69636b42daee",
     "detail-type": "Scan Job State Change",
     "source": "aws.backup",
     "account": "1112233445566",
     "time": "2025-12-12T12:12:12Z",
     "region": "us-west-2",
-    "resources": [
+    "resources": [  
         "arn:aws:backup:us-west-2:1112233445566:recovery-point:abcd1234-5678-abcd-9012-abcdef123456"
-    ],
-    "detail": {
+    ],  
+    "detail": {  
         "accountId": "1112233445566",
         "backupVaultArn": "arn:aws:backup:us-west-2:1112233445566:backup-vault:9ab3e749-82c6-4342-9320-5edbf4918b86",
         "backupVaultName": "9ab3e749-82c6-4342-9320-5edbf4918b86",
@@ -1124,7 +1144,7 @@ The following are example events.
             "backupPlanId": "5d5a14cc-4ee2-4b9f-beb6-4afa998bb98f",
             "backupPlanVersion": "Mjc4ZTRhMzUtMGE5Ni00NmQ5LWE1YmMtOWMwY2IwMTY4NWQ4",
             "backupRuleId": "256ad167-f523-4cb9-93f3-f0c933efd97f"
-        },
+        },  
         "creationDate": "2025-12-12T12:12:00Z",
         "iamRoleArn": "arn:aws:iam::1112233445566:role/RoleForEc2BackupWithNoDescribeTagsPermissions",
         "scannerRoleArn": "arn:aws:iam::1112233445566:role/RoleForAwsBackupGuarddutyScanner",
@@ -1136,24 +1156,25 @@ The following are example events.
         "scanBaseRecoveryPointArn": "arn:aws:backup:us-west-2:1112233445566:recovery-point:46bd3edb-a499-4db1-8f8f-269a2ff76fab",
         "malwareScanner": "GUARDDUTY",
         "state": "CANCELED",
-        "statusMessage": "Scan job was stopped by user."
-    }
+        "statusMessage": "Scan job was stopped by user."  
+    }  
 }
 ```
 
 ## Backup access point events
+<a name="aws-backup-events-access-point"></a>
 
 The following are example events.
 
 **States:**
-
-- AVAILABLE
-- FAILED
-- DELETED
-- EXPIRED
-- DISASSOCIATED
++ AVAILABLE
++ FAILED
++ DELETED
++ EXPIRED
++ DISASSOCIATED
 
 ### State: AVAILABLE
+<a name="access-point-state-change-available"></a>
 
 ```
 {
@@ -1183,6 +1204,7 @@ The following are example events.
 ```
 
 ### State: FAILED
+<a name="access-point-state-change-failed"></a>
 
 ```
 {

@@ -1,76 +1,83 @@
+
+
 # Amazon EKS backups
+<a name="eks-backups"></a>
 
 An Amazon Elastic Kubernetes Service (Amazon EKS) cluster consists of multiple resources that you can back up as a single unit. When you back up an Amazon EKS cluster, AWS Backup creates a composite recovery point that includes both EKS cluster state and persistent volume backups.
 
 When an Amazon EKS cluster is backed up, recovery points are created for the Amazon EKS cluster state and persistent volumes supported by AWS Backup. These recovery points are grouped together within an overarching recovery point called a **composite**.
 
 There are two distinct components of an Amazon EKS backup:
-
-- _Amazon EKS Cluster State:_ This is a backup of the Amazon EKS cluster state. See Amazon EKS backup terminology below for what is included.
-- _Persistent Storage:_ This is a backup of persistent storage (Amazon EBS, Amazon S3, Amazon Elastic File System) attached to the Amazon EKS cluster via Persistent Volume Claims and [supported by EKS Add Ons CSI Driver](../../../eks/latest/userguide/storage.md "../../../eks/latest/userguide/storage.md").
++ *Amazon EKS Cluster State:* This is a backup of the Amazon EKS cluster state. See Amazon EKS backup terminology below for what is included.
++ *Persistent Storage:* This is a backup of persistent storage (Amazon EBS, Amazon S3, Amazon Elastic File System) attached to the Amazon EKS cluster via Persistent Volume Claims and [supported by EKS Add Ons CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/storage.html).
 
 ## Amazon EKS backup terminology
+<a name="eks-backup-overview"></a>
 
-The following terms are used throughout the Amazon EKS backup documentation. For Amazon EKS Specific terminology, please refer to [Amazon EKS Documentation](../../../eks/latest/userguide/getting-started.md "../../../eks/latest/userguide/getting-started.md").
+The following terms are used throughout the Amazon EKS backup documentation. For Amazon EKS Specific terminology, please refer to [Amazon EKS Documentation](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html).
 
-- **Composite recovery point** – A recovery point used to group nested recovery points together for an Amazon EKS cluster backup.
-- **Nested recovery point** – A recovery point of a resource that is part of an Amazon EKS cluster and is backed up as part of the composite recovery point.
-- **EKS Cluster State** – The Kubernetes manifests (YAML or JSON files) that define the desired state of Kubernetes resources in your cluster. This includes Kubernetes resources and deployments such as: secrets, config maps, stateful sets, DaemonSets, storage classes, storage maps, replica sets, persistent volume claims, custom resource definitions, roles, and role bindings.
-- **Amazon EKS Cluster Configuration Child Recovery Point** – Contains Amazon EKS cluster state.
-- **Persistent Volume Child Recovery Points** – Contains persistent volume backups for supported storage types (EBS, S3, EFS) [supported by EKS Add Ons CSI Driver](../../../eks/latest/userguide/storage.md "../../../eks/latest/userguide/storage.md").
+## EKS Backup Terminology
+<a name="eks-backup-terminology"></a>
++ **Composite recovery point** – A recovery point used to group nested recovery points together for an Amazon EKS cluster backup.
++ **Nested recovery point** – A recovery point of a resource that is part of an Amazon EKS cluster and is backed up as part of the composite recovery point.
++ **EKS Cluster State** – The Kubernetes manifests (YAML or JSON files) that define the desired state of Kubernetes resources in your cluster. This includes Kubernetes resources and deployments such as: secrets, config maps, stateful sets, DaemonSets, storage classes, storage maps, replica sets, persistent volume claims, custom resource definitions, roles, and role bindings.
++ **Amazon EKS Cluster Configuration Child Recovery Point** – Contains Amazon EKS cluster state.
++ **Persistent Volume Child Recovery Points** – Contains persistent volume backups for supported storage types (EBS, S3, EFS) [supported by EKS Add Ons CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/storage.html).
 
 ## Amazon EKS backup structure
+<a name="eks-backup-creation"></a>
 
 **Amazon EKS backups include the following components:**
-
-- Amazon EKS Cluster State
-- Persistent Storage: Backups of supported storage types including Amazon EBS, Amazon EFS, and Amazon S3
++ Amazon EKS Cluster State
++ Persistent Storage: Backups of supported storage types including Amazon EBS, Amazon EFS, and Amazon S3
 
 **Amazon EKS Backups will not include the following components:**
-
-- Container images from external repositories (ECR, Docker)
-- EKS cluster infrastructure components (e.g. VPCs, Subnets)
-- Auto-generated EKS resources like nodes, auto-generated pods, events, leases, and jobs.
++ Container images from external repositories (ECR, Docker)
++ EKS cluster infrastructure components (e.g. VPCs, Subnets)
++ Auto-generated EKS resources like nodes, auto-generated pods, events, leases, and jobs.
 
 **EKS backup setup and prerequisites ("Before you backup")**
-
-- **EKS Cluster Settings:**
-
-  - EKS Cluster [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md") set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md") to access the EKS cluster.
-
-- **Permissions:**
-
-  - AWS Backup's managed policy [AWSBackupServiceRolePolicyForBackup](security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup "security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup") contains the required permissions to backup your Amazon EKS cluster and EBS and EFS persistent storage
-  - If your EKS Cluster contains an S3 bucket you will need to ensure the following policies and prerequisites for your S3 bucket are added and enabled as documented:
-
-    - [AWSBackupServiceRolePolicyForS3Backup](security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup "security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup")
-    - [Prerequisites for S3 Backups](s3-backups.md#s3-backup-prerequisites "s3-backups.md#s3-backup-prerequisites")
-
-- **Encryption:**
-
-  - Amazon EKS child recovery points will be encrypted with the Amazon KMS key set of the target Backup Vault
-  - Persistent Storage recovery points will be encrypted as per the current support for each storage class: EBS Snapshots, S3 Backups, EFS Backups. [See Encryption for backups in AWS Backup](encryption.md "encryption.md")
++ **EKS Cluster Settings:**
+  + EKS Cluster [authorization mode](https://docs.aws.amazon.com/eks/latest/userguide/setting-up-access-entries.html) set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html) to access the EKS cluster.
++ **Permissions:**
+  + AWS Backup's managed policy [AWSBackupServiceRolePolicyForBackup](https://docs.aws.amazon.com/aws-backup/latest/devguide/security-iam-awsmanpol.html#AWSBackupServiceRolePolicyForBackup) contains the required permissions to backup your Amazon EKS cluster and EBS and EFS persistent storage
+  + If your EKS Cluster contains an S3 bucket you will need to ensure the following policies and prerequisites for your S3 bucket are added and enabled as documented:
+    + [AWSBackupServiceRolePolicyForS3Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/security-iam-awsmanpol.html#AWSBackupServiceRolePolicyForS3Backup)
+    + [Prerequisites for S3 Backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/s3-backups.html#s3-backup-prerequisites)
++ **Encryption:**
+  + Amazon EKS child recovery points will be encrypted with the Amazon KMS key set of the target Backup Vault
+  + Persistent Storage recovery points will be encrypted as per the current support for each storage class: EBS Snapshots, S3 Backups, EFS Backups. [See Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
 
 ## Create an Amazon EKS backup
+<a name="eks-backups-options"></a>
 
-The process of a backup creation is called a backup job. An Amazon EKS cluster backup job has a
-status. When a backup job has finished, it has the status of Completed.
-This signifies a recovery point (a backup) has been created.
+The process of a backup creation is called a backup job. An Amazon EKS cluster backup job has a status. When a backup job has finished, it has the status of Completed. This signifies a recovery point (a backup) has been created.
 
 ### Creating an on-demand Amazon EKS backup
+<a name="eks-backups-on-demand"></a>
 
-Console
+------
+#### [ Console ]
+
 To create an on-demand backup of your Amazon EKS cluster:
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2. In the navigation pane, choose **Protected resources**.
-3. Under **Resource type**, select **Amazon EKS**.
-4. Select the checkbox next to the Amazon EKS cluster you want to back up.
-5. Choose **Create on-demand backup**.
-6. Configure your backup settings, including backup window, transition to cold storage, and retention period.
-7. Choose **Create on-demand backup**.
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup).
 
-AWS CLI
+1. In the navigation pane, choose **Protected resources**.
+
+1. Under **Resource type**, select **Amazon EKS**.
+
+1. Select the checkbox next to the Amazon EKS cluster you want to back up.
+
+1. Choose **Create on-demand backup**.
+
+1. Configure your backup settings, including backup window, transition to cold storage, and retention period.
+
+1. Choose **Create on-demand backup**.
+
+------
+#### [ AWS CLI ]
+
 To create an on-demand backup of your Amazon EKS cluster using the AWS CLI:
 
 Use the **start-backup-job** command:
@@ -102,45 +109,54 @@ aws backup describe-backup-job \
     --region us-west-2
 ```
 
+------
+
 ## Amazon EKS backup ARN format
+<a name="eks-recovery-points"></a>
 
-Composite Recovery Point arn:`partition`:backup:`region`:`accountId`:recovery-point:composite:eks/`cluster-name`-`timestamp`
+Composite Recovery Point arn:{{partition}}:backup:{{region}}:{{accountId}}:recovery-point:composite:eks/{{cluster-name}}-{{timestamp}}
 
-Child Recovery Point arn:`partition`:backup:`region`:`accountId`:recovery-point:eks/`cluster-name`-`timestamp`
+Child Recovery Point arn:{{partition}}:backup:{{region}}:{{accountId}}:recovery-point:eks/{{cluster-name}}-{{timestamp}}
 
 ### Amazon EKS recovery points
+<a name="eks-recovery-point-status"></a>
 
 #### Recovery point status
+<a name="eks-recovery-point-status-details"></a>
 
 When the backup job of an Amazon EKS cluster is finished (the job status is `Completed`), a backup of the cluster has been created. This backup is also known as a composite recovery point. A composite recovery point can have one of the following statuses: `Completed`, `Failed`, or `Partial`.
 
 Each Amazon EKS backup creates a parent backup job for the composite recovery point and child backup jobs for each child recovery point (cluster configuration and persistent volumes).
-
-- A completed backup job means your entire Amazon EKS cluster and the resources within it are protected by AWS Backup.
-- A failed status indicates that the backup job was unsuccessful; you should create the backup again once the issue that caused the failure is corrected.
-- A `Partial` status means that not all the resources in the cluster were backed up. This may happen if one or more of the backup jobs belonging to resources within the cluster (nested resources) have statuses other than `Completed`. You can manually create an on-demand backup to rerun any resources that resulted in a status other than `Completed`.
-- A `Completed with issues` status means that not all the resources in the cluster were backed up. This can happen when we fail to backup some Kubernetes objects in the cluster. You can subscribe to **Notification Events** for failed objects for backup. For more information, see [Notification options with AWS Backup.](backup-notifications.md "backup-notifications.md")
++ A completed backup job means your entire Amazon EKS cluster and the resources within it are protected by AWS Backup.
++ A failed status indicates that the backup job was unsuccessful; you should create the backup again once the issue that caused the failure is corrected.
++ A `Partial` status means that not all the resources in the cluster were backed up. This may happen if one or more of the backup jobs belonging to resources within the cluster (nested resources) have statuses other than `Completed`. You can manually create an on-demand backup to rerun any resources that resulted in a status other than `Completed`.
++ A `Completed with issues` status means that not all the resources in the cluster were backed up. This can happen when we fail to backup some Kubernetes objects in the cluster. You can subscribe to **Notification Events** for failed objects for backup. For more information, see [Notification options with AWS Backup.](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-notifications.html)
 
 Each nested resource within the composite recovery point has its own individual recovery point, each with its own status (either `Completed` or `Failed`). Nested recovery points with a status of `Completed` can be restored.
 
 AWS Backup supports lifecycle transitions to cold storage for persistent volume recovery points. You can subscribe to notifications to receive alerts on backup job status.
 
 ## Manage recovery points
+<a name="eks-manage-recovery-points"></a>
 
 Composite recovery points (backups) can be copied; persistent volume child recovery points can be copied, deleted, disassociated, or restored. The Amazon EKS cluster state child recovery point cannot be copied, deleted, or disassociated as it maintains a 1:1 relationship with its parent composite recovery point.
 
 A composite recovery point which contains nested backups cannot be deleted. After the nested recovery points within a composite recovery point have been deleted or disassociated, you can manually delete the composite recovery point manually or let it remain until the backup plan lifecycle deletes it.
 
 ### Delete a recovery point
+<a name="eks-delete-recovery-point"></a>
 
 You can delete a recovery point using the console or using the AWS CLI.
 
 To delete recovery points using the console:
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2. Click on Protected Resources in the left-hand navigation. In the text box, type EKS to display only your Amazon EKS clusters.
-3. Composite recovery points will be displayed in the Recovery points pane. The plus sign (+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can check the box to the left of any recovery point to include it in your selection of recovery points you wish to delete.
-4. Click the Delete button.
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup).
+
+1. Click on Protected Resources in the left-hand navigation. In the text box, type EKS to display only your Amazon EKS clusters.
+
+1. Composite recovery points will be displayed in the Recovery points pane. The plus sign (\+) to the left of each recovery point ID can be clicked to expand each composite recovery point, showing all nested recovery points contained in the composite. You can check the box to the left of any recovery point to include it in your selection of recovery points you wish to delete.
+
+1. Click the Delete button.
 
 When you use the console to delete one or more composite recovery points, a warning box will pop up. This warning box requires you to confirm your intention to delete the composite recovery points, including nested recovery points within composite stacks.
 
@@ -149,92 +165,89 @@ To delete recovery points using API, use the DeleteRecoveryPoint command.
 When you use API with the AWS Command Line Interface you must delete all nested recovery points prior to deleting a composite point.
 
 ### Disassociate a nested recovery point from composite recovery point
+<a name="eks-disassociate-recovery-point"></a>
 
 You can disassociate a nested recovery point from a composite recovery point (for example, you wish to keep the nested recovery point but delete the composite recovery point). Both recovery points will remain, but they will no longer be connected; that is, actions that occur on the composite recovery point will no longer apply to the nested recovery point once it has been disassociated. The Amazon EKS cluster state child recovery point cannot be disassociated as it maintains a 1:1 relationship with its parent composite recovery point.
 
 You can disassociate the recovery point using the console, or you can call the API DisassociateRecoveryPointFromParent.
 
 ## Copy a recovery point
+<a name="eks-copy-recovery-point"></a>
 
-You can copy a composite recovery point, or you can copy a nested recovery point if the resource supports [cross-account and cross-Region copy](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource").
+You can copy a composite recovery point, or you can copy a nested recovery point if the resource supports [cross-account and cross-Region copy](backup-feature-availability.md#features-by-resource).
 
 To copy recovery points using the AWS Backup console:
 
-Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
+Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup).
 
 1. Click on **Vaults** in the left-hand navigation, and go to the vault that contains the recovery point you want to copy. In the text box, type `EKS` to display only your recovery points for Amazon EKS clusters.
-2. Both composite and nested recovery points will be displayed under the Recovery point ID pane. Note you cannot select and copy a nested EKS recovery point.
-3. The arrow sign to the left of each composite recovery point ID can be clicked to expand, showing all nested recovery points contained in the composite. You can click the square checkbox to the left of any recovery point to copy it.
-4. Once it is selected, click the **Actions** dropdown in the top-right corner of the pane and click **Copy**.
+
+1. Both composite and nested recovery points will be displayed under the Recovery point ID pane. Note you cannot select and copy a nested EKS recovery point.
+
+1. The arrow sign to the left of each composite recovery point ID can be clicked to expand, showing all nested recovery points contained in the composite. You can click the square checkbox to the left of any recovery point to copy it.
+
+1. Once it is selected, click the **Actions** dropdown in the top-right corner of the pane and click **Copy**.
 
 Amazon EKS backups support all copy types:
-
-- Same region/account
-- Cross account
-- Cross region
-- Opt-in regions
++ Same region/account
++ Cross account
++ Cross region
++ Opt-in regions
 
 ## Limitations
-
-- Persistent volumes using a CSI Driver via CSI migration, in-tree storage plugins or ACK controllers are not supported. Note that the annotation `volume.kubernetes.io/storage-provisioner: ebs.csi.aws.com` is metadata indicating which provisioner could manage the volume, not that the volume uses CSI. The actual provisioner is determined by the storageClass.
-- Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes.
-- Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
-- Backups of EFS file systems in a cross-account are not supported via EKS Backups.
-- Amazon EFS persistent volumes with non-root subpath mounts are not supported. Only root file system handles or access point handles are supported for backup. Unsupported configurations will produce a failed child backup job with the corresponding error message.
-- Amazon FSx via CSI driver is not supported via EKS Backups.
-- AWS Backup does not support Amazon EKS on AWS Outposts.
-- Subject to [backup and restore quotas](aws-backup-limits.md "aws-backup-limits.md").
+<a name="eks-limitations"></a>
++ Persistent volumes using a CSI Driver via CSI migration, in-tree storage plugins or ACK controllers are not supported. Note that the annotation `volume.kubernetes.io/storage-provisioner: ebs.csi.aws.com` is metadata indicating which provisioner could manage the volume, not that the volume uses CSI. The actual provisioner is determined by the storageClass.
++ Amazon S3 buckets with specific prefixes attached to CSI Driver MountPoints cannot be backed up. Only Amazon S3 buckets as targets are supported, not specific prefixes.
++ Amazon S3 bucket backups as part of an EKS cluster backup will only support snapshot backups.
++ Backups of EFS file systems in a cross-account are not supported via EKS Backups.
++ Amazon EFS persistent volumes with non-root subpath mounts are not supported. Only root file system handles or access point handles are supported for backup. Unsupported configurations will produce a failed child backup job with the corresponding error message.
++ Amazon FSx via CSI driver is not supported via EKS Backups.
++ AWS Backup does not support Amazon EKS on AWS Outposts.
++ Subject to [backup and restore quotas](aws-backup-limits.html).
 
 ## Backup Jobs Completed with Issues
+<a name="eks-backup-jobs-completed-with-issues"></a>
 
-When backing up an Amazon EKS cluster, some Kubernetes objects may fail to be retrieved.
-In this case, the backup job will complete with a `Completed with issues` status
-rather than failing entirely, with the following status message:
+When backing up an Amazon EKS cluster, some Kubernetes objects may fail to be retrieved. In this case, the backup job will complete with a `Completed with issues` status rather than failing entirely, with the following status message:
++ Some Kubernetes Objects failed to be backed up. To get notified of these failures, [enable SNS event notifications](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-notifications.html).
 
-- Some Kubernetes Objects failed to be backed up. To get notified of these failures, [enable SNS event notifications](backup-notifications.md "backup-notifications.md").
-
-The following Kubernetes object types may be skipped during a backup job due to
-[Amazon EKS Metrics Server Add On](../../../eks/latest/userguide/metrics-server.md "../../../eks/latest/userguide/metrics-server.md") unavailability issues
-resulting in a 503 Service Unavailable error. See here for [troubleshooting guidance](https://repost.aws/knowledge-center/eks-resolve-http-503-errors-kubernetes "https://repost.aws/knowledge-center/eks-resolve-http-503-errors-kubernetes").
-
-- `metrics.k8s.io`
-- `custom.metrics.k8s.io`
-- `external.metrics.k8s.io`
-- `metrics.eks.amazonaws.com`
+The following Kubernetes object types may be skipped during a backup job due to [Amazon EKS Metrics Server Add On](https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html) unavailability issues resulting in a 503 Service Unavailable error. See here for [troubleshooting guidance](https://repost.aws/knowledge-center/eks-resolve-http-503-errors-kubernetes).
++ `metrics.k8s.io`
++ `custom.metrics.k8s.io`
++ `external.metrics.k8s.io`
++ `metrics.eks.amazonaws.com`
 
 ## Frequently Asked Questions
+<a name="eks-faq"></a>
 
-1. _"What is included as part of the Amazon EKS backup?"_
+1. *"What is included as part of the Amazon EKS backup?"*
 
-As part of each backup of an Amazon EKS cluster, the Amazon EKS cluster state and persistent volumes
-supported by AWS Backup are backed up. The Amazon EKS cluster state includes details like cluster name,
-IAM role, Amazon VPC configuration, network settings, logging, encryption, add-ons, access entries,
-managed node groups, Fargate profiles, pod identity associations, and Kubernetes manifest files. 2. _"Does a `Partial` status mean the creation of my backup failed?"_
+   As part of each backup of an Amazon EKS cluster, the Amazon EKS cluster state and persistent volumes supported by AWS Backup are backed up. The Amazon EKS cluster state includes details like cluster name, IAM role, Amazon VPC configuration, network settings, logging, encryption, add-ons, access entries, managed node groups, Fargate profiles, pod identity associations, and Kubernetes manifest files.
 
-No. A partial status indicates that some of the recovery points were backed up, while some were not.
-There are two conditions to check if you were expecting a `Completed` backup result:
+1. *"Does a `Partial` status mean the creation of my backup failed?"*
 
-    1. One or more of the backup jobs belonging to resources within the cluster were not
-     successful and the job has to be rerun.
-    2. A nested recovery point was deleted or disassociated from the composite recovery point.
+   No. A partial status indicates that some of the recovery points were backed up, while some were not. There are two conditions to check if you were expecting a `Completed` backup result:
 
-3. _"Do I need to have an agent or Amazon EKS Add-on installed on my Amazon EKS cluster before backup?"_
+   1. One or more of the backup jobs belonging to resources within the cluster were not successful and the job has to be rerun.
 
-No. AWS Backup does not require any agents or add-ons to be installed on your Amazon EKS cluster. The only
-pre-requisite is to have your EKS Cluster's [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md")
-set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md")
-to access the EKS cluster. 4. _"Does Amazon EKS Backups include Amazon EKS infrastructure components or Amazon ECR images?"_
+   1. A nested recovery point was deleted or disassociated from the composite recovery point.
 
-No. Amazon EKS backups focus on the EKS cluster state and application workloads, not the underlying
-infrastructure components or container images. 5. _"Can I lifecycle my EKS Composite Recovery Point to cold storage?"_
+1. *"Do I need to have an agent or Amazon EKS Add-on installed on my Amazon EKS cluster before backup?"*
 
-You can transition to cold storage for underlying child recovery points that support cold storage tiers.
-See the [AWS Backup feature availability matrix](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource")
-for full list of support. 6. _"Are my EKS backups incremental?"_
+   No. AWS Backup does not require any agents or add-ons to be installed on your Amazon EKS cluster. The only pre-requisite is to have your EKS Cluster's [authorization mode](https://docs.aws.amazon.com/eks/latest/userguide/setting-up-access-entries.html) set to API or API\_AND\_CONFIG\_MAP for AWS Backup to create [Access Entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html) to access the EKS cluster.
 
-AWS Backup will take incremental backups of each child recovery point where supported today, this includes
-EBS volumes, EFS Filesystems and S3 buckets. The EKS cluster state child recovery point will be a full
-backup. See the [AWS Backup feature availability matrix](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource"). 7. _"Can I create an index and search my EKS backups?"_
+1. *"Does Amazon EKS Backups include Amazon EKS infrastructure components or Amazon ECR images?"*
 
-No, however you can create on-demand indexes and search persistent volumes where the underlying
-storage type supports this capability through AWS Backup. See the [AWS Backup feature availability matrix](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource").
+   No. Amazon EKS backups focus on the EKS cluster state and application workloads, not the underlying infrastructure components or container images.
+
+1. *"Can I lifecycle my EKS Composite Recovery Point to cold storage?"*
+
+   You can transition to cold storage for underlying child recovery points that support cold storage tiers. See the [AWS Backup feature availability matrix](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource) for full list of support.
+
+1. *"Are my EKS backups incremental?"*
+
+   AWS Backup will take incremental backups of each child recovery point where supported today, this includes EBS volumes, EFS Filesystems and S3 buckets. The EKS cluster state child recovery point will be a full backup. See the [AWS Backup feature availability matrix](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
+
+1. *"Can I create an index and search my EKS backups?"*
+
+   No, however you can create on-demand indexes and search persistent volumes where the underlying storage type supports this capability through AWS Backup. See the [AWS Backup feature availability matrix](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).

@@ -1,30 +1,21 @@
+
+
 # Creating report plans using the AWS Backup API
+<a name="create-report-plan-api"></a>
 
 You can also work with report plans programmatically.
 
-There are two types of reports. One type is a **jobs report**, which
-shows jobs finished in the last 24 hours and all active jobs. The second type of report is a
-**compliance report**. Compliance reports can monitor resource levels or
-the different controls that are in effect. When you create a report, you choose which type
-of report to create.
+There are two types of reports. One type is a **jobs report**, which shows jobs finished in the last 24 hours and all active jobs. The second type of report is a **compliance report**. Compliance reports can monitor resource levels or the different controls that are in effect. When you create a report, you choose which type of report to create.
 
-Similar to a _backup plan_, you create a _report
-plan_ to automate the creation of your reports and define their destination Amazon S3
-bucket. A report plan requires that you have an S3 bucket to receive your reports. For
-instructions on setting up a new S3 bucket, see [Step 1: Create your
-first S3 bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket "../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket") in the _Amazon Simple Storage Service User Guide_.
+Similar to a *backup plan*, you create a *report plan* to automate the creation of your reports and define their destination Amazon S3 bucket. A report plan requires that you have an S3 bucket to receive your reports. For instructions on setting up a new S3 bucket, see [Step 1: Create your first S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html#creating-bucket) in the *Amazon Simple Storage Service User Guide*.
 
-If you encrypt your bucket using a custom KMS key, the KMS key policy must meet the
-following requirements:
+If you encrypt your bucket using a custom KMS key, the KMS key policy must meet the following requirements:
++ The `Principal` attribute must include the Backup Audit Manager service-linked role [`AWSServiceRoleForBackupReports`](https://console.aws.amazon.com/iam/home#/roles/AWSServiceRoleForBackupReports) ARN.
++ The `Action` attribute must include `kms:GenerateDataKey` at minimum.
 
-- The `Principal` attribute must include the Backup Audit Manager
-  service-linked role [`AWSServiceRoleForBackupReports`](https://console.aws.amazon.com/iam/home#/roles/AWSServiceRoleForBackupReports "https://console.aws.amazon.com/iam/home#/roles/AWSServiceRoleForBackupReports") ARN.
+ The policy [AWSServiceRolePolicyForBackupReports](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports) has these permissions.
 
-- The `Action` attribute must include `kms:GenerateDataKey`
-  at minimum.
-  The policy [AWSServiceRolePolicyForBackupReports](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") has these permissions.
-
-For single-account, single-Region reports, use the following syntax to call [CreateReportPlan](../APIReference/API_CreateReportPlan.md "../APIReference/API_CreateReportPlan.md").
+For single-account, single-Region reports, use the following syntax to call [CreateReportPlan](https://docs.aws.amazon.com/aws-backup/latest/APIReference/API_CreateReportPlan.html). 
 
 ```
 {
@@ -37,15 +28,14 @@ For single-account, single-Region reports, use the following syntax to call [Cre
        "S3KeyPrefix": "string",
        "Formats": [ enum ] // Optional. Can be either CSV, JSON, or both. Default is CSV if left blank.
    },
-   "ReportPlanTags": {
+   "ReportPlanTags": { 
        "string" : "string" // Optional.
    },
    "IdempotencyToken": "string"
 }
 ```
 
-When you call [DescribeReportPlan](../APIReference/API_DescribeReportPlan.md "../APIReference/API_DescribeReportPlan.md") with the unique name of a report plan, the AWS Backup
-API responds with the following information.
+When you call [DescribeReportPlan](https://docs.aws.amazon.com/aws-backup/latest/APIReference/API_DescribeReportPlan.html) with the unique name of a report plan, the AWS Backup API responds with the following information.
 
 ```
 {
@@ -67,22 +57,22 @@ API responds with the following information.
 }
 ```
 
-For multi-account, multi-Region reports, use the following syntax to call [CreateReportPlan](../APIReference/API_CreateReportPlan.md "../APIReference/API_CreateReportPlan.md").
+For multi-account, multi-Region reports, use the following syntax to call [CreateReportPlan](https://docs.aws.amazon.com/aws-backup/latest/APIReference/API_CreateReportPlan.html).
 
 ```
 {
    "IdempotencyToken": "string",
-   "ReportDeliveryChannel": {
+   "ReportDeliveryChannel": { 
       "Formats": [ "string" ], *//Organization report only support CSV file*
       "S3BucketName": "string",
       "S3KeyPrefix": "string"
    },
    "ReportPlanDescription": "string",
    "ReportPlanName": "string",
-   "ReportPlanTags": {
-      "string" : "string"
+   "ReportPlanTags": { 
+      "string" : "string" 
    },
-   "ReportSetting": {
+   "ReportSetting": { 
       "Accounts": [ "string" ], // Use string value of "ROOT" to include all organizational units
       "OrganizationUnits": [ "string" ],
       "Regions": ["string"], // Use wildcard value in string to include all Regions
@@ -93,17 +83,16 @@ For multi-account, multi-Region reports, use the following syntax to call [Creat
 }
 ```
 
-When you call [DescribeReportPlan](../APIReference/API_DescribeReportPlan.md "../APIReference/API_DescribeReportPlan.md") with the unique name of a report plan, the AWS Backup
-API responds with the following information for multi-account, multi-Region plans:
+When you call [DescribeReportPlan](https://docs.aws.amazon.com/aws-backup/latest/APIReference/API_DescribeReportPlan.html) with the unique name of a report plan, the AWS Backup API responds with the following information for multi-account, multi-Region plans:
 
 ```
 {
-   "ReportPlan": {
+   "ReportPlan": { 
       "CreationTime": number,
       "DeploymentStatus": "string",
       "LastAttemptedExecutionTime": number,
       "LastSuccessfulExecutionTime": number,
-      "ReportDeliveryChannel": {
+      "ReportDeliveryChannel": { 
          "Formats": [ "string" ],
          "S3BucketName": "string",
          "S3KeyPrefix": "string"
@@ -111,10 +100,10 @@ API responds with the following information for multi-account, multi-Region plan
       "ReportPlanArn": "string",
       "ReportPlanDescription": "string",
       "ReportPlanName": "string",
-      "ReportSetting": {
+      "ReportSetting": { 
          "Accounts":[ "string" ],
          "OrganizationUnits":[ "string" ],
-         "Regions": [ "string" ],
+         "Regions": [ "string" ], 
          "FrameworkArns": [ "string" ],
          "NumberOfFrameworks": number,
          "ReportTemplate": "string"

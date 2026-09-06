@@ -1,14 +1,12 @@
+
+
 # CloudFormation templates for backup plans
+<a name="plan-cfn"></a>
 
-We provide three sample CloudFormation templates for your reference. The first template creates a
-simple backup plan. The second template enables VSS backups in a backup plan. The third
-template enables Amazon GuardDuty Malware Protection scanning in a backup plan.
+We provide three sample CloudFormation templates for your reference. The first template creates a simple backup plan. The second template enables VSS backups in a backup plan. The third template enables Amazon GuardDuty Malware Protection scanning in a backup plan.
 
-###### Note
-
-If you are using the default service role, replace
-`backup-policy-name` with
-`AWSBackupServiceRolePolicyForBackup`.
+**Note**  
+If you are using the default service role, replace {{backup-policy-name}} with `AWSBackupServiceRolePolicyForBackup`.
 
 ```
 Description: backup plan template to back up all resources daily at 5am UTC, and tag all recovery points with backup:daily.
@@ -21,7 +19,7 @@ Resources:
       EnableKeyRotation: True
       Enabled: True
       KeyPolicy:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -46,7 +44,7 @@ Resources:
             TargetBackupVault: !Ref BackupVaultWithDailyBackups
             ScheduleExpression: "cron(0 5 ? * * *)"
     DependsOn: BackupVaultWithDailyBackups
-
+    
   DDBTableWithDailyBackupTag:
     Type: "AWS::DynamoDB::Table"
     Properties:
@@ -68,7 +66,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: "Allow"
             Principal:
@@ -77,7 +75,7 @@ Resources:
             Action:
               - "sts:AssumeRole"
       ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/service-role/`backup-policy-name`"
+        - "arn:aws:iam::aws:policy/service-role/{{backup-policy-name}}"
 
   TagBasedBackupSelection:
     Type: "AWS::Backup::BackupSelection"
@@ -104,7 +102,7 @@ Resources:
       EnableKeyRotation: True
       Enabled: True
       KeyPolicy:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: Allow
             Principal:
@@ -178,7 +176,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: "Allow"
             Principal:
@@ -193,7 +191,7 @@ Resources:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
-        Version: "2012-10-17"
+        Version: "2012-10-17"		 	 	 
         Statement:
           - Effect: "Allow"
             Principal:
@@ -202,7 +200,7 @@ Resources:
             Action:
               - "sts:AssumeRole"
       ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/service-role/`backup-policy-name`"
+        - "arn:aws:iam::aws:policy/service-role/{{backup-policy-name}}"
         - "arn:aws:iam::aws:policy/AWSBackupServiceRolePolicyForScans"
 
   TagBasedBackupSelection:

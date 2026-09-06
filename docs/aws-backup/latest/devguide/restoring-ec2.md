@@ -1,87 +1,61 @@
-# Restore an Amazon EC2 instance
 
-When you restore an EC2 instance, AWS Backup creates an Amazon Machine Image (AMI), an
-instance, the Amazon EBS root volume, Amazon EBS data volumes (if the protected resource had data
-volumes), and Amazon EBS snapshots. You can customize some instance settings using the AWS Backup
-console, or a larger number of settings using the AWS CLI or an AWS SDK.
+
+# Restore an Amazon EC2 instance
+<a name="restoring-ec2"></a>
+
+When you restore an EC2 instance, AWS Backup creates an Amazon Machine Image (AMI), an instance, the Amazon EBS root volume, Amazon EBS data volumes (if the protected resource had data volumes), and Amazon EBS snapshots. You can customize some instance settings using the AWS Backup console, or a larger number of settings using the AWS CLI or an AWS SDK.
 
 The following considerations apply to restoring EC2 instances:
++ AWS Backup configures the restored instance to use the same key pair that the protected resource used originally. You can't specify a different key pair for the restored instance during the restore process.
++ AWS Backup does not back up and restore user-data that is used while launching an Amazon EC2 instance.
++ When configuring the restored instance, you can choose between using the same instance profile that the protected resource used originally or launching without an instance profile. This is to prevent the possibility of privilege escalations. You can update the instance profile for the restored instance using the Amazon EC2 console.
 
-- AWS Backup configures the restored instance to use the same key pair that the protected
-  resource used originally. You can't specify a different key pair for the restored
-  instance during the restore process.
-- AWS Backup does not back up and restore user-data that is used while launching an Amazon EC2
-  instance.
-- When configuring the restored instance, you can choose between using the same
-  instance profile that the protected resource used originally or launching without an
-  instance profile. This is to prevent the possibility of privilege escalations. You can
-  update the instance profile for the restored instance using the Amazon EC2 console.
+  If you use the original instance profile, you must grant AWS Backup the following permissions, where the resource ARN is the ARN of the IAM role associated with the instance profile.
 
-If you use the original instance profile, you must grant AWS Backup the following
-permissions, where the resource ARN is the ARN of the IAM role associated with the
-instance profile.
+  ```
+  {
+        "Effect": "Allow",
+        "Action": "iam:PassRole",
+        "Resource": "arn:aws:iam::{{account-id}}:role/{{role-name}}"
+  },
+  ```
 
-```
-{
-      "Effect": "Allow",
-      "Action": "iam:PassRole",
-      "Resource": "arn:aws:iam::`account-id`:role/`role-name`"
-},
-```
-
-Replace `role-name` with the name of the EC2 instance profile role that will be attached to the restored EC2 instance. This is not the AWS Backup service role, but rather the IAM role that provides permissions to applications running on the EC2 instance.
-
-- During a restore, all Amazon EC2 quotas and configuration restrictions apply.
-- If the vault containing your Amazon EC2 recovery points has a vault lock, see [Additional security considerations](vault-lock.md#using-vault-lock-with-backup "vault-lock.md#using-vault-lock-with-backup")
-  for more information.
-- AWS Backup does not automatically join restored EC2 instances to an Active Directory
-  domain. If the original instance was domain-joined, you must rejoin the restored
-  instance manually or by using automation. For example, you can trigger an AWS Lambda
-  function in response to the restore job completed event. For more information, see
-  [State: COMPLETED](eventbridge.md#restore-job-state-change-completed "eventbridge.md#restore-job-state-change-completed"). To join an instance
-  to a directory during launch, see [Seamlessly join an EC2 instance to your AD Connector directory](../../../directoryservice/latest/admin-guide/ad_connector_launching_instance.md "../../../directoryservice/latest/admin-guide/ad_connector_launching_instance.md").
+  Replace {{role-name}} with the name of the EC2 instance profile role that will be attached to the restored EC2 instance. This is not the AWS Backup service role, but rather the IAM role that provides permissions to applications running on the EC2 instance.
++ During a restore, all Amazon EC2 quotas and configuration restrictions apply.
++ If the vault containing your Amazon EC2 recovery points has a vault lock, see [Additional security considerations](vault-lock.md#using-vault-lock-with-backup) for more information.
++ AWS Backup does not automatically join restored EC2 instances to an Active Directory domain. If the original instance was domain-joined, you must rejoin the restored instance manually or by using automation. For example, you can trigger an AWS Lambda function in response to the restore job completed event. For more information, see [State: COMPLETED](eventbridge.md#restore-job-state-change-completed). To join an instance to a directory during launch, see [Seamlessly join an EC2 instance to your AD Connector directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_connector_launching_instance.html).
 
 ## Use the AWS Backup console to restore Amazon EC2 recovery points
+<a name="restoring-ec2-console"></a>
 
-You can restore an entire Amazon EC2 instance from a single recovery point, including the
-root volume, data volumes, and some instance configuration settings, such as the instance
-type and key pair.
+You can restore an entire Amazon EC2 instance from a single recovery point, including the root volume, data volumes, and some instance configuration settings, such as the instance type and key pair.
 
-###### To restore Amazon EC2 resources using the AWS Backup console
+**To restore Amazon EC2 resources using the AWS Backup console**
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2. In the navigation pane, choose **Protected resources**, then
-   choose the ID of the Amazon EC2 resource to open the resource details page.
-3. In the **Recovery points** pane, choose the radio button next to
-   the ID of the recovery point to restore. In the upper-right corner of the pane, choose
-   **Restore**.
-4. In the **Network settings** pane, we use the settings from the
-   protected instance to select the default values for the instance type, VPC, subnet,
-   security group, and instance IAM role. You can use these default values or change
-   them as needed.
-5. In the **Restore role** pane, use the **Default
-   role** or use **Choose an IAM role** to specify an IAM
-   role that grants AWS Backup permission to restore the backup.
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup).
 
-###### Note
+1. In the navigation pane, choose **Protected resources**, then choose the ID of the Amazon EC2 resource to open the resource details page.
 
-If role manager is enabled in your account, AWS Backup selects the default
-service role for you, and a **Customize** option is available. For
-more information, see [IAM role creation](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the
-_IAM User Guide_. 6. In the **Protected resource tags** pane, we select **Copy
-tags from the protected resource to the restored resource** by default. If
-you do not want to copy these tags, clear the check box. 7. In the **Advanced settings** pane, accept the default values for
-the instance settings or change them as needed. For information about these settings,
-choose **Info** for the setting to open its help pane. 8. When you are finishing configuring the instance, choose **Restore
-backup**.
+1. In the **Recovery points** pane, choose the radio button next to the ID of the recovery point to restore. In the upper-right corner of the pane, choose **Restore**.
+
+1. In the **Network settings** pane, we use the settings from the protected instance to select the default values for the instance type, VPC, subnet, security group, and instance IAM role. You can use these default values or change them as needed.
+
+1. In the **Restore role** pane, use the **Default role** or use **Choose an IAM role** to specify an IAM role that grants AWS Backup permission to restore the backup.
+**Note**  
+If role manager is enabled in your account, AWS Backup selects the default service role for you, and a **Customize** option is available. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
+
+1. In the **Protected resource tags** pane, we select **Copy tags from the protected resource to the restored resource** by default. If you do not want to copy these tags, clear the check box.
+
+1. In the **Advanced settings** pane, accept the default values for the instance settings or change them as needed. For information about these settings, choose **Info** for the setting to open its help pane.
+
+1. When you are finishing configuring the instance, choose **Restore backup**.
 
 ## Restore Amazon EC2 with AWS CLI
+<a name="restoring-ec2-cli"></a>
 
-In the command line interface, [`start-restore-job`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/start-restore-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/start-restore-job.html") allows you to restore with up to 32 parameters
-(including some parameters that are not customizable through the AWS Backup console).
+In the command line interface, [`start-restore-job`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/backup/start-restore-job.html) allows you to restore with up to 32 parameters (including some parameters that are not customizable through the AWS Backup console).
 
-The following list is the accepted metadata you can pass to restore an Amazon EC2 recovery
-point.
+The following list is the accepted metadata you can pass to restore an Amazon EC2 recovery point.
 
 ```
 InstanceType
@@ -115,18 +89,15 @@ BlockDeviceMappings
 aws:backup:request-id
 ```
 
-AWS Backup accepts the following information-only attributes. However, including them will
-not affect the restore:
+AWS Backup accepts the following information-only attributes. However, including them will not affect the restore:
 
 ```
 vpcId
 ```
 
-[`BlockDeviceMappings`](../../../AWSEC2/latest/UserGuide/ami-block-device-mapping.md#create-ami-bdm "../../../AWSEC2/latest/UserGuide/ami-block-device-mapping.md#create-ami-bdm") is an optional parameter you can include. AWS Backup supports the following
-`BlockDeviceMappings` attributes.
+[`BlockDeviceMappings`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-block-device-mapping.html#create-ami-bdm) is an optional parameter you can include. AWS Backup supports the following `BlockDeviceMappings` attributes.
 
-###### Note
-
+**Note**  
 `SnapshotId` and `OutpostArn` are not supported.
 
 ```
@@ -181,51 +152,36 @@ For example:
 }
 ```
 
-You can also restore an Amazon EC2 instance without including any stored parameters. This
-option is available on the **Protected resource** tab on the AWS Backup console.
+You can also restore an Amazon EC2 instance without including any stored parameters. This option is available on the **Protected resource** tab on the AWS Backup console.
 
-###### Important
-
-If you do not override the AWS KMS key in the `BlockDeviceMappings` when
-restoring from cross-account or cross-Region backups, your restore might fail. For
-more information, see [Troubleshoot Amazon EC2 instance restore issues](#restoring-ec2-troubleshooting "#restoring-ec2-troubleshooting").
+**Important**  
+If you do not override the AWS KMS key in the `BlockDeviceMappings` when restoring from cross-account or cross-Region backups, your restore might fail. For more information, see [Troubleshoot Amazon EC2 instance restore issues](#restoring-ec2-troubleshooting).
 
 ## Troubleshoot Amazon EC2 instance restore issues
+<a name="restoring-ec2-troubleshooting"></a>
 
-###### Troubleshooting issues
-
-- [Cross-account restore failures](#cross-account-kms-issue "#cross-account-kms-issue")
-- [Cross-Region restore failures](#cross-region-kms-issue "#cross-region-kms-issue")
+**Topics**
++ [Cross-account restore failures](#cross-account-kms-issue)
++ [Cross-Region restore failures](#cross-region-kms-issue)
 
 ### Cross-account restore failures
+<a name="cross-account-kms-issue"></a>
 
-**Description:** Amazon EC2 instance restore fails when
-attempting to restore from a backup that is shared with your account.
+**Description: **Amazon EC2 instance restore fails when attempting to restore from a backup that is shared with your account.
 
-**Possible issues:** Your account might not have access
-to the AWS KMS keys used to encrypt the source volumes in the sharing account. The KMS keys
-might not be shared with your account.
+**Possible issues: ** Your account might not have access to the AWS KMS keys used to encrypt the source volumes in the sharing account. The KMS keys might not be shared with your account.
 
 Or, the volumes attached to the source instance are unencrypted.
 
-**Solution:** To resolve this issue, set the
-`encrypted` attribute to `true`, and do one of the following:
-
-- Override the KMS keys in the `BlockDeviceMappings` and specify a KMS key
-  that you own in your account.
-- Request the owning account to grant you access to the KMS keys used to encrypt the
-  volumes by updating the KMS key policy. For more information, see [Allow users
-  in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md").
+**Solution: ** To resolve this issue, set the `encrypted` attribute to `true`, and do one of the following:
++ Override the KMS keys in the `BlockDeviceMappings` and specify a KMS key that you own in your account.
++ Request the owning account to grant you access to the KMS keys used to encrypt the volumes by updating the KMS key policy. For more information, see [Allow users in other accounts to use a KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
 
 ### Cross-Region restore failures
+<a name="cross-region-kms-issue"></a>
 
-**Description:** Amazon EC2 instance restore fails when
-attempting to restore from a cross-Region backup.
+**Description: **Amazon EC2 instance restore fails when attempting to restore from a cross-Region backup.
 
-**Issue:** The volumes in the backup might be encrypted
-with single-Region AWS KMS keys that are not available in the destination Region. Or, the
-volumes attached to the source instance are unencrypted.
+**Issue: ** The volumes in the backup might be encrypted with single-Region AWS KMS keys that are not available in the destination Region. Or, the volumes attached to the source instance are unencrypted.
 
-**Solution:** To resolve this issue, set the
-`encrypted` attribute to `true`, and override the KMS key
-in the `BlockDeviceMappings` with a KMS key in the destination Region.
+**Solution: ** To resolve this issue, set the `encrypted` attribute to `true`, and override the KMS key in the `BlockDeviceMappings` with a KMS key in the destination Region.

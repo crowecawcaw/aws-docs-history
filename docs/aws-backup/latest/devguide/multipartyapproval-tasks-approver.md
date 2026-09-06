@@ -1,11 +1,9 @@
+
+
 # Approver tasks
+<a name="multipartyapproval-tasks-approver"></a>
 
-A user who is a member of a Multi-party approval team can [approve or deny requests](../../../mpa/latest/userguide/approver.md "../../../mpa/latest/userguide/approver.md") that are part
-of a session. Other tasks include:
-
-- [Respond to
-  requested operations](../../../mpa/latest/userguide/respond-request.md "../../../mpa/latest/userguide/respond-request.md")
-- [View an
-  approval team](../../../mpa/latest/userguide/approver-view-team.md "../../../mpa/latest/userguide/approver-view-team.md")
-- [View
-  operation history](../../../mpa/latest/userguide/view-operation-history.md "../../../mpa/latest/userguide/view-operation-history.md")
+A user who is a member of a Multi-party approval team can [approve or deny requests](https://docs.aws.amazon.com/mpa/latest/userguide/approver.html) that are part of a session. Other tasks include:
++ [Respond to requested operations](https://docs.aws.amazon.com/mpa/latest/userguide/respond-request)
++ [View an approval team](https://docs.aws.amazon.com/mpa/latest/userguide/approver-view-team)
++ [View operation history](https://docs.aws.amazon.com/mpa/latest/userguide/view-operation-history)

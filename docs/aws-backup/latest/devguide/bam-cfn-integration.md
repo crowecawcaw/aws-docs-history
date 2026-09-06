@@ -1,17 +1,20 @@
+
+
 # Using AWS Backup Audit Manager with CloudFormation
+<a name="bam-cfn-integration"></a>
 
 We provide the following sample CloudFormation templates for your reference:
 
-###### Topics
-
-- [Turn on resource tracking](#turning-on-resource-tracking-cfn "#turning-on-resource-tracking-cfn")
-- [Deploy default controls](#bam-cfn-frameworks-template "#bam-cfn-frameworks-template")
-- [Exempt IAM roles from control evaluation](#bam-cfn-exempt-role-for-manual-delete "#bam-cfn-exempt-role-for-manual-delete")
-- [Create a report plan](#bam-cfn-report-plan "#bam-cfn-report-plan")
+**Topics**
++ [Turn on resource tracking](#turning-on-resource-tracking-cfn)
++ [Deploy default controls](#bam-cfn-frameworks-template)
++ [Exempt IAM roles from control evaluation](#bam-cfn-exempt-role-for-manual-delete)
++ [Create a report plan](#bam-cfn-report-plan)
 
 ## Turn on resource tracking
+<a name="turning-on-resource-tracking-cfn"></a>
 
-The following template turns on resource tracking as described in [Turning on resource tracking](turning-on-resource-tracking.md "turning-on-resource-tracking.md").
+The following template turns on resource tracking as described in [Turning on resource tracking](https://docs.aws.amazon.com/aws-backup/latest/devguide/turning-on-resource-tracking.html).
 
 ```
 AWSTemplateFormatVersion: 2010-09-09
@@ -142,7 +145,7 @@ Resources:
     Properties:
       Bucket: !Ref ConfigBucket
       PolicyDocument:
-        Version: 2012-10-17
+        Version: 2012-10-17		 	 	 
         Statement:
           - Sid: AWSConfigBucketPermissionsCheck
             Effect: Allow
@@ -205,7 +208,7 @@ Resources:
       Endpoint: !Ref NotificationEmail
       Protocol: email
       TopicArn: !Ref ConfigTopic
-
+      
   ConfigRecorderServiceRole:
     Type: AWS::IAM::ServiceLinkedRole
     Properties:
@@ -249,10 +252,9 @@ Resources:
 ```
 
 ## Deploy default controls
+<a name="bam-cfn-frameworks-template"></a>
 
-The following template creates a framework with the default controls
-described in [AWS Backup Audit Manager
-controls and remediation](controls-and-remediation.md "controls-and-remediation.md").
+The following template creates a framework with the default controls described in [AWS Backup Audit Manager controls and remediation](https://docs.aws.amazon.com/aws-backup/latest/devguide/controls-and-remediation.html).
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -283,11 +285,11 @@ Resources:
         - ControlName: BACKUP_RESOURCES_PROTECTED_BY_CROSS_REGION
           ControlInputParameters:
             - ParameterName: crossRegionList
-              ParameterValue: '`eu-west-2`'
+              ParameterValue: '{{eu-west-2}}'
         - ControlName: BACKUP_RESOURCES_PROTECTED_BY_CROSS_ACCOUNT
           ControlInputParameters:
             - ParameterName: crossAccountList
-              ParameterValue: '`111122223333`'
+              ParameterValue: '{{111122223333}}'
         - ControlName: BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK
         - ControlName: BACKUP_LAST_RECOVERY_POINT_CREATED
         - ControlName: RESTORE_TIME_FOR_RESOURCES_MEET_TARGET
@@ -301,10 +303,9 @@ Outputs:
 ```
 
 ## Exempt IAM roles from control evaluation
+<a name="bam-cfn-exempt-role-for-manual-delete"></a>
 
-The control `BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED` allows you to
-exempt up to five IAM roles that can still manually delete recovery points. The following
-template deploys this control and also exempts two IAM roles.
+The control `BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED` allows you to exempt up to five IAM roles that can still manually delete recovery points. The following template deploys this control and also exempts two IAM roles.
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -316,7 +317,7 @@ Resources:
         - ControlName: BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED
           ControlInputParameters:
             - ParameterName: "principalArnList"
-              ParameterValue: !Sub "arn:aws:iam::`${AWS::AccountId}`:role/`AccAdminRole`,arn:aws:iam::`${AWS::AccountId}`:role/`ConfigRole`"
+              ParameterValue: !Sub "arn:aws:iam::{{${AWS::AccountId}}}:role/{{AccAdminRole}},arn:aws:iam::{{${AWS::AccountId}}}:role/{{ConfigRole}}"
 
 Outputs:
   FrameworkArn:
@@ -324,6 +325,7 @@ Outputs:
 ```
 
 ## Create a report plan
+<a name="bam-cfn-report-plan"></a>
 
 The following template creates a report plan.
 

@@ -1,330 +1,205 @@
+
+
 # Amazon S3 backups
+<a name="s3-backups"></a>
 
 ## Overview
+<a name="s3-backup-overview"></a>
 
-AWS Backup supports centralized backup and restore of applications storing data in S3 alone
-or alongside other AWS services for database, storage, and compute. Many [features are
-available for S3 backups](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource"), including Backup Audit Manager.
+AWS Backup supports centralized backup and restore of applications storing data in S3 alone or alongside other AWS services for database, storage, and compute. Many [features are available for S3 backups](backup-feature-availability.md#features-by-resource), including Backup Audit Manager.
 
-You can use a single backup policy in AWS Backup to centrally automate the creation of
-backups of your application data. AWS Backup automatically organizes backups across different
-AWS services and third-party applications in one centralized, encrypted location (known as
-a [backup
-vault](vaults.md "vaults.md")) so that you can manage backups of your entire application through a
-centralized experience. For S3, you can create continuous backups and restore your
-application data stored in S3 and restore the backups to a point-in-time with a single
-click.
+You can use a single backup policy in AWS Backup to centrally automate the creation of backups of your application data. AWS Backup automatically organizes backups across different AWS services and third-party applications in one centralized, encrypted location (known as a [ backup vault](https://docs.aws.amazon.com/aws-backup/latest/devguide/vaults.html)) so that you can manage backups of your entire application through a centralized experience. For S3, you can create continuous backups and restore your application data stored in S3 and restore the backups to a point-in-time with a single click.
 
 ## Backup access points
+<a name="s3-backup-access-points"></a>
 
-AWS Backup lets you access S3 backup data directly through S3 access points, without
-initiating a restore. For more information, see [Access points](backup-access-points.md "backup-access-points.md").
+AWS Backup lets you access S3 backup data directly through S3 access points, without initiating a restore. For more information, see [Access points](backup-access-points.md).
 
 ## Backup tiering
+<a name="s3-backup-tiering"></a>
 
-Amazon S3 is the only resource that supports backup tiering to a lower cost warm storage tier.
-For more information, see [Backup tiering](backup-tiering.md "backup-tiering.md").
+Amazon S3 is the only resource that supports backup tiering to a lower cost warm storage tier. For more information, see [Backup tiering](backup-tiering.md). 
 
 ## Prerequisites for S3 backups
+<a name="s3-backup-prerequisites"></a>
 
 ### Permissions and policies for Amazon S3 backup and restore
+<a name="one-time-permissions-setup"></a>
 
-To backup, copy, and restore S3 resources, you must have the correct policies in your
-role. To add these policies, go to [AWS
-managed policies](security-iam-awsmanpol.md#aws-managed-policies "security-iam-awsmanpol.md#aws-managed-policies"). Add the [AWSBackupServiceRolePolicyForS3Backup](../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Backup.md "../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Backup.md") and [AWSBackupServiceRolePolicyForS3Restore](../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Restore.md "../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Restore.md") to the roles that you intend to use to
-backup and restore S3 buckets.
+To backup, copy, and restore S3 resources, you must have the correct policies in your role. To add these policies, go to [AWS managed policies](https://docs.aws.amazon.com/aws-backup/latest/devguide/security-iam-awsmanpol.html#aws-managed-policies). Add the [AWSBackupServiceRolePolicyForS3Backup](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Backup.html) and [AWSBackupServiceRolePolicyForS3Restore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Restore.html) to the roles that you intend to use to backup and restore S3 buckets.
 
-If you do not have sufficient permission, please request the manager of your
-organization's administrative (admin) account to add the policies to the intended
-roles.
+If you do not have sufficient permission, please request the manager of your organization's administrative (admin) account to add the policies to the intended roles.
 
-For more information, please see [Managed policies and
-inline policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md") in the _IAM User Guide_.
+For more information, please see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*.
 
 ### Backups and versioning
+<a name="s3-backup-versioning"></a>
 
-You must [enable S3 Versioning
-on your S3 bucket](../../../AmazonS3/latest/userguide/manage-versioning-examples.md "../../../AmazonS3/latest/userguide/manage-versioning-examples.md") to use AWS Backup for Amazon S3.
+You must [ enable S3 Versioning on your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) to use AWS Backup for Amazon S3.
 
-We recommend that you [set a
-lifecycle expiration period](../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md "../../../AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.md") for your S3 versions.
+We recommend that you [ set a lifecycle expiration period](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html) for your S3 versions.
 
-All objects (including all versions) in the bucket when the backup begins will be
-stored in the recovery point (completed backup). These can include the current version
-of each object, older versions, delete markers, and objects pending lifecycle
-actions.
+All objects (including all versions) in the bucket when the backup begins will be stored in the recovery point (completed backup). These can include the current version of each object, older versions, delete markers, and objects pending lifecycle actions.
 
-The storage cost will be calculated for all objects in the backup, including objects
-scheduled for deletion (objects that will expire). You can use CLI or scripts to remove
-the inclusion of objects scheduled for expiration.
+The storage cost will be calculated for all objects in the backup, including objects scheduled for deletion (objects that will expire). You can use CLI or scripts to remove the inclusion of objects scheduled for expiration.
 
-To learn more about setting up S3 lifecycle policies, follow the instructions [on this
-page](../../../AmazonS3/latest/userguide/lifecycle-expire-general-considerations.md "../../../AmazonS3/latest/userguide/lifecycle-expire-general-considerations.md").
+To learn more about setting up S3 lifecycle policies, follow the instructions [on this page](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-expire-general-considerations.html).
 
 ### Considerations for Amazon S3 backups
+<a name="S3-backup-considerations"></a>
 
 The following points should be considered when you backup S3 resources:
++ **Focused object metadata support** – AWS Backup supports the following metadata: tags, access control lists (ACLs), user-defined metadata, original creation date, and version ID. Object annotations are not supported. You may also restore all backed-up data and metadata except original creation date, version ID, storage class, and e-tags.
++ When you restore an S3 object, AWS Backup applies a checksum value, even if the original object did not use the checksum feature.
++  An S3 object key name can be made up of most UTF-8 encodable strings. The following Unicode characters are allowed: `#x9` \| `#xA` \| `#xD` \| `#x20 to #xD7FF` \| `#xE000 to #xFFFD` \| `#x10000 to #x10FFFF` .
 
-- Focused object metadata support – AWS Backup supports the following
-  metadata: tags, access control lists (ACLs), user-defined metadata, original creation
-  date, and version ID. Object annotations are not supported. You may also restore all
-  backed-up data and metadata except original creation date, version ID, storage class,
-  and e-tags.
-- When you restore an S3 object, AWS Backup applies a checksum value, even if the original
-  object did not use the checksum feature.
-- An S3 object key name can be made up of most UTF-8 encodable strings. The
-  following Unicode characters are allowed: `#x9` | `#xA` |
-  `#xD` | `#x20 to #xD7FF` | `#xE000 to #xFFFD` |
-  `#x10000 to #x10FFFF` .
+  Object key names that include characters not in this list might be excluded from backups.
++ **Cold storage transition** – Use AWS Backup lifecycle management policy to define the timeline for backup expiration. Cold storage transition of S3 backups is not supported.
++ For periodic backups, AWS Backup makes a best effort to track all changes to your object metadata. However, if you update a tag or ACL multiple times within 1 minute, AWS Backup might not capture all intermediate states.
++ AWS Backup does not offer support for backups of [ SSE-C-encrypted](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html) objects. AWS Backup also does not support backups of bucket configurations, including bucket policies, settings, names, or access points.
++ AWS Backup does not support backups of S3 on AWS Outposts.
++ **Object annotations** – AWS Backup does not support backup or restore of S3 [object annotations](https://docs.aws.amazon.com/AmazonS3/latest/userguide/annotations-overview.html).
++ **CloudTrail logging** – If you log data read events, you must have CloudTrail logs delivered to a different target bucket. If you save CloudTrail logs in the bucket that they log, there is an infinite loop, which can cause unexpected charges.
 
-Object key names that include characters not in this list might be excluded from
-backups.
-
-- Cold storage transition – Use AWS Backup lifecycle
-  management policy to define the timeline for backup expiration. Cold storage transition
-  of S3 backups is not supported.
-- For periodic backups, AWS Backup makes a best effort to track all changes to your
-  object metadata. However, if you update a tag or ACL multiple times within 1 minute,
-  AWS Backup might not capture all intermediate states.
-- AWS Backup does not offer support for backups of [SSE-C-encrypted](../../../AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.md "../../../AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.md") objects. AWS Backup also does not support backups of
-  bucket configurations, including bucket policies, settings, names, or access
-  points.
-- AWS Backup does not support backups of S3 on AWS Outposts.
-- Object annotations – AWS Backup does not support
-  backup or restore of S3 [object
-  annotations](../../../AmazonS3/latest/userguide/annotations-overview.md "../../../AmazonS3/latest/userguide/annotations-overview.md").
-- CloudTrail logging – If you log data read events,
-  you must have CloudTrail logs delivered to a different target bucket. If you save CloudTrail logs in the
-  bucket that they log, there is an infinite loop, which can cause unexpected charges.
-
-For more information, see [Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") in the _CloudTrail User Guide_.
-
-- Server access logging – If you enable server
-  access logging, you must have the logs delivered to a different target bucket. If you
-  save these logs in the bucket that they log, there is an infinite loop. For more
-  information, see [Enabling
-  Amazon S3 server access logging](../../../AmazonS3/latest/userguide/enable-server-access-logging.md "../../../AmazonS3/latest/userguide/enable-server-access-logging.md").
-- KMS encryption behavior during backups –
-  When backing up S3 objects encrypted with AWS KMS keys (SSE-KMS), AWS Backup calls
-  `kms:Decrypt` against the source KMS key. This is because AWS Backup uses an
-  independent encryption model for S3 backups. To achieve this, AWS Backup must first
-  decrypt the data using the source KMS key, then re-encrypt it using the backup
-  vault's KMS key. As a result, you will see `kms:Decrypt` calls against
-  your source KMS key in CloudTrail logs during backup operations. For more information, see
-  [Encryption for backups in
-  AWS Backup](encryption.md "encryption.md").
+  For more information, see [Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) in the *CloudTrail User Guide*.
++ **Server access logging** – If you enable server access logging, you must have the logs delivered to a different target bucket. If you save these logs in the bucket that they log, there is an infinite loop. For more information, see [Enabling Amazon S3 server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html).
++ **KMS encryption behavior during backups** – When backing up S3 objects encrypted with AWS KMS keys (SSE-KMS), AWS Backup calls `kms:Decrypt` against the source KMS key. This is because AWS Backup uses an independent encryption model for S3 backups. To achieve this, AWS Backup must first decrypt the data using the source KMS key, then re-encrypt it using the backup vault's KMS key. As a result, you will see `kms:Decrypt` calls against your source KMS key in CloudTrail logs during backup operations. For more information, see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html).
 
 ## Supported bucket types, quantities, and object sizes
+<a name="bucket-types-and-quotas"></a>
 
-AWS Backup supports backup and restore operations for S3 objects of any size, up to the
-maximum object size supported by Amazon S3.
+AWS Backup supports backup and restore operations for S3 objects of any size, up to the maximum object size supported by Amazon S3.
 
-AWS Backup supports backup and restore of general purpose S3 buckets. Directory buckets are
-not supported at this time.
+AWS Backup supports backup and restore of general purpose S3 buckets. Directory buckets are not supported at this time.
 
-AWS Backup supports all general purpose S3 buckets in your account, matching the Amazon S3
-bucket quota you have configured. For information about S3 bucket quotas, see [Amazon S3
-quotas](../../../AmazonS3/latest/userguide/BucketRestrictions.md "../../../AmazonS3/latest/userguide/BucketRestrictions.md").
+AWS Backup supports all general purpose S3 buckets in your account, matching the Amazon S3 bucket quota you have configured. For information about S3 bucket quotas, see [Amazon S3 quotas](https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html).
 
 ## Supported S3 Storage Classes
+<a name="supported-s3-classes"></a>
 
-AWS Backup allows you to backup your S3 data stored in the following [S3 Storage
-Classes](../../../AmazonS3/latest/userguide/storage-class-intro.md "../../../AmazonS3/latest/userguide/storage-class-intro.md"):
 
-- S3 Standard
-- S3 Standard - Infrequent Access (IA)
-- S3 One Zone-IA
-- S3 Glacier Instant Retrieval
-- S3 Intelligent-Tiering (S3 INT)
 
-Backups of an object in the storage class [S3
-Intelligent-Tiering (INT)](../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-dynamic-data-access "../../../AmazonS3/latest/userguide/storage-class-intro.md#sc-dynamic-data-access") access those objects. This access triggers S3
-Intelligent-Tiering to automatically move those objects to Frequent Access.
+AWS Backup allows you to backup your S3 data stored in the following [S3 Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html):
++ S3 Standard
++ S3 Standard - Infrequent Access (IA)
++ S3 One Zone-IA
++ S3 Glacier Instant Retrieval
++ S3 Intelligent-Tiering (S3 INT)
 
-Backups that access Infrequent Access tiers, including S3 Standard - Infrequent
-Access (IA) and S3 One Zone-IA classes, move under the S3 storage charge of Frequent
-Access (applies to Infrequent Access or Archive Instant Access tiers).
+Backups of an object in the storage class [S3 Intelligent-Tiering (INT)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html#sc-dynamic-data-access) access those objects. This access triggers S3 Intelligent-Tiering to automatically move those objects to Frequent Access.
 
-The archived storage classes S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive
-are not supported.
+Backups that access Infrequent Access tiers, including S3 Standard - Infrequent Access (IA) and S3 One Zone-IA classes, move under the S3 storage charge of Frequent Access (applies to Infrequent Access or Archive Instant Access tiers).
 
-For more information about storage pricing for Amazon S3, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+The archived storage classes S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive are not supported.
+
+For more information about storage pricing for Amazon S3, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/).
 
 ## S3 backup types
+<a name="s3-backup-types"></a>
 
-With AWS Backup, you can create the following types of backups of your S3 buckets, including
-object data, tags, Access Control Lists (ACLs), and user-defined metadata:
+With AWS Backup, you can create the following types of backups of your S3 buckets, including object data, tags, Access Control Lists (ACLs), and user-defined metadata:
++ **Continuous backups** allow you to restore to any point in time within the last 35 days. Continuous backups for an S3 bucket should only be configured in one backup plan.
 
-- **Continuous backups** allow you to restore to any
-  point in time within the last 35 days. Continuous backups for an S3 bucket should only
-  be configured in one backup plan.
+  See [Point-in-Time Recovery](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) for a list of supported services and instructions on how to use AWS Backup to take continuous backups.
++ **Periodic backups** use snapshots of your data to allow you to retain data for your specified duration up to 99 years. You can schedule periodic backups in frequencies such as 1 hour, 12 hours, 1 day, 1 week, or 1 month. AWS Backup takes periodic backups during the backup window you define in your [backup plan](https://docs.aws.amazon.com/aws-backup/latest/devguide/about-backup-plans.html).
 
-See [Point-in-Time
-Recovery](point-in-time-recovery.md "point-in-time-recovery.md") for a list of supported services and instructions on how to use AWS Backup
-to take continuous backups.
+  See [Creating a backup plan](https://docs.aws.amazon.com/aws-backup/latest/devguide/creating-a-backup-plan.html) to understand how AWS Backup applies your backup plan to your resources.
 
-- **Periodic backups** use snapshots of your data to
-  allow you to retain data for your specified duration up to 99 years. You can schedule
-  periodic backups in frequencies such as 1 hour, 12 hours, 1 day, 1 week, or 1 month.
-  AWS Backup takes periodic backups during the backup window you define in your [backup
-  plan](about-backup-plans.md "about-backup-plans.md").
+Cross-account and cross-Region copies are available for S3 backups, but copies of continuous backups do not have point-in-time restore capabilities.
 
-See [Creating a backup
-plan](creating-a-backup-plan.md "creating-a-backup-plan.md") to understand how AWS Backup applies your backup plan to your
-resources.
+Continuous and periodic backups of S3 buckets must both reside in the same backup vault.
 
-Cross-account and cross-Region copies are available for S3 backups, but copies of
-continuous backups do not have point-in-time restore capabilities.
+AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If this setting is disabled in S3 bucket notification settings, continuous backups will stop for those buckets with the setting turned off. For more information, see [Amazon EventBridge dependency for S3 continuous backups](#s3-eventbridge-dependency).
 
-Continuous and periodic backups of S3 buckets must both reside in the same backup
-vault.
+Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping. If you have an active backup plan with a continuous backup rule, when that rule re-triggers, AWS Backup will recreate the Amazon EventBridge rule and a new continuous backup will be created.
 
-AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If this setting is
-disabled in S3 bucket notification settings, continuous backups will stop for those
-buckets with the setting turned off. For more information, see
-[Amazon EventBridge dependency for S3 continuous backups](#s3-eventbridge-dependency "#s3-eventbridge-dependency").
-
-Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping.
-If you have an active backup plan with a continuous backup rule, when that rule
-re-triggers, AWS Backup will recreate the Amazon EventBridge rule and a new continuous backup will be
-created.
-
-For both backup types, the first backup is a full backup, while subsequent backups are
-incremental at object-level.
+For both backup types, the first backup is a full backup, while subsequent backups are incremental at object-level.
 
 ## Amazon EventBridge dependency for S3 continuous backups
+<a name="s3-eventbridge-dependency"></a>
 
-AWS Backup uses Amazon EventBridge to receive S3 object events that drive backup operations. AWS Backup
-supports two methods of Amazon EventBridge event configuration:
+AWS Backup uses Amazon EventBridge to receive S3 object events that drive backup operations. AWS Backup supports two methods of Amazon EventBridge event configuration:
++ **System tag-based event configuration (recommended)**: AWS Backup tags your bucket with the `aws:backup:enabled` system tag and creates a single managed Amazon EventBridge rule (named `AwsBackupManagedRule-BucketSystemTag`) that filters on this tag. S3 includes the tag in every event notification sent to Amazon EventBridge. This method supports all general purpose buckets in your account, matching your Amazon S3 bucket quota.
++ **Bucket-ARN-based event configuration**: If the backup role does not have `s3:ListTagsForResource` permission, AWS Backup creates managed Amazon EventBridge rules (named `AwsBackupManagedRule-{{N}}`) that list individual bucket ARNs. This method supports up to 1,000 buckets per account.
 
-- **System tag-based event configuration
-  (recommended)**: AWS Backup tags your bucket with the
-  `aws:backup:enabled` system tag and creates a single managed Amazon EventBridge rule
-  (named `AwsBackupManagedRule-BucketSystemTag`) that filters on this tag. S3
-  includes the tag in every event notification sent to Amazon EventBridge. This method supports
-  all general purpose buckets in your account, matching your Amazon S3 bucket quota.
-- **Bucket-ARN-based event configuration**: If the
-  backup role does not have `s3:ListTagsForResource` permission, AWS Backup
-  creates managed Amazon EventBridge rules (named
-  `AwsBackupManagedRule-`N``) that list individual
-  bucket ARNs. This method supports up to 1,000 buckets per account.
+In both methods, the managed rule subscribes to the following S3 events and forwards them to the AWS Backup service:
++ Object Created
++ Object ACL Updated
++ Object Tags Added
++ Object Tags Deleted
++ Object Deleted
 
-In both methods, the managed rule subscribes to the following S3 events and forwards
-them to the AWS Backup service:
+These events allow AWS Backup to maintain the continuous (point-in-time restore) recovery window.
 
-- Object Created
-- Object ACL Updated
-- Object Tags Added
-- Object Tags Deleted
-- Object Deleted
+For AWS Backup to receive these events, S3 must be configured to publish them to the default Amazon EventBridge event bus. This is controlled by the bucket's Amazon EventBridge notification setting, which is independent of the AWS Backup-managed rule.
 
-These events allow AWS Backup to maintain the continuous (point-in-time restore) recovery
-window.
-
-For AWS Backup to receive these events, S3 must be configured to publish them to the
-default Amazon EventBridge event bus. This is controlled by the bucket's Amazon EventBridge notification
-setting, which is independent of the AWS Backup-managed rule.
-
-###### Important
-
-If the bucket-level Amazon EventBridge notification setting is disabled, S3 stops publishing
-object-level events. The AWS Backup-managed Amazon EventBridge rule remains enabled but receives no
-events for that bucket. This failure is silent – no notification, alert, or
-backup job failure is generated by AWS Backup.
+**Important**  
+If the bucket-level Amazon EventBridge notification setting is disabled, S3 stops publishing object-level events. The AWS Backup-managed Amazon EventBridge rule remains enabled but receives no events for that bucket. This failure is silent – no notification, alert, or backup job failure is generated by AWS Backup.
 
 ### Verify Amazon EventBridge is enabled on your bucket
+<a name="s3-eventbridge-verify"></a>
 
-**Console:** Open the S3 console, select your bucket,
-choose the **Properties** tab, scroll to
-**Event notifications**, and verify that
-**Amazon EventBridge** shows **On**.
+**Console:** Open the S3 console, select your bucket, choose the **Properties** tab, scroll to **Event notifications**, and verify that **Amazon EventBridge** shows **On**.
 
 **CLI:**
 
 ```
-aws s3api get-bucket-notification-configuration --bucket `amzn-s3-demo-bucket`
+aws s3api get-bucket-notification-configuration --bucket {{amzn-s3-demo-bucket}}
 ```
 
 Interpret the response as follows:
-
-- If the response contains
-  `"EventBridgeConfiguration": {}`, Amazon EventBridge is
-  **enabled**.
-- If the `EventBridgeConfiguration` field is absent from the
-  response, Amazon EventBridge is **disabled**.
++ If the response contains `"EventBridgeConfiguration": {}`, Amazon EventBridge is **enabled**.
++ If the `EventBridgeConfiguration` field is absent from the response, Amazon EventBridge is **disabled**.
 
 ### Enable Amazon EventBridge notifications
+<a name="s3-eventbridge-enable"></a>
 
-**Console:** Open the S3 console, select your bucket,
-choose **Properties**, scroll to
-**Event notifications**, choose
-**Amazon EventBridge**, choose **Edit**, turn
-**On**, and choose **Save**.
+**Console:** Open the S3 console, select your bucket, choose **Properties**, scroll to **Event notifications**, choose **Amazon EventBridge**, choose **Edit**, turn **On**, and choose **Save**.
 
 **CLI:**
 
 ```
 aws s3api put-bucket-notification-configuration \
-    --bucket `amzn-s3-demo-bucket` \
+    --bucket {{amzn-s3-demo-bucket}} \
     --notification-configuration '{"EventBridgeConfiguration": {}}'
 ```
 
-###### Important
-
-`put-bucket-notification-configuration` is a replace operation, not a
-merge. If your bucket has other notification targets (SNS, SQS, Lambda), you must
-include them in the same call. Otherwise, they will be removed.
+**Important**  
+`put-bucket-notification-configuration` is a replace operation, not a merge. If your bucket has other notification targets (SNS, SQS, Lambda), you must include them in the same call. Otherwise, they will be removed.
 
 ### What happens if Amazon EventBridge is disabled on a bucket under continuous backup
-
-- S3 stops publishing object-level events for the bucket.
-- The AWS Backup-managed Amazon EventBridge rule remains enabled but receives no events
-  for that bucket.
-- New object changes made after the disable are not reflected in the
-  continuous recovery window.
-- Existing recovery points and prior continuous backup history are retained
-  (not deleted).
-- Scheduled snapshot (periodic) backup jobs defined in the plan continue to
-  run on schedule – only the continuous (PITR) tracking is
-  affected.
-- No notification or alert is generated. The failure is silent from the
-  AWS Backup side.
+<a name="s3-eventbridge-disabled-impact"></a>
++ S3 stops publishing object-level events for the bucket.
++ The AWS Backup-managed Amazon EventBridge rule remains enabled but receives no events for that bucket.
++ New object changes made after the disable are not reflected in the continuous recovery window.
++ Existing recovery points and prior continuous backup history are retained (not deleted).
++ Scheduled snapshot (periodic) backup jobs defined in the plan continue to run on schedule – only the continuous (PITR) tracking is affected.
++ No notification or alert is generated. The failure is silent from the AWS Backup side.
 
 ### Detect changes to Amazon EventBridge notification settings
+<a name="s3-eventbridge-monitoring"></a>
 
-Because AWS Backup cannot detect when bucket-level Amazon EventBridge is disabled, consider
-setting up proactive monitoring to alert you when notification settings change. You can
-use either or both of the following approaches:
+Because AWS Backup cannot detect when bucket-level Amazon EventBridge is disabled, consider setting up proactive monitoring to alert you when notification settings change. You can use either or both of the following approaches:
++ **CloudTrail \+ Amazon EventBridge** – Create an Amazon EventBridge rule that matches `PutBucketNotificationConfiguration` API calls via CloudTrail to alert in real time when someone changes a bucket's notification configuration. The following event pattern can be used:
 
-- **CloudTrail + Amazon EventBridge** – Create an Amazon EventBridge
-  rule that matches `PutBucketNotificationConfiguration` API calls via
-  CloudTrail to alert in real time when someone changes a bucket's notification
-  configuration. The following event pattern can be used:
-
-```
-{
-  "source": ["aws.s3"],
-  "detail-type": ["AWS API Call via CloudTrail"],
-  "detail": {
-    "eventSource": ["s3.amazonaws.com"],
-    "eventName": ["PutBucketNotificationConfiguration"]
+  ```
+  {
+    "source": ["aws.s3"],
+    "detail-type": ["AWS API Call via CloudTrail"],
+    "detail": {
+      "eventSource": ["s3.amazonaws.com"],
+      "eventName": ["PutBucketNotificationConfiguration"]
+    }
   }
-}
-```
+  ```
 
-This requires CloudTrail to be enabled and logging S3 management events (enabled by
-default). The target (SNS, Lambda, etc.) should inspect the event detail to
-determine whether Amazon EventBridge notifications were specifically removed.
-
-- **AWS Config** – Use the AWS Config managed rule
-  [`s3-event-notifications-enabled`](../../../config/latest/developerguide/s3-event-notifications-enabled.md "../../../config/latest/developerguide/s3-event-notifications-enabled.md") to flag non-compliant buckets
-  on configuration changes.
+  This requires CloudTrail to be enabled and logging S3 management events (enabled by default). The target (SNS, Lambda, etc.) should inspect the event detail to determine whether Amazon EventBridge notifications were specifically removed.
++ **AWS Config** – Use the AWS Config managed rule [`s3-event-notifications-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/s3-event-notifications-enabled.html) to flag non-compliant buckets on configuration changes.
 
 ### Required Amazon EventBridge permissions for the backup role
+<a name="s3-eventbridge-permissions"></a>
 
-The IAM role used for S3 continuous backup (PITR) jobs must have the following
-Amazon EventBridge permissions to allow AWS Backup to manage the
-`AwsBackupManagedRule`:
+The IAM role used for S3 continuous backup (PITR) jobs must have the following Amazon EventBridge permissions to allow AWS Backup to manage the `AwsBackupManagedRule`:
 
 ```
 {
@@ -352,14 +227,12 @@ Amazon EventBridge permissions to allow AWS Backup to manage the
 }
 ```
 
-The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup`
-already includes these permissions. If you use a custom IAM role, you must add them
-explicitly.
+The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup` already includes these permissions. If you use a custom IAM role, you must add them explicitly.
 
 ### Required permissions for system tag-based event configuration
+<a name="s3-system-tag-permissions"></a>
 
-To use system tag-based event configuration and protect more than 1,000 S3 buckets,
-the IAM role used for S3 backup jobs must have the following permission:
+To use system tag-based event configuration and protect more than 1,000 S3 buckets, the IAM role used for S3 backup jobs must have the following permission:
 
 ```
 {
@@ -372,274 +245,175 @@ the IAM role used for S3 backup jobs must have the following permission:
 }
 ```
 
-The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup`
-includes this permission. If you use a custom IAM role, you must add it explicitly.
-Without this permission, AWS Backup falls back to bucket-ARN-based event configuration,
-which supports up to 1,000 buckets.
+The AWS managed policy `AWSBackupServiceRolePolicyForS3Backup` includes this permission. If you use a custom IAM role, you must add it explicitly. Without this permission, AWS Backup falls back to bucket-ARN-based event configuration, which supports up to 1,000 buckets.
 
-AWS Backup applies and removes the `aws:backup:enabled` system tag on your S3
-buckets automatically. Tagging and untagging of system tags does not require additional
-IAM permissions in the backup role.
+AWS Backup applies and removes the `aws:backup:enabled` system tag on your S3 buckets automatically. Tagging and untagging of system tags does not require additional IAM permissions in the backup role.
 
-###### Note
-
-The `aws:backup:enabled` system tag does not count toward the 50
-user-tag limit per S3 bucket.
+**Note**  
+The `aws:backup:enabled` system tag does not count toward the 50 user-tag limit per S3 bucket.
 
 ### Re-enable continuous backup coverage
+<a name="s3-eventbridge-reenable"></a>
 
-Re-enable bucket-level Amazon EventBridge using the console or CLI steps above. S3 will
-resume publishing events, and the managed rule will resume forwarding them to AWS Backup.
-Changes made while Amazon EventBridge was disabled will not be retroactively captured. The
-existing continuous recovery point and prior backup history remain valid.
+Re-enable bucket-level Amazon EventBridge using the console or CLI steps above. S3 will resume publishing events, and the managed rule will resume forwarding them to AWS Backup. Changes made while Amazon EventBridge was disabled will not be retroactively captured. The existing continuous recovery point and prior backup history remain valid.
 
 ## Compare S3 backup types
+<a name="compare-s3-backup-types"></a>
 
-Your backup strategy for S3 resources can involve just continuous backups, just
-periodic (snapshot) backups, or a combination of both. The information below can help you
-choose what works best for your organization:
+Your backup strategy for S3 resources can involve just continuous backups, just periodic (snapshot) backups, or a combination of both. The information below can help you choose what works best for your organization:
 
 Continuous backups only:
-
-- After the first full backup of your existing data is complete, changes in your S3
-  bucket data are tracked as they occur.
-- The tracked changes allow you to use PITR (point-in-time restore) for the
-  retention period of the continuous backup. To perform a restore job, you choose the
-  point in time to which you wish to restore.
-- The retention period of each continuous backup has a maximum of 35 days.
-- For backup plans you create through CLI, advanced backup settings for Amazon S3 (which
-  include the option to include tags and ACLs in the backup) are turned on by default.
-  You may exclude these in the backup options. See [Advanced Amazon S3 backup settings](#s3-advanced-backup-settings "#s3-advanced-backup-settings")
-  for an example of the syntax.
++ After the first full backup of your existing data is complete, changes in your S3 bucket data are tracked as they occur.
++ The tracked changes allow you to use PITR (point-in-time restore) for the retention period of the continuous backup. To perform a restore job, you choose the point in time to which you wish to restore.
++ The retention period of each continuous backup has a maximum of 35 days.
++ For backup plans you create through CLI, advanced backup settings for Amazon S3 (which include the option to include tags and ACLs in the backup) are turned on by default. You may exclude these in the backup options. See [Advanced Amazon S3 backup settings](#s3-advanced-backup-settings) for an example of the syntax.
 
 Periodic (snapshot) backups only, scheduled or on-demand:
-
-- AWS Backup scans the entire S3 bucket, retrieves each object’s ACL and tags,
-  and initiates a Head request for every object
-  that was in the prior snapshot but was not found in the snapshot being created.
-- The backup is point-in-time consistent.
-- The backup date and time recorded is the time at which AWS Backup completes the
-  traversal of the bucket, not at the time which a backup job was created.
-- The first backup of a bucket is a full backup. Each subsequent backup is
-  incremental, representing the change in data since the last snapshot.
-- The snapshot made by the periodic backup can have a retention period of up to 99
-  years.
++ AWS Backup scans the entire S3 bucket, retrieves each object’s ACL and tags, and initiates a Head request for every object that was in the prior snapshot but was not found in the snapshot being created.
++ The backup is point-in-time consistent. 
++ The backup date and time recorded is the time at which AWS Backup completes the traversal of the bucket, not at the time which a backup job was created.
++ The first backup of a bucket is a full backup. Each subsequent backup is incremental, representing the change in data since the last snapshot.
++ The snapshot made by the periodic backup can have a retention period of up to 99 years.
 
 Continuous backups combined with periodic/snapshot backups:
-
-- After the first full backup of your existing data (each bucket) is complete,
-  changes in your bucket are tracked as they occur.
-- You can perform a point-in-time restore from a continuous recovery point.
-- Snapshots are point-in-time consistent.
-- Snapshots are taken directly from the continuous recovery point, eliminating the
-  need to rescan a bucket to allow for faster processes.
-- Snapshots and continuous recovery points share data lineage; storage of data
-  between snapshot and continuous recovery points is not duplicated.
-- When advanced Amazon S3 backup settings, such as including tags and ACLs in a backup,
-  are changed for a `continuous` recovery point, AWS Backup stops that recovery
-  point and creates a new one with the updated setting(s).
++ After the first full backup of your existing data (each bucket) is complete, changes in your bucket are tracked as they occur.
++ You can perform a point-in-time restore from a continuous recovery point.
++ Snapshots are point-in-time consistent.
++ Snapshots are taken directly from the continuous recovery point, eliminating the need to rescan a bucket to allow for faster processes.
++ Snapshots and continuous recovery points share data lineage; storage of data between snapshot and continuous recovery points is not duplicated.
++ When advanced Amazon S3 backup settings, such as including tags and ACLs in a backup, are changed for a `continuous` recovery point, AWS Backup stops that recovery point and creates a new one with the updated setting(s).
 
 When a continuous backup job is running for an S3 bucket, you can still initiate periodic (snapshot) backup jobs. However, the following behavior applies:
++ Snapshot backup jobs will use the same backup options (ACLs and object tags settings) as the existing continuous backup.
++ If you specify different backup options for a snapshot job than what the continuous backup uses, the snapshot job will still use the continuous backup's settings and complete with a "Completed with issues" status.
 
-- Snapshot backup jobs will use the same backup options (ACLs and object tags
-  settings) as the existing continuous backup.
-- If you specify different backup options for a snapshot job than what the
-  continuous backup uses, the snapshot job will still use the continuous backup's
-  settings and complete with a "Completed with issues" status.
+  When this occurs, you'll see the following status message: `"Periodic/snapshot backup for bucket <bucket name> has different backup options than the continuous backup. When using continuous backups along with snapshot backups for the same bucket, the snapshot will use the same settings for backing up ACLs and Object tags as the continuous backup."`
 
-When this occurs, you'll see the following status message: `"Periodic/snapshot
- backup for bucket <bucket name> has different backup options than the continuous
- backup. When using continuous backups along with snapshot backups for the same bucket,
- the snapshot will use the same settings for backing up ACLs and Object tags as the
- continuous backup."`
+The following table shows when a full scan is required when changing BackupOptions for existing continuous recovery points:
 
-The following table shows when a full scan is required when changing BackupOptions for
-existing continuous recovery points:
 
-Full scan behavior when BackupOptions is modified| Previous BackupOptions | New BackupOptions | Full scan |
-| --- | --- | --- |
-| backupACLs and backupObjectTags enabled | backupACLs and backupObjectTags disabled | No |
-| backupACLs and backupObjectTags enabled | backupACLs enabled; backupObjectTags disabled | No |
-| backupACLs and backupObjectTags enabled | backupACLs disabled; backupObjectTags enabled | No |
-| backupACLs and backupObjectTags disabled | backupACLs and backupObjectTags enabled | Yes |
-| backupACLs enabled; backupObjectTags disabled | backupACLs and backupObjectTags enabled | Yes |
-| backupACLs disabled; backupObjectTags enabled | backupACLs and backupObjectTags enabled | Yes |
+**Full scan behavior when BackupOptions is modified**  
+
+| Previous BackupOptions | New BackupOptions | Full scan | 
+| --- | --- | --- | 
+| backupACLs and backupObjectTags enabled | backupACLs and backupObjectTags disabled | No | 
+| backupACLs and backupObjectTags enabled | backupACLs enabled; backupObjectTags disabled | No | 
+| backupACLs and backupObjectTags enabled | backupACLs disabled; backupObjectTags enabled | No | 
+| backupACLs and backupObjectTags disabled | backupACLs and backupObjectTags enabled | Yes | 
+| backupACLs enabled; backupObjectTags disabled | backupACLs and backupObjectTags enabled | Yes | 
+| backupACLs disabled; backupObjectTags enabled | backupACLs and backupObjectTags enabled | Yes | 
 
 ## S3 backup completion windows
+<a name="s3-completion-windows"></a>
 
-The table below shows sample buckets of various sizes to help you guide estimates of
-the completion time of the initial full backup of an S3 bucket. Backup times will vary
-with the size, content, configuration, and settings of each bucket.
+The table below shows sample buckets of various sizes to help you guide estimates of the completion time of the initial full backup of an S3 bucket. Backup times will vary with the size, content, configuration, and settings of each bucket.
 
-| Bucket size        | Number of objects | Estimated time to complete initial backup |
-| ------------------ | ----------------- | ----------------------------------------- |
-| 425 GB (gigabytes) | 135 million       | 31 hours                                  |
-| 800 TB (terabytes) | 670 million       | 38 hours                                  |
-| 6 PB (petabytes)   | 5 billion         | 100 hours                                 |
-| 370 TB (terabytes) | 7.5 billion       | 180 hours                                 |
+
+| Bucket size | Number of objects | Estimated time to complete initial backup | 
+| --- | --- | --- | 
+| 425 GB (gigabytes) | 135 million | 31 hours | 
+| 800 TB (terabytes) | 670 million | 38 hours | 
+| 6 PB (petabytes) | 5 billion | 100 hours | 
+| 370 TB (terabytes) | 7.5 billion | 180 hours | 
 
 ## Best practices and cost considerations for S3 backups
+<a name="bestpractices-costoptimization"></a>
 
 ### Large bucket best practices
+<a name="bucket-size-best-practices"></a>
 
 For buckets with more than 300 million objects:
-
-- For buckets with greater than 300 million objects, the backup rate can reach up to
-  17,000 objects per second during the initial full backup of the bucket (incremental
-  backups will have a different speed); buckets containing fewer than 300 million
-  objects back up at a rate close to 1,000 objects per second.
-- Continuous backups are recommended.
-- If backup lifecycle is planned for more than 35 days, you can also enable snapshot
-  backups for the bucket in the same vault in which your continuous backups are
-  stored.
++ For buckets with greater than 300 million objects, the backup rate can reach up to 17,000 objects per second during the initial full backup of the bucket (incremental backups will have a different speed); buckets containing fewer than 300 million objects back up at a rate close to 1,000 objects per second.
++ Continuous backups are recommended.
++ If backup lifecycle is planned for more than 35 days, you can also enable snapshot backups for the bucket in the same vault in which your continuous backups are stored.
 
 ### Backup strategy optimization
-
-- For accounts which make backups at least daily or more frequently, cost benefits
-  can be realized by using continuous backups if the data within the backups has minimal
-  changes between backups.
-- Larger buckets that do not change frequently can benefit from continuous backups,
-  since this can result in lower costs when scans of the whole bucket along with
-  multiple requests per objects don't need to be performed on pre-existing objects
-  (objects that are unchanged from the previous backup).
-- Buckets that contain more than 100 million objects and that have a small delete
-  rate compared to the overall backup size might realize cost benefits with a backup
-  plan that contains both a continuous backup with a retention period of 2 days along
-  with snapshots of a longer retention.
-- Periodic (snapshot) backup time aligns with the start of the backup process when a
-  bucket scan is not needed. Scans are not needed in a bucket that contains both
-  continuous backup and snapshots since in these cases snapshots are taken from a
-  continuous recovery point.
+<a name="backup-strategy-optimization"></a>
++ For accounts which make backups at least daily or more frequently, cost benefits can be realized by using continuous backups if the data within the backups has minimal changes between backups.
++ Larger buckets that do not change frequently can benefit from continuous backups, since this can result in lower costs when scans of the whole bucket along with multiple requests per objects don't need to be performed on pre-existing objects (objects that are unchanged from the previous backup).
++ Buckets that contain more than 100 million objects and that have a small delete rate compared to the overall backup size might realize cost benefits with a backup plan that contains both a continuous backup with a retention period of 2 days along with snapshots of a longer retention.
++ Periodic (snapshot) backup time aligns with the start of the backup process when a bucket scan is not needed. Scans are not needed in a bucket that contains both continuous backup and snapshots since in these cases snapshots are taken from a continuous recovery point.
 
 ### Object lifecycle and delete markers
-
-- S3 lifecycle policies have an optional feature called **Delete expired
-  object delete markers**. When this feature is left off, delete markers,
-  sometimes in the millions, expire with no cleanup plan. When buckets without this
-  feature are backed up, two issues impact time and cost:
-
-  - Delete markers are backed up, just like objects. Backup time and restore time
-    can be impacted depending on the ratio of objects to delete markers.
-  - Each object and marker that is backed up has a minimum charge. Each delete
-    marker is charged the same as a 128KiB object.
+<a name="object-lifecycle-considerations"></a>
++ S3 lifecycle policies have an optional feature called **Delete expired object delete markers**. When this feature is left off, delete markers, sometimes in the millions, expire with no cleanup plan. When buckets without this feature are backed up, two issues impact time and cost:
+  + Delete markers are backed up, just like objects. Backup time and restore time can be impacted depending on the ratio of objects to delete markers.
+  + Each object and marker that is backed up has a minimum charge. Each delete marker is charged the same as a 128KiB object.
 
 ### Storage class cost considerations
+<a name="storage-class-considerations"></a>
++ For each object in a single S3-GIR (Amazon S3 Glacier Instant Retrieval), AWS Backup performs multiple calls, which will result in retrieval charges when a backup is conducted.
 
-- For each object in a single S3-GIR (Amazon S3 Glacier Instant Retrieval), AWS Backup
-  performs multiple calls, which will result in retrieval
-  charges when a backup is conducted.
-
-Similar retrieval costs apply to buckets with objects
-in S3-IA and S3 One Zone-IA storage classes.
+  Similar retrieval costs apply to buckets with objects in S3-IA and S3 One Zone-IA storage classes.
 
 ### AWS service cost optimization
-
-- Using features of AWS KMS, CloudTrail, Amazon CloudWatch, and Amazon GuardDuty as part of your backup strategy can
-  result in additional costs beyond S3 bucket data storage. See the following for
-  information on adjusting these features:
-
-  - [Reducing the cost of SSE-KMS with Amazon S3 Bucket keys](../../../AmazonS3/latest/userguide/bucket-key.md "../../../AmazonS3/latest/userguide/bucket-key.md") in the
-    _Amazon S3 User Guide_.
-  - You can reduce CloudTrail costs by excluding AWS KMS events and by disabling S3
-    data events:
-
-    - **Exclude AWS KMS events:** In the _CloudTrail User
-      Guide_, [Creating a trail in the console (basic event selectors)](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console") allows the
-      option to exclude AWS KMS events to filter these events out of your trail
-      (default setting includes all KMS events):
-
-      - The option to log or exclude KMS events is available only if you log
-        management events on your trail. If you choose not to log management events,
-        KMS events are not logged, and you cannot change KMS event logging
-        settings.
-      - AWS KMS actions such as `Encrypt`, `Decrypt`, and
-        `GenerateDataKey` typically generate a large volume (more than
-        99%) of events. These actions are now logged as **Read**
-        events. Low-volume, relevant KMS actions such as `Disable`,
-        `Delete`, and `ScheduleKey` (which typically account
-        for less than 0.5% of KMS event volume) are logged as
-        **Write** events.
-      - To exclude high-volume events like `Encrypt`,
-        `Decrypt`, and `GenerateDataKey`, but still log
-        relevant events such as `Disable`, `Delete`, and
-        `ScheduleKey`, choose to log **Write**
-        management events, and clear the check box for **Exclude AWS KMS
-        events**.
-
-    - **Disable S3 data events:** By default, trails and event
-      data stores do not log data events. Disable S3 data events before your initial
-      backup to reduce costs.
-
-  - To reduce CloudWatch costs, you can stop sending CloudTrail events to CloudWatch Logs when you
-    update a trail to disable CloudWatch Logs settings.
-  - [Estimating GuardDuty usage cost](../../../guardduty/latest/ug/monitoring_costs.md "../../../guardduty/latest/ug/monitoring_costs.md") in the _Amazon GuardDuty User Guide_.
+<a name="aws-service-cost-optimization"></a>
++ Using features of AWS KMS, CloudTrail, Amazon CloudWatch, and Amazon GuardDuty as part of your backup strategy can result in additional costs beyond S3 bucket data storage. See the following for information on adjusting these features:
+  + [Reducing the cost of SSE-KMS with Amazon S3 Bucket keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html) in the *Amazon S3 User Guide*.
+  + You can reduce CloudTrail costs by excluding AWS KMS events and by disabling S3 data events:
+    + **Exclude AWS KMS events: **In the *CloudTrail User Guide*, [Creating a trail in the console (basic event selectors)](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.html#creating-a-trail-in-the-console) allows the option to exclude AWS KMS events to filter these events out of your trail (default setting includes all KMS events):
+      + The option to log or exclude KMS events is available only if you log management events on your trail. If you choose not to log management events, KMS events are not logged, and you cannot change KMS event logging settings.
+      + AWS KMS actions such as `Encrypt`, `Decrypt`, and `GenerateDataKey` typically generate a large volume (more than 99%) of events. These actions are now logged as **Read** events. Low-volume, relevant KMS actions such as `Disable`, `Delete`, and `ScheduleKey` (which typically account for less than 0.5% of KMS event volume) are logged as **Write** events.
+      + To exclude high-volume events like `Encrypt`, `Decrypt`, and `GenerateDataKey`, but still log relevant events such as `Disable`, `Delete`, and `ScheduleKey`, choose to log **Write** management events, and clear the check box for **Exclude AWS KMS events**.
+    + **Disable S3 data events:** By default, trails and event data stores do not log data events. Disable S3 data events before your initial backup to reduce costs.
+  + To reduce CloudWatch costs, you can stop sending CloudTrail events to CloudWatch Logs when you update a trail to disable CloudWatch Logs settings.
+  + [Estimating GuardDuty usage cost](https://docs.aws.amazon.com/guardduty/latest/ug/monitoring_costs.html) in the *Amazon GuardDuty User Guide*.
 
 ## S3 backup messages
+<a name="s3-backup-messages"></a>
 
-When a backup job completes or fails, you may see the following message. The following
-table can help you determine the possible cause of the status message.
+When a backup job completes or fails, you may see the following message. The following table can help you determine the possible cause of the status message.
 
-| Scenario                                                                          | Job Status  | Message                                                                                                                                     | Example                                                                                                                 |
-| --------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| All objects failed to be backed up for a snapshot or initial continuous<br>backup | `FAILED`    | "No objects were backed up from the source bucket<br>_`BucketName`_. To get notified<br>of these failures, enable SNS event notifications." | Backup role does not have the permission to get object version ACL.<br>Consequently, none of the objects are backed up. |
-| All objects failed to be backed up for a subsequent continuous<br>backup.         | `COMPLETED` | "No objects were backed up from the source bucket<br>_`BucketName`_. To get notified<br>of these failures, enable SNS event notifications." |                                                                                                                         |
+
+| Scenario | Job Status | Message | Example | 
+| --- | --- | --- | --- | 
+| All objects failed to be backed up for a snapshot or initial continuous backup | `FAILED` | "No objects were backed up from the source bucket *{{BucketName}}*. To get notified of these failures, enable SNS event notifications." | Backup role does not have the permission to get object version ACL. Consequently, none of the objects are backed up. | 
+| All objects failed to be backed up for a subsequent continuous backup. | `COMPLETED` | "No objects were backed up from the source bucket *{{BucketName}}*. To get notified of these failures, enable SNS event notifications." |  | 
 
 ## Advanced Amazon S3 backup settings
+<a name="s3-advanced-backup-settings"></a>
 
-AWS Backup provides advanced settings to control what metadata is included in your Amazon S3
-backups. You can optionally exclude Access Control Lists (ACLs) and object tags,
-which can be helpful if your objects are set up without ACLs and object tags. In other words,
-if you do not use ACLs or objects tags for your S3 resources, you may find it
-beneficial to exclude them from your backups.
+AWS Backup provides advanced settings to control what metadata is included in your Amazon S3 backups. You can optionally exclude Access Control Lists (ACLs) and object tags, which can be helpful if your objects are set up without ACLs and object tags. In other words, if you do not use ACLs or objects tags for your S3 resources, you may find it beneficial to exclude them from your backups.
 
 ### Configuring backup of ACLs and object tags
+<a name="s3-backup-configuration"></a>
 
-You can configure ACL and object tag backup options either through the AWS Backup console
-or through the AWS CLI.
+You can configure ACL and object tag backup options either through the AWS Backup console or through the AWS CLI.
 
-Console
+------
+#### [ Console ]
 
-###### Configure ACL and tag options using the console
+**Configure ACL and tag options using the console**
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com/backup/home "https://console.aws.amazon.com/backup/home").
-2. In the navigation pane, choose **Backup plans**, then
-   choose **Create backup plan**.
-3. In your backup plan settings, expand **Advanced backup
-   settings**.
-4. For Amazon S3 resources, configure the following options:
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup/](https://console.aws.amazon.com/backup/home).
 
-   - **Back up ACLs**: Select the check box to include ACLs
-     or leave it unselected to exclude them.
+1. In the navigation pane, choose **Backup plans**, then choose **Create backup plan**.
 
-   **Backup up object tags**: Select the check box
-   to include object tags in your backup.
+1. In your backup plan settings, expand **Advanced backup settings**.
 
-5. Complete the backup plan configuration and choose **Create
-   plan**.
+1. For Amazon S3 resources, configure the following options:
+   + **Back up ACLs**: Select the check box to include ACLs or leave it unselected to exclude them.
 
-AWS CLI
-You can selectively include or exclude Access Control Lists (ACLs) and object
-tags from your Amazon S3 backups using the following backup options:
+     **Backup up object tags**: Select the check box to include object tags in your backup.
 
-BackupACLs
+1. Complete the backup plan configuration and choose **Create plan**.
 
-Controls whether object ACLs are included in the backup. Set to
-`disabled` to exclude ACLs.
-Default: `enabled`
+------
+#### [ AWS CLI ]
 
-BackupObjectTags
+You can selectively include or exclude Access Control Lists (ACLs) and object tags from your Amazon S3 backups using the following backup options:
 
-Controls whether object tags are included in the backup. Set to
-`disabled` to exclude tags.
-Default: `enabled`
+BackupACLs  
+Controls whether object ACLs are included in the backup. Set to `disabled` to exclude ACLs. Default: `enabled`
+
+BackupObjectTags  
+Controls whether object tags are included in the backup. Set to `disabled` to exclude tags. Default: `enabled`
 
 Configure ACL and tag options using the AWS CLI
 
-To configure ACL and object tag backup options using the AWS CLI, use the
-`update-backup-plan` command with advanced backup settings:
+To configure ACL and object tag backup options using the AWS CLI, use the `update-backup-plan` command with advanced backup settings:
 
 ```
-
 aws backup update-backup-plan \
     --backup-plan-id "your-backup-plan-id" \
     --backup-plan '{
@@ -663,15 +437,12 @@ aws backup update-backup-plan \
             }
         }]
     }'
-
 ```
 
 The `BackupOptions` parameters control metadata inclusion:
++ `"BackupACLs": "disabled"` - Excludes ACLs from backups
++ `"BackupObjectTags": "disabled"` - Excludes object tags from backups
++ `"BackupACLs": "enabled"` - Includes ACLs in backups (default)
++ `"BackupObjectTags": "enabled"` - Includes object tags in backups (default)
 
-- `"BackupACLs": "disabled"` - Excludes ACLs from backups
-- `"BackupObjectTags": "disabled"` - Excludes object tags from
-  backups
-- `"BackupACLs": "enabled"` - Includes ACLs in backups
-  (default)
-- `"BackupObjectTags": "enabled"` - Includes object tags in
-  backups (default)
+------

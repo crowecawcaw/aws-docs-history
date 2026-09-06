@@ -1,254 +1,147 @@
+
+
 # Continuous backups and point-in-time recovery (PITR)
+<a name="point-in-time-recovery"></a>
 
-For some resources, AWS Backup supports continuous backups and point-in-time recovery (PITR) in
-addition to snapshot backups.
+For some resources, AWS Backup supports continuous backups and point-in-time recovery (PITR) in addition to snapshot backups.
 
-With **continuous backups**, you can restore your AWS Backup-supported
-resource by rewinding it back to a specific time that you choose, within 1 second of precision
-(going back a maximum of 35 days). Continuous backup works by first creating a full backup of
-your resource, and then constantly backing up your resource’s transaction logs. PITR works by
-accessing your full backup and replaying the transaction log to the time that you tell AWS Backup
-to recover.
+With **continuous backups**, you can restore your AWS Backup-supported resource by rewinding it back to a specific time that you choose, within 1 second of precision (going back a maximum of 35 days). Continuous backup works by first creating a full backup of your resource, and then constantly backing up your resource’s transaction logs. PITR works by accessing your full backup and replaying the transaction log to the time that you tell AWS Backup to recover.
 
-Alternatively, **snapshot backups** can be taken as frequently as every
-hour. Snapshot backups can be stored for up to a maximum of 100 years. Snapshots can be copied
-for full or incremental backups.
+Alternatively, **snapshot backups** can be taken as frequently as every hour. Snapshot backups can be stored for up to a maximum of 100 years. Snapshots can be copied for full or incremental backups.
 
-Because continuous and snapshot backups offer different advantages, we recommend that you
-protect your resources with both continuous and snapshot backup rules.
+Because continuous and snapshot backups offer different advantages, we recommend that you protect your resources with both continuous and snapshot backup rules.
 
-An on-demand backup begins to back up your resource immediately. You can choose an
-on-demand backup if you wish to create a backup at a time other than the scheduled time
-defined in a backup plan. An on-demand backup can be used, for example, to test backup and
-functionality at any time.
+An on-demand backup begins to back up your resource immediately. You can choose an on-demand backup if you wish to create a backup at a time other than the scheduled time defined in a backup plan. An on-demand backup can be used, for example, to test backup and functionality at any time.
 
-You can't use [on-demand
-backups](recov-point-create-on-demand-backup.md "recov-point-create-on-demand-backup.md") with PITR, because an on-demand backup preserves resources in the state they
-are in when the backup is taken, while PITR uses continuous backups, which record changes over
-a period of time.
+You can't use [on-demand backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/recov-point-create-on-demand-backup.html) with PITR, because an on-demand backup preserves resources in the state they are in when the backup is taken, while PITR uses continuous backups, which record changes over a period of time.
 
-You can opt in to continuous backups for supported resources when you create a backup plan
-in AWS Backup using the AWS Backup console or the API. The continuous backup plan creates one continuous
-recovery point and updates that recovery point whenever the job runs.
+You can opt in to continuous backups for supported resources when you create a backup plan in AWS Backup using the AWS Backup console or the API. The continuous backup plan creates one continuous recovery point and updates that recovery point whenever the job runs.
 
-###### Contents
-
-- [Point-in-time recovery considerations](#point-in-time-recovery-considerations "#point-in-time-recovery-considerations")
-- [Supported services for continuous backup and PITR](#point-in-time-recovery-supported-services "#point-in-time-recovery-supported-services")
-- [Finding a continuous backup](point-in-time-recovery-finding.md "point-in-time-recovery-finding.md")
-- [Restoring a continuous backup](point-in-time-recovery-restoring.md "point-in-time-recovery-restoring.md")
-- [Stopping or deleting continuous backups](point-in-time-recovery-stopping.md "point-in-time-recovery-stopping.md")
-- [Copying continuous backups](point-in-time-recovery-copying.md "point-in-time-recovery-copying.md")
-- [Changing your retention period](point-in-time-recovery-retention-period.md "point-in-time-recovery-retention-period.md")
-- [Removing the only continuous backup rule from a backup plan](point-in-time-recovery-removing_rule.md "point-in-time-recovery-removing_rule.md")
+**Topics**
++ [Point-in-time recovery considerations](#point-in-time-recovery-considerations)
++ [Supported services for continuous backup and PITR](#point-in-time-recovery-supported-services)
++ [Finding a continuous backup](point-in-time-recovery-finding.md)
++ [Restoring a continuous backup](point-in-time-recovery-restoring.md)
++ [Stopping or deleting continuous backups](point-in-time-recovery-stopping.md)
++ [Copying continuous backups](point-in-time-recovery-copying.md)
++ [Changing your retention period](point-in-time-recovery-retention-period.md)
++ [Removing the only continuous backup rule from a backup plan](point-in-time-recovery-removing_rule.md)
 
 ## Point-in-time recovery considerations
+<a name="point-in-time-recovery-considerations"></a>
 
 Be aware of the following considerations for point-in-time recovery:
++ **Automatic fallback to snapshots** — If AWS Backup is unable to perform a continuous backup, it tries to perform a *snapshot* backup instead.
++ **No support for on-demand continuous backups **— AWS Backup doesn't support on-demand continuous backup because on-demand backup records a point in time, whereas continuous backup records changes over a period of time.
++ **No support for transition to cold storage** — Continuous backups don't support transition to cold storage because transition to cold requires a minimum transition period of 90 days, whereas continuous backups have a maximum retention period of 35 days.
++ **Restoring recent activity** — Amazon RDS activity allows restores up until the most recent 5 minutes of activity; Aurora allows restores up until the most recent activity as indicated by `LatestRestorableTime` (typically less than 5 minutes); Amazon S3 allows restores up until the most recent 15 minutes of activity.
 
-- **Automatic fallback to snapshots** — If AWS Backup
-  is unable to perform a continuous backup, it tries to perform a _snapshot_ backup instead.
-- **No support for on-demand continuous backups** — AWS Backup doesn't support on-demand continuous backup because on-demand
-  backup records a point in time, whereas continuous backup records changes over a period
-  of time.
-- **No support for transition to cold storage** —
-  Continuous backups don't support transition to cold storage because transition to cold
-  requires a minimum transition period of 90 days, whereas continuous backups have a
-  maximum retention period of 35 days.
-- **Restoring recent activity** — Amazon RDS activity
-  allows restores up until the most recent 5 minutes of activity; Aurora allows restores
-  up until the most recent activity as indicated by `LatestRestorableTime`
-  (typically less than 5 minutes); Amazon S3 allows restores up
-  until the most recent 15 minutes of activity.
+**Important**  
+A single resource can only have one continuous backup. Expand below for additional details and best practices.
 
-###### Important
+### Overlapping continuous backups on the same resource
+<a name="point-in-time-recovery-overlapping"></a>
 
-A single resource can only have one continuous backup. Expand below for additional
-details and best practices.
+Each resource (such as an Amazon S3 bucket or an Amazon RDS database) can only have one continuous backup (recovery point); additional continuous backups are redundant. When multiple backup policies, plans, or rules instruct AWS Backup to create multiple continuous backups for the same resource, the following process applies:
++ If multiple rules specify that more than one continuous backup should be in a single vault, AWS Backup follows the rule with the longest retention period (lifecycle) and ignores additional rules.
++ If multiple rules specify that more than one continuous backup should be in more than one vault, AWS Backup creates one continuous backup according to the first rule processed. Each subsequent rule specifying a continuous backup for a resource that already has a continuous backup will result in a snapshot (periodic) backup instead.
 
-Each resource (such as an Amazon S3 bucket or an Amazon RDS database) can only have one
-continuous backup (recovery point); additional continuous backups are redundant. When
-multiple backup policies, plans, or rules instruct AWS Backup to create multiple continuous
-backups for the same resource, the following process applies:
+When duplicate continuous backup plans occur, the snapshot backups created after the continuous recovery point can show a status of `Completed with issues`. The detailed information of this recovery point will show an error similar to `“Enabling continuous backup failed, because of the following error: PITR already configured in backup plan: [ARN]”`. This error indicates that there is already at least one continuous backup configured (for a different recovery point than the one containing the error). That first continuous backup (recovery point) is able to be used for point in time restore (PITR) as long as it is has a status of `COMPLETED`.
 
-- If multiple rules specify that more than one continuous backup should be in a
-  single vault, AWS Backup follows the rule with the longest retention period (lifecycle)
-  and ignores additional rules.
-- If multiple rules specify that more than one continuous backup should be in more
-  than one vault, AWS Backup creates one continuous backup according to the first rule
-  processed. Each subsequent rule specifying a continuous backup for a resource that
-  already has a continuous backup will result in a snapshot (periodic) backup
-  instead.
-  When duplicate continuous backup plans occur, the snapshot backups created after the
-  continuous recovery point can show a status of `Completed with issues`. The
-  detailed information of this recovery point will show an error similar to
-  `“Enabling continuous backup failed, because of the following error: PITR already
- configured in backup plan: [ARN]”`. This error indicates that there is already
-  at least one continuous backup configured (for a different recovery point than the one
-  containing the error). That first continuous backup (recovery point) is able to be used
-  for point in time restore (PITR) as long as it is has a status of
-  `COMPLETED`.
+To prevent the creation of unintended snapshots with issues (and error message), review your organization backup strategy. If necessary, adjust backup plans and policies that create multiple continuous backups of the same resource.
 
-To prevent the creation of unintended snapshots with issues (and error message),
-review your organization backup strategy. If necessary, adjust backup plans and policies
-that create multiple continuous backups of the same resource.
-
-After you have made adjustments that result in only one continuous backup for a
-resource, the snapshot backups will be retained according to the specified lifecycle of
-the plan that created them, then they will transition to `EXPIRED` and be
-deleted. The continuous backup and its point-in-time recovery ability will be maintained
-according to the rule that created it.
+After you have made adjustments that result in only one continuous backup for a resource, the snapshot backups will be retained according to the specified lifecycle of the plan that created them, then they will transition to `EXPIRED` and be deleted. The continuous backup and its point-in-time recovery ability will be maintained according to the rule that created it.
 
 ## Supported services for continuous backup and PITR
+<a name="point-in-time-recovery-supported-services"></a>
 
-AWS Backup supports continuous backups and point-in-time recovery for the following services
-and applications:
+AWS Backup supports continuous backups and point-in-time recovery for the following services and applications:
 
 ### Amazon S3
+<a name="point-in-time-recovery-S3"></a>
 
-To turn on PITR for S3 backups, continuous backups need to part of the backup
-plan.
+To turn on PITR for S3 backups, continuous backups need to part of the backup plan.
 
-While this original backup of the source bucket can have PITR active, cross-Region or
-cross-account destination copies will not have PITR, and restoring from these copies will
-restore to the time they were created (the copies will be snapshot copies) instead of
-restoring to a specified point in time.
+While this original backup of the source bucket can have PITR active, cross-Region or cross-account destination copies will not have PITR, and restoring from these copies will restore to the time they were created (the copies will be snapshot copies) instead of restoring to a specified point in time.
 
-AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If this setting is
-disabled in S3 bucket notification settings, continuous backups will stop for those
-buckets with the setting turned off. For more information, see
-[Amazon EventBridge dependency for S3 continuous backups](s3-backups.md#s3-eventbridge-dependency "s3-backups.md#s3-eventbridge-dependency").
+AWS Backup for S3 relies on receiving S3 events through Amazon EventBridge. If this setting is disabled in S3 bucket notification settings, continuous backups will stop for those buckets with the setting turned off. For more information, see [Amazon EventBridge dependency for S3 continuous backups](s3-backups.md#s3-eventbridge-dependency).
 
-Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping.
-If you have an active backup plan with a continuous backup rule, when that rule
-re-triggers, AWS Backup will recreate the Amazon EventBridge rule and a new continuous backup will be
-created.
+Disabling AWS Backup's Amazon EventBridge rule will also result in your continuous backup stopping. If you have an active backup plan with a continuous backup rule, when that rule re-triggers, AWS Backup will recreate the Amazon EventBridge rule and a new continuous backup will be created.
 
 ### RDS
+<a name="point-in-time-recovery-rds"></a>
 
-AWS Backup supports continuous backups and point-in-time recovery for all Amazon RDS instances
-and Aurora that are supported by the native Amazon RDS service. AWS Backup does not support
-continuous backups or point-in-time recovery for Amazon RDS Multi-AZ clusters.
+AWS Backup supports continuous backups and point-in-time recovery for all Amazon RDS instances and Aurora that are supported by the native Amazon RDS service. AWS Backup does not support continuous backups or point-in-time recovery for Amazon RDS Multi-AZ clusters.
 
-**Backup schedules:** When you enable continuous backups for an
-Amazon RDS instance through AWS Backup, AWS Backup takes over the Amazon RDS automated backup window (the
-native daily snapshot that anchors point-in-time recovery). AWS Backup positions this automated
-backup window near the Amazon RDS maintenance window to prevent conflicts. You cannot directly
-configure the automated backup window while AWS Backup manages continuous backups, but you can
-influence its placement by adjusting your Amazon RDS maintenance window. The automated backup
-window repositions itself on the next backup cycle. RDS takes snapshots once per day, even
-if a backup plan has a frequency for snapshot backups other than once per day.
+**Backup schedules:** When you enable continuous backups for an Amazon RDS instance through AWS Backup, AWS Backup takes over the Amazon RDS automated backup window (the native daily snapshot that anchors point-in-time recovery). AWS Backup positions this automated backup window near the Amazon RDS maintenance window to prevent conflicts. You cannot directly configure the automated backup window while AWS Backup manages continuous backups, but you can influence its placement by adjusting your Amazon RDS maintenance window. The automated backup window repositions itself on the next backup cycle. RDS takes snapshots once per day, even if a backup plan has a frequency for snapshot backups other than once per day.
 
-###### Note
+**Note**  
+AWS Backup does not modify or manage the Amazon RDS maintenance window. The maintenance window remains under your control and can be adjusted through Amazon RDS settings. Backup jobs initiated by a snapshot rule in your backup plan run on the schedule you define and can still fail if they overlap with the maintenance window. If this occurs, you receive an error similar to "Backup job could not start because it is either inside or too close to the weekly maintenance window configured in RDS instance." To avoid this error, schedule your snapshot backup rules outside of your configured Amazon RDS maintenance window.
 
-AWS Backup does not modify or manage the Amazon RDS maintenance window. The maintenance window
-remains under your control and can be adjusted through Amazon RDS settings. Backup jobs
-initiated by a snapshot rule in your backup plan run on the schedule you define and can
-still fail if they overlap with the maintenance window. If this occurs, you receive an
-error similar to "Backup job could not start because it is either inside or too close to
-the weekly maintenance window configured in RDS instance." To avoid this error, schedule
-your snapshot backup rules outside of your configured Amazon RDS maintenance window.
+**Settings:** After you apply an AWS Backup continuous backup rule to an Amazon RDS instance, you can't create or modify continuous backup settings in Amazon RDS. You must make modifications through the AWS Backup console or the AWS Backup CLI. When you turn on automated backups for the first time, an outage occurs if you change the backup retention period of the DB instance from 0 to a nonzero value. Plan this change during a maintenance window to minimize impact. For more information about enabling automated backups, see [Enabling automated backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.html) in the *Amazon RDS User Guide*.
 
-**Settings:** After you apply an AWS Backup continuous backup rule to an
-Amazon RDS instance, you can't create or modify continuous backup settings in Amazon RDS. You must
-make modifications through the AWS Backup console or the AWS Backup CLI. When you turn on automated
-backups for the first time, an outage occurs if you change the backup retention period of
-the DB instance from 0 to a nonzero value. Plan this change during a maintenance window to
-minimize impact. For more information about enabling automated backups, see [Enabling automated backups](../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.md "../../../AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.BackupRetention.md") in the _Amazon RDS User
-Guide_.
+**Transition control of continuous backup for an Amazon RDS instance back to Amazon RDS:**
 
-**Transition control of continuous backup for an Amazon RDS instance back to
-Amazon RDS:**
+------
+#### [ Console ]
 
-Console
+1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup).
 
-1. Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2. In the navigation pane, choose **Backup plans**.
-3. Delete all the Amazon RDS backup plans with continuous backup protecting that
-   resource.
-4. Choose **Backup vaults**. Delete the continuous backup
-   recovery point from your backup vault. Or, wait for their retention period to
-   elapse, causing AWS Backup to automatically delete the recovery point.
+1. In the navigation pane, choose **Backup plans**.
 
-After you complete these steps, AWS Backup will transition continuous backup control
-of your resource back to Amazon RDS.
+1. Delete all the Amazon RDS backup plans with continuous backup protecting that resource.
 
-AWS CLI
+1. Choose **Backup vaults**. Delete the continuous backup recovery point from your backup vault. Or, wait for their retention period to elapse, causing AWS Backup to automatically delete the recovery point.
+
+After you complete these steps, AWS Backup will transition continuous backup control of your resource back to Amazon RDS.
+
+------
+#### [ AWS CLI ]
+
 Call the `DisassociateRecoveryPoint` API operation.
 
-To learn more, see [DisassociateRecoveryPoint](API_DisassociateRecoveryPoint.md "API_DisassociateRecoveryPoint.md").
+To learn more, see [DisassociateRecoveryPoint](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_DisassociateRecoveryPoint.html).
 
-###### IAM permissions required for Amazon RDS continuous backups
+------
 
-- To use AWS Backup to configure continuous backups for your Amazon RDS database, verify that
-  the API permission `rds:ModifyDBInstance` exists in the IAM role defined by
-  your backup plan configuration. To restore Amazon RDS continuous backups, you must add the
-  permission `rds:RestoreDBInstanceToPointInTime` to the IAM role that you
-  submitted for the restore job. You can use the `AWS Backup default service role`
-  to perform backups and restores.
-- To describe the range of times available for point-in-time recovery, AWS Backup calls
-  `rds:DescribeDBInstanceAutomatedBackups`. In the AWS Backup console, you must
-  have the `rds:DescribeDBInstanceAutomatedBackups` API permission in your
-  AWS Identity and Access Management (IAM) managed policy. You can use the `AWSBackupFullAccess` or
-  `AWSBackupOperatorAccess` managed policies. Both policies have all
-  required permissions. For more information, see [Managed
-  Policies](access-control.md#managed-policies "access-control.md#managed-policies").
+**IAM permissions required for Amazon RDS continuous backups**
++ To use AWS Backup to configure continuous backups for your Amazon RDS database, verify that the API permission `rds:ModifyDBInstance` exists in the IAM role defined by your backup plan configuration. To restore Amazon RDS continuous backups, you must add the permission `rds:RestoreDBInstanceToPointInTime` to the IAM role that you submitted for the restore job. You can use the `AWS Backup default service role` to perform backups and restores.
++ To describe the range of times available for point-in-time recovery, AWS Backup calls `rds:DescribeDBInstanceAutomatedBackups`. In the AWS Backup console, you must have the `rds:DescribeDBInstanceAutomatedBackups` API permission in your AWS Identity and Access Management (IAM) managed policy. You can use the `AWSBackupFullAccess` or `AWSBackupOperatorAccess` managed policies. Both policies have all required permissions. For more information, see [Managed Policies](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies).
 
-**Retention periods:** When you change your PITR retention period,
-AWS Backup calls [`ModifyDBInstance`](../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md "../../../AmazonRDS/latest/APIReference/API_ModifyDBInstance.md")to apply that change.
+**Retention periods:** When you change your PITR retention period, AWS Backup calls [`ModifyDBInstance`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBInstance.html)to apply that change.
 
-When AWS Backup enables PITR for the first time on an Amazon RDS instance
-(changing retention from 0 to a non-zero value), the operation is scheduled to occur during
-your database's next maintenance window to prevent unexpected downtime.
+When AWS Backup enables PITR for the first time on an Amazon RDS instance (changing retention from 0 to a non-zero value), the operation is scheduled to occur during your database's next maintenance window to prevent unexpected downtime.
 
 **Scenarios:**
-
-- **First-time PITR enablement:**
-  When PITR is enabled on an Amazon RDS instance for the first time (regardless of whether
-  it's managed by AWS Backup or configured directly), the change is queued for the next
-  maintenance window. AWS Backup automatically creates snapshot backups to maintain coverage
-  until PITR becomes active.
-- **PITR retention changes:**
-  Non-zero to non-zero retention changes apply immediately without restart.
-- **PITR disabling:**
-  Changes from non-zero to zero retention are scheduled for the next maintenance window.
++ **First-time PITR enablement:** When PITR is enabled on an Amazon RDS instance for the first time (regardless of whether it's managed by AWS Backup or configured directly), the change is queued for the next maintenance window. AWS Backup automatically creates snapshot backups to maintain coverage until PITR becomes active.
++ **PITR retention changes:** Non-zero to non-zero retention changes apply immediately without restart.
++ **PITR disabling:** Changes from non-zero to zero retention are scheduled for the next maintenance window.
 
 **Backup coverage during transition:**
++ Snapshot backups provide protection while waiting for maintenance window
++ Continuous recovery points become available when the backup job runs after PITR is enabled
++ No gap in backup protection occurs during the transition period
++ Recovery granularity may be limited to snapshot intervals until PITR is fully active
 
-- Snapshot backups provide protection while waiting for maintenance window
-- Continuous recovery points become available when the backup job runs after PITR is enabled
-- No gap in backup protection occurs during the transition period
-- Recovery granularity may be limited to snapshot intervals until PITR is fully active
-
-Note: [Stopping the RDS instance](../../../AmazonRDS/latest/UserGuide/USER_StopInstance.md "../../../AmazonRDS/latest/UserGuide/USER_StopInstance.md") will remove pending changes. PITR configuration changes will be requeued by the next backup job and applied during a subsequent maintenance window.
+Note: [ Stopping the RDS instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html) will remove pending changes. PITR configuration changes will be requeued by the next backup job and applied during a subsequent maintenance window.
 
 **Copies of Amazon RDS continuous backups:**
++ **Creating copies of Amazon RDS continuous backups** — You can't create copies of Amazon RDS continuous backups because AWS Backup for Amazon RDS does not allow copying transaction logs. Instead, AWS Backup creates a snapshot and copies it with the frequency specified in the backup plan.
 
-- **Creating copies of Amazon RDS continuous backups**
-  — You can't create copies of Amazon RDS continuous backups because AWS Backup for Amazon RDS
-  does not allow copying transaction logs. Instead, AWS Backup creates a snapshot and copies
-  it with the frequency specified in the backup plan.
+**Restores:** You can perform a point-in-time restore using either AWS Backup or Amazon RDS. For AWS Backup console instructions, see [Restoring an Amazon RDS Database](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-rds.html). For Amazon RDS instructions, see [Restoring a DB Instance to a specified time](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIT.html) in the *Amazon RDS User Guide*.
 
-**Restores:** You can perform a point-in-time restore using either
-AWS Backup or Amazon RDS. For AWS Backup console instructions, see [Restoring an Amazon RDS Database](restoring-rds.md "restoring-rds.md").
-For Amazon RDS instructions, see [Restoring a DB Instance to a specified
-time](../../../AmazonRDS/latest/UserGuide/USER_PIT.md "../../../AmazonRDS/latest/UserGuide/USER_PIT.md") in the _Amazon RDS User Guide_.
+**Tip**  
+A multi AZ (availability zone) database instance set to `Always On` should not have a backup retention set to zero. If errors occur, use AWS CLI command `disassociate-recovery-point` instead of `delete-recovery-point`, then change the retention setting to 1 in your Amazon RDS settings.
 
-###### Tip
-
-A multi AZ (availability zone) database instance set to `Always On`
-should not have a backup retention set to zero. If errors occur, use AWS CLI command
-`disassociate-recovery-point` instead of
-`delete-recovery-point`, then change the retention setting to 1 in your Amazon RDS
-settings.
-
-For general information about working with Amazon RDS, see the [Amazon RDS User Guide](../../../AmazonRDS/latest/UserGuide/Welcome.md "../../../AmazonRDS/latest/UserGuide/Welcome.md").
+For general information about working with Amazon RDS, see the [Amazon RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
 
 #### CLI examples for RDS and Aurora PITR restore
+<a name="rds-pitr-cli-examples"></a>
 
 The following examples demonstrate how to restore RDS and Aurora databases to a point in time using the AWS Backup CLI with metadata parameters.
 
-###### Example: Restore RDS database to a point in time with metadata
+**Example: Restore RDS database to a point in time with metadata**  
+
 
 ```
 aws backup start-restore-job \
@@ -259,7 +152,8 @@ aws backup start-restore-job \
     --copy-source-tags-to-restored-resource
 ```
 
-###### Example: Restore Aurora cluster to a point in time
+**Example: Restore Aurora cluster to a point in time**  
+
 
 ```
 aws backup start-restore-job \
@@ -270,100 +164,59 @@ aws backup start-restore-job \
     --copy-source-tags-to-restored-resource
 ```
 
-###### Metadata parameters for RDS PITR restore
-
+**Metadata parameters for RDS PITR restore**  
 The following metadata parameters are supported for RDS and Aurora PITR restores:
++ **DBInstanceIdentifier** (RDS) or **DBClusterIdentifier** (Aurora) - Required. The name for the restored database.
++ **Engine** - Required. The database engine (e.g., mysql, postgres, aurora-mysql, aurora-postgresql).
++ **UseLatestRestorableTime** - Optional. Set to "true" to restore to the latest restorable time, or "false" to specify a RestoreTime.
++ **RestoreTime** - Optional. The date and time to restore to (ISO 8601 format). Required if UseLatestRestorableTime is "false".
 
-- **DBInstanceIdentifier** (RDS) or **DBClusterIdentifier** (Aurora) - Required. The name for the restored database.
-- **Engine** - Required. The database engine (e.g., mysql, postgres, aurora-mysql, aurora-postgresql).
-- **UseLatestRestorableTime** - Optional. Set to "true" to restore to the latest restorable time, or "false" to specify a RestoreTime.
-- **RestoreTime** - Optional. The date and time to restore to (ISO 8601 format). Required if UseLatestRestorableTime is "false".
-
-###### Copy tags to restored resource
-
+**Copy tags to restored resource**  
 Use the `--copy-source-tags-to-restored-resource` flag to copy tags from the source database to the restored database. This ensures tag-based access controls and cost allocation tags are preserved.
 
 For complete details on RDS PITR restore parameters, see:
-
-- [RestoreDBInstanceToPointInTime](../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.md") in the Amazon RDS API Reference
-- [RestoreDBClusterToPointInTime](../../../AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.md "../../../AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.md") in the Amazon RDS API Reference
++ [RestoreDBInstanceToPointInTime](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html) in the Amazon RDS API Reference
++ [RestoreDBClusterToPointInTime](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBClusterToPointInTime.html) in the Amazon RDS API Reference
 
 ### Aurora
+<a name="pitr-aurora"></a>
 
-To enable continuous backup of your Aurora resources, see the steps in the first
-section of this page.
+To enable continuous backup of your Aurora resources, see the steps in the first section of this page.
 
-The procedure to restore an Aurora cluster to a point in time is a [variation of
-the steps to restore a snapshot of an aurora cluster](restoring-aur.md "restoring-aur.md").
+The procedure to restore an Aurora cluster to a point in time is a [variation of the steps to restore a snapshot of an aurora cluster](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-aur.html).
 
-When you conduct a point in time restore, the console displays a **restore
-time** section. See _Restoring a continuous backup_ further
-down on this page in [Working with Continuous backups](point-in-time-recovery.md#point-in-time-recovery-working-with "point-in-time-recovery.md#point-in-time-recovery-working-with").
+When you conduct a point in time restore, the console displays a **restore time** section. See * Restoring a continuous backup* further down on this page in [Working with Continuous backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html#point-in-time-recovery-working-with).
 
-###### Important
+**Important**  
+Aurora continuous backups are supported in vaults protected by AWS Backup Vault Lock, and the vault's minimum and maximum retention settings are enforced on the recovery point. However, Aurora continuous backups do not support the logically air-gapped vault feature. To use a logically air-gapped vault with Aurora, use periodic snapshot backups instead.  
+The recovery point objective (RPO) for Aurora continuous backups is typically less than 5 minutes, as Aurora copies data to Amazon S3 continuously in the background. Use the `LatestRestorableTime` value to determine the most recent point to which you can restore.
 
-Aurora continuous backups are supported in vaults protected by AWS Backup Vault Lock,
-and the vault's minimum and maximum retention settings are enforced on the recovery
-point. However, Aurora continuous backups do not support the logically air-gapped vault
-feature. To use a logically air-gapped vault with Aurora, use periodic snapshot backups
-instead.
+**Retention periods and backup windows:** When you enable or change continuous backup settings for an Aurora cluster, AWS Backup calls [`ModifyDBCluster`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyDBCluster.html) to apply those changes. This can modify the cluster's `PreferredBackupWindow`. If you have other configuration updates pending the next maintenance window, enabling continuous backups may also apply those pending changes immediately.
 
-The recovery point objective (RPO) for Aurora continuous backups is typically less
-than 5 minutes, as Aurora copies data to Amazon S3 continuously in the background. Use the
-`LatestRestorableTime` value to determine the most recent point to which you
-can restore.
-
-**Retention periods and backup windows:** When you enable
-or change continuous backup settings for an Aurora cluster, AWS Backup calls
-[`ModifyDBCluster`](../../../AmazonRDS/latest/APIReference/API_ModifyDBCluster.md "../../../AmazonRDS/latest/APIReference/API_ModifyDBCluster.md") to apply those changes. This can modify the
-cluster's `PreferredBackupWindow`. If you have other configuration updates
-pending the next maintenance window, enabling continuous backups may also apply those
-pending changes immediately.
-
-###### Note
-
-To use AWS Backup to configure continuous backups for your Aurora cluster, verify that
-the API permission `rds:ModifyDBCluster` exists in the IAM role defined by
-your backup plan configuration.
+**Note**  
+To use AWS Backup to configure continuous backups for your Aurora cluster, verify that the API permission `rds:ModifyDBCluster` exists in the IAM role defined by your backup plan configuration.
 
 ### SAP HANA on Amazon EC2 instances
+<a name="point-in-time-recovery-saphana"></a>
 
-You can make [continuous backups](point-in-time-recovery.md "point-in-time-recovery.md")
-, which can be used with point-in-time restore (PITR) (note that on-demand backups
-preserve resources in the state in which they are taken; whereas PITR uses continuous
-backups which record changes over a period of time).
+You can make [continuous backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) , which can be used with point-in-time restore (PITR) (note that on-demand backups preserve resources in the state in which they are taken; whereas PITR uses continuous backups which record changes over a period of time).
 
-With continuous backups, you can restore your SAP HANA database on an EC2 instance by
-rewinding it back to a specific time that you choose, within 1 second of precision (going
-back a maximum of 35 days). Continuous backup works by first creating a full backup of
-your resource, and then constantly backing up your resource’s transaction logs. PITR
-restore works by accessing your full backup and replaying the transaction log to the time
-that you tell AWS Backup to recover.
+With continuous backups, you can restore your SAP HANA database on an EC2 instance by rewinding it back to a specific time that you choose, within 1 second of precision (going back a maximum of 35 days). Continuous backup works by first creating a full backup of your resource, and then constantly backing up your resource’s transaction logs. PITR restore works by accessing your full backup and replaying the transaction log to the time that you tell AWS Backup to recover.
 
-You can opt in to continuous backups when you create a backup plan in AWS Backup using the
-AWS Backup console or the API.
+You can opt in to continuous backups when you create a backup plan in AWS Backup using the AWS Backup console or the API.
 
-###### To enable continuous backups using the console
+**To enable continuous backups using the console**
 
-1. Sign in to the AWS Management Console, and open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
-2. In the navigation pane, choose **Backup plans**, and then choose
-   **Create Backup plan**.
-3. Under **Backup rules**, choose **Add Backup
-   rule**.
-4. In the **Backup rule configuration** section, select
-   **Enable continuous backups for supported resources**.
+1. Sign in to the AWS Management Console, and open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup).
 
-After you disable [PITR (point-in-time
-restore)](point-in-time-recovery.md "point-in-time-recovery.md") for SAP HANA database backups, logs will continue to be sent to AWS Backup
-until the recovery point expires (status equals `EXPIRED)`. You can change to
-an alternative log backup location in SAP HANA to stop the transmission of logs to
-AWS Backup.
+1. In the navigation pane, choose **Backup plans**, and then choose **Create Backup plan**.
 
-A continuous recovery point with a status of `STOPPED` indicates that a
-continuous recovery point has been interrupted; that is, the logs transmitted from SAP
-HANA to AWS Backup that show the incremental changes to a database have a gap. The recovery
-points that occur within this timeframe gap have a status of `STOPPED.`.
+1. Under **Backup rules**, choose **Add Backup rule**.
 
-For issues you may encounter during restore jobs of continuous backups (recovery
-points), see the [SAP
-HANA Restore troubleshooting](saphana-restore.md#saphanarestoretroubleshooting "saphana-restore.md#saphanarestoretroubleshooting") section of this guide.
+1. In the **Backup rule configuration** section, select **Enable continuous backups for supported resources**.
+
+After you disable [ PITR (point-in-time restore)](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html) for SAP HANA database backups, logs will continue to be sent to AWS Backup until the recovery point expires (status equals `EXPIRED)`. You can change to an alternative log backup location in SAP HANA to stop the transmission of logs to AWS Backup.
+
+A continuous recovery point with a status of `STOPPED` indicates that a continuous recovery point has been interrupted; that is, the logs transmitted from SAP HANA to AWS Backup that show the incremental changes to a database have a gap. The recovery points that occur within this timeframe gap have a status of `STOPPED.`.
+
+For issues you may encounter during restore jobs of continuous backups (recovery points), see the [ SAP HANA Restore troubleshooting](https://docs.aws.amazon.com/aws-backup/latest/devguide/saphana-restore.html#saphanarestoretroubleshooting) section of this guide.
