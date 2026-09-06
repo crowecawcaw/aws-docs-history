@@ -1,18 +1,13 @@
-On October 7, 2026, AWS will discontinue support for
-Amazon Lookout for Equipment. After October 7, 2026, you will no longer be
-able to access the Lookout for Equipment console or resources. For more
-information,
-[see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
+
+
+ On October 7, 2026, AWS will discontinue support for Amazon Lookout for Equipment. After October 7, 2026, you will no longer be able to access the Lookout for Equipment console or resources. For more information, [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/). 
 
 # Reviewing inference results in a JSON file
+<a name="understanding-results-json"></a>
 
-The JSON file containing the inference results is stored in the Amazon Simple Storage Service (Amazon S3) bucket that
-you've specified.
+The JSON file containing the inference results is stored in the Amazon Simple Storage Service (Amazon S3) bucket that you've specified.
 
-For the sensor data that your asset sends to Amazon S3, Amazon Lookout for Equipment marks the group of
-readings as either normal or abnormal. For each group of abnormal readings, you can see
-the sensors that Lookout for Equipment used to indicate that the equipment is behaving
-abnormally.
+For the sensor data that your asset sends to Amazon S3, Amazon Lookout for Equipment marks the group of readings as either normal or abnormal. For each group of abnormal readings, you can see the sensors that Lookout for Equipment used to indicate that the equipment is behaving abnormally.
 
 The following shows example JSON output.
 
@@ -25,18 +20,9 @@ The following shows example JSON output.
 {"timestamp": "2021-03-11T22:29:00.000000", "prediction": 1, "prediction_reason": "ANOMALY_DETECTED", "anomaly_score": 0.79376, "diagnostics": [{"name": "component_5feceb66\\sensor0", "value": 0.04533}, {"name": "component_5feceb66\\sensor1", "value": 0.14063}, {"name": "component_5feceb66\\sensor2", "value": 0.08327}, {"name": "component_5feceb66\\sensor3", "value": 0.07303}, {"name": "component_5feceb66\\sensor4", "value": 0.18598}, {"name": "component_5feceb66\\sensor5", "value": 0.10839}, {"name": "component_5feceb66\\sensor6", "value": 0.08721}, {"name": "component_5feceb66\\sensor7", "value": 0.06792}, {"name": "component_5feceb66\\sensor8", "value": 0.1309}, {"name": "component_5feceb66\\sensor9", "value": 0.07735}]}
 ```
 
-For the `prediction` field, a `value` of `1` indicates abnormal
-equipment behavior. A `value` of `0` indicates normal equipment behavior.
+For the `prediction` field, a `value` of `1` indicates abnormal equipment behavior. A `value` of `0` indicates normal equipment behavior.
 
-If the value of `prediction_reason` isn't `MACHINE_OFF`,
-Amazon Lookout for Equipment returns an object that contains a diagnostics list, regardless of the value of
-`prediction`. The
-`diagnostics` list has the name of the sensors and the weights of the
-sensors' contributions in indicating abnormal equipment behavior. For each sensor, the
-`name` field indicates the name of the sensor. The `value`
-field indicates the percentage of the sensor's contribution to the prediction value. By
-seeing the percentage of each sensor's contribution to the prediction value, you can see
-how the data from each sensor was weighted.
+If the value of `prediction_reason` isn't `MACHINE_OFF`, Amazon Lookout for Equipment returns an object that contains a diagnostics list, regardless of the value of `prediction`. The `diagnostics` list has the name of the sensors and the weights of the sensors' contributions in indicating abnormal equipment behavior. For each sensor, the `name` field indicates the name of the sensor. The `value` field indicates the percentage of the sensor's contribution to the prediction value. By seeing the percentage of each sensor's contribution to the prediction value, you can see how the data from each sensor was weighted.
 
 The anomaly score is a value between 0 and 1 that indicates the intensity of the anomaly.
 

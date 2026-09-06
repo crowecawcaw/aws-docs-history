@@ -1,31 +1,23 @@
-On October 7, 2026, AWS will discontinue support for
-Amazon Lookout for Equipment. After October 7, 2026, you will no longer be
-able to access the Lookout for Equipment console or resources. For more
-information,
-[see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
+
+
+ On October 7, 2026, AWS will discontinue support for Amazon Lookout for Equipment. After October 7, 2026, you will no longer be able to access the Lookout for Equipment console or resources. For more information, [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/). 
 
 # Bulk import script
+<a name="bulk-import-trigger-script"></a>
 
-This script scans the CSV file that the [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md") creates. For
-each row the script calls `ImportDataset` on the source dataset ARN.
-After the dataset import successfully finishes, the script then calls
-`ImportModelVersion` on the dataset’s respective model version. If
-desired, you can call `ImportModelVersion` on an existing active dataset
-by populating the existing dataset name in the columns
-`Current_dataset_name` and `New_dataset_name`. You must
-also set the `Source_dataset_arn` value to `None`.
+This script scans the CSV file that the [Resource CSV file script](bulk-import-resources-resource-generation-script.md) creates. For each row the script calls `ImportDataset` on the source dataset ARN. After the dataset import successfully finishes, the script then calls `ImportModelVersion` on the dataset’s respective model version. If desired, you can call `ImportModelVersion` on an existing active dataset by populating the existing dataset name in the columns `Current_dataset_name` and `New_dataset_name`. You must also set the `Source_dataset_arn` value to `None`. 
 
-The script outputs an import results CSV file (_import\_result\_file\_{current\_time}.csv_) that lists the following:
-
-- **Source\_resource\_arn** — The ARN of the source dataset or source model.
-- **Is\_import\_successful?** — Yes, if the resource import was successful. Otherwise, No.
-- **type** — The type of the dataset (`dataset` or `model_version`).
-- **Source\_resource\_name** — The name of the source resource.
-- **New resource\_name** — The new name for the resource in the target AWS account.
-- **Version\_to\_import** — The model version in the source AWS account that was identified for import.
-- **Failed\_reason** — If the value of `Is_import_successful` is `No`, provides a reason for the failure.
+The script outputs an import results CSV file (*import\_result\_file\_{current\_time}.csv*) that lists the following:
++ **Source\_resource\_arn** — The ARN of the source dataset or source model.
++ **Is\_import\_successful?** — Yes, if the resource import was successful. Otherwise, No.
++ **type** — The type of the dataset (`dataset` or `model_version`).
++ **Source\_resource\_name** — The name of the source resource.
++ **New resource\_name** — The new name for the resource in the target AWS account.
++ **Version\_to\_import** — The model version in the source AWS account that was identified for import. 
++ **Failed\_reason** — If the value of `Is_import_successful` is `No`, provides a reason for the failure.
 
 ## Script
+<a name="bulk-import-trigger-script-code"></a>
 
 ```
 import boto3
@@ -237,5 +229,4 @@ with open(source_input_file) as csvfile:
             print("Import model completed for arn:", model_version_arn)
 print(
     f"Import for all the dataset/models in the input file is completed, Check the results file {final_result_file} for details")
-
 ```

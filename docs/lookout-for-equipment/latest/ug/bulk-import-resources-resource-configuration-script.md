@@ -1,22 +1,16 @@
-On October 7, 2026, AWS will discontinue support for
-Amazon Lookout for Equipment. After October 7, 2026, you will no longer be
-able to access the Lookout for Equipment console or resources. For more
-information,
-[see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
+
+
+ On October 7, 2026, AWS will discontinue support for Amazon Lookout for Equipment. After October 7, 2026, you will no longer be able to access the Lookout for Equipment console or resources. For more information, [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/). 
 
 # Resource configuration script
+<a name="bulk-import-resources-resource-configuration-script"></a>
 
-This script configures the resource policies to let the target AWS
-account bulk import the resources. By using the CSV file
-(_import\_input\_file\_{current\_time}.csv_ ) that the [Resource CSV file script](bulk-import-resources-resource-generation-script.md "bulk-import-resources-resource-generation-script.md") creates, the script configures the resource policy for each dataset and model
-version ARN. The script updates existing resource policies for source datasets and
-model version ARNs to grant permissions to the target AWS account, along with any
-existing conditions.
+This script configures the resource policies to let the target AWS account bulk import the resources. By using the CSV file (*import\_input\_file\_{current\_time}.csv *) that the [Resource CSV file script](bulk-import-resources-resource-generation-script.md) creates, the script configures the resource policy for each dataset and model version ARN. The script updates existing resource policies for source datasets and model version ARNs to grant permissions to the target AWS account, along with any existing conditions. 
 
-After running this script, you can bulk import resources to the target AWS
-account by running the [Bulk import script](bulk-import-trigger-script.md "bulk-import-trigger-script.md").
+After running this script, you can bulk import resources to the target AWS account by running the [Bulk import script](bulk-import-trigger-script.md).
 
 ## Script
+<a name="bulk-import-resources-resource-configuration-script-code"></a>
 
 ```
 import boto3
@@ -92,5 +86,4 @@ while next_token is not None:
     next_token = response.get("NextToken")
 
 print("All the active models have been scanned and written to a file:", file_name)
-
 ```

@@ -1,191 +1,142 @@
-On October 7, 2026, AWS will discontinue support for
-Amazon Lookout for Equipment. After October 7, 2026, you will no longer be
-able to access the Lookout for Equipment console or resources. For more
-information,
-[see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/ "https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/").
+
+
+ On October 7, 2026, AWS will discontinue support for Amazon Lookout for Equipment. After October 7, 2026, you will no longer be able to access the Lookout for Equipment console or resources. For more information, [see the following](https://aws.amazon.com/blogs/machine-learning/preserve-access-and-explore-alternatives-for-amazon-lookout-for-equipment/). 
 
 # CreateDataset
+<a name="API_CreateDataset"></a>
 
-Creates a container for a collection of data being ingested for analysis. The dataset
-contains the metadata describing where the data is and what the data actually looks like.
-For example, it contains the location of the data source, the data schema, and other
-information. A dataset also contains any tags associated with the ingested data.
+Creates a container for a collection of data being ingested for analysis. The dataset contains the metadata describing where the data is and what the data actually looks like. For example, it contains the location of the data source, the data schema, and other information. A dataset also contains any tags associated with the ingested data. 
 
 ## Request Syntax
+<a name="API_CreateDataset_RequestSyntax"></a>
 
 ```
 {
-   "ClientToken": "`string`",
-   "DatasetName": "`string`",
-   "DatasetSchema": {
-      "InlineDataSchema": "`string`"
+   "ClientToken": "{{string}}",
+   "DatasetName": "{{string}}",
+   "DatasetSchema": { 
+      "InlineDataSchema": "{{string}}"
    },
-   "ServerSideKmsKeyId": "`string`",
-   "Tags": [
-      {
-         "Key": "`string`",
-         "Value": "`string`"
+   "ServerSideKmsKeyId": "{{string}}",
+   "Tags": [ 
+      { 
+         "Key": "{{string}}",
+         "Value": "{{string}}"
       }
    ]
 }
 ```
 
 ## Request Parameters
+<a name="API_CreateDataset_RequestParameters"></a>
 
 The request accepts the following data in JSON format.
 
-**[ClientToken](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**
-
-A unique identifier for the request. If you do not set the client request token, Amazon
-Lookout for Equipment generates one.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 256.
-
-Pattern: `\p{ASCII}{1,256}`
-
+ ** [ClientToken](#API_CreateDataset_RequestSyntax) **   <a name="LookoutForEquipment-CreateDataset-request-ClientToken"></a>
+ A unique identifier for the request. If you do not set the client request token, Amazon Lookout for Equipment generates one.   
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 256.  
+Pattern: `\p{ASCII}{1,256}`   
 Required: Yes
 
-**[DatasetName](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**
-
-The name of the dataset being created.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 200.
-
-Pattern: `^[0-9a-zA-Z_-]{1,200}$`
-
+ ** [DatasetName](#API_CreateDataset_RequestSyntax) **   <a name="LookoutForEquipment-CreateDataset-request-DatasetName"></a>
+The name of the dataset being created.   
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 200.  
+Pattern: `^[0-9a-zA-Z_-]{1,200}$`   
 Required: Yes
 
-**[DatasetSchema](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**
-
-A JSON description of the data that is in each time series dataset, including names,
-column names, and data types.
-
-Type: [DatasetSchema](API_DatasetSchema.md "API_DatasetSchema.md") object
-
+ ** [DatasetSchema](#API_CreateDataset_RequestSyntax) **   <a name="LookoutForEquipment-CreateDataset-request-DatasetSchema"></a>
+A JSON description of the data that is in each time series dataset, including names, column names, and data types.   
+Type: [DatasetSchema](API_DatasetSchema.md) object  
 Required: No
 
-**[ServerSideKmsKeyId](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**
-
-Provides the identifier of the AWS KMS key used to encrypt dataset data by Amazon Lookout
-for Equipment.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 2048.
-
-Pattern: `^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$`
-
+ ** [ServerSideKmsKeyId](#API_CreateDataset_RequestSyntax) **   <a name="LookoutForEquipment-CreateDataset-request-ServerSideKmsKeyId"></a>
+Provides the identifier of the AWS KMS key used to encrypt dataset data by Amazon Lookout for Equipment.   
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 2048.  
+Pattern: `^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$`   
 Required: No
 
-**[Tags](#API_CreateDataset_RequestSyntax "#API_CreateDataset_RequestSyntax")**
-
-Any tags associated with the ingested data described in the dataset.
-
-Type: Array of [Tag](API_Tag.md "API_Tag.md") objects
-
-Array Members: Minimum number of 0 items. Maximum number of 200 items.
-
+ ** [Tags](#API_CreateDataset_RequestSyntax) **   <a name="LookoutForEquipment-CreateDataset-request-Tags"></a>
+Any tags associated with the ingested data described in the dataset.   
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items. Maximum number of 200 items.  
 Required: No
 
 ## Response Syntax
+<a name="API_CreateDataset_ResponseSyntax"></a>
 
 ```
 {
-   "DatasetArn": "***string***",
-   "DatasetName": "***string***",
-   "Status": "***string***"
+   "DatasetArn": "string",
+   "DatasetName": "string",
+   "Status": "string"
 }
 ```
 
 ## Response Elements
+<a name="API_CreateDataset_ResponseElements"></a>
 
 If the action is successful, the service sends back an HTTP 200 response.
 
 The following data is returned in JSON format by the service.
 
-**[DatasetArn](#API_CreateDataset_ResponseSyntax "#API_CreateDataset_ResponseSyntax")**
+ ** [DatasetArn](#API_CreateDataset_ResponseSyntax) **   <a name="LookoutForEquipment-CreateDataset-response-DatasetArn"></a>
+ The Amazon Resource Name (ARN) of the dataset being created.   
+Type: String  
+Length Constraints: Minimum length of 20. Maximum length of 2048.  
+Pattern: `arn:aws(-[^:]+)?:lookoutequipment:[a-zA-Z0-9\-]*:[0-9]{12}:dataset\/[0-9a-zA-Z_-]{1,200}\/.+` 
 
-The Amazon Resource Name (ARN) of the dataset being created.
+ ** [DatasetName](#API_CreateDataset_ResponseSyntax) **   <a name="LookoutForEquipment-CreateDataset-response-DatasetName"></a>
+The name of the dataset being created.   
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 200.  
+Pattern: `^[0-9a-zA-Z_-]{1,200}$` 
 
-Type: String
-
-Length Constraints: Minimum length of 20. Maximum length of 2048.
-
-Pattern: `arn:aws(-[^:]+)?:lookoutequipment:[a-zA-Z0-9\-]*:[0-9]{12}:dataset\/[0-9a-zA-Z_-]{1,200}\/.+`
-
-**[DatasetName](#API_CreateDataset_ResponseSyntax "#API_CreateDataset_ResponseSyntax")**
-
-The name of the dataset being created.
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 200.
-
-Pattern: `^[0-9a-zA-Z_-]{1,200}$`
-
-**[Status](#API_CreateDataset_ResponseSyntax "#API_CreateDataset_ResponseSyntax")**
-
-Indicates the status of the `CreateDataset` operation.
-
-Type: String
-
-Valid Values: `CREATED | INGESTION_IN_PROGRESS | ACTIVE | IMPORT_IN_PROGRESS`
+ ** [Status](#API_CreateDataset_ResponseSyntax) **   <a name="LookoutForEquipment-CreateDataset-response-Status"></a>
+Indicates the status of the `CreateDataset` operation.   
+Type: String  
+Valid Values: `CREATED | INGESTION_IN_PROGRESS | ACTIVE | IMPORT_IN_PROGRESS` 
 
 ## Errors
+<a name="API_CreateDataset_Errors"></a>
 
-**AccessDeniedException**
-
-The request could not be completed because you do not have access to the resource.
-
+ ** AccessDeniedException **   
+The request could not be completed because you do not have access to the resource.   
 HTTP Status Code: 400
 
-**ConflictException**
-
-The request could not be completed due to a conflict with the current state of the
-target resource.
-
+ ** ConflictException **   
+ The request could not be completed due to a conflict with the current state of the target resource.   
 HTTP Status Code: 400
 
-**InternalServerException**
-
-Processing of the request has failed because of an unknown error, exception or failure.
-
+ ** InternalServerException **   
+ Processing of the request has failed because of an unknown error, exception or failure.   
 HTTP Status Code: 500
 
-**ServiceQuotaExceededException**
-
-Resource limitations have been exceeded.
-
+ ** ServiceQuotaExceededException **   
+ Resource limitations have been exceeded.   
 HTTP Status Code: 400
 
-**ThrottlingException**
-
-The request was denied due to request throttling.
-
+ ** ThrottlingException **   
+The request was denied due to request throttling.  
 HTTP Status Code: 400
 
-**ValidationException**
-
-The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related AWS
-service that's being utilized.
-
+ ** ValidationException **   
+ The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related AWS service that's being utilized.   
 HTTP Status Code: 400
 
 ## See Also
+<a name="API_CreateDataset_SeeAlso"></a>
 
 For more information about using this API in one of the language-specific AWS SDKs, see the following:
-
-- [AWS Command Line Interface V2](../../../goto/cli2/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/cli2/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for .NET V4](../../../goto/DotNetSDKV4/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/DotNetSDKV4/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for C++](../../../goto/SdkForCpp/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForCpp/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for Go v2](../../../goto/SdkForGoV2/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForGoV2/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForJavaV2/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForJavaScriptV3/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForKotlin/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForPHPV3/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for Python](../../../goto/boto3/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/boto3/lookoutequipment-2020-12-15/CreateDataset.md")
-- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/lookoutequipment-2020-12-15/CreateDataset.md "../../../goto/SdkForRubyV3/lookoutequipment-2020-12-15/CreateDataset.md")
++  [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for .NET V4](https://docs.aws.amazon.com/goto/DotNetSDKV4/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/lookoutequipment-2020-12-15/CreateDataset) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/lookoutequipment-2020-12-15/CreateDataset) 
