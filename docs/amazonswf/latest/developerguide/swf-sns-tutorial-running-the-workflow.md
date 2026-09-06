@@ -1,13 +1,13 @@
+
+
 # Subscription Workflow Tutorial: Running the Workflow
+<a name="swf-sns-tutorial-running-the-workflow"></a>
 
-Now that you've completed the implementation of your workflow, activities, and the workflow and activity
-pollers, you're ready to run the workflow.
+Now that you've completed the implementation of your workflow, activities, and the workflow and activity pollers, you're ready to run the workflow.
 
-If you haven't done so already, you'll need to provide your AWS access keys in the
-`aws-config.txt` file, like in [Configuring the AWS Session](swf-sns-tutorial-setup-swf.md#configuring-the-aws-session "swf-sns-tutorial-setup-swf.md#configuring-the-aws-session") in Part 1 of the tutorial.
+If you haven't done so already, you'll need to provide your AWS access keys in the `aws-config.txt` file, like in [Configuring the AWS Session](swf-sns-tutorial-setup-swf.md#configuring-the-aws-session) in Part 1 of the tutorial.
 
-Now, go to your command line and change to the directory where the tutorial source files are located. You
-should have the following files:
+Now, go to your command line and change to the directory where the tutorial source files are located. You should have the following files:
 
 ```
 .
@@ -25,11 +25,10 @@ should have the following files:
 Now, start the workflow with the following command.
 
 ```
-ruby swf_sns_workflow.rb
+ruby swf_sns_workflow.rb 
 ```
 
-This will begin the workflow, and should print out a message with a line that you can copy and paste into a
-separate command-line window (or even on another computer, if you've copied the tutorial source files onto it).
+This will begin the workflow, and should print out a message with a line that you can copy and paste into a separate command-line window (or even on another computer, if you've copied the tutorial source files onto it).
 
 ```
 Amazon SWF Example
@@ -38,7 +37,7 @@ Amazon SWF Example
 Start the activity worker, preferably in a separate command-line window, with
 the following command:
 
-> ruby swf_sns_activities.rb `87097e76-7c0c-41c7-817b-92527bb0ea85-activities`
+> ruby swf_sns_activities.rb {{87097e76-7c0c-41c7-817b-92527bb0ea85-activities}}
 
 You can copy & paste it if you like, just don't copy the '>' character.
 
@@ -47,16 +46,13 @@ Press return when you're ready...
 
 The workflow code will wait patiently for you to start the activity poller in a separate window.
 
-Open a new command-line window, change to the directory where the source files are located again, and then use the
-command provided by the `swf_sns_workflow.rb` file to start the activity poller. For example, if you
-received the preceding output, you would type (or paste) the following.
+Open a new command-line window, change to the directory where the source files are located again, and then use the command provided by the `swf_sns_workflow.rb` file to start the activity poller. For example, if you received the preceding output, you would type (or paste) the following.
 
 ```
-ruby swf_sns_activities.rb `87097e76-7c0c-41c7-817b-92527bb0ea85-activities`
+ruby swf_sns_activities.rb {{87097e76-7c0c-41c7-817b-92527bb0ea85-activities}}
 ```
 
-Once you begin running your activity poller, it will start to output information about activities
-registration.
+Once you begin running your activity poller, it will start to output information about activities registration.
 
 ```
 ** initialized and registered activity: get_contact_activity
@@ -65,8 +61,7 @@ registration.
 ** initialized and registered activity: send_result_activity
 ```
 
-You can now return to your original command-line window, and press return to start your workflow execution. It
-will register the workflow and schedule the first activity.
+You can now return to your original command-line window, and press return to start your workflow execution. It will register the workflow and schedule the first activity.
 
 ```
 Starting workflow execution.
@@ -74,9 +69,7 @@ Starting workflow execution.
 ** scheduling activity task: get_contact_activity
 ```
 
-Go back to the other window, where your activity poller is running. The result of the first running activity
-is displayed, providing a prompt for you to enter your email or SMS phone number. Enter either, or both,
-of these pieces of data, and then confirm your text entry.
+Go back to the other window, where your activity poller is running. The result of the first running activity is displayed, providing a prompt for you to enter your email or SMS phone number. Enter either, or both, of these pieces of data, and then confirm your text entry.
 
 ```
 activity task received: <AWS::SimpleWorkflow::ActivityTask>
@@ -98,24 +91,18 @@ You entered:
 Is this correct? (y/n): y
 ```
 
-###### Note
+**Note**  
+The phone number provided is fictitious, and is used only for illustrative purposes. Use your own phone number and email address here\!
 
-The phone number provided is fictitious, and is used only for illustrative purposes. Use your own phone
-number and email address here!
+Soon after entering this information, you should receive an email or text message from Amazon SNS, asking you to confirm your topic subscription. If you entered an SMS number, you will see something like the following appear on your phone.
 
-Soon after entering this information, you should receive an email or text message from Amazon SNS, asking you to
-confirm your topic subscription. If you entered an SMS number, you will see something like the following appear on
-your phone.
+ ![Text message prompt asking to receive messages from SWFSAMPLE with reply options.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf_sns_sample_sms_request.png) 
 
-![Text message prompt asking to receive messages from SWFSAMPLE with reply options.](images/swf_sns_sample_sms_request.png)
+If you reply to this message with `YES`, you'll get the response that we provided in `send_result_activity`.
 
-If you reply to this message with `YES`, you'll get the response that we provided in
-`send_result_activity`.
+ ![Mobile notification showing successful workflow registration confirmation message.](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf_sns_sample_sms_success.png) 
 
-![Mobile notification showing successful workflow registration confirmation message.](images/swf_sns_sample_sms_success.png)
-
-While all of this was happening, did you see what was happening in your command-line window? Both the workflow
-and activity pollers have been hard at work.
+While all of this was happening, did you see what was happening in your command-line window? Both the workflow and activity pollers have been hard at work.
 
 Here's the output from the workflow poller.
 
@@ -126,8 +113,7 @@ Here's the output from the workflow poller.
 !! All activities complete! Sending complete_workflow_execution...
 ```
 
-Here's the output from the activity poller, which was happening at the same time in another command-line
-window.
+Here's the output from the activity poller, which was happening at the same time in another command-line window.
 
 ```
 ++ Activity task completed: get_contact_activity
@@ -143,27 +129,20 @@ Thanks, you've successfully confirmed registration, and your workflow is complet
 All done!
 ```
 
-Congratulations, your workflow is complete, and so is this tutorial!
+Congratulations, your workflow is complete, and so is this tutorial\!
 
-You may want to re-run the workflow again to see how timeouts work, or to enter different data. Just remember
-that once you subscribe to a topic, _you're still subscribed until you unsubscribe_. Re-running
-the workflow before unsubscribing to topics will probably result in automatic success, because the
-`wait_for_confirmation_activity` will see that your subscription is already confirmed.
+You may want to re-run the workflow again to see how timeouts work, or to enter different data. Just remember that once you subscribe to a topic, *you're still subscribed until you unsubscribe*. Re-running the workflow before unsubscribing to topics will probably result in automatic success, because the `wait_for_confirmation_activity` will see that your subscription is already confirmed.
 
 **To unsubscribe from the Amazon SNS topic**
++ Respond in the negative (send `STOP`) to the text message.
++ Choose the unsubscribe link that you received in your email.
 
-- Respond in the negative (send `STOP`) to the text message.
-- Choose the unsubscribe link that you received in your email.
-  You're now ready to re-subscribe to the topic again.
+You're now ready to re-subscribe to the topic again.
 
 ## Where Do I Go from Here?
+<a name="where-do-i-go-from-here"></a>
 
-This tutorial has covered a lot of ground, but there's still much more you can learn about the AWS SDK for Ruby,
-Amazon SWF, or Amazon SNS. For more information and many more examples, see the official documentation for each:
-
-- [AWS SDK for Ruby
-  Documentation](https://aws.amazon.com/documentation/sdkforruby/ "https://aws.amazon.com/documentation/sdkforruby/")
-- [Amazon Simple Notification Service
-  Documentation](https://aws.amazon.com/documentation/sns/ "https://aws.amazon.com/documentation/sns/")
-- [Amazon Simple Workflow Service
-  Documentation](https://aws.amazon.com/documentation/swf/ "https://aws.amazon.com/documentation/swf/")
+This tutorial has covered a lot of ground, but there's still much more you can learn about the AWS SDK for Ruby, Amazon SWF, or Amazon SNS. For more information and many more examples, see the official documentation for each:
++ [AWS SDK for Ruby Documentation](https://aws.amazon.com/documentation/sdkforruby/)
++ [Amazon Simple Notification Service Documentation](https://aws.amazon.com/documentation/sns/)
++ [Amazon Simple Workflow Service Documentation](https://aws.amazon.com/documentation/swf/)

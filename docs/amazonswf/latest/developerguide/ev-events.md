@@ -1,77 +1,69 @@
+
+
 # EventBridge for Amazon SWF execution status changes
+<a name="ev-events"></a>
 
-You use Amazon EventBridge to respond to state changes or events in an AWS resource. When Amazon SWF
-emits an event, it always goes to the default EventBridge event bus for your account. You can create a
-rule for events, associate it with the default event bus, and specify a target action to take
-when EventBridge receives an event that matches the rule. In this way, you can monitor your workflows
-without having to constantly poll using the [`GetWorkflowExecutionHistory`](../apireference/API_GetWorkflowExecutionHistory.md "../apireference/API_GetWorkflowExecutionHistory.md") API. Based on changes in workflow
-executions, you can use an EventBridge target to call AWS Lambda functions, publish messages to
-Amazon Simple Notification Service (Amazon SNS) topics, and more.
+You use Amazon EventBridge to respond to state changes or events in an AWS resource. When Amazon SWF emits an event, it always goes to the default EventBridge event bus for your account. You can create a rule for events, associate it with the default event bus, and specify a target action to take when EventBridge receives an event that matches the rule. In this way, you can monitor your workflows without having to constantly poll using the [`GetWorkflowExecutionHistory`](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_GetWorkflowExecutionHistory.html) API. Based on changes in workflow executions, you can use an EventBridge target to call AWS Lambda functions, publish messages to Amazon Simple Notification Service (Amazon SNS) topics, and more.
 
-You can see the full contents of an execution status change event using [`DescribeWorkflowExecution`](../apireference/API_DescribeWorkflowExecution.md "../apireference/API_DescribeWorkflowExecution.md").
+You can see the full contents of an execution status change event using [`DescribeWorkflowExecution`](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html).
 
-For more information, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md").
+For more information, see the [Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/). 
 
 ## EventBridge events
+<a name="ev-events-supported"></a>
 
-The history event types contain the execution state changes. The `detail`
-section of each event contains at least the following parameters:
-
-- `eventId`: the event ID shown by GetWorkflowExecutionHistory.
-- `workflowExecutionDetail`: the state of the workflow when the event was
-  emitted.
-- `eventType`: the history event type, one of the following:
-
-  - `ActivityTaskCanceled`
-  - `ActivityTaskFailed`
-  - `ActivityTaskTimedOut`
-  - `WorkflowExecutionCanceled`
-  - `WorkflowExecutionCompleted`
-  - `WorkflowExecutionFailed`
-  - `WorkflowExecutionStarted`
-  - `WorkflowExecutionTerminated`
-  - `WorkflowExecutionTimedOut`
-  - `WorkflowExecutionContinuedAsNew`
-  - `CancelTimerFailed`
-  - `CancelWorkflowExecutionFailed`
-  - `ChildWorkflowExecutionFailed`
-  - `ChildWorkflowExecutionTimedOut`
-  - `CompleteWorkflowExecutionFailed`
-  - `ContinueAsNewWorkflowExecutionFailed`
-  - `DecisionTaskTimedOut`
-  - `FailWorkflowExecutionFailed`
-  - `RecordMarkerFailed`
-  - `RequestCancelActivityTaskFailed`
-  - `RequestCancelExternalWorkflowExecutionFailed`
-  - `ScheduleActivityTaskFailed`
-  - `SignalExternalWorkflowExecutionFailed`
-  - `StartActivityTaskFailed`
-  - `StartChildWorkflowExecutionFailed`
-  - `StartTimerFailed`
-  - `TimerCanceled`
-  - `LambdaFunctionFailed`
-  - `LambdaFunctionTimedOut`
-  - `StartLambdaFunctionFailed`
-  - `ScheduleLambdaFunctionFailed`
+The history event types contain the execution state changes. The `detail` section of each event contains at least the following parameters:
++ `eventId`: the event ID shown by GetWorkflowExecutionHistory.
++ `workflowExecutionDetail`: the state of the workflow when the event was emitted.
++ `eventType`: the history event type, one of the following:
+  + `ActivityTaskCanceled`
+  + `ActivityTaskFailed`
+  + `ActivityTaskTimedOut`
+  + `WorkflowExecutionCanceled`
+  + `WorkflowExecutionCompleted`
+  + `WorkflowExecutionFailed`
+  + `WorkflowExecutionStarted`
+  + `WorkflowExecutionTerminated`
+  + `WorkflowExecutionTimedOut`
+  + `WorkflowExecutionContinuedAsNew`
+  + `CancelTimerFailed`
+  + `CancelWorkflowExecutionFailed`
+  + `ChildWorkflowExecutionFailed`
+  + `ChildWorkflowExecutionTimedOut`
+  + `CompleteWorkflowExecutionFailed`
+  + `ContinueAsNewWorkflowExecutionFailed`
+  + `DecisionTaskTimedOut`
+  + `FailWorkflowExecutionFailed`
+  + `RecordMarkerFailed`
+  + `RequestCancelActivityTaskFailed`
+  + `RequestCancelExternalWorkflowExecutionFailed`
+  + `ScheduleActivityTaskFailed`
+  + `SignalExternalWorkflowExecutionFailed`
+  + `StartActivityTaskFailed`
+  + `StartChildWorkflowExecutionFailed`
+  + `StartTimerFailed`
+  + `TimerCanceled`
+  + `LambdaFunctionFailed`
+  + `LambdaFunctionTimedOut`
+  + `StartLambdaFunctionFailed`
+  + `ScheduleLambdaFunctionFailed`
 
 ## Amazon SWF event examples
+<a name="ev-events-events"></a>
 
-The following are examples of Amazon SWF sending events to EventBridge:
+The following are examples of Amazon SWF sending events to EventBridge: 
 
-###### Topics
+**Topics**
++ [Execution started](#ev-events-execution-started)
++ [Execution completed](#ev-events-execution-completed)
++ [Execution failed](#ev-events-execution-failed)
++ [Execution timed out](#ev-events-execution-timed-out)
++ [Execution terminated](#ev-events-execution-aborted)
 
-- [Execution started](#ev-events-execution-started "#ev-events-execution-started")
-- [Execution completed](#ev-events-execution-completed "#ev-events-execution-completed")
-- [Execution failed](#ev-events-execution-failed "#ev-events-execution-failed")
-- [Execution timed out](#ev-events-execution-timed-out "#ev-events-execution-timed-out")
-- [Execution terminated](#ev-events-execution-aborted "#ev-events-execution-aborted")
-
-In each case, the `detail` section in the event data provides
-the same information as the [`DescribeWorkflowExecution`](../apireference/API_DescribeWorkflowExecution.md "../apireference/API_DescribeWorkflowExecution.md") API. The `executionStatus`
-field indicates the status of the execution at the time the event was sent, either
-`OPEN` or `CLOSED`.
+In each case, the `detail` section in the event data provides the same information as the [`DescribeWorkflowExecution`](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_DescribeWorkflowExecution.html) API. The `executionStatus` field indicates the status of the execution at the time the event was sent, either `OPEN` or `CLOSED`. 
 
 ### Execution started
+<a name="ev-events-execution-started"></a>
 
 ```
 {
@@ -131,6 +123,7 @@ field indicates the status of the execution at the time the event was sent, eith
 ```
 
 ### Execution completed
+<a name="ev-events-execution-completed"></a>
 
 ```
 {
@@ -190,6 +183,7 @@ field indicates the status of the execution at the time the event was sent, eith
 ```
 
 ### Execution failed
+<a name="ev-events-execution-failed"></a>
 
 ```
 {
@@ -249,6 +243,7 @@ field indicates the status of the execution at the time the event was sent, eith
 ```
 
 ### Execution timed out
+<a name="ev-events-execution-timed-out"></a>
 
 ```
 {
@@ -308,6 +303,9 @@ field indicates the status of the execution at the time the event was sent, eith
 ```
 
 ### Execution terminated
+<a name="ev-events-execution-aborted"></a>
+
+
 
 ```
 {

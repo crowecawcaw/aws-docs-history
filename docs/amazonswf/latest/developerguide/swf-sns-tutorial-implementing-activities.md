@@ -1,39 +1,36 @@
+
+
 # Subscription Workflow Tutorial Part 3: Implementing the Activities
+<a name="swf-sns-tutorial-implementing-activities"></a>
 
-We'll now implement each of the activities in our workflow, beginning with a base class that provides some
-common features for the activity code.
+We'll now implement each of the activities in our workflow, beginning with a base class that provides some common features for the activity code.
 
-###### Topics
-
-- [Defining a Basic Activity Type](#defining-a-basic-activity-type "#defining-a-basic-activity-type")
-- [Defining GetContactActivity](#defining-getcontactactivity "#defining-getcontactactivity")
-- [Defining SubscribeTopicActivity](#defining-subscribetopicactivity "#defining-subscribetopicactivity")
-- [Defining WaitForConfirmationActivity](#defining-waitforconfirmationactivity "#defining-waitforconfirmationactivity")
-- [Defining SendResultActivity](#defining-sendresultactivity "#defining-sendresultactivity")
-- [Next Steps](#implementing-activities-next-steps "#implementing-activities-next-steps")
+**Topics**
++ [Defining a Basic Activity Type](#defining-a-basic-activity-type)
++ [Defining GetContactActivity](#defining-getcontactactivity)
++ [Defining SubscribeTopicActivity](#defining-subscribetopicactivity)
++ [Defining WaitForConfirmationActivity](#defining-waitforconfirmationactivity)
++ [Defining SendResultActivity](#defining-sendresultactivity)
++ [Next Steps](#implementing-activities-next-steps)
 
 ## Defining a Basic Activity Type
+<a name="defining-a-basic-activity-type"></a>
 
 When designing the workflow, we identified the following activities:
++ `get_contact_activity`
++ `subscribe_topic_activity`
++ `wait_for_confirmation_activity`
++ `send_result_activity`
 
-- `get_contact_activity`
-- `subscribe_topic_activity`
-- `wait_for_confirmation_activity`
-- `send_result_activity`
+We'll implement each of these activities now. Because our activities will share some features, let's do a little groundwork and create some common code they can share. We'll call it **BasicActivity**, and define it in a new file called `basic_activity.rb`.
 
-We'll implement each of these activities now. Because our activities will share some features, let's do a
-little groundwork and create some common code they can share. We'll call it **BasicActivity**, and define it in a new file called `basic_activity.rb`.
-
-As with the other source files, we'll include `utils.rb` to access the
-`init_domain` function to set up the sample domain.
+As with the other source files, we'll include `utils.rb` to access the `init_domain` function to set up the sample domain.
 
 ```
-   require_relative 'utils.rb'
+   require_relative 'utils.rb' 
 ```
 
-Next, we'll declare the basic activity class and some common data that we'll be interested in for each
-activity. We'll save the activity's [AWS::SimpleWorkflow::ActivityType](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityType.md "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityType.md") instance,
-_name_, and _results_ in attributes of the class.
+Next, we'll declare the basic activity class and some common data that we'll be interested in for each activity. We'll save the activity's [AWS::SimpleWorkflow::ActivityType](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityType.html) instance, *name*, and *results* in attributes of the class.
 
 ```
    class BasicActivity
@@ -43,9 +40,7 @@ _name_, and _results_ in attributes of the class.
      attr_accessor :results
 ```
 
-These attributes access instance data that's defined in the class' `initialize` method,
-which takes an activity _name_, and an optional _version_ and map of
-_options_ to be used when registering the activity with Amazon SWF.
+These attributes access instance data that's defined in the class' `initialize` method, which takes an activity *name*, and an optional *version* and map of *options* to be used when registering the activity with Amazon SWF.
 
 ```
      def initialize(name, version = 'v1', options = nil)
@@ -79,16 +74,11 @@ _options_ to be used when registering the activity with Amazon SWF.
      end
 ```
 
-As with workflow type registration, if an activity type is already registered, we can retrieve it by looking
-at the domain's [activity\_types](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_types-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_types-instance_method")
-collection. If the activity can't be found, it will be registered.
+As with workflow type registration, if an activity type is already registered, we can retrieve it by looking at the domain's [activity\_types](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.html#activity_types-instance_method) collection. If the activity can't be found, it will be registered.
 
-Also, as with workflow types, you can set _default options_ that are stored with your
-activity type when you register it.
+Also, as with workflow types, you can set *default options* that are stored with your activity type when you register it.
 
-The last thing our basic activity gets is a consistent way to run it. We'll define a
-`do_activity` method that takes an activity task. As shown, we can use the passed-in activity task
-to receive data via its `input` instance attribute.
+The last thing our basic activity gets is a consistent way to run it. We'll define a `do_activity` method that takes an activity task. As shown, we can use the passed-in activity task to receive data via its `input` instance attribute.
 
 ```
      def do_activity(task)
@@ -98,17 +88,14 @@ to receive data via its `input` instance attribute.
    end
 ```
 
-That wraps up the **BasicActivity** class. Now we'll use it to make defining
-our activities simple and consistent.
+That wraps up the **BasicActivity** class. Now we'll use it to make defining our activities simple and consistent.
 
 ## Defining GetContactActivity
+<a name="defining-getcontactactivity"></a>
 
-The first activity that is run during a workflow execution is `get_contact_activity`, which
-retrieves the user's Amazon SNS topic subscription information.
+The first activity that is run during a workflow execution is `get_contact_activity`, which retrieves the user's Amazon SNS topic subscription information.
 
-Create a new file called `get_contact_activity.rb`, and require both
-`yaml`, which we'll use to prepare a string for passing to Amazon SWF, and
-`basic_activity.rb`, which we'll use as the basis for this **GetContactActivity** class.
+Create a new file called `get_contact_activity.rb`, and require both `yaml`, which we'll use to prepare a string for passing to Amazon SWF, and `basic_activity.rb`, which we'll use as the basis for this **GetContactActivity** class.
 
 ```
    require 'yaml'
@@ -120,10 +107,7 @@ Create a new file called `get_contact_activity.rb`, and require both
    class GetContactActivity < BasicActivity
 ```
 
-Because we put the activity registration code in **BasicActivity**, the
-`initialize` method for **GetContactActivity** is pretty simple. We
-simply call the base class constructor with the activity name, `get_contact_activity`. This is all
-that is required to register our activity.
+Because we put the activity registration code in **BasicActivity**, the `initialize` method for **GetContactActivity** is pretty simple. We simply call the base class constructor with the activity name, `get_contact_activity`. This is all that is required to register our activity.
 
 ```
      # initialize the activity
@@ -132,8 +116,7 @@ that is required to register our activity.
      end
 ```
 
-We'll now define the `do_activity` method, which prompts for the user's email
-and/or phone number.
+We'll now define the `do_activity` method, which prompts for the user's email and/or phone number. 
 
 ```
      def do_activity(task)
@@ -179,23 +162,16 @@ and/or phone number.
    end
 ```
 
-At the end of `do_activity`, we take the email and phone number retrieved from the user,
-place it in a map and then use `to_yaml` to convert the entire map to a YAML string. There's an
-important reason for this: any results that you pass to Amazon SWF when you complete an activity must be
-_string data only_. Ruby's ability to easily convert objects to YAML strings and then back again
-into objects is, thankfully, well-suited for this purpose.
+At the end of `do_activity`, we take the email and phone number retrieved from the user, place it in a map and then use `to_yaml` to convert the entire map to a YAML string. There's an important reason for this: any results that you pass to Amazon SWF when you complete an activity must be *string data only*. Ruby's ability to easily convert objects to YAML strings and then back again into objects is, thankfully, well-suited for this purpose.
 
-That's the end of the `get_contact_activity` implementation. This data will be used next in
-the `subscribe_topic_activity` implementation.
+That's the end of the `get_contact_activity` implementation. This data will be used next in the `subscribe_topic_activity` implementation.
 
 ## Defining SubscribeTopicActivity
+<a name="defining-subscribetopicactivity"></a>
 
-We'll now delve into Amazon SNS and create an activity that uses the information generated by
-`get_contact_activity` to subscribe the user to an Amazon SNS topic.
+We'll now delve into Amazon SNS and create an activity that uses the information generated by `get_contact_activity` to subscribe the user to an Amazon SNS topic.
 
-Create a new file called `subscribe_topic_activity.rb`, add the same requirements that we
-used for `get_contact_activity`, declare your class, and provide its `initialize`
-method.
+Create a new file called `subscribe_topic_activity.rb`, add the same requirements that we used for `get_contact_activity`, declare your class, and provide its `initialize` method.
 
 ```
    require 'yaml'
@@ -210,9 +186,7 @@ method.
      end
 ```
 
-Now that we have the code in place to get the activity set up and registered, we will add some code
-to create an Amazon SNS topic. To do so, we'll use the [AWS::SNS::Client](../../../AWSRubySDK/latest/AWS/SNS/Client.md "../../../AWSRubySDK/latest/AWS/SNS/Client.md") object's [create\_topic](../../../AWSRubySDK/latest/AWS/SNS/Client.md#create_topic-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#create_topic-instance_method")
-method.
+Now that we have the code in place to get the activity set up and registered, we will add some code to create an Amazon SNS topic. To do so, we'll use the [AWS::SNS::Client](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Client.html) object's [create\_topic](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Client.html#create_topic-instance_method) method.
 
 Add the `create_topic` method to your class, which takes a passed-in Amazon SNS client object.
 
@@ -238,13 +212,9 @@ Add the `create_topic` method to your class, which takes a passed-in Amazon SNS 
      end
 ```
 
-Once we have the topic's Amazon Resource Name (ARN), we can use it with the Amazon SNS client's [set\_topic\_attributes](../../../AWSRubySDK/latest/AWS/SNS/Client.md#set_topic_attributes-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#set_topic_attributes-instance_method") method to
-set the topic's _DisplayName_, which is required for sending SMS messages with Amazon SNS.
+Once we have the topic's Amazon Resource Name (ARN), we can use it with the Amazon SNS client's [set\_topic\_attributes](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Client.html#set_topic_attributes-instance_method) method to set the topic's *DisplayName*, which is required for sending SMS messages with Amazon SNS.
 
-Lastly, we'll define the `do_activity` method. We'll start by collecting any data that was
-passed via the `input` option when the activity was scheduled. As previously mentioned, this must
-be passed as a string, which we created using `to_yaml`. When retrieving it, we'll use
-`YAML.load` to turn the data into Ruby objects.
+Lastly, we'll define the `do_activity` method. We'll start by collecting any data that was passed via the `input` option when the activity was scheduled. As previously mentioned, this must be passed as a string, which we created using `to_yaml`. When retrieving it, we'll use `YAML.load` to turn the data into Ruby objects.
 
 Here's the beginning of `do_activity`, in which we retrieve the input data.
 
@@ -275,9 +245,7 @@ Here's the beginning of `do_activity`, in which we retrieve the input data.
 
 If we didn't receive any input, there isn't much to do, so we'll just fail the activity.
 
-Assuming that everything is fine, however, we'll continue filling in our `do_activity`
-method, get an Amazon SNS client with the AWS SDK for Ruby, and pass it to our `create_topic` method to
-create the Amazon SNS topic.
+Assuming that everything is fine, however, we'll continue filling in our `do_activity` method, get an Amazon SNS client with the AWS SDK for Ruby, and pass it to our `create_topic` method to create the Amazon SNS topic.
 
 ```
        # Create the topic and get the ARN
@@ -289,15 +257,10 @@ create the Amazon SNS topic.
 ```
 
 There are a couple of things worth noting here:
++ We use [`AWS.config.with`](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/Core/Configuration.html#with-instance_method) to set the region for our Amazon SNS client. Because we want to send SMS messages, we use the SMS-enabled region that we declared in `utils.rb`.
++ We save the topic's ARN in our `activity_data` map. This is part of the data that will be passed to the *next* activity in our workflow.
 
-- We use [`AWS.config.with`](../../../AWSRubySDK/latest/AWS/Core/Configuration.md#with-instance_method "../../../AWSRubySDK/latest/AWS/Core/Configuration.md#with-instance_method") to set the region
-  for our Amazon SNS client. Because we want to send SMS messages, we use the SMS-enabled region that we declared in
-  `utils.rb`.
-- We save the topic's ARN in our `activity_data` map. This is part of the data that will
-  be passed to the _next_ activity in our workflow.
-
-Finally, this activity subscribes the user to the Amazon SNS topic, using the passed-in endpoints (email and SMS).
-We don't require the user to enter _both_ endpoints, but we do need at least one.
+Finally, this activity subscribes the user to the Amazon SNS topic, using the passed-in endpoints (email and SMS). We don't require the user to enter *both* endpoints, but we do need at least one.
 
 ```
        # Subscribe the user to the topic, using either or both endpoints.
@@ -313,12 +276,9 @@ We don't require the user to enter _both_ endpoints, but we do need at least one
        end
 ```
 
-[AWS::SNS::Client.subscribe](../../../AWSRubySDK/latest/AWS/SNS/Client.md#subscribe-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Client.md#subscribe-instance_method")
-takes the topic ARN, the _protocol_ (which, cleverly, we disguised as the
-`activity_data` map key for the corresponding endpoint).
+[AWS::SNS::Client.subscribe](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Client.html#subscribe-instance_method) takes the topic ARN, the *protocol* (which, cleverly, we disguised as the `activity_data` map key for the corresponding endpoint).
 
-Finally, we re-package the information for the next activity in YAML format, so that we can send it back to
-Amazon SWF.
+Finally, we re-package the information for the next activity in YAML format, so that we can send it back to Amazon SWF.
 
 ```
        # if at least one subscription arn is set, consider this a success.
@@ -334,17 +294,14 @@ Amazon SWF.
    end
 ```
 
-That completes the implementation of the `subscribe_topic_activity`. Next, we'll define
-`wait_for_confirmation_activity`.
+That completes the implementation of the `subscribe_topic_activity`. Next, we'll define `wait_for_confirmation_activity`.
 
 ## Defining WaitForConfirmationActivity
+<a name="defining-waitforconfirmationactivity"></a>
 
-Once a user is subscribed to an Amazon SNS topic, he or she will still need to confirm the subscription request.
-In this case, we'll be waiting for the user to confirm by either email or an SMS message.
+Once a user is subscribed to an Amazon SNS topic, he or she will still need to confirm the subscription request. In this case, we'll be waiting for the user to confirm by either email or an SMS message.
 
-The activity that waits for the user to confirm the subscription is called
-`wait_for_confirmation_activity`, and we'll define it here. To begin, create a new file called
-`wait_for_confirmation_activity.rb` and set it up as we've set up the previous activities.
+The activity that waits for the user to confirm the subscription is called `wait_for_confirmation_activity`, and we'll define it here. To begin, create a new file called `wait_for_confirmation_activity.rb` and set it up as we've set up the previous activities.
 
 ```
    require 'yaml'
@@ -361,8 +318,7 @@ The activity that waits for the user to confirm the subscription is called
      end
 ```
 
-Next, we'll begin defining the `do_activity` method and retrieve any input data into a local
-variable called `subscription_data`.
+Next, we'll begin defining the `do_activity` method and retrieve any input data into a local variable called `subscription_data`.
 
 ```
      def do_activity(task)
@@ -374,7 +330,7 @@ variable called `subscription_data`.
        subscription_data = YAML.load(task.input)
 ```
 
-Now that we have the topic ARN, we can retrieve the topic by creating a new instance of [AWS::SNS::Topic](../../../AWSRubySDK/latest/AWS/SNS/Topic.md "../../../AWSRubySDK/latest/AWS/SNS/Topic.md") and pass it the ARN.
+Now that we have the topic ARN, we can retrieve the topic by creating a new instance of [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html) and pass it the ARN.
 
 ```
        topic = AWS::SNS::Topic.new(subscription_data[:topic_arn])
@@ -387,12 +343,9 @@ Now that we have the topic ARN, we can retrieve the topic by creating a new inst
        end
 ```
 
-Now, we'll check the topic to see if the user has confirmed the subscription using one of the endpoints.
-We'll only require that one endpoint has been confirmed to consider the activity a success.
+Now, we'll check the topic to see if the user has confirmed the subscription using one of the endpoints. We'll only require that one endpoint has been confirmed to consider the activity a success.
 
-An Amazon SNS topic maintains a list of the [subscriptions](../../../AWSRubySDK/latest/AWS/SNS/Topic.md#subscriptions-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Topic.md#subscriptions-instance_method") for that topic, and we
-can check whether or not the user has confirmed a particular subscription by checking to see if the subscription's
-ARN is set to anything other than `PendingConfirmation`.
+An Amazon SNS topic maintains a list of the [subscriptions](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html#subscriptions-instance_method) for that topic, and we can check whether or not the user has confirmed a particular subscription by checking to see if the subscription's ARN is set to anything other than `PendingConfirmation`.
 
 ```
        # loop until we get some indication that a subscription was confirmed.
@@ -413,13 +366,9 @@ ARN is set to anything other than `PendingConfirmation`.
          end
 ```
 
-If we get an ARN for the subscription, we'll save it in the activity's result data, convert it to YAML, and
-return true from `do_activity`, which signals that the activity completed successfully.
+If we get an ARN for the subscription, we'll save it in the activity's result data, convert it to YAML, and return true from `do_activity`, which signals that the activity completed successfully.
 
-Because waiting for a subscription to be confirmed might take a while, we'll occasionally call
-`record_heartbeat` on the activity task. This signals to Amazon SWF that the activity is still
-processing, and can also be used to provide updates about the progress of the activity (if you are doing something,
-like processing files, that you can report progress for).
+Because waiting for a subscription to be confirmed might take a while, we'll occasionally call `record_heartbeat` on the activity task. This signals to Amazon SWF that the activity is still processing, and can also be used to provide updates about the progress of the activity (if you are doing something, like processing files, that you can report progress for).
 
 ```
          task.record_heartbeat!(
@@ -429,8 +378,7 @@ like processing files, that you can report progress for).
        end
 ```
 
-This ends our `while` loop. If we somehow get out of the while loop without success, we'll
-report failure and finish the `do_activity` method.
+This ends our `while` loop. If we somehow get out of the while loop without success, we'll report failure and finish the `do_activity` method.
 
 ```
        if (subscription_confirmed == false)
@@ -443,20 +391,16 @@ report failure and finish the `do_activity` method.
    end
 ```
 
-That ends the implementation of `wait_for_confirmation_activity`. We have only one more
-activity to define: `send_result_activity`.
+That ends the implementation of `wait_for_confirmation_activity`. We have only one more activity to define: `send_result_activity`.
 
 ## Defining SendResultActivity
+<a name="defining-sendresultactivity"></a>
 
-If the workflow has progressed this far, we've successfully subscribed the user to an Amazon SNS topic and the
-user has confirmed the subscription.
+If the workflow has progressed this far, we've successfully subscribed the user to an Amazon SNS topic and the user has confirmed the subscription.
 
-Our last activity, `send_result_activity`, sends the user a confirmation of the successful
-topic subscription, using the topic that the user subscribed to and the endpoint that the user confirmed the
-subscription with.
+Our last activity, `send_result_activity`, sends the user a confirmation of the successful topic subscription, using the topic that the user subscribed to and the endpoint that the user confirmed the subscription with.
 
-Create a new file called `send_result_activity.rb` and set it up as we've set up all the
-activities so far.
+Create a new file called `send_result_activity.rb` and set it up as we've set up all the activities so far.
 
 ```
    require 'yaml'
@@ -472,8 +416,7 @@ activities so far.
      end
 ```
 
-Our `do_activity` method begins similarly, as well, getting the input data from the
-workflow, converting it from YAML, and then using the topic ARN to create an [AWS::SNS::Topic](../../../AWSRubySDK/latest/AWS/SNS/Topic.md "../../../AWSRubySDK/latest/AWS/SNS/Topic.md") instance.
+Our `do_activity` method begins similarly, as well, getting the input data from the workflow, converting it from YAML, and then using the topic ARN to create an [AWS::SNS::Topic](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html) instance.
 
 ```
      def do_activity(task)
@@ -495,8 +438,7 @@ workflow, converting it from YAML, and then using the topic ARN to create an [AW
        end
 ```
 
-Once we have the topic, we'll [publish](../../../AWSRubySDK/latest/AWS/SNS/Topic.md#publish-instance_method "../../../AWSRubySDK/latest/AWS/SNS/Topic.md#publish-instance_method") a
-message to it (and echo it to the screen, as well).
+Once we have the topic, we'll [publish](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SNS/Topic.html#publish-instance_method) a message to it (and echo it to the screen, as well).
 
 ```
        @results = "Thanks, you've successfully confirmed registration, and your workflow is complete!"
@@ -510,12 +452,9 @@ message to it (and echo it to the screen, as well).
    end
 ```
 
-Publishing to an Amazon SNS topic sends the message that you supply to _all_ of the subscribed
-and confirmed endpoints that exist for that topic. So, if the user confirmed with _both_ an
-email and an SMS number, he or she will receive two confirmation messages, one at each endpoint.
+Publishing to an Amazon SNS topic sends the message that you supply to *all* of the subscribed and confirmed endpoints that exist for that topic. So, if the user confirmed with *both* an email and an SMS number, he or she will receive two confirmation messages, one at each endpoint.
 
 ## Next Steps
+<a name="implementing-activities-next-steps"></a>
 
-This completes the implementation of `send_result_activity`. Now, you will tie all these
-activities together in an activity application that handles the activity tasks and can launch activities in
-response, in [Subscription Workflow Tutorial Part 4: Implementing the Activities Task Poller](swf-sns-tutorial-implementing-activities-poller.md "swf-sns-tutorial-implementing-activities-poller.md").
+This completes the implementation of `send_result_activity`. Now, you will tie all these activities together in an activity application that handles the activity tasks and can launch activities in response, in [Subscription Workflow Tutorial Part 4: Implementing the Activities Task Poller](swf-sns-tutorial-implementing-activities-poller.md).

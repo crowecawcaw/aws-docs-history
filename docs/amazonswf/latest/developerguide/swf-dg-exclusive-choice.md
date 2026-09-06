@@ -1,27 +1,23 @@
+
+
 # Implementing exclusive choice with Amazon SWF
+<a name="swf-dg-exclusive-choice"></a>
 
-In some scenarios, you might want to schedule a different set of activities based on the outcome of a previous
-activity. With the exclusive choice pattern, you can create flexible workflows that meet the complex requirements
-of your application.
+In some scenarios, you might want to schedule a different set of activities based on the outcome of a previous activity. With the exclusive choice pattern, you can create flexible workflows that meet the complex requirements of your application.
 
-Amazon SWF does not have a specific exclusive choice action. To implement exclusive choice, you must
-write your decider logic to make decisions based on the results of a previous activity. Some
-applications for exclusive choice include the following:
+Amazon SWF does not have a specific exclusive choice action. To implement exclusive choice, you must write your decider logic to make decisions based on the results of a previous activity. Some applications for exclusive choice include the following:
++ Performing cleanup activities if the results of a previous activity were unsuccessful
++ Scheduling different activities based on whether the customer purchased a basic or advanced plan
++ Performing different customer authentication activities based on the customer's ordering history
 
-- Performing cleanup activities if the results of a previous activity were unsuccessful
-- Scheduling different activities based on whether the customer purchased a basic or advanced plan
-- Performing different customer authentication activities based on the customer's ordering history
-  In the e-commerce example, you might use exclusive choice to either ship or cancel an order based on the outcome
-  of charging the credit card. In the following figure, the decider schedules the Ship Order and Record Completion
-  activity tasks if the credit card is successfully charged. Otherwise, it schedules the Cancel Order and Email
-  Customer activity tasks.
+In the e-commerce example, you might use exclusive choice to either ship or cancel an order based on the outcome of charging the credit card. In the following figure, the decider schedules the Ship Order and Record Completion activity tasks if the credit card is successfully charged. Otherwise, it schedules the Cancel Order and Email Customer activity tasks.
 
-![Diagram of customer order workflow](images/swf-dg-customer-order-workflow.png)
-The decider schedules the `ShipOrder` activity if the credit card is successfully charged. Otherwise,
-the decider schedules the `CancelOrder` activity.
+![Diagram of customer order workflow](http://docs.aws.amazon.com/amazonswf/latest/developerguide/images/swf-dg-customer-order-workflow.png)
 
-In this case, program the decider to interpret the history and determine whether the credit card was
-successfully charged. To do this, you might have logic similar to the following
+
+The decider schedules the `ShipOrder` activity if the credit card is successfully charged. Otherwise, the decider schedules the `CancelOrder` activity.
+
+In this case, program the decider to interpret the history and determine whether the credit card was successfully charged. To do this, you might have logic similar to the following
 
 ```
 IF lastEvent = "WorkflowExecutionStarted"
@@ -60,8 +56,7 @@ ELSIF lastEvent = "ActivityTaskCompleted"
 ENDIF
 ```
 
-If the credit card was successfully charged, the decider should respond with
-`RespondDecisionTaskCompleted` to schedule the `ShipOrder` activity.
+If the credit card was successfully charged, the decider should respond with `RespondDecisionTaskCompleted` to schedule the `ShipOrder` activity.
 
 ```
 https://swf.us-east-1.amazonaws.com
@@ -92,8 +87,7 @@ RespondDecisionTaskCompleted
 }
 ```
 
-If the credit card was not successfully charged, the decider should respond with
-`RespondDecisionTaskCompleted` to schedule the `CancelOrder` activity.
+If the credit card was not successfully charged, the decider should respond with `RespondDecisionTaskCompleted` to schedule the `CancelOrder` activity.
 
 ```
 https://swf.us-east-1.amazonaws.com
@@ -124,8 +118,7 @@ RespondDecisionTaskCompleted
 }
 ```
 
-If Amazon SWF is able to validate the data in the `RespondDecisionTaskCompleted` action, Amazon SWF returns a
-successful HTTP response similar to the following.
+If Amazon SWF is able to validate the data in the `RespondDecisionTaskCompleted` action, Amazon SWF returns a successful HTTP response similar to the following.
 
 ```
 HTTP/1.1 200 OK

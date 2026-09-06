@@ -1,11 +1,11 @@
+
+
 # Registering an Activity Type with Amazon SWF
+<a name="swf-dg-register-activity"></a>
 
-The following example registers an activity type by using the Amazon SWF API. The name and version that you specify
-during registration form a unique identifier for the activity type within the domain. The specified domain must have
-already been registered using the `RegisterDomain` action.
+The following example registers an activity type by using the Amazon SWF API. The name and version that you specify during registration form a unique identifier for the activity type within the domain. The specified domain must have already been registered using the `RegisterDomain` action. 
 
-The timeout parameters in this example are duration values specified in seconds. You can
-use the duration specifier `NONE` to indicate no timeout.
+The timeout parameters in this example are duration values specified in seconds. You can use the duration specifier `NONE` to indicate no timeout. 
 
 ```
 https://swf.us-east-1.amazonaws.com
@@ -24,6 +24,6 @@ RegisterActivityType
 ```
 
 ## See Also
+<a name="registering-activity-type-with-swf-see-also"></a>
 
-[RegisterActivityType](../apireference/API_RegisterActivityType.md "../apireference/API_RegisterActivityType.md")
-in the _Amazon Simple Workflow Service API Reference_
+[RegisterActivityType](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_RegisterActivityType.html) in the *Amazon Simple Workflow Service API Reference*

@@ -1,58 +1,55 @@
+
+
 # Subscription Workflow Tutorial Part 2: Implementing the Workflow
+<a name="swf-sns-tutorial-implementing-workflow"></a>
 
-Up until now, our code has been pretty generic. This is the part where we begin to really define what our
-workflow does, and what activities we'll need to implement it.
+Up until now, our code has been pretty generic. This is the part where we begin to really define what our workflow does, and what activities we'll need to implement it.
 
-###### Topics
-
-- [Designing the Workflow](#designing-the-workflow "#designing-the-workflow")
-- [Setting up our Workflow Code](#setting-up-our-workflow-code "#setting-up-our-workflow-code")
-- [Registering the Workflow](#registering-the-workflow "#registering-the-workflow")
-- [Polling for Decisions](#polling-for-decisions "#polling-for-decisions")
-- [Starting the Workflow Execution](#starting-the-workflow-execution "#starting-the-workflow-execution")
-- [Next Steps](#implementing-workflow-next-steps "#implementing-workflow-next-steps")
+**Topics**
++ [Designing the Workflow](#designing-the-workflow)
++ [Setting up our Workflow Code](#setting-up-our-workflow-code)
++ [Registering the Workflow](#registering-the-workflow)
++ [Polling for Decisions](#polling-for-decisions)
++ [Starting the Workflow Execution](#starting-the-workflow-execution)
++ [Next Steps](#implementing-workflow-next-steps)
 
 ## Designing the Workflow
+<a name="designing-the-workflow"></a>
 
 If you recall, the initial idea for this workflow consisted of the following steps:
 
 1. Get a subscription address (email or SMS) from the user.
-2. Create an SNS topic and subscribe the provided endpoints to the topic.
-3. Wait for the user to confirm the subscription.
-4. If the user confirms, publish a congratulatory message to the topic.
 
-We can think of each step in our workflow as an _activity_ that it must perform. Our
-_workflow_ is responsible for scheduling each activity at the appropriate time, and
-coordinating data transfer between activities.
+1. Create an SNS topic and subscribe the provided endpoints to the topic.
 
-For this workflow, we'll create a separate activity for each of these steps, naming them
-descriptively:
+1. Wait for the user to confirm the subscription.
+
+1. If the user confirms, publish a congratulatory message to the topic.
+
+We can think of each step in our workflow as an *activity* that it must perform. Our *workflow* is responsible for scheduling each activity at the appropriate time, and coordinating data transfer between activities.
+
+For this workflow, we'll create a separate activity for each of these steps, naming them descriptively:
 
 1. get\_contact\_activity
-2. subscribe\_topic\_activity
-3. wait\_for\_confirmation\_activity
-4. send\_result\_activity
 
-These activities will be executed in order, and data from each step will be used in the subsequent
-step.
+1. subscribe\_topic\_activity
 
-We could design our application so that all of the code exists in one source file, but this runs contrary to
-the way that Amazon SWF was designed. It is designed for workflows that can span the entire Internet in scope, so let's
-at least break the application up into two separate executables:
+1. wait\_for\_confirmation\_activity
 
-- `swf_sns_workflow.rb` - Contains the workflow and workflow starter.
-- `swf_sns_activities.rb` - Contains the activities and activities starter.
+1. send\_result\_activity
 
-The workflow and activity implementations can be run in separate windows, separate computers, or even
-different parts of the world. Because Amazon SWF is keeping track of the details of your workflows and activities,
-your workflow can coordinate scheduling and data transfer of your activities no matter where they are
-running.
+These activities will be executed in order, and data from each step will be used in the subsequent step.
+
+We could design our application so that all of the code exists in one source file, but this runs contrary to the way that Amazon SWF was designed. It is designed for workflows that can span the entire Internet in scope, so let's at least break the application up into two separate executables:
++ `swf_sns_workflow.rb` - Contains the workflow and workflow starter.
++ `swf_sns_activities.rb` - Contains the activities and activities starter.
+
+The workflow and activity implementations can be run in separate windows, separate computers, or even different parts of the world. Because Amazon SWF is keeping track of the details of your workflows and activities, your workflow can coordinate scheduling and data transfer of your activities no matter where they are running.
 
 ## Setting up our Workflow Code
+<a name="setting-up-our-workflow-code"></a>
 
-We'll begin by creating a file called `swf_sns_workflow.rb`. In this file, declare a class
-called **SampleWorkflow**. Here is the class declaration and its constructor, the
-`initialize` method.
+We'll begin by creating a file called `swf_sns_workflow.rb`. In this file, declare a class called **SampleWorkflow**. Here is the class declaration and its constructor, the `initialize` method.
 
 ```
 require_relative 'utils.rb'
@@ -86,31 +83,22 @@ class SampleWorkflow
 ```
 
 As you can see, we are keeping the following class instance data:
++ `domain` - The domain name retrieved from `init_domain` in `utils.rb`.
++ `workflowId` - The task list passed in to `initialize`.
++ `activity_list` - The activity list, which has the names and versions of the activities we'll run.
 
-- `domain` - The domain name retrieved from `init_domain` in
-  `utils.rb`.
-- `workflowId` - The task list passed in to `initialize`.
-- `activity_list` - The activity list, which has the names and versions of the activities we'll
-  run.
+The domain name, activity name, and activity version are enough for Amazon SWF to positively identify an activity type, so that is all of the data we need to keep about our activities in order to schedule them.
 
-The domain name, activity name, and activity version are enough for Amazon SWF to positively identify an activity
-type, so that is all of the data we need to keep about our activities in order to schedule them.
+The task list will be used by the workflow's *decider* code to poll for decision tasks and schedule activities.
 
-The task list will be used by the workflow's _decider_ code to poll for decision tasks
-and schedule activities.
-
-At the end of this function, we call a method we haven't yet defined: `register_workflow`.
-We'll define this method next.
+At the end of this function, we call a method we haven't yet defined: `register_workflow`. We'll define this method next.
 
 ## Registering the Workflow
+<a name="registering-the-workflow"></a>
 
-To use a workflow type, we must first register it. Like an activity type, a workflow type is identified by
-its domain, name, and version. Also, like both domains and activity types, you can't re-register an existing
-workflow type. If you need to change anything about a workflow type, you must provide it with a new version,
-which essentially creates a new type.
+To use a workflow type, we must first register it. Like an activity type, a workflow type is identified by its domain, name, and version. Also, like both domains and activity types, you can't re-register an existing workflow type. If you need to change anything about a workflow type, you must provide it with a new version, which essentially creates a new type.
 
-Here is the code for `register_workflow`, which is used to either retrieve the existing workflow
-type we registered on a previous run or to register the workflow if it has not yet been registered.
+Here is the code for `register_workflow`, which is used to either retrieve the existing workflow type we registered on a previous run or to register the workflow if it has not yet been registered.
 
 ```
   # Registers the workflow
@@ -142,13 +130,9 @@ type we registered on a previous run or to register the workflow if it has not y
   end
 ```
 
-First, we check to see if the workflow name and version is already registered by iterating through the
-domain's [workflow\_types](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#workflow_types-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#workflow_types-instance_method")
-collection. If we find a match, we'll use the workflow type that was already registered.
+First, we check to see if the workflow name and version is already registered by iterating through the domain's [workflow\_types](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.html#workflow_types-instance_method) collection. If we find a match, we'll use the workflow type that was already registered.
 
-If we don't find a match, then a new workflow type is registered (by calling [register](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowTypeCollection.md#register-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowTypeCollection.md#register-instance_method")
-on the same `workflow_types` collection that we were searching for the workflow in) with the name
-'swf-sns-workflow', version '1', and the following options.
+If we don't find a match, then a new workflow type is registered (by calling [register](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowTypeCollection.html#register-instance_method) on the same `workflow_types` collection that we were searching for the workflow in) with the name 'swf-sns-workflow', version '1', and the following options.
 
 ```
       options =  {
@@ -157,36 +141,22 @@ on the same `workflow_types` collection that we were searching for the workflow 
         :default_execution_start_to_close_timeout => 24 * 3600 }
 ```
 
-Options passed in during registration are used to set _default behavior_ for our
-workflow type, so we don't need to set these values every time we start a new workflow execution.
+Options passed in during registration are used to set *default behavior* for our workflow type, so we don't need to set these values every time we start a new workflow execution.
 
-Here, we just set some timeout values: the maximum time it can take from the time a task starts to when it
-closes (one hour), and the maximum time it can take for the workflow execution to complete (24 hours). If either
-of these times are exceeded, the task or workflow will timeout.
+Here, we just set some timeout values: the maximum time it can take from the time a task starts to when it closes (one hour), and the maximum time it can take for the workflow execution to complete (24 hours). If either of these times are exceeded, the task or workflow will timeout.
 
-For more information about timeout values, see [Amazon SWF Timeout Types](swf-timeout-types.md "swf-timeout-types.md").
+For more information about timeout values, see [Amazon SWF Timeout Types](swf-timeout-types.md).
 
 ## Polling for Decisions
+<a name="polling-for-decisions"></a>
 
-At the heart of every workflow execution there is a _decider_. The decider's
-responsibility is for managing the execution of the workflow itself. The decider receives _decision
-tasks_ and responds to them, either by scheduling new activities, cancelling and restarting activities,
-or by setting the state of the workflow execution as complete, cancelled, or failed.
+At the heart of every workflow execution there is a *decider*. The decider's responsibility is for managing the execution of the workflow itself. The decider receives *decision tasks* and responds to them, either by scheduling new activities, cancelling and restarting activities, or by setting the state of the workflow execution as complete, cancelled, or failed.
 
-The decider uses the workflow execution's _task list_ name to receive decision tasks to
-respond to. To poll for decision tasks, call [poll](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTaskCollection.md#poll-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTaskCollection.md#poll-instance_method")
-on the domain's [decision\_tasks](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#decision_tasks-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#decision_tasks-instance_method")
-collection to loop over available decision tasks. You can then check for new events in the decision task by
-iterating over its [new\_events](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#new_events-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#new_events-instance_method")
-collection.
+The decider uses the workflow execution's *task list* name to receive decision tasks to respond to. To poll for decision tasks, call [poll](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTaskCollection.html#poll-instance_method) on the domain's [decision\_tasks](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.html#decision_tasks-instance_method) collection to loop over available decision tasks. You can then check for new events in the decision task by iterating over its [new\_events](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.html#new_events-instance_method) collection.
 
-The returned events are [AWS::SimpleWorkflow::HistoryEvent](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md")
-objects, and you can get the type of the event by using the returned event's [event\_type](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md#event_type-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.md#event_type-instance_method")
-member. For a list and description of history event types, see [HistoryEvent](../apireference/API_HistoryEvent.md "../apireference/API_HistoryEvent.md") in the
-_Amazon Simple Workflow Service API Reference_.
+The returned events are [AWS::SimpleWorkflow::HistoryEvent](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.html) objects, and you can get the type of the event by using the returned event's [event\_type](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/HistoryEvent.html#event_type-instance_method) member. For a list and description of history event types, see [HistoryEvent](https://docs.aws.amazon.com/amazonswf/latest/apireference/API_HistoryEvent.html) in the *Amazon Simple Workflow Service API Reference*.
 
-Here is the beginning of the decision task poller's logic. A new method in our workflow class called
-`poll_for_decisions`.
+Here is the beginning of the decision task poller's logic. A new method in our workflow class called `poll_for_decisions`.
 
 ```
   def poll_for_decisions
@@ -196,16 +166,9 @@ Here is the beginning of the decision task poller's logic. A new method in our w
         case event.event_type
 ```
 
-We'll now branch the execution of our decider based on the `event_type` that is received.
-The first one we are likely to receive is **WorkflowExecutionStarted**. When this
-event is received, it means that Amazon SWF is signaling to your decider that it should begin the workflow execution.
-We'll begin by scheduling the first activity by calling [schedule\_activity\_task](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#schedule_activity_task-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#schedule_activity_task-instance_method")
-on the task we received while polling.
+We'll now branch the execution of our decider based on the `event_type` that is received. The first one we are likely to receive is **WorkflowExecutionStarted**. When this event is received, it means that Amazon SWF is signaling to your decider that it should begin the workflow execution. We'll begin by scheduling the first activity by calling [schedule\_activity\_task](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.html#schedule_activity_task-instance_method) on the task we received while polling.
 
-We'll pass it the first activity we declared in our activity list, which, because we reversed the list so
-we can use it like a stack, occupies the `last` position on the list. The "activities"
-we defined are just maps consisting of a name and version number, but this is all that Amazon SWF needs to identify
-the activity for scheduling, assuming that the activity has already been registered.
+We'll pass it the first activity we declared in our activity list, which, because we reversed the list so we can use it like a stack, occupies the `last` position on the list. The "activities" we defined are just maps consisting of a name and version number, but this is all that Amazon SWF needs to identify the activity for scheduling, assuming that the activity has already been registered.
 
 ```
           when 'WorkflowExecutionStarted'
@@ -217,13 +180,9 @@ the activity for scheduling, assuming that the activity has already been registe
               { :workflowId => "#{@workflowId}-activities" } )
 ```
 
-When we schedule an activity, Amazon SWF sends an _activity task_ to the activity task list
-that we pass in while scheduling it, signaling the task to begin. We'll deal with activity tasks in
-[Subscription Workflow Tutorial Part 3: Implementing the Activities](swf-sns-tutorial-implementing-activities.md "swf-sns-tutorial-implementing-activities.md"), but it is worth noting that we don't execute the task
-here. We only tell Amazon SWF that it should be _scheduled_.
+When we schedule an activity, Amazon SWF sends an *activity task* to the activity task list that we pass in while scheduling it, signaling the task to begin. We'll deal with activity tasks in [Subscription Workflow Tutorial Part 3: Implementing the Activities](swf-sns-tutorial-implementing-activities.md), but it is worth noting that we don't execute the task here. We only tell Amazon SWF that it should be *scheduled*.
 
-The next activity that we'll need to address is the **ActivityTaskCompleted** event, which occurs when Amazon SWF has received an activity completed
-response from an activity task.
+The next activity that we'll need to address is the **ActivityTaskCompleted** event, which occurs when Amazon SWF has received an activity completed response from an activity task.
 
 ```
           when 'ActivityTaskCompleted'
@@ -253,26 +212,13 @@ response from an activity task.
             end
 ```
 
-Because we are executing our tasks in a linear fashion, and only one activity is executing at once, we'll
-take this opportunity to pop the completed task from the `activity_list` stack. If this results in an empty list,
-then we know that our workflow is complete. In this case, we signal to Amazon SWF that our workflow is complete by
-calling [complete\_workflow\_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#complete_workflow_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.md#complete_workflow_execution-instance_method")
-on the task.
+Because we are executing our tasks in a linear fashion, and only one activity is executing at once, we'll take this opportunity to pop the completed task from the `activity_list` stack. If this results in an empty list, then we know that our workflow is complete. In this case, we signal to Amazon SWF that our workflow is complete by calling [complete\_workflow\_execution](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/DecisionTask.html#complete_workflow_execution-instance_method) on the task.
 
-In the event that the list still has entries, we'll schedule the next activity on the list (again, in the
-last position). This time, however, we'll look to see if the previous activity returned any result data to Amazon SWF
-upon completion, which is provided to the workflow in the event's attributes, in the optional
-`result` key. If the activity generated a result, we'll pass it as the `input`
-option to the next scheduled activity, along with the activity task list.
+In the event that the list still has entries, we'll schedule the next activity on the list (again, in the last position). This time, however, we'll look to see if the previous activity returned any result data to Amazon SWF upon completion, which is provided to the workflow in the event's attributes, in the optional `result` key. If the activity generated a result, we'll pass it as the `input` option to the next scheduled activity, along with the activity task list.
 
-By retrieving the `result` values of completed activities, and by setting the
-`input` values of scheduled activities, we can pass data from one activity to the next, or we can
-use data from an activity to change behavior in our decider based on the results from an activity.
+By retrieving the `result` values of completed activities, and by setting the `input` values of scheduled activities, we can pass data from one activity to the next, or we can use data from an activity to change behavior in our decider based on the results from an activity.
 
-For the purposes of this tutorial, these two event types are the most important in defining the behavior of
-our workflow. However, an activity can generate events other than **ActivityTaskCompleted**. We'll wrap up our decider code by providing demonstration handler
-code for the **ActivityTaskTimedOut** and **ActivityTaskFailed** events, and for the **WorkflowExecutionCompleted** event, which will be generated when Amazon SWF processes the
-`complete_workflow_execution` call that we make when we run out of activities to run.
+For the purposes of this tutorial, these two event types are the most important in defining the behavior of our workflow. However, an activity can generate events other than **ActivityTaskCompleted**. We'll wrap up our decider code by providing demonstration handler code for the **ActivityTaskTimedOut** and **ActivityTaskFailed** events, and for the **WorkflowExecutionCompleted** event, which will be generated when Amazon SWF processes the `complete_workflow_execution` call that we make when we run out of activities to run.
 
 ```
           when 'ActivityTaskTimedOut'
@@ -296,14 +242,11 @@ code for the **ActivityTaskTimedOut** and **ActivityTaskFailed** events, and for
 ```
 
 ## Starting the Workflow Execution
+<a name="starting-the-workflow-execution"></a>
 
-Before any decision tasks will be generated for the workflow to poll for, we need to start the workflow
-execution.
+Before any decision tasks will be generated for the workflow to poll for, we need to start the workflow execution.
 
-To start the workflow execution, call [start\_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method")
-on your registered workflow type ([AWS::SimpleWorkflow::WorkflowType](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md")).
-We'll define a small wrapper around this to make use of the `workflow_type` instance member that
-we retrieved in the class constructor.
+To start the workflow execution, call [start\_execution](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.html#start_execution-instance_method) on your registered workflow type ([AWS::SimpleWorkflow::WorkflowType](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.html)). We'll define a small wrapper around this to make use of the `workflow_type` instance member that we retrieved in the class constructor.
 
 ```
   def start_execution
@@ -314,15 +257,11 @@ we retrieved in the class constructor.
 end
 ```
 
-Once the workflow is executing, decision events will begin to appear on the workflow's task list, which is
-passed as a workflow execution option in [start\_execution](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.md#start_execution-instance_method").
+Once the workflow is executing, decision events will begin to appear on the workflow's task list, which is passed as a workflow execution option in [start\_execution](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/WorkflowType.html#start_execution-instance_method).
 
-Unlike options that are provided when the workflow type is registered, options that are passed to
-`start_execution` are not considered to be part of the workflow type. You are free to change these per workflow
-execution without changing the workflow's version.
+Unlike options that are provided when the workflow type is registered, options that are passed to `start_execution` are not considered to be part of the workflow type. You are free to change these per workflow execution without changing the workflow's version.
 
-Because we'd like the workflow to begin executing when we run the file, add some code that instantiates the
-class and then calls the `start_execution` method that we just defined.
+Because we'd like the workflow to begin executing when we run the file, add some code that instantiates the class and then calls the `start_execution` method that we just defined.
 
 ```
 if __FILE__ == $0
@@ -359,30 +298,18 @@ if __FILE__ == $0
 end
 ```
 
-To avoid any task list naming conflicts, we'll use `SecureRandom.uuid` to generate a
-random UUID that we can use as the task list name, guaranteeing that a different task list name is used for each
-workflow execution.
+To avoid any task list naming conflicts, we'll use `SecureRandom.uuid` to generate a random UUID that we can use as the task list name, guaranteeing that a different task list name is used for each workflow execution.
 
-###### Note
+**Note**  
+Task lists are used to record events about a workflow execution, so if you use the same task list for multiple executions of the same workflow type, you might get events that were generated during a previous execution, especially if you are running them in near succession to each other, which is often the case when trying out new code or running tests.
 
-Task lists are used to record events about a workflow execution, so if you use the same task list for
-multiple executions of the same workflow type, you might get events that were generated during a previous
-execution, especially if you are running them in near succession to each other, which is often the case when
-trying out new code or running tests.
+To avoid the issue of having to deal with artifacts from previous executions, we can use a new task list for each execution, specifying it when we begin the workflow execution.
 
-To avoid the issue of having to deal with artifacts from previous executions, we can use a new task list for
-each execution, specifying it when we begin the workflow execution.
+There is also a bit of code here to provide instructions for the person running it (probably you), and to provide the "activity" version of the task list. The decider uses this task list name to schedule activities for the workflow, and the activities implementation will listen for activity events on this task list name to know when to begin the scheduled activities and to provide updates about the activity execution.
 
-There is also a bit of code here to provide instructions for the person running it (probably you), and to
-provide the "activity" version of the task list. The decider uses this task list name to schedule
-activities for the workflow, and the activities implementation will listen for activity events on this task list
-name to know when to begin the scheduled activities and to provide updates about the activity execution.
-
-The code also waits for the user to start running the activities starter _before_ it
-starts the workflow execution, so the activities starter will be ready to respond when activity tasks begin
-appearing on the provided task list.
+The code also waits for the user to start running the activities starter *before* it starts the workflow execution, so the activities starter will be ready to respond when activity tasks begin appearing on the provided task list.
 
 ## Next Steps
+<a name="implementing-workflow-next-steps"></a>
 
-You have implemented the work flow. Next, you will define the activities and an activities starter, in
-[Subscription Workflow Tutorial Part 3: Implementing the Activities](swf-sns-tutorial-implementing-activities.md "swf-sns-tutorial-implementing-activities.md").
+You have implemented the work flow. Next, you will define the activities and an activities starter, in [Subscription Workflow Tutorial Part 3: Implementing the Activities](swf-sns-tutorial-implementing-activities.md).

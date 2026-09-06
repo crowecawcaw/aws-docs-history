@@ -1,18 +1,18 @@
+
+
 # Subscription Workflow Tutorial Part 4: Implementing the Activities Task Poller
+<a name="swf-sns-tutorial-implementing-activities-poller"></a>
 
-In Amazon SWF, activity tasks for a running workflow execution appear on the _activity task
-list_, which is provided when you schedule an activity in the workflow.
+In Amazon SWF, activity tasks for a running workflow execution appear on the *activity task list*, which is provided when you schedule an activity in the workflow.
 
-We'll implement a basic activity poller to handle these tasks for our workflow, and use it to launch our
-activities when Amazon SWF places a task on the activity task list to start the activity.
+We'll implement a basic activity poller to handle these tasks for our workflow, and use it to launch our activities when Amazon SWF places a task on the activity task list to start the activity.
 
 To begin, create a new file called `swf_sns_activities.rb`. We'll use it to:
++ Instantiate the activity classes that we created.
++ Register each activity with Amazon SWF.
++ Poll for activities and call `do_activity` for each activity when its name appears on the activity task list.
 
-- Instantiate the activity classes that we created.
-- Register each activity with Amazon SWF.
-- Poll for activities and call `do_activity` for each activity when its name appears on
-  the activity task list.
-  In `swf_sns_activities.rb`, add the following statements to require each of the activity classes we defined.
+In `swf_sns_activities.rb`, add the following statements to require each of the activity classes we defined.
 
 ```
 require_relative 'get_contact_activity.rb'
@@ -47,17 +47,11 @@ class ActivitiesPoller
   end
 ```
 
-In addition to saving the passed in _domain_ and _task list_, this code
-instantiates each of the activity classes we created. Because each class registers its associated activity (refer to
-`basic_activity.rb` if you need to review that code), this is enough to let Amazon SWF know about all of
-the activities we'll be running.
+In addition to saving the passed in *domain* and *task list*, this code instantiates each of the activity classes we created. Because each class registers its associated activity (refer to `basic_activity.rb` if you need to review that code), this is enough to let Amazon SWF know about all of the activities we'll be running.
 
-For each activity instantiated, we store it on a map using the activity name (such as
-`get_contact_activity`) as the key, so we can easily look these up in the activity poller code,
-which we'll define next.
+For each activity instantiated, we store it on a map using the activity name (such as `get_contact_activity`) as the key, so we can easily look these up in the activity poller code, which we'll define next.
 
-Create a new method called `poll_for_activities` and call [poll](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.md#poll-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.md#poll-instance_method") on the [activity\_tasks](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_tasks-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.md#activity_tasks-instance_method") held by the
-domain to get activity tasks.
+Create a new method called `poll_for_activities` and call [poll](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTaskCollection.html#poll-instance_method) on the [activity\_tasks](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/Domain.html#activity_tasks-instance_method) held by the domain to get activity tasks.
 
 ```
   def poll_for_activities
@@ -65,10 +59,7 @@ domain to get activity tasks.
       activity_name = task.activity_type.name
 ```
 
-We can get the activity name from the task's [activity\_type](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#activity_type-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#activity_type-instance_method") member.
-Next, we'll use the activity name associated with this task to look up the class to run
-`do_activity` on, passing it the task (which includes any input data that should be transferred to
-the activity).
+We can get the activity name from the task's [activity\_type](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.html#activity_type-instance_method) member. Next, we'll use the activity name associated with this task to look up the class to run `do_activity` on, passing it the task (which includes any input data that should be transferred to the activity).
 
 ```
       # find the task on the activities list, and run it.
@@ -97,17 +88,12 @@ the activity).
 end
 ```
 
-The code just waits for `do_activity` to complete, and then calls either [complete!](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#complete!-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#complete!-instance_method") or [fail!](../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#fail!-instance_method "../../../AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.md#fail!-instance_method") on the task based on the
-return code.
+The code just waits for `do_activity` to complete, and then calls either [complete\!](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.html#complete!-instance_method) or [fail\!](https://docs.aws.amazon.com/AWSRubySDK/latest/AWS/SimpleWorkflow/ActivityTask.html#fail!-instance_method) on the task based on the return code.
 
-###### Note
+**Note**  
+This code exits from the poller once the final activity has been launched, because it has completed its mission and has launched all of the activities. In your own Amazon SWF code, if your activities might be run again, you may want to keep the activity poller running indefinitely.
 
-This code exits from the poller once the final activity has been launched, because it has completed
-its mission and has launched all of the activities. In your own Amazon SWF code, if your activities might be run again,
-you may want to keep the activity poller running indefinitely.
-
-That's the end of the code for our **ActivitiesPoller** class, but we'll add a
-little more code at the end of the file to allow the user to run it from the command-line.
+That's the end of the code for our **ActivitiesPoller** class, but we'll add a little more code at the end of the file to allow the user to run it from the command-line.
 
 ```
 if __FILE__ == $0
@@ -121,9 +107,6 @@ if __FILE__ == $0
 end
 ```
 
-If the user runs the file from the command line (passing it an activity task list as the first argument), this
-code will instantiate the poller class and start it polling for activities. Once the poller completes (after it has
-launched the final activity), we just print a message and exit.
+If the user runs the file from the command line (passing it an activity task list as the first argument), this code will instantiate the poller class and start it polling for activities. Once the poller completes (after it has launched the final activity), we just print a message and exit.
 
-That's it for the activities poller. All that's left for you to do is to run the code and see how it works, in
-[Subscription Workflow Tutorial: Running the Workflow](swf-sns-tutorial-running-the-workflow.md "swf-sns-tutorial-running-the-workflow.md").
+That's it for the activities poller. All that's left for you to do is to run the code and see how it works, in [Subscription Workflow Tutorial: Running the Workflow](swf-sns-tutorial-running-the-workflow.md).

@@ -1,65 +1,45 @@
-# Making HTTP Requests to Amazon SWF
 
-If you don't use one of the AWS SDKs, you can perform Amazon Simple Workflow Service (Amazon SWF) operations over HTTP using the POST
-request method. The POST method requires that you specify the operation in the header of the request and provide
-the data for the operation in JSON format in the body of the request.
+
+# Making HTTP Requests to Amazon SWF
+<a name="UsingJSON-swf"></a>
+
+If you don't use one of the AWS SDKs, you can perform Amazon Simple Workflow Service (Amazon SWF) operations over HTTP using the POST request method. The POST method requires that you specify the operation in the header of the request and provide the data for the operation in JSON format in the body of the request. 
 
 ## HTTP Header Contents
+<a name="HTTPHeader"></a>
 
 Amazon SWF requires the following information in the header of an HTTP request:
++ `host` The Amazon SWF endpoint. 
++ `x-amz-date` You must provide the time stamp in either the HTTP `Date` header or the AWS `x-amz-date header` (some HTTP client libraries don't let you set the `Date` header). When an `x-amz-date` header is present, the system ignores any `Date` header when authenticating the request.
 
-- `host` The Amazon SWF endpoint.
-- `x-amz-date` You must provide the time stamp in either the HTTP
-  `Date` header or the AWS `x-amz-date
- header` (some HTTP client libraries don't let you set the
-  `Date` header). When an
-  `x-amz-date` header is present, the system
-  ignores any `Date` header when authenticating the
-  request.
+  The date must be specified in one of the following three formats, as specified in the HTTP/1.1 RFC:
+  + Sun, 06 Nov 1994 08:49:37 GMT (RFC 822, updated by RFC 1123)
+  + Sunday, 06-Nov-94 08:49:37 GMT (RFC 850, obsoleted by RFC 1036)
+  + Sun Nov 6 08:49:37 1994 (ANSI C's asctime() format)
++ `x-amzn-authorization` The signed request parameters in the format:
 
-The date must be specified in one of the following three formats, as specified in the HTTP/1.1 RFC:
+  ```
+  AWS3 AWSAccessKeyId=####,Algorithm=HmacSHA256, [,SignedHeaders=Header1;Header2;...]
+  Signature=S(StringToSign)
+  ```
 
-    + Sun, 06 Nov 1994 08:49:37 GMT (RFC 822, updated by RFC 1123)
-    + Sunday, 06-Nov-94 08:49:37 GMT (RFC 850, obsoleted by RFC 1036)
-    + Sun Nov 6 08:49:37 1994 (ANSI C's asctime() format)
+  `AWS3` – This is an AWS implementation-specific tag that denotes the authentication version used to sign the request (currently, for Amazon SWF this value is always `AWS3`).
 
-- `x-amzn-authorization` The signed request parameters in
-  the format:
+  `AWSAccessKeyId` – Your AWS Access Key ID.
 
-```
-AWS3 AWSAccessKeyId=####,Algorithm=HmacSHA256, [,SignedHeaders=Header1;Header2;...]
-Signature=S(StringToSign)
-```
+  `Algorithm` – The algorithm used to create the HMAC-SHA value of the string-to-sign, such as `HmacSHA256` or `HmacSHA1`.
 
-`AWS3` – This is an AWS implementation-specific tag that denotes the authentication
-version used to sign the request (currently, for Amazon SWF this value is always
-`AWS3`).
+  `Signature` – Base64( Algorithm( StringToSign, SigningKey ) ). For details see [Calculating the HMAC-SHA Signature for Amazon SWF](HMACAuth-swf.md)
 
-`AWSAccessKeyId` – Your AWS Access Key ID.
+  `SignedHeaders` – (Optional) If present, must contain a list of all the HTTP Headers used in the Canonicalized HttpHeaders calculation. A single semicolon character (;) (ASCII character 59) must be used as the delimiter for list values. 
++  `x-amz-target` – The destination service of the request and the operation for the data, in the format 
 
-`Algorithm` – The algorithm used to create the HMAC-SHA
-value of the string-to-sign, such as `HmacSHA256` or
-`HmacSHA1`.
+  ` com.amazonaws.swf.service.model.SimpleWorkflowService. + {{<action>}} `
 
-`Signature` – Base64( Algorithm( StringToSign, SigningKey )
-). For details see [Calculating the HMAC-SHA Signature for Amazon SWF](HMACAuth-swf.md "HMACAuth-swf.md")
+   For example, `com.amazonaws.swf.service.model.SimpleWorkflowService.RegisterDomain` 
++ `content-type` – The type needs to specify JSON and the character set, as `application/json; charset=UTF-8`
 
-`SignedHeaders` – (Optional) If present, must contain a list
-of all the HTTP Headers used in the Canonicalized HttpHeaders calculation. A
-single semicolon character (;) (ASCII character 59) must be used as the
-delimiter for list values.
-
-- `x-amz-target` – The destination service of the request and
-  the operation for the data, in the format
-
-`com.amazonaws.swf.service.model.SimpleWorkflowService. + `<action>``
-
-For example, `com.amazonaws.swf.service.model.SimpleWorkflowService.RegisterDomain`
-
-- `content-type` – The type needs to specify JSON and the character set,
-  as `application/json; charset=UTF-8`
-
-The following is an example header for an HTTP request to create a domain.
+ The following is an example header for an HTTP request to create a domain. 
 
 ```
 POST http://swf.us-east-1.amazonaws.com/ HTTP/1.1
@@ -87,7 +67,7 @@ Cache-Control: no-cache
  "workflowExecutionRetentionPeriodInDays": "60"}
 ```
 
-Here is an example of the corresponding HTTP response.
+Here is an example of the corresponding HTTP response. 
 
 ```
 HTTP/1.1 200 OK
@@ -97,14 +77,9 @@ x-amzn-RequestId: 4ec4ac3f-3e16-11e1-9b11-7182192d0b57
 ```
 
 ## HTTP Body Content
+<a name="JSONschema"></a>
 
-The body of an HTTP request contains the data for the operation
-specified in the header of the HTTP request. Use the JSON data
-format to convey data values and data structure, simultaneously.
-Elements can be nested within other elements using bracket
-notation. For example, the following shows a request to list all
-workflow executions that started between two specified points in
-time—using Unix Time notation.
+The body of an HTTP request contains the data for the operation specified in the header of the HTTP request. Use the JSON data format to convey data values and data structure, simultaneously. Elements can be nested within other elements using bracket notation. For example, the following shows a request to list all workflow executions that started between two specified points in time—using Unix Time notation. 
 
 ```
 {
@@ -122,11 +97,12 @@ time—using Unix Time notation.
 ```
 
 ## Sample Amazon SWF JSON Request and Response
+<a name="JSONMajorExample"></a>
 
-The following example shows a request to Amazon SWF for a description of the domain that we created previously.
-Then it shows the Amazon SWF response.
+The following example shows a request to Amazon SWF for a description of the domain that we created previously. Then it shows the Amazon SWF response. 
 
 ### HTTP POST Request
+<a name="http-post-request"></a>
 
 ```
 POST http://swf.us-east-1.amazonaws.com/ HTTP/1.1
@@ -153,6 +129,7 @@ Cache-Control: no-cache
 ```
 
 ### Amazon SWF Response
+<a name="swf-response"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -169,8 +146,6 @@ x-amzn-RequestId: e86a6779-3f26-11e1-9a27-0760db01a4a8
 }
 ```
 
-Notice the protocol (`HTTP/1.1`) is followed by a status code
-(`200`). A code value of `200` indicates a successful operation.
+Notice the protocol (`HTTP/1.1`) is followed by a status code (`200`). A code value of `200` indicates a successful operation. 
 
-Amazon SWF doesn't serialize null values. If your JSON parser is set to serialize null values for requests, Amazon SWF
-ignores them.
+Amazon SWF doesn't serialize null values. If your JSON parser is set to serialize null values for requests, Amazon SWF ignores them. 
