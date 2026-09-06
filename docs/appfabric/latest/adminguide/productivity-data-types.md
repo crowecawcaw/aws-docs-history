@@ -1,23 +1,23 @@
+
+
 # API data types for AppFabric for productivity (preview)
+<a name="productivity-data-types"></a>
 
-|                                                                                    |
-| ---------------------------------------------------------------------------------- |
-| The AWS AppFabric for productivity feature is in preview and is subject to change. |
 
-The AppFabric API contains several data types that various actions use. This section
-describes the data types for the AppFabric for productivity features in detail.
+|  | 
+| --- |
+| The AWS AppFabric for productivity feature is in preview and is subject to change. | 
 
-For all other AppFabric API data types, see the [AWS AppFabric API Data Types](../api/API_Types.md "../api/API_Types.md").
+The AppFabric API contains several data types that various actions use. This section describes the data types for the AppFabric for productivity features in detail.
 
-###### Important
+For all other AppFabric API data types, see the [AWS AppFabric API Data Types](https://docs.aws.amazon.com/appfabric/latest/api/API_Types.html).
 
-The order of each element in a data type structure is not guaranteed. Applications
-should not assume a particular order.
+**Important**  
+The order of each element in a data type structure is not guaranteed. Applications should not assume a particular order.
 
-###### Topics
-
-- [ActionableInsights](API_ActionableInsights.md "API_ActionableInsights.md")
-- [AppClient](API_AppClient.md "API_AppClient.md")
-- [AppClientSummary](API_AppClientSummary.md "API_AppClientSummary.md")
-- [MeetingInsights](API_MeetingInsights.md "API_MeetingInsights.md")
-- [VerificationDetails](API_VerificationDetails.md "API_VerificationDetails.md")
+**Topics**
++ [ActionableInsights](API_ActionableInsights.md)
++ [AppClient](API_AppClient.md)
++ [AppClientSummary](API_AppClientSummary.md)
++ [MeetingInsights](API_MeetingInsights.md)
++ [VerificationDetails](API_VerificationDetails.md)

@@ -1,123 +1,76 @@
+
+
 # Data protection in AWS AppFabric
+<a name="data-protection"></a>
 
-The AWS
-[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS AppFabric. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
-applies to data protection in AWS AppFabric.
+For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
++ Use multi-factor authentication (MFA) with each account.
++ Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
++ Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html) in the *AWS CloudTrail User Guide*.
++ Use AWS encryption solutions, along with all default security controls within AWS services.
++ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
++ If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-As described in this model, AWS is
-responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
-responsible for maintaining control over your content that is hosted on this infrastructure.
-You are also responsible for the security configuration and management tasks for the AWS services
-that you use.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AppFabric or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
-For more information about data privacy, see
-[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
 
-For information about data protection in Europe, see the
-[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
 
-For data protection purposes, we recommend that you protect AWS account
-credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
-
-- Use multi-factor authentication (MFA) with each account.
-- Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-- Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the _AWS CloudTrail User Guide_.
-- Use AWS encryption solutions, along with all default security controls within AWS services.
-- Use advanced managed security services such as Amazon Macie, which assists in discovering
-  and securing sensitive data that is stored in Amazon S3.
-- If you require FIPS 140-3 validated cryptographic modules when accessing AWS through
-  a command line interface or an API, use a FIPS endpoint. For more information about the
-  available FIPS endpoints, see [Federal
-  Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
-  We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AppFabric or other AWS services
-  using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
-  tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
-  provide a URL to an external server, we strongly recommend that you do not include credentials
-  information in the URL to validate your request to that server.
-
-###### Note
-
-For more information about data protection as it applies to AppFabric for security, see [Data processing in AppFabric](productivity-data-processing.md "productivity-data-processing.md").
+**Note**  
+For more information about data protection as it applies to AppFabric for security, see [Data processing in AppFabric](productivity-data-processing.md).
 
 ## Encryption at rest
+<a name="encryption-rest"></a>
 
-AWS AppFabric supports encryption at rest, a server-side encryption feature in which AppFabric
-transparently encrypts all data related to your app bundles when it is persisted to disk, and
-decrypts them when you access the data. By default, AppFabric encrypts your data using an
-AWS owned key from AWS Key Management Service (AWS KMS). You can also choose to encrypt your data using your
-own customer managed key from AWS KMS.
+AWS AppFabric supports encryption at rest, a server-side encryption feature in which AppFabric transparently encrypts all data related to your app bundles when it is persisted to disk, and decrypts them when you access the data. By default, AppFabric encrypts your data using an AWS owned key from AWS Key Management Service (AWS KMS). You can also choose to encrypt your data using your own customer managed key from AWS KMS.
 
 When you delete an app bundle, all its metadata is permanently deleted.
 
 ## Encryption in transit
+<a name="encryption-transit"></a>
 
-When you configure an app bundle, you can choose either an AWS owned key or a
-customer managed key. When collecting and normalizing the data for an audit log ingestion, AppFabric stores
-data temporarily in an intermediate Amazon Simple Storage Service (Amazon S3) bucket and encrypts it using this key.
-This intermediate bucket is deleted after 30 days, using a bucket lifecycle policy.
+When you configure an app bundle, you can choose either an AWS owned key or a customer managed key. When collecting and normalizing the data for an audit log ingestion, AppFabric stores data temporarily in an intermediate Amazon Simple Storage Service (Amazon S3) bucket and encrypts it using this key. This intermediate bucket is deleted after 30 days, using a bucket lifecycle policy.
 
-AppFabric secures all data in transit using TLS 1.2 and signs API requests for AWS services
-with AWS Signature V4.
+AppFabric secures all data in transit using TLS 1.2 and signs API requests for AWS services with AWS Signature V4.
 
 ## Key management
+<a name="key-management"></a>
 
-AppFabric supports encrypting data with an AWS owned key or a customer managed key. We recommend that
-you use a customer managed key because it puts you in full control over your encrypted data. When you
-choose a customer managed key, AppFabric attaches a resource policy to the customer managed key that grants it access
-to the customer managed key.
+AppFabric supports encrypting data with an AWS owned key or a customer managed key. We recommend that you use a customer managed key because it puts you in full control over your encrypted data. When you choose a customer managed key, AppFabric attaches a resource policy to the customer managed key that grants it access to the customer managed key.
 
 ### Customer managed key
+<a name="key-management-cust-key"></a>
 
-To create a customer managed key, follow the steps for [Creating symmetric
-encryption KMS keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS KMS Developer Guide_.
+To create a customer managed key, follow the steps for [Creating symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS KMS Developer Guide*.
 
 ## Key policy
+<a name="key-policy"></a>
 
-Key policies control access to your customer managed keys. Every customer managed key must have exactly one
-key policy, which contains statements that determine who can use the key and how they can use
-it. When you create your customer managed key, you can specify a key policy. For information about
-creating a key policy, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") in
-the _AWS KMS Developer Guide_.
+Key policies control access to your customer managed keys. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For information about creating a key policy, see [Creating a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-overview.html) in the *AWS KMS Developer Guide*.
 
-To use a customer managed key with AppFabric, the AWS Identity and Access Management (IAM) user or role creating your AppFabric
-resources must have permission to use your customer managed key. We recommend that you create a key that
-you use only with AppFabric and add your AppFabric users as users of the key. This approach limits the
-scope of access to your data. The permissions your users require are as follows:
+To use a customer managed key with AppFabric, the AWS Identity and Access Management (IAM) user or role creating your AppFabric resources must have permission to use your customer managed key. We recommend that you create a key that you use only with AppFabric and add your AppFabric users as users of the key. This approach limits the scope of access to your data. The permissions your users require are as follows:
++ `kms:DescribeKey`
++ `kms:CreateGrant`
++ `kms:GenerateDataKey`
++ `kms:Decrypt`
 
-- `kms:DescribeKey`
-- `kms:CreateGrant`
-- `kms:GenerateDataKey`
-- `kms:Decrypt`
-
-The AWS KMS console guides you through creating a key with the appropriate key policy. For
-more information about key policies, see [Key
-policies in AWS KMS](../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users "../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-users") in the _AWS KMS Developer Guide_.
+The AWS KMS console guides you through creating a key with the appropriate key policy. For more information about key policies, see [Key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-users) in the *AWS KMS Developer Guide*.
 
 Following is an example key policy that permits:
-
-- The AWS account root user full control of the key.
-- Users permitted to use AppFabric to use your customer managed key with AppFabric.
-- A key policy for an app bundle setup in `us-east-1`.
++ The AWS account root user full control of the key.
++ Users permitted to use AppFabric to use your customer managed key with AppFabric.
++ A key policy for an app bundle setup in `us-east-1`.
 
 ## How AppFabric uses grants in AWS KMS
+<a name="fabric-kms-grants"></a>
 
-AppFabric requires a grant to use your customer managed key. For more information, see [Grants in AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in
-the _AWS KMS Developer Guide_.
+AppFabric requires a grant to use your customer managed key. For more information, see [Grants in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS KMS Developer Guide*.
 
-When you create an app bundle, AppFabric creates a grant on your behalf by sending a
-`CreateGrant` request to AWS KMS. Grants in AWS KMS are used to
-give AppFabric access to an AWS KMS key in a customer account. AppFabric requires that the grant to use
-your customer managed key for the following internal operations:
-
-- Send `GenerateDataKey` requests to AWS KMS to generate data keys
-  encrypted by your customer managed key.
-- Send `Decrypt` requests to AWS KMS to decrypt the encrypted
-  data keys so that they can be used to encrypt your data and to decrypt application access
-  tokens in transit.
-- Send `Encrypt` requests to AWS KMS to encrypt application
-  access tokens in transit.
+When you create an app bundle, AppFabric creates a grant on your behalf by sending a `[CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html)` request to AWS KMS. Grants in AWS KMS are used to give AppFabric access to an AWS KMS key in a customer account. AppFabric requires that the grant to use your customer managed key for the following internal operations:
++ Send `[GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html)` requests to AWS KMS to generate data keys encrypted by your customer managed key.
++ Send `[Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html)` requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data and to decrypt application access tokens in transit.
++ Send `[Encrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html)` requests to AWS KMS to encrypt application access tokens in transit.
 
 Following is an example of a grant.
 
@@ -146,12 +99,11 @@ Following is an example of a grant.
 When you delete an app bundle, AppFabric retires issued grants on your customer managed key.
 
 ## Monitoring your encryption keys for AppFabric
+<a name="monitoring-encryption"></a>
 
-When you use AWS KMS customer managed keys with AppFabric, you can use AWS CloudTrail logs to track requests
-that AppFabric sends to AWS KMS.
+When you use AWS KMS customer managed keys with AppFabric, you can use AWS CloudTrail logs to track requests that AppFabric sends to AWS KMS.
 
-Following is an example of an CloudTrail event logged when AppFabric uses `CreateGrant`
-for your customer managed key.
+Following is an example of an CloudTrail event logged when AppFabric uses `CreateGrant` for your customer managed key.
 
 ```
 {
