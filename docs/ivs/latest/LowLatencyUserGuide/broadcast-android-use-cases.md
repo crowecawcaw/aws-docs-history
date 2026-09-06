@@ -1,16 +1,14 @@
-# Advanced Use Cases for the IVS Android Broadcast SDK | Low-Latency Streaming
 
-Here we present some advanced use cases. Start with the basic setup above and continue
-here.
+
+# Advanced Use Cases for the IVS Android Broadcast SDK \| Low-Latency Streaming
+<a name="broadcast-android-use-cases"></a>
+
+Here we present some advanced use cases. Start with the basic setup above and continue here. 
 
 ## Create a Broadcast Configuration
+<a name="broadcast-android-create-configuration"></a>
 
-Here we create a custom configuration with two mixer slots that allow us to bind
-two video sources to the mixer. One (`custom`) is full screen and laid
-out behind the other (`camera`), which is smaller and in the bottom-right
-corner. Note that for the `custom` slot we do not set a position, size,
-or aspect mode. Because we do not set these parameters, the slot will use the video
-settings for size and position.
+Here we create a custom configuration with two mixer slots that allow us to bind two video sources to the mixer. One (`custom`) is full screen and laid out behind the other (`camera`), which is smaller and in the bottom-right corner. Note that for the `custom` slot we do not set a position, size, or aspect mode. Because we do not set these parameters, the slot will use the video settings for size and position.
 
 ```
 BroadcastConfiguration config = BroadcastConfiguration.with($ -> {
@@ -45,10 +43,9 @@ BroadcastConfiguration config = BroadcastConfiguration.with($ -> {
 ```
 
 ## Create the Broadcast Session (Advanced Version)
+<a name="broadcast-android-create-session-advanced"></a>
 
-Create a `BroadcastSession` as you did in the [basic example](broadcast-android-getting-started.md#broadcast-android-create-session "broadcast-android-getting-started.md#broadcast-android-create-session"), but provide
-your custom configuration here. Also provide `null` for the device array,
-as we will add those manually.
+Create a `BroadcastSession` as you did in the [basic example](broadcast-android-getting-started.md#broadcast-android-create-session), but provide your custom configuration here. Also provide `null` for the device array, as we will add those manually.
 
 ```
 // Create a broadcast-session instance and sign up to receive broadcast
@@ -61,16 +58,11 @@ broadcastSession = new BroadcastSession(ctx,
 ```
 
 ## Iterate and Attach a Camera Device
+<a name="broadcast-android-attach-camera"></a>
 
-Here we iterate through input devices that the SDK has detected. On Android 7
-(Nougat) this will only return default microphone devices, because the Amazon IVS
-Broadcast SDK does not support selecting non-default devices on this version of
-Android.
+Here we iterate through input devices that the SDK has detected. On Android 7 (Nougat) this will only return default microphone devices, because the Amazon IVS Broadcast SDK does not support selecting non-default devices on this version of Android.
 
-Once we find a device that we want to use, we call `attachDevice` to
-attach it. A lambda function is called on the main thread when attaching the input
-device has completed. In case of failure, you will receive an error in the
-Listener.
+Once we find a device that we want to use, we call `attachDevice` to attach it. A lambda function is called on the main thread when attaching the input device has completed. In case of failure, you will receive an error in the Listener.
 
 ```
 for(Device.Descriptor desc: BroadcastSession.listAvailableDevices(getApplicationContext())) {
@@ -92,6 +84,7 @@ for(Device.Descriptor desc: BroadcastSession.listAvailableDevices(getApplication
 ```
 
 ## Swap Cameras
+<a name="broadcast-android-swap-cameras"></a>
 
 ```
 // This assumes you’ve kept a reference called "currentCamera" that points to
@@ -100,7 +93,7 @@ for(Device device: BroadcastSession.listAvailableDevices()) {
    if(device.type == Device.Descriptor.DeviceType.CAMERA &&
           Device.position != currentCamera.position) {
         // Remove the preview view for the old device.
-        // setImagePreviewTextureView is an example function
+        // setImagePreviewTextureView is an example function 
         // that handles your view hierarchy.
         setImagePreviewView(null);
         session.exchangeDevices(currentCamera, device, camera -> {
@@ -114,19 +107,13 @@ for(Device device: BroadcastSession.listAvailableDevices()) {
 ```
 
 ## Create an Input Surface
+<a name="broadcast-android-create-input-surface"></a>
 
-To input sound or image data that your app generates, use
-`createImageInputSource` or `createAudioInputSource`. Both
-these methods create and attach virtual devices that can be bound to the mixer like
-any other device.
+To input sound or image data that your app generates, use `createImageInputSource` or `createAudioInputSource`. Both these methods create and attach virtual devices that can be bound to the mixer like any other device.
 
-The `SurfaceSource` returned by `createImageInputSource` has
-a `getInputSurface` method, which will give you a `Surface`
-that you can use with the Camera2 API, OpenGL, or Vulkan, or anything else that can
-write to a Surface.
+The `SurfaceSource` returned by `createImageInputSource` has a `getInputSurface` method, which will give you a `Surface` that you can use with the Camera2 API, OpenGL, or Vulkan, or anything else that can write to a Surface.
 
-The `AudioDevice` returned by `createAudioInputSource` can
-receive Linear PCM data generated by AudioRecorder or other means.
+The `AudioDevice` returned by `createAudioInputSource` can receive Linear PCM data generated by AudioRecorder or other means.
 
 ```
 SurfaceSource source = session.createImageInputSource();
@@ -135,23 +122,20 @@ session.getMixer().bind(source, “custom”);
 ```
 
 ## Detach a Device
+<a name="broadcast-android-detach-device"></a>
 
-If you want to detach and not replace a device, detach it with `Device`
-or `Device.Descriptor`.
+If you want to detach and not replace a device, detach it with `Device` or `Device.Descriptor`.
 
 ```
 session.detachDevice(currentCamera);
 ```
 
 ## Screen and System Audio Capture
+<a name="broadcast-android-screen-audio-capture"></a>
 
-The Amazon IVS Broadcast SDK for Android includes some helpers that simplify
-capturing the device’s screen (Android 6 and higher) and system audio (Android 10
-and higher). If you want to manage these manually, you can create a custom
-image-input source and a custom audio-input source.
+The Amazon IVS Broadcast SDK for Android includes some helpers that simplify capturing the device’s screen (Android 6 and higher) and system audio (Android 10 and higher). If you want to manage these manually, you can create a custom image-input source and a custom audio-input source.
 
-To create a screen and system audio-capture session, you must first create a
-permission-request intent:
+To create a screen and system audio-capture session, you must first create a permission-request intent:
 
 ```
 public void startScreenCapture() {
@@ -165,10 +149,7 @@ public void startScreenCapture() {
 }
 ```
 
-To use this feature, you must provide a class that extends
-`com.amazonaws.ivs.broadcast.SystemCaptureService`. You do not have
-to override any of its methods, but the class needs to be there to avoid any
-potential collisions between services.
+To use this feature, you must provide a class that extends `com.amazonaws.ivs.broadcast.SystemCaptureService`. You do not have to override any of its methods, but the class needs to be there to avoid any potential collisions between services.
 
 You also must add a couple of elements to your Android manifest:
 
@@ -176,22 +157,15 @@ You also must add a couple of elements to your Android manifest:
 <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 <application ...>
     <service android:name=".ExampleSystemCaptureService"
-         android:foregroundServiceType="mediaProjection"
+         android:foregroundServiceType="mediaProjection" 
          android:isolatedProcess="false" />
 </application>
 ...
 ```
 
-Your class that extends `SystemCaptureService` must be named in the
-`<service>` element. On Android 9 and later, the
-`foregroundServiceType` must be `mediaProjection`.
+Your class that extends `SystemCaptureService` must be named in the `<service>` element. On Android 9 and later, the `foregroundServiceType` must be `mediaProjection`.
 
-Once the permissions intent has returned, you may proceed with creating the screen
-and system audio-capture session. On Android 8 and later, you must provide a
-notification to be displayed in your user’s Notification Panel. The Amazon IVS
-Broadcast SDK for Android provides the convenience method
-`createServiceNotificationBuilder`. Alternately, you may provide your
-own notification.
+Once the permissions intent has returned, you may proceed with creating the screen and system audio-capture session. On Android 8 and later, you must provide a notification to be displayed in your user’s Notification Panel. The Amazon IVS Broadcast SDK for Android provides the convenience method `createServiceNotificationBuilder`. Alternately, you may provide your own notification. 
 
 ```
 @Override
@@ -224,24 +198,11 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 ## Get Recommended Broadcast Settings
+<a name="broadcast-android-recommended-settings"></a>
 
-To evaluate your user’s connection before starting a broadcast, use the
-`recommendedVideoSettings` method to run a brief test. As the test
-runs, you will receive several recommendations, ordered from most to least
-recommended. In this version of the SDK, it is not possible to reconfigure the
-current `BroadcastSession`, so you will need to `release()` it
-and then create a new one with the recommended settings. You will continue to
-receive `BroadcastSessionTest.Results` until the
-`Result.status` is `SUCCESS` or `ERROR`. You
-can check progress with `Result.progress`.
+To evaluate your user’s connection before starting a broadcast, use the `recommendedVideoSettings` method to run a brief test. As the test runs, you will receive several recommendations, ordered from most to least recommended. In this version of the SDK, it is not possible to reconfigure the current `BroadcastSession`, so you will need to `release()` it and then create a new one with the recommended settings. You will continue to receive `BroadcastSessionTest.Results` until the `Result.status` is `SUCCESS` or `ERROR`. You can check progress with `Result.progress`.
 
-Amazon IVS supports a maximum bitrate of 8.5 Mbps (for channels whose
-`type` is `STANDARD` or `ADVANCED`), so the
-`maximumBitrate` returned by this method never exceeds 8.5 Mbps. To
-account for small fluctuations in network performance, the recommended
-`initialBitrate` returned by this method is slightly less than the
-true bitrate measured in the test. (Using 100% of the available bandwidth usually is
-inadvisable.)
+Amazon IVS supports a maximum bitrate of 8.5 Mbps (for channels whose `type` is `STANDARD` or `ADVANCED`), so the `maximumBitrate` returned by this method never exceeds 8.5 Mbps. To account for small fluctuations in network performance, the recommended `initialBitrate` returned by this method is slightly less than the true bitrate measured in the test. (Using 100% of the available bandwidth usually is inadvisable.)
 
 ```
 void runBroadcastTest() {
@@ -255,17 +216,18 @@ void runBroadcastTest() {
 ```
 
 ## Using Auto-Reconnect
+<a name="broadcast-android-auto-reconnect"></a>
 
 IVS supports automatic reconnection to a broadcast if the broadcast stops unexpectedly without calling the `stop` API; e.g., a temporary loss in network connectivity. To enable auto-reconnect, call `setEnabled(true)` on `BroadcastConfiguration.autoReconnect`.
 
 When something causes the stream to unexpectedly stop, the SDK retries up to 5 times, following a linear backoff strategy. It notifies your application about the retry state through the `BroadcastSession.Listener.onRetryStateChanged` method.
 
-Behind the scenes, auto-reconnect uses IVS [stream-takeover](streaming-config.md#streaming-config-stream-takeover "streaming-config.md#streaming-config-stream-takeover") functionality by appending a priority number, starting with 1, to the end of the provided stream key. For the duration of the `BroadcastSession` instance, that number is incremented by 1 each time a reconnect is attempted. This means if the device’s connection is lost 4 times during a broadcast, and each loss requires 1-4 retry attempts, the priority of the last stream up could be anywhere between 5 and 17. Because of this, _we recommend you do not use IVS stream takeover from another device while auto-reconnect is enabled in the SDK for the same channel_. There are no guarantees what priority the SDK is using at the time, and the SDK will try to reconnect with a higher priority if another device takes over.
+Behind the scenes, auto-reconnect uses IVS [stream-takeover](streaming-config.md#streaming-config-stream-takeover) functionality by appending a priority number, starting with 1, to the end of the provided stream key. For the duration of the `BroadcastSession` instance, that number is incremented by 1 each time a reconnect is attempted. This means if the device’s connection is lost 4 times during a broadcast, and each loss requires 1-4 retry attempts, the priority of the last stream up could be anywhere between 5 and 17. Because of this, *we recommend you do not use IVS stream takeover from another device while auto-reconnect is enabled in the SDK for the same channel*. There are no guarantees what priority the SDK is using at the time, and the SDK will try to reconnect with a higher priority if another device takes over.
 
 ## Using Bluetooth Microphones
+<a name="broadcast-android-bluetooth-microphones"></a>
 
-To broadcast using Bluetooth microphone devices, you must start a Bluetooth SCO
-connection:
+To broadcast using Bluetooth microphone devices, you must start a Bluetooth SCO connection:
 
 ```
 Bluetooth.startBluetoothSco(context);

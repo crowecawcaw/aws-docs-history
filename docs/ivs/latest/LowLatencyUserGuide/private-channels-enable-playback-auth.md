@@ -1,43 +1,41 @@
+
+
 # Enable Playback Authorization on IVS Channels
+<a name="private-channels-enable-playback-auth"></a>
 
-A channel’s authorization requirement can be configured when the channel is created or
-later (using an update operation). Note that the steps are the same whether you want to
-enable or disable playback authorization.
+A channel’s authorization requirement can be configured when the channel is created or later (using an update operation). Note that the steps are the same whether you want to enable or disable playback authorization.
 
-Note that playback restriction policies (such as geo-blocking) cannot be used
-simultaneously with playback authorization. If playback authorization is enabled for a
-channel, any configured playback restriction policies will be ignored. To enforce
-geo-restrictions on a private channel, validate the user's location within your token
-generation logic before issuing a playback token.
+Note that playback restriction policies (such as geo-blocking) cannot be used simultaneously with playback authorization. If playback authorization is enabled for a channel, any configured playback restriction policies will be ignored. To enforce geo-restrictions on a private channel, validate the user's location within your token generation logic before issuing a playback token.
 
 ## Console Instructions
+<a name="private-channels-auth-console"></a>
 
 To enable authorization when creating a channel:
 
-1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs").
-   Choose your channel’s region if you are not already on it.
-2. In the **Get started** box (top right),
-   choose **Create channel**.
-3. On the **Channel create** page, choose
-   **Custom configuration**.
-4. In the **Playback authentication** section,
-   turn on **Enable token-authentication requirement for
-   video playback**.
-5. Follow the rest of the prompts to create a channel. (See [Getting Started with IVS Low-Latency Streaming](getting-started.md "getting-started.md").)
+1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs). Choose your channel’s region if you are not already on it.
+
+1. In the **Get started** box (top right), choose **Create channel**.
+
+1. On the **Channel create** page, choose **Custom configuration**.
+
+1. In the **Playback authentication** section, turn on **Enable token-authentication requirement for video playback**.
+
+1. Follow the rest of the prompts to create a channel. (See [Getting Started with IVS Low-Latency Streaming](getting-started.md).)
 
 To enable authorization by updating an existing channel:
 
-1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs").
-   Choose your channel’s region if you are not already on it.
-2. In the left navigation menu, choose **Channels**.
-3. Choose the checkbox for the channel you want to update, then choose
-   **Edit**.
-4. In the **Playback authentication** section,
-   turn on **Enable token-authentication requirement for
-   video playback**.
-5. Click **Save changes**.
+1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs). Choose your channel’s region if you are not already on it.
+
+1. In the left navigation menu, choose **Channels**.
+
+1. Choose the checkbox for the channel you want to update, then choose **Edit**. 
+
+1. In the **Playback authentication** section, turn on **Enable token-authentication requirement for video playback**.
+
+1. Click **Save changes**.
 
 ## CLI Instructions
+<a name="private-channels-auth-cli"></a>
 
 To enable authorization when creating a channel:
 
@@ -45,11 +43,9 @@ To enable authorization when creating a channel:
 aws ivs create-channel --authorized --region <aws-region>
 ```
 
-You can omit `--region <aws-region>` if the region is in your local
-AWS configuration file.
+You can omit `--region <aws-region>` if the region is in your local AWS configuration file.
 
-Here is an example response. Note that `authorized` is
-`true`.
+Here is an example response. Note that `authorized` is `true`.
 
 ```
 {
@@ -75,18 +71,16 @@ To enable authorization by updating an existing channel:
 
 ```
 aws ivs update-channel --arn
-arn:aws:ivs:us-west-2:693991300569:channel/742da049-fe9f-4f23-928e-c6753760a189
+arn:aws:ivs:us-west-2:693991300569:channel/742da049-fe9f-4f23-928e-c6753760a189 
 --authorized
 ```
 
-This is just an example; you must specify your own channel ARN after
-`--arn`. As when creating a channel, `authorized` is
-`true` in the update response.
+This is just an example; you must specify your own channel ARN after `--arn`. As when creating a channel, `authorized` is `true` in the update response.
 
 ## API Requests (Create and Update)
+<a name="private-channels-auth-api"></a>
 
-For usage information, see [CreateChannel](../LowLatencyAPIReference/API_CreateChannel.md "../LowLatencyAPIReference/API_CreateChannel.md") and [UpdateChannel](../LowLatencyAPIReference/API_UpdateChannel.md "../LowLatencyAPIReference/API_UpdateChannel.md") in the _IVS Low-Latency Streaming
-API Reference_.
+For usage information, see [CreateChannel](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_CreateChannel.html) and [UpdateChannel](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_UpdateChannel.html) in the *IVS Low-Latency Streaming API Reference*. 
 
 ```
 POST /CreateChannel HTTP/1.1

@@ -1,34 +1,34 @@
+
+
 # Getting Started with Multiple Hosts in IVS
+<a name="multiple-hosts-getting-started"></a>
 
 This document takes you through the steps involved in getting started using multiple hosts in Amazon IVS.
 
 ## Console Instructions
+<a name="multiple-hosts-setup-console"></a>
 
 To create a new stage and a participant token for it, follow these steps:
 
-1. Open the [Amazon IVS
-   console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs").
+1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs).
 
-(You can also access the Amazon IVS console through the [AWS Management
-Console](https://console.aws.amazon.com "https://console.aws.amazon.com").) 2. On the left navigation pane, select **Stages**, then select **Create
-stage**. The **Create stage**
-window appears.
+   (You can also access the Amazon IVS console through the [AWS Management Console](https://console.aws.amazon.com).)
 
-![Use the Create stage window to create a new stage and a participant token for it.](images/Create_Stage_Console_IPR.png) 3. Optionally enter a **Stage name**. Select
-**Create stage** to create the stage. The
-stage details page appears, for the new stage. 4. Select **Create a participant token**. 5. In the **Create a participant token** dialog,
-enter a User ID and select **Create a participant
-token**. The token appears at the top of the **Participant tokens** table. Click the "Copy token"
-icon (to the left of the participant token) to copy the token.
+1. On the left navigation pane, select **Stages**, then select **Create stage**. The **Create stage** window appears.  
+![Use the Create stage window to create a new stage and a participant token for it.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Create_Stage_Console_IPR.png)
+
+1. Optionally enter a **Stage name**. Select **Create stage** to create the stage. The stage details page appears, for the new stage.
+
+1. Select **Create a participant token**.
+
+1. In the **Create a participant token** dialog, enter a User ID and select **Create a participant token**. The token appears at the top of the **Participant tokens** table. Click the "Copy token" icon (to the left of the participant token) to copy the token.
 
 ## CLI Instructions
+<a name="multiple-hosts-setup-cli"></a>
 
-Using the AWS CLI is an advanced option and requires that you first download and
-configure the CLI on your machine. For details, see the [AWS
-Command Line Interface User Guide](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md").
+Using the AWS CLI is an advanced option and requires that you first download and configure the CLI on your machine. For details, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 
-Now you can use the CLI to create and manage resources. The stage API is under the
-ivs-realtime namespace. For example, to create a stage:
+Now you can use the CLI to create and manage resources. The stage API is under the ivs-realtime namespace. For example, to create a stage:
 
 ```
 aws ivs-realtime create-stage --name "test-stage"

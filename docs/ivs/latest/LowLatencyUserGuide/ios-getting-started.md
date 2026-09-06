@@ -1,46 +1,46 @@
+
+
 # Getting Started with the IVS iOS Player SDK
+<a name="ios-getting-started"></a>
 
-This document takes you through the steps involved in getting started with the Amazon
-IVS iOS player SDK.
+This document takes you through the steps involved in getting started with the Amazon IVS iOS player SDK.
 
-We recommend that you integrate the player SDK via Swift Package Manager.
-(Alternately, you can manually add the framework to your
-project.)
+We recommend that you integrate the player SDK via Swift Package Manager. (Alternately, you can manually add the framework to your project.)
 
 ## Recommended: Integrate the Player SDK (Swift Package Manager)
+<a name="ios-integrate-sdk-swift"></a>
 
-1. Download the Package.swift file from [https://player.live-video.net/1.56.0/Package.swift](https://player.live-video.net/1.56.0/Package.swift "https://player.live-video.net/1.56.0/Package.swift").
-2. In your project, create a new directory named AmazonIVSPlayer and add it
-   to version control.
-3. Put the downloaded Package.swift file in the new directory.
-4. In Xcode, go to **File > Add Package
-   Dependencies** and select **Add
-   Local...**
-5. Navigate to and select the AmazonIVSPlayer directory that you created, and
-   select **Add Package**.
-6. When prompted to **Choose Package Products for
-   AmazonIVSPlayer**, select **AmazonIVSPlayer** as your **Package
-   Product** by setting your application target in the **Add to Target** section.
-7. Select **Add Package**.
+1. Download the Package.swift file from [https://player.live-video.net/1.56.0/Package.swift](https://player.live-video.net/1.56.0/Package.swift).
+
+1. In your project, create a new directory named AmazonIVSPlayer and add it to version control.
+
+1. Put the downloaded Package.swift file in the new directory.
+
+1. In Xcode, go to **File > Add Package Dependencies** and select **Add Local...**
+
+1. Navigate to and select the AmazonIVSPlayer directory that you created, and select **Add Package**.
+
+1. When prompted to **Choose Package Products for AmazonIVSPlayer**, select **AmazonIVSPlayer** as your **Package Product** by setting your application target in the **Add to Target** section.
+
+1. Select **Add Package**.
 
 ## Alternate Approach: Install the Framework Manually
+<a name="ios-install-framework-manually"></a>
 
-1. Download the latest version from [https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip "https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip").
-2. Extract the contents of the archive.
-   `AmazonIVSPlayer.xcframework` contains the SDK for both
-   device and simulator.
-3. Embed `AmazonIVSPlayer.xcframework` by dragging it into the
-   **Frameworks, Libraries, and Embedded
-   Content** section of the **General** tab for your application target:
+1. Download the latest version from [https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.56.0/AmazonIVSPlayer.xcframework.zip).
 
-![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](images/iOS_Player_SDK_Guide_xcframework.png)
+1. Extract the contents of the archive. `AmazonIVSPlayer.xcframework` contains the SDK for both device and simulator.
+
+1. Embed `AmazonIVSPlayer.xcframework` by dragging it into the **Frameworks, Libraries, and Embedded Content** section of the **General** tab for your application target:  
+![The Frameworks, Libraries, and Embedded Content section of the General tab for your application target.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/iOS_Player_SDK_Guide_xcframework.png)
 
 ## Create Player
+<a name="ios-create-player"></a>
 
-The player object is `IVSPlayer`. It can be initialized as shown
-below:
+The player object is `IVSPlayer`. It can be initialized as shown below:
 
-Swift
+------
+#### [ Swift ]
 
 ```
 import AmazonIVSPlayer
@@ -48,7 +48,8 @@ import AmazonIVSPlayer
 let player = IVSPlayer()
 ```
 
-Objective-C
+------
+#### [ Objective-C ]
 
 ```
 #import <AmazonIVSPlayer/AmazonIVSPlayer.h>
@@ -56,35 +57,40 @@ Objective-C
 IVSPlayer *player = [[IVSPlayer alloc] init];
 ```
 
+------
+
 ## Set Up Delegate
+<a name="ios-setup-delegate"></a>
 
-Delegate callbacks provide information on playback state, events, and errors. All
-callbacks are invoked on the main queue.
+Delegate callbacks provide information on playback state, events, and errors. All callbacks are invoked on the main queue.
 
-Swift
+------
+#### [ Swift ]
+
+```
+// Self must conform to IVSPlayer.Delegate
+player.delegate = self
+```
+
+------
+#### [ Objective-C ]
 
 ```
 // Self must conform to IVSPlayer.Delegate
 player.delegate = self
 ```
 
-Objective-C
-
-```
-// Self must conform to IVSPlayer.Delegate
-player.delegate = self
-```
+------
 
 ## Display Video
+<a name="ios-display-video"></a>
 
-The player displays video in a custom layer, `IVSPlayerLayer`. The SDK
-also provides `IVSPlayerView`, a `UIView` subclass backed by
-this layer. Use whichever is more convenient for your application’s UI.
+The player displays video in a custom layer, `IVSPlayerLayer`. The SDK also provides `IVSPlayerView`, a `UIView` subclass backed by this layer. Use whichever is more convenient for your application’s UI.
 
-In both cases, display the video from a player instance by using the
-`player` property.
+In both cases, display the video from a player instance by using the `player` property.
 
-Swift
+------
+#### [ Swift ]
 
 ```
 // When using IVSPlayerView:
@@ -94,7 +100,8 @@ playerView.player = player
 playerLayer.player = player
 ```
 
-Objective-C
+------
+#### [ Objective-C ]
 
 ```
 // When using IVSPlayerView:
@@ -104,30 +111,36 @@ playerView.player = player;
 playerLayer.player = player;
 ```
 
+------
+
 ## Load a Stream
+<a name="ios-load-stream"></a>
 
-The player loads the stream asynchronously. Its state indicates when it is ready
-to play.
+The player loads the stream asynchronously. Its state indicates when it is ready to play.
 
-Swift
+------
+#### [ Swift ]
 
 ```
 player.load(url)
 ```
 
-Objective-C
+------
+#### [ Objective-C ]
 
 ```
 [player load:url];
 ```
 
+------
+
 ## Play a Stream
+<a name="ios-play-stream"></a>
 
-When the player is ready, use `play` to begin playback. Use the
-delegate interface or key-value observing on the `state` property to
-observe the state change. Here is an example of the delegate-based approach:
+When the player is ready, use `play` to begin playback. Use the delegate interface or key-value observing on the `state` property to observe the state change. Here is an example of the delegate-based approach:
 
-Swift
+------
+#### [ Swift ]
 
 ```
 func player(_ player: IVSPlayer, didChangeState state: IVSPlayer.State) {
@@ -137,7 +150,8 @@ func player(_ player: IVSPlayer, didChangeState state: IVSPlayer.State) {
 }
 ```
 
-Objective-C
+------
+#### [ Objective-C ]
 
 ```
 - (void)player:(IVSPlayer *)player didChangeState:(IVSPlayerState)state {
@@ -147,13 +161,15 @@ Objective-C
 }
 ```
 
+------
+
 ## Pause On App Backgrounding
+<a name="ios-pause-on-app-backgrounding"></a>
 
-The player does not support playback while the app is in the background, but it
-does not need to be fully torn down. Pausing is sufficient; see the examples
-below.
+The player does not support playback while the app is in the background, but it does not need to be fully torn down. Pausing is sufficient; see the examples below.
 
-Swift
+------
+#### [ Swift ]
 
 ```
 override func viewDidLoad() {
@@ -170,7 +186,8 @@ override func viewDidLoad() {
 }
 ```
 
-Objective-C
+------
+#### [ Objective-C ]
 
 ```
 - (void)viewDidLoad {
@@ -188,31 +205,27 @@ Objective-C
 }
 ```
 
-## Thread Safety
+------
 
-The player API is not thread safe. You should create and use a player instance
-from the application main thread.
+## Thread Safety
+<a name="ios-thread-safety"></a>
+
+The player API is not thread safe. You should create and use a player instance from the application main thread.
 
 ## SDK Size
+<a name="ios-sdk-size"></a>
 
-The Amazon IVS player SDKs are designed to be as lightweight as possible. For
-current information about SDK size, see the [Release
-Notes](release-notes.md "release-notes.md").
+The Amazon IVS player SDKs are designed to be as lightweight as possible. For current information about SDK size, see the [Release Notes](release-notes.md).
 
-**Important:** When evaluating size impact, the size
-of the IPA produced by Xcode is not representative of the size of your app
-downloaded to a user’s device. The App Store performs optimizations to reduce the
-size of your app.
+**Important:** When evaluating size impact, the size of the IPA produced by Xcode is not representative of the size of your app downloaded to a user’s device. The App Store performs optimizations to reduce the size of your app.
 
 ## Putting It All Together
+<a name="ios-putting-together"></a>
 
-The following simple, view-controller snippet loads and plays a URL in a player
-view. Note that the `playerView` property is initialized from an
-XIB/Storyboard, and its class is set to `IVSPlayerView` in Interface
-Builder [using the Custom
-Class section of the Identity Inspector.](https://developer.apple.com/tutorials/SwiftUI "https://developer.apple.com/tutorials/SwiftUI")
+The following simple, view-controller snippet loads and plays a URL in a player view. Note that the `playerView` property is initialized from an XIB/Storyboard, and its class is set to `IVSPlayerView` in Interface Builder [using the Custom Class section of the Identity Inspector.](https://developer.apple.com/tutorials/SwiftUI)
 
-Swift
+------
+#### [ Swift ]
 
 ```
 import AmazonIVSPlayer
@@ -254,7 +267,8 @@ extension MyViewController: IVSPlayer.Delegate {
 }
 ```
 
-Objective-C
+------
+#### [ Objective-C ]
 
 ```
 // MyViewController.h
@@ -308,3 +322,5 @@ Objective-C
 ...
 @end
 ```
+
+------

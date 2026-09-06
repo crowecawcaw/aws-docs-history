@@ -1,15 +1,17 @@
+
+
 # Demo of Multiple Hosts in IVS
+<a name="multiple-hosts-demo"></a>
 
-Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob
-(B) on stage as a guest. (In a real broadcast, A and B would be images of Alice and
-Bob.)
+Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob (B) on stage as a guest. (In a real broadcast, A and B would be images of Alice and Bob.)
 
-![Demo Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob (B) on stage as a guest.](images/Demo_Intro.png)
+![Demo Scenario: Alice (A) is broadcasting to her Amazon IVS channel and wants to invite Bob (B) on stage as a guest.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Intro.png)
+
 
 ## 1. Create a Stage
+<a name="multiple-hosts-demo-create-stage"></a>
 
-Here is a [CreateStage](../RealTimeAPIReference/API_CreateStage.md "../RealTimeAPIReference/API_CreateStage.md")
-request using the Amazon IVS Stage API:
+Here is a [CreateStage](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateStage.html) request using the Amazon IVS Stage API:
 
 ```
 POST /CreateStage HTTP/1.1
@@ -29,11 +31,7 @@ Content-type: application/json
 }
 ```
 
-You can pre-create participant tokens when you create a stage, as is done here.
-You also can create tokens for an existing stage, by calling [CreateParticipantToken](../RealTimeAPIReference/API_CreateParticipantToken.md "../RealTimeAPIReference/API_CreateParticipantToken.md"). For each participant, you can pass in a custom
-`userId` and set of `attributes`. (**Important**: The `attributes` and `userId`
-request fields are exposed to all stage participants. These should not be used for
-personally identifying, confidential, or sensitive information.)
+You can pre-create participant tokens when you create a stage, as is done here. You also can create tokens for an existing stage, by calling [CreateParticipantToken](https://docs.aws.amazon.com/ivs/latest/RealTimeAPIReference/API_CreateParticipantToken.html). For each participant, you can pass in a custom `userId` and set of `attributes`. (**Important**: The `attributes` and `userId` request fields are exposed to all stage participants. These should not be used for personally identifying, confidential, or sensitive information.)
 
 Here is the network response to the request above:
 
@@ -65,31 +63,26 @@ Content-type: application/json
 ```
 
 ## 2. Distribute Participant Tokens
+<a name="multiple-hosts-demo-distribute-tokens"></a>
 
-The client now has a token for Alice (A) and Bob (B). By default, tokens are valid
-for 1 hour; optionally you can pass in a custom `duration` when you
-create the stage. Tokens can be used to join a stage.
+The client now has a token for Alice (A) and Bob (B). By default, tokens are valid for 1 hour; optionally you can pass in a custom `duration` when you create the stage. Tokens can be used to join a stage. 
 
-![How to distribute tokens from your server to each client (e.g., via a WebSocket channel). We do not provide this functionality.](images/Demo_Distribute_Participant_Token_crop.png)
+![How to distribute tokens from your server to each client (e.g., via a WebSocket channel). We do not provide this functionality.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Distribute_Participant_Token_crop.png)
 
-You will need a way to distribute tokens from your server to each client (e.g.,
-via a WebSocket channel). We do not provide this functionality.
+
+You will need a way to distribute tokens from your server to each client (e.g., via a WebSocket channel). We do not provide this functionality.
 
 ## 3. Join the Stage
+<a name="multiple-hosts-demo-join-stage"></a>
 
-Participants can join the stage via the Amazon IVS Broadcast SDK on Android or
-iOS. You can configure the video quality of each participant. Here we show Alice
-joining the stage first.
+Participants can join the stage via the Amazon IVS Broadcast SDK on Android or iOS. You can configure the video quality of each participant. Here we show Alice joining the stage first.
 
 Here is an architecture overview:
 
-![Participants can join the stage via the Amazon Broadcast SDK on Android or iOS. Here we show Alice joining the stage first.](images/Demo_Join_the_Stage_crop.png)
+![Participants can join the stage via the Amazon Broadcast SDK on Android or iOS. Here we show Alice joining the stage first.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Join_the_Stage_crop.png)
 
-And here is an Android code sample for joining the stage. The code snippet below
-would run on Alice's device. In the `join()` call, Alice joins the stage.
-The figure above shows the result of this code execution: Alice has joined the stage
-and is publishing to it (in addition to broadcasting to her channel, which she
-started doing in step 1).
+
+And here is an Android code sample for joining the stage. The code snippet below would run on Alice's device. In the `join()` call, Alice joins the stage. The figure above shows the result of this code execution: Alice has joined the stage and is publishing to it (in addition to broadcasting to her channel, which she started doing in step 1).
 
 ```
 // Create streams with the front camera and first microphone.
@@ -136,10 +129,13 @@ try {
 ```
 
 ## 4. Broadcast the Stage
+<a name="multiple-hosts-demo-broadcast-stage"></a>
 
 ### Client-Side Composition
+<a name="demo-broadcast-stage-client-side"></a>
 
-![Broadcasting the stage: client-side composition.](images/Demo_Broadcast_the_Stage_Client_Side_Composition_1_crop.png)
+![Broadcasting the stage: client-side composition.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Client_Side_Composition_1_crop.png)
+
 
 Here is an Android code sample for broadcasting the stage:
 
@@ -150,7 +146,7 @@ var broadcastSession = BroadcastSession(context, broadcastListener, configuratio
 override fun onStreamsAdded(stage: Stage, participantInfo: ParticipantInfo, streams: List<StageStream>) {
 
    var id = participantInfo.participantId
-
+	
    // Create mixer slot for remote participant
    var slot = BroadcastConfiguration.Mixer.Slot.with { s ->
       s.name = id
@@ -176,26 +172,18 @@ try {
 }
 ```
 
-The Android and iOS Amazon IVS Broadcast SDKs have callbacks triggered by the
-status of participants (e.g., `onStreamsAdded` and
-`onStreamsRemoved`), to simplify building a dynamic UI. This is
-shown in the first part of the code sample: when Bob’s video and audio are
-available, Alice is notified via an `onStreamsAdded` callback.
+The Android and iOS Amazon IVS Broadcast SDKs have callbacks triggered by the status of participants (e.g., `onStreamsAdded` and `onStreamsRemoved`), to simplify building a dynamic UI. This is shown in the first part of the code sample: when Bob’s video and audio are available, Alice is notified via an `onStreamsAdded` callback.
 
-Alice can then add Bob’s video and audio to the mixer, to be included in the
-RTMP broadcast for the wider audience of her channel. This is shown in the
-remainder of the code sample.
+Alice can then add Bob’s video and audio to the mixer, to be included in the RTMP broadcast for the wider audience of her channel. This is shown in the remainder of the code sample.
 
-Now Alice is broadcasting to multiple viewers, via the Amazon IVS Android
-Broadcast SDK. Here is what this looks like architecturally:
+Now Alice is broadcasting to multiple viewers, via the Amazon IVS Android Broadcast SDK. Here is what this looks like architecturally:
 
-![Broadcasting the stage: client-side composition. Alice is broadcasting to multiple viewers.](images/Demo_Broadcast_the_Stage_Client_Side_Composition_2_crop.png)
+![Broadcasting the stage: client-side composition. Alice is broadcasting to multiple viewers.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Client_Side_Composition_2_crop.png)
+
 
 ### Server-Side Composition
+<a name="demo-broadcast-stage-server-side"></a>
 
-For comparison, here is how [server-side
-composition](multiple-hosts-broadcasting-client-vs-server.md "multiple-hosts-broadcasting-client-vs-server.md") works. (For details, see [Server-Side
-Composition](../RealTimeUserGuide/server-side-composition.md "../RealTimeUserGuide/server-side-composition.md") in the _IVS Real-Time User
-Guide_.)
+For comparison, here is how [server-side composition](multiple-hosts-broadcasting-client-vs-server.md) works. (For details, see [Server-Side Composition](https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/server-side-composition.html) in the *IVS Real-Time User Guide*.)
 
-![Broadcasting the stage: server-side composition.](images/Demo_Broadcast_the_Stage_Server_Side_Composition.png)
+![Broadcasting the stage: server-side composition.](http://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/images/Demo_Broadcast_the_Stage_Server_Side_Composition.png)

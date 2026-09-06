@@ -1,99 +1,82 @@
+
+
 # Using Amazon EventBridge with IVS Low-Latency Streaming
+<a name="eventbridge"></a>
 
-You can use Amazon EventBridge to monitor your Amazon Interactive Video Service (IVS)
-streams.
+You can use Amazon EventBridge to monitor your Amazon Interactive Video Service (IVS) streams.
 
-Amazon IVS sends change events about the status of your streams to Amazon EventBridge. All
-events that are delivered are valid. However, events are sent on a best-effort basis, which
-means there is no guarantee that:
+Amazon IVS sends change events about the status of your streams to Amazon EventBridge. All events that are delivered are valid. However, events are sent on a best-effort basis, which means there is no guarantee that:
++ Events are delivered — A designated event can occur (e.g., a stream starts) but it is possible that Amazon IVS will not send a corresponding change event to EventBridge. Amazon IVS tries to deliver events for several hours before giving up.
++ Events that are delivered will arrive in a specified timeframe — You may receive events up to a few hours old.
++ Events are delivered in order — Events may be out of order, especially if they are sent within a short time of each other. For example, you could see Stream Down before Stream Up.
 
-- Events are delivered — A designated event can occur (e.g., a stream starts) but it
-  is possible that Amazon IVS will not send a corresponding change event to
-  EventBridge. Amazon IVS tries to deliver events for several hours before giving
-  up.
-- Events that are delivered will arrive in a specified timeframe — You may receive
-  events up to a few hours old.
-- Events are delivered in order — Events may be out of order, especially if they are
-  sent within a short time of each other. For example, you could see Stream Down
-  before Stream Up.
-  While it's rare for events to be missing, late, or out of sequence, you should handle
-  these possibilities if you write business-critical programs that depend on the order or
-  existence of notification events.
+While it's rare for events to be missing, late, or out of sequence, you should handle these possibilities if you write business-critical programs that depend on the order or existence of notification events.
 
 You can create EventBridge rules for any of the following events.
 
-| Event Type                 | Event                   | Sent When ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| IVS Ad Break State Change  | Ad Break Inserted       | An ad break is inserted into an active stream.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| IVS Stream State Change    | Session Created         | A channel stream key was used successfully and a stream session was<br>created. This event fires when a stream is initiated, before video is<br>processed or delivered to viewers. This event can help you determine if a<br>stream was initiated but failed to go live; e.g., due to misconfiguration or<br>limit breach.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| IVS Stream State Change    | Session Ended           | The encoder disconnected and Amazon IVS is no longer receiving video.<br>This event can help you determine when the encoder stopped sending media.<br>For multitrack streams, the `code` field can provide additional details on why the<br>session ended. For details, see the `code` field in the [StreamEvent](../LowLatencyAPIReference/API_StreamEvent.md "../LowLatencyAPIReference/API_StreamEvent.md")<br>API object.<br>Note: When the encoder disconnects, the Session Ended event may<br>come before the Stream End event. This is because there may be a short<br>period of time after the Session Ended event when Amazon IVS is still<br>processing video.                                                                                                                                                                                                 |
-| IVS Stream State Change    | Stream Start            | A stream is being processed and segments are available for the viewer to<br>watch. This event indicates that the video stream is being processed and can<br>be watched by viewers. This event can help you determine if a stream went<br>live successfully.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| IVS Stream State Change    | Stream End              | A stream stops being processed and no longer produces video segments for<br>the viewer. This event can help you determine when the stream ended and no<br>new video segments can be consumed by the viewers. (Also see the note in<br>Session Ended.)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| IVS Stream State Change    | Stream Failure          | A stream is not being processed and is not available because processing<br>capacity was exceeded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| IVS Stream State Change    | Stream Takeover         | An existing stream was taken over.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| IVS Stream State Change    | Stream Takeover Failure | An attempt to take over an existing stream was rejected. The `code` field provides<br>additional details on why the stream takeover failed. There are several values; note that<br>the long descriptions are provided in the IVS console but not delivered through<br>the IVS API or EventBridge:<br>• `StreamTakeoverMediaMismatch` — The broadcast client attempted to take over<br>with different media properties (e.g., codec, resolution, or video track type) from the<br>original stream.<br>• `StreamTakeoverInvalidPriority` — The broadcast client attempted a takeover<br>with either a priority integer value equal to or lower than the original stream's value or a value outside<br>the allowed range of 1 to 2,147,483,647.<br>• `StreamTakeoverLimitBreached` — The broadcast client reached the maximum allowed<br>takeover attempts for this stream. |
-| IVS Stream Health Change   | Starvation Start        | A stream is not receiving data from the streamer; the stream is said to<br>be in “starvation.”                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| IVS Stream Health Change   | Starvation End          | A starving stream begins receiving data from the streamer and the stream<br>is healthy again.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| IVS Limit Breach           | Ingest Bitrate          | The incoming stream’s bitrate exceeds the Amazon IVS limit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| IVS Limit Breach           | Ingest Resolution       | The incoming stream’s resolution exceeds the Amazon IVS limit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| IVS Limit Breach           | Concurrent Broadcasts   | The total number of channels streaming at the same time exceeds the<br>Amazon IVS limit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| IVS Limit Breach           | Concurrent Viewers      | The total number of viewers watching your channels at the same time<br>exceeds the Amazon IVS limit.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| IVS Recording State Change | Recording Start         | A stream starts being processed, and the recording prefix is<br>created and validated. Segments will be written to the storage location<br>configured for the channel.<br>Note that after a live stream starts and the Recording Start event is<br>emitted, it takes a little time before the manifest files and video<br>segments are written to the S3 bucket that is configured for the<br>channel. We recommend that you play back or process recorded streams<br>only after the Recording End event is sent.                                                                                                                                                                                                                                                                                                                                                        |
-| IVS Recording State Change | Recording End           | A stream ends and recording stops for this channel.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| IVS Recording State Change | Recording Start Failure | A stream starts but recording fails to start due to errors (for example,<br>the S3 bucket does not exist or is not in the correct region). This live<br>stream is not recorded.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| IVS Recording State Change | Recording End Failure   | Recording ends with failure, due to errors encountered during recording<br>(e.g., if the attempt to write a master playlist fails). Some objects may<br>still be written to the configured storage location.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-**Note on stream IDs:** The `stream_id` field (in
-many events) is a unique stream identifier assigned each time a channel goes live. For a
-given channel, each live stream has a new `stream_id`. Hence, each channel ARN
-can have many corresponding stream IDs. Stream IDs allow customers to distinguish different
-stream sessions on the same channel.
+| Event Type | Event | Sent When ... | 
+| --- | --- | --- | 
+| IVS Ad Break State Change | Ad Break Inserted | An ad break is inserted into an active stream. | 
+| IVS Stream State Change | Session Created | A channel stream key was used successfully and a stream session was created. This event fires when a stream is initiated, before video is processed or delivered to viewers. This event can help you determine if a stream was initiated but failed to go live; e.g., due to misconfiguration or limit breach. | 
+| IVS Stream State Change | Session Ended | The encoder disconnected and Amazon IVS is no longer receiving video. This event can help you determine when the encoder stopped sending media. For multitrack streams, the `code` field can provide additional details on why the session ended. For details, see the `code` field in the [StreamEvent](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_StreamEvent.html) API object.<br />Note: When the encoder disconnects, the Session Ended event may come before the Stream End event. This is because there may be a short period of time after the Session Ended event when Amazon IVS is still processing video. | 
+| IVS Stream State Change | Stream Start | A stream is being processed and segments are available for the viewer to watch. This event indicates that the video stream is being processed and can be watched by viewers. This event can help you determine if a stream went live successfully. | 
+| IVS Stream State Change | Stream End | A stream stops being processed and no longer produces video segments for the viewer. This event can help you determine when the stream ended and no new video segments can be consumed by the viewers. (Also see the note in Session Ended.) | 
+| IVS Stream State Change | Stream Failure | A stream is not being processed and is not available because processing capacity was exceeded. | 
+| IVS Stream State Change | Stream Takeover | An existing stream was taken over. | 
+| IVS Stream State Change | Stream Takeover Failure | An attempt to take over an existing stream was rejected. The code field provides additional details on why the stream takeover failed. There are several values; note that the long descriptions are provided in the IVS console but not delivered through the IVS API or EventBridge: +  `StreamTakeoverMediaMismatch` — The broadcast client attempted to take over with different media properties (e.g., codec, resolution, or video track type) from the original stream. <br />+  `StreamTakeoverInvalidPriority` — The broadcast client attempted a takeover with either a priority integer value equal to or lower than the original stream's value or a value outside the allowed range of 1 to 2,147,483,647. <br />+  `StreamTakeoverLimitBreached` — The broadcast client reached the maximum allowed takeover attempts for this stream.   | 
+| IVS Stream Health Change | Starvation Start | A stream is not receiving data from the streamer; the stream is said to be in “starvation.” | 
+| IVS Stream Health Change | Starvation End | A starving stream begins receiving data from the streamer and the stream is healthy again. | 
+| IVS Limit Breach | Ingest Bitrate | The incoming stream’s bitrate exceeds the Amazon IVS limit. | 
+| IVS Limit Breach | Ingest Resolution | The incoming stream’s resolution exceeds the Amazon IVS limit. | 
+| IVS Limit Breach | Concurrent Broadcasts | The total number of channels streaming at the same time exceeds the Amazon IVS limit. | 
+| IVS Limit Breach | Concurrent Viewers | The total number of viewers watching your channels at the same time exceeds the Amazon IVS limit. | 
+| IVS Recording State Change | Recording Start | A stream starts being processed, and the recording prefix is created and validated. Segments will be written to the storage location configured for the channel.<br />Note that after a live stream starts and the Recording Start event is emitted, it takes a little time before the manifest files and video segments are written to the S3 bucket that is configured for the channel. We recommend that you play back or process recorded streams only after the Recording End event is sent. | 
+| IVS Recording State Change | Recording End | A stream ends and recording stops for this channel. | 
+| IVS Recording State Change | Recording Start Failure | A stream starts but recording fails to start due to errors (for example, the S3 bucket does not exist or is not in the correct region). This live stream is not recorded. | 
+| IVS Recording State Change | Recording End Failure | Recording ends with failure, due to errors encountered during recording (e.g., if the attempt to write a master playlist fails). Some objects may still be written to the configured storage location. | 
 
-**Note on latency of some events:** Encoder-configuration
-settings, especially the IDR/keyframe interval, affect the timing of stream startup and the
-latency of related events (Stream Start and Recording Start). A shorter keyframe interval
-decreases this latency. See ["Reducing
-Latency"](streaming-config.md#streaming-config-reducing-latency "streaming-config.md#streaming-config-reducing-latency") in _Amazon IVS Streaming Configuration_
-for information on setting `IDR/Keyframe`.
+**Note on stream IDs:** The `stream_id` field (in many events) is a unique stream identifier assigned each time a channel goes live. For a given channel, each live stream has a new `stream_id`. Hence, each channel ARN can have many corresponding stream IDs. Stream IDs allow customers to distinguish different stream sessions on the same channel.
+
+**Note on latency of some events:** Encoder-configuration settings, especially the IDR/keyframe interval, affect the timing of stream startup and the latency of related events (Stream Start and Recording Start). A shorter keyframe interval decreases this latency. See ["Reducing Latency"](streaming-config.md#streaming-config-reducing-latency) in *Amazon IVS Streaming Configuration* for information on setting `IDR/Keyframe`.
 
 ## Creating Amazon EventBridge Rules for Amazon IVS
+<a name="eventbridge-creating-rules"></a>
 
-You can create a rule that triggers on an event emitted by Amazon IVS. Follow the
-steps in [Create a rule in Amazon
-EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the _Amazon EventBridge User
-Guide_. When selecting a service, choose **Interactive
-Video Service (IVS)**.
+You can create a rule that triggers on an event emitted by Amazon IVS. Follow the steps in [Create a rule in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*. When selecting a service, choose **Interactive Video Service (IVS)**.
 
 ## Example: Ad Break State Change
+<a name="eventbridge-examples-ad-break-state-change"></a>
 
 **Ad Break Inserted:** This event is sent when an ad break is inserted into an active stream.
 
 ```
-{
-    "version": "0",
-    "id": "d2f07e23-86ba-04b4-e636-5fd2c70b5278",
-    "detail-type": "IVS Ad Break State Change",
-    "source": "aws.ivs",
-    "account": "049054135175",
-    "time": "2026-02-05T01:03:08Z",
-    "region": "us-east-1",
-    "resources": [
-        "arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh "
-    ],
-    "detail": {
-        "event_name": "Ad Break Inserted",
-        "channel_name": "SSAIBeta-test-channel",
-        "stream_id": "st-1GI11DKd3yvJm8eWREJq6Xz",
-        "ad_break_id": "hSi2o1WIVgij",
-        "duration_seconds": 20,
-        "target_start_time": "2026-02-05T01:03:18Z"
-    }
+{ 
+    "version": "0", 
+    "id": "d2f07e23-86ba-04b4-e636-5fd2c70b5278", 
+    "detail-type": "IVS Ad Break State Change", 
+    "source": "aws.ivs", 
+    "account": "049054135175", 
+    "time": "2026-02-05T01:03:08Z", 
+    "region": "us-east-1", 
+    "resources": [ 
+        "arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh " 
+    ], 
+    "detail": { 
+        "event_name": "Ad Break Inserted", 
+        "channel_name": "SSAIBeta-test-channel", 
+        "stream_id": "st-1GI11DKd3yvJm8eWREJq6Xz", 
+        "ad_break_id": "hSi2o1WIVgij", 
+        "duration_seconds": 20, 
+        "target_start_time": "2026-02-05T01:03:18Z" 
+    } 
 }
 ```
 
 ## Examples: Stream State Change
+<a name="eventbridge-examples-stream-state-change"></a>
 
-**Session Created:** This event is sent when a channel stream key was used successfully and a stream session was created.
+**Session Created:** This event is sent when a channel stream key was used successfully and a stream session was created. 
 
 ```
 {
@@ -138,8 +121,7 @@ Video Service (IVS)**.
 }
 ```
 
-**Stream Start:** This event is sent when a stream is
-being processed and segments are available for the viewer.
+**Stream Start:** This event is sent when a stream is being processed and segments are available for the viewer.
 
 ```
 {
@@ -161,8 +143,7 @@ being processed and segments are available for the viewer.
 }
 ```
 
-**Stream End:** This event is sent when a stream stops
-being processed and no longer produces video segments for the viewer.
+**Stream End:** This event is sent when a stream stops being processed and no longer produces video segments for the viewer.
 
 ```
 {
@@ -184,9 +165,7 @@ being processed and no longer produces video segments for the viewer.
 }
 ```
 
-**Stream Failure:** This event is sent when a stream is
-not being processed and is not available because processing capacity was
-exceeded.
+**Stream Failure:** This event is sent when a stream is not being processed and is not available because processing capacity was exceeded.
 
 ```
 {
@@ -221,7 +200,7 @@ exceeded.
    "time": "2017-06-12T10:23:43Z",
    "region": "us-east-1",
    "resources": [
-
+      
 "arn:aws:ivs:us-east-1:aws_account_id:channel/12345678-1a23-4567-a1bc-1a2b34567890"
 ],
    "detail": {
@@ -232,9 +211,7 @@ exceeded.
 }
 ```
 
-**Stream Takeover Failure:** This event is sent when an attempt to take over an existing
-stream was rejected. This can be due to mismatched codec/resolution/video-track type, an invalid priority integer,
-or surpassing the maximum number of takeovers per stream.
+**Stream Takeover Failure:** This event is sent when an attempt to take over an existing stream was rejected. This can be due to mismatched codec/resolution/video-track type, an invalid priority integer, or surpassing the maximum number of takeovers per stream.
 
 ```
 {
@@ -245,7 +222,7 @@ or surpassing the maximum number of takeovers per stream.
    "account": "aws_account_id",
    "time": "2017-06-12T10:23:43Z",
    "region": "us-east-1",
-   "resources": [
+   "resources": [ 
        "arn:aws:ivs:us-east-1:aws_account_id:channel/12345678-1a23-4567-a1bc-1a2b34567890"
 ],
    "detail": {
@@ -258,9 +235,9 @@ or surpassing the maximum number of takeovers per stream.
 ```
 
 ## Examples: Stream Health Change
+<a name="eventbridge-examples-stream-health-change"></a>
 
-**Starvation Start:** This event is sent when a stream is
-not receiving data from the streamer; the stream is said to be in “starvation.”
+**Starvation Start:** This event is sent when a stream is not receiving data from the streamer; the stream is said to be in “starvation.”
 
 ```
 {
@@ -282,8 +259,7 @@ not receiving data from the streamer; the stream is said to be in “starvation.
 }
 ```
 
-**Starvation End:** This event is sent when a starving
-stream begins receiving data from the streamer and the stream is healthy again.
+**Starvation End:** This event is sent when a starving stream begins receiving data from the streamer and the stream is healthy again.
 
 ```
 {
@@ -306,13 +282,11 @@ stream begins receiving data from the streamer and the stream is healthy again.
 ```
 
 ## Examples: Limit Breach
+<a name="eventbridge-examples-limit-breach"></a>
 
-All limit-breach events include the name of the limit that is breached, the value of
-the limit, and the number by which the limit was exceeded (value at breach subtracted by
-the limit).
+All limit-breach events include the name of the limit that is breached, the value of the limit, and the number by which the limit was exceeded (value at breach subtracted by the limit).
 
-**Ingest Bitrate:** This event is sent when the incoming
-stream’s bitrate exceeds the Amazon IVS limit.
+**Ingest Bitrate:** This event is sent when the incoming stream’s bitrate exceeds the Amazon IVS limit.
 
 ```
 {
@@ -337,9 +311,7 @@ stream’s bitrate exceeds the Amazon IVS limit.
 }
 ```
 
-**Ingest Resolution:** This event is sent when the
-incoming stream’s resolution (total pixels or pixels per edge) exceeds the Amazon IVS
-limits.
+**Ingest Resolution:** This event is sent when the incoming stream’s resolution (total pixels or pixels per edge) exceeds the Amazon IVS limits.
 
 Maximum total pixels exceeded:
 
@@ -391,8 +363,7 @@ Maximum pixels per edge exceeded:
 }
 ```
 
-**Concurrent Broadcasts:** This event is sent when the
-total number of channels streaming at the same time exceeds the Amazon IVS limit.
+**Concurrent Broadcasts:** This event is sent when the total number of channels streaming at the same time exceeds the Amazon IVS limit.
 
 ```
 {
@@ -406,16 +377,14 @@ total number of channels streaming at the same time exceeds the Amazon IVS limit
    "resources": [],
    "detail": {
      "limit_name": "Concurrent Broadcasts",
-     "limit_value": 2,
+     "limit_value": 2, 
      "exceeded_by": 3,
      "limit_unit": "active streams"
    }
 }
 ```
 
-**Concurrent Viewers:** This event is sent when the total
-number of viewers watching your channels at the same time exceeds the Amazon IVS
-limit.
+**Concurrent Viewers:** This event is sent when the total number of viewers watching your channels at the same time exceeds the Amazon IVS limit.
 
 ```
 {
@@ -437,16 +406,11 @@ limit.
 ```
 
 ## Examples: Recording State Change
+<a name="eventbridge-examples-recording-state-change"></a>
 
-For all recording state change events, the top-level path where all objects for this
-live stream are stored is `recording_s3_key_prefix`. In the case of failures,
-the reason for the failure is in `recording_status_reason`. The
-`recording_duration_ms` field is the number of milliseconds of recording
-duration.
+For all recording state change events, the top-level path where all objects for this live stream are stored is `recording_s3_key_prefix`. In the case of failures, the reason for the failure is in `recording_status_reason`. The `recording_duration_ms` field is the number of milliseconds of recording duration.
 
-**Recording Start:** This event is sent when a stream
-starts being processed and segments are being written to the storage location configured
-for the channel.
+**Recording Start:** This event is sent when a stream starts being processed and segments are being written to the storage location configured for the channel.
 
 ```
 {
@@ -473,8 +437,7 @@ for the channel.
 }
 ```
 
-**Recording End:** This event is sent when a stream ends
-and recording stops for this channel.
+**Recording End:** This event is sent when a stream ends and recording stops for this channel.
 
 ```
 {
@@ -502,9 +465,7 @@ and recording stops for this channel.
 }
 ```
 
-**Recording Start Failure:** This event is sent when a
-stream starts but recording fails to start due to errors (for example, the S3 bucket
-does not exist or is not in the correct region). This live stream is not recorded.
+**Recording Start Failure:** This event is sent when a stream starts but recording fails to start due to errors (for example, the S3 bucket does not exist or is not in the correct region). This live stream is not recorded. 
 
 ```
 {
@@ -531,9 +492,7 @@ does not exist or is not in the correct region). This live stream is not recorde
 }
 ```
 
-**Recording End Failure:** This event is sent when
-recording ends with failure, due to errors encountered during recording. Some objects
-may still be written to the configured storage location.
+**Recording End Failure:** This event is sent when recording ends with failure, due to errors encountered during recording. Some objects may still be written to the configured storage location.
 
 ```
 {

@@ -1,26 +1,27 @@
-# List IVS Playback Keys
 
-Amazon IVS customers can get a list of all of their playback-key resources at any
-time.
+
+# List IVS Playback Keys
+<a name="private-channels-list-keys"></a>
+
+Amazon IVS customers can get a list of all of their playback-key resources at any time.
 
 ## Console Instructions
+<a name="private-channels-list-console"></a>
 
-1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs "https://console.aws.amazon.com/ivs").
-   Choose your channel’s region if you are not already on it.
-2. In the left navigation menu, choose **Playback
-   security > Playback keys**.
+1. Open the [Amazon IVS console](https://console.aws.amazon.com/ivs). Choose your channel’s region if you are not already on it.
 
-All playback-key resources associated with your account are displayed.
-Deleted keys are not displayed, and there is no history of past keys.
+1. In the left navigation menu, choose **Playback security > Playback keys**.
+
+   All playback-key resources associated with your account are displayed. Deleted keys are not displayed, and there is no history of past keys.
 
 ## CLI Instructions
+<a name="private-channels-list-cli"></a>
 
 ```
 aws ivs list-playback-key-pairs --region <aws-region>
 ```
 
-You can omit `--region <aws-region>` if the region is in your local
-AWS configuration file.
+You can omit `--region <aws-region>` if the region is in your local AWS configuration file.
 
 Example response:
 
@@ -42,9 +43,9 @@ Example response:
 ```
 
 ## API Request
+<a name="private-channels-list-api"></a>
 
-For usage information, see [ListPlaybackKeyPairs](../LowLatencyAPIReference/API_ListPlaybackKeyPairs.md "../LowLatencyAPIReference/API_ListPlaybackKeyPairs.md") in the _IVS Low-Latency
-Streaming API Reference_.
+For usage information, see [ListPlaybackKeyPairs](https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/API_ListPlaybackKeyPairs.html) in the *IVS Low-Latency Streaming API Reference*.
 
 ```
 POST /ListPlaybackKeyPairs HTTP/1.1
