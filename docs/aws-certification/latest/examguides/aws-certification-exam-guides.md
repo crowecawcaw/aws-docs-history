@@ -10,6 +10,14 @@ For Spanish exam guides: AWS Certification exam guides are presented in Spanish 
 The following exams are available in Spanish (Latin America): AWS Certified Cloud Practitioner, AWS Certified AI Practitioner, AWS Certified Developer - Associate, AWS Certified Solutions Architect - Associate, AWS Certified Solutions Architect - Professional, and AWS Certified Security - Specialty.
 The following exams are available also in Spanish (Spain): AWS Certified Cloud Practitioner, AWS Certified AI Practitioner, and AWS Certified Solutions Architect - Associate.
 
+## Business Certifications
+
+Business certifications are designed for individuals who shape technology strategy, governance, and adoption alongside technical teams and want to validate their ability to drive business outcomes—without building solutions themselves.
+
+[AWS Certified AI Business Strategist (AIB-C01)](../ai-business-strategist-01.md "../ai-business-strategist-01.md")
+
+Validate the ability to translate AI capabilities into business outcomes, establish responsible AI practices, evaluate opportunities to optimize AI solutions, and drive AI adoption at scale. This exam is intended for business professionals who evaluate, champion, or scale AI initiatives in their organizations or for their clients.
+
 ## Foundational Level Certifications
 
 Foundational certifications are designed for individuals who are seeking to build and validate overall understanding of the AWS Cloud.
@@ -41,6 +49,16 @@ Validate technical skills in developing and maintaining applications on AWS. Thi
 [AWS Certified Machine Learning Engineer - Associate (MLA-C01)](../machine-learning-engineer-associate-01.md "../machine-learning-engineer-associate-01.md")
 
 Validate technical skills in implementing ML solutions on AWS. This exam is intended for individuals who perform an ML engineer role and validates the ability to implement, deploy, and maintain ML solutions.
+
+###### Exam update: MLA-C02 beta
+
+This exam is being updated. Registration for the beta exam for the updated version (MLA-C02) opens September 1, 2026. The last day to take the current exam (MLA-C01) is September 28, 2026.
+
+On September 29, 2026, the beta exam will be available in English only. The MLA-C01 exam will continue to be offered in Korean, Japanese, and Simplified Chinese during the beta exam period.
+
+[AWS Certified Machine Learning Engineer - Associate (MLA-C02)](../machine-learning-engineer-associate-02.md "../machine-learning-engineer-associate-02.md")
+
+Validate technical skills in implementing AI and ML solutions on AWS. This exam is intended for individuals who perform an ML engineer role and validates the ability to implement, deploy, and maintain AI and ML solutions.
 
 [AWS Certified Solutions Architect - Associate (SAA-C03)](../solutions-architect-associate-03.md "../solutions-architect-associate-03.md")
 
