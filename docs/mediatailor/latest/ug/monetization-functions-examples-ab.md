@@ -1,15 +1,17 @@
+
+
 # Example 2: A/B traffic split
+<a name="monetization-functions-examples-ab"></a>
 
 ## Scenario
+<a name="monetization-functions-examples-ab-scenario"></a>
 
-A streaming service wants to use a CUSTOM\_OUTPUT function to randomly split ad
-request traffic between two ad decision server (ADS) URLs for A/B testing. Half of
-the ad requests go to the v1 endpoint and half go to the v2 endpoint.
+A streaming service wants to use a CUSTOM\_OUTPUT function to randomly split ad request traffic between two ad decision server (ADS) URLs for A/B testing. Half of the ad requests go to the v1 endpoint and half go to the v2 endpoint.
 
 ## Configuration
+<a name="monetization-functions-examples-ab-config"></a>
 
-**A/B traffic split
-(CUSTOM\_OUTPUT):**
+**A/B traffic split (CUSTOM\_OUTPUT):**
 
 ```
 {
@@ -25,14 +27,12 @@ the ad requests go to the v1 endpoint and half go to the v2 endpoint.
 ```
 
 In this configuration:
-
-- `FunctionId` — A unique name for this function.
-- `FunctionType` — `CUSTOM_OUTPUT` evaluates
-  expressions without making HTTP calls.
-- `Output` — Maps `adsRequest.url` to an
-  expression that randomly selects one of two ADS URLs.
++ `FunctionId` — A unique name for this function.
++ `FunctionType` — `CUSTOM_OUTPUT` evaluates expressions without making HTTP calls.
++ `Output` — Maps `adsRequest.url` to an expression that randomly selects one of two ADS URLs.
 
 ## Function mapping
+<a name="monetization-functions-examples-ab-mapping"></a>
 
 ```
 {
@@ -43,28 +43,20 @@ In this configuration:
 ```
 
 ## What happens when the function runs
+<a name="monetization-functions-examples-ab-runtime"></a>
 
 1. An ad break is encountered during playback.
-2. MediaTailor runs the `PRE_ADS_REQUEST` lifecycle hook and
-   runs `abTestAdsUrl`.
-3. The `$random()` function returns a value between 0 and 1.
-   If the value is less than 0.5, the function sets the ADS URL to the v1
-   endpoint. Otherwise, it sets the URL to the v2
-   endpoint.
 
-The `$random()` function is evaluated on each ad break, so the split
-is per ad request, not per session.
+1. MediaTailor runs the `PRE_ADS_REQUEST` lifecycle hook and runs `abTestAdsUrl`.
 
-###### Tip
+1. The `$random()` function returns a value between 0 and 1. If the value is less than 0.5, the function sets the ADS URL to the v1 endpoint. Otherwise, it sets the URL to the v2 endpoint.
 
-To adjust the traffic split ratio, change the threshold value. For example,
-`$random() < 0.8` sends 80% of traffic to the first URL and 20%
-to the second.
+The `$random()` function is evaluated on each ad break, so the split is per ad request, not per session.
 
-###### Note
+**Tip**  
+To adjust the traffic split ratio, change the threshold value. For example, `$random() < 0.8` sends 80% of traffic to the first URL and 20% to the second.
 
-Writing to `adsRequest.url` overrides the default ADS URL
-configured in the playback configuration for the current ad break.
+**Note**  
+Writing to `adsRequest.url` overrides the default ADS URL configured in the playback configuration for the current ad break.
 
-For more information, see [Custom output](monetization-functions-types-custom-output.md "monetization-functions-types-custom-output.md"), [Pre-ads request](monetization-functions-hooks-pre-ads.md "monetization-functions-hooks-pre-ads.md"), and [JSONata expression
-reference](monetization-functions-jsonata.md "monetization-functions-jsonata.md").
+For more information, see [Custom output](monetization-functions-types-custom-output.md), [Pre-ads request](monetization-functions-hooks-pre-ads.md), and [JSONata expression reference](monetization-functions-jsonata.md).

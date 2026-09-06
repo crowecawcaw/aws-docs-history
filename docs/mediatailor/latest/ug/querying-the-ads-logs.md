@@ -1,20 +1,18 @@
+
+
 # Querying the ADS logs
+<a name="querying-the-ads-logs"></a>
 
-CloudWatch Logs Insights provides a rich set of options for querying your logs. For detailed
-information about querying syntax, see [CloudWatch Logs insights
-query syntax](../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md "../../../AmazonCloudWatch/latest/logs/CWL_QuerySyntax.md"). This section provides examples of common queries to get
-you started with your ADS logs queries. All queries run against the logs for the
-current time range setting.
+CloudWatch Logs Insights provides a rich set of options for querying your logs. For detailed information about querying syntax, see [CloudWatch Logs insights query syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html). This section provides examples of common queries to get you started with your ADS logs queries. All queries run against the logs for the current time range setting.
 
-The following query retrieves all information from the ADS logs.
+The following query retrieves all information from the ADS logs. 
 
 ```
 fields @timestamp, eventType, sessionId, requestId, @message
 | sort sessionId, @timestamp asc
 ```
 
-The following query retrieves all requests to the ADS. This query shows a way to
-retrieve the request header contents for MediaTailor logs.
+The following query retrieves all requests to the ADS. This query shows a way to retrieve the request header contents for MediaTailor logs. 
 
 ```
 fields @timestamp, adsRequestUrl, requestHeaders.0.value as @userAgent, requestHeaders.1.value as @xForwardedFor, sessionId, requestId
@@ -22,8 +20,7 @@ fields @timestamp, adsRequestUrl, requestHeaders.0.value as @userAgent, requestH
 | sort @timestamp asc
 ```
 
-The following query retrieves the ads MediaTailor inserted for a given
-session.
+The following query retrieves the ads MediaTailor inserted for a given session.
 
 ```
 fields @timestamp, sessionId, requestId, @message
@@ -31,8 +28,7 @@ fields @timestamp, sessionId, requestId, @message
 | sort @timestamp asc
 ```
 
-The following query retrieves the tracking URLs that MediaTailor called on
-behalf of the player.
+The following query retrieves the tracking URLs that MediaTailor called on behalf of the player.
 
 ```
 fields @timestamp, beaconInfo.trackingEvent, beaconInfo.beaconUri, beaconInfo.headers.0.value as @userAgent, beaconInfo.headers.1.value as @xForwardedFor, sessionId, requestId
@@ -40,8 +36,7 @@ fields @timestamp, beaconInfo.trackingEvent, beaconInfo.beaconUri, beaconInfo.he
 | sort @timestamp asc
 ```
 
-The following query retrieves information for a specific playback session, by
-filtering the results by `sessionId`.
+The following query retrieves information for a specific playback session, by filtering the results by `sessionId`. 
 
 ```
 fields @timestamp, eventType, sessionId, requestId, @message
@@ -49,8 +44,7 @@ fields @timestamp, eventType, sessionId, requestId, @message
 | sort @timestamp asc
 ```
 
-The following query retrieves information for a single request, by filtering the
-results by `requestId`.
+The following query retrieves information for a single request, by filtering the results by `requestId`.
 
 ```
 fields @timestamp, eventType, sessionId, requestId, @message
@@ -58,16 +52,14 @@ fields @timestamp, eventType, sessionId, requestId, @message
 | sort @timestamp asc
 ```
 
-The following query retrieves a count of log entries for each event type that was
-logged.
+The following query retrieves a count of log entries for each event type that was logged.
 
 ```
 fields eventType
 | stats count() as @eventCount by eventType
 ```
 
-The following query retrieves the avail ID and list of skipped ads for all avails
-that had skipped ads.
+The following query retrieves the avail ID and list of skipped ads for all avails that had skipped ads.
 
 ```
 fields avail.availId

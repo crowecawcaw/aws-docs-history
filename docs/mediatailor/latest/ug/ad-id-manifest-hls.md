@@ -1,34 +1,19 @@
+
+
 # Personalizing HLS manifests with ad metadata
+<a name="ad-id-manifest-hls"></a>
 
-For a live HLS stream, MediaTailor only adds metadata when the stream contains
-`PROGRAM-DATA-TIME` tags, at least once per manifest duration. For a
-video on demand (VOD) stream, MediaTailor adds `PROGRAM-DATE-TIME` to at least
-one segment in the personalized manifest, where the start time for each VOD asset is
-epoch zero (`1970-01-01T00:00:00Z`). If the origin manifest has existing
-`PROGRAM-DATE-TIME` content, then MediaTailor preserves that
-content.
+For a live HLS stream, MediaTailor only adds metadata when the stream contains `PROGRAM-DATA-TIME` tags, at least once per manifest duration. For a video on demand (VOD) stream, MediaTailor adds `PROGRAM-DATE-TIME` to at least one segment in the personalized manifest, where the start time for each VOD asset is epoch zero (`1970-01-01T00:00:00Z`). If the origin manifest has existing `PROGRAM-DATE-TIME` content, then MediaTailor preserves that content.
 
-MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server
-(ADS). For each ad, MediaTailor also includes a `DATERANGE` tag that spans the
-duration of the ad. The `DATERANGE` tag format is similar to that
-described in the section [Ad creative signaling in DASH and HLS](https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/ "https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/") in the 2023 version of the
-_SVA technical publication_.
+MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server (ADS). For each ad, MediaTailor also includes a `DATERANGE` tag that spans the duration of the ad. The `DATERANGE` tag format is similar to that described in the section [Ad creative signaling in DASH and HLS](https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/) in the 2023 version of the *SVA technical publication*.
 
-The `DATERANGE` that MediaTailor generates has unique ID values. To ensure
-uniqueness (given the guidelines specified in [Mapping SCTE-35 into EXT-X-DATERANGE](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1 "https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1")), MediaTailor couples the
-`MEDIA-SEQUENCE` number of the _first_ ad segment of the avail with the sequence number of the ad
-within the avail.
+The `DATERANGE` that MediaTailor generates has unique ID values. To ensure uniqueness (given the guidelines specified in [Mapping SCTE-35 into EXT-X-DATERANGE](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1)), MediaTailor couples the `MEDIA-SEQUENCE` number of the *first* ad segment of the avail with the sequence number of the ad within the avail.
 
-For underfilled ad breaks on configurations that have slate enabled, MediaTailor appends
-the slate segments to the end of the avail, separated by a
-`DISCONTINUITY` tag, but without any `DATERANGE`
-metadata.
+For underfilled ad breaks on configurations that have slate enabled, MediaTailor appends the slate segments to the end of the avail, separated by a `DISCONTINUITY` tag, but without any `DATERANGE` metadata.
 
-For each ad stitched into the personalized manifest, MediaTailor adds the creative
-metadata, represented as base64-encoded data in a custom `DATERANGE`
-tag.
+For each ad stitched into the personalized manifest, MediaTailor adds the creative metadata, represented as base64-encoded data in a custom `DATERANGE` tag.
 
-###### Example Linear HLS origin (`#EXT-X-CUE-OUT`):
+**Example Linear HLS origin (`#EXT-X-CUE-OUT`):**  
 
 ```
 #EXTM3U
@@ -80,7 +65,7 @@ index_1_411.ts?m=1676054627
 index_1_412.ts?m=1676054627
 ```
 
-###### Example Linear HLS origin (`#EXT-X-DATERANGE`):
+**Example Linear HLS origin (`#EXT-X-DATERANGE`):**  
 
 ```
 #EXTM3U
@@ -124,15 +109,9 @@ index_1_39.ts?m=1676056675
 index_1_40.ts?m=1676056675
 ```
 
-###### Example Linear HLS personalized manifest (with creative ad signaling):
-
-The `DATERANGE` that MediaTailor generates has unique ID values. To
-ensure uniqueness (given the guidelines specified in [Mapping SCTE-35 into EXT-X-DATERANGE](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1 "https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1")), MediaTailor couples the
-`MEDIA-SEQUENCE` number of the _first_ ad segment of the avail with the sequence number of the ad
-within the avail.
-
-In the following example, MediaTailor concatenates `MEDIA-SEQUENCE` 421
-with the ad position number.
+**Example Linear HLS personalized manifest (with creative ad signaling):**  
+The `DATERANGE` that MediaTailor generates has unique ID values. To ensure uniqueness (given the guidelines specified in [Mapping SCTE-35 into EXT-X-DATERANGE](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1)), MediaTailor couples the `MEDIA-SEQUENCE` number of the *first* ad segment of the avail with the sequence number of the ad within the avail.  
+In the following example, MediaTailor concatenates `MEDIA-SEQUENCE` 421 with the ad position number.  
 
 ```
 #EXTM3U
@@ -149,7 +128,7 @@ https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/in
 https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/index_1_399.ts?m=1676054627
 #EXT-X-DISCONTINUITY
 #EXT-X-PROGRAM-DATE-TIME:2023-02-10T19:19:55.391Z
-#EXT-X-DATERANGE:ID="421-1",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="`base64JSON`"
+#EXT-X-DATERANGE:ID="421-1",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="{{base64JSON}}"
 #EXTINF:2.002,
 ../../../../segment/94063eadf7d8c56e9e2edd84fdf897826a70d0df/emt/9e178fa9-dce5-4248-83d2-5b5d98b019bf/0/1676056813
 #EXTINF:2.002,
@@ -169,7 +148,7 @@ https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/in
 #EXT-X-DISCONTINUITY
 #EXT-X-PROGRAM-DATE-TIME:2023-02-10T19:19:55.391Z
 #EXT-X-DATERANGE:ID="421-1",START-DATE="2023-02-10T19:36:13.435Z",END-DATE="2023-02-10T19:36:43.432Z",DURATION=15.015
-#EXT-X-DATERANGE:ID="421-2",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="`base64JSON`"
+#EXT-X-DATERANGE:ID="421-2",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="{{base64JSON}}"
 #EXTINF:2.002,
 ../../../../segment/94063eadf7d8c56e9e2edd84fdf897826a70d0df/emt/9e178fa9-dce5-4248-83d2-5b5d98b019bf/0/1676056821
 #EXTINF:2.002,
@@ -189,7 +168,7 @@ https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/in
 #EXT-X-DISCONTINUITY
 #EXT-X-PROGRAM-DATE-TIME:2023-02-10T19:19:55.391Z
 #EXT-X-DATERANGE:ID="421-2",START-DATE="2023-02-10T19:36:13.435Z",END-DATE="2023-02-10T19:36:43.432Z",DURATION=15.015
-#EXT-X-DATERANGE:ID="421-3",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="`base64JSON`"
+#EXT-X-DATERANGE:ID="421-3",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="{{base64JSON}}"
 #EXTINF:2.002,
 ../../../../segment/94063eadf7d8c56e9e2edd84fdf897826a70d0df/emt/9e178fa9-dce5-4248-83d2-5b5d98b019bf/0/1676056829
 #EXTINF:2.002,
@@ -209,7 +188,7 @@ https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/in
 #EXT-X-DISCONTINUITY
 #EXT-X-PROGRAM-DATE-TIME:2023-02-10T19:19:55.391Z
 #EXT-X-DATERANGE:ID="421-3",START-DATE="2023-02-10T19:36:13.435Z",END-DATE="2023-02-10T19:36:43.432Z",DURATION=29.997
-#EXT-X-DATERANGE:ID="421-4",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="`base64JSON`"
+#EXT-X-DATERANGE:ID="421-4",CLASS="urn:sva:advertising-wg:ad-id-signaling",START-DATE=2019-01-01T00:02:30.000Z,DURATION=15.015,X-AD-CREATIVE-SIGNALING="{{base64JSON}}"
 #EXTINF:2.002,
 ../../../../segment/94063eadf7d8c56e9e2edd84fdf897826a70d0df/emt/9e178fa9-dce5-4248-83d2-5b5d98b019bf/0/1676056837
 #EXTINF:2.002,
@@ -234,7 +213,7 @@ https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/in
 https://d3fch9e2fcarly.cloudfront.net/out/v1/1cc7058242a74fdd8aea14e22a9b4131/index_1_411.ts?m=1676054627
 ```
 
-###### Example VOD HLS origin (with SCTE signals):
+**Example VOD HLS origin (with SCTE signals):**  
 
 ```
 #EXTM3U
@@ -270,7 +249,7 @@ index_720p1500k_00011.ts
 index_720p1500k_00012.ts
 ```
 
-###### Example VOD HLS origin:
+**Example VOD HLS origin:**  
 
 ```
 #EXTM3U
@@ -304,19 +283,10 @@ index_720p1500k_00011.ts
 index_720p1500k_00012.ts
 ```
 
-###### Example VOD HLS personalized manifest:
-
-MediaTailor adds `PROGRAM-DATE-TIME` to VOD manifests in order to use
-them as anchors for the HLS `DATERANGE` elements that indicate ad
-positions.
-
-The `DATERANGE` that MediaTailor generates has unique ID values. To
-ensure uniqueness (given the guidelines specified in [Mapping SCTE-35 into EXT-X-DATERANGE](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1 "https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1")), MediaTailor couples the
-`MEDIA-SEQUENCE` number of the _first_ ad segment of the avail with the sequence number of the ad
-within the avail.
-
-In the following example, MediaTailor concatenates `MEDIA-SEQUENCE` 421
-with the ad position number.
+**Example VOD HLS personalized manifest:**  
+MediaTailor adds `PROGRAM-DATE-TIME` to VOD manifests in order to use them as anchors for the HLS `DATERANGE` elements that indicate ad positions.  
+The `DATERANGE` that MediaTailor generates has unique ID values. To ensure uniqueness (given the guidelines specified in [Mapping SCTE-35 into EXT-X-DATERANGE](https://datatracker.ietf.org/doc/html/draft-pantos-http-live-streaming-23#section-4.3.2.7.1)), MediaTailor couples the `MEDIA-SEQUENCE` number of the *first* ad segment of the avail with the sequence number of the ad within the avail.  
+In the following example, MediaTailor concatenates `MEDIA-SEQUENCE` 421 with the ad position number.  
 
 ```
 #EXTM3U

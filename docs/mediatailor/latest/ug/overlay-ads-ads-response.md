@@ -1,25 +1,19 @@
-# Ad Decision Server (ADS) response
 
-The ADS response must contain one valid tracking event. At minimum, the tracking
-event can be an `Impression` tracking event. The tracking event should
-contain at least one `NonLinear` ad. This ad is the overlay ad, taking
-the form of a static, HTML, or iFrame resource.
+
+# Ad Decision Server (ADS) response
+<a name="overlay-ads-ads-response"></a>
+
+The ADS response must contain one valid tracking event. At minimum, the tracking event can be an `Impression` tracking event. The tracking event should contain at least one `NonLinear` ad. This ad is the overlay ad, taking the form of a static, HTML, or iFrame resource.
 
 ```
 <vmap AdBreak breaktype="linear" breakId="csoverlay"
 ```
 
-If the VAST response is a VMAP with `breakType` of `nonlinear`, the avail metadata is inside
-the `nonLinearAvails` root object. If the VAST response is a VMAP with a `breakType` of `linear`,
-or is a plain VAST response without VMAP, the avail metadata is inside the `avails` root
-object.
+If the VAST response is a VMAP with `breakType` of `nonlinear`, the avail metadata is inside the `nonLinearAvails` root object. If the VAST response is a VMAP with a `breakType` of `linear`, or is a plain VAST response without VMAP, the avail metadata is inside the `avails` root object.
 
-The following VAST response is a wrapped VMAP response with a
-`breakType` value of `linear`.
+The following VAST response is a wrapped VMAP response with a `breakType` value of `linear`.
 
-In addition to the wrapped VMAP response, MediaTailor also supports a wrapped VMAP
-response with a `breakType` value of `nonlinear`, and a plain
-VAST response.
+In addition to the wrapped VMAP response, MediaTailor also supports a wrapped VMAP response with a `breakType` value of `nonlinear`, and a plain VAST response.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -32,12 +26,12 @@ VAST response.
             <InLine>
               <AdSystem>2.0</AdSystem>
               <AdTitle>2</AdTitle>
-              <Impression><![CDATA[`https://adserver.com/beacon=impression`]]></Impression>
+              <Impression><![CDATA[{{https://adserver.com/beacon=impression}}]]></Impression>
               <Creatives>
                 <Creative>
                   <NonLinearAds>
                     <NonLinear width="640" height="360" id="18">
-                      <StaticResource creativeType="text/js_ref"><![CDATA[`https://client-side-ads.com/tags/static/ctv-generic/overlay001.json?iv_geo_country%3DUS%26`]]></StaticResource>
+                      <StaticResource creativeType="text/js_ref"><![CDATA[{{https://client-side-ads.com/tags/static/ctv-generic/overlay001.json?iv_geo_country%3DUS%26}}]]></StaticResource>
                     </NonLinear>
                   </NonLinearAds>
                 </Creative>
@@ -48,14 +42,14 @@ VAST response.
       </vmap:VASTAdData>
     </vmap:AdSource>
     <vmap:TrackingEvents>
-      <vmap:Tracking event="breakStart"><![CDATA[`https://adserver.com/beacon=breakstartimpression`]]></vmap:Tracking>
-      <vmap:Tracking event="breakEnd"><![CDATA[`https://adserver.com/beacon=breakendimpression`]]></vmap:Tracking>
+      <vmap:Tracking event="breakStart"><![CDATA[{{https://adserver.com/beacon=breakstartimpression}}]]></vmap:Tracking>
+      <vmap:Tracking event="breakEnd"><![CDATA[{{https://adserver.com/beacon=breakendimpression}}]]></vmap:Tracking>
     </vmap:TrackingEvents>
   </vmap:AdBreak>
 </vmap:VMAP>
 ```
 
-###### Example 1: DASH manifest source to MediaTailor
+**Example 1: DASH manifest source to MediaTailor**  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -67,19 +61,19 @@ VAST response.
     <EventStream timescale="90000" schemeIdUri="urn:scte:scte35:2014:xml+bin">
     <Event duration="540000" id="144">
         <scte35:Signal>
-            <scte35:Binary>`SCTE35-binary`</scte35:Binary>
+            <scte35:Binary>{{SCTE35-binary}}</scte35:Binary>
         </scte35:Signal>
     </Event>
     </EventStream>
-    ...
+    ... 
   </Period>
-  <Period start="PT46921.928S" id="49">
+  <Period start="PT46921.928S" id="49"> 
   ...
   </Period>
 </MPD>
 ```
 
-###### Example 2: MediaTailor personalized DASH manifest containing an ad ID decoration
+**Example 2: MediaTailor personalized DASH manifest containing an ad ID decoration**  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,11 +84,11 @@ VAST response.
   <Period start="PT46915.922S" id="45" duration="PT6.006S">
   <EventStream schemeIdUri="urn:sva:advertising-wg:ad-id-signaling" timescale="90000">
     <Event presentationTime="13500000" duration="1351350">
-    <![CDATA[{"version": 1,"identifiers": [{"scheme": "urn:smpte:ul:060E2B34.01040101.01200900.00000000","value": "`adId`","ad_position": "`adId`", "ad_type":"overlay","creative_id": "`creativeId`","tracking_uri": "`trackingUri`"}]}]]></Event>
+    <![CDATA[{"version": 1,"identifiers": [{"scheme": "urn:smpte:ul:060E2B34.01040101.01200900.00000000","value": "{{adId}}","ad_position": "{{adId}}", "ad_type":"overlay","creative_id": "{{creativeId}}","tracking_uri": "{{trackingUri}}"}]}]]></Event>
   </EventStream>
   ...
   </Period>
-  <Period start="PT46921.928S" id="49">
+  <Period start="PT46921.928S" id="49"> 
   ...
   </Period>
 </MPD>

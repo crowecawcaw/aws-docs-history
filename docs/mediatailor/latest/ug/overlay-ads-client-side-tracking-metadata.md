@@ -1,17 +1,13 @@
+
+
 # Tracking overlay ads with client-side metadata
+<a name="overlay-ads-client-side-tracking-metadata"></a>
 
-MediaTailor places the overlay ads in the `nonLinearAdsList` of the avail. The
-MediaTailor client-side tracking API has two root objects, called `avails` and
-`nonLinearAvails`. If the VAST response is a VMAP with
-`breakType` of `nonlinear`, the avail metadata is inside the
-`nonLinearAvails` root object. If the VAST response is a VMAP with a
-`breakType` of `linear`, or is a plain VAST response without
-VMAP, the avail metadata is inside the `avails` root object.
+MediaTailor places the overlay ads in the `nonLinearAdsList` of the avail. The MediaTailor client-side tracking API has two root objects, called `avails` and `nonLinearAvails`. If the VAST response is a VMAP with `breakType` of `nonlinear`, the avail metadata is inside the `nonLinearAvails` root object. If the VAST response is a VMAP with a `breakType` of `linear`, or is a plain VAST response without VMAP, the avail metadata is inside the `avails` root object.
 
-For more information about client-side tracking, see [Client-side ad tracking](ad-reporting-client-side.md "ad-reporting-client-side.md").
+For more information about client-side tracking, see [Client-side ad tracking](ad-reporting-client-side.md).
 
-The following example shows a plain VAST response or VMAP response with a
-`breakType` value of `linear`.
+The following example shows a plain VAST response or VMAP response with a `breakType` value of `linear`.
 
 ```
 {
@@ -20,13 +16,13 @@ The following example shows a plain VAST response or VMAP response with a
       "adBreakTrackingEvents": [
         {
           "beaconUrls": [
-            "`https://adserver.com/beacon=breakstartimpression`"
+            "{{https://adserver.com/beacon=breakstartimpression}}"
           ],
           "eventType": "breakStart"
         },
         {
           "beaconUrls": [
-            "`https://adserver.com/beacon=breakendimpression`"
+            "{{https://adserver.com/beacon=breakendimpression}}"
           ],
           "eventType": "breakEnd"
         }
@@ -64,7 +60,7 @@ The following example shows a plain VAST response or VMAP response with a
               "maintainAspectRatio": false,
               "minSuggestedDuration": null,
               "scalable": false,
-              "staticResource": "`https://client-side-ads.com/tags/static/ctv-generic/overlay001.json?iv_geo_country%3DUS%26`",
+              "staticResource": "{{https://client-side-ads.com/tags/static/ctv-generic/overlay001.json?iv_geo_country%3DUS%26}}",
               "staticResourceCreativeType": "text/js_ref",
               "width": "640"
             }
@@ -96,8 +92,7 @@ The following example shows a plain VAST response or VMAP response with a
 }
 ```
 
-The following example shows a plain VMAP response with a `breakType` value
-of `nonlinear`.
+The following example shows a plain VMAP response with a `breakType` value of `nonlinear`.
 
 ```
 {
@@ -110,13 +105,13 @@ of `nonlinear`.
       "adBreakTrackingEvents": [
         {
           "beaconUrls": [
-            "`https://adserver.com/beacon=breakstartimpression`"
+            "{{https://adserver.com/beacon=breakstartimpression}}"
           ],
           "eventType": "breakStart"
         },
         {
           "beaconUrls": [
-            "`https://adserver.com/beacon=breakendimpression`"
+            "{{https://adserver.com/beacon=breakendimpression}}"
           ],
           "eventType": "breakEnd"
         }
@@ -154,7 +149,7 @@ of `nonlinear`.
               "maintainAspectRatio": false,
               "minSuggestedDuration": null,
               "scalable": false,
-              "staticResource": "`https://client-side-ads.com/tags/static/ctv-generic/overlay001.json?iv_geo_country%3DUS%26`",
+              "staticResource": "{{https://client-side-ads.com/tags/static/ctv-generic/overlay001.json?iv_geo_country%3DUS%26}}",
               "staticResourceCreativeType": "text/js_ref",
               "width": "640"
             }
@@ -162,7 +157,7 @@ of `nonlinear`.
           "trackingEvents": [
             {
               "beaconUrls": [
-                "`https://adserver.com/beacon=impression`"
+                "{{https://adserver.com/beacon=impression}}"
               ],
               "duration": null,
               "durationInSeconds": 0,
@@ -180,5 +175,4 @@ of `nonlinear`.
     }
   ]
 }
-
 ```

@@ -1,10 +1,11 @@
+
+
 # Client-side tracking API
+<a name="ad-id-client-side-tracking-api"></a>
 
-The following example shows how a player SDK links the ad metadata in the manifest
-with the full tracking event data in the client-side tracking response payload with
-`creativeId` and `adId`.
+The following example shows how a player SDK links the ad metadata in the manifest with the full tracking event data in the client-side tracking response payload with `creativeId` and `adId`.
 
-###### Example JSON message:
+**Example JSON message:**  
 
 ```
 {
@@ -35,7 +36,7 @@ with the full tracking event data in the client-side tracking response payload w
           "trackingEvents": [
             {
               "beaconUrls": [
-                "https://`myServer`/impression"
+                "https://{{myServer}}/impression"
               ],
               "duration": "PT15S",
               "durationInSeconds": 15,

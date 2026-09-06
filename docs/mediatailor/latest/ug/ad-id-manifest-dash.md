@@ -1,20 +1,15 @@
+
+
 # Personalizing DASH manifests with ad metadata
+<a name="ad-id-manifest-dash"></a>
 
-MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server
-(ADS). For each ad, MediaTailor also includes an `EventStream` element that
-spans the duration of the ad. The `Event` element format is similar to
-that described in the section [Ad creative signaling in DASH and HLS](https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/ "https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/") in the 2023 version of the
-_SVA technical publication_.
+MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server (ADS). For each ad, MediaTailor also includes an `EventStream` element that spans the duration of the ad. The `Event` element format is similar to that described in the section [Ad creative signaling in DASH and HLS](https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/) in the 2023 version of the *SVA technical publication*.
 
-For underfilled ad breaks on configurations that have slate enabled, MediaTailor appends
-the slate period to the end of the avail period, but without any
-`EventStream` metadata
+For underfilled ad breaks on configurations that have slate enabled, MediaTailor appends the slate period to the end of the avail period, but without any `EventStream` metadata
 
-For each ad stitched into the personalized manifest, MediaTailor adds the creative
-metadata, represented as a `CDATA` element within an `Event`
-element.
+For each ad stitched into the personalized manifest, MediaTailor adds the creative metadata, represented as a `CDATA` element within an `Event` element.
 
-###### Example Linear DASH origin (Inline SCTE attributes):
+**Example Linear DASH origin (Inline SCTE attributes):**  
 
 ```
 <MPD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:scte35="urn:scte:scte35:2013:xml" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd" id="201" type="dynamic" publishTime="2023-02-10T21:08:40+00:00" minimumUpdatePeriod="PT6S" availabilityStartTime="2023-02-09T22:47:05.865000+00:00" minBufferTime="PT10S" suggestedPresentationDelay="PT20.000S" timeShiftBufferDepth="PT88.999S" profiles="urn:mpeg:dash:profile:isoff-live:2011">
@@ -140,7 +135,7 @@ element.
 </MPD>
 ```
 
-###### Example Linear DASH personalized manifest (with creative ad signaling):
+**Example Linear DASH personalized manifest (with creative ad signaling):**  
 
 ```
 <MPD availabilityStartTime="2023-02-09T22:47:05.865000+00:00" id="201" minBufferTime="PT10S" minimumUpdatePeriod="PT6S" profiles="urn:mpeg:dash:profile:isoff-live:2011" publishTime="2023-02-10T21:08:43+00:00" suggestedPresentationDelay="PT20.000S" timeShiftBufferDepth="PT88.999S" type="dynamic" xmlns="urn:mpeg:dash:schema:mpd:2011" xmlns:scte35="urn:scte:scte35:2013:xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mpeg:dash:schema:mpd:2011 http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-DASH_schema_files/DASH-MPD.xsd">

@@ -1,39 +1,27 @@
+
+
 # Securing AWS Elemental MediaTailor origin interactions with SigV4
+<a name="origin-sigv4"></a>
 
-Signature Version 4 (SigV4) is a signing protocol used to authenticate MediaTailor requests to
-supported origins over HTTPS. MediaTailor only supports HTTPS communication and does not allow HTTP
-connections. With SigV4 signing, MediaTailor includes a signed authorization header in the HTTPS
-origin request to MediaTailor Channel Assembly, Amazon S3 and AWS Elemental MediaPackage version 2.
+Signature Version 4 (SigV4) is a signing protocol used to authenticate MediaTailor requests to supported origins over HTTPS. MediaTailor only supports HTTPS communication and does not allow HTTP connections. With SigV4 signing, MediaTailor includes a signed authorization header in the HTTPS origin request to MediaTailor Channel Assembly, Amazon S3 and AWS Elemental MediaPackage version 2. 
 
-You can use SigV4 at your origin to ensure that manifest requests are only fulfilled if
-they’re from MediaTailor and contain a signed authorization header. This way, unauthorized MediaTailor
-playback configurations are blocked from accessing your origin content. If the signed
-authorization header is valid, your origin fulfills the request. If it isn't valid, the
-request fails.
+You can use SigV4 at your origin to ensure that manifest requests are only fulfilled if they’re from MediaTailor and contain a signed authorization header. This way, unauthorized MediaTailor playback configurations are blocked from accessing your origin content. If the signed authorization header is valid, your origin fulfills the request. If it isn't valid, the request fails.
 
-The following sections describe requirements for using MediaTailor SigV4 signing to supported
-origins.
+The following sections describe requirements for using MediaTailor SigV4 signing to supported origins.
 
 ## MediaTailor Channel Assembly requirements
+<a name="origin-sigv4-ca"></a>
 
-If you use SigV4 to protect your MediaTailor Channel Assembly origin, the following
-requirements must be met for MediaTailor to access the manifest:
+If you use SigV4 to protect your MediaTailor Channel Assembly origin, the following requirements must be met for MediaTailor to access the manifest:
++ The origin base URL in your MediaTailor configuration must be a Channel Assembly channel in the following format: `channel-assembly.mediatailor.{{region}}.amazonaws.com`
++ Your origin must be configured to use HTTPS. MediaTailor only supports HTTPS communication and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will not sign the request.
++ Your channel must have an origin access policy that includes the following:
+  + Principal access for MediaTailor to access your channel. Grant access to **mediatailor.amazonaws.com**.
+  + IAM permissions **mediatailor:GetManifest **to read all multivariant playlists referenced by the MediaTailor configuration.
 
-- The origin base URL in your MediaTailor configuration must be a Channel Assembly channel
-  in the following format:
-  `channel-assembly.mediatailor.`region`.amazonaws.com`
-- Your origin must be configured to use HTTPS. MediaTailor only supports HTTPS communication
-  and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will
-  not sign the request.
-- Your channel must have an origin access policy that includes the following:
+  For information about setting a policy on the channel, see [Create a channel using the MediaTailor console](channel-assembly-creating-channels.md).
 
-  - Principal access for MediaTailor to access your channel. Grant access to
-    **mediatailor.amazonaws.com**.
-  - IAM permissions **mediatailor:GetManifest** to read all
-    multivariant playlists referenced by the MediaTailor configuration.
-    For information about setting a policy on the channel, see [Create a channel using the MediaTailor console](channel-assembly-creating-channels.md "channel-assembly-creating-channels.md").
-
-###### Example origin access policy for Channel Assembly, scoped to the MediaTailor configuration account
+**Example origin access policy for Channel Assembly, scoped to the MediaTailor configuration account**  
 
 ```
 {
@@ -47,7 +35,7 @@ requirements must be met for MediaTailor to access the manifest:
 }
 ```
 
-###### Example origin access policy for Channel Assembly, scoped to the MediaTailor playback configuration
+**Example origin access policy for Channel Assembly, scoped to the MediaTailor playback configuration**  
 
 ```
 {
@@ -62,30 +50,20 @@ requirements must be met for MediaTailor to access the manifest:
 ```
 
 ## Amazon S3 requirements
+<a name="origin-sigv4-s3"></a>
 
-If you use SigV4 to protect your Amazon S3 origin, the following requirements must be met for
-MediaTailor to access the manifest:
+If you use SigV4 to protect your Amazon S3 origin, the following requirements must be met for MediaTailor to access the manifest:
++ The origin base URL in your MediaTailor configuration must be an S3 bucket in the following format: `s3.{{region}}.amazonaws.com`
++ Your origin must be configured to use HTTPS. MediaTailor only supports HTTPS communication and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will not sign the request.
++ Your channel must have an origin access policy that includes the following:
+  + Principal access for MediaTailor to access your bucket. Grant access to **mediatailor.amazonaws.com.** 
 
-- The origin base URL in your MediaTailor configuration must be an S3 bucket in the
-  following format: `s3.`region`.amazonaws.com`
-- Your origin must be configured to use HTTPS. MediaTailor only supports HTTPS communication
-  and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will
-  not sign the request.
-- Your channel must have an origin access policy that includes the following:
+    For information about configuring access in IAM, see [Access management](https://docs.aws.amazon.com/) in the *AWS Identity and Access Management User Guide*. 
+  + IAM permissions **s3:GetObject **to read all top-level manifests referenced by the MediaTailor configuration.
 
-  - Principal access for MediaTailor to access your bucket. Grant access to
-    **mediatailor.amazonaws.com.**
+ For general information about SigV4 for Amazon S3, see the [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) topic in the *Amazon S3 API reference*. 
 
-  For information about configuring access in IAM, see [Access management](../../../index.md "../../../index.md") in the _AWS
-  Identity and Access Management User Guide_.
-  - IAM permissions **s3:GetObject** to read all top-level
-    manifests referenced by the MediaTailor configuration.
-
-For general information about SigV4 for Amazon S3, see the [Authenticating Requests (AWS
-Signature Version 4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") topic in the _Amazon S3 API
-reference_.
-
-###### Example origin access policy for Amazon S3, scoped to the MediaTailor account
+**Example origin access policy for Amazon S3, scoped to the MediaTailor account**  
 
 ```
 {
@@ -99,7 +77,7 @@ reference_.
 }
 ```
 
-###### Example origin access policy for Amazon S3, scoped to the MediaTailor playback configuration
+**Example origin access policy for Amazon S3, scoped to the MediaTailor playback configuration**  
 
 ```
 {
@@ -114,28 +92,18 @@ reference_.
 ```
 
 ## MediaPackage requirements
+<a name="origin-sigv4-mp"></a>
 
-If you use SigV4 to protect your MediaPackage v2 origin, the following requirements must be met
-for MediaTailor to access the manifest:
+If you use SigV4 to protect your MediaPackage v2 origin, the following requirements must be met for MediaTailor to access the manifest:
++ The origin base URL in your MediaTailor configuration must be a MediaPackage v2 endpoint in the following format: `mediapackagev2.{{region}}.amazonaws.com`
++ Your origin must be configured to use HTTPS. MediaTailor only supports HTTPS communication and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will not sign the request.
++ Your channel must have an origin access policy that includes the following:
+  + Principal access for MediaTailor to access your endpoint. Grant access to **mediatailor.amazonaws.com.** 
+  + IAM permissions **mediapackagev2:GetObject **to read all multivariant playlists referenced by the MediaTailor configuration.
 
-- The origin base URL in your MediaTailor configuration must be a MediaPackage v2 endpoint in the
-  following format:
-  `mediapackagev2.`region`.amazonaws.com`
-- Your origin must be configured to use HTTPS. MediaTailor only supports HTTPS communication
-  and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will
-  not sign the request.
-- Your channel must have an origin access policy that includes the following:
+ For general information about SigV4 for MediaPackage v2, see the [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) topic in the *MediaPackage v2 API reference*.
 
-  - Principal access for MediaTailor to access your endpoint. Grant access to
-    **mediatailor.amazonaws.com.**
-  - IAM permissions **mediapackagev2:GetObject** to read all
-    multivariant playlists referenced by the MediaTailor configuration.
-
-For general information about SigV4 for MediaPackage v2, see the [Authenticating Requests (AWS
-Signature Version 4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") topic in the _MediaPackage v2 API
-reference_.
-
-###### Example origin access policy for MediaPackage v2, scoped to the MediaTailor account
+**Example origin access policy for MediaPackage v2, scoped to the MediaTailor account**  
 
 ```
 {
@@ -149,7 +117,7 @@ reference_.
 }
 ```
 
-###### Example origin access policy for MediaPackage v2, scoped to the MediaTailor playback configuration
+**Example origin access policy for MediaPackage v2, scoped to the MediaTailor playback configuration**  
 
 ```
 {

@@ -1,44 +1,24 @@
+
+
 # Ad-tracking activity timing
+<a name="ad-reporting-client-side-ad-tracking-schema-activity-timing"></a>
 
-With client-side reporting, the player must emit tracking events (beacons) with a level of
-precision. Using the MediaTailor client-side tracking schema, you can ensure that, for every avail,
-ad, companion, overlay, and tracking events, timing and duration information is present, and in
-different forms.
+With client-side reporting, the player must emit tracking events (beacons) with a level of precision. Using the MediaTailor client-side tracking schema, you can ensure that, for every avail, ad, companion, overlay, and tracking events, timing and duration information is present, and in different forms.
 
-Use the following MediaTailor key/value pairs for the player to accurately reconcile ad-event
-activities, such as tracking events, with playback position:
+Use the following MediaTailor key/value pairs for the player to accurately reconcile ad-event activities, such as tracking events, with playback position:
++ [startTime](ad-reporting-client-side-ad-tracking-schema.md#property-starttime) 
++  [startTimeInSeconds](ad-reporting-client-side-ad-tracking-schema.md#property-starttimeinseconds) 
++  [adProgramDateTime](ad-reporting-client-side-ad-tracking-schema.md#property-adprogramdatetime) 
++  [adID](ad-reporting-client-side-ad-tracking-schema.md#property-adid)/[eventId](ad-reporting-client-side-ad-tracking-schema.md#property-eventid) 
 
-- [startTime](ad-reporting-client-side-ad-tracking-schema.md#property-starttime "ad-reporting-client-side-ad-tracking-schema.md#property-starttime")
-- [startTimeInSeconds](ad-reporting-client-side-ad-tracking-schema.md#property-starttimeinseconds "ad-reporting-client-side-ad-tracking-schema.md#property-starttimeinseconds")
-- [adProgramDateTime](ad-reporting-client-side-ad-tracking-schema.md#property-adprogramdatetime "ad-reporting-client-side-ad-tracking-schema.md#property-adprogramdatetime")
-- [adID](ad-reporting-client-side-ad-tracking-schema.md#property-adid "ad-reporting-client-side-ad-tracking-schema.md#property-adid")/[eventId](ad-reporting-client-side-ad-tracking-schema.md#property-eventid "ad-reporting-client-side-ad-tracking-schema.md#property-eventid")
-  HLS and DASH implement the value of `startTime` and
-  `startTimeInSeconds` differently:
+HLS and DASH implement the value of `startTime` and `startTimeInSeconds` differently:
++ HLS - The `startTime` values are relative to the beginning of the playback session. The beginning of the playback session is defined as time zero. The ad's `startTime` is the sum of the cumulative values of all the `EXT-INF` segment durations leading up to the avail. The media-sequence number of the segment that the ad or tracking event falls on also corresponds to the `adId` or `eventId` in the client-side tracking response.
++ DASH:
+  + Live/dynamic manifests - The `startTime` values are relative to the `MPD@availabilityStartTime` of the DASH manifest. The `MPD@avaibilityStartTime` is a timing anchor for all MediaTailor sessions that consume the stream.
+  + VOD/static manifests - The `startTime` values are relative to the beginning of the playback session. The beginning of the playback session is defined as time zero. Each ad inside the avail is contained inside its own `Period` element. The `Period` element has a `@start` attribute with a value that's the same as the `startTime` values in the client-side tracking payload. The `PeriodId` also corresponds to the `adId` or `eventId` in the client-side tracking response.
 
-- HLS - The `startTime` values are relative to the beginning of the playback
-  session. The beginning of the playback session is defined as time zero. The ad's
-  `startTime` is the sum of the cumulative values of all the `EXT-INF`
-  segment durations leading up to the avail. The media-sequence number of the segment that the
-  ad or tracking event falls on also corresponds to the `adId` or
-  `eventId` in the client-side tracking response.
-- DASH:
-
-  - Live/dynamic manifests - The `startTime` values are relative to the
-    `MPD@availabilityStartTime` of the DASH manifest. The
-    `MPD@avaibilityStartTime` is a timing anchor for all MediaTailor sessions that
-    consume the stream.
-  - VOD/static manifests - The `startTime` values are relative to the
-    beginning of the playback session. The beginning of the playback session is defined as
-    time zero. Each ad inside the avail is contained inside its own `Period`
-    element. The `Period` element has a `@start` attribute with a
-    value that's the same as the `startTime` values in the client-side tracking
-    payload. The `PeriodId` also corresponds to the `adId` or
-    `eventId` in the client-side tracking response.
-
-###### Example: HLS
-
-In the following example, the MediaTailor session started, and the following manifest is the
-first one served to the client:
+**Example : HLS**  
+In the following example, the MediaTailor session started, and the following manifest is the first one served to the client:  
 
 ```
 #EXTM3U
@@ -73,21 +53,14 @@ https://123.cloudfront.net/tm/asset_1080_4_8_00002.ts
 #EXTINF:2.0,
 https://123.cloudfront.net/tm/asset_1080_4_8_00003.ts
 ```
+In the client-side tracking JSON payload, the following values apply:  
++  `startTime`: `"PT18.581355S"` 
++  `startTimeInSeconds`: `18.581` 
++  `availProgramDateTime`: `"2023-05-03T21:24:41.453Z"` 
++  `adId`: `4603269` 
 
-In the client-side tracking JSON payload, the following values apply:
-
-- `startTime`: `"PT18.581355S"`
-- `startTimeInSeconds`: `18.581`
-- `availProgramDateTime`: `"2023-05-03T21:24:41.453Z"`
-- `adId`: `4603269`
-
-###### Example: DASH
-
-In the following example, the MediaTailor session gets a midroll in the manifest. Note that the
-`@start` attribute value of the second period, which is the ad period, has a
-value that's relative to the `MPD@availabilityStartTime` value. This value is the
-one that MediaTailor writes into the client-side tracking response `startTime` fields,
-for all sessions.
+**Example : DASH**  
+In the following example, the MediaTailor session gets a midroll in the manifest. Note that the `@start` attribute value of the second period, which is the ad period, has a value that's relative to the `MPD@availabilityStartTime` value. This value is the one that MediaTailor writes into the client-side tracking response `startTime` fields, for all sessions.  
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -108,10 +81,8 @@ for all sessions.
     </Period>
 </MPD>
 ```
-
-In the client-side tracking JSON payload, the following values apply:
-
-- `startTime`: `"PT5042H27M59.931S"`
-- `startTimeInSeconds`: `18152879.931`
-- `availProgramDateTime`: `null`
-- `adId`: `1683151599194_1_1`
+In the client-side tracking JSON payload, the following values apply:  
++  `startTime`: `"PT5042H27M59.931S"` 
++  `startTimeInSeconds`: `18152879.931` 
++  `availProgramDateTime`: {{null}} 
++  `adId`: `1683151599194_1_1` 

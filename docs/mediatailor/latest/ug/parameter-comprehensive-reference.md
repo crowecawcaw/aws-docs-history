@@ -1,69 +1,53 @@
+
+
 # MediaTailor parameter reference and limitations
+<a name="parameter-comprehensive-reference"></a>
 
-Before configuring dynamic ad variables, understand the parameter formatting
-requirements and limitations that apply to all MediaTailor configurations.
+Before configuring dynamic ad variables, understand the parameter formatting requirements and limitations that apply to all MediaTailor configurations.
 
-AWS Elemental MediaTailor provides comprehensive information about parameter character restrictions,
-length limitations, and supported formats for both manifest query parameters and ADS
-parameters.
+AWS Elemental MediaTailor provides comprehensive information about parameter character restrictions, length limitations, and supported formats for both manifest query parameters and ADS parameters. 
 
 ## Manifest query parameter character restrictions
+<a name="manifest-parameter-character-restrictions"></a>
 
-Manifest query parameters support specific characters and have defined length
-limitations.
+Manifest query parameters support specific characters and have defined length limitations. 
 
-###### Supported characters (without URL-encoding)
+**Supported characters (without URL-encoding)**  
+You can use the following characters directly in manifest query parameters: 
++ Alphanumeric characters (A-Z, a-z, 0-9)
++ Periods (.)
++ Hyphens (-)
++ Underscores (\_)
++ Backslashes (\\)
 
-You can use the following characters directly in manifest query parameters:
+**Supported characters with URL-encoding**  
+The following special characters are supported when URL-encoded: 
++ period (.) = %2E
++ dash (-) = %2D
++ underscore (\_) = %5F
++ percent (%) = %25
++ tilde (\~) = %7E
++ forward slash (/) = %2F
++ asterisk (\*) = %2A
++ equals (=) = %3D
++ question (?) = %3F
 
-- Alphanumeric characters (A-Z, a-z, 0-9)
-- Periods (.)
-- Hyphens (-)
-- Underscores (\_)
-- Backslashes (\)
+**URL-encoding support**  
+MediaTailor supports the percent (%) sign when you use it in URL-encoding (for example, hello%20world = hello world). You can use any URL-encoded characters, as long as they are valid URL-encodings according to the HTTP specification. 
 
-###### Supported characters with URL-encoding
+**Unsupported characters**  
+You cannot use the following characters in manifest query parameters without URL-encoding: `:`, `?`, `&`, `=`, `%`, `/` (forward slash). 
 
-The following special characters are supported when URL-encoded:
+**Important**  
+MediaTailor doesn't support double characters such as %%% or ==. You can't use full URLs as manifest query parameter values due to character restrictions. 
 
-- period (.) = %2E
-- dash (-) = %2D
-- underscore (\_) = %5F
-- percent (%) = %25
-- tilde (~) = %7E
-- forward slash (/) = %2F
-- asterisk (\*) = %2A
-- equals (=) = %3D
-- question (?) = %3F
-
-###### URL-encoding support
-
-MediaTailor supports the percent (%) sign when you use it in URL-encoding (for
-example, hello%20world = hello world). You can use any URL-encoded characters,
-as long as they are valid URL-encodings according to the HTTP specification.
-
-###### Unsupported characters
-
-You cannot use the following characters in manifest query parameters without
-URL-encoding: `:`, `?`, `&`,
-`=`, `%`, `/` (forward slash).
-
-###### Important
-
-MediaTailor doesn't support double characters such as %%% or ==. You can't use full
-URLs as manifest query parameter values due to character restrictions.
-
-###### Length limitations
-
-The total length of all manifest query parameters (keys and values combined)
-must not exceed 2000 characters.
+**Length limitations**  
+The total length of all manifest query parameters (keys and values combined) must not exceed 2000 characters. 
 
 ## ADS parameter length limitations
+<a name="ads-parameter-limitations"></a>
 
-The following length limitations apply to parameters used in requests to the ADS:
-
-- **ADS parameter name**: Maximum 10,000
-  characters
-- **ADS parameter value**: Maximum 25,000
-  characters
-- **ADS URL**: Maximum 25,000 characters
+The following length limitations apply to parameters used in requests to the ADS: 
++ **ADS parameter name**: Maximum 10,000 characters
++ **ADS parameter value**: Maximum 25,000 characters
++ **ADS URL**: Maximum 25,000 characters

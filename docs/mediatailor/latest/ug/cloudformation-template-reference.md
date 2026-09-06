@@ -1,4 +1,7 @@
+
+
 # AWS CloudFormation template reference for AWS Elemental MediaTailor and Amazon CloudFront integration
+<a name="cloudformation-template-reference"></a>
 
 AWS Elemental MediaTailor integration with Amazon CloudFront can be automated using the following complete AWS CloudFormation template:
 
@@ -13,16 +16,16 @@ Parameters:
   AdServerUrl:
     Type: String
     Default: 'https://d1kbmkziz9rksx.CloudFront.net/VASTEndpoint.xml'
-    Description: URL of the VAST ad server for dynamic ad insertion. Static VAST endpoint provided for testing.
+    Description: URL of the VAST ad server for dynamic ad insertion. Static VAST endpoint provided for testing. 
 
   ContentOriginDomainName:
     Type: String
     Description: |
-      Domain name of your content origin without protocol (e.g., `mediapackage-domain.mediapackagev2.us-west-2.amazonaws.com`,
-      `mybucket.s3.amazonaws.com`, or `custom-origin.example.com`).
+      Domain name of your content origin without protocol (e.g., {{mediapackage-domain.mediapackagev2.us-west-2.amazonaws.com}},
+      {{mybucket.s3.amazonaws.com}}, or {{custom-origin.example.com}}).
       Do not include http:// or https:// prefixes or any paths.
     AllowedPattern: "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$"
-    ConstraintDescription: Must be a valid domain name (e.g., `example.com`) without protocol or path components. IP addresses are not allowed.
+    ConstraintDescription: Must be a valid domain name (e.g., {{example.com}}) without protocol or path components. IP addresses are not allowed.
 
   ContentOriginType:
     Type: String
@@ -87,7 +90,7 @@ Resources:
         HttpVersion: http2and3
         IPV6Enabled: true
         Comment: !Sub 'Distribution for MediaTailor ad insertion with ${ContentOriginType} origin'
-
+        
         # Default cache behavior points to the content origin
         DefaultCacheBehavior:
           TargetOriginId: ContentOrigin
@@ -97,7 +100,7 @@ Resources:
           OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf # Managed-HostHeaderOnly
           ResponseHeadersPolicyId: eaab4381-ed33-4a86-88ca-d9558dc6cd63  # Managed-CORS-with-preflight-and-SecurityHeadersPolicy
           Compress: true
-
+        
         # Define all the origins needed for the workflow
         Origins:
           # Main content origin (MediaPackage, Amazon S3, or Custom)
@@ -108,37 +111,37 @@ Resources:
             # For custom origins, we need a CustomOriginConfig
             CustomOriginConfig:
               OriginProtocolPolicy: 'https-only'
-              OriginSSLProtocols:
+              OriginSSLProtocols: 
                 - TLSv1.2
               OriginKeepaliveTimeout: 5
               OriginReadTimeout: 30
               HTTPPort: 80
               HTTPSPort: 443
-
+              
           # MediaTailor Manifests Origin - handles manifest manipulation for ad insertion
           - Id: MediaTailorManifests
             DomainName: !Sub 'manifests.mediatailor.${AWS::Region}.amazonaws.com'
             CustomOriginConfig:
               OriginProtocolPolicy: 'https-only'
-              OriginSSLProtocols:
+              OriginSSLProtocols: 
                 - TLSv1.2
               OriginKeepaliveTimeout: 5
               OriginReadTimeout: 30
-            # Origin Shield improves caching efficiency
+            # Origin Shield improves caching efficiency 
             OriginShield:
               Enabled: true
               OriginShieldRegion: !Ref AWS::Region
-
+              
           # MediaTailor Segments Origin - handles personalized ads
           - Id: MediaTailorSegments
             DomainName: !Sub 'segments.mediatailor.${AWS::Region}.amazonaws.com'
             CustomOriginConfig:
               OriginProtocolPolicy: 'https-only'
-              OriginSSLProtocols:
+              OriginSSLProtocols: 
                 - TLSv1.2
               OriginKeepaliveTimeout: 5
               OriginReadTimeout: 30
-
+        
         # Cache behaviors to route specific request patterns to the right origin
         CacheBehaviors:
           # Handle MediaTailor segment requests for ad content which are cache-able
@@ -149,7 +152,7 @@ Resources:
             OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # Managed-HostHeaderOnly
             ResponseHeadersPolicyId: eaab4381-ed33-4a86-88ca-d9558dc6cd63  # Managed-CORS-with-preflight-and-SecurityHeadersPolicy
             Compress: true
-
+            
           # Handle MediaTailor interstitial (SGAI) media requests which are cache-able
           - PathPattern: '/v1/i-media/*'
             TargetOriginId: MediaTailorManifests
@@ -158,7 +161,7 @@ Resources:
             OriginRequestPolicyId: 88a5eaf4-2fd4-4709-b370-b4c650ea3fcf  # Managed-HostHeaderOnly
             ResponseHeadersPolicyId: eaab4381-ed33-4a86-88ca-d9558dc6cd63  # Managed-CORS-with-preflight-and-SecurityHeadersPolicy
             Compress: true
-
+            
           # Handle MediaTailor Personalized manifests which are not cache-able
           - PathPattern: '/v1/*'
             TargetOriginId: MediaTailorManifests
@@ -167,7 +170,7 @@ Resources:
             OriginRequestPolicyId: 59781a5b-3903-41f3-afcb-af62929ccde1 # Managed-AllViewer
             ResponseHeadersPolicyId: eaab4381-ed33-4a86-88ca-d9558dc6cd63  # Managed-CORS-with-preflight-and-SecurityHeadersPolicy
             Compress: true
-
+            
           # Handle MediaTailor segment *redirect* requests which are not cache-able (used for server side reporting)
           - PathPattern: '/segment/*'
             TargetOriginId: MediaTailorManifests
@@ -184,15 +187,15 @@ Outputs:
   CloudFrontDomainName:
     Description: Domain name of the CloudFront distribution
     Value: !GetAtt CloudFrontDistribution.DomainName
-
+    
   HlsManifestUrl:
     Description: URL for HLS manifest with ads inserted (append your manifest path)
     Value: !Sub 'https://${CloudFrontDistribution.DomainName}${MediaTailorPlaybackConfig.HlsConfiguration.ManifestEndpointPrefix}'
-
+    
   DashManifestUrl:
     Description: URL for DASH manifest with ads inserted (append your manifest path)
     Value: !Sub 'https://${CloudFrontDistribution.DomainName}${MediaTailorPlaybackConfig.DashConfiguration.ManifestEndpointPrefix}'
-
+    
   MediaTailorPlaybackConfigName:
     Description: Name of the MediaTailor playback configuration
     Value: !Ref MediaTailorPlaybackConfig

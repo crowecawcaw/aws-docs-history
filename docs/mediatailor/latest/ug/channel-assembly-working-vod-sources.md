@@ -1,31 +1,15 @@
+
+
 # Working with VOD sources
+<a name="channel-assembly-working-vod-sources"></a>
 
-A VOD source represents a single piece of content, such as a video or an episode of a
-podcast, that you add to your source location. You add one or more VOD sources to your
-source location, and then associate each VOD source with a program after you create your
-channel.
+A VOD source represents a single piece of content, such as a video or an episode of a podcast, that you add to your source location. You add one or more VOD sources to your source location, and then associate each VOD source with a program after you create your channel.
 
-Each VOD source must have at least one _package
-configuration_. A package configuration specifies a package format,
-manifest location, and source group for your VOD source. When you create your channel,
-you use the package configuration's source groups to create the corresponding outputs on
-your channel. For example, if your source is packaged in two different formats—HLS and
-DASH—then you'd create two package configurations, one for DASH and one for HLS. Then,
-you would create two channel outputs, one for each package configuration. Each channel
-output provides an endpoint that's used for playback requests. So, using the preceding
-example, the channel would provide an endpoint for HLS playback requests and an endpoint
-for DASH playback requests.
+Each VOD source must have at least one *package configuration*. A package configuration specifies a package format, manifest location, and source group for your VOD source. When you create your channel, you use the package configuration's source groups to create the corresponding outputs on your channel. For example, if your source is packaged in two different formats—HLS and DASH—then you'd create two package configurations, one for DASH and one for HLS. Then, you would create two channel outputs, one for each package configuration. Each channel output provides an endpoint that's used for playback requests. So, using the preceding example, the channel would provide an endpoint for HLS playback requests and an endpoint for DASH playback requests. 
 
-If you would like the offsets of ad markers in your manifest to be detected
-automatically, each ad marker must appear at the same offset across all package
-configurations and have a duration of zero. For HLS, MediaTailor will detect `DATERANGE`
-and `EXT-X-CUE-OUT` tags. For DASH, HLS will detect the first Event tag within each
-`EventStream` tag.
+If you would like the offsets of ad markers in your manifest to be detected automatically, each ad marker must appear at the same offset across all package configurations and have a duration of zero. For HLS, MediaTailor will detect `DATERANGE` and` EXT-X-CUE-OUT` tags. For DASH, HLS will detect the first Event tag within each `EventStream` tag.
 
-In the following example, an ad break opportunity will be detected at an offset of
-12000ms because of the `DATERANGE` tag with a duration of 0.0. The first
-`DATERANGE` tag at an offset of 0ms will not be detected because it has a
-duration of 10.0.
+In the following example, an ad break opportunity will be detected at an offset of 12000ms because of the `DATERANGE` tag with a duration of 0.0. The first `DATERANGE` tag at an offset of 0ms will not be detected because it has a duration of 10.0.
 
 ```
 #EXTM3U
@@ -42,10 +26,7 @@ duration of 10.0.
 ../../../719f911124e0495cbb067c91c1d6c298/1785a16ca14d4c2884781f25333f6766/index_1_2.ts
 ```
 
-In the following example, an ad break opportunity will be detected at an offset of 0ms
-because the `EXT-X-CUE-OUT` tag has a duration of 0 and is followed immediately by an
-`EXT-X-CUE-IN` tag. The second `EXT-X-CUE-OUT`/`EXT-X-CUE-IN` pair will not be detected
-because it has a duration of 10.
+In the following example, an ad break opportunity will be detected at an offset of 0ms because the `EXT-X-CUE-OUT` tag has a duration of 0 and is followed immediately by an `EXT-X-CUE-IN` tag. The second `EXT-X-CUE-OUT`/`EXT-X-CUE-IN` pair will not be detected because it has a duration of 10.
 
 ```
 #EXTM3U
@@ -65,9 +46,7 @@ because it has a duration of 10.
 ../../../719f911124e0495cbb067c91c1d6c298/1785a16ca14d4c2884781f25333f6766/index_1_2.ts
 ```
 
-In the following example, an ad break opportunity will be detected at an offset of 0ms
-because the first Event in the `EventStream` occurs in the period starting at PT0.000S.
-The second `Event` in the `EventStream` will not be detected.
+In the following example, an ad break opportunity will be detected at an offset of 0ms because the first Event in the `EventStream` occurs in the period starting at PT0.000S. The second `Event` in the `EventStream` will not be detected.
 
 ```
 <Period start="PT0.000S" id="9912561" duration="PT29.433S">
@@ -80,7 +59,7 @@ The second `Event` in the `EventStream` will not be detected.
     </scte35:SpliceInsert>
   </scte35:SpliceInfoSection>
 </Event>
-<Event duration="0">
+<Event duration="0"> 
   <scte35:SpliceInfoSection protocolVersion="0" ptsAdjustment="1241950593" tier="4095">
     <scte35:SpliceInsert spliceEventId="99" spliceEventCancelIndicator="false" outOfNetworkIndicator="true" spliceImmediateFlag="false" uniqueProgramId="1" availNum="1" availsExpected="1">
       <scte35:Program><scte35:SpliceTime ptsTime="3552273000"/></scte35:Program>

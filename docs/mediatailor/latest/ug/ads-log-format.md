@@ -1,259 +1,313 @@
+
+
 # AWS Elemental MediaTailor ADS logs description and event types
+<a name="ads-log-format"></a>
 
-The following sections describe the logs that MediaTailor emits to describe events with the
-ad decision server (ADS). These are `AdDecisionServerInteractions`
-logs.
+The following sections describe the logs that MediaTailor emits to describe events with the ad decision server (ADS). These are `AdDecisionServerInteractions` logs.
 
-###### Topics
-
-- [AdDecisionServerInteractions events](#log-types-adsinteraction "#log-types-adsinteraction")
-- [ADS log description](#ads-log-description "#ads-log-description")
-- [ADS log JSON schema](#ads-log-json-schema "#ads-log-json-schema")
+**Topics**
++ [AdDecisionServerInteractions events](#log-types-adsinteraction)
++ [ADS log description](#ads-log-description)
++ [ADS log JSON schema](#ads-log-json-schema)
 
 ## AdDecisionServerInteractions events
+<a name="log-types-adsinteraction"></a>
 
-The following events are emitted during MediaTailor interactions with the ad decision
-server (ADS).
+The following events are emitted during MediaTailor interactions with the ad decision server (ADS). 
 
-| Log                                                   | Description                                                                                                                                                                                        |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AD_MARKER_FOUND`                                     | MediaTailor found an ad marker in the manifest.                                                                                                                                                    |
-| `BEACON_FIRED`                                        | A tracking beacon was fired to report ad events. In server-side<br>reporting mode (default), MediaTailor fires the beacon. In client-side<br>reporting mode, the playback device fires the beacon. |
-| `EMPTY_VAST_RESPONSE`                                 | The ADS returned an empty VAST response containing zero<br>ads.                                                                                                                                    |
-| `EMPTY_VMAP_RESPONSE`                                 | The ADS returned an empty VMAP response.                                                                                                                                                           |
-| `ERROR_ADS_INVALID_RESPONSE`                          | The ADS returned a non-200 status code.                                                                                                                                                            |
-| `ERROR_ADS_IO`                                        | MediaTailor encountered an error while trying to communicate with the<br>ADS.                                                                                                                      |
-| `ERROR_ADS_RESPONSE_PARSE`                            | MediaTailor encountered an error while parsing the ADS response.                                                                                                                                   |
-| `ERROR_ADS_RESPONSE_UNKNOWN_ROOT_ELEMENT`             | The ADS response contains an invalid root element.                                                                                                                                                 |
-| `ERROR_ADS_TIMEOUT`                                   | The MediaTailor request to the ADS timed out.                                                                                                                                                      |
-| `ERROR_DISALLOWED_HOST`                               | The ADS host is not allowed.                                                                                                                                                                       |
-| `ERROR_FIRING_BEACON_FAILED`                          | MediaTailor failed at firing the tracking beacon.                                                                                                                                                  |
-| `ERROR_PERSONALIZATION_DISABLED`                      | Ad insertion is disabled for this session.                                                                                                                                                         |
-| `ERROR_UNKNOWN`                                       | MediaTailor encountered an unknown error during the ADS<br>request.                                                                                                                                |
-| `ERROR_UNKNOWN_HOST`                                  | The ADS host is unknown.                                                                                                                                                                           |
-| `ERROR_VAST_INVALID_MEDIA_FILE`                       | The VAST `Ad` has an invalid or missing<br>`MediaFile` element.                                                                                                                                    |
-| `ERROR_VAST_INVALID_VAST_AD_TAG_URI`                  | The VAST response contains an invalid<br>`VASTAdTagURI`.                                                                                                                                           |
-| `ERROR_VAST_MISSING_CREATIVES`                        | The VAST `Ad` contains zero or multiple<br>`Creatives` elements. Exactly one<br>`Creatives` element is required.                                                                                   |
-| `ERROR_VAST_MISSING_IMPRESSION`                       | The VAST `Ad` contains zero `Impression`<br>elements. At least one `Impression` element is required.                                                                                               |
-| `ERROR_VAST_MISSING_MEDIAFILES`                       | The VAST `Ad` contains zero or multiple<br>`MediaFiles` elements. Exactly one<br>`MediaFiles` element is required.                                                                                 |
-| `ERROR_VAST_MISSING_OVERLAYS`                         | MediaTailor didn't receive any non-linear creatives from the ad server.                                                                                                                            |
-| `ERROR_VAST_MULTIPLE_LINEAR`                          | The VAST `Ad` contains multiple `Linear`<br>elements.                                                                                                                                              |
-| `ERROR_VAST_MULTIPLE_TRACKING_EVENTS`                 | The VAST `Ad` contains multiple<br>`TrackingEvents` elements.                                                                                                                                      |
-| `ERROR_VAST_REDIRECT_EMPTY_RESPONSE`                  | The VAST redirect request returned an empty response.                                                                                                                                              |
-| `ERROR_VAST_REDIRECT_FAILED`                          | The VAST redirect request encountered an error.                                                                                                                                                    |
-| `ERROR_VAST_REDIRECT_MULTIPLE_VAST`                   | The VAST redirect request returned multiple ads.                                                                                                                                                   |
-| `FILLED_AVAIL`                                        | MediaTailor successfully filled the avail.                                                                                                                                                         |
-| `FILLED_OVERLAY_AVAIL`                                | MediaTailor successfully filled the overlay avail.                                                                                                                                                 |
-| `INTERSTITIAL_VOD_FAILURE`                            | The ADS request or response encountered a problem while filling<br>interstitial avails for the VOD playlist. No ads will be<br>inserted.                                                           |
-| `INTERSTITIAL_VOD_SUCCESS`                            | MediaTailor successfully filled interstitial avails for the VOD<br>playlist.                                                                                                                       |
-| `MAKING_ADS_REQUEST`                                  | MediaTailor is requesting advertisements from the ADS.                                                                                                                                             |
-| `MODIFIED_TARGET_URL`                                 | MediaTailor modified the outbound target URL.                                                                                                                                                      |
-| `NON_AD_MARKER_FOUND`                                 | MediaTailor found a non-actionable ad marker in the manifest.                                                                                                                                      |
-| `PRE_ADS_REQUEST_FUNCTION_COMPLETED`                  | An individual function in the pre-ads request hook completed. This is an opt-in event type.                                                                                                        |
-| `PRE_ADS_REQUEST_FUNCTION_ERROR`                      | An individual function in the pre-ads request hook failed.                                                                                                                                         |
-| `PRE_ADS_REQUEST_HOOK_ERROR`                          | The pre-ads request hook execution failed.                                                                                                                                                         |
-| `PRE_ADS_REQUEST_HOOK_SUMMARY`                        | Summary of the pre-ads request hook execution, including success or error status. This is an opt-in event type.                                                                                    |
-| `RAW_ADS_RESPONSE`                                    | MediaTailor received a raw ADS response.                                                                                                                                                           |
-| `REDIRECTED_VAST_RESPONSE`                            | MediaTailor received a VAST response after following the VAST<br>redirect.                                                                                                                         |
-| `VAST_REDIRECT`                                       | The VAST ad response contains a redirect.                                                                                                                                                          |
-| `VAST_RESPONSE`                                       | MediaTailor received a VAST response.                                                                                                                                                              |
-| `VOD_TIME_BASED_AVAIL_PLAN_SUCCESS`                   | MediaTailor successfully created a time-based avail plan for the VOD<br>template.                                                                                                                  |
-| `VOD_TIME_BASED_AVAIL_PLAN_VAST_RESPONSE_FOR_OFFSET`  | MediaTailor is creating a time-based avail plan for the VOD template.<br>MediaTailor received a VAST response for the time offset.                                                                 |
-| `VOD_TIME_BASED_AVAIL_PLAN_WARNING_NO_ADVERTISEMENTS` | The ADS request or response encountered a problem while creating<br>a time-based avail plan for the VOD template. No ads will be<br>inserted.                                                      |
-| `WARNING_NO_ADVERTISEMENTS`                           | MediaTailor encountered a problem while filling the avail. No ads are<br>inserted.                                                                                                                 |
-| `WARNING_URL_VARIABLE_SUBSTITUTION_FAILED`            | MediaTailor can't substitute dynamic variables in the ADS URL. Check<br>the URL configuration.                                                                                                     |
-| `WARNING_VPAID_AD_DROPPED`                            | A VPAID ad dropped due to a missing slate, or the session uses<br>server-side reporting.                                                                                                           |
+
+| Log | Description | 
+| --- | --- | 
+| AD\_MARKER\_FOUND | MediaTailor found an ad marker in the manifest. | 
+| BEACON\_FIRED | A tracking beacon was fired to report ad events. In server-side reporting mode (default), MediaTailor fires the beacon. In client-side reporting mode, the playback device fires the beacon. | 
+| EMPTY\_VAST\_RESPONSE | The ADS returned an empty VAST response containing zero ads. | 
+| EMPTY\_VMAP\_RESPONSE | The ADS returned an empty VMAP response. | 
+| ERROR\_ADS\_INVALID\_RESPONSE | The ADS returned a non-200 status code. | 
+| ERROR\_ADS\_IO | MediaTailor encountered an error while trying to communicate with the ADS.  | 
+| ERROR\_ADS\_RESPONSE\_PARSE | MediaTailor encountered an error while parsing the ADS response.  | 
+| ERROR\_ADS\_RESPONSE\_UNKNOWN\_ROOT\_ELEMENT | The ADS response contains an invalid root element. | 
+| ERROR\_ADS\_TIMEOUT | The MediaTailor request to the ADS timed out. | 
+| ERROR\_DISALLOWED\_HOST | The ADS host is not allowed. | 
+| ERROR\_FIRING\_BEACON\_FAILED | MediaTailor failed at firing the tracking beacon. | 
+| ERROR\_PERSONALIZATION\_DISABLED | Ad insertion is disabled for this session. | 
+| ERROR\_UNKNOWN | MediaTailor encountered an unknown error during the ADS request. | 
+| ERROR\_UNKNOWN\_HOST | The ADS host is unknown. | 
+| ERROR\_VAST\_INVALID\_MEDIA\_FILE | The VAST Ad has an invalid or missing MediaFile element. | 
+| ERROR\_VAST\_INVALID\_VAST\_AD\_TAG\_URI | The VAST response contains an invalid VASTAdTagURI. | 
+| ERROR\_VAST\_MISSING\_CREATIVES | The VAST Ad contains zero or multiple Creatives elements. Exactly one Creatives element is required. | 
+| ERROR\_VAST\_MISSING\_IMPRESSION | The VAST Ad contains zero Impression elements. At least one Impression element is required.  | 
+| ERROR\_VAST\_MISSING\_MEDIAFILES | The VAST Ad contains zero or multiple MediaFiles elements. Exactly one MediaFiles element is required. | 
+| ERROR\_VAST\_MISSING\_OVERLAYS | MediaTailor didn't receive any non-linear creatives from the ad server.  | 
+| ERROR\_VAST\_MULTIPLE\_LINEAR | The VAST Ad contains multiple Linear elements. | 
+| ERROR\_VAST\_MULTIPLE\_TRACKING\_EVENTS | The VAST Ad contains multiple TrackingEvents elements. | 
+| ERROR\_VAST\_REDIRECT\_EMPTY\_RESPONSE | The VAST redirect request returned an empty response. | 
+| ERROR\_VAST\_REDIRECT\_FAILED | The VAST redirect request encountered an error. | 
+| ERROR\_VAST\_REDIRECT\_MULTIPLE\_VAST | The VAST redirect request returned multiple ads. | 
+| FILLED\_AVAIL | MediaTailor successfully filled the avail. | 
+| FILLED\_OVERLAY\_AVAIL | MediaTailor successfully filled the overlay avail. | 
+| INTERSTITIAL\_VOD\_FAILURE | The ADS request or response encountered a problem while filling interstitial avails for the VOD playlist. No ads will be inserted. | 
+| INTERSTITIAL\_VOD\_SUCCESS | MediaTailor successfully filled interstitial avails for the VOD playlist. | 
+| MAKING\_ADS\_REQUEST | MediaTailor is requesting advertisements from the ADS. | 
+| MODIFIED\_TARGET\_URL | MediaTailor modified the outbound target URL. | 
+| NON\_AD\_MARKER\_FOUND | MediaTailor found a non-actionable ad marker in the manifest. | 
+| PRE\_ADS\_REQUEST\_FUNCTION\_COMPLETED | An individual function in the pre-ads request hook completed. This is an opt-in event type. | 
+| PRE\_ADS\_REQUEST\_FUNCTION\_ERROR | An individual function in the pre-ads request hook failed. | 
+| PRE\_ADS\_REQUEST\_HOOK\_ERROR | The pre-ads request hook execution failed. | 
+| PRE\_ADS\_REQUEST\_HOOK\_SUMMARY | Summary of the pre-ads request hook execution, including success or error status. This is an opt-in event type. | 
+| RAW\_ADS\_RESPONSE | MediaTailor received a raw ADS response. | 
+| REDIRECTED\_VAST\_RESPONSE | MediaTailor received a VAST response after following the VAST redirect. | 
+| VAST\_REDIRECT | The VAST ad response contains a redirect. | 
+| VAST\_RESPONSE | MediaTailor received a VAST response. | 
+| VOD\_TIME\_BASED\_AVAIL\_PLAN\_SUCCESS | MediaTailor successfully created a time-based avail plan for the VOD template. | 
+| VOD\_TIME\_BASED\_AVAIL\_PLAN\_VAST\_RESPONSE\_FOR\_OFFSET | MediaTailor is creating a time-based avail plan for the VOD template. MediaTailor received a VAST response for the time offset. | 
+| VOD\_TIME\_BASED\_AVAIL\_PLAN\_WARNING\_NO\_ADVERTISEMENTS | The ADS request or response encountered a problem while creating a time-based avail plan for the VOD template. No ads will be inserted. | 
+| WARNING\_NO\_ADVERTISEMENTS | MediaTailor encountered a problem while filling the avail. No ads are inserted. | 
+| WARNING\_URL\_VARIABLE\_SUBSTITUTION\_FAILED | MediaTailor can't substitute dynamic variables in the ADS URL. Check the URL configuration. | 
+| WARNING\_VPAID\_AD\_DROPPED | A VPAID ad dropped due to a missing slate, or the session uses server-side reporting. | 
 
 ## ADS log description
+<a name="ads-log-description"></a>
 
-This section describes the structure and contents of the ADS log description. To
-explore on your own in a JSON editor, use the listing at [ADS log JSON schema](#ads-log-json-schema "#ads-log-json-schema").
+This section describes the structure and contents of the ADS log description. To explore on your own in a JSON editor, use the listing at [ADS log JSON schema](#ads-log-json-schema). 
 
-Each event in the ADS log contains the standard fields that are generated by
-CloudWatch Logs. For information, see [Analyze log data with
-CloudWatch Logs insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md").
+Each event in the ADS log contains the standard fields that are generated by CloudWatch Logs. For information, see [Analyze log data with CloudWatch Logs insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html). 
 
 ### ADS logs properties
+<a name="ads-logs-main"></a>
 
 This section describes the properties of the ADS logs.
 
-| Property                    | Type                                                                                             | Required | Description                                                                                                                                                                                                                                                                                                               |
-| --------------------------- | ------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `adsRequestUrl`             | string                                                                                           | false    | The full URL of the ADS request made by MediaTailor.                                                                                                                                                                                                                                                                      |
-| `avail`                     | object of type [avail](#ads-logs-avail "#ads-logs-avail")                                        | false    | Information about an avail that MediaTailor fills with ads. Currently, for the `FILLED_AVAIL` event type, this is the plan created by MediaTailor when it first encounters the avail. How the avail is eventually filled may vary from this plan, depending on how the content plays out.                                 |
-| `awsAccountId`              | string                                                                                           | true     | The AWS account ID for the MediaTailor configuration that was used for the session.                                                                                                                                                                                                                                       |
-| `customerId`                | string                                                                                           | true     | The hashed version of the AWS account ID, which you can use to correlate multiple log entries.                                                                                                                                                                                                                            |
-| `eventDescription`          | string                                                                                           | true     | A short description of the event that triggered this log message, provided by the MediaTailor service. By default, this is empty. Example: `Got VAST response`.                                                                                                                                                           |
-| `eventTimestamp`            | string                                                                                           | true     | The date and time of the event.                                                                                                                                                                                                                                                                                           |
-| `eventType`                 | string                                                                                           | true     | The code for the event that triggered this log message. Example: `VAST_RESPONSE`.                                                                                                                                                                                                                                         |
-| `errorType`                 | string                                                                                           | false    | Structured error classification. Present on `PRE_ADS_REQUEST_HOOK_ERROR` and `PRE_ADS_REQUEST_FUNCTION_ERROR` events. Values: `INTERNAL_ERROR`, `SYNTAX_ERROR`, `RESOURCE_LIMIT_ERROR`, `RESTRICTION_ERROR`, `TIMEOUT_ERROR`, `VALIDATION_ERROR`.                                                                         |
-| `cause`                     | string                                                                                           | false    | Error detail string describing the specific failure. Present on `PRE_ADS_REQUEST_HOOK_ERROR` and `PRE_ADS_REQUEST_FUNCTION_ERROR` events.                                                                                                                                                                                 |
-| `eventId`                   | string                                                                                           | false    | Unique identifier per hook invocation. Use this field to correlate hook-level and function-level events for the same execution. Present on Functions events only.                                                                                                                                                         |
-| `executionTimeMs`           | integer                                                                                          | false    | Execution time in milliseconds. Present on Functions events only.                                                                                                                                                                                                                                                         |
-| `functionId`                | string                                                                                           | false    | The identifier of the function. On hook events, this is the function configured on the hook. On function events, this is the individual function within the executor. Present on Functions events only.                                                                                                                   |
-| `functionType`              | string                                                                                           | false    | The type of function: `CUSTOM_OUTPUT`, `HTTP_REQUEST`, `SEQUENTIAL_EXECUTOR`, or `CONCURRENT_EXECUTOR`. Present on function-level events only.                                                                                                                                                                            |
-| `http`                      | object                                                                                           | false    | HTTP request and response details. Present on function-level events for `HTTP_REQUEST` functions only. Contains `request` (url, method, headers, body), `responseTimeMs`, `response` (statusCode, headers, body), and `truncated` (true when request or response body was truncated to fit within log event size limits). |
-| `input`                     | object                                                                                           | false    | Before-values of variables targeted by output expressions. Present on function-level events only.                                                                                                                                                                                                                         |
-| `output`                    | object                                                                                           | false    | Values produced by the function. Present on `PRE_ADS_REQUEST_FUNCTION_COMPLETED` events only.                                                                                                                                                                                                                             |
-| `status`                    | string                                                                                           | false    | Hook execution outcome: `SUCCESS` or `ERROR`. Present on `PRE_ADS_REQUEST_HOOK_SUMMARY` events only.                                                                                                                                                                                                                      |
-| `originId`                  | string                                                                                           | true     | The configuration name from the MediaTailor configuration. This is different from the video content source, which is also part of the configuration.                                                                                                                                                                      |
-| `prefetchScheduleName`      | string                                                                                           | false    | The name of the prefetch schedule associated with this ad event.                                                                                                                                                                                                                                                          |
-| `requestHeaders`            | array of type [requestheaders](#ads-logs-requestheaders "#ads-logs-requestheaders")              | false    | The headers that MediaTailor included with the ADS request. Typically, the logs include these when a request to the ADS fails, to help with troubleshooting.                                                                                                                                                              |
-| `requestId`                 | string                                                                                           | true     | The MediaTailor request ID, which you can use to correlate multiple log entries for the same request.                                                                                                                                                                                                                     |
-| `sessionId`                 | string                                                                                           | true     | The unique numeric identifier that MediaTailor assigned to the player session. All requests that a player makes for a session have the same session ID. Example: `e039fd39-09f0-46b2-aca9-9871cc116cde`.                                                                                                                  |
-| `sessionType`               | string (legal values: [DASH, HLS])                                                               | true     | The player's stream type.                                                                                                                                                                                                                                                                                                 |
-| `vastAd`                    | object of type [vastAd](#ads-logs-vastAd "#ads-logs-vastAd")                                     | false    | Information about a single ad parsed from the VAST response.                                                                                                                                                                                                                                                              |
-| `vastResponse`              | object of type [vastResponse](#ads-logs-vastResponse "#ads-logs-vastResponse")                   | false    | Information about the VAST response that MediaTailor received from the ADS.                                                                                                                                                                                                                                               |
-| `vodCreativeOffsets`        | object of type [vodCreativeOffsets](#ads-logs-vodCreativeOffsets "#ads-logs-vodCreativeOffsets") | false    | A map that indicates the time offsets in the manifest where MediaTailor will insert avails, based on the VMAP response.                                                                                                                                                                                                   |
-| `vodVastResponseTimeOffset` | number                                                                                           | false    | The VMAP specific time offset for VOD ad insertion.                                                                                                                                                                                                                                                                       |
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adsRequestUrl | string | false | The full URL of the ADS request made by MediaTailor. | 
+| avail | object of type [avail](#ads-logs-avail) | false | Information about an avail that MediaTailor fills with ads. Currently, for the FILLED\_AVAIL event type, this is the plan created by MediaTailor when it first encounters the avail. How the avail is eventually filled may vary from this plan, depending on how the content plays out.  | 
+| awsAccountId | string | true | The AWS account ID for the MediaTailor configuration that was used for the session. | 
+| customerId | string | true | The hashed version of the AWS account ID, which you can use to correlate multiple log entries. | 
+| eventDescription | string | true | A short description of the event that triggered this log message, provided by the MediaTailor service. By default, this is empty. Example: Got VAST response. | 
+| eventTimestamp | string | true | The date and time of the event. | 
+| eventType | string | true | The code for the event that triggered this log message. Example: VAST\_RESPONSE. | 
+| errorType | string | false | Structured error classification. Present on PRE\_ADS\_REQUEST\_HOOK\_ERROR and PRE\_ADS\_REQUEST\_FUNCTION\_ERROR events. Values: INTERNAL\_ERROR, SYNTAX\_ERROR, RESOURCE\_LIMIT\_ERROR, RESTRICTION\_ERROR, TIMEOUT\_ERROR, VALIDATION\_ERROR. | 
+| cause | string | false | Error detail string describing the specific failure. Present on PRE\_ADS\_REQUEST\_HOOK\_ERROR and PRE\_ADS\_REQUEST\_FUNCTION\_ERROR events. | 
+| eventId | string | false | Unique identifier per hook invocation. Use this field to correlate hook-level and function-level events for the same execution. Present on Functions events only. | 
+| executionTimeMs | integer | false | Execution time in milliseconds. Present on Functions events only. | 
+| functionId | string | false | The identifier of the function. On hook events, this is the function configured on the hook. On function events, this is the individual function within the executor. Present on Functions events only. | 
+| functionType | string | false | The type of function: CUSTOM\_OUTPUT, HTTP\_REQUEST, SEQUENTIAL\_EXECUTOR, or CONCURRENT\_EXECUTOR. Present on function-level events only. | 
+| http | object | false | HTTP request and response details. Present on function-level events for HTTP\_REQUEST functions only. Contains request (url, method, headers, body), responseTimeMs, response (statusCode, headers, body), and truncated (true when request or response body was truncated to fit within log event size limits). | 
+| input | object | false | Before-values of variables targeted by output expressions. Present on function-level events only. | 
+| output | object | false | Values produced by the function. Present on PRE\_ADS\_REQUEST\_FUNCTION\_COMPLETED events only. | 
+| status | string | false | Hook execution outcome: SUCCESS or ERROR. Present on PRE\_ADS\_REQUEST\_HOOK\_SUMMARY events only. | 
+| originId | string | true | The configuration name from the MediaTailor configuration. This is different from the video content source, which is also part of the configuration. | 
+| prefetchScheduleName | string | false | The name of the prefetch schedule associated with this ad event. | 
+| requestHeaders | array of type [requestheaders](#ads-logs-requestheaders) | false | The headers that MediaTailor included with the ADS request. Typically, the logs include these when a request to the ADS fails, to help with troubleshooting. | 
+| requestId | string | true | The MediaTailor request ID, which you can use to correlate multiple log entries for the same request. | 
+| sessionId | string | true | The unique numeric identifier that MediaTailor assigned to the player session. All requests that a player makes for a session have the same session ID. Example: e039fd39-09f0-46b2-aca9-9871cc116cde. | 
+| sessionType | string (legal values: [DASH, HLS]) | true | The player's stream type. | 
+| vastAd | object of type [vastAd](#ads-logs-vastAd) | false | Information about a single ad parsed from the VAST response. | 
+| vastResponse | object of type [vastResponse](#ads-logs-vastResponse) | false | Information about the VAST response that MediaTailor received from the ADS. | 
+| vodCreativeOffsets | object of type [vodCreativeOffsets](#ads-logs-vodCreativeOffsets) | false | A map that indicates the time offsets in the manifest where MediaTailor will insert avails, based on the VMAP response. | 
+| vodVastResponseTimeOffset | number | false | The VMAP specific time offset for VOD ad insertion. | 
 
 ### adContent
+<a name="ads-logs-adContent"></a>
 
 This section describes the properties of the ADS logs adContent.
 
-ADS Logs adContent Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `adPlaylistUris` | object of type [adPlaylistUris](#ads-logs-adPlaylistUris "#ads-logs-adPlaylistUris") | false | The mapping from the origin manifest for a variant to the ad manifest for the variant. For DASH, this contains a single entry, because all variants are represented in a single DASH manifest. |
+
+**ADS Logs adContent Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adPlaylistUris | object of type [adPlaylistUris](#ads-logs-adPlaylistUris) | false | The mapping from the origin manifest for a variant to the ad manifest for the variant. For DASH, this contains a single entry, because all variants are represented in a single DASH manifest.  | 
 
 ### adPlaylistUris
+<a name="ads-logs-adPlaylistUris"></a>
 
 This section describes the properties of the ADS logs adPlaylistUris.
 
-ADS Logs adPlaylistUris Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `<any string>` | string | false | The URL of the ad manifest for the specific variant. |
+
+**ADS Logs adPlaylistUris Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| <any string> | string | false | The URL of the ad manifest for the specific variant. | 
 
 ### avail
+<a name="ads-logs-avail"></a>
 
 This section describes the properties of the ADS logs avail.
 
-ADS Logs avail Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `availId` | string | true | The unique identifier for this avail. For HLS, this is the media sequence number where the avail begins. For DASH, this is the period ID. |
-| `creativeAds` | array of type [creativeAd](#ads-logs-creativeAd "#ads-logs-creativeAd") | true | The ads that MediaTailor inserted into the avail. |
-| `fillRate` | number | true | The rate at which the ads fill the avail duration, from 0.0 (for 0%) to 1.0 (for 100%). |
-| `filledDuration` | number | true | The sum of the durations of all the ads inserted into the avail. |
-| `numAds` | number | true | The number of ads that MediaTailor inserted into the avail. |
-| `originAvailDuration` | number | true | The duration of the avail as specified in the content stream from the origin (`CUE_OUT` or `SCTE`). |
-| `skippedAds` | array of type [skippedAd](#ads-logs-skippedAd "#ads-logs-skippedAd") | false | The ads that MediaTailor didn't insert, for reasons like `TRANSCODE_IN_PROGRESS` and `TRANSCODE_ERROR`.<br>For a list of skipped ad reasons, see [Ad skipping<br>troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). |
-| `slateAd` | object of type [slateAd](#ads-logs-slateAd "#ads-logs-slateAd") | true | Information about the slate ad, which MediaTailor uses to fill any unfilled segments in the avail. |
+
+**ADS Logs avail Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| availId | string | true | The unique identifier for this avail. For HLS, this is the media sequence number where the avail begins. For DASH, this is the period ID. | 
+| creativeAds | array of type [creativeAd](#ads-logs-creativeAd) | true | The ads that MediaTailor inserted into the avail. | 
+| fillRate | number | true | The rate at which the ads fill the avail duration, from 0.0 (for 0%) to 1.0 (for 100%). | 
+| filledDuration | number | true | The sum of the durations of all the ads inserted into the avail. | 
+| numAds | number | true | The number of ads that MediaTailor inserted into the avail. | 
+| originAvailDuration | number | true | The duration of the avail as specified in the content stream from the origin (CUE\_OUT or SCTE). | 
+| skippedAds | array of type [skippedAd](#ads-logs-skippedAd) | false | The ads that MediaTailor didn't insert, for reasons like TRANSCODE\_IN\_PROGRESS and TRANSCODE\_ERROR. For a list of skipped ad reasons, see [Ad skipping troubleshooting](troubleshooting-ad-skipping-overview.md). | 
+| slateAd | object of type [slateAd](#ads-logs-slateAd) | true | Information about the slate ad, which MediaTailor uses to fill any unfilled segments in the avail. | 
 
 ### creativeAd
+<a name="ads-logs-creativeAd"></a>
 
 This section describes the properties of the ADS logs creativeAd.
 
-ADS Logs creativeAd Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `adContent` | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad. |
-| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `trackingEvents` | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
-| `transcodedAdDuration` | number | true | The duration of the ad, calculated from the transcoded asset. |
-| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
-| `vastDuration` | number | true | The duration of the ad, as parsed from the VAST response. |
+
+**ADS Logs creativeAd Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adContent | object of type [adContent](#ads-logs-adContent) | true | Information about the content of the inserted ad. | 
+| creativeUniqueId | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad.  | 
+| trackingEvents | object of type [trackingEvents](#ads-logs-trackingEvents) | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. | 
+| transcodedAdDuration | number | true | The duration of the ad, calculated from the transcoded asset. | 
+| uri | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. | 
+| vastDuration | number | true | The duration of the ad, as parsed from the VAST response. | 
 
 ### requestheaders
+<a name="ads-logs-requestheaders"></a>
 
 This section describes the properties of the ADS logs requestheaders.
 
-ADS Logs requestheaders Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `name` | string | true | The name of the header. |
-| `value` | string | true | The value of the header. |
+
+**ADS Logs requestheaders Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| name | string | true | The name of the header. | 
+| value | string | true | The value of the header. | 
 
 ### skippedAd
+<a name="ads-logs-skippedAd"></a>
 
 This section describes the properties of the ADS logs skippedAd.
 
-ADS Logs skippedAd Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `adMezzanineUrl` | string | true | The mezzanine URL of the skipped ad. |
-| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `skippedReason` | string | true | The code that indicates why the ad wasn't inserted. Example: `TRANSCODE_IN_PROGRESS`.<br>For a list of skipped ad reasons, see [Ad skipping<br>troubleshooting](troubleshooting-ad-skipping-overview.md "troubleshooting-ad-skipping-overview.md"). |
-| `transcodedAdDuration` | number | false | The duration of the ad, calculated from the transcoded asset. |
-| `vastDuration` | number | true | The duration of the ad, as parsed from the VAST response. |
+
+**ADS Logs skippedAd Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adMezzanineUrl | string | true | The mezzanine URL of the skipped ad. | 
+| creativeUniqueId | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad.  | 
+| skippedReason | string | true | The code that indicates why the ad wasn't inserted. Example: TRANSCODE\_IN\_PROGRESS. For a list of skipped ad reasons, see [Ad skipping troubleshooting](troubleshooting-ad-skipping-overview.md). | 
+| transcodedAdDuration | number | false | The duration of the ad, calculated from the transcoded asset. | 
+| vastDuration | number | true | The duration of the ad, as parsed from the VAST response. | 
 
 ### slateAd
+<a name="ads-logs-slateAd"></a>
 
 This section describes the properties of the ADS logs slateAd.
 
-ADS Logs slateAd Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `adContent` | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad. |
-| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `transcodedAdDuration` | number | true | The duration of the ad, calculated from the transcoded asset. |
-| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
+
+**ADS Logs slateAd Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adContent | object of type [adContent](#ads-logs-adContent) | true | Information about the content of the inserted ad. | 
+| creativeUniqueId | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad.  | 
+| transcodedAdDuration | number | true | The duration of the ad, calculated from the transcoded asset. | 
+| uri | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. | 
 
 ### trackingEvents
+<a name="ads-logs-trackingEvents"></a>
 
 This section describes the properties of the ADS logs trackingEvents.
 
-ADS Logs trackingEvents Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `<any string>` | array of type string | false | The list of beacon URLs for the specified tracking event (impression, complete, and so on) |
+
+**ADS Logs trackingEvents Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| <any string> | array of type string | false | The list of beacon URLs for the specified tracking event (impression, complete, and so on) | 
 
 ### vastAd
+<a name="ads-logs-vastAd"></a>
 
 This section describes the properties of the ADS logs vastAd.
 
-ADS Logs vastAd Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `adSystem` | string | true | The value of the `AdSystem` tag in the VAST response. |
-| `adTitle` | string | true | The media files that are available for the ad in the VAST response. |
-| `creativeAdId` | string | true | The value of the adId attribute of the `Creative` tag in the VAST response. |
-| `creativeId` | string | true | The value of the id attribute of the `Creative` tag in the VAST response. |
-| `duration` | number | true | The approximate duration of the ad, based on the `duration` tag in the `linear` element of the VAST response. |
-| `trackingEvents` | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
-| `vastAdId` | string | true | The value of the id attribute of the `Ad` tag in the VAST response |
-| `vastAdTagUri` | string | false | The VMAP-specific redirect URI for an ad. |
-| `vastMediaFiles` | array of type [vastMediaFile](#ads-logs-vastMediaFile "#ads-logs-vastMediaFile") | true | The list of available media files for the ad in the VAST response. |
+
+**ADS Logs vastAd Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adSystem | string | true | The value of the AdSystem tag in the VAST response. | 
+| adTitle | string | true | The media files that are available for the ad in the VAST response. | 
+| creativeAdId | string | true | The value of the adId attribute of the Creative tag in the VAST response. | 
+| creativeId | string | true | The value of the id attribute of the Creative tag in the VAST response. | 
+| duration | number | true | The approximate duration of the ad, based on the duration tag in the linear element of the VAST response. | 
+| trackingEvents | object of type [trackingEvents](#ads-logs-trackingEvents) | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. | 
+| vastAdId | string | true | The value of the id attribute of the Ad tag in the VAST response | 
+| vastAdTagUri | string | false | The VMAP-specific redirect URI for an ad. | 
+| vastMediaFiles | array of type [vastMediaFile](#ads-logs-vastMediaFile) | true | The list of available media files for the ad in the VAST response. | 
 
 ### vastMediaFile
+<a name="ads-logs-vastMediaFile"></a>
 
 This section describes the properties of the ADS logs vastMediaFile.
 
-ADS Logs vastMediaFile Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `apiFramework` | string | true | The API framework needed to manage the media file. Example: `VPAID`. |
-| `bitrate` | number | true | The bitrate of the media file. |
-| `delivery` | string | true | The protocol used for the media file, set to either progressive or streaming. |
-| `height` | number | true | The pixel height of the media file. |
-| `id` | string | true | The value of the id attribute of the `MediaFile` tag. |
-| `type` | string | true | The MIME type of the media file, taken from the type attribute of the `MediaFile` tag. |
-| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
-| `width` | number | true | The pixel width of the media file. |
+
+**ADS Logs vastMediaFile Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| apiFramework | string | true | The API framework needed to manage the media file. Example: VPAID. | 
+| bitrate | number | true | The bitrate of the media file. | 
+| delivery | string | true | The protocol used for the media file, set to either progressive or streaming. | 
+| height | number | true | The pixel height of the media file. | 
+| id | string | true | The value of the id attribute of the MediaFile tag. | 
+| type | string | true | The MIME type of the media file, taken from the type attribute of the MediaFile tag. | 
+| uri | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. | 
+| width | number | true | The pixel width of the media file. | 
 
 ### vastResponse
+<a name="ads-logs-vastResponse"></a>
 
 This section describes the properties of the ADS logs vastResponse.
 
-ADS Logs vastResponse Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `errors` | array of type string | true | The error URLs parsed from the `Error` tags in the VAST response. |
-| `vastAds` | array of type [vastAd](#ads-logs-vastAd "#ads-logs-vastAd") | true | The ads parsed from the VAST response. |
-| `version` | string | true | The VAST specification version, parsed from the `version` attribute of the `VAST` tag in the response. |
+
+**ADS Logs vastResponse Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| errors | array of type string | true | The error URLs parsed from the Error tags in the VAST response. | 
+| vastAds | array of type [vastAd](#ads-logs-vastAd) | true | The ads parsed from the VAST response. | 
+| version | string | true | The VAST specification version, parsed from the version attribute of the VAST tag in the response. | 
 
 ### vodCreativeOffsets
+<a name="ads-logs-vodCreativeOffsets"></a>
 
 This section describes the properties of the ADS logs vodCreativeOffsets.
 
-ADS Logs vodCreativeOffsets Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `<any string>` | array of type [vodCreativeOffset](#ads-logs-vodCreativeOffset "#ads-logs-vodCreativeOffset") | false | A mapping from a time offset in the manifest to a list of ads to insert at this time. |
+
+**ADS Logs vodCreativeOffsets Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| <any string> | array of type [vodCreativeOffset](#ads-logs-vodCreativeOffset) | false | A mapping from a time offset in the manifest to a list of ads to insert at this time. | 
 
 ### vodCreativeOffset
+<a name="ads-logs-vodCreativeOffset"></a>
 
 This section describes the properties of the ADS logs vodCreativeOffset.
 
-ADS Logs vodCreativeOffset Properties| Property | Type | Required | Description |
-| --- | --- | --- | --- |
-| `adContent` | object of type [adContent](#ads-logs-adContent "#ads-logs-adContent") | true | Information about the content of the inserted ad. |
-| `creativeUniqueId` | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad. |
-| `trackingEvents` | object of type [trackingEvents](#ads-logs-trackingEvents "#ads-logs-trackingEvents") | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. |
-| `transcodedAdDuration` | number | true | The duration of the ad, calculated from the transcoded asset. |
-| `uri` | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. |
-| `vastDuration` | number | true | The duration of the ad, as parsed from the VAST response. |
+
+**ADS Logs vodCreativeOffset Properties**  
+
+| Property | Type | Required | Description | 
+| --- | --- | --- | --- | 
+| adContent | object of type [adContent](#ads-logs-adContent) | true | Information about the content of the inserted ad. | 
+| creativeUniqueId | string | true | The unique identifier for the ad, used as a key for transcoding. This is the ID field for the creative in the VAST response, if available. Otherwise, it's the mezzanine URL of the ad.  | 
+| trackingEvents | object of type [trackingEvents](#ads-logs-trackingEvents) | true | The tracking beacon URLs for the various tracking events for the ad. The keys are the event names, and the values are a list of beacon URLs. | 
+| transcodedAdDuration | number | true | The duration of the ad, calculated from the transcoded asset. | 
+| uri | string | true | The URL of the mezzanine version of the ad, which is the input to the transcoder. | 
+| vastDuration | number | true | The duration of the ad, as parsed from the VAST response. | 
 
 ## ADS log JSON schema
+<a name="ads-log-json-schema"></a>
 
 The following lists the JSON schema for the AWS Elemental MediaTailor ADS log.
 
@@ -1703,6 +1757,4 @@ The following lists the JSON schema for the AWS Elemental MediaTailor ADS log.
     }
   }
 }
-
-
 ```

@@ -1,17 +1,14 @@
+
+
 # Client-side beaconing
+<a name="ad-reporting-client-side-beaconing"></a>
 
-With the client-side tracking `startTimeInSeconds` element, you can use MediaTailor to
-support beacons timing.
+With the client-side tracking `startTimeInSeconds` element, you can use MediaTailor to support beacons timing.
 
-The following JSON response shows the main beacon types: impressions, start, quartiles, and
-completion.
+The following JSON response shows the main beacon types: impressions, start, quartiles, and completion.
 
-###### Note
-
-The Interactive Advertising Bureau (IAB) Video Impression Measurement Guidelines state
-that an impression requires the ad content to load client-side and, at a minimum, begin time
-to render into the player. For more information, see [Digital Video Ad Serving Template (VAST)](https://www.iab.com/guidelines/vast/ "https://www.iab.com/guidelines/vast/")
-on the IAB website.
+**Note**  
+The Interactive Advertising Bureau (IAB) Video Impression Measurement Guidelines state that an impression requires the ad content to load client-side and, at a minimum, begin time to render into the player. For more information, see [Digital Video Ad Serving Template (VAST)](https://www.iab.com/guidelines/vast/) on the IAB website.
 
 ```
 {

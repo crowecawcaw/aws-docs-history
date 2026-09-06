@@ -1,15 +1,12 @@
+
+
 # Ad Decision Server (ADS) interactions
+<a name="ad-id-ads-interactions"></a>
 
-MediaTailor uses the creative `id` attribute value from the VAST response as a
-value in the ad ID signaling. If the `id` attribute value is empty or not
-present in the VAST response, MediaTailor places an empty value in the ad ID signaling.
+MediaTailor uses the creative `id` attribute value from the VAST response as a value in the ad ID signaling. If the `id` attribute value is empty or not present in the VAST response, MediaTailor places an empty value in the ad ID signaling.
 
-###### Example VAST response:
-
-The following sample VAST response includes an `id` attribute value for
-the inline linear `Creative`. MediaTailor extracts the value from the custom
-VAST `Extension` element and places that value in the creative metadata
-of the manifest.
+**Example VAST response:**  
+The following sample VAST response includes an `id` attribute value for the inline linear `Creative`. MediaTailor extracts the value from the custom VAST `Extension` element and places that value in the creative metadata of the manifest.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>

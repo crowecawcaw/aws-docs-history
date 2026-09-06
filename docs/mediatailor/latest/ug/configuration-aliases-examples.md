@@ -1,11 +1,12 @@
+
+
 # Configuration alias with MediaTailor use example
+<a name="configuration-aliases-examples"></a>
 
 The following examples show how a complete MediaTailor configuration with configuration aliases, a session initialization request with aliases, and the processing flow for aliases.
 
-###### Example Complete configuration with aliases
-
-The following example shows a complete configuration that includes configuration
-aliases and dynamic domain variables:
+**Example Complete configuration with aliases**  
+The following example shows a complete configuration that includes configuration aliases and dynamic domain variables:   
 
 ```
 PUT /playbackConfiguration
@@ -13,14 +14,14 @@ PUT /playbackConfiguration
     "Name": "aliasedConfig",
     "AdDecisionServerUrl": "https://abc.execute-api.us-west-2.amazonaws.com/ads?sid=[session.id]&ad_type=[player_params.ad_type]",
     "VideoContentSourceUrl": "https://[player_params.origin_domain].mediapackage.[player_params.region].amazonaws.com/out/v1/[player_params.endpoint_id]",
-
+    
     "AdSegmentUrlPrefix": "https://[player_params.ad_cdn_domain]/ads/",
     "ContentSegmentUrlPrefix": "https://[player_params.content_cdn_domain]/content/",
     "TranscodeProfileName": "[player_params.transcode_profile]",
     "SlateAdUrl": "https://[player_params.slate_domain]/slate/[player_params.slate_type].mp4",
     "StartUrl": "https://[player_params.tracking_domain]/start?session=[session.id]",
     "EndUrl": "https://[player_params.tracking_domain]/end?session=[session.id]",
-
+    
     "ConfigurationAliases": {
         "player_params.origin_domain": {
             "pdx": "abc",
@@ -67,16 +68,15 @@ PUT /playbackConfiguration
 }
 ```
 
-###### Example Session initialization with aliases
-
-The following example shows a session initialization request that specifies the player variables and aliases:
+**Example Session initialization with aliases**  
+The following example shows a session initialization request that specifies the player variables and aliases:   
 
 ```
 POST master.m3u8
 {
     "playerParams": {
         "origin_domain": "pdx",
-        "region": "pdx",
+        "region": "pdx", 
         "endpoint_id": "pdx",
         "ad_type": "customized",
         "ad_cdn_domain": "pdx",
@@ -89,55 +89,45 @@ POST master.m3u8
 }
 ```
 
-###### Example Parameter processing flow
+**Example Parameter processing flow**  
+In the following example, MediaTailor replaces the alias strings with the mapped values in the configuration aliases. The processing results in the following requests:   
++ ADS request:
 
-In the following example, MediaTailor replaces the alias strings with the mapped values in the configuration
-aliases. The processing results in the following requests:
+  ```
+  https://abc.execute-api.us-west-2.amazonaws.com/ads?sid=[session.id]&ad_type=abc12345
+  ```
++ VideoContentSource request:
 
-- ADS request:
+  ```
+  https://abc.mediapackage.us-west-2.amazonaws.com/out/v1/abcd
+  ```
++ AdSegmentUrlPrefix:
 
-```
-https://abc.execute-api.us-west-2.amazonaws.com/ads?sid=[session.id]&ad_type=abc12345
-```
+  ```
+  https://ads-west.cdn.example.com/ads/
+  ```
++ ContentSegmentUrlPrefix:
 
-- VideoContentSource request:
+  ```
+  https://content-west.cdn.example.com/content/
+  ```
++ TranscodeProfileName:
 
-```
-https://abc.mediapackage.us-west-2.amazonaws.com/out/v1/abcd
-```
+  ```
+  mobile_optimized
+  ```
++ SlateAdUrl:
 
-- AdSegmentUrlPrefix:
+  ```
+  https://slate-west.example.com/slate/brand_slate.mp4
+  ```
++ StartUrl:
 
-```
-https://ads-west.cdn.example.com/ads/
-```
+  ```
+  https://tracking-west.example.com/start?session=[session.id]
+  ```
++ EndUrl:
 
-- ContentSegmentUrlPrefix:
-
-```
-https://content-west.cdn.example.com/content/
-```
-
-- TranscodeProfileName:
-
-```
-mobile_optimized
-```
-
-- SlateAdUrl:
-
-```
-https://slate-west.example.com/slate/brand_slate.mp4
-```
-
-- StartUrl:
-
-```
-https://tracking-west.example.com/start?session=[session.id]
-```
-
-- EndUrl:
-
-```
-https://tracking-west.example.com/end?session=[session.id]
-```
+  ```
+  https://tracking-west.example.com/end?session=[session.id]
+  ```

@@ -1,12 +1,11 @@
+
+
 # Manifest signaling
+<a name="overlay-ads-manifest-signaling"></a>
 
-MediaTailor trigger overlay-ads support when it sees a specific SCTE-35 marker in the
-manifest. The required signal is a splice command type 6, or time signal, that is a Provider
-Overlay Advertisement Start signal. This signal has a segmentation type id of
-`0x38`
+MediaTailor trigger overlay-ads support when it sees a specific SCTE-35 marker in the manifest. The required signal is a splice command type 6, or time signal, that is a Provider Overlay Advertisement Start signal. This signal has a segmentation type id of `0x38`
 
-The following example shows the `0x38` SCTE-35 marker in a JSON
-object.
+The following example shows the `0x38` SCTE-35 marker in a JSON object.
 
 ```
 {
@@ -62,17 +61,15 @@ object.
 }
 ```
 
-The following example shows the SCTE-35 signal represented as a binary (base
-32/hexadecimal) value:
+The following example shows the SCTE-35 signal represented as a binary (base 32/hexadecimal) value:
 
 ```
 0xfc303500000000000000fff00506fe001b78c8001f021d435545490970d4717fdf00000dbba009076f7665726c6179380100000084226c4f
 ```
 
-The following examples shows the SCTE-35 marker in both HLS and DASH
-manifests.
+The following examples shows the SCTE-35 marker in both HLS and DASH manifests.
 
-###### Example: HLS manifest
+**Example : HLS manifest**  
 
 ```
 #EXTM3U
@@ -111,7 +108,7 @@ https://aws.cloudfront.net/media/asset1/index1_00006.ts
 https://aws.cloudfront.net/media/asset1/index1_00007.ts
 ```
 
-###### Example: DASH manifest
+**Example : DASH manifest**  
 
 ```
 <?xml version="1.0"?>

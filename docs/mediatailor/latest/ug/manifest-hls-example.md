@@ -1,50 +1,33 @@
+
+
 # HLS manifest examples
+<a name="manifest-hls-example"></a>
 
-The following sections provide examples of HLS origin manifests and personalized
-manifests. Understanding these examples can help you configure and troubleshoot your MediaTailor
-workflows.
+The following sections provide examples of HLS origin manifests and personalized manifests. Understanding these examples can help you configure and troubleshoot your MediaTailor workflows.
 
-For information about how query parameters are applied to HLS manifests and segments, see
-[MediaTailor HLS implicit session initialization](manifest-query-parameters-hls-implicit-session-initialization.md "manifest-query-parameters-hls-implicit-session-initialization.md").
+For information about how query parameters are applied to HLS manifests and segments, see [MediaTailor HLS implicit session initialization](manifest-query-parameters-hls-implicit-session-initialization.md).
 
 ## Understanding HLS playlist types
+<a name="hls-playlist-overview"></a>
 
 HTTP Live Streaming (HLS) uses two primary types of playlists:
 
-Multivariant playlist
+Multivariant playlist  
+A multivariant playlist is the top-level index file that lists all available renditions of the content. It contains references to media playlists but does not contain any media segments itself. This playlist allows players to select the most appropriate rendition based on network conditions, device capabilities, or user preferences.  
+This playlist type is also known by several other names in various contexts, including master playlist, master manifest, primary playlist, main playlist, index file, or master M3U8.  
+In MediaTailor workflows, the multivariant playlist is the entry point for playback requests and is where ad personalization begins.
 
-A multivariant playlist is the top-level index file that lists all
-available renditions of the content. It contains references to media
-playlists but does not contain any media segments itself. This playlist
-allows players to select the most appropriate rendition based on network
-conditions, device capabilities, or user preferences.
+Media playlist  
+A media playlist contains the actual media segment information for a specific rendition (quality level) of the content. It includes timing information, segment URLs, and other metadata required for playback of a single rendition.  
+This playlist type is also known as media playlist, child manifest, chunklist, media M3U8, or rendition playlist.  
+In MediaTailor workflows, media playlists are personalized to include both content segments and ad segments in the proper sequence.
 
-This playlist type is also known by several other names in various
-contexts, including master playlist, master manifest, primary playlist, main
-playlist, index file, or master M3U8.
-
-In MediaTailor workflows, the multivariant playlist is the entry point for
-playback requests and is where ad personalization begins.
-
-Media playlist
-
-A media playlist contains the actual media segment information for a
-specific rendition (quality level) of the content. It includes timing
-information, segment URLs, and other metadata required for playback of a
-single rendition.
-
-This playlist type is also known as media playlist, child manifest,
-chunklist, media M3U8, or rendition playlist.
-
-In MediaTailor workflows, media playlists are personalized to include both
-content segments and ad segments in the proper sequence.
-
-For more detailed information about HLS playlist types, see [HLS playlist types](hls-playlist-types.md "hls-playlist-types.md").
+For more detailed information about HLS playlist types, see [HLS playlist types](hls-playlist-types.md).
 
 ## HLS origin manifest examples
+<a name="manifest-hls-ex-origin"></a>
 
-The following example shows an HLS multivariant playlist that AWS Elemental MediaTailor
-received by HLS from the content origin.
+The following example shows an HLS multivariant playlist that AWS Elemental MediaTailor received by HLS from the content origin.
 
 ```
 #EXTM3U
@@ -60,16 +43,11 @@ received by HLS from the content origin.
 ```
 
 In this multivariant playlist example:
++ The `#EXT-X-STREAM-INF` tags define different renditions with varying resolutions and bitrates
++ Each rendition references a media playlist (such as `index_1.m3u8`)
++ The `#EXT-X-MEDIA` tag defines a subtitle track
 
-- The `#EXT-X-STREAM-INF` tags define different renditions with
-  varying resolutions and bitrates
-- Each rendition references a media playlist (such as
-  `index_1.m3u8`)
-- The `#EXT-X-MEDIA` tag defines a subtitle track
-
-The following example shows an HLS media playlist that AWS Elemental MediaTailor received by
-HLS from the content origin. This example uses `EXT-X-CUE-OUT` and
-`EXT-X-CUE-IN` tags to describe ad avail opportunities.
+The following example shows an HLS media playlist that AWS Elemental MediaTailor received by HLS from the content origin. This example uses `EXT-X-CUE-OUT` and `EXT-X-CUE-IN` tags to describe ad avail opportunities.
 
 ```
 #EXTM3U
@@ -110,17 +88,15 @@ HLS from the content origin. This example uses `EXT-X-CUE-OUT` and
 ```
 
 In this media playlist example:
-
-- The `#EXTINF` tags specify the duration of each segment
-- The `#EXT-X-CUE-OUT` tag marks the beginning of an ad break
-- The `#EXT-X-CUE-OUT-CONT` tags provide information about the
-  ongoing ad break
-- The `#EXT-X-CUE-IN` tag marks the end of the ad break
++ The `#EXTINF` tags specify the duration of each segment
++ The `#EXT-X-CUE-OUT` tag marks the beginning of an ad break
++ The `#EXT-X-CUE-OUT-CONT` tags provide information about the ongoing ad break
++ The `#EXT-X-CUE-IN` tag marks the end of the ad break
 
 ## HLS personalized manifest examples
+<a name="manifest-hls-ex-personalized"></a>
 
-The following example shows an HLS multivariant playlist that AWS Elemental MediaTailor
-personalized.
+The following example shows an HLS multivariant playlist that AWS Elemental MediaTailor personalized.
 
 ```
 #EXTM3U
@@ -135,11 +111,9 @@ personalized.
     ../../../manifest/43f3e412052f2808dd84ea1da90e92e914edddee/external-canary-hls/ee1696a8-4f7f-4c4c-99de-9821131847e8/2.m3u8
 ```
 
-Notice how MediaTailor has modified the media playlist URLs to include session-specific
-information that enables personalized ad insertion.
+Notice how MediaTailor has modified the media playlist URLs to include session-specific information that enables personalized ad insertion.
 
-The following example shows a media playlist that AWS Elemental MediaTailor
-personalized.
+The following example shows a media playlist that AWS Elemental MediaTailor personalized.
 
 ```
 #EXTM3U
@@ -180,45 +154,32 @@ personalized.
 ```
 
 In this personalized media playlist example:
-
-- MediaTailor has inserted ad segments between the content segments
-- The `#EXT-X-DISCONTINUITY` tags mark the transitions between
-  content and ads
-- Content segments are served from the origin server (MediaPackage in this
-  example)
-- Ad segments are served from MediaTailor's ad segment storage
++ MediaTailor has inserted ad segments between the content segments
++ The `#EXT-X-DISCONTINUITY` tags mark the transitions between content and ads
++ Content segments are served from the origin server (MediaPackage in this example)
++ Ad segments are served from MediaTailor's ad segment storage
 
 ## Key differences in personalized manifests
+<a name="manifest-hls-key-differences"></a>
 
 When MediaTailor personalizes HLS manifests, it makes several important changes:
 
-Multivariant playlist changes
+Multivariant playlist changes  
++ Variant playlist URLs are rewritten to point to MediaTailor-managed URLs that include session information
++ The order of tags may be reorganized for optimal playback
 
-- Variant playlist URLs are rewritten to point to MediaTailor-managed URLs
-  that include session information
-- The order of tags may be reorganized for optimal playback
+Variant playlist changes  
++ Ad markers (`EXT-X-CUE-OUT`, `EXT-X-CUE-IN`) are replaced with actual ad segments
++ Discontinuity markers (`EXT-X-DISCONTINUITY`) are added at content/ad boundaries
++ Content segment URLs are rewritten to point to the origin or CDN
++ Ad segment URLs are added to point to MediaTailor's ad segment storage
 
-Variant playlist changes
-
-- Ad markers (`EXT-X-CUE-OUT`, `EXT-X-CUE-IN`)
-  are replaced with actual ad segments
-- Discontinuity markers (`EXT-X-DISCONTINUITY`) are added
-  at content/ad boundaries
-- Content segment URLs are rewritten to point to the origin or
-  CDN
-- Ad segment URLs are added to point to MediaTailor's ad segment
-  storage
-
-Understanding these changes can help you troubleshoot issues in your MediaTailor workflows
-and ensure proper configuration of your CDN and player.
+Understanding these changes can help you troubleshoot issues in your MediaTailor workflows and ensure proper configuration of your CDN and player.
 
 ## Related topics
+<a name="manifest-hls-related-topics"></a>
 
 For more information about HLS manifests and MediaTailor, see the following topics:
-
-- [HLS playlist types](hls-playlist-types.md "hls-playlist-types.md") -
-  Detailed explanation of HLS playlist types
-- [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md "integrating-cdn.md") -
-  Information about using a CDN with MediaTailor
-- [How MediaTailor ad insertion works](what-is-flow.md "what-is-flow.md") - Overview of how
-  MediaTailor ad insertion works
++ [HLS playlist types](hls-playlist-types.md) - Detailed explanation of HLS playlist types
++ [Using a CDN to optimize MediaTailor ad personalization and content delivery](integrating-cdn.md) - Information about using a CDN with MediaTailor
++ [How MediaTailor ad insertion works](what-is-flow.md) - Overview of how MediaTailor ad insertion works
