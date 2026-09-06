@@ -1,83 +1,69 @@
+
+
 # Education and enablement
+<a name="education"></a>
 
-Education and enablement play a fundamental role in cloud transformation by ensuring that
-employees have the knowledge, skills, and mindset needed to adapt to change, contribute
-effectively to the transformation process, and ultimately help the organization achieve its
-strategic goals.
+Education and enablement play a fundamental role in cloud transformation by ensuring that employees have the knowledge, skills, and mindset needed to adapt to change, contribute effectively to the transformation process, and ultimately help the organization achieve its strategic goals.
 
-This page contains the most commonly used mechanisms to enable your organization to fully
-leverage AWS tools and services.
+This page contains the most commonly used mechanisms to enable your organization to fully leverage AWS tools and services.
 
 ## Learning-needs analysis
+<a name="learning-needs-analysis"></a>
 
-You can identify your organization's cloud skills gaps with our free self-assessment tool,
-the [AWS Learning Needs Analysis](https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html "https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html").
+You can identify your organization's cloud skills gaps with our free self-assessment tool, the [AWS Learning Needs Analysis](https://pages.awscloud.com/global-traincert-AWS-learning-needs-analysis-request-assessment.html).
 
 ## AWS training and certification
+<a name="training-and-cert"></a>
 
-[AWS Training and
-Certification](https://aws.amazon.com/training/ "https://aws.amazon.com/training/") validates cloud expertise to help professionals highlight in-demand
-skills and organizations build effective, innovative teams for cloud initiatives using AWS.
-Choose from diverse certification exams by role and specialty designed to empower individuals
-and teams to meet their unique goals.
+[AWS Training and Certification ](https://aws.amazon.com/training/) validates cloud expertise to help professionals highlight in-demand skills and organizations build effective, innovative teams for cloud initiatives using AWS. Choose from diverse certification exams by role and specialty designed to empower individuals and teams to meet their unique goals.
 
-Watch the video [AWS Training and Certification – Building AWS Cloud Skills and
-Confidence](https://www.youtube.com/watch?v=9b50ikEdHV8 "https://www.youtube.com/watch?v=9b50ikEdHV8") .
+Watch the video [AWS Training and Certification – Building AWS Cloud Skills and Confidence ](https://www.youtube.com/watch?v=9b50ikEdHV8).
+
+[![AWS Videos](http://img.youtube.com/vi/9b50ikEdHV8/0.jpg)](http://www.youtube.com/watch?v=9b50ikEdHV8)
+
 
 ## AWS Skill Builder
+<a name="skill-builder"></a>
 
-[AWS Skill Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/") is
-the go-to place for AWS training and certification. You can find learning paths by role or
-technology area, and browse playlists of videos, tutorials, and documents to improve your AWS
-skills. Skill Builder currently has over 600 courses at no charge. With AWS Skill Builder
-individual or team subscriptions, you also gain access to **AWS Builder
-Labs** that provide hands-on guided exercises to help you develop practical
-migration skills.
+[AWS Skill Builder](https://skillbuilder.aws/) is the go-to place for AWS training and certification. You can find learning paths by role or technology area, and browse playlists of videos, tutorials, and documents to improve your AWS skills. Skill Builder currently has over 600 courses at no charge. With AWS Skill Builder individual or team subscriptions, you also gain access to **AWS Builder Labs** that provide hands-on guided exercises to help you develop practical migration skills.
 
-Watch a [video
-about AWS Skill Builder](https://www.youtube.com/watch?v=kDShz8PfPuc "https://www.youtube.com/watch?v=kDShz8PfPuc") .
+Watch a [video about AWS Skill Builder ](https://www.youtube.com/watch?v=kDShz8PfPuc).
 
-A recommended starting point for preparing your organization technically to migrate to AWS
-is the [Migration Foundations](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4 "https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4") learning path. It comes with learning
-plans, ramp-up guides, assessment, and the following digital badge that you can include in
-your résumé or share with your employer or on social media after you pass the
-assessment.
+[![AWS Videos](http://img.youtube.com/vi/kDShz8PfPuc/0.jpg)](http://www.youtube.com/watch?v=kDShz8PfPuc)
 
-![Digital badge for AWS Migration Foundations with AWS logo and certification details.](images/foundations-badge.png)
+
+A recommended starting point for preparing your organization technically to migrate to AWS is the [Migration Foundations](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4) learning path. It comes with learning plans, ramp-up guides, assessment, and the following digital badge that you can include in your résumé or share with your employer or on social media after you pass the assessment.
+
+![Digital badge for AWS Migration Foundations with AWS logo and certification details.](http://docs.aws.amazon.com/transform/latest/launchguide/images/foundations-badge.png)
+
 
 ## AWS GameDay
+<a name="gameday"></a>
 
-GameDay is a collaborative learning exercise that tests skills in implementing AWS
-solutions to solve real-world problems in a gamified, risk-free environment. This is a
-completely hands-on opportunity for technical professionals to explore AWS services,
-architecture patterns, best practices, and group cooperation.
+GameDay is a collaborative learning exercise that tests skills in implementing AWS solutions to solve real-world problems in a gamified, risk-free environment. This is a completely hands-on opportunity for technical professionals to explore AWS services, architecture patterns, best practices, and group cooperation.
 
-Browse the [AWS GameDay](https://aws.amazon.com/gameday/ "https://aws.amazon.com/gameday/") website for upcoming public GameDays. It is a hands-on technical training delivered
-in a gamified and competitive way. It can be used to safely try out new services and fosters
-collaborative problem-solving.
+Browse the [AWS GameDay ](https://aws.amazon.com/gameday/) website for upcoming public GameDays. It is a hands-on technical training delivered in a gamified and competitive way. It can be used to safely try out new services and fosters collaborative problem-solving.
 
-Watch the video [From
-Marine Science to Cloud Engineering: How AWS Certification Transformed a Career | AWS
-Success Story](https://aws.amazon.com/uk/video/watch/7388777f661/ "https://aws.amazon.com/uk/video/watch/7388777f661/").
+Watch the video [From Marine Science to Cloud Engineering: How AWS Certification Transformed a Career \| AWS Success Story](https://aws.amazon.com/uk/video/watch/7388777f661/).
 
 ## AWS Workshops
+<a name="workshops"></a>
 
-[Workshops](https://workshops.aws/ "https://workshops.aws/") are hands-on
-events designed to teach or introduce practical skills, techniques, or concepts which you can
-use to solve business problems.
+[Workshops ](https://workshops.aws/) are hands-on events designed to teach or introduce practical skills, techniques, or concepts which you can use to solve business problems.
 
-Watch the following video: [Accelerating Learning with AWS Workshops](https://www.youtube.com/watch?v=lv6TFouf4lQ "https://www.youtube.com/watch?v=lv6TFouf4lQ") .
+Watch the following video: [Accelerating Learning with AWS Workshops ](https://www.youtube.com/watch?v=lv6TFouf4lQ).
+
+[![AWS Videos](http://img.youtube.com/vi/lv6TFouf4lQ/0.jpg)](http://www.youtube.com/watch?v=lv6TFouf4lQ)
+
 
 ## Experience-Based Acceleration
+<a name="eba"></a>
 
-[Experience-Based Acceleration (EBA)](https://aws.amazon.com/experience-based-acceleration/ "https://aws.amazon.com/experience-based-acceleration/") is a hands-on and agile-approach to execute
-specific cloud objectives. We use this in workshops called ‘EBA Parties’, aimed at addressing
-friction points and blockers to an organization’s cloud journey. In these parties, customer
-and partner's builders develop new ways of working and collaboration. Together they solve
-problems while learning best practices in an interactive and immersive setting. Reach out to
-your AWS account team to discuss your EBA options.
+[Experience-Based Acceleration (EBA) ](https://aws.amazon.com/experience-based-acceleration/) is a hands-on and agile-approach to execute specific cloud objectives. We use this in workshops called ‘EBA Parties’, aimed at addressing friction points and blockers to an organization’s cloud journey. In these parties, customer and partner's builders develop new ways of working and collaboration. Together they solve problems while learning best practices in an interactive and immersive setting. Reach out to your AWS account team to discuss your EBA options.
 
-For an introduction to EBA, watch the following video: [AWS re:Invent 2024 - Lockheed
-Martin's path to digital transformation through innovation](https://www.youtube.com/watch?v=h3ZeeJJYpz4 "https://www.youtube.com/watch?v=h3ZeeJJYpz4").
+For an introduction to EBA, watch the following video: [AWS re:Invent 2024 - Lockheed Martin's path to digital transformation through innovation](https://www.youtube.com/watch?v=h3ZeeJJYpz4).
+
+[![AWS Videos](http://img.youtube.com/vi/h3ZeeJJYpz4/0.jpg)](http://www.youtube.com/watch?v=h3ZeeJJYpz4)
+
 
 For more information, contact your AWS account team.
