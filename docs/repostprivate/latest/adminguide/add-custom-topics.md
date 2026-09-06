@@ -1,37 +1,37 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AWS re:Post Private. After June 30, 2027, you will
-no longer be able to access the re:Post Private console or re:Post Private resources.
-For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Add custom topics in your private re:Post
+<a name="add-custom-topics"></a>
 
-As an private re:Post administrator, you can add custom topics that the users in your
-private re:Post can use.
+As an private re:Post administrator, you can add custom topics that the users in your private re:Post can use.
 
 A topic is a curated domain that you and your users can assign to content that's posted in your private re:Post. Topics provide you access to content that's aggregated from a set of related tags.
 
 Follow these steps to add topics to your private re:Post:
 
 1. In your re:Post Private web application, choose your profile, and then choose **Administration**.
-2. Choose **Content classification**.
-3. Choose **Topics**, and then choose **Create topic**.
-4. In the **Create new topic** dialog box, do the following:
 
-For **Name**, enter a name for the custom topic.
+1. Choose **Content classification**.
 
-###### Note
+1. Choose **Topics**, and then choose **Create topic**.
 
-    * You can't start the topics with `AWS` or
-     `Amazon`.
-    * You can't enter duplicate topics.
+1. In the **Create new topic** dialog box, do the following:
 
-For **Brief description**, enter a description for your topic.
+   For **Name**, enter a name for the custom topic.
+**Note**  
+You can't start the topics with `AWS` or `Amazon`.
+You can't enter duplicate topics.
 
-For **Full description**, enter a detailed description for your topic.
+   For **Brief description**, enter a description for your topic.
 
-For **Included tags**, select all tags that you want to include in this topic. You can only choose custom tags to include in a custom topic.
+   For **Full description**, enter a detailed description for your topic.
 
-Choose **Create**.
+   For **Included tags**, select all tags that you want to include in this topic. You can only choose custom tags to include in a custom topic.
+
+   Choose **Create**.
+
 The topics that you added are displayed in the list under the **Topics** section. If a user posts a question, article, or selection with the tag that you included in the custom topic, then your private re:Post adds the topic to this content.
 
 Also, a new community group is created for the custom topic that you added. You can see this new community group under the **Community groups** tab.

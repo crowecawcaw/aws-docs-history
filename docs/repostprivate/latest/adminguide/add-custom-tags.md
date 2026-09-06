@@ -1,26 +1,25 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AWS re:Post Private. After June 30, 2027, you will
-no longer be able to access the re:Post Private console or re:Post Private resources.
-For more information, see [AWS re:Post Private end of support](../userguide/repost-private-end-of-support.md "../userguide/repost-private-end-of-support.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AWS re:Post Private. After June 30, 2027, you will no longer be able to access the re:Post Private console or re:Post Private resources. For more information, see [AWS re:Post Private end of support](https://docs.aws.amazon.com/repostprivate/latest/userguide/repost-private-end-of-support.html). 
 
 # Add custom tags in your private re:Post
+<a name="add-custom-tags"></a>
 
-As an private re:Post administrator, you can add custom tags that the users in your
-private re:Post can use.
+As an private re:Post administrator, you can add custom tags that the users in your private re:Post can use.
 
 A tag is a label that you and your users can assign to content that's posted in your private re:Post. After you tag your content, you can find it easily using the **Tags** menu. You can use a tag to filter your search results. You can also follow a specific tag to stay informed on the latest updates about related content.
 
 Follow these steps to add tags to your private re:Post:
 
 1. In your re:Post Private web application, choose your profile, and then choose **Administration**.
-2. Choose **Content classification**.
-3. Choose **Tags**, and then choose **Create tag**.
-4. In the **Create tag?** dialog box, enter the tag. Then, choose **Create**.
 
-###### Note
+1. Choose **Content classification**.
 
-    * You can't start the tags with `AWS` or
-     `Amazon`.
-    * You can't enter duplicate tags.
+1. Choose **Tags**, and then choose **Create tag**.
+
+1. In the **Create tag?** dialog box, enter the tag. Then, choose **Create**.
+**Note**  
+You can't start the tags with `AWS` or `Amazon`.
+You can't enter duplicate tags.
 
 The tags that you added are displayed in the list under the **Tags** section. The users of your private re:Post can add these custom tags in questions, articles, and selections that they post in the private re:Post.
