@@ -1,27 +1,24 @@
-This is version 2.20 of the AWS Elemental Statmux documentation.
-This is the latest version. For prior versions, see the
-_Previous Versions_ section of [AWS Elemental Statmux
-and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
+
+
+This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Configure AWS Elemental Statmux Notifications
+<a name="config-wrkr-sm-cg-notifications"></a>
 
-AWS Elemental Statmux provides status information through alerts. You can configure notifications
-so you know when the node might need attention. The following table describes alerts and how you
-can access them.
+AWS Elemental Statmux provides status information through alerts. You can configure notifications so you know when the node might need attention. The following table describes alerts and how you can access them.
 
-|                                 | Alerts                                                                                                                                                                                                                                                                                         |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Access options                  | • Web interface<br>• REST API calls<br>• SNMP poll<br>• SNMP trap<br>• Email notification<br>• Web callback notification                                                                                                                                                                       |
-| Information conveyed            | Alerts are feedback on a problem that must be fixed.<br>The “Channel Error” alert informs you that a channel has moved to an Error state.<br>This can be helpful when you are receiving automatic email notifications, letting you<br>know to check for related messages on the web interface. |
-| Active or inactive              | Alerts are active until the underlying problem is resolved. When the cause of the alert<br>is no longer present, the system clears the alert and it becomes inactive.                                                                                                                          |
-| Visibility (web interface only) | You can toggle the visibility of active alerts on the web interface. Suppressing an<br>alert this way is similar to marking an email as read.<br>Alerts are available through the other access options, regardless of their visibility in<br>the web interface.                                |
 
-The following sections describe how to setup notifications. For information about viewing
-alerts and messages on the web interface or through the API, see the [AWS Elemental Statmux API and User Guide](../../../elemental-onprem/latest/pdf/statmux_2.20_api.pdf.md "../../../elemental-onprem/latest/pdf/statmux_2.20_api.pdf.md").
+|  | Alerts | 
+| --- | --- | 
+| Access options |  + Web interface<br />+ REST API calls<br />+ SNMP poll<br />+ SNMP trap<br />+ Email notification<br />+ Web callback notification  | 
+| Information conveyed | Alerts are feedback on a problem that must be fixed.<br />The “Channel Error” alert informs you that a channel has moved to an Error state.<br />This can be helpful when you are receiving automatic email notifications, letting you know to check for related messages on the web interface. | 
+| Active or inactive | Alerts are active until the underlying problem is resolved. When the cause of the alert is no longer present, the system clears the alert and it becomes inactive. | 
+| Visibility (web interface only) | You can toggle the visibility of active alerts on the web interface. Suppressing an alert this way is similar to marking an email as read.<br />Alerts are available through the other access options, regardless of their visibility in the web interface. | 
 
-###### Topics
+The following sections describe how to setup notifications. For information about viewing alerts and messages on the web interface or through the API, see the [AWS Elemental Statmux API and User Guide](https://docs.aws.amazon.com/elemental-onprem/latest/pdf/statmux_2.20_api.pdf).
 
-- [Email Notification](notification-email.md "notification-email.md")
-- [Web Callback Notification](notification-web.md "notification-web.md")
-- [Simple Network Management Protocol (SNMP) Traps](notification-trap.md "notification-trap.md")
-- [Simple Network Management Protocol (SNMP) Polling](notification-polling.md "notification-polling.md")
+**Topics**
++ [Email Notification](notification-email.md)
++ [Web Callback Notification](notification-web.md)
++ [Simple Network Management Protocol (SNMP) Traps](notification-trap.md)
++ [Simple Network Management Protocol (SNMP) Polling](notification-polling.md)

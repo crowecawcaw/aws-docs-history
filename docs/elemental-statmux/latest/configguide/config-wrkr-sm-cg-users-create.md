@@ -1,18 +1,16 @@
-This is version 2.20 of the AWS Elemental Statmux documentation.
-This is the latest version. For prior versions, see the
-_Previous Versions_ section of [AWS Elemental Statmux
-and AWS Elemental Live Documentation](../../../elemental-live.md "../../../elemental-live.md").
+
+
+This is version 2.20 of the AWS Elemental Statmux documentation. This is the latest version. For prior versions, see the *Previous Versions* section of [AWS Elemental Statmux and AWS Elemental Live Documentation](https://docs.aws.amazon.com/elemental-live).
 
 # Create New User Roles
+<a name="config-wrkr-sm-cg-users-create"></a>
 
-The policies determine what actions a user can perform on the node. AWS Elemental Statmux comes
-with administrator, manager, operator, and viewer default policies. You can't edit these default
-policies, but you can create new ones if the defaults don't meet your requirements.
+The policies determine what actions a user can perform on the node. AWS Elemental Statmux comes with administrator, manager, operator, and viewer default policies. You can't edit these default policies, but you can create new ones if the defaults don't meet your requirements.
 
-###### To create new user roles
+**To create new user roles**
 
-1. Log in to the AWS Elemental Statmux web interface using administrator credentials.
-2. Hover over **Settings** and choose **Roles**.
-3. On the **Roles** screen, assign a name to the new user role, select the
-   actions to include, and choose **Create**. The new role appears in the
-   list.
+1. Log in to the AWS Elemental Statmux web interface using administrator credentials. 
+
+1. Hover over **Settings** and choose **Roles**.
+
+1. On the **Roles** screen, assign a name to the new user role, select the actions to include, and choose **Create**. The new role appears in the list.
