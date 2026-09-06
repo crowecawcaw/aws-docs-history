@@ -1,42 +1,43 @@
+
+
 # describe-software-statements
+<a name="describe-software-statements"></a>
 
 Describes the existing software statements.
 
-###### Topics
-
-- [Syntax](#sytnax "#sytnax")
-- [Output](#output "#output")
-- [Example](#example "#example")
+**Topics**
++ [Syntax](#sytnax)
++ [Output](#output)
++ [Example](#example)
 
 ## Syntax
+<a name="sytnax"></a>
 
 ```
 sudo -u root dcv-session-manager-broker describe-software-statements
 ```
 
 ## Output
+<a name="output"></a>
 
-**`software-statement`**
-
+**`software-statement`**  
 The software statement.
 
-**`issued-at`**
-
+**`issued-at`**  
 The date and time the software was generated.
 
-**`is-active`**
-
-The current state of the software statement. `true` if the software statement
-is active; otherwise it's `false`.
+**`is-active`**  
+The current state of the software statement. `true` if the software statement is active; otherwise it's `false`.
 
 ## Example
+<a name="example"></a>
 
 The following example generates a software statement.
 
 **Command**
 
 ```
-`sudo -u root dcv-session-manager-broker describe-software-statements`
+sudo -u root dcv-session-manager-broker describe-software-statements
 ```
 
 **Output**

@@ -1,42 +1,43 @@
+
+
 # describe-api-clients
+<a name="describe-api-clients"></a>
 
 Lists the Session Manager clients that have been registered with the broker.
 
-###### Topics
-
-- [Syntax](#sytnax "#sytnax")
-- [Output](#output "#output")
-- [Example](#example "#example")
+**Topics**
++ [Syntax](#sytnax)
++ [Output](#output)
++ [Example](#example)
 
 ## Syntax
+<a name="sytnax"></a>
 
 ```
 sudo -u root dcv-session-manager-broker describe-api-clients
 ```
 
 ## Output
+<a name="output"></a>
 
-**`name`**
-
+**`name`**  
 The unique name of the Session Manager client.
 
-**`id`**
-
+**`id`**  
 The unique ID of the Session Manager client.
 
-**`active`**
-
-Indicates the status of the Session Manager client. If the client is active, the value is
-`true`; otherwise, it's `false`.
+**`active`**  
+Indicates the status of the Session Manager client. If the client is active, the value is `true`; otherwise, it's `false`.
 
 ## Example
+<a name="example"></a>
 
 The following example lists the registered Session Manager clients.
 
 **Command**
 
 ```
-`sudo -u root dcv-session-manager-broker describe-api-clients`
+sudo -u root dcv-session-manager-broker describe-api-clients
 ```
 
 **Output**

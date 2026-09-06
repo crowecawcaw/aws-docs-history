@@ -1,42 +1,43 @@
+
+
 # describe-agent-clients
+<a name="describe-agent-clients"></a>
 
 Describes the agents that are registered with the broker.
 
-###### Topics
-
-- [Syntax](#sytnax "#sytnax")
-- [Output](#output "#output")
-- [Example](#example "#example")
+**Topics**
++ [Syntax](#sytnax)
++ [Output](#output)
++ [Example](#example)
 
 ## Syntax
+<a name="sytnax"></a>
 
 ```
 sudo -u root dcv-session-manager-broker describe-agent-clients
 ```
 
 ## Output
+<a name="output"></a>
 
-**`name`**
-
+**`name`**  
 The name of the agent.
 
-**`id`**
-
+**`id`**  
 The unique ID of the agent.
 
-**`active`**
-
-The state of the agent. `true` if the agent is active; otherwise it's
-`false`.
+**`active`**  
+The state of the agent. `true` if the agent is active; otherwise it's `false`.
 
 ## Example
+<a name="example"></a>
 
 The following example describes the agents.
 
 **Command**
 
 ```
-`sudo -u root dcv-session-manager-broker describe-agent-clients`
+sudo -u root dcv-session-manager-broker describe-agent-clients
 ```
 
 **Output**
