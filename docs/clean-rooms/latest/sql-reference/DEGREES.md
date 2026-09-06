@@ -1,45 +1,51 @@
-# DEGREES function
 
-Converts an angle in radians to its equivalent in degrees.
+
+# DEGREES function
+<a name="DEGREES"></a>
+
+Converts an angle in radians to its equivalent in degrees. 
 
 ## Syntax
+<a name="DEGREES-synopsis"></a>
 
 ```
-DEGREES(*number*)
+DEGREES(number)
 ```
 
 ## Argument
+<a name="DEGREES-argument"></a>
 
-_number_
-
-The input parameter is a `DOUBLE PRECISION` number.
+ *number*   
+The input parameter is a `DOUBLE PRECISION` number. 
 
 ## Return type
+<a name="DEGREES-return-type"></a>
 
 `DOUBLE PRECISION`
 
 ## Example
+<a name="DEGREES-examples"></a>
 
-To return the degree equivalent of .5 radians, use the following example.
+To return the degree equivalent of .5 radians, use the following example. 
 
 ```
-`SELECT DEGREES(.5);`
+SELECT DEGREES(.5);
 
-`+-------------------+
-| degrees |
++-------------------+
+|      degrees      |
 +-------------------+
 | 28.64788975654116 |
-+-------------------+`
++-------------------+
 ```
 
-To convert PI radians to degrees, use the following example.
+To convert PI radians to degrees, use the following example. 
 
 ```
-`SELECT DEGREES(pi());`
+SELECT DEGREES(pi());
 
-`+---------+
++---------+
 | degrees |
 +---------+
-| 180 |
-+---------+`
+|     180 |
++---------+
 ```

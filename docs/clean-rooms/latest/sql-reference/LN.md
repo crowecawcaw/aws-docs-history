@@ -1,51 +1,46 @@
-# LN function
 
-The LN function returns the natural logarithm of the input parameter.
+
+# LN function
+<a name="LN"></a>
+
+The LN function returns the natural logarithm of the input parameter. 
 
 ## Syntax
+<a name="LN-synopsis"></a>
 
 ```
-LN(*expression*)
+LN(expression)
 ```
 
 ## Argument
+<a name="LN-argument"></a>
 
-_expression_
-
-The target column or expression that the function operates on.
-
-###### Note
-
-This function returns an error for some data types if the expression
-references an AWS Clean Rooms user-created table or an AWS Clean Rooms STL or STV system table.
-
-Expressions with the following data types produce an error if they reference
-a user-created or system table.
-
-- BOOLEAN
-- CHAR
-- DATE
-- DECIMAL or NUMERIC
-- TIMESTAMP
-- VARCHAR
-
-Expressions with the following data types run successfully on user-created
-tables and STL or STV system tables:
-
-- BIGINT
-- DOUBLE PRECISION
-- INTEGER
-- REAL
-- SMALLINT
+ *expression*   
+The target column or expression that the function operates on.   
+This function returns an error for some data types if the expression references an AWS Clean Rooms user-created table or an AWS Clean Rooms STL or STV system table. 
+Expressions with the following data types produce an error if they reference a user-created or system table.  
++ BOOLEAN 
++ CHAR 
++ DATE 
++ DECIMAL or NUMERIC 
++ TIMESTAMP 
++ VARCHAR 
+Expressions with the following data types run successfully on user-created tables and STL or STV system tables:   
++ BIGINT 
++ DOUBLE PRECISION 
++ INTEGER 
++ REAL 
++ SMALLINT 
 
 ## Return type
+<a name="LN-return-type"></a>
 
-The LN function returns the same type as the expression.
+The LN function returns the same type as the expression. 
 
 ## Example
+<a name="LN-example"></a>
 
-The following example returns the natural logarithm, or base e logarithm, of the
-number 2.718281828:
+The following example returns the natural logarithm, or base e logarithm, of the number 2.718281828: 
 
 ```
 select ln(2.718281828);
@@ -55,10 +50,9 @@ ln
 (1 row)
 ```
 
-Note that the answer is nearly equal to 1.
+Note that the answer is nearly equal to 1. 
 
-This example returns the natural logarithm of the values in the USERID column in the
-USERS table:
+This example returns the natural logarithm of the values in the USERID column in the USERS table: 
 
 ```
 select username, ln(userid) from users order by userid limit 10;

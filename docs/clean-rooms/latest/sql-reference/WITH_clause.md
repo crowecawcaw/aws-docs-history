@@ -1,72 +1,50 @@
+
+
 # WITH clause
+<a name="WITH_clause"></a>
 
-A WITH clause is an optional clause that precedes the SELECT list in a query. The WITH
-clause defines one or more _common\_table\_expressions_. Each common table
-expression (CTE) defines a temporary table, which is similar to a view definition. You can
-reference these temporary tables in the FROM clause. They're used only while the query they
-belong to runs. Each CTE in the WITH clause specifies a table name, an optional list of column
-names, and a query expression that evaluates to a table (a SELECT statement).
+A WITH clause is an optional clause that precedes the SELECT list in a query. The WITH clause defines one or more *common\_table\_expressions*. Each common table expression (CTE) defines a temporary table, which is similar to a view definition. You can reference these temporary tables in the FROM clause. They're used only while the query they belong to runs. Each CTE in the WITH clause specifies a table name, an optional list of column names, and a query expression that evaluates to a table (a SELECT statement).
 
-WITH clause subqueries are an efficient way of defining tables that can be used throughout
-the execution of a single query. In all cases, the same results can be achieved by using
-subqueries in the main body of the SELECT statement, but WITH clause subqueries may be simpler to
-write and read. Where possible, WITH clause subqueries that are referenced multiple times are
-optimized as common subexpressions; that is, it may be possible to evaluate a WITH subquery once
-and reuse its results. (Note that common subexpressions aren't limited to those defined in
-the WITH clause.)
+WITH clause subqueries are an efficient way of defining tables that can be used throughout the execution of a single query. In all cases, the same results can be achieved by using subqueries in the main body of the SELECT statement, but WITH clause subqueries may be simpler to write and read. Where possible, WITH clause subqueries that are referenced multiple times are optimized as common subexpressions; that is, it may be possible to evaluate a WITH subquery once and reuse its results. (Note that common subexpressions aren't limited to those defined in the WITH clause.)
 
 ## Syntax
+<a name="WITH_clause-synopsis"></a>
 
 ```
-[ WITH *common\_table\_expression* [, *common\_table\_expression* , ...] ]
+[ WITH common_table_expression [, common_table_expression , ...] ]
 ```
 
-where _common\_table\_expression_ can be non-recursive. Following is the
-non-recursive form:
+where *common\_table\_expression* can be non-recursive. Following is the non-recursive form: 
 
 ```
-*CTE\_table\_name* AS ( *query* )
+CTE_table_name AS ( query )
 ```
 
 ## Parameters
+<a name="WITH_clause-parameters"></a>
 
-_common\_table\_expression_
+ *common\_table\_expression*   
+Defines a temporary table that you can reference in the [FROM clause](FROM_clause30.md) and is used only during the execution of the query to which it belongs. 
 
-Defines a temporary table that you can reference in the [FROM clause](FROM_clause30.md "FROM_clause30.md") and is used only during the execution of the query to which
-it belongs.
+ *CTE\_table\_name*   
+A unique name for a temporary table that defines the results of a WITH clause subquery. You can't use duplicate names within a single WITH clause. Each subquery must be given a table name that can be referenced in the [FROM clause](FROM_clause30.md).
 
-_CTE\_table\_name_
-
-A unique name for a temporary table that defines the results of a WITH clause subquery.
-You can't use duplicate names within a single WITH clause. Each subquery must be given a
-table name that can be referenced in the [FROM clause](FROM_clause30.md "FROM_clause30.md").
-
-_query_
-
-Any SELECT query that AWS Clean Rooms supports. See [SELECT](sql-commands-select-spark.md "sql-commands-select-spark.md").
+ *query*   
+ Any SELECT query that AWS Clean Rooms supports. See [SELECT](sql-commands-select-spark.md). 
 
 ## Usage notes
+<a name="WITH_clause-usage-notes"></a>
 
-You can use a WITH clause in the following SQL statement:
+You can use a WITH clause in the following SQL statement: 
++ SELECT, WITH, UNION, UNION ALL, INTERSECT, INTERSECT ALL, EXCEPT, or EXCEPT ALL 
 
-- SELECT, WITH, UNION, UNION ALL, INTERSECT, INTERSECT ALL, EXCEPT, or EXCEPT ALL
+If the FROM clause of a query that contains a WITH clause doesn't reference any of the tables defined by the WITH clause, the WITH clause is ignored and the query runs as normal.
 
-If the FROM clause of a query that contains a WITH clause doesn't reference any of the
-tables defined by the WITH clause, the WITH clause is ignored and the query runs as
-normal.
-
-A table defined by a WITH clause subquery can be referenced only in the scope of the SELECT
-query that the WITH clause begins. For example, you can reference such a table in the FROM
-clause of a subquery in the SELECT list, WHERE clause, or HAVING clause. You can't use a
-WITH clause in a subquery and reference its table in the FROM clause of the main query or
-another subquery. This query pattern results in an error message of the form `relation
- table_name doesn't exist` for the WITH clause table.
+A table defined by a WITH clause subquery can be referenced only in the scope of the SELECT query that the WITH clause begins. For example, you can reference such a table in the FROM clause of a subquery in the SELECT list, WHERE clause, or HAVING clause. You can't use a WITH clause in a subquery and reference its table in the FROM clause of the main query or another subquery. This query pattern results in an error message of the form `relation table_name doesn't exist` for the WITH clause table.
 
 You can't specify another WITH clause inside a WITH clause subquery.
 
-You can't make forward references to tables defined by WITH clause subqueries. For
-example, the following query returns an error because of the forward reference to table W2 in
-the definition of table W1:
+You can't make forward references to tables defined by WITH clause subqueries. For example, the following query returns an error because of the forward reference to table W2 in the definition of table W1: 
 
 ```
 with w1 as (select * from w2), w2 as (select * from w1)
@@ -75,11 +53,9 @@ ERROR:  relation "w2" does not exist
 ```
 
 ## Examples
+<a name="WITH_clause-examples"></a>
 
-The following example shows the simplest possible case of a query that contains a WITH
-clause. The WITH query named VENUECOPY selects all of the rows from the VENUE table. The main
-query in turn selects all of the rows from VENUECOPY. The VENUECOPY table exists only for the
-duration of this query.
+The following example shows the simplest possible case of a query that contains a WITH clause. The WITH query named VENUECOPY selects all of the rows from the VENUE table. The main query in turn selects all of the rows from VENUECOPY. The VENUECOPY table exists only for the duration of this query. 
 
 ```
 with venuecopy as (select * from venue)
@@ -102,9 +78,7 @@ v     10 | Pizza Hut Park             | Frisco          | TX         |          
 (10 rows)
 ```
 
-The following example shows a WITH clause that produces two tables, named VENUE\_SALES and
-TOP\_VENUES. The second WITH query table selects from the first. In turn, the WHERE clause of the
-main query block contains a subquery that constrains the TOP\_VENUES table.
+The following example shows a WITH clause that produces two tables, named VENUE\_SALES and TOP\_VENUES. The second WITH query table selects from the first. In turn, the WHERE clause of the main query block contains a subquery that constrains the TOP\_VENUES table. 
 
 ```
 with venue_sales as
@@ -148,17 +122,13 @@ Winter Garden Theatre   | New York City | NY         |      2838 |   939257.00
 (14 rows)
 ```
 
-The following two examples demonstrate the rules for the scope of table references based on
-WITH clause subqueries. The first query runs, but the second fails with an expected error. The
-first query has WITH clause subquery inside the SELECT list of the main query. The table defined
-by the WITH clause (HOLIDAYS) is referenced in the FROM clause of the subquery in the SELECT
-list:
+The following two examples demonstrate the rules for the scope of table references based on WITH clause subqueries. The first query runs, but the second fails with an expected error. The first query has WITH clause subquery inside the SELECT list of the main query. The table defined by the WITH clause (HOLIDAYS) is referenced in the FROM clause of the subquery in the SELECT list: 
 
 ```
 select caldate, sum(pricepaid) as daysales,
-(with **holidays** as (select * from date where holiday ='t')
+(with holidays as (select * from date where holiday ='t')
 select sum(pricepaid)
-from sales join **holidays** on sales.dateid=**holidays**.dateid
+from sales join holidays on sales.dateid=holidays.dateid
 where caldate='2008-12-25') as dec25sales
 from sales join date on sales.dateid=date.dateid
 where caldate in('2008-12-25','2008-12-31')
@@ -172,16 +142,15 @@ caldate   | daysales | dec25sales
 (2 rows)
 ```
 
-The second query fails because it attempts to reference the HOLIDAYS table in the main
-query as well as in the SELECT list subquery. The main query references are out of scope.
+The second query fails because it attempts to reference the HOLIDAYS table in the main query as well as in the SELECT list subquery. The main query references are out of scope. 
 
 ```
 select caldate, sum(pricepaid) as daysales,
-(with **holidays** as (select * from date where holiday ='t')
+(with holidays as (select * from date where holiday ='t')
 select sum(pricepaid)
-from sales join **holidays** on sales.dateid=**holidays**.dateid
+from sales join holidays on sales.dateid=holidays.dateid
 where caldate='2008-12-25') as dec25sales
-from sales join **holidays** on sales.dateid=**holidays**.dateid
+from sales join holidays on sales.dateid=holidays.dateid
 where caldate in('2008-12-25','2008-12-31')
 group by caldate
 order by caldate;

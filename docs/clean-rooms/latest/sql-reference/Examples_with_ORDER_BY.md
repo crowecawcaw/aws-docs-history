@@ -1,8 +1,9 @@
-# Examples with ORDER BY
 
-Return all 11 rows from the CATEGORY table, ordered by the second column, CATGROUP. For
-results that have the same CATGROUP value, order the CATDESC column values by the length of the
-character string. Then order by columns CATID and CATNAME.
+
+# Examples with ORDER BY
+<a name="Examples_with_ORDER_BY"></a>
+
+Return all 11 rows from the CATEGORY table, ordered by the second column, CATGROUP. For results that have the same CATGROUP value, order the CATDESC column values by the length of the character string. Then order by columns CATID and CATNAME. 
 
 ```
 select * from category order by 2, 1, 3;
@@ -23,8 +24,7 @@ catid | catgroup |  catname  |                  catdesc
 (11 rows)
 ```
 
-Return selected columns from the SALES table, ordered by the highest QTYSOLD values. Limit
-the result to the top 10 rows:
+Return selected columns from the SALES table, ordered by the highest QTYSOLD values. Limit the result to the top 10 rows: 
 
 ```
 select salesid, qtysold, pricepaid, commission, saletime from sales
@@ -44,7 +44,7 @@ salesid | qtysold | pricepaid | commission |      saletime
 16929 |       8 |    568.00 |      85.20 | 2008-12-19 02:59:33
 ```
 
-Return a column list and no rows by using LIMIT 0 syntax:
+Return a column list and no rows by using LIMIT 0 syntax: 
 
 ```
 select * from venue limit 0;

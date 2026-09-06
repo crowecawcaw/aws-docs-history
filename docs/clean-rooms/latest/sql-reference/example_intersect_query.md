@@ -1,14 +1,15 @@
-# Example INTERSECT queries
 
-Compare the following example with the first UNION example. The only difference between the
-two examples is the set operator that is used, but the results are very different. Only one of
-the rows is the same:
+
+# Example INTERSECT queries
+<a name="example_intersect_query"></a>
+
+Compare the following example with the first UNION example. The only difference between the two examples is the set operator that is used, but the results are very different. Only one of the rows is the same: 
 
 ```
 235494 |    23875 |    8771
 ```
 
-This is the only row in the limited result of 5 rows that was found in both tables.
+ This is the only row in the limited result of 5 rows that was found in both tables.
 
 ```
 select listid, sellerid, eventid from listing
@@ -24,9 +25,7 @@ listid | sellerid | eventid
 235475 |    22306 |    7848
 ```
 
-The following query finds events (for which tickets were sold) that occurred at venues in
-both New York City and Los Angeles in March. The difference between the two query expressions is
-the constraint on the VENUECITY column.
+The following query finds events (for which tickets were sold) that occurred at venues in both New York City and Los Angeles in March. The difference between the two query expressions is the constraint on the VENUECITY column.
 
 ```
 select distinct eventname from event, sales, venue
@@ -56,5 +55,4 @@ The Caucasian Chalk Circle
 The Country Girl
 Wicked
 Woyzeck
-
 ```

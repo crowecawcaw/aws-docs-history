@@ -1,41 +1,40 @@
-# ANY\_VALUE function
 
-The ANY\_VALUE function returns any value from the input expression values
-nondeterministically. This function can return NULL if the input expression doesn't result in any
-rows being returned.
+
+# ANY\_VALUE function
+<a name="ANY_VALUE"></a>
+
+The ANY\_VALUE function returns any value from the input expression values nondeterministically. This function can return NULL if the input expression doesn't result in any rows being returned. 
 
 ## Syntax
+<a name="ANY_VALUE-synopsis"></a>
 
 ```
-ANY_VALUE (*expression*[, isIgnoreNull] )
-
+ANY_VALUE (expression[, isIgnoreNull] )
 ```
 
 ## Arguments
+<a name="ANY_VALUE-arguments"></a>
 
-_expression_
+ *expression *   
+The target column or expression on which the function operates. The *expression* is one of the following data types:
 
-The target column or expression on which the function operates. The
-_expression_ is one of the following data types:
-
-_isIgnoreNull_
-
+*isIgnoreNull*  
 A boolean that determines if the function should return only non-null values.
 
 ## Returns
+<a name="ANY_VALUE-returns"></a>
 
-Returns the same data type as _expression_.
+Returns the same data type as *expression*. 
 
 ## Usage notes
+<a name="ANY_VALUE-usage-notes"></a>
 
-If a statement that specifies the ANY\_VALUE function for a column also includes a second
-column reference, the second column must appear in a GROUP BY clause or be included in an
-aggregate function.
+If a statement that specifies the ANY\_VALUE function for a column also includes a second column reference, the second column must appear in a GROUP BY clause or be included in an aggregate function. 
 
 ## Examples
+<a name="ANY_VALUE-examples"></a>
 
-The following example returns an instance of any `dateid` where the
-`eventname` is `Eagles`.
+The following example returns an instance of any `dateid` where the `eventname` is `Eagles`. 
 
 ```
 select any_value(dateid) as dateid, eventname from event where eventname ='Eagles' group by eventname;
@@ -47,11 +46,9 @@ Following are the results.
 dateid | eventname
 -------+---------------
  1878  | Eagles
-
 ```
 
-The following example returns an instance of any `dateid` where the
-`eventname` is `Eagles` or `Cold War Kids`.
+The following example returns an instance of any `dateid` where the `eventname` is `Eagles` or `Cold War Kids`. 
 
 ```
 select any_value(dateid) as dateid, eventname from event where eventname in('Eagles', 'Cold War Kids') group by eventname;
@@ -64,5 +61,4 @@ dateid | eventname
 -------+---------------
  1922  | Cold War Kids
  1878  | Eagles
-
 ```

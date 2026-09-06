@@ -1,30 +1,18 @@
+
+
 # Examples of interval literals without qualifier syntax
+<a name="interval_literals_examples"></a>
 
-###### Note
+**Note**  
+The following examples demonstrate using an interval literal without a `YEAR TO MONTH` or `DAY TO SECOND` qualifier. For information about using the recommended interval literal with a qualifier, see [Interval data types and literals](interval_data_types_spark.md).
 
-The following examples demonstrate using an interval literal without a
-`YEAR TO MONTH` or `DAY TO SECOND` qualifier. For
-information about using the recommended interval literal with a qualifier, see
-[Interval data types and literals](interval_data_types_spark.md "interval_data_types_spark.md").
+Use an interval literal to identify specific periods of time, such as `12 hours` or `6 months`. You can use these interval literals in conditions and calculations that involve datetime expressions. 
 
-Use an interval literal to identify specific periods of time, such as `12
- hours` or `6 months`. You can use these interval literals in
-conditions and calculations that involve datetime expressions.
+ An interval literal is expressed as a combination of the INTERVAL keyword with a numeric quantity and a supported date part, for example `INTERVAL '7 days'` or `INTERVAL '59 minutes'`. You can connect several quantities and units to form a more precise interval, for example: `INTERVAL '7 days, 3 hours, 59 minutes'`. Abbreviations and plurals of each unit are also supported; for example: `5 s`, `5 second`, and `5 seconds` are equivalent intervals.
 
-An interval literal is expressed as a combination of the INTERVAL keyword with a
-numeric quantity and a supported date part, for example `INTERVAL '7
- days'` or `INTERVAL '59 minutes'`. You can connect several
-quantities and units to form a more precise interval, for example: `INTERVAL '7
- days, 3 hours, 59 minutes'`. Abbreviations and plurals of each unit are also
-supported; for example: `5 s`, `5 second`, and `5
- seconds` are equivalent intervals.
+If you don't specify a date part, the interval value represents seconds. You can specify the quantity value as a fraction (for example: `0.5 days`).
 
-If you don't specify a date part, the interval value represents seconds. You
-can specify the quantity value as a fraction (for example: `0.5
- days`).
-
-The following examples show a series of calculations with different interval
-values.
+The following examples show a series of calculations with different interval values.
 
 The following adds 1 second to the specified date.
 
@@ -70,8 +58,7 @@ dateplus
 (1 row)
 ```
 
-The following adds 1 week, 1 hour, 1 minute, and 1 second to the specified
-date.
+The following adds 1 week, 1 hour, 1 minute, and 1 second to the specified date.
 
 ```
 select caldate + interval '1w, 1h, 1m, 1s' as dateplus from date
@@ -93,8 +80,7 @@ dateplus
 (1 row)
 ```
 
-The following subtracts 4 months from February 15, 2023 and the result is October
-15, 2022.
+The following subtracts 4 months from February 15, 2023 and the result is October 15, 2022.
 
 ```
 select date '2023-02-15' - interval '4 months';
@@ -102,11 +88,9 @@ select date '2023-02-15' - interval '4 months';
 ?column?
 ---------------------
 2022-10-15 00:00:00
-
 ```
 
-The following subtracts 4 months from March 31, 2023 and the result is November
-30, 2022. The calculation considers the number of days in a month.
+The following subtracts 4 months from March 31, 2023 and the result is November 30, 2022. The calculation considers the number of days in a month.
 
 ```
 select date '2023-03-31' - interval '4 months';
@@ -114,5 +98,4 @@ select date '2023-03-31' - interval '4 months';
 ?column?
 ---------------------
 2022-11-30 00:00:00
-
 ```

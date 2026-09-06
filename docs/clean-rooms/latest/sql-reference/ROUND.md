@@ -1,39 +1,37 @@
+
+
 # ROUND function
+<a name="ROUND"></a>
 
-The ROUND function rounds numbers to the nearest integer or decimal.
+The ROUND function rounds numbers to the nearest integer or decimal. 
 
-The ROUND function can optionally include a second argument as an integer to indicate
-the number of decimal places for rounding, in either direction. When you don't provide
-the second argument, the function rounds to the nearest whole number. When the second
-argument _>n_ is specified, the function rounds to the nearest number
-with _n_ decimal places of precision.
+The ROUND function can optionally include a second argument as an integer to indicate the number of decimal places for rounding, in either direction. When you don't provide the second argument, the function rounds to the nearest whole number. When the second argument *>n* is specified, the function rounds to the nearest number with *n* decimal places of precision. 
 
 ## Syntax
+<a name="ROUND-synopsis"></a>
 
 ```
-ROUND (*number* [ , *integer* ] )
+ROUND (number [ , integer ] )
 ```
 
 ## Argument
+<a name="ROUND-argument"></a>
 
-_number_
+ *number*   
+A number or expression that evaluates to a number. It can be the DECIMAL or FLOAT8 type. AWS Clean Rooms can convert other data types per the implicit conversion rules. 
 
-A number or expression that evaluates to a number. It can be the DECIMAL or
-FLOAT8 type. AWS Clean Rooms can convert other data types per the implicit conversion
-rules.
-
-_integer_ (optional)
-
-An integer that indicates the number of decimal places for rounding in
-either directions.
+*integer* (optional)  
+An integer that indicates the number of decimal places for rounding in either directions. 
 
 ## Return type
+<a name="ROUND-return-type"></a>
 
-ROUND returns the same numeric data type as the input argument(s).
+ROUND returns the same numeric data type as the input argument(s). 
 
 ## Examples
+<a name="ROUND-examples"></a>
 
-Round the commission paid for a given transaction to the nearest whole number.
+Round the commission paid for a given transaction to the nearest whole number. 
 
 ```
 select commission, round(commission)
@@ -45,7 +43,7 @@ commission | round
 (1 row)
 ```
 
-Round the commission paid for a given transaction to the first decimal place.
+Round the commission paid for a given transaction to the first decimal place. 
 
 ```
 select commission, round(commission, 1)
@@ -57,7 +55,7 @@ commission | round
 (1 row)
 ```
 
-For the same query, extend the precision in the opposite direction.
+For the same query, extend the precision in the opposite direction. 
 
 ```
 select commission, round(commission, -1)

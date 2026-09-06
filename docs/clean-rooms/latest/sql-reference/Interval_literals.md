@@ -1,31 +1,23 @@
+
+
 # Interval literals
+<a name="Interval_literals"></a>
 
-Following are rules for working with interval literals that are supported by AWS Clean Rooms
-Spark SQL.
+Following are rules for working with interval literals that are supported by AWS Clean Rooms Spark SQL.
 
-Use an interval literal to identify specific periods of time, such as `12
- hours` or `6 weeks`. You can use these interval literals in
-conditions and calculations that involve datetime expressions.
+Use an interval literal to identify specific periods of time, such as `12 hours` or `6 weeks`. You can use these interval literals in conditions and calculations that involve datetime expressions. 
 
-###### Note
-
+**Note**  
 You can't use the INTERVAL data type for columns in AWS Clean Rooms tables.
 
-An interval is expressed as a combination of the INTERVAL keyword with a numeric
-quantity and a supported date part, for example `INTERVAL '7 days'` or
-`INTERVAL '59 minutes'`. You can connect several quantities and units to
-form a more precise interval, for example: `INTERVAL '7 days, 3 hours, 59
- minutes'`. Abbreviations and plurals of each unit are also supported; for
-example: `5 s`, `5 second`, and `5 seconds` are
-equivalent intervals.
+ An interval is expressed as a combination of the INTERVAL keyword with a numeric quantity and a supported date part, for example `INTERVAL '7 days'` or `INTERVAL '59 minutes'`. You can connect several quantities and units to form a more precise interval, for example: `INTERVAL '7 days, 3 hours, 59 minutes'`. Abbreviations and plurals of each unit are also supported; for example: `5 s`, `5 second`, and `5 seconds` are equivalent intervals.
 
-If you don't specify a date part, the interval value represents seconds. You can
-specify the quantity value as a fraction (for example: `0.5 days`).
+If you don't specify a date part, the interval value represents seconds. You can specify the quantity value as a fraction (for example: `0.5 days`).
 
 ## Examples
+<a name="section_interval-literals-examples"></a>
 
-The following examples show a series of calculations with different interval
-values.
+The following examples show a series of calculations with different interval values.
 
 The following example adds 1 second to the specified date.
 
@@ -71,8 +63,7 @@ dateplus
 (1 row)
 ```
 
-The following example adds 1 week, 1 hour, 1 minute, and 1 second to the specified
-date.
+The following example adds 1 week, 1 hour, 1 minute, and 1 second to the specified date.
 
 ```
 select caldate + interval '1w, 1h, 1m, 1s' as dateplus from date
@@ -94,8 +85,7 @@ dateplus
 (1 row)
 ```
 
-The following example subtracts 4 months from March 31, 2023 and the result is
-November 30, 2022. The calculation considers the number of days in a month.
+The following example subtracts 4 months from March 31, 2023 and the result is November 30, 2022. The calculation considers the number of days in a month.
 
 ```
 select date '2023-03-31' - interval '4 months';
@@ -103,5 +93,5 @@ select date '2023-03-31' - interval '4 months';
 ?column?
 ---------------------
 2022-11-30 00:00:00
-
 ```
+

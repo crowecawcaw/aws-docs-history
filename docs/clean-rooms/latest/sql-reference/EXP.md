@@ -1,31 +1,32 @@
-# EXP function
 
-The EXP function implements the exponential function for a numeric expression, or the
-base of the natural logarithm, `e`, raised to the power of expression. The EXP
-function is the inverse of [LN function](LN.md "LN.md").
+
+# EXP function
+<a name="EXP"></a>
+
+The EXP function implements the exponential function for a numeric expression, or the base of the natural logarithm, `e`, raised to the power of expression. The EXP function is the inverse of [LN function](LN.md). 
 
 ## Syntax
+<a name="EXP-synopsis"></a>
 
 ```
-EXP (*expression*)
+EXP (expression)
 ```
 
 ## Argument
+<a name="EXP-argument"></a>
 
-_expression_
-
-The expression must be an INTEGER, DECIMAL, or DOUBLE PRECISION data type.
+ *expression*   
+The expression must be an INTEGER, DECIMAL, or DOUBLE PRECISION data type. 
 
 ## Return type
+<a name="EXP-return-type"></a>
 
-EXP returns a DOUBLE PRECISION number.
+EXP returns a DOUBLE PRECISION number. 
 
 ## Example
+<a name="EXP-example"></a>
 
-Use the EXP function to forecast ticket sales based on a continuous growth pattern.
-In this example, the subquery returns the number of tickets sold in 2008. That result is
-multiplied by the result of the EXP function, which specifies a continuous growth rate
-of 7% over 10 years.
+Use the EXP function to forecast ticket sales based on a continuous growth pattern. In this example, the subquery returns the number of tickets sold in 2008. That result is multiplied by the result of the EXP function, which specifies a continuous growth rate of 7% over 10 years. 
 
 ```
 select (select sum(qtysold) from sales, date

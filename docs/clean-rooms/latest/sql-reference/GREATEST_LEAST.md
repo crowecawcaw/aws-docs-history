@@ -1,8 +1,12 @@
+
+
 # GREATEST and LEAST expression
+<a name="GREATEST_LEAST"></a>
 
 Returns the largest or smallest value from a list of any number of expressions.
 
 ## Syntax
+<a name="GREATEST_LEAST-synopsis"></a>
 
 ```
 GREATEST (value [, ...])
@@ -10,22 +14,20 @@ LEAST (value [, ...])
 ```
 
 ## Parameters
+<a name="GREATEST_LEAST-arguments"></a>
 
-_expression\_list_
-
-A comma-separated list of expressions, such as column names. The expressions
-must all be convertible to a common data type. NULL values in the list are
-ignored. If all of the expressions evaluate to NULL, the result is NULL.
+*expression\_list*  
+A comma-separated list of expressions, such as column names. The expressions must all be convertible to a common data type. NULL values in the list are ignored. If all of the expressions evaluate to NULL, the result is NULL.
 
 ## Returns
+<a name="GREATEST_LEAST-returns"></a>
 
-Returns the greatest (for GREATEST) or least (for LEAST) value from the provided list
-of expressions.
+Returns the greatest (for GREATEST) or least (for LEAST) value from the provided list of expressions.
 
 ## Example
+<a name="GREATEST_LEAST-examples"></a>
 
-The following example returns the highest value alphabetically for
-`firstname` or `lastname`.
+The following example returns the highest value alphabetically for `firstname` or `lastname`.
 
 ```
 select firstname, lastname, greatest(firstname,lastname) from users

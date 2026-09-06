@@ -1,33 +1,35 @@
-# REPEAT function
 
-Repeats a string the specified number of times. If the input parameter is numeric,
-REPEAT treats it as a string.
+
+# REPEAT function
+<a name="REPEAT"></a>
+
+Repeats a string the specified number of times. If the input parameter is numeric, REPEAT treats it as a string. 
 
 ## Syntax
+<a name="REPEAT-synopsis"></a>
 
 ```
-REPEAT(*string*, *integer*)
+REPEAT(string, integer)
 ```
 
 ## Arguments
+<a name="REPEAT-arguments"></a>
 
-_string_
+ *string*   
+The first input parameter is the string to be repeated. 
 
-The first input parameter is the string to be repeated.
-
-_integer_
-
-The second parameter is an integer indicating the number of times to repeat
-the string.
+ *integer*   
+The second parameter is an integer indicating the number of times to repeat the string. 
 
 ## Return type
+<a name="REPEAT-return-type"></a>
 
-The REPEAT function returns a string.
+The REPEAT function returns a string. 
 
 ## Examples
+<a name="REPEAT-examples"></a>
 
-The following example repeats the value of the CATID column in the CATEGORY table
-three times:
+The following example repeats the value of the CATID column in the CATEGORY table three times: 
 
 ```
 select catid, repeat(catid,3)

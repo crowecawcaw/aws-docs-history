@@ -1,31 +1,35 @@
-# DATE\_DIFF function
 
-DATE\_DIFF returns the difference between the date parts of two date or time expressions.
+
+# DATE\_DIFF function
+<a name="DATE_DIFF_function"></a>
+
+DATE\_DIFF returns the difference between the date parts of two date or time expressions. 
 
 ## Syntax
+<a name="DATE_DIFF_function-synopsis"></a>
 
 ```
 date_diff(endDate, startDate)
 ```
 
 ## Arguments
+<a name="DATE_DIFF_function-arguments"></a>
 
-_endDate_
-
+ *endDate*   
 A DATE expression.
 
-_startDate_
-
+*startDate*  
 A DATE expression.
 
 ## Return type
+<a name="DATE_DIFF_function-return-type"></a>
 
 BIGINT
 
 ## Examples with a DATE column
+<a name="DATE_DIFF_function-examples"></a>
 
-The following example finds the difference, in number of weeks, between two literal
-date values.
+The following example finds the difference, in number of weeks, between two literal date values. 
 
 ```
 select date_diff(week,'2009-01-01','2009-12-31') as numweeks;
@@ -36,31 +40,28 @@ numweeks
 (1 row)
 ```
 
-The following example finds the difference, in hours, between two literal date
-values. When you don't provide the time value for a date, it defaults to
-00:00:00.
+The following example finds the difference, in hours, between two literal date values. When you don't provide the time value for a date, it defaults to 00:00:00.
 
 ```
 select date_diff(hour, '2023-01-01', '2023-01-03 05:04:03');
-
+            
 date_diff
 ----------
 53
 (1 row)
 ```
 
-The following example finds the difference, in days, between two literal TIMESTAMETZ
-values.
+The following example finds the difference, in days, between two literal TIMESTAMETZ values. 
 
 ```
-`Select date_diff(days, 'Jun 1,2008 09:59:59 EST', 'Jul 4,2008 09:59:59 EST')`
- `date_diff
+Select date_diff(days, 'Jun 1,2008  09:59:59 EST', 'Jul 4,2008  09:59:59 EST')
+         
+date_diff
 ----------
-33`
+33
 ```
 
-The following example finds the difference, in days, between two dates in the same
-row of a table.
+The following example finds the difference, in days, between two dates in the same row of a table.
 
 ```
 select * from date_table;
@@ -72,7 +73,7 @@ start_date |   end_date
 (2 rows)
 
 select date_diff(day, start_date, end_date) as duration from date_table;
-
+         
 duration
 ---------
       81
@@ -80,10 +81,7 @@ duration
 (2 rows)
 ```
 
-The following example finds the difference, in number of quarters, between a literal
-value in the past and today's date. This example assumes that the current date is
-June 5, 2008. You can name date parts in full or abbreviate them. The default column
-name for the DATE\_DIFF function is DATE\_DIFF.
+The following example finds the difference, in number of quarters, between a literal value in the past and today's date. This example assumes that the current date is June 5, 2008. You can name date parts in full or abbreviate them. The default column name for the DATE\_DIFF function is DATE\_DIFF. 
 
 ```
 select date_diff(qtr, '1998-07-01', current_date);
@@ -94,10 +92,7 @@ date_diff
 (1 row)
 ```
 
-The following example joins the SALES and LISTING tables to calculate how many days
-after they were listed any tickets were sold for listings 1000 through 1005. The longest
-wait for sales of these listings was 15 days, and the shortest was less than one day (0
-days).
+The following example joins the SALES and LISTING tables to calculate how many days after they were listed any tickets were sold for listings 1000 through 1005. The longest wait for sales of these listings was 15 days, and the shortest was less than one day (0 days). 
 
 ```
 select priceperticket,
@@ -118,8 +113,7 @@ priceperticket | wait
 (7 rows)
 ```
 
-This example calculates the average number of hours sellers waited for all ticket
-sales.
+This example calculates the average number of hours sellers waited for all ticket sales. 
 
 ```
 select avg(date_diff(hours, listtime, saletime)) as avgwait
@@ -133,13 +127,13 @@ avgwait
 ```
 
 ## Examples with a TIME column
+<a name="DATE_DIFF_function-examples-time"></a>
 
-The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three
-values inserted.
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three values inserted.
 
 ```
 select time_val from time_test;
-
+            
 time_val
 ---------------------
 20:00:00
@@ -147,12 +141,11 @@ time_val
 00:58:00
 ```
 
-The following example finds the difference in number of hours between the TIME\_VAL
-column and a time literal.
+The following example finds the difference in number of hours between the TIME\_VAL column and a time literal.
 
 ```
 select date_diff(hour, time_val, time '15:24:45') from time_test;
-
+         
  date_diff
 -----------
         -5
@@ -160,25 +153,24 @@ select date_diff(hour, time_val, time '15:24:45') from time_test;
         15
 ```
 
-The following example finds the difference in number of minutes between two literal
-time values.
+The following example finds the difference in number of minutes between two literal time values.
 
 ```
-select date_diff(minute, time '20:00:00', time '21:00:00') as nummins;
-
-nummins
-----------
+select date_diff(minute, time '20:00:00', time '21:00:00') as nummins;  
+         
+nummins 
+---------- 
 60
 ```
 
 ## Examples with a TIMETZ column
+<a name="DATE_DIFF_function-examples-timetz"></a>
 
-The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with
-three values inserted.
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three values inserted.
 
 ```
 select timetz_val from timetz_test;
-
+            
 timetz_val
 ------------------
 04:00:00+00
@@ -186,26 +178,24 @@ timetz_val
 05:58:00+00
 ```
 
-The following example finds the differences in number of hours, between a TIMETZ
-literal and timetz\_val.
+The following example finds the differences in number of hours, between a TIMETZ literal and timetz\_val. 
 
 ```
 select date_diff(hours, timetz '20:00:00 PST', timetz_val) as numhours from timetz_test;
 
-numhours
-----------
+numhours 
+---------- 
 0
 -4
 1
 ```
 
-The following example finds the difference in number of hours, between two literal
-TIMETZ values.
+The following example finds the difference in number of hours, between two literal TIMETZ values.
 
 ```
 select date_diff(hours, timetz '20:00:00 PST', timetz '00:58:00 EST') as numhours;
-
-numhours
-----------
+         
+numhours 
+---------- 
 1
 ```

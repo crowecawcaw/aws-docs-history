@@ -1,55 +1,40 @@
+
+
 # JSON functions
+<a name="json-functions-spark"></a>
 
-When you need to store a relatively small set of key-value pairs, you might save space by
-storing the data in JSON format. Because JSON strings can be stored in a single column, using
-JSON might be more efficient than storing your data in tabular format.
+When you need to store a relatively small set of key-value pairs, you might save space by storing the data in JSON format. Because JSON strings can be stored in a single column, using JSON might be more efficient than storing your data in tabular format. 
 
-###### Example
+**Example**  
+For example, suppose you have a sparse table, where you need to have many columns to fully represent all possible attributes. However, most of the column values are NULL for any given row or any given column. By using JSON for storage, you might be able to store the data for a row in key-value pairs in a single JSON string and eliminate the sparsely-populated table columns. 
 
-For example, suppose you have a sparse table, where you need to have many columns to
-fully represent all possible attributes. However, most of the column values are NULL for
-any given row or any given column. By using JSON for storage, you might be able to store
-the data for a row in key-value pairs in a single JSON string and eliminate the
-sparsely-populated table columns.
 
-In addition, you can easily modify JSON strings to store additional key:value pairs without
-needing to add columns to a table.
 
-We recommend using JSON sparingly. JSON isn't a good choice for storing larger
-datasets because, by storing disparate data in a single column, JSON doesn't use the
-AWS Clean Rooms column store architecture.
+In addition, you can easily modify JSON strings to store additional key:value pairs without needing to add columns to a table. 
 
-JSON uses UTF-8 encoded text strings, so JSON strings can be stored as CHAR or VARCHAR data
-types. Use VARCHAR if the strings include multi-byte characters.
+We recommend using JSON sparingly. JSON isn't a good choice for storing larger datasets because, by storing disparate data in a single column, JSON doesn't use the AWS Clean Rooms column store architecture. 
 
-JSON strings must be properly formatted JSON, according to the following rules:
+JSON uses UTF-8 encoded text strings, so JSON strings can be stored as CHAR or VARCHAR data types. Use VARCHAR if the strings include multi-byte characters.
 
-- The root level JSON can either be a JSON object or a JSON array. A JSON object is an
-  unordered set of comma-separated key:value pairs enclosed by curly braces.
+JSON strings must be properly formatted JSON, according to the following rules: 
++ The root level JSON can either be a JSON object or a JSON array. A JSON object is an unordered set of comma-separated key:value pairs enclosed by curly braces. 
 
-For example, `{"one":1, "two":2}`
+  For example, `{"one":1, "two":2} `
++ A JSON array is an ordered set of comma-separated values enclosed by brackets. 
 
-- A JSON array is an ordered set of comma-separated values enclosed by brackets.
+  An example is the following: `["first", {"one":1}, "second", 3, null] `
++ JSON arrays use a zero-based index; the first element in an array is at position 0. In a JSON key:value pair, the key is a string in double quotation marks. 
++ A JSON value can be any of the following: 
+  + JSON object 
+  + JSON array 
+  + String in double quotation marks
+  + Number (integer and float) 
+  + Boolean
+  + Null 
++ Empty objects and empty arrays are valid JSON values.
++ JSON fields are case-sensitive. 
++ White space between JSON structural elements (such as `{ }, [ ]`) is ignored. 
 
-An example is the following: `["first", {"one":1}, "second", 3, null]`
-
-- JSON arrays use a zero-based index; the first element in an array is at position 0.
-  In a JSON key:value pair, the key is a string in double quotation marks.
-- A JSON value can be any of the following:
-
-  - JSON object
-  - JSON array
-  - String in double quotation marks
-  - Number (integer and float)
-  - Boolean
-  - Null
-
-- Empty objects and empty arrays are valid JSON values.
-- JSON fields are case-sensitive.
-- White space between JSON structural elements (such as `{ }, [ ]`) is
-  ignored.
-
-###### Topics
-
-- [GET\_JSON\_OBJECT function](GET_JSON_OBJECT.md "GET_JSON_OBJECT.md")
-- [TO\_JSON function](TO_JSON.md "TO_JSON.md")
+**Topics**
++ [GET\_JSON\_OBJECT function](GET_JSON_OBJECT.md)
++ [TO\_JSON function](TO_JSON.md)

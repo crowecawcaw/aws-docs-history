@@ -1,24 +1,28 @@
-# Comparison operators
 
-Comparison conditions state logical relationships between two values. All comparison
-conditions are binary operators with a Boolean return type.
+
+# Comparison operators
+<a name="comparison-operators"></a>
+
+Comparison conditions state logical relationships between two values. All comparison conditions are binary operators with a Boolean return type. 
 
 AWS Clean Rooms Spark SQL supports the comparison operators described in the following table.
 
-| Operator | Syntax               | Description                                                                                                                                                                                                                                                                                                                                                                    |
-| -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| !        | `!expression`        | The logical `NOT` operator. Used to negate a boolean expression, meaning it<br>returns the opposite of the expression's value.<br>The ! operator can also be combined with other logical operators, such as AND and OR,<br>to create more complex boolean expressions.                                                                                                         |
-| <        | `a < b`              | The less than comparison operator. Used to compare two values and<br>determine if the value on the left is less than the value on the right.                                                                                                                                                                                                                                   |
-| >        | `a > b`              | The greater than comparison operator. Used to compare two values and<br>determine if the value on the left is greater than the value on the right.                                                                                                                                                                                                                             |
-| <=       | `a <= b`             | The less than or equal to comparison operator. Used to compare two<br>values and returns `true` if the value on the left is less than or equal to the<br>value on the right, and `false` otherwise.                                                                                                                                                                            |
-| >=       | `a >= b`             | The greater than or equal to comparison operator. Used to compare two<br>values and determine if the value on the left is greater than or equal to the value on the<br>right.                                                                                                                                                                                                  |
-| =        | `a = b`              | The equality comparison operator, which compares two values and returns<br>`true` if they're equal, and `false` otherwise.                                                                                                                                                                                                                                                     |
-| <> or != | `a <> b` or `a != b` | The not equal to comparison operator, which compares two values and<br>returns `true` if they're not equal, and `false` otherwise.                                                                                                                                                                                                                                             |
-| ==       | `a == b`             | The standard equality comparison operator, which compares two values and<br>returns `true` if they're equal, and `false` otherwise.NoteThe == operator is case-sensitive when comparing string values. If you need to perform<br>a case-insensitive comparison, you can use functions like UPPER() or LOWER() to convert the<br>values to the same case before the comparison. |
+
+| Operator  | Syntax  | Description  | 
+| --- | --- | --- | 
+| \! | \!expression | The logical `NOT` operator. Used to negate a boolean expression, meaning it returns the opposite of the expression's value.<br />The \! operator can also be combined with other logical operators, such as AND and OR, to create more complex boolean expressions.  | 
+| <  | a < b  | The less than comparison operator. Used to compare two values and determine if the value on the left is less than the value on the right. | 
+| >  | a > b  | The greater than comparison operator. Used to compare two values and determine if the value on the left is greater than the value on the right. | 
+| <=  | a <= b  | The less than or equal to comparison operator. Used to compare two values and returns true if the value on the left is less than or equal to the value on the right, and false otherwise.  | 
+| >=  | a >= b  | The greater than or equal to comparison operator. Used to compare two values and determine if the value on the left is greater than or equal to the value on the right. | 
+| =  | a = b  | The equality comparison operator, which compares two values and returns true if they're equal, and false otherwise. | 
+| <> or \!=  |  a <> b or a \!= b  | The not equal to comparison operator, which compares two values and returns true if they're not equal, and false otherwise. | 
+| == | a == b | The standard equality comparison operator, which compares two values and returns true if they're equal, and false otherwise. The == operator is case-sensitive when comparing string values. If you need to perform a case-insensitive comparison, you can use functions like UPPER() or LOWER() to convert the values to the same case before the comparison.  | 
 
 ## Examples
+<a name="comparison-condition-example"></a>
 
-Here are some simple examples of comparison conditions:
+Here are some simple examples of comparison conditions: 
 
 ```
 a = 5
@@ -27,15 +31,14 @@ min(x) >= 5
 qtysold = any (select qtysold from sales where dateid = 1882
 ```
 
-The following query returns the id values for all the squirrels that are not currently
-foraging.
+The following query returns the id values for all the squirrels that are not currently foraging.
 
 ```
-SELECT id FROM squirrels
+SELECT id FROM squirrels 
 WHERE !is_foraging
 ```
 
-The following query returns venues with more than 10,000 seats from the VENUE table:
+The following query returns venues with more than 10,000 seats from the VENUE table: 
 
 ```
 select venueid, venuename, venueseats from venue
@@ -71,11 +74,9 @@ userid
 13
 16
 (5 rows)
-
 ```
 
-This example selects the users (USERID) from the USERS table where it is unknown whether
-they like rock music:
+This example selects the users (USERID) from the USERS table where it is unknown whether they like rock music:
 
 ```
 select firstname, lastname, likerock
@@ -99,13 +100,13 @@ Scarlett  | Mayer    |
 ```
 
 ## Examples with a TIME column
+<a name="comparison-condition-example-time"></a>
 
-The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three values
-inserted.
+The following example table TIME\_TEST has a column TIME\_VAL (type TIME) with three values inserted. 
 
 ```
 select time_val from time_test;
-
+            
 time_val
 ---------------------
 20:00:00
@@ -123,7 +124,7 @@ select time_val from time_test where time_val < '3:00';
  00:58:00
 ```
 
-The following example compares two time literals.
+The following example compares two time literals. 
 
 ```
 select time '18:25:33.123456' = time '18:25:33.123456';
@@ -133,13 +134,13 @@ select time '18:25:33.123456' = time '18:25:33.123456';
 ```
 
 ## Examples with a TIMETZ column
+<a name="comparison-condition-example-timetz"></a>
 
-The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three
-values inserted.
+The following example table TIMETZ\_TEST has a column TIMETZ\_VAL (type TIMETZ) with three values inserted.
 
 ```
 select timetz_val from timetz_test;
-
+            
 timetz_val
 ------------------
 04:00:00+00
@@ -147,23 +148,21 @@ timetz_val
 05:58:00+00
 ```
 
-The following example selects only the TIMETZ values less than `3:00:00 UTC`.
-The comparison is made after converting the value to UTC.
+The following example selects only the TIMETZ values less than `3:00:00 UTC`. The comparison is made after converting the value to UTC.
 
 ```
 select timetz_val from timetz_test where timetz_val < '3:00:00 UTC';
-
+                  
    timetz_val
 ---------------
  00:00:00.5550+00
 ```
 
-The following example compares two TIMETZ literals. The time zone is ignored for the
-comparison.
+The following example compares two TIMETZ literals. The time zone is ignored for the comparison. 
 
 ```
 select time '18:25:33.123456 PST' < time '19:25:33.123456 EST';
-
+                  
  ?column?
 ----------
  t

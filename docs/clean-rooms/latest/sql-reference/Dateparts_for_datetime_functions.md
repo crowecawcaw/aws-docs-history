@@ -1,53 +1,47 @@
+
+
 # Date parts for date or timestamp functions
+<a name="Dateparts_for_datetime_functions"></a>
 
-The following table identifies the date part and time part names and abbreviations that
-are accepted as arguments to the following functions:
+The following table identifies the date part and time part names and abbreviations that are accepted as arguments to the following functions: 
++ DATE\_ADD 
++ DATE\_DIFF 
++ DATE\_PART 
++ EXTRACT 
 
-- DATE\_ADD
-- DATE\_DIFF
-- DATE\_PART
-- EXTRACT
 
-| Date part or time part                     | Abbreviations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| millennium, millennia                      | mil, mils                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| century, centuries                         | c, cent, cents                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| decade, decades                            | dec, decs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| epoch                                      | epoch (supported by the<br>[EXTRACT](EXTRACT_function.md "EXTRACT_function.md"))                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| year, years                                | y, yr, yrs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| quarter, quarters                          | qtr, qtrs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| month, months                              | mon, mons                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| week, weeks                                | w                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| day of week                                | dayofweek, dow, dw, weekday (supported by the [DATE\_PART](DATE_PART_function.md "DATE_PART_function.md")<br>and the [EXTRACT function](EXTRACT_function.md "EXTRACT_function.md"))<br>Returns an integer from 0–6, starting with Sunday.<br>NoteThe DOW date part behaves differently from the day of week (D) date<br>part used for datetime format strings. D is based on integers 1–7,<br>where Sunday is 1. For more information, see [Datetime format strings](FORMAT_strings.md "FORMAT_strings.md"). |
-| day of year                                | dayofyear, doy, dy, yearday (supported by the<br>[EXTRACT](EXTRACT_function.md "EXTRACT_function.md"))                                                                                                                                                                                                                                                                                                                                                                                                       |
-| day, days                                  | d                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| hour, hours                                | h, hr, hrs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| minute, minutes                            | m, min, mins                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| second, seconds                            | s, sec, secs                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| millisecond, milliseconds                  | ms, msec, msecs, msecond, mseconds, millisec, millisecs,<br>millisecon                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| microsecond, microseconds                  | microsec, microsecs, microsecond, usecond, useconds, us,<br>usec, usecs                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| timezone, timezone\_hour, timezone\_minute | Supported by the<br>[EXTRACT](EXTRACT_function.md "EXTRACT_function.md") for<br>timestamp with time zone (TIMESTAMPTZ) only.                                                                                                                                                                                                                                                                                                                                                                                 |
+| Date part or time part  | Abbreviations  | 
+| --- | --- | 
+| millennium, millennia  | mil, mils  | 
+| century, centuries  | c, cent, cents  | 
+| decade, decades  | dec, decs  | 
+| epoch  | epoch (supported by the [EXTRACT](EXTRACT_function.md)) | 
+| year, years  | y, yr, yrs  | 
+| quarter, quarters  | qtr, qtrs  | 
+| month, months  | mon, mons  | 
+| week, weeks  | w  | 
+| day of week  | dayofweek, dow, dw, weekday (supported by the [DATE\_PART](DATE_PART_function.md) and the [EXTRACT function](EXTRACT_function.md))<br />Returns an integer from 0–6, starting with Sunday.  The DOW date part behaves differently from the day of week (D) date part used for datetime format strings. D is based on integers 1–7, where Sunday is 1. For more information, see [Datetime format strings](FORMAT_strings.md).   | 
+| day of year  | dayofyear, doy, dy, yearday (supported by the [EXTRACT](EXTRACT_function.md)) | 
+| day, days  | d  | 
+| hour, hours  | h, hr, hrs  | 
+| minute, minutes  | m, min, mins  | 
+| second, seconds  | s, sec, secs  | 
+| millisecond, milliseconds  | ms, msec, msecs, msecond, mseconds, millisec, millisecs, millisecon  | 
+| microsecond, microseconds  | microsec, microsecs, microsecond, usecond, useconds, us, usec, usecs  | 
+| timezone, timezone\_hour, timezone\_minute  | Supported by the [EXTRACT](EXTRACT_function.md) for timestamp with time zone (TIMESTAMPTZ) only. | 
 
 ## Variations in results with seconds, milliseconds, and microseconds
+<a name="Dateparts_for_datetime_functions-variations-in-results"></a>
 
-Minor differences in query results occur when different date functions specify
-seconds, milliseconds, or microseconds as date parts:
-
-- The EXTRACT function return integers for the specified date part only, ignoring
-  higher- and lower-level date parts. If the specified date part is seconds,
-  milliseconds and microseconds are not included in the result. If the specified
-  date part is milliseconds, seconds and microseconds are not included. If the
-  specified date part is microseconds, seconds and milliseconds are not included.
-- The DATE\_PART function returns the complete seconds portion of the timestamp,
-  regardless of the specified date part, returning either a decimal value or an
-  integer as required.
+Minor differences in query results occur when different date functions specify seconds, milliseconds, or microseconds as date parts: 
++ The EXTRACT function return integers for the specified date part only, ignoring higher- and lower-level date parts. If the specified date part is seconds, milliseconds and microseconds are not included in the result. If the specified date part is milliseconds, seconds and microseconds are not included. If the specified date part is microseconds, seconds and milliseconds are not included. 
++ The DATE\_PART function returns the complete seconds portion of the timestamp, regardless of the specified date part, returning either a decimal value or an integer as required. 
 
 ## CENTURY, EPOCH, DECADE, and MIL notes
+<a name="Dateparts_for_datetime_functions-century"></a>
 
-CENTURY or CENTURIES
-
-AWS Clean Rooms interprets a CENTURY to start with year _###1_ and
-end with year `###0`:
+CENTURY or CENTURIES   
+AWS Clean Rooms interprets a CENTURY to start with year *\#\#\#1* and end with year `###0`:   
 
 ```
 select extract (century from timestamp '2000-12-16 12:21:13');
@@ -63,20 +57,11 @@ date_part
 (1 row)
 ```
 
-EPOCH
+EPOCH   
+The AWS Clean Rooms implementation of EPOCH is relative to 1970-01-01 00:00:00.000000 independent of the time zone where the cluster resides. You might need to offset the results by the difference in hours depending on the time zone where the cluster is located. 
 
-The AWS Clean Rooms implementation of EPOCH is relative to 1970-01-01 00:00:00.000000
-independent of the time zone where the cluster resides. You might need to
-offset the results by the difference in hours depending on the time zone where
-the cluster is located.
-
-DECADE or DECADES
-
-AWS Clean Rooms interprets the DECADE or DECADES DATEPART based on the common
-calendar. For example, because the common calendar starts from the year 1, the
-first decade (decade 1) is 0001-01-01 through 0009-12-31, and the second decade
-(decade 2) is 0010-01-01 through 0019-12-31. For example, decade 201 spans from
-2000-01-01 to 2009-12-31:
+DECADE or DECADES   
+AWS Clean Rooms interprets the DECADE or DECADES DATEPART based on the common calendar. For example, because the common calendar starts from the year 1, the first decade (decade 1) is 0001-01-01 through 0009-12-31, and the second decade (decade 2) is 0010-01-01 through 0019-12-31. For example, decade 201 spans from 2000-01-01 to 2009-12-31:   
 
 ```
 select extract(decade from timestamp '1999-02-16 20:38:40');
@@ -98,11 +83,8 @@ date_part
 (1 row)
 ```
 
-MIL or MILS
-
-AWS Clean Rooms interprets a MIL to start with the first day of year
-_#001_ and end with the last day of year
-`#000`:
+MIL or MILS   
+AWS Clean Rooms interprets a MIL to start with the first day of year *\#001* and end with the last day of year `#000`:   
 
 ```
 select extract (mil from timestamp '2000-12-16 12:21:13');

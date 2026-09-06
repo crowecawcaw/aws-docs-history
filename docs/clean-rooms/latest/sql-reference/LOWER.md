@@ -1,29 +1,32 @@
-# LOWER function
 
-Converts a string to lowercase. LOWER supports UTF-8 multibyte characters, up to a
-maximum of four bytes per character.
+
+# LOWER function
+<a name="LOWER"></a>
+
+Converts a string to lowercase. LOWER supports UTF-8 multibyte characters, up to a maximum of four bytes per character.
 
 ## Syntax
+<a name="LOWER-synopsis"></a>
 
 ```
-LOWER(*string*)
+LOWER(string)
 ```
 
 ## Argument
+<a name="LOWER-argument"></a>
 
-_string_
-
-The input parameter is a VARCHAR string (or any other data type, such as
-CHAR, that can be implicitly converted to VARCHAR).
+ *string*   
+The input parameter is a VARCHAR string (or any other data type, such as CHAR, that can be implicitly converted to VARCHAR). 
 
 ## Return type
+<a name="LOWER-return-type"></a>
 
-The LOWER function returns a character string that is the same data type as the input
-string.
+The LOWER function returns a character string that is the same data type as the input string.
 
 ## Examples
+<a name="LOWER-examples"></a>
 
-The following example converts the CATNAME field to lowercase:
+The following example converts the CATNAME field to lowercase: 
 
 ```
 select catname, lower(catname) from category order by 1,2;

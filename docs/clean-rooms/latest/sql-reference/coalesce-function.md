@@ -1,21 +1,21 @@
+
+
 # COALESCE expression
+<a name="coalesce-function"></a>
 
-A COALESCE expression returns the value of the first expression in the
-list that is not null. If all expressions are null, the result is null. When a non-null
-value is found, the remaining expressions in the list are not evaluated.
+A COALESCE expression returns the value of the first expression in the list that is not null. If all expressions are null, the result is null. When a non-null value is found, the remaining expressions in the list are not evaluated.
 
-This type of expression is useful when you want to return a backup value for something
-when the preferred value is missing or null. For example, a query might return one of three
-phone numbers (cell, home, or work, in that order), whichever is found first in the table
-(not null).
+This type of expression is useful when you want to return a backup value for something when the preferred value is missing or null. For example, a query might return one of three phone numbers (cell, home, or work, in that order), whichever is found first in the table (not null).
 
 ## Syntax
+<a name="coalesce-function-syntax"></a>
 
 ```
-COALESCE (`expression`, `expression`, ... )
+COALESCE ({{expression}}, {{expression}}, ... )
 ```
 
 ## Examples
+<a name="coalesce-function-examples"></a>
 
 Apply COALESCE expression to two columns.
 
@@ -25,8 +25,7 @@ from datetable
 order by 1;
 ```
 
-The default column name for an NVL expression is COALESCE. The
-following query returns the same results.
+The default column name for an NVL expression is COALESCE. The following query returns the same results.
 
 ```
 select coalesce(start_date, end_date) from datetable order by 1;

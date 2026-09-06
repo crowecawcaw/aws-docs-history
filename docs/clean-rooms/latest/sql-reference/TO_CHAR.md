@@ -1,54 +1,48 @@
-# TO\_CHAR
 
-TO\_CHAR converts a timestamp or numeric expression to a character-string data format.
+
+# TO\_CHAR
+<a name="TO_CHAR"></a>
+
+TO\_CHAR converts a timestamp or numeric expression to a character-string data format. 
 
 ## Syntax
+<a name="TO_CHAR-synopsis"></a>
 
 ```
-TO_CHAR (*timestamp\_expression* | *numeric\_expression* , '*format*')
+TO_CHAR (timestamp_expression | numeric_expression , 'format')
 ```
 
 ## Arguments
+<a name="TO_CHAR-arguments"></a>
 
-_timestamp\_expression_
+ *timestamp\_expression*   
+An expression that results in a TIMESTAMP or TIMESTAMPTZ type value or a value that can implicitly be coerced to a timestamp. 
 
-An expression that results in a TIMESTAMP or TIMESTAMPTZ type value or a
-value that can implicitly be coerced to a timestamp.
+ *numeric\_expression*   
+An expression that results in a numeric data type value or a value that can implicitly be coerced to a numeric type. For more information, see [Numeric types](Numeric_types.md). TO\_CHAR inserts a space to the left of the numeral string.  
+TO\_CHAR doesn't support 128-bit DECIMAL values. 
 
-_numeric\_expression_
-
-An expression that results in a numeric data type value or a value that can
-implicitly be coerced to a numeric type. For more information, see [Numeric types](Numeric_types.md "Numeric_types.md"). TO\_CHAR inserts a
-space to the left of the numeral string.
-
-###### Note
-
-TO\_CHAR doesn't support 128-bit DECIMAL values.
-
-_format_
-
-The format for the new value. For valid formats, see [Datetime format strings](FORMAT_strings.md "FORMAT_strings.md") and [Numeric format strings](Numeric_formating.md "Numeric_formating.md").
+ *format*   
+The format for the new value. For valid formats, see [Datetime format strings](FORMAT_strings.md) and [Numeric format strings](Numeric_formating.md). 
 
 ## Return type
+<a name="TO_CHAR-return-type"></a>
 
 VARCHAR
 
 ## Examples
+<a name="TO_CHAR-examples"></a>
 
-The following example converts a timestamp to a value with the date and time in a
-format with the name of the month padded to nine characters, the name of the day of the
-week, and the day number of the month.
+The following example converts a timestamp to a value with the date and time in a format with the name of the month padded to nine characters, the name of the day of the week, and the day number of the month.
 
 ```
 select to_char(timestamp '2009-12-31 23:15:59', 'MONTH-DY-DD-YYYY HH12:MIPM');
 to_char
 -------------------------
 DECEMBER -THU-31-2009 11:15PM
-
 ```
 
-The following example converts a timestamp to a value with day number of the
-year.
+The following example converts a timestamp to a value with day number of the year.
 
 ```
 select to_char(timestamp '2009-12-31 23:15:59', 'DDD');
@@ -56,7 +50,6 @@ select to_char(timestamp '2009-12-31 23:15:59', 'DDD');
 to_char
 -------------------------
 365
-
 ```
 
 The following example converts a timestamp to an ISO day number of the week.
@@ -67,7 +60,6 @@ select to_char(timestamp '2022-05-16 23:15:59', 'ID');
 to_char
 -------------------------
 1
-
 ```
 
 The following example extracts the month name from a date.
@@ -78,11 +70,9 @@ select to_char(date '2009-12-31', 'MONTH');
 to_char
 -------------------------
 DECEMBER
-
 ```
 
-The following example converts each STARTTIME value in the EVENT table to a string
-that consists of hours, minutes, and seconds.
+The following example converts each STARTTIME value in the EVENT table to a string that consists of hours, minutes, and seconds.
 
 ```
 select to_char(starttime, 'HH12:MI:SS')
@@ -99,8 +89,7 @@ to_char
 (5 rows)
 ```
 
-The following example converts an entire timestamp value into a different
-format.
+The following example converts an entire timestamp value into a different format.
 
 ```
 select starttime, to_char(starttime, 'MON-DD-YYYY HH12:MIPM')
@@ -122,8 +111,7 @@ to_char
 (1 row)
 ```
 
-The following example converts a number to a character string with the negative sign
-at the end.
+The following example converts a number to a character string with the negative sign at the end.
 
 ```
 select to_char(-125.8, '999D99S');
@@ -131,11 +119,9 @@ to_char
 ---------
 125.80-
 (1 row)
-
 ```
 
-The following example converts a number to a character string with the currency
-symbol.
+The following example converts a number to a character string with the currency symbol.
 
 ```
 select to_char(-125.88, '$S999D99');
@@ -143,19 +129,16 @@ to_char
 ---------
 $-125.88
 (1 row)
-
 ```
 
-The following example converts a number to a character string using angle brackets
-for negative numbers.
+The following example converts a number to a character string using angle brackets for negative numbers.
 
 ```
 select to_char(-125.88, '$999D99PR');
 to_char
 ---------
-$<125.88>
+$<125.88>	
 (1 row)
-
 ```
 
 The following example converts a number to a Roman numeral string.
@@ -164,32 +147,29 @@ The following example converts a number to a Roman numeral string.
 select to_char(125, 'RN');
 to_char
 ---------
-CXXV
+CXXV	
 (1 row)
-
 ```
 
 The following example displays the day of the week.
 
 ```
-`SELECT to_char(current_timestamp, 'FMDay, FMDD HH12:MI:SS');`
-               `to_char
+SELECT to_char(current_timestamp, 'FMDay, FMDD HH12:MI:SS');
+               to_char
 -----------------------
-Wednesday, 31 09:34:26`
+Wednesday, 31 09:34:26
 ```
 
 The following example displays the ordinal number suffix for a number.
 
 ```
-`SELECT to_char(482, '999th');`
-               `to_char
+SELECT to_char(482, '999th');
+               to_char
 -----------------------
- 482nd`
+ 482nd
 ```
 
-The following example subtracts the commission from the price paid in the sales
-table. The difference is then rounded up and converted to a roman numeral, shown in the
-`to_char` column:
+The following example subtracts the commission from the price paid in the sales table. The difference is then rounded up and converted to a roman numeral, shown in the `to_char` column: 
 
 ```
 select salesid, pricepaid, commission, (pricepaid - commission)
@@ -212,8 +192,7 @@ order by salesid limit 10;
 (10 rows)
 ```
 
-The following example adds the currency symbol to the difference values shown in the
-`to_char` column:
+The following example adds the currency symbol to the difference values shown in the `to_char` column: 
 
 ```
 select salesid, pricepaid, commission, (pricepaid - commission)
@@ -234,10 +213,9 @@ salesid | pricepaid | commission | difference |  to_char
       9 |    591.00 |      88.65 |     502.35 | $   502.35
      10 |     65.00 |       9.75 |      55.25 | $    55.25
 (10 rows)
-
 ```
 
-The following example lists the century in which each sale was made.
+The following example lists the century in which each sale was made. 
 
 ```
 select salesid, saletime, to_char(saletime, 'cc') from sales
@@ -258,8 +236,7 @@ order by salesid limit 10;
 (10 rows)
 ```
 
-The following example converts each STARTTIME value in the EVENT table to a string
-that consists of hours, minutes, seconds, and time zone.
+The following example converts each STARTTIME value in the EVENT table to a string that consists of hours, minutes, seconds, and time zone. 
 
 ```
 select to_char(starttime, 'HH12:MI:SS TZ')
@@ -278,8 +255,7 @@ to_char
 (10 rows)
 ```
 
-The following example shows formatting for seconds, milliseconds, and
-microseconds.
+The following example shows formatting for seconds, milliseconds, and microseconds.
 
 ```
 select sysdate,
@@ -287,7 +263,7 @@ to_char(sysdate, 'HH24:MI:SS') as seconds,
 to_char(sysdate, 'HH24:MI:SS.MS') as milliseconds,
 to_char(sysdate, 'HH24:MI:SS:US') as microseconds;
 
-timestamp           | seconds  | milliseconds | microseconds
+timestamp           | seconds  | milliseconds | microseconds   
 --------------------+----------+--------------+----------------
 2015-04-10 18:45:09 | 18:45:09 | 18:45:09.325 | 18:45:09:325143
 ```

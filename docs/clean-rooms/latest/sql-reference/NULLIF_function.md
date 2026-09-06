@@ -1,69 +1,69 @@
-# NULLIF function
 
-Compares two arguments and returns null if the arguments are equal. If they aren't
-equal, the first argument is returned.
+
+# NULLIF function
+<a name="NULLIF_function"></a>
+
+Compares two arguments and returns null if the arguments are equal. If they aren't equal, the first argument is returned.
 
 ## Syntax
+<a name="NULLIF_function-synopsis"></a>
 
-The NULLIF expression compares two arguments and returns null if the arguments are
-equal. If they aren't equal, the first argument is returned. This expression is the
-inverse of the NVL or COALESCE expression.
+The NULLIF expression compares two arguments and returns null if the arguments are equal. If they aren't equal, the first argument is returned. This expression is the inverse of the NVL or COALESCE expression.
 
 ```
-NULLIF ( *expression1*, *expression2* )
+NULLIF ( expression1, expression2 )
 ```
 
 ## Arguments
+<a name="NULLIF_function-arguments"></a>
 
-_expression1, expression2_
-
-The target columns or expressions that are compared. The return type is the
-same as the type of the first expression.
+ *expression1, expression2*   
+The target columns or expressions that are compared. The return type is the same as the type of the first expression. 
 
 ## Examples
+<a name="NULLIF_function-examples"></a>
 
-In the following example, the query returns the string `first` because the
-arguments are not equal.
+In the following example, the query returns the string `first` because the arguments are not equal.
 
 ```
-`SELECT NULLIF('first', 'second');`
-`case
+SELECT NULLIF('first', 'second');
+
+case
 -------
-first`
+first
 ```
 
-In the following example, the query returns `NULL` because the string
-literal arguments are equal.
+In the following example, the query returns `NULL` because the string literal arguments are equal.
 
 ```
-`SELECT NULLIF('first', 'first');`
-`case
+SELECT NULLIF('first', 'first');
+
+case
 -------
-NULL`
+NULL
 ```
 
-In the following example, the query returns `1` because the integer
-arguments are not equal.
+In the following example, the query returns `1` because the integer arguments are not equal.
 
 ```
-`SELECT NULLIF(1, 2);`
-`case
+SELECT NULLIF(1, 2);
+
+case
 -------
-1`
+1
 ```
 
-In the following example, the query returns `NULL` because the integer
-arguments are equal.
+In the following example, the query returns `NULL` because the integer arguments are equal.
 
 ```
-`SELECT NULLIF(1, 1);`
-`case
+SELECT NULLIF(1, 1);
+
+case
 -------
-NULL`
+NULL
 ```
 
-In the following example, the query returns null when the LISTID and SALESID values
-match:
+In the following example, the query returns null when the LISTID and SALESID values match:
 
 ```
 select nullif(listid,salesid), salesid

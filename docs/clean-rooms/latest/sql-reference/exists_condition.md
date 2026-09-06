@@ -1,36 +1,33 @@
-# EXISTS condition
 
-EXISTS conditions test for the existence of rows in a subquery, and return true if
-a subquery returns at least one row. If NOT is specified, the condition returns true
-if a subquery returns no rows.
+
+# EXISTS condition
+<a name="exists_condition"></a>
+
+EXISTS conditions test for the existence of rows in a subquery, and return true if a subquery returns at least one row. If NOT is specified, the condition returns true if a subquery returns no rows.
 
 ## Syntax
+<a name="exists_condition-synopsis"></a>
 
 ```
-[ NOT ] EXISTS (*table\_subquery*)
+[ NOT ] EXISTS (table_subquery)
 ```
 
 ## Arguments
+<a name="exists_condition-arguments"></a>
 
-EXISTS
+ EXISTS   
+Is true when the *table\_subquery* returns at least one row.
 
-Is true when the _table\_subquery_ returns at least
-one row.
+NOT EXISTS   
+Is true when the *table\_subquery* returns no rows.
 
-NOT EXISTS
-
-Is true when the _table\_subquery_ returns no
-rows.
-
-_table\_subquery_
-
-A subquery that evaluates to a table with one or more columns and one
-or more rows.
+ *table\_subquery*   
+A subquery that evaluates to a table with one or more columns and one or more rows.
 
 ## Example
+<a name="exists_condition-example"></a>
 
-This example returns all date identifiers, one time each, for each date that
-had a sale of any kind:
+This example returns all date identifiers, one time each, for each date that had a sale of any kind:
 
 ```
 select dateid from date

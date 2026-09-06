@@ -1,69 +1,50 @@
-# LEAD window function
 
-The LEAD window function returns the values for a row at a given offset below (after)
-the current row in the partition.
+
+# LEAD window function
+<a name="WF_LEAD"></a>
+
+ The LEAD window function returns the values for a row at a given offset below (after) the current row in the partition. 
 
 ## Syntax
+<a name="WF_LEAD-synopsis"></a>
 
 ```
-LEAD (*value\_expr* [, *offset* ])
+LEAD (value_expr [, offset ])
 [ IGNORE NULLS | RESPECT NULLS ]
-OVER ( [ PARTITION BY *window\_partition* ] ORDER BY *window\_ordering* )
+OVER ( [ PARTITION BY window_partition ] ORDER BY window_ordering )
 ```
 
 ## Arguments
+<a name="WF_LEAD-arguments"></a>
 
-_value\_expr_
+ *value\_expr*   
+The target column or expression that the function operates on. 
 
-The target column or expression that the function operates on.
+ *offset*   
+ An optional parameter that specifies the number of rows below the current row to return values for. The offset can be a constant integer or an expression that evaluates to an integer. If you do not specify an offset, AWS Clean Rooms uses `1` as the default value. An offset of `0` indicates the current row. 
 
-_offset_
+IGNORE NULLS   
+An optional specification that indicates that AWS Clean Rooms should skip null values in the determination of which row to use. Null values are included if IGNORE NULLS is not listed.   
+You can use an NVL or COALESCE expression to replace the null values with another value. 
 
-An optional parameter that specifies the number of rows below the current
-row to return values for. The offset can be a constant integer or an expression
-that evaluates to an integer. If you do not specify an offset, AWS Clean Rooms uses
-`1` as the default value. An offset of `0` indicates
-the current row.
+RESPECT NULLS   
+ Indicates that AWS Clean Rooms should include null values in the determination of which row to use. RESPECT NULLS is supported by default if you do not specify IGNORE NULLS. 
 
-IGNORE NULLS
+OVER   
+Specifies the window partitioning and ordering. The OVER clause cannot contain a window frame specification. 
 
-An optional specification that indicates that AWS Clean Rooms should skip null values
-in the determination of which row to use. Null values are included if IGNORE
-NULLS is not listed.
+PARTITION BY *window\_partition*   
+An optional argument that sets the range of records for each group in the OVER clause. 
 
-###### Note
+ORDER BY *window\_ordering*   
+Sorts the rows within each partition. 
 
-You can use an NVL or COALESCE expression to replace the null values with
-another value.
-
-RESPECT NULLS
-
-Indicates that AWS Clean Rooms should include null values in the determination of
-which row to use. RESPECT NULLS is supported by default if you do not specify
-IGNORE NULLS.
-
-OVER
-
-Specifies the window partitioning and ordering. The OVER clause cannot
-contain a window frame specification.
-
-PARTITION BY _window\_partition_
-
-An optional argument that sets the range of records for each group in the
-OVER clause.
-
-ORDER BY _window\_ordering_
-
-Sorts the rows within each partition.
-
-The LEAD window function supports expressions that use any of the AWS Clean Rooms data types.
-The return type is the same as the type of the _value\_expr_.
+The LEAD window function supports expressions that use any of the AWS Clean Rooms data types. The return type is the same as the type of the *value\_expr*. 
 
 ## Examples
+<a name="WF_LEAD-examples"></a>
 
-The following example provides the commission for events in the SALES table for
-which tickets were sold on January 1, 2008 and January 2, 2008 and the commission paid
-for ticket sales for the subsequent sale.
+ The following example provides the commission for events in the SALES table for which tickets were sold on January 1, 2008 and January 2, 2008 and the commission paid for ticket sales for the subsequent sale. 
 
 ```
 select eventid, commission, saletime,

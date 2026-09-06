@@ -1,29 +1,32 @@
-# UPPER function
 
-Converts a string to uppercase. UPPER supports UTF-8 multibyte characters, up to a
-maximum of four bytes per character.
+
+# UPPER function
+<a name="UPPER"></a>
+
+Converts a string to uppercase. UPPER supports UTF-8 multibyte characters, up to a maximum of four bytes per character.
 
 ## Syntax
+<a name="UPPER-synopsis"></a>
 
 ```
-UPPER(*string*)
+UPPER(string)
 ```
 
 ## Arguments
+<a name="UPPER-arguments"></a>
 
-_string_
-
-The input parameter is a VARCHAR string (or any other data type, such as
-CHAR, that can be implicitly converted to VARCHAR).
+ *string*   
+The input parameter is a VARCHAR string (or any other data type, such as CHAR, that can be implicitly converted to VARCHAR). 
 
 ## Return type
+<a name="UPPER-return-type"></a>
 
-The UPPER function returns a character string that is the same data type as the input
-string.
+The UPPER function returns a character string that is the same data type as the input string. 
 
 ## Examples
+<a name="UPPER-examples"></a>
 
-The following example converts the CATNAME field to uppercase:
+The following example converts the CATNAME field to uppercase: 
 
 ```
 select catname, upper(catname) from category order by 1,2;

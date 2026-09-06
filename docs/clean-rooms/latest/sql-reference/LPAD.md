@@ -1,47 +1,42 @@
-# LPAD and RPAD functions
 
-These functions prepend or append characters to a string, based on a specified length.
+
+# LPAD and RPAD functions
+<a name="LPAD"></a>
+
+These functions prepend or append characters to a string, based on a specified length. 
 
 ## Syntax
+<a name="LPAD-synopsis"></a>
 
 ```
-LPAD (*string1*, *length*, [ *string2* ])
+LPAD (string1, length, [ string2 ])
 ```
 
 ```
-RPAD (*string1*, *length*, [ *string2* ])
+RPAD (string1, length, [ string2 ])
 ```
 
 ## Arguments
+<a name="LPAD-arguments"></a>
 
-_string1_
+ *string1*   
+A character string or an expression that evaluates to a character string, such as the name of a character column. 
 
-A character string or an expression that evaluates to a character string,
-such as the name of a character column.
+ *length*   
+An integer that defines the length of the result of the function. The length of a string is based on the number of characters, not bytes, so that multi-byte characters are counted as single characters. If *string1* is longer than the specified length, it is truncated (on the right). If *length* is a negative number, the result of the function is an empty string.
 
-_length_
-
-An integer that defines the length of the result of the function. The length
-of a string is based on the number of characters, not bytes, so that multi-byte
-characters are counted as single characters. If _string1_ is
-longer than the specified length, it is truncated (on the right). If
-_length_ is a negative number, the result of the function
-is an empty string.
-
-_string2_
-
-One or more characters that are prepended or appended to
-_string1_. This argument is optional; if it is not
-specified, spaces are used.
+ *string2*   
+One or more characters that are prepended or appended to *string1*. This argument is optional; if it is not specified, spaces are used. 
 
 ## Return type
+<a name="LPAD-return-type"></a>
 
-These functions return a VARCHAR data type.
+These functions return a VARCHAR data type. 
 
 ## Examples
+<a name="LPAD-examples"></a>
 
-Truncate a specified set of event names to 20 characters and prepend the shorter
-names with spaces:
+Truncate a specified set of event names to 20 characters and prepend the shorter names with spaces: 
 
 ```
 select lpad(eventname,20) from event
@@ -57,8 +52,7 @@ La Cenerentola (Cind
 (5 rows)
 ```
 
-Truncate the same set of event names to 20 characters but append the shorter names
-with `0123456789`.
+Truncate the same set of event names to 20 characters but append the shorter names with `0123456789`. 
 
 ```
 select rpad(eventname,20,'0123456789') from event

@@ -1,40 +1,37 @@
+
+
 # FROM\_UTC\_TIMESTAMP function
+<a name="FROM_UTC_TIMESTAMP"></a>
 
-The FROM\_UTC\_TIMESTAMP function converts the input date from UTC (Coordinated Universal
-Time) to the specified time zone.
+The FROM\_UTC\_TIMESTAMP function converts the input date from UTC (Coordinated Universal Time) to the specified time zone.
 
-This function is useful when you need to convert date and time values from UTC to a
-specific time zone. This can be important when working with data that originates from
-different parts of the world and needs to be presented in the appropriate local
-time.
+This function is useful when you need to convert date and time values from UTC to a specific time zone. This can be important when working with data that originates from different parts of the world and needs to be presented in the appropriate local time.
 
 ## Syntax
+<a name="FROM_UTC_TIMESTAMP-syntax"></a>
 
 ```
 from_utc_timestamp(timestamp, timezone
 ```
 
 ## Arguments
+<a name="FROM_UTC_TIMESTAMP-arguments"></a>
 
-_timestamp_
-
+*timestamp*  
 A TIMESTAMP expression with a UTC timestamp.
 
-_timezone_
-
-A STRING expression that is a valid timezone to which the input date or
-timestamp should be converted.
+*timezone*  
+A STRING expression that is a valid timezone to which the input date or timestamp should be converted. 
 
 ## Returns
+<a name="FROM_UTC_TIMESTAMP-returns"></a>
 
 The FROM\_UTC\_TIMESTAMP function returns a TIMESTAMP.
 
 ## Example
+<a name="FROM_UTC_TIMESTAMP-example"></a>
 
-The following example converts the input date from UTC to the specified time zone
-(`'Asia/Seoul'`), which in this case is 9 hours ahead of UTC. The
-resulting output is the date and time in the Seoul time zone, which is `2016-08-31
- 09:00:00`.
+The following example converts the input date from UTC to the specified time zone (`'Asia/Seoul'`), which in this case is 9 hours ahead of UTC. The resulting output is the date and time in the Seoul time zone, which is `2016-08-31 09:00:00`.
 
 ```
 SELECT from_utc_timestamp('2016-08-31', 'Asia/Seoul');

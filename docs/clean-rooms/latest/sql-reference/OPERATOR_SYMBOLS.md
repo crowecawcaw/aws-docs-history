@@ -1,21 +1,27 @@
-# Mathematical operator symbols
 
-The following table lists the supported mathematical operators.
+
+# Mathematical operator symbols
+<a name="OPERATOR_SYMBOLS"></a>
+
+ The following table lists the supported mathematical operators. 
 
 ## Supported operators
+<a name="OPERATOR_SYMBOLS-supported-operators"></a>
 
-| Operator | Description    | Example    | Result |
-| -------- | -------------- | ---------- | ------ |
-| +        | addition       | 2 + 3      | 5      |
-| -        | subtraction    | 2<br>• 3   | -1     |
-| \*       | multiplication | 2 \<br>• 3 | 6      |
-| /        | division       | 4 / 2      | 2      |
-| %        | modulo         | 5 % 4      | 1      |
-| ^        | exponentiation | 2.0 ^ 3.0  | 8      |
+
+| Operator  | Description  | Example  | Result  | 
+| --- | --- | --- | --- | 
+| \+  | addition  | 2 \+ 3  | 5  | 
+| -  | subtraction  | 2 - 3  | -1  | 
+| \*  | multiplication  | 2 \* 3  | 6  | 
+| /  | division  | 4 / 2  | 2  | 
+| %  | modulo  | 5 % 4  | 1  | 
+| ^  | exponentiation  | 2.0 ^ 3.0  | 8  | 
 
 ## Examples
+<a name="OPERATOR_SYMBOLS-examples"></a>
 
-Calculate the commission paid plus a $2.00 handling fee for a given transaction:
+Calculate the commission paid plus a $2.00 handling fee for a given transaction: 
 
 ```
 select commission, (commission + 2.00) as comm
@@ -27,7 +33,7 @@ commission | comm
 (1 row)
 ```
 
-Calculate 20 percent of the sales price for a given transaction:
+Calculate 20 percent of the sales price for a given transaction: 
 
 ```
 select pricepaid, (pricepaid * .20) as twentypct
@@ -39,9 +45,7 @@ pricepaid | twentypct
 (1 row)
 ```
 
-Forecast ticket sales based on a continuous growth pattern. In this example, the
-subquery returns the number of tickets sold in 2008. That result is multiplied
-exponentially by a continuous growth rate of 5 percent over 10 years.
+Forecast ticket sales based on a continuous growth pattern. In this example, the subquery returns the number of tickets sold in 2008. That result is multiplied exponentially by a continuous growth rate of 5 percent over 10 years. 
 
 ```
 select (select sum(qtysold) from sales, date
@@ -54,8 +58,7 @@ qty10years
 (1 row)
 ```
 
-Find the total price paid and commission for sales with a date ID that is greater
-than or equal to 2,000. Then subtract the total commission from the total price paid.
+Find the total price paid and commission for sales with a date ID that is greater than or equal to 2,000. Then subtract the total commission from the total price paid. 
 
 ```
 select sum (pricepaid) as sum_price, dateid,

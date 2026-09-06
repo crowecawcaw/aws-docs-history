@@ -1,32 +1,32 @@
-# SIGN function
 
-The SIGN function returns the sign (positive or negative) of a number. The result of
-the SIGN function is `1`, `-1`, or `0` indicating the sign
-of the argument.
+
+# SIGN function
+<a name="SIGN"></a>
+
+ The SIGN function returns the sign (positive or negative) of a number. The result of the SIGN function is `1`, `-1`, or `0` indicating the sign of the argument. 
 
 ## Syntax
+<a name="SIGN-synopsis"></a>
 
 ```
-SIGN (*number*)
+SIGN (number)
 ```
 
 ## Argument
+<a name="SIGN-argument"></a>
 
-_number_
-
-Number or expression that evaluates to a number. It can be the DECIMALor
-FLOAT8 type. AWS Clean Rooms can convert other data types per the implicit conversion
-rules.
+ *number*   
+Number or expression that evaluates to a number. It can be the DECIMALor FLOAT8 type. AWS Clean Rooms can convert other data types per the implicit conversion rules.
 
 ## Return type
+<a name="SIGN-return-type"></a>
 
-SIGN returns the same numeric data type as the input argument(s). If the input is
-DECIMAL, the output is DECIMAL(1,0).
+SIGN returns the same numeric data type as the input argument(s). If the input is DECIMAL, the output is DECIMAL(1,0). 
 
 ## Examples
+<a name="SIGN-examples"></a>
 
-To determine the sign of the commission paid for a given transaction from the SALES
-table, use the following example.
+To determine the sign of the commission paid for a given transaction from the SALES table, use the following example. 
 
 ```
 SELECT commission, SIGN(commission)

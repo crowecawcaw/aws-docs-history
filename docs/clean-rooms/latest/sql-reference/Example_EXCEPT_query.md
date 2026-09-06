@@ -1,6 +1,9 @@
-# Example EXCEPT query
 
-The CATEGORY table in the database contains the following 11 rows:
+
+# Example EXCEPT query
+<a name="Example_EXCEPT_query"></a>
+
+The CATEGORY table in the database contains the following 11 rows: 
 
 ```
  catid | catgroup |  catname  |                  catdesc
@@ -19,7 +22,7 @@ The CATEGORY table in the database contains the following 11 rows:
 (11 rows)
 ```
 
-Assume that a CATEGORY\_STAGE table (a staging table) contains one additional row:
+Assume that a CATEGORY\_STAGE table (a staging table) contains one additional row: 
 
 ```
  catid | catgroup |  catname  |                  catdesc
@@ -39,8 +42,7 @@ Assume that a CATEGORY\_STAGE table (a staging table) contains one additional ro
 (12 rows)
 ```
 
-Return the difference between the two tables. In other words, return rows that are in the
-CATEGORY\_STAGE table but not in the CATEGORY table:
+Return the difference between the two tables. In other words, return rows that are in the CATEGORY\_STAGE table but not in the CATEGORY table: 
 
 ```
 select * from category_stage
@@ -53,7 +55,7 @@ catid | catgroup | catname |             catdesc
 (1 row)
 ```
 
-The following equivalent query uses the synonym MINUS.
+The following equivalent query uses the synonym MINUS. 
 
 ```
 select * from category_stage
@@ -66,4 +68,4 @@ catid | catgroup | catname |             catdesc
 (1 row)
 ```
 
-If you reverse the order of the SELECT expressions, the query returns no rows.
+If you reverse the order of the SELECT expressions, the query returns no rows. 

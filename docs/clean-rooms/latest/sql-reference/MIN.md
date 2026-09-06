@@ -1,34 +1,33 @@
-# MIN function
 
-The MIN function returns the minimum value in a set of rows. DISTINCT or ALL might be used
-but do not affect the result.
+
+# MIN function
+<a name="MIN"></a>
+
+ The MIN function returns the minimum value in a set of rows. DISTINCT or ALL might be used but do not affect the result.
 
 ## Syntax
+<a name="MIN-synopsis"></a>
 
 ```
-MIN ( [ DISTINCT | ALL ] *expression* )
+MIN ( [ DISTINCT | ALL ] expression )
 ```
 
 ## Arguments
+<a name="MIN-arguments"></a>
 
-_expression_
+ *expression *   
+The target column or expression that the function operates on. The *expression* is any numerical data type.
 
-The target column or expression that the function operates on. The
-_expression_ is any numerical data type.
-
-DISTINCT | ALL
-
-With the argument DISTINCT, the function eliminates all duplicate values from the
-specified expression before calculating the minimum. With the argument ALL, the function
-retains all duplicate values from the expression for calculating the minimum. ALL is the
-default.
+DISTINCT \| ALL  
+With the argument DISTINCT, the function eliminates all duplicate values from the specified expression before calculating the minimum. With the argument ALL, the function retains all duplicate values from the expression for calculating the minimum. ALL is the default.
 
 ## Data types
+<a name="Supported_data_types_min"></a>
 
-Returns the same data type as
-_expression_.
+ Returns the same data type as *expression*. 
 
 ## Examples
+<a name="MIN-examples"></a>
 
 Find the lowest price paid from all sales:
 

@@ -1,33 +1,32 @@
-# REVERSE function
 
-The REVERSE function operates on a string and returns the characters in reverse order.
-For example, `reverse('abcde')` returns `edcba`. This function works
-on numeric and date data types as well as character data types; however, in most cases it
-has practical value for character strings.
+
+# REVERSE function
+<a name="REVERSE"></a>
+
+The REVERSE function operates on a string and returns the characters in reverse order. For example, `reverse('abcde')` returns `edcba`. This function works on numeric and date data types as well as character data types; however, in most cases it has practical value for character strings. 
 
 ## Syntax
+<a name="REVERSE-synopsis"></a>
 
 ```
-REVERSE ( *expression* )
+REVERSE ( expression )
 ```
 
 ## Argument
+<a name="REVERSE-argument"></a>
 
-_expression_
-
-An expression with a character, date, timestamp, or numeric data type that
-represents the target of the character reversal. All expressions are implicitly
-converted to variable-length character strings. Trailing blanks in fixed-width
-character strings are ignored.
+ *expression*   
+An expression with a character, date, timestamp, or numeric data type that represents the target of the character reversal. All expressions are implicitly converted to variable-length character strings. Trailing blanks in fixed-width character strings are ignored. 
 
 ## Return type
+<a name="REVERSE-return-type"></a>
 
-REVERSE returns a VARCHAR.
+REVERSE returns a VARCHAR. 
 
 ## Examples
+<a name="REVERSE-examples"></a>
 
-Select five distinct city names and their corresponding reversed names from the USERS
-table:
+Select five distinct city names and their corresponding reversed names from the USERS table: 
 
 ```
 select distinct city as cityname, reverse(cityname)
@@ -43,7 +42,7 @@ Agawam   | mawagA
 (5 rows)
 ```
 
-Select five sales IDs and their corresponding reversed IDs cast as character strings:
+Select five sales IDs and their corresponding reversed IDs cast as character strings: 
 
 ```
 select salesid, reverse(salesid)::varchar

@@ -1,113 +1,104 @@
-# SPLIT\_PART function
 
-Splits a string on the specified delimiter and returns the part at the specified
-position.
+
+# SPLIT\_PART function
+<a name="SPLIT_PART"></a>
+
+Splits a string on the specified delimiter and returns the part at the specified position.
 
 ## Syntax
+<a name="SPLIT_PART-synopsis"></a>
 
 ```
-SPLIT_PART(*string*, *delimiter*, *position*)
+SPLIT_PART(string, delimiter, position)
 ```
 
 ## Arguments
+<a name="SPLIT_PART-arguments"></a>
 
-_string_
+ *string*   
+A string column, expression, or string literal to be split. The string can be CHAR or VARCHAR.
 
-A string column, expression, or string literal to be split. The string can
-be CHAR or VARCHAR.
+ *delimiter*   
+The delimiter string indicating sections of the input *string*.   
+If *delimiter* is a literal, enclose it in single quotation marks. 
 
-_delimiter_
-
-The delimiter string indicating sections of the input
-_string_.
-
-If _delimiter_ is a literal, enclose it in single
-quotation marks.
-
-_position_
-
-Position of the portion of _string_ to return (counting
-from 1). Must be an integer greater than 0. If _position_ is
-larger than the number of string portions, SPLIT\_PART returns an empty string.
-If _delimiter_ is not found in _string_,
-then the returned value contains the contents of the specified part, which
-might be the entire _string_ or an empty value.
+ *position*   
+Position of the portion of *string* to return (counting from 1). Must be an integer greater than 0. If *position* is larger than the number of string portions, SPLIT\_PART returns an empty string. If *delimiter* is not found in *string*, then the returned value contains the contents of the specified part, which might be the entire *string* or an empty value.
 
 ## Return type
+<a name="SPLIT_PART-return-type"></a>
 
-A CHAR or VARCHAR string, the same as the _string_
-parameter.
+A CHAR or VARCHAR string, the same as the *string* parameter.
 
 ## Examples
+<a name="SPLIT_PART-examples"></a>
 
-The following example splits a string literal into parts using the `$`
-delimiter and returns the second part.
+The following example splits a string literal into parts using the `$` delimiter and returns the second part.
 
 ```
-`select split_part('abc$def$ghi','$',2)`
-`split_part
+select split_part('abc$def$ghi','$',2)
+
+split_part
 ----------
-def`
+def
 ```
 
-The following example splits a string literal into parts using the `$`
-delimiter. It returns an empty string because part `4` is not found.
+The following example splits a string literal into parts using the `$` delimiter. It returns an empty string because part `4` is not found.
 
 ```
-`select split_part('abc$def$ghi','$',4)`
-`split_part
-----------`
+select split_part('abc$def$ghi','$',4)
+
+split_part
+----------
 ```
 
-The following example splits a string literal into parts using the `#`
-delimiter. It returns the entire string, which is the first part, because the delimiter
-is not found.
+The following example splits a string literal into parts using the `#` delimiter. It returns the entire string, which is the first part, because the delimiter is not found. 
 
 ```
-`select split_part('abc$def$ghi','#',1)`
-`split_part
+select split_part('abc$def$ghi','#',1)
+
+split_part
 ------------
-abc$def$ghi`
+abc$def$ghi
 ```
 
-The following example splits the timestamp field LISTTIME into year, month, and day
-components.
+The following example splits the timestamp field LISTTIME into year, month, and day components.
 
 ```
-`select listtime, split_part(listtime,'-',1) as year,
-split_part(listtime,'-',2) as month,
-split_part(split_part(listtime,'-',3),' ',1) as day
-from listing limit 5;`
-`listtime | year | month | day
+select listtime, split_part(listtime,'-',1) as year,
+split_part(listtime,'-',2) as month, 
+split_part(split_part(listtime,'-',3),' ',1) as day 
+from listing limit 5;
+
+      listtime       | year | month | day
 ---------------------+------+-------+------
- 2008-03-05 12:25:29 | 2008 | 03 | 05
- 2008-09-09 08:03:36 | 2008 | 09 | 09
- 2008-09-26 05:43:12 | 2008 | 09 | 26
- 2008-10-04 02:00:30 | 2008 | 10 | 04
- 2008-01-06 08:33:11 | 2008 | 01 | 06`
+ 2008-03-05 12:25:29 | 2008 | 03    | 05
+ 2008-09-09 08:03:36 | 2008 | 09    | 09
+ 2008-09-26 05:43:12 | 2008 | 09    | 26
+ 2008-10-04 02:00:30 | 2008 | 10    | 04
+ 2008-01-06 08:33:11 | 2008 | 01    | 06
 ```
 
-The following example selects the LISTTIME timestamp field and splits it on the
-`'-'` character to get the month (the second part of the LISTTIME string),
-then counts the number of entries for each month:
+The following example selects the LISTTIME timestamp field and splits it on the `'-'` character to get the month (the second part of the LISTTIME string), then counts the number of entries for each month:
 
 ```
-`select split_part(listtime,'-',2) as month, count(*)
+select split_part(listtime,'-',2) as month, count(*)
 from listing
 group by split_part(listtime,'-',2)
-order by 1, 2;`
-`month | count
+order by 1, 2;
+
+ month | count
 -------+-------
- 01 | 18543
- 02 | 16620
- 03 | 17594
- 04 | 16822
- 05 | 17618
- 06 | 17158
- 07 | 17626
- 08 | 17881
- 09 | 17378
- 10 | 17756
- 11 | 12912
- 12 | 4589`
+    01 | 18543
+    02 | 16620
+    03 | 17594
+    04 | 16822
+    05 | 17618
+    06 | 17158
+    07 | 17626
+    08 | 17881
+    09 | 17378
+    10 | 17756
+    11 | 12912
+    12 | 4589
 ```

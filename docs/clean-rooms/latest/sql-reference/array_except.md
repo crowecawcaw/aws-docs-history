@@ -1,56 +1,46 @@
+
+
 # ARRAY\_EXCEPT function
+<a name="array_except"></a>
 
-The ARRAY\_EXCEPT function takes two arrays as arguments and returns a new array that
-contains only the elements that are present in the first array but not the second
-array.
+The ARRAY\_EXCEPT function takes two arrays as arguments and returns a new array that contains only the elements that are present in the first array but not the second array.
 
-The ARRAY\_EXCEPT is useful when you need to find the elements that are unique to one
-array compared to another. This can be helpful in scenarios where you need to perform
-set-like operations on arrays, such as finding the difference between two sets of
-data.
+The ARRAY\_EXCEPT is useful when you need to find the elements that are unique to one array compared to another. This can be helpful in scenarios where you need to perform set-like operations on arrays, such as finding the difference between two sets of data.
 
 ## Syntax
+<a name="array_except-syntax"></a>
 
 ```
 array_except(array1, array2)
 ```
 
 ## Arguments
+<a name="array_except-arguments"></a>
 
-_array1_
-
+ *array1*  
 An ARRAY of any type with comparable elements.
 
-_array2_
-
-An ARRAY of elements sharing a least common type with the elements of
-_array1_.
+ *array2*  
+An ARRAY of elements sharing a least common type with the elements of *array1*.
 
 ## Return type
+<a name="array_except-return-type"></a>
 
-The ARRAY\_EXCEPT function returns an ARRAY of matching type to _array1_ with no duplicates.
+The ARRAY\_EXCEPT function returns an ARRAY of matching type to *array1* with no duplicates.
 
 ## Examples
+<a name="array_except-example"></a>
 
-In this example, the first array `[1, 2, 3]` contains the elements 1, 2,
-and 3. The second array `[2, 3, 4]` contains the elements 2, 3, and 4. The
-`array_except` function removes the elements 2 and 3 from the first array,
-since they're also present in the second array. The resulting output is the array
-`[1]`.
+In this example, the first array `[1, 2, 3]` contains the elements 1, 2, and 3. The second array `[2, 3, 4]` contains the elements 2, 3, and 4. The `array_except` function removes the elements 2 and 3 from the first array, since they're also present in the second array. The resulting output is the array `[1]`.
 
 ```
 SELECT array_except(array(1, 2, 3), array(2, 3, 4))
   [1]
 ```
 
-In this example, the first array `[1, 2, 3]` contains the elements 1, 2,
-and 3. The second array `[1, 3, 5]` contains the elements 1, 3, and 5. The
-`array_except` function removes the elements 1 and 3 from the first array,
-since they're also present in the second array. The resulting output is the array
-`[2]`.
+In this example, the first array `[1, 2, 3]` contains the elements 1, 2, and 3. The second array `[1, 3, 5]` contains the elements 1, 3, and 5. The `array_except` function removes the elements 1 and 3 from the first array, since they're also present in the second array. The resulting output is the array `[2]`.
 
 ```
 SELECT array_except(array(1, 2, 3), array(1, 3, 5));
  [2]
-
 ```

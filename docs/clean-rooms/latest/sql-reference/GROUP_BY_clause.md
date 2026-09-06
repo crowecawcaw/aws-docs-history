@@ -1,29 +1,29 @@
+
+
 # GROUP BY clause
+<a name="GROUP_BY_clause"></a>
 
-The GROUP BY clause identifies the grouping columns for the query. Grouping columns must be
-declared when the query computes aggregates with standard functions such as SUM, AVG, and COUNT.
-If an aggregate function is present in the SELECT expression, any column in the SELECT expression
-that is not in an aggregate function must be in the GROUP BY clause.
+The GROUP BY clause identifies the grouping columns for the query. Grouping columns must be declared when the query computes aggregates with standard functions such as SUM, AVG, and COUNT. If an aggregate function is present in the SELECT expression, any column in the SELECT expression that is not in an aggregate function must be in the GROUP BY clause.
 
-For more information, see [AWS Clean Rooms Spark SQL functions](sql-functions-topic-spark.md "sql-functions-topic-spark.md").
+For more information, see [AWS Clean Rooms Spark SQL functions](sql-functions-topic-spark.md). 
 
 ## Syntax
+<a name="r_GROUP_BY_clause-syntax"></a>
 
 ```
 GROUP BY group_by_clause [, ...]
 
 group_by_clause := {
-    *expr* |
-        ROLLUP ( *expr* [, ...] ) |
+    expr |
+        ROLLUP ( expr [, ...] ) |
         }
 ```
 
-## _Parameters_
+## *Parameters*
+<a name="GROUP_BY_clause-parameters"></a>
 
-_expr_
-
-The list of columns or expressions must match the list of non-aggregate expressions in
-the select list of the query. For example, consider the following simple query.
+ *expr*  
+The list of columns or expressions must match the list of non-aggregate expressions in the select list of the query. For example, consider the following simple query.  
 
 ```
 select listid, eventid, sum(pricepaid) as revenue,
@@ -42,13 +42,8 @@ listid | eventid | revenue | numtix
 147685 |     429 |   20.00 |      1
 (5 rows)
 ```
-
-In this query, the select list consists of two aggregate expressions. The first uses the
-SUM function and the second uses the COUNT function. The remaining two columns, LISTID and
-EVENTID, must be declared as grouping columns.
-
-Expressions in the GROUP BY clause can also reference the select list by using ordinal
-numbers. For example, the previous example could be abbreviated as follows.
+In this query, the select list consists of two aggregate expressions. The first uses the SUM function and the second uses the COUNT function. The remaining two columns, LISTID and EVENTID, must be declared as grouping columns.  
+Expressions in the GROUP BY clause can also reference the select list by using ordinal numbers. For example, the previous example could be abbreviated as follows.  
 
 ```
 select listid, eventid, sum(pricepaid) as revenue,
@@ -68,8 +63,5 @@ listid | eventid | revenue | numtix
 (5 rows)
 ```
 
-_ROLLUP_
-
-You can use the aggregation extension ROLLUP to perform the work of multiple GROUP BY
-operations in a single statement. For more information on aggregation extensions and related
-functions, see [Aggregation extensions](GROUP_BY_aggregation-extensions.md "GROUP_BY_aggregation-extensions.md").
+ *ROLLUP*   
+You can use the aggregation extension ROLLUP to perform the work of multiple GROUP BY operations in a single statement. For more information on aggregation extensions and related functions, see [Aggregation extensions](GROUP_BY_aggregation-extensions.md). 

@@ -1,37 +1,39 @@
+
+
 # LEFT and RIGHT functions
+<a name="LEFT"></a>
 
-These functions return the specified number of leftmost or rightmost characters from a
-character string.
+These functions return the specified number of leftmost or rightmost characters from a character string.
 
-The number is based on the number of characters, not bytes, so that multibyte characters
-are counted as single characters.
+The number is based on the number of characters, not bytes, so that multibyte characters are counted as single characters.
 
 ## Syntax
+<a name="LEFT-synopsis"></a>
 
 ```
-LEFT ( *string*,  *integer* )
+LEFT ( string,  integer )
 
-RIGHT ( *string*,  *integer* )
+RIGHT ( string,  integer )
 ```
 
 ## Arguments
+<a name="LEFT-arguments"></a>
 
-_string_
+ *string*   
+Any character string or any expression that evaluates to a character string. 
 
-Any character string or any expression that evaluates to a character string.
-
-_integer_
-
-A positive integer.
+ *integer*   
+A positive integer. 
 
 ## Return type
+<a name="LEFT-return-type"></a>
 
-LEFT and RIGHT return a VARCHAR string.
+LEFT and RIGHT return a VARCHAR string. 
 
 ## Example
+<a name="LEFT-example"></a>
 
-The following example returns the leftmost 5 and rightmost 5 characters from event
-names that have IDs between 1000 and 1005:
+The following example returns the leftmost 5 and rightmost 5 characters from event names that have IDs between 1000 and 1005: 
 
 ```
 select eventid, eventname,
