@@ -1,68 +1,39 @@
+
+
 # Logging Service Quotas API calls using AWS CloudTrail
+<a name="logging-using-cloudtrail"></a>
 
-Service Quotas is integrated with AWS CloudTrail, a service that provides a record of actions taken by a
-user, role, or an AWS service in Service Quotas. CloudTrail captures all API calls for Service Quotas as events. The
-calls captured include calls from the Service Quotas console and code calls to the Service Quotas API
-operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an
-Amazon S3 bucket, including events for Service Quotas. If you don't configure a trail, you can still view
-the most recent events in the CloudTrail console in **Event history**. Using the
-information collected by CloudTrail, you can determine the request that was made to Service Quotas, the IP
-address from which the request was made, who made the request, when it was made, and
-additional details.
+Service Quotas is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Service Quotas. CloudTrail captures all API calls for Service Quotas as events. The calls captured include calls from the Service Quotas console and code calls to the Service Quotas API operations. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Service Quotas. If you don't configure a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you can determine the request that was made to Service Quotas, the IP address from which the request was made, who made the request, when it was made, and additional details.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+To learn more about CloudTrail, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
 ## Service Quotas information in CloudTrail
+<a name="service-quotas-info-in-cloudtrail"></a>
 
-CloudTrail is enabled on your AWS account when you create the account. When activity
-occurs in Service Quotas, that activity is recorded in a CloudTrail event along with other AWS service
-events in **Event history**. You can view, search, and download recent
-events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Service Quotas, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html).
 
-For an ongoing record of events in your AWS account, including events for Service Quotas,
-create a trail. A _trail_ enables CloudTrail to deliver log files to an
-Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to
-all AWS Regions. The trail logs events from all Regions in the AWS partition and
-delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can
-configure other AWS services to further analyze and act upon the event data collected
-in CloudTrail logs. For more information, see the following:
+For an ongoing record of events in your AWS account, including events for Service Quotas, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following:
++ [Overview for creating a trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
++ [CloudTrail supported services and integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html)
++ [Configuring Amazon SNS notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.html)
++ [Receiving CloudTrail log files from multiple regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail log files from multiple accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
 
-- [Overview for creating a trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail supported services and integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md")
-- [Configuring Amazon SNS notifications for
-  CloudTrail](../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/configure-sns-notifications-for-cloudtrail.md")
-- [Receiving CloudTrail log files from multiple regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md")
-  and [Receiving CloudTrail log files from multiple
-  accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+All Service Quotas actions are logged by CloudTrail and are documented in the [Service Quotas API Reference](https://docs.aws.amazon.com/servicequotas/2019-06-24/apireference/Welcome.html). For example, calls to the `GetServiceQuota`, `RequestServiceQuotaIncrease` and `ListAWSDefaultServiceQuotas` actions generate entries in the CloudTrail log files.
 
-All Service Quotas actions are logged by CloudTrail and are documented in the [Service Quotas
-API Reference](../../2019-06-24/apireference/Welcome.md "../../2019-06-24/apireference/Welcome.md"). For example, calls to the
-`GetServiceQuota`, `RequestServiceQuotaIncrease` and
-`ListAWSDefaultServiceQuotas` actions generate entries in the CloudTrail log
-files.
+Every event or log entry contains information that helps you determine who made the request.
++  AWS account root credentials. 
++ Temporary security credentials from an AWS Identity and Access Management role or federated user.
++ Long-term security credentials from an IAM user.
++ Another AWS service.
 
-Every event or log entry contains information that helps you determine who made the
-request.
-
-- AWS account root credentials.
-- Temporary security credentials from an AWS Identity and Access Management role or federated
-  user.
-- Long-term security credentials from an IAM user.
-- Another AWS service.
-
-For more information, see the [CloudTrail userIdentity element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 ## Understanding Service Quotas log file entries
+<a name="understanding-service-name-entries"></a>
 
-A trail is a configuration that enables delivery of events as log files to an Amazon S3
-bucket that you specify. CloudTrail log files contain one or more log entries. An event
-represents a single request from any source and includes information about the requested
-action, the date and time of the action, request parameters, and so on. CloudTrail log files
-aren't an ordered stack trace of the public API calls, so they don't appear in any
-specific order.
+A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order. 
 
-The following example shows a CloudTrail log entry that demonstrates the
-`RequestQuotaIncrease` action.
+The following example shows a CloudTrail log entry that demonstrates the `RequestQuotaIncrease` action.
 
 ```
 {
@@ -120,9 +91,7 @@ The following example shows a CloudTrail log entry that demonstrates the
 }
 ```
 
-This example shows that the user named `admin` generated a request for
-additional Amazon Elastic Compute Cloud Elastic IP addresses on January 24, 2022. The requested increase
-was 10, an increase of 5 from the default quota of 5.
+This example shows that the user named `admin` generated a request for additional Amazon Elastic Compute Cloud Elastic IP addresses on January 24, 2022. The requested increase was 10, an increase of 5 from the default quota of 5.
 
 The following is an example of an approved quota increase in Service Quotas:
 
@@ -159,6 +128,4 @@ The following is an example of an approved quota increase in Service Quotas:
 }
 ```
 
-From the `serviceEventDetails` section, you can determine that Support
-approved the request for a quota increase to 10 Elastic IP addresses, and closed the
-request. The `newQuotaValue` displays 10 as the new quota.
+From the `serviceEventDetails` section, you can determine that Support approved the request for a quota increase to 10 Elastic IP addresses, and closed the request. The `newQuotaValue` displays 10 as the new quota.

@@ -1,12 +1,14 @@
+
+
 # Service Quotas Automatic Management AWS CloudTrail logs
+<a name="auto-mgmt-ct-logs"></a>
 
 The following are AWS CloudTrail logs for Automatic Management critical and non-critical events.
 
 ## Critical
+<a name="critical-events"></a>
 
-The following is an example of an EventBridge event for Automatic Management. This
-event shows the utilization for AWS CloudTrail and is a critical event where you'd
-receive notification.
+The following is an example of an EventBridge event for Automatic Management. This event shows the utilization for AWS CloudTrail and is a critical event where you'd receive notification.
 
 ```
 {
@@ -44,10 +46,9 @@ receive notification.
 ```
 
 ## Non-critical
+<a name="non-critical-events"></a>
 
-The following is an example of an EventBridge event for Automatic Management. This
-event shows the utilization for Amazon DynamoDB and is a non-critical event. This
-event is sent to CloudTrail.
+The following is an example of an EventBridge event for Automatic Management. This event shows the utilization for Amazon DynamoDB and is a non-critical event. This event is sent to CloudTrail.
 
 ```
 {
