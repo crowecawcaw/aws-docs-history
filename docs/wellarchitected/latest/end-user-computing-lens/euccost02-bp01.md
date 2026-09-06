@@ -1,33 +1,17 @@
+
+
 # EUCCOST02-BP01 Monitor your EUC cost and usage proactively
+<a name="euccost02-bp01"></a>
 
-[AWS Cost and Usage
-Reports](../../../cur/latest/userguide/cur-create.md "../../../cur/latest/userguide/cur-create.md") help you gain detailed insights onboth your WorkSpaces Applications and your WorkSpaces service
-usage and cost. In addition, WorkSpaces Applications offers separate [Usage Reports](../../../appstream2/latest/developerguide/configure-usage-reports.md "../../../appstream2/latest/developerguide/configure-usage-reports.md")
-with further detail. Amazon WorkSpaces comes with a [WorkSpaces CloudWatch automatic
-dashboard](../../../workspaces/latest/adminguide/cloudwatch-dashboard.md "../../../workspaces/latest/adminguide/cloudwatch-dashboard.md") that provides insight into the performance of your WorkSpaces resources and
-helps you identify performance issues. [Amazon WorkSpaces Applications Fleet Usage and
-Instance/Session Performance Metrics](../../../appstream2/latest/developerguide/monitoring.md "../../../appstream2/latest/developerguide/monitoring.md") are available in the WorkSpaces Applications Console and
-Amazon CloudWatch.
+ [AWS Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) help you gain detailed insights onboth your WorkSpaces Applications and your WorkSpaces service usage and cost. In addition, WorkSpaces Applications offers separate [Usage Reports](https://docs.aws.amazon.com/appstream2/latest/developerguide/configure-usage-reports.html) with further detail. Amazon WorkSpaces comes with a [WorkSpaces CloudWatch automatic dashboard](https://docs.aws.amazon.com/workspaces/latest/adminguide/cloudwatch-dashboard.html) that provides insight into the performance of your WorkSpaces resources and helps you identify performance issues. [Amazon WorkSpaces Applications Fleet Usage and Instance/Session Performance Metrics](https://docs.aws.amazon.com/appstream2/latest/developerguide/monitoring.html) are available in the WorkSpaces Applications Console and Amazon CloudWatch.
 
-**Level of risk exposed if this best
-practice is not established:** Medium
+ **Level of risk exposed if this best practice is not established:** Medium 
 
 ## Implementation guidance
+<a name="implementation-guidance-81"></a>
 
-For WorkSpaces, enable [AWS Cost and Usage Reports](../../../cur/latest/userguide/cur-create.md "../../../cur/latest/userguide/cur-create.md") with
-resource IDs to analyze and visualize your cost and usage. Resource IDs help you see the
-cost and usage data for an individual WorkSpace. Consider building an [Build an enterprise cost and usage dashboard for Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/build-an-enterprise-cost-and-usage-dashboard-for-amazon-workspaces/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/build-an-enterprise-cost-and-usage-dashboard-for-amazon-workspaces/").
+ For WorkSpaces, enable [AWS Cost and Usage Reports](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) with resource IDs to analyze and visualize your cost and usage. Resource IDs help you see the cost and usage data for an individual WorkSpace. Consider building an [Build an enterprise cost and usage dashboard for Amazon WorkSpaces](https://aws.amazon.com/blogs/desktop-and-application-streaming/build-an-enterprise-cost-and-usage-dashboard-for-amazon-workspaces/). 
 
-Furthermore, the [Cloud
-Intelligence Dashboards](https://www.wellarchitectedlabs.com/cloud-intelligence-dashboards/ "https://www.wellarchitectedlabs.com/cloud-intelligence-dashboards/") section of AWS Well-Architected Labs explores how to
-build a CUDOS Dashboard that includes Amazon WorkSpaces cost and usage data. The Cost
-Optimizer for Amazon WorkSpaces referred to in EUCCOST-BP05 also generates basic usage
-reports in Amazon S3. 
+Furthermore, the [Cloud Intelligence Dashboards](https://www.wellarchitectedlabs.com/cloud-intelligence-dashboards/) section of AWS Well-Architected Labs explores how to build a CUDOS Dashboard that includes Amazon WorkSpaces cost and usage data. The Cost Optimizer for Amazon WorkSpaces referred to in EUCCOST-BP05 also generates basic usage reports in Amazon S3.  
 
-WorkSpaces Applications also offers built-in usage reports. Enable [WorkSpaces Applications Usage
-Reports](../../../appstream2/latest/developerguide/configure-usage-reports.md "../../../appstream2/latest/developerguide/configure-usage-reports.md") to gain valuable insights into your WorkSpaces Applications usage. For details on
-visualizing your WorkSpaces Applications usage, see [Analyze your WorkSpaces Applications usage reports using Amazon Athena and Quick](https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/"). If you are using
-Amazon WorkSpaces Applications features such as [Enable Application
-Settings Persistence for Your WorkSpaces Applications Users](../../../appstream2/latest/developerguide/app-settings-persistence.md "../../../appstream2/latest/developerguide/app-settings-persistence.md") or [Enable and Administer Home
-Folders for Your WorkSpaces Applications Users](../../../appstream2/latest/developerguide/home-folders.md "../../../appstream2/latest/developerguide/home-folders.md") , include the underlying Amazon S3 buckets in
-your cost and usage monitoring.
+ WorkSpaces Applications also offers built-in usage reports. Enable [WorkSpaces Applications Usage Reports](https://docs.aws.amazon.com/appstream2/latest/developerguide/configure-usage-reports.html) to gain valuable insights into your WorkSpaces Applications usage. For details on visualizing your WorkSpaces Applications usage, see [Analyze your WorkSpaces Applications usage reports using Amazon Athena and Quick](https://aws.amazon.com/blogs/desktop-and-application-streaming/analyze-your-amazon-appstream-2-0-usage-reports-using-amazon-athena-and-amazon-quicksight/). If you are using Amazon WorkSpaces Applications features such as [Enable Application Settings Persistence for Your WorkSpaces Applications Users](https://docs.aws.amazon.com/appstream2/latest/developerguide/app-settings-persistence.html) or [ Enable and Administer Home Folders for Your WorkSpaces Applications Users ](https://docs.aws.amazon.com/appstream2/latest/developerguide/home-folders.html), include the underlying Amazon S3 buckets in your cost and usage monitoring.

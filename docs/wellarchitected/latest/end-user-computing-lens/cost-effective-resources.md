@@ -1,35 +1,25 @@
+
+
 # Cost effective resources
+<a name="cost-effective-resources"></a>
 
-| EUCCOST04: How do you allocate cost to your business<br>owners? |
-| --------------------------------------------------------------- |
-|                                                                 |
 
-Since AWS EUC services are typically consumed by end users, we
-recommend allocating the cost to your business owners at an
-organizational, departmental, functional or other level. Tag your
-AWS EUC resources to apply this cost allocation per your
-requirements. For information on building a tagging strategy, see
-[Best
-Practices for Tagging AWS Resources](../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md "../../../whitepapers/latest/tagging-best-practices/tagging-best-practices.md"). Prepare your tagging
-strategy ahead of deploying your EUC resources to assist with cost
-allocation and reporting.
+|  EUCCOST04: How do you allocate cost to your business owners?  | 
+| --- | 
+|   | 
 
-| EUCCOST05: How do you evaluate cost and measure<br>efficiency when selecting EUC services? |
-| ------------------------------------------------------------------------------------------ |
-|                                                                                            |
+ Since AWS EUC services are typically consumed by end users, we recommend allocating the cost to your business owners at an organizational, departmental, functional or other level. Tag your AWS EUC resources to apply this cost allocation per your requirements. For information on building a tagging strategy, see [Best Practices for Tagging AWS Resources](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html). Prepare your tagging strategy ahead of deploying your EUC resources to assist with cost allocation and reporting. 
 
-Usage patterns and hardware requirements for your applications may vary
-significantly, which is why a one-size-fits-all approach often does not work well for an
-EUC environment. It is therefore important to evaluate your application landscape,
-understand the usage patterns of individual applications, and understand their hardware
-requirements. This understanding helps you compartmentalize your application landscape and
-select the most appropriate AWS EUC service for your applications based on their
-hardware requirements and usage pattern.
 
-###### Best practices
+|  EUCCOST05: How do you evaluate cost and measure efficiency when selecting EUC services?  | 
+| --- | 
+|   | 
 
-- [EUCCOST04-BP01 Tag your Amazon WorkSpaces and Amazon WorkSpaces Applications resources](euccost04-bp01.md "euccost04-bp01.md")
-- [EUCCOST05-BP01 Gather usage data and hardware requirements in your existing environment](euccost05-bp01.md "euccost05-bp01.md")
-- [EUCCOST05-BP02 Select the most cost-effective service for your EUC workload](euccost05-bp02.md "euccost05-bp02.md")
-- [EUCCOST05-BP03 Rightsize your EUC resources](euccost05-bp03.md "euccost05-bp03.md")
-- [EUCCOST05-BP04 Choose an appropriate running mode for your EUC workload where applicable](euccost05-bp04.md "euccost05-bp04.md")
+ Usage patterns and hardware requirements for your applications may vary significantly, which is why a one-size-fits-all approach often does not work well for an EUC environment. It is therefore important to evaluate your application landscape, understand the usage patterns of individual applications, and understand their hardware requirements. This understanding helps you compartmentalize your application landscape and select the most appropriate AWS EUC service for your applications based on their hardware requirements and usage pattern.
+
+**Topics**
++ [EUCCOST04-BP01 Tag your Amazon WorkSpaces and Amazon WorkSpaces Applications resources](euccost04-bp01.md)
++ [EUCCOST05-BP01 Gather usage data and hardware requirements in your existing environment](euccost05-bp01.md)
++ [EUCCOST05-BP02 Select the most cost-effective service for your EUC workload](euccost05-bp02.md)
++ [EUCCOST05-BP03 Rightsize your EUC resources](euccost05-bp03.md)
++ [EUCCOST05-BP04 Choose an appropriate running mode for your EUC workload where applicable](euccost05-bp04.md)

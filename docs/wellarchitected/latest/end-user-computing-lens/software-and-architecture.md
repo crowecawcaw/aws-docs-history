@@ -1,21 +1,23 @@
+
+
 # Software and architecture
+<a name="software-and-architecture"></a>
 
-| EUCSUS05: Do you use an automation pipeline to manage your<br>images? |
-| --------------------------------------------------------------------- |
-|                                                                       |
 
-Using an automation pipeline for Amazon WorkSpaces Applications image management promotes sustainability by
-optimizing resource utilization, and enabling efficient application delivery.
+|  EUCSUS05: Do you use an automation pipeline to manage your images?  | 
+| --- | 
+|   | 
 
-| EUCSUS06: Do you have a mechanism to avoid unused<br>active instances? |
-| ---------------------------------------------------------------------- |
-|                                                                        |
+ Using an automation pipeline for Amazon WorkSpaces Applications image management promotes sustainability by optimizing resource utilization, and enabling efficient application delivery. 
 
-Identifying your unused workload will impact positively your
-cost and sustainability.
 
-###### Best practices
+|  EUCSUS06: Do you have a mechanism to avoid unused active instances?   | 
+| --- | 
+|   | 
 
-- [EUCSUS05-BP01 Optimize machine image creation, copying, and sharing to each environment (like development, testing, and production)](eucsus05-bp01.md "eucsus05-bp01.md")
-- [EUCSUS06-BP01 Stop image builders and app block builders when not in use](eucsus06-bp01.md "eucsus06-bp01.md")
-- [EUCSUS06-BP02 Implement the Cost Optimizer for Amazon WorkSpaces](eucsus06-bp02.md "eucsus06-bp02.md")
+ Identifying your unused workload will impact positively your cost and sustainability. 
+
+**Topics**
++ [EUCSUS05-BP01 Optimize machine image creation, copying, and sharing to each environment (like development, testing, and production) ](eucsus05-bp01.md)
++ [EUCSUS06-BP01 Stop image builders and app block builders when not in use](eucsus06-bp01.md)
++ [EUCSUS06-BP02 Implement the Cost Optimizer for Amazon WorkSpaces](eucsus06-bp02.md)

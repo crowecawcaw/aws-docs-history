@@ -1,9 +1,6 @@
-# Region selection
 
-There are no sustainability practices unique to the EUC Lens for
-Region selection. Refer to
-the [Region
-selection](../sustainability-pillar/region-selection.md "../sustainability-pillar/region-selection.md") and best
-practice [SUS01-BP01](../sustainability-pillar/sus_sus_region_a2.md "../sustainability-pillar/sus_sus_region_a2.md")
-from the sustainability pillar of the Well-Architected Framework
-for more information.
+
+# Region selection 
+<a name="region-selection"></a>
+
+ There are no sustainability practices unique to the EUC Lens for Region selection. Refer to the [Region selection](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/region-selection.html) and best practice [SUS01-BP01](https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sus_sus_region_a2.html) from the sustainability pillar of the Well-Architected Framework for more information.  
