@@ -1,12 +1,12 @@
+
+
 # Convert JSON to Athena data types
+<a name="converting-json-to-native-data-types"></a>
 
 To convert JSON data to Athena data types, use `CAST`.
 
-###### Note
-
-In this example, to denote strings as JSON-encoded, start with the
-`JSON` keyword and use single quotes, such as `JSON
- '12345'`
+**Note**  
+In this example, to denote strings as JSON-encoded, start with the `JSON` keyword and use single quotes, such as `JSON '12345'` 
 
 ```
 WITH dataset AS (
@@ -21,7 +21,6 @@ SELECT * FROM dataset
 This query returns:
 
 ```
-
 +-------------------------------------+
 | hello_msg    | some_int | some_map  |
 +-------------------------------------+

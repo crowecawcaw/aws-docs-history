@@ -1,4 +1,7 @@
+
+
 # Convert Athena data types to JSON
+<a name="converting-native-data-types-to-json"></a>
 
 To convert Athena data types to JSON, use `CAST`.
 
@@ -15,7 +18,6 @@ SELECT * FROM dataset
 This query returns:
 
 ```
-
 +-------------------------------------------+
 | hello_msg      | some_int | some_map      |
 +-------------------------------------------+

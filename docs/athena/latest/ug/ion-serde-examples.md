@@ -1,17 +1,16 @@
-# Path extractor examples
 
-The following path extractor examples show how to flatten and rename fields or extract
-data as Amazon Ion text.
+
+# Path extractor examples
+<a name="ion-serde-examples"></a>
+
+The following path extractor examples show how to flatten and rename fields or extract data as Amazon Ion text.
 
 ## Flatten and rename fields
+<a name="ion-serde-flattening-and-renaming-fields"></a>
 
-The following example shows a set of search paths that flatten and rename fields.
-The example uses search paths to do the following:
-
-- Map the `nickname` column to the `alias`
-  field
-- Map the `name` column to the `name` subfield located
-  in the `identification` struct.
+The following example shows a set of search paths that flatten and rename fields. The example uses search paths to do the following:
++ Map the `nickname` column to the `alias` field
++ Map the `name` column to the `name` subfield located in the `identification` struct.
 
 Following is the example Amazon Ion document.
 
@@ -22,13 +21,12 @@ Following is the example Amazon Ion document.
         name: "John Smith",
         driver_license: "XXXX"
     },
-
-    alias: "Johnny"
+    
+    alias: "Johnny"    
 }
 ```
 
-The following is the example `CREATE TABLE` statement that defines the
-path extractors.
+The following is the example `CREATE TABLE` statement that defines the path extractors.
 
 ```
 -- Example DDL Query
@@ -55,16 +53,12 @@ The following example shows the extracted data.
 | "John Smith" |  "Johnny"    |
 ```
 
-For more information about search paths and additional search path examples, see
-the [Ion Java Path
-Extraction](https://github.com/amzn/ion-java-path-extraction "https://github.com/amzn/ion-java-path-extraction") page on GitHub.
+For more information about search paths and additional search path examples, see the [Ion Java Path Extraction](https://github.com/amzn/ion-java-path-extraction) page on GitHub.
 
 ## Extract flight data to text format
+<a name="ion-serde-extracting-flight-data-to-text-format"></a>
 
-The following example `CREATE TABLE` query uses `WITH
- SERDEPROPERTIES` to add path extractors to extract flight data and specify
-the output encoding as Amazon Ion text. The example uses the `STORED AS
- ION` syntax.
+The following example `CREATE TABLE` query uses `WITH SERDEPROPERTIES` to add path extractors to extract flight data and specify the output encoding as Amazon Ion text. The example uses the `STORED AS ION` syntax.
 
 ```
 CREATE EXTERNAL TABLE flights_ion (

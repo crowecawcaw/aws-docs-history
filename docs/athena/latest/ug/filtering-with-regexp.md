@@ -1,30 +1,18 @@
+
+
 # Find keywords in arrays using `regexp_like`
+<a name="filtering-with-regexp"></a>
 
-The following examples illustrate how to search a dataset for a keyword within an
-element inside an array, using the [regexp\_like](https://prestodb.io/docs/current/functions/regexp.html "https://prestodb.io/docs/current/functions/regexp.html")
-function. It takes as an input a regular expression pattern to evaluate, or a list of
-terms separated by a pipe (|), evaluates the pattern, and determines if the specified
-string contains it.
+The following examples illustrate how to search a dataset for a keyword within an element inside an array, using the [regexp\_like](https://prestodb.io/docs/current/functions/regexp.html) function. It takes as an input a regular expression pattern to evaluate, or a list of terms separated by a pipe (\|), evaluates the pattern, and determines if the specified string contains it.
 
-The regular expression pattern needs to be contained within the string, and does not
-have to match it. To match the entire string, enclose the pattern with ^ at the
-beginning of it, and $ at the end, such as `'^pattern$'`.
+The regular expression pattern needs to be contained within the string, and does not have to match it. To match the entire string, enclose the pattern with ^ at the beginning of it, and $ at the end, such as `'^pattern$'`.
 
-Consider an array of sites containing their host name, and a
-`flaggedActivity` element. This element includes an `ARRAY`,
-containing several `MAP` elements, each listing different popular keywords
-and their popularity count. Assume you want to find a particular keyword inside a
-`MAP` in this array.
+Consider an array of sites containing their host name, and a `flaggedActivity` element. This element includes an `ARRAY`, containing several `MAP` elements, each listing different popular keywords and their popularity count. Assume you want to find a particular keyword inside a `MAP` in this array.
 
-To search this dataset for sites with a specific keyword, we use
-`regexp_like` instead of the similar SQL `LIKE` operator,
-because searching for a large number of keywords is more efficient with
-`regexp_like`.
+To search this dataset for sites with a specific keyword, we use `regexp_like` instead of the similar SQL `LIKE` operator, because searching for a large number of keywords is more efficient with `regexp_like`.
 
-###### Example 1: Using regexp\_like
-
-The query in this example uses the `regexp_like` function to search for
-terms `'politics|bigdata'`, found in values within arrays:
+**Example 1: Using `regexp_like`**  
+The query in this example uses the `regexp_like` function to search for terms `'politics|bigdata'`, found in values within arrays:  
 
 ```
 WITH dataset AS (
@@ -67,8 +55,7 @@ FROM sites, UNNEST(sites.flaggedActivity.flags) t(flags)
 WHERE regexp_like(flags['term'], 'politics|bigdata')
 GROUP BY (hostname)
 ```
-
-This query returns two sites:
+This query returns two sites:  
 
 ```
 +----------------+
@@ -80,11 +67,8 @@ This query returns two sites:
 +----------------+
 ```
 
-###### Example 2: Using regexp\_like
-
-The query in the following example adds up the total popularity scores for the
-sites matching your search terms with the `regexp_like` function, and
-then orders them from highest to lowest.
+**Example 2: Using `regexp_like`**  
+The query in the following example adds up the total popularity scores for the sites matching your search terms with the `regexp_like` function, and then orders them from highest to lowest.   
 
 ```
 WITH dataset AS (
@@ -128,8 +112,7 @@ WHERE regexp_like(flags['term'], 'politics|bigdata')
 GROUP BY (hostname)
 ORDER BY total DESC
 ```
-
-This query returns two sites:
+This query returns two sites:  
 
 ```
 +------------------------------------+

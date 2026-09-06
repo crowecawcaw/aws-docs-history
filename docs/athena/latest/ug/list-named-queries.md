@@ -1,7 +1,9 @@
-# List named queries
 
-The `ListNamedQueryExample` shows how to obtain a list of named query
-IDs.
+
+# List named queries
+<a name="list-named-queries"></a>
+
+The `ListNamedQueryExample` shows how to obtain a list of named query IDs.
 
 ```
 package aws.example.athena;
@@ -50,5 +52,4 @@ public class ListNamedQueryExample {
         }
     }
 }
-
 ```

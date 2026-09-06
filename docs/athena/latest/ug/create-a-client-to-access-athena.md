@@ -1,7 +1,9 @@
-# Create a client to access Athena
 
-The `AthenaClientFactory.java` class shows how to create and configure an
-Amazon Athena client.
+
+# Create a client to access Athena
+<a name="create-a-client-to-access-athena"></a>
+
+The `AthenaClientFactory.java` class shows how to create and configure an Amazon Athena client.
 
 ```
 package aws.example.athena;
@@ -20,5 +22,4 @@ public class AthenaClientFactory {
         return builder.build();
     }
 }
-
 ```

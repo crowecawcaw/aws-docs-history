@@ -1,32 +1,29 @@
+
+
 # Amazon Athena TPC benchmark DS (TPC-DS) connector
+<a name="connectors-tpcds"></a>
 
-The Amazon Athena TPC-DS connector enables Amazon Athena to communicate with a source of randomly
-generated TPC Benchmark DS data for use in benchmarking and functional testing of Athena
-Federation. The Athena TPC-DS connector generates a TPC-DS compliant database at one of four
-scale factors. We do not recommend the use of this connector as an alternative to Amazon S3-based
-data lake performance tests.
+The Amazon Athena TPC-DS connector enables Amazon Athena to communicate with a source of randomly generated TPC Benchmark DS data for use in benchmarking and functional testing of Athena Federation. The Athena TPC-DS connector generates a TPC-DS compliant database at one of four scale factors. We do not recommend the use of this connector as an alternative to Amazon S3-based data lake performance tests.
 
-This connector can be registered with Glue Data Catalog as a federated catalog.
-It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
+This connector can be registered with Glue Data Catalog as a federated catalog. It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
 
 ## Prerequisites
-
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+<a name="connectors-tpcds-prerequisites"></a>
++ Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md) or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md).
 
 ## Parameters
+<a name="connectors-tpcds-parameters"></a>
 
 Use the parameters in this section to configure the TPC-DS connector.
 
-###### Note
+**Note**  
+Athena data source connectors created on December 3, 2024 and later use AWS Glue connections.  
+The parameter names and definitions listed below are for Athena data source connectors created prior to December 3, 2024. These can differ from their corresponding [AWS Glue connection properties](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html). Starting December 3, 2024, use the parameters below only when you [manually deploy](connect-data-source-serverless-app-repo.md) an earlier version of an Athena data source connector.
 
-Athena data source connectors created on December 3, 2024 and later use AWS Glue connections.
+### AWS Glue Data Catalog federated connectors
+<a name="connectors-tpcds-gc"></a>
 
-The parameter names and definitions listed below are for Athena data source connectors created prior to December 3, 2024. These can differ from their corresponding [AWS Glue connection properties](../../../glue/latest/dg/connection-properties.md "../../../glue/latest/dg/connection-properties.md"). Starting December 3, 2024, use the parameters below only when you [manually deploy](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md") an earlier version of an Athena data source connector.
-
-We recommend that you configure a TPC-DS connector by using a Glue
-connections object. To do this, set the `glue_connection`
-environment variable of the TPC-DS connector Lambda to the name of the Glue
-connection to use.
+We recommend that you configure a TPC-DS connector by using a Glue connections object. To do this, set the `glue_connection` environment variable of the TPC-DS connector Lambda to the name of the Glue connection to use.
 
 **Glue connections properties**
 
@@ -39,88 +36,87 @@ aws glue describe-connection-type --connection-type TPCDS
 **Lambda environment properties**
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
++ **glue\_connection** – Specifies the name of the Glue connection associated with the federated connector.
 
-- glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
+**Note**  
+All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+The TPC-DS connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+The TPC-DS connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
 
-###### Note
-
-- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
-- The TPC-DS connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
-- The TPC-DS connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
-
-- spill\_bucket – Specifies the Amazon S3 bucket
-  for data that exceeds Lambda function limits.
-- spill\_prefix – (Optional) Defaults to a
-  subfolder in the specified `spill_bucket` called
-  `athena-federation-spill`. We recommend that you
-  configure an Amazon S3 [storage
-  lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") on this location to delete spills older than a
-  predetermined number of days or hours.
-- spill\_put\_request\_headers – (Optional) A
-  JSON encoded map of request headers and values for the Amazon S3
-  `putObject` request that is used for spilling (for example,
-  `{"x-amz-server-side-encryption" : "AES256"}`). For other
-  possible headers, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") in the
-  _Amazon Simple Storage Service API Reference_.
-- kms\_key\_id – (Optional) By default, any
-  data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated
-  encryption mode and a randomly generated key. To have your Lambda function use
-  stronger encryption keys generated by KMS like
-  `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key
-  ID.
-- disable\_spill\_encryption – (Optional)
-  When set to `True`, disables spill encryption. Defaults to
-  `False` so that data that is spilled to S3 is encrypted using
-  AES-GCM – either using a randomly generated key or KMS to generate keys.
-  Disabling spill encryption can improve performance, especially if your spill
-  location uses [server-side
-  encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md").
+### Athena data catalog federated connectors
+<a name="connectors-tpcds-legacy"></a>
++ **spill\_bucket** – Specifies the Amazon S3 bucket for data that exceeds Lambda function limits.
++ **spill\_prefix** – (Optional) Defaults to a subfolder in the specified `spill_bucket` called `athena-federation-spill`. We recommend that you configure an Amazon S3 [storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) on this location to delete spills older than a predetermined number of days or hours.
++ **spill\_put\_request\_headers** – (Optional) A JSON encoded map of request headers and values for the Amazon S3 `putObject` request that is used for spilling (for example, `{"x-amz-server-side-encryption" : "AES256"}`). For other possible headers, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) in the *Amazon Simple Storage Service API Reference*.
++ **kms\_key\_id** – (Optional) By default, any data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated encryption mode and a randomly generated key. To have your Lambda function use stronger encryption keys generated by KMS like `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key ID.
++ **disable\_spill\_encryption** – (Optional) When set to `True`, disables spill encryption. Defaults to `False` so that data that is spilled to S3 is encrypted using AES-GCM – either using a randomly generated key or KMS to generate keys. Disabling spill encryption can improve performance, especially if your spill location uses [server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html).
 
 ## Test databases and tables
+<a name="connectors-tpcds-test-databases-and-tables"></a>
 
-The Athena TPC-DS connector generates a TPC-DS compliant database at one of the four
-scale factors `tpcds1`, `tpcds10`, `tpcds100`,
-`tpcds250`, or `tpcds1000`.
+The Athena TPC-DS connector generates a TPC-DS compliant database at one of the four scale factors `tpcds1`, `tpcds10`, `tpcds100`, `tpcds250`, or `tpcds1000`.
 
 ### Summary of tables
+<a name="connectors-tpcds-table-summary"></a>
 
-For a complete list of the test data tables and columns, run the `SHOW
- TABLES` or `DESCRIBE TABLE` queries. The following summary of
-tables is provided for convenience.
+For a complete list of the test data tables and columns, run the `SHOW TABLES` or `DESCRIBE TABLE` queries. The following summary of tables is provided for convenience.
 
 1. call\_center
-2. catalog\_page
-3. catalog\_returns
-4. catalog\_sales
-5. customer
-6. customer\_address
-7. customer\_demographics
-8. date\_dim
-9. dbgen\_version
-10. household\_demographics
-11. income\_band
-12. inventory
-13. item
-14. promotion
-15. reason
-16. ship\_mode
-17. store
-18. store\_returns
-19. store\_sales
-20. time\_dim
-21. warehouse
-22. web\_page
-23. web\_returns
-24. web\_sales
-25. web\_site
 
-For TPC-DS queries that are compatible with this generated schema and data, see
-the [athena-tpcds/src/main/resources/queries/](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-tpcds/src/main/resources/queries "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-tpcds/src/main/resources/queries") directory on GitHub.
+1. catalog\_page
+
+1. catalog\_returns
+
+1. catalog\_sales
+
+1. customer
+
+1. customer\_address
+
+1. customer\_demographics
+
+1. date\_dim
+
+1. dbgen\_version
+
+1. household\_demographics
+
+1. income\_band
+
+1. inventory
+
+1. item
+
+1. promotion
+
+1. reason
+
+1. ship\_mode
+
+1. store
+
+1. store\_returns
+
+1. store\_sales
+
+1. time\_dim
+
+1. warehouse
+
+1. web\_page
+
+1. web\_returns
+
+1. web\_sales
+
+1. web\_site
+
+For TPC-DS queries that are compatible with this generated schema and data, see the [athena-tpcds/src/main/resources/queries/](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-tpcds/src/main/resources/queries) directory on GitHub.
 
 ### Example query
+<a name="connectors-tpcds-example-query"></a>
 
-The following `SELECT` query example queries the `tpcds`
-catalog for customer demographics in specific counties.
+The following `SELECT` query example queries the `tpcds` catalog for customer demographics in specific counties.
 
 ```
 SELECT
@@ -183,24 +179,23 @@ LIMIT 100
 ```
 
 ## Required Permissions
+<a name="connectors-tpcds-required-permissions"></a>
 
-For full details on the IAM policies that this
-connector requires, review the `Policies` section of the [athena-tpcds.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-tpcds/athena-tpcds.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-tpcds/athena-tpcds.yaml") file. The following list summarizes the required permissions.
-
-- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
-- Athena GetQueryExecution – The connector
-  uses this permission to fast-fail when the upstream Athena query has
-  terminated.
+For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-tpcds.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-tpcds/athena-tpcds.yaml) file. The following list summarizes the required permissions.
++ **Amazon S3 write access** – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
++ **Athena GetQueryExecution** – The connector uses this permission to fast-fail when the upstream Athena query has terminated.
 
 ## Performance
+<a name="connectors-tpcds-performance"></a>
 
-The Athena TPC-DS connector attempts to parallelize queries based on the scale factor
-that you choose. Predicate pushdown is performed within the Lambda function.
+The Athena TPC-DS connector attempts to parallelize queries based on the scale factor that you choose. Predicate pushdown is performed within the Lambda function.
 
 ## License information
+<a name="connectors-tpcds-license-information"></a>
 
-The Amazon Athena TPC-DS connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html "https://www.apache.org/licenses/LICENSE-2.0.html").
+The Amazon Athena TPC-DS connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html).
 
 ## Additional resources
+<a name="connectors-tpcds-additional-resources"></a>
 
-For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-tpcds "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-tpcds") on GitHub.com.
+For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-tpcds) on GitHub.com.

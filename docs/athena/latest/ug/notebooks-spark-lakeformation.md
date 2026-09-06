@@ -1,30 +1,38 @@
+
+
 # Using Lake Formation with Athena Spark workgroups
+<a name="notebooks-spark-lakeformation"></a>
 
 With the release version Apache Spark version 3.5, you can leverage AWS Lake Formation with AWS Glue Data Catalog where the session execution role has full table permissions. This capability allows you to read and write to tables that are protected by Lake Formation from your Athena Spark interactive sessions. See the following sections to learn more about Lake Formation and how to use it with Athena Spark.
 
 ## Step 1: Enable Full Table Access in Lake Formation
+<a name="notebooks-spark-lakeformation-enable-fta"></a>
 
-To use Full Table Access (FTA) mode, you must allow Athena Spark to access data without the IAM session tag validation in AWS Lake Formation. To enable, follow the steps in [Application integration for full table access](../../../lake-formation/latest/dg/fta-app-integration.md "../../../lake-formation/latest/dg/fta-app-integration.md").
+To use Full Table Access (FTA) mode, you must allow Athena Spark to access data without the IAM session tag validation in AWS Lake Formation. To enable, follow the steps in [Application integration for full table access](https://docs.aws.amazon.com/lake-formation/latest/dg/fta-app-integration.html).
 
 ### Step 1.1: Register data locations in Lake Formation using user defined role
+<a name="notebooks-spark-lakeformation-register-locations"></a>
 
-You must use a user-defined role to register data locations in AWS Lake Formation. See [Requirements for roles used to register locations](../../../lake-formation/latest/dg/registration-role.md "../../../lake-formation/latest/dg/registration-role.md") for details.
+You must use a user-defined role to register data locations in AWS Lake Formation. See [Requirements for roles used to register locations](https://docs.aws.amazon.com/lake-formation/latest/dg/registration-role.html) for details.
 
 ## Step 2: Setup IAM permissions for the execution role for the session
+<a name="notebooks-spark-lakeformation-iam-permissions"></a>
 
 For read or write access to underlying data, in addition to Lake Formation permissions, the execution role needs the `lakeformation:GetDataAccess` IAM permission. With this permission, Lake Formation grants the request for temporary credentials to access the data.
 
 The following is an example policy of how to provide IAM permissions to access a script in Amazon S3, uploading logs to S3, AWS Glue API permissions, and permission to access Lake Formation.
 
 ### Step 2.1: Configure Lake Formation permissions
-
-- Spark jobs that read data from S3 require Lake Formation `SELECT` permission.
-- Spark jobs that write/delete data in S3 require Lake Formation `ALL (SUPER)` permission.
-- Spark jobs that interact with AWS Glue Data catalog require `DESCRIBE`, `ALTER`, `DROP` permission as appropriate.
+<a name="notebooks-spark-lakeformation-configure-permissions"></a>
++ Spark jobs that read data from S3 require Lake Formation `SELECT` permission.
++ Spark jobs that write/delete data in S3 require Lake Formation `ALL (SUPER)` permission.
++ Spark jobs that interact with AWS Glue Data catalog require `DESCRIBE`, `ALTER`, `DROP` permission as appropriate.
 
 ## Step 3: Initialize a Spark session for Full Table Access using Lake Formation
+<a name="notebooks-spark-lakeformation-initialize-session"></a>
 
 ### Prerequisites
+<a name="notebooks-spark-lakeformation-prerequisites"></a>
 
 AWS Glue Data Catalog must be configured as a metastore to access Lake Formation tables.
 
@@ -42,6 +50,7 @@ Set the following settings to configure AWS Glue catalog as a metastore:
 To access tables registered with AWS Lake Formation, the following configurations need to be set during Spark initialization to configure Spark to use AWS Lake Formation credentials.
 
 ### Hive
+<a name="notebooks-spark-lakeformation-hive-config"></a>
 
 ```
 {
@@ -55,6 +64,7 @@ To access tables registered with AWS Lake Formation, the following configuration
 ```
 
 ### Apache Iceberg
+<a name="notebooks-spark-lakeformation-iceberg-config"></a>
 
 ```
 {
@@ -69,6 +79,7 @@ To access tables registered with AWS Lake Formation, the following configuration
 ```
 
 ### Amazon S3 Tables
+<a name="notebooks-spark-lakeformation-s3tables-config"></a>
 
 ```
 {
@@ -84,6 +95,7 @@ To access tables registered with AWS Lake Formation, the following configuration
 ```
 
 ### Delta Lake
+<a name="notebooks-spark-lakeformation-deltalake-config"></a>
 
 ```
 {
@@ -99,14 +111,14 @@ To access tables registered with AWS Lake Formation, the following configuration
 ```
 
 ## Considerations and Limitations
+<a name="notebooks-spark-lakeformation-considerations"></a>
++ Full Table Access is supported for Hive, Iceberg, Amazon S3 Tables and Delta tables. Hudi tables do not support full table access.
++ To add new catalogs to an active session use `spark.conf.set` with new catalog configs.
++ Catalog configs are immutable. If you want to update a catalog config create new catalog using `spark.conf.set`.
++ Add only catalogs you need to the spark session.
++ To change default catalog: `spark.catalog.setCurrentCatalog("s3tablesbucket")`
++ If you have special characters in your catalog name like `-` then escape it in your query like:
 
-- Full Table Access is supported for Hive, Iceberg, Amazon S3 Tables and Delta tables. Hudi tables do not support full table access.
-- To add new catalogs to an active session use `spark.conf.set` with new catalog configs.
-- Catalog configs are immutable. If you want to update a catalog config create new catalog using `spark.conf.set`.
-- Add only catalogs you need to the spark session.
-- To change default catalog: `spark.catalog.setCurrentCatalog("s3tablesbucket")`
-- If you have special characters in your catalog name like `-` then escape it in your query like:
-
-```
-SELECT sales_amount as nums FROM `my-s3-tables-bucket`.`s3namespace`.`daily_sales` LIMIT 100
-```
+  ```
+  SELECT sales_amount as nums FROM `my-s3-tables-bucket`.`s3namespace`.`daily_sales` LIMIT 100
+  ```

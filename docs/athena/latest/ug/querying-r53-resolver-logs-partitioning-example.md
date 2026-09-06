@@ -1,8 +1,9 @@
-# Use partition projection
 
-The following example shows a `CREATE TABLE` statement for Resolver query
-logs that uses partition projection and is partitioned by vpc and by date. For more
-information about partition projection, see [Use partition projection with Amazon Athena](partition-projection.md "partition-projection.md").
+
+# Use partition projection
+<a name="querying-r53-resolver-logs-partitioning-example"></a>
+
+The following example shows a `CREATE TABLE` statement for Resolver query logs that uses partition projection and is partitioned by vpc and by date. For more information about partition projection, see [Use partition projection with Amazon Athena](partition-projection.md).
 
 ```
 CREATE EXTERNAL TABLE r53_rlogs (
@@ -39,7 +40,7 @@ PARTITIONED BY (
 ROW FORMAT SERDE      'org.openx.data.jsonserde.JsonSerDe'
 STORED AS INPUTFORMAT 'org.apache.hadoop.mapred.TextInputFormat'
 OUTPUTFORMAT          'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION              's3://amzn-s3-demo-bucket/route53-query-logging/AWSLogs/`aws_account_id`/vpcdnsquerylogs/'
+LOCATION              's3://amzn-s3-demo-bucket/route53-query-logging/AWSLogs/{{aws_account_id}}/vpcdnsquerylogs/'
 TBLPROPERTIES(
 'projection.enabled' = 'true',
 'projection.vpc.type' = 'enum',
@@ -49,6 +50,6 @@ TBLPROPERTIES(
 'projection.date.format' = 'yyyy/MM/dd',
 'projection.date.interval' = '1',
 'projection.date.interval.unit' = 'DAYS',
-'storage.location.template' = 's3://amzn-s3-demo-bucket/route53-query-logging/AWSLogs/`aws_account_id`/vpcdnsquerylogs/${vpc}/${date}/'
+'storage.location.template' = 's3://amzn-s3-demo-bucket/route53-query-logging/AWSLogs/{{aws_account_id}}/vpcdnsquerylogs/${vpc}/${date}/'
 )
 ```

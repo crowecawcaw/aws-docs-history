@@ -1,12 +1,16 @@
-# Use CloudTrail to troubleshoot Athena notebook API calls
 
-To troubleshoot notebook API calls, you can examine Athena CloudTrail logs to investigate
-anomalies or discover actions initiated by users. For detailed information about using CloudTrail
-with Athena, see [Log Amazon Athena API calls with AWS CloudTrail](monitor-with-cloudtrail.md "monitor-with-cloudtrail.md").
+
+# Use CloudTrail to troubleshoot Athena notebook API calls
+<a name="notebooks-spark-troubleshooting-cloudtrail"></a>
+
+To troubleshoot notebook API calls, you can examine Athena CloudTrail logs to investigate anomalies or discover actions initiated by users. For detailed information about using CloudTrail with Athena, see [Log Amazon Athena API calls with AWS CloudTrail](monitor-with-cloudtrail.md).
 
 The following examples demonstrate CloudTrail log entries for Athena notebook APIs.
 
-The following example shows the CloudTrail log for a notebook [StartSession](../APIReference/API_StartSession.md "../APIReference/API_StartSession.md") event.
+## StartSession
+<a name="notebooks-spark-troubleshooting-cloudtrail-startsession"></a>
+
+The following example shows the CloudTrail log for a notebook [StartSession](https://docs.aws.amazon.com/athena/latest/APIReference/API_StartSession.html) event.
 
 ```
 {
@@ -73,8 +77,10 @@ The following example shows the CloudTrail log for a notebook [StartSession](../
 }
 ```
 
-The following example shows the CloudTrail log for a notebook [TerminateSession](../APIReference/API_TerminateSession.md "../APIReference/API_TerminateSession.md")
-event.
+## TerminateSession
+<a name="notebooks-spark-troubleshooting-cloudtrail-terminatesession"></a>
+
+The following example shows the CloudTrail log for a notebook [TerminateSession](https://docs.aws.amazon.com/athena/latest/APIReference/API_TerminateSession.html) event.
 
 ```
 {
@@ -128,8 +134,10 @@ event.
 }
 ```
 
-The following example shows the CloudTrail log for a notebook [ImportNotebook](../APIReference/API_ImportNotebook.md "../APIReference/API_ImportNotebook.md") event. For
-security, some content is hidden.
+## ImportNotebook
+<a name="notebooks-spark-troubleshooting-cloudtrail-importnotebook"></a>
+
+The following example shows the CloudTrail log for a notebook [ImportNotebook](https://docs.aws.amazon.com/athena/latest/APIReference/API_ImportNotebook.html) event. For security, some content is hidden.
 
 ```
 {
@@ -187,8 +195,10 @@ security, some content is hidden.
 }
 ```
 
-The following example shows the CloudTrail log for a notebook [UpdateNotebook](../APIReference/API_UpdateNotebook.md "../APIReference/API_UpdateNotebook.md") event. For
-security, some content is hidden.
+## UpdateNotebook
+<a name="notebooks-spark-troubleshooting-cloudtrail-updatenotebook"></a>
+
+The following example shows the CloudTrail log for a notebook [UpdateNotebook](https://docs.aws.amazon.com/athena/latest/APIReference/API_UpdateNotebook.html) event. For security, some content is hidden.
 
 ```
 {
@@ -243,8 +253,10 @@ security, some content is hidden.
 }
 ```
 
-The following example shows the CloudTrail log for a notebook [StartCalculationExecution](../APIReference/API_StartCalculationExecution.md "../APIReference/API_StartCalculationExecution.md") event. For security, some content is
-hidden.
+## StartCalculationExecution
+<a name="notebooks-spark-troubleshooting-cloudtrail-startcalculationexecution"></a>
+
+The following example shows the CloudTrail log for a notebook [StartCalculationExecution](https://docs.aws.amazon.com/athena/latest/APIReference/API_StartCalculationExecution.html) event. For security, some content is hidden.
 
 ```
 {

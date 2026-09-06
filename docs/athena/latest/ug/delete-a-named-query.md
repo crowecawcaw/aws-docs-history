@@ -1,7 +1,9 @@
-# Delete a named query
 
-The `DeleteNamedQueryExample` shows how to delete a named query by using
-the named query ID.
+
+# Delete a named query
+<a name="delete-a-named-query"></a>
+
+The `DeleteNamedQueryExample` shows how to delete a named query by using the named query ID.
 
 ```
 package aws.example.athena;
@@ -80,5 +82,4 @@ public class DeleteNamedQueryExample {
         return null;
     }
 }
-
 ```

@@ -1,10 +1,11 @@
+
+
 # Filter arrays with nested values
+<a name="filtering-nested-with-dot"></a>
 
-Large arrays often contain nested structures, and you need to be able to filter, or
-search, for values within them.
+Large arrays often contain nested structures, and you need to be able to filter, or search, for values within them.
 
-To define a dataset for an array of values that includes a nested `BOOLEAN`
-value, issue this query:
+To define a dataset for an array of values that includes a nested `BOOLEAN` value, issue this query:
 
 ```
 WITH dataset AS (
@@ -26,8 +27,7 @@ It returns this result:
 +----------------------------------------------------------+
 ```
 
-Next, to filter and access the `BOOLEAN` value of that element, continue to
-use the dot `.` notation.
+Next, to filter and access the `BOOLEAN` value of that element, continue to use the dot `.` notation.
 
 ```
 WITH dataset AS (

@@ -1,10 +1,14 @@
+
+
 # Spark Connect support
+<a name="notebooks-spark-connect"></a>
 
 Spark Connect is a client-server architecture for Apache Spark that decouples the application client from the Spark cluster's driver process, allowing remote connectivity to Spark from supported clients. Spark Connect also enables interactive debugging during development directly from your favorite IDEs/clients.
 
 From Apache Spark version 3.5 release version onward, Athena supports Spark Connect as an AWS endpoint accessible using the `GetSessionEndpoint` API.
 
 ## API/CLI examples (GetSessionEndpoint)
+<a name="notebooks-spark-connect-api-examples"></a>
 
 You can use the `GetSessionEndpoint` API to get the Spark Connect endpoint for an interactive session.
 
@@ -25,10 +29,12 @@ This API returns the Spark Connect endpoint URL for that session.
 ```
 
 ## Connecting from self-managed clients
+<a name="notebooks-spark-connect-self-managed"></a>
 
 You can connect to an Athena Spark Interactive Session from self-managed clients.
 
 ### Pre-requisites
+<a name="notebooks-spark-connect-prerequisites"></a>
 
 Install the pyspark-connect client for Spark 3.5.6 and the AWS SDK for Python.
 
@@ -70,8 +76,8 @@ start_time = time.time()
 spark = SparkSession.builder\
     .remote(url_with_headers)\
     .getOrCreate()
-
-spark.version
+ 
+spark.version 
 
 #
 # Enter your spark code here

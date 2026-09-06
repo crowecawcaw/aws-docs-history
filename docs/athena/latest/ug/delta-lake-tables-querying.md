@@ -1,4 +1,7 @@
+
+
 # Query Delta Lake tables with SQL
+<a name="delta-lake-tables-querying"></a>
 
 To query a Delta Lake table, use standard SQL `SELECT` syntax:
 
@@ -14,8 +17,6 @@ To query a Delta Lake table, use standard SQL `SELECT` syntax:
 [ LIMIT [ count | ALL ] ]
 ```
 
-For more information about `SELECT` syntax, see [SELECT](select.md "select.md") in the Athena documentation.
+For more information about `SELECT` syntax, see [SELECT](select.md) in the Athena documentation.
 
-The Delta Lake format stores the minimum and maximum values per column of each data
-file. Athena makes use of this information to enable file skipping on predicates to
-eliminate unnecessary files from consideration.
+The Delta Lake format stores the minimum and maximum values per column of each data file. Athena makes use of this information to enable file skipping on predicates to eliminate unnecessary files from consideration.

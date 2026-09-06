@@ -1,14 +1,15 @@
+
+
 # CREATE DATABASE
+<a name="create-database"></a>
 
-Creates a database. The use of `DATABASE` and `SCHEMA` is
-interchangeable. They mean the same thing.
+Creates a database. The use of `DATABASE` and `SCHEMA` is interchangeable. They mean the same thing.
 
-###### Note
-
-For an example of creating a database, creating a table, and running a
-`SELECT` query on the table in Athena, see [Get started](getting-started.md "getting-started.md").
+**Note**  
+For an example of creating a database, creating a table, and running a `SELECT` query on the table in Athena, see [Get started](getting-started.md).
 
 ## Synopsis
+<a name="synopsis"></a>
 
 ```
 CREATE {DATABASE|SCHEMA} [IF NOT EXISTS] database_name
@@ -17,34 +18,25 @@ CREATE {DATABASE|SCHEMA} [IF NOT EXISTS] database_name
   [WITH DBPROPERTIES ('property_name' = 'property_value') [, ...]]
 ```
 
-For restrictions on database names in Athena, see [Name databases, tables, and columns](tables-databases-columns-names.md "tables-databases-columns-names.md").
+For restrictions on database names in Athena, see [Name databases, tables, and columns](tables-databases-columns-names.md).
 
 ## Parameters
+<a name="parameters"></a>
 
-**[IF NOT EXISTS]**
+**[IF NOT EXISTS]**  
+Causes the error to be suppressed if a database named `database_name` already exists.
 
-Causes the error to be suppressed if a database named
-`database_name` already exists.
+**[COMMENT database\_comment]**  
+Establishes the metadata value for the built-in metadata property named `comment` and the value you provide for `database_comment`. In AWS Glue, the `COMMENT` contents are written to the `Description` field of the database properties.
 
-**[COMMENT database\_comment]**
+**[LOCATION S3\_loc]**  
+Specifies the location where database files and metastore will exist as `S3_loc`. The location must be an Amazon S3 location.
 
-Establishes the metadata value for the built-in metadata property named
-`comment` and the value you provide for
-`database_comment`. In AWS Glue, the `COMMENT`
-contents are written to the `Description` field of the database
-properties.
-
-**[LOCATION S3\_loc]**
-
-Specifies the location where database files and metastore will exist as
-`S3_loc`. The location must be an Amazon S3 location.
-
-**[WITH DBPROPERTIES ('property\_name' = 'property\_value') [, ...] ]**
-
-Allows you to specify custom metadata properties for the database
-definition.
+**[WITH DBPROPERTIES ('property\_name' = 'property\_value') [, ...] ]**  
+Allows you to specify custom metadata properties for the database definition.
 
 ## Examples
+<a name="examples"></a>
 
 ```
 CREATE DATABASE clickstreams;
@@ -58,12 +50,12 @@ CREATE DATABASE IF NOT EXISTS clickstreams
 ```
 
 ## Viewing database properties
+<a name="create-database-viewing-properties"></a>
 
-To view the database properties for a database that you create in AWSDataCatalog using
-`CREATE DATABASE`, you can use the AWS CLI command [`aws glue get-database`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-database.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-database.html"), as in the following example:
+To view the database properties for a database that you create in AWSDataCatalog using `CREATE DATABASE`, you can use the AWS CLI command [`aws glue get-database`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/glue/get-database.html), as in the following example:
 
 ```
-aws glue get-database --name `<your-database-name>`
+aws glue get-database --name {{<your-database-name>}}
 ```
 
 In JSON output, the result looks like the following:
@@ -71,11 +63,11 @@ In JSON output, the result looks like the following:
 ```
 {
     "Database": {
-        "Name": "`<your-database-name>`",
-        "Description": "`<your-database-comment>`",
+        "Name": "{{<your-database-name>}}",
+        "Description": "{{<your-database-comment>}}",
         "LocationUri": "s3://amzn-s3-demo-bucket",
         "Parameters": {
-            "`<your-database-property-name>`": "`<your-database-property-value>`"
+            "{{<your-database-property-name>}}": "{{<your-database-property-value>}}"
         },
         "CreateTime": 1603383451.0,
         "CreateTableDefaultPermissions": [
@@ -90,7 +82,6 @@ In JSON output, the result looks like the following:
         ]
     }
 }
-
 ```
 
-For more information about the AWS CLI, see the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md").
+For more information about the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/).

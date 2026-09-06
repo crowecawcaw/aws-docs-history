@@ -1,22 +1,11 @@
+
+
 # Create the table for CloudTrail logs in Athena using partition projection
+<a name="create-cloudtrail-table-partition-projection"></a>
 
-Because CloudTrail logs have a known structure whose partition scheme you can specify in
-advance, you can reduce query runtime and automate partition management by using the
-Athena partition projection feature. Partition projection automatically adds new
-partitions as new data is added. This removes the need for you to manually add
-partitions by using `ALTER TABLE ADD PARTITION`.
+Because CloudTrail logs have a known structure whose partition scheme you can specify in advance, you can reduce query runtime and automate partition management by using the Athena partition projection feature. Partition projection automatically adds new partitions as new data is added. This removes the need for you to manually add partitions by using `ALTER TABLE ADD PARTITION`. 
 
-The following example `CREATE TABLE` statement automatically uses partition
-projection on CloudTrail logs from a specified date until the present for a single
-AWS Region. In the `LOCATION` and `storage.location.template`
-clauses, replace the `bucket`,
-`account-id`, and
-`aws-region` placeholders with
-correspondingly identical values. For `projection.timestamp.range`, replace
-`2020`/`01`/`01`
-with the starting date that you want to use. After you run the query successfully, you
-can query the table. You do not have to run `ALTER TABLE ADD PARTITION` to
-load the partitions.
+The following example `CREATE TABLE` statement automatically uses partition projection on CloudTrail logs from a specified date until the present for a single AWS Region. In the `LOCATION` and `storage.location.template` clauses, replace the {{bucket}}, {{account-id}}, and {{aws-region}} placeholders with correspondingly identical values. For `projection.timestamp.range`, replace {{2020}}/{{01}}/{{01}} with the starting date that you want to use. After you run the query successfully, you can query the table. You do not have to run `ALTER TABLE ADD PARTITION` to load the partitions.
 
 ```
 CREATE EXTERNAL TABLE cloudtrail_logs_pp(
@@ -92,15 +81,15 @@ ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
 STORED AS INPUTFORMAT 'com.amazon.emr.cloudtrail.CloudTrailInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
-  's3://amzn-s3-demo-bucket/AWSLogs/`account-id`/`CloudTrail`/`aws-region`'
+  's3://amzn-s3-demo-bucket/AWSLogs/{{account-id}}/{{CloudTrail}}/{{aws-region}}'
 TBLPROPERTIES (
-  'projection.enabled'='true',
-  'projection.timestamp.format'='yyyy/MM/dd',
-  'projection.timestamp.interval'='1',
-  'projection.timestamp.interval.unit'='DAYS',
-  'projection.timestamp.range'='`2020`/`01`/`01`,NOW',
-  'projection.timestamp.type'='date',
-  'storage.location.template'='s3://amzn-s3-demo-bucket/AWSLogs/`account-id`/`CloudTrail`/`aws-region`/${timestamp}')
+  'projection.enabled'='true', 
+  'projection.timestamp.format'='yyyy/MM/dd', 
+  'projection.timestamp.interval'='1', 
+  'projection.timestamp.interval.unit'='DAYS', 
+  'projection.timestamp.range'='{{2020}}/{{01}}/{{01}},NOW', 
+  'projection.timestamp.type'='date', 
+  'storage.location.template'='s3://amzn-s3-demo-bucket/AWSLogs/{{account-id}}/{{CloudTrail}}/{{aws-region}}/${timestamp}')
 ```
 
-For more information about partition projection, see [Use partition projection with Amazon Athena](partition-projection.md "partition-projection.md").
+For more information about partition projection, see [Use partition projection with Amazon Athena](partition-projection.md).

@@ -1,29 +1,32 @@
+
+
 # Amazon Athena DynamoDB connector
+<a name="connectors-dynamodb"></a>
 
-The Amazon Athena DynamoDB connector enables Amazon Athena to communicate with DynamoDB so that you can
-query your tables with SQL. Write operations like [INSERT INTO](insert-into.md "insert-into.md") are not supported.
+The Amazon Athena DynamoDB connector enables Amazon Athena to communicate with DynamoDB so that you can query your tables with SQL. Write operations like [INSERT INTO](insert-into.md) are not supported.
 
-This connector can be registered with Glue Data Catalog as a federated catalog.
-It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
+This connector can be registered with Glue Data Catalog as a federated catalog. It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
 
 If you have Lake Formation enabled in your account, the IAM role for your Athena federated Lambda connector that you deployed in the AWS Serverless Application Repository must have read access in Lake Formation to the AWS Glue Data Catalog.
 
 ## Prerequisites
-
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+<a name="connectors-dynamodb-prerequisites"></a>
++ Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md) or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md).
 
 ## Limitations
+<a name="connectors-dynamodb-limitations"></a>
 
-If you migrate your DynamoDB connections to Glue Catalog and Lake Formation, only the lowercase table and column names will be recognized.
+If you migrate your DynamoDB connections to Glue Catalog and Lake Formation, only the lowercase table and column names will be recognized. 
 
 ## Parameters
+<a name="connectors-dynamodb-parameters"></a>
 
 Use the parameters in this section to configure the DynamoDB connector.
 
-We recommend that you configure a DynamoDB connector by using a Glue
-connections object. To do this, set the `glue_connection`
-environment variable of the DynamoDB connector Lambda to the name of the Glue
-connection to use.
+### AWS Glue Data Catalog federated connectors
+<a name="ddb-gc"></a>
+
+We recommend that you configure a DynamoDB connector by using a Glue connections object. To do this, set the `glue_connection` environment variable of the DynamoDB connector Lambda to the name of the Glue connection to use.
 
 **Glue connections properties**
 
@@ -37,242 +40,125 @@ aws glue describe-connection-type --connection-type DYNAMODB
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
 
-glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
+**glue\_connection** – Specifies the name of the Glue connection associated with the federated connector. 
 
-###### Note
+**Note**  
+All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+The DynamoDB connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+The DynamoDB connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
 
-- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
-- The DynamoDB connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
-- The DynamoDB connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
+### Athena data catalog federated connectors
+<a name="ddb-legacy"></a>
 
-###### Note
-
+**Note**  
 Athena data source connectors created on December 3, 2024 and later use AWS Glue connections.
 
-The parameter names and definitions listed below are for Athena data source connectors created without an associated Glue connection. Use the following parameters only when you [manually deploy](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md") an earlier version of an Athena data source connector or when the
-`glue_connection` environment property is not
-specified.
+The parameter names and definitions listed below are for Athena data source connectors created without an associated Glue connection. Use the following parameters only when you [manually deploy](connect-data-source-serverless-app-repo.md) an earlier version of an Athena data source connector or when the `glue_connection` environment property is not specified.
 
 **Lambda environment properties**
++ **spill\_bucket** – Specifies the Amazon S3 bucket for data that exceeds Lambda function limits.
++ **spill\_prefix** – (Optional) Defaults to a subfolder in the specified `spill_bucket` called `athena-federation-spill`. We recommend that you configure an Amazon S3 [storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) on this location to delete spills older than a predetermined number of days or hours.
++ **spill\_put\_request\_headers** – (Optional) A JSON encoded map of request headers and values for the Amazon S3 `putObject` request that is used for spilling (for example, `{"x-amz-server-side-encryption" : "AES256"}`). For other possible headers, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) in the *Amazon Simple Storage Service API Reference*.
++ **kms\_key\_id** – (Optional) By default, any data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated encryption mode and a randomly generated key. To have your Lambda function use stronger encryption keys generated by KMS like `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key ID.
++ **disable\_spill\_encryption** – (Optional) When set to `True`, disables spill encryption. Defaults to `False` so that data that is spilled to S3 is encrypted using AES-GCM – either using a randomly generated key or KMS to generate keys. Disabling spill encryption can improve performance, especially if your spill location uses [server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html).
++ **disable\_glue** – (Optional) If present and set to true, the connector does not attempt to retrieve supplemental metadata from AWS Glue.
++ **glue\_catalog** – (Optional) Use this option to specify a [cross-account AWS Glue catalog](data-sources-glue-cross-account.md). By default, the connector attempts to get metadata from its own AWS Glue account.
++ **disable\_projection\_and\_casing** – (Optional) Disables projection and casing. Use if you want to query DynamoDB tables that have casing in their column names and you do not want to specify a `columnMapping` property on your AWS Glue table.
 
-- spill\_bucket – Specifies the Amazon S3 bucket
-  for data that exceeds Lambda function limits.
-- spill\_prefix – (Optional) Defaults to a
-  subfolder in the specified `spill_bucket` called
-  `athena-federation-spill`. We recommend that you
-  configure an Amazon S3 [storage
-  lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") on this location to delete spills older than a
-  predetermined number of days or hours.
-- spill\_put\_request\_headers – (Optional) A
-  JSON encoded map of request headers and values for the Amazon S3
-  `putObject` request that is used for spilling (for example,
-  `{"x-amz-server-side-encryption" : "AES256"}`). For other
-  possible headers, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") in the
-  _Amazon Simple Storage Service API Reference_.
-- kms\_key\_id – (Optional) By default, any
-  data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated
-  encryption mode and a randomly generated key. To have your Lambda function use
-  stronger encryption keys generated by KMS like
-  `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key
-  ID.
-- disable\_spill\_encryption – (Optional)
-  When set to `True`, disables spill encryption. Defaults to
-  `False` so that data that is spilled to S3 is encrypted using
-  AES-GCM – either using a randomly generated key or KMS to generate keys.
-  Disabling spill encryption can improve performance, especially if your spill
-  location uses [server-side
-  encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md").
-- disable\_glue – (Optional) If present and set to true, the connector does not attempt to retrieve supplemental metadata from AWS Glue.
-- glue\_catalog – (Optional) Use this
-  option to specify a [cross-account AWS Glue
-  catalog](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md"). By default, the connector attempts to get metadata from its
-  own AWS Glue account.
-- disable\_projection\_and\_casing
-  – (Optional) Disables projection and casing. Use if you want
-  to query DynamoDB tables that have casing in their column names and you
-  do not want to specify a `columnMapping` property on your
-  AWS Glue table.
+  The `disable_projection_and_casing` parameter uses the following values to specify the behavior of casing and column mapping:
+  + **auto** – Disables projection and casing when a previously unsupported type is detected and column name mapping is not set on the table. This is the default setting.
+  + **always** – Disables projection and casing unconditionally. This is useful when you have casing in your DynamoDB column names but do not want to specify any column name mapping.
 
-The `disable_projection_and_casing` parameter uses the
-following values to specify the behavior of casing and column
-mapping:
-
-    + auto – Disables
-     projection and casing when a previously unsupported type is
-     detected and column name mapping is not set on the table.
-     This is the default setting.
-    + always – Disables
-     projection and casing unconditionally. This is useful when
-     you have casing in your DynamoDB column names but do not
-     want to specify any column name mapping.
-
-When using the `disable_projection_and_casing`
-parameter, keep in mind the following points:
-
-    + Use of the parameter can result in higher bandwidth usage.
-     Additionally, if your Lambda function is not in the same
-     AWS Region as your data source, you will incur higher standard
-     AWS cross-region transfer costs as a result of the higher
-     bandwidth usage. For more information about cross-region
-     transfer costs, see [AWS Data Transfer Charges for Server and Serverless
-     Architectures](https://aws.amazon.com/blogs/apn/aws-data-transfer-charges-for-server-and-serverless-architectures/ "https://aws.amazon.com/blogs/apn/aws-data-transfer-charges-for-server-and-serverless-architectures/") in the AWS Partner Network
-     Blog.
-    + Because a larger number of bytes is transferred and because
-     the larger number of bytes requires a higher deserialization
-     time, overall latency can increase.
+  When using the `disable_projection_and_casing` parameter, keep in mind the following points:
+  + Use of the parameter can result in higher bandwidth usage. Additionally, if your Lambda function is not in the same AWS Region as your data source, you will incur higher standard AWS cross-region transfer costs as a result of the higher bandwidth usage. For more information about cross-region transfer costs, see [AWS Data Transfer Charges for Server and Serverless Architectures](https://aws.amazon.com/blogs/apn/aws-data-transfer-charges-for-server-and-serverless-architectures/) in the AWS Partner Network Blog.
+  + Because a larger number of bytes is transferred and because the larger number of bytes requires a higher deserialization time, overall latency can increase. 
 
 ## Setting up databases and tables in AWS Glue
+<a name="connectors-dynamodb-setting-up-databases-and-tables-in-aws-glue"></a>
 
-Because the connector's built-in schema inference capability is limited, you might
-want to use AWS Glue for metadata. To do this, you must have a database and table in AWS Glue.
-To enable them for use with DynamoDB, you must edit their properties.
+Because the connector's built-in schema inference capability is limited, you might want to use AWS Glue for metadata. To do this, you must have a database and table in AWS Glue. To enable them for use with DynamoDB, you must edit their properties.
 
-###### To edit database properties in the AWS Glue console
+**To edit database properties in the AWS Glue console**
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at
-   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
-2. In the navigation pane, expand **Data Catalog**, and then
-   choose **Databases**.
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/).
 
-On the **Databases** page, you can edit an existing database,
-or choose **Add database** to create one. 3. In the list of databases, choose the link for the database that you want to
-edit. 4. Choose **Edit**. 5. On the **Update a database** page, under **Database
-settings**, for **Location**, add the string
-`dynamo-db-flag`. This keyword indicates that the
-database contains tables that the Athena DynamoDB connector is using for
-supplemental metadata and is required for AWS Glue databases other than
-`default`. The `dynamo-db-flag` property is useful for
-filtering out databases in accounts with many databases. 6. Choose **Update Database**.
+1. In the navigation pane, expand **Data Catalog**, and then choose **Databases**.
 
-###### To edit table properties in the AWS Glue console
+   On the **Databases** page, you can edit an existing database, or choose **Add database** to create one.
 
-1. Sign in to the AWS Management Console and open the AWS Glue console at
-   [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
-2. In the navigation pane, expand **Data Catalog**, and then
-   choose **Tables**.
-3. On the **Tables** page, in the list of tables, choose the
-   linked name of the table that you want to edit.
-4. Choose **Actions**, **Edit table**.
-5. On the **Edit table** page, in the **Table
-   properties** section, add the following table properties as
-   required. If you use the AWS Glue DynamoDB crawler, these properties are automatically
-   set.
+1. In the list of databases, choose the link for the database that you want to edit.
 
-   - dynamodb – String that indicates
-     to the Athena DynamoDB connector that the table can be used for supplemental
-     metadata. Enter the `dynamodb` string in the table properties
-     under a field called **classification** (exact
-     match).
+1. Choose **Edit**.
 
-   ###### Note
+1. On the **Update a database** page, under **Database settings**, for **Location**, add the string **dynamo-db-flag**. This keyword indicates that the database contains tables that the Athena DynamoDB connector is using for supplemental metadata and is required for AWS Glue databases other than `default`. The `dynamo-db-flag` property is useful for filtering out databases in accounts with many databases.
 
-   The **Set table properties** page that is part of
-   the table creation process in the AWS Glue console has a **Data
-   format** section with a
-   **Classification** field. You cannot enter or
-   choose `dynamodb` here. Instead, after you create your
-   table, follow the steps to edit the table and to enter
-   `classification` and `dynamodb` as a
-   key-value pair in the **Table properties**
-   section.
-   - sourceTable – Optional table
-     property that defines the source table name in DynamoDB. Use this if AWS Glue
-     table naming rules prevent you from creating a AWS Glue table with the same
-     name as your DynamoDB table. For example, capital letters are not permitted
-     in AWS Glue table names, but they are permitted in DynamoDB table
-     names.
-   - columnMapping – Optional table
-     property that defines column name mappings. Use this if AWS Glue column
-     naming rules prevent you from creating a AWS Glue table with the same
-     column names as your DynamoDB table. For example, capital letters are not
-     permitted in AWS Glue column names but are permitted in DynamoDB column names.
-     The property value is expected to be in the format col1=Col1,col2=Col2.
-     Note that column mapping applies only to top level column names and not
-     to nested fields.
-   - defaultTimeZone – Optional table
-     property that is applied to `date` or `datetime`
-     values that do not have an explicit time zone. Setting this value is a
-     good practice to avoid discrepancies between the data source default
-     time zone and the Athena session time zone.
-   - datetimeFormatMapping – Optional
-     table property that specifies the `date` or
-     `datetime` format to use when parsing data from a column
-     of the AWS Glue `date` or `timestamp` data type. If
-     this property is not specified, the connector attempts to [infer](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/time/DateFormatUtils.html "https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/time/DateFormatUtils.html") an ISO-8601 format. If the connector cannot infer the
-     `date` or `datetime` format or parse the raw
-     string, then the value is omitted from the result.
+1. Choose **Update Database**.
 
-   The `datetimeFormatMapping` value should be in the format
-   `col1=someformat1,col2=someformat2`. Following are some
-   example formats:
+**To edit table properties in the AWS Glue console**
 
-   ```
-   yyyyMMdd'T'HHmmss
-   ddMMyyyy'T'HH:mm:ss
-   ```
+1. Sign in to the AWS Management Console and open the AWS Glue console at [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/).
 
-   If your column has `date` or `datetime` values
-   without a time zone and you want to use the column in the
-   `WHERE` clause, set the
-   `datetimeFormatMapping` property for the column.
+1. In the navigation pane, expand **Data Catalog**, and then choose **Tables**.
 
-6. If you define your columns manually, make sure that you use the appropriate
-   data types. If you used a crawler, validate the columns and types that the
-   crawler discovered.
-7. Choose **Save**.
+1. On the **Tables** page, in the list of tables, choose the linked name of the table that you want to edit.
+
+1. Choose **Actions**, **Edit table**.
+
+1. On the **Edit table** page, in the **Table properties** section, add the following table properties as required. If you use the AWS Glue DynamoDB crawler, these properties are automatically set.
+   + **dynamodb** – String that indicates to the Athena DynamoDB connector that the table can be used for supplemental metadata. Enter the `dynamodb` string in the table properties under a field called **classification** (exact match).
+**Note**  
+The **Set table properties** page that is part of the table creation process in the AWS Glue console has a **Data format** section with a **Classification** field. You cannot enter or choose `dynamodb` here. Instead, after you create your table, follow the steps to edit the table and to enter `classification` and `dynamodb` as a key-value pair in the **Table properties** section.
+   + **sourceTable** – Optional table property that defines the source table name in DynamoDB. Use this if AWS Glue table naming rules prevent you from creating a AWS Glue table with the same name as your DynamoDB table. For example, capital letters are not permitted in AWS Glue table names, but they are permitted in DynamoDB table names.
+   + **columnMapping** – Optional table property that defines column name mappings. Use this if AWS Glue column naming rules prevent you from creating a AWS Glue table with the same column names as your DynamoDB table. For example, capital letters are not permitted in AWS Glue column names but are permitted in DynamoDB column names. The property value is expected to be in the format col1=Col1,col2=Col2. Note that column mapping applies only to top level column names and not to nested fields.
+   + **defaultTimeZone** – Optional table property that is applied to `date` or `datetime` values that do not have an explicit time zone. Setting this value is a good practice to avoid discrepancies between the data source default time zone and the Athena session time zone.
+   + **datetimeFormatMapping** – Optional table property that specifies the `date` or `datetime` format to use when parsing data from a column of the AWS Glue `date` or `timestamp` data type. If this property is not specified, the connector attempts to [infer](https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/time/DateFormatUtils.html) an ISO-8601 format. If the connector cannot infer the `date` or `datetime` format or parse the raw string, then the value is omitted from the result. 
+
+     The `datetimeFormatMapping` value should be in the format `col1=someformat1,col2=someformat2`. Following are some example formats:
+
+     ```
+     yyyyMMdd'T'HHmmss 
+     ddMMyyyy'T'HH:mm:ss
+     ```
+
+     If your column has `date` or `datetime` values without a time zone and you want to use the column in the `WHERE` clause, set the `datetimeFormatMapping` property for the column.
+
+1. If you define your columns manually, make sure that you use the appropriate data types. If you used a crawler, validate the columns and types that the crawler discovered.
+
+1. Choose **Save**.
 
 ## Required Permissions
+<a name="connectors-dynamodb-required-permissions"></a>
 
-For full details on the IAM policies that this
-connector requires, review the `Policies` section of the [athena-dynamodb.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb/athena-dynamodb.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb/athena-dynamodb.yaml") file. The following list summarizes the required permissions.
-
-- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
-- Athena GetQueryExecution – The connector
-  uses this permission to fast-fail when the upstream Athena query has
-  terminated.
-- AWS Glue Data Catalog – The DynamoDB connector
-  requires read only access to the AWS Glue Data Catalog to obtain schema
-  information.
-- CloudWatch Logs – The connector requires access to
-  CloudWatch Logs for storing logs.
-- DynamoDB read access – The connector
-  uses the `DescribeTable`, `ListSchemas`,
-  `ListTables`, `Query`, and `Scan` API
-  operations.
+For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-dynamodb.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-dynamodb/athena-dynamodb.yaml) file. The following list summarizes the required permissions.
++ **Amazon S3 write access** – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
++ **Athena GetQueryExecution** – The connector uses this permission to fast-fail when the upstream Athena query has terminated.
++ **AWS Glue Data Catalog** – The DynamoDB connector requires read only access to the AWS Glue Data Catalog to obtain schema information.
++ **CloudWatch Logs** – The connector requires access to CloudWatch Logs for storing logs.
++ **DynamoDB read access** – The connector uses the `DescribeTable`, `ListSchemas`, `ListTables`, `Query`, and `Scan` API operations.
 
 ## Performance
+<a name="connectors-dynamodb-performance"></a>
 
-The Athena DynamoDB connector supports parallel scans and attempts to push down predicates
-as part of its DynamoDB queries. A hash key predicate with `X` distinct values
-results in `X` query calls to DynamoDB. All other predicate scenarios result in
-`Y` number of scan calls, where `Y` is heuristically
-determined based on the size of your table and its provisioned throughput.
-However, selecting a subset of columns sometimes results in a longer query execution runtime.
+The Athena DynamoDB connector supports parallel scans and attempts to push down predicates as part of its DynamoDB queries. A hash key predicate with `X` distinct values results in `X` query calls to DynamoDB. All other predicate scenarios result in `Y` number of scan calls, where `Y` is heuristically determined based on the size of your table and its provisioned throughput. However, selecting a subset of columns sometimes results in a longer query execution runtime.
 
-`LIMIT` clauses and simple predicates are pushed down and can reduce the
-amount of data scanned and will lead to decreased query execution run time.
+`LIMIT` clauses and simple predicates are pushed down and can reduce the amount of data scanned and will lead to decreased query execution run time. 
 
 ### LIMIT clauses
+<a name="connectors-dynamodb-performance-limit-clauses"></a>
 
-A `LIMIT N` statement reduces the data scanned by the query. With
-`LIMIT N` pushdown, the connector returns only `N` rows to
-Athena.
+A `LIMIT N` statement reduces the data scanned by the query. With `LIMIT N` pushdown, the connector returns only `N` rows to Athena.
 
 ### Predicates
+<a name="connectors-dynamodb-performance-predicates"></a>
 
-A predicate is an expression in the `WHERE` clause of a SQL query that
-evaluates to a Boolean value and filters rows based on multiple conditions. For
-enhanced functionality, and to reduce the amount of data scanned, the Athena DynamoDB
-connector can combine these expressions and push them directly to DynamoDB.
+A predicate is an expression in the `WHERE` clause of a SQL query that evaluates to a Boolean value and filters rows based on multiple conditions. For enhanced functionality, and to reduce the amount of data scanned, the Athena DynamoDB connector can combine these expressions and push them directly to DynamoDB.
 
-The following Athena DynamoDB connector operators support predicate
-pushdown:
-
-- Boolean: AND
-- Equality: EQUAL, NOT\_EQUAL, LESS\_THAN,
-  LESS\_THAN\_OR\_EQUAL, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL, IS\_NULL
+The following Athena DynamoDB connector operators support predicate pushdown:
++ **Boolean: **AND
++ **Equality: **EQUAL, NOT\_EQUAL, LESS\_THAN, LESS\_THAN\_OR\_EQUAL, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL, IS\_NULL
 
 ### Combined pushdown example
+<a name="connectors-dynamodb-performance-pushdown-example"></a>
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
@@ -283,70 +169,53 @@ WHERE col_a > 10 and col_b < 10
 LIMIT 10
 ```
 
-For an article on using predicate pushdown to improve performance in federated
-queries, including DynamoDB, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/ "https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/") in the
-_AWS Big Data Blog_.
+For an article on using predicate pushdown to improve performance in federated queries, including DynamoDB, see [Improve federated queries with predicate pushdown in Amazon Athena](https://aws.amazon.com/blogs/big-data/improve-federated-queries-with-predicate-pushdown-in-amazon-athena/) in the *AWS Big Data Blog*.
 
 ## Passthrough queries
+<a name="connectors-dynamodb-passthrough-queries"></a>
 
-The DynamoDB connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md") and uses
-PartiQL syntax. The DynamoDB [GetItem](../../../amazondynamodb/latest/APIReference/API_GetItem.md "../../../amazondynamodb/latest/APIReference/API_GetItem.md") API
-operation is not supported. For information about querying DynamoDB using PartiQL, see
-[PartiQL select
-statements for DynamoDB](../../../amazondynamodb/latest/developerguide/ql-reference.select.md "../../../amazondynamodb/latest/developerguide/ql-reference.select.md") in the _Amazon DynamoDB Developer Guide_.
+The DynamoDB connector supports [passthrough queries](federated-query-passthrough.md) and uses PartiQL syntax. The DynamoDB [GetItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html) API operation is not supported. For information about querying DynamoDB using PartiQL, see [PartiQL select statements for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.select.html) in the *Amazon DynamoDB Developer Guide*.
 
 To use passthrough queries with DynamoDB, use the following syntax:
 
 ```
 SELECT * FROM TABLE(
         system.query(
-            query => '`query_string`'
+            query => '{{query_string}}'
         ))
 ```
 
-The following DynamoDB passthrough query example uses PartiQL to return a list of Fire TV
-Stick devices that have a `DateWatched` property later than 12/24/22.
+The following DynamoDB passthrough query example uses PartiQL to return a list of Fire TV Stick devices that have a `DateWatched` property later than 12/24/22.
 
 ```
 SELECT * FROM TABLE(
         system.query(
-           query => 'SELECT Devices
-                       FROM WatchList
+           query => 'SELECT Devices 
+                       FROM WatchList 
                        WHERE Devices.FireStick.DateWatched[0] > '12/24/22''
         ))
 ```
 
 ## Troubleshooting
+<a name="connectors-dynamodb-troubleshooting"></a>
 
 ### Multiple filters on a sort key column
+<a name="connectors-dynamodb-troubleshooting-sort-key-filters"></a>
 
-Error message: **`KeyConditionExpressions
- must only contain one condition per key`**
+**Error message**: KeyConditionExpressions must only contain one condition per key
 
-Cause: This issue can occur in Athena engine version 3 in queries
-that have both a lower and upper bounded filter on a DynamoDB sort key column. Because
-DynamoDB does not support more than one filter condition on a sort key, an error is
-thrown when the connector attempts to push down a query that has both conditions
-applied.
+**Cause**: This issue can occur in Athena engine version 3 in queries that have both a lower and upper bounded filter on a DynamoDB sort key column. Because DynamoDB does not support more than one filter condition on a sort key, an error is thrown when the connector attempts to push down a query that has both conditions applied.
 
-Solution: Update the connector to version 2023.11.1
-or later. For instructions on updating a connector, see [Update a data source connector](connectors-updating.md "connectors-updating.md").
+**Solution**: Update the connector to version 2023.11.1 or later. For instructions on updating a connector, see [Update a data source connector](connectors-updating.md).
 
 ## Costs
+<a name="connectors-dynamodb-costs"></a>
 
-The costs for use of the connector depends on the underlying AWS resources that are
-used. Because queries that use scans can consume a large number of [read capacity units
-(RCUs)](https://aws.amazon.com/dynamodb/pricing/provisioned/ "https://aws.amazon.com/dynamodb/pricing/provisioned/"), consider the information for [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/ "https://aws.amazon.com/dynamodb/pricing/") carefully.
+The costs for use of the connector depends on the underlying AWS resources that are used. Because queries that use scans can consume a large number of [read capacity units (RCUs)](https://aws.amazon.com/dynamodb/pricing/provisioned/), consider the information for [Amazon DynamoDB pricing](https://aws.amazon.com/dynamodb/pricing/) carefully.
 
 ## Additional resources
-
-- For an introduction to using the Amazon Athena DynamoDB connector, see [Access, query, and join Amazon DynamoDB tables using Athena](../../../prescriptive-guidance/latest/patterns/access-query-and-join-amazon-dynamodb-tables-using-athena.md "../../../prescriptive-guidance/latest/patterns/access-query-and-join-amazon-dynamodb-tables-using-athena.md") in the
-  _AWS Prescriptive Guidance Patterns_ guide.
-- For an article on how to use the Athena DynamoDB connector to query data in DynamoDB
-  with SQL and visualize insights in Quick, see the _AWS Big Data
-  Blog_ post [Visualize Amazon DynamoDB insights in Quick using the Amazon Athena DynamoDB connector
-  and AWS Glue](https://aws.amazon.com/blogs/big-data/visualize-amazon-dynamodb-insights-in-amazon-quicksight-using-the-amazon-athena-dynamodb-connector-and-aws-glue/ "https://aws.amazon.com/blogs/big-data/visualize-amazon-dynamodb-insights-in-amazon-quicksight-using-the-amazon-athena-dynamodb-connector-and-aws-glue/").
-- For an article on using the Amazon Athena DynamoDB connector with Amazon DynamoDB, Athena,
-  and Quick to create a simple governance dashboard, see the _AWS Big
-  Data Blog_ post [Query cross-account Amazon DynamoDB tables using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/query-cross-account-amazon-dynamodb-tables-using-amazon-athena-federated-query/ "https://aws.amazon.com/blogs/big-data/query-cross-account-amazon-dynamodb-tables-using-amazon-athena-federated-query/").
-- For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb") on GitHub.com.
+<a name="connectors-dynamodb-additional-resources"></a>
++ For an introduction to using the Amazon Athena DynamoDB connector, see [Access, query, and join Amazon DynamoDB tables using Athena](https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/access-query-and-join-amazon-dynamodb-tables-using-athena.html) in the *AWS Prescriptive Guidance Patterns* guide. 
++ For an article on how to use the Athena DynamoDB connector to query data in DynamoDB with SQL and visualize insights in Quick, see the *AWS Big Data Blog* post [Visualize Amazon DynamoDB insights in Quick using the Amazon Athena DynamoDB connector and AWS Glue](https://aws.amazon.com/blogs/big-data/visualize-amazon-dynamodb-insights-in-amazon-quicksight-using-the-amazon-athena-dynamodb-connector-and-aws-glue/). 
++ For an article on using the Amazon Athena DynamoDB connector with Amazon DynamoDB, Athena, and Quick to create a simple governance dashboard, see the *AWS Big Data Blog* post [Query cross-account Amazon DynamoDB tables using Amazon Athena Federated Query](https://aws.amazon.com/blogs/big-data/query-cross-account-amazon-dynamodb-tables-using-amazon-athena-federated-query/).
++ For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-dynamodb) on GitHub.com.

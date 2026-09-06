@@ -1,7 +1,9 @@
-# Start query execution
 
-The `StartQueryExample` shows how to submit a query to Athena, wait until
-the results become available, and then process the results.
+
+# Start query execution
+<a name="start-query-execution"></a>
+
+The `StartQueryExample` shows how to submit a query to Athena, wait until the results become available, and then process the results.
 
 ```
 package aws.example.athena;
@@ -136,5 +138,4 @@ public class StartQueryExample {
         }
     }
 }
-
 ```

@@ -1,8 +1,12 @@
+
+
 # Accessing the Spark UI
+<a name="notebooks-spark-ui-access"></a>
 
 The Apache Spark UIs present visual interfaces with detailed information about your running and completed Spark jobs. You can monitor and debug interactive sessions in Athena Spark using native Apache Spark UIs, where you can dive into job-specific metrics and information about event timelines, stages, tasks, and executors for each Spark job.
 
 ## Accessing the Spark UI
+<a name="notebooks-spark-ui-access-methods"></a>
 
 After you start an Athena Spark interactive session, you can view the real-time Spark UI for running sessions from the Amazon SageMaker AI Unified Studio notebooks or request a secure URL using the `GetResourceDashboard` API. For completed sessions, you can view the Spark History Server from the Amazon SageMaker AI Unified Studio notebooks, Amazon Athena Console or using the same API.
 
@@ -13,6 +17,7 @@ aws athena get-resource-dashboard \
 ```
 
 ## Required permissions for accessing the Spark UI
+<a name="notebooks-spark-ui-access-permissions"></a>
 
 Before you can access the Spark UI, include the following permissions in the permissions policy for the user or role.
 

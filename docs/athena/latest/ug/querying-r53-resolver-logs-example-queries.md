@@ -1,12 +1,14 @@
-# Example queries
 
-The following examples show some queries that you can perform from Athena on your
-Resolver query logs.
+
+# Example queries
+<a name="querying-r53-resolver-logs-example-queries"></a>
+
+The following examples show some queries that you can perform from Athena on your Resolver query logs.
 
 ## Example 1 - query logs in descending query\_timestamp order
+<a name="querying-r53-resolver-logs-example-1-query-logs-in-descending-query_timestamp-order"></a>
 
-The following query displays log results in descending
-`query_timestamp` order.
+The following query displays log results in descending `query_timestamp` order.
 
 ```
 SELECT * FROM "r53_rlogs"
@@ -14,24 +16,23 @@ ORDER BY query_timestamp DESC
 ```
 
 ## Example 2 - query logs within specified start and end times
+<a name="querying-r53-resolver-logs-example-2-query-logs-within-specified-start-and-end-times"></a>
 
-The following query queries logs between midnight and 8am on September 24, 2020.
-Substitute the start and end times according to your own requirements.
+The following query queries logs between midnight and 8am on September 24, 2020. Substitute the start and end times according to your own requirements.
 
 ```
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode
 FROM "r53_rlogs"
 WHERE (parse_datetime(query_timestamp,'yyyy-MM-dd''T''HH:mm:ss''Z')
-     BETWEEN parse_datetime('`2020-09-24-00:00:00`','yyyy-MM-dd-HH:mm:ss')
-     AND parse_datetime('`2020-09-24-00:08:00`','yyyy-MM-dd-HH:mm:ss'))
+     BETWEEN parse_datetime('{{2020-09-24-00:00:00}}','yyyy-MM-dd-HH:mm:ss') 
+     AND parse_datetime('{{2020-09-24-00:08:00}}','yyyy-MM-dd-HH:mm:ss'))
 ORDER BY query_timestamp DESC
-
 ```
 
 ## Example 3 - query logs based on a specified DNS query name pattern
+<a name="querying-r53-resolver-logs-example-3-query-logs-based-on-a-specified-dns-query-name-pattern"></a>
 
-The following query selects records whose query name includes the string
-"example.com".
+The following query selects records whose query name includes the string "example.com".
 
 ```
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode, answers
@@ -41,9 +42,9 @@ ORDER BY query_timestamp DESC
 ```
 
 ## Example 4 - query log requests with no answer
+<a name="querying-r53-resolver-logs-example-4-query-log-requests-with-no-answer"></a>
 
-The following query selects log entries in which the request received no
-answer.
+The following query selects log entries in which the request received no answer.
 
 ```
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode, answers
@@ -52,9 +53,9 @@ WHERE cardinality(answers) = 0
 ```
 
 ## Example 5 - query logs with a specific answer
+<a name="querying-r53-resolver-logs-example-5-query-logs-with-a-specific-answer"></a>
 
-The following query shows logs in which the `answer.Rdata` value has
-the specified IP address.
+The following query shows logs in which the `answer.Rdata` value has the specified IP address.
 
 ```
 SELECT query_timestamp, srcids.instance, srcaddr, srcport, query_name, rcode, answer.Rdata

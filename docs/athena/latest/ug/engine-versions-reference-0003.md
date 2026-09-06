@@ -1,107 +1,95 @@
+
+
 # Athena engine version 3
+<a name="engine-versions-reference-0003"></a>
 
-For engine version 3, Athena has introduced a continuous integration approach to open
-source software management that improves concurrency with the [Trino](https://trino.io/ "https://trino.io/") and [Presto](https://prestodb.io/ "https://prestodb.io/") projects so that
-you get faster access to community improvements, integrated and tuned within the Athena
-engine.
+For engine version 3, Athena has introduced a continuous integration approach to open source software management that improves concurrency with the [Trino ](https://trino.io/) and [Presto](https://prestodb.io/) projects so that you get faster access to community improvements, integrated and tuned within the Athena engine.
 
-This release of Athena engine version 3 supports all the features of previous engine versions. This
-document highlights key differences between previous engine versions and Athena engine version 3. For more
-information, see the the _AWS Big Data Blog_ article [Upgrade to Athena engine version 3 to increase query performance and access more analytics
-features](https://aws.amazon.com/blogs/big-data/upgrade-to-athena-engine-version-3-to-increase-query-performance-and-access-more-analytics-features/ "https://aws.amazon.com/blogs/big-data/upgrade-to-athena-engine-version-3-to-increase-query-performance-and-access-more-analytics-features/").
-
-- [Get started](#engine-versions-reference-0003-getting-started "#engine-versions-reference-0003-getting-started")
-- [Improvements and new features](#engine-versions-reference-0003-improvements-and-new-features "#engine-versions-reference-0003-improvements-and-new-features")
-
-  - [Added Features](#engine-versions-reference-0003-added-features "#engine-versions-reference-0003-added-features")
-  - [Added Functions](#engine-versions-reference-0003-added-functions "#engine-versions-reference-0003-added-functions")
-  - [Performance improvements](#engine-versions-reference-0003-performance-improvements "#engine-versions-reference-0003-performance-improvements")
-  - [Reliability enhancements](#engine-versions-reference-0003-reliability-enhancements "#engine-versions-reference-0003-reliability-enhancements")
-  - [Query syntax enhancements](#engine-versions-reference-0003-query-syntax-enhancements "#engine-versions-reference-0003-query-syntax-enhancements")
-  - [Data format and data type enhancements](#engine-versions-reference-0003-data-format-and-data-type-enhancements "#engine-versions-reference-0003-data-format-and-data-type-enhancements")
-
-- [Breaking changes](#engine-versions-reference-0003-breaking-changes "#engine-versions-reference-0003-breaking-changes")
-
-  - [Query syntax changes](#engine-versions-reference-0003-syntax-changes "#engine-versions-reference-0003-syntax-changes")
-  - [Data processing changes](#engine-versions-reference-0003-data-processing-changes "#engine-versions-reference-0003-data-processing-changes")
-  - [Timestamp changes](#engine-versions-reference-0003-timestamp-changes "#engine-versions-reference-0003-timestamp-changes")
-
-- [Limitations](#engine-versions-reference-0003-known-limitations "#engine-versions-reference-0003-known-limitations")
+This release of Athena engine version 3 supports all the features of previous engine versions. This document highlights key differences between previous engine versions and Athena engine version 3. For more information, see the the *AWS Big Data Blog* article [Upgrade to Athena engine version 3 to increase query performance and access more analytics features](https://aws.amazon.com/blogs/big-data/upgrade-to-athena-engine-version-3-to-increase-query-performance-and-access-more-analytics-features/).
++ [Get started](#engine-versions-reference-0003-getting-started)
++ [Improvements and new features](#engine-versions-reference-0003-improvements-and-new-features)
+  + [Added Features](#engine-versions-reference-0003-added-features)
+  + [Added Functions](#engine-versions-reference-0003-added-functions)
+  + [Performance improvements](#engine-versions-reference-0003-performance-improvements)
+  + [Reliability enhancements](#engine-versions-reference-0003-reliability-enhancements)
+  + [Query syntax enhancements](#engine-versions-reference-0003-query-syntax-enhancements)
+  + [Data format and data type enhancements](#engine-versions-reference-0003-data-format-and-data-type-enhancements)
++ [Breaking changes](#engine-versions-reference-0003-breaking-changes)
+  + [Query syntax changes](#engine-versions-reference-0003-syntax-changes)
+  + [Data processing changes](#engine-versions-reference-0003-data-processing-changes)
+  + [Timestamp changes](#engine-versions-reference-0003-timestamp-changes)
++ [Limitations](#engine-versions-reference-0003-known-limitations)
 
 ## Get started
+<a name="engine-versions-reference-0003-getting-started"></a>
 
-To get started, either create a new Athena workgroup that uses Athena engine version 3 or configure an
-existing workgroup to use version 3.
+To get started, either create a new Athena workgroup that uses Athena engine version 3 or configure an existing workgroup to use version 3. 
 
-For more information, see [Changing Athena engine versions](engine-versions-changing.md "engine-versions-changing.md").
+For more information, see [Changing Athena engine versions](https://docs.aws.amazon.com/athena/latest/ug/engine-versions-changing.html).
 
 ## Improvements and new features
+<a name="engine-versions-reference-0003-improvements-and-new-features"></a>
 
-The features and updates listed include improvements from Athena itself and from
-functionality incorporated from open source Trino. For an exhaustive list of SQL query
-operators and functions, refer to the [Trino
-documentation](https://trino.io/docs/current/functions.html "https://trino.io/docs/current/functions.html").
+The features and updates listed include improvements from Athena itself and from functionality incorporated from open source Trino. For an exhaustive list of SQL query operators and functions, refer to the [Trino documentation](https://trino.io/docs/current/functions.html).
 
 ### Added Features
+<a name="engine-versions-reference-0003-added-features"></a>
 
 #### Apache Spark bucketing algorithm support
+<a name="engine-versions-reference-0003-spark-bucketing-support"></a>
 
-Athena can read buckets generated by the Spark hash algorithm. To specify that
-data was originally written by the Spark hash algorithm, put
-`('bucketing_format'='spark')` in the `TBLPROPERTIES`
-clause of your `CREATE TABLE` statement. If this property is not
-specified, the Hive hash algorithm is used.
+Athena can read buckets generated by the Spark hash algorithm. To specify that data was originally written by the Spark hash algorithm, put `('bucketing_format'='spark')` in the `TBLPROPERTIES` clause of your `CREATE TABLE` statement. If this property is not specified, the Hive hash algorithm is used.
 
 ```
 CREATE EXTERNAL TABLE `spark_bucket_table`(
-  `id` int,
+  `id` int, 
   `name` string
   )
-CLUSTERED BY (`name`)
+CLUSTERED BY (`name`) 
 INTO 8 BUCKETS
 STORED AS PARQUET
-LOCATION
+LOCATION 
   's3://amzn-s3-demo-bucket/to/bucketed/table/'
 TBLPROPERTIES ('bucketing_format'='spark')
 ```
 
 ### Added Functions
+<a name="engine-versions-reference-0003-added-functions"></a>
 
 The functions in this section are new to Athena engine version 3.
 
 #### Aggregate functions
+<a name="engine-versions-reference-0003-aggregate-functions"></a>
 
-listagg(x, separator) – Returns the
-concatenated input values, separated by the separator string.
+**listagg(x, separator)** – Returns the concatenated input values, separated by the separator string.
 
 ```
-SELECT listagg(value, ',') WITHIN GROUP (ORDER BY value) csv_value
+SELECT listagg(value, ',') WITHIN GROUP (ORDER BY value) csv_value 
 FROM (VALUES 'a', 'c', 'b') t(value);
 ```
 
 #### Array functions
+<a name="engine-versions-reference-0003-array-functions"></a>
 
-contains\_sequence(x, seq) – Returns true
-if array x contains all array seq as a sequential subset (all values in the same
-consecutive order).
+**contains\_sequence(x, seq)** – Returns true if array x contains all array seq as a sequential subset (all values in the same consecutive order).
 
 ```
 SELECT contains_sequence(ARRAY [1,2,3,4,5,6], ARRAY[1,2]);
 ```
 
 #### Binary functions
+<a name="engine-versions-reference-0003-binary-functions"></a>
 
-murmur3(binary) – Computes the 128-bit
-MurmurHash3 hash of binary.
+**murmur3(binary)** – Computes the 128-bit MurmurHash3 hash of binary.
 
 ```
 SELECT murmur3(from_base64('aaaaaa'));
 ```
 
 #### Conversion functions
+<a name="engine-versions-reference-0003-conversion-functions"></a>
 
-format\_number(number) – Returns a
-formatted string using a unit symbol.
+**format\_number(number)** – Returns a formatted string using a unit symbol.
 
 ```
 SELECT format_number(123456); -- '123K'
@@ -112,63 +100,51 @@ SELECT format_number(1000000); -- '1M'
 ```
 
 #### Date and time functions
+<a name="engine-versions-reference-0003-date-and-time-functions"></a>
 
-timezone\_hour(timestamp) – Returns the
-hour of the time zone offset from timestamp.
+**timezone\_hour(timestamp)** – Returns the hour of the time zone offset from timestamp.
 
 ```
 SELECT EXTRACT(TIMEZONE_HOUR FROM TIMESTAMP '2020-05-10 12:34:56 +08:35');
 ```
 
-timezone\_minute(timestamp) – Returns the
-minute of the time zone offset from timestamp.
+**timezone\_minute(timestamp)** – Returns the minute of the time zone offset from timestamp.
 
 ```
 SELECT EXTRACT(TIMEZONE_MINUTE FROM TIMESTAMP '2020-05-10 12:34:56 +08:35');
 ```
 
 #### Geospatial functions
+<a name="engine-versions-reference-0003-geospatial-functions"></a>
 
-to\_encoded\_polyline(Geometry) – Encodes
-a linestring or multipoint to a polyline.
+**to\_encoded\_polyline(Geometry)** – Encodes a linestring or multipoint to a polyline.
 
 ```
 SELECT to_encoded_polyline(ST_GeometryFromText(
    'LINESTRING (-120.2 38.5, -120.95 40.7, -126.453 43.252)'));
 ```
 
-from\_encoded\_polyline(varchar) – Decodes
-a polyline to a linestring.
+**from\_encoded\_polyline(varchar)** – Decodes a polyline to a linestring.
 
 ```
-SELECT ST_AsText(from_encoded_polyline('_p~iF~ps|U_ulLnnqC_mqNvxq`@'));
+SELECT ST_AsText(from_encoded_polyline('_p~iF~ps|U_ulLnnqC_mqNvxq`@'));         
 ```
 
-to\_geojson\_geometry(SphericalGeography)
-– Returns the specified spherical geography in GeoJSON format.
+**to\_geojson\_geometry(SphericalGeography)** – Returns the specified spherical geography in GeoJSON format.
 
 ```
 SELECT to_geojson_geometry(to_spherical_geography(ST_GeometryFromText(
    'LINESTRING (0 0, 1 2, 3 4)')));
 ```
 
-from\_geojson\_geometry(varchar) – Returns
-the spherical geography type object from the GeoJSON representation, stripping
-non geometry key/values. `Feature` and `FeatureCollection`
-are not supported.
+**from\_geojson\_geometry(varchar)** – Returns the spherical geography type object from the GeoJSON representation, stripping non geometry key/values. `Feature` and `FeatureCollection` are not supported.
 
 ```
 SELECT from_geojson_geometry(to_geojson_geometry(to_spherical_geography(ST_GeometryFromText(
    'LINESTRING (0 0, 1 2, 3 4)'))));
 ```
 
-geometry\_nearest\_points(Geometry, Geometry)
-– Returns the points on each geometry that are nearest each other. If
-either geometry is empty, returns NULL. Otherwise, returns a row of two
-`Point` objects that have the minimum distance of any two points
-on the geometries. The first point is from the first Geometry argument, the
-second from the second Geometry argument. If there are multiple pairs with the
-same minimum distance, one pair is chosen arbitrarily.
+**geometry\_nearest\_points(Geometry, Geometry)** – Returns the points on each geometry that are nearest each other. If either geometry is empty, returns NULL. Otherwise, returns a row of two `Point` objects that have the minimum distance of any two points on the geometries. The first point is from the first Geometry argument, the second from the second Geometry argument. If there are multiple pairs with the same minimum distance, one pair is chosen arbitrarily.
 
 ```
 SELECT geometry_nearest_points(ST_GeometryFromText(
@@ -177,323 +153,241 @@ SELECT geometry_nearest_points(ST_GeometryFromText(
 ```
 
 #### Set Digest functions
+<a name="engine-versions-reference-0003-set-digest-functions"></a>
 
-make\_set\_digest(x) – Composes all input
-values of x into a setdigest.
+**make\_set\_digest(x)** – Composes all input values of x into a setdigest.
 
 ```
 SELECT make_set_digest(value) FROM (VALUES 1, 2, 3) T(value);
 ```
 
 #### String functions
+<a name="engine-versions-reference-0003-string-functions"></a>
 
-soundex(char) – Returns a character
-string that contains the phonetic representation of char.
+**soundex(char)** – Returns a character string that contains the phonetic representation of char.
 
 ```
-SELECT name
-FROM nation
+SELECT name 
+FROM nation 
 WHERE SOUNDEX(name) = SOUNDEX('CHYNA'); -- CHINA
 ```
 
-concat\_ws(string0, string1, ..., stringN)
-– Returns the concatenation of `string1, string2, ...,
- stringN` using `string0` as a separator. If
-`string0` is null, then the return value is null. Any null values
-provided in the arguments after the separator are skipped.
+**concat\_ws(string0, string1, ..., stringN)** – Returns the concatenation of `string1, string2, ..., stringN` using `string0` as a separator. If `string0` is null, then the return value is null. Any null values provided in the arguments after the separator are skipped.
 
 ```
 SELECT concat_ws(',', 'def', 'pqr', 'mno');
 ```
 
 #### Window functions
+<a name="engine-versions-reference-0003-window-functions"></a>
 
-GROUPS – Adds support for window frames
-based on groups.
+**GROUPS** – Adds support for window frames based on groups.
 
 ```
 SELECT array_agg(a) OVER(
-   ORDER BY a ASC NULLS FIRST GROUPS BETWEEN 1 PRECEDING AND 2 FOLLOWING)
+   ORDER BY a ASC NULLS FIRST GROUPS BETWEEN 1 PRECEDING AND 2 FOLLOWING) 
 FROM (VALUES 3, 3, 3, 2, 2, 1, null, null) T(a);
 ```
 
 ### Performance improvements
+<a name="engine-versions-reference-0003-performance-improvements"></a>
 
 Performance improvements in Athena engine version 3 include the following.
++ **Faster AWS Glue table metadata retrieval** – Queries that involve multiple tables will see reduced query planning time.
++ **Dynamic filtering for RIGHT JOIN** – Dynamic filtering is now enabled for right joins that have equality join conditions, as in the following example.
 
-- Faster AWS Glue table metadata retrieval
-  – Queries that involve multiple tables will see reduced query
-  planning time.
-- Dynamic filtering for RIGHT JOIN –
-  Dynamic filtering is now enabled for right joins that have equality join
-  conditions, as in the following example.
-
-```
-SELECT *
-FROM lineitem RIGHT JOIN tpch.tiny.supplier
-ON lineitem.suppkey = supplier.suppkey
-WHERE supplier.name = 'abc';
-```
-
-- Large prepared statements –
-  Increased the default HTTP request/response header size to 2 MB to allow
-  large prepared statements.
-- approx\_percentile() – The
-  `approx_percentile` function now uses `tdigest`
-  instead of `qdigest` to retrieve approximate quantile values from
-  distributions. This results in higher performance and lower memory usage.
-  Note that as a result of this change, the function returns different results
-  than it did in previous engine versions. For more information, see [The approx\_percentile function returns different results](#engine-versions-reference-0003-approx-percentile-function "#engine-versions-reference-0003-approx-percentile-function").
+  ```
+  SELECT * 
+  FROM lineitem RIGHT JOIN tpch.tiny.supplier 
+  ON lineitem.suppkey = supplier.suppkey 
+  WHERE supplier.name = 'abc';
+  ```
++ **Large prepared statements** – Increased the default HTTP request/response header size to 2 MB to allow large prepared statements.
++ **approx\_percentile()** – The `approx_percentile` function now uses `tdigest` instead of `qdigest` to retrieve approximate quantile values from distributions. This results in higher performance and lower memory usage. Note that as a result of this change, the function returns different results than it did in previous engine versions. For more information, see [The approx\_percentile function returns different results](#engine-versions-reference-0003-approx-percentile-function).
 
 ### Reliability enhancements
+<a name="engine-versions-reference-0003-reliability-enhancements"></a>
 
-General engine memory usage and tracking in Athena engine version 3 have been improved. Large
-queries are less susceptible to failure from node crashes.
+General engine memory usage and tracking in Athena engine version 3 have been improved. Large queries are less susceptible to failure from node crashes.
 
 ### Query syntax enhancements
+<a name="engine-versions-reference-0003-query-syntax-enhancements"></a>
 
-INTERSECT ALL – Added support for
-`INTERSECT ALL`.
+**INTERSECT ALL** – Added support for `INTERSECT ALL`.
 
 ```
 SELECT * FROM (VALUES 1, 2, 3, 4) INTERSECT ALL SELECT * FROM (VALUES 3, 4);
 ```
 
-EXCEPT ALL – Added support for `EXCEPT
- ALL`.
+**EXCEPT ALL** – Added support for `EXCEPT ALL`.
 
 ```
 SELECT * FROM (VALUES 1, 2, 3, 4) EXCEPT ALL SELECT * FROM (VALUES 3, 4);
 ```
 
-RANGE PRECEDING – Added support for
-`RANGE PRECEDING` in window functions.
+**RANGE PRECEDING** – Added support for `RANGE PRECEDING` in window functions.
 
 ```
-SELECT sum(x) over (order by x range 1 preceding)
+SELECT sum(x) over (order by x range 1 preceding) 
 FROM (values (1), (1), (2), (2)) t(x);
 ```
 
-MATCH\_RECOGNIZE – Added support for row
-pattern matching, as in the following example.
+**MATCH\_RECOGNIZE** – Added support for row pattern matching, as in the following example.
 
 ```
-SELECT m.id AS row_id, m.match, m.val, m.label
-FROM (VALUES(1, 90),(2, 80),(3, 70),(4, 70)) t(id, value)
-MATCH_RECOGNIZE (
-        ORDER BY id
-        MEASURES match_number() AS match,
-        RUNNING LAST(value) AS val,
-        classifier() AS label
-        ALL ROWS PER MATCH
-        AFTER MATCH SKIP PAST LAST ROW
-        PATTERN (() | A) DEFINE A AS true
+SELECT m.id AS row_id, m.match, m.val, m.label 
+FROM (VALUES(1, 90),(2, 80),(3, 70),(4, 70)) t(id, value) 
+MATCH_RECOGNIZE ( 
+        ORDER BY id 
+        MEASURES match_number() AS match, 
+        RUNNING LAST(value) AS val, 
+        classifier() AS label 
+        ALL ROWS PER MATCH 
+        AFTER MATCH SKIP PAST LAST ROW 
+        PATTERN (() | A) DEFINE A AS true 
 ) AS m;
 ```
 
 ### Data format and data type enhancements
+<a name="engine-versions-reference-0003-data-format-and-data-type-enhancements"></a>
 
 Athena engine version 3 has the following data format and data type enhancements.
++ **LZ4 and ZSTD** – Added support for reading LZ4 and ZSTD compressed Parquet data. Added support for writing ZSTD compressed ORC data.
++ **Symlink-based tables** – Added support for creating symlink-based tables on Avro files. An example follows.
 
-- LZ4 and ZSTD – Added support for
-  reading LZ4 and ZSTD compressed Parquet data. Added support for writing ZSTD
-  compressed ORC data.
-- Symlink-based tables – Added support
-  for creating symlink-based tables on Avro files. An example follows.
+  ```
+  CREATE TABLE test_avro_symlink  
+  ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'  
+  ... 
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
+  ```
++ **SphericalGeography** – The SphericalGeography type provides native support for spatial features represented on geographic coordinates (sometimes called geodetic coordinates, lat/lon, or lon/lat). Geographic coordinates are spherical coordinates expressed in angular units (degrees).
 
-```
-CREATE TABLE test_avro_symlink
-ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
-...
-INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'
-```
+  The `to_spherical_geography` function returns geographic (spherical) coordinates from geometric (planar) coordinates, as in the following example.
 
-- SphericalGeography – The
-  SphericalGeography type provides native support for spatial features
-  represented on geographic coordinates (sometimes called geodetic
-  coordinates, lat/lon, or lon/lat). Geographic coordinates are spherical
-  coordinates expressed in angular units (degrees).
-
-The `to_spherical_geography` function returns geographic
-(spherical) coordinates from geometric (planar) coordinates, as in the
-following example.
-
-```
-SELECT to_spherical_geography(ST_GeometryFromText(
-   'LINESTRING (-40.2 28.9, -40.2 31.9, -37.2 31.9)'));
-```
+  ```
+  SELECT to_spherical_geography(ST_GeometryFromText(
+     'LINESTRING (-40.2 28.9, -40.2 31.9, -37.2 31.9)'));
+  ```
 
 ## Breaking changes
+<a name="engine-versions-reference-0003-breaking-changes"></a>
 
-When you migrate from previous engine versions to Athena engine version 3, certain changes can affect table schema,
-syntax, or data type usage. This section lists the associated error messages and
-provides suggested workarounds.
+When you migrate from previous engine versions to Athena engine version 3, certain changes can affect table schema, syntax, or data type usage. This section lists the associated error messages and provides suggested workarounds.
 
 ### Query syntax changes
+<a name="engine-versions-reference-0003-syntax-changes"></a>
 
 #### IGNORE NULLS cannot be used with non-value window functions
+<a name="engine-versions-reference-0003-remove-ignore-nulls-for-bool_or"></a>
 
-Error message: **`Cannot specify null
- treatment clause for `bool_or` function.`**
+**Error message**: Cannot specify null treatment clause for `bool_or` function.
 
-Cause: `IGNORE NULLS` can now be
-used only with the [value functions](https://trino.io/docs/current/functions/window.html#value-functions "https://trino.io/docs/current/functions/window.html#value-functions")
-`first_value`, `last_value`, `nth_value`,
-`lead`, and `lag`. This change was made to conform to
-the ANSI SQL specification.
+**Cause**: `IGNORE NULLS` can now be used only with the [value functions](https://trino.io/docs/current/functions/window.html#value-functions) `first_value`, `last_value`, `nth_value`, `lead`, and `lag`. This change was made to conform to the ANSI SQL specification.
 
-Suggested solution: Remove `IGNORE
- NULLS` from non-value window functions in query strings.
+**Suggested solution**: Remove `IGNORE NULLS` from non-value window functions in query strings.
 
 #### CONCAT function must have two or more arguments
+<a name="engine-versions-reference-0003-concat-str-minimum-two-args"></a>
 
-Error Message:
-**`INVALID_FUNCTION_ARGUMENT: There must be two or more
- concatenation arguments`**
+**Error Message**: INVALID\_FUNCTION\_ARGUMENT: There must be two or more concatenation arguments
 
-Cause: Previously, the `CONCAT`
-string function accepted a single argument. In Athena engine version 3, the `CONCAT`
-function requires a minimum of two arguments.
+**Cause**: Previously, the `CONCAT` string function accepted a single argument. In Athena engine version 3, the `CONCAT` function requires a minimum of two arguments.
 
-Suggested solution: Change occurrences of
-`CONCAT(str)` to `CONCAT(str, '')`.
+**Suggested solution**: Change occurrences of `CONCAT(str)` to `CONCAT(str, '')`.
 
-In Athena engine version 3, functions can have no more than 127 arguments. For more
-information, see [Too many arguments for function call](troubleshooting-athena.md#troubleshooting-athena-too-many-arguments "troubleshooting-athena.md#troubleshooting-athena-too-many-arguments").
+In Athena engine version 3, functions can have no more than 127 arguments. For more information, see [Too many arguments for function call](troubleshooting-athena.md#troubleshooting-athena-too-many-arguments).
 
 #### The approx\_percentile function returns different results
+<a name="engine-versions-reference-0003-approx-percentile-function"></a>
 
-The `approx_percentile` function returns different results in
-Athena engine version 3 than it did in previous engine versions.
+The `approx_percentile` function returns different results in Athena engine version 3 than it did in previous engine versions.
 
-Error message: None.
+**Error message**: None.
 
-Cause: The `approx_percentile`
-function is subject to version changes.
+**Cause**: The `approx_percentile` function is subject to version changes.
 
-###### Important
+**Important**  
+Because the outputs of the `approx_percentile` function are approximations, and the approximations are subject to change from one version to the next, you should not rely on the `approx_percentile` function for critical applications.
 
-Because the outputs of the `approx_percentile` function are
-approximations, and the approximations are subject to change from one
-version to the next, you should not rely on the
-`approx_percentile` function for critical
-applications.
-
-Suggested Solution: To approximate the previous engine versions
-behavior of `approx_percentile`, you can use a different set of
-functions in Athena engine version 3. For example, suppose you have the following query in
-previous engine versions:
+**Suggested Solution**: To approximate the previous engine versions behavior of `approx_percentile`, you can use a different set of functions in Athena engine version 3. For example, suppose you have the following query in previous engine versions:
 
 ```
 SELECT approx_percentile(somecol, 2E-1)
 ```
 
-To approximate the same output in Athena engine version 3, you can try the
-`qdigest_agg` and `value_at_quantile` functions, as in
-the following example. Note that, even with this workaround, the same behavior
-is not guaranteed.
+To approximate the same output in Athena engine version 3, you can try the `qdigest_agg` and `value_at_quantile` functions, as in the following example. Note that, even with this workaround, the same behavior is not guaranteed.
 
 ```
 SELECT value_at_quantile(qdigest_agg(somecol, 1), 2E-1)
 ```
 
 #### Geospatial function does not support varbinary input
+<a name="engine-versions-reference-0003-geo-spatial-function-does-not-support-varbinary-input"></a>
 
-Error message: **`FUNCTION_NOT_FOUND
- for st_XXX`**
+**Error message**: FUNCTION\_NOT\_FOUND for st\_XXX
 
-Cause: A few geospatial functions no longer
-support the legacy `VARBINARY` input type or text related function
-signatures.
+**Cause**: A few geospatial functions no longer support the legacy `VARBINARY` input type or text related function signatures.
 
-Suggested solution: Use geospatial functions to
-convert the input types to types that are supported. Supported input types are
-indicated in the error message.
+**Suggested solution**: Use geospatial functions to convert the input types to types that are supported. Supported input types are indicated in the error message.
 
 #### In GROUP BY clauses, nested columns must be double quoted
+<a name="engine-versions-reference-0003-group-by-nested-columns-require-double-quotes"></a>
 
-Error message: **`"`column_name`"."`nested_column`"
- must be an aggregate expression or appear in GROUP BY
- clause`**
+**Error message**:  "{{column\_name}}"."{{nested\_column}}" must be an aggregate expression or appear in GROUP BY clause
 
-Cause: Athena engine version 3 requires that nested column
-names in `GROUP BY` clauses be double quoted. For example, the
-following query produces the error because, in the `GROUP BY` clause,
-`user.name` is not double quoted.
+**Cause**: Athena engine version 3 requires that nested column names in `GROUP BY` clauses be double quoted. For example, the following query produces the error because, in the `GROUP BY` clause, `user.name` is not double quoted.
 
 ```
-SELECT "user"."name" FROM dataset
+SELECT "user"."name" FROM dataset 
 GROUP BY user.name
 ```
 
-Suggested solution: Place double quotes around
-nested column names in `GROUP BY` clauses, as in the following
-example.
+**Suggested solution**: Place double quotes around nested column names in `GROUP BY` clauses, as in the following example.
 
 ```
-SELECT "user"."name" FROM dataset
+SELECT "user"."name" FROM dataset 
 GROUP BY "user"."name"
 ```
 
 #### Unexpected FilterNode error when using OPTIMIZE on an Iceberg table
+<a name="engine-versions-reference-0003-iceberg-optimize-where-clause-filters"></a>
 
-Error message: **`Unexpected FilterNode
- found in plan; probably connector was not able to handle provided WHERE
- expression.`**
+**Error message**: Unexpected FilterNode found in plan; probably connector was not able to handle provided WHERE expression.
 
-Cause: The `OPTIMIZE` statement that
-was run on the Iceberg table used a `WHERE` clause that included a
-non-partition column in its filter expression.
+**Cause**: The `OPTIMIZE` statement that was run on the Iceberg table used a `WHERE` clause that included a non-partition column in its filter expression.
 
-Suggested Solution: The `OPTIMIZE`
-statement supports filtering by partitions only. When you run
-`OPTIMIZE` on partitioned tables, include only partition columns
-in the `WHERE` clause. If you run `OPTIMIZE` on a
-non-partitioned table, do not specify a `WHERE` clause.
+**Suggested Solution**: The `OPTIMIZE` statement supports filtering by partitions only. When you run `OPTIMIZE` on partitioned tables, include only partition columns in the `WHERE` clause. If you run `OPTIMIZE` on a non-partitioned table, do not specify a `WHERE` clause.
 
 #### Log() function order of arguments
+<a name="engine-versions-reference-0003-log-function"></a>
 
-In Athena engine version 3, the order of arguments for the `log()` function has
-changed to `log(`base`,
- `value`)` in conformance with SQL
-standards.
+In Athena engine version 3, the order of arguments for the `log()` function has changed to `log({{base}}, {{value}})` in conformance with SQL standards.
 
 #### Minute() function does not support interval year to month
+<a name="engine-versions-reference-0003-minute-function"></a>
 
-Error message: **`Unexpected parameters
- (interval year to month) for function minute. Expected: minute(timestamp
- with time zone) , minute(time with time zone) , minute(timestamp) ,
- minute(time) , minute(interval day to second).`**
+**Error message**: Unexpected parameters (interval year to month) for function minute. Expected: minute(timestamp with time zone) , minute(time with time zone) , minute(timestamp) , minute(time) , minute(interval day to second).
 
-Cause: In Athena engine version 3, type checks have been made
-more precise for `EXTRACT` in accordance with the ANSI SQL
-specification.
+**Cause**: In Athena engine version 3, type checks have been made more precise for `EXTRACT` in accordance with the ANSI SQL specification.
 
-Suggested solution: Update the queries to make
-sure types are matched with the suggested function signatures.
+**Suggested solution**: Update the queries to make sure types are matched with the suggested function signatures.
 
 #### ORDER BY expressions must appear in SELECT list
+<a name="engine-versions-reference-0003-order-by-expressions-must-appear-in-select-list"></a>
 
-Error message: **`For SELECT DISTINCT,
- ORDER BY expressions must appear in SELECT list`**
+**Error message**: For SELECT DISTINCT, ORDER BY expressions must appear in SELECT list
 
-Cause: Incorrect table aliasing is used in a
-`SELECT` clause.
+**Cause**: Incorrect table aliasing is used in a `SELECT` clause.
 
-Suggested solution: Double check that all
-columns in the `ORDER BY` expression have proper references in the
-`SELECT DISTINCT` clause.
+**Suggested solution**: Double check that all columns in the `ORDER BY` expression have proper references in the `SELECT DISTINCT` clause.
 
 #### Query failure when comparing multiple columns returned from a subquery
+<a name="engine-versions-reference-0003-subquery-failure-multiple-columns"></a>
 
-Example error message: **`Value
- expression and result of subquery must be of the same type: row(varchar,
- varchar) vs row(row(varchar, varchar))`**
+**Example error message**: Value expression and result of subquery must be of the same type: row(varchar, varchar) vs row(row(varchar, varchar))
 
-Cause: Due to a syntax update in Athena engine version 3, this
-error occurs when a query tries to compare multiple values returned from a
-subquery, and the subquery `SELECT` statement encloses its list of
-columns in parentheses, as in the following example.
+**Cause**: Due to a syntax update in Athena engine version 3, this error occurs when a query tries to compare multiple values returned from a subquery, and the subquery `SELECT` statement encloses its list of columns in parentheses, as in the following example. 
 
 ```
 SELECT *
@@ -502,9 +396,7 @@ WHERE (t1_col1, t1_col2)
 IN (SELECT (t2_col1, t2_col2) FROM table2)
 ```
 
-Solution: In Athena engine version 3, remove the parenthesis
-around the list of columns in the subquery `SELECT` statement, as in
-the following updated example query.
+**Solution**: In Athena engine version 3, remove the parenthesis around the list of columns in the subquery `SELECT` statement, as in the following updated example query.
 
 ```
 SELECT *
@@ -514,26 +406,20 @@ IN (SELECT t2_col1, t2_col2 FROM table2)
 ```
 
 #### SKIP is a reserved word for DML queries
+<a name="engine-versions-reference-0003-skip-is-a-reserved-word-for-dml"></a>
 
-The word `SKIP` is now a reserved word for DML queries like
-`SELECT`. To use `SKIP` as an identifier in a DML
-query, enclose it in double quotes.
+The word `SKIP` is now a reserved word for DML queries like `SELECT`. To use `SKIP` as an identifier in a DML query, enclose it in double quotes.
 
-For more information about reserved words in Athena, see [Escape reserved keywords in queries](reserved-words.md "reserved-words.md").
+For more information about reserved words in Athena, see [Escape reserved keywords in queries](reserved-words.md).
 
 #### SYSTEM\_TIME and SYSTEM\_VERSION clauses deprecated for time travel
+<a name="engine-versions-reference-0003-time-travel-syntax"></a>
 
-Error message: **`mismatched input
- 'SYSTEM_TIME'. Expecting: 'TIMESTAMP', 'VERSION'`**
+**Error message**: mismatched input 'SYSTEM\_TIME'. Expecting: 'TIMESTAMP', 'VERSION'
 
-Cause: In previous engine versions, Iceberg tables used the
-`FOR SYSTEM_TIME AS OF` and `FOR SYSTEM_VERSION AS OF`
-clauses for timestamp and version time travel. Athena engine version 3 uses the `FOR
- TIMESTAMP AS OF` and `FOR VERSION AS OF` clauses.
+**Cause**: In previous engine versions, Iceberg tables used the `FOR SYSTEM_TIME AS OF` and `FOR SYSTEM_VERSION AS OF` clauses for timestamp and version time travel. Athena engine version 3 uses the `FOR TIMESTAMP AS OF` and `FOR VERSION AS OF` clauses. 
 
-Suggested solution: Update the SQL query to use
-the `TIMESTAMP AS OF` and `VERSION AS OF` clauses for time
-travel operations, as in the following examples.
+**Suggested solution**: Update the SQL query to use the `TIMESTAMP AS OF` and `VERSION AS OF` clauses for time travel operations, as in the following examples.
 
 Time travel by timestamp:
 
@@ -541,24 +427,20 @@ Time travel by timestamp:
 SELECT * FROM TABLE FOR TIMESTAMP AS OF (current_timestamp - interval '1' day)
 ```
 
-Time travel by version:
+ Time travel by version:
 
 ```
 SELECT * FROM TABLE FOR VERSION AS OF 949530903748831860
 ```
 
 #### Too many arguments for an array constructor
+<a name="engine-versions-reference-0003-array-max-elements"></a>
 
-Error Message: **`TOO_MANY_ARGUMENTS:
- Too many arguments for array constructor.`**
+**Error Message**: TOO\_MANY\_ARGUMENTS: Too many arguments for array constructor.
 
-Cause: The maximum number of elements in an
-array constructor is now set at 254.
+**Cause**: The maximum number of elements in an array constructor is now set at 254.
 
-Suggested solution: Break up the elements into
-multiple arrays that have 254 or fewer elements each, and use the
-`CONCAT` function to concatenate the arrays, as in the following
-example.
+**Suggested solution**: Break up the elements into multiple arrays that have 254 or fewer elements each, and use the `CONCAT` function to concatenate the arrays, as in the following example.
 
 ```
 CONCAT(
@@ -569,167 +451,108 @@ ARRAY[y1,y2,y3...y254],
 ```
 
 #### Zero-length delimited identifier not allowed
+<a name="engine-versions-reference-0003-zero-length-delimited-identifier"></a>
 
-Error message: **`Zero-length delimited
- identifier not allowed.`**
+**Error message**: Zero-length delimited identifier not allowed.
 
-Cause: A query used an empty string as a column
-alias.
+**Cause**: A query used an empty string as a column alias.
 
-Suggested solution: Update the query to use a
-non-empty alias for the column.
+**Suggested solution**: Update the query to use a non-empty alias for the column.
 
 ### Data processing changes
+<a name="engine-versions-reference-0003-data-processing-changes"></a>
 
 #### Bucket validation
+<a name="engine-versions-reference-0003-bucket-validation"></a>
 
-Error Message:
-**`HIVE_INVALID_BUCKET_FILES: Hive table is
- corrupt.`**
+**Error Message**: HIVE\_INVALID\_BUCKET\_FILES: Hive table is corrupt.
 
-Cause: The table might have been corrupted. To
-ensure query correctness for bucketed tables, Athena engine version 3 enables additional
-validation on bucketed tables to ensure query correctness and avoid unexpected
-failures at runtime.
+**Cause**: The table might have been corrupted. To ensure query correctness for bucketed tables, Athena engine version 3 enables additional validation on bucketed tables to ensure query correctness and avoid unexpected failures at runtime.
 
-Suggested solution: Re-create the table using
-Athena engine version 3.
+**Suggested solution**: Re-create the table using Athena engine version 3.
 
 #### Casting a struct to JSON now returns field names
+<a name="engine-versions-reference-0003-cast-struct-to-json"></a>
 
-When you cast a `struct` to JSON in a `SELECT` query in
-Athena engine version 3, the cast now returns both the field names and the values (for example
-"`useragent":null` instead of just the values (for example,
-`null`).
+When you cast a `struct` to JSON in a `SELECT` query in Athena engine version 3, the cast now returns both the field names and the values (for example "`useragent":null` instead of just the values (for example, `null`).
 
 #### Iceberg table column level security enforcement change
+<a name="engine-versions-reference-0003-iceberg-column-security"></a>
 
-Error Message: **`Access Denied: Cannot
- select from columns`**
+**Error Message**: Access Denied: Cannot select from columns
 
-Cause: The Iceberg table was created outside
-Athena and uses an [Apache
-Iceberg SDK](https://iceberg.apache.org/releases/ "https://iceberg.apache.org/releases/") version earlier than 0.13.0. Because earlier SDK
-versions do not populate columns in AWS Glue, Lake Formation could not determine the columns
-authorized for access.
+**Cause**: The Iceberg table was created outside Athena and uses an [Apache Iceberg SDK](https://iceberg.apache.org/releases/) version earlier than 0.13.0. Because earlier SDK versions do not populate columns in AWS Glue, Lake Formation could not determine the columns authorized for access.
 
-Suggested solution: Perform an update using the
-Athena [ALTER TABLE SET TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md "querying-iceberg-alter-table-set-properties.md") statement or
-use the latest Iceberg SDK to fix the table and update the column information in
-AWS Glue.
+**Suggested solution**: Perform an update using the Athena [ALTER TABLE SET TBLPROPERTIES](querying-iceberg-alter-table-set-properties.md) statement or use the latest Iceberg SDK to fix the table and update the column information in AWS Glue.
 
 #### Nulls in List data types are now propagated to UDFs
+<a name="engine-versions-reference-0003-nulls-in-list-datatypes-for-udfs"></a>
 
-Error message: **`Null Pointer
- Exception`**
+**Error message**: Null Pointer Exception
 
-Cause: This issue can affect you if you use the
-UDF connector and have implemented a user defined Lambda function.
+**Cause**: This issue can affect you if you use the UDF connector and have implemented a user defined Lambda function.
 
-The previous engine versions filtered out the nulls in List data types that were passed to a
-user defined function. In Athena engine version 3, the nulls are now preserved and passed on to
-the UDF. This can cause a null pointer exception if the UDF attempts to
-dereference the null element without checking.
+The previous engine versions filtered out the nulls in List data types that were passed to a user defined function. In Athena engine version 3, the nulls are now preserved and passed on to the UDF. This can cause a null pointer exception if the UDF attempts to dereference the null element without checking.
 
-For example, if you have the data `[null, 1, null, 2, 3, 4]` in an
-originating data source like DynamoDB, the following are passed to the user-defined
-Lambda function:
+For example, if you have the data `[null, 1, null, 2, 3, 4]` in an originating data source like DynamoDB, the following are passed to the user-defined Lambda function:
 
-Athena engine version 3: `[null, 1, null, 2, 3,
- 4]`
+**Athena engine version 3**: `[null, 1, null, 2, 3, 4]`
 
-Suggested solution: Ensure that your
-user-defined Lambda function handles null elements in list data types.
+**Suggested solution**: Ensure that your user-defined Lambda function handles null elements in list data types.
 
 #### Substrings from character arrays no longer contain padded spaces
+<a name="engine-versions-reference-0003-substring-no-padded-spaces"></a>
 
-Error message: No error is thrown, but the
-string returned no longer contains padded spaces. For example,
-`substr(char[20],1,100)` now returns a string with length 20
-instead of 100.
+**Error message**: No error is thrown, but the string returned no longer contains padded spaces. For example, `substr(char[20],1,100)` now returns a string with length 20 instead of 100.
 
-Suggested solution: No action is
-required.
+**Suggested solution**: No action is required.
 
 #### Unsupported decimal column type coercion
+<a name="engine-versions-reference-0003-unsupported-column-type"></a>
 
-Error messages: **`HIVE_CURSOR_ERROR:
- Failed to read Parquet file:
- s3://amzn-s3-demo-bucket/`path`/`file_name`.parquet`**
-or **`Unsupported column type (varchar) for Parquet column
- ([`column_name`]`**
+**Error messages**: HIVE\_CURSOR\_ERROR: Failed to read Parquet file: s3://amzn-s3-demo-bucket/{{path}}/{{file\_name}}.parquet or Unsupported column type (varchar) for Parquet column ([{{column\_name}}]
 
-Cause: Athena engine version 2 occasionally succeeded (but
-frequently failed) when attempting data type coercions from `varchar`
-to decimal. Because Athena engine version 3 has type validation that checks that the type is
-compatible before it tries to read the value, such attempted coercions now
-always fail.
+**Cause**: Athena engine version 2 occasionally succeeded (but frequently failed) when attempting data type coercions from `varchar` to decimal. Because Athena engine version 3 has type validation that checks that the type is compatible before it tries to read the value, such attempted coercions now always fail.
 
-Suggested Solution: For Athena engine version 3, modify your
-schema in AWS Glue to use a numeric data type instead of `varchar` for
-decimal columns in Parquet files. Either recrawl the data and ensure that the
-new column data type is a decimal type, or manually re-create the table in Athena
-and use the syntax `decimal(`precision`,
- `scale`)` to specify a [decimal](data-types.md#data-types-decimal "data-types.md#data-types-decimal") data type for the
-column.
+**Suggested Solution**: For Athena engine version 3, modify your schema in AWS Glue to use a numeric data type instead of `varchar` for decimal columns in Parquet files. Either recrawl the data and ensure that the new column data type is a decimal type, or manually re-create the table in Athena and use the syntax `decimal({{precision}}, {{scale}})` to specify a [decimal](data-types.md#data-types-decimal) data type for the column.
 
 #### Float or double NaN values can no longer be cast to bigint
+<a name="engine-versions-reference-0003-no-nan-to-bigint"></a>
 
-Error Message:
-**`INVALID_CAST_ARGUMENT: Cannot cast real/double NaN to
- bigint`**
+**Error Message**: INVALID\_CAST\_ARGUMENT: Cannot cast real/double NaN to bigint
 
-Cause: In Athena engine version 3, `NaN` can no
-longer be cast to 0 as `bigint`.
+**Cause**: In Athena engine version 3, `NaN` can no longer be cast to 0 as `bigint`.
 
-Suggested solution: Make sure that
-`NaN` values are not present in `float` or
-`double` columns when you cast to `bigint`.
+**Suggested solution**: Make sure that `NaN` values are not present in `float` or `double` columns when you cast to `bigint`.
 
 #### uuid() function return type change
+<a name="engine-versions-reference-0003-uuid-function-return-type-change"></a>
 
 The following issue affects both tables and views.
 
-Error message: **`Unsupported Hive
- type: uuid`**
+**Error message**: Unsupported Hive type: uuid
 
-Cause: In previous engine versions, the `uuid()`
-function returned a string, but in Athena engine version 3, it returns a pseudo randomly
-generated UUID (type 4). Because the UUID column data type is not supported in
-Athena, the `uuid()` function can no longer be used directly in CTAS
-queries to generate UUID columns in Athena engine version 3.
+**Cause**: In previous engine versions, the `uuid()` function returned a string, but in Athena engine version 3, it returns a pseudo randomly generated UUID (type 4). Because the UUID column data type is not supported in Athena, the `uuid()` function can no longer be used directly in CTAS queries to generate UUID columns in Athena engine version 3.
 
-For example, the following `CREATE TABLE` statement completes
-successfully in previous engine versions but returns **`NOT_SUPPORTED: Unsupported Hive
- type: uuid`** in Athena engine version 3:
+For example, the following `CREATE TABLE` statement completes successfully in previous engine versions but returns NOT\_SUPPORTED: Unsupported Hive type: uuid in Athena engine version 3:
 
 ```
-CREATE TABLE uuid_table AS
+CREATE TABLE uuid_table AS 
    SELECT uuid() AS myuuid
 ```
 
-Similarly, the following `CREATE VIEW` statement completed
-successfully in Athena engine version 2 but returns **`Invalid column type for column
- myuuid: Unsupported Hive type: uuid`** in Athena engine version 3:
+Similarly, the following `CREATE VIEW` statement completed successfully in Athena engine version 2 but returns Invalid column type for column myuuid: Unsupported Hive type: uuid in Athena engine version 3:
 
 ```
-CREATE VIEW uuid_view AS
+CREATE VIEW uuid_view AS 
    SELECT uuid() AS myuuid
 ```
 
-When a view so created in previous engine versions is queried in Athena engine version 3, an error like the
-following occurs:
+When a view so created in previous engine versions is queried in Athena engine version 3, an error like the following occurs:
 
-**`VIEW_IS_STALE: line 1:15: View
- 'awsdatacatalog.mydatabase.uuid_view' is stale or in invalid state: column
- [myuuid] of type uuid projected from query view at position 0 cannot be
- coerced to column [myuuid] of type varchar stored in view
- definition`**
+VIEW\_IS\_STALE: line 1:15: View 'awsdatacatalog.mydatabase.uuid\_view' is stale or in invalid state: column [myuuid] of type uuid projected from query view at position 0 cannot be coerced to column [myuuid] of type varchar stored in view definition
 
-Suggested Solution: When you create the table
-or view, use the `cast()` function to convert the output of
-`uuid()` to a `varchar`, as in the following
-examples:
+**Suggested Solution**: When you create the table or view, use the `cast()` function to convert the output of `uuid()` to a `varchar`, as in the following examples:
 
 ```
 CREATE TABLE uuid_table AS
@@ -742,15 +565,14 @@ CREATE VIEW uuid_view AS
 ```
 
 #### CHAR and VARCHAR coercion issues
+<a name="engine-versions-reference-0003-char-varchar-coercion-issues"></a>
 
-Use the workarounds in this section if you encounter coercion issues with
-`varchar` and `char` in Athena engine version 3. If you are unable to
-use these workarounds, please contact Support.
+Use the workarounds in this section if you encounter coercion issues with `varchar` and `char` in Athena engine version 3. If you are unable to use these workarounds, please contact Support.
 
 ##### CONCAT function failure with mixed CHAR and VARCHAR inputs
+<a name="engine-versions-reference-0003-concat-function-failure"></a>
 
-Issue: The following query succeeds on
-Athena engine version 2.
+**Issue**: The following query succeeds on Athena engine version 2.
 
 ```
 SELECT concat(CAST('abc' AS VARCHAR(20)), '12', CAST('a' AS CHAR(1)))
@@ -758,136 +580,91 @@ SELECT concat(CAST('abc' AS VARCHAR(20)), '12', CAST('a' AS CHAR(1)))
 
 However, on Athena engine version 3, the same query fails with the following:
 
-Error message:
-**`FUNCTION_NOT_FOUND: line 1:8: Unexpected parameters
- (varchar(20), varchar(2), char(1)) for function concat. Expected:
- concat(char(x), char(y)), concat(array(E), E) E, concat(E, array(E)) E,
- concat(array(E)) E, concat(varchar),
- concat(varbinary)`**
+**Error message**: FUNCTION\_NOT\_FOUND: line 1:8: Unexpected parameters (varchar(20), varchar(2), char(1)) for function concat. Expected: concat(char(x), char(y)), concat(array(E), E) E, concat(E, array(E)) E, concat(array(E)) E, concat(varchar), concat(varbinary)
 
-Suggested Solution: When using the
-`concat` function, cast to `char` or
-`varchar`, but not to a mix of both.
+**Suggested Solution**: When using the `concat` function, cast to `char` or `varchar`, but not to a mix of both.
 
-##### SQL || concatenation failure with CHAR and VARCHAR inputs
+##### SQL \|\| concatenation failure with CHAR and VARCHAR inputs
+<a name="engine-versions-reference-0003-double-pipe-char-varchar-failure"></a>
 
-In Athena engine version 3, the double vertical bar `||` concatenation operator
-requires `varchar` as inputs. The inputs cannot be a combination
-of `varchar` and `char` types.
+In Athena engine version 3, the double vertical bar `||` concatenation operator requires `varchar` as inputs. The inputs cannot be a combination of `varchar` and `char` types.
 
-Error message: **`TYPE_NOT_FOUND:
- line 1:26: Unknown type: char(65537)`**
+**Error message**: TYPE\_NOT\_FOUND: line 1:26: Unknown type: char(65537) 
 
-Cause: A query that uses `||` to
-concatenate a `char` and a `varchar` can produce the
-error, as in the following example.
+**Cause**: A query that uses `||` to concatenate a `char` and a `varchar` can produce the error, as in the following example.
 
 ```
 SELECT CAST('a' AS CHAR) || CAST('b' AS VARCHAR)
 ```
 
-Suggested Solution: Concatenate
-`varchar` with `varchar`, as in the following
-example.
+**Suggested Solution**: Concatenate `varchar` with `varchar`, as in the following example.
 
 ```
-SELECT CAST('a' AS VARCHAR) || CAST('b' AS VARCHAR)
+SELECT CAST('a' AS VARCHAR) || CAST('b' AS VARCHAR) 
 ```
 
 ##### CHAR and VARCHAR UNION query failure
+<a name="engine-versions-reference-0003-char-varchar-union-query-failure"></a>
 
-Error message: **`NOT_SUPPORTED:
- Unsupported Hive type: char(65536). Supported CHAR types: CHAR(<=255)`**
+**Error message**: NOT\_SUPPORTED: Unsupported Hive type: char(65536). Supported CHAR types: CHAR(<=255) 
 
-Cause: A query that attempts to combine
-`char` and `varchar`, as in the following
-example:
+**Cause**: A query that attempts to combine `char` and `varchar`, as in the following example:
 
 ```
-CREATE TABLE t1 (c1) AS SELECT CAST('a' as CHAR) as c1 UNION ALL SELECT CAST('b' AS VARCHAR) AS c1
+CREATE TABLE t1 (c1) AS SELECT CAST('a' as CHAR) as c1 UNION ALL SELECT CAST('b' AS VARCHAR) AS c1 
 ```
 
-Suggested Solution: In the example query,
-cast `'a'` as `varchar` rather than `char`.
+**Suggested Solution**: In the example query, cast `'a'` as `varchar` rather than `char`. 
 
 ##### Unwanted empty spaces after CHAR or VARCHAR coercion
+<a name="engine-versions-reference-0003-empty-spaces-added-after-coercion"></a>
 
-In Athena engine version 3, when `char(X)` and `varchar` data are
-coerced to a single type when forming an array or single column,
-`char(65535)` is the target type, and each field contains
-many unwanted trailing spaces.
+In Athena engine version 3, when `char(X)` and `varchar` data are coerced to a single type when forming an array or single column, `char(65535)` is the target type, and each field contains many unwanted trailing spaces.
 
-Cause: Athena engine version 3 coerces `varchar`
-and `char(X)` to `char(65535)` and then right pads the
-data with spaces.
+**Cause**: Athena engine version 3 coerces `varchar` and `char(X)` to `char(65535)` and then right pads the data with spaces.
 
-Suggested Solution: Cast each field
-explicitly to `varchar`.
+**Suggested Solution**: Cast each field explicitly to `varchar`.
 
 ### Timestamp changes
+<a name="engine-versions-reference-0003-timestamp-changes"></a>
 
 #### Date timestamp overflow throws error
+<a name="engine-versions-reference-0003-date-timestamp-overflow"></a>
 
-Error message: **`Millis overflow:
- XXX`**
+**Error message**: Millis overflow: XXX
 
-Cause: Because ISO 8601 dates were not checked
-for overflow in previous engine versions, some dates produced a negative timestamp. Athena engine version 3
-checks for this overflow and throws an exception.
+**Cause**: Because ISO 8601 dates were not checked for overflow in previous engine versions, some dates produced a negative timestamp. Athena engine version 3 checks for this overflow and throws an exception.
 
-Suggested Solution: Make sure the timestamp is
-within range.
+**Suggested Solution**: Make sure the timestamp is within range.
 
 #### Political time zones with TIME not supported
+<a name="engine-versions-reference-0003-political-time-zones"></a>
 
-Error message: **`INVALID
- LITERAL`**
+**Error message**: INVALID LITERAL
 
-Cause: Queries like `SELECT TIME
- '13:21:32.424 America/Los_Angeles'`.
+**Cause**: Queries like `SELECT TIME '13:21:32.424 America/Los_Angeles'`.
 
-Suggested solution: Avoid using political time
-zones with `TIME`.
+**Suggested solution**: Avoid using political time zones with `TIME`.
 
 #### Precision mismatch in Timestamp columns causes serialization error
+<a name="engine-versions-reference-0003-timestamp-precision-serialization-error"></a>
 
-Error message: **`SERIALIZATION_ERROR:
- Could not serialize column '`COLUMNZ`' of type
- 'timestamp(3)' at position
- `X`:`Y``**
+**Error message**: SERIALIZATION\_ERROR: Could not serialize column '{{COLUMNZ}}' of type 'timestamp(3)' at position {{X}}:{{Y}}
 
-`COLUMNZ` is the output name of the column that
-causes the issue. The numbers
-`X`:`Y` indicate the
-position of the column in the output.
+{{COLUMNZ}} is the output name of the column that causes the issue. The numbers {{X}}:{{Y}} indicate the position of the column in the output.
 
-Cause: Athena engine version 3 checks to make sure that the
-precision of timestamps in the data is the same as the precision specified for
-the column data type in the table specification. Currently, this precision is
-always 3. If the data has a precision greater than this, queries fail with the
-error noted.
+**Cause**: Athena engine version 3 checks to make sure that the precision of timestamps in the data is the same as the precision specified for the column data type in the table specification. Currently, this precision is always 3. If the data has a precision greater than this, queries fail with the error noted.
 
-Suggested solution: Check your data to make
-sure that your timestamps have millisecond precision.
+**Suggested solution**: Check your data to make sure that your timestamps have millisecond precision.
 
 #### Incorrect timestamp precision in UNLOAD and CTAS queries for Iceberg tables
+<a name="engine-versions-reference-0003-timestamp-precision-unload-ctas-iceberg"></a>
 
-Error message: **`Incorrect timestamp
- precision for timestamp(6); the configured precision is
- MILLISECONDS`**
+**Error message**: Incorrect timestamp precision for timestamp(6); the configured precision is MILLISECONDS
 
-Cause: Athena engine version 3 checks to make sure that the
-precision of timestamps in the data is the same as the precision specified for
-the column data type in the table specification. Currently, this precision is
-always 3. If the data has a precision greater than this (for example,
-microseconds instead of milliseconds), queries can fail with the error
-noted.
+**Cause**: Athena engine version 3 checks to make sure that the precision of timestamps in the data is the same as the precision specified for the column data type in the table specification. Currently, this precision is always 3. If the data has a precision greater than this (for example, microseconds instead of milliseconds), queries can fail with the error noted.
 
-Solution: To work around this issue, first
-`CAST` the timestamp precision to 6, as in the following CTAS
-example that creates an Iceberg table. Note that the precision must be specified
-as 6 instead of 3 to avoid the error **`Timestamp precision (3) not
- supported for Iceberg`**.
+**Solution**: To work around this issue, first `CAST` the timestamp precision to 6, as in the following CTAS example that creates an Iceberg table. Note that the precision must be specified as 6 instead of 3 to avoid the error Timestamp precision (3) not supported for Iceberg.
 
 ```
 CREATE TABLE my_iceberg_ctas
@@ -897,9 +674,7 @@ AS SELECT id, CAST(dt AS timestamp(6)) AS "dt"
 FROM my_iceberg
 ```
 
-Then, because Athena does not support timestamp 6, cast the value again to
-timestamp (for example, in a view). The following example creates a view from
-the `my_iceberg_ctas` table.
+Then, because Athena does not support timestamp 6, cast the value again to timestamp (for example, in a view). The following example creates a view from the `my_iceberg_ctas` table.
 
 ```
 CREATE OR REPLACE VIEW my_iceberg_ctas_view AS
@@ -908,80 +683,55 @@ FROM my_iceberg_ctas
 ```
 
 #### Reading the Long type as Timestamp or vice versa in ORC files now causes a malformed ORC file error
+<a name="engine-versions-reference-0003-orc-no-implicit-long-to-timestamp-coercion"></a>
 
-Error message: **`Error opening Hive
- split ‘FILE (SPLIT POSITION)’ Malformed ORC file. Cannot read SQL type
- timestamp from ORC stream .long_type of type LONG`**
+**Error message**: Error opening Hive split ‘FILE (SPLIT POSITION)’ Malformed ORC file. Cannot read SQL type timestamp from ORC stream .long\_type of type LONG
 
-Cause: Athena engine version 3 now rejects implicit coercion
-from the `Long` data type to `Timestamp` or from
-`Timestamp` to `Long`. Previously, `Long`
-values were implicitly converted into timestamp as if they were epoch
-milliseconds.
+**Cause**: Athena engine version 3 now rejects implicit coercion from the `Long` data type to `Timestamp` or from `Timestamp` to `Long`. Previously, `Long` values were implicitly converted into timestamp as if they were epoch milliseconds.
 
-Suggested solution: Use the
-`from_unixtime` function to explicitly cast the column, or use
-the `from_unixtime` function to create an additional column for
-future queries.
+**Suggested solution**: Use the `from_unixtime` function to explicitly cast the column, or use the `from_unixtime` function to create an additional column for future queries.
 
 #### Time and interval year to month not supported
+<a name="engine-versions-reference-0003-time-and-interval-year-to-month"></a>
 
-Error message: **`TYPE
- MISMATCH`**
+**Error message**: TYPE MISMATCH
 
-Cause: Athena engine version 3 does not support time and
-interval year to month (for example, `SELECT TIME '01:00' + INTERVAL '3'
- MONTH`).
+**Cause**: Athena engine version 3 does not support time and interval year to month (for example, `SELECT TIME '01:00' + INTERVAL '3' MONTH`).
 
 #### Timestamp overflow for int96 Parquet format
+<a name="engine-versions-reference-0003-timestamp-overflow-for-int96-parquet-format"></a>
 
-Error message: **`Invalid
- timeOfDayNanos`**
+**Error message**: Invalid timeOfDayNanos
 
-Cause: A timestamp overflow for the
-`int96` Parquet format.
+**Cause**: A timestamp overflow for the `int96` Parquet format.
 
-Suggested solution: Identify the specific files
-that have the issue. Then generate the data file again with an up-to-date, well
-known Parquet library, or use Athena CTAS. If the issue persists, contact Athena
-support and let us know how the data files are generated.
+**Suggested solution**: Identify the specific files that have the issue. Then generate the data file again with an up-to-date, well known Parquet library, or use Athena CTAS. If the issue persists, contact Athena support and let us know how the data files are generated.
 
 #### Space required between date and time values when casting from string to timestamp
+<a name="engine-versions-reference-0003-timestamp-cast-space"></a>
 
-Error message:
-**`INVALID_CAST_ARGUMENT: Value cannot be cast to
- timestamp`**.
+**Error message**: INVALID\_CAST\_ARGUMENT: Value cannot be cast to timestamp.
 
-Cause: Athena engine version 3 no longer accepts a hyphen as a
-valid separator between date and time values in the input string to
-`cast`. For example, the following query does not work in
-Athena engine version 3:
+**Cause**: Athena engine version 3 no longer accepts a hyphen as a valid separator between date and time values in the input string to `cast`. For example, the following query does not work in Athena engine version 3:
 
 ```
 SELECT CAST('2021-06-06-23:38:46' AS timestamp) AS this_time
 ```
 
-Suggested solution: In Athena engine version 3, replace the
-hyphen between the date and the time with a space, as in the following
-example.
+**Suggested solution**: In Athena engine version 3, replace the hyphen between the date and the time with a space, as in the following example.
 
 ```
 SELECT CAST('2021-06-06 23:38:46' AS timestamp) AS this_time
 ```
 
 #### to\_iso8601() timestamp return value change
+<a name="engine-versions-reference-0003-to-iso8601-function"></a>
 
-Error message: None
+**Error message**: None
 
-Cause: In previous engine versions, the `to_iso8601`
-function returns a timestamp with time zone even if the value passed to the
-function does not include the time zone. In Athena engine version 3, the `to_iso8601`
-function returns a timestamp with time zone only when the argument passed
-includes the time zone.
+**Cause**: In previous engine versions, the `to_iso8601` function returns a timestamp with time zone even if the value passed to the function does not include the time zone. In Athena engine version 3, the `to_iso8601` function returns a timestamp with time zone only when the argument passed includes the time zone.
 
-For example, the following query passes the current date to the
-`to_iso8601` function twice: first as a timestamp with time zone,
-and then as a timestamp.
+For example, the following query passes the current date to the `to_iso8601` function twice: first as a timestamp with time zone, and then as a timestamp.
 
 ```
 SELECT TO_ISO8601(CAST(CURRENT_DATE AS TIMESTAMP WITH TIME ZONE)), TO_ISO8601(CAST(CURRENT_DATE AS TIMESTAMP))
@@ -991,20 +741,21 @@ The following output shows the result of the query in Athena engine version 3.
 
 In previous engine versions:
 
-| #   | \_col0                     | \_col1                     |
-| --- | -------------------------- | -------------------------- |
-| `1` | `2023-02-24T00:00:00.000Z` | `2023-02-24T00:00:00.000Z` |
+
+
+| \# | \_col0 | \_col1 | 
+| --- | --- | --- | 
+| 1 | `2023-02-24T00:00:00.000Z ` | `2023-02-24T00:00:00.000Z` | 
 
 Athena engine version 3:
 
-| #   | \_col0                     | \_col1                    |
-| --- | -------------------------- | ------------------------- |
-| `1` | `2023-02-24T00:00:00.000Z` | `2023-02-24T00:00:00.000` |
 
-Suggested solution: To replicate the previous
-behaviour, you can pass the timestamp value to the `with_timezone`
-function before passing it to `to_iso8601`, as in the following
-example:
+
+| \# | \_col0 | \_col1 | 
+| --- | --- | --- | 
+| 1 | `2023-02-24T00:00:00.000Z` | `2023-02-24T00:00:00.000` | 
+
+**Suggested solution**: To replicate the previous behaviour, you can pass the timestamp value to the `with_timezone` function before passing it to `to_iso8601`, as in the following example: 
 
 ```
 SELECT to_iso8601(with_timezone(TIMESTAMP '2023-01-01 00:00:00.000', 'UTC'))
@@ -1012,55 +763,30 @@ SELECT to_iso8601(with_timezone(TIMESTAMP '2023-01-01 00:00:00.000', 'UTC'))
 
 Result
 
-| #   | \_col0                     |
-| --- | -------------------------- |
-| `1` | `2023-01-01T00:00:00.000Z` |
+
+
+| \# | \_col0 | 
+| --- | --- | 
+| 1 |  2023-01-01T00:00:00.000Z  | 
 
 #### at\_timezone() first parameter must specify a date
+<a name="engine-versions-reference-at-timezone-function"></a>
 
-Issue: In Athena engine version 3, the `at_timezone`
-function cannot take a `time_with_timezone` value as the first
-parameter.
+**Issue**: In Athena engine version 3, the `at_timezone` function cannot take a `time_with_timezone` value as the first parameter.
 
-Cause: Without date information, it cannot be
-determined whether the value passed is daylight time or standard time. For
-example, `at_timezone('12:00:00 UTC', 'America/Los_Angeles')` is
-ambiguous since there is no way to determine whether the value passed is Pacific
-Daylight Time (PDT) or Pacific Standard Time (PST).
+**Cause**: Without date information, it cannot be determined whether the value passed is daylight time or standard time. For example, `at_timezone('12:00:00 UTC', 'America/Los_Angeles')` is ambiguous since there is no way to determine whether the value passed is Pacific Daylight Time (PDT) or Pacific Standard Time (PST).
 
 ## Limitations
+<a name="engine-versions-reference-0003-known-limitations"></a>
 
 Athena engine version 3 has the following limitations.
++ **Query performance** – Many queries run faster on Athena engine version 3, but some query plans can differ from previous engine versions. As a result, some queries can differ in latency or cost.
++ **Trino and Presto connectors** – Neither [Trino](https://trino.io/docs/current/connector.html) nor [Presto](https://prestodb.io/docs/current/connector.html) connectors are supported. Use Amazon Athena Federated Query to connect data sources. For more information, see [Use Amazon Athena Federated Query](federated-queries.md).
++ **Fault-tolerant execution** – Trino [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html) (Trino Tardigrade) is not supported.
++ **Function parameter limit** – Functions cannot take more than 127 parameters. For more information, see [Too many arguments for function call](troubleshooting-athena.md#troubleshooting-athena-too-many-arguments).
 
-- Query performance – Many queries run
-  faster on Athena engine version 3, but some query plans can differ from previous engine versions. As a result,
-  some queries can differ in latency or cost.
-- Trino and Presto connectors – Neither
-  [Trino](https://trino.io/docs/current/connector.html "https://trino.io/docs/current/connector.html") nor
-  [Presto](https://prestodb.io/docs/current/connector.html "https://prestodb.io/docs/current/connector.html")
-  connectors are supported. Use Amazon Athena Federated Query to connect data sources. For more
-  information, see [Use Amazon Athena Federated Query](federated-queries.md "federated-queries.md").
-- Fault-tolerant execution – Trino [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html "https://trino.io/docs/current/admin/fault-tolerant-execution.html") (Trino Tardigrade) is not
-  supported.
-- Function parameter limit – Functions
-  cannot take more than 127 parameters. For more information, see [Too many arguments for function call](troubleshooting-athena.md#troubleshooting-athena-too-many-arguments "troubleshooting-athena.md#troubleshooting-athena-too-many-arguments").
-
-The following limits were introduced in Athena engine version 2 to ensure that queries do not fail due
-to resource limitations. These limits are not configurable by users.
-
-- Number of result elements – The number
-  of result elements `n` is restricted to 10,000 or less for the
-  following functions: `min(col, n)`, `max(col, n)`,
-  `min_by(col1, col2, n)`, and `max_by(col1, col2,
- n)`.
-- GROUPING SETS – The maximum number of
-  slices in a grouping set is 2048.
-- Maximum text file line length – The
-  default maximum line length for text files is 200 MB.
-- Sequence function maximum result size –
-  The maximum result size of a sequence function is 50000 entries. For example,
-  `SELECT sequence(0,45000,1)` succeeds, but `SELECT
- sequence(0,55000,1)` fails with the error message **`The
- result of the sequence function must not have more than 50000
- entries`**. This limit applies to all input types for sequence
-  functions, including timestamps.
+The following limits were introduced in Athena engine version 2 to ensure that queries do not fail due to resource limitations. These limits are not configurable by users.
++ **Number of result elements** – The number of result elements `n` is restricted to 10,000 or less for the following functions: `min(col, n)`, `max(col, n)`, `min_by(col1, col2, n)`, and `max_by(col1, col2, n)`.
++ **GROUPING SETS** – The maximum number of slices in a grouping set is 2048.
++ **Maximum text file line length** – The default maximum line length for text files is 200 MB.
++ **Sequence function maximum result size** – The maximum result size of a sequence function is 50000 entries. For example, `SELECT sequence(0,45000,1)` succeeds, but `SELECT sequence(0,55000,1)` fails with the error message The result of the sequence function must not have more than 50000 entries. This limit applies to all input types for sequence functions, including timestamps.

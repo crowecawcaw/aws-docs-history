@@ -1,4 +1,7 @@
+
+
 # Search for values in JSON arrays
+<a name="searching-for-values"></a>
 
 To determine if a specific value exists inside a JSON-encoded array, use the `json_array_contains` function.
 
@@ -30,15 +33,13 @@ This query returns a list of users.
 ```
 
 The following query example lists the names of users who have completed projects along with the total number of completed projects. It performs these actions:
++ Uses nested `SELECT` statements for clarity.
++ Extracts the array of projects.
++ Converts the array to a native array of key-value pairs using `CAST`.
++ Extracts each individual array element using the `UNNEST` operator.
++ Filters obtained values by completed projects and counts them.
 
-- Uses nested `SELECT` statements for clarity.
-- Extracts the array of projects.
-- Converts the array to a native array of key-value pairs using `CAST`.
-- Extracts each individual array element using the `UNNEST` operator.
-- Filters obtained values by completed projects and counts them.
-
-###### Note
-
+**Note**  
 When using `CAST` to `MAP` you can specify the key element as `VARCHAR` (native String in Presto), but leave the value as JSON, because the values in the `MAP` are of different types: String for the first key-value pair, and Boolean for the second.
 
 ```

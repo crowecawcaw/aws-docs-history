@@ -1,145 +1,146 @@
-# Create Iceberg tables
 
-To create an Iceberg table for use in Athena, you can use a `CREATE TABLE`
-statement as documented on this page, or you can use an AWS Glue crawler.
+
+# Create Iceberg tables
+<a name="querying-iceberg-creating-tables"></a>
+
+To create an Iceberg table for use in Athena, you can use a `CREATE TABLE` statement as documented on this page, or you can use an AWS Glue crawler.
 
 ## Use a CREATE TABLE statement
+<a name="querying-iceberg-creating-tables-query-editor"></a>
 
-Athena creates Iceberg v2 tables. For the difference between v1 and v2 tables, see
-[Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes "https://iceberg.apache.org/spec/#appendix-e-format-version-changes") in the Apache Iceberg documentation.
+Athena creates Iceberg v2 tables. For the difference between v1 and v2 tables, see [Format version changes](https://iceberg.apache.org/spec/#appendix-e-format-version-changes) in the Apache Iceberg documentation.
 
-Athena `CREATE TABLE` creates an Iceberg table with no data. You can
-query a table from external systems such as Apache Spark directly if the table uses
-the [Iceberg
-open source glue catalog](https://iceberg.apache.org/docs/latest/aws/#glue-catalog "https://iceberg.apache.org/docs/latest/aws/#glue-catalog"). You do not have to create an external
-table.
+Athena `CREATE TABLE` creates an Iceberg table with no data. You can query a table from external systems such as Apache Spark directly if the table uses the [Iceberg open source glue catalog](https://iceberg.apache.org/docs/latest/aws/#glue-catalog). You do not have to create an external table.
 
-###### Warning
+**Warning**  
+Running `CREATE EXTERNAL TABLE` results in the error message External keyword not supported for table type ICEBERG. 
 
-Running `CREATE EXTERNAL TABLE` results in the error message
-**`External keyword not supported for table type
- ICEBERG`**.
-
-To create an Iceberg table from Athena, set the `'table_type'` table
-property to `'ICEBERG'` in the `TBLPROPERTIES` clause, as in
-the following syntax summary.
+To create an Iceberg table from Athena, set the `'table_type'` table property to `'ICEBERG'` in the `TBLPROPERTIES` clause, as in the following syntax summary.
 
 ```
 CREATE TABLE
   [db_name.]table_name (col_name data_type [COMMENT col_comment] [, ...] )
   [PARTITIONED BY (col_name | transform, ... )]
-  LOCATION 's3://amzn-s3-demo-bucket/`your-folder`/'
-  TBLPROPERTIES ( 'table_type' ='ICEBERG' [, `property_name`=`property_value`] )
+  LOCATION 's3://amzn-s3-demo-bucket/{{your-folder}}/'
+  TBLPROPERTIES ( 'table_type' ='ICEBERG' [, {{property_name}}={{property_value}}] )
 ```
 
-For information about the data types that you can query in Iceberg tables, see
-[Supported data types for Iceberg tables in Athena](querying-iceberg-supported-data-types.md "querying-iceberg-supported-data-types.md").
+For information about the data types that you can query in Iceberg tables, see [Supported data types for Iceberg tables in Athena](querying-iceberg-supported-data-types.md).
 
 ### Use partitions
+<a name="querying-iceberg-partitioning"></a>
 
-To create Iceberg tables with partitions, use `PARTITIONED BY`
-syntax. Columns used for partitioning must be specified in the columns
-declarations first. Within the `PARTITIONED BY` clause, the column
-type must not be included. You can also define [partition
-transforms](https://iceberg.apache.org/spec/#partition-transforms "https://iceberg.apache.org/spec/#partition-transforms") in `CREATE TABLE` syntax. To specify multiple
-columns for partitioning, separate the columns with the comma (`,`)
-character, as in the following example.
+To create Iceberg tables with partitions, use `PARTITIONED BY` syntax. Columns used for partitioning must be specified in the columns declarations first. Within the `PARTITIONED BY` clause, the column type must not be included. You can also define [partition transforms](https://iceberg.apache.org/spec/#partition-transforms) in `CREATE TABLE` syntax. To specify multiple columns for partitioning, separate the columns with the comma (`,`) character, as in the following example.
 
 ```
 CREATE TABLE iceberg_table (id bigint, data string, category string)
   PARTITIONED BY (category, bucket(16, id))
-  LOCATION 's3://amzn-s3-demo-bucket/`your-folder`/'
+  LOCATION 's3://amzn-s3-demo-bucket/{{your-folder}}/'
   TBLPROPERTIES ( 'table_type' = 'ICEBERG' )
 ```
 
 The following table shows the available partition transform functions.
 
-| Function                | Description                                                                                                  | Supported types                                                         |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| `year(ts)`              | Partition by year                                                                                            | `date`, `timestamp`                                                     |
-| `month(ts)`             | Partition by month                                                                                           | `date`, `timestamp`                                                     |
-| `day(ts)`               | Partition by day                                                                                             | `date`, `timestamp`                                                     |
-| `hour(ts)`              | Partition by hour                                                                                            | `timestamp`                                                             |
-| `bucket(`N`,<br>col)`   | Partition by hashed value mod `N`<br>buckets. This is the same concept as hash bucketing for Hive<br>tables. | `int`, `long`, `decimal`,<br>`date`, `timestamp`,<br>`string`, `binary` |
-| `truncate(`L`,<br>col)` | Partition by value truncated to<br>`L`                                                                       | `int`, `long`, `decimal`,<br>`string`                                   |
 
-Athena supports Iceberg's hidden partitioning. For more information, see [Iceberg's hidden partitioning](https://iceberg.apache.org/docs/latest/partitioning/#icebergs-hidden-partitioning "https://iceberg.apache.org/docs/latest/partitioning/#icebergs-hidden-partitioning") in the Apache Iceberg
-documentation.
 
-This section describes table properties that you can specify as key-value
-pairs in the `TBLPROPERTIES` clause of the `CREATE
- TABLE` statement. Athena allows only a predefined list of key-value
-pairs in the table properties for creating or altering Iceberg tables. The
-following tables show the table properties that you can specify. For more
-information about the compaction options, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md "querying-iceberg-data-optimization.md") in this
-documentation. If you would like Athena to support a specific open source
-table configuration property, send feedback to [athena-feedback@amazon.com](mailto:athena-feedback@amazon.com "mailto:athena-feedback@amazon.com").
+| Function | Description | Supported types | 
+| --- | --- | --- | 
+| year(ts) | Partition by year | date, timestamp | 
+| month(ts) | Partition by month | date, timestamp | 
+| day(ts)  | Partition by day | date, timestamp | 
+| hour(ts) | Partition by hour | timestamp | 
+| bucket({{N}}, col) | Partition by hashed value mod {{N}} buckets. This is the same concept as hash bucketing for Hive tables. | int, long, decimal, date, timestamp, string, binary  | 
+| truncate({{L}}, col) | Partition by value truncated to {{L}} | int, long, decimal, string | 
 
-_format_
+Athena supports Iceberg's hidden partitioning. For more information, see [Iceberg's hidden partitioning](https://iceberg.apache.org/docs/latest/partitioning/#icebergs-hidden-partitioning) in the Apache Iceberg documentation.
 
-|                                |                                                                                                                                                                                                                  |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | File data format                                                                                                                                                                                                 |
-| **Allowed property<br>values** | Supported file format and compression combinations vary<br>by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md"). |
-| **Default value**              | parquet                                                                                                                                                                                                          |
+### Specify table properties
+<a name="querying-iceberg-table-properties"></a>
 
-_write\_compression_
+This section describes table properties that you can specify as key-value pairs in the `TBLPROPERTIES` clause of the `CREATE TABLE` statement. Athena allows only a predefined list of key-value pairs in the table properties for creating or altering Iceberg tables. The following tables show the table properties that you can specify. For more information about the compaction options, see [Optimize Iceberg tables](querying-iceberg-data-optimization.md) in this documentation. If you would like Athena to support a specific open source table configuration property, send feedback to [athena-feedback@amazon.com](mailto:athena-feedback@amazon.com). 
 
-|                                |                                                                                                                                                                                                                  |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | File compression codec                                                                                                                                                                                           |
-| **Allowed property<br>values** | Supported file format and compression combinations vary<br>by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md"). |
-| **Default value**              | Default write compression varies by Athena engine<br>version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md "compression-support-iceberg.md").                        |
+***format***
 
-_optimize\_rewrite\_data\_file\_threshold_
 
-|                                |                                                                                                                                                                                                                                                                                                                      |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | Data optimization specific configuration. If there are<br>fewer data files that require optimization than the given<br>threshold, the files are not rewritten. This allows the<br>accumulation of more data files to produce files closer to<br>the target size and skip unnecessary computation for cost<br>saving. |
-| **Allowed property<br>values** | A positive number. Must be less than 50.                                                                                                                                                                                                                                                                             |
-| **Default value**              | 5                                                                                                                                                                                                                                                                                                                    |
 
-_optimize\_rewrite\_delete\_file\_threshold_
+|  |  | 
+| --- |--- |
+| Description | File data format | 
+| Allowed property values | Supported file format and compression combinations vary by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md). | 
+| Default value | parquet | 
 
-|                                |                                                                                                                                                                                                                                                             |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | Data optimization specific configuration. If there are<br>fewer delete files associated with a data file than the<br>threshold, the data file is not rewritten. This allows the<br>accumulation of more delete files for each data file for<br>cost saving. |
-| **Allowed property<br>values** | A positive number. Must be less than 50.                                                                                                                                                                                                                    |
-| **Default value**              | 2                                                                                                                                                                                                                                                           |
+***write\_compression***
 
-_vacuum\_min\_snapshots\_to\_keep_
 
-|                                |                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | Minimum number of snapshots to retain on a table's<br>main branch.<br>This value takes precedence over the<br>`vacuum_max_snapshot_age_seconds`<br>property. If the minimum remaining snapshots are older<br>than the age specified by<br>`vacuum_max_snapshot_age_seconds`, the<br>snapshots are kept, and the value of<br>`vacuum_max_snapshot_age_seconds` is<br>ignored. |
-| **Allowed property<br>values** | A positive number.                                                                                                                                                                                                                                                                                                                                                           |
-| **Default value**              | 1                                                                                                                                                                                                                                                                                                                                                                            |
 
-_vacuum\_max\_snapshot\_age\_seconds_
+|  |  | 
+| --- |--- |
+| Description | File compression codec | 
+| Allowed property values | Supported file format and compression combinations vary by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md). | 
+| Default value | Default write compression varies by Athena engine version. For more information, see [Use Iceberg table compression](compression-support-iceberg.md). | 
 
-|                                |                                                                                                                                                                                                                                                                                                                                                       |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | Maximum age of the snapshots to retain on the main<br>branch. This value is ignored if the remaining minimum of<br>snapshots specified by<br>`vacuum_min_snapshots_to_keep` are older than<br>the age specified. This table behavior property corresponds<br>to the `history.expire.max-snapshot-age-ms`<br>property in Apache Iceberg configuration. |
-| **Allowed property<br>values** | A positive number.                                                                                                                                                                                                                                                                                                                                    |
-| **Default value**              | 432000 seconds (5 days)                                                                                                                                                                                                                                                                                                                               |
+***optimize\_rewrite\_data\_file\_threshold***
 
-_vacuum\_max\_metadata\_files\_to\_keep_
 
-|                                |                                                                                        |
-| ------------------------------ | -------------------------------------------------------------------------------------- |
-| **Description**                | The maximum number of previous metadata files to retain<br>on the table's main branch. |
-| **Allowed property<br>values** | A positive number.                                                                     |
-| **Default value**              | 100                                                                                    |
 
-_write\_data\_path\_enabled_
+|  |  | 
+| --- |--- |
+| Description | Data optimization specific configuration. If there are fewer data files that require optimization than the given threshold, the files are not rewritten. This allows the accumulation of more data files to produce files closer to the target size and skip unnecessary computation for cost saving. | 
+| Allowed property values | A positive number. Must be less than 50. | 
+| Default value | 5 | 
 
-|                                |                                                                                                                                                                                                                                                                                                |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Description**                | When set to `true`, the Iceberg table is<br>created with the `write.data.path` property<br>instead of the deprecated<br>`write.object-storage.path` property. Use<br>this option to ensure compatibility with Iceberg 1.9.0 and<br>later, which no longer supports the deprecated<br>property. |
-| **Allowed property<br>values** | `true`, `false`                                                                                                                                                                                                                                                                                |
-| **Default value**              | false                                                                                                                                                                                                                                                                                          |
+***optimize\_rewrite\_delete\_file\_threshold***
+
+
+
+|  |  | 
+| --- |--- |
+| Description | Data optimization specific configuration. If there are fewer delete files associated with a data file than the threshold, the data file is not rewritten. This allows the accumulation of more delete files for each data file for cost saving. | 
+| Allowed property values | A positive number. Must be less than 50. | 
+| Default value | 2 | 
+
+***vacuum\_min\_snapshots\_to\_keep***
+
+
+
+|  |  | 
+| --- |--- |
+| Description | Minimum number of snapshots to retain on a table's main branch.<br />This value takes precedence over the `vacuum_max_snapshot_age_seconds` property. If the minimum remaining snapshots are older than the age specified by `vacuum_max_snapshot_age_seconds`, the snapshots are kept, and the value of `vacuum_max_snapshot_age_seconds` is ignored. | 
+| Allowed property values | A positive number. | 
+| Default value | 1 | 
+
+***vacuum\_max\_snapshot\_age\_seconds***
+
+
+
+|  |  | 
+| --- |--- |
+| Description | Maximum age of the snapshots to retain on the main branch. This value is ignored if the remaining minimum of snapshots specified by vacuum\_min\_snapshots\_to\_keep are older than the age specified. This table behavior property corresponds to the history.expire.max-snapshot-age-ms property in Apache Iceberg configuration. | 
+| Allowed property values | A positive number. | 
+| Default value | 432000 seconds (5 days) | 
+
+***vacuum\_max\_metadata\_files\_to\_keep***
+
+
+
+|  |  | 
+| --- |--- |
+| Description | The maximum number of previous metadata files to retain on the table's main branch. | 
+| Allowed property values | A positive number. | 
+| Default value | 100 | 
+
+***write\_data\_path\_enabled***
+
+
+
+|  |  | 
+| --- |--- |
+| Description | When set to true, the Iceberg table is created with the write.data.path property instead of the deprecated write.object-storage.path property. Use this option to ensure compatibility with Iceberg 1.9.0 and later, which no longer supports the deprecated property. | 
+| Allowed property values | true, false | 
+| Default value | false | 
 
 ### Example CREATE TABLE statement
+<a name="querying-iceberg-example-create-table-statement"></a>
 
 The following example creates an Iceberg table that has three columns.
 
@@ -147,9 +148,9 @@ The following example creates an Iceberg table that has three columns.
 CREATE TABLE iceberg_table (
   id int,
   data string,
-  category string)
-PARTITIONED BY (category, bucket(16,id))
-LOCATION 's3://amzn-s3-demo-bucket/`iceberg-folder`'
+  category string) 
+PARTITIONED BY (category, bucket(16,id)) 
+LOCATION 's3://amzn-s3-demo-bucket/{{iceberg-folder}}' 
 TBLPROPERTIES (
   'table_type'='ICEBERG',
   'format'='parquet',
@@ -159,19 +160,11 @@ TBLPROPERTIES (
 ```
 
 ## Use CREATE TABLE AS SELECT (CTAS)
+<a name="querying-iceberg-creating-tables-ctas"></a>
 
-For information about creating an Iceberg table using the `CREATE TABLE
- AS` statement, see [CREATE TABLE AS](create-table-as.md "create-table-as.md"), with particular attention to the [CTAS table properties](create-table-as.md#ctas-table-properties "create-table-as.md#ctas-table-properties")
-section.
+For information about creating an Iceberg table using the `CREATE TABLE AS` statement, see [CREATE TABLE AS](create-table-as.md), with particular attention to the [CTAS table properties](create-table-as.md#ctas-table-properties) section.
 
 ## Use an AWS Glue crawler
+<a name="querying-iceberg-creating-tables-crawler"></a>
 
-You can use an AWS Glue crawler to automatically register your Iceberg tables into
-the AWS Glue Data Catalog. If you want to migrate from another Iceberg catalog, you can create
-and schedule an AWS Glue crawler and provide the Amazon S3 paths where the Iceberg tables
-are located. You can specify the maximum depth of the Amazon S3 paths that the AWS Glue
-crawler can traverse. After you schedule an AWS Glue crawler, the crawler extracts
-schema information and updates the AWS Glue Data Catalog with the schema changes every time it
-runs. The AWS Glue crawler supports schema merging across snapshots and updates the
-latest metadata file location in the AWS Glue Data Catalog. For more information, see [Data Catalog
-and crawlers in AWS Glue](../../../glue/latest/dg/catalog-and-crawler.md "../../../glue/latest/dg/catalog-and-crawler.md").
+You can use an AWS Glue crawler to automatically register your Iceberg tables into the AWS Glue Data Catalog. If you want to migrate from another Iceberg catalog, you can create and schedule an AWS Glue crawler and provide the Amazon S3 paths where the Iceberg tables are located. You can specify the maximum depth of the Amazon S3 paths that the AWS Glue crawler can traverse. After you schedule an AWS Glue crawler, the crawler extracts schema information and updates the AWS Glue Data Catalog with the schema changes every time it runs. The AWS Glue crawler supports schema merging across snapshots and updates the latest metadata file location in the AWS Glue Data Catalog. For more information, see [Data Catalog and crawlers in AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html). 

@@ -1,30 +1,25 @@
+
+
 # SHOW PARTITIONS
+<a name="show-partitions"></a>
 
 Lists all the partitions in an Athena table in unsorted order.
 
 ## Synopsis
+<a name="synopsis"></a>
 
 ```
 SHOW PARTITIONS table_name
 ```
-
-- To show the partitions in a table and list them in a specific order, see the
-  [List partitions for a specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md") section on the
-  [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md") page.
-- To view the contents of a partition, see the [Query the data](partitions.md#query-the-data "partitions.md#query-the-data") section on the [Partition your data](partitions.md "partitions.md") page.
-- `SHOW PARTITIONS` does not list partitions that are projected by
-  Athena but not registered in the AWS Glue catalog. For information about partition
-  projection, see [Use partition projection with Amazon Athena](partition-projection.md "partition-projection.md").
-- `SHOW PARTITIONS` lists the partitions in metadata, not the
-  partitions in the actual file system. To update the metadata after you delete
-  partitions manually in Amazon S3, run [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md "alter-table-drop-partition.md").
++ To show the partitions in a table and list them in a specific order, see the [List partitions for a specific table](querying-glue-catalog-listing-partitions.md) section on the [Query the AWS Glue Data Catalog](querying-glue-catalog.md) page.
++ To view the contents of a partition, see the [Query the data](partitions.md#query-the-data) section on the [Partition your data](partitions.md) page.
++ `SHOW PARTITIONS` does not list partitions that are projected by Athena but not registered in the AWS Glue catalog. For information about partition projection, see [Use partition projection with Amazon Athena](partition-projection.md).
++  `SHOW PARTITIONS` lists the partitions in metadata, not the partitions in the actual file system. To update the metadata after you delete partitions manually in Amazon S3, run [ALTER TABLE DROP PARTITION](alter-table-drop-partition.md). 
 
 ## Examples
+<a name="examples"></a>
 
-The following example query shows the partitions for the
-`flight_delays_csv` table, which shows flight table data from the US
-Department of Transportation. For more information about the example
-`flight_delays_csv` table, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md "lazy-simple-serde.md"). The table is partitioned by year.
+The following example query shows the partitions for the `flight_delays_csv` table, which shows flight table data from the US Department of Transportation. For more information about the example `flight_delays_csv` table, see [Lazy Simple SerDe for CSV, TSV, and custom-delimited files](lazy-simple-serde.md). The table is partitioned by year.
 
 ```
 SHOW PARTITIONS flight_delays_csv
@@ -46,10 +41,7 @@ year=2011
 ...
 ```
 
-The following example query shows the partitions for the `impressions`
-table, which contains sample web browsing data. For more information about the example
-`impressions` table, see [Partition your data](partitions.md "partitions.md"). The table is partitioned by the `dt`
-(datetime) column.
+The following example query shows the partitions for the `impressions` table, which contains sample web browsing data. For more information about the example `impressions` table, see [Partition your data](partitions.md). The table is partitioned by the `dt` (datetime) column.
 
 ```
 SHOW PARTITIONS impressions
@@ -71,16 +63,15 @@ dt=2009-04-13-22-15
 ```
 
 ### Listing partitions in sorted order
+<a name="show-partitions-examples-ordering"></a>
 
-To order the partitions in the results list, use the following `SELECT`
-syntax instead of `SHOW PARTITIONS`.
+To order the partitions in the results list, use the following `SELECT` syntax instead of `SHOW PARTITIONS`.
 
 ```
-SELECT * FROM `database_name`."`table_name`$partitions" ORDER BY `column_name`
+SELECT * FROM {{database_name}}."{{table_name}}$partitions" ORDER BY {{column_name}}
 ```
 
-The following query shows the list of partitions for the
-`flight_delays_csv` example, but in sorted order.
+The following query shows the list of partitions for the `flight_delays_csv` example, but in sorted order.
 
 ```
 SELECT * FROM "flight_delays_csv$partitions" ORDER BY year
@@ -89,7 +80,7 @@ SELECT * FROM "flight_delays_csv$partitions" ORDER BY year
 **Results**
 
 ```
-**year**
+year
 1987
 1988
 1989
@@ -106,5 +97,4 @@ SELECT * FROM "flight_delays_csv$partitions" ORDER BY year
 ...
 ```
 
-For more information, see the [List partitions for a specific table](querying-glue-catalog-listing-partitions.md "querying-glue-catalog-listing-partitions.md") section on the [Query the AWS Glue Data Catalog](querying-glue-catalog.md "querying-glue-catalog.md")
-page.
+For more information, see the [List partitions for a specific table](querying-glue-catalog-listing-partitions.md) section on the [Query the AWS Glue Data Catalog](querying-glue-catalog.md) page.

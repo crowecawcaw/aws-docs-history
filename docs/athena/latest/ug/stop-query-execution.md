@@ -1,7 +1,9 @@
-# Stop query execution
 
-The `StopQueryExecutionExample` runs an example query, immediately stops
-the query, and checks the status of the query to ensure that it was canceled.
+
+# Stop query execution
+<a name="stop-query-execution"></a>
+
+The `StopQueryExecutionExample` runs an example query, immediately stops the query, and checks the status of the query to ensure that it was canceled.
 
 ```
 package aws.example.athena;
@@ -92,5 +94,4 @@ public class StopQueryExecutionExample {
 
     }
 }
-
 ```

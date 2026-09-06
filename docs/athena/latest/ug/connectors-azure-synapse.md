@@ -1,70 +1,52 @@
+
+
 # Amazon Athena Azure Synapse connector
+<a name="connectors-azure-synapse"></a>
 
-The Amazon Athena connector for [Azure
-Synapse analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is "https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is") enables Amazon Athena to run SQL queries on your Azure Synapse
-databases using JDBC.
+The Amazon Athena connector for [Azure Synapse analytics](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-what-is) enables Amazon Athena to run SQL queries on your Azure Synapse databases using JDBC.
 
-This connector can be registered with Glue Data Catalog as a federated catalog.
-It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
+This connector can be registered with Glue Data Catalog as a federated catalog. It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
 
 ## Prerequisites
-
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+<a name="connectors-synapse-prerequisites"></a>
++ Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md) or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md).
 
 ## Limitations
-
-- Write DDL operations are not supported.
-- In a multiplexer setup, the spill bucket and prefix are shared across all
-  database instances.
-- Any relevant Lambda limits. For more information, see [Lambda quotas](../../../lambda/latest/dg/gettingstarted-limits.md "../../../lambda/latest/dg/gettingstarted-limits.md") in the _AWS Lambda Developer Guide_.
-- In filter conditions, you must cast the `Date` and
-  `Timestamp` data types to the appropriate data type.
-- To search for negative values of type `Real` and
-  `Float`, use the `<=` or `>=`
-  operator.
-- The `binary`, `varbinary`, `image`, and
-  `rowversion` data types are not supported.
+<a name="connectors-azure-synapse-limitations"></a>
++ Write DDL operations are not supported.
++ In a multiplexer setup, the spill bucket and prefix are shared across all database instances.
++ Any relevant Lambda limits. For more information, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html) in the *AWS Lambda Developer Guide*.
++ In filter conditions, you must cast the `Date` and `Timestamp` data types to the appropriate data type.
++ To search for negative values of type `Real` and `Float`, use the `<=` or `>=` operator.
++ The `binary`, `varbinary`, `image`, and `rowversion` data types are not supported.
 
 ## Terms
+<a name="connectors-azure-synapse-terms"></a>
 
 The following terms relate to the Synapse connector.
-
-- Database instance – Any instance of a
-  database deployed on premises, on Amazon EC2, or on Amazon RDS.
-- Handler – A Lambda handler that accesses
-  your database instance. A handler can be for metadata or for data
-  records.
-- Metadata handler – A Lambda handler that
-  retrieves metadata from your database instance.
-- Record handler – A Lambda handler that
-  retrieves data records from your database instance.
-- Composite handler – A Lambda handler that
-  retrieves both metadata and data records from your database instance.
-- Property or parameter – A database
-  property used by handlers to extract database information. You configure these
-  properties as Lambda environment variables.
-- Connection String – A string of text
-  used to establish a connection to a database instance.
-- Catalog – A non-AWS Glue catalog registered
-  with Athena that is a required prefix for the `connection_string`
-  property.
-- Multiplexing handler – A Lambda handler
-  that can accept and use multiple database connections.
++ **Database instance** – Any instance of a database deployed on premises, on Amazon EC2, or on Amazon RDS.
++ **Handler** – A Lambda handler that accesses your database instance. A handler can be for metadata or for data records.
++ **Metadata handler** – A Lambda handler that retrieves metadata from your database instance.
++ **Record handler** – A Lambda handler that retrieves data records from your database instance.
++ **Composite handler** – A Lambda handler that retrieves both metadata and data records from your database instance.
++ **Property or parameter** – A database property used by handlers to extract database information. You configure these properties as Lambda environment variables.
++ **Connection String** – A string of text used to establish a connection to a database instance.
++ **Catalog** – A non-AWS Glue catalog registered with Athena that is a required prefix for the `connection_string` property.
++ **Multiplexing handler** – A Lambda handler that can accept and use multiple database connections.
 
 ## Parameters
+<a name="connectors-azure-synapse-parameters"></a>
 
 Use the parameters in this section to configure the Synapse connector.
 
-###### Note
+**Note**  
+Athena data source connectors created on December 3, 2024 and later use AWS Glue connections.  
+The parameter names and definitions listed below are for Athena data source connectors created prior to December 3, 2024. These can differ from their corresponding [AWS Glue connection properties](https://docs.aws.amazon.com/glue/latest/dg/connection-properties.html). Starting December 3, 2024, use the parameters below only when you [manually deploy](connect-data-source-serverless-app-repo.md) an earlier version of an Athena data source connector.
 
-Athena data source connectors created on December 3, 2024 and later use AWS Glue connections.
+### AWS Glue Data Catalog federated connectors
+<a name="connectors-azure-synapse-gc"></a>
 
-The parameter names and definitions listed below are for Athena data source connectors created prior to December 3, 2024. These can differ from their corresponding [AWS Glue connection properties](../../../glue/latest/dg/connection-properties.md "../../../glue/latest/dg/connection-properties.md"). Starting December 3, 2024, use the parameters below only when you [manually deploy](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md") an earlier version of an Athena data source connector.
-
-We recommend that you configure a Synapse connector by using a Glue
-connections object. To do this, set the `glue_connection`
-environment variable of the Synapse connector Lambda to the name of the Glue
-connection to use.
+We recommend that you configure a Synapse connector by using a Glue connections object. To do this, set the `glue_connection` environment variable of the Synapse connector Lambda to the name of the Glue connection to use.
 
 **Glue connections properties**
 
@@ -77,301 +59,273 @@ aws glue describe-connection-type --connection-type SYNAPSE
 **Lambda environment properties**
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
++ **glue\_connection** – Specifies the name of the Glue connection associated with the federated connector. 
++ **casing\_mode** – (Optional) Specifies how to handle casing for schema and table names. The `casing_mode` parameter uses the following values to specify the behavior of casing:
+  + **none** – Do not change case of the given schema and table names. This is the default for connectors that have an associated glue connection. 
+  + **upper** – Upper case all given schema and table names.
+  + **lower** – Lower case all given schema and table names.
 
-- glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
-- **casing\_mode** – (Optional) Specifies
-  how to handle casing for schema and table names. The
-  `casing_mode` parameter uses the following values to specify
-  the behavior of casing:
+**Note**  
+All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+The Synapse connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+The Synapse connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
 
-  - **none** – Do not change case
-    of the given schema and table names. This is the default for
-    connectors that have an associated glue connection.
-  - **upper** –
-    Upper case all given schema and table names.
-  - **lower** –
-    Lower case all given schema and table names.
-
-###### Note
-
-- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
-- The Synapse connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
-- The Synapse connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
+### Athena data catalog federated connectors
+<a name="connectors-azure-synapse-legacy"></a>
 
 #### Connection string
+<a name="connectors-azure-synapse-connection-string"></a>
 
-Use a JDBC connection string in the following format to connect to a database
-instance.
+Use a JDBC connection string in the following format to connect to a database instance.
 
 ```
-synapse://${`jdbc_connection_string`}
+synapse://${{{jdbc_connection_string}}}
 ```
 
 #### Using a multiplexing handler
+<a name="connectors-azure-synapse-using-a-multiplexing-handler"></a>
 
-You can use a multiplexer to connect to multiple database instances with a single
-Lambda function. Requests are routed by catalog name. Use the following classes in
-Lambda.
+You can use a multiplexer to connect to multiple database instances with a single Lambda function. Requests are routed by catalog name. Use the following classes in Lambda.
 
-| Handler           | Class                        |
-| ----------------- | ---------------------------- |
-| Composite handler | `SynapseMuxCompositeHandler` |
-| Metadata handler  | `SynapseMuxMetadataHandler`  |
-| Record handler    | `SynapseMuxRecordHandler`    |
+
+
+| Handler | Class | 
+| --- | --- | 
+| Composite handler | SynapseMuxCompositeHandler | 
+| Metadata handler | SynapseMuxMetadataHandler | 
+| Record handler | SynapseMuxRecordHandler | 
 
 ##### Multiplexing handler parameters
+<a name="connectors-azure-synapse-multiplexing-handler-parameters"></a>
 
-| Parameter                      | Description                                                                                                                                                                                                                                                                                        |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$`catalog`_connection_string` | Required. A database instance connection string. Prefix the<br>environment variable with the name of the catalog used in Athena. For example,<br>if the catalog registered with Athena is<br>`mysynapsecatalog`, then the environment<br>variable name is<br>`mysynapsecatalog_connection_string`. |
-| `default`                      | Required. The default connection string. This string is used<br>when the catalog is<br>`lambda:${``AWS_LAMBDA_FUNCTION_NAME``}`.                                                                                                                                                                   |
 
-The following example properties are for a Synapse MUX Lambda function
-that supports two database instances: `synapse1` (the
-default), and `synapse2`.
 
-| Property                             | Value                                                                                              |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------- |
-| `default`                            | `synapse://jdbc:synapse://synapse1.hostname:port;databaseName=`<database_name>`;${`secret1_name`}` |
-| `synapse_catalog1_connection_string` | `synapse://jdbc:synapse://synapse1.hostname:port;databaseName=`<database_name>`;${`secret1_name`}` |
-| `synapse_catalog2_connection_string` | `synapse://jdbc:synapse://synapse2.hostname:port;databaseName=`<database_name>`;${`secret2_name`}` |
+| Parameter | Description | 
+| --- | --- | 
+| ${{catalog}}\_connection\_string | Required. A database instance connection string. Prefix the environment variable with the name of the catalog used in Athena. For example, if the catalog registered with Athena is mysynapsecatalog, then the environment variable name is mysynapsecatalog\_connection\_string. | 
+| default | Required. The default connection string. This string is used when the catalog is lambda:${{{AWS\_LAMBDA\_FUNCTION\_NAME}}}. | 
+
+The following example properties are for a Synapse MUX Lambda function that supports two database instances: `synapse1` (the default), and `synapse2`.
+
+
+
+| Property | Value | 
+| --- | --- | 
+| default | synapse://jdbc:synapse://synapse1.hostname:port;databaseName={{<database\_name>}};${{{secret1\_name}}} | 
+| synapse\_catalog1\_connection\_string | synapse://jdbc:synapse://synapse1.hostname:port;databaseName={{<database\_name>}};${{{secret1\_name}}} | 
+| synapse\_catalog2\_connection\_string | synapse://jdbc:synapse://synapse2.hostname:port;databaseName={{<database\_name>}};${{{secret2\_name}}} | 
 
 ##### Providing credentials
+<a name="connectors-azure-synapse-providing-credentials"></a>
 
-To provide a user name and password for your database in your JDBC connection
-string, you can use connection string properties or AWS Secrets Manager.
+To provide a user name and password for your database in your JDBC connection string, you can use connection string properties or AWS Secrets Manager.
++ **Connection String** – A user name and password can be specified as properties in the JDBC connection string.
+**Important**  
+As a security best practice, don't use hardcoded credentials in your environment variables or connection strings. For information about moving your hardcoded secrets to AWS Secrets Manager, see [Move hardcoded secrets to AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/hardcoded.html) in the *AWS Secrets Manager User Guide*.
++ **AWS Secrets Manager** – To use the Athena Federated Query feature with AWS Secrets Manager, the VPC connected to your Lambda function should have [internet access](https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/) or a [VPC endpoint](https://docs.aws.amazon.com/secretsmanager/latest/userguide/vpc-endpoint-overview.html) to connect to Secrets Manager.
 
-- Connection String – A user name
-  and password can be specified as properties in the JDBC connection
-  string.
+  You can put the name of a secret in AWS Secrets Manager in your JDBC connection string. The connector replaces the secret name with the `username` and `password` values from Secrets Manager.
 
-###### Important
+  For Amazon RDS database instances, this support is tightly integrated. If you use Amazon RDS, we highly recommend using AWS Secrets Manager and credential rotation. If your database does not use Amazon RDS, store the credentials as JSON in the following format:
 
-As a security best practice, don't use hardcoded credentials in your
-environment variables or connection strings. For information about moving
-your hardcoded secrets to AWS Secrets Manager, see [Move hardcoded
-secrets to AWS Secrets Manager](../../../secretsmanager/latest/userguide/hardcoded.md "../../../secretsmanager/latest/userguide/hardcoded.md") in the
-_AWS Secrets Manager User Guide_.
+  ```
+  {"username": "${username}", "password": "${password}"}
+  ```
 
-- AWS Secrets Manager – To use the Athena
-  Federated Query feature with AWS Secrets Manager, the VPC connected to your Lambda
-  function should have [internet access](https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/ "https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/") or a [VPC
-  endpoint](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md") to connect to Secrets Manager.
-
-You can put the name of a secret in AWS Secrets Manager in your JDBC connection
-string. The connector replaces the secret name with the
-`username` and `password` values from
-Secrets Manager.
-
-For Amazon RDS database instances, this support is tightly integrated. If
-you use Amazon RDS, we highly recommend using AWS Secrets Manager and credential
-rotation. If your database does not use Amazon RDS, store the credentials as
-JSON in the following format:
-
-```
-{"username": "${username}", "password": "${password}"}
-```
-
-###### Example connection string with secret name
-
+**Example connection string with secret name**  
 The following string has the secret name ${secret\_name}.
 
 ```
-synapse://jdbc:synapse://hostname:port;databaseName=`<database_name>`;${`secret_name`}
+synapse://jdbc:synapse://hostname:port;databaseName={{<database_name>}};${{{secret_name}}}
 ```
 
 The connector uses the secret name to retrieve secrets and provide the user name and password, as in the following example.
 
 ```
-synapse://jdbc:synapse://hostname:port;databaseName=`<database_name>`;user=`<user>`;password=`<password>`
+synapse://jdbc:synapse://hostname:port;databaseName={{<database_name>}};user={{<user>}};password={{<password>}}
 ```
 
 #### Using a single connection handler
+<a name="connectors-azure-synapse-using-a-single-connection-handler"></a>
 
-You can use the following single connection metadata and record handlers to
-connect to a single Synapse instance.
+You can use the following single connection metadata and record handlers to connect to a single Synapse instance.
 
-| Handler type      | Class                     |
-| ----------------- | ------------------------- |
-| Composite handler | `SynapseCompositeHandler` |
-| Metadata handler  | `SynapseMetadataHandler`  |
-| Record handler    | `SynapseRecordHandler`    |
+
+
+| Handler type | Class | 
+| --- | --- | 
+| Composite handler | SynapseCompositeHandler | 
+| Metadata handler | SynapseMetadataHandler | 
+| Record handler | SynapseRecordHandler | 
 
 ##### Single connection handler parameters
+<a name="connectors-azure-synapse-single-connection-handler-parameters"></a>
 
-| Parameter | Description                              |
-| --------- | ---------------------------------------- |
-| `default` | Required. The default connection string. |
 
-The single connection handlers support one database instance and must provide a
-`default` connection string parameter. All other connection
-strings are ignored.
+
+| Parameter | Description | 
+| --- | --- | 
+| default | Required. The default connection string. | 
+
+The single connection handlers support one database instance and must provide a `default` connection string parameter. All other connection strings are ignored.
 
 The following example property is for a single Synapse instance supported by a Lambda function.
 
-| Property  | Value                                                                                      |
-| --------- | ------------------------------------------------------------------------------------------ |
-| `default` | `synapse://jdbc:sqlserver://hostname:port;databaseName=`<database_name>`;${`secret_name`}` |
+
+
+| Property | Value | 
+| --- | --- | 
+| default | synapse://jdbc:sqlserver://hostname:port;databaseName={{<database\_name>}};${{{secret\_name}}} | 
 
 #### Configuring Active Directory authentication
+<a name="connectors-azure-synapse-configuring-active-directory-authentication"></a>
 
-The Amazon Athena Azure Synapse connector supports Microsoft Active Directory
-Authentication. Before you begin, you must configure an administrative user in the
-Microsoft Azure portal and then use AWS Secrets Manager to create a secret.
+The Amazon Athena Azure Synapse connector supports Microsoft Active Directory Authentication. Before you begin, you must configure an administrative user in the Microsoft Azure portal and then use AWS Secrets Manager to create a secret.
 
-###### To set the Active Directory administrative user
+**To set the Active Directory administrative user**
 
-1. Using an account that has administrative privileges, sign in to the
-   Microsoft Azure portal at [https://portal.azure.com/](https://portal.azure.com/ "https://portal.azure.com/").
-2. In the search box, enter **Azure Synapse Analytics**, and
-   then choose **Azure Synapse Analytics**.
+1. Using an account that has administrative privileges, sign in to the Microsoft Azure portal at [https://portal.azure.com/](https://portal.azure.com/).
 
-![Choose Azure Synapse Analytics.](images/connectors-azure-synapse-1.png) 3. Open the menu on the left.
+1. In the search box, enter **Azure Synapse Analytics**, and then choose **Azure Synapse Analytics**.  
+![Choose Azure Synapse Analytics.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-1.png)
 
-![Choose the Azure portal menu.](images/connectors-azure-synapse-2.png) 4. In the navigation pane, choose **Azure Active
-Directory**. 5. On the **Set admin** tab, set **Active Directory
-admin** to a new or existing user.
+1. Open the menu on the left.  
+![Choose the Azure portal menu.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-2.png)
 
-![Use the Set admin tab](images/connectors-azure-synapse-3.png) 6. In AWS Secrets Manager, store the admin username and password credentials. For
-information on creating a secret in Secrets Manager, see [Create an
-AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md").
+1. In the navigation pane, choose **Azure Active Directory**.
 
-###### To view your secret in Secrets Manager
+1. On the **Set admin** tab, set **Active Directory admin** to a new or existing user.  
+![Use the Set admin tab](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-3.png)
 
-1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
-2. In the navigation pane, choose **Secrets**.
-3. On the **Secrets** page, choose the link to your
-   secret.
-4. On the details page for your secret, choose **Retrieve secret
-   value**.
+1. In AWS Secrets Manager, store the admin username and password credentials. For information on creating a secret in Secrets Manager, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html).
 
-![Viewing secrets in AWS Secrets Manager.](images/connectors-azure-synapse-4.png)
+**To view your secret in Secrets Manager**
+
+1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/).
+
+1. In the navigation pane, choose **Secrets**.
+
+1. On the **Secrets** page, choose the link to your secret.
+
+1. On the details page for your secret, choose **Retrieve secret value**.  
+![Viewing secrets in AWS Secrets Manager.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-azure-synapse-4.png)
 
 ##### Modifying the connection string
+<a name="connectors-azure-synapse-modifying-the-connection-string"></a>
 
-To enable Active Directory Authentication for the connector, modify the
-connection string using the following syntax:
+To enable Active Directory Authentication for the connector, modify the connection string using the following syntax:
 
 ```
-synapse://jdbc:synapse://hostname:port;databaseName=`database_name`;authentication=ActiveDirectoryPassword;{secret_name}
+synapse://jdbc:synapse://hostname:port;databaseName={{database_name}};authentication=ActiveDirectoryPassword;{secret_name}
 ```
 
 ##### Using ActiveDirectoryServicePrincipal
+<a name="connectors-azure-synapse-using-activedirectoryserviceprincipal"></a>
 
-The Amazon Athena Azure Synapse connector also supports
-`ActiveDirectoryServicePrincipal`. To enable this, modify the
-connection string as follows.
+The Amazon Athena Azure Synapse connector also supports `ActiveDirectoryServicePrincipal`. To enable this, modify the connection string as follows.
 
 ```
-synapse://jdbc:synapse://hostname:port;databaseName=`database_name`;authentication=ActiveDirectoryServicePrincipal;{secret_name}
+synapse://jdbc:synapse://hostname:port;databaseName={{database_name}};authentication=ActiveDirectoryServicePrincipal;{secret_name}
 ```
 
-For `secret_name`, specify the application or client ID as the
-username and the secret of a service principal identity in the
-password.
+For `secret_name`, specify the application or client ID as the username and the secret of a service principal identity in the password.
 
 #### Spill parameters
+<a name="connectors-azure-synapse-spill-parameters"></a>
 
-The Lambda SDK can spill data to Amazon S3. All database instances accessed by the same
-Lambda function spill to the same location.
+The Lambda SDK can spill data to Amazon S3. All database instances accessed by the same Lambda function spill to the same location.
 
-| Parameter                   | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `spill_bucket`              | Required. Spill bucket name.                                                                                                                                                                                                                                                                                                                                                                           |
-| `spill_prefix`              | Required. Spill bucket key<br>prefix.                                                                                                                                                                                                                                                                                                                                                                  |
-| `spill_put_request_headers` | (Optional) A JSON encoded map of request headers and values for<br>the Amazon S3 `putObject` request that is used for spilling<br>(for example, `{"x-amz-server-side-encryption" :<br>"AES256"}`). For other possible headers, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md")<br>in the _Amazon Simple Storage Service API Reference_. |
+
+
+| Parameter | Description | 
+| --- | --- | 
+| spill\_bucket | Required. Spill bucket name. | 
+| spill\_prefix | Required. Spill bucket key prefix. | 
+| spill\_put\_request\_headers | (Optional) A JSON encoded map of request headers and values for the Amazon S3 putObject request that is used for spilling (for example, {"x-amz-server-side-encryption" : "AES256"}). For other possible headers, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) in the Amazon Simple Storage Service API Reference. | 
 
 ## Data type support
+<a name="connectors-azure-synapse-data-type-support"></a>
 
-The following table shows the corresponding data types for Synapse and Apache
-Arrow.
+The following table shows the corresponding data types for Synapse and Apache Arrow.
 
-| Synapse         | Arrow             |
-| --------------- | ----------------- |
-| bit             | TINYINT           |
-| tinyint         | SMALLINT          |
-| smallint        | SMALLINT          |
-| int             | INT               |
-| bigint          | BIGINT            |
-| decimal         | DECIMAL           |
-| numeric         | FLOAT8            |
-| smallmoney      | FLOAT8            |
-| money           | DECIMAL           |
-| float[24]       | FLOAT4            |
-| float[53]       | FLOAT8            |
-| real            | FLOAT4            |
-| datetime        | Date(MILLISECOND) |
-| datetime2       | Date(MILLISECOND) |
-| smalldatetime   | Date(MILLISECOND) |
-| date            | Date(DAY)         |
-| time            | VARCHAR           |
-| datetimeoffset  | Date(MILLISECOND) |
-| char[n]         | VARCHAR           |
-| varchar[n/max]  | VARCHAR           |
-| nchar[n]        | VARCHAR           |
-| nvarchar[n/max] | VARCHAR           |
+
+
+| Synapse | Arrow | 
+| --- | --- | 
+| bit | TINYINT | 
+| tinyint | SMALLINT | 
+| smallint | SMALLINT | 
+| int | INT | 
+| bigint | BIGINT | 
+| decimal | DECIMAL | 
+| numeric | FLOAT8 | 
+| smallmoney | FLOAT8 | 
+| money | DECIMAL | 
+| float[24] | FLOAT4 | 
+| float[53] | FLOAT8 | 
+| real | FLOAT4 | 
+| datetime | Date(MILLISECOND) | 
+| datetime2 | Date(MILLISECOND) | 
+| smalldatetime | Date(MILLISECOND) | 
+| date | Date(DAY) | 
+| time | VARCHAR | 
+| datetimeoffset | Date(MILLISECOND) | 
+| char[n] | VARCHAR | 
+| varchar[n/max] | VARCHAR | 
+| nchar[n] | VARCHAR | 
+| nvarchar[n/max] | VARCHAR | 
 
 ## Partitions and splits
+<a name="connectors-azure-synapse-partitions-and-splits"></a>
 
-A partition is represented by a single partition column of type `varchar`.
-Synapse supports range partitioning, so partitioning is implemented by extracting the
-partition column and partition range from Synapse metadata tables. These range values
-are used to create the splits.
+A partition is represented by a single partition column of type `varchar`. Synapse supports range partitioning, so partitioning is implemented by extracting the partition column and partition range from Synapse metadata tables. These range values are used to create the splits.
 
 ## Performance
+<a name="connectors-azure-synapse-performance"></a>
 
-Selecting a subset of columns significantly slows down query runtime. The connector shows significant throttling due to
-concurrency.
+Selecting a subset of columns significantly slows down query runtime. The connector shows significant throttling due to concurrency.
 
 The Athena Synapse connector performs predicate pushdown to decrease the data scanned by the query. Simple predicates and complex expressions are pushed down to the connector to reduce the amount of data scanned and decrease query execution run time.
 
 ### Predicates
+<a name="connectors-synapse-performance-predicates"></a>
 
-A predicate is an expression in the `WHERE` clause of a SQL query that
-evaluates to a Boolean value and filters rows based on multiple conditions. The
-Athena Synapse connector can combine these expressions and push them directly to
-Synapse for enhanced functionality and to reduce the amount of data scanned.
+A predicate is an expression in the `WHERE` clause of a SQL query that evaluates to a Boolean value and filters rows based on multiple conditions. The Athena Synapse connector can combine these expressions and push them directly to Synapse for enhanced functionality and to reduce the amount of data scanned.
 
-The following Athena Synapse connector operators support predicate
-pushdown:
-
-- Boolean: AND, OR, NOT
-- Equality: EQUAL, NOT\_EQUAL, LESS\_THAN,
-  LESS\_THAN\_OR\_EQUAL, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL, NULL\_IF,
-  IS\_NULL
-- Arithmetic: ADD, SUBTRACT, MULTIPLY,
-  DIVIDE, MODULUS, NEGATE
-- Other: LIKE\_PATTERN, IN
+The following Athena Synapse connector operators support predicate pushdown:
++ **Boolean: **AND, OR, NOT
++ **Equality: **EQUAL, NOT\_EQUAL, LESS\_THAN, LESS\_THAN\_OR\_EQUAL, GREATER\_THAN, GREATER\_THAN\_OR\_EQUAL, NULL\_IF, IS\_NULL
++ **Arithmetic: **ADD, SUBTRACT, MULTIPLY, DIVIDE, MODULUS, NEGATE
++ **Other: **LIKE\_PATTERN, IN
 
 ### Combined pushdown example
+<a name="connectors-synapse-performance-pushdown-example"></a>
 
 For enhanced querying capabilities, combine the pushdown types, as in the following example:
 
 ```
-SELECT *
-FROM my_table
-WHERE col_a > 10
-    AND ((col_a + col_b) > (col_c % col_d))
+SELECT * 
+FROM my_table 
+WHERE col_a > 10 
+    AND ((col_a + col_b) > (col_c % col_d)) 
     AND (col_e IN ('val1', 'val2', 'val3') OR col_f LIKE '%pattern%');
 ```
 
 ## Passthrough queries
+<a name="connectors-synapse-passthrough-queries"></a>
 
-The Synapse connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
-queries use a table function to push your full query down to the data source for
-execution.
+The Synapse connector supports [passthrough queries](federated-query-passthrough.md). Passthrough queries use a table function to push your full query down to the data source for execution.
 
 To use passthrough queries with Synapse, you can use the following syntax:
 
 ```
 SELECT * FROM TABLE(
         system.query(
-            query => '`query string`'
+            query => '{{query string}}'
         ))
 ```
 
-The following example query pushes down a query to a data source in Synapse. The query
-selects all columns in the `customer` table, limiting the results to 10.
+The following example query pushes down a query to a data source in Synapse. The query selects all columns in the `customer` table, limiting the results to 10.
 
 ```
 SELECT * FROM TABLE(
@@ -381,16 +335,12 @@ SELECT * FROM TABLE(
 ```
 
 ## License information
+<a name="connectors-synapse-license-information"></a>
 
-By using this connector, you acknowledge the inclusion of third party components, a list
-of which can be found in the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml") file for this connector, and agree to the terms in the respective third
-party licenses provided in the [LICENSE.txt](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/LICENSE.txt "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/LICENSE.txt") file on GitHub.com.
+By using this connector, you acknowledge the inclusion of third party components, a list of which can be found in the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml) file for this connector, and agree to the terms in the respective third party licenses provided in the [LICENSE.txt](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/LICENSE.txt) file on GitHub.com.
 
 ## Additional resources
-
-- For an article that shows how to use Quick and Amazon Athena Federated Query to build dashboards
-  and visualizations on data stored in Microsoft Azure Synapse databases, see
-  [Perform multi-cloud analytics using Quick, Amazon Athena Federated Query, and Microsoft Azure
-  Synapse](https://aws.amazon.com/blogs/business-intelligence/perform-multi-cloud-analytics-using-amazon-quicksight-amazon-athena-federated-query-and-microsoft-azure-synapse/ "https://aws.amazon.com/blogs/business-intelligence/perform-multi-cloud-analytics-using-amazon-quicksight-amazon-athena-federated-query-and-microsoft-azure-synapse/") in the _AWS Big Data Blog_.
-- For the latest JDBC driver version information, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml") file for the Synapse connector on GitHub.com.
-- For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-synapse "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-synapse") on GitHub.com.
+<a name="connectors-synapse-additional-resources"></a>
++ For an article that shows how to use Quick and Amazon Athena Federated Query to build dashboards and visualizations on data stored in Microsoft Azure Synapse databases, see [Perform multi-cloud analytics using Quick, Amazon Athena Federated Query, and Microsoft Azure Synapse](https://aws.amazon.com/blogs/business-intelligence/perform-multi-cloud-analytics-using-amazon-quicksight-amazon-athena-federated-query-and-microsoft-azure-synapse/) in the *AWS Big Data Blog*.
++ For the latest JDBC driver version information, see the [pom.xml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-synapse/pom.xml) file for the Synapse connector on GitHub.com.
++ For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-synapse) on GitHub.com.

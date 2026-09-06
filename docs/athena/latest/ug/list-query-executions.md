@@ -1,7 +1,9 @@
-# List query executions
 
-The `ListQueryExecutionsExample` shows how to obtain a list of query
-execution IDs.
+
+# List query executions
+<a name="list-query-executions"></a>
+
+The `ListQueryExecutionsExample` shows how to obtain a list of query execution IDs.
 
 ```
 package aws.example.athena;
@@ -48,5 +50,4 @@ public class ListQueryExecutionsExample {
         }
     }
 }
-
 ```

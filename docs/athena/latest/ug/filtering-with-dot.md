@@ -1,8 +1,9 @@
-# Filter arrays using the `.` notation
 
-In the following example, select the `accountId` field from the
-`userIdentity` column of a AWS CloudTrail logs table by using the dot
-`.` notation. For more information, see [Querying AWS CloudTrail Logs](cloudtrail-logs.md "cloudtrail-logs.md").
+
+# Filter arrays using the `.` notation
+<a name="filtering-with-dot"></a>
+
+In the following example, select the `accountId` field from the `userIdentity` column of a AWS CloudTrail logs table by using the dot `.` notation. For more information, see [Querying AWS CloudTrail Logs](cloudtrail-logs.md).
 
 ```
 SELECT

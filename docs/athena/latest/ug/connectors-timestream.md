@@ -1,32 +1,29 @@
+
+
 # Amazon Athena Timestream connector
+<a name="connectors-timestream"></a>
 
-The Amazon Athena Timestream connector enables Amazon Athena to communicate with [Amazon Timestream](https://aws.amazon.com/timestream/ "https://aws.amazon.com/timestream/"), making your time series data
-accessible through Amazon Athena. You can optionally use AWS Glue Data Catalog as a source of supplemental
-metadata.
+The Amazon Athena Timestream connector enables Amazon Athena to communicate with [Amazon Timestream](https://aws.amazon.com/timestream/), making your time series data accessible through Amazon Athena. You can optionally use AWS Glue Data Catalog as a source of supplemental metadata.
 
-Amazon Timestream is a fast, scalable, fully managed, purpose-built time series database that
-makes it easy to store and analyze trillions of time series data points per day. Timestream
-saves you time and cost in managing the lifecycle of time series data by keeping recent data
-in memory and moving historical data to a cost optimized storage tier based upon user
-defined policies.
+Amazon Timestream is a fast, scalable, fully managed, purpose-built time series database that makes it easy to store and analyze trillions of time series data points per day. Timestream saves you time and cost in managing the lifecycle of time series data by keeping recent data in memory and moving historical data to a cost optimized storage tier based upon user defined policies.
 
-This connector can be registered with Glue Data Catalog as a federated catalog.
-It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
+This connector can be registered with Glue Data Catalog as a federated catalog. It supports data access controls defined in Lake Formation at the catalog, database, table, column, row, and tag levels. This connector uses Glue Connections to centralize configuration properties in Glue.
 
 If you have Lake Formation enabled in your account, the IAM role for your Athena federated Lambda connector that you deployed in the AWS Serverless Application Repository must have read access in Lake Formation to the AWS Glue Data Catalog.
 
 ## Prerequisites
-
-- Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md "connect-to-a-data-source.md") or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md").
+<a name="connectors-timestream-prerequisites"></a>
++ Deploy the connector to your AWS account using the Athena console or the AWS Serverless Application Repository. For more information, see [Create a data source connection](connect-to-a-data-source.md) or [Use the AWS Serverless Application Repository to deploy a data source connector](connect-data-source-serverless-app-repo.md).
 
 ## Parameters
+<a name="connectors-timestream-parameters"></a>
 
 Use the parameters in this section to configure the Timestream connector.
 
-We recommend that you configure a Timestream connector by using a Glue
-connections object. To do this, set the `glue_connection`
-environment variable of the Timestream connector Lambda to the name of the Glue
-connection to use.
+### AWS Glue Data Catalog federated connectors
+<a name="connectors-timestream-gc"></a>
+
+We recommend that you configure a Timestream connector by using a Glue connections object. To do this, set the `glue_connection` environment variable of the Timestream connector Lambda to the name of the Glue connection to use.
 
 **Glue connections properties**
 
@@ -40,146 +37,91 @@ aws glue describe-connection-type --connection-type TIMESTREAM
 
 The following Lambda environment properties apply only when you use the connector with a Lambda function in your account.
 
-glue\_connection – Specifies the name of the Glue connection associated with the federated connector.
+**glue\_connection** – Specifies the name of the Glue connection associated with the federated connector. 
 
-###### Note
+**Note**  
+All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
+The Timestream connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
+The Timestream connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
 
-- All connectors that use a AWS Glue Data Catalog federated connection must use AWS Secrets Manager to store credentials.
-- The Timestream connector created using a AWS Glue Data Catalog federated connection does not support the use of a multiplexing handler.
-- The Timestream connector created using a AWS Glue Data Catalog federated connection only supports `ConnectionSchemaVersion` 2.
+### Athena data catalog federated connectors
+<a name="connectors-timestream-legacy"></a>
 
-###### Note
-
+**Note**  
 Athena data source connectors created on December 3, 2024 and later use AWS Glue connections.
 
-The parameter names and definitions listed below are for Athena data source connectors created without an associated Glue connection. Use the following parameters only when you [manually deploy](connect-data-source-serverless-app-repo.md "connect-data-source-serverless-app-repo.md") an earlier version of an Athena data source connector or when the
-`glue_connection` environment property is not
-specified.
+The parameter names and definitions listed below are for Athena data source connectors created without an associated Glue connection. Use the following parameters only when you [manually deploy](connect-data-source-serverless-app-repo.md) an earlier version of an Athena data source connector or when the `glue_connection` environment property is not specified.
 
 **Lambda environment properties**
-
-- spill\_bucket – Specifies the Amazon S3 bucket
-  for data that exceeds Lambda function limits.
-- spill\_prefix – (Optional) Defaults to a
-  subfolder in the specified `spill_bucket` called
-  `athena-federation-spill`. We recommend that you
-  configure an Amazon S3 [storage
-  lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") on this location to delete spills older than a
-  predetermined number of days or hours.
-- spill\_put\_request\_headers – (Optional) A
-  JSON encoded map of request headers and values for the Amazon S3
-  `putObject` request that is used for spilling (for example,
-  `{"x-amz-server-side-encryption" : "AES256"}`). For other
-  possible headers, see [PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") in the
-  _Amazon Simple Storage Service API Reference_.
-- kms\_key\_id – (Optional) By default, any
-  data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated
-  encryption mode and a randomly generated key. To have your Lambda function use
-  stronger encryption keys generated by KMS like
-  `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key
-  ID.
-- disable\_spill\_encryption – (Optional)
-  When set to `True`, disables spill encryption. Defaults to
-  `False` so that data that is spilled to S3 is encrypted using
-  AES-GCM – either using a randomly generated key or KMS to generate keys.
-  Disabling spill encryption can improve performance, especially if your spill
-  location uses [server-side
-  encryption](../../../AmazonS3/latest/userguide/serv-side-encryption.md "../../../AmazonS3/latest/userguide/serv-side-encryption.md").
-- glue\_catalog – (Optional) Use this
-  option to specify a [cross-account AWS Glue
-  catalog](data-sources-glue-cross-account.md "data-sources-glue-cross-account.md"). By default, the connector attempts to get metadata from its
-  own AWS Glue account.
++ **spill\_bucket** – Specifies the Amazon S3 bucket for data that exceeds Lambda function limits.
++ **spill\_prefix** – (Optional) Defaults to a subfolder in the specified `spill_bucket` called `athena-federation-spill`. We recommend that you configure an Amazon S3 [storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) on this location to delete spills older than a predetermined number of days or hours.
++ **spill\_put\_request\_headers** – (Optional) A JSON encoded map of request headers and values for the Amazon S3 `putObject` request that is used for spilling (for example, `{"x-amz-server-side-encryption" : "AES256"}`). For other possible headers, see [PutObject](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html) in the *Amazon Simple Storage Service API Reference*.
++ **kms\_key\_id** – (Optional) By default, any data that is spilled to Amazon S3 is encrypted using the AES-GCM authenticated encryption mode and a randomly generated key. To have your Lambda function use stronger encryption keys generated by KMS like `a7e63k4b-8loc-40db-a2a1-4d0en2cd8331`, you can specify a KMS key ID.
++ **disable\_spill\_encryption** – (Optional) When set to `True`, disables spill encryption. Defaults to `False` so that data that is spilled to S3 is encrypted using AES-GCM – either using a randomly generated key or KMS to generate keys. Disabling spill encryption can improve performance, especially if your spill location uses [server-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html).
++ **glue\_catalog** – (Optional) Use this option to specify a [cross-account AWS Glue catalog](data-sources-glue-cross-account.md). By default, the connector attempts to get metadata from its own AWS Glue account.
 
 ## Setting up databases and tables in AWS Glue
+<a name="connectors-timestream-setting-up-databases-and-tables-in-aws-glue"></a>
 
-You can optionally use the AWS Glue Data Catalog as a source of supplemental metadata. To enable
-an AWS Glue table for use with Timestream, you must have an AWS Glue database and table with names
-that match the Timestream database and table that you want to supply supplemental metadata
-for.
+You can optionally use the AWS Glue Data Catalog as a source of supplemental metadata. To enable an AWS Glue table for use with Timestream, you must have an AWS Glue database and table with names that match the Timestream database and table that you want to supply supplemental metadata for.
 
-###### Note
-
+**Note**  
 For best performance, use only lowercase for your database names and table names. Using mixed casing causes the connector to perform a case insensitive search that is more computationally intensive.
 
-To configure AWS Glue table for use with Timestream, you must set its table properties in
-AWS Glue.
+To configure AWS Glue table for use with Timestream, you must set its table properties in AWS Glue.
 
-###### To use an AWS Glue table for supplemental metadata
+**To use an AWS Glue table for supplemental metadata**
 
-1. Edit the table in the AWS Glue console to add the following table
-   properties:
+1. Edit the table in the AWS Glue console to add the following table properties:
+   + **timestream-metadata-flag** – This property indicates to the Timestream connector that the connector can use the table for supplemental metadata. You can provide any value for `timestream-metadata-flag` as long as the `timestream-metadata-flag` property is present in the list of table properties.
+   + **\_view\_template** – When you use AWS Glue for supplemental metadata, you can use this table property and specify any Timestream SQL as the view. The Athena Timestream connector uses the SQL from the view together with your SQL from Athena to run your query. This is useful if you want to use a feature of Timestream SQL that is not otherwise available in Athena.
 
-   - timestream-metadata-flag – This property indicates to the Timestream connector that the connector can use the table for supplemental metadata. You can provide any value for `timestream-metadata-flag` as long as the `timestream-metadata-flag` property is present in the list of table properties.
-   - \_view\_template – When you use
-     AWS Glue for supplemental metadata, you can use this table property and
-     specify any Timestream SQL as the view. The Athena Timestream connector uses the
-     SQL from the view together with your SQL from Athena to run your query.
-     This is useful if you want to use a feature of Timestream SQL that is not
-     otherwise available in Athena.
-
-2. Make sure that you use the data types appropriate for AWS Glue as listed in this document.
+1. Make sure that you use the data types appropriate for AWS Glue as listed in this document.
 
 ### Data types
+<a name="connectors-timestream-data-types"></a>
 
-Currently, the Timestream connector supports only a subset of the data types available
-in Timestream, specifically: the scalar values `varchar`,
-`double`, and `timestamp`.
+Currently, the Timestream connector supports only a subset of the data types available in Timestream, specifically: the scalar values `varchar`, `double`, and `timestamp`.
 
-To query the `timeseries` data type, you must configure a view in AWS Glue
-table properties that uses the Timestream `CREATE_TIME_SERIES` function. You
-also need to provide a schema for the view that uses the syntax
-`ARRAY<STRUCT<time:timestamp,measure_value::double:double>>`
-as the type for any of your time series columns. Be sure to replace
-`double` with the appropriate scalar type for your table.
+To query the `timeseries` data type, you must configure a view in AWS Glue table properties that uses the Timestream `CREATE_TIME_SERIES` function. You also need to provide a schema for the view that uses the syntax `ARRAY<STRUCT<time:timestamp,measure_value::double:double>>` as the type for any of your time series columns. Be sure to replace `double` with the appropriate scalar type for your table.
 
-The following image shows an example of AWS Glue table properties configured to set
-up a view over a time series.
+The following image shows an example of AWS Glue table properties configured to set up a view over a time series.
 
-![Configuring table properties in AWS Glue to set up a view over a time series.](images/connectors-timestream-1.png)
+![Configuring table properties in AWS Glue to set up a view over a time series.](http://docs.aws.amazon.com/athena/latest/ug/images/connectors-timestream-1.png)
+
 
 ## Required Permissions
+<a name="connectors-timestream-required-permissions"></a>
 
-For full details on the IAM policies that this
-connector requires, review the `Policies` section of the [athena-timestream.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-timestream/athena-timestream.yaml "https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-timestream/athena-timestream.yaml") file. The following list summarizes the required permissions.
-
-- Amazon S3 write access – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
-- Athena GetQueryExecution – The connector
-  uses this permission to fast-fail when the upstream Athena query has
-  terminated.
-- AWS Glue Data Catalog – The Timestream connector
-  requires read only access to the AWS Glue Data Catalog to obtain schema
-  information.
-- CloudWatch Logs – The connector requires access to
-  CloudWatch Logs for storing logs.
-- Timestream Access – For running Timestream
-  queries.
+For full details on the IAM policies that this connector requires, review the `Policies` section of the [athena-timestream.yaml](https://github.com/awslabs/aws-athena-query-federation/blob/master/athena-timestream/athena-timestream.yaml) file. The following list summarizes the required permissions.
++ **Amazon S3 write access** – The connector requires write access to a location in Amazon S3 in order to spill results from large queries.
++ **Athena GetQueryExecution** – The connector uses this permission to fast-fail when the upstream Athena query has terminated.
++ **AWS Glue Data Catalog** – The Timestream connector requires read only access to the AWS Glue Data Catalog to obtain schema information.
++ **CloudWatch Logs** – The connector requires access to CloudWatch Logs for storing logs.
++ **Timestream Access** – For running Timestream queries.
 
 ## Performance
+<a name="connectors-timestream-performance"></a>
 
-We recommend that you use the `LIMIT` clause to limit the data returned
-(not the data scanned) to less than 256 MB to ensure that interactive queries are
-performant.
+We recommend that you use the `LIMIT` clause to limit the data returned (not the data scanned) to less than 256 MB to ensure that interactive queries are performant.
 
-The Athena Timestream connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. Selecting a subset of columns significantly speeds up query runtime and reduces data scanned.
-The Timestream connector is resilient to throttling due to concurrency.
+The Athena Timestream connector performs predicate pushdown to decrease the data scanned by the query. `LIMIT` clauses reduce the amount of data scanned, but if you don't provide a predicate, you should expect `SELECT` queries with a `LIMIT` clause to scan at least 16 MB of data. Selecting a subset of columns significantly speeds up query runtime and reduces data scanned. The Timestream connector is resilient to throttling due to concurrency.
 
 ## Passthrough queries
+<a name="connectors-timestream-passthrough-queries"></a>
 
-The Timestream connector supports [passthrough queries](federated-query-passthrough.md "federated-query-passthrough.md"). Passthrough
-queries use a table function to push your full query down to the data source for
-execution.
+The Timestream connector supports [passthrough queries](federated-query-passthrough.md). Passthrough queries use a table function to push your full query down to the data source for execution.
 
 To use passthrough queries with Timestream, you can use the following syntax:
 
 ```
 SELECT * FROM TABLE(
         system.query(
-            query => '`query string`'
+            query => '{{query string}}'
         ))
 ```
 
-The following example query pushes down a query to a data source in Timestream. The query
-selects all columns in the `customer` table, limiting the results to 10.
+The following example query pushes down a query to a data source in Timestream. The query selects all columns in the `customer` table, limiting the results to 10.
 
 ```
 SELECT * FROM TABLE(
@@ -189,9 +131,11 @@ SELECT * FROM TABLE(
 ```
 
 ## License information
+<a name="connectors-timestream-license-information"></a>
 
-The Amazon Athena Timestream connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html "https://www.apache.org/licenses/LICENSE-2.0.html").
+The Amazon Athena Timestream connector project is licensed under the [Apache-2.0 License](https://www.apache.org/licenses/LICENSE-2.0.html).
 
 ## Additional resources
+<a name="connectors-timestream-additional-resources"></a>
 
-For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-timestream "https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-timestream") on GitHub.com.
+For additional information about this connector, visit [the corresponding site](https://github.com/awslabs/aws-athena-query-federation/tree/master/athena-timestream) on GitHub.com.

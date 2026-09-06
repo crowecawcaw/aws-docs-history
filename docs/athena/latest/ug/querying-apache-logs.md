@@ -1,13 +1,11 @@
+
+
 # Query Apache logs stored in Amazon S3
+<a name="querying-apache-logs"></a>
 
-You can use Amazon Athena to query [Apache HTTP Server log files](https://httpd.apache.org/docs/2.4/logs.html "https://httpd.apache.org/docs/2.4/logs.html")
-stored in your Amazon S3 account. This topic shows you how to create table schemas to query
-Apache [Access log](https://httpd.apache.org/docs/2.4/logs.html#accesslog "https://httpd.apache.org/docs/2.4/logs.html#accesslog")
-files in the common log format.
+You can use Amazon Athena to query [Apache HTTP Server log files](https://httpd.apache.org/docs/2.4/logs.html) stored in your Amazon S3 account. This topic shows you how to create table schemas to query Apache [Access log](https://httpd.apache.org/docs/2.4/logs.html#accesslog) files in the common log format.
 
-Fields in the common log format include the client IP address, client ID, user ID, request
-received timestamp, text of the client request, server status code, and size of the object
-returned to the client.
+Fields in the common log format include the client IP address, client ID, user ID, request received timestamp, text of the client request, server status code, and size of the object returned to the client.
 
 The following example data shows the Apache common log format.
 
@@ -22,91 +20,72 @@ The following example data shows the Apache common log format.
 ```
 
 ## Create a table in Athena for Apache logs
+<a name="querying-apache-logs-creating-a-table-in-athena"></a>
 
-Before you can query Apache logs stored in Amazon S3, you must create a table schema for
-Athena so that it can read the log data. To create an Athena table for Apache logs, you
-can use the [Grok SerDe](grok-serde.md "grok-serde.md"). For more
-information about using the Grok SerDe, see [Writing grok
-custom classifiers](../../../glue/latest/dg/custom-classifier.md#custom-classifier-grok "../../../glue/latest/dg/custom-classifier.md#custom-classifier-grok") in the _AWS Glue Developer Guide_.
+Before you can query Apache logs stored in Amazon S3, you must create a table schema for Athena so that it can read the log data. To create an Athena table for Apache logs, you can use the [Grok SerDe](grok-serde.md). For more information about using the Grok SerDe, see [Writing grok custom classifiers](https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-grok) in the *AWS Glue Developer Guide*.
 
-###### To create a table in Athena for Apache web server logs
+**To create a table in Athena for Apache web server logs**
 
-1. Open the Athena console at
-   [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
-2. Paste the following DDL statement into the Athena Query Editor. Modify the
-   values in `LOCATION
- 's3://amzn-s3-demo-bucket/`apache-log-folder`/'`
-   to point to your Apache logs in Amazon S3.
+1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home).
 
-```
-CREATE EXTERNAL TABLE apache_logs (
-  client_ip string,
-  client_id string,
-  user_id string,
-  request_received_time string,
-  client_request string,
-  server_status string,
-  returned_obj_size string
-  )
-ROW FORMAT SERDE
-   'com.amazonaws.glue.serde.GrokSerDe'
-WITH SERDEPROPERTIES (
-   'input.format'='^%{IPV4:client_ip} %{DATA:client_id} %{USERNAME:user_id} %{GREEDYDATA:request_received_time} %{QUOTEDSTRING:client_request} %{DATA:server_status} %{DATA: returned_obj_size}$'
-   )
-STORED AS INPUTFORMAT
-   'org.apache.hadoop.mapred.TextInputFormat'
-OUTPUTFORMAT
-   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
-   's3://amzn-s3-demo-bucket/`apache-log-folder`/';
-```
+1. Paste the following DDL statement into the Athena Query Editor. Modify the values in `LOCATION 's3://amzn-s3-demo-bucket/{{apache-log-folder}}/'` to point to your Apache logs in Amazon S3.
 
-3. Run the query in the Athena console to register the `apache_logs`
-   table. When the query completes, the logs are ready for you to query from
-   Athena.
+   ```
+   CREATE EXTERNAL TABLE apache_logs (
+     client_ip string,
+     client_id string,
+     user_id string,
+     request_received_time string,
+     client_request string,
+     server_status string,
+     returned_obj_size string
+     )
+   ROW FORMAT SERDE
+      'com.amazonaws.glue.serde.GrokSerDe'
+   WITH SERDEPROPERTIES (
+      'input.format'='^%{IPV4:client_ip} %{DATA:client_id} %{USERNAME:user_id} %{GREEDYDATA:request_received_time} %{QUOTEDSTRING:client_request} %{DATA:server_status} %{DATA: returned_obj_size}$'
+      )
+   STORED AS INPUTFORMAT
+      'org.apache.hadoop.mapred.TextInputFormat'
+   OUTPUTFORMAT
+      'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+   LOCATION
+      's3://amzn-s3-demo-bucket/{{apache-log-folder}}/';
+   ```
+
+1. Run the query in the Athena console to register the `apache_logs` table. When the query completes, the logs are ready for you to query from Athena.
 
 ### Example queries
+<a name="querying-apache-logs-example-select-queries"></a>
 
-###### Example– Filter for 404 errors
-
-The following example query selects the request received time, text of the
-client request, and server status code from the `apache_logs` table.
-The `WHERE` clause filters for HTTP status code `404`
-(page not found).
+**Example – Filter for 404 errors**  
+The following example query selects the request received time, text of the client request, and server status code from the `apache_logs` table. The `WHERE` clause filters for HTTP status code `404` (page not found).  
 
 ```
 SELECT request_received_time, client_request, server_status
 FROM apache_logs
 WHERE server_status = '404'
 ```
+The following image shows the results of the query in the Athena Query Editor.  
 
-The following image shows the results of the query in the Athena Query
-Editor.
+![Querying an Apache log from Athena for HTTP 404 entries.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-apache-logs-1.png)
 
-![Querying an Apache log from Athena for HTTP 404 entries.](images/querying-apache-logs-1.png)
 
-###### Example– Filter for successful requests
-
-The following example query selects the user ID, request received time, text
-of the client request, and server status code from the `apache_logs`
-table. The `WHERE` clause filters for HTTP status code
-`200` (successful).
+**Example – Filter for successful requests**  
+The following example query selects the user ID, request received time, text of the client request, and server status code from the `apache_logs` table. The `WHERE` clause filters for HTTP status code `200` (successful).  
 
 ```
 SELECT user_id, request_received_time, client_request, server_status
 FROM apache_logs
 WHERE server_status = '200'
 ```
+The following image shows the results of the query in the Athena Query Editor.  
 
-The following image shows the results of the query in the Athena Query
-Editor.
+![Querying an Apache log from Athena for HTTP 200 entries.](http://docs.aws.amazon.com/athena/latest/ug/images/querying-apache-logs-2.png)
 
-![Querying an Apache log from Athena for HTTP 200 entries.](images/querying-apache-logs-2.png)
 
-###### Example– Filter by timestamp
-
-The following example queries for records whose request received time is
-greater than the specified timestamp.
+**Example – Filter by timestamp**  
+The following example queries for records whose request received time is greater than the specified timestamp.  
 
 ```
 SELECT * FROM apache_logs WHERE request_received_time > 10/Oct/2023:00:00:00

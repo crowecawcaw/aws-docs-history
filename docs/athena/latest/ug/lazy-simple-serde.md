@@ -1,43 +1,37 @@
+
+
 # Lazy Simple SerDe for CSV, TSV, and custom-delimited files
+<a name="lazy-simple-serde"></a>
 
-Because this is the default SerDe in Athena for data in CSV, TSV, and custom-delimited
-formats, specifying it is optional. In your `CREATE TABLE` statement, if you
-don't specify a SerDe and specify only `ROW FORMAT DELIMITED`, Athena uses this
-SerDe. Use this SerDe if your data does not have values enclosed in quotes.
+Because this is the default SerDe in Athena for data in CSV, TSV, and custom-delimited formats, specifying it is optional. In your `CREATE TABLE` statement, if you don't specify a SerDe and specify only `ROW FORMAT DELIMITED`, Athena uses this SerDe. Use this SerDe if your data does not have values enclosed in quotes.
 
-For reference documentation about the Lazy Simple SerDe, see the [Hive SerDe](https://cwiki.apache.org/confluence/display/Hive/DeveloperGuide#DeveloperGuide-HiveSerDe "https://cwiki.apache.org/confluence/display/Hive/DeveloperGuide#DeveloperGuide-HiveSerDe") section of the Apache Hive Developer Guide.
+For reference documentation about the Lazy Simple SerDe, see the [Hive SerDe](https://cwiki.apache.org/confluence/display/Hive/DeveloperGuide#DeveloperGuide-HiveSerDe) section of the Apache Hive Developer Guide.
 
 ## Serialization library name
+<a name="lazy-simple-serde-library-name"></a>
 
-The serialization library name for the Lazy Simple SerDe is
-`org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe`. For source code
-information, see [LazySimpleSerDe.java](https://github.com/apache/hive/blob/master/serde/src/java/org/apache/hadoop/hive/serde2/lazy/LazySimpleSerDe.java "https://github.com/apache/hive/blob/master/serde/src/java/org/apache/hadoop/hive/serde2/lazy/LazySimpleSerDe.java") on GitHub.com.
+The serialization library name for the Lazy Simple SerDe is `org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe`. For source code information, see [LazySimpleSerDe.java](https://github.com/apache/hive/blob/master/serde/src/java/org/apache/hadoop/hive/serde2/lazy/LazySimpleSerDe.java) on GitHub.com. 
 
 ## Ignoring headers
+<a name="lazy-simple-serde-ignoring-headers"></a>
 
-To ignore headers in your data when you define a table, you can use the
-`skip.header.line.count` table property, as in the following
-example.
+To ignore headers in your data when you define a table, you can use the `skip.header.line.count` table property, as in the following example.
 
 ```
 TBLPROPERTIES ("skip.header.line.count"="1")
 ```
 
-For examples that ignore headers, see the `CREATE TABLE` statements in
-[Query Amazon VPC flow logs](vpc-flow-logs.md "vpc-flow-logs.md") and [Query Amazon CloudFront logs](cloudfront-logs.md "cloudfront-logs.md").
+For examples that ignore headers, see the `CREATE TABLE` statements in [Query Amazon VPC flow logs](vpc-flow-logs.md) and [Query Amazon CloudFront logs](cloudfront-logs.md).
 
-The following example shows how to use the `LazySimpleSerDe` library to
-create a table in Athena from CSV data. To deserialize custom-delimited files using
-this SerDe, follow the pattern in the examples but use the `FIELDS TERMINATED
- BY` clause to specify a different single-character delimiter. Lazy Simple
-SerDe does not support multi-character delimiters.
+## CSV example
+<a name="csv-example"></a>
 
-###### Note
+The following example shows how to use the `LazySimpleSerDe` library to create a table in Athena from CSV data. To deserialize custom-delimited files using this SerDe, follow the pattern in the examples but use the `FIELDS TERMINATED BY` clause to specify a different single-character delimiter. Lazy Simple SerDe does not support multi-character delimiters.
 
-Replace `myregion` in `s3://athena-examples-`myregion`/path/to/data/` with the region identifier where you run Athena, for example, `s3://athena-examples-us-west-1/path/to/data/`.
+**Note**  
+Replace {{myregion}} in `s3://athena-examples-{{myregion}}/path/to/data/` with the region identifier where you run Athena, for example, `s3://athena-examples-us-west-1/path/to/data/`.
 
-Use the `CREATE TABLE` statement to create an Athena table from the
-underlying data in CSV stored in Amazon S3.
+Use the `CREATE TABLE` statement to create an Athena table from the underlying data in CSV stored in Amazon S3.
 
 ```
 CREATE EXTERNAL TABLE flight_delays_csv (
@@ -156,11 +150,10 @@ CREATE EXTERNAL TABLE flight_delays_csv (
       FIELDS TERMINATED BY ','
       ESCAPED BY '\\'
       LINES TERMINATED BY '\n'
-    LOCATION 's3://athena-examples-`myregion`/flight/csv/';
+    LOCATION 's3://athena-examples-{{myregion}}/flight/csv/';
 ```
 
-Run `MSCK REPAIR TABLE` to refresh partition metadata each time a new
-partition is added to this table:
+Run `MSCK REPAIR TABLE` to refresh partition metadata each time a new partition is added to this table:
 
 ```
 MSCK REPAIR TABLE flight_delays_csv;
@@ -177,17 +170,13 @@ ORDER BY 3 DESC
 LIMIT 10;
 ```
 
-###### Note
+**Note**  
+The flight table data comes from [Flights](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time) provided by US Department of Transportation, [Bureau of Transportation Statistics](http://www.transtats.bts.gov/). Desaturated from original.
 
-The flight table data comes from [Flights](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time "http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time") provided by US Department of Transportation, [Bureau of Transportation Statistics](http://www.transtats.bts.gov/ "http://www.transtats.bts.gov/"). Desaturated from original.
+## TSV example
+<a name="tsv-example"></a>
 
-To create an Athena table from TSV data stored in Amazon S3, use `ROW FORMAT
- DELIMITED` and specify the `\t` as the tab field delimiter,
-`\n` as the line separator, and `\` as the escape
-character. The following excerpt shows this syntax. No sample TSV flight data is
-available in the `athena-examples` location, but as with the CSV
-table, you would run `MSCK REPAIR TABLE` to refresh partition metadata
-each time a new partition is added.
+To create an Athena table from TSV data stored in Amazon S3, use `ROW FORMAT DELIMITED` and specify the `\t` as the tab field delimiter, `\n` as the line separator, and `\` as the escape character. The following excerpt shows this syntax. No sample TSV flight data is available in the `athena-examples` location, but as with the CSV table, you would run `MSCK REPAIR TABLE` to refresh partition metadata each time a new partition is added. 
 
 ```
 ...

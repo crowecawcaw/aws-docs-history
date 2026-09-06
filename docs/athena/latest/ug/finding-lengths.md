@@ -1,4 +1,7 @@
+
+
 # Find array lengths
+<a name="finding-lengths"></a>
 
 The `cardinality` function returns the length of an array, as in this example:
 

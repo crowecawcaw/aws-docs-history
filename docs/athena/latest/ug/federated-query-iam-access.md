@@ -1,94 +1,90 @@
+
+
 # Allow access to Athena Federated Query: Example policies
+<a name="federated-query-iam-access"></a>
 
-The permission policy examples in this topic demonstrate required allowed actions and the
-resources for which they are allowed. Examine these policies carefully and modify them
-according to your requirements before attaching them to IAM identities.
+The permission policy examples in this topic demonstrate required allowed actions and the resources for which they are allowed. Examine these policies carefully and modify them according to your requirements before attaching them to IAM identities.
 
-For information about attaching policies to IAM identities, see [Adding and removing
-IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") in the [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+For information about attaching policies to IAM identities, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the [IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
++  [Example policy to allow an IAM principal to run and return results using Athena Federated Query](#fed-using-iam) 
++  [Example Policy to Allow an IAM Principal to Create a Data Source Connector](#fed-creating-iam) 
 
-- [Example policy to allow an IAM principal to run and return results using Athena Federated Query](#fed-using-iam "#fed-using-iam")
-- [Example Policy to Allow an IAM Principal to Create a Data Source Connector](#fed-creating-iam "#fed-creating-iam")
-
-###### Example – Allow an IAM principal to run and return results using Athena Federated Query
-
-The following identity-based permissions policy allows actions that a user or other
-IAM principal requires to use Athena Federated Query. Principals who are allowed to perform these
-actions are able to run queries that specify Athena catalogs associated with a federated
-data source.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "Athena",
- "Effect": "Allow",
- "Action": [
- "athena:GetDataCatalog",
- "athena:GetQueryExecution",
- "athena:GetQueryResults",
- "athena:GetWorkGroup",
- "athena:StartQueryExecution",
- "athena:StopQueryExecution"
- ],
- "Resource": [
- "arn:aws:athena:*:`111122223333`:workgroup/`WorkgroupName`",
- "arn:aws:athena:`us-east-1`:`111122223333`:datacatalog/`DataCatalogName`"
- ]
- },
- {
- "Sid": "ListAthenaWorkGroups",
- "Effect": "Allow",
- "Action": "athena:ListWorkGroups",
- "Resource": "*"
- },
- {
- "Sid": "Lambda",
- "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- "Resource": [
- "arn:aws:lambda:*:`111122223333`:function:`OneAthenaLambdaFunction`",
- "arn:aws:lambda:*:`111122223333`:function:`AnotherAthenaLambdaFunction`"
- ]
- },
- {
- "Sid": "S3",
- "Effect": "Allow",
- "Action": [
- "s3:AbortMultipartUpload",
- "s3:GetBucketLocation",
- "s3:GetObject",
- "s3:ListBucket",
- "s3:ListMultipartUploadParts",
- "s3:PutObject"
- ],
- "Resource": [
- "arn:aws:s3:::`MyLambdaSpillBucket`",
- "arn:aws:s3:::`MyLambdaSpillBucket`/*",
- "arn:aws:s3:::`MyQueryResultsBucket`",
- "arn:aws:s3:::`MyQueryResultsBucket`/*"
- ]
- }
- ]
-}`
-
-```
-
-Explanation of permissions| Allowed actions | Explanation |
-| --- | --- |
-| `<br>"athena:GetQueryExecution",<br>"athena:GetQueryResults",<br>"athena:GetWorkGroup",<br>"athena:StartQueryExecution",<br>"athena:StopQueryExecution"<br>` | Athena permissions that are required to run federated<br>queries. |
-| `<br>"athena:GetDataCatalog",<br>"athena:GetQueryExecution,"<br>"athena:GetQueryResults",<br>"athena:GetWorkGroup",<br>"athena:StartQueryExecution",<br>"athena:StopQueryExecution"<br>` | Athena permissions that are required to run federated view queries.<br>The `GetDataCatalog` action is required for views. |
-| `<br>"lambda:InvokeFunction"<br>` | Allows queries to invoke the AWS Lambda functions for the AWS Lambda<br>functions specified in the `Resource` block. For example,<br>`arn:aws:lambda:*:`MyAWSAcctId`:function:`MyAthenaLambdaFunction``,<br>where `MyAthenaLambdaFunction` specifies the<br>name of a Lambda function to be invoked. As shown in the example,<br>multiple functions can be specified. |
-| ```<br>"s3:AbortMultipartUpload",<br>"s3:GetBucketLocation",<br>"s3:GetObject",<br>"s3:ListBucket",<br>"s3:ListMultipartUploadParts",<br>"s3:PutObject"<br>``` | The `s3:ListBucket` and<br>`s3:GetBucketLocation` permissions are required to<br>access the query output bucket for IAM principals that run<br>`StartQueryExecution`.<br>`s3:PutObject`,<br>`s3:ListMultipartUploadParts`, and<br>`s3:AbortMultipartUpload` allow writing query results<br>to all sub-folders of the query results bucket as specified by the<br>`arn:aws:s3:::`MyQueryResultsBucket`/*`<br>resource identifier, where<br>`MyQueryResultsBucket` is the Athena<br>query results bucket. For more information, see [Work with query results and recent queries](querying.md "querying.md").<br>`s3:GetObject` allows reading of query results and<br>query history for the resource specified as<br>`arn:aws:s3:::`MyQueryResultsBucket``,<br>where `MyQueryResultsBucket` is the Athena<br>query results bucket.<br>`s3:GetObject` also allows reading from the resource<br>specified as<br>`"arn:aws:s3:::`MyLambdaSpillBucket`/`MyLambdaSpillPrefix`*"`,<br>where `MyLambdaSpillPrefix` is specified in<br>the configuration of the Lambda function or functions being<br>invoked. |
-
-###### Example – Allow an IAM principal to create a data source connector
+**Example – Allow an IAM principal to run and return results using Athena Federated Query**  
+The following identity-based permissions policy allows actions that a user or other IAM principal requires to use Athena Federated Query. Principals who are allowed to perform these actions are able to run queries that specify Athena catalogs associated with a federated data source.    
+****  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "Athena",
+            "Effect": "Allow",
+            "Action": [
+                "athena:GetDataCatalog",
+                "athena:GetQueryExecution",
+                "athena:GetQueryResults",
+                "athena:GetWorkGroup",
+                "athena:StartQueryExecution",
+                "athena:StopQueryExecution"
+            ],
+            "Resource": [
+                "arn:aws:athena:*:{{111122223333}}:workgroup/{{WorkgroupName}}",
+                "arn:aws:athena:{{us-east-1}}:{{111122223333}}:datacatalog/{{DataCatalogName}}"
+            ]
+        },
+        {
+            "Sid": "ListAthenaWorkGroups",
+            "Effect": "Allow",
+            "Action": "athena:ListWorkGroups",
+            "Resource": "*"
+        },
+        {
+            "Sid": "Lambda",
+            "Effect": "Allow",
+            "Action": "lambda:InvokeFunction",
+            "Resource": [
+                "arn:aws:lambda:*:{{111122223333}}:function:{{OneAthenaLambdaFunction}}",
+                "arn:aws:lambda:*:{{111122223333}}:function:{{AnotherAthenaLambdaFunction}}"
+            ]
+        },
+        {
+            "Sid": "S3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:GetBucketLocation",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListMultipartUploadParts",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::{{MyLambdaSpillBucket}}",
+                "arn:aws:s3:::{{MyLambdaSpillBucket}}/*",
+                "arn:aws:s3:::{{MyQueryResultsBucket}}",
+                "arn:aws:s3:::{{MyQueryResultsBucket}}/*"
+            ]
+        }
+    ]
+}
+```
+
+
+**Explanation of permissions**  
+
+| Allowed actions | Explanation | 
+| --- | --- | 
+|  <pre> "athena:GetQueryExecution", <br /> "athena:GetQueryResults",<br /> "athena:GetWorkGroup",<br /> "athena:StartQueryExecution",<br /> "athena:StopQueryExecution"</pre>  | Athena permissions that are required to run federated queries. | 
+|  <pre> "athena:GetDataCatalog",<br /> "athena:GetQueryExecution,"<br /> "athena:GetQueryResults",<br /> "athena:GetWorkGroup",<br /> "athena:StartQueryExecution",<br /> "athena:StopQueryExecution"</pre>  | Athena permissions that are required to run federated view queries. The `GetDataCatalog` action is required for views. | 
+|  <pre>"lambda:InvokeFunction"</pre>  | Allows queries to invoke the AWS Lambda functions for the AWS Lambda functions specified in the Resource block. For example, arn:aws:lambda:\*:{{MyAWSAcctId}}:function:{{MyAthenaLambdaFunction}}, where {{MyAthenaLambdaFunction}} specifies the name of a Lambda function to be invoked. As shown in the example, multiple functions can be specified. | 
+|  <pre>"s3:AbortMultipartUpload",<br />"s3:GetBucketLocation",<br />"s3:GetObject",<br />"s3:ListBucket",<br />"s3:ListMultipartUploadParts",<br />"s3:PutObject"</pre>  | The `s3:ListBucket` and `s3:GetBucketLocation` permissions are required to access the query output bucket for IAM principals that run `StartQueryExecution`.<br />`s3:PutObject`, `s3:ListMultipartUploadParts`, and `s3:AbortMultipartUpload` allow writing query results to all sub-folders of the query results bucket as specified by the `arn:aws:s3:::{{MyQueryResultsBucket}}/*` resource identifier, where {{MyQueryResultsBucket}} is the Athena query results bucket. For more information, see [Work with query results and recent queries](querying.md).<br />`s3:GetObject` allows reading of query results and query history for the resource specified as `arn:aws:s3:::{{MyQueryResultsBucket}}`, where {{MyQueryResultsBucket}} is the Athena query results bucket.<br />`s3:GetObject` also allows reading from the resource specified as `"arn:aws:s3:::{{MyLambdaSpillBucket}}/{{MyLambdaSpillPrefix}}*"`, where {{MyLambdaSpillPrefix}} is specified in the configuration of the Lambda function or functions being invoked. | 
+
+**Example – Allow an IAM principal to create a data source connector**  
+
+```
+{
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "VisualEditor0",
@@ -126,10 +122,10 @@ Explanation of permissions| Allowed actions | Explanation |
                 "lambda:GetPolicy"
             ],
             "Resource": [
-                "arn:aws:lambda:*:`111122223333`:function:`MyAthenaLambdaFunctionsPrefix`*",
-                "arn:aws:s3:::awsserverlessrepo-changesets-`1iiv3xa62ln3m`/*",
-                "arn:aws:iam::*:role/`RoleName`",
-                "arn:aws:iam::`111122223333`:policy/*"
+                "arn:aws:lambda:*:{{111122223333}}:function:{{MyAthenaLambdaFunctionsPrefix}}*",
+                "arn:aws:s3:::awsserverlessrepo-changesets-{{1iiv3xa62ln3m}}/*",
+                "arn:aws:iam::*:role/{{RoleName}}",
+                "arn:aws:iam::{{111122223333}}:policy/*"
             ]
         },
         {
@@ -160,11 +156,11 @@ Explanation of permissions| Allowed actions | Explanation |
             "Effect": "Allow",
             "Action": "cloudformation:*",
             "Resource": [
-                "arn:aws:cloudformation:*:`111122223333`:stack/aws-serverless-repository-`MyCFStackPrefix`*/*",
-                "arn:aws:cloudformation:*:`111122223333`:stack/serverlessrepo-`MyCFStackPrefix`*/*",
+                "arn:aws:cloudformation:*:{{111122223333}}:stack/aws-serverless-repository-{{MyCFStackPrefix}}*/*",
+                "arn:aws:cloudformation:*:{{111122223333}}:stack/serverlessrepo-{{MyCFStackPrefix}}*/*",
                 "arn:aws:cloudformation:*:*:transform/Serverless-*",
-                "arn:aws:cloudformation:*:`111122223333`:stackset/aws-serverless-repository-`MyCFStackPrefix`*:*",
-                "arn:aws:cloudformation:*:`111122223333`:stackset/serverlessrepo-`MyCFStackPrefix`*:*"
+                "arn:aws:cloudformation:*:{{111122223333}}:stackset/aws-serverless-repository-{{MyCFStackPrefix}}*:*",
+                "arn:aws:cloudformation:*:{{111122223333}}:stackset/serverlessrepo-{{MyCFStackPrefix}}*:*"
             ]
         },
         {
@@ -184,13 +180,15 @@ Explanation of permissions| Allowed actions | Explanation |
         }
     ]
 }
-
 ```
 
-Explanation of permissions| Allowed actions | Explanation |
-| --- | --- |
-| `<br>"lambda:CreateFunction",<br>"lambda:ListVersionsByFunction",<br>"lambda:GetFunctionConfiguration",<br>"lambda:PutFunctionConcurrency",<br>"lambda:ListTags",<br>"lambda:DeleteFunction",<br>"lambda:GetAlias",<br>"lambda:InvokeFunction",<br>"lambda:GetFunction",<br>"lambda:ListAliases",<br>"lambda:UpdateFunctionConfiguration",<br>"lambda:UpdateFunctionCode",<br>"lambda:AddPermission",<br>"lambda:DeleteFunctionConcurrency",<br>"lambda:RemovePermission",<br>"lambda:GetPolicy"<br>"lambda:GetAccountSettings",<br>"lambda:ListFunctions",<br>"lambda:ListEventSourceMappings",<br>` | Allow the creation and management of Lambda functions listed as<br>resources. In the example, a name prefix is used in the resource<br>identifier<br>`arn:aws:lambda:*:`MyAWSAcctId`:function:`MyAthenaLambdaFunctionsPrefix`*`,<br>where<br>`MyAthenaLambdaFunctionsPrefix`<br>is a shared prefix used in the name of a group of Lambda functions so<br>that they don't need to be specified individually as resources. You<br>can specify one or more Lambda function resources. |
-| `<br>"s3:GetObject"<br>` | Allows reading of a bucket that AWS Serverless Application Repository requires as specified by the<br>resource identifier<br>`arn:aws:s3:::awsserverlessrepo-changesets-`1iiv3xa62ln3m`/*`.<br>This bucket may be specific to your account. |
-| `<br>"cloudformation:*"<br>` | Allows the creation and management of CloudFormation stacks specified by<br>the resource<br>`MyCFStackPrefix`. These<br>stacks and stacksets are how AWS Serverless Application Repository deploys connectors and<br>UDFs. |
-| `<br>"serverlessrepo:*"<br>` | Allows searching, viewing, publishing, and updating applications in<br>the AWS Serverless Application Repository, specified by the resource identifier<br>`arn:aws:serverlessrepo:*:*:applications/*`. |
-| `<br>"ecr:BatchGetImage",<br>"ecr:GetDownloadUrlForLayer"<br>` | Allows the created Lambda function to access the federation<br>connector ECR image. |
+
+**Explanation of permissions**  
+
+| Allowed actions | Explanation | 
+| --- | --- | 
+|  <pre>"lambda:CreateFunction",<br />"lambda:ListVersionsByFunction",<br />"lambda:GetFunctionConfiguration",<br />"lambda:PutFunctionConcurrency",<br />"lambda:ListTags",<br />"lambda:DeleteFunction",<br />"lambda:GetAlias",<br />"lambda:InvokeFunction",<br />"lambda:GetFunction",<br />"lambda:ListAliases",<br />"lambda:UpdateFunctionConfiguration",<br />"lambda:UpdateFunctionCode",<br />"lambda:AddPermission",<br />"lambda:DeleteFunctionConcurrency",<br />"lambda:RemovePermission",<br />"lambda:GetPolicy"<br />"lambda:GetAccountSettings",<br />"lambda:ListFunctions",<br />"lambda:ListEventSourceMappings",<br /></pre>  | Allow the creation and management of Lambda functions listed as resources. In the example, a name prefix is used in the resource identifier `arn:aws:lambda:*:{{MyAWSAcctId}}:function:{{MyAthenaLambdaFunctionsPrefix}}*`, where `{{MyAthenaLambdaFunctionsPrefix}}` is a shared prefix used in the name of a group of Lambda functions so that they don't need to be specified individually as resources. You can specify one or more Lambda function resources. | 
+|  <pre>"s3:GetObject"</pre>  | Allows reading of a bucket that AWS Serverless Application Repository requires as specified by the resource identifier arn:aws:s3:::awsserverlessrepo-changesets-{{1iiv3xa62ln3m}}/\*. This bucket may be specific to your account. | 
+|  <pre>"cloudformation:*"</pre>  | Allows the creation and management of CloudFormation stacks specified by the resource `{{MyCFStackPrefix}}`. These stacks and stacksets are how AWS Serverless Application Repository deploys connectors and UDFs. | 
+|  <pre>"serverlessrepo:*"</pre>  | Allows searching, viewing, publishing, and updating applications in the AWS Serverless Application Repository, specified by the resource identifier arn:aws:serverlessrepo:\*:\*:applications/\*. | 
+|  <pre>"ecr:BatchGetImage",<br />"ecr:GetDownloadUrlForLayer"</pre>  | Allows the created Lambda function to access the federation connector ECR image. | 

@@ -1,8 +1,12 @@
+
+
 # Create arrays
+<a name="creating-arrays"></a>
 
 To build an array literal in Athena, use the `ARRAY` keyword, followed by brackets `[ ]`, and include the array elements separated by commas.
 
 ## Examples
+<a name="examples"></a>
 
 This query creates one array with four elements.
 

@@ -1,8 +1,12 @@
+
+
 # Get the length and size of JSON arrays
+<a name="length-and-size"></a>
 
 To get the length and size of JSON arrays, you can use the `json_array_length` and `json_size` functions.
 
 ## Example: `json_array_length`
+<a name="example-json-array-length"></a>
 
 To obtain the length of a JSON-encoded array, use the `json_array_length` function.
 
@@ -45,6 +49,7 @@ This query returns this result:
 ```
 
 ## Example: `json_size`
+<a name="example-json-size"></a>
 
 To obtain the size of a JSON-encoded array or object, use the `json_size` function, and specify the column containing the JSON string and the `JSONPath` expression to the array or object.
 

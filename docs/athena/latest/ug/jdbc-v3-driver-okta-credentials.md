@@ -1,127 +1,140 @@
-# Okta credentials
 
-A SAML-based authentication mechanism that enables authentication to Athena using the
-Okta identity provider. This method assumes that a federation has already been set up
-between Athena and Okta.
+
+# Okta credentials
+<a name="jdbc-v3-driver-okta-credentials"></a>
+
+A SAML-based authentication mechanism that enables authentication to Athena using the Okta identity provider. This method assumes that a federation has already been set up between Athena and Okta.
 
 ## Credentials provider
+<a name="jdbc-v3-driver-okta-credentials-provider"></a>
 
-The credentials provider that will be used to authenticate requests to AWS. Set
-the value of this parameter to `Okta`.
+The credentials provider that will be used to authenticate requests to AWS. Set the value of this parameter to `Okta`.
 
-| Parameter name      | Alias                                    | Parameter type | Default value | Value to use |
-| ------------------- | ---------------------------------------- | -------------- | ------------- | ------------ |
-| CredentialsProvider | AWSCredentialsProviderClass (deprecated) | Required       | none          | `Okta`       |
+
+
+| Parameter name | Alias | Parameter type | Default value | Value to use | 
+| --- | --- | --- | --- | --- | 
+| CredentialsProvider | AWSCredentialsProviderClass (deprecated) | Required | none | Okta | 
 
 ## User
+<a name="jdbc-v3-driver-okta-user"></a>
 
 The email address of the Okta user to use for authentication with Okta.
 
-| Parameter name | Alias            | Parameter type | Default value |
-| -------------- | ---------------- | -------------- | ------------- |
-| User           | UID (deprecated) | Required       | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| User | UID (deprecated) | Required | none | 
 
 ## Password
+<a name="jdbc-v3-driver-okta-password"></a>
 
 The password for the Okta user.
 
-| Parameter name | Alias            | Parameter type | Default value |
-| -------------- | ---------------- | -------------- | ------------- |
-| Password       | PWD (deprecated) | Required       | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| Password | PWD (deprecated) | Required | none | 
 
 ## Okta host name
+<a name="jdbc-v3-driver-okta-host-name"></a>
 
-The URL for your Okta organization. You can extract the `idp_host`
-parameter from the **Embed Link** URL in your Okta application. For
-steps, see [Retrieve ODBC configuration information from Okta](odbc-okta-plugin.md#odbc-okta-plugin-retrieve-odbc-configuration-information-from-okta "odbc-okta-plugin.md#odbc-okta-plugin-retrieve-odbc-configuration-information-from-okta"). The first segment after `https://`, up to and including
-`okta.com`, is your IdP host (for example,
-`trial-1234567.okta.com` for a URL that starts with
-`https://trial-1234567.okta.com`).
+The URL for your Okta organization. You can extract the `idp_host` parameter from the **Embed Link** URL in your Okta application. For steps, see [Retrieve ODBC configuration information from Okta](odbc-okta-plugin.md#odbc-okta-plugin-retrieve-odbc-configuration-information-from-okta). The first segment after `https://`, up to and including `okta.com`, is your IdP host (for example, `trial-1234567.okta.com` for a URL that starts with `https://trial-1234567.okta.com`).
 
-| Parameter name | Alias                  | Parameter type | Default value |
-| -------------- | ---------------------- | -------------- | ------------- |
-| OktaHostName   | IdP\_Host (deprecated) | Required       | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| OktaHostName | IdP\_Host (deprecated) | Required | none | 
 
 ## Okta application ID
+<a name="jdbc-v3-driver-okta-application-id"></a>
 
-The two-part identifier for your application. You can extract the application ID
-from the **Embed Link** URL in your Okta application. For steps,
-see [Retrieve ODBC configuration information from Okta](odbc-okta-plugin.md#odbc-okta-plugin-retrieve-odbc-configuration-information-from-okta "odbc-okta-plugin.md#odbc-okta-plugin-retrieve-odbc-configuration-information-from-okta"). The application ID is the last two segments of the URL, including the forward
-slash in the middle. The segments are two 20-character strings with a mix of numbers
-and upper and lowercase letters (for example,
-`Abc1de2fghi3J45kL678/abc1defghij2klmNo3p4`).
+The two-part identifier for your application. You can extract the application ID from the **Embed Link** URL in your Okta application. For steps, see [Retrieve ODBC configuration information from Okta](odbc-okta-plugin.md#odbc-okta-plugin-retrieve-odbc-configuration-information-from-okta). The application ID is the last two segments of the URL, including the forward slash in the middle. The segments are two 20-character strings with a mix of numbers and upper and lowercase letters (for example, `Abc1de2fghi3J45kL678/abc1defghij2klmNo3p4`).
 
-| Parameter name | Alias                | Parameter type | Default value |
-| -------------- | -------------------- | -------------- | ------------- |
-| OktaAppId      | App\_ID (deprecated) | Required       | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| OktaAppId | App\_ID (deprecated) | Required | none | 
 
 ## Okta application name
+<a name="jdbc-v3-driver-okta-application-name"></a>
 
 The name of your Okta application.
 
-| Parameter name | Alias                  | Parameter type | Default value |
-| -------------- | ---------------------- | -------------- | ------------- |
-| OktaAppName    | App\_Name (deprecated) | Required       | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| OktaAppName | App\_Name (deprecated) | Required | none | 
 
 ## Okta MFA type
+<a name="jdbc-v3-driver-okta-mfa-type"></a>
 
-If you have set up Okta to require multi-factor authentication (MFA), you need to
-specify the Okta MFA type and additional parameters depending on the second factor
-that you want to use.
+If you have set up Okta to require multi-factor authentication (MFA), you need to specify the Okta MFA type and additional parameters depending on the second factor that you want to use.
 
-Okta MFA type is the second authentication factor type (after the password) to use
-to authenticate with Okta. Supported second factors include push notifications
-delivered through the Okta Verify app and temporary one-time passwords (TOTPs)
-generated by Okta Verify, Google Authenticator, or sent through SMS. Individual
-organization security policies determine whether or not MFA is required for user
-login.
+Okta MFA type is the second authentication factor type (after the password) to use to authenticate with Okta. Supported second factors include push notifications delivered through the Okta Verify app and temporary one-time passwords (TOTPs) generated by Okta Verify, Google Authenticator, or sent through SMS. Individual organization security policies determine whether or not MFA is required for user login.
 
-| Parameter name | Alias                        | Parameter type                             | Default value | Possible values                                                                              |
-| -------------- | ---------------------------- | ------------------------------------------ | ------------- | -------------------------------------------------------------------------------------------- |
-| OktaMfaType    | okta\_mfa\_type (deprecated) | Required, if Okta is set up to require MFA | none          | `oktaverifywithpush`, `oktaverifywithtotp`,<br>`googleauthenticator`,<br>`smsauthentication` |
+
+
+| Parameter name | Alias | Parameter type | Default value | Possible values | 
+| --- | --- | --- | --- | --- | 
+| OktaMfaType | okta\_mfa\_type (deprecated) | Required, if Okta is set up to require MFA | none | oktaverifywithpush, oktaverifywithtotp, googleauthenticator, smsauthentication | 
 
 ## Okta phone number
+<a name="jdbc-v3-driver-okta-phone-number"></a>
 
-The phone number to which Okta will send a temporary one-time password using SMS
-when the `smsauthentication` MFA type is chosen. The phone number must be
-a US or Canadian phone number.
+The phone number to which Okta will send a temporary one-time password using SMS when the `smsauthentication` MFA type is chosen. The phone number must be a US or Canadian phone number.
 
-| Parameter name  | Alias                            | Parameter type                                     | Default value |
-| --------------- | -------------------------------- | -------------------------------------------------- | ------------- |
-| OktaPhoneNumber | okta\_phone\_number (deprecated) | Required, if OktaMfaType is<br>`smsauthentication` | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| OktaPhoneNumber | okta\_phone\_number (deprecated) | Required, if OktaMfaType is smsauthentication | none | 
 
 ## Okta MFA wait time
+<a name="jdbc-v3-driver-okta-mfa-wait-time"></a>
 
-The duration, in seconds, to wait for the user to acknowledge a push notification
-from Okta before the driver throws a timeout exception.
+The duration, in seconds, to wait for the user to acknowledge a push notification from Okta before the driver throws a timeout exception.
 
-| Parameter name  | Alias                              | Parameter type | Default value |
-| --------------- | ---------------------------------- | -------------- | ------------- |
-| OktaMfaWaitTime | okta\_mfa\_wait\_time (deprecated) | Optional       | 60            |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| OktaMfaWaitTime | okta\_mfa\_wait\_time (deprecated) | Optional | 60 | 
 
 ## Preferred role
+<a name="jdbc-v3-driver-okta-preferred-role"></a>
 
-The Amazon Resource Name (ARN) of the role to assume. For information about ARN
-roles, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the
-_AWS Security Token Service API Reference_.
+The Amazon Resource Name (ARN) of the role to assume. For information about ARN roles, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference*.
 
-| Parameter name | Alias                        | Parameter type | Default value |
-| -------------- | ---------------------------- | -------------- | ------------- |
-| PreferredRole  | preferred\_role (deprecated) | Optional       | none          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| PreferredRole | preferred\_role (deprecated) | Optional | none | 
 
 ## Role session duration
+<a name="jdbc-v3-driver-role-okta-session-duration"></a>
 
-The duration, in seconds, of the role session. For more information, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
+The duration, in seconds, of the role session. For more information, see [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *AWS Security Token Service API Reference*.
 
-| Parameter name      | Alias                 | Parameter type | Default value |
-| ------------------- | --------------------- | -------------- | ------------- |
-| RoleSessionDuration | Duration (deprecated) | Optional       | 3600          |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| RoleSessionDuration | Duration (deprecated) | Optional | 3600 | 
 
 ## Lake Formation enabled
+<a name="jdbc-v3-driver-okta-lake-formation-enabled"></a>
 
-Specifies whether to use the [AssumeDecoratedRoleWithSAML](../../../lake-formation/latest/APIReference/API_AssumeDecoratedRoleWithSAML.md "../../../lake-formation/latest/APIReference/API_AssumeDecoratedRoleWithSAML.md") Lake Formation API action to retrieve temporary IAM
-credentials instead of the [AssumeRoleWithSAML](../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md "../../../STS/latest/APIReference/API_AssumeRoleWithSAML.md") AWS STS API action.
+Specifies whether to use the [AssumeDecoratedRoleWithSAML](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_AssumeDecoratedRoleWithSAML.html) Lake Formation API action to retrieve temporary IAM credentials instead of the [AssumeRoleWithSAML](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) AWS STS API action.
 
-| Parameter name       | Alias | Parameter type | Default value |
-| -------------------- | ----- | -------------- | ------------- |
-| LakeFormationEnabled | none  | Optional       | FALSE         |
+
+
+| Parameter name | Alias | Parameter type | Default value | 
+| --- | --- | --- | --- | 
+| LakeFormationEnabled | none | Optional | FALSE | 
