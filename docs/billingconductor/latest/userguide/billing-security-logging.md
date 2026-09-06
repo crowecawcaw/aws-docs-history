@@ -1,9 +1,13 @@
+
+
 # Logging and monitoring in AWS Billing Conductor
+<a name="billing-security-logging"></a>
 
 Monitoring is an important part of maintaining the reliability, availability, and performance of your AWS account. There are several tools available to monitor your AWS Billing Conductor usage.
 
 ## AWS Cost and Usage Reports
+<a name="eb-security-logging-cur"></a>
 
 AWS Cost and Usage Reports tracks your AWS usage and provides estimated charges associated with your account. Each report contains line items for each unique combination of AWS products, usage type, and operation that you use in your AWS account. You can customize the AWS Cost and Usage Reports to aggregate the information either by the hour or by the day.
 
-For more information about AWS Cost and Usage Reports, see the [_Cost and Usage Report Guide_](../../../cur/latest/userguide/what-is-cur.md "../../../cur/latest/userguide/what-is-cur.md").
+For more information about AWS Cost and Usage Reports, see the [*Cost and Usage Report Guide*](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html).

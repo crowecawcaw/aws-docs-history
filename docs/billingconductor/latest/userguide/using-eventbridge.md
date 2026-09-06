@@ -1,36 +1,21 @@
+
+
 # Using Amazon EventBridge with AWS Billing Conductor
+<a name="using-eventbridge"></a>
 
-AWS Billing Conductor is integrated with Amazon EventBridge, an event bus service that you can use to connect
-your applications with data from a variety of sources. For more information, see the
-[_Amazon EventBridge User
-Guide_](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+AWS Billing Conductor is integrated with Amazon EventBridge, an event bus service that you can use to connect your applications with data from a variety of sources. For more information, see the [*Amazon EventBridge User Guide*](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html).
 
-You can use Amazon EventBridge to receive AWS Billing Conductor events. Then, based on rules that
-you create, Amazon EventBridge invokes one or more target actions when an event matches the values
-that you specify in a rule. Depending on the type of event, you can capture event
-information, send notifications, or perform other actions. To set up an Amazon EventBridge rule for
-AWS Billing Conductor events, see [Create
-a rule in Amazon EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md#eb-gs-create-rule "../../../eventbridge/latest/userguide/eb-get-started.md#eb-gs-create-rule") in the _Amazon EventBridge User Guide_.
+You can use Amazon EventBridge to receive AWS Billing Conductor events. Then, based on rules that you create, Amazon EventBridge invokes one or more target actions when an event matches the values that you specify in a rule. Depending on the type of event, you can capture event information, send notifications, or perform other actions. To set up an Amazon EventBridge rule for AWS Billing Conductor events, see [Create a rule in Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html#eb-gs-create-rule) in the *Amazon EventBridge User Guide*.
 
 ## Example: Amazon EventBridge event for AWS Billing Conductor
+<a name="using-eventbridge-example-event"></a>
 
-AWS Billing Conductor emits a daily summary event with the `Billing Group Configuration
- Recommended for Billing Transfer` detail type when a billing transfer is accepted
-but no corresponding billing group is configured, or when a billing group associated
-with an active billing transfer is deleted. When a billing transfer is accepted, we
-recommend configuring a billing group for the bill source account's organization, which
-enables accounts in that organization to access pro forma cost data in Billing and Cost
-Management tools. Without a billing group, usage data remains available through CloudWatch,
-but configuring a billing group makes it easier for bill source account administrators
-to monitor costs, such as through budgets configuration.
+AWS Billing Conductor emits a daily summary event with the `Billing Group Configuration Recommended for Billing Transfer` detail type when a billing transfer is accepted but no corresponding billing group is configured, or when a billing group associated with an active billing transfer is deleted. When a billing transfer is accepted, we recommend configuring a billing group for the bill source account's organization, which enables accounts in that organization to access pro forma cost data in Billing and Cost Management tools. Without a billing group, usage data remains available through CloudWatch, but configuring a billing group makes it easier for bill source account administrators to monitor costs, such as through budgets configuration.
 
-###### Note
+**Note**  
+This event type is currently only supported in the US East (N. Virginia) Region (`us-east-1`).
 
-This event type is currently only supported in the US East (N. Virginia) Region
-(`us-east-1`).
-
-The following is a generalized example of this event. You can subscribe to Amazon EventBridge
-events (such as this one) using AWS User Notifications.
+The following is a generalized example of this event. You can subscribe to Amazon EventBridge events (such as this one) using AWS User Notifications.
 
 ```
 {

@@ -1,32 +1,27 @@
+
+
 # Using AWS User Notifications with AWS Billing Conductor
+<a name="using-user-notifications"></a>
 
-You can use [AWS User Notifications](../../../notifications/latest/userguide/what-is-service.md "../../../notifications/latest/userguide/what-is-service.md")
-to set up delivery channels that notify you about AWS Billing Conductor events. You will receive a
-notification when an event matches a specified rule. You can receive notifications for events
-through multiple channels, including email, [Amazon Q Developer in chat applications](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md")
-such as Amazon Chime, Microsoft Teams, and Slack, or [AWS Console Mobile Application](../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md "../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md")
-push notifications. You can also see notifications using the [Console Notifications Center](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/")
-in the AWS User Notifications console.
+You can use [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html) to set up delivery channels that notify you about AWS Billing Conductor events. You will receive a notification when an event matches a specified rule. You can receive notifications for events through multiple channels, including email, [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) such as Amazon Chime, Microsoft Teams, and Slack, or [AWS Console Mobile Application](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/what-is-consolemobileapp.html) push notifications. You can also see notifications using the [Console Notifications Center](https://console.aws.amazon.com/notifications/) in the AWS User Notifications console.
 
-AWS User Notifications also supports aggregation, which can reduce the number of
-notifications you receive during specific events. For more information, see the
-[AWS User Notifications User Guide](../../../notifications/latest/userguide/what-is-service.md "../../../notifications/latest/userguide/what-is-service.md").
+AWS User Notifications also supports aggregation, which can reduce the number of notifications you receive during specific events. For more information, see the [AWS User Notifications User Guide](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html).
 
-To use AWS User Notifications, you must have the correct AWS Identity and Access Management (IAM) permissions. For more
-information about configuring your IAM permissions, see [Creating a
-notification configuration](../../../notifications/latest/userguide/getting-started.md#getting-started-step1 "../../../notifications/latest/userguide/getting-started.md#getting-started-step1") in the _AWS User Notifications User Guide_.
+To use AWS User Notifications, you must have the correct AWS Identity and Access Management (IAM) permissions. For more information about configuring your IAM permissions, see [Creating a notification configuration](https://docs.aws.amazon.com/notifications/latest/userguide/getting-started.html#getting-started-step1) in the *AWS User Notifications User Guide*.
 
 The following table lists the AWS Billing Conductor event types supported by AWS User Notifications.
 
-AWS Billing Conductor event types| Event type | Description |
-| --- | --- |
-| Billing Group Configuration Recommended for Billing Transfer | A daily summary of billing transfer events where accepted transfers<br>don't have a corresponding billing group configured, or where billing<br>groups associated with active billing transfers were deleted. When a<br>billing transfer is accepted, we recommend configuring a billing group<br>for the bill source account's organization, which enables accounts in<br>that organization to access pro forma cost data in Billing and Cost<br>Management tools. Without a billing group, usage data remains available<br>through CloudWatch, but configuring a billing group makes it easier for bill<br>source account administrators to monitor costs, such as through budgets<br>configuration. This event type is currently only supported in the<br>US East (N. Virginia) Region (`us-east-1`). |
+
+**AWS Billing Conductor event types**  
+
+| Event type | Description | 
+| --- | --- | 
+| Billing Group Configuration Recommended for Billing Transfer | A daily summary of billing transfer events where accepted transfers don't have a corresponding billing group configured, or where billing groups associated with active billing transfers were deleted. When a billing transfer is accepted, we recommend configuring a billing group for the bill source account's organization, which enables accounts in that organization to access pro forma cost data in Billing and Cost Management tools. Without a billing group, usage data remains available through CloudWatch, but configuring a billing group makes it easier for bill source account administrators to monitor costs, such as through budgets configuration. This event type is currently only supported in the US East (N. Virginia) Region (us-east-1). | 
 
 ## Example event
+<a name="using-user-notifications-example-event"></a>
 
-The following is an example of a `Billing Group Configuration Recommended for
- Billing Transfer` event from AWS Billing Conductor. This event is emitted to Amazon EventBridge with the
-source `aws.billingconductor`.
+The following is an example of a `Billing Group Configuration Recommended for Billing Transfer` event from AWS Billing Conductor. This event is emitted to Amazon EventBridge with the source `aws.billingconductor`.
 
 ```
 {
