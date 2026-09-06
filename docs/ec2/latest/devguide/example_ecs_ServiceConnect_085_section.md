@@ -638,7 +638,8 @@ main "$@"
   - [DeleteNamespace](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteNamespace.md")
   - [DeleteRole](../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md "../../../goto/aws-cli/iam-2010-05-08/DeleteRole.md")
   - [DeleteSecurityGroup](../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md "../../../goto/aws-cli/ec2-2016-11-15/DeleteSecurityGroup.md")
-  - [DeleteService](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md")
+  - [DeleteService (AWS Cloud Map)](../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md "../../../goto/aws-cli/servicediscovery-2017-03-14/DeleteService.md")
+  - [DeleteService (Amazon ECS)](../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md "../../../goto/aws-cli/ecs-2014-11-13/DeleteService.md")
   - [DeregisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/DeregisterTaskDefinition.md")
   - [DescribeClusters](../../../goto/aws-cli/ecs-2014-11-13/DescribeClusters.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeClusters.md")
   - [DescribeServices](../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md "../../../goto/aws-cli/ecs-2014-11-13/DescribeServices.md")
@@ -654,7 +655,8 @@ main "$@"
   - [ListTasks](../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md "../../../goto/aws-cli/ecs-2014-11-13/ListTasks.md")
   - [RegisterTaskDefinition](../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md "../../../goto/aws-cli/ecs-2014-11-13/RegisterTaskDefinition.md")
   - [UpdateService](../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md "../../../goto/aws-cli/ecs-2014-11-13/UpdateService.md")
-  - [Wait](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
+  - [Wait (Amazon EC2)](../../../goto/aws-cli/ec2-2016-11-15/Wait.md "../../../goto/aws-cli/ec2-2016-11-15/Wait.md")
+  - [Wait (Amazon ECS)](../../../goto/aws-cli/ecs-2014-11-13/Wait.md "../../../goto/aws-cli/ecs-2014-11-13/Wait.md")
 
 For a complete list of AWS SDK developer guides and code examples, see
 [Create Amazon EC2 resources using an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
