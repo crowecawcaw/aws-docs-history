@@ -94,7 +94,7 @@ To update AMIs using the AWS Batch console:
 
 1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
 2. In the navigation pane, choose **Environments**.
-3. Select the compute environment that shows an AMI status with an update.
+3. Select the option next to the compute environment that shows an AMI status with an update. You must select a compute environment before the **Actions** menu options become available.
 4. Choose **Update now** (by the AMI status) or **Actions** > **Edit** to open the update modal.
 5. In the AMI update modal, review the current AMI versions and their statuses.
 6. Choose **Confirm** or **Save** to begin the infrastructure update.

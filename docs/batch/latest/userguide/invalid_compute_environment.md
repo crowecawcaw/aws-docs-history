@@ -98,12 +98,14 @@ role.
 2. From the navigation bar, select the AWS Region to use.
 3. In the navigation pane, choose **Compute environments**.
 4. On the **Compute environments** page, select the radio button next to
-   the compute environment to edit, and then choose **Edit**.
-5. On the **Update compute environment** page, for **Service
+   the compute environment to edit. You must select a compute environment before the options in
+   the **Actions** menu become available.
+5. Choose **Actions** and then **Edit**.
+6. On the **Update compute environment** page, for **Service
    role**, choose the IAM role to use with your compute environment. The AWS Batch
    console only displays roles that have the correct trust relationship for compute
    environments.
 
 ###### Tip
 
-For directions on how to create a service linked role, see [Using roles for AWS Batch](using-service-linked-roles-batch-general.md "using-service-linked-roles-batch-general.md"). 6. Choose **Save** to update your compute environment.
+For directions on how to create a service linked role, see [Using roles for AWS Batch](using-service-linked-roles-batch-general.md "using-service-linked-roles-batch-general.md"). 7. Choose **Save** to update your compute environment.

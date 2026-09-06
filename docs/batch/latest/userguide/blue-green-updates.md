@@ -83,7 +83,9 @@ Performing blue/green updates using the AWS Management Console
 1. Clone your current compute environment
 
    1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
-   2. Select your existing compute environment.
+   2. Select the option next to your existing compute environment. You must
+      select a compute environment before the options in the
+      **Actions** menu become available.
    3. Choose **Actions** and then **Clone**.
    4. For **Name**, enter a unique name for your new compute
       environment.

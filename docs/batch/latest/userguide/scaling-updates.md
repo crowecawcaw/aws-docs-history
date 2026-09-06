@@ -47,7 +47,9 @@ Performing scaling updates using the AWS Management Console
 1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
 2. In the navigation pane, choose **Environments** and then the
    **Compute environments** tab.
-3. Select the compute environment to update.
+3. On the **Compute environments** tab, select the option next to
+   the compute environment to update. You must select a compute environment before the
+   options in the **Actions** menu become available.
 4. Choose **Actions** and then **Edit**.
 5. Modify one or more of the [settings that
    support scaling updates](#scaling-updates-triggers "#scaling-updates-triggers"). For example:

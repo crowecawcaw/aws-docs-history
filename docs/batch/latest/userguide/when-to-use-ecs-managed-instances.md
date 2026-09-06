@@ -15,8 +15,11 @@ Use Amazon ECS Managed Instances if your jobs require any of the following:
 - You need specific Amazon EC2 instance types or instance families.
 - You want to use On-Demand Capacity Reservations, Reserved Instances, or Amazon EC2 Instance
   Savings Plans.
-- You need ARM64 (Graviton) instances via `runtimePlatform`
+- You need ARM64 (AWS Graviton) instances through `runtimePlatform`
   configuration.
+- You want to run both x86 (`X86_64`) and `ARM64` jobs from a single
+  compute environment. For more information, see
+  [Running mixed-architecture jobs (X86\_64 and ARM64)](ecs-managed-instances-multi-architecture.md "ecs-managed-instances-multi-architecture.md").
 - You need arbitrary vCPU and memory combinations without the fixed size pairings that
   Fargate requires.
   Fargate is the simplest and recommended option if you don't have specific requirements for

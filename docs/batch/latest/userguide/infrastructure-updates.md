@@ -128,7 +128,9 @@ To just update to the latest AMI version in the console, see [Updating AMI versi
 1. Open the AWS Batch console at [https://console.aws.amazon.com/batch/](https://console.aws.amazon.com/batch/ "https://console.aws.amazon.com/batch/").
 2. In the navigation pane, choose **Environments** then the
    **Compute environments** tab.
-3. Select the compute environment to update.
+3. On the **Compute environments** tab, select the option next to
+   the compute environment to update. You must select a compute environment before the
+   options in the **Actions** menu become available.
 4. Choose **Actions** and then **Edit**.
 5. In the **Update behavior** section, configure how running jobs
    are handled:

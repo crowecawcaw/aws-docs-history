@@ -46,8 +46,6 @@ if it takes three minutes to pull the image for your job, your job will be in th
 for three minutes. If initContainers takes a total of ten minutes to complete, then your Amazon EKS job
 will be in STARTING for ten minutes. If you have Amazon ECS containerDependencies sets in your Amazon ECS
 job, the job will be in STARTING until all container dependencies (their runtime) are resolved. STARTING is not included in timeouts; duration starts at RUNNING.
-For more information, see [Job
-states](job_states.md "job_states.md").
 
 `RUNNING`
 

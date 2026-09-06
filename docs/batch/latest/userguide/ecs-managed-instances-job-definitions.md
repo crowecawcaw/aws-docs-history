@@ -43,8 +43,9 @@ bandwidth.
 
 `runtimePlatform`
 
-Specifies the operating system family and CPU architecture for the task. Use this
-to run jobs on ARM64 (Graviton) instances. The valid value for
+Specifies the operating system family and CPU architecture for the task. This
+parameter applies to both Fargate and Amazon ECS Managed Instances job definitions. Use this
+to run jobs on ARM64 (AWS Graviton) instances. The valid value for
 `operatingSystemFamily` is `LINUX` (default). The valid values for
 `cpuArchitecture` are `X86_64` and `ARM64`.
 

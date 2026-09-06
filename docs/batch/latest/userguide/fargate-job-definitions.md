@@ -43,6 +43,29 @@ _Amazon Elastic Container Service Developer Guide_.
 "fargatePlatformConfiguration": { "platformVersion": "1.4.0" }
 ```
 
+`runtimePlatform`
+
+(Optional) Specifies the operating system
+family and CPU architecture for the job. This parameter applies to both Fargate and
+Amazon ECS Managed Instances job definitions. The valid value for
+`operatingSystemFamily` is `LINUX` (default). The valid values for
+`cpuArchitecture` are `X86_64` (default) and `ARM64`
+(AWS Graviton).
+
+You select the architecture per job in the job definition, not on the compute
+environment. A single Fargate compute environment and job queue can run both
+`X86_64` and `ARM64` jobs. Fargate provisions capacity that
+matches each job's `cpuArchitecture`. Provide a container image that supports
+the declared architecture, or use a multi-architecture image manifest to support both.
+For more information, see [Running mixed-architecture jobs (X86\_64 and ARM64)](fargate-multi-architecture.md "fargate-multi-architecture.md").
+
+```
+"runtimePlatform": {
+  "operatingSystemFamily": "LINUX",
+  "cpuArchitecture": "ARM64"
+}
+```
+
 `instanceType`
 `ulimits`
 

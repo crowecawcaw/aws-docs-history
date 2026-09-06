@@ -19,5 +19,7 @@ environments.
 
 - [When to use Amazon ECS Managed Instances](when-to-use-ecs-managed-instances.md "when-to-use-ecs-managed-instances.md")
 - [Job definitions on Amazon ECS Managed Instances](ecs-managed-instances-job-definitions.md "ecs-managed-instances-job-definitions.md")
+- [Running mixed-architecture jobs (X86\_64 and ARM64)](ecs-managed-instances-multi-architecture.md "ecs-managed-instances-multi-architecture.md")
 - [Job queues on Amazon ECS Managed Instances](ecs-managed-instances-job-queues.md "ecs-managed-instances-job-queues.md")
+- [Instance draining and task interruptions](ecs-managed-instances-instance-draining.md "ecs-managed-instances-instance-draining.md")
 - [Compute environments on Amazon ECS Managed Instances](ecs-managed-instances-compute-environments.md "ecs-managed-instances-compute-environments.md")

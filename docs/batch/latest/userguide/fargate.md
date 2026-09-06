@@ -9,6 +9,10 @@ memory requirements, define networking and IAM policies, and launch the applicat
 isolation boundary and does not share the underlying kernel, CPU resources, memory resources, or elastic network
 interface with another job.
 
+Fargate runs both x86 (`X86_64`) and `ARM64` (AWS Graviton) jobs. You select the architecture per job in
+the job definition with `runtimePlatform.cpuArchitecture`. A single Fargate compute environment and
+job queue can run both architectures. For more information, see [Running mixed-architecture jobs (X86\_64 and ARM64)](fargate-multi-architecture.md "fargate-multi-architecture.md").
+
 Fargate is only available for AWS Batch compute environments that use Amazon ECS as the orchestrator. Fargate is not
 supported for AWS Batch on Amazon EKS compute environments. For more information, see [Amazon EKS compute environments](eks.md "eks.md").
 
@@ -16,5 +20,6 @@ supported for AWS Batch on Amazon EKS compute environments. For more information
 
 - [When to use Fargate](when-to-use-fargate.md "when-to-use-fargate.md")
 - [Job definitions on Fargate](fargate-job-definitions.md "fargate-job-definitions.md")
+- [Running mixed-architecture jobs (X86\_64 and ARM64)](fargate-multi-architecture.md "fargate-multi-architecture.md")
 - [Job queues on Fargate](fargate-job-queues.md "fargate-job-queues.md")
 - [Compute environments on Fargate](fargate-compute-environments.md "fargate-compute-environments.md")
