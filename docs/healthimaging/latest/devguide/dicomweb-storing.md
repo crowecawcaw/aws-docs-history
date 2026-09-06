@@ -1,31 +1,40 @@
-# Storing instances with STOW-RS
 
-AWS HealthImaging offers a representation of the [`DICOMweb STOW-RS`](https://www.dicomstandard.org/using/dicomweb/store-stow-rs "https://www.dicomstandard.org/using/dicomweb/store-stow-rs") APIs for importing data. Use these APIs to synchronously store DICOM data to your HealthImaging data store.
+
+# Storing instances with STOW-RS
+<a name="dicomweb-storing"></a>
+
+AWS HealthImaging offers a representation of the [`DICOMweb STOW-RS`](https://www.dicomstandard.org/using/dicomweb/store-stow-rs) APIs for importing data. Use these APIs to synchronously store DICOM data to your HealthImaging data store.
 
 The following table describes the HealthImaging representations of DICOMweb STOW-RS APIs available for importing data.
 
-HealthImaging representations of DICOMweb STOW-RS APIs| Name | Description |
-| --- | --- |
-| `StoreDICOM` | Store one or more instances to a HealthImaging data store. |
-| `StoreDICOMStudy` | Store one or more instances corresponding to a specified Study Instance UID to a HealthImaging data store. |
 
-Data imported with the `StoreDICOM` and `StoreDICOMStudy` actions will be organized as new primary image sets, or added to existing primary image sets, using the same logic as asynchronous [import jobs](understanding-import-jobs.md "understanding-import-jobs.md"). If the metadata elements of newly imported DICOM P10 data conflict with existing primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set"), the new data will be added to non-primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set").
+**HealthImaging representations of DICOMweb STOW-RS APIs**  
 
-###### Note
+| Name | Description | 
+| --- | --- | 
+| StoreDICOM | Store one or more instances to a HealthImaging data store. | 
+| StoreDICOMStudy | Store one or more instances corresponding to a specified Study Instance UID to a HealthImaging data store. | 
 
-- These actions support upload of up to 1GB of DICOM data per request.
-- The API response will be in the JSON format, conformant to the DICOMweb STOW-RS standard.
+Data imported with the `StoreDICOM` and `StoreDICOMStudy` actions will be organized as new primary image sets, or added to existing primary image sets, using the same logic as asynchronous [import jobs](https://docs.aws.amazon.com/healthimaging/latest/devguide/understanding-import-jobs.html). If the metadata elements of newly imported DICOM P10 data conflict with existing primary [image sets](https://docs.aws.amazon.com/healthimaging/latest/devguide/getting-started-concepts.html#concept-image-set), the new data will be added to non-primary [image sets](https://docs.aws.amazon.com/healthimaging/latest/devguide/getting-started-concepts.html#concept-image-set).
 
-###### To initiate a StoreDICOM request
+**Note**  
+These actions support upload of up to 1GB of DICOM data per request.
+The API response will be in the JSON format, conformant to the DICOMweb STOW-RS standard.
+
+**To initiate a StoreDICOM request**  
+
 
 1. Collect your AWS region, HealthImaging `datastoreId`, and DICOM P10 file name.
-2. Construct a URL for the request of the form: `https://dicom-medical-imaging.`region`.amazonaws.com/datastore/`datastore-id`/studies`
-3. Determine the content length of the DICOM P10 file using your preferred command, for example `$(stat -f %z $FILENAME)`.
-4. Prepare and send your request. `StoreDICOM` uses a HTTP POST request with [AWS Signature Version 4](../../../IAM/latest/UserGuide/reference_sigv.md "../../../IAM/latest/UserGuide/reference_sigv.md") signing protocol.
 
-###### Example 1: To store a DICOM P10 file using the StoreDICOM action
+1. Construct a URL for the request of the form: `https://dicom-medical-imaging.{{region}}.amazonaws.com/datastore/{{datastore-id}}/studies`
 
-Shell
+1. Determine the content length of the DICOM P10 file using your preferred command, for example `$(stat -f %z $FILENAME)`.
+
+1. Prepare and send your request. `StoreDICOM` uses a HTTP POST request with [AWS Signature Version 4](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_sigv.html) signing protocol.
+
+ 
+
+**Example 1: To store a DICOM P10 file using the `StoreDICOM` action**  
 
 ```
 curl -X POST -v \
@@ -38,14 +47,10 @@ curl -X POST -v \
   --header 'Accept: application/dicom+json' \
   --header "Content-Type: application/dicom" \
   --upload-file $FILENAME
-
 ```
 
-###### Example 2: To store a DICOM P10 file using the StoreDICOMStudy action
-
-The only difference between StoreDICOM and StoreDICOMStudy is that a Study Instance UID is passed as a parameter to StoreDICOMStudy, and the uploaded instances must be members of the specified study.
-
-Shell
+**Example 2: To store a DICOM P10 file using the `StoreDICOMStudy` action**  
+The only difference between StoreDICOM and StoreDICOMStudy is that a Study Instance UID is passed as a parameter to StoreDICOMStudy, and the uploaded instances must be members of the specified study.  
 
 ```
 curl -X POST -v \
@@ -58,14 +63,10 @@ curl -X POST -v \
   --header 'Accept: application/dicom+json' \
   --header "Content-Type: application/dicom" \
   --upload-file $FILENAME
-
 ```
 
-###### Example 3: To store DICOM P10 files with a multi-part HTTP payload
-
-Multiple P10 files can be uploaded with a single multi-part upload action. The following shell commands demonstrate how to assemble a multi-part payload containing two P10 files, and upload it with the `StoreDICOM` action.
-
-Shell
+**Example 3: To store DICOM P10 files with a multi-part HTTP payload**  
+Multiple P10 files can be uploaded with a single multi-part upload action. The following shell commands demonstrate how to assemble a multi-part payload containing two P10 files, and upload it with the `StoreDICOM` action.  
 
 ```
 #!/bin/sh
@@ -101,5 +102,4 @@ curl -X POST -v \
 
 # Delete the payload file
 rm $FILENAME
-
 ```

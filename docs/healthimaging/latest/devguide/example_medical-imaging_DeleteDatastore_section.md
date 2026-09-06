@@ -1,10 +1,14 @@
+
+
 # Use `DeleteDatastore` with an AWS SDK or CLI
+<a name="example_medical-imaging_DeleteDatastore_section"></a>
 
 The following code examples show how to use `DeleteDatastore`.
 
-Bash
+------
+#### [ Bash ]
 
-**AWS CLI with Bash script**
+**AWS CLI with Bash script**  
 
 ```
 ###############################################################################
@@ -76,35 +80,22 @@ function imaging_delete_datastore() {
 
   return 0
 }
+```
++  For API details, see [DeleteDatastore](https://docs.aws.amazon.com/goto/aws-cli/medical-imaging-2023-07-19/DeleteDatastore) in *AWS CLI Command Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete a data store**  
+The following `delete-datastore` code example deletes a data store.  
 
 ```
-
-- For API details, see
-  [DeleteDatastore](../../../goto/aws-cli/medical-imaging-2023-07-19/DeleteDatastore.md "../../../goto/aws-cli/medical-imaging-2023-07-19/DeleteDatastore.md")
-  in _AWS CLI Command Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To delete a data store**
-
-The following `delete-datastore` code example deletes a data store.
-
+aws medical-imaging delete-datastore \
+    --datastore-id {{"12345678901234567890123456789012"}}
 ```
-`aws medical-imaging delete-datastore \
- --datastore-id `"12345678901234567890123456789012"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -112,14 +103,13 @@ Output:
     "datastoreStatus": "DELETING"
 }
 ```
+  
++  For API details, see [DeleteDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/delete-datastore.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/delete-datastore.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/delete-datastore.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static void deleteMedicalImagingDatastore(MedicalImagingClient medicalImagingClient,
@@ -134,23 +124,14 @@ Java
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [DeleteDatastore](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/DeleteDatastore) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [DeleteDatastore](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/DeleteDatastore.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/DeleteDatastore.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { DeleteDatastoreCommand } from "@aws-sdk/client-medical-imaging";
@@ -179,23 +160,14 @@ export const deleteDatastore = async (datastoreId = "DATASTORE_ID") => {
 
   return response;
 };
-
-
 ```
++  For API details, see [DeleteDatastore](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteDatastoreCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [DeleteDatastore](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteDatastoreCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteDatastoreCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -219,33 +191,20 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [DeleteDatastore](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/DeleteDatastore) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [DeleteDatastore](../../../goto/boto3/medical-imaging-2023-07-19/DeleteDatastore.md "../../../goto/boto3/medical-imaging-2023-07-19/DeleteDatastore.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -265,20 +224,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteDatastore](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [DeleteDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,25 +1,29 @@
+
+
 # Getting data store properties
+<a name="get-data-store"></a>
 
-Use the `GetDatastore` action to retrieve AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") properties. The following menus provide a
-procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more
-information, see [`GetDatastore`](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md") in the [_AWS HealthImaging API
-Reference_](../APIReference/API_GetDatastore.md "../APIReference/API_GetDatastore.md").
+Use the `GetDatastore` action to retrieve AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store) properties. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`GetDatastore`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetDatastore.html) in the [*AWS HealthImaging API Reference*](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetDatastore.html).
 
-###### To get data store properties
-
+**To get data store properties**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
-2. Choose a data store.
+## AWS Console
+<a name="code-example-console-data-store-get"></a>
 
-The **Data store details** page opens. Under the
-**Details** section, all data store properties are
-available. To view associated image sets, imports, and tags, choose the
-applicable tab.
+1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-Bash
+1. Choose a data store.
 
-**AWS CLI with Bash script**
+   The **Data store details** page opens. Under the **Details** section, all data store properties are available. To view associated image sets, imports, and tags, choose the applicable tab.
+
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-data-store-get"></a>
+
+------
+#### [ Bash ]
+
+**AWS CLI with Bash script**  
 
 ```
 ###############################################################################
@@ -99,35 +103,22 @@ function imaging_get_datastore() {
 
   return 0
 }
+```
++  For API details, see [GetDatastore](https://docs.aws.amazon.com/goto/aws-cli/medical-imaging-2023-07-19/GetDatastore) in *AWS CLI Command Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To get a data store's properties**  
+The following `get-datastore` code example gets a data store's properties.  
 
 ```
-
-- For API details, see
-  [GetDatastore](../../../goto/aws-cli/medical-imaging-2023-07-19/GetDatastore.md "../../../goto/aws-cli/medical-imaging-2023-07-19/GetDatastore.md")
-  in _AWS CLI Command Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To get a data store's properties**
-
-The following `get-datastore` code example gets a data store's properties.
-
+aws medical-imaging get-datastore \
+    --datastore-id {{12345678901234567890123456789012}}
 ```
-`aws medical-imaging get-datastore \
- --datastore-id `12345678901234567890123456789012``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -142,18 +133,14 @@ Output:
     }
 }
 ```
-
-**Example 2: To get data store's properties configured for JPEG2000**
-
-The following `get-datastore` code example gets a data store's properties for a data store configured for JPEG 2000 Lossless storage format.
+**Example 2: To get data store's properties configured for JPEG2000**  
+The following `get-datastore` code example gets a data store's properties for a data store configured for JPEG 2000 Lossless storage format.  
 
 ```
-`aws medical-imaging get-datastore \
- --datastore-id `12345678901234567890123456789012``
-
+aws medical-imaging get-datastore \
+    --datastore-id {{12345678901234567890123456789012}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -168,14 +155,13 @@ Output:
     }
 }
 ```
+  
++  For API details, see [GetDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-datastore.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-datastore.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-datastore.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static DatastoreProperties getMedicalImageDatastore(MedicalImagingClient medicalImagingClient,
@@ -193,23 +179,14 @@ Java
 
         return null;
     }
-
-
 ```
++  For API details, see [GetDatastore](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/GetDatastore) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [GetDatastore](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetDatastore.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetDatastore.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { GetDatastoreCommand } from "@aws-sdk/client-medical-imaging";
@@ -243,23 +220,14 @@ export const getDatastore = async (datastoreID = "DATASTORE_ID") => {
   // }
   return response.datastoreProperties;
 };
-
-
 ```
++  For API details, see [GetDatastore](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDatastoreCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetDatastore](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDatastoreCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDatastoreCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -288,33 +256,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return data_store["datastoreProperties"]
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [GetDatastore](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetDatastore) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetDatastore](../../../goto/boto3/medical-imaging-2023-07-19/GetDatastore.md "../../../goto/boto3/medical-imaging-2023-07-19/GetDatastore.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -335,21 +290,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetDatastore](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [GetDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

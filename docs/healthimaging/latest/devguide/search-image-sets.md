@@ -1,84 +1,77 @@
+
+
 # Searching image sets
+<a name="search-image-sets"></a>
 
-Use the `SearchImageSets` action to run search queries against all [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set") in an `ACTIVE` HealthImaging data
-store. The following menus provide a procedure for the AWS Management Console and code examples for the
-AWS CLI and AWS SDKs. For more information, see [`SearchImageSets`](../APIReference/API_SearchImageSets.md "../APIReference/API_SearchImageSets.md") in the _AWS HealthImaging API
-Reference_.
+Use the `SearchImageSets` action to run search queries against all [image sets](getting-started-concepts.md#concept-image-set) in an `ACTIVE` HealthImaging data store. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`SearchImageSets`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_SearchImageSets.html) in the *AWS HealthImaging API Reference*.
 
-###### Note
+**Note**  
+Keep the following points in mind when searching image sets.  
+`SearchImageSets` accepts a single search query parameter and returns a paginated response of all image sets that have the matching criteria. All date range queries must be input as `(lowerBound, upperBound)`.
+By default, `SearchImageSets` uses the `updatedAt` field for sorting in decreasing order from newest to oldest.
+If you created your data store with a customer-owned AWS KMS key, you must update your AWS KMS key policy before interacting with image sets. For more information, see [Creating a customer managed key](data-encryption.md#creating-co-cmk).
 
-Keep the following points in mind when searching image sets.
-
-- `SearchImageSets` accepts a single search query parameter and
-  returns a paginated response of all image sets that have the matching criteria.
-  All date range queries must be input as `(lowerBound,
- upperBound)`.
-- By default, `SearchImageSets` uses the `updatedAt` field
-  for sorting in decreasing order from newest to oldest.
-- If you created your data store with a customer-owned AWS KMS key, you must
-  update your AWS KMS key policy before interacting with image sets. For more
-  information, see [Creating a customer managed
-  key](data-encryption.md#creating-co-cmk "data-encryption.md#creating-co-cmk").
-
-###### To search image sets
-
+**To search image sets**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-###### Note
+## AWS Console
+<a name="code-example-console-image-set-search"></a>
 
-The following procedures show how to search image sets using the `Series
- Instance UID` and `Updated at` property filters.
+**Note**  
+The following procedures show how to search image sets using the `Series Instance UID` and `Updated at` property filters.
 
-Series Instance UID
+------
+#### [ Series Instance UID ]
 
-###### Search image sets using the `Series Instance UID` property filter
+**Search image sets using the `Series Instance UID` property filter**
 
-1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
-2. Choose a data store.
+1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-The **Data store details** page opens and the
-**Image sets** tab is selected by
-default. 3. Choose the property filter menu and select `Series
- Instance UID`. 4. In the **Enter value to search** field, enter
-(paste) the Series Instance UID of interest.
+1. Choose a data store.
 
-###### Note
+   The **Data store details** page opens and the **Image sets** tab is selected by default.
 
-Series Instance UID values must be identical to those
-listed in the [Registry of DICOM Unique Identifiers (UIDs)](https://dicom.nema.org/dicom/2013/output/chtml/part06/chapter_A.html "https://dicom.nema.org/dicom/2013/output/chtml/part06/chapter_A.html").
-Note the requirements include a series of numbers that
-contain at least one period between them. Periods are not
-allowed at the beginning or end of Series Instance UIDs.
-Letters and white space are not allowed, so use caution when
-copying and pasting UIDs. 5. Choose the **Date range** menu, select a date
-range for the Series Instance UID, and choose
-**Apply**. 6. Choose **Search**.
+1. Choose the property filter menu and select `Series Instance UID`.
 
-Series Instance UIDs that fall within the selected date range
-are returned in Newest order by default.
+1. In the **Enter value to search** field, enter (paste) the Series Instance UID of interest.
+**Note**  
+Series Instance UID values must be identical to those listed in the [Registry of DICOM Unique Identifiers (UIDs)](https://dicom.nema.org/dicom/2013/output/chtml/part06/chapter_A.html). Note the requirements include a series of numbers that contain at least one period between them. Periods are not allowed at the beginning or end of Series Instance UIDs. Letters and white space are not allowed, so use caution when copying and pasting UIDs.
 
-Updated at
+1. Choose the **Date range** menu, select a date range for the Series Instance UID, and choose **Apply**.
 
-###### Search image sets using the `Updated at` property filter
+1. Choose **Search**.
 
-1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
-2. Choose a data store.
+   Series Instance UIDs that fall within the selected date range are returned in Newest order by default.
 
-The **Data store details** page opens and the
-**Image sets** tab is selected by
-default. 3. Choose the property filter menu and choose `Updated
- at`. 4. Choose the **Date range** menu, select an
-image set date range, and choose
-**Apply**. 5. Choose **Search**.
+------
+#### [ Updated at ]
 
-Image sets that fall within the selected date range are
-returned in Newest order by default.
+**Search image sets using the `Updated at` property filter**
 
-C++
+1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-**SDK for C++**
+1. Choose a data store.
 
-The utility function for searching image sets.
+   The **Data store details** page opens and the **Image sets** tab is selected by default.
+
+1. Choose the property filter menu and choose `Updated at`.
+
+1. Choose the **Date range** menu, select an image set date range, and choose **Apply**.
+
+1. Choose **Search**.
+
+   Image sets that fall within the selected date range are returned in Newest order by default.
+
+------
+
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-image-set-search"></a>
+
+------
+#### [ C\+\+ ]
+
+**SDK for C\+\+**  
+The utility function for searching image sets.  
 
 ```
 //! Routine which searches for image sets based on defined input attributes.
@@ -122,11 +115,8 @@ bool AwsDoc::Medical_Imaging::searchImageSets(const Aws::String &dataStoreID,
 
     return result;
 }
-
-
 ```
-
-Use case #1: EQUAL operator.
+Use case \#1: EQUAL operator.  
 
 ```
         Aws::Vector<Aws::String> imageIDsForPatientID;
@@ -148,12 +138,8 @@ Use case #1: EQUAL operator.
                 std::cout << "  Image set with ID '" << imageSetResult << std::endl;
             }
         }
-
-
-
 ```
-
-Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
+Use case \#2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.   
 
 ```
          Aws::MedicalImaging::Model::SearchByAttributeValue useCase2StartDate;
@@ -185,11 +171,8 @@ Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
                 std::cout << "  Image set with ID '" << imageSetResult << std::endl;
             }
         }
-
-
 ```
-
-Use case #3: BETWEEN operator using createdAt. Time studies were previously persisted.
+Use case \#3: BETWEEN operator using createdAt. Time studies were previously persisted.   
 
 ```
         Aws::MedicalImaging::Model::SearchByAttributeValue useCase3StartDate;
@@ -217,11 +200,8 @@ Use case #3: BETWEEN operator using createdAt. Time studies were previously pers
                 std::cout << "  Image set with ID '" << imageSetResult << std::endl;
             }
         }
-
-
 ```
-
-Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.
+Use case \#4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.   
 
 ```
         Aws::MedicalImaging::Model::SearchByAttributeValue useCase4StartDate;
@@ -263,36 +243,23 @@ Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt a
                 std::cout << "  Image set with ID '" << imageSetResult << std::endl;
             }
         }
+```
++  For API details, see [SearchImageSets](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/SearchImageSets) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To search image sets with an EQUAL operator**  
+The following `search-image-sets` code example uses the EQUAL operator to search image sets based on a specific value.  
 
 ```
-
-- For API details, see
-  [SearchImageSets](../../../goto/SdkForCpp/medical-imaging-2023-07-19/SearchImageSets.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/SearchImageSets.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To search image sets with an EQUAL operator**
-
-The following `search-image-sets` code example uses the EQUAL operator to search image sets based on a specific value.
-
+aws medical-imaging search-image-sets \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --search-criteria {{file://search-criteria.json}}
 ```
-`aws medical-imaging search-image-sets \
- --datastore-id `12345678901234567890123456789012` \
- --search-criteria `file://search-criteria.json``
-
-```
-
-Contents of `search-criteria.json`
+Contents of `search-criteria.json`  
 
 ```
 {
@@ -302,8 +269,7 @@ Contents of `search-criteria.json`
     }]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -328,22 +294,16 @@ Output:
     }]
 }
 ```
-
-**Example 2: To search image sets with a BETWEEN operator using DICOMStudyDate and DICOMStudyTime**
-
-The following `search-image-sets` code example searches for image sets with DICOM Studies generated between January 1, 1990 (12:00 AM) and January 1, 2023 (12:00 AM).
-
-Note:
-DICOMStudyTime is optional. If it is not present, 12:00 AM (start of the day) is the time value for the dates provided for filtering.
+**Example 2: To search image sets with a BETWEEN operator using DICOMStudyDate and DICOMStudyTime**  
+The following `search-image-sets` code example searches for image sets with DICOM Studies generated between January 1, 1990 (12:00 AM) and January 1, 2023 (12:00 AM).  
+Note: DICOMStudyTime is optional. If it is not present, 12:00 AM (start of the day) is the time value for the dates provided for filtering.  
 
 ```
-`aws medical-imaging search-image-sets \
- --datastore-id `12345678901234567890123456789012` \
- --search-criteria `file://search-criteria.json``
-
+aws medical-imaging search-image-sets \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --search-criteria {{file://search-criteria.json}}
 ```
-
-Contents of `search-criteria.json`
+Contents of `search-criteria.json`  
 
 ```
 {
@@ -364,8 +324,7 @@ Contents of `search-criteria.json`
     }]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -390,22 +349,16 @@ Output:
     }]
 }
 ```
-
-**Example 3: To search image sets with a BETWEEN operator using createdAt (time studies were previously persisted)**
-
-The following `search-image-sets` code example searches for image sets with DICOM Studies persisted in HealthImaging between the time ranges in UTC time zone.
-
-Note:
-Provide createdAt in example format ("1985-04-12T23:20:50.52Z").
+**Example 3: To search image sets with a BETWEEN operator using createdAt (time studies were previously persisted)**  
+The following `search-image-sets` code example searches for image sets with DICOM Studies persisted in HealthImaging between the time ranges in UTC time zone.  
+Note: Provide createdAt in example format ("1985-04-12T23:20:50.52Z").  
 
 ```
-`aws medical-imaging search-image-sets \
- --datastore-id `12345678901234567890123456789012` \
- --search-criteria `file://search-criteria.json``
-
+aws medical-imaging search-image-sets \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --search-criteria  {{file://search-criteria.json}}
 ```
-
-Contents of `search-criteria.json`
+Contents of `search-criteria.json`  
 
 ```
 {
@@ -420,8 +373,7 @@ Contents of `search-criteria.json`
     }]
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -446,22 +398,16 @@ Output:
     }]
 }
 ```
-
-**Example 4: To search image sets with an EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field**
-
-The following `search-image-sets` code example searches for image sets with an EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.
-
-Note:
-Provide updatedAt in example format ("1985-04-12T23:20:50.52Z").
+**Example 4: To search image sets with an EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field**  
+The following `search-image-sets` code example searches for image sets with an EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.  
+Note: Provide updatedAt in example format ("1985-04-12T23:20:50.52Z").  
 
 ```
-`aws medical-imaging search-image-sets \
- --datastore-id `12345678901234567890123456789012` \
- --search-criteria `file://search-criteria.json``
-
+aws medical-imaging search-image-sets \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --search-criteria  {{file://search-criteria.json}}
 ```
-
-Contents of `search-criteria.json`
+Contents of `search-criteria.json`  
 
 ```
 {
@@ -484,8 +430,7 @@ Contents of `search-criteria.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -510,16 +455,14 @@ Output:
     }]
 }
 ```
+  
++  For API details, see [SearchImageSets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/search-image-sets.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [SearchImageSets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/search-image-sets.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/search-image-sets.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
-
-The utility function for searching image sets.
+**SDK for Java 2.x**  
+The utility function for searching image sets.  
 
 ```
     public static List<ImageSetsMetadataSummary> searchMedicalImagingImageSets(
@@ -545,11 +488,8 @@ The utility function for searching image sets.
 
         return null;
     }
-
-
 ```
-
-Use case #1: EQUAL operator.
+Use case \#1: EQUAL operator.  
 
 ```
         List<SearchFilter> searchFilters = Collections.singletonList(SearchFilter.builder()
@@ -571,11 +511,8 @@ Use case #1: EQUAL operator.
                     + imageSetsMetadataSummaries);
             System.out.println();
         }
-
-
 ```
-
-Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
+Use case \#2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.   
 
 ```
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
@@ -609,11 +546,8 @@ Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
                             imageSetsMetadataSummaries);
             System.out.println();
         }
-
-
 ```
-
-Use case #3: BETWEEN operator using createdAt. Time studies were previously persisted.
+Use case \#3: BETWEEN operator using createdAt. Time studies were previously persisted.   
 
 ```
         searchFilters = Collections.singletonList(SearchFilter.builder()
@@ -636,11 +570,8 @@ Use case #3: BETWEEN operator using createdAt. Time studies were previously pers
                     + imageSetsMetadataSummaries);
             System.out.println();
         }
-
-
 ```
-
-Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.
+Use case \#4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.   
 
 ```
         Instant startDate = Instant.parse("1985-04-12T23:20:50.52Z");
@@ -675,25 +606,15 @@ Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt a
                     + imageSetsMetadataSummaries);
             System.out.println();
         }
-
-
 ```
++  For API details, see [SearchImageSets](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/SearchImageSets) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [SearchImageSets](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/SearchImageSets.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/SearchImageSets.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-The utility function for searching image sets.
+**SDK for JavaScript (v3)**  
+The utility function for searching image sets.  
 
 ```
 import { paginateSearchImageSets } from "@aws-sdk/client-medical-imaging";
@@ -747,11 +668,8 @@ export const searchImageSets = async (
 
   return imageSetsMetadataSummaries;
 };
-
-
 ```
-
-Use case #1: EQUAL operator.
+Use case \#1: EQUAL operator.  
 
 ```
   const datastoreId = "12345678901234567890123456789012";
@@ -770,11 +688,8 @@ Use case #1: EQUAL operator.
   } catch (err) {
     console.error(err);
   }
-
-
 ```
-
-Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
+Use case \#2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.   
 
 ```
   const datastoreId = "12345678901234567890123456789012";
@@ -806,11 +721,8 @@ Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
   } catch (err) {
     console.error(err);
   }
-
-
 ```
-
-Use case #3: BETWEEN operator using createdAt. Time studies were previously persisted.
+Use case \#3: BETWEEN operator using createdAt. Time studies were previously persisted.   
 
 ```
   const datastoreId = "12345678901234567890123456789012";
@@ -832,11 +744,8 @@ Use case #3: BETWEEN operator using createdAt. Time studies were previously pers
   } catch (err) {
     console.error(err);
   }
-
-
 ```
-
-Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.
+Use case \#4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.   
 
 ```
   const datastoreId = "12345678901234567890123456789012";
@@ -871,25 +780,15 @@ Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt a
   } catch (err) {
     console.error(err);
   }
-
-
 ```
++  For API details, see [SearchImageSets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [SearchImageSets](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
-
-The utility function for searching image sets.
+**SDK for Python (Boto3)**  
+The utility function for searching image sets.  
 
 ```
 class MedicalImagingWrapper:
@@ -923,12 +822,8 @@ class MedicalImagingWrapper:
             raise
         else:
             return metadata_summaries
-
-
-
 ```
-
-Use case #1: EQUAL operator.
+Use case \#1: EQUAL operator.  
 
 ```
         search_filter = {
@@ -939,11 +834,8 @@ Use case #1: EQUAL operator.
 
         image_sets = self.search_image_sets(data_store_id, search_filter)
         print(f"Image sets found with EQUAL operator\n{image_sets}")
-
-
 ```
-
-Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
+Use case \#2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.   
 
 ```
         search_filter = {
@@ -972,11 +864,8 @@ Use case #2: BETWEEN operator using DICOMStudyDate and DICOMStudyTime.
         print(
             f"Image sets found with BETWEEN operator using DICOMStudyDate and DICOMStudyTime\n{image_sets}"
         )
-
-
 ```
-
-Use case #3: BETWEEN operator using createdAt. Time studies were previously persisted.
+Use case \#3: BETWEEN operator using createdAt. Time studies were previously persisted.   
 
 ```
         search_filter = {
@@ -1002,11 +891,8 @@ Use case #3: BETWEEN operator using createdAt. Time studies were previously pers
         print(
             f"Image sets found with with BETWEEN operator using createdAt\n{recent_image_sets}"
         )
-
-
 ```
-
-Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.
+Use case \#4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and sort response in ASC order on updatedAt field.   
 
 ```
         search_filter = {
@@ -1041,32 +927,20 @@ Use case #4: EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt a
             "Image sets found with EQUAL operator on DICOMSeriesInstanceUID and BETWEEN on updatedAt and"
         )
         print(f"sort response in ASC order on updatedAt field\n{image_sets}")
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [SearchImageSets](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/SearchImageSets) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [SearchImageSets](../../../goto/boto3/medical-imaging-2023-07-19/SearchImageSets.md "../../../goto/boto3/medical-imaging-2023-07-19/SearchImageSets.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -1090,21 +964,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [SearchImageSets](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [SearchImageSets](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

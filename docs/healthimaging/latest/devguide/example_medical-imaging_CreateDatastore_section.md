@@ -1,10 +1,14 @@
+
+
 # Use `CreateDatastore` with an AWS SDK or CLI
+<a name="example_medical-imaging_CreateDatastore_section"></a>
 
 The following code examples show how to use `CreateDatastore`.
 
-Bash
+------
+#### [ Bash ]
 
-**AWS CLI with Bash script**
+**AWS CLI with Bash script**  
 
 ```
 ###############################################################################
@@ -82,36 +86,22 @@ function imaging_create_datastore() {
 
   return 0
 }
+```
++  For API details, see [CreateDatastore](https://docs.aws.amazon.com/goto/aws-cli/medical-imaging-2023-07-19/CreateDatastore) in *AWS CLI Command Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To create a data store**  
+The following `create-datastore` code example creates a data store with the name `my-datastore`. When you create a datastore without specifying a `--lossless-storage-format`, AWS HealthImaging defaults to HTJ2K (High Throughput JPEG 2000).  
 
 ```
-
-- For API details, see
-  [CreateDatastore](../../../goto/aws-cli/medical-imaging-2023-07-19/CreateDatastore.md "../../../goto/aws-cli/medical-imaging-2023-07-19/CreateDatastore.md")
-  in _AWS CLI Command Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To create a data store**
-
-The following `create-datastore` code example creates a data store with the name `my-datastore`.
-When you create a datastore without specifying a `--lossless-storage-format`, AWS HealthImaging defaults to HTJ2K (High Throughput JPEG 2000).
-
+aws medical-imaging create-datastore \
+    --datastore-name {{"my-datastore"}}
 ```
-`aws medical-imaging create-datastore \
- --datastore-name `"my-datastore"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -119,20 +109,15 @@ Output:
     "datastoreStatus": "CREATING"
 }
 ```
-
-**Example 2: To create a data store with JPEG 2000 Lossless storage format**
-
-A data store configured with JPEG 2000 Lossless storage format will transcode and persist lossless image frames in JPEG 2000 format. Image frames can then be retrieved in
-JPEG 2000 Lossless without transcoding. The following `create-datastore` code example creates a data store configured for JPEG 2000 Lossless storage format with the name `my-datastore`.
+**Example 2: To create a data store with JPEG 2000 Lossless storage format**  
+A data store configured with JPEG 2000 Lossless storage format will transcode and persist lossless image frames in JPEG 2000 format. Image frames can then be retrieved in JPEG 2000 Lossless without transcoding. The following `create-datastore` code example creates a data store configured for JPEG 2000 Lossless storage format with the name `my-datastore`.  
 
 ```
-`aws medical-imaging create-datastore \
- --datastore-name `"my-datastore"` \
- --lossless-storage-format `JPEG_2000_LOSSLESS``
-
+aws medical-imaging create-datastore \
+    --datastore-name {{"my-datastore"}} \
+    --lossless-storage-format {{JPEG_2000_LOSSLESS}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -140,14 +125,13 @@ Output:
     "datastoreStatus": "CREATING"
 }
 ```
+  
++  For API details, see [CreateDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/create-datastore.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CreateDatastore](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/create-datastore.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/create-datastore.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static String createMedicalImageDatastore(MedicalImagingClient medicalImagingClient,
@@ -165,23 +149,14 @@ Java
 
         return "";
     }
-
-
 ```
++  For API details, see [CreateDatastore](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/CreateDatastore) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [CreateDatastore](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/CreateDatastore.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/CreateDatastore.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { CreateDatastoreCommand } from "@aws-sdk/client-medical-imaging";
@@ -209,23 +184,14 @@ export const createDatastore = async (datastoreName = "DATASTORE_NAME") => {
   // }
   return response;
 };
-
-
 ```
++  For API details, see [CreateDatastore](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CreateDatastoreCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [CreateDatastore](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CreateDatastoreCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CreateDatastoreCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -252,33 +218,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return data_store["datastoreId"]
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [CreateDatastore](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/CreateDatastore) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [CreateDatastore](../../../goto/boto3/medical-imaging-2023-07-19/CreateDatastore.md "../../../goto/boto3/medical-imaging-2023-07-19/CreateDatastore.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -299,20 +252,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [CreateDatastore](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [CreateDatastore](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

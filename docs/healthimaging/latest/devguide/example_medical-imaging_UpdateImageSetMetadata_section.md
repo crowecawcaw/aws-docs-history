@@ -1,26 +1,26 @@
+
+
 # Use `UpdateImageSetMetadata` with an AWS SDK or CLI
+<a name="example_medical-imaging_UpdateImageSetMetadata_section"></a>
 
 The following code examples show how to use `UpdateImageSetMetadata`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To insert or update an attribute in image set metadata**
-
-The following `update-image-set-metadata` example inserts or updates an attribute in image set metadata.
-
-```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --latest-version-id `1` \
- --cli-binary-format `raw-in-base64-out` \
- --update-image-set-metadata-updates `file://metadata-updates.json``
+**AWS CLI**  
+**Example 1: To insert or update an attribute in image set metadata**  
+The following `update-image-set-metadata` example inserts or updates an attribute in image set metadata.  
 
 ```
-
-Contents of `metadata-updates.json`
+aws medical-imaging update-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --latest-version-id {{1}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --update-image-set-metadata-updates {{file://metadata-updates.json}}
+```
+Contents of `metadata-updates.json`  
 
 ```
 {
@@ -29,8 +29,7 @@ Contents of `metadata-updates.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -43,22 +42,18 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 2: To remove an attribute from image set metadata**
-
-The following `update-image-set-metadata` example removes an attribute from image set metadata.
+**Example 2: To remove an attribute from image set metadata**  
+The following `update-image-set-metadata` example removes an attribute from image set metadata.  
 
 ```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --latest-version-id `1` \
- --cli-binary-format `raw-in-base64-out` \
- --update-image-set-metadata-updates `file://metadata-updates.json``
-
+aws medical-imaging update-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --latest-version-id {{1}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --update-image-set-metadata-updates {{file://metadata-updates.json}}
 ```
-
-Contents of `metadata-updates.json`
+Contents of `metadata-updates.json`  
 
 ```
 {
@@ -67,8 +62,7 @@ Contents of `metadata-updates.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -81,23 +75,19 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 3: To remove an instance from image set metadata**
-
-The following `update-image-set-metadata` example removes an instance from image set metadata.
+**Example 3: To remove an instance from image set metadata**  
+The following `update-image-set-metadata` example removes an instance from image set metadata.  
 
 ```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --latest-version-id `1` \
- --cli-binary-format `raw-in-base64-out` \
- --update-image-set-metadata-updates `file://metadata-updates.json` \
- --force`
-
+aws medical-imaging update-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --latest-version-id {{1}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --update-image-set-metadata-updates {{file://metadata-updates.json}} \
+    --force
 ```
-
-Contents of `metadata-updates.json`
+Contents of `metadata-updates.json`  
 
 ```
 {
@@ -106,8 +96,7 @@ Contents of `metadata-updates.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -120,22 +109,18 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 4: To revert an image set to a previous version**
-
-The following `update-image-set-metadata` example shows how to revert an image set to a prior version. CopyImageSet and UpdateImageSetMetadata actions create new versions of image sets.
+**Example 4: To revert an image set to a previous version**  
+The following `update-image-set-metadata` example shows how to revert an image set to a prior version. CopyImageSet and UpdateImageSetMetadata actions create new versions of image sets.  
 
 ```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `53d5fdb05ca4d46ac7ca64b06545c66e` \
- --latest-version-id `3` \
- --cli-binary-format `raw-in-base64-out` \
- --update-image-set-metadata-updates '`{"revertToVersionId": "1"}`'`
-
+aws medical-imaging update-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{53d5fdb05ca4d46ac7ca64b06545c66e}} \
+    --latest-version-id {{3}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --update-image-set-metadata-updates '{{{"revertToVersionId": "1"}}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -148,24 +133,19 @@ Output:
     "updatedAt": 1680042257.908
 }
 ```
-
-**Example 5: To add a private DICOM data element to an instance**
-
-The following `update-image-set-metadata` example shows how to add a private element to a specified instance within an image set. The DICOM standard permits private data elements for communication of information that cannot be contained in standard data elements. You can create, update, and delete private data elements with the
-UpdateImageSetMetadata action.
+**Example 5: To add a private DICOM data element to an instance**  
+The following `update-image-set-metadata` example shows how to add a private element to a specified instance within an image set. The DICOM standard permits private data elements for communication of information that cannot be contained in standard data elements. You can create, update, and delete private data elements with the UpdateImageSetMetadata action.  
 
 ```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `53d5fdb05ca4d46ac7ca64b06545c66e` \
- --latest-version-id `1` \
- --cli-binary-format `raw-in-base64-out` \
- --force \
- --update-image-set-metadata-updates `file://metadata-updates.json``
-
+aws medical-imaging update-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{53d5fdb05ca4d46ac7ca64b06545c66e}} \
+    --latest-version-id {{1}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --force \
+    --update-image-set-metadata-updates {{file://metadata-updates.json}}
 ```
-
-Contents of `metadata-updates.json`
+Contents of `metadata-updates.json`  
 
 ```
 {
@@ -174,8 +154,7 @@ Contents of `metadata-updates.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -188,23 +167,19 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 6: To update a private DICOM data element to an instance**
-
-The following `update-image-set-metadata` example shows how to update the value of a private data element belonging to an instance within an image set.
+**Example 6: To update a private DICOM data element to an instance**  
+The following `update-image-set-metadata` example shows how to update the value of a private data element belonging to an instance within an image set.  
 
 ```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `53d5fdb05ca4d46ac7ca64b06545c66e` \
- --latest-version-id `1` \
- --cli-binary-format `raw-in-base64-out` \
- --force \
- --update-image-set-metadata-updates `file://metadata-updates.json``
-
+aws medical-imaging update-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{53d5fdb05ca4d46ac7ca64b06545c66e}} \
+    --latest-version-id {{1}} \
+    --cli-binary-format {{raw-in-base64-out}} \
+    --force \
+    --update-image-set-metadata-updates {{file://metadata-updates.json}}
 ```
-
-Contents of `metadata-updates.json`
+Contents of `metadata-updates.json`  
 
 ```
 {
@@ -213,8 +188,7 @@ Contents of `metadata-updates.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -227,23 +201,19 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 7: To update a SOPInstanceUID with the force parameter**
-
-The following `update-image-set-metadata` example shows how to update a SOPInstanceUID, using the force parameter to override the DICOM metadata constraints.
+**Example 7: To update a SOPInstanceUID with the force parameter**  
+The following `update-image-set-metadata` example shows how to update a SOPInstanceUID, using the force parameter to override the DICOM metadata constraints.  
 
 ```
-`aws medical-imaging update-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `53d5fdb05ca4d46ac7ca64b06545c66e` \
- --latest-version-id `1` \
- --cli-binary-format `raw-in-base64-out` \
- --force \
- --update-image-set-metadata-updates `file://metadata-updates.json``
-
+aws medical-imaging update-image-set-metadata \
+        --datastore-id {{12345678901234567890123456789012}} \
+        --image-set-id {{53d5fdb05ca4d46ac7ca64b06545c66e}} \
+        --latest-version-id {{1}} \
+        --cli-binary-format {{raw-in-base64-out}} \
+        --force \
+        --update-image-set-metadata-updates {{file://metadata-updates.json}}
 ```
-
-Contents of `metadata-updates.json`
+Contents of `metadata-updates.json`  
 
 ```
 {
@@ -252,8 +222,7 @@ Contents of `metadata-updates.json`
     }
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -266,17 +235,15 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
+  
++  For API details, see [UpdateImageSetMetadata](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/update-image-set-metadata.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [UpdateImageSetMetadata](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/update-image-set-metadata.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/update-image-set-metadata.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
-
     /**
      * Update the metadata of an AWS HealthImaging image set.
      *
@@ -312,11 +279,8 @@ Java
             throw e;
         }
     }
-
-
 ```
-
-Use case #1: Insert or update an attribute.
+Use case \#1: Insert or update an attribute.  
 
 ```
                 final String insertAttributes = """
@@ -339,11 +303,8 @@ Use case #1: Insert or update an attribute.
 
                 updateMedicalImageSetMetadata(medicalImagingClient, datastoreId, imagesetId,
                         versionid, metadataInsertUpdates, force);
-
-
 ```
-
-Use case #2: Remove an attribute.
+Use case \#2: Remove an attribute.  
 
 ```
                 final String removeAttributes = """
@@ -366,11 +327,8 @@ Use case #2: Remove an attribute.
 
                 updateMedicalImageSetMetadata(medicalImagingClient, datastoreId, imagesetId,
                         versionid, metadataRemoveUpdates, force);
-
-
 ```
-
-Use case #3: Remove an instance.
+Use case \#3: Remove an instance.  
 
 ```
                 final String removeInstance = """
@@ -385,7 +343,7 @@ Use case #3: Remove an instance.
                               }
                             }
                           }
-                        }
+                        }      
                         """;
                 MetadataUpdates metadataRemoveUpdates = MetadataUpdates.builder()
                         .dicomUpdates(DICOMUpdates.builder()
@@ -397,11 +355,8 @@ Use case #3: Remove an instance.
 
                 updateMedicalImageSetMetadata(medicalImagingClient, datastoreId, imagesetId,
                         versionid, metadataRemoveUpdates, force);
-
-
 ```
-
-Use case #4: Revert to a previous version.
+Use case \#4: Revert to a previous version.  
 
 ```
                 // In this case, revert to previous version.
@@ -411,23 +366,14 @@ Use case #4: Revert to a previous version.
                         .build();
                 updateMedicalImageSetMetadata(medicalImagingClient, datastoreId, imagesetId,
                         versionid, metadataRemoveUpdates, force);
-
-
 ```
++  For API details, see [UpdateImageSetMetadata](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/UpdateImageSetMetadata) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [UpdateImageSetMetadata](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/UpdateImageSetMetadata.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/UpdateImageSetMetadata.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { UpdateImageSetMetadataCommand } from "@aws-sdk/client-medical-imaging";
@@ -480,11 +426,8 @@ export const updateImageSetMetadata = async (
     console.error(err);
   }
 };
-
-
 ```
-
-Use case #1: Insert or update an attribute and force the update.
+Use case \#1: Insert or update an attribute and force the update.  
 
 ```
     const insertAttributes = JSON.stringify({
@@ -509,11 +452,8 @@ Use case #1: Insert or update an attribute and force the update.
       updateMetadata,
       true,
     );
-
-
 ```
-
-Use case #2: Remove an attribute.
+Use case \#2: Remove an attribute.  
 
 ```
     // Attribute key and value must match the existing attribute.
@@ -538,11 +478,8 @@ Use case #2: Remove an attribute.
       versionID,
       updateMetadata,
     );
-
-
 ```
-
-Use case #3: Remove an instance.
+Use case \#3: Remove an instance.  
 
 ```
     const remove_instance = JSON.stringify({
@@ -570,11 +507,8 @@ Use case #3: Remove an instance.
       versionID,
       updateMetadata,
     );
-
-
 ```
-
-Use case #4: Revert to an earlier version.
+Use case \#4: Revert to an earlier version.  
 
 ```
     const updateMetadata = {
@@ -587,23 +521,14 @@ Use case #4: Revert to an earlier version.
       versionID,
       updateMetadata,
     );
-
-
 ```
++  For API details, see [UpdateImageSetMetadata](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UpdateImageSetMetadataCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [UpdateImageSetMetadata](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UpdateImageSetMetadataCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UpdateImageSetMetadataCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -643,21 +568,14 @@ class MedicalImagingWrapper:
             raise
         else:
             return updated_metadata
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
-
-Use case #1: Insert or update an attribute.
+Use case \#1: Insert or update an attribute.  
 
 ```
             attributes = """{
@@ -673,11 +591,8 @@ Use case #1: Insert or update an attribute.
             self.update_image_set_metadata(
                 data_store_id, image_set_id, version_id, metadata, force
             )
-
-
 ```
-
-Use case #2: Remove an attribute.
+Use case \#2: Remove an attribute.  
 
 ```
             # Attribute key and value must match the existing attribute.
@@ -694,11 +609,8 @@ Use case #2: Remove an attribute.
             self.update_image_set_metadata(
                 data_store_id, image_set_id, version_id, metadata, force
             )
-
-
 ```
-
-Use case #3: Remove an instance.
+Use case \#3: Remove an instance.  
 
 ```
             attributes = """{
@@ -718,12 +630,8 @@ Use case #3: Remove an instance.
             self.update_image_set_metadata(
                 data_store_id, image_set_id, version_id, metadata, force
             )
-
-
-
 ```
-
-Use case #4: Revert to an earlier version.
+Use case \#4: Revert to an earlier version.  
 
 ```
             metadata = {"revertToVersionId": "1"}
@@ -731,24 +639,14 @@ Use case #4: Revert to an earlier version.
             self.update_image_set_metadata(
                 data_store_id, image_set_id, version_id, metadata, force
             )
-
-
-
 ```
++  For API details, see [UpdateImageSetMetadata](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/UpdateImageSetMetadata) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [UpdateImageSetMetadata](../../../goto/boto3/medical-imaging-2023-07-19/UpdateImageSetMetadata.md "../../../goto/boto3/medical-imaging-2023-07-19/UpdateImageSetMetadata.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -779,20 +677,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [UpdateImageSetMetadata](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [UpdateImageSetMetadata](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

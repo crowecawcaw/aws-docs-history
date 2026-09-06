@@ -1,22 +1,23 @@
+
+
 # Get started with HealthImaging image sets and image frames using an AWS SDK
+<a name="example_medical-imaging_Scenario_ImageSetsAndFrames_section"></a>
 
 The following code examples show how to import DICOM files and download image frames in HealthImaging.
 
-The implementation is structured as a command-line
-application.
+The implementation is structured as a command-line application. 
++ Set up resources for a DICOM import.
++ Import DICOM files into a data store.
++ Retrieve the image set IDs for the import job.
++ Retrieve the image frame IDs for the image sets.
++ Download, decode and verify the image frames.
++ Clean up resources.
 
-- Set up resources for a DICOM import.
-- Import DICOM files into a data store.
-- Retrieve the image set IDs for the import job.
-- Retrieve the image frame IDs for the image sets.
-- Download, decode and verify the image frames.
-- Clean up resources.
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-Create an CloudFormation stack with the necessary resources.
+**SDK for C\+\+**  
+Create an CloudFormation stack with the necessary resources.  
 
 ```
     Aws::String inputBucketName;
@@ -63,11 +64,8 @@ Create an CloudFormation stack with the necessary resources.
         roleArn = askQuestion(
                 "Enter the ARN for the IAM role with the proper permissions to import a DICOM series: ");
     }
-
-
 ```
-
-Copy DICOM files to the Amazon S3 import bucket.
+Copy DICOM files to the Amazon S3 import bucket.  
 
 ```
     std::cout
@@ -109,11 +107,8 @@ Copy DICOM files to the Amazon S3 import bucket.
         cleanup(stackName, dataStoreId, clientConfiguration);
         return false;
     }
-
-
 ```
-
-Import the DICOM files to the Amazon S3 data store.
+Import the DICOM files to the Amazon S3 data store.  
 
 ```
 bool AwsDoc::Medical_Imaging::startDicomImport(const Aws::String &dataStoreID,
@@ -242,11 +237,8 @@ AwsDoc::Medical_Imaging::getDICOMImportJob(const Aws::String &dataStoreID,
 
     return outcome;
 }
-
-
 ```
-
-Get image sets created by the DICOM import job.
+Get image sets created by the DICOM import job.  
 
 ```
 bool
@@ -307,11 +299,8 @@ AwsDoc::Medical_Imaging::getImageSetsForDicomImportJob(const Aws::String &datast
 
     return result;
 }
-
-
 ```
-
-Get image frame information for image sets.
+Get image frame information for image sets.  
 
 ```
 bool AwsDoc::Medical_Imaging::getImageFramesForImageSet(const Aws::String &dataStoreID,
@@ -422,11 +411,8 @@ bool AwsDoc::Medical_Imaging::getImageSetMetadata(const Aws::String &dataStoreID
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Download, decode and verify image frames.
+Download, decode and verify image frames.  
 
 ```
 bool AwsDoc::Medical_Imaging::downloadDecodeAndCheckImageFrames(
@@ -707,11 +693,8 @@ bool AwsDoc::Medical_Imaging::verifyChecksumForImage(opj_image_t *image,
     }
     return result;
 }
-
-
 ```
-
-Clean up resources.
+Clean up resources.  
 
 ```
 bool AwsDoc::Medical_Imaging::cleanup(const Aws::String &stackName,
@@ -746,33 +729,23 @@ bool AwsDoc::Medical_Imaging::emptyDatastore(const Aws::String &datastoreID,
 
     return result;
 }
+```
++ For API details, see the following topics in *AWS SDK for C\+\+ API Reference*.
+  + [DeleteImageSet](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet)
+  + [GetDICOMImportJob](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/GetDICOMImportJob)
+  + [GetImageFrame](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame)
+  + [GetImageSetMetadata](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/GetImageSetMetadata)
+  + [SearchImageSets](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/SearchImageSets)
+  + [StartDICOMImportJob](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob)
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples). 
 
+------
+#### [ JavaScript ]
+
+**SDK for JavaScript (v3)**  
+Orchestrate steps (index.js).  
 
 ```
-
-- For API details, see the following topics in _AWS SDK for C++ API Reference_.
-
-  - [DeleteImageSet](../../../goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet.md")
-  - [GetDICOMImportJob](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetDICOMImportJob.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetDICOMImportJob.md")
-  - [GetImageFrame](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md")
-  - [GetImageSetMetadata](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageSetMetadata.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageSetMetadata.md")
-  - [SearchImageSets](../../../goto/SdkForCpp/medical-imaging-2023-07-19/SearchImageSets.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/SearchImageSets.md")
-  - [StartDICOMImportJob](../../../goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Orchestrate steps (index.js).
-
-```
-
 import {
   parseScenarioArgs,
   Scenario,
@@ -877,11 +850,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       "node index.js --scenario <deploy | demo | destroy> [-h|--help] [-y|--yes] [-v|--verbose]",
   });
 }
-
-
 ```
-
-Deploy resources (deploy-steps.js).
+Deploy resources (deploy-steps.js).  
 
 ```
 import fs from "node:fs/promises";
@@ -1016,11 +986,8 @@ Role ARN: ${stackOutputs?.RoleArn}
   },
   { skipWhen: (/** @type {{}} */ state) => !state.deployStack },
 );
-
-
 ```
-
-Copy DICOM files (dataset-steps.js).
+Copy DICOM files (dataset-steps.js).  
 
 ```
 import {
@@ -1128,11 +1095,8 @@ export const outputCopiedObjects = new ScenarioOutput(
   "outputCopiedObjects",
   (state) => `${state.copiedObjects} DICOM files were copied.`,
 );
-
-
 ```
-
-Start import into datastore (import-steps.js).
+Start import into datastore (import-steps.js).  
 
 ```
 import {
@@ -1216,11 +1180,8 @@ export const outputImportJobStatus = new ScenarioOutput(
   (state) =>
     `DICOM import job completed. Output location: ${state.importJobOutputS3Uri}`,
 );
-
-
 ```
-
-Get image set IDs (image-set-steps.js - ).
+Get image set IDs (image-set-steps.js - ).  
 
 ```
 import { S3Client, GetObjectCommand } from "@aws-sdk/client-s3";
@@ -1282,11 +1243,8 @@ export const outputImageSetIds = new ScenarioOutput(
       .map((id) => `Image set: ${id}`)
       .join("\n")}`,
 );
-
-
 ```
-
-Get image frame IDs (image-frame-steps.js).
+Get image frame IDs (image-frame-steps.js).  
 
 ```
 import {
@@ -1411,11 +1369,8 @@ export const outputImageFrameIds = new ScenarioOutput(
     return output;
   },
 );
-
-
 ```
-
-Verify image frames (verify-steps.js). The [AWS HealthImaging Pixel Data Verification](https://github.com/aws-samples/aws-healthimaging-samples/tree/main/pixel-data-verification "https://github.com/aws-samples/aws-healthimaging-samples/tree/main/pixel-data-verification") library was used for verification.
+Verify image frames (verify-steps.js). The [AWS HealthImaging Pixel Data Verification](https://github.com/aws-samples/aws-healthimaging-samples/tree/main/pixel-data-verification) library was used for verification.  
 
 ```
 import { spawn } from "node:child_process";
@@ -1540,11 +1495,8 @@ export const decodeAndVerifyImages = new ScenarioAction(
     }
   },
 );
-
-
 ```
-
-Destroy resources (clean-up-steps.js).
+Destroy resources (clean-up-steps.js).  
 
 ```
 import {
@@ -1671,30 +1623,21 @@ export const deleteStack = new ScenarioAction(
     skipWhen: (/** @type {{}} */ state) => !state.confirmCleanup,
   },
 );
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [DeleteImageSet](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand)
+  + [GetDICOMImportJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDICOMImportJobCommand)
+  + [GetImageFrame](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand)
+  + [GetImageSetMetadata](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand)
+  + [SearchImageSets](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand)
+  + [StartDICOMImportJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand)
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [DeleteImageSet](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand.md")
-  - [GetDICOMImportJob](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDICOMImportJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDICOMImportJobCommand.md")
-  - [GetImageFrame](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md")
-  - [GetImageSetMetadata](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand.md")
-  - [SearchImageSets](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand.md")
-  - [StartDICOMImportJob](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand.md")
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
-
-Create an CloudFormation stack with the necessary resources.
+**SDK for Python (Boto3)**  
+Create an CloudFormation stack with the necessary resources.  
 
 ```
     def deploy(self):
@@ -1747,12 +1690,8 @@ Create an CloudFormation stack with the necessary resources.
         self.role_arn = outputs_dictionary["RoleArn"]
         self.data_store_id = outputs_dictionary["DatastoreID"]
         return stack
-
-
-
 ```
-
-Copy DICOM files to the Amazon S3 import bucket.
+Copy DICOM files to the Amazon S3 import bucket.  
 
 ```
     def copy_single_object(self, key, source_bucket, target_bucket, target_directory):
@@ -1795,16 +1734,10 @@ Copy DICOM files to the Amazon S3 import bucket.
             self.copy_single_object(key, source_bucket, target_bucket, target_directory)
 
         print("\t\tDone copying all objects.")
-
-
+```
+Import the DICOM files to the Amazon S3 data store.  
 
 ```
-
-Import the DICOM files to the Amazon S3 data store.
-
-```
-
-
 class MedicalImagingWrapper:
     """Encapsulates AWS HealthImaging functionality."""
 
@@ -1863,16 +1796,10 @@ class MedicalImagingWrapper:
             raise
         else:
             return job["jobId"]
-
-
+```
+Get image sets created by the DICOM import job.  
 
 ```
-
-Get image sets created by the DICOM import job.
-
-```
-
-
 class MedicalImagingWrapper:
     """Encapsulates AWS HealthImaging functionality."""
 
@@ -1960,16 +1887,10 @@ class MedicalImagingWrapper:
             raise
         else:
             return image_set
-
-
+```
+Get image frame information for image sets.  
 
 ```
-
-Get image frame information for image sets.
-
-```
-
-
 class MedicalImagingWrapper:
     """Encapsulates AWS HealthImaging functionality."""
 
@@ -2072,16 +1993,10 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
+```
+Download, decode and verify image frames.  
 
 ```
-
-Download, decode and verify image frames.
-
-```
-
-
 class MedicalImagingWrapper:
     """Encapsulates AWS HealthImaging functionality."""
 
@@ -2176,12 +2091,8 @@ class MedicalImagingWrapper:
         image_array = openjpeg.utils.decode(jph_file, 2)
 
         return image_array
-
-
-
 ```
-
-Clean up resources.
+Clean up resources.  
 
 ```
     def destroy(self, stack):
@@ -2284,26 +2195,16 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [DeleteImageSet](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/DeleteImageSet)
+  + [GetDICOMImportJob](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetDICOMImportJob)
+  + [GetImageFrame](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetImageFrame)
+  + [GetImageSetMetadata](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetImageSetMetadata)
+  + [SearchImageSets](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/SearchImageSets)
+  + [StartDICOMImportJob](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob)
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples). 
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [DeleteImageSet](../../../goto/boto3/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/boto3/medical-imaging-2023-07-19/DeleteImageSet.md")
-  - [GetDICOMImportJob](../../../goto/boto3/medical-imaging-2023-07-19/GetDICOMImportJob.md "../../../goto/boto3/medical-imaging-2023-07-19/GetDICOMImportJob.md")
-  - [GetImageFrame](../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md")
-  - [GetImageSetMetadata](../../../goto/boto3/medical-imaging-2023-07-19/GetImageSetMetadata.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageSetMetadata.md")
-  - [SearchImageSets](../../../goto/boto3/medical-imaging-2023-07-19/SearchImageSets.md "../../../goto/boto3/medical-imaging-2023-07-19/SearchImageSets.md")
-  - [StartDICOMImportJob](../../../goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

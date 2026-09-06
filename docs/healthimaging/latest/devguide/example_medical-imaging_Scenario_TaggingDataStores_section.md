@@ -1,23 +1,23 @@
+
+
 # Tagging a HealthImaging data store using an AWS SDK
+<a name="example_medical-imaging_Scenario_TaggingDataStores_section"></a>
 
 The following code examples show how to tag a HealthImaging data store.
 
-Java
+------
+#### [ Java ]
 
-**SDK for Java 2.x**
-
-To tag a data store.
+**SDK for Java 2.x**  
+To tag a data store.  
 
 ```
                 final String datastoreArn = "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012";
 
                 TagResource.tagMedicalImagingResource(medicalImagingClient, datastoreArn,
                                 ImmutableMap.of("Deployment", "Development"));
-
-
 ```
-
-The utility function for tagging a resource.
+The utility function for tagging a resource.  
 
 ```
     public static void tagMedicalImagingResource(MedicalImagingClient medicalImagingClient,
@@ -37,11 +37,8 @@ The utility function for tagging a resource.
             System.exit(1);
         }
     }
-
-
 ```
-
-To list tags for a data store.
+To list tags for a data store.  
 
 ```
                 final String datastoreArn = "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012";
@@ -52,11 +49,8 @@ To list tags for a data store.
                 if (result != null) {
                         System.out.println("Tags for resource: " + result.tags());
                 }
-
-
 ```
-
-The utility function for listing a resource's tags.
+The utility function for listing a resource's tags.  
 
 ```
     public static ListTagsForResourceResponse listMedicalImagingResourceTags(MedicalImagingClient medicalImagingClient,
@@ -74,22 +68,16 @@ The utility function for listing a resource's tags.
 
         return null;
     }
-
-
 ```
-
-To untag a data store.
+To untag a data store.  
 
 ```
                 final String datastoreArn = "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012";
 
                 UntagResource.untagMedicalImagingResource(medicalImagingClient, datastoreArn,
                                 Collections.singletonList("Deployment"));
-
-
 ```
-
-The utility function for untagging a resource.
+The utility function for untagging a resource.  
 
 ```
     public static void untagMedicalImagingResource(MedicalImagingClient medicalImagingClient,
@@ -109,27 +97,18 @@ The utility function for untagging a resource.
             System.exit(1);
         }
     }
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Java 2.x API Reference*.
+  + [ListTagsForResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource)
+  + [TagResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/TagResource)
+  + [UntagResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/UntagResource)
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-  - [ListTagsForResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource.md")
-  - [TagResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/TagResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/TagResource.md")
-  - [UntagResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/UntagResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/UntagResource.md")
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-To tag a data store.
+**SDK for JavaScript (v3)**  
+To tag a data store.  
 
 ```
   try {
@@ -142,11 +121,8 @@ To tag a data store.
   } catch (e) {
     console.log(e);
   }
-
-
 ```
-
-The utility function for tagging a resource.
+The utility function for tagging a resource.  
 
 ```
 import { TagResourceCommand } from "@aws-sdk/client-medical-imaging";
@@ -178,11 +154,8 @@ export const tagResource = async (
 
   return response;
 };
-
-
 ```
-
-To list tags for a data store.
+To list tags for a data store.  
 
 ```
   try {
@@ -193,11 +166,8 @@ To list tags for a data store.
   } catch (e) {
     console.log(e);
   }
-
-
 ```
-
-The utility function for listing a resource's tags.
+The utility function for listing a resource's tags.  
 
 ```
 import { ListTagsForResourceCommand } from "@aws-sdk/client-medical-imaging";
@@ -227,11 +197,8 @@ export const listTagsForResource = async (
 
   return response;
 };
-
-
 ```
-
-To untag a data store.
+To untag a data store.  
 
 ```
   try {
@@ -242,11 +209,8 @@ To untag a data store.
   } catch (e) {
     console.log(e);
   }
-
-
 ```
-
-The utility function for untagging a resource.
+The utility function for untagging a resource.  
 
 ```
 import { UntagResourceCommand } from "@aws-sdk/client-medical-imaging";
@@ -277,37 +241,25 @@ export const untagResource = async (
 
   return response;
 };
-
-
 ```
++ For API details, see the following topics in *AWS SDK for JavaScript API Reference*.
+  + [ListTagsForResource](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand)
+  + [TagResource](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/TagResourceCommand)
+  + [UntagResource](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UntagResourceCommand)
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-  - [ListTagsForResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand.md")
-  - [TagResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/TagResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/TagResourceCommand.md")
-  - [UntagResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UntagResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UntagResourceCommand.md")
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
-
-To tag a data store.
+**SDK for Python (Boto3)**  
+To tag a data store.  
 
 ```
     a_data_store_arn = "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012"
 
     medical_imaging_wrapper.tag_resource(data_store_arn, {"Deployment": "Development"})
-
-
 ```
-
-The utility function for tagging a resource.
+The utility function for tagging a resource.  
 
 ```
 class MedicalImagingWrapper:
@@ -331,22 +283,15 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-To list tags for a data store.
+To list tags for a data store.  
 
 ```
     a_data_store_arn = "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012"
 
     medical_imaging_wrapper.list_tags_for_resource(data_store_arn)
-
-
 ```
-
-The utility function for listing a resource's tags.
+The utility function for listing a resource's tags.  
 
 ```
 class MedicalImagingWrapper:
@@ -374,23 +319,15 @@ class MedicalImagingWrapper:
             raise
         else:
             return tags["tags"]
-
-
-
 ```
-
-To untag a data store.
+To untag a data store.  
 
 ```
     a_data_store_arn = "arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012"
 
     medical_imaging_wrapper.untag_resource(data_store_arn, ["Deployment"])
-
-
-
 ```
-
-The utility function for untagging a resource.
+The utility function for untagging a resource.  
 
 ```
 class MedicalImagingWrapper:
@@ -416,32 +353,19 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++ For API details, see the following topics in *AWS SDK for Python (Boto3) API Reference*.
+  + [ListTagsForResource](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/ListTagsForResource)
+  + [TagResource](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/TagResource)
+  + [UntagResource](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/UntagResource)
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-  - [ListTagsForResource](../../../goto/boto3/medical-imaging-2023-07-19/ListTagsForResource.md "../../../goto/boto3/medical-imaging-2023-07-19/ListTagsForResource.md")
-  - [TagResource](../../../goto/boto3/medical-imaging-2023-07-19/TagResource.md "../../../goto/boto3/medical-imaging-2023-07-19/TagResource.md")
-  - [UntagResource](../../../goto/boto3/medical-imaging-2023-07-19/UntagResource.md "../../../goto/boto3/medical-imaging-2023-07-19/UntagResource.md")
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

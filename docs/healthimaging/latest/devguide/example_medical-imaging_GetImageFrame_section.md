@@ -1,15 +1,17 @@
+
+
 # Use `GetImageFrame` with an AWS SDK or CLI
+<a name="example_medical-imaging_GetImageFrame_section"></a>
 
 The following code examples show how to use `GetImageFrame`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md) 
 
-- [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md "example_medical-imaging_Scenario_ImageSetsAndFrames_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
+**SDK for C\+\+**  
 
 ```
 //! Routine which downloads an AWS HealthImaging image frame.
@@ -54,47 +56,32 @@ bool AwsDoc::Medical_Imaging::getImageFrame(const Aws::String &dataStoreID,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get image set pixel data**  
+The following `get-image-frame` code example gets an image frame.  
 
 ```
-
-- For API details, see
-  [GetImageFrame](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To get image set pixel data**
-
-The following `get-image-frame` code example gets an image frame.
-
+aws medical-imaging get-image-frame \
+    --datastore-id {{"12345678901234567890123456789012"}} \
+    --image-set-id {{"98765412345612345678907890789012"}} \
+    --image-frame-information {{imageFrameId=3abf5d5d7ae72f80a0ec81b2c0de3ef4}} \
+    {{imageframe.jph}}
 ```
-`aws medical-imaging get-image-frame \
- --datastore-id `"12345678901234567890123456789012"` \
- --image-set-id `"98765412345612345678907890789012"` \
- --image-frame-information `imageFrameId=3abf5d5d7ae72f80a0ec81b2c0de3ef4` \
- `imageframe.jph``
+Note: This code example does not include output because the GetImageFrame action returns a stream of pixel data to the imageframe.jph file. For information about decoding and viewing image frames, see HTJ2K decoding libraries.  
+  
++  For API details, see [GetImageFrame](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-Note:
-This code example does not include output because the GetImageFrame action returns a stream of pixel data to the imageframe.jph file. For information about decoding and viewing image frames, see HTJ2K decoding libraries.
-
-- For API details, see
-  [GetImageFrame](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
         public static void getMedicalImageSetFrame(MedicalImagingClient medicalImagingClient,
@@ -120,23 +107,14 @@ Java
                         System.exit(1);
                 }
         }
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageFrame) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageFrame.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { GetImageFrameCommand } from "@aws-sdk/client-medical-imaging";
@@ -179,23 +157,14 @@ export const getImageFrame = async (
   // }
   return response;
 };
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -231,33 +200,20 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetImageFrame) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -284,20 +240,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

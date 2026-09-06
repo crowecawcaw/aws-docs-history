@@ -1,24 +1,24 @@
+
+
 # Use `GetImageSet` with an AWS SDK or CLI
+<a name="example_medical-imaging_GetImageSet_section"></a>
 
 The following code examples show how to use `GetImageSet`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To get image set properties**
-
-The following `get-image-set` code example gets the properties for an image set.
-
-```
-`aws medical-imaging get-image-set \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `18f88ac7870584f58d56256646b4d92b` \
- --version-id `1``
+**AWS CLI**  
+**To get image set properties**  
+The following `get-image-set` code example gets the properties for an image set.  
 
 ```
-
-Output:
+aws medical-imaging get-image-set \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{18f88ac7870584f58d56256646b4d92b}} \
+    --version-id {{1}}
+```
+Output:  
 
 ```
 {
@@ -31,14 +31,13 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
+  
++  For API details, see [GetImageSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-set.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetImageSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-set.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-set.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static GetImageSetResponse getMedicalImageSet(MedicalImagingClient medicalImagingClient,
@@ -62,23 +61,14 @@ Java
 
         return null;
     }
-
-
 ```
++  For API details, see [GetImageSet](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageSet) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [GetImageSet](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageSet.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageSet.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { GetImageSetCommand } from "@aws-sdk/client-medical-imaging";
@@ -124,24 +114,14 @@ export const getImageSet = async (
 
   return response;
 };
-
-
-
 ```
++  For API details, see [GetImageSet](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageSet](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -178,33 +158,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return image_set
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [GetImageSet](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetImageSet) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageSet](../../../goto/boto3/medical-imaging-2023-07-19/GetImageSet.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageSet.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -236,20 +203,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetImageSet](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [GetImageSet](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,69 +1,51 @@
+
+
 # Starting an import job
+<a name="start-dicom-import-job"></a>
 
-Use the `StartDICOMImportJob` action to start a [pixel data verification check](pixel-data-verification.md "pixel-data-verification.md") and bulk data
-import into an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store"). The import
-job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The
-`inputS3Uri` parameter specifies the Amazon S3 input bucket containing the source
-files. The import job processing results are stored in the Amazon S3 output bucket specified by
-the `outputS3Uri` parameter.
+Use the `StartDICOMImportJob` action to start a [pixel data verification check](pixel-data-verification.md) and bulk data import into an AWS HealthImaging [data store](getting-started-concepts.md#concept-data-store). The import job imports DICOM P10 files or enhances existing DICOM files with JSON metadata. The `inputS3Uri` parameter specifies the Amazon S3 input bucket containing the source files. The import job processing results are stored in the Amazon S3 output bucket specified by the `outputS3Uri` parameter.
 
-###### Note
+**Note**  
+Keep the following points in mind before starting an import job:  
+HealthImaging supports importing DICOM P10 files with different transfer syntaxes. Some files retain their original transfer syntax encoding during import, while others are transcoded to HTJ2K lossless by default or JPEG 2000 Lossless depending on your datastore configuration. For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md).
+HealthImaging supports data imports from Amazon S3 buckets located in other [supported Regions](endpoints-quotas.md#endpoints). To achieve this functionality, provide the `inputOwnerAccountId` parameter when starting an import job. For more information, see [Cross-account import for AWS HealthImaging](cross-account-imports.md).
+HealthImaging applies length constraints to specific DICOM elements during import. For more information, see [DICOM element constraints](dicom-element-constraints.md).
+To import DICOM files with JSON metadata overrides, provide the `importConfiguration` parameter with a `DicomMetadataMapping` that maps DICOM files to their corresponding JSON metadata files. For more information, see [`StartDICOMImportJob`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_StartDICOMImportJob.html) in the *AWS HealthImaging API Reference*.
 
-Keep the following points in mind before starting an import job:
+The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`StartDICOMImportJob`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_StartDICOMImportJob.html) in the *AWS HealthImaging API Reference*.
 
-- HealthImaging supports importing DICOM P10 files with different transfer syntaxes.
-  Some files retain their original transfer syntax encoding during import, while
-  others are transcoded to HTJ2K lossless by default or JPEG 2000 Lossless
-  depending on your datastore configuration. For more information, see
-  [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md").
-- HealthImaging supports data imports from Amazon S3 buckets located in other [supported Regions](endpoints-quotas.md#endpoints "endpoints-quotas.md#endpoints"). To achieve this functionality,
-  provide the `inputOwnerAccountId` parameter when starting an import
-  job. For more information, see [Cross-account import for AWS HealthImaging](cross-account-imports.md "cross-account-imports.md").
-- HealthImaging applies length constraints to specific DICOM elements during import. For
-  more information, see [DICOM element constraints](dicom-element-constraints.md "dicom-element-constraints.md").
-- To import DICOM files with JSON metadata overrides, provide the
-  `importConfiguration` parameter with a
-  `DicomMetadataMapping` that maps DICOM files to their
-  corresponding JSON metadata files. For more information, see [`StartDICOMImportJob`](../APIReference/API_StartDICOMImportJob.md "../APIReference/API_StartDICOMImportJob.md") in the _AWS HealthImaging API
-  Reference_.
-  The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI
-  and AWS SDKs. For more information, see [`StartDICOMImportJob`](../APIReference/API_StartDICOMImportJob.md "../APIReference/API_StartDICOMImportJob.md") in the _AWS HealthImaging API
-  Reference_.
-
-###### To start an import job
-
+**To start an import job**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
-2. Choose a data store.
-3. Choose **Import DICOM data**.
+## AWS Console
+<a name="code-example-console-import-job-start"></a>
 
-The **Import DICOM data** page opens. 4. Under the **Details** section, enter the following
-information:
+1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-    * **Name** (optional)
+1. Choose a data store.
 
+1. Choose **Import DICOM data**.
 
-    * **Import source location in S3**
+   The **Import DICOM data** page opens.
 
+1. Under the **Details** section, enter the following information:
+   + **Name** (optional)
+   + **Import source location in S3**
+   + **Source bucket owner's account ID** (optional)
+   + **Encryption key** (optional)
+   + **Output destination in S3**
 
-    * **Source bucket owner's account ID**
-     (optional)
+1. Under the **Service access** section, choose **Use an existing service role** and select the role from the **Service role name** menu or choose **Create and use a new service role**.
 
+1. Choose **Import**.
 
-    * **Encryption key** (optional)
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-import-job-start"></a>
 
+------
+#### [ C\+\+ ]
 
-    * **Output destination in S3**
-
-5. Under the **Service access** section, choose
-**Use an existing service role** and select the role
-from the **Service role name** menu or choose
-**Create and use a new service role**. 6. Choose **Import**.
-
-C++
-
-**SDK for C++**
+**SDK for C\+\+**  
 
 ```
 //! Routine which starts a HealthImaging import job.
@@ -106,40 +88,26 @@ bool AwsDoc::Medical_Imaging::startDICOMImportJob(
 
     return startDICOMImportJobOutcome.IsSuccess();
 }
+```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To start a dicom import job**  
+The following `start-dicom-import-job` code example starts a dicom import job.  
 
 ```
-
-- For API details, see
-  [StartDICOMImportJob](../../../goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To start a dicom import job**
-
-The following `start-dicom-import-job` code example starts a dicom import job.
-
+aws medical-imaging start-dicom-import-job \
+    --job-name {{"my-job"}} \
+    --datastore-id {{"12345678901234567890123456789012"}} \
+    --input-s3-uri {{"s3://medical-imaging-dicom-input/dicom_input/"}} \
+    --output-s3-uri {{"s3://medical-imaging-output/job_output/"}} \
+    --data-access-role-arn {{"arn:aws:iam::123456789012:role/ImportJobDataAccessRole"}}
 ```
-`aws medical-imaging start-dicom-import-job \
- --job-name `"my-job"` \
- --datastore-id `"12345678901234567890123456789012"` \
- --input-s3-uri `"s3://medical-imaging-dicom-input/dicom_input/"` \
- --output-s3-uri `"s3://medical-imaging-output/job_output/"` \
- --data-access-role-arn `"arn:aws:iam::123456789012:role/ImportJobDataAccessRole"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -149,14 +117,13 @@ Output:
     "submittedAt": "2022-08-12T11:28:11.152000+00:00"
 }
 ```
+  
++  For API details, see [StartDICOMImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/start-dicom-import-job.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [StartDICOMImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/start-dicom-import-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/start-dicom-import-job.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static String startDicomImportJob(MedicalImagingClient medicalImagingClient,
@@ -183,23 +150,14 @@ Java
 
         return "";
     }
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/StartDICOMImportJob) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { StartDICOMImportJobCommand } from "@aws-sdk/client-medical-imaging";
@@ -245,23 +203,14 @@ export const startDicomImportJob = async (
   // }
   return response;
 };
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -299,33 +248,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return job["jobId"]
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -357,21 +293,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

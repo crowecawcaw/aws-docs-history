@@ -1,25 +1,35 @@
+
+
 # Deleting an image set
+<a name="delete-image-set"></a>
 
-Use the `DeleteImageSet` action to delete an [image set](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set") in HealthImaging. The following menus provide a procedure for the AWS Management Console and code
-examples for the AWS CLI and AWS SDKs. For more information, see [`DeleteImageSet`](../APIReference/API_DeleteImageSet.md "../APIReference/API_DeleteImageSet.md") in the _AWS HealthImaging API
-Reference_.
+Use the `DeleteImageSet` action to delete an [image set](getting-started-concepts.md#concept-image-set) in HealthImaging. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`DeleteImageSet`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DeleteImageSet.html) in the *AWS HealthImaging API Reference*.
 
-###### To delete an image set
-
+**To delete an image set**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
-2. Choose a data store.
+## AWS Console
+<a name="code-example-console-image-set-delete"></a>
 
-The **Data store details** page opens and the **Image
-sets** tab is selected by default. 3. Choose an image set and choose **Delete**.
+1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-The **Delete image set** modal opens. 4. Provide the ID of the image set and choose **Delete image
-set**.
+1. Choose a data store.
 
-C++
+   The **Data store details** page opens and the **Image sets** tab is selected by default.
 
-**SDK for C++**
+1. Choose an image set and choose **Delete**.
+
+   The **Delete image set** modal opens.
+
+1. Provide the ID of the image set and choose **Delete image set**.
+
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-image-set-delete"></a>
+
+------
+#### [ C\+\+ ]
+
+**SDK for C\+\+**  
 
 ```
 //! Routine which deletes an AWS HealthImaging image set.
@@ -50,36 +60,23 @@ bool AwsDoc::Medical_Imaging::deleteImageSet(
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [DeleteImageSet](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To delete an image set**  
+The following `delete-image-set` code example deletes an image set.  
 
 ```
-
-- For API details, see
-  [DeleteImageSet](../../../goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To delete an image set**
-
-The following `delete-image-set` code example deletes an image set.
-
+aws medical-imaging delete-image-set \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}}
 ```
-`aws medical-imaging delete-image-set \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -89,14 +86,13 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
+  
++  For API details, see [DeleteImageSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/delete-image-set.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [DeleteImageSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/delete-image-set.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/delete-image-set.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static void deleteMedicalImageSet(MedicalImagingClient medicalImagingClient,
@@ -116,23 +112,14 @@ Java
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [DeleteImageSet](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/DeleteImageSet) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [DeleteImageSet](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/DeleteImageSet.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { DeleteImageSetCommand } from "@aws-sdk/client-medical-imaging";
@@ -169,23 +156,14 @@ export const deleteImageSet = async (
   // }
   return response;
 };
-
-
 ```
++  For API details, see [DeleteImageSet](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [DeleteImageSet](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -214,33 +192,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return delete_results
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [DeleteImageSet](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/DeleteImageSet) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [DeleteImageSet](../../../goto/boto3/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/boto3/medical-imaging-2023-07-19/DeleteImageSet.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -263,21 +228,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [DeleteImageSet](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [DeleteImageSet](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

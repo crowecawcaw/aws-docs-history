@@ -1,97 +1,98 @@
-# Set up an AWS Lambda authorizer for OIDC authentication
 
-This guide assumes you have already configured your Identity Provider (IdP) of choice to provide access tokens
-compatible with the requirements of the HealthImaging OIDC authentication feature.
+
+# Set up an AWS Lambda authorizer for OIDC authentication
+<a name="dicomweb-oidc-requirements"></a>
+
+This guide assumes you have already configured your Identity Provider (IdP) of choice to provide access tokens compatible with the requirements of the HealthImaging OIDC authentication feature.
 
 ## 1. Configure IAM Roles for DICOMWeb API Access
+<a name="dicomweb-oidc-iam-roles"></a>
 
-Before configuring the Lambda authorizer, create IAM roles for HealthImaging to assume when processing DICOMWeb API requests.
-The authorizer Lambda function returns one of these roles ARN after successful token verification, allowing HealthImaging to execute
-the requests with appropriate permissions.
+Before configuring the Lambda authorizer, create IAM roles for HealthImaging to assume when processing DICOMWeb API requests. The authorizer Lambda function returns one of these roles ARN after successful token verification, allowing HealthImaging to execute the requests with appropriate permissions.
 
-1. Create IAM policies defining the desired DICOMWeb API privileges. Refer to the "[Using DICOMweb](using-dicomweb.md "using-dicomweb.md")" section of the HealthImaging documentation for
-   available permissions.
-2. Create IAM roles that:
+1. Create IAM policies defining the desired DICOMWeb API privileges. Refer to the "[Using DICOMweb](https://docs.aws.amazon.com/healthimaging/latest/devguide/using-dicomweb.html)" section of the HealthImaging documentation for available permissions.
 
-   - Attach these policies
-   - Include a trust relationship allowing the AWS HealthImaging service principal (`medical-imaging.amazonaws.com`)
-     to assume these roles.
+1. Create IAM roles that:
+   + Attach these policies
+   + Include a trust relationship allowing the AWS HealthImaging service principal (`medical-imaging.amazonaws.com`) to assume these roles.
 
 Here is an example of a policy allowing associated roles to access to HealthImaging DICOMWeb read-only API:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "MedicalImagingDicomWebOperations",
- "Effect": "Allow",
- "Action": [
- "medical-imaging:SearchDICOMInstances",
- "medical-imaging:GetImageSetMetadata",
- "medical-imaging:GetDICOMSeriesMetadata",
- "medical-imaging:SearchDICOMStudies",
- "medical-imaging:GetDICOMBulkdata",
- "medical-imaging:SearchDICOMSeries",
- "medical-imaging:GetDICOMInstanceMetadata",
- "medical-imaging:GetDICOMInstance",
- "medical-imaging:GetDICOMInstanceFrames"
- ],
- "Resource": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/datastore-123"
- }
- ]
-}`
-
-```
-
-Here is an example of the trust relationship policy that should be associated to the role(s):
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Sid": "OIDCRoleFederation",
- "Effect": "Allow",
- "Principal": {
- "Service": "medical-imaging.amazonaws.com"
- },
- "Action": "sts:AssumeRole"
- }
- ]
-}`
-
-```
-
-The Lambda authorizer you'll create in the next step can evaluate the token claims and return the ARN of the
-appropriate role. AWS HealthImaging will then impersonate this role to execute the DICOMWeb API request with the corresponding
-permissions.
-
-For example:
-
-- A token with "admin" claims might return an ARN for a role with full access
-- A token with "reader" claims might return an ARN for a role with read-only access
-- A token with "department\_A" claims might return an ARN for a role specific to that department's access
-  level
-
-This mechanism allows you to map your IdP's authorization model to specific AWS HealthImaging permissions through IAM
-roles.
-
-## 2. Create and Configure Lambda Authorizer Function
-
-Create a Lambda function that will verify the JWT token and return the appropriate IAM role ARN based on the
-token claims evaluation. This function is invoked by the health imaging service and passed an event that contains the
-HealthImaging datastore Id, the DICOMWeb operation, and the access token found in the HTTP request:
+****  
 
 ```
 {
-  "datastoreId": "{`datastore id`}",
-  "operation": "{`Healthimaging API name e.g. GetDICOMInstance`}",
-  "bearerToken": "{`access token`}"
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "MedicalImagingDicomWebOperations",
+            "Effect": "Allow",
+            "Action": [
+                "medical-imaging:SearchDICOMInstances",
+                "medical-imaging:GetImageSetMetadata",
+                "medical-imaging:GetDICOMSeriesMetadata",
+                "medical-imaging:SearchDICOMStudies",
+                "medical-imaging:GetDICOMBulkdata",
+                "medical-imaging:SearchDICOMSeries",
+                "medical-imaging:GetDICOMInstanceMetadata",
+                "medical-imaging:GetDICOMInstance",
+                "medical-imaging:GetDICOMInstanceFrames"
+            ],
+            "Resource": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/datastore-123"
+        }
+    ]
+}
+```
+
+------
+
+Here is an example of the trust relationship policy that should be associated to the role(s):
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "OIDCRoleFederation",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "medical-imaging.amazonaws.com"
+        },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
+
+------
+
+The Lambda authorizer you'll create in the next step can evaluate the token claims and return the ARN of the appropriate role. AWS HealthImaging will then impersonate this role to execute the DICOMWeb API request with the corresponding permissions.
+
+For example:
++ A token with "admin" claims might return an ARN for a role with full access
++ A token with "reader" claims might return an ARN for a role with read-only access
++ A token with "department\_A" claims might return an ARN for a role specific to that department's access level
+
+This mechanism allows you to map your IdP's authorization model to specific AWS HealthImaging permissions through IAM roles.
+
+## 2. Create and Configure Lambda Authorizer Function
+<a name="dicomweb-oidc-configure-lambda"></a>
+
+Create a Lambda function that will verify the JWT token and return the appropriate IAM role ARN based on the token claims evaluation. This function is invoked by the health imaging service and passed an event that contains the HealthImaging datastore Id, the DICOMWeb operation, and the access token found in the HTTP request:
+
+```
+{
+  "datastoreId": "{{{datastore id}}}",
+  "operation": "{{{Healthimaging API name e.g. GetDICOMInstance}}}",
+  "bearerToken": "{{{access token}}}"
 }
 ```
 
@@ -106,15 +107,10 @@ The Lambda authorizer function must return a JSON response with the following st
 
 You can refer to the implementation example for more information.
 
-###### Note
+**Note**  
+Because the DICOMWeb request is only answered after the access token is verified by the lambda authorizer, it is important that the execution of this function be as fast as possible to provide with the best DICOMWeb API response time.
 
-Because the DICOMWeb request is only answered after the access token is verified by the lambda authorizer, it
-is important that the execution of this function be as fast as possible to provide with the best DICOMWeb API response
-time.
-
-For the HealthImaging service to be authorized to invoke the lambda authorizer function, it must have a resource policy that allows
-HealthImaging service to invoke it. This resource policy can be created in the permission menu of the lambda configuration tab or
-Using AWS CLI:
+For the HealthImaging service to be authorized to invoke the lambda authorizer function, it must have a resource policy that allows HealthImaging service to invoke it. This resource policy can be created in the permission menu of the lambda configuration tab or Using AWS CLI:
 
 ```
 aws lambda add-permission \
@@ -124,114 +120,105 @@ aws lambda add-permission \
     --principal medical-imaging.amazonaws.com
 ```
 
-This resource policy allows the HealthImaging service to invoke your Lambda authorizer when authenticating DICOMWeb API
-requests.
+This resource policy allows the HealthImaging service to invoke your Lambda authorizer when authenticating DICOMWeb API requests.
 
-###### Note
-
-The lambda resource policy can be updated later on with an "ArnLike" condition matching the ARN of a specific HealthImaging
-datastore.
+**Note**  
+The lambda resource policy can be updated later on with an "ArnLike" condition matching the ARN of a specific HealthImaging datastore.
 
 Here is an example of lambda resource policy:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Id": "default",
- "Statement": [
- {
- "Sid": "LambaAuthorizer-HealthImagingInvokePermission",
- "Effect": "Allow",
- "Principal": {
- "Service": "medical-imaging.amazonaws.com"
- },
- "Action": "lambda:InvokeFunction",
- "Resource": "arn:aws:lambda:us-east-1:123456789012::function:{`LambdaAuthorizerFunctionName`}",
- "Condition": {
- "ArnLike": {
- "AWS:SourceArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/datastore-123"
- }
- }
- }
- ]
-}`
-
+{
+  "Version":"2012-10-17",		 	 	 
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "LambaAuthorizer-HealthImagingInvokePermission",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "medical-imaging.amazonaws.com"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:us-east-1:123456789012::function:{{{LambdaAuthorizerFunctionName}}}",
+      "Condition": {
+        "ArnLike": {
+          "AWS:SourceArn": "arn:aws:medical-imaging:us-east-1:123456789012:datastore/datastore-123"
+        }
+      }
+    }
+  ]
+}
 ```
+
+------
 
 ## 3. Create a New Datastore with OIDC Authentication
+<a name="dicomweb-oidc-datastore"></a>
 
-To enable OIDC authentication, you must create a new datastore using the AWS CLI with the parameter
-"lambda-authorizer-arn". OIDC Authentication cannot be enabled on existing datastores without contacting AWS
-Support.
+To enable OIDC authentication, you must create a new datastore using the AWS CLI with the parameter "lambda-authorizer-arn". OIDC Authentication cannot be enabled on existing datastores without contacting AWS Support.
 
 Here's an example of how to create a new datastore with OIDC authentication enabled:
 
 ```
 aws medical-imaging create-datastore \
-    --datastore-name `YourDatastoreName` \
+    --datastore-name {{YourDatastoreName}} \
     --lambda-authorizer-arn YourAuthorizerFunctionArn
 ```
 
-You can check if a specific datastore has OIDC authentication feature enabled by using the AWS CLI
-get-datastore command, and verifying if the attribute "lambdaAuthorizerArn" is present:
+You can check if a specific datastore has OIDC authentication feature enabled by using the AWS CLI get-datastore command, and verifying if the attribute "lambdaAuthorizerArn" is present:
 
 ```
-aws medical-imaging get-datastore --datastore-id `YourDatastoreId`
+aws medical-imaging get-datastore --datastore-id {{YourDatastoreId}}
 ```
 
 ```
 {
     "datastoreProperties": {
-        "datastoreId": `YourdatastoreId`,
-        "datastoreName": `YourDatastoreName,`
+        "datastoreId": {{YourdatastoreId}},
+        "datastoreName": {{YourDatastoreName,}}
         "datastoreStatus": "ACTIVE",
-        "lambdaAuthorizerArn": `YourAuthorizerFunctionArn,`
-        "datastoreArn": `YourDatastoreArn,`
+        "lambdaAuthorizerArn": {{YourAuthorizerFunctionArn,}}
+        "datastoreArn": {{YourDatastoreArn,}}
         "createdAt": "2025-09-30T14:16:04.015000-05:00",
         "updatedAt": "2025-09-30T14:16:04.015000-05:00"
     }
 }
 ```
 
-###### Note
-
-The execution role for the AWS CLI datastore creation command must have appropriate permissions to
-invoke the Lambda authorizer function. This mitigates privilege escalation attacks where malicious users could
-execute unauthorized Lambda functions through the datastore authorizer configuration.
+**Note**  
+The execution role for the AWS CLI datastore creation command must have appropriate permissions to invoke the Lambda authorizer function. This mitigates privilege escalation attacks where malicious users could execute unauthorized Lambda functions through the datastore authorizer configuration.
 
 ## Exception Codes
+<a name="dicomweb-oidc-exceptions"></a>
 
 In case of authentication failure HealthImaging returns the following HTTP error response codes and body messages:
 
-| Condition                                                                   | AHI response                                             |
-| --------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Lambda Authorizer does not exist or is invalid                              | *_424_<br>• Authorizer Misconfiguration                  |
-| Authorizer terminated due to execution failure                              | *_424_<br>• Authorizer Failed                            |
-| Any other unmapped authorizer error                                         | *_424_<br>• Authorizer Failed                            |
-| Authorizer returned invalid/ill-formed response                             | *_424_<br>• Authorizer Misconfiguration                  |
-| Authorizer ran more than 1s                                                 | *_408_<br>• Authorizer Timeout                           |
-| Token is expired or otherwise invalid                                       | *_403_<br>• Invalid or Expired Token                     |
-| AHI can't federate the returned IAM Role due to authorizer misconfiguration | *_424_<br>• Authorizer Misconfiguration                  |
-| Authorizer returned an empty Role                                           | *_403_<br>• Access Denied                                |
-| Returned Role is not callable (assume-role/trust misconfig)                 | *_424_<br>• Authorizer Misconfiguration                  |
-| Request rate exceeds DICOMweb Gateway limits                                | *_429_<br>• Too many requests                            |
-| Datastore, Return Role, or Authorizer Cross Account/Cross Region            | *_424_<br>• Authorizer Cross Account/Cross Region Access |
+
+| Condition | AHI response | 
+| --- | --- | 
+| Lambda Authorizer does not exist or is invalid | 424 Authorizer Misconfiguration | 
+| Authorizer terminated due to execution failure | 424 Authorizer Failed | 
+| Any other unmapped authorizer error | 424 Authorizer Failed | 
+| Authorizer returned invalid/ill-formed response | 424 Authorizer Misconfiguration | 
+| Authorizer ran more than 1s | 408 Authorizer Timeout | 
+| Token is expired or otherwise invalid | 403 Invalid or Expired Token | 
+| AHI can't federate the returned IAM Role due to authorizer misconfiguration | 424 Authorizer Misconfiguration | 
+| Authorizer returned an empty Role | 403 Access Denied | 
+| Returned Role is not callable (assume-role/trust misconfig) | 424 Authorizer Misconfiguration | 
+| Request rate exceeds DICOMweb Gateway limits | 429 Too many requests | 
+| Datastore, Return Role, or Authorizer Cross Account/Cross Region | 424 Authorizer Cross Account/Cross Region Access | 
 
 ## Implementation Example
+<a name="dicomweb-oidc-implementation"></a>
 
-This Python example demonstrates a lambda authorizer function that verifies AWS Cognito access tokens from HealthImaging
-events and returns an IAM role ARN with appropriate DICOMWeb privileges.
+This Python example demonstrates a lambda authorizer function that verifies AWS Cognito access tokens from HealthImaging events and returns an IAM role ARN with appropriate DICOMWeb privileges.
 
-The Lambda authorizer implements two caching mechanisms to reduce external calls and response latency. The JWKS
-(JSON Web Key Set) is fetched once every hour and stored in the function's temporary folder, allowing subsequent function
-invocations to read it locally instead of fetching from the public network. You will also notice that a token\_cache dictionary
-object is instantiated in the global context of this Lambda function. Global variables are shared by all invocations that
-reuse the same warmed Lambda context. Thanks to this, successfully verified tokens can be stored in this dictionary and looked
-up quickly during the next execution of this same Lambda function. The caching method represents a generalist approach that
-could fit access tokens issued from most identity providers. For an AWS Cognito specific caching option, refer to [Managing User pool](../../../cognito/latest/developerguide/managing-users.md "../../../cognito/latest/developerguide/managing-users.md")
-section and [caching section](../../../cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-caching-tokens.md "../../../cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-caching-tokens.md") of [AWS Cognito documentation](../../../cognito/latest/developerguide/what-is-amazon-cognito.md "../../../cognito/latest/developerguide/what-is-amazon-cognito.md").
+The Lambda authorizer implements two caching mechanisms to reduce external calls and response latency. The JWKS (JSON Web Key Set) is fetched once every hour and stored in the function's temporary folder, allowing subsequent function invocations to read it locally instead of fetching from the public network. You will also notice that a token\_cache dictionary object is instantiated in the global context of this Lambda function. Global variables are shared by all invocations that reuse the same warmed Lambda context. Thanks to this, successfully verified tokens can be stored in this dictionary and looked up quickly during the next execution of this same Lambda function. The caching method represents a generalist approach that could fit access tokens issued from most identity providers. For an AWS Cognito specific caching option, refer to [Managing User pool](https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users.html) section and [caching section](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-caching-tokens.html) of [AWS Cognito documentation](https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html).
 
 ```
 import json
@@ -282,7 +269,7 @@ def get_cached_jwks():
                 logger.debug(f'JWKS cache expired (age: {int(cache_age)}s)')
     except Exception as e:
         logger.debug(f'Error reading JWKS cache: {e}')
-
+    
     return None
 
 def cache_jwks(jwks):
@@ -306,21 +293,21 @@ def fetch_jwks(jwks_url):
 def is_token_cached(token):
     if token not in token_cache:
         return None
-
+    
     cached = token_cache[token]
     now = int(time.time())
-
+    
     if now > cached['cache_expiry']:
         del token_cache[token]
         return None
-
+    
     return cached
 
 def cache_token(token, payload):
     now = int(time.time())
     token_exp = payload.get('exp')
     cache_expiry = min(now + 60, token_exp)  # 1 minute or token expiry, whichever is sooner
-
+    
     token_cache[token] = {
         'payload': payload,
         'cache_expiry': cache_expiry,
@@ -334,7 +321,7 @@ def handler(event, context):
         token = event.get('bearerToken')
         if not token:
             raise Exception('No token provided')
-
+        
         # Check cache first
         cached = is_token_cached(token)
         if cached:
@@ -343,27 +330,27 @@ def handler(event, context):
                 'isTokenValid': True,
                 'roleArn': cached['role_arn']
             }
-
+        
         # Get Cognito configuration
         region = context.invoked_function_arn.split(':')[3]
-
+        
         # Get JWKS (cached or fresh)
         jwks_url = f'https://cognito-idp.{region}.amazonaws.com/{USER_POOL_ID}/.well-known/jwks.json'
         jwks = get_cached_jwks()
         if not jwks:
             jwks = fetch_jwks(jwks_url)
-
+        
         # Decode token header to get kid
         headers = jwt.get_unverified_headers(token)
         kid = headers['kid']
-
+        
         # Find the correct key
         key = None
         for jwk_key in jwks['keys']:
             if jwk_key['kid'] == kid:
                 key = jwk_key
                 break
-
+        
         if not key:
             # Key not found - try refreshing JWKS in case of key rotation
             logger.debug('Key not found in cached JWKS, fetching fresh JWKS')
@@ -372,13 +359,13 @@ def handler(event, context):
                 if jwk_key['kid'] == kid:
                     key = jwk_key
                     break
-
+        
         if not key:
             raise Exception('Public key not found')
-
+        
         # Construct the public key
         public_key = jwk.construct(key)
-
+        
         # Verify and decode the token (includes expiry validation)
         payload = jwt.decode(
             token,
@@ -387,19 +374,19 @@ def handler(event, context):
             audience=CLIENT_ID,
             issuer=f'https://cognito-idp.{region}.amazonaws.com/{USER_POOL_ID}'
         )
-
+        
         logger.debug('Token validated successfully')
         logger.debug('User: %s', payload.get('username', 'unknown'))
-
+        
         # Cache the validated token
         cache_token(token, payload)
-
+        
         # Return authorization response
         return {
             'isTokenValid': True,
             'roleArn': ROLE_ARN
         }
-
+        
     except ExpiredSignatureError:
         logger.debug('Token expired')
         return {

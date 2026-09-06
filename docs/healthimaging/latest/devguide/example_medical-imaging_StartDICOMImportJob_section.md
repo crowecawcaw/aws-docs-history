@@ -1,15 +1,17 @@
+
+
 # Use `StartDICOMImportJob` with an AWS SDK or CLI
+<a name="example_medical-imaging_StartDICOMImportJob_section"></a>
 
 The following code examples show how to use `StartDICOMImportJob`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md) 
 
-- [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md "example_medical-imaging_Scenario_ImageSetsAndFrames_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
+**SDK for C\+\+**  
 
 ```
 //! Routine which starts a HealthImaging import job.
@@ -52,40 +54,26 @@ bool AwsDoc::Medical_Imaging::startDICOMImportJob(
 
     return startDICOMImportJobOutcome.IsSuccess();
 }
+```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
 
+**AWS CLI**  
+**To start a dicom import job**  
+The following `start-dicom-import-job` code example starts a dicom import job.  
 
 ```
-
-- For API details, see
-  [StartDICOMImportJob](../../../goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To start a dicom import job**
-
-The following `start-dicom-import-job` code example starts a dicom import job.
-
+aws medical-imaging start-dicom-import-job \
+    --job-name {{"my-job"}} \
+    --datastore-id {{"12345678901234567890123456789012"}} \
+    --input-s3-uri {{"s3://medical-imaging-dicom-input/dicom_input/"}} \
+    --output-s3-uri {{"s3://medical-imaging-output/job_output/"}} \
+    --data-access-role-arn {{"arn:aws:iam::123456789012:role/ImportJobDataAccessRole"}}
 ```
-`aws medical-imaging start-dicom-import-job \
- --job-name `"my-job"` \
- --datastore-id `"12345678901234567890123456789012"` \
- --input-s3-uri `"s3://medical-imaging-dicom-input/dicom_input/"` \
- --output-s3-uri `"s3://medical-imaging-output/job_output/"` \
- --data-access-role-arn `"arn:aws:iam::123456789012:role/ImportJobDataAccessRole"``
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -95,14 +83,13 @@ Output:
     "submittedAt": "2022-08-12T11:28:11.152000+00:00"
 }
 ```
+  
++  For API details, see [StartDICOMImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/start-dicom-import-job.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [StartDICOMImportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/start-dicom-import-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/start-dicom-import-job.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static String startDicomImportJob(MedicalImagingClient medicalImagingClient,
@@ -129,23 +116,14 @@ Java
 
         return "";
     }
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/StartDICOMImportJob) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { StartDICOMImportJobCommand } from "@aws-sdk/client-medical-imaging";
@@ -191,23 +169,14 @@ export const startDicomImportJob = async (
   // }
   return response;
 };
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -245,33 +214,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return job["jobId"]
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob.md "../../../goto/boto3/medical-imaging-2023-07-19/StartDICOMImportJob.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -303,20 +259,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [StartDICOMImportJob](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [StartDICOMImportJob](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

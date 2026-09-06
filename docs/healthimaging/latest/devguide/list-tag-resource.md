@@ -1,57 +1,41 @@
+
+
 # Listing tags for a resource
+<a name="list-tag-resource"></a>
 
-Use the [`ListTagsForResource`](../APIReference/API_ListTagsForResource.md "../APIReference/API_ListTagsForResource.md") action to list tags for [data stores](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") and [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set") in AWS HealthImaging. The following code examples describe how to use the
-`ListTagsForResource` action with the AWS Management Console, AWS CLI, and AWS SDKs. For
-more information, see [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md") in
-the _AWS General Reference Guide_.
+Use the [`ListTagsForResource`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListTagsForResource.html) action to list tags for [data stores](getting-started-concepts.md#concept-data-store) and [image sets](getting-started-concepts.md#concept-image-set) in AWS HealthImaging. The following code examples describe how to use the `ListTagsForResource` action with the AWS Management Console, AWS CLI, and AWS SDKs. For more information, see [ Tagging your AWS resources](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html) in the *AWS General Reference Guide*.
 
-###### To list tags for a resource
-
+**To list tags for a resource**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
-2. Choose a data store.
+## AWS Console
+<a name="code-example-console-list-tag-resource"></a>
 
-The **Data store details** page opens. 3. Choose the **Details** tab.
+1. Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-Under the **Tags** section, all data store tags are
-listed.
+1. Choose a data store.
 
-CLI
+   The **Data store details** page opens.
 
-**AWS CLI**
+1. Choose the **Details** tab.
 
-**Example 1: To list resource tags for a data store**
+   Under the **Tags** section, all data store tags are listed.
 
-The following `list-tags-for-resource` code example lists tags for a data store.
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-list-tag-resource"></a>
 
-```
-`aws medical-imaging list-tags-for-resource \
- --resource-arn `"arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012"``
+------
+#### [ CLI ]
 
-```
-
-Output:
-
-```
-{
-    "tags":{
-        "Deployment":"Development"
-    }
-}
-```
-
-**Example 2: To list resource tags for an image set**
-
-The following `list-tags-for-resource` code example lists tags for an image set.
+**AWS CLI**  
+**Example 1: To list resource tags for a data store**  
+The following `list-tags-for-resource` code example lists tags for a data store.  
 
 ```
-`aws medical-imaging list-tags-for-resource \
- --resource-arn `"arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012/imageset/18f88ac7870584f58d56256646b4d92b"``
-
+aws medical-imaging list-tags-for-resource \
+    --resource-arn {{"arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012"}}
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -60,14 +44,29 @@ Output:
     }
 }
 ```
+**Example 2: To list resource tags for an image set**  
+The following `list-tags-for-resource` code example lists tags for an image set.  
 
-- For API details, see
-  [ListTagsForResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-tags-for-resource.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-tags-for-resource.html")
-  in _AWS CLI Command Reference_.
+```
+aws medical-imaging list-tags-for-resource \
+    --resource-arn {{"arn:aws:medical-imaging:us-east-1:123456789012:datastore/12345678901234567890123456789012/imageset/18f88ac7870584f58d56256646b4d92b"}}
+```
+Output:  
 
-Java
+```
+{
+    "tags":{
+        "Deployment":"Development"
+    }
+}
+```
+  
++  For API details, see [ListTagsForResource](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-tags-for-resource.html) in *AWS CLI Command Reference*. 
 
-**SDK for Java 2.x**
+------
+#### [ Java ]
+
+**SDK for Java 2.x**  
 
 ```
     public static ListTagsForResourceResponse listMedicalImagingResourceTags(MedicalImagingClient medicalImagingClient,
@@ -85,23 +84,14 @@ Java
 
         return null;
     }
-
-
 ```
++  For API details, see [ListTagsForResource](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [ListTagsForResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { ListTagsForResourceCommand } from "@aws-sdk/client-medical-imaging";
@@ -131,23 +121,14 @@ export const listTagsForResource = async (
 
   return response;
 };
-
-
 ```
++  For API details, see [ListTagsForResource](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListTagsForResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -175,33 +156,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return tags["tags"]
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [ListTagsForResource](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/ListTagsForResource) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListTagsForResource](../../../goto/boto3/medical-imaging-2023-07-19/ListTagsForResource.md "../../../goto/boto3/medical-imaging-2023-07-19/ListTagsForResource.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -221,21 +189,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListTagsForResource](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [ListTagsForResource](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

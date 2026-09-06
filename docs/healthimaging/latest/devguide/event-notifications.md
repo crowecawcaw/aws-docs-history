@@ -1,65 +1,69 @@
+
+
 # Using Amazon EventBridge with HealthImaging
+<a name="event-notifications"></a>
 
-Amazon EventBridge is a serverless service that uses events to connect application components
-together, making it easier for you to build scalable event-driven applications. The basis of
-EventBridge is to create [rules](../../../eventbridge/latest/userguide/eb-rules.md "../../../eventbridge/latest/userguide/eb-rules.md") that route [events](../../../eventbridge/latest/userguide/eb-events.md "../../../eventbridge/latest/userguide/eb-events.md") to
-[targets](../../../eventbridge/latest/userguide/eb-targets.md "../../../eventbridge/latest/userguide/eb-targets.md"). AWS HealthImaging provides durable delivery of state changes to EventBridge. For more
-information, see [What is Amazon EventBridge?](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md") in the
-_Amazon EventBridge User Guide_.
+Amazon EventBridge is a serverless service that uses events to connect application components together, making it easier for you to build scalable event-driven applications. The basis of EventBridge is to create [rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) that route [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events.html) to [targets](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html). AWS HealthImaging provides durable delivery of state changes to EventBridge. For more information, see [What is Amazon EventBridge?](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) in the *Amazon EventBridge User Guide*.
 
-###### Topics
-
-- [HealthImaging events sent to EventBridge](#event-notifications-listing "#event-notifications-listing")
-- [HealthImaging event structure and examples](#event-notifications-structure-examples "#event-notifications-structure-examples")
+**Topics**
++ [HealthImaging events sent to EventBridge](#event-notifications-listing)
++ [HealthImaging event structure and examples](#event-notifications-structure-examples)
 
 ## HealthImaging events sent to EventBridge
+<a name="event-notifications-listing"></a>
 
 The following table lists all HealthImaging events sent to EventBridge for processing.
 
-| HealthImaging event type                                                                                                                                                                                                                                                                                         | State                           |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| **Data store events**                                                                                                                                                                                                                                                                                            |
-| Data Store Creating                                                                                                                                                                                                                                                                                              | `CREATING`                      |
-| Data Store Creation Failed                                                                                                                                                                                                                                                                                       | `CREATE_FAILED`                 |
-| Data Store Created                                                                                                                                                                                                                                                                                               | `ACTIVE`                        |
-| Data Store Deleting                                                                                                                                                                                                                                                                                              | `DELETING`                      |
-| Data Store Deleted                                                                                                                                                                                                                                                                                               | `DELETED`                       |
-| For more information, see [datastoreStatus](../APIReference/API_DatastoreProperties.md#healthimaging-Type-DatastoreProperties-datastoreStatus "../APIReference/API_DatastoreProperties.md#healthimaging-Type-DatastoreProperties-datastoreStatus") in the _AWS HealthImaging API<br>Reference._                  |
-| **Import job events**                                                                                                                                                                                                                                                                                            |
-| Import Job Submitted                                                                                                                                                                                                                                                                                             | `SUBMITTED`                     |
-| Import Job In Progress                                                                                                                                                                                                                                                                                           | `IN_PROGRESS`                   |
-| Import Job Completed                                                                                                                                                                                                                                                                                             | `COMPLETED`                     |
-| Import Job Failed                                                                                                                                                                                                                                                                                                | `FAILED`                        |
-| For more information, see [jobStatus](../APIReference/API_DICOMImportJobProperties.md#healthimaging-Type-DICOMImportJobProperties-jobStatus "../APIReference/API_DICOMImportJobProperties.md#healthimaging-Type-DICOMImportJobProperties-jobStatus") in the _AWS HealthImaging API<br>Reference._                |
-| **Image set events**                                                                                                                                                                                                                                                                                             |
-| Image Set Created                                                                                                                                                                                                                                                                                                | `CREATED`                       |
-| Image Set Copying                                                                                                                                                                                                                                                                                                | `COPYING`                       |
-| Image Set Copying With Read Only<br>Access                                                                                                                                                                                                                                                                       | `COPYING_WITH_READ_ONLY_ACCESS` |
-| Image Set Copied                                                                                                                                                                                                                                                                                                 | `COPIED`                        |
-| Image Set Copy Failed                                                                                                                                                                                                                                                                                            | `COPY_FAILED`                   |
-| Image Set Updating                                                                                                                                                                                                                                                                                               | `UPDATING`                      |
-| Image Set Updated                                                                                                                                                                                                                                                                                                | `UPDATED`                       |
-| Image Set Update Failed                                                                                                                                                                                                                                                                                          | `UPDATE_FAILED`                 |
-| Image Set Deleting                                                                                                                                                                                                                                                                                               | `DELETING`                      |
-| Image Set Deleted                                                                                                                                                                                                                                                                                                | `DELETED`                       |
-| For more information, see [ImageSetWorkflowStatus](../APIReference/API_ImageSetProperties.md#healthimaging-Type-ImageSetProperties-ImageSetWorkflowStatus "../APIReference/API_ImageSetProperties.md#healthimaging-Type-ImageSetProperties-ImageSetWorkflowStatus") in the _AWS HealthImaging API<br>Reference._ |
+<a name="event-notifications-table"></a>
+<table>
+<thead>
+  <tr><th>HealthImaging event type</th><th>State</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="2"> <b>Data store events</b> </td></tr>
+  <tr><td>     Data Store Creating</td><td><code>CREATING</code></td></tr>
+  <tr><td>     Data Store Creation Failed</td><td><code>CREATE_FAILED</code></td></tr>
+  <tr><td>     Data Store Created</td><td><code>ACTIVE</code></td></tr>
+  <tr><td>     Data Store Deleting</td><td><code>DELETING</code></td></tr>
+  <tr><td>     Data Store Deleted</td><td><code>DELETED</code></td></tr>
+  <tr><td colspan="2">     For more information, see <a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DatastoreProperties.html#healthimaging-Type-DatastoreProperties-datastoreStatus">datastoreStatus</a> in the <i>AWS HealthImaging API Reference.</i></td></tr>
+  <tr><td colspan="2"> <b>Import job events</b> </td></tr>
+  <tr><td>     Import Job Submitted</td><td><code>SUBMITTED</code></td></tr>
+  <tr><td>     Import Job In Progress</td><td><code>IN_PROGRESS</code></td></tr>
+  <tr><td>     Import Job Completed</td><td><code>COMPLETED</code></td></tr>
+  <tr><td>     Import Job Failed</td><td><code>FAILED</code></td></tr>
+  <tr><td colspan="2">     For more information, see <a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DICOMImportJobProperties.html#healthimaging-Type-DICOMImportJobProperties-jobStatus">jobStatus</a> in the <i>AWS HealthImaging API Reference.</i></td></tr>
+  <tr><td colspan="2"> <b>Image set events</b> </td></tr>
+  <tr><td>     Image Set Created</td><td><code>CREATED</code></td></tr>
+  <tr><td>     Image Set Copying</td><td><code>COPYING</code></td></tr>
+  <tr><td>     Image Set Copying With Read Only Access</td><td><code>COPYING_WITH_READ_ONLY_ACCESS</code></td></tr>
+  <tr><td>     Image Set Copied</td><td><code>COPIED</code></td></tr>
+  <tr><td>     Image Set Copy Failed</td><td><code>COPY_FAILED</code></td></tr>
+  <tr><td>     Image Set Updating</td><td><code>UPDATING</code></td></tr>
+  <tr><td>     Image Set Updated</td><td><code>UPDATED</code></td></tr>
+  <tr><td>     Image Set Update Failed</td><td><code>UPDATE_FAILED</code></td></tr>
+  <tr><td>     Image Set Deleting</td><td><code>DELETING</code></td></tr>
+  <tr><td>     Image Set Deleted</td><td><code>DELETED</code></td></tr>
+  <tr><td colspan="2">     For more information, see <a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ImageSetProperties.html#healthimaging-Type-ImageSetProperties-ImageSetWorkflowStatus">ImageSetWorkflowStatus</a> in the <i>AWS HealthImaging API Reference.</i></td></tr>
+</tbody>
+</table>
+
 
 ## HealthImaging event structure and examples
+<a name="event-notifications-structure-examples"></a>
 
-HealthImaging events are objects with JSON structure that also contain metadata details. You
-can use the metadata as input to either recreate an event or learn more information. All
-associated metadata fields are listed in a table under the code examples in the
-following menus. For more information, see [Event structure
-reference](../../../eventbridge/latest/userguide/eb-events-structure.md "../../../eventbridge/latest/userguide/eb-events-structure.md") in the _Amazon EventBridge User Guide_.
+HealthImaging events are objects with JSON structure that also contain metadata details. You can use the metadata as input to either recreate an event or learn more information. All associated metadata fields are listed in a table under the code examples in the following menus. For more information, see [Event structure reference](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-events-structure.html) in the *Amazon EventBridge User Guide*.
 
-###### Note
+**Note**  
+The `source` attribute for HealthImaging event structures is `aws.medical-imaging`.
 
-The `source` attribute for HealthImaging event structures is
-`aws.medical-imaging`.
+### Data store events
+<a name="event-notifications-data-store"></a>
 
-Data Store Creating
-**State -
-`CREATING`**
+------
+#### [ Data Store Creating ]
+
+**State - `CREATING`**
 
 ```
 {
@@ -75,15 +79,15 @@ Data Store Creating
         "imagingVersion": "1.0",
         "datastoreId" : "bbc4f3cccbae4095a34170fddc19b13d",
         "datastoreName": "test",
-        "datastoreStatus": "CREATING"
+        "datastoreStatus": "CREATING"     
     }
 }
-
 ```
 
-Data Store Creation Failed
-**State -
-`CREATE_FAILED`**
+------
+#### [ Data Store Creation Failed ]
+
+**State - `CREATE_FAILED`**
 
 ```
 {
@@ -99,15 +103,15 @@ Data Store Creation Failed
         "imagingVersion": "1.0",
         "datastoreId" : "bbc4f3cccbae4095a34170fddc19b13d",
         "datastoreName": "test",
-        "datastoreStatus": "CREATE_FAILED"
+        "datastoreStatus": "CREATE_FAILED"      
     }
 }
-
 ```
 
-Data Store Created
-**State -
-`ACTIVE`**
+------
+#### [ Data Store Created ]
+
+**State - `ACTIVE`**
 
 ```
 {
@@ -123,15 +127,15 @@ Data Store Created
         "imagingVersion": "1.0",
         "datastoreId" : "bbc4f3cccbae4095a34170fddc19b13d",
         "datastoreName": "test",
-        "datastoreStatus": "ACTIVE"
+        "datastoreStatus": "ACTIVE"     
     }
 }
-
 ```
 
-Data Store Deleting
-**State -
-`DELETING`**
+------
+#### [ Data Store Deleting ]
+
+**State - `DELETING`**
 
 ```
 {
@@ -147,15 +151,15 @@ Data Store Deleting
         "imagingVersion": "1.0",
         "datastoreId" : "bbc4f3cccbae4095a34170fddc19b13d",
         "datastoreName": "test",
-        "datastoreStatus": "DELETING"
+        "datastoreStatus": "DELETING"       
     }
 }
-
 ```
 
-Data Store Deleted
-**State -
-`DELETED`**
+------
+#### [ Data Store Deleted ]
+
+**State - `DELETED`**
 
 ```
 {
@@ -171,31 +175,39 @@ Data Store Deleted
         "imagingVersion": "1.0",
         "datastoreId" : "bbc4f3cccbae4095a34170fddc19b13d",
         "datastoreName": "test",
-        "datastoreStatus": "DELETED"
+        "datastoreStatus": "DELETED"  
     }
 }
-
 ```
 
-Data store events - metadata descriptions| Name | Type | Description |
-| --- | --- | --- |
-| `version` | string | The EventBridge event schema version. |
-| `id` | string | The Version 4 UUID generated for every event. |
-| `detail-type` | string | The type of event that is being sent. |
-| `source` | string | Identifies the service that generated the event. |
-| `account` | string | The 12-digit AWS account ID of the data store owner. |
-| `time` | string | The time the event occurred. |
-| `region` | string | Identifies the AWS Region of the data store. |
-| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
-| `detail` | object | A JSON object that contains information about the<br>event. |
-| `detail.imagingVersion` | string | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
-| `detail.datastoreId` | string | The data store ID associated with the status change<br>event. |
-| `detail.datastoreName` | string | The data store name. |
-| `detail.datastoreStatus` | string | The current data store status. |
+------
 
-Import Job Submitted
-**State -
-`SUBMITTED`**
+
+**Data store events - metadata descriptions**  
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+| version | string | The EventBridge event schema version. | 
+| id | string | The Version 4 UUID generated for every event. | 
+| detail-type | string | The type of event that is being sent. | 
+| source | string | Identifies the service that generated the event. | 
+| account | string | The 12-digit AWS account ID of the data store owner. | 
+| time | string | The time the event occurred. | 
+| region | string | Identifies the AWS Region of the data store. | 
+| resources | array (string) | A JSON array that contains the ARN of the data store. | 
+| detail | object | A JSON object that contains information about the event. | 
+| detail.imagingVersion | string | The version ID that tracks changes to HealthImaging's event detail schema. | 
+| detail.datastoreId | string | The data store ID associated with the status change event. | 
+| detail.datastoreName | string | The data store name. | 
+| detail.datastoreStatus | string | The current data store status. | 
+
+### Import job events
+<a name="event-notifications-import-jobs"></a>
+
+------
+#### [ Import Job Submitted ]
+
+**State - `SUBMITTED`**
 
 ```
 {
@@ -217,12 +229,12 @@ Import Job Submitted
         "outputS3Uri": "s3://healthimaging-test-bucket/output/"
     }
 }
-
 ```
 
-Import Job In Progress
-**State -
-`IN_PROGRESS`**
+------
+#### [ Import Job In Progress ]
+
+**State - `IN_PROGRESS`**
 
 ```
 {
@@ -244,12 +256,12 @@ Import Job In Progress
         "outputS3Uri": "s3://healthimaging-test-bucket/output/"
     }
 }
-
 ```
 
-Import Job Completed
-**State -
-`COMPLETED`**
+------
+#### [ Import Job Completed ]
+
+**State - `COMPLETED`**
 
 ```
 {
@@ -271,12 +283,12 @@ Import Job Completed
         "outputS3Uri": "s3://healthimaging-test-bucket/output/"
     }
 }
-
 ```
 
-Import Job Failed
-**State -
-`FAILED`**
+------
+#### [ Import Job Failed ]
+
+**State - `FAILED`**
 
 ```
 {
@@ -298,31 +310,39 @@ Import Job Failed
         "outputS3Uri": "s3://healthimaging-test-bucket/output/"
     }
 }
-
 ```
 
-Import job events - metadata descriptions| Name | Type | Description |
-| --- | --- | --- |
-| `version` | string | The EventBridge event schema version. |
-| `id` | string | The Version 4 UUID generated for every event. |
-| `detail-type` | string | The type of event that is being sent. |
-| `source` | string | Identifies the service that generated the event. |
-| `account` | string | The 12-digit AWS account ID of the data store owner. |
-| `time` | string | The time the event occurred. |
-| `region` | string | Identifies the AWS Region of the data store. |
-| `resources` | array (string) | A JSON array that contains the ARN of the data store. |
-| `detail` | object | A JSON object that contains information about the<br>event. |
-| `detail.imagingVersion` | string | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
-| `detail.datastoreId` | string | The data store that generated the status change<br>event. |
-| `detail.jobId` | string | The import job ID associated with the status change<br>event. |
-| `detail.jobName` | string | The import job name. |
-| `detail.jobStatus` | string | The current job status. |
-| `detail.inputS3Uri` | string | The input prefix path for the S3 bucket that contains the<br>DICOM files to be imported. |
-| `detail.outputS3Uri` | string | The output prefix of the S3 bucket where the results of the<br>DICOM import job will be uploaded. |
+------
 
-Image Set Created
-**State -
-`CREATED`**
+
+**Import job events - metadata descriptions**  
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+| version | string | The EventBridge event schema version. | 
+| id | string | The Version 4 UUID generated for every event. | 
+| detail-type | string | The type of event that is being sent. | 
+| source | string | Identifies the service that generated the event. | 
+| account | string | The 12-digit AWS account ID of the data store owner. | 
+| time | string | The time the event occurred. | 
+| region | string | Identifies the AWS Region of the data store. | 
+| resources | array (string) | A JSON array that contains the ARN of the data store. | 
+| detail | object | A JSON object that contains information about the event. | 
+| detail.imagingVersion | string | The version ID that tracks changes to HealthImaging's event detail schema. | 
+| detail.datastoreId | string | The data store that generated the status change event. | 
+| detail.jobId | string | The import job ID associated with the status change event. | 
+| detail.jobName | string | The import job name. | 
+| detail.jobStatus | string | The current job status. | 
+| detail.inputS3Uri | string | The input prefix path for the S3 bucket that contains the DICOM files to be imported. | 
+| detail.outputS3Uri | string | The output prefix of the S3 bucket where the results of the DICOM import job will be uploaded. | 
+
+### Image set events
+<a name="event-notifications-image-sets"></a>
+
+------
+#### [ Image Set Created ]
+
+**State - `CREATED`**
 
 ```
 {
@@ -344,12 +364,12 @@ Image Set Created
       "imageSetWorkflowStatus": "CREATED"
    }
 }
-
 ```
 
-Image Set Copying
-**State -
-`COPYING`**
+------
+#### [ Image Set Copying ]
+
+**State - `COPYING`**
 
 ```
 {
@@ -372,12 +392,12 @@ Image Set Copying
       "sourceImageSetArn": "arn:aws:medical-imaging:us-west-2:147997158357:datastore/c381ee9b9ef34902a45b476dd7be068b/imageset/0309de3674fd551fa7ddd2880b21f990"
    }
 }
-
 ```
 
-Image Set Copying With Read Only Access
-**State -
-`COPYING_WITH_READ_ONLY_ACCESS`**
+------
+#### [ Image Set Copying With Read Only Access ]
+
+**State - `COPYING_WITH_READ_ONLY_ACCESS`**
 
 ```
 {
@@ -399,12 +419,12 @@ Image Set Copying With Read Only Access
       "imageSetWorkflowStatus": "COPYING_WITH_READ_ONLY_ACCESS"
    }
 }
-
 ```
 
-Image Set Copied
-**State -
-`COPIED`**
+------
+#### [ Image Set Copied ]
+
+**State - `COPIED`**
 
 ```
 {
@@ -426,12 +446,12 @@ Image Set Copied
       "imageSetWorkflowStatus": "COPIED"
    }
 }
-
 ```
 
-Image Set Copy Failed
-**State -
-`COPY_FAILED`**
+------
+#### [ Image Set Copy Failed ]
+
+**State - `COPY_FAILED`**
 
 ```
 {
@@ -453,12 +473,12 @@ Image Set Copy Failed
       "imageSetWorkflowStatus": "COPY_FAILED"
    }
 }
-
 ```
 
-Image Set Updating
-**State -
-`UPDATING`**
+------
+#### [ Image Set Updating ]
+
+**State - `UPDATING`**
 
 ```
 {
@@ -480,12 +500,12 @@ Image Set Updating
       "imageSetWorkflowStatus": "UPDATING"
    }
 }
-
 ```
 
-Image Set Updated
-**State -
-`UPDATED`**
+------
+#### [ Image Set Updated ]
+
+**State - `UPDATED`**
 
 ```
 {
@@ -507,12 +527,12 @@ Image Set Updated
       "imageSetWorkflowStatus": "UPDATED"
    }
 }
-
 ```
 
-Image Set Update Failed
-**State -
-`UPDATE_FAILED`**
+------
+#### [ Image Set Update Failed ]
+
+**State - `UPDATE_FAILED`**
 
 ```
 {
@@ -534,12 +554,12 @@ Image Set Update Failed
       "imageSetWorkflowStatus": "UPDATE_FAILED"
    }
 }
-
 ```
 
-Image Set Deleting
-**State -
-`DELETING`**
+------
+#### [ Image Set Deleting ]
+
+**State - `DELETING`**
 
 ```
 {
@@ -561,12 +581,12 @@ Image Set Deleting
       "imageSetWorkflowStatus": "DELETING"
    }
 }
-
 ```
 
-Image Set Deleted
-**State -
-`DELETED`**
+------
+#### [ Image Set Deleted ]
+
+**State - `DELETED`**
 
 ```
 {
@@ -588,24 +608,28 @@ Image Set Deleted
       "imageSetWorkflowStatus": "DELETED"
    }
 }
-
 ```
 
-Image set events - metadata descriptions| Name | Type | Description |
-| --- | --- | --- |
-| `version` | string | The EventBridge event schema version. |
-| `id` | string | The Version 4 UUID generated for every event. |
-| `detail-type` | string | The type of event that is being sent. |
-| `source` | string | Identifies the service that generated the event. |
-| `account` | string | The 12-digit AWS account ID of the data store owner. |
-| `time` | string | The time the event occurred. |
-| `region` | string | Identifies the AWS Region of the data store. |
-| `resources` | array (string) | A JSON array that contains the ARN of the image set. |
-| `detail` | object | A JSON object that contains information about the<br>event. |
-| `detail.imagingVersion` | string | The version ID that tracks changes to HealthImaging's event detail<br>schema. |
-| `detail.isPrimary` | boolean | Indicates whether the imported data was successfully organized<br>into the managed hierarchy or if there are metadata conflicts that need to be resolved. |
-| `detail.imageSetVersion` | string | The image set version will be incremented when an instance is imported more than once.<br>The latest version will overwrite any older version stored within a primary image set. |
-| `detail.datastoreId` | string | The data store ID that generated the status change<br>event. |
-| `detail.imagesetId` | string | The image set ID associated with the status change<br>event. |
-| `detail.imageSetState` | string | The current image set state. |
-| `detail.imageSetWorkflowStatus` | string | The current image set workflow status. |
+------
+
+
+**Image set events - metadata descriptions**  
+
+| Name | Type | Description | 
+| --- | --- | --- | 
+| version | string | The EventBridge event schema version. | 
+| id | string | The Version 4 UUID generated for every event. | 
+| detail-type | string | The type of event that is being sent. | 
+| source | string | Identifies the service that generated the event. | 
+| account | string | The 12-digit AWS account ID of the data store owner. | 
+| time | string | The time the event occurred. | 
+| region | string | Identifies the AWS Region of the data store. | 
+| resources | array (string) | A JSON array that contains the ARN of the image set. | 
+| detail | object | A JSON object that contains information about the event. | 
+| detail.imagingVersion | string | The version ID that tracks changes to HealthImaging's event detail schema. | 
+| detail.isPrimary | boolean | Indicates whether the imported data was successfully organized into the managed hierarchy or if there are metadata conflicts that need to be resolved. | 
+| detail.imageSetVersion | string | The image set version will be incremented when an instance is imported more than once. The latest version will overwrite any older version stored within a primary image set. | 
+| detail.datastoreId | string | The data store ID that generated the status change event. | 
+| detail.imagesetId | string | The image set ID associated with the status change event. | 
+| detail.imageSetState | string | The current image set state. | 
+| detail.imageSetWorkflowStatus | string | The current image set workflow status. | 

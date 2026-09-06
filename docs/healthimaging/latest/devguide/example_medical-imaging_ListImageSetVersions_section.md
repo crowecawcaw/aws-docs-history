@@ -1,23 +1,23 @@
+
+
 # Use `ListImageSetVersions` with an AWS SDK or CLI
+<a name="example_medical-imaging_ListImageSetVersions_section"></a>
 
 The following code examples show how to use `ListImageSetVersions`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**To list image set versions**
-
-The following `list-image-set-versions` code example lists the version history for an image set.
-
-```
-`aws medical-imaging list-image-set-versions \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e``
+**AWS CLI**  
+**To list image set versions**  
+The following `list-image-set-versions` code example lists the version history for an image set.  
 
 ```
-
-Output:
+aws medical-imaging list-image-set-versions \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}}
+```
+Output:  
 
 ```
 {
@@ -57,14 +57,13 @@ Output:
     ]
 }
 ```
+  
++  For API details, see [ListImageSetVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-image-set-versions.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListImageSetVersions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-image-set-versions.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-image-set-versions.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static List<ImageSetProperties> listMedicalImageSetVersions(MedicalImagingClient medicalImagingClient,
@@ -89,23 +88,14 @@ Java
 
         return null;
     }
-
-
 ```
++  For API details, see [ListImageSetVersions](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/ListImageSetVersions) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [ListImageSetVersions](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListImageSetVersions.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListImageSetVersions.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { paginateListImageSetVersions } from "@aws-sdk/client-medical-imaging";
@@ -156,23 +146,14 @@ export const listImageSetVersions = async (
   // }
   return imageSetPropertiesList;
 };
-
-
 ```
++  For API details, see [ListImageSetVersions](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListImageSetVersionsCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListImageSetVersions](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListImageSetVersionsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListImageSetVersionsCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -207,33 +188,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return image_set_properties_list
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [ListImageSetVersions](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/ListImageSetVersions) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListImageSetVersions](../../../goto/boto3/medical-imaging-2023-07-19/ListImageSetVersions.md "../../../goto/boto3/medical-imaging-2023-07-19/ListImageSetVersions.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -258,20 +226,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListImageSetVersions](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [ListImageSetVersions](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

@@ -1,27 +1,27 @@
+
+
 # Metadata normalization
+<a name="metadata-normalization"></a>
 
-When you import your DICOM P10 data into AWS HealthImaging, it is transformed into [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set") comprised of [metadata](getting-started-concepts.md#concept-metadata "getting-started-concepts.md#concept-metadata") and [image frames](getting-started-concepts.md#concept-image-frame "getting-started-concepts.md#concept-image-frame") (pixel data). During
-the transformation process, HealthImaging metadata keys are generated based on a specific version of the
-DICOM standard. HealthImaging currently generates and supports metadata keys based on the [DICOM PS3.6 2022b
-Data Dictionary](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#PS3.6 "https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#PS3.6").
+When you import your DICOM P10 data into AWS HealthImaging, it is transformed into [image sets](getting-started-concepts.md#concept-image-set) comprised of [metadata](getting-started-concepts.md#concept-metadata) and [image frames](getting-started-concepts.md#concept-image-frame) (pixel data). During the transformation process, HealthImaging metadata keys are generated based on a specific version of the DICOM standard. HealthImaging currently generates and supports metadata keys based on the [DICOM PS3.6 2022b Data Dictionary](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#PS3.6).
 
-AWS HealthImaging supports the following DICOM data elements at the Patient, Study, and Series
-levels.
+AWS HealthImaging supports the following DICOM data elements at the Patient, Study, and Series levels.
 
-###### Note
+## Patient level elements
+<a name="patient-level-elements"></a>
 
-For a detailed description of each Patient level element, see the [Registry of
-DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1 "https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1").
+**Note**  
+For a detailed description of each Patient level element, see the [Registry of DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1).
 
 AWS HealthImaging supports the following Patient level elements:
 
 ```
-**Patient Module Elements**
+Patient Module Elements
 
   (0010,0010) - Patient's Name
   (0010,0020) - Patient ID
 
-**Issuer of Patient ID Macro Elements**
+Issuer of Patient ID Macro Elements
 
   (0010,0021) - Issuer of Patient ID
   (0010,0024) - Issuer of Patient ID Qualifiers Sequence
@@ -57,12 +57,12 @@ AWS HealthImaging supports the following Patient level elements:
   (0012,0063) - De-identification Method
   (0012,0064) - De-identification Method Code Sequence
 
-**Patient Group Macro Elements**
+Patient Group Macro Elements
 
   (0010,0026) - Source Patient Group Identification Sequence
   (0010,0027) - Group of Patients Identification Sequence
 
-**Clinical Trial Subject Module**
+Clinical Trial Subject Module
 
   (0012,0010) - Clinical Trial Sponsor Name
   (0012,0020) - Clinical Trial Protocol ID
@@ -73,18 +73,18 @@ AWS HealthImaging supports the following Patient level elements:
   (0012,0042) - Clinical Trial Subject Reading ID
   (0012,0081) - Clinical Trial Protocol Ethics Committee Name
   (0012,0082) - Clinical Trial Protocol Ethics Committee Approval Number
-
 ```
 
-###### Note
+## Study level elements
+<a name="study-level-elements"></a>
 
-For a detailed description of each Study level element, see the [Registry of
-DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1 "https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1").
+**Note**  
+For a detailed description of each Study level element, see the [Registry of DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1).
 
 AWS HealthImaging supports the following Study level elements:
 
 ```
-**General Study Module**
+General Study Module
 
   (0020,000D) - Study Instance UID
   (0008,0020) - Study Date
@@ -107,7 +107,7 @@ AWS HealthImaging supports the following Study level elements:
   (0008,1032) - Procedure Code Sequence
   (0040,1012) - Reason For Performed Procedure Code Sequence
 
-**Patient Study Module**
+Patient Study Module
 
   (0008,1080) - Admitting Diagnoses Description
   (0008,1084) - Admitting Diagnoses Code Sequence
@@ -135,25 +135,25 @@ AWS HealthImaging supports the following Study level elements:
   (0038,0062) - Service Episode Description
   (0010,2203) - Patient's Sex Neutered
 
-**Clinical Trial Study Module**
+Clinical Trial Study Module
 
   (0012,0050) - Clinical Trial Time Point ID
   (0012,0051) - Clinical Trial Time Point Description
   (0012,0052) - Longitudinal Temporal Offset from Event
   (0012,0053) - Longitudinal Temporal Event Type
   (0012,0083) - Consent for Clinical Trial Use Sequence
-
 ```
 
-###### Note
+## Series level elements
+<a name="series-level-elements"></a>
 
-For a detailed description of each Series level element, see the [Registry of
-DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1 "https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1").
+**Note**  
+For a detailed description of each Series level element, see the [Registry of DICOM Data Elements](https://dicom.nema.org/medical/dicom/2022b/output/html/part06.html#table_6-1).
 
 AWS HealthImaging supports the following Series level elements:
 
 ```
-**General Series Module**
+General Series Module
 
   (0008,0060) - Modality
   (0020,000E) - Series Instance UID
@@ -178,13 +178,13 @@ AWS HealthImaging supports the following Series level elements:
   (0010,2210) - Anatomical Orientation Type
   (300A,0700) - Treatment Session UID
 
-**Clinical Trial Series Module**
+Clinical Trial Series Module
 
   (0012,0060) - Clinical Trial Coordinating Center Name
   (0012,0071) - Clinical Trial Series ID
   (0012,0072) - Clinical Trial Series Description
 
-**General Equipment Module**
+General Equipment Module
 
   (0008,0070) - Manufacturer
   (0008,0080) - Institution Name
@@ -204,9 +204,8 @@ AWS HealthImaging supports the following Series level elements:
   (0018,1201) - Time of Last Calibration
   (0028,0120) - Pixel Padding Value
 
-**Frame of Reference Module**
+Frame of Reference Module
 
   (0020,0052) - Frame of Reference UID
   (0020,1040) - Position Reference Indicator
-
 ```

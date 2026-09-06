@@ -1,12 +1,15 @@
+
+
 # Hello HealthImaging
+<a name="example_medical-imaging_Hello_section"></a>
 
 The following code examples show how to get started using HealthImaging.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-Code for the CMakeLists.txt CMake file.
+**SDK for C\+\+**  
+Code for the CMakeLists.txt CMake file.  
 
 ```
 # Set the minimum required version of CMake for this project.
@@ -47,11 +50,8 @@ add_executable(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
         ${AWSSDK_LINK_LIBRARIES})
-
-
 ```
-
-Code for the hello\_health\_imaging.cpp source file.
+Code for the hello\_health\_imaging.cpp source file.  
 
 ```
 #include <aws/core/Aws.h>
@@ -126,23 +126,14 @@ int main(int argc, char **argv) {
     Aws::ShutdownAPI(options); // Should only be called once.
     return 0;
 }
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/ListDatastores) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/hello_health_imaging#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../goto/SdkForCpp/medical-imaging-2023-07-19/ListDatastores.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/ListDatastores.md")
-  in _AWS SDK for C++ API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/hello_health_imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/hello_health_imaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import {
@@ -162,23 +153,14 @@ export const helloMedicalImaging = async () => {
   console.log(datastoreSummaries.map((item) => item.datastoreName).join("\n"));
   return datastoreSummaries;
 };
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 import logging
@@ -218,20 +200,10 @@ def hello_medical_imaging(medical_imaging_client):
 
 if __name__ == "__main__":
     hello_medical_imaging(boto3.client("medical-imaging"))
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/ListDatastores) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../goto/boto3/medical-imaging-2023-07-19/ListDatastores.md "../../../goto/boto3/medical-imaging-2023-07-19/ListDatastores.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging/imaging_set_and_frames_workflow#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

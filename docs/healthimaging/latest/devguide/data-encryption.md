@@ -1,50 +1,32 @@
+
+
 # Data encryption
+<a name="data-encryption"></a>
 
-With AWS HealthImaging, you can add a layer of security to your data at rest in the cloud,
-providing scalable and efficient encryption features. These include:
+With AWS HealthImaging, you can add a layer of security to your data at rest in the cloud, providing scalable and efficient encryption features. These include:
++ Data at rest encryption capabilities available in most AWS services
++ Flexible key management options, including AWS Key Management Service, with which you can choose whether to have AWS manage the encryption keys or to keep complete control over your own keys.
++ AWS owned AWS KMS encryption keys
++ Encrypted message queues for the transmission of sensitive data using server-side encryption (SSE) for Amazon SQS
 
-- Data at rest encryption capabilities available in most AWS services
-- Flexible key management options, including AWS Key Management Service, with which you can
-  choose whether to have AWS manage the encryption keys or to keep complete
-  control over your own keys.
-- AWS owned AWS KMS encryption keys
-- Encrypted message queues for the transmission of sensitive data using
-  server-side encryption (SSE) for Amazon SQS
-  In addition, AWS provides APIs for you to integrate encryption and data protection
-  with any of the services you develop or deploy in an AWS environment.
+In addition, AWS provides APIs for you to integrate encryption and data protection with any of the services you develop or deploy in an AWS environment.
 
 ## Creating a customer managed key
+<a name="creating-co-cmk"></a>
 
-You can create a symmetric customer managed key by using the AWS Management Console or the
-AWS KMS APIs. For more information, see [Creating
-symmetric encryption KMS keys](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the
-_AWS Key Management Service Developer Guide_.
+You can create a symmetric customer managed key by using the AWS Management Console or the AWS KMS APIs. For more information, see [ Creating symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *AWS Key Management Service Developer Guide*.
 
-Key policies control access to your customer managed key. Every customer managed
-key must have exactly one key policy, which contains statements that determine who
-can use the key and how they can use it. When you create your customer managed key,
-you can specify a key policy. For more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the
-_AWS Key Management Service Developer Guide_.
+Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html#managing-access) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed key with your HealthImaging resources, [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") operations must be permitted in the key policy. This
-adds a grant to a customer managed key which controls access to a specified
-KMS key, which gives a user access to the [Grant
-operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") HealthImaging requires. For more information, see [Grants in
-AWS KMS](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS Key Management Service Developer Guide_.
+To use your customer managed key with your HealthImaging resources, [kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) operations must be permitted in the key policy. This adds a grant to a customer managed key which controls access to a specified KMS key, which gives a user access to the [Grant operations](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations) HealthImaging requires. For more information, see [ Grants in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) in the *AWS Key Management Service Developer Guide*.
 
-To use your customer managed KMS key with your HealthImaging resources, the following
-API operations must be permitted in the key policy:
+To use your customer managed KMS key with your HealthImaging resources, the following API operations must be permitted in the key policy:
++ `kms:DescribeKey` provides the customer managed key details needed to validate the key. This is required for all operations.
++ `kms:GenerateDataKey` provides access to encrypt resources at rest for all write operations.
++ `kms:Decrypt` provides access to read or search operations for encrypted resources.
++ `kms:ReEncrypt*` provides access to reencrypt resources.
 
-- `kms:DescribeKey` provides the customer managed key details
-  needed to validate the key. This is required for all operations.
-- `kms:GenerateDataKey` provides access to encrypt resources at
-  rest for all write operations.
-- `kms:Decrypt` provides access to read or search operations for
-  encrypted resources.
-- `kms:ReEncrypt*` provides access to reencrypt resources.
-
-The following is a policy statement example that allows a user to create and
-interact with a data store in HealthImaging which is encrypted by that key:
+The following is a policy statement example that allows a user to create and interact with a data store in HealthImaging which is encrypted by that key:
 
 ```
 {
@@ -68,78 +50,60 @@ interact with a data store in HealthImaging which is encrypted by that key:
         }
     }
 }
-
 ```
 
 ## Required IAM permissions for using a customer managed KMS key
+<a name="required-iam-cmk"></a>
 
-When creating a data store with AWS KMS encryption enabled using a customer managed
-KMS key, there are required permissions for both the key policy and the IAM
-policy for the user or role creating the HealthImaging data store.
+ When creating a data store with AWS KMS encryption enabled using a customer managed KMS key, there are required permissions for both the key policy and the IAM policy for the user or role creating the HealthImaging data store.
 
-For more information about key policies, see [Enabling IAM policies](../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-root-enable-iam "../../../kms/latest/developerguide/key-policies.md#key-policy-default-allow-root-enable-iam") in the
-_AWS Key Management Service Developer Guide_.
+ For more information about key policies, see [ Enabling IAM policies](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) in the *AWS Key Management Service Developer Guide*.
 
-The IAM user, IAM role, or AWS account creating your repositories must have
-permissions for the policy below, plus the necessary permissions for
-AWS HealthImaging.
+The IAM user, IAM role, or AWS account creating your repositories must have permissions for the policy below, plus the necessary permissions for AWS HealthImaging.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "kms:CreateGrant",
- "kms:GenerateDataKey",
- "kms:RetireGrant",
- "kms:Decrypt",
- "kms:ReEncrypt*"
- ],
- "Resource": "arn:aws:kms:us-east-1:123456789012:key/bec71d48-3462-4cdd-9514-77a7226e001f"
- }
- ]
-}`
+****  
 
 ```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "kms:CreateGrant",
+        "kms:GenerateDataKey",
+        "kms:RetireGrant",
+        "kms:Decrypt",
+        "kms:ReEncrypt*"
+      ],
+      "Resource": "arn:aws:kms:us-east-1:123456789012:key/bec71d48-3462-4cdd-9514-77a7226e001f"
+    }
+  ]
+}
+```
+
+------
 
 ### How HealthImaging uses grants in AWS KMS
+<a name="grants-kms"></a>
 
-HealthImaging requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your
-customer managed KMS key. When you create a data store encrypted with a customer
-managed KMS key, HealthImaging creates a grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. Grants in AWS KMS are used to give
-HealthImaging access to a KMS key in a customer account.
+HealthImaging requires a [grant](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html) to use your customer managed KMS key. When you create a data store encrypted with a customer managed KMS key, HealthImaging creates a grant on your behalf by sending a [CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html) request to AWS KMS. Grants in AWS KMS are used to give HealthImaging access to a KMS key in a customer account.
 
-The grants that HealthImaging creates on your behalf should not be revoked or retired.
-If you revoke or retire the grant that gives HealthImaging permission to use the AWS KMS
-keys in your account, HealthImaging cannot access this data, encrypt new imaging
-resources pushed to the data store, or decrypt them when they are pulled. When
-you revoke or retire a grant for HealthImaging, the change occurs immediately. To revoke
-access rights, you should delete the data store rather than revoke the grant.
-When a data store is deleted, HealthImaging retires the grants on your behalf.
+The grants that HealthImaging creates on your behalf should not be revoked or retired. If you revoke or retire the grant that gives HealthImaging permission to use the AWS KMS keys in your account, HealthImaging cannot access this data, encrypt new imaging resources pushed to the data store, or decrypt them when they are pulled. When you revoke or retire a grant for HealthImaging, the change occurs immediately. To revoke access rights, you should delete the data store rather than revoke the grant. When a data store is deleted, HealthImaging retires the grants on your behalf.
 
 ### Monitoring your encryption keys for HealthImaging
+<a name="monitoring-kms"></a>
 
-You can use CloudTrail to track the requests that HealthImaging sends to AWS KMS on your
-behalf when using a customer managed KMS key. The log entries in the CloudTrail log
-show `medical-imaging.amazonaws.com` in the `userAgent` field to
-clearly distinguish requests made by HealthImaging.
+You can use CloudTrail to track the requests that HealthImaging sends to AWS KMS on your behalf when using a customer managed KMS key. The log entries in the CloudTrail log show `medical-imaging.amazonaws.com` in the `userAgent` field to clearly distinguish requests made by HealthImaging.
 
-The following examples are CloudTrail events for `CreateGrant`,
-`GenerateDataKey`, `Decrypt`, and
-`DescribeKey` to monitor AWS KMS operations called by HealthImaging to
-access data encrypted by your customer managed key.
+The following examples are CloudTrail events for `CreateGrant`, `GenerateDataKey`, `Decrypt`, and `DescribeKey` to monitor AWS KMS operations called by HealthImaging to access data encrypted by your customer managed key.
 
-The following shows how to use `CreateGrant` to allow HealthImaging to
-access a customer provided KMS key, enabling HealthImaging to use that KMS key to
-encrypt all customer data at rest.
+The following shows how to use `CreateGrant` to allow HealthImaging to access a customer provided KMS key, enabling HealthImaging to use that KMS key to encrypt all customer data at rest.
 
-Users are not required to create their own grants. HealthImaging creates a grant on
-your behalf by sending a `CreateGrant` request to AWS KMS. Grants in
-AWS KMS are used to give HealthImaging access to a AWS KMS key in a customer account.
+Users are not required to create their own grants. HealthImaging creates a grant on your behalf by sending a `CreateGrant` request to AWS KMS. Grants in AWS KMS are used to give HealthImaging access to a AWS KMS key in a customer account.
 
 ```
 {
@@ -205,11 +169,9 @@ AWS KMS are used to give HealthImaging access to a AWS KMS key in a customer acc
                 }
             }
         }
-
 ```
 
-The following examples shows how to use `GenerateDataKey` to ensure
-the user has necessary permissions to encrypt data before storing it.
+The following examples shows how to use `GenerateDataKey` to ensure the user has necessary permissions to encrypt data before storing it.
 
 ```
 {
@@ -262,11 +224,9 @@ the user has necessary permissions to encrypt data before storing it.
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
 ```
 
-The following example shows how HealthImaging calls the `Decrypt` operation
-to use the stored encrypted data key to access the encrypted data.
+The following example shows how HealthImaging calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data.
 
 ```
 {
@@ -319,12 +279,9 @@ to use the stored encrypted data key to access the encrypted data.
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
 ```
 
-The following example shows how HealthImaging uses the `DescribeKey`
-operation to verify if the AWS KMS customer owned AWS KMS key is in a usable state
-and to help a user troubleshoot if it is not functional.
+The following example shows how HealthImaging uses the `DescribeKey` operation to verify if the AWS KMS customer owned AWS KMS key is in a usable state and to help a user troubleshoot if it is not functional.
 
 ```
 {
@@ -376,15 +333,11 @@ and to help a user troubleshoot if it is not functional.
     "recipientAccountId": "111122223333",
     "eventCategory": "Management"
 }
-
 ```
 
 ### Learn more
+<a name="more-info-kms"></a>
 
-The following resources provide more information about data at rest encryption
-and are located in the in the _AWS Key Management Service Developer Guide_.
-
-- [AWS KMS
-  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md")
-- [Security best
-  practices for AWS KMS](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md")
+The following resources provide more information about data at rest encryption and are located in the in the *AWS Key Management Service Developer Guide*.
++ [AWS KMS concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
++ [Security best practices for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/best-practices.html)

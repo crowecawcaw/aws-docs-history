@@ -1,17 +1,18 @@
+
+
 # Use `GetImageSetMetadata` with an AWS SDK or CLI
+<a name="example_medical-imaging_GetImageSetMetadata_section"></a>
 
 The following code examples show how to use `GetImageSetMetadata`.
 
-Action examples are code excerpts from larger programs and must be run in context. You can see this action in
-context in the following code example:
+Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code example: 
++  [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md) 
 
-- [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md "example_medical-imaging_Scenario_ImageSetsAndFrames_section.md")
+------
+#### [ C\+\+ ]
 
-C++
-
-**SDK for C++**
-
-Utility function to get image set metadata.
+**SDK for C\+\+**  
+Utility function to get image set metadata.  
 
 ```
 //! Routine which gets a HealthImaging image set's metadata.
@@ -49,11 +50,8 @@ bool AwsDoc::Medical_Imaging::getImageSetMetadata(const Aws::String &dataStoreID
 
     return outcome.IsSuccess();
 }
-
-
 ```
-
-Get image set metadata without version.
+Get image set metadata without version.  
 
 ```
         if (AwsDoc::Medical_Imaging::getImageSetMetadata(dataStoreID, imageSetID, "", outputFilePath, clientConfig))
@@ -61,11 +59,8 @@ Get image set metadata without version.
             std::cout << "Successfully retrieved image set metadata." << std::endl;
             std::cout << "Metadata stored in: " << outputFilePath << std::endl;
         }
-
-
 ```
-
-Get image set metadata with version.
+Get image set metadata with version.  
 
 ```
         if (AwsDoc::Medical_Imaging::getImageSetMetadata(dataStoreID, imageSetID, versionID, outputFilePath, clientConfig))
@@ -73,41 +68,26 @@ Get image set metadata with version.
             std::cout << "Successfully retrieved image set metadata." << std::endl;
             std::cout << "Metadata stored in: " << outputFilePath << std::endl;
         }
+```
++  For API details, see [GetImageSetMetadata](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/GetImageSetMetadata) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**Example 1: To get image set metadata without version**  
+The following `get-image-set-metadata` code example gets metadata for an image set without specifying a version.  
+Note: `outfile` is a required parameter  
 
 ```
-
-- For API details, see
-  [GetImageSetMetadata](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageSetMetadata.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageSetMetadata.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**Example 1: To get image set metadata without version**
-
-The following `get-image-set-metadata` code example gets metadata for an image set without specifying a version.
-
-Note: `outfile` is a required parameter
-
+aws medical-imaging get-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    {{studymetadata.json.gz}}
 ```
-`aws medical-imaging get-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- `studymetadata.json.gz``
-
-```
-
-The returned metadata is compressed with gzip and stored in the studymetadata.json.gz file. To view the contents of the returned JSON object, you must first decompress it.
-
-Output:
+The returned metadata is compressed with gzip and stored in the studymetadata.json.gz file. To view the contents of the returned JSON object, you must first decompress it.  
+Output:  
 
 ```
 {
@@ -115,25 +95,19 @@ Output:
     "contentEncoding": "gzip"
 }
 ```
-
-**Example 2: To get image set metadata with version**
-
-The following `get-image-set-metadata` code example gets metadata for an image set with a specified version.
-
-Note: `outfile` is a required parameter
+**Example 2: To get image set metadata with version**  
+The following `get-image-set-metadata` code example gets metadata for an image set with a specified version.  
+Note: `outfile` is a required parameter  
 
 ```
-`aws medical-imaging get-image-set-metadata \
- --datastore-id `12345678901234567890123456789012` \
- --image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --version-id `1` \
- `studymetadata.json.gz``
-
+aws medical-imaging get-image-set-metadata \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --version-id {{1}} \
+    {{studymetadata.json.gz}}
 ```
-
-The returned metadata is compressed with gzip and stored in the studymetadata.json.gz file. To view the contents of the returned JSON object, you must first decompress it.
-
-Output:
+The returned metadata is compressed with gzip and stored in the studymetadata.json.gz file. To view the contents of the returned JSON object, you must first decompress it.  
+Output:  
 
 ```
 {
@@ -141,14 +115,13 @@ Output:
     "contentEncoding": "gzip"
 }
 ```
+  
++  For API details, see [GetImageSetMetadata](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-set-metadata.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [GetImageSetMetadata](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-set-metadata.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-set-metadata.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static void getMedicalImageSetMetadata(MedicalImagingClient medicalImagingClient,
@@ -175,25 +148,15 @@ Java
             System.exit(1);
         }
     }
-
-
 ```
++  For API details, see [GetImageSetMetadata](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageSetMetadata) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [GetImageSetMetadata](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageSetMetadata.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageSetMetadata.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Utility function to get image set metadata.
+**SDK for JavaScript (v3)**  
+Utility function to get image set metadata.  
 
 ```
 import { GetImageSetMetadataCommand } from "@aws-sdk/client-medical-imaging";
@@ -241,12 +204,8 @@ export const getImageSetMetadata = async (
 
   return response;
 };
-
-
-
 ```
-
-Get image set metadata without version.
+Get image set metadata without version.  
 
 ```
   try {
@@ -258,11 +217,8 @@ Get image set metadata without version.
   } catch (err) {
     console.log("Error", err);
   }
-
-
 ```
-
-Get image set metadata with version.
+Get image set metadata with version.  
 
 ```
   try {
@@ -275,25 +231,15 @@ Get image set metadata with version.
   } catch (err) {
     console.log("Error", err);
   }
-
-
 ```
++  For API details, see [GetImageSetMetadata](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageSetMetadata](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
-
-Utility function to get image set metadata.
+**SDK for Python (Boto3)**  
+Utility function to get image set metadata.  
 
 ```
 class MedicalImagingWrapper:
@@ -337,23 +283,15 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
+```
+Get image set metadata without version.  
 
 ```
-
-Get image set metadata without version.
-
-```
-
                 image_set_metadata = self.health_imaging_client.get_image_set_metadata(
                     imageSetId=image_set_id, datastoreId=datastore_id
                 )
-
-
 ```
-
-Get image set metadata with version.
+Get image set metadata with version.  
 
 ```
                 image_set_metadata = self.health_imaging_client.get_image_set_metadata(
@@ -361,32 +299,20 @@ Get image set metadata with version.
                     datastoreId=datastore_id,
                     versionId=version_id,
                 )
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [GetImageSetMetadata](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetImageSetMetadata) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageSetMetadata](../../../goto/boto3/medical-imaging-2023-07-19/GetImageSetMetadata.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageSetMetadata.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -418,20 +344,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetImageSetMetadata](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [GetImageSetMetadata](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

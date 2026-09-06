@@ -1,22 +1,26 @@
+
+
 # Listing data stores
+<a name="list-data-stores"></a>
 
-Use the `ListDatastores` action to list available [data stores](getting-started-concepts.md#concept-data-store "getting-started-concepts.md#concept-data-store") in AWS HealthImaging. The following menus
-provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For
-more information, see [`ListDatastores`](../APIReference/API_ListDatastores.md "../APIReference/API_ListDatastores.md") in the _AWS HealthImaging API
-Reference_.
+Use the `ListDatastores` action to list available [data stores](getting-started-concepts.md#concept-data-store) in AWS HealthImaging. The following menus provide a procedure for the AWS Management Console and code examples for the AWS CLI and AWS SDKs. For more information, see [`ListDatastores`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListDatastores.html) in the *AWS HealthImaging API Reference*.
 
-###### To list data stores
-
+**To list data stores**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-- Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores "https://console.aws.amazon.com/medical-imaging/home#/dataStores").
+## AWS Console
+<a name="code-example-console-data-stores-list"></a>
++ Open the HealthImaging console [Data stores page](https://console.aws.amazon.com/medical-imaging/home#/dataStores).
 
-All data stores are listed under the **Data stores**
-section.
+  All data stores are listed under the **Data stores** section.
 
-Bash
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-data-stores-list"></a>
 
-**AWS CLI with Bash script**
+------
+#### [ Bash ]
+
+**AWS CLI with Bash script**  
 
 ```
 ###############################################################################
@@ -81,34 +85,21 @@ function imaging_list_datastores() {
 
   return 0
 }
+```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/goto/aws-cli/medical-imaging-2023-07-19/ListDatastores) in *AWS CLI Command Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To list data stores**  
+The following `list-datastores` code example lists available data stores.  
 
 ```
-
-- For API details, see
-  [ListDatastores](../../../goto/aws-cli/medical-imaging-2023-07-19/ListDatastores.md "../../../goto/aws-cli/medical-imaging-2023-07-19/ListDatastores.md")
-  in _AWS CLI Command Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/aws-cli/bash-linux/medical-imaging#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To list data stores**
-
-The following `list-datastores` code example lists available data stores.
-
+aws medical-imaging list-datastores
 ```
-`aws medical-imaging list-datastores`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -124,14 +115,13 @@ Output:
     ]
 }
 ```
+  
++  For API details, see [ListDatastores](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-datastores.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListDatastores](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-datastores.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/list-datastores.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
     public static List<DatastoreSummary> listMedicalImagingDatastores(MedicalImagingClient medicalImagingClient) {
@@ -151,23 +141,14 @@ Java
 
         return null;
     }
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/ListDatastores) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListDatastores.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListDatastores.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { paginateListDatastores } from "@aws-sdk/client-medical-imaging";
@@ -215,23 +196,14 @@ export const listDatastores = async () => {
 
   return datastoreSummaries;
 };
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -260,33 +232,20 @@ class MedicalImagingWrapper:
             raise
         else:
             return datastore_summaries
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/ListDatastores) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../goto/boto3/medical-imaging-2023-07-19/ListDatastores.md "../../../goto/boto3/medical-imaging-2023-07-19/ListDatastores.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -303,21 +262,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [ListDatastores](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [ListDatastores](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

@@ -1,51 +1,34 @@
+
+
 # Getting image set pixel data
+<a name="get-image-frame"></a>
 
-An [image frame](getting-started-concepts.md#concept-image-frame "getting-started-concepts.md#concept-image-frame") is the pixel data that exists
-within an image set to make up a 2D medical image. Use the `GetImageFrame` action
-to retrieve an HTJ2K-encoded or native JPEG 2000 lossless image frame for a given [image
-set](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set") in HealthImaging. The following menus provide code examples for the AWS CLI and AWS
-SDKs. For more information, see [`GetImageFrame`](../APIReference/API_GetImageFrame.md "../APIReference/API_GetImageFrame.md") in the _AWS HealthImaging API
-Reference_.
+An [image frame](getting-started-concepts.md#concept-image-frame) is the pixel data that exists within an image set to make up a 2D medical image. Use the `GetImageFrame` action to retrieve an HTJ2K-encoded or native JPEG 2000 lossless image frame for a given [image set](getting-started-concepts.md#concept-image-set) in HealthImaging. The following menus provide code examples for the AWS CLI and AWS SDKs. For more information, see [`GetImageFrame`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageFrame.html) in the *AWS HealthImaging API Reference*.
 
-###### Note
+**Note**  
+Keep the following points in mind when using the `GetImageFrame` action:  
+During [import](importing-imaging-data.md), HealthImaging retains encoding for some transfer syntaxes, and transcodes others to HTJ2K lossless (default) or JPEG 2000 Lossless. The `GetImageFrame` action returns the image frame in the stored transfer syntax of the instance. No transcoding is performed during retrieval to ensure minimal retrieval latency. Image frames may need to be decoded prior to viewing in an image viewer, depending on the transfer syntax. For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md) and [Image frame decoding libraries](reference-libraries.md).
+For instances stored in HealthImaging with one or more image frames encoded in the MPEG family of Transfer Syntaxes (which includes MPEG2, MPEG-4 AVC/H.264 and HEVC/H.265) the `GetImageFrame` action will return a video object in the [stored transfer syntax](supported-transfer-syntaxes.md).
+The transfer syntax of image frames is specified in the `Content-Type HTTP` header response element. For example, an image frame encoded in HTJ2K will have `Content-Type: image/jph header`. For more information, see [`GetImageFrame`](https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageFrame.html) in the *AWS HealthImaging API Reference*.
+You can also use `GetDICOMInstanceFrames`, HealthImaging's representation of a DICOMweb service, to retrieve DICOM instance frames (`multipart` request) for DICOMweb-compatible viewers and applications. For more information, see [Getting DICOM instance frames from HealthImaging](dicomweb-retrieve-instance-frames.md).
 
-Keep the following points in mind when using the `GetImageFrame`
-action:
-
-- During [import](importing-imaging-data.md "importing-imaging-data.md"), HealthImaging retains
-  encoding for some transfer syntaxes, and transcodes others to HTJ2K lossless
-  (default) or JPEG 2000 Lossless. The `GetImageFrame` action returns
-  the image frame in the stored transfer syntax of the instance. No transcoding
-  is performed during retrieval to ensure minimal retrieval latency. Image frames
-  may need to be decoded prior to viewing in an image viewer, depending on the transfer syntax.
-  For more information, see [Supported transfer syntaxes](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md") and [Image frame decoding libraries](reference-libraries.md "reference-libraries.md").
-- For instances stored in HealthImaging with one or more image frames encoded
-  in the MPEG family of Transfer Syntaxes (which includes MPEG2, MPEG-4 AVC/H.264
-  and HEVC/H.265) the `GetImageFrame` action will return a video object
-  in the [stored transfer syntax](supported-transfer-syntaxes.md "supported-transfer-syntaxes.md").
-- The transfer syntax of image frames is specified in the `Content-Type HTTP`
-  header response element. For example, an image frame encoded in HTJ2K will have `Content-Type: 
- image/jph header`. For more information, see [`GetImageFrame`](../APIReference/API_GetImageFrame.md "../APIReference/API_GetImageFrame.md") in the _AWS HealthImaging API
-  Reference_.
-- You can also use `GetDICOMInstanceFrames`, HealthImaging's representation
-  of a DICOMweb service, to retrieve DICOM instance frames (`multipart`
-  request) for DICOMweb-compatible viewers and applications. For more information,
-  see [Getting DICOM instance frames from HealthImaging](dicomweb-retrieve-instance-frames.md "dicomweb-retrieve-instance-frames.md").
-
-###### To get image set pixel data
-
+**To get image set pixel data**  
 Choose a menu based on your access preference to AWS HealthImaging.
 
-###### Note
+## AWS Console
+<a name="code-example-console-image-set-get-pixel-data"></a>
 
-Image frames must be accessed and decoded programmatically, as an image viewer
-is not available in the AWS Management Console.
+**Note**  
+Image frames must be accessed and decoded programmatically, as an image viewer is not available in the AWS Management Console.  
+For more information about decoding and viewing image frames, see [Image frame decoding libraries](reference-libraries.md).
 
-For more information about decoding and viewing image frames, see [Image frame decoding libraries](reference-libraries.md "reference-libraries.md").
+## AWS CLI and SDKs
+<a name="code-example-cli-sdk-image-set-get-pixel-data"></a>
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
+**SDK for C\+\+**  
 
 ```
 //! Routine which downloads an AWS HealthImaging image frame.
@@ -90,47 +73,32 @@ bool AwsDoc::Medical_Imaging::getImageFrame(const Aws::String &dataStoreID,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame) in *AWS SDK for C\+\+ API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples). 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get image set pixel data**  
+The following `get-image-frame` code example gets an image frame.  
 
 ```
-
-- For API details, see
-  [GetImageFrame](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md")
-  in _AWS SDK for C++ API Reference_.
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/medical-imaging/#code-examples").
-
-CLI
-
-**AWS CLI**
-
-**To get image set pixel data**
-
-The following `get-image-frame` code example gets an image frame.
-
+aws medical-imaging get-image-frame \
+    --datastore-id {{"12345678901234567890123456789012"}} \
+    --image-set-id {{"98765412345612345678907890789012"}} \
+    --image-frame-information {{imageFrameId=3abf5d5d7ae72f80a0ec81b2c0de3ef4}} \
+    {{imageframe.jph}}
 ```
-`aws medical-imaging get-image-frame \
- --datastore-id `"12345678901234567890123456789012"` \
- --image-set-id `"98765412345612345678907890789012"` \
- --image-frame-information `imageFrameId=3abf5d5d7ae72f80a0ec81b2c0de3ef4` \
- `imageframe.jph``
+Note: This code example does not include output because the GetImageFrame action returns a stream of pixel data to the imageframe.jph file. For information about decoding and viewing image frames, see HTJ2K decoding libraries.  
+  
++  For API details, see [GetImageFrame](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html) in *AWS CLI Command Reference*. 
 
-```
+------
+#### [ Java ]
 
-Note:
-This code example does not include output because the GetImageFrame action returns a stream of pixel data to the imageframe.jph file. For information about decoding and viewing image frames, see HTJ2K decoding libraries.
-
-- For API details, see
-  [GetImageFrame](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/get-image-frame.html")
-  in _AWS CLI Command Reference_.
-
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
         public static void getMedicalImageSetFrame(MedicalImagingClient medicalImagingClient,
@@ -156,23 +124,14 @@ Java
                         System.exit(1);
                 }
         }
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageFrame) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/GetImageFrame.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
+**SDK for JavaScript (v3)**  
 
 ```
 import { GetImageFrameCommand } from "@aws-sdk/client-medical-imaging";
@@ -215,23 +174,14 @@ export const getImageFrame = async (
   // }
   return response;
 };
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
+**SDK for Python (Boto3)**  
 
 ```
 class MedicalImagingWrapper:
@@ -267,33 +217,20 @@ class MedicalImagingWrapper:
                 err.response["Error"]["Message"],
             )
             raise
-
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/GetImageFrame) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -320,21 +257,11 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [GetImageFrame](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [GetImageFrame](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-###### Example availability
-
-Can't find what you need? Request a code example using the **Provide
-feedback** link on the right sidebar of this page.
+**Example availability**  
+Can't find what you need? Request a code example using the **Provide feedback** link on the right sidebar of this page.

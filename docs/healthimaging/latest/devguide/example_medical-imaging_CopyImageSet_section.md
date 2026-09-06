@@ -1,24 +1,24 @@
+
+
 # Use `CopyImageSet` with an AWS SDK or CLI
+<a name="example_medical-imaging_CopyImageSet_section"></a>
 
 The following code examples show how to use `CopyImageSet`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To copy an image set without a destination.**
-
-The following `copy-image-set` example makes a duplicate copy of an image set without a destination.
-
-```
-`aws medical-imaging copy-image-set \
- --datastore-id `12345678901234567890123456789012` \
- --source-image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --copy-image-set-information '`{"sourceImageSet": {"latestVersionId": "1" } }`'`
+**AWS CLI**  
+**Example 1: To copy an image set without a destination.**  
+The following `copy-image-set` example makes a duplicate copy of an image set without a destination.  
 
 ```
-
-Output:
+aws medical-imaging copy-image-set \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --source-image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --copy-image-set-information '{{{"sourceImageSet": {"latestVersionId": "1" } }}}'
+```
+Output:  
 
 ```
 {
@@ -41,20 +41,16 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 2: To copy an image set with a destination.**
-
-The following `copy-image-set` example makes a duplicate copy of an image set with a destination.
+**Example 2: To copy an image set with a destination.**  
+The following `copy-image-set` example makes a duplicate copy of an image set with a destination.  
 
 ```
-`aws medical-imaging copy-image-set \
- --datastore-id `12345678901234567890123456789012` \
- --source-image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --copy-image-set-information '`{"sourceImageSet": {"latestVersionId": "1" }, "destinationImageSet": { "imageSetId": "b9a06fef182a5f992842f77f8e0868e5", "latestVersionId": "1"} }`'`
-
+aws medical-imaging copy-image-set \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --source-image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --copy-image-set-information '{{{"sourceImageSet": {"latestVersionId": "1" }, "destinationImageSet": { "imageSetId": "b9a06fef182a5f992842f77f8e0868e5", "latestVersionId": "1"} }}}'
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -77,22 +73,17 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
-
-**Example 3: To copy a subset of instances from a source image set to a destination image set.**
-
-The following `copy-image-set` example copies one DICOM instance from the source image set to the destination image set.
-The force parameter is provided to override inconsistencies in the Patient, Study, and Series level attributes.
+**Example 3: To copy a subset of instances from a source image set to a destination image set.**  
+The following `copy-image-set` example copies one DICOM instance from the source image set to the destination image set. The force parameter is provided to override inconsistencies in the Patient, Study, and Series level attributes.  
 
 ```
-`aws medical-imaging copy-image-set \
- --datastore-id `12345678901234567890123456789012` \
- --source-image-set-id `ea92b0d8838c72a3f25d00d13616f87e` \
- --copy-image-set-information '`{"sourceImageSet": {"latestVersionId": "1","DICOMCopies": {"copiableAttributes": "{\"SchemaVersion\":\"1.1\",\"Study\":{\"Series\":{\"1.3.6.1.4.1.5962.99.1.3673257865.2104868982.1369432891697.3666.0\":{\"Instances\":{\"1.3.6.1.4.1.5962.99.1.3673257865.2104868982.1369432891697.3669.0\":{}}}}}}"}},"destinationImageSet": {"imageSetId": "b9eb50d8ee682eb9fcf4acbf92f62bb7","latestVersionId": "1"}}`' \
- --force`
-
+aws medical-imaging copy-image-set \
+    --datastore-id {{12345678901234567890123456789012}} \
+    --source-image-set-id {{ea92b0d8838c72a3f25d00d13616f87e}} \
+    --copy-image-set-information '{{{"sourceImageSet": {"latestVersionId": "1","DICOMCopies": {"copiableAttributes": "{\"SchemaVersion\":\"1.1\",\"Study\":{\"Series\":{\"1.3.6.1.4.1.5962.99.1.3673257865.2104868982.1369432891697.3666.0\":{\"Instances\":{\"1.3.6.1.4.1.5962.99.1.3673257865.2104868982.1369432891697.3669.0\":{}}}}}}"}},"destinationImageSet": {"imageSetId": "b9eb50d8ee682eb9fcf4acbf92f62bb7","latestVersionId": "1"}}}}' \
+    --force
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -115,17 +106,15 @@ Output:
     "datastoreId": "12345678901234567890123456789012"
 }
 ```
+  
++  For API details, see [CopyImageSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/copy-image-set.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [CopyImageSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/copy-image-set.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/medical-imaging/copy-image-set.html")
-  in _AWS CLI Command Reference_.
+------
+#### [ Java ]
 
-Java
-
-**SDK for Java 2.x**
+**SDK for Java 2.x**  
 
 ```
-
     /**
      * Copy an AWS HealthImaging image set.
      *
@@ -187,14 +176,10 @@ Java
             throw e;
         }
     }
-
+```
+Utility function to create copiable attributes.  
 
 ```
-
-Utility function to create copiable attributes.
-
-```
-
     /**
      * Create a JSON string of copiable image instances.
      *
@@ -235,25 +220,15 @@ Utility function to create copiable attributes.
                 """);
         return subsetInstanceToCopy.toString();
     }
-
-
 ```
++  For API details, see [CopyImageSet](https://docs.aws.amazon.com/goto/SdkForJavaV2/medical-imaging-2023-07-19/CopyImageSet) in *AWS SDK for Java 2.x API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples). 
 
-- For API details, see
-  [CopyImageSet](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/CopyImageSet.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/CopyImageSet.md")
-  in _AWS SDK for Java 2.x API Reference_.
+------
+#### [ JavaScript ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/medicalimaging#code-examples").
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-Utility function to copy an image set.
+**SDK for JavaScript (v3)**  
+Utility function to copy an image set.  
 
 ```
 import { CopyImageSetCommand } from "@aws-sdk/client-medical-imaging";
@@ -351,27 +326,19 @@ export const copyImageSet = async (
     console.error(err);
   }
 };
-
+```
+Copy an image set without a destination.  
 
 ```
-
-Copy an image set without a destination.
-
-```
-
   await copyImageSet(
     "12345678901234567890123456789012",
     "12345678901234567890123456789012",
     "1",
   );
-
+```
+Copy an image set with a destination.  
 
 ```
-
-Copy an image set with a destination.
-
-```
-
   await copyImageSet(
     "12345678901234567890123456789012",
     "12345678901234567890123456789012",
@@ -380,15 +347,10 @@ Copy an image set with a destination.
     "1",
     false,
   );
-
-
+```
+Copy a subset of an image set with a destination and force the copy.  
 
 ```
-
-Copy a subset of an image set with a destination and force the copy.
-
-```
-
   await copyImageSet(
     "12345678901234567890123456789012",
     "12345678901234567890123456789012",
@@ -398,26 +360,15 @@ Copy a subset of an image set with a destination and force the copy.
     true,
     ["12345678901234567890123456789012", "11223344556677889900112233445566"],
   );
-
-
-
 ```
++  For API details, see [CopyImageSet](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CopyImageSetCommand) in *AWS SDK for JavaScript API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [CopyImageSet](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CopyImageSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CopyImageSetCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
+#### [ Python ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/medical-imaging#code-examples").
-
-Python
-
-**SDK for Python (Boto3)**
-
-Utility function to copy an image set.
+**SDK for Python (Boto3)**  
+Utility function to copy an image set.  
 
 ```
 class MedicalImagingWrapper:
@@ -485,12 +436,8 @@ class MedicalImagingWrapper:
             raise
         else:
             return copy_results["destinationImageSetProperties"]["imageSetId"]
-
-
-
 ```
-
-Copy an image set without a destination.
+Copy an image set without a destination.  
 
 ```
             copy_image_set_information = {
@@ -503,11 +450,8 @@ Copy an image set without a destination.
                 copyImageSetInformation=copy_image_set_information,
                 force=force,
             )
-
-
 ```
-
-Copy an image set with a destination.
+Copy an image set with a destination.  
 
 ```
             copy_image_set_information = {
@@ -526,11 +470,8 @@ Copy an image set with a destination.
                 copyImageSetInformation=copy_image_set_information,
                 force=force,
             )
-
-
 ```
-
-Copy a subset of an image set.
+Copy a subset of an image set.  
 
 ```
             copy_image_set_information = {
@@ -558,32 +499,20 @@ Copy a subset of an image set.
                 copyImageSetInformation=copy_image_set_information,
                 force=force,
             )
-
-
 ```
-
-The following code instantiates the MedicalImagingWrapper object.
+The following code instantiates the MedicalImagingWrapper object.   
 
 ```
     client = boto3.client("medical-imaging")
     medical_imaging_wrapper = MedicalImagingWrapper(client)
-
-
 ```
++  For API details, see [CopyImageSet](https://docs.aws.amazon.com/goto/boto3/medical-imaging-2023-07-19/CopyImageSet) in *AWS SDK for Python (Boto3) API Reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples). 
 
-- For API details, see
-  [CopyImageSet](../../../goto/boto3/medical-imaging-2023-07-19/CopyImageSet.md "../../../goto/boto3/medical-imaging-2023-07-19/CopyImageSet.md")
-  in _AWS SDK for Python (Boto3) API Reference_.
+------
+#### [ SAP ABAP ]
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/medical-imaging#code-examples").
-
-SAP ABAP
-
-**SDK for SAP ABAP**
+**SDK for SAP ABAP**  
 
 ```
     TRY.
@@ -629,20 +558,10 @@ SAP ABAP
       CATCH /aws1/cx_migvalidationex.
         MESSAGE 'Validation error.' TYPE 'I'.
     ENDTRY.
-
-
 ```
++  For API details, see [CopyImageSet](https://docs.aws.amazon.com/sdk-for-sap-abap/v1/api/latest/index.html) in *AWS SDK for SAP ABAP API reference*. 
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples). 
 
-- For API details, see
-  [CopyImageSet](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
-  in _AWS SDK for SAP ABAP API reference_.
+------
 
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/sap-abap/services/mig#code-examples").
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.
