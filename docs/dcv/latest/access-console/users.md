@@ -1,60 +1,59 @@
+
+
 # Users
+<a name="users"></a>
 
-The Amazon DCV Access Console allows admins to manage users, their roles and their access
-to the Console. You cannot edit a user’s name or any of their parameters or delete a
-user directly from the Console.
+The Amazon DCV Access Console allows admins to manage users, their roles and their access to the Console. You cannot edit a user’s name or any of their parameters or delete a user directly from the Console.
 
-On the **Users** page, you can view the users saved in your datastore
-and their detailed information. Users appear here if they have been directly imported
-from the Access Console, or have already logged in. For a complete list of users that
-are authorized to log into the Access Console, you must refer to your externally
-configured users datastore. For more information on how to configure your datastore, see
-[Datastore](datastore.md "datastore.md").
+On the **Users** page, you can view the users saved in your datastore and their detailed information. Users appear here if they have been directly imported from the Access Console, or have already logged in. For a complete list of users that are authorized to log into the Access Console, you must refer to your externally configured users datastore. For more information on how to configure your datastore, see [Datastore](datastore.md).
 
-Before your users can connect to the Access Console, you must configure either
-Pluggable Authenticate Modules (PAM) Authentication, or HTTP Header authentication. See
-[Authentication
-Methods](console-authentication.md "console-authentication.md") for more information.
+Before your users can connect to the Access Console, you must configure either Pluggable Authenticate Modules (PAM) Authentication, or HTTP Header authentication. See [Authentication Methods](console-authentication.md) for more information.
 
 ## User details
+<a name="user-details"></a>
 
-On the bottom part of the screen, the details for the selected user is displayed.
-This graphic shows which details are displayed.
+On the bottom part of the screen, the details for the selected user is displayed. This graphic shows which details are displayed.
 
-![User details panel showing Name, User ID, Role, Last time active, Date Created, Date Modified, and Imported fields.](images/user-details.png)
+![User details panel showing Name, User ID, Role, Last time active, Date Created, Date Modified, and Imported fields.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-details.png)
 
-| Property         | Description                                                                       |
-| ---------------- | --------------------------------------------------------------------------------- |
-| Name             | The display name of the user.                                                     |
-| User ID          | The unique ID of the user.                                                        |
-| Role             | The role a user can have when using the Access Console<br>• admin<br>or user.     |
-| Last time active | The last time the user connected to the Access Console.                           |
-| Date created     | The date the user was created in the Access Console.                              |
-| Date modified    | The last date that the user was modified in the Access<br>Console.                |
-| Imported         | Indicates whether or not the user was manually imported to the<br>Access Console. |
+
+
+| Property | Description | 
+| --- | --- | 
+| Name | The display name of the user. | 
+| User ID | The unique ID of the user. | 
+| Role | The role a user can have when using the Access Console - admin or user. | 
+| Last time active | The last time the user connected to the Access Console. | 
+| Date created | The date the user was created in the Access Console. | 
+| Date modified | The last date that the user was modified in the Access Console. | 
+| Imported | Indicates whether or not the user was manually imported to the Access Console. | 
 
 ### Session
+<a name="users-session"></a>
 
-These are the active sessions that the user has created. Its parameters are
-listed below.
+These are the active sessions that the user has created. Its parameters are listed below.
 
-![Sessions table showing Name, Level of access, and Status columns with no sessions available.](images/user-sessions.png)
+![Sessions table showing Name, Level of access, and Status columns with no sessions available.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-sessions.png)
 
-| Property        | Description                                       |
-| --------------- | ------------------------------------------------- |
-| Name            | The display name of the user.                     |
-| Level of access | Whether the user is set to Administrator or User. |
-| Status          | The current status of the user.                   |
+
+
+| Property | Description | 
+| --- | --- | 
+| Name | The display name of the user. | 
+| Level of access | Whether the user is set to Administrator or User. | 
+| Status | The current status of the user. | 
 
 ### Session template
+<a name="users-session-template"></a>
 
-These are the session templates that are available for the user. Its
-parameters are listed below.
+These are the session templates that are available for the user. Its parameters are listed below.
 
-![Session templates table showing Name, Description , and OS columns with no templates available.](images/user-session-templates.png)
+![Session templates table showing Name, Description , and OS columns with no templates available.](http://docs.aws.amazon.com/dcv/latest/access-console/images/user-session-templates.png)
 
-| Property    | Description                                   |
-| ----------- | --------------------------------------------- |
-| Name        | The name of the session template.             |
-| Description | The description of the session template.      |
-| OS          | The operating system of the session template. |
+
+
+| Property | Description | 
+| --- | --- | 
+| Name | The name of the session template. | 
+| Description | The description of the session template. | 
+| OS | The operating system of the session template. | 

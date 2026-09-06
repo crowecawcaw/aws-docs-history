@@ -1,185 +1,188 @@
+
+
 # Adding your custom branding
+<a name="adding-custom-branding"></a>
 
 To customize the Amazon DCV Access Console with your organizational branding, you need to update the following with your preferred configurations:
-
-- Authentication Server
-- Web Client
++ Authentication Server
++ Web Client
 
 ## Updating customization on the Authentication Server
+<a name="custom-branding-auth"></a>
 
 1. Connect to the host on which you are running the Authentication Server.
-2. Create a backup directory and copy the files that will be changed.
 
-```
-`$` mkdir custom_branding_bkp
-```
+1. Create a backup directory and copy the files that will be changed.
 
-```
-`$` sudo cp /opt/aws/dcv-access-console-auth-server/dcv-access-console-auth-server-*.jar custom_branding_bkp/
-```
+   ```
+   $ mkdir custom_branding_bkp
+   ```
 
-3. Create a working directory.
+   ```
+   $ sudo cp /opt/aws/dcv-access-console-auth-server/dcv-access-console-auth-server-*.jar custom_branding_bkp/
+   ```
 
-```
-`$` mkdir custom_branding
-```
+1. Create a working directory.
 
-```
-`$` cd custom_branding
-```
+   ```
+   $ mkdir custom_branding
+   ```
 
-4. Copy the Authentication Server.
+   ```
+   $ cd custom_branding
+   ```
 
-```
-`$` sudo cp /opt/aws/dcv-access-console-auth-server/dcv-access-console-auth-server-*.jar .
-```
+1. Copy the Authentication Server.
 
-5. Unzip the relevant files.
+   ```
+   $ sudo cp /opt/aws/dcv-access-console-auth-server/dcv-access-console-auth-server-*.jar .
+   ```
 
-```
-`$` unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/_next/static/chunks/app/login/*.js
-```
+1. Unzip the relevant files.
 
-```
-`$` unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/service-name.svg
-```
+   ```
+   $ unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/_next/static/chunks/app/login/*.js
+   ```
 
-```
-`$` unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/favicon.ico
-```
+   ```
+   $ unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/service-name.svg
+   ```
 
-```
-`$` unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/login-background.svg
-```
+   ```
+   $ unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/favicon.ico
+   ```
 
-6. Replace the existing images file paths with paths to your new custom **organization logo**
-   , **favicon**, and **login background images**.
+   ```
+   $ unzip dcv-access-console-auth-server-*.jar BOOT-INF/classes/static/login-background.svg
+   ```
 
-```
-`$` sudo cp `path-to-new-favicon.ico` BOOT-INF/classes/static/favicon.ico
-```
+1. Replace the existing images file paths with paths to your new custom **organization logo** , **favicon**, and **login background images**.
 
-```
-`$` sudo cp `path-to-new-service-name.svg` BOOT-INF/classes/static/service-name.svg
-```
+   ```
+   $ sudo cp {{path-to-new-favicon.ico}} BOOT-INF/classes/static/favicon.ico
+   ```
 
-```
-`$` sudo cp `path-to-new-login-background.svg` BOOT-INF/classes/static/login-background.svg
-```
+   ```
+   $ sudo cp {{path-to-new-service-name.svg}} BOOT-INF/classes/static/service-name.svg
+   ```
 
-7. Update the **alternative text** for the organization logo.
+   ```
+   $ sudo cp {{path-to-new-login-background.svg}} BOOT-INF/classes/static/login-background.svg
+   ```
 
-```
-`$` OLD_ALT="Access Console"
-```
+1. Update the **alternative text** for the organization logo.
 
-```
-`$` NEW_ALT="My new logo alt text"
-```
+   ```
+   $ OLD_ALT="Access Console"
+   ```
 
-```
-`$` sudo sed -i "s/alt:\"$OLD_ALT\"/alt:\"$NEW_ALT\"/g" BOOT-INF/classes/static/_next/static/chunks/app/login/page-*.js
-```
+   ```
+   $ NEW_ALT="My new logo alt text"
+   ```
 
-8. Update the **login message** on the login screen.
+   ```
+   $ sudo sed -i "s/alt:\"$OLD_ALT\"/alt:\"$NEW_ALT\"/g" BOOT-INF/classes/static/_next/static/chunks/app/login/page-*.js
+   ```
 
-```
-`$` OLD_TAGLINE="Manage and connect to your Amazon DCV sessions."
-```
+1. Update the **login message** on the login screen.
 
-```
-`$` NEW_TAGLINE="My new tag line"
-```
+   ```
+   $ OLD_TAGLINE="Manage and connect to your Amazon DCV sessions."
+   ```
 
-```
-`$` sudo sed -i "s/tagline:\"$OLD_TAGLINE\"/tagline:\"$NEW_TAGLINE\"/g" BOOT-INF/classes/static/_next/static/chunks/app/login/page-*.js
-```
+   ```
+   $ NEW_TAGLINE="My new tag line"
+   ```
 
-9. Replace the files in the jar.
+   ```
+   $ sudo sed -i "s/tagline:\"$OLD_TAGLINE\"/tagline:\"$NEW_TAGLINE\"/g" BOOT-INF/classes/static/_next/static/chunks/app/login/page-*.js
+   ```
 
-```
-`$` zip -ur dcv-access-console-auth-server-*.jar BOOT-INF/
-```
+1. Replace the files in the jar.
 
-10. Copy the new jar.
+   ```
+   $ zip -ur dcv-access-console-auth-server-*.jar BOOT-INF/ 
+   ```
 
-```
-`$` sudo cp dcv-access-console-auth-server-*.jar /opt/aws/dcv-access-console-auth-server/
-```
+1. Copy the new jar.
 
-11. Reload the daemon and restart the authorization server.
+   ```
+   $ sudo cp dcv-access-console-auth-server-*.jar /opt/aws/dcv-access-console-auth-server/
+   ```
 
-```
-`$` sudo systemctl daemon-reload  sudo systemctl restart dcv-access-console-auth-server
-```
+1. Reload the daemon and restart the authorization server.
+
+   ```
+   $ sudo systemctl daemon-reload  sudo systemctl restart dcv-access-console-auth-server
+   ```
 
 ## Updating customization on the Web Client
+<a name="custom-branding-web-client"></a>
 
 1. Connect to the host on which you are running the Web Client.
-2. Create a backup directory and copy the files that will be changed.
 
-```
-`$` mkdir custom_branding_bkp
-```
+1. Create a backup directory and copy the files that will be changed.
 
-```
-`$` sudo cp -r /opt/aws/dcv-access-console-webclient custom_branding_bkp/
-```
+   ```
+   $ mkdir custom_branding_bkp
+   ```
 
-3. Replace the existing images file paths with paths to your new custom **organization logo**
-   , **favicon**, and **login background images** (the login background image is used
-   on the Web Client for error messages).
+   ```
+   $ sudo cp -r /opt/aws/dcv-access-console-webclient custom_branding_bkp/
+   ```
 
-```
-`$` sudo cp `path-to-new-service-name.svg` /opt/aws/dcv-access-console-webclient/public/service-name.svg
-```
+1. Replace the existing images file paths with paths to your new custom **organization logo** , **favicon**, and **login background images** (the login background image is used on the Web Client for error messages).
 
-```
-`$` sudo cp `path-to-new-favicon.ico.body`/opt/aws/dcv-access-console-webclient/.next/server/app/favicon.ico.body
-```
+   ```
+   $ sudo cp {{path-to-new-service-name.svg}} /opt/aws/dcv-access-console-webclient/public/service-name.svg
+   ```
 
-```
-`$` sudo cp `path-to-new-login-background.svg`/opt/aws/dcv-access-console-webclient/public/login-background.svg
-```
+   ```
+   $ sudo cp {{path-to-new-favicon.ico.body}}/opt/aws/dcv-access-console-webclient/.next/server/app/favicon.ico.body
+   ```
 
-4. Update the **alternative text** for the organization logo.
+   ```
+   $ sudo cp {{path-to-new-login-background.svg}}/opt/aws/dcv-access-console-webclient/public/login-background.svg
+   ```
 
-```
-`$` OLD_ALT="Access Console"
-```
+1. Update the **alternative text** for the organization logo.
 
-```
-`$` NEW_ALT="My new logo alt text"
-```
+   ```
+   $ OLD_ALT="Access Console"
+   ```
 
-```
-`$` grep -rl "alt:\"$OLD_ALT\"" /opt/aws/dcv-access-console-webclient/.next/ | xargs sed -i "s/alt:\"$OLD_ALT\"/alt:\"$NEW_ALT\"/g"
-```
+   ```
+   $ NEW_ALT="My new logo alt text"
+   ```
 
-5. Replace the **Documentation** URL.
+   ```
+   $ grep -rl "alt:\"$OLD_ALT\"" /opt/aws/dcv-access-console-webclient/.next/ | xargs sed -i "s/alt:\"$OLD_ALT\"/alt:\"$NEW_ALT\"/g"
+   ```
 
-```
-`$` OLD_DOC_LINK="https:\/\/docs.aws.amazon.com\/dcv\/latest\/sm-admin\/what-is-sm.html"
-```
+1. Replace the **Documentation** URL.
 
-```
-`$` NEW_DOC_LINK="https:\/\/example.com"
-```
+   ```
+   $ OLD_DOC_LINK="https:\/\/docs.aws.amazon.com\/dcv\/latest\/sm-admin\/what-is-sm.html"
+   ```
 
-```
-`$` grep -rl $OLD_DOC_LINK /opt/aws/dcv-access-console-webclient/.next/ | xargs sed -i "s/$OLD_DOC_LINK/$NEW_DOC_LINK/g"
-```
+   ```
+   $ NEW_DOC_LINK="https:\/\/example.com"
+   ```
 
-6. Replace the **Downloads** URL.
+   ```
+   $ grep -rl $OLD_DOC_LINK /opt/aws/dcv-access-console-webclient/.next/ | xargs sed -i "s/$OLD_DOC_LINK/$NEW_DOC_LINK/g"
+   ```
 
-```
-`$` OLD_DOWNLOADS_LINK="https:\/\/download.nice-dcv.com\/"
-```
+1. Replace the **Downloads** URL.
 
-```
-`$` NEW_DOWNLOADS_LINK="https:\/\/example.com"
-```
+   ```
+   $ OLD_DOWNLOADS_LINK="https:\/\/download.nice-dcv.com\/"
+   ```
 
-```
-`$` grep -rl $OLD_DOWNLOADS_LINK /opt/aws/dcv-access-console-webclient/.next/ | xargs sed -i "s/$OLD_DOWNLOADS_LINK/$NEW_DOWNLOADS_LINK/g"
-```
+   ```
+   $ NEW_DOWNLOADS_LINK="https:\/\/example.com"
+   ```
+
+   ```
+   $ grep -rl $OLD_DOWNLOADS_LINK /opt/aws/dcv-access-console-webclient/.next/ | xargs sed -i "s/$OLD_DOWNLOADS_LINK/$NEW_DOWNLOADS_LINK/g"
+   ```

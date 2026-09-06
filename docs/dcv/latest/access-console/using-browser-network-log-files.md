@@ -1,32 +1,35 @@
-# Using browser and network log files
 
-The web browser communicates with the Handler component to view and modify resources. If there are issues with communication
-between the web browser and the Handler, you can troubleshoot using the browser and network log files.
+
+# Using browser and network log files
+<a name="using-browser-network-log-files"></a>
+
+The web browser communicates with the Handler component to view and modify resources. If there are issues with communication between the web browser and the Handler, you can troubleshoot using the browser and network log files.
 
 ## Accessing Chrome console logs
+<a name="accessing-chrome-con-logs"></a>
 
 From a Chrome browser, access the console log window.
 
 1. Do one of the following:
+   + Use the shortcut key. For Windows and Linux, use `Ctrl+Shift+J`. For macOS, use, `Cmd+Opt+J`.
+   + Select the Chrome menu button on the upper right hand side, select **More Tools** then choose **Developer Tools**.
 
-   - Use the shortcut key. For Windows and Linux, use `Ctrl+Shift+J`. For macOS, use, `Cmd+Opt+J`.
-   - Select the Chrome menu button on the upper right hand side, select **More Tools** then choose **Developer Tools**.
-
-2. Select the **Console** tab in the **Developer Tools** pane.
+1. Select the **Console** tab in the **Developer Tools** pane.
 
 In the **Console** tab, errors are highlight in red and warnings are highlight in yellow.
 
 ## Accessing Chrome network logs
+<a name="accessing-chrome-network-logs"></a>
 
 From a Chrome browser, the network tab contains network calls for uploaded and downloaded resources.
 
 1. Do one of the following:
+   + Use the shortcut key. For Windows and Linux, use `Ctrl+Shift+J`. For macOS, use, `Cmd+Opt+J`.
+   + Select the Chrome menu button on the upper right hand side, select **More Tools** then choose **Developer Tools**.
 
-   - Use the shortcut key. For Windows and Linux, use `Ctrl+Shift+J`. For macOS, use, `Cmd+Opt+J`.
-   - Select the Chrome menu button on the upper right hand side, select **More Tools** then choose **Developer Tools**.
+1. Select the **Network** tab in the **Developer Tools** pane.
 
-2. Select the **Network** tab in the **Developer Tools** pane.
-3. Refresh the page.
+1. Refresh the page.
 
 Errors are highlighted in red. Select an error to see more information about it.
 
