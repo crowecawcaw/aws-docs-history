@@ -1,22 +1,23 @@
+
+
 # General SAP Guides
+<a name="welcome"></a>
 
 This section covers the following guides.
++  [Overview](https://docs.aws.amazon.com/sap/latest/general/sap-on-aws-overview.html) 
++  [Amazon EC2 instance types](https://docs.aws.amazon.com/sap/latest/general/ec2-instance-types-sap.html) 
++  [Estimation](https://docs.aws.amazon.com/sap/latest/general/sap-on-aws-pricing-guide.html) 
++  [AWS Data Provider](https://docs.aws.amazon.com/sap/latest/general/aws-data-provider.html) 
++  [Architecture guidance](https://docs.aws.amazon.com/sap/latest/general/architecture-guidance-of-sap-on-aws.html) 
++  [Disaster recovery with AWS Elastic Disaster Recovery](https://docs.aws.amazon.com/sap/latest/general/dr-sap.html) 
++  [RISE with SAP on AWS Cloud](https://docs.aws.amazon.com/sap/latest/general/rise.html) 
 
-- [Overview](sap-on-aws-overview.md "sap-on-aws-overview.md")
-- [Amazon EC2 instance types](ec2-instance-types-sap.md "ec2-instance-types-sap.md")
-- [Estimation](sap-on-aws-pricing-guide.md "sap-on-aws-pricing-guide.md")
-- [AWS Data Provider](aws-data-provider.md "aws-data-provider.md")
-- [Architecture guidance](architecture-guidance-of-sap-on-aws.md "architecture-guidance-of-sap-on-aws.md")
-- [Disaster recovery with AWS Elastic Disaster Recovery](dr-sap.md "dr-sap.md")
-- [RISE with SAP on AWS Cloud](rise.md "rise.md")
-
-**Additional SAP on AWS documentation**
-
-- [SAP HANA on AWS](../sap-hana/welcome.md "../sap-hana/welcome.md")
-- [SAP NetWeaver on AWS](../sap-netweaver/welcome.md "../sap-netweaver/welcome.md")
-- [Databases for SAP applications on AWS](../sap-AnyDB/welcome.md "../sap-AnyDB/welcome.md")
-- [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md")
-- [AWS Systems Manager for SAP](../../../ssm-sap/latest/userguide/what-is-ssm-for-sap.md "../../../ssm-sap/latest/userguide/what-is-ssm-for-sap.md")
-- [AWS SDK for SAP ABAP](../../../sdk-for-sapabap/latest/developer-guide/home.md "../../../sdk-for-sapabap/latest/developer-guide/home.md")
-- [SAP BusinessObjects on AWS](../sap-businessobjects/welcome.md "../sap-businessobjects/welcome.md")
-- [AWS Migration Hub Orchestrator](../../../migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.md "../../../migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.md")
+ **Additional SAP on AWS documentation** 
++  [SAP HANA on AWS](https://docs.aws.amazon.com/sap/latest/sap-hana/welcome.html) 
++  [SAP NetWeaver on AWS](https://docs.aws.amazon.com/sap/latest/sap-netweaver/welcome.html) 
++  [Databases for SAP applications on AWS](https://docs.aws.amazon.com/sap/latest/sap-AnyDB/welcome.html) 
++  [AWS Launch Wizard for SAP](https://docs.aws.amazon.com/launchwizard/latest/userguide/launch-wizard-sap.html) 
++  [AWS Systems Manager for SAP](https://docs.aws.amazon.com/ssm-sap/latest/userguide/what-is-ssm-for-sap.html) 
++  [AWS SDK for SAP ABAP](https://docs.aws.amazon.com/sdk-for-sapabap/latest/developer-guide/home.html) 
++  [SAP BusinessObjects on AWS](https://docs.aws.amazon.com/sap/latest/sap-businessobjects/welcome.html) 
++  [AWS Migration Hub Orchestrator](https://docs.aws.amazon.com/migrationhub-orchestrator/latest/userguide/what-is-migrationhub-orchestrator.html) 

@@ -1,44 +1,51 @@
+
+
 # Uninstalling older versions
+<a name="uninstall-older-dp"></a>
 
 Uninstalling the AWS Data Provider for SAP does not require SAP downtime and can be done online. The only impact will be a gap in metric monitoring information for the time that the DataProvider was installed on your system.
 
 ## Uninstall DataProvider 3.0
+<a name="uninstall-dp3.0"></a>
 
-**Linux**
+ **Linux** 
 
 1. Log in to Linux as a superuser, like root.
-2. Stop and remove the DataProvider using the following command.
 
-**SLES**
+1. Stop and remove the DataProvider using the following command.
+
+ **SLES** 
 
 ```
 zypper remove -y aws-sap-dataprovider
 ```
 
-**RHEL/OEL**
+ **RHEL/OEL** 
 
 ```
 yum -y erase aws-sap-dataprovider
 ```
 
-**Windows**
+ **Windows** 
 
 ```
 “C:\Program Files\Amazon\DataProvider\uninstall.exe“
 ```
 
 ## Uninstall DataProvider 2.0
+<a name="uninstall-dp2.0"></a>
 
-**Linux**
+ **Linux** 
 
 1. Log in to Linux as a superuser, like root.
-2. Stop and remove the DataProvider using the following command.
+
+1. Stop and remove the DataProvider using the following command.
 
 ```
 /usr/local/ec2/aws-agent/bin/aws-agent_uninstall
 ```
 
-**Windows**
+ **Windows** 
 
 ```
 “C:\Program Files\Amazon\DataProvider\uninstall.exe“

@@ -1,4 +1,7 @@
+
+
 # Security Hub, Detective, Audit Manager and EventBridge
+<a name="securityhub"></a>
 
 Building on implementation of GuardDuty and Amazon Macie, AWS Security Hub acts as a central hub, consolidating and prioritizing security findings AWS security services. AWS Security Hub provides a unified view of the security posture across services surrounding a RISE with SAP deployment, allowing too quickly identify and address any security issues.
 
@@ -10,4 +13,4 @@ Finally, Amazon EventBridge enables real-time response to security events by tri
 
 Below is example architecture of AWS Security Hub, Amazon Detective, AWS Audit Manager and Amazon EventBridge paired to RISE with SAP
 
-![Security Hub](images/rise-security-securityhub.png)
+![Security Hub](http://docs.aws.amazon.com/sap/latest/general/images/rise-security-securityhub.png)
