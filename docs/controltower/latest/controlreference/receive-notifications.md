@@ -50,6 +50,13 @@ the home Region, it also receives drift notifications.
   described in this support article, [How
   can I be notified when an AWS resource is non-compliant using AWS
   Config?](https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/ "https://aws.amazon.com/premiumsupport/knowledge-center/config-resource-non-compliant/")
+- You can apply an Amazon SNS subscription filter policy to reduce the volume of
+  notifications that a subscription receives. The filter policy also applies to the
+  default Audit account email subscription. The filter policy controls which
+  messages Amazon SNS delivers to the subscription from that topic. For more information
+  about filtering messages, see [Amazon SNS message
+  filtering](../../../sns/latest/dg/sns-message-filtering.md "../../../sns/latest/dg/sns-message-filtering.md") in the _Amazon Simple Notification Service Developer
+  Guide_.
 - AWS Config notifications contain a JSON object.
 - AWS Control Tower drift notifications appear in plain text.
 

@@ -3,7 +3,7 @@
 _This control is commonly referred to as the OU Region deny
 control, or the configurable Region deny control._
 
-This control disallows access to unlisted operations in global and regional AWS services, outside of the specified Regions for an organizational unit (OU). You can apply this control to any subset of the Regions that are governed by your AWS Control Tower landing zone.
+With this control, you can restrict access to unlisted operations in global and regional AWS services outside of the specified Regions. You apply this control to an organizational unit (OU). You can apply this control to any subset of the Regions that are governed by your AWS Control Tower landing zone. You must always include your AWS Control Tower home Region.
 
 You may wish to review the information at [Configure the Region deny control](../userguide/region-deny.md "../userguide/region-deny.md") before you enable this control.
 
