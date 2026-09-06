@@ -1,11 +1,14 @@
+
+
 # Practice Cloud Financial Management
+<a name="practice-cloud-financial-management"></a>
 
-| DRHCCOST01: Have you defined a tagging<br>strategy for your hybrid edge workloads? |
-| ---------------------------------------------------------------------------------- |
-|                                                                                    |
 
-Tagging helps you meter usage and facilitate cost attribution.
+| DRHCCOST01: Have you defined a tagging strategy for your hybrid edge workloads? | 
+| --- | 
+|   | 
 
-###### Best practices
+ Tagging helps you meter usage and facilitate cost attribution. 
 
-- [DRHCCOST01-BP01 Implement a comprehensive tagging strategy for hybrid edge workloads](drhccost01-bp01.md "drhccost01-bp01.md")
+**Topics**
++ [DRHCCOST01-BP01 Implement a comprehensive tagging strategy for hybrid edge workloads](drhccost01-bp01.md)
