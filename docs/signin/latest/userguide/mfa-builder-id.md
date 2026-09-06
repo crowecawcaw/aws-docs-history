@@ -24,18 +24,14 @@ AWS Builder ID.
 - We recommend that you periodically review your registered MFA devices to
   ensure they are up to date and functional. Additionally, you should store those
   devices in a place that is physically secure when not in use.
-- If you created your account using **Continue with
-  Google**, you can enable multi-factor authentication through your Google
-  account. For details, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839 "https://support.google.com/accounts/answer/185839").
-- If you created your account using **Continue with
-  Apple**, multi-factor authentication is likely already enabled in your Apple
-  Account. If not, for details on how to enable it, see [Two-factor authentication for Apple Account](https://support.apple.com/en-us/102660 "https://support.apple.com/en-us/102660").
-- If you created your account using **Continue with
-  GitHub**, you can enable multi-factor authentication through your GitHub
-  Account. For details, see [Configuring (GitHub) two-factor authentication](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication").
-- If you created your account using **Continue with
-  Amazon**, you can enable multi-factor authentication through your Amazon
-  Account. For details, see [What is Two-Step Verification?](https://www.amazon.com/gp/help/customer/display.html?nodeId=G3PWZPU52FKN7PW4 "https://www.amazon.com/gp/help/customer/display.html?nodeId=G3PWZPU52FKN7PW4").
+- You can register multi-factor authentication (MFA) devices for your
+  AWS Builder ID. This applies whether
+  you sign in with an email address and password or with a social login, such as
+  Google, Apple, GitHub, or
+  Amazon. The MFA devices that you register apply when you sign in
+  to your AWS Builder ID. This is in addition to any two-factor or two-step
+  verification that you configure separately with your social login
+  provider.
 
 ## Available MFA types for AWS Builder ID
 
