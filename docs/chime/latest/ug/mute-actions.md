@@ -1,14 +1,14 @@
+
+
 # Muting all attendees
+<a name="mute-actions"></a>
 
-Meeting hosts, moderators, and delegates can mute all attendees. This gives hosts,
-moderators, and delegate more control over who can speak during a meeting. We recommend that
-you turn off meeting notifications while this feature is on when you host a large meeting.
+Meeting hosts, moderators, and delegates can mute all attendees. This gives hosts, moderators, and delegate more control over who can speak during a meeting. We recommend that you turn off meeting notifications while this feature is on when you host a large meeting.
 
-###### To mute all attendees
+**To mute all attendees**
 
-1. In the left control bar, open the **More options** menu (
+1. In the left control bar, open the **More options** menu (![An icon showing a horizontal ellipsis.](http://docs.aws.amazon.com/chime/latest/ug/images/left-control-6.png)). 
 
-![An icon showing a horizontal ellipsis.](images/left-control-6.png)
+1. Choose **Mute all others**.
 
-). 2. Choose **Mute all others**.
 To unmute all attendees, repeat the previous steps.
