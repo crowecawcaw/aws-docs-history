@@ -1,17 +1,21 @@
+
+
 # Partner APIs
+<a name="partner_apis"></a>
 
 The following APIs can only be called by AWS accounts associated with registered partners. The sections that follow provide sample requests and sample responses for each of the APIs.
-
-- [CreatePartnerEventSource](../APIReference/API_CreatePartnerEventSource.md "../APIReference/API_CreatePartnerEventSource.md")
-- [DeletePartnerEventSource](../APIReference/API_DeletePartnerEventSource.md "../APIReference/API_DeletePartnerEventSource.md")
-- [DescribePartnerEventSource](../APIReference/API_DescribePartnerEventSource.md "../APIReference/API_DescribePartnerEventSource.md")
-- [ListPartnerEventSources](../APIReference/API_ListPartnerEventSources.md "../APIReference/API_ListPartnerEventSources.md")
-- [ListPartnerEventSourceAccounts](../APIReference/API_ListPartnerEventSourceAccounts.md "../APIReference/API_ListPartnerEventSourceAccounts.md")
-- [PutPartnerEvents](../APIReference/API_PutPartnerEvents.md "../APIReference/API_PutPartnerEvents.md")
++  [CreatePartnerEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreatePartnerEventSource.html) 
++  [DeletePartnerEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeletePartnerEventSource.html) 
++  [DescribePartnerEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribePartnerEventSource.html) 
++  [ListPartnerEventSources](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListPartnerEventSources.html) 
++  [ListPartnerEventSourceAccounts](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListPartnerEventSourceAccounts.html) 
++  [PutPartnerEvents](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPartnerEvents.html) 
 
 ## CreatePartnerEventSource
+<a name="_createpartnereventsource"></a>
 
 ### Sample request
+<a name="CreatePartnerEventSource_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -33,6 +37,7 @@ X-Amz-Target: AWSEvents.CreatePartnerEventSource
 ```
 
 ### Sample response
+<a name="CreatePartnerEventSource_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -48,8 +53,10 @@ Date: <Date>
 ```
 
 ## DeletePartnerEventSource
+<a name="_deletepartnereventsource"></a>
 
 ### Sample request
+<a name="DeletePartnerEventSource_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -71,6 +78,7 @@ X-Amz-Target: AWSEvents.DeletePartnerEventSource
 ```
 
 ### Sample response
+<a name="DeletePartnerEventSource_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -81,8 +89,10 @@ Date: <Date>
 ```
 
 ## DescribePartnerEventSource
+<a name="_describepartnereventsource"></a>
 
 ### Sample request
+<a name="DescribePartnerEventSource_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -103,6 +113,7 @@ X-Amz-Target: AWSEvents.DescribePartnerEventSource
 ```
 
 ### Sample response
+<a name="DescribePartnerEventSource_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -119,8 +130,10 @@ Date: <Date>
 ```
 
 ## ListPartnerEventSources
+<a name="_listpartnereventsources"></a>
 
 ### Sample request
+<a name="ListPartnerEventSources_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -141,6 +154,7 @@ X-Amz-Target: AWSEvents.ListPartnerEventSources
 ```
 
 ### Sample response
+<a name="ListPartnerEventSources_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -169,8 +183,10 @@ Date: <Date>
 ```
 
 ## ListPartnerEventSourceAccounts
+<a name="_listpartnereventsourceaccounts"></a>
 
 ### Sample request
+<a name="ListPartnerEventSourceAccounts_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -191,6 +207,7 @@ X-Amz-Target: AWSEvents.ListPartnerEventSourceAccounts
 ```
 
 ### Sample response
+<a name="ListPartnerEventSourceAccounts_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -211,8 +228,10 @@ Date: <Date>
 ```
 
 ## PutPartnerEvents
+<a name="_putpartnerevents"></a>
 
 ### Sample request
+<a name="PutPartnerEvents_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -252,6 +271,7 @@ X-Amz-Target: AWSEvents.PutPartnerEvents
 ```
 
 ### Sample response
+<a name="PutPartnerEvents_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK

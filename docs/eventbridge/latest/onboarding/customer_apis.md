@@ -1,18 +1,22 @@
+
+
 # Customer APIs
+<a name="customer_apis"></a>
 
 The APIs in this topic are for use by customers. The sections that follow provide sample requests and sample responses for each of the APIs.
-
-- [ActivateEventSource](../APIReference/API_ActivateEventSource.md "../APIReference/API_ActivateEventSource.md")
-- [CreateEventBus](../APIReference/API_CreateEventBus.md "../APIReference/API_CreateEventBus.md")
-- [DeleteEventBus](../APIReference/API_DeleteEventBus.md "../APIReference/API_DeleteEventBus.md")
-- [DescribeEventSource](../APIReference/API_DescribeEventSource.md "../APIReference/API_DescribeEventSource.md")
-- [ListEventBuses](../APIReference/API_ListEventBuses.md "../APIReference/API_ListEventBuses.md")
-- [ListEventSources](../APIReference/API_ListEventSources.md "../APIReference/API_ListEventSources.md")
-- [PutRule](../APIReference/API_PutRule.md "../APIReference/API_PutRule.md")
++  [ActivateEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html) 
++  [CreateEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html) 
++  [DeleteEventBus](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DeleteEventBus.html) 
++  [DescribeEventSource](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html) 
++  [ListEventBuses](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListEventBuses.html) 
++  [ListEventSources](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListEventSources.html) 
++  [PutRule](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutRule.html) 
 
 ## ActivateEventSource
+<a name="_activateeventsource"></a>
 
 ### Sample request
+<a name="ActivateEventSource_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -33,6 +37,7 @@ X-Amz-Target: AWSEvents.ActivateEventSource
 ```
 
 ### Sample response
+<a name="ActivateEventSource_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -43,8 +48,10 @@ Date: <Date>
 ```
 
 ## CreateEventBus
+<a name="_createeventbus"></a>
 
 ### Sample request
+<a name="CreateEventBus_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -66,6 +73,7 @@ X-Amz-Target: AWSEvents.CreateEventBus
 ```
 
 ### Sample response
+<a name="CreateEventBus_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -81,8 +89,10 @@ Date: <Date>
 ```
 
 ## DeleteEventBus
+<a name="_deleteeventbus"></a>
 
 ### Sample request
+<a name="DeleteEventBus_SampleRequest"></a>
 
 ```
 POST / HTTP/1.1
@@ -103,6 +113,7 @@ X-Amz-Target: AWSEvents.DeleteEventBus
 ```
 
 ### Sample response
+<a name="DeleteEventBus_SampleResponse"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -113,8 +124,10 @@ Date: <Date>
 ```
 
 ## DescribeEventSource
+<a name="_describeeventsource"></a>
 
 ### Sample request
+<a name="DescribeEventSource_RequestSample"></a>
 
 ```
 POST / HTTP/1.1
@@ -135,6 +148,7 @@ X-Amz-Target: AWSEvents.DescribeEventSource
 ```
 
 ### Sample response
+<a name="DescribeEventSource_ResponseSample"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -153,8 +167,10 @@ Date: <Date>
 ```
 
 ## ListEventBuses
+<a name="_listeventbuses"></a>
 
 ### Sample request
+<a name="ListEventBuses_RequestSample"></a>
 
 ```
 POST / HTTP/1.1
@@ -175,6 +191,7 @@ X-Amz-Target: AWSEvents.ListEventBuses
 ```
 
 ### Sample response
+<a name="ListEventBuses_ResponseSample"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -214,8 +231,10 @@ Date: <Date>
 ```
 
 ## ListEventSources
+<a name="_listeventsources"></a>
 
 ### Sample request
+<a name="ListEventSources_RequestSample"></a>
 
 ```
 POST / HTTP/1.1
@@ -236,6 +255,7 @@ X-Amz-Target: AWSEvents.ListEventSources
 ```
 
 ### Sample response
+<a name="ListEventSources_ResponseSample"></a>
 
 ```
 HTTP/1.1 200 OK
@@ -276,8 +296,10 @@ Date: <Date>
 ```
 
 ## PutRule
+<a name="_putrule"></a>
 
 ### Sample request
+<a name="PutRule_RequestSample"></a>
 
 ```
 POST / HTTP/1.1
@@ -300,6 +322,7 @@ X-Amz-Target: AWSEvents.PutRule
 ```
 
 ### Sample response
+<a name="PutRule_ResponseSample"></a>
 
 ```
 HTTP/1.1 200 OK
