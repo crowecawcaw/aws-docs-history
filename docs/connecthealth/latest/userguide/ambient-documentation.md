@@ -1,70 +1,76 @@
+
+
 # Ambient documentation
+<a name="ambient-documentation"></a>
 
 Ambient documentation captures patient-clinician conversations in real time and generates structured clinical documentation for provider review. The service combines speech recognition with generative AI to produce clinical notes, extract medical terminology, identify speaker roles, and classify dialogue segments.
 
-###### Important
-
+**Important**  
 Amazon Connect Health ambient documentation produces probabilistic results. Output accuracy varies based on audio quality, background noise, speaker clarity, medical terminology complexity, and context-specific language. All output must be reviewed for accuracy by a trained medical professional before use in patient care.
 
 Amazon Connect Health ambient documentation is available in the US East (N. Virginia) (`us-east-1`) and US West (Oregon) (`us-west-2`) Regions.
 
-###### Topics
-
-- [How ambient documentation works](#al-how-it-works "#al-how-it-works")
-- [Technical requirements](#al-technical-requirements "#al-technical-requirements")
-- [Supported medical specialties](#al-supported-specialties "#al-supported-specialties")
-- [Consent and patient notification](#al-consent "#al-consent")
-- [Subscription management](#al-subscription-management "#al-subscription-management")
-- [Streaming audio](#al-streaming "#al-streaming")
-- [Storage](#al-storage "#al-storage")
-- [Patient context](#al-patient-context "#al-patient-context")
-- [Clinical note templates](#al-templates "#al-templates")
-- [Outputs](#al-outputs "#al-outputs")
+**Topics**
++ [How ambient documentation works](#al-how-it-works)
++ [Technical requirements](#al-technical-requirements)
++ [Supported medical specialties](#al-supported-specialties)
++ [Consent and patient notification](#al-consent)
++ [Subscription management](#al-subscription-management)
++ [Streaming audio](#al-streaming)
++ [Storage](#al-storage)
++ [Patient context](#al-patient-context)
++ [Clinical note templates](#al-templates)
++ [Outputs](#al-outputs)
 
 ## How ambient documentation works
+<a name="al-how-it-works"></a>
 
 Ambient documentation uses real-time audio streaming over HTTP/2 or WebSocket. The workflow includes:
 
-1. **Create a subscription** — Associate a provider with the ambient documentation agent. Subscriptions are automatically created in activated mode.
-2. **Stream audio** — Your application streams audio from the patient-clinician conversation to Amazon Connect Health over HTTP/2 or WebSocket. The service transcribes the audio in real time and identifies speakers.
-3. **Generate documentation** — After the conversation ends, the service generates structured clinical notes, evidence mappings, and an after-visit summary based on the configured template.
-4. **Retrieve outputs** — The service writes the transcript, clinical documentation, and after-visit summary to your configured Amazon S3 bucket.
+1.  **Create a subscription** — Associate a provider with the ambient documentation agent. Subscriptions are automatically created in activated mode.
+
+1.  **Stream audio** — Your application streams audio from the patient-clinician conversation to Amazon Connect Health over HTTP/2 or WebSocket. The service transcribes the audio in real time and identifies speakers.
+
+1.  **Generate documentation** — After the conversation ends, the service generates structured clinical notes, evidence mappings, and an after-visit summary based on the configured template.
+
+1.  **Retrieve outputs** — The service writes the transcript, clinical documentation, and after-visit summary to your configured Amazon S3 bucket.
 
 ## Technical requirements
-
-- **Supported language** — US English (en-US)
-- **Supported audio formats** — FLAC, PCM
-- **Encoding** — PCM 16-bit
-- **Sample rate** — 16,000 Hz or higher
+<a name="al-technical-requirements"></a>
++  **Supported language** — US English (en-US)
++  **Supported audio formats** — FLAC, PCM
++  **Encoding** — PCM 16-bit
++  **Sample rate** — 16,000 Hz or higher
 
 ## Supported medical specialties
+<a name="al-supported-specialties"></a>
 
 Ambient documentation currently supports the following specialties:
-
-- Allergy Immunology
-- Cardiology
-- Dermatology
-- Endocrinology
-- Gastroenterology
-- Hematology/Oncology
-- Infectious Disease
-- Nephrology
-- Neurology
-- OBGYN
-- Oncology
-- Ophthalmology
-- Orthopedics
-- Otolaryngology
-- Pain Medicine
-- Pediatrics
-- Primary Care
-- Psychiatry
-- Pulmonology
-- Rheumatology
-- Surgery
-- Urology
++ Allergy Immunology
++ Cardiology
++ Dermatology
++ Endocrinology
++ Gastroenterology
++ Hematology/Oncology
++ Infectious Disease
++ Nephrology
++ Neurology
++ OBGYN
++ Oncology
++ Ophthalmology
++ Orthopedics
++ Otolaryngology
++ Pain Medicine
++ Pediatrics
++ Primary Care
++ Psychiatry
++ Pulmonology
++ Rheumatology
++ Surgery
++ Urology
 
 ## Consent and patient notification
+<a name="al-consent"></a>
 
 Amazon Connect Health ambient documentation uses AI to capture and transcribe clinical conversations in real time. Because this feature records spoken communications that may contain protected health information (PHI), customers and their downstream integrators are responsible for complying with all applicable consent, recording, and privacy laws. This includes obtaining all legally required consents before enabling ambient documentation for any patient encounter. AWS does not collect consent from patients on your behalf.
 
@@ -75,33 +81,35 @@ Sample language:
 "Before we begin, I want to let you know that today’s visit will be recorded and monitored by an AI service provider to help with documentation. Do you consent to proceed?"
 
 ## Subscription management
+<a name="al-subscription-management"></a>
 
 ### Create a subscription
+<a name="al-create-subscription"></a>
 
 To create a subscription, call the `CreateSubscription` API operation. This generates a unique `subscriptionId` that you use to authorize the user and start streaming sessions. Subscriptions are automatically created in activated mode.
 
-###### Tip
-
+**Tip**  
 Create the subscription on the user’s first use to align subscription start with actual usage.
 
 ### Deactivate a subscription
+<a name="al-deactivate-subscription"></a>
 
 To temporarily stop a subscription from accepting new streaming sessions, call the `DeactivateSubscription` API operation. A deactivated subscription retains its configuration and can be reactivated later. In-progress streams complete normally.
 
-###### Important
-
+**Important**  
 Deactivating a subscription immediately forfeits any remaining free trial period. If a subscription that was deactivated during a free trial is reactivated later, it is reactivated as a paid subscription.
 
 ### Reactivate a subscription
+<a name="al-reactivate-subscription"></a>
 
 Deactivated subscriptions can be reactivated by calling the `ActivateSubscription` API operation with the `subscriptionId`. Paid metering begins immediately upon reactivation.
 
 ## Streaming audio
+<a name="al-streaming"></a>
 
 Ambient documentation processes audio in real time over a streaming connection. Your application opens a connection, sends audio chunks as event-encoded messages, and receives transcription results as the conversation progresses. Ambient documentation supports two streaming transports: HTTP/2 and WebSocket (`wss://`). Both transports deliver the same capability, with the same authentication and authorization requirements, quotas, and throttling. Session behavior — creation, streaming, and termination — is identical across both transports.
 
-###### Note
-
+**Note**  
 A session is bound to the transport on which it was started. You cannot start a session on one transport and resume it on the other. If you pause and resume a session, the resumed session must use the same transport that started the session.
 
 If your audio has two channels, you can use channel identification to transcribe the speech from each channel separately. Ambient documentation currently supports audio with up to two channels. In your transcript, channels are assigned the labels `ch_0` and `ch_1`.
@@ -109,12 +117,14 @@ If your audio has two channels, you can use channel identification to transcribe
 In addition to the standard transcript sections (transcripts and items), requests with channel identification enabled include a channel\_labels section. This section contains each utterance or punctuation mark, grouped by channel, and its associated channel label, timestamps, and confidence score. Note that if a person on one channel speaks at the same time as a person on a separate channel, timestamps for each channel overlap while the individuals are speaking over each other.
 
 ### Streaming over HTTP/2
+<a name="al-streaming-http2"></a>
 
 HTTP/2 is the streaming transport used by the AWS SDKs, and is suited to server-side and native applications. Your application establishes an HTTP/2 connection, sends audio chunks and control events as event-stream messages, and receives transcript events in real time over the same connection. When you use an AWS SDK, the SDK handles connection setup, request signing, and event-stream encoding for you.
 
-For detailed HTTP/2 streaming setup and event stream encoding, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+For detailed HTTP/2 streaming setup and event stream encoding, see the [Amazon Connect Health API Reference](https://docs.aws.amazon.com/connecthealth/latest/APIReference/Welcome.html).
 
 #### Using the AWS SDKs
+<a name="al-using-sdks"></a>
 
 The following code example shows how to set up an Amazon Connect Health ambient documentation streaming session using the AWS SDK for Java 2.x.
 
@@ -350,19 +360,23 @@ public class MedicalScribeStreamingApp {
 ```
 
 ### Streaming over WebSocket
+<a name="al-streaming-websocket"></a>
 
 WebSocket support lets you stream audio for ambient documentation from a web browser or other WebSocket client. All WebSocket connections use TLS (`wss://`).
 
 #### WebSocket endpoint
+<a name="al-websocket-endpoint"></a>
 
 Connect to the WebSocket endpoint for the Region where you use ambient documentation:
 
-| Region    | Endpoint                                                                         |
-| --------- | -------------------------------------------------------------------------------- |
-| US-EAST-1 | `wss://streaming.health-agent.us-east-1.api.aws/medical-scribe-stream-websocket` |
-| US-WEST-2 | `wss://streaming.health-agent.us-west-2.api.aws/medical-scribe-stream-websocket` |
+
+| Region | Endpoint | 
+| --- | --- | 
+| US-EAST-1 |  `wss://streaming.health-agent.us-east-1.api.aws/medical-scribe-stream-websocket`  | 
+| US-WEST-2 |  `wss://streaming.health-agent.us-west-2.api.aws/medical-scribe-stream-websocket`  | 
 
 #### Authenticating a WebSocket connection
+<a name="al-websocket-auth"></a>
 
 You authenticate a WebSocket connection with a presigned URL. To create the presigned URL, sign a `GET` request to the WebSocket endpoint with AWS Signature Version 4 (SigV4) and embed the signing parameters (`X-Amz-Algorithm`, `X-Amz-Credential`, `X-Amz-Date`, `X-Amz-Expires`, `X-Amz-Signature`, and `X-Amz-SignedHeaders`) and the session parameters as query string parameters. The service validates the presigned URL when the connection is established. If the presigned URL is invalid, expired, or unauthorized, the service rejects the session by returning an error and closing the connection.
 
@@ -384,6 +398,7 @@ wss://streaming.health-agent.us-west-2.api.aws/medical-scribe-stream-websocket
 ```
 
 #### Signing event-stream frames
+<a name="al-websocket-signing"></a>
 
 Every event-stream frame you send after the upgrade — configuration, audio, and session control — must be individually signed. Each frame carries two event-stream headers: `:date` (the signing timestamp) and `:chunk-signature` (the frame signature). Frame signatures form a chain: each signature is computed from the previous frame’s signature, and the first frame chains from the `X-Amz-Signature` value in the presigned URL.
 
@@ -400,55 +415,58 @@ AWS4-HMAC-SHA256-PAYLOAD
 
 Compute the signature and attach it to the frame:
 
-1. `signature = HMAC-SHA256(signingKey, stringToSign)`, encoded as a hex string.
-2. Add the `:date` and `:chunk-signature` headers to the frame, then send it.
-3. Store this `signature` and use it as the `<prior-signature>` when signing the next frame.
+1.  `signature = HMAC-SHA256(signingKey, stringToSign)`, encoded as a hex string.
+
+1. Add the `:date` and `:chunk-signature` headers to the frame, then send it.
+
+1. Store this `signature` and use it as the `<prior-signature>` when signing the next frame.
 
 The signing key is derived the same way as for any SigV4 request: chain HMAC-SHA256 over the date stamp, Region, service name (`health-agent`), and `aws4_request`, starting from your secret access key prefixed with `AWS4`.
 
 #### Sending audio over WebSocket
+<a name="al-websocket-streaming"></a>
 
 After the connection is established, send your session configuration, then stream audio as binary audio events. Each `binaryAudioEvent` carries a chunk of raw PCM or FLAC bytes. The service returns transcript events over the same connection in real time. To end the session, send an `END_OF_SESSION` session control event.
 
 #### WebSocket client recommendations
+<a name="al-websocket-client-behavior"></a>
 
 The service signals the end of a session by sending a WebSocket close frame. Design your client to handle connection closure gracefully:
++  **Wait for the server close frame before closing the connection.** After you send `END_OF_SESSION`, the service sends any final transcript results and then a close frame. If a send fails or an error occurs, the service may send a structured error frame followed by a close frame. Closing the connection immediately can discard these final messages, so wait for the server to close the connection.
++  **Use the close status code to determine the outcome.** A close code of `1000` (Normal Closure) indicates the session completed successfully. Any other close code indicates an error, and the close reason provides additional detail.
++  **Apply a bounded timeout as a safeguard.** To avoid waiting indefinitely if the connection becomes unresponsive, close the connection after a reasonable grace period if no server close frame is received.
 
-- **Wait for the server close frame before closing the connection.** After you send `END_OF_SESSION`, the service sends any final transcript results and then a close frame. If a send fails or an error occurs, the service may send a structured error frame followed by a close frame. Closing the connection immediately can discard these final messages, so wait for the server to close the connection.
-- **Use the close status code to determine the outcome.** A close code of `1000` (Normal Closure) indicates the session completed successfully. Any other close code indicates an error, and the close reason provides additional detail.
-- **Apply a bounded timeout as a safeguard.** To avoid waiting indefinitely if the connection becomes unresponsive, close the connection after a reasonable grace period if no server close frame is received.
-
-The AWS SDKs do not support WebSocket streaming. To stream over WebSocket, connect to the endpoint directly as described in this section. The [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md") documents the API operations and their request and response parameters, which apply to both transports.
+The AWS SDKs do not support WebSocket streaming. To stream over WebSocket, connect to the endpoint directly as described in this section. The [Amazon Connect Health API Reference](https://docs.aws.amazon.com/connecthealth/latest/APIReference/Welcome.html) documents the API operations and their request and response parameters, which apply to both transports.
 
 ## Storage
+<a name="al-storage"></a>
 
 An S3 storage location must be specified at the start of a session. Output artifacts are stored at the following base location:
 
-`s3://{customer-provided-uri}/health-agent-listening-session/{domainId}/{subscriptionId}/{sessionId}/post-stream-action/`
+ `s3://{customer-provided-uri}/health-agent-listening-session/{domainId}/{subscriptionId}/{sessionId}/post-stream-action/` 
 
 Clinical notes are stored in a `clinical-notes` folder at this base location.
 
 ## Patient context
+<a name="al-patient-context"></a>
 
 Patient context provides the agent with clinical history before the conversation through the `encounterContext` API parameter. The `encounterContext` object contains the field `unstructuredContext`, which accepts up to 10 KB of text data for each session. When you include patient context, the agent uses it to enrich the generated documentation with background information that was not explicitly discussed during the visit.
 
 Patient context can include:
-
-- Prior encounter notes and visit summaries
-- Active medication lists
-- Problem lists and diagnoses
-- Allergies and immunizations
-- Relevant lab and imaging reports
-- Surgical and family history
-- Patient’s preferred pronouns, used when referring to the patient in generated clinical output
++ Prior encounter notes and visit summaries
++ Active medication lists
++ Problem lists and diagnoses
++ Allergies and immunizations
++ Relevant lab and imaging reports
++ Surgical and family history
++ Patient’s preferred pronouns, used when referring to the patient in generated clinical output
 
 The context is used throughout the generated note to improve specificity and accuracy when the necessary information is not present in the transcript alone, with evidence mapping to source materials for clinician review.
 
-###### Note
-
+**Note**  
 The following example uses fictional patient data for illustration purposes only.
 
-**Example patient context**
+ **Example patient context** 
 
 ```
 ## Patient Information
@@ -510,123 +528,139 @@ Mammogram: BI-RADS 1, normal (02/28/2013)
 ```
 
 ## Clinical note templates
+<a name="al-templates"></a>
 
 Templates define the structure, sections, and formatting rules that the agent follows when generating clinical documentation. You must specify an output format by passing a configuration object to the `noteTemplateSettings` API parameter with every session. Ambient documentation supports two methods to specify the output format — managed templates or custom templates.
 
 ### Managed templates
+<a name="al-managed-templates"></a>
 
 Ambient documentation provides seven pre-built note templates. The configuration object for managed templates, `managedTemplate`, specifies the template through the `templateType` parameter. The default template is HISTORY\_AND\_PHYSICAL.
 
-| Template                         | Description                                       | Use case                                            |
-| -------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
-| HISTORY\_AND\_PHYSICAL (default) | Summaries for key clinical documentation sections | General physical health encounters                  |
-| PHYSICAL\_SOAP                   | Physical health focused SOAP format               | Physical health encounters using SOAP structure     |
-| BEHAVIORAL\_SOAP                 | Behavioral health focused SOAP format             | Behavioral health encounters using SOAP structure   |
-| GIRPP                            | Progress-toward-goals format                      | Behavioral health — tracking patient progress       |
-| BIRP                             | Behavioral patterns and responses format          | Behavioral health — documenting behavioral patterns |
-| SIRP                             | Situational context of therapy format             | Behavioral health — emphasizing situational context |
-| DAP                              | Simplified clinical documentation format          | Brief or focused encounters                         |
+
+| Template | Description | Use case | 
+| --- | --- | --- | 
+| HISTORY\_AND\_PHYSICAL (default) | Summaries for key clinical documentation sections | General physical health encounters | 
+| PHYSICAL\_SOAP | Physical health focused SOAP format | Physical health encounters using SOAP structure | 
+| BEHAVIORAL\_SOAP | Behavioral health focused SOAP format | Behavioral health encounters using SOAP structure | 
+| GIRPP | Progress-toward-goals format | Behavioral health — tracking patient progress | 
+| BIRP | Behavioral patterns and responses format | Behavioral health — documenting behavioral patterns | 
+| SIRP | Situational context of therapy format | Behavioral health — emphasizing situational context | 
+| DAP | Simplified clinical documentation format | Brief or focused encounters | 
 
 #### HISTORY\_AND\_PHYSICAL sections
+<a name="al-managed-template-sections"></a>
 
-| Section                    | Description                                                                                                     |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| CHIEF COMPLAINT            | Brief description of the patient’s reason for visiting the clinician                                            |
-| HISTORY OF PRESENT ILLNESS | Information on the patient’s illness, including severity, onset, timing, current treatments, and affected areas |
-| REVIEW OF SYSTEMS          | Patient-reported evaluation of symptoms across different body systems                                           |
-| PAST MEDICAL HISTORY       | Previous medical conditions, surgeries, and treatments                                                          |
-| PAST FAMILY HISTORY        | Health conditions that run in the patient’s family                                                              |
-| PAST SOCIAL HISTORY        | Social life, habits, occupation, and environmental factors affecting health                                     |
-| PHYSICAL EXAMINATION       | Clinician’s findings from physical examination of body systems and vital signs                                  |
-| DIAGNOSTIC TESTING         | Results and interpretations of laboratory tests, imaging studies, and other diagnostic procedures               |
-| ASSESSMENT                 | Clinician’s assessment of patient’s health                                                                      |
-| PLAN                       | Clinician-recommended medical treatments, lifestyle adjustments, and further appointments                       |
+
+| Section | Description | 
+| --- | --- | 
+| CHIEF COMPLAINT | Brief description of the patient’s reason for visiting the clinician | 
+| HISTORY OF PRESENT ILLNESS | Information on the patient’s illness, including severity, onset, timing, current treatments, and affected areas | 
+| REVIEW OF SYSTEMS | Patient-reported evaluation of symptoms across different body systems | 
+| PAST MEDICAL HISTORY | Previous medical conditions, surgeries, and treatments | 
+| PAST FAMILY HISTORY | Health conditions that run in the patient’s family | 
+| PAST SOCIAL HISTORY | Social life, habits, occupation, and environmental factors affecting health | 
+| PHYSICAL EXAMINATION | Clinician’s findings from physical examination of body systems and vital signs | 
+| DIAGNOSTIC TESTING | Results and interpretations of laboratory tests, imaging studies, and other diagnostic procedures | 
+| ASSESSMENT | Clinician’s assessment of patient’s health | 
+| PLAN | Clinician-recommended medical treatments, lifestyle adjustments, and further appointments | 
 
 #### PHYSICAL\_SOAP and BEHAVIORAL\_SOAP sections
+<a name="al-soap-sections"></a>
 
-| Section    | Description                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------------- |
-| Subjective | The patient’s goals, experiences, and existing and past issues                              |
-| Objective  | Data and facts about the patient                                                            |
-| Assessment | The clinician’s diagnosis of the patient’s situation                                        |
-| Plan       | Clinician-recommended next steps in treatment, including future interventions and referrals |
 
-###### Note
+| Section | Description | 
+| --- | --- | 
+| Subjective | The patient’s goals, experiences, and existing and past issues | 
+| Objective | Data and facts about the patient | 
+| Assessment | The clinician’s diagnosis of the patient’s situation | 
+| Plan | Clinician-recommended next steps in treatment, including future interventions and referrals | 
 
+**Note**  
 PHYSICAL\_SOAP is optimized for physical health documentation. BEHAVIORAL\_SOAP is optimized for behavioral health documentation. Both share the same section structure.
 
 #### GIRPP sections
+<a name="al-girpp-sections"></a>
 
-| Section      | Description                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------ |
-| Goal         | The identified problem, challenge, or behavior to address through treatment                            |
-| Intervention | The specific treatment, method, or technique used by the clinician                                     |
-| Response     | How the patient responded to the intervention, including participation level and feedback              |
-| Progress     | The clinician’s assessment of movement toward treatment goals                                          |
-| Plan         | Clinician-recommended next steps in treatment, including future interventions, homework, and referrals |
+
+| Section | Description | 
+| --- | --- | 
+| Goal | The identified problem, challenge, or behavior to address through treatment | 
+| Intervention | The specific treatment, method, or technique used by the clinician | 
+| Response | How the patient responded to the intervention, including participation level and feedback | 
+| Progress | The clinician’s assessment of movement toward treatment goals | 
+| Plan | Clinician-recommended next steps in treatment, including future interventions, homework, and referrals | 
 
 #### BIRP sections
+<a name="al-birp-sections"></a>
 
-| Section      | Description                                                        |
-| ------------ | ------------------------------------------------------------------ |
-| Behavior     | The problems the patient presents and their response to treatment  |
-| Intervention | The specific treatment, method, or technique used by the clinician |
-| Response     | How the patient responded to the intervention                      |
-| Plan         | Next steps in treatment                                            |
+
+| Section | Description | 
+| --- | --- | 
+| Behavior | The problems the patient presents and their response to treatment | 
+| Intervention | The specific treatment, method, or technique used by the clinician | 
+| Response | How the patient responded to the intervention | 
+| Plan | Next steps in treatment | 
 
 #### SIRP sections
+<a name="al-sirp-sections"></a>
 
-| Section      | Description                                                         |
-| ------------ | ------------------------------------------------------------------- |
-| Situation    | The problem the patient presents and their goal for seeking therapy |
-| Intervention | The specific treatment, method, or technique used by the clinician  |
-| Response     | How the patient responded to the intervention                       |
-| Plan         | Clinician-recommended next steps in treatment                       |
+
+| Section | Description | 
+| --- | --- | 
+| Situation | The problem the patient presents and their goal for seeking therapy | 
+| Intervention | The specific treatment, method, or technique used by the clinician | 
+| Response | How the patient responded to the intervention | 
+| Plan | Clinician-recommended next steps in treatment | 
 
 #### DAP sections
+<a name="al-dap-sections"></a>
 
-| Section    | Description                                                                   |
-| ---------- | ----------------------------------------------------------------------------- |
-| Data       | The patient’s reasons for seeking treatment and information about the patient |
-| Assessment | The clinician’s diagnosis of the patient’s situation                          |
-| Plan       | Clinician-recommended next steps in treatment                                 |
+
+| Section | Description | 
+| --- | --- | 
+| Data | The patient’s reasons for seeking treatment and information about the patient | 
+| Assessment | The clinician’s diagnosis of the patient’s situation | 
+| Plan | Clinician-recommended next steps in treatment | 
 
 ### Custom templates
+<a name="al-custom-templates"></a>
 
 Ambient documentation uses a two-layer customization model: Base and Output Specification. These two layers are managed in a configuration object, `customTemplate`. The `customTemplate` configuration object contains two parameters: `templateType` sets the Base template and `templateInstructions` contains the Output Specification.
 
 The Base (`templateType`) sets the organization structure of the clinical facts detected during the conversation. The following base templates are supported:
 
-| Base                   | Description                                       | Use case                                            |
-| ---------------------- | ------------------------------------------------- | --------------------------------------------------- |
-| HISTORY\_AND\_PHYSICAL | Summaries for key clinical documentation sections | General physical health encounters                  |
-| BEHAVIORAL\_SOAP       | Behavioral health focused SOAP format             | Behavioral health encounters using SOAP structure   |
-| GIRPP                  | Progress-toward-goals format                      | Behavioral health — tracking patient progress       |
-| BIRP                   | Behavioral patterns and responses format          | Behavioral health — documenting behavioral patterns |
-| SIRP                   | Situational context of therapy format             | Behavioral health — emphasizing situational context |
-| DAP                    | Simplified clinical documentation format          | Brief or focused encounters                         |
+
+| Base | Description | Use case | 
+| --- | --- | --- | 
+| HISTORY\_AND\_PHYSICAL | Summaries for key clinical documentation sections | General physical health encounters | 
+| BEHAVIORAL\_SOAP | Behavioral health focused SOAP format | Behavioral health encounters using SOAP structure | 
+| GIRPP | Progress-toward-goals format | Behavioral health — tracking patient progress | 
+| BIRP | Behavioral patterns and responses format | Behavioral health — documenting behavioral patterns | 
+| SIRP | Situational context of therapy format | Behavioral health — emphasizing situational context | 
+| DAP | Simplified clinical documentation format | Brief or focused encounters | 
 
 The Output Specification object (`templateInstructions`) is organized as an array of instructions, with a `sectionHeader` that defines the section name and `sectionInstructions` that combines instructions and a template for that section.
 
 Customization instructions can include three types of directives:
-
-- **Verbosity instructions** — Control content conciseness or elaboration. Example: "Describe the chief complaint in 1 sentence or less."
-- **Template usage instructions** — Direct how the agent handles misalignment between the template and the encounter content. Example: "Follow the template exactly: if requested data is unavailable, write INFORMATION NOT FOUND."
-- **Style instructions** — Specify formatting, terminology, and reasoning requirements. Example: "Use numbered problems in the Assessment section."
++  **Verbosity instructions** — Control content conciseness or elaboration. Example: "Describe the chief complaint in 1 sentence or less."
++  **Template usage instructions** — Direct how the agent handles misalignment between the template and the encounter content. Example: "Follow the template exactly: if requested data is unavailable, write INFORMATION NOT FOUND."
++  **Style instructions** — Specify formatting, terminology, and reasoning requirements. Example: "Use numbered problems in the Assessment section."
 
 Templates can be provided as text with placeholders, structured JSON schemas, or example previous notes.
 
-| Method                          | Description                                                                                                                 | Use when                                                                |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Text template with placeholders | A template with section headers and placeholder fields (such as <chief\_complaint>) that the agent fills from the encounter | You want precise control over section layout and content placement      |
-| Structured JSON template        | A JSON schema defining fields, nesting, and per-field formatting rules                                                      | Your EHR requires structured data output rather than prose              |
-| Example previous note           | A prior clinical note provided as a reference for the desired format and style                                              | A provider wants notes that match their existing documentation patterns |
 
-###### Note
+| Method | Description | Use when | 
+| --- | --- | --- | 
+| Text template with placeholders | A template with section headers and placeholder fields (such as <chief\_complaint>) that the agent fills from the encounter | You want precise control over section layout and content placement | 
+| Structured JSON template | A JSON schema defining fields, nesting, and per-field formatting rules | Your EHR requires structured data output rather than prose | 
+| Example previous note | A prior clinical note provided as a reference for the desired format and style | A provider wants notes that match their existing documentation patterns | 
 
+**Note**  
 The service is stateless. To use a previous note as a style reference, your application must include it in the instructions for each session. The agent does not retain provider preferences across sessions.
 
 ### Example customization instruction
+<a name="al-example-customization"></a>
 
 The following example shows a customization instruction for a SOAP note using the `customTemplate` configuration object.
 
@@ -649,33 +683,37 @@ The following example shows a customization instruction for a SOAP note using th
 ```
 
 ### Template best practices
+<a name="al-template-best-practices"></a>
 
 The agent achieves 97.7% average layout adherence with well-designed templates.
-
-- **Define your note structure with named section headers.** List each section of your desired note by name, using a consistent delimiter. The model uses these headers as structural anchors to place content in the correct location.
-- **Use descriptive placeholders** that explain what content belongs in each section. For example, `Chief Complaint: <Brief statement in patient’s own words, if available>`.
-- **Enumerate expected subsections** for multi-part fields. For sections that span multiple categories (such as body systems or problem lists), list them explicitly with representative values to indicate scope.
-- **Handle missing information gracefully.** Use phrasing like "if available" or "if applicable" within placeholders to signal that a section can be omitted when the encounter does not produce relevant content.
-- **Test templates across visit types.** A template that works for follow-up visits may not suit new patient encounters or wellness exams. Validate your templates against a representative sample of encounters before deploying broadly.
++  **Define your note structure with named section headers.** List each section of your desired note by name, using a consistent delimiter. The model uses these headers as structural anchors to place content in the correct location.
++  **Use descriptive placeholders** that explain what content belongs in each section. For example, `Chief Complaint: <Brief statement in patient’s own words, if available>`.
++  **Enumerate expected subsections** for multi-part fields. For sections that span multiple categories (such as body systems or problem lists), list them explicitly with representative values to indicate scope.
++  **Handle missing information gracefully.** Use phrasing like "if available" or "if applicable" within placeholders to signal that a section can be omitted when the encounter does not produce relevant content.
++  **Test templates across visit types.** A template that works for follow-up visits may not suit new patient encounters or wellness exams. Validate your templates against a representative sample of encounters before deploying broadly.
 
 ## Outputs
+<a name="al-outputs"></a>
 
 Ambient documentation generates three output files:
 
 ### Transcript file
+<a name="al-transcript"></a>
 
 The transcript file contains turn-by-turn transcription with word-level timestamps. Amazon Connect Health adds participant role detection, labeling each speaker as CLINICIAN or PATIENT. If a conversation has more than one participant in each category, each participant is assigned a number (for example, `CLINICIAN_0`, `CLINICIAN_1`).
 
 ### Clinical documentation and evidence mapping file
+<a name="al-clinical-doc"></a>
 
 The clinical documentation file contains the structured clinical note generated from the patient-clinician conversation and a section linking each generated statement back to its source in the conversation transcript or patient context input.
 
 The file follows the managed template or customization instructions provided at the start of the session. Each section can contain visit-derived content (from the conversation) and context-derived content (from patient context input). Multiple output formats are supported: prose/free-text and structured JSON depending on template configuration. The evidence mapping section enables clinicians to verify the origin of any AI-generated content. Each mapping entry contains the generated sentence and the source transcript/context reference.
 
 ### After-visit summary file
+<a name="al-after-visit"></a>
 
 The after-visit summary file contains a patient-facing summary written in accessible language for a clinician’s review and finalization. It includes a plain-language description of the visit, current medications with dosage and frequency, clinician’s follow-up instructions, and action items for the patient.
 
 The summary is generated from the clinical documentation file, not directly from the transcript, ensuring consistency between the clinical note and the patient-facing summary.
 
-For complete API parameter details, request/response schemas, and streaming setup instructions, see the [Amazon Connect Health API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
+For complete API parameter details, request/response schemas, and streaming setup instructions, see the [Amazon Connect Health API Reference](https://docs.aws.amazon.com/connecthealth/latest/APIReference/Welcome.html).
