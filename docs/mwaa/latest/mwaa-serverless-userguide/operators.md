@@ -213,3 +213,4 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 
 - `PythonOperator`: Runs a Python callable as a task. Provide your Python modules as code when creating or updating a workflow.
 - `BashOperator`: Runs a Bash command or shell script as a task.
+  `PythonOperator` and `BashOperator` tasks are considered AWS Managed Tasks, and the same billing applies. For more information about pricing, see [AWS pricing for Managed Workflows for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/ "https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/").

@@ -10,7 +10,12 @@ With Amazon MWAA Serverless, you can run custom Python code and shell scripts as
   `airflow.providers.standard.operators.bash.BashOperator` (the current form in Apache Airflow 3) or
   `airflow.operators.bash.BashOperator` (also supported). This operator requires the
   `bash_command` task parameter.
-  To use these operators, provide your code files when creating or updating a workflow.
+
+###### Note
+
+`PythonOperator` and `BashOperator` tasks are considered AWS Managed Tasks, and the same billing applies. For more information about pricing, see [AWS pricing for Managed Workflows for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/ "https://aws.amazon.com/managed-workflows-for-apache-airflow/pricing/").
+
+To use these operators, provide your code files when creating or updating a workflow.
 
 ## Prerequisites
 

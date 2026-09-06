@@ -139,6 +139,8 @@ Amazon MWAA Serverless is available in the following AWS Regions.
 - Asia Pacific (Taipei): ap-east-2
 - Canada West (Calgary): ca-west-1
 - Asia Pacific (New Zealand): ap-southeast-6
+- AWS GovCloud (US-East): us-gov-east-1
+- AWS GovCloud (US-West): us-gov-west-1
 
 ## Are you a first-time Amazon MWAA Serverless user?
 
