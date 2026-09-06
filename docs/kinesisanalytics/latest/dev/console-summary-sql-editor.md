@@ -20,7 +20,7 @@ SQL code that can help you write common Amazon Kinesis Data Analytics applicatio
 applications in this guide use some of these templates. For more information, see
 [Kinesis Data Analytics for SQL examples](examples.md "examples.md").
 
-![Screenshot of the SQL editor showing the real-time analytics tab and in-application streams.](/images/kinesisanalytics/latest/dev/images/gs-v2-50.png)
+![Screenshot of the SQL editor showing the real-time analytics tab and in-application streams.](images/gs-v2-50.png)
 
 ## Source Data Tab
 
