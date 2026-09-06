@@ -33,9 +33,12 @@ Soft limits can be increased based on your needs.
 - **Max Write Capacity Units that can be provisioned across
   all feature groups in a region:** 80000 WCU.
 - **Maximum Transactions per second (TPS) per API per
-  AWS account:** Soft limit of 10000 TPS per API excluding the
-  `BatchGetRecord` API call, which has a soft limit of 500
-  TPS.
+  AWS account:** Soft limit of 10000 TPS per API, with the following
+  exceptions: the `BatchGetRecord` API has a soft limit of 500 TPS, the
+  `ListRecords` API has a soft limit of 500 TPS, and the
+  `BatchWriteRecord` API has a soft limit of 400 TPS.
+- **Maximum number of features that can be updated in a
+  single `UpdateRecord` API call:** 100.
 - **Maximum size of a record:** 350KB.
 - **Maximum size of a record identifier:** 2KB.
 - **Maximum size of a feature value:** 350KB.

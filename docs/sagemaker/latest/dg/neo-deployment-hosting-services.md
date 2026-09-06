@@ -12,7 +12,7 @@ types are not guaranteed to work with Inferentia or Trainium instances.
 
 When you deploy a compiled model, you need to use the same instance for the target that
 you used for compilation. This creates a SageMaker AI endpoint that you can use to perform
-inferences. You can deploy a Neo-compiled model using any of the following: [Amazon SageMaker AI SDK for Python](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"), [SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html"), [AWS Command Line Interface](../../../cli/latest/reference.md "../../../cli/latest/reference.md"), and the [SageMaker AI
+inferences. You can deploy a Neo-compiled model using any of the following: [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/"), [SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html"), [AWS Command Line Interface](../../../cli/latest/reference.md "../../../cli/latest/reference.md"), and the [SageMaker AI
 console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
 
 ###### Note

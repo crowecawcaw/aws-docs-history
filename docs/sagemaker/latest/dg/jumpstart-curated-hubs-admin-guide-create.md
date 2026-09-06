@@ -16,7 +16,7 @@ model hub.
 # Import the necessary Python packages
 import boto3
 from sagemaker.core.helper.session_helper import Session
-from sagemaker.jumpstart.hub.hub import Hub
+from sagemaker.core.jumpstart.hub.hub import Hub
 ```
 
 2. Initialize a SageMaker AI Session.

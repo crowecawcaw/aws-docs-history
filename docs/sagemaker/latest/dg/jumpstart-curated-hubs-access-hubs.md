@@ -49,7 +49,7 @@ If a hub is not shared across accounts, then the `HUB_NAME` can be the hub name.
     # Import the necessary Python packages
     import boto3
     from sagemaker.core.helper.session_helper import Session
-    from sagemaker.jumpstart.hub.hub import Hub
+    from sagemaker.core.jumpstart.hub.hub import Hub
     from sagemaker.serve import ModelBuilder
     from sagemaker.train import ModelTrainer
     from sagemaker.core.jumpstart.configs import JumpStartConfig

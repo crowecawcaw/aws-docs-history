@@ -89,7 +89,7 @@ you want to fine-tune.
 The following procedure shows you how to fine-tune a model reference in your
 private curated hub using the SageMaker Python SDK.
 
-1. Make sure that you have the latest version (at least `2.242.0`)
+1. Make sure that you have the latest version (at least `3.0.0`)
    of the SageMaker Python SDK installed. For more information, see
    [Use Version 3.x of the SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/ "https://sagemaker.readthedocs.io/en/stable/").
 
@@ -97,11 +97,12 @@ private curated hub using the SageMaker Python SDK.
 !pip install --upgrade sagemaker
 ```
 
-2. Import the AWS SDK for Python (Boto3) and the modules you'll need from the SageMaker Python SDK.
+2. Import the AWS SDK for Python (Boto3) and the modules you need from the SageMaker Python SDK.
 
 ```
 import boto3
 from sagemaker.train import ModelTrainer
+from sagemaker.train.configs import InputData
 from sagemaker.core.jumpstart.configs import JumpStartConfig
 from sagemaker.core.helper.session_helper import Session
 ```
@@ -142,15 +143,18 @@ model_trainer = ModelTrainer.from_jumpstart_config(jumpstart_config=jumpstart_co
 
 ```
 
-5. Create a dictionary with the `training` key where you specify the
-   location of your fine-tuning dataset. This example points to an Amazon S3 URI. If you have
-   additional considerations, such as using local mode or multiple training data channels,
-   see [ModelTrainer.train()](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the SageMaker Python SDK documentation for more information.
+5. Create an `InputData` object. Set `channel_name` to
+   `train` and `data_source` to the location of your fine-tuning
+   dataset. In the following example, replace
+   `<your-fine-tuning-dataset>` with the Amazon S3
+   URI of your dataset. If you have additional considerations, such as using local mode or
+   multiple training data channels, see [ModelTrainer.train()](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html "https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html") in the SageMaker Python SDK documentation for more information.
 
 ```
-training_input = {
-    "training": "s3://`<your-fine-tuning-dataset>`"
-}
+training_input = InputData(
+    channel_name="train",
+    data_source="s3://`<your-fine-tuning-dataset>`",
+)
 ```
 
 6. Call the model trainer's `train()` method and pass in your training data

@@ -2,9 +2,10 @@
 
 The online store is a low-latency, high-availability data store that provides
 real-time lookup of features. It is typically used for machine learning (ML) model
-serving. You can chose between the standard online store (`Standard`) or an
-in-memory tier online store (`InMemory`), at the point when you create a
-feature group. In this way, you can select the storage type that best matches the read
+serving. When you create a feature group, choose an online store type: the standard
+online store (`Standard`), the standard V2 online store
+(`Standard_V2`), or an in-memory tier online store (`InMemory`).
+In this way, you can select the storage type that best matches the read
 and write patterns for a particular application, while considering performance and cost.
 For more details about pricing, see [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/ "https://aws.amazon.com/sagemaker/pricing/").
 
@@ -16,6 +17,64 @@ information about the online store contents, see [`OnlineStoreConfig`](../APIRef
 The `Standard` tier is a managed low-latency data store for online
 store feature groups. It provides fast data retrieval for ML model service for your
 applications. `Standard` is the default storage type.
+
+## Standard V2 tier storage type
+
+The `Standard_V2` tier is a managed low-latency data store for online
+store feature groups that supports partial updates to individual features using
+the [UpdateRecord](../APIReference/API_feature_store_UpdateRecord.md "../APIReference/API_feature_store_UpdateRecord.md") operation. Unlike the `Standard` tier,
+`Standard_V2` allows you to update specific feature values in a record
+without rewriting the entire record.
+
+This unlocks several benefits for feature groups that change frequently:
+
+- **Update features in a single call**
+  – Skip the read-modify-write pattern. Call [UpdateRecord](../APIReference/API_feature_store_UpdateRecord.md "../APIReference/API_feature_store_UpdateRecord.md") with just the features you want to change, and
+  Feature Store preserves the rest.
+- **Lower write cost and latency for feature-level
+  updates** – Write only the features that changed instead
+  of the full record. For wide records where only a few features update often
+  (for example, `last_login` or a running `click_count`),
+  this avoids sending and rewriting unchanged data.
+- **Safe concurrent updates** – Use the
+  `EventTime` of each update to detect and reject out-of-order
+  writes, so a slow or stale update can't overwrite newer feature
+  values.
+
+Choose `Standard_V2` at feature group creation time when your workload
+updates specific features frequently and you want efficient, partial writes. To
+create a new `Standard_V2` feature group, call [CreateFeatureGroup](../APIReference/API_CreateFeatureGroup.md "../APIReference/API_CreateFeatureGroup.md") and set the `StorageType` in
+`OnlineStoreConfig` to `Standard_V2`.
+
+### Migrate a `Standard` feature group to Standard V2
+
+Already have a `Standard` feature group? You can migrate it to
+Standard V2 in place, without recreating the feature group or reingesting your
+data. To migrate, call the [UpdateFeatureGroup](../APIReference/API_UpdateFeatureGroup.md "../APIReference/API_UpdateFeatureGroup.md") operation with the
+following:
+
+- Set `FeatureGroupName` to the name or Amazon Resource Name
+  (ARN) of the feature group you want to migrate.
+- In the `OnlineStoreConfig` object, set the
+  `StorageType` to `Standard_V2`.
+
+The following AWS Command Line Interface example migrates a feature group named
+`my-feature-group` to Standard V2:
+
+```
+aws sagemaker update-feature-group \
+    --feature-group-name my-feature-group \
+    --online-store-config '{"StorageType": "Standard_V2"}'
+```
+
+After the migration completes, it takes several minutes for the [UpdateRecord](../APIReference/API_feature_store_UpdateRecord.md "../APIReference/API_feature_store_UpdateRecord.md") operation to become available on the feature group.
+Once it is enabled, you can use `UpdateRecord` to update individual
+features in the feature group's records.
+
+###### Important
+
+Migration from `Standard` to Standard V2 is a one-way operation
+and cannot be reversed.
 
 ## In-memory tier storage type
 

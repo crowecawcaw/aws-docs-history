@@ -61,7 +61,7 @@ You can query your lineage entities to:
 
 The easiest way to get started is either via the:
 
-- [Amazon SageMaker AI SDK for Python](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397 "https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397") which has defined many common use cases.
+- [Amazon SageMaker Python SDK](https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397 "https://github.com/aws/sagemaker-python-sdk/blob/master/src/sagemaker/lineage/artifact.py#L397") which has defined many common use cases.
 - For a notebook that demonstrates how to use SageMaker AI Lineage APIs to query relationships
   across the lineage graph, see [sagemaker-lineage-multihop-queries.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-multihop-queries.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/master/sagemaker-lineage/sagemaker-lineage-multihop-queries.ipynb").
 

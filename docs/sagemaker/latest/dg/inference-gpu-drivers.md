@@ -9,19 +9,29 @@ your application works with different driver versions.
 
 ## Current versions and supported instance families
 
-Amazon SageMaker AI Inference supports the following drivers and instance families:
+The following table lists the GPU drivers and instance families that Amazon SageMaker AI Inference supports.
+For Real-time, Batch, and Asynchronous Inference services, an AMI override is an explicit AMI version specified
+in the inference endpoint or batch transform job configuration.
 
-| Service                | GPU       | Driver version        | CUDA version | Instance types                                                  |
-| ---------------------- | --------- | --------------------- | ------------ | --------------------------------------------------------------- |
-| Real-time              | NVIDIA    | 470                   | CUDA 11.4    | ml.p2.\*, ml.p3.\*, ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* |
-| 535                    | CUDA 12.2 | ml.p5.\*, ml.g6.\*    |
-| 550                    | CUDA 12.4 | ml.p5e.\*, ml.p5en.\* |
-| 580                    | CUDA 13.0 | ml.p6.\*, ml.g7e.\*   |
-| Asynchronous Inference | NVIDIA    | 470                   | CUDA 11.4    | ml.p2.\*, ml.p3.\*, ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5\*  |
-| 470                    | CUDA 12.2 | ml.p5.\*, ml.g6.\*    |
-| 550                    | CUDA 12.4 | ml.p5e.\*, ml.p5en.\* |
-| 580                    | CUDA 13.0 | ml.p6.\*, ml.g7e.\*   |
-| Batch                  | NVIDIA    | 470                   | CUDA 11.4    | ml.p2.\*, ml.p3.\*, ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5\*  |
+For inference endpoints, set the `InferenceAmiVersion` parameter on the applicable
+`ProductionVariant` when calling [CreateEndpointConfig](../APIReference/API_CreateEndpointConfig.md "../APIReference/API_CreateEndpointConfig.md")
+API. For batch transform jobs, set the `TransformAmiVersion` parameter when calling
+[CreateTransformJob](../APIReference/API_CreateTransformJob.md "../APIReference/API_CreateTransformJob.md")
+API. The compatible instance types column identifies additional instance families that support
+this AMI version. SageMaker AI does not automatically apply the AMI override.
+
+| Service                | GPU       | Driver version                                                         | CUDA version                  | AMI version                                                                                       | Instance types (default)                    | Compatible instance types with AMI version overrides |
+| ---------------------- | --------- | ---------------------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------------------- |
+| Real-time              | NVIDIA    | 470                                                                    | CUDA 11.4                     |                                                                                                   | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* |                                                      |
+| 535                    | CUDA 12.2 | al2-ami-sagemaker-inference-gpu-2, al2-ami-sagemaker-inference-gpu-2-1 | ml.p5.\*, ml.g6.\*, ml.g6e.\* | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\*                                                       |
+| 550                    | CUDA 12.4 | al2-ami-sagemaker-inference-gpu-3-1                                    | ml.p5e.\*, ml.p5en.\*         | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*                        |
+| 580                    | CUDA 13.0 | al2023-ami-sagemaker-inference-gpu-4-1                                 | ml.p6.\*, ml.g7.\*, ml.g7e.\* | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.p5e.\*, ml.p5en.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\* |
+| Asynchronous Inference | NVIDIA    | 470                                                                    | CUDA 11.4                     |                                                                                                   | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\* |                                                      |
+| 535                    | CUDA 12.2 | al2-ami-sagemaker-inference-gpu-2, al2-ami-sagemaker-inference-gpu-2-1 | ml.p5.\*, ml.g6.\*, ml.g6e.\* | ml.p4d.\*, ml.p4de.\*, ml.g4dn.\*, ml.g5.\*                                                       |
+| 550                    | CUDA 12.4 | al2-ami-sagemaker-inference-gpu-3-1                                    | ml.p5e.\*, ml.p5en.\*         | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\*                        |
+| 580                    | CUDA 13.0 | al2023-ami-sagemaker-inference-gpu-4-1                                 | ml.p6.\*, ml.g7.\*, ml.g7e.\* | ml.p4d.\*, ml.p4de.\*, ml.p5.\*, ml.p5e.\*, ml.p5en.\*, ml.g4dn.\*, ml.g5.\*, ml.g6.\*, ml.g6e.\* |
+| Batch                  | NVIDIA    | 470                                                                    | CUDA 11.4                     | al2-ami-sagemaker-batch-gpu-470                                                                   | ml.g4dn.\*, ml.g5.\*                        |                                                      |
+| 535                    | CUDA 12.2 | al2-ami-sagemaker-batch-gpu-535                                        | ml.g6.\*                      | ml.g4dn.\*, ml.g5.\*                                                                              |
 
 ## Troubleshoot your model container with GPU capabilities
 
