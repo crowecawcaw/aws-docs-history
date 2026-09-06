@@ -1,34 +1,25 @@
+
+
 # Tables
+<a name="how-it-works-tables"></a>
 
-Use Amazon Textract to extract tables in a document and extract cells, merged
-cells, column headers, titles, section titles, footers, table type (structured
-or semistructured), and summary cells within a table.
+Use Amazon Textract to extract tables in a document and extract cells, merged cells, column headers, titles, section titles, footers, table type (structured or semistructured), and summary cells within a table. 
 
-Detected tables are returned as [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects in the responses from [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and
-[GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md"). You can use the
-`FeatureTypes` input parameter to retrieve information about
-key-value pairs, tables, or both. For tables only, use the value
-`TABLES`. For an example, see [Exporting Tables into a CSV File](examples-export-table-csv.md "examples-export-table-csv.md"). For general information about
-how a document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+Detected tables are returned as [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects in the responses from [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html). You can use the `FeatureTypes` input parameter to retrieve information about key-value pairs, tables, or both. For tables only, use the value `TABLES`. For an example, see [Exporting Tables into a CSV File](examples-export-table-csv.md). For general information about how a document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md).
 
-The following is an example of a table that could be detected by Amazon
-Textract.
+The following is an example of a table that could be detected by Amazon Textract.
 
-![Balance sheet table showing transactions from 2022-12-24 to 2023-01-15, with starting balance of $11,000, credits of $1,040, debits of $1,040, and ending balance of $11,000 as of 2023-01-20.](images/example_table.png)
-The following diagram shows how a single cell in a table is represented by
-`Block` objects.
+![Balance sheet table showing transactions from 2022-12-24 to 2023-01-15, with starting balance of $11,000, credits of $1,040, debits of $1,040, and ending balance of $11,000 as of 2023-01-20.](http://docs.aws.amazon.com/textract/latest/dg/images/example_table.png)
 
-![Diagram depicting the structure of a table with cells, including a merged cell spanning 5 columns for the table title. The table comprises nested components like pages, cells, words, and a merged title cell.](images/updated_table_diagram.png)
-A cell contains `WORD` blocks for detected words, and where
-applicable, `TABLE_TITLE` blocks for table titles,
-`TABLE_FOOTER` blocks for table footers, and
-`SELECTION_ELEMENT` blocks for selection elements such as check
-boxes.
 
-The following is part of the JSON for the preceding table. The
-`PAGE` block object has a list of `CHILD` block IDs
-for the `TABLE` block and each `LINE` of text that's
-detected.
+The following diagram shows how a single cell in a table is represented by `Block` objects.
+
+![Diagram depicting the structure of a table with cells, including a merged cell spanning 5 columns for the table title. The table comprises nested components like pages, cells, words, and a merged title cell.](http://docs.aws.amazon.com/textract/latest/dg/images/updated_table_diagram.png)
+
+
+A cell contains `WORD` blocks for detected words, and where applicable, `TABLE_TITLE` blocks for table titles, `TABLE_FOOTER` blocks for table footers, and `SELECTION_ELEMENT` blocks for selection elements such as check boxes. 
+
+The following is part of the JSON for the preceding table. The `PAGE` block object has a list of `CHILD` block IDs for the `TABLE` block and each `LINE` of text that's detected.
 
 ```
 {
@@ -70,28 +61,9 @@ detected.
 },
 ```
 
-To learn more about the table, access the `TABLE` block object. The
-table block includes four types of relationships: “Child,” “Merged Cells,”
-"Title," and "Footer." For relationship type `CHILD`, each child ID
-represents a single cell within the table. A merged cell is broken down into all
-the individual cells that are combined to make one merged cell.
-`TABLE_TITLE` and `TABLE_FOOTER` relationship types
-contain the block ID for the corresponding `TABLE_TITLE` and
-`TABLE_FOOTER` blocks, where information about the title and
-footer is stored. The table block type has an `EntityType` of either
-`STRUCTURED_TABLE` or `SEMI_STRUCTURED_TABLE` that
-identifies the type of table.
+To learn more about the table, access the `TABLE` block object. The table block includes four types of relationships: “Child,” “Merged Cells,” "Title," and "Footer." For relationship type `CHILD`, each child ID represents a single cell within the table. A merged cell is broken down into all the individual cells that are combined to make one merged cell. `TABLE_TITLE` and `TABLE_FOOTER` relationship types contain the block ID for the corresponding `TABLE_TITLE` and `TABLE_FOOTER` blocks, where information about the title and footer is stored. The table block type has an `EntityType` of either `STRUCTURED_TABLE` or `SEMI_STRUCTURED_TABLE` that identifies the type of table. 
 
-The following JSON shows that the preceding table has 65 cells for 13 rows
-and 5 columns, which are listed in the `CHILD` relationship
-`Ids` array. For relationship type `MERGED_CELL`, each
-merged cell ID represents a single merged cell within the table. The following
-JSON shows that the table has 9 merged cells, which are listed in the
-`MERGED_CELL` relationship `Ids` array. The two
-additional relationship types, `TABLE_TITLE` and
-`TABLE_FOOTER`, list the IDs of the respective title and footer
-blocks. The following JSON also shows that the table is structured in the
-`EntityTypes` block.
+ The following JSON shows that the preceding table has 65 cells for 13 rows and 5 columns, which are listed in the `CHILD` relationship `Ids` array. For relationship type `MERGED_CELL`, each merged cell ID represents a single merged cell within the table. The following JSON shows that the table has 9 merged cells, which are listed in the `MERGED_CELL` relationship `Ids` array. The two additional relationship types, `TABLE_TITLE` and `TABLE_FOOTER`, list the IDs of the respective title and footer blocks. The following JSON also shows that the table is structured in the `EntityTypes` block.
 
 ```
 {
@@ -151,18 +123,9 @@ blocks. The following JSON also shows that the table is structured in the
         "STRUCTURED_TABLE"
     ]
 },
-
 ```
 
-The block type for each table cell is `CELL`. The cell block type
-will always have row span of 1 and column span of 1. The block object for each
-cell includes information about the cell location compared to other cells in the
-table. It also includes geometry information for the location of the cell on the
-document. In addition, cell blocks can have different `EntityTypes`
-that identify them as a particular type of cell, including TABLE\_TITLE,
-TABLE\_FOOTER, TABLE\_SECTION\_TITLE, COLUMN\_HEADER, and TABLE\_SUMMARY. For
-example, in the preceding table, the cell that contains the word “Date” is a
-column header, as shown in the following example.
+The block type for each table cell is `CELL`. The cell block type will always have row span of 1 and column span of 1. The block object for each cell includes information about the cell location compared to other cells in the table. It also includes geometry information for the location of the cell on the document. In addition, cell blocks can have different `EntityTypes` that identify them as a particular type of cell, including TABLE\_TITLE, TABLE\_FOOTER, TABLE\_SECTION\_TITLE, COLUMN\_HEADER, and TABLE\_SUMMARY. For example, in the preceding table, the cell that contains the word “Date” is a column header, as shown in the following example. 
 
 ```
 {
@@ -186,13 +149,9 @@ column header, as shown in the following example.
         "COLUMN_HEADER"
     ]
 },
-
-
 ```
 
-The cell that contains the word "Deposit" is not a title, footer, column
-header, section title, or summary cell. This is shown by the lack of the field
-`"EntityTypes"`.
+The cell that contains the word "Deposit" is not a title, footer, column header, section title, or summary cell. This is shown by the lack of the field `"EntityTypes"`.
 
 ```
 {
@@ -213,12 +172,9 @@ header, section title, or summary cell. This is shown by the lack of the field
         }
     ]
 },
-
 ```
 
-All the merged cells are listed under `"Type": "MERGED_CELL"` in
-the `TABLE` block. In the preceding example table, there are nine
-merged cells.
+All the merged cells are listed under `"Type": "MERGED_CELL"` in the `TABLE` block. In the preceding example table, there are nine merged cells. 
 
 ```
 {
@@ -235,18 +191,11 @@ merged cells.
         "1c2436e2-a1fc-4b2a-9e73-cc8a1ca67568"
     ]
 },
-
 ```
 
-To find specific details associated with each merged cell, go to
-`"BlockType": "MERGED_CELL"`. For the merged cell “Balance
-Sheet”, which is also a title cell, the ID associated with it is
-`"a27a3ecc-afd0-4f7c-9db2-6f8e6d31c605"`.
+To find specific details associated with each merged cell, go to `"BlockType": "MERGED_CELL"`. For the merged cell “Balance Sheet”, which is also a title cell, the ID associated with it is `"a27a3ecc-afd0-4f7c-9db2-6f8e6d31c605"`.
 
-There are 5 cells that constitute this merged cell, as shown by the
-"ColumnSpan" of 5. To find the text within the merged cell, go further down to
-the `Ids` array for details on `"BlockType": "CELL"`
-followed by `"BlockType": "WORD"`.
+There are 5 cells that constitute this merged cell, as shown by the "ColumnSpan" of 5. To find the text within the merged cell, go further down to the `Ids` array for details on `"BlockType": "CELL"` followed by `"BlockType": "WORD"`.
 
 ```
 {
@@ -274,15 +223,9 @@ followed by `"BlockType": "WORD"`.
         "TABLE_TITLE"
     ]
 },
-
 ```
 
-On the cell level, there are 5 cells for the merged cell “Balance Sheet”. Each
-cell has an `EntityType` of `TABLE_TITLE` because the
-title was identified in the merged cell. The cell with an `Id` of
-`48b0e972-7dba-4db7-896e-ca7066e8c761` contains two
-`CHILD` relationship IDs that correspond to the `WORD`
-blocks that make up this merged title cell.
+On the cell level, there are 5 cells for the merged cell “Balance Sheet”. Each cell has an `EntityType` of `TABLE_TITLE` because the title was identified in the merged cell. The cell with an `Id` of `48b0e972-7dba-4db7-896e-ca7066e8c761` contains two `CHILD` relationship IDs that correspond to the `WORD` blocks that make up this merged title cell. 
 
 ```
 {
@@ -359,13 +302,9 @@ blocks that make up this merged title cell.
         "TABLE_TITLE"
     ]
 },
-
 ```
 
-On the word level, there are two words, “Balance” and "Sheet." Since the first
-two and last two cells on columns 1, 2, 4, and 5 are blank, there are no words
-associated with them. This is also shown in the previous JSON output, where only
-the third cell contains child IDs.
+On the word level, there are two words, “Balance” and "Sheet." Since the first two and last two cells on columns 1, 2, 4, and 5 are blank, there are no words associated with them. This is also shown in the previous JSON output, where only the third cell contains child IDs. 
 
 ```
 {
@@ -384,22 +323,11 @@ the third cell contains child IDs.
     "Geometry": {...},
     "Id": "1c875a06-f8e5-4df7-8f6a-583c47cbd9fe"
 },
-
 ```
 
-The `TABLE_TITLE` and `TABLE_FOOTER` block types contain
-information about title and footer cells, including `CHILD`
-relationships that point to the `WORD` blocks that make up the title
-or footer. This is shown in the following JSON response.
+The `TABLE_TITLE` and `TABLE_FOOTER` block types contain information about title and footer cells, including `CHILD` relationships that point to the `WORD` blocks that make up the title or footer. This is shown in the following JSON response. 
 
-In this example, the title is an in-table title, meaning it is found within
-the structure of the table itself, as opposed to outside of the table as a
-floating title. This means that the title also has a `CELL` block
-type that contains the child IDs of the word blocks that make up the title. See
-the previous JSON output for the five cell blocks that comprise the merged title
-cell, which includes the title cell block with the child IDs of the word blocks.
-The footer cells for this table would also be represented by cell blocks for
-each footer.
+In this example, the title is an in-table title, meaning it is found within the structure of the table itself, as opposed to outside of the table as a floating title. This means that the title also has a `CELL` block type that contains the child IDs of the word blocks that make up the title. See the previous JSON output for the five cell blocks that comprise the merged title cell, which includes the title cell block with the child IDs of the word blocks. The footer cells for this table would also be represented by cell blocks for each footer.
 
 ```
 {
@@ -435,5 +363,4 @@ each footer.
         }
     ]
 },
-
 ```

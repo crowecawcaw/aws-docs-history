@@ -1,26 +1,17 @@
+
+
 # Analyzing Lending Documents
+<a name="lending-document-classification-extraction"></a>
 
-Analyze Lending is a document processing API for mortgage documents. With Analyze
-Lending, you can automatically extract, classify, and validate information in
-mortgage-related documents. Analyze Lending receives a loan document and then splits it
-into pages, classifying them according to the type of document. The document pages are
-then automatically routed to Amazon Textract text processing operations for accurate data
-extraction and analysis.
+Analyze Lending is a document processing API for mortgage documents. With Analyze Lending, you can automatically extract, classify, and validate information in mortgage-related documents. Analyze Lending receives a loan document and then splits it into pages, classifying them according to the type of document. The document pages are then automatically routed to Amazon Textract text processing operations for accurate data extraction and analysis.
 
-[StartLendingAnalysis](../APIReference/API_StartLendingAnalysis.md "../APIReference/API_StartLendingAnalysis.md")
-initiates the classification and analysis of a packet of lending documents.
-StartLendingAnalysis operates on a document file located in an Amazon S3 bucket.
+[StartLendingAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartLendingAnalysis.html) initiates the classification and analysis of a packet of lending documents. StartLendingAnalysis operates on a document file located in an Amazon S3 bucket.
 
-After processing, you can retrieve the results by using [GetLendingAnalysis](../APIReference/API_GetLendingAnalysis.md "../APIReference/API_GetLendingAnalysis.md") while a
-summary can be retrieved with [GetLendingAnalysisSummary](../APIReference/API_GetLendingAnalysisSummary.md "../APIReference/API_GetLendingAnalysisSummary.md"). Note that Analyze Lending document
-analysis is for asynchronous processing only.
+After processing, you can retrieve the results by using [GetLendingAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetLendingAnalysis.html) while a summary can be retrieved with [GetLendingAnalysisSummary](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetLendingAnalysisSummary.html). Note that Analyze Lending document analysis is for asynchronous processing only.
 
-For a sample of the output for the GetLendingAnalysis operation, see the following.
-The return includes information about the document classification type for a page, the
-page number, and the fields extracted by Analyze Lending:
+For a sample of the output for the GetLendingAnalysis operation, see the following. The return includes information about the document classification type for a page, the page number, and the fields extracted by Analyze Lending: 
 
 ```
-
  {
     "DocumentMetadata": {
         "Pages": 1
@@ -186,15 +177,11 @@ page number, and the fields extracted by Analyze Lending:
     ],
     "AnalyzeLendingModelVersion": "1.0"
 }
-
 ```
 
-For a sample of the output for a GetLendingAnalysisSummary operation, see the
-following. The return includes information about all the documents grouped by the same
-document type, which are stored in DocumentGroups:
+For a sample of the output for a GetLendingAnalysisSummary operation, see the following. The return includes information about all the documents grouped by the same document type, which are stored in DocumentGroups:
 
 ```
-
 {
     "DocumentMetadata": {
         "Pages": 1
@@ -260,10 +247,8 @@ document type, which are stored in DocumentGroups:
     },
     "AnalyzeLendingModelVersion": "1.0"
 }
-
 ```
 
-For descriptions of the response objects, see [Analyze Lending Response Objects](lending-response-objects.md "lending-response-objects.md").
+For descriptions of the response objects, see [Analyze Lending Response Objects](lending-response-objects.md).
 
-Consult the file included with the assets folder for a list of all possible recognized
-classes.
+Consult the file included with the assets folder for a list of all possible recognized classes. 

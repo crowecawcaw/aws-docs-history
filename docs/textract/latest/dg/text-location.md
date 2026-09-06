@@ -1,97 +1,74 @@
+
+
 # Locating Items on a Document Page
+<a name="text-location"></a>
 
-Amazon Textract operations return the location and geometry of items found on a
-document page. [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") and [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md") return the location and geometry for lines and words, while [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md") return
-the location and geometry of key-value pairs, tables, cells, and selection
-elements.
+Amazon Textract operations return the location and geometry of items found on a document page. [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) and [GetDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentTextDetection.html) return the location and geometry for lines and words, while [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html) return the location and geometry of key-value pairs, tables, cells, and selection elements.
 
-To determine where an item is on a document page, use the bounding box ([Geometry](../APIReference/API_Geometry.md "../APIReference/API_Geometry.md")) information returned by the
-Amazon Textract operation in a [Block](../APIReference/API_Block.md "../APIReference/API_Block.md")
-object. The `Geometry` object contains two types of location and geometric
-information for detected items:
+To determine where an item is on a document page, use the bounding box ([Geometry](https://docs.aws.amazon.com/textract/latest/APIReference/API_Geometry.html)) information returned by the Amazon Textract operation in a [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) object. The `Geometry` object contains two types of location and geometric information for detected items:
++ An axis-aligned [BoundingBox](https://docs.aws.amazon.com/textract/latest/APIReference/API_BoundingBox.html) object that contains the top-left coordinate and the width and height of the item.
++ A polygon object that describes the outline of the item, specified as an array of [Point](https://docs.aws.amazon.com/textract/latest/APIReference/API_Point.html) objects that contain `X` (horizontal axis) and `Y` (vertical axis) document page coordinates of each point.
 
-- An axis-aligned [BoundingBox](../APIReference/API_BoundingBox.md "../APIReference/API_BoundingBox.md") object that contains the top-left
-  coordinate and the width and height of the item.
-- A polygon object that describes the outline of the item, specified as an array
-  of [Point](../APIReference/API_Point.md "../APIReference/API_Point.md") objects that contain
-  `X` (horizontal axis) and `Y` (vertical axis) document
-  page coordinates of each point.
-  The JSON for a `Block` object looks similar to the following. Note the
-  `BoundingBox` and `Polygon` fields.
+The JSON for a `Block` object looks similar to the following. Note the `BoundingBox` and `Polygon` fields.
 
 ```
 {
     "Geometry": {
         "BoundingBox": {
-            "Width": 0.053907789289951324,
-            "Top": 0.08913730084896088,
-            "Left": 0.11085548996925354,
+            "Width": 0.053907789289951324, 
+            "Top": 0.08913730084896088, 
+            "Left": 0.11085548996925354, 
             "Height": 0.013171200640499592
-        },
+        }, 
         "Polygon": [
             {
-                "Y": 0.08985357731580734,
+                "Y": 0.08985357731580734, 
                 "X": 0.11085548996925354
-            },
+            }, 
             {
-                "Y": 0.08913730084896088,
+                "Y": 0.08913730084896088, 
                 "X": 0.16447919607162476
-            },
+            }, 
             {
-                "Y": 0.10159222036600113,
+                "Y": 0.10159222036600113, 
                 "X": 0.16476328670978546
-            },
+            }, 
             {
-                "Y": 0.10230850428342819,
+                "Y": 0.10230850428342819, 
                 "X": 0.11113958805799484
             }
         ]
-    },
-    "Text": "Name:",
+    }, 
+    "Text": "Name:", 
     "TextType": "PRINTED",
-    "BlockType": "WORD",
-    "Confidence": 99.56285858154297,
+    "BlockType": "WORD", 
+    "Confidence": 99.56285858154297, 
     "Id": "c734fca6-c4c4-415c-b6c1-30f7510b72ee"
 },
 ```
 
-You can use geometry information to draw bounding boxes around detected items. For an
-example that uses `BoundingBox` and `Polygon` information to draw
-boxes around lines and vertical lines at the start and end of each word, see [Detecting Document Text with Amazon Textract](detecting-document-text.md "detecting-document-text.md"). The
-example output is similar to the following.
+You can use geometry information to draw bounding boxes around detected items. For an example that uses `BoundingBox` and `Polygon` information to draw boxes around lines and vertical lines at the start and end of each word, see [Detecting Document Text with Amazon Textract](detecting-document-text.md). The example output is similar to the following.
 
-![Form with fields for Name, Address, and Birthdate displaying personal information of Jane Doe with address 123 Any Street, Anytown, USA and birthdate 12-26-1980.](images/janedoe.png)
+![Form with fields for Name, Address, and Birthdate displaying personal information of Jane Doe with address 123 Any Street, Anytown, USA and birthdate 12-26-1980.](http://docs.aws.amazon.com/textract/latest/dg/images/janedoe.png)
+
 
 ## Bounding Box
+<a name="bounding-box"></a>
 
 A bounding box (`BoundingBox`) has the following properties:
++ Height – The height of the bounding box as a ratio of the overall document page height.
++ Left – The X coordinate of the top-left point of the bounding box as a ratio of the overall document page width.
++ Top – The Y coordinate of the top-left point of the bounding box as a ratio of the overall document page height.
++ Width – The width of the bounding box as a ratio of the overall document page width.
 
-- Height – The height of the bounding box as a ratio of the overall
-  document page height.
-- Left – The X coordinate of the top-left point of the bounding box
-  as a ratio of the overall document page width.
-- Top – The Y coordinate of the top-left point of the bounding box as
-  a ratio of the overall document page height.
-- Width – The width of the bounding box as a ratio of the overall
-  document page width.
+Each BoundingBox property has a value between 0 and 1. The value is a ratio of the overall image width (applies to `Left` and `Width`) or height (applies to `Height` and `Top`). For example, if the input image is 700 x 200 pixels, and the top-left coordinate of the bounding box is (350,50) pixels, the API returns a `Left` value of 0.5 (350/700) and a `Top` value of 0.25 (50/200). 
 
-Each BoundingBox property has a value between 0 and 1. The value is a ratio of the
-overall image width (applies to `Left` and `Width`) or height
-(applies to `Height` and `Top`). For example, if the input
-image is 700 x 200 pixels, and the top-left coordinate of the bounding box is
-(350,50) pixels, the API returns a `Left` value of 0.5 (350/700) and a
-`Top` value of 0.25 (50/200).
+The following diagram shows the range of a document page that each BoundingBox property covers.
 
-The following diagram shows the range of a document page that each BoundingBox
-property covers.
+![Diagram showing Left, Top, Width, and Height properties defining a bounding box on a page.](http://docs.aws.amazon.com/textract/latest/dg/images/bounding-box.png)
 
-![Diagram showing Left, Top, Width, and Height properties defining a bounding box on a page.](images/bounding-box.png)
 
-To display the bounding box with the correct location and size, you multiply the
-BoundingBox values by the document page width or height (depending on the value you
-want) to get the pixel values. You use the pixel values to display the bounding box.
-An example is using a document page of 608 pixels width x 588 pixels height, and the
-following bounding box values for analyzed text:
+To display the bounding box with the correct location and size, you multiply the BoundingBox values by the document page width or height (depending on the value you want) to get the pixel values. You use the pixel values to display the bounding box. An example is using a document page of 608 pixels width x 588 pixels height, and the following bounding box values for analyzed text: 
 
 ```
 BoundingBox.Left: 0.3922065
@@ -100,24 +77,20 @@ BoundingBox.Width: 0.284666
 BoundingBox.Height: 0.2930403
 ```
 
-The location of the text bounding box in pixels is calculated as follows:
+The location of the text bounding box in pixels is calculated as follows: 
 
-`Left coordinate = BoundingBox.Left (0.3922065) * document page width (608) =
- 238`
+`Left coordinate = BoundingBox.Left (0.3922065) * document page width (608) = 238`
 
-`Top coordinate = BoundingBox.Top (0.15567766) * document page height (588) =
- 91`
+`Top coordinate = BoundingBox.Top (0.15567766) * document page height (588) = 91`
 
-`Bounding box width = BoundingBox.Width (0.284666) * document page width
- (608) = 173`
+`Bounding box width = BoundingBox.Width (0.284666) * document page width (608) = 173`
 
-`Bounding box height = BoundingBox.Height (0.2930403) * document page height
- (588) = 172`
+`Bounding box height = BoundingBox.Height (0.2930403) * document page height (588) = 172`
 
-You use these values to display a bounding box around the analyzed text. The
-following Java and Python examples demonstrate how to display a bounding box.
+You use these values to display a bounding box around the analyzed text. The following Java and Python examples demonstrate how to display a bounding box.
 
-Java
+------
+#### [ Java ]
 
 ```
     public void ShowBoundingBox(int imageHeight, int imageWidth, BoundingBox box, Graphics2D g2d) {
@@ -133,12 +106,12 @@ Java
     }
 ```
 
-Python
-This Python example takes in the `response` returned by the
-[DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") API operation.
+------
+#### [ Python ]
+
+This Python example takes in the `response` returned by the [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) API operation.
 
 ```
-
 def process_text_detection(response):
 
     # Get the text blocks
@@ -164,18 +137,14 @@ def process_text_detection(response):
     return len(blocks)
 ```
 
+------
+
 ## Polygon
+<a name="polygon"></a>
 
-The polygon returned by `AnalyzeDocument` is an array of [Point](../APIReference/API_Point.md "../APIReference/API_Point.md") objects. Each `Point`
-has an X and Y coordinate for a specific location on the document page. Like the
-BoundingBox coordinates, the polygon coordinates are normalized to the document
-width and height, and are between 0 and 1.
+The polygon returned by `AnalyzeDocument` is an array of [Point](https://docs.aws.amazon.com/textract/latest/APIReference/API_Point.html) objects. Each `Point` has an X and Y coordinate for a specific location on the document page. Like the BoundingBox coordinates, the polygon coordinates are normalized to the document width and height, and are between 0 and 1. 
 
-You can use points in the polygon array to display a finer-grain bounding box
-around a `Block` object. You calculate the position of each polygon point
-on the document page by using the same technique used for
-`BoundingBoxes`. Multiply the X coordinate by the document page width,
-and multiply the Y coordinate by the document page height.
+You can use points in the polygon array to display a finer-grain bounding box around a `Block` object. You calculate the position of each polygon point on the document page by using the same technique used for `BoundingBoxes`. Multiply the X coordinate by the document page width, and multiply the Y coordinate by the document page height.
 
 The following example shows how to display the vertical lines of a polygon.
 
@@ -199,6 +168,6 @@ The following example shows how to display the vertical lines of a polygon.
 ```
 
 ## Rotation Angle
+<a name="rotation"></a>
 
-The final part of the Geometry object is the rotation angle of the text. Rotation angle is a number between
-0 and 360 that respresents the degree the text is rotated.
+The final part of the Geometry object is the rotation angle of the text. Rotation angle is a number between 0 and 360 that respresents the degree the text is rotated. 

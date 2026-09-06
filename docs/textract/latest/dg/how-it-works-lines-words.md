@@ -1,113 +1,93 @@
-# Lines and Words of Text
 
-Detected text that's returned by Amazon Textract operations is returned in a
-list of [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects. These objects represent lines of
-text or textual words that are detected on a document page. The following text
-shows two lines of text that are made from multiple words.
+
+# Lines and Words of Text
+<a name="how-it-works-lines-words"></a>
+
+Detected text that's returned by Amazon Textract operations is returned in a list of [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects. These objects represent lines of text or textual words that are detected on a document page. The following text shows two lines of text that are made from multiple words.
 
 This is text.
 
 In two separate lines.
 
-Detected text is returned in the `Text` field of a
-`Block` object. The `BlockType` field determines if
-the text is a line of text (LINE) or a word (WORD). A _WORD_
-is one or more ISO basic Latin script characters that aren't separated by
-spaces. A _LINE_ is a string of tab-delimited and contiguous
-words.
+Detected text is returned in the `Text` field of a `Block` object. The `BlockType` field determines if the text is a line of text (LINE) or a word (WORD). A *WORD* is one or more ISO basic Latin script characters that aren't separated by spaces. A *LINE* is a string of tab-delimited and contiguous words.
 
-Additionally, Amazon Textract will determine if a piece of text was handwritten or
-printed using the `TextTypes` field. These return as HANDWRITING and
-PRINTED respectively.
+ Additionally, Amazon Textract will determine if a piece of text was handwritten or printed using the `TextTypes` field. These return as HANDWRITING and PRINTED respectively. 
 
-The other `Block` properties are common to all block types, such as
-the ID, confidence, and geometry information. For more information, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+The other `Block` properties are common to all block types, such as the ID, confidence, and geometry information. For more information, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md). 
 
-To detect only lines and words, you can use [DetectDocumentText](../APIReference/API_DetectDocumentText.md "../APIReference/API_DetectDocumentText.md") or
-[StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md"). For more information, see
-[Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md"). To get the detected text (lines
-and words) and information about how it relates to other parts of the document,
-such as tables, you can use [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") or [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md"). For more information, see [Analyzing Documents](how-it-works-analyzing.md "how-it-works-analyzing.md").
+To detect only lines and words, you can use [DetectDocumentText](https://docs.aws.amazon.com/textract/latest/APIReference/API_DetectDocumentText.html) or [StartDocumentTextDetection](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentTextDetection.html). For more information, see [Detecting Text](how-it-works-detecting.md). To get the detected text (lines and words) and information about how it relates to other parts of the document, such as tables, you can use [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) or [StartDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_StartDocumentAnalysis.html). For more information, see [Analyzing Documents](how-it-works-analyzing.md).
 
-`PAGE`, `LINE`, and `WORD` blocks are related
-to each other in a parent-to-child relationship. A `PAGE` block is
-the parent for all `LINE` block objects on a document page. Because a
-LINE can have one or more words, the `Relationships` array for a LINE
-block stores the IDs for child WORD blocks that make up the line of text.
+`PAGE`, `LINE`, and `WORD` blocks are related to each other in a parent-to-child relationship. A `PAGE` block is the parent for all `LINE` block objects on a document page. Because a LINE can have one or more words, the `Relationships` array for a LINE block stores the IDs for child WORD blocks that make up the line of text. 
 
-The following diagram shows how the line _Hello, world._ in
-the text _Hello, world. How are you?_ is represented by
-`Block` objects.
+The following diagram shows how the line *Hello, world.* in the text *Hello, world. How are you?* is represented by `Block` objects. 
 
-![Diagram showing text objects "PAGE", "LINE" with two instances, "WORD" with two instances, and "Hello, world." Labels and connections depict a hierarchical structure.](images/hieroglyph-text-detection.png)
-The following is the JSON output from `DetectDocumentText` when the
-sentence _Hello, world. How are you?_ is detected. The first
-example is the JSON for the document page. You can use the CHILD IDs to navigate
-through the document.
+![Diagram showing text objects "PAGE", "LINE" with two instances, "WORD" with two instances, and "Hello, world." Labels and connections depict a hierarchical structure.](http://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-text-detection.png)
+
+
+
+
+The following is the JSON output from `DetectDocumentText` when the sentence *Hello, world. How are you?* is detected. The first example is the JSON for the document page. You can use the CHILD IDs to navigate through the document.
 
 ```
 {
-    "Geometry": {...},
+    "Geometry": {...}, 
     "Relationships": [
         {
-            "Type": "CHILD",
+            "Type": "CHILD", 
             "Ids": [
                 "d7fbd604-d609-4d69-857d-247a3f591238", // Line - Hello, world.
                 "b6c19a93-6493-4d8e-958f-853c8f7ca055" //  Line - How are you?
             ]
         }
-    ],
-    "BlockType": "PAGE",
+    ], 
+    "BlockType": "PAGE", 
     "Id": "56ec1d77-171f-4881-9852-2b5b7e761608"
 },
 ```
 
-The following is the JSON for the LINE blocks that make up the line "Hello,
-World":
+The following is the JSON for the LINE blocks that make up the line "Hello, World": 
 
 ```
 {
     "Relationships": [
         {
-            "Type": "CHILD",
+            "Type": "CHILD", 
             "Ids": [
                 "7f97e2ca-063e-47a8-981c-8beee31afc01", // Word - Hello,
                 "4b990aa0-af96-4369-b90f-dbe02538ed21"  // Word - world.
             ]
         }
-    ],
-    "Confidence": 99.63229370117188,
-    "Geometry": {...},
-    "Text": "Hello, world.",
-    "BlockType": "LINE",
+    ], 
+    "Confidence": 99.63229370117188, 
+    "Geometry": {...}, 
+    "Text": "Hello, world.", 
+    "BlockType": "LINE", 
     "Id": "d7fbd604-d609-4d69-857d-247a3f591238"
 },
 ```
 
-The following is the JSON for the WORD block for the word
-_Hello,_:
+The following is the JSON for the WORD block for the word *Hello,*: 
 
 ```
 {
-    "Geometry": {...},
-    "Text": "Hello,",
+    "Geometry": {...}, 
+    "Text": "Hello,", 
     "TextType": "PRINTED",
-    "BlockType": "WORD",
-    "Confidence": 99.74746704101562,
+    "BlockType": "WORD", 
+    "Confidence": 99.74746704101562, 
     "Id": "7f97e2ca-063e-47a8-981c-8beee31afc01"
 },
 ```
 
-The final JSON is the WORD block for the word
-_world._:
+The final JSON is the WORD block for the word *world.*:
 
 ```
 {
-    "Geometry": {...},
+    "Geometry": {...}, 
     "Text": "world.",
     "TextType": "PRINTED",
-    "BlockType": "WORD",
-    "Confidence": 99.5171127319336,
+    "BlockType": "WORD", 
+    "Confidence": 99.5171127319336, 
     "Id": "4b990aa0-af96-4369-b90f-dbe02538ed21"
 },
 ```

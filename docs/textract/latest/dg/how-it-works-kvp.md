@@ -1,161 +1,128 @@
+
+
 # Form Data (Key-Value Pairs)
+<a name="how-it-works-kvp"></a>
 
-Amazon Textract can extract form data from documents as key-value pairs. For
-example, in the following text, Amazon Textract can identify a key
-(_Name:_) and a value (_Ana
-Carolina_).
+Amazon Textract can extract form data from documents as key-value pairs. For example, in the following text, Amazon Textract can identify a key (*Name:*) and a value (*Ana Carolina*).
 
-_Name: Ana Carolina_
+*Name: Ana Carolina*
 
-Detected key-value pairs are returned as [Block](../APIReference/API_Block.md "../APIReference/API_Block.md") objects in the responses from [AnalyzeDocument](../APIReference/API_AnalyzeDocument.md "../APIReference/API_AnalyzeDocument.md") and
-[GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md"). You can use the
-`FeatureTypes` input parameter to retrieve information about
-key-value pairs, tables, or both. For key-value pairs only, use the value
-`FORMS`. For an example, see [Extracting Key-Value Pairs from a Form Document](examples-extract-kvp.md "examples-extract-kvp.md"). For general information about how a
-document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md "how-it-works-document-layout.md").
+Detected key-value pairs are returned as [Block](https://docs.aws.amazon.com/textract/latest/APIReference/API_Block.html) objects in the responses from [AnalyzeDocument](https://docs.aws.amazon.com/textract/latest/APIReference/API_AnalyzeDocument.html) and [GetDocumentAnalysis](https://docs.aws.amazon.com/textract/latest/APIReference/API_GetDocumentAnalysis.html). You can use the `FeatureTypes` input parameter to retrieve information about key-value pairs, tables, or both. For key-value pairs only, use the value `FORMS`. For an example, see [Extracting Key-Value Pairs from a Form Document](examples-extract-kvp.md). For general information about how a document is represented by `Block` objects, see [Text Detection and Document Analysis Response Objects](how-it-works-document-layout.md). 
 
-Dates found through key-value pair detection are returned exactly as detected
-on the input document, with most date formats supported.
+Dates found through key-value pair detection are returned exactly as detected on the input document, with most date formats supported.
 
-Block objects with the type KEY\_VALUE\_SET are the containers for KEY or VALUE
-Block objects that store information about linked text items detected in a
-document. You can use the `EntityType` attribute to determine if a
-block is a KEY or a VALUE.
+Block objects with the type KEY\_VALUE\_SET are the containers for KEY or VALUE Block objects that store information about linked text items detected in a document. You can use the `EntityType` attribute to determine if a block is a KEY or a VALUE. 
++ A *KEY* object contains information about the key for linked text. For example, *Name:*. A KEY block has two relationship lists. A relationship of type VALUE is a list that contains the ID of the VALUE block associated with the key. A relationship of type CHILD is a list of IDs for the WORD blocks that make up the text of the key.
++ A *VALUE* object contains information about the text associated with a key. In the preceding example, *Ana Carolina* is the value for the key *Name:*. A VALUE block has a relationship with a list of CHILD blocks that identify WORD blocks. Each WORD block contains one of the words that make up the text of the value. A `VALUE` object can also contain information about selected elements. For more information, see [Selection Elements](how-it-works-selectables.md).
 
-- A _KEY_ object contains information about the key
-  for linked text. For example, _Name:_. A KEY block
-  has two relationship lists. A relationship of type VALUE is a list that
-  contains the ID of the VALUE block associated with the key. A
-  relationship of type CHILD is a list of IDs for the WORD blocks that
-  make up the text of the key.
-- A _VALUE_ object contains information about the
-  text associated with a key. In the preceding example, _Ana
-  Carolina_ is the value for the key
-  _Name:_. A VALUE block has a relationship with a
-  list of CHILD blocks that identify WORD blocks. Each WORD block contains
-  one of the words that make up the text of the value. A
-  `VALUE` object can also contain information about
-  selected elements. For more information, see [Selection Elements](how-it-works-selectables.md "how-it-works-selectables.md").
-  Amazon Textract returns the same confidence value for both KEY and VALUE in a
-  KEY\_VALUE\_SET, as both KEY and VALUE are evaluated as a pair. It returns a
-  different confidence value for a word in WORD blocks.
+Amazon Textract returns the same confidence value for both KEY and VALUE in a KEY\_VALUE\_SET, as both KEY and VALUE are evaluated as a pair. It returns a different confidence value for a word in WORD blocks. 
 
-Each instance of a KEY\_VALUE\_SET `Block` object is a child of the
-PAGE `Block` object that corresponds to the current page.
+Each instance of a KEY\_VALUE\_SET `Block` object is a child of the PAGE `Block` object that corresponds to the current page.
 
-The following diagram shows how the key-value pair _Name: Ana
-Carolina_ is represented by `Block` objects.
+The following diagram shows how the key-value pair *Name: Ana Carolina* is represented by `Block` objects.
 
-![Diagram depicting the structure of a database table with a page containing keys and values, where keys are the words "Name:", "Ana", and "Carolina".](images/hieroglyph-key-value-set.png)
-The following examples show how the key-value pair _Name: Ana
-Carolina_ is represented by JSON.
+![Diagram depicting the structure of a database table with a page containing keys and values, where keys are the words "Name:", "Ana", and "Carolina".](http://docs.aws.amazon.com/textract/latest/dg/images/hieroglyph-key-value-set.png)
 
-The PAGE block has CHILD blocks of type `KEY_VALUE_SET` for each
-KEY and VALUE block detected in the document.
+
+The following examples show how the key-value pair *Name: Ana Carolina* is represented by JSON.
+
+The PAGE block has CHILD blocks of type `KEY_VALUE_SET` for each KEY and VALUE block detected in the document. 
 
 ```
 {
-    "Geometry": ....
+    "Geometry": .... 
     "Relationships": [
         {
-            "Type": "CHILD",
+            "Type": "CHILD", 
             "Ids": [
-                "2602b0a6-20e3-4e6e-9e46-3be57fd0844b",
-                "82aedd57-187f-43dd-9eb1-4f312ca30042",
+                "2602b0a6-20e3-4e6e-9e46-3be57fd0844b", 
+                "82aedd57-187f-43dd-9eb1-4f312ca30042", 
                 "52be1777-53f7-42f6-a7cf-6d09bdc15a30", // Key - Name:
-                "7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c"  // Value - Ana Caroline
+                "7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c"  // Value - Ana Caroline 
             ]
         }
-    ],
-    "BlockType": "PAGE",
+    ], 
+    "BlockType": "PAGE", 
     "Id": "8136b2dc-37c1-4300-a9da-6ed8b276ea97"  // Page identifier
 },
 ```
 
-The following JSON shows that the KEY block
-(52be1777-53f7-42f6-a7cf-6d09bdc15a30) has a relationship with the VALUE block
-(7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c). It also has a CHILD block for the WORD
-block (c734fca6-c4c4-415c-b6c1-30f7510b72ee) that contains the text for the key
-(_Name:_).
+The following JSON shows that the KEY block (52be1777-53f7-42f6-a7cf-6d09bdc15a30) has a relationship with the VALUE block (7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c). It also has a CHILD block for the WORD block (c734fca6-c4c4-415c-b6c1-30f7510b72ee) that contains the text for the key (*Name:*).
 
 ```
 {
     "Relationships": [
         {
-            "Type": "VALUE",
+            "Type": "VALUE", 
             "Ids": [
                 "7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c"  // Value identifier
             ]
-        },
+        }, 
         {
-            "Type": "CHILD",
+            "Type": "CHILD", 
             "Ids": [
                 "c734fca6-c4c4-415c-b6c1-30f7510b72ee"  // Name:
             ]
         }
-    ],
-    "Confidence": 51.55965805053711,
-    "Geometry": ....,
-    "BlockType": "KEY_VALUE_SET",
+    ], 
+    "Confidence": 51.55965805053711, 
+    "Geometry": ...., 
+    "BlockType": "KEY_VALUE_SET", 
     "EntityTypes": [
         "KEY"
-    ],
+    ], 
     "Id": "52be1777-53f7-42f6-a7cf-6d09bdc15a30"  //Key identifier
 },
 ```
 
-The following JSON shows that VALUE block 7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c
-has a CHILD list of IDs for the WORD blocks that make up the text of the value
-(_Ana_ and _Carolina_).
+The following JSON shows that VALUE block 7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c has a CHILD list of IDs for the WORD blocks that make up the text of the value (*Ana* and *Carolina*).
 
 ```
 {
     "Relationships": [
         {
-            "Type": "CHILD",
+            "Type": "CHILD", 
             "Ids": [
                 "db553509-64ef-4ecf-ad3c-bea62cc1cd8a", // Ana
                 "e5d7646c-eaa2-413a-95ad-f4ae19f53ef3"  // Carolina
             ]
         }
-    ],
-    "Confidence": 51.55965805053711,
-    "Geometry": ....,
-    "BlockType": "KEY_VALUE_SET",
+    ], 
+    "Confidence": 51.55965805053711, 
+    "Geometry": ...., 
+    "BlockType": "KEY_VALUE_SET", 
     "EntityTypes": [
         "VALUE"
-    ],
+    ], 
     "Id": "7ca7caa6-00ef-4cda-b1aa-5571dfed1a7c" // Value identifier
 }
 ```
 
-The following JSON shows the `Block` objects for the words
-_Name:_, _Ana_, and
-_Carolina_.
+The following JSON shows the `Block` objects for the words *Name:*, *Ana*, and *Carolina*.
 
 ```
 {
-    "Geometry": {...},
-    "Text": "Name:",
+    "Geometry": {...}, 
+    "Text": "Name:", 
     "TextType": "PRINTED".
-    "BlockType": "WORD",
-    "Confidence": 99.56285858154297,
+    "BlockType": "WORD", 
+    "Confidence": 99.56285858154297, 
     "Id": "c734fca6-c4c4-415c-b6c1-30f7510b72ee"
 },
  {
-    "Geometry": {...},
-    "Text": "Ana",
+    "Geometry": {...}, 
+    "Text": "Ana", 
     "TextType": "PRINTED",
-    "BlockType": "WORD",
-    "Confidence": 99.52057647705078,
+    "BlockType": "WORD", 
+    "Confidence": 99.52057647705078, 
     "Id": "db553509-64ef-4ecf-ad3c-bea62cc1cd8a"
-},
+}, 
 {
-    "Geometry": {...},
-    "Text": "Carolina",
+    "Geometry": {...}, 
+    "Text": "Carolina", 
     "TextType": "PRINTED",
-    "BlockType": "WORD",
-    "Confidence": 99.84207916259766,
+    "BlockType": "WORD", 
+    "Confidence": 99.84207916259766, 
     "Id": "e5d7646c-eaa2-413a-95ad-f4ae19f53ef3"
 },
 ```

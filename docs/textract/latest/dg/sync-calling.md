@@ -1,28 +1,23 @@
+
+
 # Calling Amazon Textract Synchronous Operations
+<a name="sync-calling"></a>
 
-Amazon Textract operations process document images that are stored on a local file
-system, or document images stored in an Amazon S3 bucket. You specify where the input document is
-located by using the [Document](../APIReference/API_Document.md "../APIReference/API_Document.md") input
-parameter. The document image can be in either PNG, JPEG, PDF, or TIFF format. Results for
-synchronous operations are returned immediately and are not stored for retrieval.
+Amazon Textract operations process document images that are stored on a local file system, or document images stored in an Amazon S3 bucket. You specify where the input document is located by using the [Document](https://docs.aws.amazon.com/textract/latest/APIReference/API_Document.html) input parameter. The document image can be in either PNG, JPEG, PDF, or TIFF format. Results for synchronous operations are returned immediately and are not stored for retrieval.
 
-For a complete example, see [Detecting Document Text with Amazon Textract](detecting-document-text.md "detecting-document-text.md").
+For a complete example, see [Detecting Document Text with Amazon Textract](detecting-document-text.md).
 
 ## Request
+<a name="sync-request"></a>
 
 The following describes how requests work in Amazon Textract.
 
 ### Documents Passed as Image Bytes
+<a name="sync-pass-image-bytes"></a>
 
-You can pass a document image to an Amazon Textract operation by passing the image as a
-base64-encoded byte array. An example is a document image loaded from a
-local file system. Your code might not need to encode document file bytes if you're
-using an AWS SDK to call Amazon Textract API operations.
+You can pass a document image to an Amazon Textract operation by passing the image as a base64-encoded byte array. An example is a document image loaded from a local file system. Your code might not need to encode document file bytes if you're using an AWS SDK to call Amazon Textract API operations.
 
-The image bytes are specified in the `Bytes` field
-of the `Document` input parameter. The following example shows the
-input JSON for an Amazon Textract operation that passes the image bytes in the
-`Bytes` input parameter.
+The image bytes are specified in the `Bytes` field of the `Document` input parameter. The following example shows the input JSON for an Amazon Textract operation that passes the image bytes in the `Bytes` input parameter.
 
 ```
 {
@@ -32,12 +27,10 @@ input JSON for an Amazon Textract operation that passes the image bytes in the
 }
 ```
 
-###### Note
+**Note**  
+If you're using the AWS CLI, you can't pass image bytes to Amazon Textract operations. Instead, you must reference an image stored in an Amazon S3 bucket.
 
-If you're using the AWS CLI, you can't pass image bytes to Amazon Textract operations. Instead, you
-must reference an image stored in an Amazon S3 bucket.
-
-The following Java code shows how to load an image from a local file system and call an Amazon Textract operation.
+The following Java code shows how to load an image from a local file system and call an Amazon Textract operation. 
 
 ```
 String document="input.png";
@@ -57,11 +50,9 @@ DetectDocumentTextResult result = client.detectDocumentText(request);
 ```
 
 ### Documents Stored in an Amazon S3 Bucket
+<a name="sync-pass-s3"></a>
 
-Amazon Textract can analyze document images that are stored in an Amazon S3 bucket. You
-specify the bucket and file name by using the [S3Object](../APIReference/API_S3Object.md "../APIReference/API_S3Object.md") field of the `Document` input
-parameter. The following example shows the input JSON for an Amazon Textract
-operation that processes a document stored in an Amazon S3 bucket.
+Amazon Textract can analyze document images that are stored in an Amazon S3 bucket. You specify the bucket and file name by using the [S3Object](https://docs.aws.amazon.com/textract/latest/APIReference/API_S3Object.html) field of the `Document` input parameter. The following example shows the input JSON for an Amazon Textract operation that processes a document stored in an Amazon S3 bucket. 
 
 ```
 {
@@ -74,8 +65,7 @@ operation that processes a document stored in an Amazon S3 bucket.
 }
 ```
 
-The following example shows how to call an Amazon Textract operation using an image stored in an
-Amazon S3 bucket.
+The following example shows how to call an Amazon Textract operation using an image stored in an Amazon S3 bucket.
 
 ```
 String document="input.png";
@@ -93,30 +83,24 @@ DetectDocumentTextResult result = client.detectDocumentText(request);
 ```
 
 ## Using an adapter
+<a name="sync-using-adapters"></a>
 
-With Amazon Textract, you can customize the output or response of a call to AnalyzeDocument
-by using an AdapterId and adapter version. To use an adapter, you must first have created
-and trained an adapter using the Amazon Textract Console or the API. To apply your adapter,
-provide its ID when calling the AnalyzeDocument API. This enhances predictions on your
-documents. Note that when calling the [Document](../APIReference/API_Document.md "../APIReference/API_Document.md"), you can only use one adapter per page.
+With Amazon Textract, you can customize the output or response of a call to AnalyzeDocument by using an AdapterId and adapter version. To use an adapter, you must first have created and trained an adapter using the Amazon Textract Console or the API. To apply your adapter, provide its ID when calling the AnalyzeDocument API. This enhances predictions on your documents. Note that when calling the [Document](https://docs.aws.amazon.com/textract/latest/APIReference/API_Document.html), you can only use one adapter per page.
 
 ```
-
-"AdaptersConfig": {
-      "Adapters": [
-         {
+"AdaptersConfig": { 
+      "Adapters": [ 
+         { 
             "AdapterId": "2e9bf1c4aa31",
             "Version": "1"
          }
       ]
    }
-
 ```
 
-The following Java example shows how to create Queries and a list of adapters, then provide these to AnalyzeDocument, using the AWS SDK for Java.
+ The following Java example shows how to create Queries and a list of adapters, then provide these to AnalyzeDocument, using the AWS SDK for Java. 
 
 ```
-
 String document="input.png";
 
         ByteBuffer imageBytes;
@@ -135,7 +119,7 @@ String document="input.png";
                 .withAdapterId("1111111111")
                 .withVersion("1")
                 .withPages(Arrays.asList("*")));
-
+        
         AnalyzeDocumentRequest request = new AnalyzeDocumentRequest()
                 .withFeatureTypes("QUERIES", "SIGNATURES")
                 .withDocument(new Document()
@@ -144,13 +128,12 @@ String document="input.png";
                         .withAdapters(adapters));
 
         AnalyzeDocumentResult result = client.analyzeDocument(request);
-
 ```
 
 ## Response
+<a name="sync-response"></a>
 
-The following sample is the JSON response from a call to `DetectDocumentText`. For more
-information, see [Detecting Text](how-it-works-detecting.md "how-it-works-detecting.md").
+The following sample is the JSON response from a call to `DetectDocumentText`. For more information, see [Detecting Text](how-it-works-detecting.md).
 
 ```
 {
