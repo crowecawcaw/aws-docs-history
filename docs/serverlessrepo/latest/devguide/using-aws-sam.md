@@ -1,68 +1,35 @@
+
+
 # Using AWS SAM with the AWS Serverless Application Repository
+<a name="using-aws-sam"></a>
 
-The AWS Serverless Application Model (AWS SAM) is an open-source framework that you can use to build [serverless applications](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/") on
-AWS. For more information about using AWS SAM to build your serverless application,
-see the [_AWS Serverless Application Model Developer Guide_](../../../serverless-application-model/latest/developerguide.md "../../../serverless-application-model/latest/developerguide.md").
+The AWS Serverless Application Model (AWS SAM) is an open-source framework that you can use to build [serverless applications](https://aws.amazon.com/serverless/) on AWS. For more information about using AWS SAM to build your serverless application, see the [*AWS Serverless Application Model Developer Guide*](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/).
 
-When building applications that will be published to the AWS Serverless Application Repository, you must consider the
-set of
-supported
-AWS Resources and Policy Templates available to use. The sections
-below describe these topics in more detail.
+When building applications that will be published to the AWS Serverless Application Repository, you must consider the set of supported AWS Resources and Policy Templates available to use. The sections below describe these topics in more detail.
 
 ## Supported AWS Resources in the AWS Serverless Application Repository
+<a name="supported-resources-for-serverlessrepo"></a>
 
-The AWS Serverless Application Repository supports serverless applications that are composed of many AWS SAM and
-CloudFormation resources. To see the complete list of AWS resources that are supported by
-AWS Serverless Application Repository, see [List of Supported AWS Resources](list-supported-resources.md "list-supported-resources.md").
+The AWS Serverless Application Repository supports serverless applications that are composed of many AWS SAM and CloudFormation resources. To see the complete list of AWS resources that are supported by AWS Serverless Application Repository, see [List of Supported AWS Resources](list-supported-resources.md).
 
-If you want to request support for an additional AWS resource, contact [AWS Support](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").
+If you want to request support for an additional AWS resource, contact [AWS Support](https://console.aws.amazon.com/support/home#/).
 
-###### Important
+**Important**  
+AWS Serverless Application Repository blocks publication of applications that include the following overly broad IAM permission patterns, which do not follow the principle of least privilege:  
+Attaching the `AWSLambda_FullAccess` managed policy to Lambda functions
+Granting `iam:AttachRolePolicy`, `iam:PutRolePolicy`, or `iam:*` on all resources (`*`) in inline IAM policies
+To publish your application, replace `AWSLambda_FullAccess` with only the specific Lambda permissions your application requires, and scope `iam:AttachRolePolicy`, `iam:PutRolePolicy`, and `iam:PassRole` to specific resource ARNs rather than all resources. For guidance, see [IAM security best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html).
 
-AWS Serverless Application Repository blocks publication of applications that include the following overly broad
-IAM permission patterns, which do not follow the principle of least
-privilege:
-
-- Attaching the `AWSLambda_FullAccess` managed policy to Lambda
-  functions
-- Granting `iam:AttachRolePolicy`,
-  `iam:PutRolePolicy`, or `iam:*` on all resources
-  (`*`) in inline IAM policies
-  To publish your application, replace `AWSLambda_FullAccess` with only
-  the specific Lambda permissions your application requires, and scope
-  `iam:AttachRolePolicy`, `iam:PutRolePolicy`, and
-  `iam:PassRole` to specific resource ARNs rather than all resources.
-  For guidance, see [IAM security
-  best practices](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md").
-
-###### Important
-
-If your application template contains one of the following custom IAM roles or
-resource policies, your application doesn't show up in search results by
-default. Also, customers need to acknowledge the application's custom IAM roles
-or resource policies before they can deploy the application. For more
-information, see [Acknowledging Application Capabilities](acknowledging-application-capabilities.md "acknowledging-application-capabilities.md").
-
-The list of resources that this applies to are:
-
-- **IAM roles:** [AWS::IAM::Group](../../../AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.md"), [AWS::IAM::InstanceProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.md"), [AWS::IAM::Policy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.md"), and [AWS::IAM::Role](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.md").
-- **Resource policies:**
-  [AWS::Lambda::LayerVersionPermission](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.md"), [AWS::Lambda::Permission](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.md"), [AWS::Events::EventBusPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.md"), [AWS::IAM:Policy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.md"), [AWS::ApplicationAutoScaling::ScalingPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.md"), [AWS::S3::BucketPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.md"), [AWS::SQS::QueuePolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.md"), and [AWS::SNS:TopicPolicy](../../../AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.md").
-  If your application contains the [AWS::Serverless::Application](../../../serverless-application-model/latest/developerguide/serverless-sam-template.md#serverless-sam-template-application "../../../serverless-application-model/latest/developerguide/serverless-sam-template.md#serverless-sam-template-application") resource, customers need to
-  acknowledge that the application contains a **nested
-  application** before they can deploy the application. For more
-  information about nested applications, see [Nested Applications](../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md "../../../serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.md") in the _AWS Serverless Application Model Developer
-  Guide_. For more information about acknowledging capabilities, see
-  [Acknowledging
-  Application Capabilities](acknowledging-application-capabilities.md "acknowledging-application-capabilities.md").
+**Important**  
+If your application template contains one of the following custom IAM roles or resource policies, your application doesn't show up in search results by default. Also, customers need to acknowledge the application's custom IAM roles or resource policies before they can deploy the application. For more information, see [ Acknowledging Application Capabilities](acknowledging-application-capabilities.md).   
+The list of resources that this applies to are:  
+**IAM roles: **[AWS::IAM::Group](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html), [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html), [AWS::IAM::Policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html), and [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html).
+**Resource policies: ** [AWS::Lambda::LayerVersionPermission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html), [AWS::Lambda::Permission](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html), [AWS::Events::EventBusPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html), [AWS::IAM:Policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html), [AWS::ApplicationAutoScaling::ScalingPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html), [AWS::S3::BucketPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html), [AWS::SQS::QueuePolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html), and [AWS::SNS:TopicPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html).
+If your application contains the [AWS::Serverless::Application](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template.html#serverless-sam-template-application) resource, customers need to acknowledge that the application contains a **nested application** before they can deploy the application. For more information about nested applications, see [Nested Applications](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template-nested-applications.html) in the *AWS Serverless Application Model Developer Guide*. For more information about acknowledging capabilities, see [Acknowledging Application Capabilities](acknowledging-application-capabilities.md).
 
 ## Policy Templates
+<a name="policy-templates-for-serverlessrepo"></a>
 
-AWS SAM provides you with a list of policy templates to scope the permissions of
-your Lambda functions to the resources that are used by your application. Using
-policy templates don't require additional customer acknowledgments to search,
-browse, or deploy the application.
+AWS SAM provides you with a list of policy templates to scope the permissions of your Lambda functions to the resources that are used by your application. Using policy templates don't require additional customer acknowledgments to search, browse, or deploy the application.
 
-For the list of standard AWS SAM policy templates, see [AWS SAM Policy
-Templates](../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md "../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md") in the _[AWS Serverless Application Model Developer Guide](../../../serverless-application-model/latest/developerguide.md "../../../serverless-application-model/latest/developerguide.md")_.
+For the list of standard AWS SAM policy templates, see [AWS SAM Policy Templates](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-policy-templates.html) in the *[AWS Serverless Application Model Developer Guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/)*.
