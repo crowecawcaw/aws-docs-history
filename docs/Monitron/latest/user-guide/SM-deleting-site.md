@@ -1,41 +1,48 @@
-Amazon Monitron is no longer open to new customers. Existing customers can
-continue to use the service as normal. For capabilities similar to Amazon
-Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
+
+
+Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Deleting a site
+<a name="SM-deleting-site"></a>
 
-Before you can delete a site, you must delete all of the site's assets. The
-**Sites** list displays all of the devices and users associated
-with a site.
+Before you can delete a site, you must delete all of the site's assets. The **Sites** list displays all of the devices and users associated with a site. 
 
-###### Topics
-
-- [To delete a site using the mobile app](#w2aac17c29b7 "#w2aac17c29b7")
-- [To delete a site using the web app](#w2aac17c29b9 "#w2aac17c29b9")
+**Topics**
++ [To delete a site using the mobile app](#w2aac17c29b7)
++ [To delete a site using the web app](#w2aac17c29b9)
 
 ## To delete a site using the mobile app
+<a name="w2aac17c29b7"></a>
 
-1. Log into the Amazon Monitron mobile app using your smartphone.
+1. Log into the Amazon Monitron mobile app using your smartphone. 
 
-Make sure that the project name is shown in the upper left of the
-screen.
+   Make sure that the project name is shown in the upper left of the screen.  
+![Project name 1 displayed in the upper left corner of the navigation bar.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/site-contents.png)
 
-![Project name 1 displayed in the upper left corner of the navigation bar.](images/site-contents.png) 2. Choose the menu icon (☰). 3. Choose **Sites**. 4. Next to the site that you want to delete, choose
-**Actions**. 5. Choose **Delete site**. 6. If assets, sensors, gateways, or users are associated with the site,
-choose **X**. Then delete those resources before
-proceeding.
+1. Choose the menu icon (☰).
 
-If there are no resources associated with the site, skip to the next step.
+1. Choose **Sites**. 
 
-![Dialog box indicating site deletion requires removing all assets, sensors, gateways and users first.](images/site-delete.png) 7. Choose **Delete**.
+1. Next to the site that you want to delete, choose **Actions**.
 
-The site is no longer listed in the **Sites**
-list.
+1. Choose **Delete site**. 
+
+1. If assets, sensors, gateways, or users are associated with the site, choose **X**. Then delete those resources before proceeding. 
+
+   If there are no resources associated with the site, skip to the next step.   
+![Dialog box indicating site deletion requires removing all assets, sensors, gateways and users first.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/site-delete.png)
+
+1. Choose **Delete**.
+
+   The site is no longer listed in the **Sites** list.
 
 ## To delete a site using the web app
+<a name="w2aac17c29b9"></a>
 
 1. Choose **Sites** from the left pane.
-2. Select the site that you want to delete.
-3. Choose **Delete site**.
 
-![Sites management interface showing a list of three site names and options to delete, edit, or add sites.](images/webapp_delete-site-name.png)
+1. Select the site that you want to delete.
+
+1. Choose **Delete site**.
+
+![Sites management interface showing a list of three site names and options to delete, edit, or add sites.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/webapp_delete-site-name.png)

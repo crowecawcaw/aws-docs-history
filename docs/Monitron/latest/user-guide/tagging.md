@@ -1,107 +1,107 @@
-Amazon Monitron is no longer open to new customers. Existing customers can
-continue to use the service as normal. For capabilities similar to Amazon
-Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
+
+
+Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Using tags with your project
+<a name="tagging"></a>
 
-A _tag_ is a key-value pair that you can use to
-categorize your projects. For example, if you have multiple projects, you might
-categorize them by purpose, owner, location, or any other factor.
+A *tag* is a key-value pair that you can use to categorize your projects. For example, if you have multiple projects, you might categorize them by purpose, owner, location, or any other factor. 
 
 Use tags to:
++ Organize your projects. You can search and filter by tag. For example, you could add tags such as ‘test lab’ or ‘paint shop' to easily find those projects. 
++ Identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources in different services to indicate that the resources are related. For example, you can tag a project and the Amazon Simple Storage Service (Amazon S3) bucket that stores related data with the same tag.
++ Control access to your resources. You can use tags in AWS Identity and Access Management (IAM) polices that control access to Amazon Monitron projects. You can attach these policies to an IAM role or user to enable tag-based access control. For more information, see [Controlling access using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *IAM user Guide*. 
 
-- Organize your projects. You can search and filter by tag. For example, you
-  could add tags such as ‘test lab’ or ‘paint shop' to easily find those projects.
-- Identify and organize your AWS resources. Many AWS services support tagging, so you can assign the same tag to resources in
-  different services to indicate that the resources are related. For example, you
-  can tag a project and the Amazon Simple Storage Service (Amazon S3) bucket that stores related data with
-  the same tag.
-- Control access to your resources. You can use tags in AWS Identity and Access Management (IAM)
-  polices that control access to Amazon Monitron projects. You can attach these
-  policies to an IAM role or user to enable tag-based access control. For more
-  information, see [Controlling access using tags](../../../IAM/latest/UserGuide/access_tags.md "../../../IAM/latest/UserGuide/access_tags.md") in the _IAM user
-  Guide_.
-  Each tag key must be unique within a project.
+Each tag key must be unique within a project. 
 
 The following restrictions also apply to Amazon Monitron project tags:
++ The maximum number of tags per project is 50.
++ The maximum length of a tag key is 128 characters.
++ The maximum length of a tag value is 256 characters.
++ Valid characters for keys and values are a–z, A–Z, space, \_ . : / = \+ - and @.
++ Tag keys and values are case sensitive.
++ The `aws:` prefix is reserved for AWS use.
++ If you plan to use your tagging schema across multiple services and resources, remember that other services might have different restrictions for valid characters. Refer to the documentation for that service.
 
-- The maximum number of tags per project is 50.
-- The maximum length of a tag key is 128 characters.
-- The maximum length of a tag value is 256 characters.
-- Valid characters for keys and values are a–z, A–Z, space, \_ . : / = + - and
-  @.
-- Tag keys and values are case sensitive.
-- The `aws:` prefix is reserved for AWS use.
-- If you plan to use your tagging schema across multiple services and resources,
-  remember that other services might have different restrictions for valid
-  characters. Refer to the documentation for that service.
-
-###### Topics
-
-- [Adding a tag to a project when you create it](#tag-original-1 "#tag-original-1")
-- [Adding a tag to a project after it’s been created](#tag-existing-1 "#tag-existing-1")
-- [Modifying or removing a tag](#modify-tag-1 "#modify-tag-1")
+**Topics**
++ [Adding a tag to a project when you create it](#tag-original-1)
++ [Adding a tag to a project after it’s been created](#tag-existing-1)
++ [Modifying or removing a tag](#modify-tag-1)
 
 ## Adding a tag to a project when you create it
+<a name="tag-original-1"></a>
 
-###### To add a tag to a project when creating it
+**To add a tag to a project when creating it**
 
-1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/") .
-2. Choose **Create Project**.
-3. In the navigation pane, choose the project you want.
-4. Expand the **Tags** section.
+1. Open the Amazon Monitron console at [ https://console.aws.amazon.com/monitron ](https://console.aws.amazon.com/monitron/). 
 
-![Expand the Tags section to add tags to your project.](images/tag-3.png) 5. Choose **Add new tag**.
+1. Choose **Create Project**.
 
-![Tags section showing no associated tags with Add new tag button and 50 more tags available.](images/tag-a.png) 6. Enter the key-value pair for your tag.
+1. In the navigation pane, choose the project you want.
 
-The key must be unique for the project. The value is optional.
+1. Expand the **Tags** section.  
+![Expand the Tags section to add tags to your project.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-3.png)
 
-![Enter a key and an optional value in the Tags section.](images/tag-1.png) 7. Choose **Add new tag**. 8. To add more tags, repeat steps 2 and 3. 9. To remove a tag, choose **Remove**.
+1. Choose **Add new tag**.  
+![Tags section showing no associated tags with Add new tag button and 50 more tags available.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-a.png)
 
-![Tags interface showing a tag with key glass fabrication and value windshields with Remove button.](images/tag-b.png) 10. Remove blank tag entries and then choose **Next**.
+1. Enter the key-value pair for your tag. 
 
-![Tags interface showing error message for blank key field with Remove buttons for tag entries.](images/tag-c.png)
+   The key must be unique for the project. The value is optional.  
+![Enter a key and an optional value in the Tags section.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-1.png)
+
+1. Choose **Add new tag**.
+
+1. To add more tags, repeat steps 2 and 3.
+
+1. To remove a tag, choose **Remove**.  
+![Tags interface showing a tag with key glass fabrication and value windshields with Remove button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-b.png)
+
+1. Remove blank tag entries and then choose **Next**.   
+![Tags interface showing error message for blank key field with Remove buttons for tag entries.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-c.png)
 
 ## Adding a tag to a project after it’s been created
+<a name="tag-existing-1"></a>
 
-You can add a tag to a project on the project detail page.
+You can add a tag to a project on the project detail page. 
 
-###### To add a tag to an existing project
+**To add a tag to an existing project**
 
-1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/") .
-2. Choose **Create Project**.
-3. In the navigation pane, choose **Projects**, and then
-   choose the project you want.
-4. Under **Tags**, choose **Manage
-   tags**.
+1. Open the Amazon Monitron console at [ https://console.aws.amazon.com/monitron ](https://console.aws.amazon.com/monitron/). 
 
-![Tags section showing one tag with key glass fabrication and value windshields.](images/tag-d.png) 5. Choose **Add new tag**
+1. Choose **Create Project**. 
 
-![Tags interface showing glass fabrication key with windshields value and Add new tag button.](images/tag-e.png) 6. Enter the key-value pair for your tag.
+1. In the navigation pane, choose **Projects**, and then choose the project you want. 
 
-###### Note
+1. Under **Tags**, choose **Manage tags**.  
+![Tags section showing one tag with key glass fabrication and value windshields.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-d.png)
 
-Remember that the key must be unique for the project. The value is
-optional.
+1. Choose **Add new tag**  
+![Tags interface showing glass fabrication key with windshields value and Add new tag button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-e.png)
 
-![Tags interface showing two key-value pairs: glass fabrication with windshields, and test lab with empty value.](images/tag-f.png) 7. Choose **Save**.
+1. Enter the key-value pair for your tag. 
+**Note**  
+Remember that the key must be unique for the project. The value is optional.  
+![Tags interface showing two key-value pairs: glass fabrication with windshields, and test lab with empty value.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-f.png)
+
+1. Choose **Save**.
 
 ## Modifying or removing a tag
+<a name="modify-tag-1"></a>
 
-You can modify a tag value, but not a tag key. To change a tag key, remove the
-tag, then create a new tag with a different key. You can also remove any tag. You
-modify or remove tags on the project detail page.
+You can modify a tag value, but not a tag key. To change a tag key, remove the tag, then create a new tag with a different key. You can also remove any tag. You modify or remove tags on the project detail page. 
 
-###### To modify or remove a tag
+**To modify or remove a tag**
 
-1. Open the Amazon Monitron console at [https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/ "https://console.aws.amazon.com/monitron/").
-2. Choose **Create Project**.
-3. In the navigation pane, choose **Projects**, and then
-   choose the project you want.
-4. Under **Tags**, choose **Manage
-   tags**.
-5. To modify the tag value, make the change. To remove the tag, choose
-   **Remove** next to the tag.
+1. Open the Amazon Monitron console at [ https://console.aws.amazon.com/monitron](https://console.aws.amazon.com/monitron/). 
 
-![Tags interface showing glass fabrication key with windshields value and Add new tag button.](images/tag-e.png) 6. Choose **Save**.
+1. Choose **Create Project**. 
+
+1. In the navigation pane, choose **Projects**, and then choose the project you want. 
+
+1. Under **Tags**, choose **Manage tags**.
+
+1. To modify the tag value, make the change. To remove the tag, choose **Remove** next to the tag.   
+![Tags interface showing glass fabrication key with windshields value and Add new tag button.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/tag-e.png)
+
+1. Choose **Save**.

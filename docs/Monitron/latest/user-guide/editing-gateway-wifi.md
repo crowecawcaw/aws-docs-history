@@ -1,41 +1,26 @@
-Amazon Monitron is no longer open to new customers. Existing customers can
-continue to use the service as normal. For capabilities similar to Amazon
-Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
+
+
+Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Editing Wi-Fi gateway name
+<a name="editing-gateway-wifi"></a>
 
-You can change the display name for your Wi-Fi gateway to find it faster. To edit
-a gateway name, open your web or mobile app and do the following.
+You can change the display name for your Wi-Fi gateway to find it faster. To edit a gateway name, open your web or mobile app and do the following.
 
-###### Topics
-
-- [To edit Wi-Fi gateway name](#editing-gateway-wifi-name "#editing-gateway-wifi-name")
+**Topics**
++ [To edit Wi-Fi gateway name](#editing-gateway-wifi-name)
 
 ## To edit Wi-Fi gateway name
+<a name="editing-gateway-wifi-name"></a>
 
-1. Select the gateway name you want to edit from the
-   **Gateways** page.
+1. Select the gateway name you want to edit from the **Gateways** page.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/editing-gateway-wifi.html)
 
-|                                                                                             |                                                                                                                                            |
-| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| List of gateways showing names, connection status, and WiFi identifiers.<br>Mobile app view | Gateways table showing seven gateways with columns for name, physical ID, status, site, gateway type, and network details.<br>Web app view |
+1. A pop-up will appear prompting you to add a customized name for the gateway.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/editing-gateway-wifi.html)
 
-2. A pop-up will appear prompting you to add a customized name for the
-   gateway.
+1. Enter the new name for the gateway and choose **Save**.     
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/editing-gateway-wifi.html)
 
-|                                                                                                                      |                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Edit gateway name screen with text field containing Gateway-c22as48gsedif and keyboard displayed.<br>Mobile app view | Edit gateway name dialog box with text field containing Gateway-c22as48gsedif.<br>Web app view |
-
-3. Enter the new name for the gateway and choose
-   **Save**.
-
-|                                                                                                                       |                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Edit gateway name screen with text field containing Receiving room gateway and keyboard displayed.<br>Mobile app view | Edit gateway name dialog box with text field containing Receiving room gateway.<br>Web app view |
-
-4. You will see a success message confirming the new gateway name.
-
-|                                                                                                                |                                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Gateways list showing seven online gateways with WiFi identifiers and success notification.<br>Mobile app view | Gateways table showing seven gateways with details such as name, physical ID, status, and network information.<br>Web app view |
+1. You will see a success message confirming the new gateway name.    
+[See the AWS documentation website for more details](http://docs.aws.amazon.com/Monitron/latest/user-guide/editing-gateway-wifi.html)

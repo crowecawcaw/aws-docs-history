@@ -1,19 +1,18 @@
-Amazon Monitron is no longer open to new customers. Existing customers can
-continue to use the service as normal. For capabilities similar to Amazon
-Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
+
+
+Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Understanding the v2 data export schema
+<a name="data-export-schema-v2"></a>
 
-Each measurement data, its corresponding inference result, gateway
-connect/disconnect, and sensor connect/disconnect events are exported as one Kinesis
-data stream record in JSON format.
+ Each measurement data, its corresponding inference result, gateway connect/disconnect, and sensor connect/disconnect events are exported as one Kinesis data stream record in JSON format. 
 
-###### Topics
-
-- [v2 schema format](#data-export-schema-format-v2 "#data-export-schema-format-v2")
-- [v2 schema parameters](#data-export-schema-parameters-v2 "#data-export-schema-parameters-v2")
+**Topics**
++ [v2 schema format](#data-export-schema-format-v2)
++ [v2 schema parameters](#data-export-schema-parameters-v2)
 
 ## v2 schema format
+<a name="data-export-schema-format-v2"></a>
 
 ```
 {
@@ -120,7 +119,7 @@ data stream record in JSON format.
         },
         "assetPositionId": "string"
     }
-
+    
     // sensorConnected
     "eventPayload": {
         "siteName": "string",
@@ -141,7 +140,7 @@ data stream record in JSON format.
         },
         "assetPositionId": "string"
     }
-
+    
     // sensorDisconnected
     "eventPayload": {
         "siteName": "string",
@@ -162,7 +161,7 @@ data stream record in JSON format.
         },
         "assetPositionId": "string"
     }
-
+    
     // gatewayConnected
     "eventPayload": {
         "siteName": "string",
@@ -178,7 +177,7 @@ data stream record in JSON format.
             "physicalId": "string"
         }
     }
-
+    
     // gatewayDisconnected
     "eventPayload": {
         "siteName": "string",
@@ -194,7 +193,7 @@ data stream record in JSON format.
             "physicalId": "string"
         }
     }
-
+    
     // assetStateTransition
     "eventPayload": {
         "siteName": "string",
@@ -230,658 +229,476 @@ data stream record in JSON format.
 ```
 
 ## v2 schema parameters
+<a name="data-export-schema-parameters-v2"></a>
 
-The Amazon Monitron Kinesis data export schema v2 includes the following schema
-parameters. Some parameters are updates from v1 and some are unique to v2. For
-example, `siteName` was a first-level parameter in v1. In v2, it is a
-second-level parameter that can be found under the `eventPayload`
-entity.
+ The Amazon Monitron Kinesis data export schema v2 includes the following schema parameters. Some parameters are updates from v1 and some are unique to v2. For example, `siteName` was a first-level parameter in v1. In v2, it is a second-level parameter that can be found under the `eventPayload` entity. 
 
-timestamp
+timestamp  
++ The timestamp when the measurement is received by Amazon Monitron service in UTC
++ Type: String
++ Pattern: yyyy-mm-dd hh:mm:ss.SSS
 
-- The timestamp when the measurement is received by
-  Amazon Monitron service in UTC
-- Type: String
-- Pattern: yyyy-mm-dd hh:mm:ss.SSS
+eventId  
++ The unique data export event ID assigned for each measurement. Can be used to deduplicate the Kinesis stream records received.
++ Type: String
 
-eventId
+version  
++ Schema version
++ Type: String
++ Value: 1.0 or 2.0
 
-- The unique data export event ID assigned for each
-  measurement. Can be used to deduplicate the Kinesis stream
-  records received.
-- Type: String
+accountId  
++ The 12-digit AWS account ID for your Monitron project
++ Type: String
 
-version
-
-- Schema version
-- Type: String
-- Value: 1.0 or 2.0
-
-accountId
-
-- The 12-digit AWS account ID for your Monitron
-  project
-- Type: String
-
-projectName
-
-The project name displayed in the app and console.
-
+projectName  
+The project name displayed in the app and console.  
 Type: String
 
-projectId
-
-The unique ID of your Amazon Monitron project.
-
+projectId  
+The unique ID of your Amazon Monitron project.  
 Type: String
 
-eventType
-
-- The current event stream. Each event type will have a
-  dedicated `eventPayload` format.
-- Type: String
-- Possible values: `measurement`,
-  `gatewayConnected`,
-  `gatewayDisconnected`,
-  `sensorConnected`,
-  `sensorDisconnected`,
-  `assetStateTransition`.
+eventType  
++ The current event stream. Each event type will have a dedicated `eventPayload` format.
++ Type: String
++ Possible values: `measurement`, `gatewayConnected`, `gatewayDisconnected`, `sensorConnected`, `sensorDisconnected`, `assetStateTransition`.
 
 **`eventType: measurement`**
 
-eventPayload.features.acceleration.band0To6000Hz.xAxis.rms
+eventPayload.features.acceleration.band0To6000Hz.xAxis.rms  
++ The root mean square of the acceleration observed in the frequency band 0–6000 Hz in the x axis
++ Type: Number
++ Unit: m/s^2
+
+eventPayload.features.acceleration.band0To6000Hz.yAxis.rms  
++ The root mean square of the acceleration observed in the frequency band 0–6000 Hz in the y axis
++ Type: Number
++ Unit: m/s^2
+
+eventPayload.features.acceleration.band0To6000Hz.zAxis.rms  
++ The root mean square of the acceleration observed in the frequency band 0–6000 Hz in the z axis
++ Type: Number
++ Unit: m/s^2
+
+eventPayload.features.acceleration.band10To1000Hz.resultantVector.absMax  
++ The absolute maximum acceleration observed in the frequency band 10–1000 Hz
++ Type: Number
++ Unit: m/s^2
+
+eventPayload.features.acceleration.band10To1000Hz.resultantVector.absMin  
++ The absolute minimum acceleration observed in the frequency band 10–1000 Hz
++ Type: Number
++ Unit: m/s^2
+
+eventPayload.features.acceleration.band10To1000Hz.resultantVector.crestFactor  
++ The acceleration crest factor observed in the frequency band 10–1000 Hz
++ Type: Number
+
+eventPayload.features.acceleration.band10To1000Hz.resultantVector.rms  
++ The root mean square of the acceleration observed in the frequency band 10–1000 Hz
++ Type: Number
++ m/s^2
+
+eventPayload.features.acceleration.band10To1000Hz.xAxis.rms  
++ The root mean square of the acceleration observed in the frequency band 10–1000 Hz in the x axis
++ Type: Number
++ m/s^2
+
+eventPayload.features.acceleration.band10To1000Hz.yAxis.rms  
++ The root mean square of the acceleration observed in the frequency band 10–1000 Hz in the y axis
++ Type: Number
++ m/s^2
+
+eventPayload.features.acceleration.band10To1000Hz.zAxis.rms  
++ The root mean square of the acceleration observed in the frequency band 10–1000 Hz in the z axis
++ Type: Number
++ m/s^2
+
+eventPayload.features.temperature  
++ The temperature observed
++ Type: Number
++ °C/degC
+
+eventPayload.features.velocity.band10To1000Hz.resultantVector.absMax  
++ The absolute maximum velocity observed in the frequency band 10–1000 Hz
++ Type: Number
++ mm/s
+
+eventPayload.features.velocity.band10To1000Hz.resultantVector.absMin  
++ The absolute minimum velocity observed in the frequency band 10–1000 Hz
++ Type: Number
++ mm/s
+
+eventPayload.features.velocity.band10To1000Hz.resultantVector.crestFactor  
++ The velocity crest factor observed in the frequency band 10–1000 Hz
++ Type: Number
+
+eventPayload.features.velocity.band10To1000Hz.resultantVector.rms  
++ The root mean square of the velocity observed in the frequency band 10–1000 Hz
++ Type: Number
++ mm/s
+
+eventPayload.features.velocity.band10To1000Hz.xAxis.rms  
++ The root mean square of the velocity observed in the frequency band 10–1000 Hz in the x axis
++ Type: Number
++ mm/s
+
+eventPayload.features.velocity.band10To1000Hz.yAxis.rms  
++ The root mean square of the velocity observed in the frequency band 10–1000 Hz in the y axis
++ Type: Number
++ mm/s
+
+eventPayload.features.velocity.band10To1000Hz.zAxis.rms  
++ The root mean square of the velocity observed in the frequency band 10–1000 Hz in the z axis
++ Type: Number
++ mm/s
+
+eventPayload.sequenceNo  
++ The measurement sequence number
++ Type: Number
+
+eventPayload.assetPositionId  
++ The identifier of the sensor position for which the measurement is sent.
++ Type: String
+
+eventPayload.companyName  
++ The name of the company using the asset.
++ Type: String
+
+eventPayload.geoLocation.latitude  
++ The latitude of the site's physical location.
++ Type: Number
 
-- The root mean square of the acceleration observed in the
-  frequency band 0–6000 Hz in the x axis
-- Type: Number
-- Unit: m/s^2
+eventPayload.geoLocation.longitude  
++ The longitude of the site's physical location.
++ Type: Number
 
-eventPayload.features.acceleration.band0To6000Hz.yAxis.rms
+eventPayload.address  
++ The address of the site.
++ Type: String
 
-- The root mean square of the acceleration observed in the
-  frequency band 0–6000 Hz in the y axis
-- Type: Number
-- Unit: m/s^2
+eventPayload.serialNumber  
++ The serial number of the asset.
++ Type: String
 
-eventPayload.features.acceleration.band0To6000Hz.zAxis.rms
+eventPayload.make  
++ The make of the asset.
++ Type: String
 
-- The root mean square of the acceleration observed in the
-  frequency band 0–6000 Hz in the z axis
-- Type: Number
-- Unit: m/s^2
+eventPayload.model  
++ The model of the asset.
++ Type: String
 
-eventPayload.features.acceleration.band10To1000Hz.resultantVector.absMax
+`eventType: sensorConnected`
 
-- The absolute maximum acceleration observed in the
-  frequency band 10–1000 Hz
-- Type: Number
-- Unit: m/s^2
+siteName  
++ The site name displayed in the app
++ Type: String
 
-eventPayload.features.acceleration.band10To1000Hz.resultantVector.absMin
+assetName  
++ The asset name displayed in the app
++ Type: String
 
-- The absolute minimum acceleration observed in the
-  frequency band 10–1000 Hz
-- Type: Number
-- Unit: m/s^2
+positionName  
++ The sensor position name displayed in the app
++ Type: String
 
-eventPayload.features.acceleration.band10To1000Hz.resultantVector.crestFactor
+assetPositionURL  
++ The sensor URL displayed in the app
++ Type: String
 
-- The acceleration crest factor observed in the frequency
-  band 10–1000 Hz
-- Type: Number
+physicalID  
++ The physical ID of the sensor from which the measurement is sent
++ Type: String
 
-eventPayload.features.acceleration.band10To1000Hz.resultantVector.rms
+eventPayload.assetPositionId  
++ The identifier of the sensor position whose state changed.
++ Type: String
 
-- The root mean square of the acceleration observed in the
-  frequency band 10–1000 Hz
-- Type: Number
-- m/s^2
+eventPayload.companyName  
++ The name of the company using the asset.
++ Type: String
 
-eventPayload.features.acceleration.band10To1000Hz.xAxis.rms
+eventPayload.geoLocation.latitude  
++ The latitude of the site's physical location.
++ Type: Number
 
-- The root mean square of the acceleration observed in the
-  frequency band 10–1000 Hz in the x axis
-- Type: Number
-- m/s^2
+eventPayload.geoLocation.longitude  
++ The longitude of the site's physical location.
++ Type: Number
 
-eventPayload.features.acceleration.band10To1000Hz.yAxis.rms
+eventPayload.address  
++ The address of the site.
++ Type: String
 
-- The root mean square of the acceleration observed in the
-  frequency band 10–1000 Hz in the y axis
-- Type: Number
-- m/s^2
+eventPayload.serialNumber  
++ The serial number of the asset.
++ Type: String
 
-eventPayload.features.acceleration.band10To1000Hz.zAxis.rms
+eventPayload.make  
++ The make of the asset.
++ Type: String
 
-- The root mean square of the acceleration observed in the
-  frequency band 10–1000 Hz in the z axis
-- Type: Number
-- m/s^2
+eventPayload.model  
++ The model of the asset.
++ Type: String
 
-eventPayload.features.temperature
+`eventType: sensorDisconnected`
 
-- The temperature observed
-- Type: Number
-- °C/degC
+siteName  
++ The site name displayed in the app
++ Type: String
 
-eventPayload.features.velocity.band10To1000Hz.resultantVector.absMax
+assetName  
++ The asset name displayed in the app
++ Type: String
 
-- The absolute maximum velocity observed in the frequency
-  band 10–1000 Hz
-- Type: Number
-- mm/s
+positionName  
++ The sensor position name displayed in the app
++ Type: String
 
-eventPayload.features.velocity.band10To1000Hz.resultantVector.absMin
+assetPositionURL  
++ The sensor URL displayed in the app
++ Type: String
 
-- The absolute minimum velocity observed in the frequency
-  band 10–1000 Hz
-- Type: Number
-- mm/s
+physicalID  
++ The physical ID of the sensor from which the measurement is sent
++ Type: String
 
-eventPayload.features.velocity.band10To1000Hz.resultantVector.crestFactor
+eventPayload.assetPositionId  
++ The identifier of the sensor position whose state changed.
++ Type: String
 
-- The velocity crest factor observed in the frequency band
-  10–1000 Hz
-- Type: Number
+eventPayload.companyName  
++ The name of the company using the asset.
++ Type: String
 
-eventPayload.features.velocity.band10To1000Hz.resultantVector.rms
+eventPayload.geoLocation.latitude  
++ The latitude of the site's physical location.
++ Type: Number
 
-- The root mean square of the velocity observed in the
-  frequency band 10–1000 Hz
-- Type: Number
-- mm/s
+eventPayload.geoLocation.longitude  
++ The longitude of the site's physical location.
++ Type: Number
 
-eventPayload.features.velocity.band10To1000Hz.xAxis.rms
+eventPayload.address  
++ The address of the site.
++ Type: String
 
-- The root mean square of the velocity observed in the
-  frequency band 10–1000 Hz in the x axis
-- Type: Number
-- mm/s
+eventPayload.serialNumber  
++ The serial number of the asset.
++ Type: String
 
-eventPayload.features.velocity.band10To1000Hz.yAxis.rms
+eventPayload.make  
++ The make of the asset.
++ Type: String
 
-- The root mean square of the velocity observed in the
-  frequency band 10–1000 Hz in the y axis
-- Type: Number
-- mm/s
+eventPayload.model  
++ The model of the asset.
++ Type: String
 
-eventPayload.features.velocity.band10To1000Hz.zAxis.rms
+ `eventType: gatewayConnected` 
 
-- The root mean square of the velocity observed in the
-  frequency band 10–1000 Hz in the z axis
-- Type: Number
-- mm/s
+eventPayload.siteName  
++ The site name displayed in the app
++ Type: String
 
-eventPayload.sequenceNo
+eventPayload.gatewayName  
++ The name of the gateway as displayed in the app
++ Type: String
 
-- The measurement sequence number
-- Type: Number
+eventPayload.gatewayListURL  
++ The gateway URL displayed in the app
++ Type: String
 
-eventPayload.assetPositionId
+eventPayload.gateway.physicalID  
++ The physical ID of the gateway just connected to transmit data to the Amazon Monitron service
++ Type: String
 
-- The identifier of the sensor position for which the measurement is sent.
-- Type: String
+eventPayload.companyName  
++ The name of the company using the asset.
++ Type: String
 
-eventPayload.companyName
+eventPayload.geoLocation.latitude  
++ The latitude of the site's physical location.
++ Type: Number
 
-- The name of the company using the asset.
-- Type: String
+eventPayload.geoLocation.longitude  
++ The longitude of the site's physical location.
++ Type: Number
 
-eventPayload.geoLocation.latitude
+eventPayload.address  
++ The address of the site.
++ Type: String
 
-- The latitude of the site's physical location.
-- Type: Number
+`eventType: gatewayDisconnected`
 
-eventPayload.geoLocation.longitude
+siteName  
++ The site name displayed in the app
++ Type: String
 
-- The longitude of the site's physical location.
-- Type: Number
+gatewayName  
++ The name of the gateway as displayed in the app
++ Type: String
 
-eventPayload.address
+gatewayListURL  
++ The gateway URL displayed in the app
++ Type: String
 
-- The address of the site.
-- Type: String
-
-eventPayload.serialNumber
-
-- The serial number of the asset.
-- Type: String
-
-eventPayload.make
-
-- The make of the asset.
-- Type: String
-
-eventPayload.model
-
-- The model of the asset.
-- Type: String
-
-`**eventType: sensorConnected**`
-
-siteName
-
-- The site name displayed in the app
-- Type: String
-
-assetName
-
-- The asset name displayed in the app
-- Type: String
-
-positionName
-
-- The sensor position name displayed in the app
-- Type: String
-
-assetPositionURL
-
-- The sensor URL displayed in the app
-- Type: String
-
-physicalID
-
-- The physical ID of the sensor from which the measurement
-  is sent
-- Type: String
-
-eventPayload.assetPositionId
-
-- The identifier of the sensor position whose state changed.
-- Type: String
-
-eventPayload.companyName
-
-- The name of the company using the asset.
-- Type: String
-
-eventPayload.geoLocation.latitude
-
-- The latitude of the site's physical location.
-- Type: Number
-
-eventPayload.geoLocation.longitude
-
-- The longitude of the site's physical location.
-- Type: Number
-
-eventPayload.address
-
-- The address of the site.
-- Type: String
-
-eventPayload.serialNumber
-
-- The serial number of the asset.
-- Type: String
-
-eventPayload.make
-
-- The make of the asset.
-- Type: String
-
-eventPayload.model
-
-- The model of the asset.
-- Type: String
-
-`**eventType: sensorDisconnected**`
-
-siteName
-
-- The site name displayed in the app
-- Type: String
-
-assetName
-
-- The asset name displayed in the app
-- Type: String
-
-positionName
-
-- The sensor position name displayed in the app
-- Type: String
-
-assetPositionURL
-
-- The sensor URL displayed in the app
-- Type: String
-
-physicalID
-
-- The physical ID of the sensor from which the measurement
-  is sent
-- Type: String
-
-eventPayload.assetPositionId
-
-- The identifier of the sensor position whose state changed.
-- Type: String
-
-eventPayload.companyName
-
-- The name of the company using the asset.
-- Type: String
-
-eventPayload.geoLocation.latitude
-
-- The latitude of the site's physical location.
-- Type: Number
-
-eventPayload.geoLocation.longitude
-
-- The longitude of the site's physical location.
-- Type: Number
-
-eventPayload.address
-
-- The address of the site.
-- Type: String
-
-eventPayload.serialNumber
-
-- The serial number of the asset.
-- Type: String
-
-eventPayload.make
-
-- The make of the asset.
-- Type: String
-
-eventPayload.model
-
-- The model of the asset.
-- Type: String
-
-`**eventType: gatewayConnected**`
-
-eventPayload.siteName
-
-- The site name displayed in the app
-- Type: String
-
-eventPayload.gatewayName
-
-- The name of the gateway as displayed in the app
-- Type: String
-
-eventPayload.gatewayListURL
-
-- The gateway URL displayed in the app
-- Type: String
-
-eventPayload.gateway.physicalID
-
-- The physical ID of the gateway just connected to transmit
-  data to the Amazon Monitron service
-- Type: String
-
-eventPayload.companyName
-
-- The name of the company using the asset.
-- Type: String
-
-eventPayload.geoLocation.latitude
-
-- The latitude of the site's physical location.
-- Type: Number
-
-eventPayload.geoLocation.longitude
-
-- The longitude of the site's physical location.
-- Type: Number
-
-eventPayload.address
-
-- The address of the site.
-- Type: String
-
-`**eventType: gatewayDisconnected**`
-
-siteName
-
-- The site name displayed in the app
-- Type: String
-
-gatewayName
-
-- The name of the gateway as displayed in the app
-- Type: String
-
-gatewayListURL
-
-- The gateway URL displayed in the app
-- Type: String
-
-physicalID
-
-- The physical ID of the gateway just connected to transmit
-  data to the Amazon Monitron service
-- Type: String
-
-eventPayload.companyName
-
-- The name of the company using the asset.
-- Type: String
-
-eventPayload.geoLocation.latitude
-
-- The latitude of the site's physical location.
-- Type: Number
-
-eventPayload.geoLocation.longitude
-
-- The longitude of the site's physical location.
-- Type: Number
-
-eventPayload.address
-
-- The address of the site.
-- Type: String
-
-`**eventType: assetStateTransition**`
-
-eventPayload.siteName
-
-- The site name displayed in the app
-- Type: String
-
-eventPayload.assetName
-
-- The asset name displayed in the app
-- Type: String
-
-eventPayload.positionName
-
-- The sensor position name displayed in the app
-- Type: String
-
-eventPayload.assetPositionURL
-
-- The sensor URL displayed in the app
-- Type: String
-
-eventPayload.sensor.physicalID
-
-- The physical ID of the sensor from which the measurement
-  is sent
-- Type: String
-
-eventPayload.assetTransitionType
-
-- The reason behind the asset state transition
-- Type: String
-- Possible values: `measurement` or
-  `userInput`
-
-eventPayload.assetState.newState
-
-- The new state of the asset
-- Type: String
-
-eventPayload.assetState.previousState
-
-- The previous state of the asset
-- Type: String
-
-eventPayload.closureCode.failureMode
-
-- The failure mode selected by the user when acknowledging
-  this failure
-- Type: String
-- Possible values: `NO_ISSUE` |
-  `BLOCKAGE` | `CAVITATION` |
-  `CORROSION` | `DEPOSIT` |
-  `IMBALANCE` | `LUBRICATION` |
-  `MISALIGNMENT` | `OTHER` |
-  `RESONANCE` | `ROTATING_LOOSENESS`
-  | `STRUCTURAL_LOOSENESS` |
-  `TRANSMITTED_FAULT` |
-  `UNDETERMINED`
-
-eventPayload.closureCode.failureCause
-
-- The cause of the failure as selected by the user in the
-  app dropdown when acknowledging a failure.
-- Type: String
-- Possible values: `ADMINISTRATION` |
-  `DESIGN` | `FABRICATION` |
-  `MAINTENANCE` | `OPERATION` |
-  `OTHER` | `QUALITY` |
-  `UNDETERMINED` | `WEAR`
-
-eventPayload.closureCode.actionTaken
-
-- The action taken when closing this anomaly, as selected by
-  the user in the app dropdown.
-- Type: String
-- Possible values: `ADJUST` | `CLEAN`
-  | `LUBRICATE` | `MODIFY` |
-  `NO_ACTION` | `OTHER` |
-  `OVERHAUL` | `REPLACE`
-
-eventPayload.closureCode.resolvedModels
-
-- The set of models which called out the issue.
-- Type: List of Strings
-- Possible values: `vibrationISO` |
-  `vibrationML` | `temperatureML`
-
-eventPayload.assetPositionId
-
-- The identifier of the asset position whose state changed.
-- Type: String
-
-models.temperatureML.persistentClassificationOutput
-
-- The persistent classification output from the machine
-  learning based temperature model
-- Type: Number
-- Valid Values: `UNKNOWN | HEALTHY | WARNING |
- ALARM`
-
-models.temperatureML.pointwiseClassificationOutput
-
-- The point–wise classification output from the
-  machine learning based temperature model
-- Type: String
-- Valid Values: `UNKNOWN | INITIALIZING | HEALTHY |
- WARNING | ALARM`
-
-models.vibrationISO.isoClass
-
-- The ISO 20816 class (a standard for measurement and
-  evaluation of machine vibration) used by the ISO based
-  vibration model
-- Type: String
-- Valid Values: `CLASS1 | CLASS2 | CLASS3 |
- CLASS4`
-
-models.vibrationISO.mutedThreshold
-
-- The threshold to mute the notification from the ISO based
-  vibration model
-- Type: String
-- Valid Values: `WARNING | ALARM`
-
-models.vibrationISO.persistentClassificationOutput
-
-- The persistent classification output from the ISO based
-  vibration model
-- Type: String
-- Valid Values: `UNKNOWN | HEALTHY | WARNING |
- ALARM`
-
-models.vibrationISO.pointwiseClassificationOutput
-
-- The point–wise classification output from the the
-  ISO based vibration model
-- Type: String
-- Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM |
- MUTED_WARNING | MUTED_ALARM`
-
-models.vibrationML.persistentClassificationOutput
-
-- The persistent classification output from the machine
-  learning based vibration model
-- Type: String
-- Valid Values: `UNKNOWN | HEALTHY | WARNING |
- ALARM`
-
-models.vibrationML.pointwiseClassificationOutput
-
-- The point–wise classification output from the
-  machine learning based vibration model
-- Type: String
-- Valid Values: `UNKNOWN | INITIALIZING | HEALTHY |
- WARNING | ALARM`
-
-assetState.newState
-
-- The machine status after processing the measurement
-- Type: String
-- Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
- | WARNING | ALARM`
-
-assetState.previousState
-
-- The machine status before processing the
-  measurement
-- Type: String
-- Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
- | WARNING | ALARM`
-
-eventPayload.companyName
-
-- The name of the company using the asset.
-- Type: String
-
-eventPayload.geoLocation.latitude
-
-- The latitude of the site's physical location.
-- Type: Number
-
-eventPayload.geoLocation.longitude
-
-- The longitude of the site's physical location.
-- Type: Number
-
-eventPayload.address
-
-- The address of the site.
-- Type: String
-
-eventPayload.serialNumber
-
-- The serial number of the asset.
-- Type: String
-
-eventPayload.make
-
-- The make of the asset.
-- Type: String
-
-eventPayload.model
-
-- The model of the asset.
-- Type: String
+physicalID  
++ The physical ID of the gateway just connected to transmit data to the Amazon Monitron service
++ Type: String
+
+eventPayload.companyName  
++ The name of the company using the asset.
++ Type: String
+
+eventPayload.geoLocation.latitude  
++ The latitude of the site's physical location.
++ Type: Number
+
+eventPayload.geoLocation.longitude  
++ The longitude of the site's physical location.
++ Type: Number
+
+eventPayload.address  
++ The address of the site.
++ Type: String
+
+`eventType: assetStateTransition`
+
+eventPayload.siteName  
++ The site name displayed in the app
++ Type: String
+
+eventPayload.assetName  
++ The asset name displayed in the app
++ Type: String
+
+eventPayload.positionName  
++ The sensor position name displayed in the app
++ Type: String
+
+eventPayload.assetPositionURL  
++ The sensor URL displayed in the app
++ Type: String
+
+eventPayload.sensor.physicalID  
++ The physical ID of the sensor from which the measurement is sent
++ Type: String
+
+eventPayload.assetTransitionType  
++ The reason behind the asset state transition
++ Type: String
++ Possible values: `measurement` or `userInput`
+
+eventPayload.assetState.newState  
++ The new state of the asset
++ Type: String
+
+eventPayload.assetState.previousState  
++ The previous state of the asset
++ Type: String
+
+eventPayload.closureCode.failureMode  
++ The failure mode selected by the user when acknowledging this failure
++ Type: String
++ Possible values: `NO_ISSUE` \| `BLOCKAGE` \| `CAVITATION` \| `CORROSION` \| `DEPOSIT` \| `IMBALANCE` \| `LUBRICATION` \| `MISALIGNMENT` \| `OTHER` \| `RESONANCE` \| `ROTATING_LOOSENESS` \| `STRUCTURAL_LOOSENESS` \| `TRANSMITTED_FAULT` \| `UNDETERMINED` 
+
+eventPayload.closureCode.failureCause  
++ The cause of the failure as selected by the user in the app dropdown when acknowledging a failure.
++ Type: String
++ Possible values: `ADMINISTRATION` \| `DESIGN` \| `FABRICATION` \| `MAINTENANCE` \| `OPERATION` \| `OTHER` \| `QUALITY` \| `UNDETERMINED` \| `WEAR` 
+
+eventPayload.closureCode.actionTaken  
++ The action taken when closing this anomaly, as selected by the user in the app dropdown.
++ Type: String
++ Possible values: `ADJUST` \| `CLEAN` \| `LUBRICATE` \| `MODIFY` \| `NO_ACTION` \| `OTHER` \| `OVERHAUL` \| `REPLACE` 
+
+eventPayload.closureCode.resolvedModels  
++ The set of models which called out the issue.
++ Type: List of Strings
++ Possible values: `vibrationISO` \| `vibrationML` \| `temperatureML` 
+
+eventPayload.assetPositionId  
++ The identifier of the asset position whose state changed.
++ Type: String
+
+models.temperatureML.persistentClassificationOutput  
++ The persistent classification output from the machine learning based temperature model
++ Type: Number
++ Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM`
+
+models.temperatureML.pointwiseClassificationOutput  
++ The point–wise classification output from the machine learning based temperature model
++ Type: String
++ Valid Values: `UNKNOWN | INITIALIZING | HEALTHY | WARNING | ALARM`
+
+models.vibrationISO.isoClass  
++ The ISO 20816 class (a standard for measurement and evaluation of machine vibration) used by the ISO based vibration model
++ Type: String
++ Valid Values: `CLASS1 | CLASS2 | CLASS3 | CLASS4`
+
+models.vibrationISO.mutedThreshold  
++ The threshold to mute the notification from the ISO based vibration model
++ Type: String
++ Valid Values: `WARNING | ALARM`
+
+models.vibrationISO.persistentClassificationOutput  
++ The persistent classification output from the ISO based vibration model
++ Type: String
++ Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM`
+
+models.vibrationISO.pointwiseClassificationOutput  
++ The point–wise classification output from the the ISO based vibration model
++ Type: String
++ Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM | MUTED_WARNING | MUTED_ALARM`
+
+models.vibrationML.persistentClassificationOutput  
++ The persistent classification output from the machine learning based vibration model
++ Type: String
++ Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM`
+
+models.vibrationML.pointwiseClassificationOutput  
++ The point–wise classification output from the machine learning based vibration model
++ Type: String
++ Valid Values: `UNKNOWN | INITIALIZING | HEALTHY | WARNING | ALARM`
+
+assetState.newState  
++ The machine status after processing the measurement
++ Type: String
++ Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE | WARNING | ALARM`
+
+assetState.previousState  
++ The machine status before processing the measurement
++ Type: String
++ Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE | WARNING | ALARM`
+
+eventPayload.companyName  
++ The name of the company using the asset.
++ Type: String
+
+eventPayload.geoLocation.latitude  
++ The latitude of the site's physical location.
++ Type: Number
+
+eventPayload.geoLocation.longitude  
++ The longitude of the site's physical location.
++ Type: Number
+
+eventPayload.address  
++ The address of the site.
++ Type: String
+
+eventPayload.serialNumber  
++ The serial number of the asset.
++ Type: String
+
+eventPayload.make  
++ The make of the asset.
++ Type: String
+
+eventPayload.model  
++ The model of the asset.
++ Type: String

@@ -1,116 +1,85 @@
-Amazon Monitron is no longer open to new customers. Existing customers can
-continue to use the service as normal. For capabilities similar to Amazon
-Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
+
+
+Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Placing and installing an Ethernet gateway
+<a name="installing-gateway-ethernet"></a>
 
-Unlike sensors, an Ethernet gateway doesn't need to be attached to the machines
-that are being monitored. However, it does need an available Ethernet network
-through which Amazon Monitron can connect to the AWS Cloud.
+Unlike sensors, an Ethernet gateway doesn't need to be attached to the machines that are being monitored. However, it does need an available Ethernet network through which Amazon Monitron can connect to the AWS Cloud.
 
-![Amazon Monitron Ethernet gateway device with orange frame, power and connectivity indicators, and reset and config buttons.](images/real-gateway-ethernet.png)
+![Amazon Monitron Ethernet gateway device with orange frame, power and connectivity indicators, and reset and config buttons.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/real-gateway-ethernet.png)
 
-###### Topics
 
-- [Where to place a gateway](#where-gateway-ethernet "#where-gateway-ethernet")
-- [Installing an Ethernet gateway](#how-gateway-ethernet "#how-gateway-ethernet")
-- [Turning on the gateway](#Gateway-on "#Gateway-on")
+**Topics**
++ [Where to place a gateway](#where-gateway-ethernet)
++ [Installing an Ethernet gateway](#how-gateway-ethernet)
++ [Turning on the gateway](#Gateway-on)
 
 ## Where to place a gateway
+<a name="where-gateway-ethernet"></a>
 
-You can install a gateway anywhere within your work area, depending on its
-layout. Typically, gateways are mounted on walls, but you can mount them on
-ceilings, pillars, or in any other location. A gateway must be within 20 to 30
-meters of the sensors it will support, and an Ethernet gateway must be close
-enough to an Ethernet cable to plug in. Note that an Ethernet gateway draws
-power from the Ethernet cable.
+You can install a gateway anywhere within your work area, depending on its layout. Typically, gateways are mounted on walls, but you can mount them on ceilings, pillars, or in any other location. A gateway must be within 20 to 30 meters of the sensors it will support, and an Ethernet gateway must be close enough to an Ethernet cable to plug in. Note that an Ethernet gateway draws power from the Ethernet cable.
 
 Consider these other factors when mounting a gateway:
-
-- Mounting the gateway higher than sensors (2 meters or above) can
-  improve coverage.
-- Keeping an open line of sight between the gateway and sensors improves
-  coverage.
-- Avoid mounting the gateway on building structures, such as exposed
-  steel beams. They can cause interference with the signal.
-- Try to work around any equipment that might produce electronic
-  interference with the signal.
-- If possible, install more than one gateway within transmission
-  distance of your sensors. If a gateway becomes unavailable, the sensors
-  will switch their data transmission to another gateway. Having multiple
-  gateways helps to eliminate data loss. There is no minimum required
-  distance between two gateways.
++ Mounting the gateway higher than sensors (2 meters or above) can improve coverage.
++ Keeping an open line of sight between the gateway and sensors improves coverage.
++ Avoid mounting the gateway on building structures, such as exposed steel beams. They can cause interference with the signal.
++ Try to work around any equipment that might produce electronic interference with the signal.
++ If possible, install more than one gateway within transmission distance of your sensors. If a gateway becomes unavailable, the sensors will switch their data transmission to another gateway. Having multiple gateways helps to eliminate data loss. There is no minimum required distance between two gateways.
 
 ## Installing an Ethernet gateway
+<a name="how-gateway-ethernet"></a>
 
-Almost everything you need to install your gateway in your work area is
-contained in the box that contains the gateway:
+Almost everything you need to install your gateway in your work area is contained in the box that contains the gateway:
++ The gateway
++ A wall mounting bracket
++ Double-sided tape
++ Four mounting screws
 
-- The gateway
-- A wall mounting bracket
-- Double-sided tape
-- Four mounting screws
+To install the gateway, position the wall mounting bracket on the wall or on another location, then mount the gateway on the bracket, Ethernet cable on the downwards side.
 
-To install the gateway, position the wall mounting bracket on the wall or on
-another location, then mount the gateway on the bracket, Ethernet cable on the
-downwards side.
-
-There are three ways to mount the mounting bracket: screw mounting, tape
-mounting, and plastic-tie mounting. The method you use depends on whether you're
-mounting the gateway on a wall or another location, and on the surface
-material.
+There are three ways to mount the mounting bracket: screw mounting, tape mounting, and plastic-tie mounting. The method you use depends on whether you're mounting the gateway on a wall or another location, and on the surface material.
 
 To mount the bracket, choose one of the following.
 
 **Screw mounting**
 
-Typically, you mount the bracket directly to the wall using the mounting
-screws included in the gateway box. Mount the bracket from the front. You might
-need to use an expansion plug or toggle bolt (not included) to secure the screw
-in the wall.
+Typically, you mount the bracket directly to the wall using the mounting screws included in the gateway box. Mount the bracket from the front. You might need to use an expansion plug or toggle bolt (not included) to secure the screw in the wall.
 
-![Yellow mounting bracket with screw holes and mounting tabs shown from front view.](images/gateway-mounting-bracket-screws.png)
+![Yellow mounting bracket with screw holes and mounting tabs shown from front view.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/gateway-mounting-bracket-screws.png)
+
 
 **Tape mounting**
 
-A shaped piece of double-sided tape is included in the gateway box. Use it
-when you can't place a screw into the mounting surface. You can also use it in
-combination with the other methods of mounting for a more secure
-installation.
+A shaped piece of double-sided tape is included in the gateway box. Use it when you can't place a screw into the mounting surface. You can also use it in combination with the other methods of mounting for a more secure installation.
 
-![Yellow plastic mounting bracket with adhesive backing strips attached.](images/bracket-tape1-ethernet.png)
+![Yellow plastic mounting bracket with adhesive backing strips attached.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape1-ethernet.png)
 
-Remove the backing on one side of the tape and apply the tape to the back of
-the wall mounting bracket between the four raised sections.
 
-![Yellow wall mounting bracket with blue adhesive tape applied between four raised sections.](images/bracket-tape2-ethernet.png)
+Remove the backing on one side of the tape and apply the tape to the back of the wall mounting bracket between the four raised sections.
 
-Remove the remaining backing and apply the bracket to the mounting location.
-Press hard on the bracket to make sure that the tape firmly adheres to the
-surface.
+![Yellow wall mounting bracket with blue adhesive tape applied between four raised sections.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tape2-ethernet.png)
+
+
+Remove the remaining backing and apply the bracket to the mounting location. Press hard on the bracket to make sure that the tape firmly adheres to the surface.
 
 **Plastic-tie mounting**
 
-To mount a gateway to a smaller non-wall location, such as a pillar or fence,
-use cable ties (also known as zip ties) to fasten the wall mounting bracket. Put
-the ties through the holes in the four raised sections on the back of the
-bracket, wrap them around the mounting location, and pull tight.
+To mount a gateway to a smaller non-wall location, such as a pillar or fence, use cable ties (also known as zip ties) to fasten the wall mounting bracket. Put the ties through the holes in the four raised sections on the back of the bracket, wrap them around the mounting location, and pull tight.
 
-![Back of yellow wall mounting bracket showing four raised sections with holes for cable ties.](images/bracket-tie1-ethernet.png)
+![Back of yellow wall mounting bracket showing four raised sections with holes for cable ties.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/bracket-tie1-ethernet.png)
+
 
 After the bracket is mounted, attach the gateway to the bracket.
 
 ## Turning on the gateway
+<a name="Gateway-on"></a>
 
-1. With the wall mounting bracket in place, place the gateway against the
-   bracket, with the two plastic hooks on the back of the gateway inserted
-   in the slots at the bottom of the bracket.
-2. Press the top of the gateway against the bracket so that the plastic
-   hooks on the back of the gateway latch into the top of the
-   bracket.
+1. With the wall mounting bracket in place, place the gateway against the bracket, with the two plastic hooks on the back of the gateway inserted in the slots at the bottom of the bracket.
 
-###### Note
+1. Press the top of the gateway against the bracket so that the plastic hooks on the back of the gateway latch into the top of the bracket.
 
+**Note**  
 Install the gateway with the Ethernet cable going downwards.
 
-If you have a problem with connecting to your gateway, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
+If you have a problem with connecting to your gateway, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md).

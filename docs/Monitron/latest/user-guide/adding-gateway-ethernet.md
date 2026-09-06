@@ -1,76 +1,57 @@
-Amazon Monitron is no longer open to new customers. Existing customers can
-continue to use the service as normal. For capabilities similar to Amazon
-Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron "https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron").
+
+
+Amazon Monitron is no longer open to new customers. Existing customers can continue to use the service as normal. For capabilities similar to Amazon Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/maintain-access-and-consider-alternatives-for-amazon-monitron).
 
 # Commissioning an Ethernet gateway
+<a name="adding-gateway-ethernet"></a>
 
-When your gateway is mounted in your factory, you will need access to the Amazon Monitron mobile app to commission it. Amazon Monitron supports only
-smartphones using Android 8.0+ or iOS 14+ with near field communication (NFC) and
-Bluetooth.
+When your gateway is mounted in your factory, you will need access to the Amazon Monitron mobile app to commission it. Amazon Monitron supports only smartphones using Android 8.0\+ or iOS 14\+ with near field communication (NFC) and Bluetooth.
 
-###### Topics
-
-- [To commission a gateway](#commission-gateway-ethernet "#commission-gateway-ethernet")
+**Topics**
++ [To commission a gateway](#commission-gateway-ethernet)
 
 ## To commission a gateway
+<a name="commission-gateway-ethernet"></a>
 
-1. If Bluetooth isn't already turned on for your smartphone, turn it
-   on.
-2. Position your gateway in the location that works best for
-   communicating with your sensors.
+1. If Bluetooth isn't already turned on for your smartphone, turn it on.
 
-The best place to mount your gateway is higher than the sensors and no
-more than 20 to 30 meters away. For additional help with locating your
-gateway, see [Placing and installing an Ethernet gateway](installing-gateway-ethernet.md "installing-gateway-ethernet.md"). 3. Plug in the gateway and make sure the network light (yellow) and the
-Bluetooth light (blue) on the front of your gateway are blinking
-alternately. 4. Push the **Config** button on the gateway to put it
-into commissioning mode. The Bluetooth and network LED lights will start
-flashing rapidly.
+1. Position your gateway in the location that works best for communicating with your sensors.
 
-![CONFIG button with orange LED indicator light.](images/ethernet-config-button.png) 5. Open the mobile app on your smartphone. 6. On the **Getting started** page or the
-**Gateways** page, choose **Add
-gateway**.
+   The best place to mount your gateway is higher than the sensors and no more than 20 to 30 meters away. For additional help with locating your gateway, see [Placing and installing an Ethernet gateway](installing-gateway-ethernet.md).
 
-Amazon Monitron scans for the gateway. This can take a few moments.
-When Amazon Monitron finds the gateway, it displays it in the gateway
-list. 7. Choose the gateway.
+1. Plug in the gateway and make sure the network light (yellow) and the Bluetooth light (blue) on the front of your gateway are blinking alternately.
 
-###### Note
+1. Push the **Config** button on the gateway to put it into commissioning mode. The Bluetooth and network LED lights will start flashing rapidly.  
+![CONFIG button with orange LED indicator light.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-config-button.png)
 
-If you are using an iOS mobile device, and you have previously
-paired with this particular gateway, then you may need to make your
-device "forget" the gateway before re-pairing. For more information,
-see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md "troubleshooting-Bluetooth-pairing-ethernet.md").
+1. Open the mobile app on your smartphone.
 
-It can take a few moments for Amazon Monitron to connect to the new
-gateway.
+1. On the **Getting started** page or the **Gateways** page, choose **Add gateway**. 
 
-![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](images/phone-bluetooth-ethernet-gateway.png)
+   Amazon Monitron scans for the gateway. This can take a few moments. When Amazon Monitron finds the gateway, it displays it in the gateway list.
 
-If the mobile app continues to try to connect to the gateway without
-success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md "troubleshooting-gateway-detection-ethernet.md").
+1. Choose the gateway. 
+**Note**  
+If you are using an iOS mobile device, and you have previously paired with this particular gateway, then you may need to make your device "forget" the gateway before re-pairing. For more information, see [Troubleshooting Bluetooth pairing](troubleshooting-Bluetooth-pairing-ethernet.md).
 
-###### Note
+   It can take a few moments for Amazon Monitron to connect to the new gateway.  
+![Mobile device connecting via Bluetooth to Amazon Monitron gateway device.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/phone-bluetooth-ethernet-gateway.png)
 
-When the gateway is successfully connected, Amazon Monitron displays the
-gateway device ID and MAC ID in the mobile app. 8. After it connects to the gateway, Amazon Monitron will provide two
-options for you to configure the network connection for your
-gateway.
+   If the mobile app continues to try to connect to the gateway without success, see [Troubleshooting Ethernet gateway detection](troubleshooting-gateway-detection-ethernet.md).
+**Note**  
+When the gateway is successfully connected, Amazon Monitron displays the gateway device ID and MAC ID in the mobile app.
 
-![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](images/ethernet-network-configuration.png) 9. Choose your network configuation.
+1. After it connects to the gateway, Amazon Monitron will provide two options for you to configure the network connection for your gateway.  
+![Network configuration dialog with Automatic DHCP and Manual options for Monitron Gateway.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-network-configuration.png)
 
-It can take a few minutes for the gateway to be commissioned and to
-connect to the network.
+1. Choose your network configuation.
 
-If you have further difficulties making the gateway work, it might be
-helpful to reset it. For more information, see [Resetting the Ethernet gateway to factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
+   It can take a few minutes for the gateway to be commissioned and to connect to the network.
 
-    1. If you choose automatic (DHCP), Amazon Monitron will
-     automatically configure the network to connect to the
-     gateway.
-    2. If you choose **manual**, enter your IP
-     address, subnet mask, router, preferred DNS server, and
-     alternate DNS server (optional) information. Then choose
-     **connect**.
+   If you have further difficulties making the gateway work, it might be helpful to reset it. For more information, see [Resetting the Ethernet gateway to factory settings](commissioning-button-ethernet.md).
 
-![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](images/ethernet-IP-DNS-settings.png)
+   1. If you choose automatic (DHCP), Amazon Monitron will automatically configure the network to connect to the gateway.
+
+   1. If you choose **manual**, enter your IP address, subnet mask, router, preferred DNS server, and alternate DNS server (optional) information. Then choose **connect**.
+
+![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](http://docs.aws.amazon.com/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)
