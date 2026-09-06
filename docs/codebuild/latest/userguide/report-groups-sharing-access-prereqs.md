@@ -1,7 +1,9 @@
-# Access report groups shared with you
 
-To access a shared report group, a consumer's IAM role requires the
-`BatchGetReportGroups` permission. You can attach the following policy to their IAM role:
+
+# Access report groups shared with you
+<a name="report-groups-sharing-access-prereqs"></a>
+
+To access a shared report group, a consumer's IAM role requires the `BatchGetReportGroups` permission. You can attach the following policy to their IAM role: 
 
 ```
 {
@@ -15,4 +17,4 @@ To access a shared report group, a consumer's IAM role requires the
 }
 ```
 
-For more information, see [Using identity-based policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md "auth-and-access-control-iam-identity-based-access-control.md").
+ For more information, see [Using identity-based policies for AWS CodeBuild](auth-and-access-control-iam-identity-based-access-control.md). 

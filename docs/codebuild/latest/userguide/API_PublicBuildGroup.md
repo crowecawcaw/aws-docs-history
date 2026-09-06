@@ -1,43 +1,34 @@
+
+
 # PublicBuildGroup
+<a name="API_PublicBuildGroup"></a>
 
-###### Note
-
+**Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.
 
 ## Contents
+<a name="API_PublicBuildGroup_Contents"></a>
 
-###### Note
-
+**Note**  
 In the following list, the required parameters are described first.
 
-**currentBuildSummary**
-
-Type: [PublicBuildSummary](API_PublicBuildSummary.md "API_PublicBuildSummary.md") object
-
+ **currentBuildSummary**   <a name="CodeBuild-Type-PublicBuildGroup-currentBuildSummary"></a>
+Type: [PublicBuildSummary](API_PublicBuildSummary.md) object  
 Required: No
 
-**dependsOn**
-
-Type: Array of strings
-
-Length Constraints: Minimum length of 1.
-
+ **dependsOn**   <a name="CodeBuild-Type-PublicBuildGroup-dependsOn"></a>
+Type: Array of strings  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**identifier**
-
-Type: String
-
+ **identifier**   <a name="CodeBuild-Type-PublicBuildGroup-identifier"></a>
+Type: String  
 Required: No
 
-**ignoreFailure**
-
-Type: Boolean
-
+ **ignoreFailure**   <a name="CodeBuild-Type-PublicBuildGroup-ignoreFailure"></a>
+Type: Boolean  
 Required: No
 
-**priorBuildSummaryList**
-
-Type: Array of [PublicBuildSummary](API_PublicBuildSummary.md "API_PublicBuildSummary.md") objects
-
+ **priorBuildSummaryList**   <a name="CodeBuild-Type-PublicBuildGroup-priorBuildSummaryList"></a>
+Type: Array of [PublicBuildSummary](API_PublicBuildSummary.md) objects  
 Required: No

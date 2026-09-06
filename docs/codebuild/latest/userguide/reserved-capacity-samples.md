@@ -1,19 +1,19 @@
+
+
 # Reserved capacity samples with AWS CodeBuild
+<a name="reserved-capacity-samples"></a>
 
 These samples can be used to experiment with reserved capacity fleets in CodeBuild.
 
-###### Topics
-
-- [Caching with reserved capacity sample](#reserved-capacity-samples.caching "#reserved-capacity-samples.caching")
+**Topics**
++ [Caching with reserved capacity sample](#reserved-capacity-samples.caching)
 
 ## Caching with reserved capacity sample
+<a name="reserved-capacity-samples.caching"></a>
 
-A cache can store reusable pieces of your build environment and use them across
-multiple builds. This sample demonstrated how to enable caching within your build
-project using reserved capacity. For more information, see [Cache builds to improve performance](build-caching.md "build-caching.md").
+A cache can store reusable pieces of your build environment and use them across multiple builds. This sample demonstrated how to enable caching within your build project using reserved capacity. For more information, see [Cache builds to improve performance](build-caching.md).
 
-You can start by specifying one or more cache modes in your project
-settings:
+You can start by specifying one or more cache modes in your project settings:
 
 ```
 Cache:
@@ -24,8 +24,7 @@ Cache:
           - LOCAL_SOURCE_CACHE
 ```
 
-###### Note
-
+**Note**  
 Make sure to enable privileged mode in order to use Docker layer cache.
 
 Your project buildspec settings should look like the following:
@@ -55,9 +54,7 @@ version: 0.2
            - './bar/bar/foo3'
 ```
 
-You can start by running a build with the new project to seed the cache. Once
-that's complete, you should start another build with an overriding buildspec,
-similar to the following:
+You can start by running a build with the new project to seed the cache. Once that's complete, you should start another build with an overriding buildspec, similar to the following:
 
 ```
 version: 0.2

@@ -1,26 +1,19 @@
+
+
 # Filter Bitbucket webhook events (CloudFormation)
+<a name="bitbucket-webhook-events-cfn"></a>
 
-To use a CloudFormation template to filter webhook events, use the AWS CodeBuild project's
-`FilterGroups` property. The following YAML-formatted portion of a CloudFormation
-template creates two filter groups. Together, they trigger a build when one or both
-evaluate to true:
-
-- The first filter group specifies pull requests are created or updated on
-  branches with Git reference names that match the regular expression
-  `^refs/heads/main$` by a Bitbucket user who does not have account
-  ID `12345`.
-- The second filter group specifies push requests are created on branches with
-  Git reference names that match the regular expression
-  `^refs/heads/.*`.
-- The third filter group specifies a push request with a head commit message
-  matching the regular expression `\[CodeBuild\]`.
+ To use a CloudFormation template to filter webhook events, use the AWS CodeBuild project's `FilterGroups` property. The following YAML-formatted portion of a CloudFormation template creates two filter groups. Together, they trigger a build when one or both evaluate to true: 
++  The first filter group specifies pull requests are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` by a Bitbucket user who does not have account ID `12345`. 
++  The second filter group specifies push requests are created on branches with Git reference names that match the regular expression `^refs/heads/.*`. 
++ The third filter group specifies a push request with a head commit message matching the regular expression `\[CodeBuild\]`.
 
 ```
 CodeBuildProject:
   Type: AWS::CodeBuild::Project
   Properties:
     Name: MyProject
-    ServiceRole: `service-role`
+    ServiceRole: {{service-role}}
     Artifacts:
       Type: NO_ARTIFACTS
     Environment:
@@ -29,7 +22,7 @@ CodeBuildProject:
       Image: aws/codebuild/standard:5.0
     Source:
       Type: BITBUCKET
-      Location: `source-location`
+      Location: {{source-location}}
     Triggers:
       Webhook: true
       FilterGroups:

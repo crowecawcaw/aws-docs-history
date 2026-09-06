@@ -1,113 +1,78 @@
+
+
 # PublicProject
+<a name="API_PublicProject"></a>
 
-###### Note
-
+**Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.
 
 ## Contents
+<a name="API_PublicProject_Contents"></a>
 
-###### Note
-
+**Note**  
 In the following list, the required parameters are described first.
 
-**artifacts**
-
-Type: [PublicProjectArtifacts](API_PublicProjectArtifacts.md "API_PublicProjectArtifacts.md") object
-
+ **artifacts**   <a name="CodeBuild-Type-PublicProject-artifacts"></a>
+Type: [PublicProjectArtifacts](API_PublicProjectArtifacts.md) object  
 Required: No
 
-**buildBatchConfig**
-
-Type: [PublicProjectBuildBatchConfig](API_PublicProjectBuildBatchConfig.md "API_PublicProjectBuildBatchConfig.md") object
-
+ **buildBatchConfig**   <a name="CodeBuild-Type-PublicProject-buildBatchConfig"></a>
+Type: [PublicProjectBuildBatchConfig](API_PublicProjectBuildBatchConfig.md) object  
 Required: No
 
-**concurrentBuildLimit**
-
-Type: Integer
-
+ **concurrentBuildLimit**   <a name="CodeBuild-Type-PublicProject-concurrentBuildLimit"></a>
+Type: Integer  
 Required: No
 
-**description**
-
-Type: String
-
-Length Constraints: Minimum length of 0. Maximum length of 255.
-
+ **description**   <a name="CodeBuild-Type-PublicProject-description"></a>
+Type: String  
+Length Constraints: Minimum length of 0. Maximum length of 255.  
 Required: No
 
-**environment**
-
-Type: [PublicProjectEnvironment](API_PublicProjectEnvironment.md "API_PublicProjectEnvironment.md") object
-
+ **environment**   <a name="CodeBuild-Type-PublicProject-environment"></a>
+Type: [PublicProjectEnvironment](API_PublicProjectEnvironment.md) object  
 Required: No
 
-**name**
-
-Type: String
-
-Length Constraints: Minimum length of 2. Maximum length of 150.
-
-Pattern: `[A-Za-z0-9][A-Za-z0-9\-_]{1,254}`
-
+ **name**   <a name="CodeBuild-Type-PublicProject-name"></a>
+Type: String  
+Length Constraints: Minimum length of 2. Maximum length of 150.  
+Pattern: `[A-Za-z0-9][A-Za-z0-9\-_]{1,254}`   
 Required: No
 
-**queuedTimeoutInMinutes**
-
-Type: Integer
-
-Valid Range: Minimum value of 5. Maximum value of 480.
-
+ **queuedTimeoutInMinutes**   <a name="CodeBuild-Type-PublicProject-queuedTimeoutInMinutes"></a>
+Type: Integer  
+Valid Range: Minimum value of 5. Maximum value of 480.  
 Required: No
 
-**secondaryArtifacts**
-
-Type: Array of [PublicProjectArtifacts](API_PublicProjectArtifacts.md "API_PublicProjectArtifacts.md") objects
-
-Array Members: Minimum number of 0 items. Maximum number of 12 items.
-
+ **secondaryArtifacts**   <a name="CodeBuild-Type-PublicProject-secondaryArtifacts"></a>
+Type: Array of [PublicProjectArtifacts](API_PublicProjectArtifacts.md) objects  
+Array Members: Minimum number of 0 items. Maximum number of 12 items.  
 Required: No
 
-**secondarySources**
-
-Type: Array of [PublicProjectSource](API_PublicProjectSource.md "API_PublicProjectSource.md") objects
-
-Array Members: Minimum number of 0 items. Maximum number of 12 items.
-
+ **secondarySources**   <a name="CodeBuild-Type-PublicProject-secondarySources"></a>
+Type: Array of [PublicProjectSource](API_PublicProjectSource.md) objects  
+Array Members: Minimum number of 0 items. Maximum number of 12 items.  
 Required: No
 
-**secondarySourceVersions**
-
-Type: Array of [ProjectSourceVersion](../APIReference/API_ProjectSourceVersion.md "../APIReference/API_ProjectSourceVersion.md") objects
-
-Array Members: Minimum number of 0 items. Maximum number of 12 items.
-
+ **secondarySourceVersions**   <a name="CodeBuild-Type-PublicProject-secondarySourceVersions"></a>
+Type: Array of [ProjectSourceVersion](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html) objects  
+Array Members: Minimum number of 0 items. Maximum number of 12 items.  
 Required: No
 
-**source**
-
-Type: [PublicProjectSource](API_PublicProjectSource.md "API_PublicProjectSource.md") object
-
+ **source**   <a name="CodeBuild-Type-PublicProject-source"></a>
+Type: [PublicProjectSource](API_PublicProjectSource.md) object  
 Required: No
 
-**sourceVersion**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **sourceVersion**   <a name="CodeBuild-Type-PublicProject-sourceVersion"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**timeoutInMinutes**
-
-Type: Integer
-
-Valid Range: Minimum value of 5. Maximum value of 480.
-
+ **timeoutInMinutes**   <a name="CodeBuild-Type-PublicProject-timeoutInMinutes"></a>
+Type: Integer  
+Valid Range: Minimum value of 5. Maximum value of 480.  
 Required: No
 
-**webhook**
-
-Type: [PublicWebhook](API_PublicWebhook.md "API_PublicWebhook.md") object
-
+ **webhook**   <a name="CodeBuild-Type-PublicProject-webhook"></a>
+Type: [PublicWebhook](API_PublicWebhook.md) object  
 Required: No

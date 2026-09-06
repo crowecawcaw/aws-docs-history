@@ -1,7 +1,9 @@
-# Configure parallel tests with Go
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with Go on a Linux platform:
+
+# Configure parallel tests with Go
+<a name="sample-parallel-test-go"></a>
+
+The following is sample of a `buildspec.yml` that shows parallel test execution with Go on a Linux platform:
 
 ```
 version: 0.2
@@ -34,5 +36,4 @@ phases:
       - echo "Test execution completed"
 ```
 
-In the above example, `calculator.go` function contains simple mathematical
-functions to test and all test files and `calculator.go` file is inside `calc` folder.
+In the above example, `calculator.go` function contains simple mathematical functions to test and all test files and `calculator.go` file is inside `calc` folder.

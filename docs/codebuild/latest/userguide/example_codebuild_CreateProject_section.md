@@ -1,26 +1,26 @@
+
+
 # Use `CreateProject` with an AWS SDK or CLI
+<a name="example_codebuild_CreateProject_section"></a>
 
 The following code examples show how to use `CreateProject`.
 
-CLI
+------
+#### [ CLI ]
 
-**AWS CLI**
-
-**Example 1: To create an AWS CodeBuild build project**
-
-The following `create-project` example creates a CodeBuild build project using source files from an S3 bucket
-
-```
-`aws codebuild create-project \
- --name `"my-demo-project"` \
- --source "{\"type\": \"S3\",\"location\": \"codebuild-us-west-2-123456789012-input-bucket/my-source.zip\"}" \
- --artifacts {"\"type\": \"S3\",\"location\": \"codebuild-us-west-2-123456789012-output-bucket\""} \
- --environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/standard:1.0\",\"computeType\": \"BUILD_GENERAL1_SMALL\"}" \
- --service-role `"arn:aws:iam::123456789012:role/service-role/my-codebuild-service-role"``
+**AWS CLI**  
+**Example 1: To create an AWS CodeBuild build project**  
+The following `create-project` example creates a CodeBuild build project using source files from an S3 bucket  
 
 ```
-
-Output:
+aws codebuild create-project \
+    --name {{"my-demo-project"}} \
+    --source "{\"type\": \"S3\",\"location\": \"codebuild-us-west-2-123456789012-input-bucket/my-source.zip\"}" \
+    --artifacts {"\"type\": \"S3\",\"location\": \"codebuild-us-west-2-123456789012-output-bucket\""} \
+    --environment "{\"type\": \"LINUX_CONTAINER\",\"image\": \"aws/codebuild/standard:1.0\",\"computeType\": \"BUILD_GENERAL1_SMALL\"}" \
+    --service-role {{"arn:aws:iam::123456789012:role/service-role/my-codebuild-service-role"}}
+```
+Output:  
 
 ```
 {
@@ -63,17 +63,13 @@ Output:
     }
 }
 ```
-
-**Example 2: To create an AWS CodeBuild build project using a JSON input file for the parameters**
-
-The following `create-project` example creates a CodeBuild build project by passing all of the required parameters in a JSON input file. Create the input file template by running the command with only the `--generate-cli-skeleton parameter`.
+**Example 2: To create an AWS CodeBuild build project using a JSON input file for the parameters**  
+The following `create-project` example creates a CodeBuild build project by passing all of the required parameters in a JSON input file. Create the input file template by running the command with only the `--generate-cli-skeleton parameter`.  
 
 ```
-`aws codebuild create-project --cli-input-json `file://create-project.json``
-
+aws codebuild create-project --cli-input-json {{file://create-project.json}}
 ```
-
-The input JSON file `create-project.json` contains the following content:
+The input JSON file `create-project.json` contains the following content:  
 
 ```
 {
@@ -94,8 +90,7 @@ The input JSON file `create-project.json` contains the following content:
     "serviceRole": "serviceIAMRole"
 }
 ```
-
-Output:
+Output:  
 
 ```
 {
@@ -127,24 +122,15 @@ Output:
     }
 }
 ```
+For more information, see [Create a Build Project (AWS CLI)](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project.html#create-project-cli) in the *AWS CodeBuild User Guide*.  
++  For API details, see [CreateProject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/create-project.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Create a Build Project (AWS CLI)](create-project.md#create-project-cli "create-project.md#create-project-cli") in the _AWS CodeBuild User Guide_.
+------
+#### [ JavaScript ]
 
-- For API details, see
-  [CreateProject](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/create-project.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/create-project.html")
-  in _AWS CLI Command Reference_.
-
-JavaScript
-
-**SDK for JavaScript (v3)**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/codebuild#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/codebuild#code-examples").
-
-Create a project.
+**SDK for JavaScript (v3)**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javascriptv3/example_code/codebuild#code-examples). 
+Create a project.  
 
 ```
 import {
@@ -243,15 +229,10 @@ export const createProject = async (
   //   }
   return response;
 };
-
-
 ```
++  For more information, see [AWS SDK for JavaScript Developer Guide](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/). 
++  For API details, see [CreateProject](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateProjectCommand) in *AWS SDK for JavaScript API Reference*. 
 
-- For more information, see [AWS SDK for JavaScript Developer Guide](../../../AWSJavaScriptSDK/v3/latest/client/codebuild.md "../../../AWSJavaScriptSDK/v3/latest/client/codebuild.md").
-- For API details, see
-  [CreateProject](../../../AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateProjectCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/codebuild/command/CreateProjectCommand.md")
-  in _AWS SDK for JavaScript API Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

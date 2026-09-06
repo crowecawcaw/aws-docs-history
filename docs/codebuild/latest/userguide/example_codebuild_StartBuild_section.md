@@ -1,16 +1,15 @@
+
+
 # Use `StartBuild` with an AWS SDK or CLI
+<a name="example_codebuild_StartBuild_section"></a>
 
 The following code examples show how to use `StartBuild`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples). 
 
 ```
 //! Start an AWS CodeBuild project build.
@@ -42,31 +41,23 @@ bool AwsDoc::CodeBuild::startBuild(const Aws::String &projectName,
 
     return outcome.IsSuccess();
 }
+```
++  For API details, see [StartBuild](https://docs.aws.amazon.com/goto/SdkForCpp/codebuild-2016-10-06/StartBuild) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To start running a build of an AWS CodeBuild build project.**  
+The following `start-build` example starts a build for the specified CodeBuild project. The build overrides both the project's setting for the number of minutes the build is allowed to be queued before it times out and the project's artifact settings.  
 
 ```
-
-- For API details, see
-  [StartBuild](../../../goto/SdkForCpp/codebuild-2016-10-06/StartBuild.md "../../../goto/SdkForCpp/codebuild-2016-10-06/StartBuild.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To start running a build of an AWS CodeBuild build project.**
-
-The following `start-build` example starts a build for the specified CodeBuild project. The build overrides both the project's setting for the number of minutes the build is allowed to be queued before it times out and the project's artifact settings.
-
+aws codebuild start-build \
+    --project-name {{"my-demo-project"}} \
+    --queued-timeout-in-minutes-override {{5}} \
+    --artifacts-override {"\"type\": \"S3\",\"location\": \"arn:aws:s3:::artifacts-override\",\"overrideArtifactName\":true"}
 ```
-`aws codebuild start-build \
- --project-name `"my-demo-project"` \
- --queued-timeout-in-minutes-override `5` \
- --artifacts-override {"\"type\": \"S3\",\"location\": \"arn:aws:s3:::artifacts-override\",\"overrideArtifactName\":true"}`
-
-```
-
-Output:
+Output:  
 
 ```
 {
@@ -123,13 +114,9 @@ Output:
     }
 }
 ```
+For more information, see [Run a Build (AWS CLI)](https://docs.aws.amazon.com/codebuild/latest/userguide/run-build.html#run-build-cli) in the *AWS CodeBuild User Guide*.  
++  For API details, see [StartBuild](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/start-build.html) in *AWS CLI Command Reference*. 
 
-For more information, see [Run a Build (AWS CLI)](run-build.md#run-build-cli "run-build.md#run-build-cli") in the _AWS CodeBuild User Guide_.
+------
 
-- For API details, see
-  [StartBuild](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/start-build.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/start-build.html")
-  in _AWS CLI Command Reference_.
-
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

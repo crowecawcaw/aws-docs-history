@@ -1,7 +1,9 @@
-# Configure parallel tests with Kotlin
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with Kotlin on a Linux platform:
+
+# Configure parallel tests with Kotlin
+<a name="sample-parallel-test-kotlin"></a>
+
+The following is sample of a `buildspec.yml` that shows parallel test execution with Kotlin on a Linux platform:
 
 ```
 version: 0.2
@@ -15,7 +17,7 @@ batch:
 phases:
   install:
     runtime-versions:
-      java: corretto11
+      java: corretto11 
     commands:
       - echo 'Installing dependencies'
       - KOTLIN_VERSION="1.8.20" # Replace with your desired version
@@ -49,8 +51,4 @@ phases:
       - echo "Test execution completed"
 ```
 
-In the above example, the `codebuild-tests-run` CLI is used twice. During the first run,
-kotlinc compiles the files. The `CODEBUILD_CURRENT_SHARD_FILES` variable retrieves the test files
-assigned to the current shard, which are then converted into a space-separated list. In the second run,
-JUnit executes the tests. Again, `CODEBUILD_CURRENT_SHARD_FILES` fetches the test files assigned to the
-current shard, but this time they are converted into class names.
+In the above example, the `codebuild-tests-run` CLI is used twice. During the first run, kotlinc compiles the files. The `CODEBUILD_CURRENT_SHARD_FILES` variable retrieves the test files assigned to the current shard, which are then converted into a space-separated list. In the second run, JUnit executes the tests. Again, `CODEBUILD_CURRENT_SHARD_FILES` fetches the test files assigned to the current shard, but this time they are converted into class names.

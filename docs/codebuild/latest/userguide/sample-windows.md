@@ -1,86 +1,68 @@
+
+
 # Run Microsoft Windows samples for CodeBuild
+<a name="sample-windows"></a>
 
-These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the
-.NET Framework, and the .NET Core SDK to build runtime files out of code written in F# and
-Visual Basic.
+These samples use an AWS CodeBuild build environment running Microsoft Windows Server 2019, the .NET Framework, and the .NET Core SDK to build runtime files out of code written in F\# and Visual Basic. 
 
-###### Important
-
-Running these samples might result in charges to your AWS account. These include
-possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and
-CloudWatch Logs. For more information, see [CodeBuild
-pricing](http://aws.amazon.com/codebuild/pricing "http://aws.amazon.com/codebuild/pricing"), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing "http://aws.amazon.com/s3/pricing"), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing "http://aws.amazon.com/kms/pricing"), and [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing "http://aws.amazon.com/cloudwatch/pricing").
+**Important**  
+Running these samples might result in charges to your AWS account. These include possible charges for CodeBuild and for AWS resources and actions related to Amazon S3, AWS KMS, and CloudWatch Logs. For more information, see [CodeBuild pricing](http://aws.amazon.com/codebuild/pricing), [Amazon S3 pricing](http://aws.amazon.com/s3/pricing), [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing), and [Amazon CloudWatch pricing](http://aws.amazon.com/cloudwatch/pricing).
 
 ## Run the Windows samples
+<a name="run-windows-samples"></a>
 
 Use the following procedure to run the Windows samples.
 
-###### To run the Windows samples
+**To run the Windows samples**
 
-1. Create the files as described in the [Directory structure](#windows-samples-directory-structure "#windows-samples-directory-structure") and [Files](#windows-samples-directory-structure-csharp-framework "#windows-samples-directory-structure-csharp-framework") sections of this
-   topic, and then upload them to an S3 input bucket or a CodeCommit or GitHub repository.
+1. Create the files as described in the [Directory structure](#windows-samples-directory-structure) and [Files](#windows-samples-directory-structure-csharp-framework) sections of this topic, and then upload them to an S3 input bucket or a CodeCommit or GitHub repository.
+**Important**  
+Do not upload `{{(root directory name)}}`, just the files inside of `{{(root directory name)}}`.  
+If you are using an S3 input bucket, be sure to create a ZIP file that contains the files, and then upload it to the input bucket. Do not add `{{(root directory name)}}` to the ZIP file, just the files inside of `{{(root directory name)}}`.
 
-###### Important
+1. Create a build project. The build project must use the `mcr.microsoft.com/dotnet/framework/sdk:4.8` image to build .NET Framework projects.
 
-Do not upload `(root directory name)`,
-just the files inside of `(root directory
- name)`.
+   If you use the AWS CLI to create the build project, the JSON-formatted input to the `create-project` command might look similar to this. (Replace the placeholders with your own values.)
 
-If you are using an S3 input bucket, be sure to create a ZIP file that contains the
-files, and then upload it to the input bucket. Do not add `(root
- directory name)` to the ZIP file, just the files inside of
-`(root directory name)`. 2. Create a build project. The build project must use the
-`mcr.microsoft.com/dotnet/framework/sdk:4.8` image to build .NET
-Framework projects.
+   ```
+   {
+     "name": "sample-windows-build-project",
+     "source": {
+       "type": "S3",
+       "location": "codebuild-{{region-ID}}-{{account-ID}}-input-bucket/{{windows-build-input-artifact}}.zip"
+     },
+     "artifacts": {
+       "type": "S3",
+       "location": "codebuild-{{region-ID}}-{{account-ID}}-output-bucket",
+       "packaging": "ZIP",
+       "name": "{{windows-build-output-artifact}}.zip"
+     },
+     "environment": {
+       "type": "WINDOWS_SERVER_2019_CONTAINER",
+       "image": "mcr.microsoft.com/dotnet/framework/sdk:4.8",
+       "computeType": "BUILD_GENERAL1_MEDIUM"
+     },
+     "serviceRole": "arn:aws:iam::{{account-ID}}:role/{{role-name}}",
+     "encryptionKey": "arn:aws:kms:{{region-ID}}:{{account-ID}}:key/{{key-ID}}"
+   }
+   ```
 
-If you use the AWS CLI to create the build project, the JSON-formatted input to the
-`create-project` command might look similar to this. (Replace the
-placeholders with your own values.)
+1. Run the build, and follow the steps in [Run builds manually](run-build.md).
 
-```
-{
-  "name": "sample-windows-build-project",
-  "source": {
-    "type": "S3",
-    "location": "codebuild-`region-ID`-`account-ID`-input-bucket/`windows-build-input-artifact`.zip"
-  },
-  "artifacts": {
-    "type": "S3",
-    "location": "codebuild-`region-ID`-`account-ID`-output-bucket",
-    "packaging": "ZIP",
-    "name": "`windows-build-output-artifact`.zip"
-  },
-  "environment": {
-    "type": "WINDOWS_SERVER_2019_CONTAINER",
-    "image": "mcr.microsoft.com/dotnet/framework/sdk:4.8",
-    "computeType": "BUILD_GENERAL1_MEDIUM"
-  },
-  "serviceRole": "arn:aws:iam::`account-ID`:role/`role-name`",
-  "encryptionKey": "arn:aws:kms:`region-ID`:`account-ID`:key/`key-ID`"
-}
-```
-
-3. Run the build, and follow the steps in [Run builds manually](run-build.md "run-build.md").
-4. To get the build output artifact, in your S3 output bucket, download the
-   ``windows-build-output-artifact`.zip` file
-   to your local computer or instance. Extract the contents to get to the runtime and other
-   files.
-
-   - The runtime file for the F# sample using the .NET Framework,
-     `FSharpHelloWorld.exe`, can be found in the
-     `FSharpHelloWorld\bin\Debug` directory.
-   - The runtime file for the Visual Basic sample using the .NET Framework,
-     `VBHelloWorld.exe`, can be found in the
-     `VBHelloWorld\bin\Debug` directory.
+1. To get the build output artifact, in your S3 output bucket, download the `{{windows-build-output-artifact}}.zip` file to your local computer or instance. Extract the contents to get to the runtime and other files.
+   + The runtime file for the F\# sample using the .NET Framework, `FSharpHelloWorld.exe`, can be found in the `FSharpHelloWorld\bin\Debug` directory.
+   + The runtime file for the Visual Basic sample using the .NET Framework, `VBHelloWorld.exe`, can be found in the `VBHelloWorld\bin\Debug` directory. 
 
 ## Directory structure
+<a name="windows-samples-directory-structure"></a>
 
 These samples assume the following directory structures.
 
-### F# and the .NET Framework
+### F\# and the .NET Framework
+<a name="windows-samples-directory-structure-fsharp"></a>
 
 ```
-`(root directory name)`
+{{(root directory name)}}
 ├── buildspec.yml
 ├── FSharpHelloWorld.sln
 └── FSharpHelloWorld
@@ -91,9 +73,10 @@ These samples assume the following directory structures.
 ```
 
 ### Visual Basic and the .NET Framework
+<a name="windows-samples-directory-structure-vb"></a>
 
 ```
-`(root directory name)`
+{{(root directory name)}}
 ├── buildspec.yml
 ├── VBHelloWorld.sln
 └── VBHelloWorld
@@ -111,13 +94,14 @@ These samples assume the following directory structures.
 ```
 
 ## Files
+<a name="windows-samples-directory-structure-csharp-framework"></a>
 
 These samples use the following files.
 
-### F# and the .NET Framework
+### F\# and the .NET Framework
+<a name="windows-samples-directory-structure-fsharp-framework-list"></a>
 
-`buildspec.yml` (in `(root directory
- name)`):
+`buildspec.yml` (in `{{(root directory name)}}`):
 
 ```
 version: 0.2
@@ -138,8 +122,7 @@ artifacts:
     - .\FSharpHelloWorld\bin\Debug\*
 ```
 
-`FSharpHelloWorld.sln` (in `(root directory
- name)`):
+`FSharpHelloWorld.sln` (in `{{(root directory name)}}`):
 
 ```
 Microsoft Visual Studio Solution File, Format Version 12.00
@@ -165,20 +148,18 @@ Global
 EndGlobal
 ```
 
-`App.config` (in ``(root directory
-name)`\FSharpHelloWorld`):
+`App.config` (in `{{(root directory name)}}\FSharpHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-  <startup>
+  <startup> 
     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
   </startup>
 </configuration>
 ```
 
-`AssemblyInfo.fs` (in ``(root directory
-name)`\FSharpHelloWorld`):
+`AssemblyInfo.fs` (in `{{(root directory name)}}\FSharpHelloWorld`):
 
 ```
 namespace FSharpHelloWorld.AssemblyInfo
@@ -187,7 +168,7 @@ open System.Reflection
 open System.Runtime.CompilerServices
 open System.Runtime.InteropServices
 
-// General Information about an assembly is controlled through the following
+// General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [<assembly: AssemblyTitle("FSharpHelloWorld")>]
@@ -199,8 +180,8 @@ open System.Runtime.InteropServices
 [<assembly: AssemblyTrademark("")>]
 [<assembly: AssemblyCulture("")>]
 
-// Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a type in this assembly from
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [<assembly: ComVisible(false)>]
 
@@ -208,13 +189,13 @@ open System.Runtime.InteropServices
 [<assembly: Guid("d60939b6-526d-43f4-9a89-577b2980df62")>]
 
 // Version information for an assembly consists of the following four values:
-//
+// 
 // Major Version
-// Minor Version
+// Minor Version 
 // Build Number
 // Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers
+// 
+// You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [<assembly: AssemblyVersion("1.0.*")>]
 [<assembly: AssemblyVersion("1.0.0.0")>]
@@ -224,8 +205,7 @@ do
   ()
 ```
 
-`FSharpHelloWorld.fsproj` (in ``(root directory
-name)`\FSharpHelloWorld`):
+`FSharpHelloWorld.fsproj` (in `{{(root directory name)}}\FSharpHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -297,7 +277,7 @@ name)`\FSharpHelloWorld`):
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
@@ -307,23 +287,22 @@ name)`\FSharpHelloWorld`):
 </Project>
 ```
 
-`Program.fs` (in ``(root directory
-name)`\FSharpHelloWorld`):
+`Program.fs` (in `{{(root directory name)}}\FSharpHelloWorld`):
 
 ```
 // Learn more about F# at http://fsharp.org
 // See the 'F# Tutorial' project for more help.
 
 [<EntryPoint>]
-let main argv =
+let main argv = 
   printfn "Hello World"
   0 // return an integer exit code
 ```
 
 ### Visual Basic and the .NET Framework
+<a name="windows-samples-directory-structure-vb-framework-list"></a>
 
-`buildspec.yml` (in `(root directory
- name)`):
+`buildspec.yml` (in `{{(root directory name)}}`):
 
 ```
 version: 0.2
@@ -344,8 +323,7 @@ artifacts:
     - .\VBHelloWorld\bin\Debug\*
 ```
 
-`VBHelloWorld.sln` (in `(root directory
- name)`):
+`VBHelloWorld.sln` (in `{{(root directory name)}}`):
 
 ```
 Microsoft Visual Studio Solution File, Format Version 12.00
@@ -371,20 +349,18 @@ Global
 EndGlobal
 ```
 
-`App.config` (in ``(root directory
-name)`\VBHelloWorld`):
+`App.config` (in `{{(root directory name)}}\VBHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-  <startup>
+  <startup> 
     <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
   </startup>
 </configuration>
 ```
 
-`HelloWorld.vb` (in ``(root directory
-name)`\VBHelloWorld`):
+`HelloWorld.vb` (in `{{(root directory name)}}\VBHelloWorld`):
 
 ```
 Module HelloWorld
@@ -396,8 +372,7 @@ Module HelloWorld
 End Module
 ```
 
-`VBHelloWorld.vbproj` (in ``(root directory
-name)`\VBHelloWorld`):
+`VBHelloWorld.vbproj` (in `{{(root directory name)}}\VBHelloWorld`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -508,7 +483,7 @@ name)`\VBHelloWorld`):
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
@@ -518,8 +493,7 @@ name)`\VBHelloWorld`):
 </Project>
 ```
 
-`Application.Designer.vb` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`Application.Designer.vb` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 '------------------------------------------------------------------------------
@@ -536,8 +510,7 @@ Option Strict On
 Option Explicit On
 ```
 
-`Application.myapp` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`Application.myapp` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -552,15 +525,14 @@ name)`\VBHelloWorld\My Project`):
 </MyApplicationData>
 ```
 
-`AssemblyInfo.vb` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`AssemblyInfo.vb` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
-' General Information about an assembly is controlled through the following
+' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
 
@@ -581,20 +553,19 @@ Imports System.Runtime.InteropServices
 ' Version information for an assembly consists of the following four values:
 '
 ' Major Version
-' Minor Version
+' Minor Version 
 ' Build Number
 ' Revision
 '
-' You can specify all the values or you can default the Build and Revision Numbers
+' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
-' <Assembly: AssemblyVersion("1.0.*")>
+' <Assembly: AssemblyVersion("1.0.*")> 
 
 <Assembly: AssemblyVersion("1.0.0.0")>
 <Assembly: AssemblyFileVersion("1.0.0.0")>
 ```
 
-`Resources.Designer.vb` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`Resources.Designer.vb` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 '------------------------------------------------------------------------------
@@ -660,24 +631,23 @@ Namespace My.Resources
 End Namespace
 ```
 
-`Resources.resx` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`Resources.resx` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -692,36 +662,36 @@ name)`\VBHelloWorld\My Project`):
       <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
       <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
   -->
@@ -783,8 +753,7 @@ name)`\VBHelloWorld\My Project`):
 </root>
 ```
 
-`Settings.Designer.vb` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`Settings.Designer.vb` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 '------------------------------------------------------------------------------
@@ -861,8 +830,7 @@ Namespace My
 End Namespace
 ```
 
-`Settings.settings` (in ``(root directory
-name)`\VBHelloWorld\My Project`):
+`Settings.settings` (in `{{(root directory name)}}\VBHelloWorld\My Project`):
 
 ```
 <?xml version='1.0' encoding='utf-8'?>

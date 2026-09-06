@@ -1,4 +1,7 @@
+
+
 # Build notifications input format reference
+<a name="sample-build-notifications-ref"></a>
 
 CloudWatch delivers notifications in JSON format.
 
@@ -254,7 +257,7 @@ Build phase change notifications use the following format:
           "start-time": "Sep 1, 2017 4:14:26 PM",
           "phase-type": "COMPLETED"
         }
-      ]
+      ]  
     },
     "completed-phase-status": "SUCCEEDED",
     "completed-phase-duration-seconds": 4,

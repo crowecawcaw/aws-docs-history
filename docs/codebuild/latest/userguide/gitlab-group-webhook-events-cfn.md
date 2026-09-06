@@ -1,25 +1,15 @@
+
+
 # Filter GitLab group webhook events (CloudFormation)
+<a name="gitlab-group-webhook-events-cfn"></a>
 
-To use a CloudFormation template to filter group webhook events, use the AWS CodeBuild
-project's `ScopeConfiguration` property. For more information about group
-GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md "gitlab-group-webhook.md").
+ To use a CloudFormation template to filter group webhook events, use the AWS CodeBuild project's `ScopeConfiguration` property. For more information about group GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md).
 
-The following YAML-formatted portion of a CloudFormation template creates four filter groups.
-Together, they trigger a build when one or all evaluate to true:
-
-- The first filter group specifies pull requests are created or updated on
-  branches with Git reference names that match the regular expression
-  `^refs/heads/main$` by a GitLab user who does not have account ID
-  `12345`.
-- The second filter group specifies push requests are created on files with
-  names that match the regular expression `READ_ME` in branches with
-  Git reference names that match the regular expression
-  `^refs/heads/.*`.
-- The third filter group specifies a push request with a head commit message
-  matching the regular expression `\[CodeBuild\]`.
-- The fourth filter group specifies a GitLab CI/CD pipeline job request with a
-  CI/CD pipeline name matching the regular expression
-  `\[CI-CodeBuild\]`.
+ The following YAML-formatted portion of a CloudFormation template creates four filter groups. Together, they trigger a build when one or all evaluate to true: 
++  The first filter group specifies pull requests are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` by a GitLab user who does not have account ID `12345`. 
++  The second filter group specifies push requests are created on files with names that match the regular expression `READ_ME` in branches with Git reference names that match the regular expression `^refs/heads/.*`. 
++ The third filter group specifies a push request with a head commit message matching the regular expression `\[CodeBuild\]`.
++ The fourth filter group specifies a GitLab CI/CD pipeline job request with a CI/CD pipeline name matching the regular expression `\[CI-CodeBuild\]`.
 
 ```
 CodeBuildProject:

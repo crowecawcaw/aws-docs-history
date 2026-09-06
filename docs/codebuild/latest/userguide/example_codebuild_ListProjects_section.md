@@ -1,16 +1,15 @@
+
+
 # Use `ListProjects` with an AWS SDK or CLI
+<a name="example_codebuild_ListProjects_section"></a>
 
 The following code examples show how to use `ListProjects`.
 
-C++
+------
+#### [ C\+\+ ]
 
-**SDK for C++**
-
-###### Note
-
-There's more on GitHub. Find the complete example and learn how to set up and run in the
-[AWS Code
-Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples").
+**SDK for C\+\+**  
+ There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp/example_code/codebuild#code-examples). 
 
 ```
 //! List the CodeBuild projects.
@@ -57,28 +56,20 @@ bool AwsDoc::CodeBuild::listProjects(Aws::CodeBuild::Model::SortOrderType sortTy
 
     return true;
 }
+```
++  For API details, see [ListProjects](https://docs.aws.amazon.com/goto/SdkForCpp/codebuild-2016-10-06/ListProjects) in *AWS SDK for C\+\+ API Reference*. 
 
+------
+#### [ CLI ]
+
+**AWS CLI**  
+**To get a list of AWS CodeBuild build project names.**  
+The following `list-projects` example gets a list of CodeBuild build projects sorted by name in ascending order.  
 
 ```
-
-- For API details, see
-  [ListProjects](../../../goto/SdkForCpp/codebuild-2016-10-06/ListProjects.md "../../../goto/SdkForCpp/codebuild-2016-10-06/ListProjects.md")
-  in _AWS SDK for C++ API Reference_.
-
-CLI
-
-**AWS CLI**
-
-**To get a list of AWS CodeBuild build project names.**
-
-The following `list-projects` example gets a list of CodeBuild build projects sorted by name in ascending order.
-
+aws codebuild list-projects --sort-by {{NAME}} --sort-order {{ASCENDING}}
 ```
-`aws codebuild list-projects --sort-by `NAME` --sort-order `ASCENDING``
-
-```
-
-The output includes a `nextToken` value which indicates that there is more output available.
+The output includes a `nextToken` value which indicates that there is more output available.  
 
 ```
 {
@@ -91,29 +82,23 @@ The output includes a `nextToken` value which indicates that there is more outpu
     ]
 }
 ```
-
-Run this command again and provide the `nextToken` value from the previous response as a parameter to get the next part of the output. Repeat until you don't receive a `nextToken` value in the response.
-
-```
-`aws codebuild list-projects --sort-by `NAME` --sort-order `ASCENDING` --next-token `Ci33ACF6...The` `full` `token` `has` `been` `omitted` `for` `brevity...U+AkMx8=`
-
-`{`
- "projects": `[`
- "codebuild-demo-project100",
- "codebuild-demo-project101",
- `...` `The` `full` `list` `of` `build` `project` `names` `has` `been` `omitted` `for` `brevity` `...`
- `"codebuild-demo-project122"`
- `]`
-`}``
+Run this command again and provide the `nextToken` value from the previous response as a parameter to get the next part of the output. Repeat until you don't receive a `nextToken` value in the response.  
 
 ```
+aws codebuild list-projects  --sort-by {{NAME}} --sort-order {{ASCENDING}} --next-token {{Ci33ACF6...The}} {{full}} {{token}} {{has}} {{been}} {{omitted}} {{for}} {{brevity...U+AkMx8=}}
 
-For more information, see [View a List of Build Project Names (AWS CLI)](view-project-list.md#view-project-list-cli "view-project-list.md#view-project-list-cli") in the _AWS CodeBuild User Guide_.
+{{{}}
+    "projects": {{[}}
+        "codebuild-demo-project100",
+        "codebuild-demo-project101",
+            {{...}} {{The}} {{full}} {{list}} {{of}} {{build}} {{project}} {{names}} {{has}} {{been}} {{omitted}} {{for}} {{brevity}} {{...}}
+        {{"codebuild-demo-project122"}}
+    {{]}}
+{{}}}
+```
+For more information, see [View a List of Build Project Names (AWS CLI)](https://docs.aws.amazon.com/codebuild/latest/userguide/view-project-list.html#view-project-list-cli) in the *AWS CodeBuild User Guide*.  
++  For API details, see [ListProjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/list-projects.html) in *AWS CLI Command Reference*. 
 
-- For API details, see
-  [ListProjects](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/list-projects.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codebuild/list-projects.html")
-  in _AWS CLI Command Reference_.
+------
 
-For a complete list of AWS SDK developer guides and code examples, see
-[Using this service with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
-This topic also includes information about getting started and details about previous SDK versions.
+For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](sdk-general-information-section.md). This topic also includes information about getting started and details about previous SDK versions.

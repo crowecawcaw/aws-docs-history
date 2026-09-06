@@ -1,69 +1,31 @@
+
+
 # Data protection in AWS CodeBuild
+<a name="data-protection"></a>
 
-The AWS
-[shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/")
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS CodeBuild. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
-applies to data protection in AWS CodeBuild.
+For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
++ Use multi-factor authentication (MFA) with each account.
++ Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
++ Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html) in the *AWS CloudTrail User Guide*.
++ Use AWS encryption solutions, along with all default security controls within AWS services.
++ Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
++ If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-As described in this model, AWS is
-responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are
-responsible for maintaining control over your content that is hosted on this infrastructure.
-You are also responsible for the security configuration and management tasks for the AWS services
-that you use.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with CodeBuild or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
-For more information about data privacy, see
-[Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/ "https://aws.amazon.com/compliance/data-privacy-faq/").
+ To protect sensitive information, the following are hidden in CodeBuild logs: 
++  Strings specified using the Parameter Store in CodeBuild project environment variables or the buildspec `env/parameter-store` section. For more information, see [Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-paramstore.html) and [Systems Manager Parameter Store console walkthrough](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-walk.html#sysman-paramstore-console) in the *Amazon EC2 Systems Manager User Guide*. 
++  Strings specified using AWS Secrets Manager in CodeBuild project environment variables or the buildspec `env/secrets-manager` section. For more information, see [Key management](security-key-management.md). 
 
-For information about data protection in Europe, see the
-[General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/ "https://aws.amazon.com/compliance/gdpr-center/").
+**Note**  
+Masking matches the exact value stored in Amazon EC2 Systems Manager Parameter Store or AWS Secrets Manager. If a build command transforms a secret before it appears in the logs, the result is a different string that is not masked. For example, encoding it with Base64, reversing it, changing case, or concatenating it with other text creates a different value that can appear in the build logs.  
+To keep a value masked, store it in the form your build uses. For example, if your build requires a Base64-encoded value, store the Base64-encoded string directly in AWS Secrets Manager or Amazon EC2 Systems Manager Parameter Store. This way, the logged value matches the stored value.
 
-For data protection purposes, we recommend that you protect AWS account
-credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
+For more information about data protection, see the [AWS shared responsibility model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the *AWS Security Blog*.
 
-- Use multi-factor authentication (MFA) with each account.
-- Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-- Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the _AWS CloudTrail User Guide_.
-- Use AWS encryption solutions, along with all default security controls within AWS services.
-- Use advanced managed security services such as Amazon Macie, which assists in discovering
-  and securing sensitive data that is stored in Amazon S3.
-- If you require FIPS 140-3 validated cryptographic modules when accessing AWS through
-  a command line interface or an API, use a FIPS endpoint. For more information about the
-  available FIPS endpoints, see [Federal
-  Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
-  We strongly recommend that you never put confidential or sensitive information, such as your
-  customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with CodeBuild or other AWS services
-  using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into
-  tags or free-form text fields used for names may be used for billing or diagnostic logs. If you
-  provide a URL to an external server, we strongly recommend that you do not include credentials
-  information in the URL to validate your request to that server.
-
-To protect sensitive information, the following are hidden in CodeBuild logs:
-
-- Strings specified using the Parameter Store in CodeBuild project environment
-  variables or the buildspec `env/parameter-store` section. For more
-  information, see [Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-paramstore.md "../../../systems-manager/latest/userguide/systems-manager-paramstore.md") and [Systems Manager Parameter Store console walkthrough](../../../systems-manager/latest/userguide/sysman-paramstore-walk.md#sysman-paramstore-console "../../../systems-manager/latest/userguide/sysman-paramstore-walk.md#sysman-paramstore-console") in the
-  _Amazon EC2 Systems Manager User Guide_.
-- Strings specified using AWS Secrets Manager in CodeBuild project environment variables or the
-  buildspec `env/secrets-manager` section. For more information, see [Key management](security-key-management.md "security-key-management.md").
-
-###### Note
-
-Masking matches the exact value stored in Amazon EC2 Systems Manager Parameter Store or AWS Secrets Manager. If a
-build command transforms a secret before it appears in the logs, the result is a different
-string that is not masked. For example, encoding it with Base64, reversing it, changing
-case, or concatenating it with other text creates a different value that can appear in the
-build logs.
-
-To keep a value masked, store it in the form your build uses. For example, if your build
-requires a Base64-encoded value, store the Base64-encoded string directly in AWS Secrets Manager or
-Amazon EC2 Systems Manager Parameter Store. This way, the logged value matches the stored value.
-
-For more information about data protection, see the [AWS
-shared responsibility model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/ "https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/") blog post on the _AWS Security
-Blog_.
-
-###### Topics
-
-- [Data encryption](security-encryption.md "security-encryption.md")
-- [Key management](security-key-management.md "security-key-management.md")
-- [Traffic privacy](security-traffic-privacy.md "security-traffic-privacy.md")
+**Topics**
++ [Data encryption](security-encryption.md)
++ [Key management](security-key-management.md)
++ [Traffic privacy](security-traffic-privacy.md)

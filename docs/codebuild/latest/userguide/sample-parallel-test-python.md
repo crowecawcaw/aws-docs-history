@@ -1,7 +1,9 @@
-# Configure parallel tests with Pytest
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with Pytest on an Ubuntu platform:
+
+# Configure parallel tests with Pytest
+<a name="sample-parallel-test-python"></a>
+
+The following is sample of a `buildspec.yml` that shows parallel test execution with Pytest on an Ubuntu platform:
 
 ```
 version: 0.2
@@ -33,8 +35,7 @@ phases:
       - echo "Test execution completed"
 ```
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with Pytest on an Windows platform:
+The following is sample of a `buildspec.yml` that shows parallel test execution with Pytest on an Windows platform:
 
 ```
 version: 0.2
@@ -60,11 +61,10 @@ phases:
         & codebuild-tests-run `
          --test-command 'pytest @("$env:CODEBUILD_CURRENT_SHARD_FILES" -split \"`r?`n\")'  `
          --files-search "codebuild-glob-search '**/test_*.py' '**/*_test.py'" `
-         --sharding-strategy 'equal-distribution'
+         --sharding-strategy 'equal-distribution' 
   post_build:
     commands:
       - echo "Test execution completed"
 ```
 
-In the above example, `CODEBUILD_CURRENT_SHARD_FILES` environment variable is
-used to fetch test files assigned to current shard and passed as array to pytest command.
+In the above example, `CODEBUILD_CURRENT_SHARD_FILES` environment variable is used to fetch test files assigned to current shard and passed as array to pytest command.

@@ -1,7 +1,9 @@
-# Configure parallel tests with Elixir
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with Elixir on an Ubuntu platform:
+
+# Configure parallel tests with Elixir
+<a name="sample-parallel-test-elixir"></a>
+
+The following is sample of a `buildspec.yml` that shows parallel test execution with Elixir on an Ubuntu platform:
 
 ```
 version: 0.2
@@ -28,7 +30,7 @@ phases:
       - |
         codebuild-tests-run \
          --test-command 'mix test' \
-         --files-search "codebuild-glob-search '**/test/**/*_test.exs'" \
+         --files-search "codebuild-glob-search '**/test/**/*_test.exs'" \ 
          --sharding-strategy 'equal-distribution'
   post_build:
     commands:

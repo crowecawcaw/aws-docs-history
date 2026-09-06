@@ -1,115 +1,123 @@
+
+
 # Debug builds with CodeBuild sandbox
+<a name="sandbox"></a>
 
-In AWS CodeBuild, you can debug a build by using CodeBuild sandbox to run custom
-commands and troubleshoot your build.
+In AWS CodeBuild, you can debug a build by using CodeBuild sandbox to run custom commands and troubleshoot your build.
 
-###### Topics
-
-- [Prerequisites](#sandbox-prereq "#sandbox-prereq")
-- [Debug builds with CodeBuild sandbox (console)](#sandbox-console "#sandbox-console")
-- [Debug builds with CodeBuild sandbox (AWS CLI)](#sandbox-cli "#sandbox-cli")
-- [Tutorial: Connecting to a sandbox using SSH](sandbox-ssh-tutorial.md "sandbox-ssh-tutorial.md")
-- [Troubleshooting AWS CodeBuild sandbox SSH connection issues](sandbox-troubleshooting.md "sandbox-troubleshooting.md")
+**Topics**
++ [Prerequisites](#sandbox-prereq)
++ [Debug builds with CodeBuild sandbox (console)](#sandbox-console)
++ [Debug builds with CodeBuild sandbox (AWS CLI)](#sandbox-cli)
++ [Tutorial: Connecting to a sandbox using SSH](sandbox-ssh-tutorial.md)
++ [Troubleshooting AWS CodeBuild sandbox SSH connection issues](sandbox-troubleshooting.md)
 
 ## Prerequisites
+<a name="sandbox-prereq"></a>
 
 Before using a CodeBuild sandbox, make sure that your CodeBuild service role has the following SSM policy:
 
-JSON
+------
+#### [ JSON ]
+
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ssmmessages:CreateControlChannel",
- "ssmmessages:CreateDataChannel",
- "ssmmessages:OpenControlChannel",
- "ssmmessages:OpenDataChannel"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "ssm:StartSession"
- ],
- "Resource": [
- "arn:aws:codebuild:us-east-1:`111122223333`:build/*",
- "arn:aws:ssm:us-east-1::document/AWS-StartSSHSession"
- ]
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssmmessages:CreateControlChannel",
+                "ssmmessages:CreateDataChannel",
+                "ssmmessages:OpenControlChannel",
+                "ssmmessages:OpenDataChannel"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:codebuild:us-east-1:{{111122223333}}:build/*",
+                "arn:aws:ssm:us-east-1::document/AWS-StartSSHSession"
+            ]
+        }
+    ]
+}
 ```
+
+------
 
 ## Debug builds with CodeBuild sandbox (console)
+<a name="sandbox-console"></a>
 
 Use the following instructions to run commands and connect your SSH client with CodeBuild sandbox in the console.
 
 ### Run commands with CodeBuild sandbox (console)
+<a name="sandbox-console.commands"></a>
 
-1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
-2. In the navigation pane, choose **Build projects**. Choose the
-   build project, and then choose **Debug build**.
+1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home).
 
-![The debug build project detail page in the console.](images/sandbox-debug-build.png) 3. In the **Run command** tab, enter your custom commands,
-and then choose **Run command**.
+1. In the navigation pane, choose **Build projects**. Choose the build project, and then choose **Debug build**.  
+![The debug build project detail page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/sandbox-debug-build.png)
 
-![The run command detail page in the console.](images/debug-build-run.png) 4. Your CodeBuild sandbox will then be initialized and start running your custom commands.
-The output will be shown in the **Output** tab when it's completed.
+1. In the **Run command** tab, enter your custom commands, and then choose **Run command**.  
+![The run command detail page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/debug-build-run.png)
 
-![The run command output page in the console.](images/debug-build-run-output.png) 5. When troubleshooting is completed, you can stop the sandbox by choosing
-**Stop sandbox**. Then choose **Stop** to confirm
-that your sandbox will be stopped.
+1. Your CodeBuild sandbox will then be initialized and start running your custom commands. The output will be shown in the **Output** tab when it's completed.   
+![The run command output page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/debug-build-run-output.png)
 
-![The stop sandbox dialog box.](images/stop-sandbox.png)
-
-![The run command output page with a stopped sandbox in the console.](images/stopped-sandbox.png)
+1. When troubleshooting is completed, you can stop the sandbox by choosing **Stop sandbox**. Then choose **Stop** to confirm that your sandbox will be stopped.  
+![The stop sandbox dialog box.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stop-sandbox.png)  
+![The run command output page with a stopped sandbox in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stopped-sandbox.png)
 
 ### Connect to your SSH client with CodeBuild sandbox (console)
+<a name="sandbox-console.ssh"></a>
 
-1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
-2. In the navigation pane, choose **Build projects**. Choose the
-   build project, and then choose **Debug build**.
+1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home).
 
-![The debug build project detail page in the console.](images/sandbox-debug-build.png) 3. In the **SSH Client** tab and choose **Start sandbox**.
+1. In the navigation pane, choose **Build projects**. Choose the build project, and then choose **Debug build**.  
+![The debug build project detail page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/sandbox-debug-build.png)
 
-![The SSH client sandbox page in the console.](images/ssh-client-sandbox.png) 4. After the CodeBuild sandbox starts running, follow the console instructions to connect your SSH
-client with the sandbox.
+1. In the **SSH Client** tab and choose **Start sandbox**.  
+![The SSH client sandbox page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ssh-client-sandbox.png)
 
-![The SSH client sandbox page in the console.](images/ssh-client-sandbox-terminal.png) 5. When troubleshooting is completed, you can stop the sandbox by choosing
-**Stop sandbox**. Then choose **Stop** to confirm
-that your sandbox will be stopped.
+1. After the CodeBuild sandbox starts running, follow the console instructions to connect your SSH client with the sandbox.  
+![The SSH client sandbox page in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/ssh-client-sandbox-terminal.png)
 
-![The stop sandbox dialog box.](images/stop-sandbox-2.png)
-
-![The run command output page with a stopped sandbox in the console.](images/stopped-sandbox-2.png)
+1. When troubleshooting is completed, you can stop the sandbox by choosing **Stop sandbox**. Then choose **Stop** to confirm that your sandbox will be stopped.  
+![The stop sandbox dialog box.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stop-sandbox-2.png)  
+![The run command output page with a stopped sandbox in the console.](http://docs.aws.amazon.com/codebuild/latest/userguide/images/stopped-sandbox-2.png)
 
 ## Debug builds with CodeBuild sandbox (AWS CLI)
+<a name="sandbox-cli"></a>
 
 Use the following instructions to run commands and connect your SSH client with CodeBuild sandbox.
 
 ### Start a CodeBuild sandbox (AWS CLI)
+<a name="sandbox-cli.start-sandbox"></a>
 
-CLI command
+------
+#### [ CLI command ]
 
 ```
 aws codebuild start-sandbox --project-name $PROJECT_NAME
 ```
++ `--project-name` : CodeBuild project name
 
-- `--project-name` : CodeBuild project name
-
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild start-sandbox --project-name "project-name"
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -184,33 +192,36 @@ Sample response
 }
 ```
 
-### Get information about the sandbox status (AWS CLI)
+------
 
-CLI command
+### Get information about the sandbox status (AWS CLI)
+<a name="sandbox-cli.batch-get-sandboxes"></a>
+
+------
+#### [ CLI command ]
 
 ```
 aws codebuild batch-get-sandboxes --ids $SANDBOX_IDs
 ```
 
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild stop-sandbox --id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
-
-- `--ids` : Comma separated list of `sandboxIds` or `sandboxArns`.
++ `--ids` : Comma separated list of `sandboxIds` or `sandboxArns`.
 
 You can either provide a sandbox ID or a sandbox ARN:
++ Sandbox ID: `{{<codebuild-project-name>}}:{{<UUID>}}`
 
-- Sandbox ID: ``<codebuild-project-name>`:`<UUID>``
+  For example, `project-name:d25be134-05cb-404a-85da-ac5f85d2d72c`.
++ Sandbox ARN: arn:aws:codebuild:{{<region>}}:{{<account-id>}}:sandbox/{{<codebuild-project-name>}}:{{<UUID>}}
 
-For example, `project-name:d25be134-05cb-404a-85da-ac5f85d2d72c`.
+  For example, `arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name:d25be134-05cb-404a-85da-ac5f85d2d72c`.
 
-- Sandbox ARN: arn:aws:codebuild:`<region>`:`<account-id>`:sandbox/`<codebuild-project-name>`:`<UUID>`
-
-For example, `arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name:d25be134-05cb-404a-85da-ac5f85d2d72c`.
-
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -342,23 +353,28 @@ Sample response
 }
 ```
 
-### Stop a sandbox (AWS CLI)
+------
 
-CLI command
+### Stop a sandbox (AWS CLI)
+<a name="sandbox-cli.stop-sandbox"></a>
+
+------
+#### [ CLI command ]
 
 ```
 aws codebuild stop-sandbox --id $SANDBOX-ID
 ```
++ `--id` : A `sandboxId` or `sandboxArn`.
 
-- `--id` : A `sandboxId` or `sandboxArn`.
-
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild stop-sandbox --id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -474,25 +490,30 @@ Sample response
 }
 ```
 
-### Start a command execution (AWS CLI)
+------
 
-CLI command
+### Start a command execution (AWS CLI)
+<a name="sandbox-cli.start-command-execution"></a>
+
+------
+#### [ CLI command ]
 
 ```
 aws codebuild start-command-execution --command $COMMAND --type $TYPE --sandbox-id $SANDBOX-ID
 ```
++ `--command` : The command that needs to be executed.
++ `--sandbox-id` : A `sandboxId` or `sandboxArn`.
++ `--type` : The command type, `SHELL`.
 
-- `--command` : The command that needs to be executed.
-- `--sandbox-id` : A `sandboxId` or `sandboxArn`.
-- `--type` : The command type, `SHELL`.
-
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild start-command-execution --command "echo "Hello World"" --type SHELL --sandbox-id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -523,24 +544,29 @@ Sample response
 }
 ```
 
-### Get information about the command executions (AWS CLI)
+------
 
-CLI command
+### Get information about the command executions (AWS CLI)
+<a name="sandbox-cli.batch-get-command-executions"></a>
+
+------
+#### [ CLI command ]
 
 ```
 aws codebuild batch-get-command-executions --command-execution-ids $COMMAND-IDs --sandbox-id $SANDBOX-IDs
 ```
++ `--command-execution-ids` : Comma separated list of `commandExecutionIds`.
++ `--sandbox-id` : A `sandboxId` or `sandboxArn`.
 
-- `--command-execution-ids` : Comma separated list of `commandExecutionIds`.
-- `--sandbox-id` : A `sandboxId` or `sandboxArn`.
-
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild batch-get-command-executions --command-execution-ids"c3c085ed-5a8f-4531-8e95-87d547f27ffd" --sandbox-id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -578,25 +604,30 @@ Sample response
 }
 ```
 
-### List command executions for a sandbox (AWS CLI)
+------
 
-CLI command
+### List command executions for a sandbox (AWS CLI)
+<a name="sandbox-cli.list-command-executions-for-sandbox"></a>
+
+------
+#### [ CLI command ]
 
 ```
 aws codebuild list-command-executions-for-sandbox --sandbox-id $SANDBOX-ID --next-token $NEXT_TOKEN --max-results $MAX_RESULTS --sort-order $SORT_ORDER
 ```
++ `--next-token` : The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.
++ `--max-results` : (Optional) The maximum number of sandbox records to be retrieved.
++ `--sort-order` : The order in which sandbox records should be retrieved.
 
-- `--next-token` : The next token, if any, to get paginated results. You will get this value from previous execution of list sandboxes.
-- `--max-results` : (Optional) The maximum number of sandbox records to be retrieved.
-- `--sort-order` : The order in which sandbox records should be retrieved.
-
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild list-command-executions-for-sandbox --sandbox-id "arn:aws:codebuild:us-west-2:962803963624:sandbox/project-name"
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -664,21 +695,27 @@ Sample response
 }
 ```
 
-### List sandboxes (AWS CLI)
+------
 
-CLI command
+### List sandboxes (AWS CLI)
+<a name="sandbox-cli.list-sandboxes"></a>
+
+------
+#### [ CLI command ]
 
 ```
 aws codebuild list-sandboxes --next-token $NEXT_TOKEN --max-results $MAX_RESULTS --sort-order $SORT_ORDER
 ```
 
-Sample request
+------
+#### [ Sample request ]
 
 ```
 aws codebuild list-sandboxes
 ```
 
-Sample response
+------
+#### [ Sample response ]
 
 ```
 {
@@ -729,3 +766,5 @@ Sample response
     ]
 }
 ```
+
+------

@@ -1,173 +1,118 @@
+
+
 # PublicBuildBatch
+<a name="API_PublicBuildBatch"></a>
 
-###### Note
-
+**Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.
 
 ## Contents
+<a name="API_PublicBuildBatch_Contents"></a>
 
-###### Note
-
+**Note**  
 In the following list, the required parameters are described first.
 
-**artifacts**
-
-Type: [PublicBuildArtifacts](API_PublicBuildArtifacts.md "API_PublicBuildArtifacts.md") object
-
+ **artifacts**   <a name="CodeBuild-Type-PublicBuildBatch-artifacts"></a>
+Type: [PublicBuildArtifacts](API_PublicBuildArtifacts.md) object  
 Required: No
 
-**buildBatchConfig**
-
-Type: [PublicProjectBuildBatchConfig](API_PublicProjectBuildBatchConfig.md "API_PublicProjectBuildBatchConfig.md") object
-
+ **buildBatchConfig**   <a name="CodeBuild-Type-PublicBuildBatch-buildBatchConfig"></a>
+Type: [PublicProjectBuildBatchConfig](API_PublicProjectBuildBatchConfig.md) object  
 Required: No
 
-**buildBatchNumber**
-
-Type: Long
-
+ **buildBatchNumber**   <a name="CodeBuild-Type-PublicBuildBatch-buildBatchNumber"></a>
+Type: Long  
 Required: No
 
-**buildBatchStatus**
-
-Type: String
-
-Valid Values: `PENDING | SUCCEEDED | FAILED | FAULT | TIMED_OUT | IN_PROGRESS | STOPPED`
-
+ **buildBatchStatus**   <a name="CodeBuild-Type-PublicBuildBatch-buildBatchStatus"></a>
+Type: String  
+Valid Values:` PENDING | SUCCEEDED | FAILED | FAULT | TIMED_OUT | IN_PROGRESS | STOPPED`   
 Required: No
 
-**buildGroups**
-
-Type: Array of [PublicBuildGroup](API_PublicBuildGroup.md "API_PublicBuildGroup.md") objects
-
+ **buildGroups**   <a name="CodeBuild-Type-PublicBuildBatch-buildGroups"></a>
+Type: Array of [PublicBuildGroup](API_PublicBuildGroup.md) objects  
 Required: No
 
-**buildTimeoutInMinutes**
-
-Type: Integer
-
+ **buildTimeoutInMinutes**   <a name="CodeBuild-Type-PublicBuildBatch-buildTimeoutInMinutes"></a>
+Type: Integer  
 Required: No
 
-**complete**
-
-Type: Boolean
-
+ **complete**   <a name="CodeBuild-Type-PublicBuildBatch-complete"></a>
+Type: Boolean  
 Required: No
 
-**currentPhase**
-
-Type: String
-
+ **currentPhase**   <a name="CodeBuild-Type-PublicBuildBatch-currentPhase"></a>
+Type: String  
 Required: No
 
-**endTime**
-
-Type: Timestamp
-
+ **endTime**   <a name="CodeBuild-Type-PublicBuildBatch-endTime"></a>
+Type: Timestamp  
 Required: No
 
-**environment**
-
-Type: [PublicProjectEnvironment](API_PublicProjectEnvironment.md "API_PublicProjectEnvironment.md") object
-
+ **environment**   <a name="CodeBuild-Type-PublicBuildBatch-environment"></a>
+Type: [PublicProjectEnvironment](API_PublicProjectEnvironment.md) object  
 Required: No
 
-**id**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **id**   <a name="CodeBuild-Type-PublicBuildBatch-id"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**initiator**
-
-Type: String
-
+ **initiator**   <a name="CodeBuild-Type-PublicBuildBatch-initiator"></a>
+Type: String  
 Required: No
 
-**logsStatus**
-
-Type: [PublicLogsStatus](API_PublicLogsStatus.md "API_PublicLogsStatus.md") object
-
+ **logsStatus**   <a name="CodeBuild-Type-PublicBuildBatch-logsStatus"></a>
+Type: [PublicLogsStatus](API_PublicLogsStatus.md) object  
 Required: No
 
-**phases**
-
-Type: Array of [BuildBatchPhase](../APIReference/API_BuildBatchPhase.md "../APIReference/API_BuildBatchPhase.md") objects
-
+ **phases**   <a name="CodeBuild-Type-PublicBuildBatch-phases"></a>
+Type: Array of [BuildBatchPhase](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_BuildBatchPhase.html) objects  
 Required: No
 
-**projectName**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **projectName**   <a name="CodeBuild-Type-PublicBuildBatch-projectName"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**publicBuildBatchAlias**
-
-Type: String
-
-Length Constraints: Minimum length of 1. Maximum length of 1024.
-
-Pattern: `^[0-9a-zA-Z%+=]+:[a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12}$`
-
+ **publicBuildBatchAlias**   <a name="CodeBuild-Type-PublicBuildBatch-publicBuildBatchAlias"></a>
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 1024.  
+Pattern: `^[0-9a-zA-Z%+=]+:[a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12}$`   
 Required: No
 
-**queuedTimeoutInMinutes**
-
-Type: Integer
-
+ **queuedTimeoutInMinutes**   <a name="CodeBuild-Type-PublicBuildBatch-queuedTimeoutInMinutes"></a>
+Type: Integer  
 Required: No
 
-**resolvedSourceVersion**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **resolvedSourceVersion**   <a name="CodeBuild-Type-PublicBuildBatch-resolvedSourceVersion"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**secondaryArtifacts**
-
-Type: Array of [PublicBuildArtifacts](API_PublicBuildArtifacts.md "API_PublicBuildArtifacts.md") objects
-
+ **secondaryArtifacts**   <a name="CodeBuild-Type-PublicBuildBatch-secondaryArtifacts"></a>
+Type: Array of [PublicBuildArtifacts](API_PublicBuildArtifacts.md) objects  
 Required: No
 
-**secondarySources**
-
-Type: Array of [PublicProjectSource](API_PublicProjectSource.md "API_PublicProjectSource.md") objects
-
-Array Members: Minimum number of 0 items. Maximum number of 12 items.
-
+ **secondarySources**   <a name="CodeBuild-Type-PublicBuildBatch-secondarySources"></a>
+Type: Array of [PublicProjectSource](API_PublicProjectSource.md) objects  
+Array Members: Minimum number of 0 items. Maximum number of 12 items.  
 Required: No
 
-**secondarySourceVersions**
-
-Type: Array of [ProjectSourceVersion](../APIReference/API_ProjectSourceVersion.md "../APIReference/API_ProjectSourceVersion.md") objects
-
-Array Members: Minimum number of 0 items. Maximum number of 12 items.
-
+ **secondarySourceVersions**   <a name="CodeBuild-Type-PublicBuildBatch-secondarySourceVersions"></a>
+Type: Array of [ProjectSourceVersion](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_ProjectSourceVersion.html) objects  
+Array Members: Minimum number of 0 items. Maximum number of 12 items.  
 Required: No
 
-**source**
-
-Type: [PublicProjectSource](API_PublicProjectSource.md "API_PublicProjectSource.md") object
-
+ **source**   <a name="CodeBuild-Type-PublicBuildBatch-source"></a>
+Type: [PublicProjectSource](API_PublicProjectSource.md) object  
 Required: No
 
-**sourceVersion**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **sourceVersion**   <a name="CodeBuild-Type-PublicBuildBatch-sourceVersion"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**startTime**
-
-Type: Timestamp
-
+ **startTime**   <a name="CodeBuild-Type-PublicBuildBatch-startTime"></a>
+Type: Timestamp  
 Required: No

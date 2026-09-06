@@ -1,14 +1,13 @@
+
+
 # Filter GitLab webhook events (SDK)
+<a name="gitlab-webhook-events-sdk"></a>
 
-To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups`
-field in the request syntax of the `CreateWebhook` or
-`UpdateWebhook` API methods. For more information, see [WebhookFilter](../APIReference/API_WebhookFilter.md "../APIReference/API_WebhookFilter.md") in the _CodeBuild API Reference_.
+ To use the AWS CodeBuild SDK to filter webhook events, use the `filterGroups` field in the request syntax of the `CreateWebhook` or `UpdateWebhook` API methods. For more information, see [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) in the *CodeBuild API Reference*. 
 
-For more
-information about GitLab webhook events, see [GitLab webhook events](gitlab-webhook.md "gitlab-webhook.md").
+For more information about GitLab webhook events, see [GitLab webhook events](gitlab-webhook.md).
 
-To create a webhook filter that triggers a build for pull requests only, insert the
-following into the request syntax:
+ To create a webhook filter that triggers a build for pull requests only, insert the following into the request syntax: 
 
 ```
 "filterGroups": [
@@ -19,20 +18,11 @@ following into the request syntax:
     }
   ]
 ]
-
 ```
 
-To create a webhook filter that triggers a build for specified branches only, use the
-`pattern` parameter to specify a regular expression to filter branch
-names. Using an example of two filter groups, a build is triggered when one or both
-evaluate to true:
-
-- The first filter group specifies pull requests that are created or updated on
-  branches with Git reference names that match the regular expression
-  `^refs/heads/main$` and head references that match
-  `^refs/heads/myBranch$`.
-- The second filter group specifies push requests on branches with Git reference
-  names that match the regular expression `^refs/heads/myBranch$`.
+ To create a webhook filter that triggers a build for specified branches only, use the `pattern` parameter to specify a regular expression to filter branch names. Using an example of two filter groups, a build is triggered when one or both evaluate to true:
++ The first filter group specifies pull requests that are created or updated on branches with Git reference names that match the regular expression `^refs/heads/main$` and head references that match `^refs/heads/myBranch$`. 
++ The second filter group specifies push requests on branches with Git reference names that match the regular expression `^refs/heads/myBranch$`. 
 
 ```
 "filterGroups": [
@@ -61,12 +51,9 @@ evaluate to true:
     }
   ]
 ]
-
 ```
 
-You can use the `excludeMatchedPattern` parameter to specify which events
-do not trigger a build. In this example, a build is triggered for all requests except
-tag events.
+ You can use the `excludeMatchedPattern` parameter to specify which events do not trigger a build. In this example, a build is triggered for all requests except tag events. 
 
 ```
 "filterGroups": [
@@ -82,17 +69,12 @@ tag events.
     }
   ]
 ]
-
 ```
 
-You can create a filter that triggers a build only when a change is made by a GitLab
-user with account ID `actor-account-id`.
+You can create a filter that triggers a build only when a change is made by a GitLab user with account ID `actor-account-id`. 
 
-###### Note
-
-For information about how to find your GitLab account ID, see
-https://api.github.com/users/`user-name`, where
-`user-name` is your GitLab user name.
+**Note**  
+ For information about how to find your GitLab account ID, see https://api.github.com/users/{{user-name}}, where {{user-name}} is your GitLab user name. 
 
 ```
 "filterGroups": [
@@ -107,13 +89,9 @@ https://api.github.com/users/`user-name`, where
     }
   ]
 ]
-
 ```
 
-You can create a filter that triggers a build only when files with names that match
-the regular expression in the `pattern` argument change. In this example, the
-filter group specifies that a build is triggered only when files with a name that
-matches the regular expression `^buildspec.*` change.
+You can create a filter that triggers a build only when files with names that match the regular expression in the `pattern` argument change. In this example, the filter group specifies that a build is triggered only when files with a name that matches the regular expression `^buildspec.*` change. 
 
 ```
 "filterGroups": [
@@ -128,31 +106,26 @@ matches the regular expression `^buildspec.*` change.
     }
   ]
 ]
-
 ```
 
-In this example, the filter group specifies that a build is triggered only when files
-are changed in `src` or `test` folders.
+In this example, the filter group specifies that a build is triggered only when files are changed in `src` or `test` folders.
 
 ```
 "filterGroups": [
     [
         {
-            "type": "EVENT",
+            "type": "EVENT", 
             "pattern": "PUSH"
         },
         {
-            "type": "FILE_PATH",
+            "type": "FILE_PATH", 
             "pattern": "^src/.+|^test/.+"
         }
     ]
 ]
 ```
 
-You can create a filter that triggers a build only when the head commit message
-matches the regular expression in the pattern argument. In this example, the filter
-group specifies that a build is triggered only when the head commit message of the push
-event matches the regular expression `\[CodeBuild\]`.
+You can create a filter that triggers a build only when the head commit message matches the regular expression in the pattern argument. In this example, the filter group specifies that a build is triggered only when the head commit message of the push event matches the regular expression `\[CodeBuild\]`. 
 
 ```
   "filterGroups": [
@@ -167,5 +140,4 @@ event matches the regular expression `\[CodeBuild\]`.
       }
     ]
   ]
-
 ```

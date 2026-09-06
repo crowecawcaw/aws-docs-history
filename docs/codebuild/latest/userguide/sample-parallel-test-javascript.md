@@ -1,7 +1,9 @@
-# Configure parallel tests with Javascript (Jest)
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with Javascript on an Ubuntu platform:
+
+# Configure parallel tests with Javascript (Jest)
+<a name="sample-parallel-test-javascript"></a>
+
+The following is sample of a `buildspec.yml` that shows parallel test execution with Javascript on an Ubuntu platform:
 
 ```
 version: 0.2

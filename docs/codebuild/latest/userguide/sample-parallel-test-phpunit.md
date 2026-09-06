@@ -1,17 +1,19 @@
-# Configure parallel tests with PHPUnit
 
-The following is sample of a `buildspec.yml` that shows parallel test execution
-with PHPUnit on a Linux platform:
+
+# Configure parallel tests with PHPUnit
+<a name="sample-parallel-test-phpunit"></a>
+
+The following is sample of a `buildspec.yml` that shows parallel test execution with PHPUnit on a Linux platform:
 
 ```
 version: 0.2
-
+ 
 batch:
    fast-fail: false
    build-fanout:
      parallelism: 5
      ignore-failure: false
-
+ 
 phases:
    install:
      commands:
@@ -24,9 +26,9 @@ phases:
      commands:
        - echo 'Running phpunit Tests'
        - composer dump-autoload
-       - |
+       - | 
          codebuild-tests-run \
-          --test-command "./vendor/bin/phpunit --debug" \
+          --test-command "./vendor/bin/phpunit --debug" \ 
           --files-search "codebuild-glob-search '**/tests/*Test.php'"
    post_build:
        commands:

@@ -1,12 +1,11 @@
+
+
 # CloudFormation VPC template
+<a name="cloudformation-vpc-template"></a>
 
-CloudFormation enables you to create and provision AWS infrastructure deployments predictably and
-repeatedly, by using template files to create and delete a collection of resources together
-as a single unit (a _stack_). For more information, see the
-[CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md").
+CloudFormation enables you to create and provision AWS infrastructure deployments predictably and repeatedly, by using template files to create and delete a collection of resources together as a single unit (a *stack*). For more information, see the [CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
-The following is a CloudFormation YAML template for configuring a VPC to use AWS CodeBuild. This file
-is also available in [samples.zip](samples/samples.zip.md "samples/samples.zip.md").
+The following is a CloudFormation YAML template for configuring a VPC to use AWS CodeBuild. This file is also available in [samples.zip](./samples/samples.zip).
 
 ```
 Description:  This template deploys a VPC, with a pair of public and private subnets spread

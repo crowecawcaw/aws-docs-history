@@ -1,45 +1,35 @@
+
+
 # PublicWebhook
+<a name="API_PublicWebhook"></a>
 
-###### Note
-
+**Note**  
 This API element is not contained in the AWS CLI or AWS SDKs.
 
 ## Contents
+<a name="API_PublicWebhook_Contents"></a>
 
-###### Note
-
+**Note**  
 In the following list, the required parameters are described first.
 
-**branchFilter**
-
-Type: String
-
+ **branchFilter**   <a name="CodeBuild-Type-PublicWebhook-branchFilter"></a>
+Type: String  
 Required: No
 
-**buildType**
-
-Type: String
-
+ **buildType**   <a name="CodeBuild-Type-PublicWebhook-buildType"></a>
+Type: String  
 Required: No
 
-**filterGroups**
-
-Type: Array of arrays of [WebhookFilter](../APIReference/API_WebhookFilter.md "../APIReference/API_WebhookFilter.md") objects
-
+ **filterGroups**   <a name="CodeBuild-Type-PublicWebhook-filterGroups"></a>
+Type: Array of arrays of [WebhookFilter](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_WebhookFilter.html) objects  
 Required: No
 
-**payloadUrl**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **payloadUrl**   <a name="CodeBuild-Type-PublicWebhook-payloadUrl"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No
 
-**url**
-
-Type: String
-
-Length Constraints: Minimum length of 1.
-
+ **url**   <a name="CodeBuild-Type-PublicWebhook-url"></a>
+Type: String  
+Length Constraints: Minimum length of 1.  
 Required: No

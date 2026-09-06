@@ -1,10 +1,9 @@
-# Specify test commands
 
-You specify the commands that run your test cases in the `commands`
-section of your buildspec file. These commands run the test cases specified for your
-report groups in the `reports` section of your buildspec file. The
-following is a sample `commands` section that includes commands to run
-the tests in test files:
+
+# Specify test commands
+<a name="report-group-test-case-commands"></a>
+
+ You specify the commands that run your test cases in the `commands` section of your buildspec file. These commands run the test cases specified for your report groups in the `reports` section of your buildspec file. The following is a sample `commands` section that includes commands to run the tests in test files: 
 
 ```
 commands:
@@ -15,4 +14,4 @@ commands:
     - mvn test -Dcucumber.options="--plugin json:target/cucumber-json-report.json" -f cucumber-json/pom.xml -fn
 ```
 
-For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax "build-spec-ref.md#build-spec-ref-syntax").
+For more information, see [Buildspec syntax](build-spec-ref.md#build-spec-ref-syntax).
