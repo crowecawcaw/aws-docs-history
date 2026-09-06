@@ -1,16 +1,19 @@
+
+
 # Vehicle connectivity
+<a name="iot-stack"></a>
 
 The vehicle connectivity layer configures AWS IoT Core for secure vehicle connectivity.
 
 ## IoT Core configuration
+<a name="iot-core-configuration"></a>
 
-**Thing types:**
+ **Thing types:** 
++ cms-vehicle: Standard vehicle type
++ cms-ev: Electric vehicle type
++ cms-commercial: Commercial vehicle type
 
-- cms-vehicle: Standard vehicle type
-- cms-ev: Electric vehicle type
-- cms-commercial: Commercial vehicle type
-
-**IoT policies:**
+ **IoT policies:** 
 
 Policies restrict device permissions to specific MQTT topics.
 
@@ -33,17 +36,21 @@ Policies restrict device permissions to specific MQTT topics.
 ```
 
 ## Certificate management
+<a name="certificate-management"></a>
 
-**Provisioning workflow:**
+ **Provisioning workflow:** 
 
 1. Vehicle requests certificate using claim certificate
-2. Pre-provisioning Lambda validates vehicle authorization
-3. IoT Core creates thing and activates certificate
-4. Post-provisioning Lambda updates DynamoDB
-5. Vehicle receives unique certificate and private key
 
-**Certificate rotation:**
+1. Pre-provisioning Lambda validates vehicle authorization
 
-- Certificates valid for 365 days
-- Automatic rotation 30 days before expiration
-- Old certificates deactivated after rotation
+1. IoT Core creates thing and activates certificate
+
+1. Post-provisioning Lambda updates DynamoDB
+
+1. Vehicle receives unique certificate and private key
+
+ **Certificate rotation:** 
++ Certificates valid for 365 days
++ Automatic rotation 30 days before expiration
++ Old certificates deactivated after rotation

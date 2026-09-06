@@ -1,25 +1,31 @@
+
+
 # Developer guide
+<a name="developer-guide"></a>
 
 This section provides guidance for customizing and extending the Guidance for Connected Mobility on AWS using AWS CDK, developing Flink applications, extending the Fleet Manager UI, and integrating with external systems.
 
 ## Source code
+<a name="source-code"></a>
 
-Visit our [GitHub repository](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws "https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws") to download the source files for this solution and to share your customizations with others.
+Visit our [GitHub repository](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws) to download the source files for this solution and to share your customizations with others.
 
-The solution uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") for infrastructure as code. See the [README.md](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/blob/main/README.md "https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/blob/main/README.md") file for additional information.
+The solution uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/) for infrastructure as code. See the [README.md](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/blob/main/README.md) file for additional information.
 
 ## Development environment setup
+<a name="development-environment-setup"></a>
 
 ### Prerequisites
-
-- AWS CLI v2
-- Node.js 18.x or later
-- Python 3.9 or later
-- AWS CDK v2.100.0 or later
-- Git
-- IDE (VS Code, PyCharm, or IntelliJ recommended)
+<a name="prerequisites-dev"></a>
++ AWS CLI v2
++ Node.js 18.x or later
++ Python 3.9 or later
++ AWS CDK v2.100.0 or later
++ Git
++ IDE (VS Code, PyCharm, or IntelliJ recommended)
 
 ### Clone and setup
+<a name="clone-and-setup"></a>
 
 ```
 # Clone repository
@@ -35,6 +41,7 @@ source .venv/bin/activate
 ```
 
 ## Repository structure
+<a name="repository-structure"></a>
 
 ```
 guidance-for-connected-mobility-on-aws/
@@ -78,34 +85,39 @@ guidance-for-connected-mobility-on-aws/
 ```
 
 ## CDK stacks
+<a name="cdk-stacks"></a>
 
 The solution is deployed as a set of modular CDK stacks defined in `deployment/app.py`. Each stack can be deployed independently based on your requirements.
 
 ### Stack overview
+<a name="stack-overview"></a>
 
-| Stack                       | Purpose                                                                                                                                                                         | Condition                                                   |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `DataProcessingStack`       | Signal catalog and transform manifests                                                                                                                                          | Always deployed                                             |
-| `StorageStack`              | DynamoDB tables for vehicles, trips, telemetry, safety events, maintenance alerts, drivers, and more                                                                            | Always deployed                                             |
-| `MSKStack`                  | VPC, Amazon MSK (Kafka) cluster, and ElastiCache for Redis                                                                                                                      | Deployed unless `MSK_CLUSTER_ARN` is provided               |
-| `IoTStack`                  | Fleet management IoT components                                                                                                                                                 | Always deployed                                             |
-| `TelemetryIntegrationStack` | MSK-IoT connectivity (IoT rules, VPC destinations)                                                                                                                              | `DEPLOY_TELEMETRY_INTEGRATION=true`                         |
-| `FlinkStack`                | Flink stream processing applications (trip detection, safety, maintenance, telemetry, FWE decode, OEM transform, campaign sync, geofence, event-driven, simulator preprocessor) | Always deployed                                             |
-| `FweTelemetryStack`         | FleetWise Edge IoT rules, VPC endpoints, CampaignSyncProcessor                                                                                                                  | `DEPLOY_FLEETWISE=true`                                     |
-| `UIStack`                   | React frontend (Cloudscape Design), API Gateway, Cognito authentication, Amazon Location Service                                                                                | Always deployed                                             |
-| `CommandsStack`             | Remote vehicle commands API via IoT Core MQTT, geofence management                                                                                                              | Always deployed                                             |
-| `ConnectorStack`            | OEM cloud-to-cloud connector — ECS Fargate gRPC streaming worker, landing on `cms-telemetry-oem`                                                                                | Always deployed                                             |
-| `WsFanoutStack`             | Kafka to WebSocket real-time telemetry fan-out for the Fleet Manager UI                                                                                                         | Always deployed                                             |
-| `TcoStack`                  | TCO and cost analytics                                                                                                                                                          | Always deployed                                             |
-| `PredictiveAgentStack`      | Predictive maintenance AI agent                                                                                                                                                 | `DEPLOY_PREDICTIVE_AGENT=true`                              |
-| `SimulationStack`           | ECS Fargate vehicle simulation service                                                                                                                                          | `DEPLOY_SIMULATION=true`                                    |
-| `BedrockAgentsStack`        | Bedrock supervisor and specialist agents with Amazon Bedrock AgentCore runtime (opt-in)                                                                                         | `make deploy-bedrock-agents` (not included in `deploy-all`) |
+
+| Stack | Purpose | Condition | 
+| --- | --- | --- | 
+|  `DataProcessingStack`  | Signal catalog and transform manifests | Always deployed | 
+|  `StorageStack`  | DynamoDB tables for vehicles, trips, telemetry, safety events, maintenance alerts, drivers, and more | Always deployed | 
+|  `MSKStack`  | VPC, Amazon MSK (Kafka) cluster, and ElastiCache for Redis | Deployed unless `MSK_CLUSTER_ARN` is provided | 
+|  `IoTStack`  | Fleet management IoT components | Always deployed | 
+|  `TelemetryIntegrationStack`  | MSK-IoT connectivity (IoT rules, VPC destinations) |  `DEPLOY_TELEMETRY_INTEGRATION=true`  | 
+|  `FlinkStack`  | Flink stream processing applications (trip detection, safety, maintenance, telemetry, FWE decode, OEM transform, campaign sync, geofence, event-driven, simulator preprocessor) | Always deployed | 
+|  `FweTelemetryStack`  | FleetWise Edge IoT rules, VPC endpoints, CampaignSyncProcessor |  `DEPLOY_FLEETWISE=true`  | 
+|  `UIStack`  | React frontend (Cloudscape Design), API Gateway, Cognito authentication, Amazon Location Service | Always deployed | 
+|  `CommandsStack`  | Remote vehicle commands API via IoT Core MQTT, geofence management | Always deployed | 
+|  `ConnectorStack`  | OEM cloud-to-cloud connector — ECS Fargate gRPC streaming worker, landing on `cms-telemetry-oem`  | Always deployed | 
+|  `WsFanoutStack`  | Kafka to WebSocket real-time telemetry fan-out for the Fleet Manager UI | Always deployed | 
+|  `TcoStack`  | TCO and cost analytics | Always deployed | 
+|  `PredictiveAgentStack`  | Predictive maintenance AI agent |  `DEPLOY_PREDICTIVE_AGENT=true`  | 
+|  `SimulationStack`  | ECS Fargate vehicle simulation service |  `DEPLOY_SIMULATION=true`  | 
+|  `BedrockAgentsStack`  | Bedrock supervisor and specialist agents with Amazon Bedrock AgentCore runtime (opt-in) |  `make deploy-bedrock-agents` (not included in `deploy-all`) | 
 
 ### Customizing stacks
+<a name="customizing-cdk-stacks"></a>
 
 Stack definitions are in `deployment/stacks/`. Each stack is a Python class that extends `Stack`.
 
 #### Example: Modify MSK configuration
+<a name="example-modify-msk-configuration"></a>
 
 ```
 # In deployment/stacks/msk_stack.py
@@ -132,6 +144,7 @@ class MSKStack(Stack):
 ```
 
 #### Example: Add a new stack
+<a name="example-add-new-stack"></a>
 
 To add a custom stack, create a new file in `deployment/stacks/` and register it in `deployment/app.py`:
 
@@ -157,8 +170,10 @@ custom_stack = CustomStack(
 ```
 
 ## Developing Flink applications
+<a name="developing-flink-applications"></a>
 
 ### Flink project structure
+<a name="flink-project-structure"></a>
 
 ```
 modules/flink/
@@ -199,12 +214,13 @@ modules/flink/
 All ten Flink applications share a single JAR. The `UniversalProcessor` entry point reads the application’s runtime properties to determine which processor class to invoke.
 
 ### Trip processor: Stateful design pattern
+<a name="trip-processor-design"></a>
 
 The TripProcessor demonstrates a key pattern for reducing DynamoDB costs in stream processing: using Flink’s keyed state to eliminate per-message database reads.
 
-**Problem:** A stateless trip processor queries DynamoDB on every telemetry message to find the active trip, check its status, and update the record. For a 20-message trip, this results in ~60 reads and 20 full-record writes.
+ **Problem:** A stateless trip processor queries DynamoDB on every telemetry message to find the active trip, check its status, and update the record. For a 20-message trip, this results in \~60 reads and 20 full-record writes.
 
-**Solution:** Use `KeyedProcessFunction` with `ValueState<TripState>` keyed by `vehicleId`. All trip state (route buffer, metrics, ignition history) lives in Flink’s managed state. DynamoDB is only written to on state transitions and periodic flushes.
+ **Solution:** Use `KeyedProcessFunction` with `ValueState<TripState>` keyed by `vehicleId`. All trip state (route buffer, metrics, ignition history) lives in Flink’s managed state. DynamoDB is only written to on state transitions and periodic flushes.
 
 ```
 // Simplified TripProcessor v2 pattern
@@ -252,6 +268,7 @@ public class TripStateFunction
 This pattern applies to any stream processing scenario where you need to track entity state across events without querying a database on every message.
 
 ### Build and deploy
+<a name="build-and-deploy-flink"></a>
 
 ```
 # Build JAR
@@ -291,8 +308,10 @@ aws kinesisanalyticsv2 start-application --application-name $APP
 ```
 
 ## Extending Fleet Manager UI
+<a name="extending-fleet-manager-ui"></a>
 
 ### UI project structure
+<a name="ui-project-structure"></a>
 
 ```
 modules/cms_ui/source/
@@ -309,9 +328,10 @@ modules/cms_ui/source/
     └── main_api/            # Fleet management API handler
 ```
 
-The UI is built with [Cloudscape Design System](https://cloudscape.design/ "https://cloudscape.design/") and deployed via CloudFront with S3 origin. Authentication is handled by Amazon Cognito.
+The UI is built with [Cloudscape Design System](https://cloudscape.design/) and deployed via CloudFront with S3 origin. Authentication is handled by Amazon Cognito.
 
 ### Example: Add a new page
+<a name="example-add-new-page"></a>
 
 ```
 // modules/cms_ui/source/frontend/src/pages/CustomPage.tsx
@@ -364,6 +384,7 @@ export const CustomPage: React.FC = () => {
 ```
 
 ### Build and deploy
+<a name="build-and-deploy-ui"></a>
 
 ```
 # Build frontend
@@ -377,10 +398,12 @@ cdk deploy cms-dev-ui
 ```
 
 ## API reference
+<a name="api-reference"></a>
 
 The solution exposes two API Gateway endpoints: the Fleet Management API (deployed by `UIStack`) and the Commands API (deployed by `CommandsStack`).
 
 ### Authentication
+<a name="authentication"></a>
 
 Both APIs use Amazon Cognito for authentication. Obtain an access token before making API calls:
 
@@ -394,63 +417,75 @@ TOKEN=$(aws cognito-idp initiate-auth \
 ```
 
 ### Fleet Management API
+<a name="fleet-management-api"></a>
 
 The Fleet Management API is served from the UI stack’s API Gateway endpoint. All endpoints are prefixed with `/api/v1/`.
 
 #### Fleet endpoints
+<a name="fleet-endpoints"></a>
 
-| Method | Path                                | Description              |
-| ------ | ----------------------------------- | ------------------------ |
-| `GET`  | `/api/v1/fleets`                    | List all fleets          |
-| `POST` | `/api/v1/fleets`                    | Create a new fleet       |
-| `GET`  | `/api/v1/fleets/{fleetId}`          | Get fleet details        |
-| `GET`  | `/api/v1/fleets/{fleetId}/vehicles` | List vehicles in a fleet |
+
+| Method | Path | Description | 
+| --- | --- | --- | 
+|  `GET`  |  `/api/v1/fleets`  | List all fleets | 
+|  `POST`  |  `/api/v1/fleets`  | Create a new fleet | 
+|  `GET`  |  `/api/v1/fleets/{fleetId}`  | Get fleet details | 
+|  `GET`  |  `/api/v1/fleets/{fleetId}/vehicles`  | List vehicles in a fleet | 
 
 #### Vehicle endpoints
+<a name="vehicle-endpoints"></a>
 
-| Method | Path                                              | Description                           |
-| ------ | ------------------------------------------------- | ------------------------------------- |
-| `GET`  | `/api/v1/vehicles`                                | List all vehicles                     |
-| `POST` | `/api/v1/vehicles`                                | Register a new vehicle                |
-| `GET`  | `/api/v1/vehicles/locations`                      | Get all vehicle locations             |
-| `GET`  | `/api/v1/vehicles/{vehicleId}`                    | Get vehicle details                   |
-| `GET`  | `/api/v1/vehicles/{vehicleId}/trips`              | List trips for a vehicle              |
-| `GET`  | `/api/v1/vehicles/{vehicleId}/trips/{tripId}`     | Get trip details                      |
-| `GET`  | `/api/v1/vehicles/{vehicleId}/safety-alerts`      | List safety alerts for a vehicle      |
-| `GET`  | `/api/v1/vehicles/{vehicleId}/maintenance-alerts` | List maintenance alerts for a vehicle |
+
+| Method | Path | Description | 
+| --- | --- | --- | 
+|  `GET`  |  `/api/v1/vehicles`  | List all vehicles | 
+|  `POST`  |  `/api/v1/vehicles`  | Register a new vehicle | 
+|  `GET`  |  `/api/v1/vehicles/locations`  | Get all vehicle locations | 
+|  `GET`  |  `/api/v1/vehicles/{vehicleId}`  | Get vehicle details | 
+|  `GET`  |  `/api/v1/vehicles/{vehicleId}/trips`  | List trips for a vehicle | 
+|  `GET`  |  `/api/v1/vehicles/{vehicleId}/trips/{tripId}`  | Get trip details | 
+|  `GET`  |  `/api/v1/vehicles/{vehicleId}/safety-alerts`  | List safety alerts for a vehicle | 
+|  `GET`  |  `/api/v1/vehicles/{vehicleId}/maintenance-alerts`  | List maintenance alerts for a vehicle | 
 
 #### Global endpoints
+<a name="global-endpoints"></a>
 
-| Method | Path                                 | Description                 |
-| ------ | ------------------------------------ | --------------------------- |
-| `GET`  | `/api/v1/trips`                      | List all trips              |
-| `GET`  | `/api/v1/safety-alerts`              | List all safety alerts      |
-| `GET`  | `/api/v1/maintenance-alerts`         | List all maintenance alerts |
-| `GET`  | `/api/v1/dashboard/metrics`          | Get dashboard metrics       |
-| `GET`  | `/api/v1/dashboard/fleet-comparison` | Get fleet comparison data   |
+
+| Method | Path | Description | 
+| --- | --- | --- | 
+|  `GET`  |  `/api/v1/trips`  | List all trips | 
+|  `GET`  |  `/api/v1/safety-alerts`  | List all safety alerts | 
+|  `GET`  |  `/api/v1/maintenance-alerts`  | List all maintenance alerts | 
+|  `GET`  |  `/api/v1/dashboard/metrics`  | Get dashboard metrics | 
+|  `GET`  |  `/api/v1/dashboard/fleet-comparison`  | Get fleet comparison data | 
 
 #### Real-time endpoints
+<a name="realtime-endpoints"></a>
 
-| Method | Path                     | Description                                |
-| ------ | ------------------------ | ------------------------------------------ |
-| `GET`  | `/realtime/vehicles`     | Get real-time vehicle data from Redis      |
-| `GET`  | `/realtime/trips`        | Get real-time trip data from Redis         |
-| `GET`  | `/health`                | API health check                           |
-| `GET`  | `/discover-iot-endpoint` | Get IoT Core endpoint for MQTT connections |
+
+| Method | Path | Description | 
+| --- | --- | --- | 
+|  `GET`  |  `/realtime/vehicles`  | Get real-time vehicle data from Redis | 
+|  `GET`  |  `/realtime/trips`  | Get real-time trip data from Redis | 
+|  `GET`  |  `/health`  | API health check | 
+|  `GET`  |  `/discover-iot-endpoint`  | Get IoT Core endpoint for MQTT connections | 
 
 ### Commands API
+<a name="commands-api"></a>
 
 The Commands API enables sending remote commands to vehicles via IoT Core MQTT and managing geofences. It is served from a separate API Gateway endpoint deployed by the `CommandsStack`.
 
 #### Command endpoints
+<a name="commands-endpoints"></a>
 
-| Method | Path                        | Description                        |
-| ------ | --------------------------- | ---------------------------------- |
-| `POST` | `/api/commands/{vehicleId}` | Send a command to a vehicle        |
-| `GET`  | `/api/commands/{vehicleId}` | Get command history for a vehicle  |
-| `GET`  | `/api/commands/catalog`     | List available actuatable commands |
 
-**Send a command:**
+| Method | Path | Description | 
+| --- | --- | --- | 
+|  `POST`  |  `/api/commands/{vehicleId}`  | Send a command to a vehicle | 
+|  `GET`  |  `/api/commands/{vehicleId}`  | Get command history for a vehicle | 
+|  `GET`  |  `/api/commands/catalog`  | List available actuatable commands | 
+
+ **Send a command:** 
 
 ```
 curl -X POST https://<commands-api-url>/api/commands/VEH-0049 \
@@ -474,7 +509,7 @@ curl -X POST https://<commands-api-url>/api/commands/VEH-0049 \
 
 The command is published to both a protobuf topic for FleetWise Edge agents (`cms/commands/things/{vin}/executions/{executionId}/request/protobuf`) and a JSON topic for MQTT Direct simulators (`cms/commands/{vehicleId}/request`).
 
-**Get command catalog:**
+ **Get command catalog:** 
 
 ```
 curl -X GET https://<commands-api-url>/api/commands/catalog
@@ -498,14 +533,16 @@ curl -X GET https://<commands-api-url>/api/commands/catalog
 ```
 
 #### Geofence endpoints
+<a name="geofence-endpoints"></a>
 
-| Method   | Path                         | Description                    |
-| -------- | ---------------------------- | ------------------------------ |
-| `POST`   | `/api/geofences`             | Create a geofence              |
-| `GET`    | `/api/geofences/{vehicleId}` | List geofences for a vehicle   |
-| `DELETE` | `/api/geofences/{vehicleId}` | Delete (deactivate) a geofence |
 
-**Create a geofence:**
+| Method | Path | Description | 
+| --- | --- | --- | 
+|  `POST`  |  `/api/geofences`  | Create a geofence | 
+|  `GET`  |  `/api/geofences/{vehicleId}`  | List geofences for a vehicle | 
+|  `DELETE`  |  `/api/geofences/{vehicleId}`  | Delete (deactivate) a geofence | 
+
+ **Create a geofence:** 
 
 ```
 curl -X POST https://<commands-api-url>/api/geofences \
@@ -522,89 +559,105 @@ curl -X POST https://<commands-api-url>/api/geofences \
 ```
 
 #### Command response flow
+<a name="command-response-flow"></a>
 
 When a vehicle responds to a command, the response flows through an IoT Rule that matches the topic `cms/commands/+/response`. The rule invokes the `command_response_handler` Lambda, which updates the command status in DynamoDB.
 
 ## Service alerts and predictive maintenance
+<a name="testing-and-debugging"></a>
 
 The Connected Mobility platform provides three layers of vehicle health monitoring, each designed for a different failure time scale.
 
 ### Alert detection layers
+<a name="alert-detection-layers"></a>
 
-| Layer                    | Detection Method               | Time Scale | Example                               | Cost                        |
-| ------------------------ | ------------------------------ | ---------- | ------------------------------------- | --------------------------- |
-| Rule-based (Flink)       | Event catalog thresholds       | Immediate  | Tire pressure < 28 PSI                | $0 (runs on existing Flink) |
-| Daily batch (Lambda)     | Trend analysis over 7 days     | Days       | Pressure dropping 0.8 PSI/day         | $0.60/month                 |
-| Real-time ML (SageMaker) | Multi-signal anomaly detection | Minutes    | Low pressure + high speed + high temp | $83/month                   |
+
+| Layer | Detection Method | Time Scale | Example | Cost | 
+| --- | --- | --- | --- | --- | 
+| Rule-based (Flink) | Event catalog thresholds | Immediate | Tire pressure < 28 PSI | $0 (runs on existing Flink) | 
+| Daily batch (Lambda) | Trend analysis over 7 days | Days | Pressure dropping 0.8 PSI/day | $0.60/month | 
+| Real-time ML (SageMaker) | Multi-signal anomaly detection | Minutes | Low pressure \+ high speed \+ high temp | $83/month | 
 
 ### Event catalog — single source of truth
+<a name="event-catalog-single-source-of-truth"></a>
 
 All detection rules are defined in the event catalog DynamoDB table (`cms-{stage}-event-catalog`). The Flink processors, simulator, and UI all read from this catalog. Adding a new event to the catalog makes it immediately detectable by Flink and simulatable in the trip simulator — no code changes required.
 
 Each event defines:
-
-- `event_id` — unique identifier (e.g., `maintenance.tire_pressure`)
-- `category` — `safety` or `maintenance`
-- `json_fields` — telemetry field names to evaluate (e.g., `tire_pressure_fl`)
-- `threshold_operator` and `threshold_value` — the detection rule (e.g., `< 28`)
-- `condition_type` — `simple` (single signal) or `composite` (multiple signals with AND/OR logic)
-- `severity` — 1 (low) to 3 (critical)
++  `event_id` — unique identifier (e.g., `maintenance.tire_pressure`)
++  `category` — `safety` or `maintenance` 
++  `json_fields` — telemetry field names to evaluate (e.g., `tire_pressure_fl`)
++  `threshold_operator` and `threshold_value` — the detection rule (e.g., `< 28`)
++  `condition_type` — `simple` (single signal) or `composite` (multiple signals with AND/OR logic)
++  `severity` — 1 (low) to 3 (critical)
 
 The platform ships with 41 events: 12 safety events and 29 maintenance events covering tire pressure, engine temperature, oil pressure, battery voltage, brake wear, and more.
 
 ### Catalog-driven Flink processing
+<a name="catalog-driven-flink-processing"></a>
 
 The `MaintenanceProcessor` loads rules from the event catalog at startup and refreshes every 5 minutes. It evaluates each telemetry message against all maintenance rules using the `EventCatalogEvaluator`:
 
 1. Telemetry arrives on the `cms-telemetry-maintenance` Kafka topic
-2. The evaluator loads rules filtered by `category = maintenance`
-3. For each rule, it checks if the telemetry field crosses the threshold
-4. For composite rules, it evaluates all conditions with AND/OR logic
-5. Matching rules generate alerts written to the `maintenance-alerts` DynamoDB table
+
+1. The evaluator loads rules filtered by `category = maintenance` 
+
+1. For each rule, it checks if the telemetry field crosses the threshold
+
+1. For composite rules, it evaluates all conditions with AND/OR logic
+
+1. Matching rules generate alerts written to the `maintenance-alerts` DynamoDB table
 
 The `SafetyProcessor` follows the same pattern for safety events, writing to the `safety-events` table.
 
 Alerts include the vehicle ID, GPS coordinates, odometer reading, estimated repair cost, and the catalog rule that triggered them.
 
 ### Estimated repair costs
+<a name="estimated-repair-costs"></a>
 
 Each alert type has a realistic cost estimate based on the service type:
 
-| Alert Type                   | Estimated Cost |
-| ---------------------------- | -------------- |
-| Tire pressure (patch/repair) | $35            |
-| Tire rotation                | $60            |
-| Tire replacement (set of 4)  | $800           |
-| Oil change                   | $75            |
-| Brake pads                   | $350           |
-| Battery replacement          | $180           |
-| Alternator failure           | $650           |
-| Engine overheating           | $1,200         |
-| Diagnostic scan              | $120           |
-| EV motor overheating         | $2,500         |
+
+| Alert Type | Estimated Cost | 
+| --- | --- | 
+| Tire pressure (patch/repair) | $35 | 
+| Tire rotation | $60 | 
+| Tire replacement (set of 4) | $800 | 
+| Oil change | $75 | 
+| Brake pads | $350 | 
+| Battery replacement | $180 | 
+| Alternator failure | $650 | 
+| Engine overheating | $1,200 | 
+| Diagnostic scan | $120 | 
+| EV motor overheating | $2,500 | 
 
 ### Predictive maintenance integration
+<a name="predictive-maintenance-integration"></a>
 
-The platform integrates with the [Tire Predictive Maintenance Guidance](../automotive-data-platform/predictive-maintenance.md "../automotive-data-platform/predictive-maintenance.md") for ML-based prediction. Two inference strategies are used:
+The platform integrates with the [Tire Predictive Maintenance Guidance](https://docs.aws.amazon.com/guidance/latest/automotive-data-platform/predictive-maintenance.html) for ML-based prediction. Two inference strategies are used:
 
 #### Daily batch — slow leak detection
+<a name="daily-batch-slow-leak-detection"></a>
 
 A scheduled Lambda runs daily, queries the last 7 days of tire telemetry, and computes pressure trends using linear regression. Vehicles with consistent pressure loss (> 0.3 PSI/day) receive a `prediction.tire_slow_leak` warning days before the rule-based threshold is crossed.
 
 This approach costs approximately $0.60/month because a slow leak changes over days — checking daily provides the same advance warning as checking every 15 minutes, at a fraction of the cost.
 
 #### Real-time — highway blowout risk
+<a name="real-time-highway-blowout-risk"></a>
 
-A SageMaker Random Cut Forest endpoint evaluates multi-signal risk patterns for vehicles at highway speed. The model detects dangerous combinations that no single threshold catches: borderline pressure (29 PSI) + high temperature (140°F) + high speed (75 mph) + worn tread (3.5mm).
+A SageMaker Random Cut Forest endpoint evaluates multi-signal risk patterns for vehicles at highway speed. The model detects dangerous combinations that no single threshold catches: borderline pressure (29 PSI) \+ high temperature (140°F) \+ high speed (75 mph) \+ worn tread (3.5mm).
 
 The endpoint is only called when:
 
 1. Vehicle speed exceeds 60 mph, AND
-2. Any tire pressure is below 30 PSI OR tire temperature exceeds 120°F
 
-This pre-filtering reduces inference calls from ~19,000/day to ~50-100/day, keeping the $83/month endpoint cost justified against the $10,000+ cost of a highway blowout.
+1. Any tire pressure is below 30 PSI OR tire temperature exceeds 120°F
+
+This pre-filtering reduces inference calls from \~19,000/day to \~50-100/day, keeping the $83/month endpoint cost justified against the $10,000\+ cost of a highway blowout.
 
 ### Simulating service alerts
+<a name="simulating-service-alerts"></a>
 
 The trip simulator in the Fleet Manager UI allows selecting specific maintenance and safety events to trigger during a simulated trip. Events are loaded dynamically from the event catalog — the dropdown always reflects the current catalog contents.
 
@@ -613,8 +666,10 @@ When an event is selected, the simulator uses catalog-driven degradation targets
 To simulate a highway blowout risk scenario, select "Highway blowout risk" which creates a composite condition: tire pressure drops below 30 PSI while vehicle speed exceeds 60 mph.
 
 ## Testing and debugging
+<a name="testing-and-debugging-2"></a>
 
 ### Test UI locally
+<a name="test-ui-locally"></a>
 
 ```
 cd modules/cms_ui/source/frontend
@@ -630,6 +685,7 @@ npm run lint
 ```
 
 ### Debugging Flink applications
+<a name="debugging-flink"></a>
 
 ```
 # View Flink logs
@@ -651,6 +707,7 @@ aws cloudwatch get-metric-statistics \
 ```
 
 ### Check deployment status
+<a name="check-stack-status-dev"></a>
 
 ```
 cd deployment
@@ -658,12 +715,15 @@ make status
 ```
 
 ## GSI and ISV integration
+<a name="gsi-and-isv-integration"></a>
 
 Global system integrators (GSIs) and independent software vendors (ISVs) can leverage this guidance to build and deploy mobility services quickly and efficiently.
 
 ### White-labeling
+<a name="white-labeling"></a>
 
 #### Customize branding
+<a name="customize-branding"></a>
 
 ```
 // modules/cms_ui/source/frontend/src/config/branding.ts
@@ -678,6 +738,7 @@ export const branding = {
 ```
 
 #### Custom domain
+<a name="custom-domain"></a>
 
 ```
 # In deployment/stacks/ui_stack.py
@@ -701,20 +762,22 @@ distribution = cloudfront.Distribution(
 ```
 
 ### Extending functionality
+<a name="extending-functionality"></a>
 
 GSIs and ISVs can extend this guidance by:
-
-- Adding custom Flink applications for specialized processing
-- Integrating with third-party telematics providers
-- Building custom dashboards and reports
-- Implementing additional API endpoints
-- Adding machine learning models for predictive analytics
++ Adding custom Flink applications for specialized processing
++ Integrating with third-party telematics providers
++ Building custom dashboards and reports
++ Implementing additional API endpoints
++ Adding machine learning models for predictive analytics
 
 ## CVX assistant integration
+<a name="cvx-assistant-integration"></a>
 
 The Fleet Manager UI includes a conversational assistant panel backed by the Amazon Bedrock AgentCore text runtime. The assistant routes user messages to a Bedrock supervisor agent that grounds responses against the Automotive Data Platform Knowledge Base.
 
 ### VSA API endpoint helper
+<a name="vsa-api-endpoint"></a>
 
 The `getVsaApiEndpoint()` helper in `modules/cms_ui/source/frontend/src/config/api.ts` reads the `vsaApiEndpoint` field from the runtime configuration JSON that CloudFront serves at `/runtimeConfig.json`. The value points to the deployed CVX API Gateway stage URL.
 
@@ -736,6 +799,7 @@ export function getVsaApiEndpoint(): string {
 The helper falls back to an environment variable for local development so the assistant can be tested without a deployed stack.
 
 ### Chat message fetch pattern
+<a name="chat-agent-fetch-pattern"></a>
 
 The `ChatAgent` component in `modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx` sends each user message to the `/assistant/chat` route of the VSA API endpoint using a standard `fetch` call. The AgentCore text runtime (`vsa_supervisor_text_staging` or the production equivalent) handles the request and streams back a text response.
 
@@ -768,16 +832,19 @@ async function sendMessage(userMessage: string): Promise<string> {
 The Fetch Interceptor in `modules/cms_ui/source/frontend/src/auth/fetchInterceptor.ts` attaches the Cognito access token to requests matching `vsaApiEndpoint`, so no manual `Authorization` header is required in the component.
 
 ### Persona inference from Cognito claims
+<a name="persona-inference"></a>
 
 The backend AgentCore handler infers the user persona from the Cognito `custom:role` claim that the UI passes as a JWT. The two supported personas are `fleet_driver` (default) and `service_advisor` (when `custom:role=service-advisor`). The supervisor agent selects specialist tools and tone based on the persona.
 
 To add a third persona, update the persona-routing logic in the CVX supervisor agent and ensure the corresponding Cognito user attribute is populated during user provisioning.
 
 ## Bedrock agent tool extension
+<a name="bedrock-agent-tool-extension"></a>
 
 The `BedrockAgentsStack` in `deployment/stacks/bedrock_agents_stack.py` provisions four Bedrock agents — `cms-cost-agent`, `cms-maintenance-agent`, `cms-rebalancing-agent`, and `cms-recall-warranty-agent` — each with a `prod` alias. Agent configuration is loaded from JSON snapshots in `deployment/scripts/bedrock_agents_snapshot/`.
 
 ### Adding a tool to an agent
+<a name="adding-a-tool-to-an-agent"></a>
 
 Add the tool implementation to the relevant module under `modules/predictive_agent/agent/` or `modules/campaign_manager/`, then update the corresponding agent snapshot in `deployment/scripts/bedrock_agents_snapshot/` to reference the new action group.
 
@@ -801,6 +868,7 @@ Add the tool implementation to the relevant module under `modules/predictive_age
 ```
 
 ### Inference-profile IAM pattern
+<a name="inference-profile-iam-pattern"></a>
 
 Bedrock cross-region inference profiles require two IAM policy statements: one for the inference profile resource (which includes the account ID) and one for the underlying foundation model (which does not include an account ID). The `BedrockAgentsStack` encodes this pattern automatically based on the resolved inference profile ID.
 
@@ -830,10 +898,12 @@ iam.PolicyStatement(
 If you add a new agent that invokes a different inference profile, apply this same two-statement pattern to the agent service role.
 
 ## OEM connector extension
+<a name="oem-connector-extension"></a>
 
 The `ConnectorStack` in `deployment/stacks/connector_stack.py` deploys the OEM1 cloud-to-cloud connector as an ECS Fargate task. The connector establishes a gRPC streaming connection to the OEM cloud API, receives vehicle telemetry, transforms it via a manifest loaded from Amazon S3, and publishes normalized records to the `cms-telemetry-oem` Kafka topic. The `OEMTelemetryProcessor` Flink application in `modules/flink/src/main/java/com/cms/telemetry/OEMTelemetryProcessor.java` then consumes from that topic and writes to DynamoDB and Redis.
 
 ### Connector source layout
+<a name="connector-source-layout"></a>
 
 The OEM1 connector implementation lives under `services/connectors/oem1/`:
 
@@ -853,31 +923,40 @@ services/connectors/oem1/
 ```
 
 ### Adding a connector for a second OEM
+<a name="adding-a-new-oem-connector"></a>
 
 To integrate a second OEM data source, create a new directory `services/connectors/oem2/` following the same layout as `services/connectors/oem1/`. The key integration points are:
 
-1. **Token management** — implement an `OAuthTokenSupplier` equivalent to `token_supplier.py` that handles your OEM API credentials, stored in AWS Secrets Manager.
-2. **Streaming consumer** — implement the transport layer (REST polling, gRPC streaming, or Kafka bridge) in `connector.py`.
-3. **Kafka producer** — publish normalized records to a dedicated topic (for example, `cms-telemetry-oem2`) to keep OEM data streams isolated.
-4. **Flink processor** — either extend `OEMTelemetryProcessor` to handle the new topic via the `PROCESSOR_TYPE` routing in `UniversalProcessor`, or add a new processor class in `modules/flink/src/main/java/com/cms/telemetry/`.
-5. **Transform manifest** — define the field mapping from OEM signal names to CMS canonical signal names in an S3-hosted JSON manifest and reference it from the Flink processor application properties.
-6. **Stack registration** — add a `ConnectorStack`-derived construct in `deployment/stacks/connector_stack.py` or a new stack file, then wire it into `deployment/app.py`.
+1.  **Token management** — implement an `OAuthTokenSupplier` equivalent to `token_supplier.py` that handles your OEM API credentials, stored in AWS Secrets Manager.
+
+1.  **Streaming consumer** — implement the transport layer (REST polling, gRPC streaming, or Kafka bridge) in `connector.py`.
+
+1.  **Kafka producer** — publish normalized records to a dedicated topic (for example, `cms-telemetry-oem2`) to keep OEM data streams isolated.
+
+1.  **Flink processor** — either extend `OEMTelemetryProcessor` to handle the new topic via the `PROCESSOR_TYPE` routing in `UniversalProcessor`, or add a new processor class in `modules/flink/src/main/java/com/cms/telemetry/`.
+
+1.  **Transform manifest** — define the field mapping from OEM signal names to CMS canonical signal names in an S3-hosted JSON manifest and reference it from the Flink processor application properties.
+
+1.  **Stack registration** — add a `ConnectorStack`-derived construct in `deployment/stacks/connector_stack.py` or a new stack file, then wire it into `deployment/app.py`.
 
 Enrollment quota limits and admin Lambda patterns from `services/connectors/oem1/admin_bulk_enroll/` apply equally to any OEM connector; reuse those handlers or adapt them for your OEM-specific enrollment API.
 
 ## Fleet Manager Cognito role integration
+<a name="fleet-manager-cognito-role-integration"></a>
 
 The Fleet Manager API enforces authorization at the Lambda handler level in `modules/cms_ui/source/handlers/main_api/index.py`. Every API request carries a Cognito JWT, and the handler extracts the user groups and custom claims to determine the caller scope.
 
 ### Cognito groups and custom claims
+<a name="cognito-groups-and-claims"></a>
 
 Three Cognito groups control access scope:
 
-| Group            | Scope                                                                                                                               | Key claim                                             |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| `platform-admin` | All fleets and vehicles across the deployment. May create and delete fleets, bulk-enroll vehicles, and access all admin operations. | No per-fleet claim required                           |
-| `fleet-operator` | Only the fleets listed in the `custom:fleetIds` attribute. May enroll, unenroll, and manage vehicles within those fleets.           | `custom:fleetIds` — comma-separated list of fleet IDs |
-| `fleet-viewer`   | Read-only access to the fleets listed in `custom:fleetIds`.                                                                         | `custom:fleetIds`                                     |
+
+| Group | Scope | Key claim | 
+| --- | --- | --- | 
+|  `platform-admin`  | All fleets and vehicles across the deployment. May create and delete fleets, bulk-enroll vehicles, and access all admin operations. | No per-fleet claim required | 
+|  `fleet-operator`  | Only the fleets listed in the `custom:fleetIds` attribute. May enroll, unenroll, and manage vehicles within those fleets. |  `custom:fleetIds` — comma-separated list of fleet IDs | 
+|  `fleet-viewer`  | Read-only access to the fleets listed in `custom:fleetIds`. |  `custom:fleetIds`  | 
 
 The handler extracts these values from the decoded JWT claims:
 
@@ -901,21 +980,26 @@ def is_admin(user_groups: set[str]) -> bool:
 ```
 
 ### Adding a new admin operation
+<a name="adding-a-new-admin-operation"></a>
 
 When adding an endpoint that must be gated on `platform-admin`:
 
 1. Add the route handler in `modules/cms_ui/source/handlers/main_api/index.py`.
-2. Call `get_user_scope()` at the top of the handler and return HTTP 403 if `is_admin()` returns `False`.
-3. For fleet-operator access (per-fleet scope), verify that each requested fleet ID appears in the caller `fleet_ids` list before allowing the operation.
-4. Update the Cognito IAM grants in `deployment/stacks/ui_stack.py` if the new endpoint requires Lambda access to additional DynamoDB tables or AWS services.
-5. Add unit tests in `modules/cms_ui/source/handlers/main_api/tests/` verifying that:
 
-   - a `platform-admin` token receives HTTP 200,
-   - a `fleet-operator` token with a matching fleet ID receives HTTP 200,
-   - a `fleet-operator` token with a non-matching fleet ID receives HTTP 403, and
-   - an unauthenticated request receives HTTP 401.
+1. Call `get_user_scope()` at the top of the handler and return HTTP 403 if `is_admin()` returns `False`.
+
+1. For fleet-operator access (per-fleet scope), verify that each requested fleet ID appears in the caller `fleet_ids` list before allowing the operation.
+
+1. Update the Cognito IAM grants in `deployment/stacks/ui_stack.py` if the new endpoint requires Lambda access to additional DynamoDB tables or AWS services.
+
+1. Add unit tests in `modules/cms_ui/source/handlers/main_api/tests/` verifying that:
+   + a `platform-admin` token receives HTTP 200,
+   + a `fleet-operator` token with a matching fleet ID receives HTTP 200,
+   + a `fleet-operator` token with a non-matching fleet ID receives HTTP 403, and
+   + an unauthenticated request receives HTTP 401.
 
 ### Assigning groups via CLI
+<a name="assigning-groups-via-cli"></a>
 
 ```
 # Add a user to the platform-admin group
@@ -937,35 +1021,36 @@ aws cognito-idp admin-list-groups-for-user \
 ```
 
 ## Best practices
+<a name="best-practices"></a>
 
 ### Infrastructure as code
-
-- Use CDK constructs for reusable components
-- Parameterize stack configurations
-- Use environment variables for secrets
-- Tag all resources consistently
-- Enable CloudFormation stack protection
+<a name="infrastructure-as-code"></a>
++ Use CDK constructs for reusable components
++ Parameterize stack configurations
++ Use environment variables for secrets
++ Tag all resources consistently
++ Enable CloudFormation stack protection
 
 ### Security
-
-- Follow least-privilege IAM policies
-- Enable encryption at rest and in transit
-- Rotate credentials regularly
-- Use AWS Secrets Manager for sensitive data
-- Enable CloudTrail logging
+<a name="security-dev"></a>
++ Follow least-privilege IAM policies
++ Enable encryption at rest and in transit
++ Rotate credentials regularly
++ Use AWS Secrets Manager for sensitive data
++ Enable CloudTrail logging
 
 ### Performance
-
-- Right-size MSK brokers based on throughput
-- Optimize Flink parallelism
-- Use ElastiCache for frequently accessed data
-- Enable DynamoDB auto-scaling
-- Implement API caching
+<a name="performance"></a>
++ Right-size MSK brokers based on throughput
++ Optimize Flink parallelism
++ Use ElastiCache for frequently accessed data
++ Enable DynamoDB auto-scaling
++ Implement API caching
 
 ### Cost optimization
-
-- Use on-demand billing for variable workloads
-- Implement S3 lifecycle policies
-- Right-size compute resources
-- Enable CloudWatch cost anomaly detection
-- Review and optimize regularly
+<a name="cost-optimization-dev"></a>
++ Use on-demand billing for variable workloads
++ Implement S3 lifecycle policies
++ Right-size compute resources
++ Enable CloudWatch cost anomaly detection
++ Review and optimize regularly

@@ -1,4 +1,7 @@
+
+
 # Delete CMS on AWS modules in order
+<a name="delete-cms-modules-in-order"></a>
 
 Use the provided Makefile targets to tear down all stacks in the correct reverse order. The make targets prompt for confirmation before destroying resources.
 
@@ -31,8 +34,7 @@ cdk destroy cms-<stage>-storage --force
 cdk destroy cms-<stage>-data-processing --force
 ```
 
-###### Important
-
+**Important**  
 Always destroy the `data-processing` stack last. It provides shared infrastructure (MSK configuration, transform-manifest S3 bucket) that other stacks depend on at runtime.
 
-![Deleting the stack deletes all resources. You can choose to retain these resources.](images/delete-stack.png)
+![Deleting the stack deletes all resources. You can choose to retain these resources.](http://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/delete-stack.png)

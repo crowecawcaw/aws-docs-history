@@ -1,49 +1,52 @@
-# Deploy the guidance
 
-This solution uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") for infrastructure as code deployment. The CDK application synthesizes AWS CloudFormation templates and deploys them through a phase-based approach that ensures proper dependency management.
+
+# Deploy the guidance
+<a name="deploy-the-solution"></a>
+
+This solution uses [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/) for infrastructure as code deployment. The CDK application synthesizes AWS CloudFormation templates and deploys them through a phase-based approach that ensures proper dependency management.
 
 ## Deployment process overview
+<a name="deployment-process-overview"></a>
 
 The guidance deploys in multiple phases with clear dependencies between stacks. You can deploy all phases automatically using the provided Make commands, or deploy individual phases for more control.
 
-**Total deployment time:** 45-65 minutes
+ **Total deployment time:** 45-65 minutes
 
-**Deployment phases:**
+ **Deployment phases:** 
 
-| Phase group                        | Stacks deployed                                                                                                                                                                                 | Duration  |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `phase-foundation`                 | data-processing + `cms-{stage}-storage` + `cms-{stage}-iot` + `cms-{stage}-ui` + `cms-{stage}-msk` + `cms-{stage}-telemetry-integration`                                                        | 15-25 min |
-| `phase-streaming`                  | `cms-{stage}-flink` + `cms-{stage}-fleetwise`                                                                                                                                                   | 8-12 min  |
-| `phase-seeds`                      | Signal catalog, event catalog, fleet-enrollment seed, FleetWise decoder manifest                                                                                                                | 5-8 min   |
-| `phase-services`                   | `cms-{stage}-simulation` + `cms-{stage}-commands` + `cms-{stage}-ws-fanout` + `cms-{stage}-tco`                                                                                                 | 8-15 min  |
-| `deploy-bedrock-agents` (optional) | `cms-{stage}-bedrock-agents` — Bedrock supervisor and specialist agents. Not included in `deploy-all`; see [Deploy Bedrock agents (optional)](#deploy-bedrock-agents "#deploy-bedrock-agents"). | 3-5 min   |
 
-Before you launch, review the [cost](plan-your-deployment.md#cost "plan-your-deployment.md#cost"), [architecture](architecture-overview.md "architecture-overview.md"), [security](security.md "security.md"), and other considerations discussed earlier in this guide.
+| Phase group | Stacks deployed | Duration | 
+| --- | --- | --- | 
+|  `phase-foundation`  | data-processing \+ `cms-{stage}-storage` \+ `cms-{stage}-iot` \+ `cms-{stage}-ui` \+ `cms-{stage}-msk` \+ `cms-{stage}-telemetry-integration`  | 15-25 min | 
+|  `phase-streaming`  |  `cms-{stage}-flink` \+ `cms-{stage}-fleetwise`  | 8-12 min | 
+|  `phase-seeds`  | Signal catalog, event catalog, fleet-enrollment seed, FleetWise decoder manifest | 5-8 min | 
+|  `phase-services`  |  `cms-{stage}-simulation` \+ `cms-{stage}-commands` \+ `cms-{stage}-ws-fanout` \+ `cms-{stage}-tco`  | 8-15 min | 
+|  `deploy-bedrock-agents` (optional) |  `cms-{stage}-bedrock-agents` — Bedrock supervisor and specialist agents. Not included in `deploy-all`; see [Deploy Bedrock agents (optional)](#deploy-bedrock-agents). | 3-5 min | 
 
-###### Important
+Before you launch, review the [cost](plan-your-deployment.md#cost), [architecture](architecture-overview.md), [security](security.md), and other considerations discussed earlier in this guide.
 
-Before deploying, review the [cost](plan-your-deployment.md#cost "plan-your-deployment.md#cost"), [architecture](architecture-overview.md "architecture-overview.md"), and [security](security.md "security.md") considerations discussed earlier in this guide.
+**Important**  
+Before deploying, review the [cost](plan-your-deployment.md#cost), [architecture](architecture-overview.md), and [security](security.md) considerations discussed earlier in this guide.
 
 ## Prerequisites
+<a name="prerequisites-deploy"></a>
 
 Before deploying, ensure you have the following prerequisites installed and configured:
 
-**Required software:**
+ **Required software:** 
++  [AWS CLI v2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - Command line tool for AWS
++  [Node.js 18.x or later](https://nodejs.org/) - JavaScript runtime
++  [Python 3.9 or later](https://www.python.org/downloads/) - Python runtime
++  [AWS CDK v2.100.0 or later](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) - Infrastructure as code framework
++  [Make](https://www.gnu.org/software/make/) - Build automation tool
++  [Git](https://git-scm.com/) - Version control system
 
-- [AWS CLI v2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") - Command line tool for AWS
-- [Node.js 18.x or later](https://nodejs.org/ "https://nodejs.org/") - JavaScript runtime
-- [Python 3.9 or later](https://www.python.org/downloads/ "https://www.python.org/downloads/") - Python runtime
-- [AWS CDK v2.100.0 or later](../../../cdk/v2/guide/getting_started.md "../../../cdk/v2/guide/getting_started.md") - Infrastructure as code framework
-- [Make](https://www.gnu.org/software/make/ "https://www.gnu.org/software/make/") - Build automation tool
-- [Git](https://git-scm.com/ "https://git-scm.com/") - Version control system
+ **AWS account requirements:** 
++ An AWS account with appropriate permissions to create resources
++ AWS credentials configured (via `aws configure` or environment variables)
++ Sufficient service quotas for the resources being deployed
 
-**AWS account requirements:**
-
-- An AWS account with appropriate permissions to create resources
-- AWS credentials configured (via `aws configure` or environment variables)
-- Sufficient service quotas for the resources being deployed
-
-**Installation commands for Amazon Linux 2023:**
+ **Installation commands for Amazon Linux 2023:** 
 
 ```
 # Install Node.js
@@ -67,7 +70,7 @@ python3 --version
 cdk --version
 ```
 
-**Installation commands for macOS:**
+ **Installation commands for macOS:** 
 
 ```
 # Install Homebrew (if not already installed)
@@ -84,6 +87,7 @@ cdk --version
 ```
 
 ## Step 1: Clone the repository
+<a name="step-1-clone-the-repository"></a>
 
 Clone the repository from GitHub:
 
@@ -93,6 +97,7 @@ cd guidance-for-connected-mobility-on-aws
 ```
 
 ## Step 2: Configure deployment
+<a name="step-2-configure-deployment"></a>
 
 Set environment variables for your deployment:
 
@@ -112,14 +117,16 @@ export AWS_PROFILE=your-profile-name
 ```
 
 ### Security context flags
+<a name="security-context-flags"></a>
 
 Three CDK context flags control optional demo-permissive behavior. All three default to `false`, which is the production-safe posture. Override only for demonstration environments.
 
-| Flag                         | Default | What it controls                                                                                                                                                                                                                               |
-| ---------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cms.allow_self_signup`      | `false` | Enables Cognito User Pool self-registration. When `true`, anyone with an email address can sign up and obtain a JWT. Not recommended for production.                                                                                           |
-| `cms.allow_unauth_map_auth`  | `false` | Enables anonymous Identity Pool credentials scoped to Amazon Location Service map tiles. When `true`, the unauthenticated Cognito role is created for anonymous map preview.                                                                   |
-| `cms.allow_unauth_websocket` | `false` | Controls WebSocket API `$connect` authorization. When `false` (default), the `$connect` route requires a Cognito JWT (`?token=<jwt>` on the upgrade URL); anonymous upgrades return HTTP 401. When `true`, all WebSocket routes are anonymous. |
+
+| Flag | Default | What it controls | 
+| --- | --- | --- | 
+|  `cms.allow_self_signup`  |  `false`  | Enables Cognito User Pool self-registration. When `true`, anyone with an email address can sign up and obtain a JWT. Not recommended for production. | 
+|  `cms.allow_unauth_map_auth`  |  `false`  | Enables anonymous Identity Pool credentials scoped to Amazon Location Service map tiles. When `true`, the unauthenticated Cognito role is created for anonymous map preview. | 
+|  `cms.allow_unauth_websocket`  |  `false`  | Controls WebSocket API `$connect` authorization. When `false` (default), the `$connect` route requires a Cognito JWT (`?token=<jwt>` on the upgrade URL); anonymous upgrades return HTTP 401. When `true`, all WebSocket routes are anonymous. | 
 
 To opt in for a demonstration deployment, pass context overrides at synth or deploy time:
 
@@ -144,6 +151,7 @@ EOF
 ```
 
 ## Step 3: Install dependencies
+<a name="step-3-install-dependencies"></a>
 
 Install Python and Node.js dependencies:
 
@@ -160,6 +168,7 @@ make install
 ```
 
 ## Step 4: Bootstrap CDK
+<a name="step-4-bootstrap-cdk"></a>
 
 Bootstrap your AWS account for CDK deployment (required once per account/region):
 
@@ -172,15 +181,16 @@ cdk bootstrap aws://ACCOUNT-ID/REGION
 
 The bootstrap process creates an S3 bucket and other resources needed for CDK deployments.
 
-###### Note
-
+**Note**  
 If you’ve already bootstrapped CDK in this account and region, you can skip this step.
 
 ## Step 5: Deploy the guidance
+<a name="step-5-deploy-the-solution"></a>
 
 You have two deployment options:
 
 ### Option 1: Interactive deployment (recommended)
+<a name="option-1-interactive-deployment-recommended"></a>
 
 Deploy all phases interactively with prompts:
 
@@ -191,12 +201,17 @@ make deploy
 This command will:
 
 1. Display deployment configuration
-2. Prompt for confirmation before each phase
-3. Deploy phases in the correct order
-4. Display progress and outputs
-5. Provide next steps after completion
+
+1. Prompt for confirmation before each phase
+
+1. Deploy phases in the correct order
+
+1. Display progress and outputs
+
+1. Provide next steps after completion
 
 ### Option 2: Automated deployment
+<a name="option-2-automated-deployment"></a>
 
 Deploy all phases automatically without prompts:
 
@@ -216,11 +231,11 @@ export CMS_DEMO_DEFAULT_PASSWORD='your-prod-password'
 make -C deployment prod-deploy
 ```
 
-###### Warning
-
+**Warning**  
 This will deploy all stacks without confirmation prompts. Ensure you have reviewed the configuration before running this command.
 
 ### Option 3: Phase-by-phase deployment
+<a name="option-3-phase-by-phase-deployment"></a>
 
 Deploy using the grouped phase targets that reflect the current Makefile structure:
 
@@ -286,202 +301,186 @@ make deploy-all
 
 This runs all phase groups in the correct dependency order: `phase-foundation` → `phase-streaming` → `phase-seeds` → `phase-services`.
 
-###### Note
-
+**Note**  
 Phases must be deployed in order due to dependencies. `phase-streaming` depends on `phase-foundation` (MSK must exist before Flink can connect to it). `phase-services` can be deployed in any order after `phase-foundation`.
 
 ## Deployment phases detail
+<a name="deployment-phases-detail"></a>
 
-### Data Processing: Signal Catalog + Transform Manifests
+### Data Processing: Signal Catalog \+ Transform Manifests
+<a name="phase-data-processing"></a>
 
-**Make target:**
-`make data-processing`
+ **Make target:** `make data-processing` 
 
-**Resources created:**
+ **Resources created:** 
++ Signal catalog DynamoDB table seeded with 260 signals (75 original \+ 185 expanded)
++ Transform manifest configuration for OEM telemetry integration
++ Signal catalog JSON uploaded to S3
 
-- Signal catalog DynamoDB table seeded with 260 signals (75 original + 185 expanded)
-- Transform manifest configuration for OEM telemetry integration
-- Signal catalog JSON uploaded to S3
+ **Duration:** 2-3 minutes
 
-**Duration:** 2-3 minutes
+### Phase 1: Storage \+ IoT \+ UI
+<a name="phase-1-storage-iot-ui"></a>
 
-### Phase 1: Storage + IoT + UI
+ **Make target:** `make phase1` 
 
-**Make target:**
-`make phase1`
+ **Stacks deployed:** 
++  `cms-{stage}-storage` — DynamoDB tables and S3 buckets
++  `cms-{stage}-iot` — IoT Core configuration and fleet management
++  `cms-{stage}-ui` — Fleet Manager web application
 
-**Stacks deployed:**
+ **Resources created:** 
++ DynamoDB tables: vehicles, trips, alerts, drivers, safety events, maintenance alerts, telemetry, signal catalog, commands, geofences, simulations
++ S3 buckets: telemetry archive, UI assets
++ IoT Core: thing types, policies, certificate management
++ CloudFront distribution for React application
++ API Gateway REST API with Lambda backend
++ Cognito user pool and identity pool
++ Amazon Location Service map and place index
++ IAM roles and policies
 
-- `cms-{stage}-storage` — DynamoDB tables and S3 buckets
-- `cms-{stage}-iot` — IoT Core configuration and fleet management
-- `cms-{stage}-ui` — Fleet Manager web application
+ **Duration:** 5-8 minutes
 
-**Resources created:**
+### Phase 3: VPC \+ MSK \+ Redis
+<a name="phase-3-vpc-msk-redis"></a>
 
-- DynamoDB tables: vehicles, trips, alerts, drivers, safety events, maintenance alerts, telemetry, signal catalog, commands, geofences, simulations
-- S3 buckets: telemetry archive, UI assets
-- IoT Core: thing types, policies, certificate management
-- CloudFront distribution for React application
-- API Gateway REST API with Lambda backend
-- Cognito user pool and identity pool
-- Amazon Location Service map and place index
-- IAM roles and policies
+ **Make target:** `make phase3` 
 
-**Duration:** 5-8 minutes
+ **Stacks deployed:** 
++  `cms-{stage}-infrastructure` — VPC and caching
++  `cms-{stage}-msk` — Kafka cluster
 
-### Phase 3: VPC + MSK + Redis
+ **Resources created:** 
++ VPC with public and private subnets (2 AZs)
++ NAT Gateway (2 AZs)
++ ElastiCache for Redis cluster
++ MSK cluster (3 brokers)
++ Kafka topics: cms-telemetry-raw, cms-telemetry-preprocessed, cms-telemetry-trips, cms-telemetry-safety, cms-telemetry-maintenance, cms-alerts, fw-telemetry-raw, fw-checkin, cms-telemetry-oem
++ Security groups
 
-**Make target:**
-`make phase3`
-
-**Stacks deployed:**
-
-- `cms-{stage}-infrastructure` — VPC and caching
-- `cms-{stage}-msk` — Kafka cluster
-
-**Resources created:**
-
-- VPC with public and private subnets (2 AZs)
-- NAT Gateway (2 AZs)
-- ElastiCache for Redis cluster
-- MSK cluster (3 brokers)
-- Kafka topics: cms-telemetry-raw, cms-telemetry-preprocessed, cms-telemetry-trips, cms-telemetry-safety, cms-telemetry-maintenance, cms-alerts, fw-telemetry-raw, fw-checkin, cms-telemetry-oem
-- Security groups
-
-**Duration:** 8-12 minutes
+ **Duration:** 8-12 minutes
 
 ### Phase 3b: Telemetry Integration
+<a name="phase-3b-telemetry-integration"></a>
 
-**Make target:**
-`make phase3b`
+ **Make target:** `make phase3b` 
 
-**Stacks deployed:**
+ **Stacks deployed:** 
++  `cms-{stage}-telemetry-integration` — IoT to MSK bridge
 
-- `cms-{stage}-telemetry-integration` — IoT to MSK bridge
+ **Resources created:** 
++ IoT Rule for MQTT Direct telemetry (`cms/telemetry/+` → `cms-telemetry-raw`)
++ VPC Destination for IoT Core to MSK connectivity
++ IAM roles for IoT Rules
++ IAM role for VPC Destination includes Secrets Manager access (to retrieve MSK SCRAM credentials)
++ S3 backup for raw telemetry
 
-**Resources created:**
-
-- IoT Rule for MQTT Direct telemetry (`cms/telemetry/+` → `cms-telemetry-raw`)
-- VPC Destination for IoT Core to MSK connectivity
-- IAM roles for IoT Rules
-- IAM role for VPC Destination includes Secrets Manager access (to retrieve MSK SCRAM credentials)
-- S3 backup for raw telemetry
-
-**Duration:** 10-15 minutes
+ **Duration:** 10-15 minutes
 
 ### FleetWise Integration
+<a name="phase-fleetwise"></a>
 
-**Make target:**
-`make deploy-fleetwise`
+ **Make target:** `make deploy-fleetwise` 
 
-**Stacks deployed:**
+ **Stacks deployed:** 
++  `cms-{stage}-fleetwise` — FleetWise IoT Rules and VPC endpoints
 
-- `cms-{stage}-fleetwise` — FleetWise IoT Rules and VPC endpoints
+ **Resources created:** 
++ IoT Rule for FleetWise telemetry (`cms/fleetwise/vehicles/+/signals` → `fw-telemetry-raw`)
++ IoT Rule for FleetWise checkins (`cms/fleetwise/vehicles/+/checkins` → `fw-checkin`)
++ S3 backup for FleetWise telemetry
++ VPC endpoints for FleetWise connectivity
 
-**Resources created:**
-
-- IoT Rule for FleetWise telemetry (`cms/fleetwise/vehicles/+/signals` → `fw-telemetry-raw`)
-- IoT Rule for FleetWise checkins (`cms/fleetwise/vehicles/+/checkins` → `fw-checkin`)
-- S3 backup for FleetWise telemetry
-- VPC endpoints for FleetWise connectivity
-
-**Duration:** 3-5 minutes
+ **Duration:** 3-5 minutes
 
 ### Phase 4: Flink Processing
+<a name="phase-4-flink-processing"></a>
 
-**Make target:**
-`make phase4`
+ **Make target:** `make phase4` 
 
-**Stacks deployed:**
+ **Stacks deployed:** 
++  `cms-{stage}-flink` — Stream processing applications
 
-- `cms-{stage}-flink` — Stream processing applications
+ **Resources created:** 
++ Flink JAR built from `modules/flink/` and uploaded to S3
++ 10 Managed Apache Flink applications: SimulatorPreprocessor, EventDrivenTelemetryProcessor, TelemetryProcessor, TripProcessor, SafetyProcessor, MaintenanceProcessor, FWTelemetryProcessor, CampaignSyncProcessor, GeofenceProcessor, OEMTelemetryProcessor
++ CloudWatch log groups for each application
++ CloudWatch alarms for downtime and idle processing
++ IAM roles for Flink (MSK, DynamoDB, Redis, IoT Core, S3 access)
 
-**Resources created:**
-
-- Flink JAR built from `modules/flink/` and uploaded to S3
-- 10 Managed Apache Flink applications: SimulatorPreprocessor, EventDrivenTelemetryProcessor, TelemetryProcessor, TripProcessor, SafetyProcessor, MaintenanceProcessor, FWTelemetryProcessor, CampaignSyncProcessor, GeofenceProcessor, OEMTelemetryProcessor
-- CloudWatch log groups for each application
-- CloudWatch alarms for downtime and idle processing
-- IAM roles for Flink (MSK, DynamoDB, Redis, IoT Core, S3 access)
-
-**Duration:** 5-7 minutes
+ **Duration:** 5-7 minutes
 
 ### Data Seeding
+<a name="phase-seeding"></a>
 
-**Make targets:**
-`make seed-fleetwise` and `make seed-event-catalog`
+ **Make targets:** `make seed-fleetwise` and `make seed-event-catalog` 
 
-**Resources seeded:**
+ **Resources seeded:** 
++ Decoder manifest in DynamoDB — maps 260 CAN signal IDs to VSS signal names
++ Default campaign — collects all 260 signals from all vehicles
++ Event catalog — safety event rules (10 types) and maintenance alert rules (10\+ types) with thresholds
++ DecoderManifest.bin uploaded to S3 — the Flink CampaignSyncProcessor reads the protobuf decoder manifest from `s3://{flink-jar-bucket}/fwe-config/DecoderManifest.bin` and delivers it to FWE agents on checkin
 
-- Decoder manifest in DynamoDB — maps 260 CAN signal IDs to VSS signal names
-- Default campaign — collects all 260 signals from all vehicles
-- Event catalog — safety event rules (10 types) and maintenance alert rules (10+ types) with thresholds
-- DecoderManifest.bin uploaded to S3 — the Flink CampaignSyncProcessor reads the protobuf decoder manifest from `s3://{flink-jar-bucket}/fwe-config/DecoderManifest.bin` and delivers it to FWE agents on checkin
-
-**Duration:** 2-3 minutes
+ **Duration:** 2-3 minutes
 
 ### Phase 5: Pipeline Configuration
+<a name="phase-5-pipeline-configuration"></a>
 
-**Make target:**
-`make phase5`
+ **Make target:** `make phase5` 
 
-###### Note
+**Note**  
+ `phase5` is an optional standalone target for manual or advanced Flink reconfiguration. Its actions are already performed by `phase-streaming` during `make deploy-all`, so a standard deployment does not need to run `phase5` separately. Run it only when you need to reconfigure MSK endpoints or restart Flink applications outside of a full deployment.
 
-`phase5` is an optional standalone target for manual or advanced Flink reconfiguration. Its actions are already performed by `phase-streaming` during `make deploy-all`, so a standard deployment does not need to run `phase5` separately. Run it only when you need to reconfigure MSK endpoints or restart Flink applications outside of a full deployment.
+ **Actions performed:** 
++ Configures MSK bootstrap server endpoints in all Flink application runtime properties
++ Configures IAM authentication for MSK connectivity
++ Starts all Flink applications
 
-**Actions performed:**
-
-- Configures MSK bootstrap server endpoints in all Flink application runtime properties
-- Configures IAM authentication for MSK connectivity
-- Starts all Flink applications
-
-**Duration:** 3-5 minutes
+ **Duration:** 3-5 minutes
 
 ### Cloud Simulation
+<a name="phase-simulation"></a>
 
-**Make target:**
-`make deploy-simulation`
+ **Make target:** `make deploy-simulation` 
 
-**Stacks deployed:**
+ **Stacks deployed:** 
++  `cms-{stage}-simulation` — ECS simulation infrastructure (Fargate \+ EC2-backed)
 
-- `cms-{stage}-simulation` — ECS simulation infrastructure (Fargate + EC2-backed)
+ **Resources created:** 
++ ECS cluster for simulation workers
++ Task definitions: `sim-worker` (Fargate, MQTT Direct), `fwe-agent` (EC2, FleetWise agent), `fwe-simulator` (EC2, Python simulator)
++ Docker image built from `services/simulation/` and pushed to ECR
++ Lambda function for simulation API orchestration
++ API Gateway routes for `/api/simulation/*` 
++ DynamoDB table for simulation state tracking
++ CloudWatch log group for worker tasks
 
-**Resources created:**
-
-- ECS cluster for simulation workers
-- Task definitions: `sim-worker` (Fargate, MQTT Direct), `fwe-agent` (EC2, FleetWise agent), `fwe-simulator` (EC2, Python simulator)
-- Docker image built from `services/simulation/` and pushed to ECR
-- Lambda function for simulation API orchestration
-- API Gateway routes for `/api/simulation/*`
-- DynamoDB table for simulation state tracking
-- CloudWatch log group for worker tasks
-
-**Duration:** 3-5 minutes
+ **Duration:** 3-5 minutes
 
 ### Remote Commands
+<a name="phase-commands"></a>
 
-**Make target:**
-`make deploy-commands`
+ **Make target:** `make deploy-commands` 
 
-**Stacks deployed:**
+ **Stacks deployed:** 
++  `cms-{stage}-commands` — Remote commands infrastructure
 
-- `cms-{stage}-commands` — Remote commands infrastructure
+ **Resources created:** 
++ Commands Lambda function (send commands, command history, command catalog, geofence CRUD)
++ Command Response Handler Lambda function
++ IoT Rule on `cms/commands/+/response` to trigger response handler
++ API Gateway routes for `/api/commands/ ` and `/api/geofences/` 
++ DynamoDB tables: commands, geofences (if not already created in Phase 1)
 
-**Resources created:**
-
-- Commands Lambda function (send commands, command history, command catalog, geofence CRUD)
-- Command Response Handler Lambda function
-- IoT Rule on `cms/commands/+/response` to trigger response handler
-- API Gateway routes for `/api/commands/` and `/api/geofences/`
-- DynamoDB tables: commands, geofences (if not already created in Phase 1)
-
-**Duration:** 2-3 minutes
+ **Duration:** 2-3 minutes
 
 ## Step 6: Verify deployment
+<a name="step-6-verify-deployment"></a>
 
 After deployment completes, verify the installation:
 
 ### Check stack status
+<a name="check-stack-status"></a>
 
 ```
 # Check all stack statuses
@@ -496,31 +495,36 @@ aws cloudformation describe-stacks \
 All stacks should show `CREATE_COMPLETE` or `UPDATE_COMPLETE` status.
 
 ### Access Fleet Manager UI
+<a name="access-fleet-manager-ui"></a>
 
 1. Get the CloudFront URL from stack outputs:
 
-```
-aws cloudformation describe-stacks \
-  --stack-name cms-staging-ui \
-  --query 'Stacks[0].Outputs[?OutputKey==`CloudFrontURL`].OutputValue' \
-  --output text
-```
+   ```
+   aws cloudformation describe-stacks \
+     --stack-name cms-staging-ui \
+     --query 'Stacks[0].Outputs[?OutputKey==`CloudFrontURL`].OutputValue' \
+     --output text
+   ```
 
-2. Open the URL in your web browser
-3. Sign up for a new account or sign in with existing credentials
-4. Verify you can access the Fleet Manager dashboard
+1. Open the URL in your web browser
+
+1. Sign up for a new account or sign in with existing credentials
+
+1. Verify you can access the Fleet Manager dashboard
 
 ### Verify IoT connectivity
+<a name="verify-iot-connectivity"></a>
 
 1. Get IoT endpoint:
 
-```
-aws iot describe-endpoint --endpoint-type iot:Data-ATS
-```
+   ```
+   aws iot describe-endpoint --endpoint-type iot:Data-ATS
+   ```
 
-2. Test MQTT connection using the vehicle simulator (see [Verify deployment](#step-6-verify-deployment "#step-6-verify-deployment"))
+1. Test MQTT connection using the vehicle simulator (see [Verify deployment](#step-6-verify-deployment))
 
 ### Verify Flink applications
+<a name="verify-flink-applications"></a>
 
 ```
 # List Kinesis Data Analytics applications
@@ -534,21 +538,23 @@ aws kinesisanalyticsv2 describe-application \
 Applications should show `RUNNING` status.
 
 ## Deployment outputs
+<a name="deployment-outputs"></a>
 
 After successful deployment, the following outputs are available:
 
-| Output              | Description                       | Stack                      |
-| ------------------- | --------------------------------- | -------------------------- |
-| CloudFrontURL       | Fleet Manager web application URL | cms-{stage}-ui             |
-| UserPoolId          | Cognito user pool ID              | cms-{stage}-ui             |
-| IdentityPoolId      | Cognito identity pool ID          | cms-{stage}-ui             |
-| ApiGatewayUrl       | REST API endpoint                 | cms-{stage}-ui             |
-| IoTEndpoint         | IoT Core data endpoint            | cms-{stage}-iot            |
-| MSKClusterArn       | MSK cluster ARN                   | cms-{stage}-msk            |
-| VehicleTableName    | DynamoDB vehicles table           | cms-{stage}-storage        |
-| TripTableName       | DynamoDB trips table              | cms-{stage}-storage        |
-| AlertTableName      | DynamoDB alerts table             | cms-{stage}-storage        |
-| ElastiCacheEndpoint | Redis cache endpoint              | cms-{stage}-infrastructure |
+
+| Output | Description | Stack | 
+| --- | --- | --- | 
+| CloudFrontURL | Fleet Manager web application URL | cms-{stage}-ui | 
+| UserPoolId | Cognito user pool ID | cms-{stage}-ui | 
+| IdentityPoolId | Cognito identity pool ID | cms-{stage}-ui | 
+| ApiGatewayUrl | REST API endpoint | cms-{stage}-ui | 
+| IoTEndpoint | IoT Core data endpoint | cms-{stage}-iot | 
+| MSKClusterArn | MSK cluster ARN | cms-{stage}-msk | 
+| VehicleTableName | DynamoDB vehicles table | cms-{stage}-storage | 
+| TripTableName | DynamoDB trips table | cms-{stage}-storage | 
+| AlertTableName | DynamoDB alerts table | cms-{stage}-storage | 
+| ElastiCacheEndpoint | Redis cache endpoint | cms-{stage}-infrastructure | 
 
 View all outputs:
 
@@ -563,8 +569,10 @@ cdk outputs --all
 ```
 
 ## Customizing the deployment
+<a name="customizing-the-deployment"></a>
 
 ### Modify stack configuration
+<a name="modify-stack-configuration"></a>
 
 Edit the CDK application file to customize resources:
 
@@ -579,6 +587,7 @@ vi deployment/stacks/msk_stack.py
 ```
 
 ### Change deployment stage
+<a name="change-deployment-stage"></a>
 
 Deploy to different environments:
 
@@ -591,6 +600,7 @@ DEPLOYMENT_STAGE=prod make deploy
 ```
 
 ### Use existing VPC
+<a name="use-existing-vpc"></a>
 
 To use an existing VPC instead of creating a new one:
 
@@ -603,6 +613,7 @@ make deploy
 ```
 
 ### Use existing MSK cluster
+<a name="use-existing-msk-cluster"></a>
 
 To use an existing MSK cluster:
 
@@ -615,6 +626,7 @@ make deploy
 ```
 
 ### Container image customization
+<a name="container-image-customization"></a>
 
 The simulation service uses two ARM64 container images. By default, `make deploy-simulation` pulls pre-built published images from public ECR — no local container builder is required.
 
@@ -640,11 +652,11 @@ SIM_IMAGE_MODE=asset CDK_DOCKER=finch \
   make -C deployment deploy-simulation DEPLOYMENT_STAGE=dev AWS_REGION=us-east-1
 ```
 
-###### Note
-
-`SIM_IMAGE_MODE=asset` is intended for active Dockerfile development only. Standard deployments should use the default published images to avoid a dependency on a local container builder.
+**Note**  
+ `SIM_IMAGE_MODE=asset` is intended for active Dockerfile development only. Standard deployments should use the default published images to avoid a dependency on a local container builder.
 
 ### Deploy Bedrock agents (optional)
+<a name="deploy-bedrock-agents"></a>
 
 The Bedrock multi-agent stack (`cms-{stage}-bedrock-agents`) deploys a supervisor agent and specialist agents powered by Amazon Bedrock. This stack is intentionally excluded from `make deploy-all` because it incurs additional Amazon Bedrock inference costs. Customers who do not need the in-UI conversational assistant can skip this step entirely.
 
@@ -661,17 +673,18 @@ To tear down the Bedrock agents stack independently without affecting other stac
 cdk destroy cms-staging-bedrock-agents --require-approval never
 ```
 
-###### Note
-
-Amazon Bedrock inference costs depend on usage volume and the number of agent hops per conversation turn. Review the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") before deploying. If the `cms-{stage}-bedrock-agents` stack has not been deployed, the in-UI conversational assistant feature is unavailable but all other Fleet Manager functionality operates normally.
+**Note**  
+Amazon Bedrock inference costs depend on usage volume and the number of agent hops per conversation turn. Review the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/) before deploying. If the `cms-{stage}-bedrock-agents` stack has not been deployed, the in-UI conversational assistant feature is unavailable but all other Fleet Manager functionality operates normally.
 
 ## Troubleshooting deployment
+<a name="troubleshooting-deployment"></a>
 
 ### CDK bootstrap fails
+<a name="cdk-bootstrap-fails"></a>
 
-**Problem:** Bootstrap command fails with permissions error
+ **Problem:** Bootstrap command fails with permissions error
 
-**Solution:**
+ **Solution:** 
 
 ```
 # Verify AWS credentials
@@ -683,101 +696,113 @@ cdk bootstrap aws://ACCOUNT-ID/REGION
 ```
 
 ### Stack deployment fails
+<a name="stack-deployment-fails"></a>
 
-**Problem:** Stack creation fails with resource errors
+ **Problem:** Stack creation fails with resource errors
 
-**Solution:**
+ **Solution:** 
 
 1. Check CloudFormation events:
 
-```
-aws cloudformation describe-stack-events \
-  --stack-name cms-staging-storage \
-  --max-items 20
-```
+   ```
+   aws cloudformation describe-stack-events \
+     --stack-name cms-staging-storage \
+     --max-items 20
+   ```
 
-2. Review error messages in CloudWatch Logs
-3. Verify service quotas are sufficient
-4. Delete failed stack and retry:
+1. Review error messages in CloudWatch Logs
 
-```
-aws cloudformation delete-stack --stack-name cms-staging-storage
-make phase-foundation
-```
+1. Verify service quotas are sufficient
+
+1. Delete failed stack and retry:
+
+   ```
+   aws cloudformation delete-stack --stack-name cms-staging-storage
+   make phase-foundation
+   ```
 
 ### MSK cluster creation timeout
+<a name="msk-cluster-creation-timeout"></a>
 
-**Problem:** MSK cluster takes longer than expected
+ **Problem:** MSK cluster takes longer than expected
 
-**Solution:**
+ **Solution:** 
++ MSK cluster creation typically takes 8-12 minutes
++ Wait for completion before proceeding to Phase 4
++ Check cluster status:
 
-- MSK cluster creation typically takes 8-12 minutes
-- Wait for completion before proceeding to Phase 4
-- Check cluster status:
-
-```
-aws kafka describe-cluster --cluster-arn CLUSTER-ARN
-```
+  ```
+  aws kafka describe-cluster --cluster-arn CLUSTER-ARN
+  ```
 
 ### Flink application fails to start
+<a name="flink-application-fails-to-start"></a>
 
-**Problem:** Kinesis Data Analytics application shows FAILED status
+ **Problem:** Kinesis Data Analytics application shows FAILED status
 
-**Solution:**
+ **Solution:** 
 
 1. Check CloudWatch Logs for error messages:
 
-```
-aws logs tail /aws/kinesis-analytics/cms-staging-trip-detection --follow
-```
+   ```
+   aws logs tail /aws/kinesis-analytics/cms-staging-trip-detection --follow
+   ```
 
-2. Verify MSK cluster is accessible
-3. Verify DynamoDB tables exist
-4. Restart application:
+1. Verify MSK cluster is accessible
 
-```
-aws kinesisanalyticsv2 start-application \
-  --application-name cms-staging-trip-detection
-```
+1. Verify DynamoDB tables exist
+
+1. Restart application:
+
+   ```
+   aws kinesisanalyticsv2 start-application \
+     --application-name cms-staging-trip-detection
+   ```
 
 ### Insufficient permissions
+<a name="insufficient-permissions"></a>
 
-**Problem:** Deployment fails due to IAM permissions
+ **Problem:** Deployment fails due to IAM permissions
 
-**Solution:**
+ **Solution:** 
 
 Ensure your IAM user or role has the following permissions:
-
-- CloudFormation: Full access
-- IAM: Create/update roles and policies
-- S3: Create/manage buckets
-- DynamoDB: Create/manage tables
-- IoT: Full access
-- MSK: Full access
-- Kinesis Data Analytics: Full access
-- Lambda: Create/update functions
-- API Gateway: Create/manage APIs
-- Cognito: Create/manage user pools
-- Location Service: Create/manage resources
-- CloudFront: Create/manage distributions
-- ElastiCache: Create/manage clusters
-- VPC: Create/manage networking resources
++ CloudFormation: Full access
++ IAM: Create/update roles and policies
++ S3: Create/manage buckets
++ DynamoDB: Create/manage tables
++ IoT: Full access
++ MSK: Full access
++ Kinesis Data Analytics: Full access
++ Lambda: Create/update functions
++ API Gateway: Create/manage APIs
++ Cognito: Create/manage user pools
++ Location Service: Create/manage resources
++ CloudFront: Create/manage distributions
++ ElastiCache: Create/manage clusters
++ VPC: Create/manage networking resources
 
 ## Next steps
+<a name="next-steps"></a>
 
 After successful deployment:
 
-1. [Run the vehicle simulator](simulation-platform.md "simulation-platform.md") to generate test data
-2. Access the Fleet Manager UI to view vehicles and trips
-3. Configure alert subscriptions for maintenance notifications
-4. Integrate with your existing systems using the REST API
-5. Review CloudWatch metrics and alarms for operational monitoring
-6. Explore [customization options](developer-guide.md "developer-guide.md") for your use case
+1.  [Run the vehicle simulator](simulation-platform.md) to generate test data
+
+1. Access the Fleet Manager UI to view vehicles and trips
+
+1. Configure alert subscriptions for maintenance notifications
+
+1. Integrate with your existing systems using the REST API
+
+1. Review CloudWatch metrics and alarms for operational monitoring
+
+1. Explore [customization options](developer-guide.md) for your use case
 
 ## Additional resources
-
-- [GitHub Repository](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws "https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws")
-- [AWS CDK Documentation](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md")
-- [AWS IoT Core Documentation](../../../iot/latest/developerguide/what-is-aws-iot.md "../../../iot/latest/developerguide/what-is-aws-iot.md")
-- [Amazon MSK Documentation](../../../msk/latest/developerguide/what-is-msk.md "../../../msk/latest/developerguide/what-is-msk.md")
-- [Kinesis Data Analytics Documentation](../../../kinesisanalytics/latest/java/what-is.md "../../../kinesisanalytics/latest/java/what-is.md")
+<a name="additional-resources"></a>
++  [GitHub Repository](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws) 
++  [AWS CDK Documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html) 
++  [AWS IoT Core Documentation](https://docs.aws.amazon.com/iot/latest/developerguide/what-is-aws-iot.html) 
++  [Amazon MSK Documentation](https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html) 
++  [Kinesis Data Analytics Documentation](https://docs.aws.amazon.com/kinesisanalytics/latest/java/what-is.html) 
