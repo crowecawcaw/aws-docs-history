@@ -1,21 +1,13 @@
+
+
 # Interpreting the evaluation manifest snapshot
+<a name="im-evaluation-manifest-snapshot-api"></a>
 
-The evaluation manifest snapshot contains detailed information about the test
-results. The snapshot includes the confidence rating for each prediction. It also
-includes the classification of the prediction compared to the actual classification
-of the image (true positive, true negative, false positive, or false negative).
+The evaluation manifest snapshot contains detailed information about the test results. The snapshot includes the confidence rating for each prediction. It also includes the classification of the prediction compared to the actual classification of the image (true positive, true negative, false positive, or false negative). 
 
-The files are a snapshot since only images that could be used for testing and
-training are included. Images that can't be verified, such as images in the wrong
-format, aren't included in the manifest. The testing snapshot location is accessible
-from the `TestingDataResult` object returned by
-`DescribeProjectVersions`. The training snapshot location is
-accessible from `TrainingDataResult` object returned by
-`DescribeProjectVersions`.
+The files are a snapshot since only images that could be used for testing and training are included. Images that can't be verified, such as images in the wrong format, aren't included in the manifest. The testing snapshot location is accessible from the `TestingDataResult` object returned by `DescribeProjectVersions`. The training snapshot location is accessible from `TrainingDataResult` object returned by `DescribeProjectVersions`. 
 
-The snapshot is in SageMaker AI Ground Truth manifest output format with fields added to
-provide additional information, such as the result of a detection's binary
-classification. The following snippet shows the additional fields.
+The snapshot is in SageMaker AI Ground Truth manifest output format with fields added to provide additional information, such as the result of a detection's binary classification. The following snippet shows the additional fields.
 
 ```
 "rekognition-custom-labels-evaluation-details": {
@@ -28,22 +20,14 @@ classification. The following snippet shows the additional fields.
     "ground-truth-labelling-jobs": ["rekognition-custom-labels-training-job"]
 }
 ```
++ *version* – The version of the `rekognition-custom-labels-evaluation-details` field format within the manifest snapshot.
++ *is-true-positive...* – The binary classification of the prediction based on how the confidence score compares to the minimum threshold for the label.
++ *is-present-in-ground-truth* – True if the prediction made by the model is present in the ground truth information used for training, otherwise false. This value isn't based on whether the confidence score exceeds the minimum threshold calculated by the model. 
++ *ground-truth-labeling-jobs* – A list of ground truth fields in the manifest line that are used for training.
 
-- _version_ – The version of the
-  `rekognition-custom-labels-evaluation-details` field format within the manifest snapshot.
-- _is-true-positive..._ – The binary classification of the prediction
-  based on how the confidence score compares to the minimum threshold for the
-  label.
-- _is-present-in-ground-truth_ – True if the prediction made by the
-  model is present in the ground truth information used for training,
-  otherwise false. This value isn't based on whether the confidence score
-  exceeds the minimum threshold calculated by the model.
-- _ground-truth-labeling-jobs_ – A list of ground truth fields in the
-  manifest line that are used for training.
-  For information about the SageMaker AI Ground Truth manifest format, see [Output](../../../sagemaker/latest/dg/sms-data-output.md "../../../sagemaker/latest/dg/sms-data-output.md").
+For information about the SageMaker AI Ground Truth manifest format, see [Output](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-data-output.html). 
 
-The following is an example testing manifest snapshot that shows metrics for image classification
-and object detection.
+The following is an example testing manifest snapshot that shows metrics for image classification and object detection.
 
 ```
 // For image classification

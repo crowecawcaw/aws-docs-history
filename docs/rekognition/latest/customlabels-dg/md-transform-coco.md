@@ -1,46 +1,27 @@
+
+
 # Transforming a COCO dataset into a manifest file format
+<a name="md-transform-coco"></a>
 
-[COCO](http://cocodataset.org/#home "http://cocodataset.org/#home") is a format for
-specifying large-scale object detection, segmentation, and captioning
-datasets. This Python [example](md-coco-transform-example.md "md-coco-transform-example.md") shows you how to transform a COCO object detection
-format dataset into an Amazon Rekognition Custom Labels [bounding box format
-manifest file](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md"). This section also includes information that you
-can use to write your own code.
+[COCO](http://cocodataset.org/#home) is a format for specifying large-scale object detection, segmentation, and captioning datasets. This Python [example](md-coco-transform-example.md) shows you how to transform a COCO object detection format dataset into an Amazon Rekognition Custom Labels [bounding box format manifest file](md-create-manifest-file-object-detection.md). This section also includes information that you can use to write your own code.
 
-A COCO format JSON file consists of
-five
-sections providing information for _an entire dataset_.
-For more information, see [The COCO dataset format](md-coco-overview.md "md-coco-overview.md").
+A COCO format JSON file consists of five sections providing information for *an entire dataset*. For more information, see [The COCO dataset format](md-coco-overview.md). 
++ `info` – general information about the dataset. 
++ `licenses `– license information for the images in the dataset.
++ [`images`](md-coco-overview.md#md-coco-images) – a list of images in the dataset.
++ [`annotations`](md-coco-overview.md#md-coco-annotations) – a list of annotations (including bounding boxes) that are present in all images in the dataset.
++ [`categories`](md-coco-overview.md#md-coco-categories) – a list of label categories.
 
-- `info` – general information about the dataset.
-- `licenses` – license information for the images
-  in the dataset.
-- [images](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images") –
-  a list of images in the dataset.
-- [annotations](md-coco-overview.md#md-coco-annotations "md-coco-overview.md#md-coco-annotations") – a list of annotations
-  (including bounding boxes) that are present in all images in the
-  dataset.
-- [categories](md-coco-overview.md#md-coco-categories "md-coco-overview.md#md-coco-categories")
-  – a list of label categories.
-  You need information from the `images`,
-  `annotations`, and `categories` lists to create an
-  Amazon Rekognition Custom Labels manifest file.
+You need information from the `images`, `annotations`, and `categories` lists to create an Amazon Rekognition Custom Labels manifest file.
 
-An Amazon Rekognition Custom Labels manifest file is in JSON lines format where each line has
-the bounding box and label information for one or more objects _on
-an image_. For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md").
+An Amazon Rekognition Custom Labels manifest file is in JSON lines format where each line has the bounding box and label information for one or more objects *on an image*. For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md).
 
 ## Mapping COCO Objects to a Custom Labels JSON Line
+<a name="md-mapping-coco"></a>
 
-To transform a COCO format dataset, you map the COCO dataset to an
-Amazon Rekognition Custom Labels manifest file for object localization. For more information,
-see [Object localization in manifest files](md-create-manifest-file-object-detection.md "md-create-manifest-file-object-detection.md"). To build
-a JSON line for each image, the manifest file needs to map the COCO
-dataset `image`, `annotation`, and
-`category` object field IDs.
+To transform a COCO format dataset, you map the COCO dataset to an Amazon Rekognition Custom Labels manifest file for object localization. For more information, see [Object localization in manifest files](md-create-manifest-file-object-detection.md). To build a JSON line for each image, the manifest file needs to map the COCO dataset `image`, `annotation`, and `category` object field IDs. 
 
-The following is an example COCO manifest file. For more information,
-see [The COCO dataset format](md-coco-overview.md "md-coco-overview.md").
+The following is an example COCO manifest file. For more information, see [The COCO dataset format](md-coco-overview.md).
 
 ```
 {
@@ -66,57 +47,30 @@ see [The COCO dataset format](md-coco-overview.md "md-coco-overview.md").
 }
 ```
 
-The following diagram shows how the COCO dataset lists for a
-_dataset_ map to Amazon Rekognition Custom Labels JSON lines for an
-_image_. Every JSON line for an image posseess a
-source-ref, job, and job metadata field. Matching colors indicate
-information for a single image. Note that in the manifest an individual
-image may have multiple annotations and metadata/categories.
+The following diagram shows how the COCO dataset lists for a *dataset* map to Amazon Rekognition Custom Labels JSON lines for an *image*. Every JSON line for an image posseess a source-ref, job, and job metadata field. Matching colors indicate information for a single image. Note that in the manifest an individual image may have multiple annotations and metadata/categories.
 
-![Diagram showing the structure of Coco Manifest, with images, annotations, and categories contained within it.](images/coco-transform.png)
+![Diagram showing the structure of Coco Manifest, with images, annotations, and categories contained within it.](http://docs.aws.amazon.com/rekognition/latest/customlabels-dg/images/coco-transform.png)
 
-###### To get the COCO objects for a single JSON line
 
-1. For each image in the images list, get the annotation from the
-   annotations list where the value of the annotation field
-   `image_id` matches the image `id`
-   field.
-2. For each annotation matched in step 1, read through the
-   `categories` list and get each
-   `category` where the value of the
-   `category` field `id` matches the
-   `annotation` object `category_id`
-   field.
-3. Create a JSON line for the image using the matched
-   `image`, `annotation`, and
-   `category` objects. To map the fields, see [Mapping COCO object fields to a Custom Labels JSON line object fields](#md-mapping-fields-coco "#md-mapping-fields-coco").
-4. Repeat steps 1–3 until you have created JSON lines for each
-   `image` object in the `images`
-   list.
+**To get the COCO objects for a single JSON line**
 
-For example code, see [Transforming a COCO dataset](md-coco-transform-example.md "md-coco-transform-example.md").
+1. For each image in the images list, get the annotation from the annotations list where the value of the annotation field `image_id` matches the image `id` field.
+
+1. For each annotation matched in step 1, read through the `categories` list and get each `category` where the value of the `category` field `id` matches the `annotation` object `category_id` field.
+
+1. Create a JSON line for the image using the matched `image`, `annotation`, and `category` objects. To map the fields, see [Mapping COCO object fields to a Custom Labels JSON line object fields](#md-mapping-fields-coco). 
+
+1. Repeat steps 1–3 until you have created JSON lines for each `image` object in the `images` list.
+
+For example code, see [Transforming a COCO dataset](md-coco-transform-example.md).
 
 ## Mapping COCO object fields to a Custom Labels JSON line object fields
+<a name="md-mapping-fields-coco"></a>
 
-After you identify the COCO objects for an Amazon Rekognition Custom Labels JSON line, you
-need to map the COCO object fields to the respective Amazon Rekognition Custom Labels JSON
-line object fields. The following example Amazon Rekognition Custom Labels JSON line maps one
-image (`id`=`000000245915`) to the preceding COCO
-JSON example. Note the following information.
-
-- `source-ref` is the location of the image in an
-  Amazon S3 bucket. If your COCO images aren't stored in an Amazon S3
-  bucket, you need to move them to an Amazon S3 bucket.
-- The `annotations` list
-  contains
-  an `annotation` object for each object on the image.
-  An `annotation` object includes bounding box
-  information (`top`,
-  `left`,`width`, `height`)
-  and a label identifier (`class_id`).
-- The label identifier (`class_id`) maps to the
-  `class-map` list in the metadata. It lists the
-  labels used on the image.
+After you identify the COCO objects for an Amazon Rekognition Custom Labels JSON line, you need to map the COCO object fields to the respective Amazon Rekognition Custom Labels JSON line object fields. The following example Amazon Rekognition Custom Labels JSON line maps one image (`id`=`000000245915`) to the preceding COCO JSON example. Note the following information.
++ `source-ref` is the location of the image in an Amazon S3 bucket. If your COCO images aren't stored in an Amazon S3 bucket, you need to move them to an Amazon S3 bucket.
++ The `annotations` list contains an `annotation` object for each object on the image. An `annotation` object includes bounding box information (`top`, `left`,`width`, `height`) and a label identifier (`class_id`).
++ The label identifier (`class_id`) maps to the `class-map` list in the metadata. It lists the labels used on the image.
 
 ```
 {
@@ -159,93 +113,78 @@ JSON example. Note the following information.
 }
 ```
 
-Use the following information to map Amazon Rekognition Custom Labels manifest file fields
-to COCO dataset JSON fields.
+Use the following information to map Amazon Rekognition Custom Labels manifest file fields to COCO dataset JSON fields. 
 
 ### source-ref
+<a name="md-source-ref-coco"></a>
 
-The S3 format URL for the location of the image. The image must be
-stored in an S3 bucket. For more information, see [source-ref](md-create-manifest-file-object-detection.md#cd-manifest-source-ref "md-create-manifest-file-object-detection.md#cd-manifest-source-ref"). If the
-`coco_url` COCO field points to an S3 bucket
-location, you can use the value of `coco_url` for the
-value of `source-ref`. Alternatively, you can map
-`source-ref` to the `file_name` (COCO)
-field and in your transform code, add the required S3 path to where
-the image is stored.
+The S3 format URL for the location of the image. The image must be stored in an S3 bucket. For more information, see [source-ref](md-create-manifest-file-object-detection.md#cd-manifest-source-ref). If the `coco_url` COCO field points to an S3 bucket location, you can use the value of `coco_url` for the value of `source-ref`. Alternatively, you can map `source-ref` to the `file_name` (COCO) field and in your transform code, add the required S3 path to where the image is stored. 
 
-### `bounding-box`
+### {{bounding-box}}
+<a name="md-label-attribute-id-coco"></a>
 
-A label attribute name of your choosing. For more information, see
-[bounding-box](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box "md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box").
+A label attribute name of your choosing. For more information, see [{{bounding-box}}](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box).
 
 #### image\_size
+<a name="md-image-size-coco"></a>
 
-The size of the image in pixels. Maps to an `image`
-object in the [images](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images")
-list.
-
-- `height`-> `image.height`
-- `width`-> `image.width`
-- `depth`-> Not used by Amazon Rekognition Custom Labels but a
-  value must be supplied.
+The size of the image in pixels. Maps to an `image` object in the [images](md-coco-overview.md#md-coco-images) list.
++ `height`-> `image.height`
++ `width`-> `image.width`
++ `depth`-> Not used by Amazon Rekognition Custom Labels but a value must be supplied.
 
 #### annotations
+<a name="md-annotations-coco"></a>
 
-A list of `annotation` objects. There’s one
-`annotation` for each object on the image.
+A list of `annotation` objects. There’s one `annotation` for each object on the image.
 
 #### annotation
+<a name="md-annotation-coco"></a>
 
-Contains bounding box information for
-one
-instance of an object on the image.
+Contains bounding box information for one instance of an object on the image. 
++ `class_id` -> numerical id mapping to Custom Label’s `class-map` list.
++ `top` -> `bbox[1]`
++ `left` -> `bbox[0]`
++ `width` -> `bbox[2]`
++ `height` -> `bbox[3]`
 
-- `class_id` -> numerical id mapping to
-  Custom Label’s `class-map` list.
-- `top` -> `bbox[1]`
-- `left` -> `bbox[0]`
-- `width` -> `bbox[2]`
-- `height` -> `bbox[3]`
+### {{bounding-box}}-metadata
+<a name="md-metadata-coco"></a>
 
-### `bounding-box`-metadata
-
-Metadata for the label attribute. Includes the labels and label
-identifiers. For more information, see [bounding-box-metadata](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata "md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata").
+Metadata for the label attribute. Includes the labels and label identifiers. For more information, see [{{bounding-box}}-metadata](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata).
 
 #### Objects
+<a name="cd-metadata-objects-coco"></a>
 
-An array of objects in the image. Maps to the
-`annotations` list by index.
+An array of objects in the image. Maps to the `annotations` list by index.
 
 ##### Object
-
-- `confidence`->Not used by Amazon Rekognition Custom Labels,
-  but a value (1) is required.
+<a name="cd-metadata-object-coco"></a>
++ `confidence`->Not used by Amazon Rekognition Custom Labels, but a value (1) is required.
 
 #### class-map
+<a name="md-metadata-class-map-coco"></a>
 
-A map of the labels (classes) that apply to objects detected
-in the image. Maps to category objects in the [categories](md-coco-overview.md#md-coco-categories "md-coco-overview.md#md-coco-categories") list.
-
-- `id` -> `category.id`
-- `id value` -> `category.name`
+A map of the labels (classes) that apply to objects detected in the image. Maps to category objects in the [categories](md-coco-overview.md#md-coco-categories) list.
++ `id` -> `category.id`
++ `id value` -> `category.name`
 
 #### type
+<a name="md-type-coco"></a>
 
 Must be `groundtruth/object-detection`
 
 #### human-annotated
+<a name="md-human-annotated-coco"></a>
 
-Specify `yes` or `no`. For more
-information, see [bounding-box-metadata](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata "md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata").
+Specify `yes` or `no`. For more information, see [{{bounding-box}}-metadata](md-create-manifest-file-object-detection.md#md-manifest-source-bounding-box-metadata).
 
-#### creation-date -> [image](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images").date\_captured
+#### creation-date -> [image](md-coco-overview.md#md-coco-images).date\_captured
+<a name="md-creation-date-coco"></a>
 
-The creation date and time of the image. Maps to the [image](md-coco-overview.md#md-coco-images "md-coco-overview.md#md-coco-images").date\_captured field of
-an image in the COCO images list. Amazon Rekognition Custom Labels expects the format
-of `creation-date` to be
-_Y-M-DTH:M:S_.
+The creation date and time of the image. Maps to the [image](md-coco-overview.md#md-coco-images).date\_captured field of an image in the COCO images list. Amazon Rekognition Custom Labels expects the format of `creation-date` to be *Y-M-DTH:M:S*.
 
 #### job-name
+<a name="md-job-name-coco"></a>
 
-A job name of your choosing.
+A job name of your choosing. 

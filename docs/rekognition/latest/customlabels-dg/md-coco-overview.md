@@ -1,24 +1,16 @@
+
+
 # The COCO dataset format
+<a name="md-coco-overview"></a>
 
-A COCO dataset consists of five sections of information that provide
-information for the entire dataset. The format for a COCO object
-detection dataset is documented at [COCO Data Format](http://cocodataset.org/#format-data "http://cocodataset.org/#format-data").
+A COCO dataset consists of five sections of information that provide information for the entire dataset. The format for a COCO object detection dataset is documented at [COCO Data Format](http://cocodataset.org/#format-data). 
++ info – general information about the dataset. 
++ licenses – license information for the images in the dataset.
++ [images](#md-coco-images) – a list of images in the dataset.
++ [annotations](#md-coco-annotations) – a list of annotations (including bounding boxes) that are present in all images in the dataset.
++ [categories](#md-coco-categories) – a list of label categories.
 
-- info – general information about the dataset.
-- licenses – license information for the images in the
-  dataset.
-- [images](#md-coco-images "#md-coco-images") – a list
-  of images in the dataset.
-- [annotations](#md-coco-annotations "#md-coco-annotations")
-  – a list of annotations (including bounding boxes) that
-  are present in all images in the dataset.
-- [categories](#md-coco-categories "#md-coco-categories") –
-  a list of label categories.
-  To create a Custom Labels manifest, you use the `images`,
-  `annotations`, and `categories` lists from the
-  COCO manifest file. The other sections (`info`,
-  `licences`) aren’t required. The following is an example
-  COCO manifest file.
+To create a Custom Labels manifest, you use the `images`, `annotations`, and `categories` lists from the COCO manifest file. The other sections (`info`, `licences`) aren’t required. The following is an example COCO manifest file.
 
 ```
 {
@@ -45,33 +37,17 @@ detection dataset is documented at [COCO Data Format](http://cocodataset.org/#fo
 ```
 
 ## images list
+<a name="md-coco-images"></a>
 
-The images referenced by a COCO dataset are listed in the images
-array. Each image object contains information about the image such
-as the image file name. In the following example image object, note
-the following information and which fields are required to create an
-Amazon Rekognition Custom Labels manifest file.
-
-- `id` – (Required) A unique identifier
-  for the image. The `id` field maps to the
-  `id` field in the annotations array (where
-  bounding box information is stored).
-- `license` – (Not Required) Maps to the
-  license array.
-- `coco_url` – (Optional) The location of
-  the image.
-- `flickr_url` – (Not required) The
-  location of the image on Flickr.
-- `width` – (Required) The width of the
-  image.
-- `height` – (Required) The height of the
-  image.
-- `file_name` – (Required) The image file
-  name. In this example, `file_name` and
-  `id` match, but this is not a requirement for
-  COCO datasets.
-- `date_captured` –(Required) the date and
-  time the image was captured.
+The images referenced by a COCO dataset are listed in the images array. Each image object contains information about the image such as the image file name. In the following example image object, note the following information and which fields are required to create an Amazon Rekognition Custom Labels manifest file.
++ `id` – (Required) A unique identifier for the image. The `id` field maps to the `id` field in the annotations array (where bounding box information is stored).
++ `license` – (Not Required) Maps to the license array. 
++ `coco_url` – (Optional) The location of the image.
++ `flickr_url` – (Not required) The location of the image on Flickr.
++ `width` – (Required) The width of the image.
++ `height` – (Required) The height of the image.
++ `file_name` – (Required) The image file name. In this example, `file_name` and `id` match, but this is not a requirement for COCO datasets. 
++ `date_captured` –(Required) the date and time the image was captured. 
 
 ```
 {
@@ -87,34 +63,18 @@ Amazon Rekognition Custom Labels manifest file.
 ```
 
 ## annotations (bounding boxes) list
+<a name="md-coco-annotations"></a>
 
-Bounding box information for all objects on all images is stored
-the annotations list. A single annotation object contains bounding
-box information for a single object and the object's label on an
-image. There is an annotation object for each instance of an object
-on an image.
+Bounding box information for all objects on all images is stored the annotations list. A single annotation object contains bounding box information for a single object and the object's label on an image. There is an annotation object for each instance of an object on an image. 
 
-In the following example, note the following information and which
-fields are required to create an Amazon Rekognition Custom Labels manifest file.
-
-- `id` – (Not required) The identifier for
-  the annotation.
-- `image_id` – (Required) Corresponds to
-  the image `id` in the images array.
-- `category_id` – (Required) The
-  identifier for the label that identifies the object within a
-  bounding box. It maps to the `id` field of the
-  categories array.
-- `iscrowd` – (Not required) Specifies if
-  the image contains a crowd of objects.
-- `segmentation` – (Not required)
-  Segmentation information for objects on an image.
-  Amazon Rekognition Custom Labels doesn't support segmentation.
-- `area` – (Not required) The area of the
-  annotation.
-- `bbox` – (Required) Contains the
-  coordinates, in pixels, of a bounding box around an object
-  on the image.
+In the following example, note the following information and which fields are required to create an Amazon Rekognition Custom Labels manifest file. 
++ `id` – (Not required) The identifier for the annotation.
++ `image_id` – (Required) Corresponds to the image `id` in the images array.
++ `category_id` – (Required) The identifier for the label that identifies the object within a bounding box. It maps to the `id` field of the categories array. 
++ `iscrowd` – (Not required) Specifies if the image contains a crowd of objects. 
++ `segmentation` – (Not required) Segmentation information for objects on an image. Amazon Rekognition Custom Labels doesn't support segmentation. 
++ `area` – (Not required) The area of the annotation.
++ `bbox` – (Required) Contains the coordinates, in pixels, of a bounding box around an object on the image.
 
 ```
 {
@@ -131,21 +91,13 @@ fields are required to create an Amazon Rekognition Custom Labels manifest file.
 ```
 
 ## categories list
+<a name="md-coco-categories"></a>
 
-Label information is stored the categories array. In the following
-example category object, note the following information and which
-fields are required to create an Amazon Rekognition Custom Labels manifest file.
-
-- `supercategory` – (Not required) The
-  parent category for a label.
-- `id` – (Required) The label identifier.
-  The `id` field maps to the
-  `category_id` field in an
-  `annotation` object. In the following
-  example, The identifier for an echo dot is 2.
-- `name` – (Required) the label name.
+Label information is stored the categories array. In the following example category object, note the following information and which fields are required to create an Amazon Rekognition Custom Labels manifest file. 
++ `supercategory` – (Not required) The parent category for a label. 
++ `id` – (Required) The label identifier. The `id` field maps to the `category_id` field in an `annotation` object. In the following example, The identifier for an echo dot is 2. 
++ `name` – (Required) the label name. 
 
 ```
-
         {"supercategory": "speaker","id": 2,"name": "echo dot"}
 ```
