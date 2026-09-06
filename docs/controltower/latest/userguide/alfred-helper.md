@@ -1,36 +1,21 @@
+
+
 # The ‘alfred’ helper and the CloudFormation parameter files
+<a name="alfred-helper"></a>
 
-CfCT provides you with a mechanism known as the _alfred_ helper to get the value for an [SSM
-Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md") key that's defined in the CloudFormation template.
+ CfCT provides you with a mechanism known as the *alfred* helper to get the value for an [SSM Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html) key that's defined in the CloudFormation template. Using the *alfred* helper, you can use values that are stored in the SSM Parameter Store and without updating the CloudFormation template. For more information, see [What is an CloudFormation template?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html#gettingstarted.templatebasics.what) in the *CloudFormation User Guide*. 
 
-Using the _alfred_ helper, you can use values that are
-stored in the SSM Parameter Store and without updating the CloudFormation template. For more
-information, see [What is an CloudFormation template?](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md#gettingstarted.templatebasics.what "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md#gettingstarted.templatebasics.what") in the _CloudFormation User Guide_.
-
-###### Important
-
-The _alfred_ helper has two limitations. Parameters
-are available only in the home region of the AWS Control Tower management account. As a best
-practice, consider working with values that don't change from stack instance to stack
-instance. When the 'alfred' helper retreives parameters, it chooses a random stack
-instance from the stack set that exports the variable.
+**Important**  
+ The *alfred* helper has two limitations. Parameters are available only in the home region of the AWS Control Tower management account. As a best practice, consider working with values that don't change from stack instance to stack instance. When the 'alfred' helper retreives parameters, it chooses a random stack instance from the stack set that exports the variable. 
 
 ## Example
+<a name="w2aac28c41c15c13b7"></a>
 
-Suppose that you have two CloudFormation stack sets. _Stack set 1_ has one
-stack instance and deploys to one account in one Region. It creates an Amazon VPC and subnets
-in an availability zone, and the `VPC ID` and `subnet ID` must be
-passed into _stack set 2_ as parameter values. Before the `VPC
- ID` and `subnet ID` can be passed to _stack set 2_,
-the `VPC ID` and `subnet ID` must be stored in _stack set
-1_ using `AWS:::SSM::Parameter`. For more information, see [`AWS:::SSM::Parameter`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.md") in the _CloudFormation User
-Guide_.
+ Suppose that you have two CloudFormation stack sets. *Stack set 1* has one stack instance and deploys to one account in one Region. It creates an Amazon VPC and subnets in an availability zone, and the `VPC ID` and `subnet ID` must be passed into *stack set 2* as parameter values. Before the `VPC ID` and `subnet ID` can be passed to *stack set 2*, the `VPC ID` and `subnet ID` must be stored in *stack set 1* using `AWS:::SSM::Parameter`. For more information, see [`AWS:::SSM::Parameter`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html) in the *CloudFormation User Guide*. 
 
 **CloudFormation stack set 1:**
 
-In the following snippet, the _alfred_ helper can gets value for
-the `VPC ID` and `subnet ID` from the parameter store and pass them
-as input to the StackSet state machine.
+ In the following snippet, the *alfred* helper can gets value for the `VPC ID` and `subnet ID` from the parameter store and pass them as input to the StackSet state machine. 
 
 ```
 VpcIdParameter:
@@ -52,8 +37,7 @@ SubnetIdParameter:
 
 **CloudFormation stack set 2:**
 
-The snippet shows the parameters that are specified in the CloudFormation stack 2
-`manifest.yaml` file.
+ The snippet shows the parameters that are specified in the CloudFormation stack 2 `manifest.yaml` file. 
 
 ```
 parameters:
@@ -65,9 +49,7 @@ parameters:
 
 **CloudFormation stack set 2.1:**
 
-The snippet shows that you can list `alfred_ssm` properties to support
-parameters of type _CommaDelimitedList_. For more
-information, see [`Parameters`](../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md#parameters-section-structure-properties-type "../../../AWSCloudFormation/latest/UserGuide/parameters-section-structure.md#parameters-section-structure-properties-type") in the _CloudFormation User Guide_.
+ The snippet shows that you can list `alfred_ssm` properties to support parameters of type *CommaDelimitedList*. For more information, see [`Parameters`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html#parameters-section-structure-properties-type) in the *CloudFormation User Guide*. 
 
 ```
 parameters:
@@ -77,5 +59,4 @@ parameters:
         parameter_value: $[ alfred_ssm_/stack_1/subnet/id']
       - parameter_key: AvailablityZones # Type: CommaDelimitedList
         parameter_value:   - "$[alfred_ssm_/availability_zone_1]"  - "$[alfred_ssm_/availability_zone_2]"
-
 ```

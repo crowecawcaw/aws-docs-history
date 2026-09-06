@@ -1,6 +1,9 @@
-# Create a new landing zone using CloudFormation
 
-From the CloudFormation console or using the AWS CLI, deploy the following CloudFormation template to create a landing zone.
+
+# Create a new landing zone using CloudFormation
+<a name="lz-apis-cfn-launch"></a>
+
+From the CloudFormation console or using the AWS CLI, deploy the following CloudFormation template to create a landing zone. 
 
 ```
 Parameters:
@@ -63,7 +66,7 @@ Resources:
               retentionDays:
                 Ref: AccessLoggingBucketRetentionPeriod
             kmsKeyArn:
-              Ref: KMSKey
+              Ref: KMSKey    
           enabled: true
         securityRoles:
           accountId:

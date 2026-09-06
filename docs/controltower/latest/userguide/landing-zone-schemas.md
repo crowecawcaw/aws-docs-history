@@ -1,18 +1,17 @@
+
+
 # Landing zone schemas
+<a name="landing-zone-schemas"></a>
 
-A landing zone is an AWS resource, which is created by means of schemas. Each
-AWS Control Tower landing zone version has a unique schema.
+A landing zone is an AWS resource, which is created by means of schemas. Each AWS Control Tower landing zone version has a unique schema.
 
-The schemas for AWS Control Tower landing zones, version 3.1 and newer, are published in this
-reference section, to assist you in choosing a compatible version.
+The schemas for AWS Control Tower landing zones, version 3.1 and newer, are published in this reference section, to assist you in choosing a compatible version.
 
-###### Note
-
-A known issue regarding _unneccessary access logging_ is
-present in landing zone version 3.0. The issue is addressed in landing zone version
-3.1. For more information about the changes, see [AWS Control Tower landing zone version 3.1](2023-all.md#lz-3-1 "2023-all.md#lz-3-1").
+**Note**  
+A known issue regarding *unneccessary access logging* is present in landing zone version 3.0. The issue is addressed in landing zone version 3.1. For more information about the changes, see [AWS Control Tower landing zone version 3.1](2023-all.md#lz-3-1).
 
 ## Landing zone 4.0 schema
+<a name="lz-4-0-schema"></a>
 
 ```
 {
@@ -298,6 +297,7 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
 ```
 
 ## Landing zone 3.3 schema
+<a name="lz-3-3-schema"></a>
 
 ```
 {
@@ -537,6 +537,7 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
 ```
 
 ## Landing zone 3.2 schema
+<a name="lz-3-2-schema"></a>
 
 ```
 {
@@ -776,6 +777,7 @@ present in landing zone version 3.0. The issue is addressed in landing zone vers
 ```
 
 ## Landing zone 3.1 schema
+<a name="lz-3-1-schema"></a>
 
 ```
 {

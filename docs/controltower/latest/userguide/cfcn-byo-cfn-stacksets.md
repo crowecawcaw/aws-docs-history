@@ -1,17 +1,16 @@
-# Set up a configuration package for CloudFormation StackSets
 
-This section explains how to set up a configuration package for CloudFormation StackSets. The two
-main parts of this process are: (1) prepare the manifest file, and (2) update the folder
-structure.
+
+# Set up a configuration package for CloudFormation StackSets
+<a name="cfcn-byo-cfn-stacksets"></a>
+
+This section explains how to set up a configuration package for CloudFormation StackSets. The two main parts of this process are: (1) prepare the manifest file, and (2) update the folder structure.
 
 ## Step 1: Edit the existing manifest file
+<a name="cfcn-byo-cfn-stacksets-step-1"></a>
 
-Add the new CloudFormation StackSets information to the manifest file that you previously
-edited.
+Add the new CloudFormation StackSets information to the manifest file that you previously edited.
 
-Just for review, the following snippet contains the same customized manifest file that
-was shown previously to set up a configuration package for SCPs or RCPs. Now you can edit this
-file further, to include the details about your resources.
+Just for review, the following snippet contains the same customized manifest file that was shown previously to set up a configuration package for SCPs or RCPs. Now you can edit this file further, to include the details about your resources.
 
 ```
 ---
@@ -19,11 +18,11 @@ region: us-east-1
 version: 2021-03-15
 
 resources:
-
+  
   - name: block-s3-public-access
     description: To S3 buckets to have public access
     resource_file: policies/block-s3-public.json
-    deploy_method: `scp | rcp`
+    deploy_method: {{scp | rcp}}
     #Apply to the following OU(s)
     deployment_targets:
     organizational_units: #array of strings
@@ -31,14 +30,11 @@ resources:
     - OUName2
 ```
 
-The following snippet shows an edited sample manifest file that contains the
-`resources` details. The order of `resources` determines the
-execution order for creating `resources` dependencies. You can edit the
-following example manifest file according to your business requirements.
+The following snippet shows an edited sample manifest file that contains the `resources` details. The order of `resources` determines the execution order for creating `resources` dependencies. You can edit the following example manifest file according to your business requirements.
 
 ```
 ---
-region: `your-home-region`
+region: {{your-home-region}}
 version: 2021-03-15
 
 …truncated…
@@ -56,12 +52,12 @@ resources:
         - 123456789123
       organizational_units: #array of strings, ou ids, ou-xxxx
         - OuName1
-        - OUName2
+        - OUName2 
     export_outputs:
       - name: /org/member/test-ssm/app-id
         value: $[output_ApplicationId]
     regions:
-      - `region-name`
+      - {{region-name}}
 
   - name: stackset-2
     resource_file: s3://bucket-name/key-name
@@ -75,13 +71,12 @@ resources:
         - 123456789123
       organizational_units: #array of strings
         - OuName1
-        - OUName2
+        - OUName2 
 regions:
-  - `region-name`
+  - {{region-name}}
 ```
 
-The following example shows that you can add more than one CloudFormation resource in the
-manifest file.
+The following example shows that you can add more than one CloudFormation resource in the manifest file.
 
 ```
 ---
@@ -92,7 +87,7 @@ resources:
   - name: block-s3-public-access
     description: To S3 buckets to have public access
     resource_file: policies/block-s3-public.json
-    deploy_method: `scp | rcp`
+    deploy_method: {{scp | rcp}}
     #Apply to the following OU(s)
     deployment_targets:
       organizational_units: #array of strings
@@ -117,18 +112,13 @@ resources:
 ```
 
 ## Step 2: Update the folder structure
+<a name="cfct-byo-cfn-stacksets-step-2"></a>
 
-When you update the folder structure, you can include all supporting CloudFormation template
-files and SCP or RCP policy files that are in the manifest file. Verify that the file paths match
-what is provided in the manifest file.
+When you update the folder structure, you can include all supporting CloudFormation template files and SCP or RCP policy files that are in the manifest file. Verify that the file paths match what is provided in the manifest file. 
++ A *template* file contains the AWS resources to be deployed in OUs and accounts.
++ A *policy* file contains the input parameters used in the template file.
 
-- A _template_ file contains the AWS resources to
-  be deployed in OUs and accounts.
-- A _policy_ file contains the input parameters
-  used in the template file.
-
-The following example shows the folder structure for the sample manifest file created
-in [Step 1](#cfcn-byo-cfn-stacksets-step-1 "#cfcn-byo-cfn-stacksets-step-1").
+The following example shows the folder structure for the sample manifest file created in [Step 1](#cfcn-byo-cfn-stacksets-step-1).
 
 ```
 - manifest.yaml

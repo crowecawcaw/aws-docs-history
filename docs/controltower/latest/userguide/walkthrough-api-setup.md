@@ -1,6 +1,9 @@
-# Examples: Set up an AWS Control Tower landing zone with APIs only
 
-This walkthrough of examples is a companion document. For explanations, caveats, and more information, see [Getting started with AWS Control Tower using APIs](getting-started-apis.md "getting-started-apis.md").
+
+# Examples: Set up an AWS Control Tower landing zone with APIs only
+<a name="walkthrough-api-setup"></a>
+
+This walkthrough of examples is a companion document. For explanations, caveats, and more information, see [Getting started with AWS Control Tower using APIs](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-apis.html).
 
 **Prerequisites**
 
@@ -9,11 +12,9 @@ Before creating an AWS Control Tower landing zone, you must create an organizati
 **Step 1. Create the organization and two required accounts.**
 
 ```
-
 aws organizations create-organization --feature-set ALL
 aws organizations create-account --email example+log@example.com --account-name "Log archive account"
 aws organizations create-account --email example+aud@example.com --account-name "Audit account"
-
 ```
 
 **Step 2. Create the required IAM roles.**
@@ -23,7 +24,7 @@ aws organizations create-account --email example+aud@example.com --account-name 
 ```
 cat <<EOF >controltower_trust.json
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -38,7 +39,7 @@ EOF
 aws iam create-role --role-name AWSControlTowerAdmin --path /service-role/ --assume-role-policy-document file://controltower_trust.json
 cat <<EOF >ct_admin_role_policy.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -57,7 +58,7 @@ aws iam attach-role-policy --role-name AWSControlTowerAdmin --policy-arn arn:aws
 ```
 cat <<EOF >cloudtrail_trust.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -72,7 +73,7 @@ EOF
 aws iam create-role --role-name AWSControlTowerCloudTrailRole --path /service-role/ --assume-role-policy-document file://cloudtrail_trust.json
 cat <<EOF >cloudtrail_role_policy.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Action": "logs:CreateLogStream",
@@ -95,7 +96,7 @@ aws iam put-role-policy --role-name AWSControlTowerCloudTrailRole --policy-name 
 ```
 cat <<EOF >cloudformation_trust.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -110,7 +111,7 @@ EOF
 aws iam create-role --role-name AWSControlTowerStackSetRole --path /service-role/ --assume-role-policy-document file://cloudformation_trust.json
 cat <<EOF >stackset_role_policy.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Action": [
@@ -132,7 +133,7 @@ aws iam put-role-policy --role-name AWSControlTowerStackSetRole --policy-name AW
 ```
 cat <<EOF >config_trust.json
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Effect": "Allow",
@@ -191,7 +192,7 @@ EOF
 
 **Step 4. Create the landing zone with the latest version.**
 
-You must set up the landing zone with the manifest file and the latest version. This example shows version 3.3.
+ You must set up the landing zone with the manifest file and the latest version. This example shows version 3.3.
 
 ```
 aws --region us-west-1 controltower create-landing-zone --manifest file://landing_zone_manifest.json --landing-zone-version 3.3
@@ -234,7 +235,7 @@ while true; do echo "$(date) $(aws --region us-west-1 controltower get-landing-z
 
 **To show detailed information about your landing zone**
 
-_Step 1. Find the ARN of the landing zone_
+*Step 1. Find the ARN of the landing zone*
 
 ```
 aws --region us-west-1 controltower list-landing-zones
@@ -252,7 +253,7 @@ Output will include the identifier of the landing zone, as shown in the followin
 }
 ```
 
-_Step 2. Get the information_
+*Step 2. Get the information*
 
 ```
 aws --region us-west-1 controltower get-landing-zone --landing-zone-identifier arn:aws:controltower:us-west-1:123456789012:landingzone/4B3H0ULNUOL2AXXX
@@ -308,4 +309,4 @@ Here's an example of the kind of output you may see:
 
 **Step 6. (Optional) Call the `ListLandingZoneOperations` API to view the status of any operations that change your landing zone.**
 
-To track the status of any landing zone operation, you can call the [ListLandingZoneOperations](lz-api-examples-short.md#list-lz-operations-api-examples "lz-api-examples-short.md#list-lz-operations-api-examples") API.
+To track the status of any landing zone operation, you can call the [ListLandingZoneOperations](lz-api-examples-short.md#list-lz-operations-api-examples) API.

@@ -1,18 +1,19 @@
-# Update your landing zone
 
-When a new landing zone version is available, or to make other updates to your landing zone configuration, you can call the `UpdateLandingZone`
-API and reference an updated landing zone manifest file. This API returns an `OperationIdentifier`, which you can then use when calling the `GetLandingZoneOperation`
-API to check the update operation's status.
+
+# Update your landing zone
+<a name="lz-api-update"></a>
+
+When a new landing zone version is available, or to make other updates to your landing zone configuration, you can call the `UpdateLandingZone` API and reference an updated landing zone manifest file. This API returns an `OperationIdentifier`, which you can then use when calling the `GetLandingZoneOperation` API to check the update operation's status. 
 
 **To update the landing zone**
 
-1. Call the AWS Control Tower `UpdateLandingZone` API and refer to the updated **landing zone version** or your **updated landing zone manifest file**.
+1. Call the AWS Control Tower `UpdateLandingZone` API and refer to the updated **landing zone version** or your **updated landing zone manifest file**. 
 
-```
-aws controltower update-landing-zone --landing-zone-version 3.3 --landing-zone-identifier "arn:aws:controltower:us-west-2:123456789123:landingzone/1A2B3C4D5E6F7G8H" --manifest file://LandingZoneManifest.json
-```
+   ```
+   aws controltower update-landing-zone --landing-zone-version 3.3 --landing-zone-identifier "arn:aws:controltower:us-west-2:123456789123:landingzone/1A2B3C4D5E6F7G8H" --manifest file://LandingZoneManifest.json
+   ```
 
-**Example LandingZoneManifest.json** file, with Regions and centralized logging:
+**Example LandingZoneManifest.json** file, with Regions and centralized logging: 
 
 ```
 {
@@ -26,7 +27,7 @@ aws controltower update-landing-zone --landing-zone-version 3.3 --landing-zone-i
        }
    },
    "centralizedLogging": {
-        "accountId": "`LOG ARCHIVE ACCOUNT ID`",
+        "accountId": "{{LOG ARCHIVE ACCOUNT ID}}",
         "configurations": {
             "loggingBucket": {
                 "retentionDays":2555
@@ -39,7 +40,7 @@ aws controltower update-landing-zone --landing-zone-version 3.3 --landing-zone-i
         "enabled": true
    },
    "securityRoles": {
-        "accountId": "`SECURITY ACCOUNT ID`"
+        "accountId": "{{SECURITY ACCOUNT ID}}"
    },
    "accessManagement": {
         "enabled": true
@@ -47,7 +48,7 @@ aws controltower update-landing-zone --landing-zone-version 3.3 --landing-zone-i
 }
 ```
 
-**Output**:
+**Output**: 
 
 ```
 {
@@ -55,8 +56,5 @@ aws controltower update-landing-zone --landing-zone-version 3.3 --landing-zone-i
 }
 ```
 
-###### Optionally Re-register OU to update accounts
-
-For registered AWS Control Tower OUs with fewer than 1000 accounts, you can use the
-AWS Control Tower console access the **OU page** in the dashboard and select **Re-register
-OU** to update the accounts in that OU.
+**Optionally Re-register OU to update accounts**  
+For registered AWS Control Tower OUs with fewer than 1000 accounts, you can use the AWS Control Tower console access the **OU page** in the dashboard and select **Re-register OU** to update the accounts in that OU.

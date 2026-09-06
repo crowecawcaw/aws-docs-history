@@ -1,7 +1,9 @@
-# Check the AFT version
 
-You can check your deployed AFT version by querying the AWS SSM Parameter Store
-key:
+
+# Check the AFT version
+<a name="check-aft-version"></a>
+
+You can check your deployed AFT version by querying the AWS SSM Parameter Store key:
 
 ```
 /aft/config/aft/version
@@ -17,4 +19,4 @@ module "control_tower_account_factory" {
 }
 ```
 
-You can view more information about AFT versions in the [AFT repository](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main").
+You can view more information about AFT versions in the [AFT repository](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/tree/main).

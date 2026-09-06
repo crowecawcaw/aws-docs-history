@@ -1,7 +1,9 @@
-# Configuring customization triggers
 
-To enable customization triggers, set the `aft_customization_triggers`
-variable in your AFT deployment module:
+
+# Configuring customization triggers
+<a name="aft-triggers-configuring"></a>
+
+To enable customization triggers, set the `aft_customization_triggers` variable in your AFT deployment module:
 
 ```
 module "aft" {
@@ -13,13 +15,6 @@ module "aft" {
 }
 ```
 
-The only valid value is `"account_move"`. To disable customization
-triggers, set the variable to an empty list (`[]`). The feature is disabled
-by default.
+The only valid value is `"account_move"`. To disable customization triggers, set the variable to an empty list (`[]`). The feature is disabled by default.
 
-To exclude a specific account from automatic trigger processing, set the
-`account_skip_customization_triggers` attribute to `"true"`
-for the target account in the account request Terraform file. When this attribute is
-set, AFT skips customization invocation for that account even when it detects an OU
-change. This is useful for accounts undergoing planned migrations where automatic
-re-customization is not desired.
+To exclude a specific account from automatic trigger processing, set the `account_skip_customization_triggers` attribute to `"true"` for the target account in the account request Terraform file. When this attribute is set, AFT skips customization invocation for that account even when it detects an OU change. This is useful for accounts undergoing planned migrations where automatic re-customization is not desired.

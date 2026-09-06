@@ -1,28 +1,19 @@
+
+
 # Using AWS User Notifications with AWS Control Tower
+<a name="using-user-notifications"></a>
 
-You can use [AWS User Notifications](../../../notifications/latest/userguide/what-is.md "../../../notifications/latest/userguide/what-is.md") to set up delivery channels to be notified about AWS Control Tower
-events. You receive a notification when an event matches a rule that you specify. You can
-receive notifications for events through multiple channels, including email, [Amazon Q Developer in chat applications](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md") chat
-notifications, or [AWS Console Mobile
-App](../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md "../../../consolemobileapp/latest/userguide/what-is-consolemobileapp.md") push notifications. You can also see notifications in the Console Notifications
-Center.
+You can use [AWS User Notifications](https://docs.aws.amazon.com/notifications/latest/userguide/what-is.html) to set up delivery channels to be notified about AWS Control Tower events. You receive a notification when an event matches a rule that you specify. You can receive notifications for events through multiple channels, including email, [Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.html) chat notifications, or [AWS Console Mobile App](https://docs.aws.amazon.com/consolemobileapp/latest/userguide/what-is-consolemobileapp.html) push notifications. You can also see notifications in the Console Notifications Center.
 
-AWS User Notifications supports aggregation, which can reduce the number of notifications
-you receive during specific events. Notifications also are visible in the Console Notifications
-Center.
+AWS User Notifications supports aggregation, which can reduce the number of notifications you receive during specific events. Notifications also are visible in the Console Notifications Center.
 
-The advantages of subscribing to notifications through AWS User Notifications instead of
-EventBridge include:
+The advantages of subscribing to notifications through AWS User Notifications instead of EventBridge include:
++ A friendlier user interface (UI).
++ Integration with the AWS console, in the bell/notifications area on the global navigation bar.
++ Native support for email notifications, there's no need to set up Amazon SNS.
++ Most notably, support for mobile push notifications, exclusive to AWS User Notifications.
 
-- A friendlier user interface (UI).
-- Integration with the AWS console, in the bell/notifications area on the global
-  navigation bar.
-- Native support for email notifications, there's no need to set up Amazon SNS.
-- Most notably, support for mobile push notifications, exclusive to AWS User
-  Notifications.
-  For example, one type of notification you may wish to receive is in case of Security Hub CSPM critical
-  and high severity findings. A code snippet in JSON to set up that notification subscription may
-  look something like this:
+For example, one type of notification you may wish to receive is in case of Security Hub CSPM critical and high severity findings. A code snippet in JSON to set up that notification subscription may look something like this:
 
 ```
 {
@@ -44,18 +35,14 @@ EventBridge include:
 ```
 
 **Event filtering**
++ You can filter events by service and name using the filters available on the AWS User Notifications console.
++ You can filter events by specific properties if you create your own EventBridge filter from JSON code.
 
-- You can filter events by service and name using the filters available on the AWS User
-  Notifications console.
-- You can filter events by specific properties if you create your own EventBridge filter
-  from JSON code.
-  **Example AWS Control Tower event**
+**Example AWS Control Tower event**
 
 Here is a generalized example event for AWS Control Tower.
-
-- It an EventBridge event.
-- You can subscribe to EventBridge events (such as this one) using AWS User
-  Notifications.
++ It an EventBridge event.
++ You can subscribe to EventBridge events (such as this one) using AWS User Notifications.
 
 ```
 {
@@ -63,8 +50,8 @@ Here is a generalized example event for AWS Control Tower.
     "id": "<id>", // alphanumeric string
     "detail-type": "AWS Service Event via CloudTrail",
     "source": "aws.controltower",
-    "account": "<account ID>", // Management account ID.
-    "time": "<date>", // Format: yyyy-MM-dd'T'hh:mm:ssZ
+    "account": "<account ID>", // Management account ID. 
+    "time": "<date>", // Format: yyyy-MM-dd'T'hh:mm:ssZ 
     "region": "<region>", // AWS Control Tower home region.
     "resources": [],
     "detail": {
@@ -87,7 +74,4 @@ Here is a generalized example event for AWS Control Tower.
         }
     }
 }
-
-
-
 ```

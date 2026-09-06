@@ -1,76 +1,55 @@
+
+
 # Code pipeline overview
+<a name="cfct-codepipeline-overview"></a>
 
-The configuration package requires Amazon Simple Storage Service (Amazon S3) and AWS CodePipeline. The configuration
-package contains these items:
+The configuration package requires Amazon Simple Storage Service (Amazon S3) and AWS CodePipeline. The configuration package contains these items:
++ A manifest file
++ An accompanying set of templates
++ Other JSON files for describing and implementing your AWS Control Tower environment customizations
 
-- A manifest file
-- An accompanying set of templates
-- Other JSON files for describing and implementing your AWS Control Tower environment
-  customizations
-  By default, the `_custom-control-tower-configuration.zip` configuration package
-  is loaded in an Amazon S3 bucket with the following naming convention:
+By default, the `_custom-control-tower-configuration.zip` configuration package is loaded in an Amazon S3 bucket with the following naming convention:
 
-`custom-control-tower-configuration-`accountID`-`region``.
+`custom-control-tower-configuration-{{accountID}}-{{region}}`.
 
-###### Note
+**Note**  
+ By default, CfCT creates an Amazon S3 bucket to store the pipeline source. Most customers stay with this default. If you have an existing AWS CodeCommit repository, you can change the source location to your AWS CodeCommit repository. For more information, see [Edit a pipeline in CodePipeline](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-edit.html) in the *AWS CodePipeline User Guide*.
 
-By default, CfCT creates an Amazon S3 bucket to store the pipeline source. Most customers
-stay with this default. If you have an existing AWS CodeCommit repository, you can change the
-source location to your AWS CodeCommit repository. For more information, see [Edit a
-pipeline in CodePipeline](../../../codepipeline/latest/userguide/pipelines-edit.md "../../../codepipeline/latest/userguide/pipelines-edit.md") in the _AWS CodePipeline User
-Guide_.
+The *manifest file* is a text file that describes the AWS resources you can deploy to customize your landing zone. CodePipeline does these tasks: 
++ extracts the manifest file, accompanying set of templates, and other JSON files
++ performs manifest and template validations
++ invokes sections in the CfCT manifest file to run specific [pipeline stages](#code-pipeline-stages).
 
-The _manifest file_ is a text file that describes the
-AWS resources you can deploy to customize your landing zone. CodePipeline does these tasks:
+When you update the configuration package by customizing the manifest file and removing the underscore (\_) from the configuration package filename, it automatically initiates AWS CodePipeline.
 
-- extracts the manifest file, accompanying set of templates, and other JSON files
-- performs manifest and template validations
-- invokes sections in the CfCT manifest file to run specific [pipeline stages](#code-pipeline-stages "#code-pipeline-stages").
-  When you update the configuration package by customizing the manifest file and removing
-  the underscore (\_) from the configuration package filename, it automatically initiates
-  AWS CodePipeline.
-
-###### Remember the underscore
-
-The sample configuration package filename begins with an underscore (\_) so that
-AWS CodePipeline is not automatically triggered. When you have completed the customization of the
-configuration package, upload the file `custom-control-tower-configuration.zip`
-without the underscore (\_) in order to trigger the deployment in AWS CodePipeline.
+**Remember the underscore**  
+The sample configuration package filename begins with an underscore (\_) so that AWS CodePipeline is not automatically triggered. When you have completed the customization of the configuration package, upload the file `custom-control-tower-configuration.zip` without the underscore (\_) in order to trigger the deployment in AWS CodePipeline.
 
 ## AWS CodePipeline stages
+<a name="code-pipeline-stages"></a>
 
-The CfCT pipeline requires several AWS CodePipeline stages to implement and update your
-AWS Control Tower environment.
+The CfCT pipeline requires several AWS CodePipeline stages to implement and update your AWS Control Tower environment.
 
 1. **Source stage**
 
-The source stage is the initial stage. Your customized configuration package
-initiates this pipeline stage. The source for the AWS CodePipeline can be either an Amazon S3 bucket
-or an AWS CodeCommit repository, in which the configuration package can be hosted. 2. **Build stage**
+   The source stage is the initial stage. Your customized configuration package initiates this pipeline stage. The source for the AWS CodePipeline can be either an Amazon S3 bucket or an AWS CodeCommit repository, in which the configuration package can be hosted.
 
-The build stage requires AWS CodeBuild to validate the contents of the configuration
-package. These checks include testing the `manifest.yaml` file syntax and
-schema, along with all CloudFormation templates included in the package or remotely hosted, using
-CloudFormation `validate-template` and `cfn_nag`. If the manifest file and
-CloudFormation templates pass the tests, the pipeline continues to the next stage. If the tests
-fail, you can review the CodeBuild logs to identify the issue and edit the configuration
-source file as needed. 3. **Manual approval stage (optional)**
+1. **Build stage**
 
-The manual approval stage is optional. If you enable this stage, it provides
-additional control over the configuration pipeline. It pauses the pipeline during
-deployment, until an approval is given. You can opt into manual approval by editing the
-**Pipeline Approval Stage** parameter to **Yes**
-when you launch the stack. 4. **Service Control Policy stage**
+   The build stage requires AWS CodeBuild to validate the contents of the configuration package. These checks include testing the `manifest.yaml` file syntax and schema, along with all CloudFormation templates included in the package or remotely hosted, using CloudFormation `validate-template` and `cfn_nag`. If the manifest file and CloudFormation templates pass the tests, the pipeline continues to the next stage. If the tests fail, you can review the CodeBuild logs to identify the issue and edit the configuration source file as needed.
 
-The Service Control Policy stage invokes the service control policy (SCP) state machine to
-call AWS Organizations APIs that create SCPs. 5. **Resource Control Policy stage**
+1. **Manual approval stage (optional)**
 
-The Resource Control Policy stage invokes the resource control policy (RCP) state machine to
-call AWS Organizations APIs that create RCPs. 6. **CloudFormation resource stage**
+   The manual approval stage is optional. If you enable this stage, it provides additional control over the configuration pipeline. It pauses the pipeline during deployment, until an approval is given. You can opt into manual approval by editing the **Pipeline Approval Stage** parameter to **Yes** when you launch the stack.
 
-The CloudFormation resource stage invokes the stack set state machine to deploy the resources
-specified in the list of accounts or organizational units (OUs), which you provided in
-the manifest file. The state machine creates the CloudFormation resources in the order that they
-are specified in the manifest file. To specify a resource dependency, arrange the order
-in which resources are specified in the manifest file. The order of resources within the
-manifest file is the only way to specify a dependency.
+1. **Service Control Policy stage**
+
+   The Service Control Policy stage invokes the service control policy (SCP) state machine to call AWS Organizations APIs that create SCPs.
+
+1. **Resource Control Policy stage**
+
+   The Resource Control Policy stage invokes the resource control policy (RCP) state machine to call AWS Organizations APIs that create RCPs.
+
+1. **CloudFormation resource stage**
+
+   The CloudFormation resource stage invokes the stack set state machine to deploy the resources specified in the list of accounts or organizational units (OUs), which you provided in the manifest file. The state machine creates the CloudFormation resources in the order that they are specified in the manifest file. To specify a resource dependency, arrange the order in which resources are specified in the manifest file. The order of resources within the manifest file is the only way to specify a dependency.

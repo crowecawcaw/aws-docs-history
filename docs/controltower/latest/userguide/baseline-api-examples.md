@@ -1,11 +1,14 @@
-# Examples for baseline API usage
 
-This section contains examples of input and output parameters for the AWS Control Tower baseline
-APIs.
+
+# Examples for baseline API usage
+<a name="baseline-api-examples"></a>
+
+ This section contains examples of input and output parameters for the AWS Control Tower baseline APIs.
 
 ## `DisableBaseline`
+<a name="disable-baseline"></a>
 
-For more information about this API operation, see [DisableBaseline](../APIReference/API_DisableBaseline.md "../APIReference/API_DisableBaseline.md").
+For more information about this API operation, see [DisableBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_DisableBaseline.html).
 
 `DisableBaseline` input:
 
@@ -32,8 +35,9 @@ aws controltower disable-baseline \
 ```
 
 ## `EnableBaseline`
+<a name="enable-baseline"></a>
 
-For more information about this API operation, see [EnableBaseline](../APIReference/API_EnableBaseline.md "../APIReference/API_EnableBaseline.md").
+For more information about this API operation, see [EnableBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_EnableBaseline.html).
 
 `EnableBaseline` input:
 
@@ -62,11 +66,7 @@ For more information about this API operation, see [EnableBaseline](../APIRefere
 
 `EnableBaseline` CLI example:
 
-This example shows enabling a baseline for an AWS Organizations organization that has the
-landing zone opted-in to AWS IAM Identity Center access, managed by AWS Control Tower. To retrieve your
-Identity Center `EnabledBaseline` identifier, you can call the
-`ListEnabledBaselines` API, filtering on the Identity Center baseline:
-`(arn:aws:controltower:`Region`::baseline/LN25R72TTG6IGPTQ)`
+This example shows enabling a baseline for an AWS Organizations organization that has the landing zone opted-in to AWS IAM Identity Center access, managed by AWS Control Tower. To retrieve your Identity Center `EnabledBaseline` identifier, you can call the `ListEnabledBaselines` API, filtering on the Identity Center baseline: `(arn:aws:controltower:{{Region}}::baseline/LN25R72TTG6IGPTQ)`
 
 ```
 aws controltower list-enabled-baselines \
@@ -74,8 +74,7 @@ aws controltower list-enabled-baselines \
     --region us-west-2
 ```
 
-The response will show the `EnabledBaseline` detail, which shows its
-identifier.
+The response will show the `EnabledBaseline` detail, which shows its identifier.
 
 ```
 {
@@ -92,10 +91,8 @@ identifier.
 }
 ```
 
-###### Note
-
-Make note of the ARN value from the response, and pass this value as a parameter
-to enable the default baseline.
+**Note**  
+Make note of the ARN value from the response, and pass this value as a parameter to enable the default baseline.
 
 ```
 aws controltower enable-baseline \
@@ -106,8 +103,7 @@ aws controltower enable-baseline \
     --region us-west-2
 ```
 
-For an organization with the landing zone opted-out from AWS Control Tower management of IAM Identity Center,
-enable the baseline without the parameter.
+For an organization with the landing zone opted-out from AWS Control Tower management of IAM Identity Center, enable the baseline without the parameter.
 
 ```
 aws controltower enable-baseline \
@@ -118,8 +114,9 @@ aws controltower enable-baseline \
 ```
 
 ## `GetBaseline`
+<a name="get-baseline"></a>
 
-For more information about this API operation, see [GetBaseline](../APIReference/API_GetBaseline.md "../APIReference/API_GetBaseline.md").
+For more information about this API operation, see [GetBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaseline.html).
 
 `GetBaseline` input:
 
@@ -148,8 +145,9 @@ aws controltower get-baseline \
 ```
 
 ## `GetBaselineOperation`
+<a name="get-baseline-operation"></a>
 
-For more information about this API operation, see [GetBaselineOperation](../APIReference/API_GetBaselineOperation.md "../APIReference/API_GetBaselineOperation.md").
+For more information about this API operation, see [GetBaselineOperation](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetBaselineOperation.html).
 
 `GetBaselineOperation` input:
 
@@ -183,8 +181,9 @@ aws controltower get-baseline-operation \
 ```
 
 ## `GetEnabledBaseline`
+<a name="get-enabled-baseline"></a>
 
-For more information about this API operation, see [GetEnabledBaseline](../APIReference/API_GetEnabledBaseline.md "../APIReference/API_GetEnabledBaseline.md").
+For more information about this API operation, see [GetEnabledBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_GetEnabledBaseline.html).
 
 `GetEnabledBaseline` input:
 
@@ -226,8 +225,9 @@ aws controltower get-enabled-baseline \
 ```
 
 ## `ListBaselines`
+<a name="list-baselines"></a>
 
-For more information about this API operation, see [ListBaselines](../APIReference/API_ListBaselines.md "../APIReference/API_ListBaselines.md").
+For more information about this API operation, see [ListBaselines](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListBaselines.html).
 
 `ListBaselines` input (using optional inputs):
 
@@ -290,10 +290,11 @@ aws controltower list-baselines \
 ```
 
 ## `ListEnabledBaselines`
+<a name="list-enabled-baselines"></a>
 
-The `ListEnabledBaselines` API has an optional parameter that allows you to view the baselines as they apply to the accounts that are members of an OU. The examples that follow show some CLI commands you can use to view the baselines for an account. AWS Control Tower refers to these baselines, which are enabled on the OU, but apply to each account within the OU, as _child enabled baselines_, because they derive their governance configuration from the baselines that are applied on the OU.
+The `ListEnabledBaselines` API has an optional parameter that allows you to view the baselines as they apply to the accounts that are members of an OU. The examples that follow show some CLI commands you can use to view the baselines for an account. AWS Control Tower refers to these baselines, which are enabled on the OU, but apply to each account within the OU, as *child enabled baselines*, because they derive their governance configuration from the baselines that are applied on the OU.
 
-For more information about this API operation, see [ListEnabledBaselines](../APIReference/API_ListEnabledBaselines.md "../APIReference/API_ListEnabledBaselines.md").
+For more information about this API operation, see [ListEnabledBaselines](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ListEnabledBaselines.html).
 
 `ListEnabledBaselines` input to show child enabled baselines:
 
@@ -330,8 +331,7 @@ aws controltower list-enabled-baselines --include-children
 ]
 ```
 
-###### Note
-
+**Note**  
 In the previous example, the `parentIdentifier` field shows the enabled baseline of the parent OU for this child enabled baseline.
 
 View all baselines applied on a specific target (OU or account):
@@ -339,7 +339,7 @@ View all baselines applied on a specific target (OU or account):
 ```
 aws controltower list-enabled-baselines \
     --filter '{
-        "targetIdentifiers": ["`TARGET_ARN`"]
+        "targetIdentifiers": ["{{TARGET_ARN}}"]
     }
 ```
 
@@ -348,7 +348,7 @@ View all OUs that have a specific baseline:
 ```
 aws controltower list-enabled-baselines \
     --filter '{
-        "baselineIdentifiers": ["`BASELINE_ARN`"]
+        "baselineIdentifiers": ["{{BASELINE_ARN}}"]
     }'
 ```
 
@@ -357,7 +357,7 @@ View all OUs and accounts that have a specific baseline:
 ```
 aws controltower list-enabled-baselines \
     --filter '{
-        "baselineIdentifiers": ["`BASELINE_ARN`"]
+        "baselineIdentifiers": ["{{BASELINE_ARN}}"]
     }'  \
     --include-children
 ```
@@ -368,24 +368,23 @@ View all accounts in an OU that have Baseline B enabled:
 ### First fetch the enabled baseline record for Baseline B on the OU
  aws controltower list-enabled-baselines \
     --filter '{
-        "targetIdentifiers": ["`OU_TARGET_ARN`"],
+        "targetIdentifiers": ["{{OU_TARGET_ARN}}"],
         "baselineIdentifiers": ["BASELINE_ARN_FOR_BASELINE_B"]
     }'
-
+    
 ### Call ListEnabled baseline to fetch all accounts that have their parent as the enabled baseline record on the OU
 aws controltower list-enabled-baselines \
     --filter '{
-        "parentIdentifiers": ["`ENABLED_BASELINE_ARN_FOR_OU`"]
+        "parentIdentifiers": ["{{ENABLED_BASELINE_ARN_FOR_OU}}"]
     }' \
     --include-children
 ```
 
-###### More about child enabled baselines
-
-- You can use `GetEnabledBaseline` API to view detailed information about a specific child enabled baseline
-- You can use the `GetBaselineOperation` API to view an operation performed on the child enabled baseline
-- You cannot call any write APIs, such as `EnableBaseline`, `UpdateEnabledBaseline`, `ResetEnabledBaseline` or `DisableBaseline`, on a child enabled baseline directly.
-- Child enabled baseline resources can be modified by means of the AWS Control Tower service only, through operations that are performed on the parent OU, or by means of Account Factory.
+**More about child enabled baselines**  
+You can use `GetEnabledBaseline` API to view detailed information about a specific child enabled baseline
+You can use the `GetBaselineOperation` API to view an operation performed on the child enabled baseline
+You cannot call any write APIs, such as `EnableBaseline`, `UpdateEnabledBaseline`, `ResetEnabledBaseline` or `DisableBaseline`, on a child enabled baseline directly.
+Child enabled baseline resources can be modified by means of the AWS Control Tower service only, through operations that are performed on the parent OU, or by means of Account Factory.
 
 Examples for using filters:
 
@@ -398,8 +397,7 @@ Examples for using filters:
 }
 ```
 
-`ListEnabledBaselines` input (`baselineIdentifiers` filter
-only):
+`ListEnabledBaselines` input (`baselineIdentifiers` filter only):
 
 ```
 {
@@ -411,8 +409,7 @@ only):
 }
 ```
 
-`ListEnabledBaselines` input (`targetIdentifiers` filter
-only):
+`ListEnabledBaselines` input (`targetIdentifiers` filter only):
 
 ```
 {
@@ -424,8 +421,7 @@ only):
 }
 ```
 
-`ListEnabledBaselines` input (`baselineIdentifiers` and
-`targetIdentifiers` filters):
+`ListEnabledBaselines` input (`baselineIdentifiers` and `targetIdentifiers` filters):
 
 ```
 {
@@ -476,8 +472,7 @@ aws controltower list-enabled-baselines \
     --region us-west-2
 ```
 
-CLI example using multiple filters (`baselineIdentifiers` and
-`targetIdentifiers` filters):
+CLI example using multiple filters (`baselineIdentifiers` and `targetIdentifiers` filters):
 
 ```
 aws controltower list-enabled-baselines \
@@ -486,8 +481,9 @@ aws controltower list-enabled-baselines \
 ```
 
 ## `ResetEnabledBaseline`
+<a name="reset-enabled-baseline"></a>
 
-For more information about this API operation, see [ResetEnabledBaseline](../APIReference/API_ResetEnabledBaseline.md "../APIReference/API_ResetEnabledBaseline.md").
+For more information about this API operation, see [ResetEnabledBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_ResetEnabledBaseline.html).
 
 `ResetEnabledbaseline` input:
 
@@ -514,8 +510,9 @@ aws controltower reset-enabled-baseline \
 ```
 
 ## `UpdateEnabledBaseline`
+<a name="update-enabled-baseline"></a>
 
-For more information about this API operation, see [UpdateEnabledBaseline](../APIReference/API_UpdateEnabledBaseline.md "../APIReference/API_UpdateEnabledBaseline.md").
+For more information about this API operation, see [UpdateEnabledBaseline](https://docs.aws.amazon.com/controltower/latest/APIReference/API_UpdateEnabledBaseline.html).
 
 `UpdateEnabledBaseline` input:
 
@@ -528,7 +525,7 @@ For more information about this API operation, see [UpdateEnabledBaseline](../AP
             "key": "IdentityCenterEnabledBaselineArn",
             "value": "arn:aws:controltower:us-east-1:123456789012:enabledbaseline/XAHCR4CJTSI4W07MZ"
         }
-    ]
+    ] 
 }
 ```
 

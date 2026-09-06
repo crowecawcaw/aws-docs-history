@@ -1,85 +1,64 @@
+
+
 # How AWS Control Tower works with roles to create and manage accounts
+<a name="roles-how"></a>
 
-In general, roles are a part of identity and access management (IAM) in AWS.
-
-For general information about IAM and roles in AWS, see [the IAM roles topic in
-the _AWS IAM User Guide_](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md").
+In general, roles are a part of identity and access management (IAM) in AWS. For general information about IAM and roles in AWS, see [ the IAM roles topic in the *AWS IAM User Guide*](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
 ## Roles and account creation
+<a name="roles-and-account-creation"></a>
 
-AWS Control Tower creates a customer's account by calling the `CreateAccount` API of
-AWS Organizations. When AWS Organizations creates this account, it creates a role within that account,
-which AWS Control Tower names by passing in a parameter to the API. The name of the role is
-`AWSControlTowerExecution`.
+AWS Control Tower creates a customer's account by calling the `CreateAccount` API of AWS Organizations. When AWS Organizations creates this account, it creates a role within that account, which AWS Control Tower names by passing in a parameter to the API. The name of the role is `AWSControlTowerExecution`.
 
-AWS Control Tower takes over the `AWSControlTowerExecution` role for all accounts
-created by Account Factory. Using this role, AWS Control Tower _baselines_ the account and applies mandatory (and any other enabled)
-controls, which results in creation of other roles. These roles in turn are used by
-other services, such as AWS Config.
+AWS Control Tower takes over the `AWSControlTowerExecution` role for all accounts created by Account Factory. Using this role, AWS Control Tower *baselines* the account and applies mandatory (and any other enabled) controls, which results in creation of other roles. These roles in turn are used by other services, such as AWS Config.
 
-###### Note
+**Note**  
+To *baseline* an account is to set up its resources, which include [Account Factory templates](https://docs.aws.amazon.com/controltower/latest/userguide/account-factory-considerations.html), sometimes referred to as *blueprints*, and controls. The baselining process also sets up the centralized logging and security audit roles on the account, as part of deploying the templates. AWS Control Tower baselines are contained in the roles that you apply to every enrolled account.
 
-To _baseline_ an account is to set up its
-resources, which include [Account
-Factory templates](account-factory-considerations.md "account-factory-considerations.md"), sometimes referred to as _blueprints_, and controls. The baselining process also sets up the
-centralized logging and security audit roles on the account, as part of deploying
-the templates. AWS Control Tower baselines are contained in the roles that you apply to every
-enrolled account.
-
-For more information about accounts and resources, see [About AWS accounts in AWS Control Tower](accounts.md "accounts.md").
+For more information about accounts and resources, see [About AWS accounts in AWS Control Tower](accounts.md).
 
 ## How AWS Control Tower aggregates AWS Config rules in unmanaged OUs and accounts
+<a name="config-role-for-organizations"></a>
++  The AWS Control Tower management account creates an organization-level aggregator, which assists in detecting external AWS Config rules, so that AWS Control Tower does not need to gain access to unmanaged accounts. The AWS Control Tower console shows you how many externally created AWS Config rules you have for a given account. You can view details about those external rules in the **External Config Rule Compliance** tab of the **Account details** page. 
++  To create the aggregator, AWS Control Tower adds a role with the permissions required to describe an organization and list the accounts under it. The `AWSControlTowerConfigAggregatorRoleForOrganizations` role requires the `AWSConfigRoleForOrganizations` managed policy and a trust relationship with `config.amazonaws.com`. 
 
-- The AWS Control Tower management account creates an organization-level aggregator, which assists in
-  detecting external AWS Config rules, so that AWS Control Tower does not need to gain access to unmanaged
-  accounts. The AWS Control Tower console shows you how many externally created AWS Config rules you have
-  for a given account. You can view details about those external rules in the
-  **External Config Rule Compliance** tab of the **Account details** page.
-- To create the aggregator, AWS Control Tower adds a role with the permissions required to describe an
-  organization and list the accounts under it. The `AWSControlTowerConfigAggregatorRoleForOrganizations`
-  role requires the `AWSConfigRoleForOrganizations` managed policy and a trust relationship with
-  `config.amazonaws.com`.
+**Note**  
+ * Customers using landing zone version 4.0 will not need this role because AWS Control Tower have migrated from the existing organization-level config aggregator to the service-linked config aggregator * 
 
-###### Note
-
-_Customers using landing zone version 4.0 will not need this role because AWS Control Tower have migrated from the existing
-organization-level config aggregator to the service-linked config aggregator_
-
-###### Note
-
-When you enable trusted access on the organization that contains your landing zone, AWS Control Tower can create roles,
-manage resources, and read data for all accounts in the organization. Through trusted access, any account or
-OU in the organization is available to AWS Control Tower, whether registered and enrolled, or _not_
-registered and _not_ enrolled.
+**Note**  
+ When you enable trusted access on the organization that contains your landing zone, AWS Control Tower can create roles, manage resources, and read data for all accounts in the organization. Through trusted access, any account or OU in the organization is available to AWS Control Tower, whether registered and enrolled, or *not* registered and *not* enrolled. 
 
 Here is the IAM policy (JSON artifact) attached to the role:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "organizations:ListAccounts",
- "organizations:DescribeOrganization",
- "organizations:ListAWSServiceAccessForOrganization"
- ],
- "Resource": "*"
- }
- ]
- }`
-
-```
-
-Here is the `AWSControlTowerConfigAggregatorRoleForOrganizations` trust
-relationship:
+****  
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version":"2012-10-17",		 	 	 
+      "Statement": [
+       {
+        "Effect": "Allow",
+        "Action": [
+          "organizations:ListAccounts",
+          "organizations:DescribeOrganization",
+          "organizations:ListAWSServiceAccessForOrganization"
+         ],
+       "Resource": "*"
+      }
+    ]
+  }
+```
+
+------
+
+Here is the `AWSControlTowerConfigAggregatorRoleForOrganizations` trust relationship:
+
+```
+{
+    "Version": "2012-10-17",		 	 	 
       "Statement": [
       {
         "Effect": "Allow",
@@ -93,92 +72,71 @@ relationship:
 }
 ```
 
-To deploy this functionality in the management account, the following permissions are added
-in the managed policy `AWSControlTowerServiceRolePolicy`, which is used by the
-`AWSControlTowerAdmin` role when it creates the AWS Config aggregator:
+To deploy this functionality in the management account, the following permissions are added in the managed policy `AWSControlTowerServiceRolePolicy`, which is used by the `AWSControlTowerAdmin` role when it creates the AWS Config aggregator:
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "config:PutConfigurationAggregator",
- "config:DeleteConfigurationAggregator",
- "iam:PassRole"
- ],
- "Resource": [
- "arn:aws:iam::123456789012:role/service-role/AWSControlTowerConfigAggregatorRoleForOrganizations",
- "arn:aws:config:us-east-1:123456789012:config-aggregator/"
- ]
- },
- {
- "Effect": "Allow",
- "Action": "organizations:EnableAWSServiceAccess",
- "Resource": "*"
- }
- ]
-}`
-
-```
-
-New resources created: `AWSControlTowerConfigAggregatorRoleForOrganizations` and
-`aws-controltower-ConfigAggregatorForOrganizations`
-
-When you are ready, you can enroll accounts individually, or enroll them as a group by
-registering an OU. When you've enrolled an account, if you create a rule in AWS Config, AWS Control Tower
-detects the new rule. The aggregator
-shows the number of external rules and provides a link to the AWS Config console where you can
-view the details of each external rule for your account. Use the information in the AWS Config
-console and the AWS Control Tower console to determine whether you have the appropriate controls
-enabled for the account.
-
-## Programmatic roles and trust relationships for the AWS Control Tower audit account
-
-You can sign into the audit account and assume a role to review other accounts
-programmatically. The audit account does not allow you to log in to other accounts
-manually.
-
-The audit account gives you programmatic access to other accounts, by means of some
-roles that are granted to AWS Lambda functions only. For security purposes, these roles
-have _trust relationships_ with other roles, which
-means that the conditions under which the roles can be utilized are strictly
-defined.
-
-The AWS Control Tower stack `StackSet-AWSControlTowerBP-BASELINE-ROLES` creates
-these programmatic-only, cross-account IAM roles in the audit account:
-
-- **aws-controltower-AdministratorExecutionRole**
-- **aws-controltower-ReadOnlyExecutionRole**
-
-The AWS Control Tower stack `StackSet-AWSControlTowerSecurityResources` creates
-these programmatic-only, cross-account IAM roles in the audit account:
-
-- **aws-controltower-AuditAdministratorRole**
-- **aws-controltower-AuditReadOnlyRole**
-
-`ReadOnlyExecutionRole:` Note that this role allows the audit account to
-read objects in Amazon S3 buckets across the entire organization (in contrast to the
-`SecurityAudit` policy, which allows for metadata access only).
-
-###### aws-controltower-AdministratorExecutionRole:
-
-- Has administrator permissions
-- Cannot be assumed from the console
-- Can be assumed only by a role in the audit account – the
-  `aws-controltower-AuditAdministratorRole`
-
-The following artifact shows the trust relationship for
-`aws-controltower-AdministratorExecutionRole`. The placeholder number
-`012345678901` will be replaced by the `Audit_acct_ID` number
-for your audit account.
+****  
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version":"2012-10-17",		 	 	 
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Action": [
+          "config:PutConfigurationAggregator",
+          "config:DeleteConfigurationAggregator",
+          "iam:PassRole"
+          ],
+        "Resource": [
+          "arn:aws:iam::123456789012:role/service-role/AWSControlTowerConfigAggregatorRoleForOrganizations",
+          "arn:aws:config:us-east-1:123456789012:config-aggregator/"
+          ]
+        },
+      {
+        "Effect": "Allow",
+        "Action": "organizations:EnableAWSServiceAccess",
+        "Resource": "*"
+      }
+    ]
+}
+```
+
+------
+
+New resources created: `AWSControlTowerConfigAggregatorRoleForOrganizations` and `aws-controltower-ConfigAggregatorForOrganizations`
+
+When you are ready, you can enroll accounts individually, or enroll them as a group by registering an OU. When you've enrolled an account, if you create a rule in AWS Config, AWS Control Tower detects the new rule. The aggregator shows the number of external rules and provides a link to the AWS Config console where you can view the details of each external rule for your account. Use the information in the AWS Config console and the AWS Control Tower console to determine whether you have the appropriate controls enabled for the account.
+
+## Programmatic roles and trust relationships for the AWS Control Tower audit account
+<a name="stacksets-and-roles"></a>
+
+You can sign into the audit account and assume a role to review other accounts programmatically. The audit account does not allow you to log in to other accounts manually.
+
+The audit account gives you programmatic access to other accounts, by means of some roles that are granted to AWS Lambda functions only. For security purposes, these roles have *trust relationships* with other roles, which means that the conditions under which the roles can be utilized are strictly defined.
+
+The AWS Control Tower stack `StackSet-AWSControlTowerBP-BASELINE-ROLES` creates these programmatic-only, cross-account IAM roles in the audit account:
++ **aws-controltower-AdministratorExecutionRole**
++ **aws-controltower-ReadOnlyExecutionRole**
+
+The AWS Control Tower stack `StackSet-AWSControlTowerSecurityResources` creates these programmatic-only, cross-account IAM roles in the audit account: 
++ **aws-controltower-AuditAdministratorRole**
++ **aws-controltower-AuditReadOnlyRole**
+
+`ReadOnlyExecutionRole:` Note that this role allows the audit account to read objects in Amazon S3 buckets across the entire organization (in contrast to the `SecurityAudit` policy, which allows for metadata access only).
+
+**aws-controltower-AdministratorExecutionRole:**
++ Has administrator permissions
++ Cannot be assumed from the console
++ Can be assumed only by a role in the audit account – the `aws-controltower-AuditAdministratorRole` 
+
+The following artifact shows the trust relationship for `aws-controltower-AdministratorExecutionRole`. The placeholder number `012345678901` will be replaced by the `Audit_acct_ID` number for your audit account.
+
+```
+{
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -191,45 +149,45 @@ for your audit account.
 }
 ```
 
-###### aws-controltower-AuditAdministratorRole:
-
-- Can be assumed by the AWS Lambda service only
-- Has permission to perform read (Get) and write (Put) operations on Amazon S3
-  objects with names that start with the string **log**
+**aws-controltower-AuditAdministratorRole:**
++ Can be assumed by the AWS Lambda service only 
++ Has permission to perform read (Get) and write (Put) operations on Amazon S3 objects with names that start with the string **log**
 
 **Attached policies:**
 
 1. **AWSLambdaExecute** – AWS managed policy
 
-2. **AssumeRole-aws-controltower-AuditAdministratorRole** –
-   inline policy – Created by AWS Control Tower, artifact follows.
+2. **AssumeRole-aws-controltower-AuditAdministratorRole** – inline policy – Created by AWS Control Tower, artifact follows.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/aws-controltower-AdministratorExecutionRole"
- ],
- "Effect": "Allow"
- }
- ]
-}`
-
-```
-
-The following artifact shows the trust relationship for
-`aws-controltower-AuditAdministratorRole`:
+****  
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+	{
+	"Action": [
+		 "sts:AssumeRole"
+		 ],
+	"Resource": [
+		 "arn:aws:iam::*:role/aws-controltower-AdministratorExecutionRole"
+		 ],
+	"Effect": "Allow"
+	}
+   ]
+}
+```
+
+------
+
+The following artifact shows the trust relationship for `aws-controltower-AuditAdministratorRole`:
+
+```
+{
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -242,20 +200,15 @@ The following artifact shows the trust relationship for
 }
 ```
 
-###### aws-controltower-ReadOnlyExecutionRole:
+**aws-controltower-ReadOnlyExecutionRole:**
++ Cannot be assumed from the console
++ Can be assumed only by another role in the audit account – the `AuditReadOnlyRole`
 
-- Cannot be assumed from the console
-- Can be assumed only by another role in the audit account – the
-  `AuditReadOnlyRole`
-
-The following artifact shows the trust relationship for
-`aws-controltower-ReadOnlyExecutionRole`. The placeholder number
-`012345678901` will be replaced by the `Audit_acct_ID` number
-for your audit account.
+The following artifact shows the trust relationship for `aws-controltower-ReadOnlyExecutionRole`. The placeholder number `012345678901` will be replaced by the `Audit_acct_ID` number for your audit account.
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -268,45 +221,45 @@ for your audit account.
 }
 ```
 
-###### aws-controltower-AuditReadOnlyRole:
-
-- Can be assumed by the AWS Lambda service only
-- Has permission to perform read (Get) and write (Put) operations on Amazon S3
-  objects with names that start with the string **log**
+**aws-controltower-AuditReadOnlyRole:**
++ Can be assumed by the AWS Lambda service only
++ Has permission to perform read (Get) and write (Put) operations on Amazon S3 objects with names that start with the string **log**
 
 **Attached policies:**
 
 1. **AWSLambdaExecute** – AWS managed policy
 
-2. **AssumeRole-aws-controltower-AuditReadOnlyRole** – inline
-   policy – Created by AWS Control Tower, artifact follows.
+2. **AssumeRole-aws-controltower-AuditReadOnlyRole** – inline policy – Created by AWS Control Tower, artifact follows.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "sts:AssumeRole"
- ],
- "Resource": [
- "arn:aws:iam::*:role/aws-controltower-ReadOnlyExecutionRole"
- ],
- "Effect": "Allow"
- }
- ]
-}`
-
-```
-
-The following artifact shows the trust relationship for
-`aws-controltower-AuditAdministratorRole`:
+****  
 
 ```
 {
-  "Version": "2012-10-17",
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+	{
+	"Action": [
+		"sts:AssumeRole"
+	],
+	"Resource": [
+		"arn:aws:iam::*:role/aws-controltower-ReadOnlyExecutionRole"
+	],
+	"Effect": "Allow"
+   }
+  ]
+}
+```
+
+------
+
+The following artifact shows the trust relationship for `aws-controltower-AuditAdministratorRole`:
+
+```
+{
+  "Version": "2012-10-17",		 	 	 
   "Statement": [
     {
       "Effect": "Allow",
@@ -320,19 +273,15 @@ The following artifact shows the trust relationship for
 ```
 
 ## Automated Account Provisioning With IAM Roles
+<a name="automated-provisioning"></a>
 
-To configure Account Factory accounts in a more automated way, you can create Lambda
-functions in the AWS Control Tower management account, which [assumes the **AWSControlTowerExecution** role](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-assume-iam-role/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-assume-iam-role/") in the
-member account. Then, using the role, the management account performs the desired
-configuration steps in each member account.
+To configure Account Factory accounts in a more automated way, you can create Lambda functions in the AWS Control Tower management account, which [assumes the **AWSControlTowerExecution** role ](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-assume-iam-role/) in the member account. Then, using the role, the management account performs the desired configuration steps in each member account.
 
-If you're provisioning accounts using Lambda functions, the identity that will
-perform this work must have the following IAM permissions policy, in addition to
-`AWSServiceCatalogEndUserFullAccess`.
+ If you're provisioning accounts using Lambda functions, the identity that will perform this work must have the following IAM permissions policy, in addition to `AWSServiceCatalogEndUserFullAccess`.
 
 ```
 {
-    "Version": "2012-10-17",
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "AWSControlTowerAccountFactoryAccess",
@@ -371,5 +320,4 @@ perform this work must have the following IAM permissions policy, in addition to
         }
     ]
 }
-
 ```
