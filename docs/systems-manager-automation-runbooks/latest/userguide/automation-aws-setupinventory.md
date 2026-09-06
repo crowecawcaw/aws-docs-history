@@ -1,12 +1,13 @@
+
+
 # `AWS-SetupInventory`
+<a name="automation-aws-setupinventory"></a>
 
-**Description**
+ **Description** 
 
-Create a Systems Manager Inventory association for one or more managed instances. The
-system collects metadata from your instances according to the schedule in the
-association. For more information, see [AWS Systems Manager Inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md") .
+ Create a Systems Manager Inventory association for one or more managed instances. The system collects metadata from your instances according to the schedule in the association. For more information, see [AWS Systems Manager Inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-inventory.html) . 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupInventory "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupInventory")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-SetupInventory) 
 
 **Document type**
 
@@ -21,181 +22,127 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ Applications
 
-- Applications
+  Type: String
 
-Type: String
+  Default: Enabled
 
-Default: Enabled
+  Description: (Optional) Collect metadata about installed applications.
++ AssociatedDocName
 
-Description: (Optional) Collect metadata about installed
-applications.
+  Type: String
 
-- AssociatedDocName
+   Default: `AWS-GatherSoftwareInventory` 
 
-Type: String
+  Description: (Optional) The name of the runbook used to collect Inventory from the managed instance.
++ AssociationName
 
-Default: `AWS-GatherSoftwareInventory`
+  Type: String
 
-Description: (Optional) The name of the runbook used to collect Inventory
-from the managed instance.
+  Description: (Optional) A name for the Inventory association that will be assigned to the instance.
++ AssocWaitTime
 
-- AssociationName
+  Type: String
 
-Type: String
+  Default: PT5M
 
-Description: (Optional) A name for the Inventory association that will be
-assigned to the instance.
+  Description: (Optional) Amount of time that Inventory collection should pause when the Inventory association start time is reached. The time uses ISO 8601 format.
++ AutomationAssumeRole
 
-- AssocWaitTime
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++  `AwsComponents` 
 
-Default: PT5M
+  Type: String
 
-Description: (Optional) Amount of time that Inventory collection should
-pause when the Inventory association start time is reached. The time uses
-ISO 8601 format.
+  Default: Enabled
 
-- AutomationAssumeRole
+  Description: (Optional) Collect metadata for AWS Components like amazon-ssm-agent.
++ CustomInventory
 
-Type: String
+  Type: String
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Default: Enabled
 
-- `AwsComponents`
+  Description: (Optional) Collect custom inventory metadata.
++ Files
 
-Type: String
+  Type: String
 
-Default: Enabled
+   Description: (Optional) Collect metadata about files on your instances. For more information about how to collect this type of Inventory data, see [Working with file and Windows registry inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-file-and-registry.html) . Requires SSMAgent version 2.2.64.0 or later. Linux example: `[{"Path":"/usr/bin", "Pattern":["aws*", "*ssm*"],"Recursive":false},{"Path":"/var/log", "Pattern":["amazon*.*"], "Recursive":true, "DirScanLimit":1000}] Windows example: [{"Path":"%PROGRAMFILES%", "Pattern":["*.exe"],"Recursive":true}]` 
++ InstanceDetailedInformation
 
-Description: (Optional) Collect metadata for AWS Components like
-amazon-ssm-agent.
+  Type: String
 
-- CustomInventory
+  Default: Enabled
 
-Type: String
+  Description: (Optional) Collect additional information about the instance, including the CPU model, speed, and the number of cores, to name a few.
++ InstanceIds
 
-Default: Enabled
+  Type: String
 
-Description: (Optional) Collect custom inventory metadata.
+  Default: \*
 
-- Files
+  Description: (Required) EC2 instances that you want to inventory.
++ LambdaAssumeRole
 
-Type: String
+  Type: String
 
-Description: (Optional) Collect metadata about files on your instances.
-For more information about how to collect this type of Inventory data, see
-[Working with file and Windows registry inventory](../../../systems-manager/latest/userguide/sysman-inventory-file-and-registry.md "../../../systems-manager/latest/userguide/sysman-inventory-file-and-registry.md") . Requires
-SSMAgent version 2.2.64.0 or later. Linux example:
-`[{"Path":"/usr/bin", "Pattern":["aws*",
- "*ssm*"],"Recursive":false},{"Path":"/var/log", "Pattern":["amazon*.*"],
- "Recursive":true, "DirScanLimit":1000}] Windows example:
- [{"Path":"%PROGRAMFILES%", "Pattern":["*.exe"],"Recursive":true}]`
+  Description: (Optional) The ARN of the role that allows Lambda created by Automation to perform the actions on your behalf. If not specified a transient role will be created to run the Lambda function.
++ NetworkConfig
 
-- InstanceDetailedInformation
+  Type: String
 
-Type: String
+  Default: Enabled
 
-Default: Enabled
+  Description: (Optional) Collect metadata about network configurations.
++ OutputS3BucketName
 
-Description: (Optional) Collect additional information about the instance,
-including the CPU model, speed, and the number of cores, to name a
-few.
+  Type: String
 
-- InstanceIds
+  Description: (Optional) Name of an Amazon S3 bucket where you want to write Inventory log data.
++ OutputS3KeyPrefix
 
-Type: String
+  Type: String
 
-Default: \*
+  Description: (Optional) An Amazon S3 key prefix (subfolder) where you want to write Inventory log data.
++ OutputS3Region
 
-Description: (Required) EC2 instances that you want to inventory.
+  Type: String
 
-- LambdaAssumeRole
+  Description: (Optional) The name of the AWS Region where the Amazon S3 exists.
++ Schedule
 
-Type: String
+  Type: String
 
-Description: (Optional) The ARN of the role that allows Lambda created by
-Automation to perform the actions on your behalf. If not specified a
-transient role will be created to run the Lambda function.
+  Default: cron(0 \*/30 \* \* \* ? \*)
 
-- NetworkConfig
+  Description: (Optional) A cron expression for the Inventory association schedule. The default is every 30 minutes.
++ Services
 
-Type: String
+  Type: String
 
-Default: Enabled
+  Default: Enabled
 
-Description: (Optional) Collect metadata about network
-configurations.
+  Description: (Optional, Windows OS only, requires SSMAgent version 2.2.64.0 and above) Collect data for service configurations.
++ WindowsRegistry
 
-- OutputS3BucketName
+  Type: String
 
-Type: String
+   Description: (Optional) Collect metadata about Microsoft Windows Registry keys. For more information about how to collect this type of Inventory data, see [Working with file and Windows registry inventory](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-file-and-registry.html) . Requires SSM Agent version 2.2.64.0 or later. Example: [ {"Path":"HKEY\_CURRENT\_CONFIG\\System","Recursive":true},{"Path":"HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Amazon\\MachineImage", "ValueNames":["AMIName"]}] 
++ WindowsRoles
 
-Description: (Optional) Name of an Amazon S3 bucket where you want to write
-Inventory log data.
+  Type: String
 
-- OutputS3KeyPrefix
+  Default: Enabled
 
-Type: String
+  Description: (Optional) Collect information about Windows roles on the instance. Applies to Windows operating systems only. Requires SSMAgent version 2.2.64.0 or later.
++ WindowsUpdates
 
-Description: (Optional) An Amazon S3 key prefix (subfolder) where you want to
-write Inventory log data.
+  Type: String
 
-- OutputS3Region
+  Default: Enabled
 
-Type: String
-
-Description: (Optional) The name of the AWS Region where the Amazon S3
-exists.
-
-- Schedule
-
-Type: String
-
-Default: cron(0 \*/30 \* \* \* ? \*)
-
-Description: (Optional) A cron expression for the Inventory association
-schedule. The default is every 30 minutes.
-
-- Services
-
-Type: String
-
-Default: Enabled
-
-Description: (Optional, Windows OS only, requires SSMAgent version
-2.2.64.0 and above) Collect data for service configurations.
-
-- WindowsRegistry
-
-Type: String
-
-Description: (Optional) Collect metadata about Microsoft Windows Registry
-keys. For more information about how to collect this type of Inventory data,
-see [Working with file and Windows registry inventory](../../../systems-manager/latest/userguide/sysman-inventory-file-and-registry.md "../../../systems-manager/latest/userguide/sysman-inventory-file-and-registry.md") . Requires
-SSM Agent version 2.2.64.0 or later. Example: [
-{"Path":"HKEY\_CURRENT\_CONFIG\System","Recursive":true},{"Path":"HKEY\_LOCAL\_MACHINE\SOFTWARE\Amazon\MachineImage",
-"ValueNames":["AMIName"]}]
-
-- WindowsRoles
-
-Type: String
-
-Default: Enabled
-
-Description: (Optional) Collect information about Windows roles on the
-instance. Applies to Windows operating systems only. Requires SSMAgent
-version 2.2.64.0 or later.
-
-- WindowsUpdates
-
-Type: String
-
-Default: Enabled
-
-Description: (Optional) Collect data about all Windows Updates on the
-instance.
+  Description: (Optional) Collect data about all Windows Updates on the instance.

@@ -1,18 +1,16 @@
+
+
 # `AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups`
+<a name="automation-aws-update-opensearch-security-group"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups`
-runbook updates the security group configuration on a given Amazon OpenSearch Service domain using
-the [UpdateDomainConfig](../../../opensearch-service/latest/developerguide/configuration-api.md#configuration-api-actions-updatedomainconfig "../../../opensearch-service/latest/developerguide/configuration-api.md#configuration-api-actions-updatedomainconfig") API.
+ The `AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups` runbook updates the security group configuration on a given Amazon OpenSearch Service domain using the [UpdateDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/configuration-api.html#configuration-api-actions-updatedomainconfig) API. 
 
-###### Note
+**Note**  
+AWS Security groups can only be applied to Amazon OpenSearch Service domains configured for Amazon Virtual Private Cloud (VPC) Access, and not to Amazon OpenSearch Service domains configured for Public Access.
 
-AWS Security groups can only be applied to Amazon OpenSearch Service domains configured for
-Amazon Virtual Private Cloud (VPC) Access, and not to Amazon OpenSearch Service domains
-configured for Public Access.
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateOpenSearchDomainSecurityGroups) 
 
 **Document type**
 
@@ -27,39 +25,29 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ DomainName
 
-- DomainName
+  Type: String
 
-Type: String
+  Description: (Required) The name of the Amazon OpenSearch Service domain that you want to use to update security groups.
++ SecurityGroupList
 
-Description: (Required) The name of the Amazon OpenSearch Service domain that you want to
-use to update security groups.
+  Type: StringList
 
-- SecurityGroupList
+  Description: (Required) The security group IDs that you want to assign to the Amazon OpenSearch Service domain.
++ AutomationAssumeRole
 
-Type: StringList
+  Type: String
 
-Description: (Required) The security group IDs that you want to assign to
-the Amazon OpenSearch Service domain.
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
 
-- AutomationAssumeRole
-
-Type: String
-
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `es:DescribeDomain` 
++  `es:UpdateDomainConfig` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `es:DescribeDomain`
-- `es:UpdateDomainConfig`
-
-**Document Steps**
-
-- `aws:executeScript` - Updates the security group configuration on
-  the Amazon OpenSearch Service domain you specify in the `DomainName` parameter.
+ **Document Steps** 
++  `aws:executeScript` - Updates the security group configuration on the Amazon OpenSearch Service domain you specify in the `DomainName` parameter. 

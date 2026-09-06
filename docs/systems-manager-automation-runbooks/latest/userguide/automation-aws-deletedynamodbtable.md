@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteDynamoDbTable`
+<a name="automation-aws-deletedynamodbtable"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteDynamoDbTable` runbook deletes the
-Amazon DynamoDB (DynamoDB) table you specify.
+ The `AWSConfigRemediation-DeleteDynamoDbTable` runbook deletes the Amazon DynamoDB (DynamoDB) table you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteDynamoDbTable "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteDynamoDbTable")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteDynamoDbTable) 
 
 **Document type**
 
@@ -20,33 +22,25 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ TableName
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- TableName
+  Description: (Required) The name of the DynamoDB table you want to delete.
 
-Type: String
-
-Description: (Required) The name of the DynamoDB table you want to
-delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `dynamodb:DeleteTable` 
++  `dynamodb:DescribeTable` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `dynamodb:DeleteTable`
-- `dynamodb:DescribeTable`
-
-**Document Steps**
-
-- `aws:executeScript` - Deletes the DynamoDB table specified in the
-  `TableName` parameter.
-- `aws:executeScript` - Verifies the DynamoDB table has been deleted.
+ **Document Steps** 
++  `aws:executeScript` - Deletes the DynamoDB table specified in the `TableName` parameter. 
++  `aws:executeScript` - Verifies the DynamoDB table has been deleted. 

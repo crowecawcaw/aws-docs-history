@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-EnablePITRForDynamoDbTable`
+<a name="automation-aws-enable-pitr-ddb"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnablePITRForDynamoDbTable` runbook enables
-point-in-time recovery (PITR) on the Amazon DynamoDB table you specify.
+ The `AWSConfigRemediation-EnablePITRForDynamoDbTable` runbook enables point-in-time recovery (PITR) on the Amazon DynamoDB table you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnablePITRForDynamoDbTable "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnablePITRForDynamoDbTable")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnablePITRForDynamoDbTable) 
 
 **Document type**
 
@@ -20,34 +22,25 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ TableName
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- TableName
+  Description: (Required) The name of the DynamoDB table to enable point-in-time recovery on.
 
-Type: String
-
-Description: (Required) The name of the DynamoDB table to enable
-point-in-time recovery on.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `dynamodb:DescribeContinuousBackups ` 
++  `dynamodb:UpdateContinuousBackups` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `dynamodb:DescribeContinuousBackups`
-- `dynamodb:UpdateContinuousBackups`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Enables point-in-time recovery on the DynamoDB
-  table you specify in the `TableName` parameter.
-- `aws:assertAwsResourceProperty` - Confirms point-in-time recovery
-  is enabled on the DynamoDB table.
+ **Document Steps** 
++  `aws:executeAwsApi` - Enables point-in-time recovery on the DynamoDB table you specify in the `TableName` parameter. 
++  `aws:assertAwsResourceProperty` - Confirms point-in-time recovery is enabled on the DynamoDB table. 

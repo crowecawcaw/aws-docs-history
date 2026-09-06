@@ -1,16 +1,13 @@
+
+
 # `AWS-CopySnapshot`
+<a name="automation-aws-copysnapshot"></a>
 
-**Description**
+ **Description** 
 
-Copies a point-in-time snapshot of an Amazon Elastic Block Store (Amazon EBS) volume. You can copy the
-snapshot within the same AWS Region or from one Region to another. Copies of
-encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain
-unencrypted. To copy an encrypted snapshot that was shared from another account, you
-must have permissions for the KMS key used to encrypt the snapshot. Snapshots
-created by copying another snapshot have an arbitrary volume ID that should not be
-used for any purpose.
+Copies a point-in-time snapshot of an Amazon Elastic Block Store (Amazon EBS) volume. You can copy the snapshot within the same AWS Region or from one Region to another. Copies of encrypted Amazon EBS snapshots remain encrypted. Copies of unencrypted snapshots remain unencrypted. To copy an encrypted snapshot that was shared from another account, you must have permissions for the KMS key used to encrypt the snapshot. Snapshots created by copying another snapshot have an arbitrary volume ID that should not be used for any purpose.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CopySnapshot) 
 
 **Document type**
 
@@ -25,39 +22,31 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ Description
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- Description
+  Description: (Optional) A description for the Amazon EBS snapshot.
++ SnapshotId
 
-Type: String
+  Type: String
 
-Description: (Optional) A description for the Amazon EBS snapshot.
+  Description: (Required) The ID of the Amazon EBS snapshot to copy.
++ SourceRegion
 
-- SnapshotId
+  Type: String
 
-Type: String
+  Description: (Required) The Region where the source snapshot currently exists.
 
-Description: (Required) The ID of the Amazon EBS snapshot to copy.
-
-- SourceRegion
-
-Type: String
-
-Description: (Required) The Region where the source snapshot currently
-exists.
-
-**Document Steps**
+ **Document Steps** 
 
 copySnapshot - Copies a snapshot of an Amazon EBS volume.
 
-**Outputs**
+ **Outputs** 
 
 copySnapshot.SnapshotId - The ID of the new snapshot.

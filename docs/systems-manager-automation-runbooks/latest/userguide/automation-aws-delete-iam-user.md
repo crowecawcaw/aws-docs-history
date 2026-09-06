@@ -1,22 +1,22 @@
+
+
 # `AWSConfigRemediation-DeleteIAMUser`
+<a name="automation-aws-delete-iam-user"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteIAMUser` runbook deletes the AWS Identity and Access Management
-(IAM) user you specify. This automation deletes or detaches the following
-resources associated with the IAM user:
+ The `AWSConfigRemediation-DeleteIAMUser` runbook deletes the AWS Identity and Access Management (IAM) user you specify. This automation deletes or detaches the following resources associated with the IAM user: 
++ Access keys
++ Attached managed policies
++ Git credentials
++ IAM group memberships
++ IAM user password
++ Inline policies
++ Multi-factor authentication (MFA) devices
++ Signing certificates
++ SSH public keys
 
-- Access keys
-- Attached managed policies
-- Git credentials
-- IAM group memberships
-- IAM user password
-- Inline policies
-- Multi-factor authentication (MFA) devices
-- Signing certificates
-- SSH public keys
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteIAMUser "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteIAMUser")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteIAMUser) 
 
 **Document type**
 
@@ -31,61 +31,48 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ IAMUserId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- IAMUserId
+  Description: (Required) The ID of the IAM user you want to delete.
 
-Type: String
-
-Description: (Required) The ID of the IAM user you want to
-delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `iam:DeactivateMFADevice` 
++  `iam:DeleteAccessKey` 
++  `iam:DeleteLoginProfile` 
++  `iam:DeleteServiceSpecificCredential` 
++  `iam:DeleteSigningCertificate` 
++  `iam:DeleteSSHPublicKey` 
++  `iam:DeleteVirtualMFADevice` 
++  `iam:DeleteUser` 
++  `iam:DeleteUserPolicy` 
++  `iam:DetachUserPolicy` 
++  `iam:GetUser` 
++  `iam:ListAttachedUserPolicies` 
++  `iam:ListAccessKeys` 
++  `iam:ListGroupsForUser` 
++  `iam:ListMFADevices` 
++  `iam:ListServiceSpecificCredentials` 
++  `iam:ListSigningCertificates` 
++  `iam:ListSSHPublicKeys` 
++  `iam:ListUserPolicies` 
++  `iam:ListUsers` 
++  `iam:RemoveUserFromGroup` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `iam:DeactivateMFADevice`
-- `iam:DeleteAccessKey`
-- `iam:DeleteLoginProfile`
-- `iam:DeleteServiceSpecificCredential`
-- `iam:DeleteSigningCertificate`
-- `iam:DeleteSSHPublicKey`
-- `iam:DeleteVirtualMFADevice`
-- `iam:DeleteUser`
-- `iam:DeleteUserPolicy`
-- `iam:DetachUserPolicy`
-- `iam:GetUser`
-- `iam:ListAttachedUserPolicies`
-- `iam:ListAccessKeys`
-- `iam:ListGroupsForUser`
-- `iam:ListMFADevices`
-- `iam:ListServiceSpecificCredentials`
-- `iam:ListSigningCertificates`
-- `iam:ListSSHPublicKeys`
-- `iam:ListUserPolicies`
-- `iam:ListUsers`
-- `iam:RemoveUserFromGroup`
-
-**Document Steps**
-
-- `aws:executeScript` - Gathers the user name of the IAM user you
-  specify in the `IAMUserId` parameter.
-- `aws:executeScript` - Gathers access keys, certificates,
-  credentials, MFA devices, and SSH keys associated with the IAM user.
-- `aws:executeScript` - Gathers group memberships and policies for
-  the IAM user.
-- `aws:executeScript` - Deletes access keys, certificates,
-  credentials, MFA devices, and SSH keys associated with the IAM user.
-- `aws:executeScript` - Deletes group memberships and policies for
-  the IAM user.
-- `aws:executeScript` - Deletes the IAM user and verifies the
-  user has been deleted.
+ **Document Steps** 
++  `aws:executeScript` - Gathers the user name of the IAM user you specify in the `IAMUserId` parameter. 
++  `aws:executeScript` - Gathers access keys, certificates, credentials, MFA devices, and SSH keys associated with the IAM user. 
++  `aws:executeScript` - Gathers group memberships and policies for the IAM user. 
++  `aws:executeScript` - Deletes access keys, certificates, credentials, MFA devices, and SSH keys associated with the IAM user. 
++  `aws:executeScript` - Deletes group memberships and policies for the IAM user. 
++  `aws:executeScript` - Deletes the IAM user and verifies the user has been deleted. 

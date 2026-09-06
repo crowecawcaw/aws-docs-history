@@ -1,13 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting`
+<a name="automation-aws-enable-redshift-enhanced-routing"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting`
-runbook enables enhanced virtual private cloud (VPC) routing for the Amazon Redshift cluster
-you specify. For information about enhanced VPC routing, see [Amazon Redshift enhanced VPC routing](../../../redshift/latest/gsg/enhanced-vpc-routing.md "../../../redshift/latest/gsg/enhanced-vpc-routing.md") in
-the _Amazon Redshift Management Guide_ .
+ The `AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting` runbook enables enhanced virtual private cloud (VPC) routing for the Amazon Redshift cluster you specify. For information about enhanced VPC routing, see [Amazon Redshift enhanced VPC routing](https://docs.aws.amazon.com/redshift/latest/gsg/enhanced-vpc-routing.html) in the *Amazon Redshift Management Guide* . 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterEnhancedVPCRouting) 
 
 **Document type**
 
@@ -22,34 +22,25 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ ClusterIdentifier
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- ClusterIdentifier
+  Description: (Required) The unique identifier of the cluster you want to enable enhanced VPC routing on.
 
-Type: String
-
-Description: (Required) The unique identifier of the cluster you want to
-enable enhanced VPC routing on.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `redshift:DescribeClusters` 
++  `redshift:ModifyCluster` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `redshift:DescribeClusters`
-- `redshift:ModifyCluster`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Enables enhanced VPC routing on the cluster
-  specified in the `ClusterIdentifier` parameter.
-- `assertAwsResourceProperty` - Confirms enhanced VPC routing was
-  enabled on the cluster.
+ **Document Steps** 
++  `aws:executeAwsApi` - Enables enhanced VPC routing on the cluster specified in the `ClusterIdentifier` parameter. 
++  `assertAwsResourceProperty` - Confirms enhanced VPC routing was enabled on the cluster. 

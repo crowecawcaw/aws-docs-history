@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteRDSCluster`
+<a name="automation-aws-delete-rds-cluster"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteRDSCluster` runbook deletes the
-Amazon Relational Database Service (Amazon RDS) cluster you specify. AWS Config must be enabled in the AWS Region
-where you run this automation.
+ The `AWSConfigRemediation-DeleteRDSCluster` runbook deletes the Amazon Relational Database Service (Amazon RDS) cluster you specify. AWS Config must be enabled in the AWS Region where you run this automation. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRDSCluster "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRDSCluster")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRDSCluster) 
 
 **Document type**
 
@@ -21,34 +22,26 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ DBClusterId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- DBClusterId
+  Description: (Required) The resource identifier for the DB cluster you want to enable deletion protection on.
 
-Type: String
-
-Description: (Required) The resource identifier for the DB cluster you
-want to enable deletion protection on.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `config:GetResourceConfigHistory` 
++  `rds:DeleteDBCluster` 
++  `rds:DeleteDBInstance` 
++  `rds:DescribeDBClusters` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `config:GetResourceConfigHistory`
-- `rds:DeleteDBCluster`
-- `rds:DeleteDBInstance`
-- `rds:DescribeDBClusters`
-
-**Document Steps**
-
-- `aws:executeScript` - Deletes the DB cluster you specify in the
-  `DBClusterId` parameter.
+ **Document Steps** 
++  `aws:executeScript` - Deletes the DB cluster you specify in the `DBClusterId` parameter. 

@@ -1,13 +1,13 @@
+
+
 # `AWS-CreateWorkSpace`
+<a name="aws-create-workspace"></a>
 
-**Description**
+ **Description** 
 
-The `AWS-CreateWorkSpace` runbook creates a new Amazon WorkSpaces virtual
-desktop, known as a WorkSpace, based on the values that you specify for the input
-parameters. For information about WorkSpaces, see [What is Amazon WorkSpaces?](../../../workspaces/latest/adminguide/amazon-workspaces.md "../../../workspaces/latest/adminguide/amazon-workspaces.md") in the
-_Amazon WorkSpaces Administration Guide_.
+ The `AWS-CreateWorkSpace` runbook creates a new Amazon WorkSpaces virtual desktop, known as a WorkSpace, based on the values that you specify for the input parameters. For information about WorkSpaces, see [What is Amazon WorkSpaces?](https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html) in the *Amazon WorkSpaces Administration Guide*.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateWorkspace "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateWorkspace")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateWorkspace) 
 
 **Document type**
 
@@ -22,125 +22,94 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ BundleId
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- BundleId
+  Description: (Required) The ID of the bundle to use for the WorkSpace.
++ ComputeTypeName
 
-Type: String
+  Type: String
 
-Description: (Required) The ID of the bundle to use for the
-WorkSpace.
+  Valid values: VALUE \| STANDARD \| PERFORMANCE \| POWER \| GRAPHICS \| POWERPRO \| GRAPHICSPRO
 
-- ComputeTypeName
+  Description: (Optional) The compute type for your WorkSpace.
++ DirectoryId
 
-Type: String
+  Type: String
 
-Valid values: VALUE | STANDARD | PERFORMANCE | POWER | GRAPHICS | POWERPRO
-| GRAPHICSPRO
+  Description: (Required) The ID of the directory to add your WorkSpace to.
++ RootVolumeEncryptionEnabled
 
-Description: (Optional) The compute type for your WorkSpace.
+  Type: Boolean
 
-- DirectoryId
+  Valid values: true \| false
 
-Type: String
+  Default: false
 
-Description: (Required) The ID of the directory to add your WorkSpace
-to.
+  Description: (Optional) Determines whether the root volume of the WorkSpace is encrypted.
++ RootVolumeSizeGib
 
-- RootVolumeEncryptionEnabled
+  Type: Integer
 
-Type: Boolean
+  Description: (Required) The size of the root volume for the WorkSpace.
++ RunningMode
 
-Valid values: true | false
+  Type: String
 
-Default: false
+  Valid values: ALWAYS\_ON \| AUTO\_STOP
 
-Description: (Optional) Determines whether the root volume of the
-WorkSpace is encrypted.
+  Description: (Required) The running mode of the WorkSpace.
++ RunningModeAutoStopTimeoutInMinutes
 
-- RootVolumeSizeGib
+  Type: Integer
 
-Type: Integer
+  Description: (Optional) The time after a user logs off when the WorkSpaces stops. Specify a value in 60-minute intervals.
++ Tags
 
-Description: (Required) The size of the root volume for the
-WorkSpace.
+  Type: String
 
-- RunningMode
+  Description: (Optional) Tags that you want to apply to the WorkSpace.
++ UserName
 
-Type: String
+  Type: String
 
-Valid values: ALWAYS\_ON | AUTO\_STOP
+  Description: (Required) The user name to associate with the WorkSpace.
++ UserVolumeEncryptionEnabled
 
-Description: (Required) The running mode of the WorkSpace.
+  Type: Boolean
 
-- RunningModeAutoStopTimeoutInMinutes
+  Valid values: true \| false
 
-Type: Integer
+  Default: false
 
-Description: (Optional) The time after a user logs off when the WorkSpaces
-stops. Specify a value in 60-minute intervals.
+  Description: (Optional) Determines whether the user volume of the WorkSpace is encrypted.
++ UserVolumeSizeGib
 
-- Tags
+  Type: Integer
 
-Type: String
+  Description: (Required) The size of the user volume for the WorkSpace.
++ VolumeEncryptionKey
 
-Description: (Optional) Tags that you want to apply to the
-WorkSpace.
+  Type: String
 
-- UserName
+  Description: (Optional) The symmetric AWS Key Management Service key that you want to use to encrypt data stored on your WorkSpace.
 
-Type: String
-
-Description: (Required) The user name to associate with the
-WorkSpace.
-
-- UserVolumeEncryptionEnabled
-
-Type: Boolean
-
-Valid values: true | false
-
-Default: false
-
-Description: (Optional) Determines whether the user volume of the
-WorkSpace is encrypted.
-
-- UserVolumeSizeGib
-
-Type: Integer
-
-Description: (Required) The size of the user volume for the
-WorkSpace.
-
-- VolumeEncryptionKey
-
-Type: String
-
-Description: (Optional) The symmetric AWS Key Management Service key that you want to use
-to encrypt data stored on your WorkSpace.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `workspaces:CreateWorkspaces` 
++  `workspaces:DescribeWorkspaces` 
 
-- `workspaces:CreateWorkspaces`
-- `workspaces:DescribeWorkspaces`
+ **Document Steps** 
++  `aws:executeScript` - Creates a WorkSpace based on the values that you specify for the input parameters.
++  `aws:waitForAwsResourceProperty` - Verifies the state of the WorkSpace is `AVAILABLE`.
 
-**Document Steps**
-
-- `aws:executeScript` - Creates a WorkSpace based on the values
-  that you specify for the input parameters.
-- `aws:waitForAwsResourceProperty` - Verifies the state of the
-  WorkSpace is `AVAILABLE`.
-
-**Outputs**
+ **Outputs** 
 
 `CreateWorkspace.WorkspaceId`

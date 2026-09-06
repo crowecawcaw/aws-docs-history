@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-CreateGuardDutyDetector`
+<a name="automation-aws-enable-guard-detect"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-CreateGuardDutyDetector` runbook creates an
-Amazon GuardDuty (GuardDuty) detector in the AWS Region where you run the automation.
+ The `AWSConfigRemediation-CreateGuardDutyDetector` runbook creates an Amazon GuardDuty (GuardDuty) detector in the AWS Region where you run the automation. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-CreateGuardDutyDetector "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-CreateGuardDutyDetector")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-CreateGuardDutyDetector) 
 
 **Document type**
 
@@ -20,26 +22,20 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `guardduty:CreateDetector` 
++  `guardduty:GetDetector` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `guardduty:CreateDetector`
-- `guardduty:GetDetector`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Creates a GuardDuty detector.
-- `aws:assertAwsResourceProperty` - Verifies the
-  `Status` of the detector is `ENABLED` .
+ **Document Steps** 
++  `aws:executeAwsApi` - Creates a GuardDuty detector. 
++  `aws:assertAwsResourceProperty` - Verifies the `Status` of the detector is `ENABLED` . 

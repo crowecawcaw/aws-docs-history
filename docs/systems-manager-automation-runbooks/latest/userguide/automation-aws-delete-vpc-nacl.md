@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteUnusedVPCNetworkACL`
+<a name="automation-aws-delete-vpc-nacl"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteUnusedVPCNetworkACL` runbook deletes a
-network access control list (ACL) that is not associated with a subnet.
+ The `AWSConfigRemediation-DeleteUnusedVPCNetworkACL` runbook deletes a network access control list (ACL) that is not associated with a subnet. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedVPCNetworkACL "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedVPCNetworkACL")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedVPCNetworkACL) 
 
 **Document type**
 
@@ -20,34 +22,25 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ NetworkAclId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- NetworkAclId
+  Description: (Required) The ID of the network ACL that you want to delete.
 
-Type: String
-
-Description: (Required) The ID of the network ACL that you want to
-delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `ec2:DeleteNetworkAcl` 
++  `ec2:DescribeNetworkAcls` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ec2:DeleteNetworkAcl`
-- `ec2:DescribeNetworkAcls`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Deletes the network ACL specified in the
-  `NetworkAclId` parameter.
-- `aws:executeScript` - Confirms the network ACL specified in the
-  `NetworkAclId` parameter was deleted.
+ **Document Steps** 
++  `aws:executeAwsApi` - Deletes the network ACL specified in the `NetworkAclId` parameter. 
++  `aws:executeScript` - Confirms the network ACL specified in the `NetworkAclId` parameter was deleted. 

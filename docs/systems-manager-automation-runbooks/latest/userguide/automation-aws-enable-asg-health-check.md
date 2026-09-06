@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck`
+<a name="automation-aws-enable-asg-health-check"></a>
 
 **Description**
 
-The `AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck` runbook
-enables health checks for the Amazon EC2 Auto Scaling (Auto Scaling) group you specify.
+The `AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck` runbook enables health checks for the Amazon EC2 Auto Scaling (Auto Scaling) group you specify.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableAutoScalingGroupELBHealthCheck)
 
 **Document type**
 
@@ -20,41 +22,31 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ AutoScalingGroupARN
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- AutoScalingGroupARN
+  Description: (Required) The Amazon Resource Name (ARN) of the auto scaling group that you want to enable health checks on.
++ HealthCheckGracePeriod
 
-Type: String
+  Type: Integer
 
-Description: (Required) The Amazon Resource Name (ARN) of the auto scaling
-group that you want to enable health checks on.
+  Default: 300
 
-- HealthCheckGracePeriod
+  Description: (Optional) The amount of time, in seconds, that Auto Scaling waits before checking the health status of an Amazon Elastic Compute Cloud (Amazon EC2) instance that has come into service.
 
-Type: Integer
-
-Default: 300
-
-Description: (Optional) The amount of time, in seconds, that Auto Scaling waits
-before checking the health status of an Amazon Elastic Compute Cloud (Amazon EC2) instance that has
-come into service.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `ssm:StartAutomationExecution`
++ `ssm:GetAutomationExecution`
++ `ec2:DescribeAutoScalingGroups`
++ `ec2:UpdateAutoScalingGroup`
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ec2:DescribeAutoScalingGroups`
-- `ec2:UpdateAutoScalingGroup`
-  **Document Steps**
-
-- `aws:executeScript` - Enables health checks on the Auto Scaling group
-  you specify in the `AutoScalingGroupARN` parameter.
+**Document Steps**
++ `aws:executeScript` - Enables health checks on the Auto Scaling group you specify in the `AutoScalingGroupARN` parameter.

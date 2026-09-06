@@ -1,14 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS`
+<a name="automation-aws-enable-cloudfront-viewer-policy"></a>
 
-**Description**
+ **Description** 
 
-The
-`AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS`
-runbook
-enables the viewer protocol policy for the Amazon CloudFront (CloudFront) distribution you
-specify.
+ The `AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS` runbook enables the viewer protocol policy for the Amazon CloudFront (CloudFront) distribution you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableCloudFrontViewerPolicyHTTPS) 
 
 **Document type**
 
@@ -23,47 +22,32 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ CloudFrontDistributionId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- CloudFrontDistributionId
+  Description: (Required) The ID of the CloudFront distribution you want to enable the viewer protocol policy on.
++ ViewerProtocolPolicy
 
-Type: String
+  Type: String
 
-Description: (Required) The ID of the CloudFront distribution you want to enable
-the viewer protocol policy on.
+  Valid values: https-only, redirect-to-https
 
-- ViewerProtocolPolicy
+  Description: (Required) The protocol that viewers can use to access the files in the origin.
 
-Type: String
-
-Valid values: https-only, redirect-to-https
-
-Description: (Required) The protocol that viewers can use to access the
-files in the origin.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `cloudfront:GetDistributionConfig` 
++  `cloudfront:UpdateDistribution` 
++  `cloudfront:GetDistribution` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `cloudfront:GetDistributionConfig`
-- `cloudfront:UpdateDistribution`
-- `cloudfront:GetDistribution`
-
-**Document Steps**
-
-- `aws:executeScript`
-
-* Enables the viewer protocol policy for
-  the CloudFront distribution you specify in the
-  `CloudFrontDistributionId`
-  parameter, and verifies the policy
-  was assigned.
+ **Document Steps** 
++  `aws:executeScript` - Enables the viewer protocol policy for the CloudFront distribution you specify in the `CloudFrontDistributionId` parameter, and verifies the policy was assigned. 

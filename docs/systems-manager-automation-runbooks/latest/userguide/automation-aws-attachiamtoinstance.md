@@ -1,10 +1,13 @@
-# `AWS-AttachIAMToInstance`
 
-**Description**
+
+# `AWS-AttachIAMToInstance`
+<a name="automation-aws-attachiamtoinstance"></a>
+
+ **Description** 
 
 Attach an AWS Identity and Access Management (IAM) role to a managed instance.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-AttachIAMToInstance "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-AttachIAMToInstance")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-AttachIAMToInstance) 
 
 **Document type**
 
@@ -19,82 +22,58 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ ForceReplace
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: Boolean
 
-- ForceReplace
+  Description: (Optional) Flag to specify whether to replace the existing IAM profile or not.
 
-Type: Boolean
+  Default: true
++ InstanceId
 
-Description: (Optional) Flag to specify whether to replace the existing
-IAM profile or not.
+  Type: String
 
-Default: true
+  Description: (Required) The ID of the instance on which you want to assign an IAM role.
++ RoleName
 
-- InstanceId
+  Type: String
 
-Type: String
+  Description: (Required) The IAM role name to add to the managed instance.
 
-Description: (Required) The ID of the instance on which you want to assign
-an IAM role.
+ **Document Steps** 
 
-- RoleName
+1.  `aws:executeAwsApi` - DescribeInstanceProfile - Find the IAM instance profile attached to the EC2 instance. 
 
-Type: String
+1.  `aws:branch` - CheckInstanceProfileAssociations - Check the IAM instance profile attached to the EC2 instance. 
 
-Description: (Required) The IAM role name to add to the managed
-instance.
+   1.  If an IAM instance profile is attached and `ForceReplace` is set to `true` : 
 
-**Document Steps**
+      1.  `aws:executeAwsApi` - DisassociateIamInstanceProfile - Disassociate the IAM instance profile from the EC2 instance. 
 
-1. `aws:executeAwsApi` - DescribeInstanceProfile - Find the IAM
-   instance profile attached to the EC2 instance.
-2. `aws:branch` - CheckInstanceProfileAssociations - Check the IAM
-   instance profile attached to the EC2 instance.
+   1.  `aws:executeAwsApi` - ListInstanceProfilesForRole - List instance profiles for the IAM role provided. 
 
-   1. If an IAM instance profile is attached and
-      `ForceReplace` is set to `true` :
+   1.  `aws:branch` - CheckInstanceProfileCreated - Check if the IAM role provided has an associated instance profile. 
 
-      1. `aws:executeAwsApi` -
-         DisassociateIamInstanceProfile - Disassociate the IAM
-         instance profile from the EC2 instance.
+      1. If the IAM role has an associated instance profile:
 
-   2. `aws:executeAwsApi` - ListInstanceProfilesForRole - List
-      instance profiles for the IAM role provided.
-   3. `aws:branch` - CheckInstanceProfileCreated - Check if the
-      IAM role provided has an associated instance profile.
+         1.  `aws:executeAwsApi` - AttachIAMProfileToInstance - Attach the IAM instance profile role to the EC2 instance. 
 
-      1. If the IAM role has an associated instance
-         profile:
+      1. If the IAM role does not have an associated instance profile:
 
-         1. `aws:executeAwsApi` -
-            AttachIAMProfileToInstance - Attach the IAM
-            instance profile role to the EC2 instance.
+         1.  `aws:executeAwsApi` - CreateInstanceProfileForRole - Create an instance profile role for the specified IAM role. 
 
-      1. If the IAM role does not have an associated instance
-         profile:
+         1.  `aws:executeAwsApi` - AddRoleToInstanceProfile - Attach the instance profile role to the specified IAM role. 
 
-         1. `aws:executeAwsApi` -
-            CreateInstanceProfileForRole - Create an instance
-            profile role for the specified IAM role.
-         2. `aws:executeAwsApi` -
-            AddRoleToInstanceProfile - Attach the instance
-            profile role to the specified IAM role.
-         3. `aws:executeAwsApi` - GetInstanceProfile
-         - Get the instance profile data for the specified
-           IAM role.
-         4. `aws:executeAwsApi` -
-            AttachIAMProfileToInstanceWithRetry - Attach the
-            IAM instance profile role to the EC2 instance.
+         1.  `aws:executeAwsApi` - GetInstanceProfile - Get the instance profile data for the specified IAM role. 
 
-**Outputs**
+         1.  `aws:executeAwsApi` - AttachIAMProfileToInstanceWithRetry - Attach the IAM instance profile role to the EC2 instance. 
+
+ **Outputs** 
 
 AttachIAMProfileToInstanceWithRetry.AssociationId
 

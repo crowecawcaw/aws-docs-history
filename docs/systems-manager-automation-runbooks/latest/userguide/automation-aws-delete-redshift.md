@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteRedshiftCluster`
+<a name="automation-aws-delete-redshift"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteRedshiftCluster` runbook deletes the
-Amazon Redshift cluster you specify.
+ The `AWSConfigRemediation-DeleteRedshiftCluster` runbook deletes the Amazon Redshift cluster you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRedshiftCluster "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRedshiftCluster")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRedshiftCluster) 
 
 **Document type**
 
@@ -20,46 +22,33 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ ClusterIdentifier
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- ClusterIdentifier
+  Description: (Required) The ID of the Amazon Redshift cluster that you want to delete.
++ SkipFinalClusterSnapshot
 
-Type: String
+  Type: Boolean
 
-Description: (Required) The ID of the Amazon Redshift cluster that you want to
-delete.
+  Default: false
 
-- SkipFinalClusterSnapshot
+   Description: (Optional) If set to `false` , the automation creates a snapshot before deleting the Amazon Redshift cluster. If set to `true` , a final cluster snapshot is not created. 
 
-Type: Boolean
-
-Default: false
-
-Description: (Optional) If set to `false` , the automation
-creates a snapshot before deleting the Amazon Redshift cluster. If set to
-`true` , a final cluster snapshot is not created.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `redshift:DeleteCluster` 
++  `redshift:DescribeClusters` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `redshift:DeleteCluster`
-- `redshift:DescribeClusters`
-
-**Document Steps**
-
-- `aws:branch` - Branches based on the value you specify for the
-  `SkipFinalClusterSnapshot` parameter.
-- `aws:executeAwsApi` - Deletes the Amazon Redshift cluster specified in the
-  `ClusterIdentifier` parameter.
-- `aws:assertAwsResourceProperty` - Verifies the Amazon Redshift cluster has
-  been deleted.
+ **Document Steps** 
++  `aws:branch` - Branches based on the value you specify for the `SkipFinalClusterSnapshot` parameter. 
++  `aws:executeAwsApi` - Deletes the Amazon Redshift cluster specified in the `ClusterIdentifier` parameter. 
++  `aws:assertAwsResourceProperty` - Verifies the Amazon Redshift cluster has been deleted. 

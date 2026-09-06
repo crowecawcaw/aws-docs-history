@@ -1,10 +1,13 @@
-# `AWS-CreateManagedLinuxInstance`
 
-**Description**
+
+# `AWS-CreateManagedLinuxInstance`
+<a name="automation-aws-createmanagedlinuxinstance"></a>
+
+ **Description** 
 
 Create an EC2 instance for Linux that is configured for Systems Manager.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateManagedLinuxInstance "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateManagedLinuxInstance")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateManagedLinuxInstance) 
 
 **Document type**
 
@@ -19,98 +22,76 @@ Amazon
 Linux
 
 **Parameters**
++ AmiId
 
-- AmiId
+  Type: String
 
-Type: String
+  Description: (Required) AMI ID to use for launching the instance.
++ AutomationAssumeRole
 
-Description: (Required) AMI ID to use for launching the instance.
+  Type: String
 
-- AutomationAssumeRole
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ GroupName
 
-Type: String
+  Type: String
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Default: SSMSecurityGroupForLinuxInstances
 
-- GroupName
+  Description: (Required) Security group name to create.
++ HttpTokens
 
-Type: String
+  Type: String
 
-Default: SSMSecurityGroupForLinuxInstances
+  Valid values: optional \| required
 
-Description: (Required) Security group name to create.
+  Default: optional
 
-- HttpTokens
+  Description: (Optional) IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to `optional` or `required` to determine whether IMDSv2 is optional or required.
++ InstanceType
 
-Type: String
+  Type: String
 
-Valid values: optional | required
+  Default: t2.medium
 
-Default: optional
+  Description: (Required) Type of instance to launch. Default is t2.medium.
++ KeyPairName
 
-Description: (Optional) IMDSv2 uses token-backed sessions. Set the use of
-HTTP tokens to `optional` or `required` to determine
-whether IMDSv2 is optional or required.
+  Type: String
 
-- InstanceType
+  Description: (Required) Key pair to use when creating instance.
++ RemoteAccessCidr
 
-Type: String
+  Type: String
 
-Default: t2.medium
+  Default: 0.0.0.0/0
 
-Description: (Required) Type of instance to launch. Default is
-t2.medium.
+  Description: (Required) Creates Security group with port for SSH(Port range 22) open to IPs specified by CIDR (default is 0.0.0.0/0). If the security group already exists it will not be modified and rules will not be changed.
++ RoleName
 
-- KeyPairName
+  Type: String
 
-Type: String
+  Default: SSMManagedInstanceProfileRole
 
-Description: (Required) Key pair to use when creating instance.
+  Description: (Required) Role name to create.
++ StackName
 
-- RemoteAccessCidr
+  Type: String
 
-Type: String
+  Default: CreateManagedInstanceStack{{automation:EXECUTION\_ID}}
 
-Default: 0.0.0.0/0
+  Description: (Optional) Specify stack name used by this runbook
++ SubnetId
 
-Description: (Required) Creates Security group with port for SSH(Port
-range 22) open to IPs specified by CIDR (default is 0.0.0.0/0). If the
-security group already exists it will not be modified and rules will not be
-changed.
+  Type: String
 
-- RoleName
+  Default: Default
 
-Type: String
+  Description: (Required) New instance will be deployed into this subnet or in the default subnet if not specified.
++ VpcId
 
-Default: SSMManagedInstanceProfileRole
+  Type: String
 
-Description: (Required) Role name to create.
+  Default: Default
 
-- StackName
-
-Type: String
-
-Default: CreateManagedInstanceStack{{automation:EXECUTION\_ID}}
-
-Description: (Optional) Specify stack name used by this runbook
-
-- SubnetId
-
-Type: String
-
-Default: Default
-
-Description: (Required) New instance will be deployed into this subnet or
-in the default subnet if not specified.
-
-- VpcId
-
-Type: String
-
-Default: Default
-
-Description: (Required) New instance will be deployed into this Amazon Virtual Private Cloud
-(Amazon VPC) or in the default Amazon VPC if not specified.
+  Description: (Required) New instance will be deployed into this Amazon Virtual Private Cloud (Amazon VPC) or in the default Amazon VPC if not specified.

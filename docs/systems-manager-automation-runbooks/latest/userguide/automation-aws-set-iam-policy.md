@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-SetIAMPasswordPolicy`
+<a name="automation-aws-set-iam-policy"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-SetIAMPasswordPolicy` runbook sets the
-AWS Identity and Access Management (IAM) user password policy for your AWS account.
+ The `AWSConfigRemediation-SetIAMPasswordPolicy` runbook sets the AWS Identity and Access Management (IAM) user password policy for your AWS account. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-SetIAMPasswordPolicy "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-SetIAMPasswordPolicy")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-SetIAMPasswordPolicy) 
 
 **Document type**
 
@@ -20,109 +22,82 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ AllowUsersToChangePassword
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: Boolean
 
-- AllowUsersToChangePassword
+  Default: false
 
-Type: Boolean
+   Description: (Optional) If set to `true` , all IAM users in your AWS account can use the AWS Management Console to change their passwords. 
++ HardExpiry
 
-Default: false
+  Type: Boolean
 
-Description: (Optional) If set to `true` , all IAM users in
-your AWS account can use the AWS Management Console to change their passwords.
+  Default: false
 
-- HardExpiry
+   Description: (Optional) If set to `true` , IAM users are prevented from resetting their passwords after their password expires. 
++ MaxPasswordAge
 
-Type: Boolean
+  Type: Integer
 
-Default: false
+  Default: 0
 
-Description: (Optional) If set to `true` , IAM users are
-prevented from resetting their passwords after their password expires.
+  Description: (Optional) The number of days an IAM user's password is valid.
++ MinimumPasswordLength
 
-- MaxPasswordAge
+  Type: Integer
 
-Type: Integer
+  Default: 6
 
-Default: 0
+  Description: (Optional) The minimum number of characters an IAM user's password can be.
++ PasswordReusePrevention
 
-Description: (Optional) The number of days an IAM user's password is
-valid.
+  Type: Integer
 
-- MinimumPasswordLength
+  Default: 0
 
-Type: Integer
+  Description: (Optional) The number of previous passwords that an IAM user is prevented from reusing.
++ RequireLowercaseCharacters
 
-Default: 6
+  Type: Boolean
 
-Description: (Optional) The minimum number of characters an IAM user's
-password can be.
+  Default: false
 
-- PasswordReusePrevention
+   Description: (Optional) If set to `true` , an IAM user's password must contain a lowercase character from the ISO basic Latin alphabet (a to z). 
++ RequireNumbers
 
-Type: Integer
+  Type: Boolean
 
-Default: 0
+  Default: false
 
-Description: (Optional) The number of previous passwords that an
-IAM user is prevented from reusing.
+   Description: (Optional) If set to `true` , an IAM user's password must contain a numeric character (0-9). 
++ RequireSymbols
 
-- RequireLowercaseCharacters
+  Type: Boolean
 
-Type: Boolean
+  Default: false
 
-Default: false
+   Description: (Optional) If set to `true` , an IAM user's password must contain a non-alphanumeric character (\! @ \# $ % ^ \* ( ) \_ \+ - = [ ] { } \| '). 
++ RequireUppercaseCharacters
 
-Description: (Optional) If set to `true` , an IAM user's
-password must contain a lowercase character from the ISO basic Latin
-alphabet (a to z).
+  Type: Boolean
 
-- RequireNumbers
+  Default: false
 
-Type: Boolean
+   Description: (Optional) If set to `true` , an IAM user's password must contain an uppercase character from the ISO basic Latin alphabet (A to Z). 
 
-Default: false
-
-Description: (Optional) If set to `true` , an IAM user's
-password must contain a numeric character (0-9).
-
-- RequireSymbols
-
-Type: Boolean
-
-Default: false
-
-Description: (Optional) If set to `true` , an IAM user's
-password must contain a non-alphanumeric character (! @ # $ % ^ \* ( ) \_ + -
-= [ ] { } | ').
-
-- RequireUppercaseCharacters
-
-Type: Boolean
-
-Default: false
-
-Description: (Optional) If set to `true` , an IAM user's
-password must contain an uppercase character from the ISO basic Latin
-alphabet (A to Z).
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `iam:GetAccountPasswordPolicy` 
++  `iam:UpdateAccountPasswordPolicy` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `iam:GetAccountPasswordPolicy`
-- `iam:UpdateAccountPasswordPolicy`
-
-**Document Steps**
-
-- `aws:executeScript` - Sets the IAM user password policy based
-  on the values you specify for the runbook parameters for your AWS account.
+ **Document Steps** 
++  `aws:executeScript` - Sets the IAM user password policy based on the values you specify for the runbook parameters for your AWS account. 

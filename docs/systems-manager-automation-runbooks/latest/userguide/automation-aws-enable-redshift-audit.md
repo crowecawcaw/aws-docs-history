@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableRedshiftClusterAuditLogging`
+<a name="automation-aws-enable-redshift-audit"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableRedshiftClusterAuditLogging` runbook
-enables audit logging for the Amazon Redshift cluster you specify.
+ The `AWSConfigRemediation-EnableRedshiftClusterAuditLogging` runbook enables audit logging for the Amazon Redshift cluster you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterAuditLogging "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterAuditLogging")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableRedshiftClusterAuditLogging) 
 
 **Document type**
 
@@ -20,52 +22,38 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ BucketName
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- BucketName
+  Description: (Required) The name of the Amazon Simple Storage Service (Amazon S3) bucket you want to upload logs to.
++ ClusterIdentifier
 
-Type: String
+  Type: String
 
-Description: (Required) The name of the Amazon Simple Storage Service (Amazon S3) bucket you want to
-upload logs to.
+  Description: (Required) The unique identifier of the cluster you want to enable audit logging on.
++ S3KeyPrefix
 
-- ClusterIdentifier
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon S3 key prefix (subfolder) you want to upload logs to.
 
-Description: (Required) The unique identifier of the cluster you want to
-enable audit logging on.
-
-- S3KeyPrefix
-
-Type: String
-
-Description: (Optional) The Amazon S3 key prefix (subfolder) you want to upload
-logs to.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `redshift:DescribeLoggingStatus` 
++  `redshift:EnableLogging` 
++  `s3:GetBucketAcl` 
++  `s3:PutObject` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `redshift:DescribeLoggingStatus`
-- `redshift:EnableLogging`
-- `s3:GetBucketAcl`
-- `s3:PutObject`
-
-**Document Steps**
-
-- `aws:branch` - Branches based on whether a value was specified
-  for the `S3KeyPrefix` parameter.
-- `aws:executeAwsApi` - Enables audit logging on the cluster
-  specified in the `ClusterIdentifier` parameter.
-- `aws:assertAwsResourceProperty` - Verifies audit logging was
-  enabled on the cluster.
+ **Document Steps** 
++  `aws:branch` - Branches based on whether a value was specified for the `S3KeyPrefix` parameter. 
++  `aws:executeAwsApi` - Enables audit logging on the cluster specified in the `ClusterIdentifier` parameter. 
++  `aws:assertAwsResourceProperty` - Verifies audit logging was enabled on the cluster. 

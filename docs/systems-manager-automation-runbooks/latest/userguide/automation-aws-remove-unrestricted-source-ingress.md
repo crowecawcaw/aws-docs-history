@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules`
+<a name="automation-aws-remove-unrestricted-source-ingress"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules`
-runbook removes all ingress rules from the security group you specify that allow
-traffic from all source addresses.
+ The `AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules` runbook removes all ingress rules from the security group you specify that allow traffic from all source addresses. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RemoveUnrestrictedSourceIngressRules) 
 
 **Document type**
 
@@ -21,34 +22,24 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ SecurityGroupId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- SecurityGroupId
+  Description: (Required) The ID of the security group that you want to remove ingress rules that allow traffic from all source addresses from.
 
-Type: String
-
-Description: (Required) The ID of the security group that you want to
-remove ingress rules that allow traffic from all source addresses
-from.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `ec2:DescribeSecurityGroups` 
++  `ec2:RevokeSecurityGroupIngress` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ec2:DescribeSecurityGroups`
-- `ec2:RevokeSecurityGroupIngress`
-
-**Document Steps**
-
-- `aws:executeScript` - Removes all ingress rules that allow
-  traffic from all source addresses from the security group you specified in
-  the `SecurityGroupId` parameter.
+ **Document Steps** 
++  `aws:executeScript` - Removes all ingress rules that allow traffic from all source addresses from the security group you specified in the `SecurityGroupId` parameter. 

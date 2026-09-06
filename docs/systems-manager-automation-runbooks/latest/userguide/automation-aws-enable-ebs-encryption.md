@@ -1,13 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableEbsEncryptionByDefault`
+<a name="automation-aws-enable-ebs-encryption"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableEbsEncryptionByDefault` runbook
-enables encryption on all new Amazon Elastic Block Store (Amazon EBS) volumes in the AWS account and
-AWS Region where you run the automation. Volumes that were created before you run
-the automation are not encrypted.
+ The `AWSConfigRemediation-EnableEbsEncryptionByDefault` runbook enables encryption on all new Amazon Elastic Block Store (Amazon EBS) volumes in the AWS account and AWS Region where you run the automation. Volumes that were created before you run the automation are not encrypted. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEbsEncryptionByDefault "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEbsEncryptionByDefault")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableEbsEncryptionByDefault) 
 
 **Document type**
 
@@ -22,27 +22,20 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ec2:EnableEbsEncryptionByDefault` 
++  `ec2:GetEbsEncryptionByDefault` 
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
 
-- `ec2:EnableEbsEncryptionByDefault`
-- `ec2:GetEbsEncryptionByDefault`
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Enables the default Amazon EBS encryption
-  setting in the current account and Region.
-- `aws:assertAwsResourceProperty` - Verifies that the default Amazon EBS
-  encryption setting has been enabled.
+ **Document Steps** 
++  `aws:executeAwsApi` - Enables the default Amazon EBS encryption setting in the current account and Region. 
++  `aws:assertAwsResourceProperty` - Verifies that the default Amazon EBS encryption setting has been enabled. 

@@ -1,13 +1,13 @@
+
+
 # `AWS-MigrateToNewEKSSelfManagedNodeGroup`
+<a name="aws-migratetoneweksselfmanagedlinuxnodegroup"></a>
 
-**Description**
+ **Description** 
 
-The `AWS-MigrateToNewEKSSelfManagedNodeGroup` runbook helps you create
-a new Amazon Elastic Kubernetes Service (Amazon EKS) Linux node group to migrate your existing application to.
-For more information, see [Migrating to
-a new node group](../../../eks/latest/userguide/migrate-stack.md "../../../eks/latest/userguide/migrate-stack.md") in the **Amazon EKS User Guide**.
+ The `AWS-MigrateToNewEKSSelfManagedNodeGroup` runbook helps you create a new Amazon Elastic Kubernetes Service (Amazon EKS) Linux node group to migrate your existing application to. For more information, see [Migrating to a new node group](https://docs.aws.amazon.com/eks/latest/userguide/migrate-stack.html) in the **Amazon EKS User Guide**.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-MigrateToNewEKSSelfManagedLinuxNodeGroup "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-MigrateToNewEKSSelfManagedLinuxNodeGroup")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-MigrateToNewEKSSelfManagedLinuxNodeGroup) 
 
 **Document type**
 
@@ -22,228 +22,159 @@ Amazon
 Linux
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ OldStackName
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- OldStackName
+  Description: (Required) The name or stack ID of your existing CloudFormation stack.
++ NewStackName
 
-Type: String
+  Type: String
 
-Description: (Required) The name or stack ID of your existing CloudFormation
-stack.
+  Description: (Optional) The name of the new CloudFormation stack that is created for your new node group. If you don't specify a value for this parameter, the stack name is created using the format: `NewNodeGroup-{{ClusterName}}-{{AutomationExecutionID}}`.
++ ClusterControlPlaneSecurityGroup
 
-- NewStackName
+  Type: String
 
-Type: String
+  Description: (Optional) The ID of the security group you want nodes to use to communicate with the Amazon EKS control plane. If you don't specify a value for this parameter, the security group specified in your existing CloudFormation stack is used.
++ NodeInstanceType
 
-Description: (Optional) The name of the new CloudFormation stack that is created
-for your new node group. If you don't specify a value for this parameter,
-the stack name is created using the format:
-`NewNodeGroup-`ClusterName`-`AutomationExecutionID``.
+  Type: String
 
-- ClusterControlPlaneSecurityGroup
+  Description: (Optional) The instance type that you want to use for the new node group. If you don't specify a value for this parameter, the instance type specified in your existing CloudFormation stack is used.
++ NodeGroupName
 
-Type: String
+  Type: String
 
-Description: (Optional) The ID of the security group you want nodes to use
-to communicate with the Amazon EKS control plane. If you don't specify a value
-for this parameter, the security group specified in your existing CloudFormation
-stack is used.
+  Description: (Optional) The name of your new node group. If you don't specify a value for this parameter, the node group name specified in your existing CloudFormation stack is used.
++ NodeAutoScalingGroupDesiredCapacity
 
-- NodeInstanceType
+  Type: String
 
-Type: String
+  Description: (Optional) The desired number of nodes to scale to when your new stack is created. This number must be greater than or equal to the `NodeAutoScalingGroupMinSize` value and less than or equal to the `NodeAutoScalingGroupMaxSize`. If you don't specify a value for this parameter, the node group desired capacity specified in your existing CloudFormation stack is used.
++ NodeAutoScalingGroupMaxSize
 
-Description: (Optional) The instance type that you want to use for the new
-node group. If you don't specify a value for this parameter, the instance
-type specified in your existing CloudFormation stack is used.
+  Type: String
 
-- NodeGroupName
+  Description: (Optional) The maximum number of nodes that your node group can scale out to. If you don't specify a value for this parameter, the node group maximum size specified in your existing CloudFormation stack is used.
++ NodeAutoScalingGroupMinSize
 
-Type: String
+  Type: String
 
-Description: (Optional) The name of your new node group. If you don't
-specify a value for this parameter, the node group name specified in your
-existing CloudFormation stack is used.
+  Description: (Optional) The minimum number of nodes that your node group can scale in to. If you don't specify a value for this parameter, the node group minimum size specified in your existing CloudFormation stack is used.
++ NodeImageId
 
-- NodeAutoScalingGroupDesiredCapacity
+  Type: String
 
-Type: String
+  Description: (Optional) The ID of the Amazon Machine Image (AMI) that you want the node group to use.
++ NodeImageIdSSMParam
 
-Description: (Optional) The desired number of nodes to scale to when your
-new stack is created. This number must be greater than or equal to the
-`NodeAutoScalingGroupMinSize` value and less than or equal to
-the `NodeAutoScalingGroupMaxSize`. If you don't specify a value
-for this parameter, the node group desired capacity specified in your
-existing CloudFormation stack is used.
+  Type: String
 
-- NodeAutoScalingGroupMaxSize
+  Description: (Optional) The public Systems Manager parameter for the AMI that you want the node group to use.
++ NodeVolumeSize
 
-Type: String
+  Type: String
 
-Description: (Optional) The maximum number of nodes that your node group
-can scale out to. If you don't specify a value for this parameter, the node
-group maximum size specified in your existing CloudFormation stack is used.
+  Description: (Optional) The size of the root volume for your nodes in GiB. If you don't specify a value for this parameter, the node volume size specified in your existing CloudFormation stack is used.
++ NodeVolumeType
 
-- NodeAutoScalingGroupMinSize
+  Type: String
 
-Type: String
+  Description: (Optional) The type of Amazon EBS volume you want to use for the root volume of your nodes. If you don't specify a value for this parameter, the volume type specified in your existing CloudFormation stack is used.
++ KeyName
 
-Description: (Optional) The minimum number of nodes that your node group
-can scale in to. If you don't specify a value for this parameter, the node
-group minimum size specified in your existing CloudFormation stack is used.
+  Type: String
 
-- NodeImageId
+  Description: (Optional) The key pair you want to assign to your nodes. If you don't specify a value for this parameter, the key pair specified in your existing CloudFormation stack is used.
++ Subnets
 
-Type: String
+  Type: StringList
 
-Description: (Optional) The ID of the Amazon Machine Image (AMI) that you want the
-node group to use.
+  Description: (Optional) A comma-separated list of the subnet IDs that you want to use for your new node group. If you don't specify a value for this parameter, the subnets specified in your existing CloudFormation stack is used.
++ DisableIMDSv1
 
-- NodeImageIdSSMParam
+  Type: Boolean
 
-Type: String
+  Description: (Optional) Specify `true` to disable Instance Metadata Service Version 1 (IMDSv1). By default, nodes support IMDSv1 and IMDSv2.
++ BootstrapArguments
 
-Description: (Optional) The public Systems Manager parameter for the AMI that you
-want the node group to use.
+  Type: String
 
-- NodeVolumeSize
+  Description: (Optional) Additional arguments you want to pass to the node bootstrap script.
 
-Type: String
-
-Description: (Optional) The size of the root volume for your nodes in GiB.
-If you don't specify a value for this parameter, the node volume size
-specified in your existing CloudFormation stack is used.
-
-- NodeVolumeType
-
-Type: String
-
-Description: (Optional) The type of Amazon EBS volume you want to use for the
-root volume of your nodes. If you don't specify a value for this parameter,
-the volume type specified in your existing CloudFormation stack is used.
-
-- KeyName
-
-Type: String
-
-Description: (Optional) The key pair you want to assign to your nodes. If
-you don't specify a value for this parameter, the key pair specified in your
-existing CloudFormation stack is used.
-
-- Subnets
-
-Type: StringList
-
-Description: (Optional) A comma-separated list of the subnet IDs that you
-want to use for your new node group. If you don't specify a value for this
-parameter, the subnets specified in your existing CloudFormation stack is
-used.
-
-- DisableIMDSv1
-
-Type: Boolean
-
-Description: (Optional) Specify `true` to disable Instance
-Metadata Service Version 1 (IMDSv1). By default, nodes support IMDSv1 and
-IMDSv2.
-
-- BootstrapArguments
-
-Type: String
-
-Description: (Optional) Additional arguments you want to pass to the node
-bootstrap script.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `ssm:StartAutomationExecution`
++ `ssm:GetAutomationExecution`
++ `ssm:GetParameters`
++ `autoscaling:CreateAutoScalingGroup`
++ `autoscaling:CreateOrUpdateTags`
++ `autoscaling:DeleteTags`
++ `autoscaling:DescribeAutoScalingGroups`
++ `autoscaling:DescribeScalingActivities`
++ `autoscaling:DescribeScheduledActions`
++ `autoscaling:SetDesiredCapacity`
++ `autoscaling:TerminateInstanceInAutoScalingGroup`
++ `autoscaling:UpdateAutoScalingGroup`
++ `cloudformation:CreateStack`
++ `cloudformation:DescribeStackResource`
++ `cloudformation:DescribeStacks`
++ `cloudformation:UpdateStack`
++ `ec2:AuthorizeSecurityGroupEgress`
++ `ec2:AuthorizeSecurityGroupIngress`
++ `ec2:CreateLaunchTemplateVersion`
++ `ec2:CreateLaunchTemplate`
++ `ec2:CreateSecurityGroup`
++ `ec2:CreateTags`
++ `ec2:DeleteLaunchTemplate`
++ `ec2:DeleteSecurityGroup`
++ `ec2:DescribeAvailabilityZones`
++ `ec2:DescribeImages`
++ `ec2:DescribeInstanceAttribute`
++ `ec2:DescribeInstanceStatus`
++ `ec2:DescribeInstances`
++ `ec2:DescribeKeyPairs`
++ `ec2:DescribeLaunchTemplateVersions`
++ `ec2:DescribeLaunchTemplates`
++ `ec2:DescribeSecurityGroups`
++ `ec2:DescribeSubnets`
++ `ec2:DescribeVpcs`
++ `ec2:RevokeSecurityGroupEgress`
++ `ec2:RevokeSecurityGroupIngress`
++ `ec2:RunInstances`
++ `ec2:TerminateInstances`
++ `iam:AddRoleToInstanceProfile`
++ `iam:AttachRolePolicy`
++ `iam:CreateInstanceProfile`
++ `iam:CreateRole`
++ `iam:GetInstanceProfile`
++ `iam:GetRole`
++ `iam:PassRole`
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ssm:GetParameters`
-- `autoscaling:CreateAutoScalingGroup`
-- `autoscaling:CreateOrUpdateTags`
-- `autoscaling:DeleteTags`
-- `autoscaling:DescribeAutoScalingGroups`
-- `autoscaling:DescribeScalingActivities`
-- `autoscaling:DescribeScheduledActions`
-- `autoscaling:SetDesiredCapacity`
-- `autoscaling:TerminateInstanceInAutoScalingGroup`
-- `autoscaling:UpdateAutoScalingGroup`
-- `cloudformation:CreateStack`
-- `cloudformation:DescribeStackResource`
-- `cloudformation:DescribeStacks`
-- `cloudformation:UpdateStack`
-- `ec2:AuthorizeSecurityGroupEgress`
-- `ec2:AuthorizeSecurityGroupIngress`
-- `ec2:CreateLaunchTemplateVersion`
-- `ec2:CreateLaunchTemplate`
-- `ec2:CreateSecurityGroup`
-- `ec2:CreateTags`
-- `ec2:DeleteLaunchTemplate`
-- `ec2:DeleteSecurityGroup`
-- `ec2:DescribeAvailabilityZones`
-- `ec2:DescribeImages`
-- `ec2:DescribeInstanceAttribute`
-- `ec2:DescribeInstanceStatus`
-- `ec2:DescribeInstances`
-- `ec2:DescribeKeyPairs`
-- `ec2:DescribeLaunchTemplateVersions`
-- `ec2:DescribeLaunchTemplates`
-- `ec2:DescribeSecurityGroups`
-- `ec2:DescribeSubnets`
-- `ec2:DescribeVpcs`
-- `ec2:RevokeSecurityGroupEgress`
-- `ec2:RevokeSecurityGroupIngress`
-- `ec2:RunInstances`
-- `ec2:TerminateInstances`
-- `iam:AddRoleToInstanceProfile`
-- `iam:AttachRolePolicy`
-- `iam:CreateInstanceProfile`
-- `iam:CreateRole`
-- `iam:GetInstanceProfile`
-- `iam:GetRole`
-- `iam:PassRole`
+ **Document Steps** 
++ DetermineParameterValuesForNewNodeGroup (aws:executeScript) - Gathers the parameter values to use for the new node group.
++ CreateStack (aws:createStack) - Creates the CloudFormation stack for the new node group. 
++ GetNewStackNodeInstanceRole (aws:executeAwsApi) - Gets the node instance role. 
++ GetNewStackSecurityGroup (aws:executeAwsApi) - The step gets the node security group. 
++ AddIngressRulesToNewNodeSecurityGroup (aws:executeAwsApi) - Adds ingress rules to the newly created security group so it can accept traffic from the one assigned to your previous node group. 
++ AddIngressRulesToOldNodeSecurityGroup (aws:executeAwsApi) - Adds ingress rules to the previous security group so it can accept traffic from the one assigned to your newly created node group. 
++ VerifyStackComplete (aws:assertAwsResourceProperty) - Verifies the new stack status is `CREATE_COMPLETE`. 
 
-**Document Steps**
+ **Outputs** 
 
-- DetermineParameterValuesForNewNodeGroup (aws:executeScript) - Gathers the
-  parameter values to use for the new node group.
-- CreateStack (aws:createStack) - Creates the CloudFormation stack for the new node
-  group.
-- GetNewStackNodeInstanceRole (aws:executeAwsApi) - Gets the node instance
-  role.
-- GetNewStackSecurityGroup (aws:executeAwsApi) - The step gets the node
-  security group.
-- AddIngressRulesToNewNodeSecurityGroup (aws:executeAwsApi) - Adds ingress
-  rules to the newly created security group so it can accept traffic from the
-  one assigned to your previous node group.
-- AddIngressRulesToOldNodeSecurityGroup (aws:executeAwsApi) - Adds ingress
-  rules to the previous security group so it can accept traffic from the one
-  assigned to your newly created node group.
-- VerifyStackComplete (aws:assertAwsResourceProperty) - Verifies the new
-  stack status is `CREATE_COMPLETE`.
+DetermineParameterValuesForNewNodeGroup.NewStackParameters - The parameters used to create the new stack.
 
-**Outputs**
+GetNewStackNodeInstanceRole.NewNodeInstanceRole - The node instance role for the new node group.
 
-DetermineParameterValuesForNewNodeGroup.NewStackParameters - The parameters used
-to create the new stack.
+GetNewStackSecurityGroup.NewNodeSecurityGroup - The ID of the security group for the new node group.
 
-GetNewStackNodeInstanceRole.NewNodeInstanceRole - The node instance role for the
-new node group.
-
-GetNewStackSecurityGroup.NewNodeSecurityGroup - The ID of the security group for
-the new node group.
-
-DetermineParameterValuesForNewNodeGroup.NewStackName - The CloudFormation stack name for
-the new node group.
+DetermineParameterValuesForNewNodeGroup.NewStackName - The CloudFormation stack name for the new node group.
 
 CreateStack.StackId - The CloudFormation stack ID for the new node group.

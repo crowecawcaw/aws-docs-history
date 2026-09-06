@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-ModifyRedshiftClusterNodeType`
+<a name="automation-aws-modify-redshift-cluster-node"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-ModifyRedshiftClusterNodeType` runbook
-modifies the node type and number of nodes for the Amazon Redshift cluster you specify.
+ The `AWSConfigRemediation-ModifyRedshiftClusterNodeType` runbook modifies the node type and number of nodes for the Amazon Redshift cluster you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ModifyRedshiftClusterNodeType "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ModifyRedshiftClusterNodeType")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ModifyRedshiftClusterNodeType) 
 
 **Document type**
 
@@ -20,68 +22,50 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ Classic
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: Boolean
 
-- Classic
+   Description: (Optional) If set to `true` , the resize operation uses the classic resize process. 
++ ClusterIdentifier
 
-Type: Boolean
+  Type: String
 
-Description: (Optional) If set to `true` , the resize
-operation uses the classic resize process.
+  Description: (Required) The unique identifier of the cluster whose node type you want to modify.
++ ClusterType
 
-- ClusterIdentifier
+  Type: String
 
-Type: String
+  Valid values: single-node \| multi-node
 
-Description: (Required) The unique identifier of the cluster whose node
-type you want to modify.
+  Description: (Required) The type of cluster you want to assign to your cluster.
++ NodeType
 
-- ClusterType
+  Type: String
 
-Type: String
+  Valid values: ds2.xlarge \| ds2.8xlarge \| dc1.large \| dc1.8xlarge \| dc2.large \| dc2.8xlarge \| ra3.4xlarge \| ra3.16xlarge
 
-Valid values: single-node | multi-node
+  Description: (Required) The type of node you want to assign to your cluster.
++ NumberOfNodes
 
-Description: (Required) The type of cluster you want to assign to your
-cluster.
+  Type: Integer
 
-- NodeType
+  Valid values: 2-100
 
-Type: String
+   Description: (Optional) The number of nodes you want to assign to your cluster. If your cluster is a `single-node` type, do not specify a value for this parameter. 
 
-Valid values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge |
-dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
-
-Description: (Required) The type of node you want to assign to your
-cluster.
-
-- NumberOfNodes
-
-Type: Integer
-
-Valid values: 2-100
-
-Description: (Optional) The number of nodes you want to assign to your
-cluster. If your cluster is a `single-node` type, do not specify
-a value for this parameter.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `redshift:DescribeClusters` 
++  `redshift:ResizeCluster` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `redshift:DescribeClusters`
-- `redshift:ResizeCluster`
-
-**Document Steps**
-
-- `aws:executeScript` - Modifies the node type and number of nodes
-  for the cluster specified in the `ClusterIdentifier` parameter.
+ **Document Steps** 
++  `aws:executeScript` - Modifies the node type and number of nodes for the cluster specified in the `ClusterIdentifier` parameter. 

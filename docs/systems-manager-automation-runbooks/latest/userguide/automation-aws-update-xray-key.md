@@ -1,14 +1,13 @@
+
+
 # `AWSConfigRemediation-UpdateXRayKMSKey`
+<a name="automation-aws-update-xray-key"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-UpdateXRayKMSKey` runbook enables encryption
-on your AWS X-Ray data using an AWS Key Management Service (AWS KMS) key. This runbook should only be
-used as a baseline to ensure that your AWS X-Ray data is encrypted according to
-minimum recommended security best practices. We recommend encrypting multiple sets
-of data with different KMS keys.
+ The `AWSConfigRemediation-UpdateXRayKMSKey` runbook enables encryption on your AWS X-Ray data using an AWS Key Management Service (AWS KMS) key. This runbook should only be used as a baseline to ensure that your AWS X-Ray data is encrypted according to minimum recommended security best practices. We recommend encrypting multiple sets of data with different KMS keys. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateXRayKMSKey "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateXRayKMSKey")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateXRayKMSKey) 
 
 **Document type**
 
@@ -23,39 +22,28 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ KeyId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- KeyId
+  Description: (Required) The Amazon Resource Name (ARN), key ID, or the key alias of the KMS key you want AWS X-Ray to use to encrypt data.
 
-Type: String
-
-Description: (Required) The Amazon Resource Name (ARN), key ID, or the key
-alias of the KMS key you want AWS X-Ray to use to encrypt data.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `kms:DescribeKey` 
++  `xray:GetEncryptionConfig` 
++  `xray:PutEncryptionConfig` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `kms:DescribeKey`
-- `xray:GetEncryptionConfig`
-- `xray:PutEncryptionConfig`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Enables encryption on your X-Ray data
-  using the KMS key you specify in the `KeyId` parameter.
-- `aws:waitForAwsResourceProperty` - Waits for the encryption
-  configuration status of your X-Ray to be `ACTIVE` .
-- `aws:executeAwsApi` - Gathers the ARN of the key you specify in
-  the `KeyId` parameter.
-- `aws:assertAwsResourceProperty` - Verifies encryption has been
-  enabled on your X-Ray.
+ **Document Steps** 
++  `aws:executeAwsApi` - Enables encryption on your X-Ray data using the KMS key you specify in the `KeyId` parameter. 
++  `aws:waitForAwsResourceProperty` - Waits for the encryption configuration status of your X-Ray to be `ACTIVE` . 
++  `aws:executeAwsApi` - Gathers the ARN of the key you specify in the `KeyId` parameter. 
++  `aws:assertAwsResourceProperty` - Verifies encryption has been enabled on your X-Ray. 

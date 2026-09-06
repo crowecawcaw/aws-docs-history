@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-RemoveUserPolicies`
+<a name="automation-aws-remove-user-policies"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-RemoveUserPolicies` runbook deletes the
-AWS Identity and Access Management (IAM) inline policies and detaches any managed policies attached to the
-user you specify.
+ The `AWSConfigRemediation-RemoveUserPolicies` runbook deletes the AWS Identity and Access Management (IAM) inline policies and detaches any managed policies attached to the user you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RemoveUserPolicies "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RemoveUserPolicies")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RemoveUserPolicies) 
 
 **Document type**
 
@@ -21,46 +22,36 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ IAMUserID
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- IAMUserID
+  Description: (Required) The ID of the user you want to remove policies from.
++ PolicyType
 
-Type: String
+  Type: String
 
-Description: (Required) The ID of the user you want to remove policies
-from.
+  Valid values: All \| Inline \| Managed
 
-- PolicyType
+  Default: All
 
-Type: String
+  Description: (Required) The type of IAM policies you want to remove from the user.
 
-Valid values: All | Inline | Managed
-
-Default: All
-
-Description: (Required) The type of IAM policies you want to remove from
-the user.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `iam:DeleteUserPolicy` 
++  `iam:DetachUserPolicy` 
++  `iam:ListAttachedUserPolicies` 
++  `iam:ListUserPolicies` 
++  `iam:ListUsers` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `iam:DeleteUserPolicy`
-- `iam:DetachUserPolicy`
-- `iam:ListAttachedUserPolicies`
-- `iam:ListUserPolicies`
-- `iam:ListUsers`
-
-**Document Steps**
-
-- `aws:executeScript` - Deletes and detaches IAM policies from
-  the user you specify in the `IAMUserID` parameter.
+ **Document Steps** 
++  `aws:executeScript` - Deletes and detaches IAM policies from the user you specify in the `IAMUserID` parameter. 

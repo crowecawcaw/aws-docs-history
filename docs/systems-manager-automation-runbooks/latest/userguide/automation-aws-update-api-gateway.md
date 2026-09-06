@@ -1,13 +1,13 @@
+
+
 # `AWSConfigRemediation-UpdateAPIGatewayMethodCaching`
+<a name="automation-aws-update-api-gateway"></a>
 
-**Description**
+ **Description** 
 
-The
-`AWSConfigRemediation-UpdateAPIGatewayMethodCaching`
-runbook
-updates the cache method setting for an Amazon API Gateway stage resource.
+ The `AWSConfigRemediation-UpdateAPIGatewayMethodCaching` runbook updates the cache method setting for an Amazon API Gateway stage resource. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateAPIGatewayMethodCaching "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateAPIGatewayMethodCaching")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-UpdateAPIGatewayMethodCaching) 
 
 **Document type**
 
@@ -22,64 +22,29 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ CachingAuthorizedMethods
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: StringList
 
-- CachingAuthorizedMethods
+   Description: (Required) The methods authorized to have caching enabled. The list must be some combination of `DELETE` , `GET` , `HEAD` , `OPTIONS` , `PATCH` , `POST` , and `PUT` . Caching is enabled for selected methods and disabled for non-selected methods. Caching is enabled for all methods if `ANY` is selected and is disabled for all methods if `NONE` is selected. 
++ StageArn
 
-Type: StringList
+  Type: String
 
-Description: (Required) The methods authorized to have caching enabled.
-The list must be some combination of
-`DELETE`
-,
-`GET`
-,
-`HEAD`
-,
-`OPTIONS`
-,
-`PATCH`
-,
-`POST`
-, and
-`PUT`
-. Caching is enabled for selected
-methods and disabled for non-selected methods. Caching is enabled for all
-methods if
-`ANY`
-is selected and is disabled for all methods if
-`NONE`
-is selected.
+   Description: (Required) The API Gateway stage ARN for the `REST` API. 
 
-- StageArn
-
-Type: String
-
-Description: (Required) The API Gateway stage ARN for the
-`REST`
-API.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `apigateway:PATCH` 
++  `apigateway:GET` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `apigateway:PATCH`
-- `apigateway:GET`
-
-**Document Steps**
-
-- `aws:executeScript`
-
-* Accepts the stage resource ID as input,
-  updates the cache method setting for an API Gateway stage using the
-  `UpdateStage`
-  API action, and verifies the update.
+ **Document Steps** 
++  `aws:executeScript` - Accepts the stage resource ID as input, updates the cache method setting for an API Gateway stage using the `UpdateStage` API action, and verifies the update. 

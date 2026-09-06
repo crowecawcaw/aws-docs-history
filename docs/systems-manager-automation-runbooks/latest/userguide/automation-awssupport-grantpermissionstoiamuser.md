@@ -1,19 +1,16 @@
+
+
 # `AWSSupport-GrantPermissionsToIAMUser`
+<a name="automation-awssupport-grantpermissionstoiamuser"></a>
 
-**Description**
+ **Description** 
 
-This runbook grants the specified permissions to an IAM group (new or
-existing), and adds the existing IAM user to it. Policies you can choose from:
-[Billing](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/job-function/Billing$serviceLevelSummary "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/job-function/Billing$serviceLevelSummary") or [Support](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary "https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary") . To enable billing access for IAM, remember to also activate
-[IAM user and federated
-user access to the Billing and Cost Management pages](../../../console/iam/billing-enable.md "../../../console/iam/billing-enable.md") .
+ This runbook grants the specified permissions to an IAM group (new or existing), and adds the existing IAM user to it. Policies you can choose from: [Billing](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/job-function/Billing$serviceLevelSummary) or [Support](https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/AWSSupportAccess$serviceLevelSummary) . To enable billing access for IAM, remember to also activate [IAM user and federated user access to the Billing and Cost Management pages](https://docs.aws.amazon.com/console/iam/billing-enable) . 
 
-###### Important
+**Important**  
+If you provide an existing IAM group, all current IAM users in the group receive the new permissions.
 
-If you provide an existing IAM group, all current IAM users in the group
-receive the new permissions.
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-GrantPermissionsToIAMUser "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-GrantPermissionsToIAMUser")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-GrantPermissionsToIAMUser) 
 
 **Document type**
 
@@ -28,139 +25,121 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ IAMGroupName
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- IAMGroupName
+  Default: ExampleSupportAndBillingGroup
 
-Type: String
+   Description: (Required) Can be a new or existing group. Must comply with [IAM Entity Name Limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-names) . 
++ IAMUserName
 
-Default: ExampleSupportAndBillingGroup
+  Type: String
 
-Description: (Required) Can be a new or existing group. Must comply with
-[IAM Entity Name Limits](../../../IAM/latest/UserGuide/reference_iam-limits.md#reference_iam-limits-names "../../../IAM/latest/UserGuide/reference_iam-limits.md#reference_iam-limits-names") .
+  Default: ExampleUser
 
-- IAMUserName
+  Description: (Required) Must be an existing user.
++ LambdaAssumeRole
 
-Type: String
+  Type: String
 
-Default: ExampleUser
+  Description: (Optional) The ARN of the role assumed by lambda.
++ Permissions
 
-Description: (Required) Must be an existing user.
+  Type: String
 
-- LambdaAssumeRole
+  Valid values: SupportFullAccess \| BillingFullAccess \| SupportAndBillingFullAccess
 
-Type: String
+  Default: SupportAndBillingFullAccess
 
-Description: (Optional) The ARN of the role assumed by lambda.
+   Description: (Required) Choose one of: `SupportFullAccess` grants full access to the Support center. `BillingFullAccess` grants full access to the Billing dashboard. `SupportAndBillingFullAccess` grants full access to both Support center and the Billing dashboard. More info on policies under Document details. 
 
-- Permissions
-
-Type: String
-
-Valid values: SupportFullAccess | BillingFullAccess |
-SupportAndBillingFullAccess
-
-Default: SupportAndBillingFullAccess
-
-Description: (Required) Choose one of: `SupportFullAccess`
-grants full access to the Support center. `BillingFullAccess`
-grants full access to the Billing dashboard.
-`SupportAndBillingFullAccess` grants full access to both
-Support center and the Billing dashboard. More info on policies under
-Document details.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-The permissions required depend on how
-`AWSSupport-GrantPermissionsToIAMUser` is run.
+ The permissions required depend on how `AWSSupport-GrantPermissionsToIAMUser` is run. 
 
-**Running as the currently logged in user or role**
+ **Running as the currently logged in user or role** 
 
-It is recommended you have the `AmazonSSMAutomationRole` Amazon
-managed policy attached, and the following additional permissions to be able to
-create the Lambda function and the IAM role to pass to Lambda:
+ It is recommended you have the `AmazonSSMAutomationRole` Amazon managed policy attached, and the following additional permissions to be able to create the Lambda function and the IAM role to pass to Lambda: 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "lambda:InvokeFunction",
- "lambda:CreateFunction",
- "lambda:DeleteFunction",
- "lambda:GetFunction"
- ],
- "Resource": "arn:aws:lambda:*:`111122223333`:function:AWSSupport-*",
- "Effect": "Allow"
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:CreateGroup",
- "iam:AddUserToGroup",
- "iam:ListAttachedGroupPolicies",
- "iam:GetGroup",
- "iam:GetUser"
- ],
- "Resource": [
- "arn:aws:iam::*:user/*",
- "arn:aws:iam::*:group/*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:AttachGroupPolicy"
- ],
- "Resource": "*",
- "Condition": {
- "ArnEquals": {
- "iam:PolicyArn": [
- "arn:aws:iam::aws:policy/job-function/Billing",
- "arn:aws:iam::aws:policy/AWSSupportAccess"
- ]
- }
- }
- },
- {
- "Effect": "Allow",
- "Action": [
- "iam:ListAccountAliases",
- "iam:GetAccountSummary"
- ],
- "Resource": "*"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "lambda:InvokeFunction",
+                "lambda:CreateFunction",
+                "lambda:DeleteFunction",
+                "lambda:GetFunction"
+            ],
+            "Resource": "arn:aws:lambda:*:{{111122223333}}:function:AWSSupport-*",
+            "Effect": "Allow"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateGroup",
+                "iam:AddUserToGroup",
+                "iam:ListAttachedGroupPolicies",
+                "iam:GetGroup",
+                "iam:GetUser"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:user/*",
+                "arn:aws:iam::*:group/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:AttachGroupPolicy"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ArnEquals": {
+                    "iam:PolicyArn": [
+                        "arn:aws:iam::aws:policy/job-function/Billing",
+                        "arn:aws:iam::aws:policy/AWSSupportAccess"
+                    ]
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListAccountAliases",
+                "iam:GetAccountSummary"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
-**Using AutomationAssumeRole and LambdaAssumeRole**
+------
 
-The user must have the **ssm:StartAutomationExecution**
-permissions on the runbook, and **iam:PassRole** on the IAM roles
-passed as **AutomationAssumeRole** and
-**LambdaAssumeRole** . Here are the permissions each IAM role
-needs:
+ **Using AutomationAssumeRole and LambdaAssumeRole** 
+
+ The user must have the **ssm:StartAutomationExecution** permissions on the runbook, and **iam:PassRole** on the IAM roles passed as **AutomationAssumeRole** and **LambdaAssumeRole** . Here are the permissions each IAM role needs: 
 
 ```
 AutomationAssumeRole
 
                     {
-                        "Version": "2012-10-17",
+                        "Version": "2012-10-17",		 	 	 
                         "Statement": [
                             {
                                 "Action": [
@@ -174,14 +153,13 @@ AutomationAssumeRole
                             }
                         ]
                     }
-
 ```
 
 ```
 LambdaAssumeRole
 
                 {
-                    "Version": "2012-10-17",
+                    "Version": "2012-10-17",		 	 	 
                     "Statement": [
                         {
                             "Effect" : "Allow",
@@ -222,16 +200,16 @@ LambdaAssumeRole
                         }
                     ]
                 }
-
 ```
 
-**Document Steps**
+ **Document Steps** 
 
-1. `aws:createStack` - Run CloudFormation Template to create a Lambda
-   function.
-2. `aws:invokeLambdaFunction` - Run Lambda to set IAM permissions.
-3. `aws:deleteStack` - Delete CloudFormation Template.
+1.  `aws:createStack` - Run CloudFormation Template to create a Lambda function. 
 
-**Outputs**
+1.  `aws:invokeLambdaFunction` - Run Lambda to set IAM permissions. 
+
+1.  `aws:deleteStack` - Delete CloudFormation Template. 
+
+ **Outputs** 
 
 configureIAM.Payload

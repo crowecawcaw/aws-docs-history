@@ -1,33 +1,32 @@
-# `AWSSupport-TroubleshootS3AccessSameAccount`
 
-**Description**
+
+# `AWSSupport-TroubleshootS3AccessSameAccount`
+<a name="automation-aws-troubleshoots3accesssameaccount"></a>
+
+ **Description** 
 
 The `AWSSupport-TroubleshootS3AccessSameAccount` runbook helps diagnose Amazon Simple Storage Service (Amazon S3) access denied issues on bucket or object operations by evaluating the access level granted to the requester AWS Identity and Access Management (IAM) identity (user or role) on your Amazon S3 resource. The runbook evaluates all the relevant access policies, user policies, and resource-based policies (bucket policy, bucket ACL, and object ACL) associated with the Amazon S3 resource and the IAM user or role specified in the input parameters.
 
-###### Important
-
-You can only use this runbook to evaluate access denied issues if the requestor is in the same AWS account as the Amazon S3 bucket or object.
-
-Make sure that your user or the `AutomationAssumeRole` used to run this runbook has the necessary permissions to get/list the relevant resource policies and bucket/key metadata configuration.
-
+**Important**  
+You can only use this runbook to evaluate access denied issues if the requestor is in the same AWS account as the Amazon S3 bucket or object.  
+Make sure that your user or the `AutomationAssumeRole` used to run this runbook has the necessary permissions to get/list the relevant resource policies and bucket/key metadata configuration.  
 If there is a `NotPrincipal` element in the Resource Policy, the runbook will throw an error in the step `PolicyModifier`.
 
-**How does it work?**
+ **How does it work?** 
 
 The runbook performs the following evaluations:
++ Verifies the existence of the IAM user or role and deconstructs the ARN to identify its key components.
++ Checks if the Amazon S3 resource (bucket or object) exists and returns the bucket and key name.
++ Validates that the user/role and bucket/object are in the same AWS account.
++ Retrieves bucket and object ACL configurations if applicable.
++ Fetches IAM policies attached to the user or role.
++ Retrieves bucket policies if they exist.
++ If applicable, fetches AWS KMS key policies for encrypted objects.
++ If applicable, fetches VPC endpoint policies.
++ Retrieves AWS Organizations Service Control Policies (SCPs) if provided.
++ Evaluates all policies together to determine the effective permissions for the specified action.
 
-- Verifies the existence of the IAM user or role and deconstructs the ARN to identify its key components.
-- Checks if the Amazon S3 resource (bucket or object) exists and returns the bucket and key name.
-- Validates that the user/role and bucket/object are in the same AWS account.
-- Retrieves bucket and object ACL configurations if applicable.
-- Fetches IAM policies attached to the user or role.
-- Retrieves bucket policies if they exist.
-- If applicable, fetches AWS KMS key policies for encrypted objects.
-- If applicable, fetches VPC endpoint policies.
-- Retrieves AWS Organizations Service Control Policies (SCPs) if provided.
-- Evaluates all policies together to determine the effective permissions for the specified action.
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootS3AccessSameAccount "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootS3AccessSameAccount")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootS3AccessSameAccount) 
 
 **Document type**
 
@@ -43,34 +42,32 @@ Amazon
 
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `ec2:DescribeVpcEndpoints` (if VPC endpoint is specified)
++ `iam:GetGroupPolicy`
++ `iam:GetPolicy`
++ `iam:GetPolicyVersion`
++ `iam:GetRole`
++ `iam:GetRolePolicy`
++ `iam:GetUser`
++ `iam:GetUserPolicy`
++ `iam:ListAttachedRolePolicies`
++ `iam:ListAttachedUserPolicies`
++ `iam:ListGroupsForUser`
++ `iam:ListRolePolicies`
++ `iam:ListUserPolicies`
++ `iam:SimulatePrincipalPolicy`
++ `kms:GetKeyPolicy` (if KMS encryption is used)
++ `s3:GetBucketAcl`
++ `s3:GetBucketLocation`
++ `s3:GetBucketPolicy`
++ `s3:GetObjectAcl`
++ `s3:GetObjectVersion`
++ `s3:ListBucket`
 
-- `ec2:DescribeVpcEndpoints` (if VPC endpoint is specified)
-- `iam:GetGroupPolicy`
-- `iam:GetPolicy`
-- `iam:GetPolicyVersion`
-- `iam:GetRole`
-- `iam:GetRolePolicy`
-- `iam:GetUser`
-- `iam:GetUserPolicy`
-- `iam:ListAttachedRolePolicies`
-- `iam:ListAttachedUserPolicies`
-- `iam:ListGroupsForUser`
-- `iam:ListRolePolicies`
-- `iam:ListUserPolicies`
-- `iam:SimulatePrincipalPolicy`
-- `kms:GetKeyPolicy` (if KMS encryption is used)
-- `s3:GetBucketAcl`
-- `s3:GetBucketLocation`
-- `s3:GetBucketPolicy`
-- `s3:GetObjectAcl`
-- `s3:GetObjectVersion`
-- `s3:ListBucket`
-  Example IAM policy:
+Example IAM policy:
 
 ```
-
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -103,107 +100,108 @@ use the runbook successfully.
         }
     ]
 }
-
 ```
 
-**Instructions**
+ **Instructions** 
 
 Follow these steps to configure the automation:
 
-1. Navigate to [`AWSSupport-TroubleshootS3AccessSameAccount`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootS3AccessSameAccount/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootS3AccessSameAccount/description") in Systems Manager under Documents.
-2. Select Execute automation.
-3. For the input parameters, enter the following:
+1. Navigate to [`AWSSupport-TroubleshootS3AccessSameAccount`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootS3AccessSameAccount/description) in Systems Manager under Documents.
 
-   - **AutomationAssumeRole (Optional):**
+1. Select Execute automation.
 
-   The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your permissions.
-   - **S3ResourceArn (Required):**
+1. For the input parameters, enter the following:
+   + **AutomationAssumeRole (Optional):**
 
-   The ARN of your Amazon S3 resource (bucket or key). For object operations such as `PutObject` or `GetObject`, provide the ARN of the object. Example: `arn:aws:s3:::bucket_name`, or `arn:aws:s3:::bucket_name/key_name`.
-   - **S3Action (Required):**
+     The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your permissions.
+   + **S3ResourceArn (Required):**
 
-   The Amazon S3 Action for which you want the runbook to evaluate the access context. Make sure you provide the corresponding Amazon S3 resource type (bucket or object) for the specific action. Examples include: `GetObject`, `PutObject`, `DeleteObject`, `GetBucketAcl`, etc.
-   - **RequesterArn (Required):**
+     The ARN of your Amazon S3 resource (bucket or key). For object operations such as `PutObject` or `GetObject`, provide the ARN of the object. Example: `arn:aws:s3:::bucket_name`, or `arn:aws:s3:::bucket_name/key_name`.
+   + **S3Action (Required):**
 
-   The IAM Principal (user or role) ARN for which you want to find the access level on the specific Amazon S3 resource. For example: `arn:aws:iam::123456789012:user/user_name` or `arn:aws:iam::123456789012:role/example-role`.
-   - **RequesterRoleSessionName (Optional):**
+     The Amazon S3 Action for which you want the runbook to evaluate the access context. Make sure you provide the corresponding Amazon S3 resource type (bucket or object) for the specific action. Examples include: `GetObject`, `PutObject`, `DeleteObject`, `GetBucketAcl`, etc.
+   + **RequesterArn (Required):**
 
-   The session name of the assumed role, in case the IAM ARN is a role and you want to provide a specific session name.
-   - **S3ObjectVersionId (Optional):**
+     The IAM Principal (user or role) ARN for which you want to find the access level on the specific Amazon S3 resource. For example: `arn:aws:iam::123456789012:user/user_name` or `arn:aws:iam::123456789012:role/example-role`.
+   + **RequesterRoleSessionName (Optional):**
 
-   If the object has multiple versions, this parameter allows you to specify the specific version of the object you want to evaluate the access context.
-   - **KmsKeyArn (Optional):**
+     The session name of the assumed role, in case the IAM ARN is a role and you want to provide a specific session name.
+   + **S3ObjectVersionId (Optional):**
 
-   The AWS KMS Key ARN if it is relevant to the action (example: `CompleteMultipartUpload`, `CopyObject`, `CreateMultipartUpload`, `PutObject`, etc.). Note: The runbook does not support specifying an AWS KMS key in a different AWS account.
-   - **VpcEndpointId (Optional):**
+     If the object has multiple versions, this parameter allows you to specify the specific version of the object you want to evaluate the access context.
+   + **KmsKeyArn (Optional):**
 
-   The virtual private cloud (VPC) endpoint ID related to the access evaluation. Amazon S3 bucket policies can control access to buckets from specific VPC endpoints.
-   - **ContextKeyList (Optional):**
+     The AWS KMS Key ARN if it is relevant to the action (example: `CompleteMultipartUpload`, `CopyObject`, `CreateMultipartUpload`, `PutObject`, etc.). Note: The runbook does not support specifying an AWS KMS key in a different AWS account.
+   + **VpcEndpointId (Optional):**
 
-   Condition keys list and corresponding values with respect to the policy evaluation. For example: `[{"ContextKeyName":"aws:PrincipalArn","ContextKeyValues":["arn:aws:iam::123456789012:root"],"ContextKeyType":"string"}]`.
-   - **SCPPolicy (Optional):**
+     The virtual private cloud (VPC) endpoint ID related to the access evaluation. Amazon S3 bucket policies can control access to buckets from specific VPC endpoints.
+   + **ContextKeyList (Optional):**
 
-   The AWS Organizations Service Control Policy (SCP) in case you want the runbook to evaluate the input against a particular SCP policy. This is not needed and ignored when you run this runbook from the organization's management account.
+     Condition keys list and corresponding values with respect to the policy evaluation. For example: `[{"ContextKeyName":"aws:PrincipalArn","ContextKeyValues":["arn:aws:iam::123456789012:root"],"ContextKeyType":"string"}]`.
+   + **SCPPolicy (Optional):**
 
-4. Select Execute.
-5. The automation initiates.
-6. The document performs the following steps:
+     The AWS Organizations Service Control Policy (SCP) in case you want the runbook to evaluate the input against a particular SCP policy. This is not needed and ignored when you run this runbook from the organization's management account.
 
-   - **`IAMCheckTypeset`**:
+1. Select Execute.
 
-   Checks the existence of the IAM user or role and deconstructs the ARN to identify its key components.
-   - **`ResourceTypeCheck`**:
+1. The automation initiates.
 
-   Checks if the Amazon S3 resource (bucket or object) exists and returns the bucket and key name.
-   - **`UaBoOoAccountCheck`**:
+1. The document performs the following steps:
+   + **`IAMCheckTypeset`**:
 
-   Validates that the user/role and bucket/object are in the same AWS account.
-   - **`KeyDetailsChecker`**:
+     Checks the existence of the IAM user or role and deconstructs the ARN to identify its key components.
+   + **`ResourceTypeCheck`**:
 
-   Retrieves details about the Amazon S3 object if the resource is an object.
-   - **`ACLBucketCheck`**:
+     Checks if the Amazon S3 resource (bucket or object) exists and returns the bucket and key name.
+   + **`UaBoOoAccountCheck`**:
 
-   Retrieves the bucket ACL configuration.
-   - **`ConditionSetter`**:
+     Validates that the user/role and bucket/object are in the same AWS account.
+   + **`KeyDetailsChecker`**:
 
-   Sets up condition keys for policy evaluation.
-   - **`FetchIAMPolicy`**:
+     Retrieves details about the Amazon S3 object if the resource is an object.
+   + **`ACLBucketCheck`**:
 
-   Fetches IAM policies attached to the user or role.
-   - **`branchOnACLCheck`**:
+     Retrieves the bucket ACL configuration.
+   + **`ConditionSetter`**:
 
-   Determines if object ACL needs to be checked.
-   - **`FetchBucketPolicy`**:
+     Sets up condition keys for policy evaluation.
+   + **`FetchIAMPolicy`**:
 
-   Retrieves the bucket policy if it exists.
-   - **`branchOnKMSCheck`**:
+     Fetches IAM policies attached to the user or role.
+   + **`branchOnACLCheck`**:
 
-   Determines if AWS KMS key policy needs to be evaluated.
-   - **`FetchKMSPolicy`**:
+     Determines if object ACL needs to be checked.
+   + **`FetchBucketPolicy`**:
 
-   Retrieves the AWS KMS key policy if applicable.
-   - **`branchOnVPCeCheck`**:
+     Retrieves the bucket policy if it exists.
+   + **`branchOnKMSCheck`**:
 
-   Determines if VPC endpoint policy needs to be evaluated.
-   - **`FetchVPCePolicy`**:
+     Determines if AWS KMS key policy needs to be evaluated.
+   + **`FetchKMSPolicy`**:
 
-   Retrieves the VPC endpoint policy if applicable.
-   - **`FetchSCPPolicy`**:
+     Retrieves the AWS KMS key policy if applicable.
+   + **`branchOnVPCeCheck`**:
 
-   Retrieves the AWS Organizations SCP if provided.
-   - **`PolicyModifier`**:
+     Determines if VPC endpoint policy needs to be evaluated.
+   + **`FetchVPCePolicy`**:
 
-   Modifies and prepares all policies for evaluation.
-   - **`EvaluatePolicy`**:
+     Retrieves the VPC endpoint policy if applicable.
+   + **`FetchSCPPolicy`**:
 
-   Evaluates all policies together to determine the effective permissions for the specified action.
+     Retrieves the AWS Organizations SCP if provided.
+   + **`PolicyModifier`**:
 
-7. After completion, review the Outputs section for the detailed results of the execution.
-   **References**
+     Modifies and prepares all policies for evaluation.
+   + **`EvaluatePolicy`**:
+
+     Evaluates all policies together to determine the effective permissions for the specified action.
+
+1. After completion, review the Outputs section for the detailed results of the execution.
+
+**References**
 
 Systems Manager Automation
-
-- [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootS3AccessSameAccount/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootS3AccessSameAccount/description")
-- [Run an automation](../../../systems-manager/latest/userguide/automation-working-executing.md "../../../systems-manager/latest/userguide/automation-working-executing.md")
-- [Setting up an Automation](../../../systems-manager/latest/userguide/automation-setup.md "../../../systems-manager/latest/userguide/automation-setup.md")
-- [Support Automation Workflows](https://aws.amazon.com/premiumsupport/technology/saw/ "https://aws.amazon.com/premiumsupport/technology/saw/")
++ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootS3AccessSameAccount/description)
++ [Run an automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-working-executing.html)
++ [Setting up an Automation](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-setup.html)
++ [Support Automation Workflows](https://aws.amazon.com/premiumsupport/technology/saw/)

@@ -1,10 +1,13 @@
+
+
 # `AWS-EnableStepFunctionsStateMachineLogging`
+<a name="aws-enablestepfunctionsstatemachinelogging"></a>
 
-**Description**
+ **Description** 
 
-The `AWS-EnableStepFunctionsStateMachineLogging` runbook enables or updates logging on the AWS Step Functions state machine you specify. The minimum logging level must be set to `ALL`, `ERROR`, or `FATAL`.
+The `AWS-EnableStepFunctionsStateMachineLogging` runbook enables or updates logging on the AWS Step Functions state machine you specify. The minimum logging level must be set to `ALL`, `ERROR`, or `FATAL`. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableStepFunctionsStateMachineLogging "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableStepFunctionsStateMachineLogging")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableStepFunctionsStateMachineLogging) 
 
 **Document type**
 
@@ -19,66 +22,54 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ Level
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- Level
+  Valid values: ALL \| ERROR \| FATAL
 
-Type: String
+  Description: (Required) The URL of the Amazon SQS queue you want to enable encryption on.
++ LogGroupArn
 
-Valid values: ALL | ERROR | FATAL
+  Type: String
 
-Description: (Required) The URL of the Amazon SQS queue you want to enable encryption on.
+  Description: (Required) The ARN of the Amazon CloudWatch Logs log group you want to send state machine logs to.
++ StateMachineArn
 
-- LogGroupArn
+  Type: String
 
-Type: String
+  Description: (Required) The ARN of the state machine you want enable logging on.
++ IncludeExecutionData
 
-Description: (Required) The ARN of the Amazon CloudWatch Logs log group you want to send state machine logs to.
+  Type: Boolean
 
-- StateMachineArn
+  Default: False
 
-Type: String
+  Description: (Optional) Determines whether execution data is included in the logs.
++ TracingConfiguration
 
-Description: (Required) The ARN of the state machine you want enable logging on.
+  Type: Boolean
 
-- IncludeExecutionData
+  Default: False
 
-Type: Boolean
+  Description: (Optional) Determines whether AWS X-Ray tracing is enabled.
 
-Default: False
-
-Description: (Optional) Determines whether execution data is included in the logs.
-
-- TracingConfiguration
-
-Type: Boolean
-
-Default: False
-
-Description: (Optional) Determines whether AWS X-Ray tracing is enabled.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `ssm:GetAutomationExecution`
++ `ssm:StartAutomationExecution`
++ `states:DescribeStateMachine`
++ `states:UpdateStateMachine`
 
-- `ssm:GetAutomationExecution`
-- `ssm:StartAutomationExecution`
-- `states:DescribeStateMachine`
-- `states:UpdateStateMachine`
+ **Document Steps** 
++  `EnableStepFunctionsStateMachineLogging (aws:executeAwsApi)` - Updates the specified state machine with the logging configuration specified.
++  `VerifyStepFunctionsStateMachineLoggingEnabled (aws:assertAwsResourceProperty)` - Verifies logging was enabled for the specified state machine.
 
-**Document Steps**
-
-- `EnableStepFunctionsStateMachineLogging (aws:executeAwsApi)` - Updates the specified state machine with the logging configuration specified.
-- `VerifyStepFunctionsStateMachineLoggingEnabled (aws:assertAwsResourceProperty)` - Verifies logging was enabled for the specified state machine.
-
-**Outputs**
-
-- EnableStepFunctionsStateMachineLogging.Response - Response from the UpdateStateMachine API call.
+ **Outputs** 
++ EnableStepFunctionsStateMachineLogging.Response - Response from the UpdateStateMachine API call.

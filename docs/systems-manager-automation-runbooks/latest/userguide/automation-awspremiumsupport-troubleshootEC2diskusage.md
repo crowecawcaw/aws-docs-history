@@ -1,37 +1,22 @@
+
+
 # `AWSPremiumSupport-TroubleshootEC2DiskUsage`
+<a name="automation-awspremiumsupport-troubleshootEC2diskusage"></a>
 
-**Description**
+ **Description** 
 
-The `AWSPremiumSupport-TroubleshootEC2DiskUsage` runbook helps you
-investigate and potentially remediate issues with Amazon Elastic Compute Cloud (Amazon EC2) instance root
-and non-root disk usage. If possible, the runbook attempts to remediate issues by
-extending the volume and its file system. To perform these tasks, this runbook
-orchestrates the execution of several runbooks based on the operating system of the
-affected instance.
+The `AWSPremiumSupport-TroubleshootEC2DiskUsage` runbook helps you investigate and potentially remediate issues with Amazon Elastic Compute Cloud (Amazon EC2) instance root and non-root disk usage. If possible, the runbook attempts to remediate issues by extending the volume and its file system. To perform these tasks, this runbook orchestrates the execution of several runbooks based on the operating system of the affected instance.
 
-The first runbook, `AWSPremiumSupport-DiagnoseDiskUsageOnWindows` or
-`AWSPremiumSupport-DiagnoseDiskUsageOnLinux`, determines if disk
-issues can be mitigated by expanding the volume.
+The first runbook, `AWSPremiumSupport-DiagnoseDiskUsageOnWindows` or `AWSPremiumSupport-DiagnoseDiskUsageOnLinux`, determines if disk issues can be mitigated by expanding the volume.
 
-The second runbook, `AWSPremiumSupport-ExtendVolumesOnWindows` or
-`AWSPremiumSupport-ExtendVolumesOnLinux`, uses the output of the
-first runbook to run Python code that modifies the volume. After the volume has been
-modified, the runbook extends the partition and file system of the affected
-volumes.
+The second runbook, `AWSPremiumSupport-ExtendVolumesOnWindows` or `AWSPremiumSupport-ExtendVolumesOnLinux`, uses the output of the first runbook to run Python code that modifies the volume. After the volume has been modified, the runbook extends the partition and file system of the affected volumes.
 
-###### Important
+**Important**  
+Access to `AWSPremiumSupport-*` runbooks requires a Business \+ Support, Enterprise Support or Unified Operations Subscription. For more information, see [Compare AWS Support Plans](https://aws.amazon.com/premiumsupport/plans/).
 
-Access to `AWSPremiumSupport-*` runbooks
-requires a Business + Support, Enterprise Support or Unified Operations Subscription. For more information,
-see [Compare AWS Support
-Plans](https://aws.amazon.com/premiumsupport/plans/ "https://aws.amazon.com/premiumsupport/plans/").
+This document was built in collaboration with AWS Managed Services (AMS). AMS helps you manage your AWS infrastructure more efficiently and securely. AMS also provides operational flexibility, enhanced security and compliance, capacity optimization, and cost-savings identification. For more information, see [AWS Managed Services](https://aws.amazon.com/managed-services/). 
 
-This document was built in collaboration with AWS Managed Services (AMS). AMS helps you
-manage your AWS infrastructure more efficiently and securely. AMS also provides
-operational flexibility, enhanced security and compliance, capacity optimization,
-and cost-savings identification. For more information, see [AWS Managed Services](https://aws.amazon.com/managed-services/ "https://aws.amazon.com/managed-services/").
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-TroubleshootEC2DiskUsage "https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-TroubleshootEC2DiskUsage")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSPremiumSupport-TroubleshootEC2DiskUsage)
 
 **Document type**
 
@@ -46,167 +31,128 @@ Amazon
 Linux, Windows
 
 **Parameters**
++ InstanceId
 
-- InstanceId
+  Type: String
 
-Type: String
+  Allowed values: ^i-[a-z0-9]{8,17}$
 
-Allowed values: ^i-[a-z0-9]{8,17}$
+  Description: (Required) ID of your Amazon EC2 instance.
++ VolumeExpansionEnabled
 
-Description: (Required) ID of your Amazon EC2 instance.
+  Type: Boolean
 
-- VolumeExpansionEnabled
+  Description: (Optional) Flag to control whether the document will extend the volumes and partitions affected.
 
-Type: Boolean
+  Default: true
++ VolumeExpansionUsageTrigger
 
-Description: (Optional) Flag to control whether the document will extend
-the volumes and partitions affected.
+  Type: String
 
-Default: true
+  Description: (Optional) Minimum usage of partition space required to trigger extension (in percentage).
 
-- VolumeExpansionUsageTrigger
+  Allowed values: ^[0-9]{1,2}$
 
-Type: String
+   Default: 85
++ VolumeExpansionCapSize
 
-Description: (Optional) Minimum usage of partition space required to
-trigger extension (in percentage).
+  Type: String
 
-Allowed values: ^[0-9]{1,2}$
+  Description: (Optional) Maximum size that the Amazon Elastic Block Store (Amazon EBS) volume will be increased to (in GiB).
 
-Default: 85
+  Allowed values: ^[0-9]{1,4}$
 
-- VolumeExpansionCapSize
+  Default: 2048
++ VolumeExpansionGibIncrease
 
-Type: String
+  Type: String
 
-Description: (Optional) Maximum size that the Amazon Elastic Block Store (Amazon EBS) volume
-will be increased to (in GiB).
+  Description: (Optional) Increase in GiB of the volume. The biggest net increase between VolumeExpansionGibIncrease and VolumeExpansionPercentageIncrease will be used.
 
-Allowed values: ^[0-9]{1,4}$
+  Allowed values: ^[0-9]{1,4}$
 
-Default: 2048
+  Default: 20
++ VolumeExpansionPercentageIncrease
 
-- VolumeExpansionGibIncrease
+  Type: String
 
-Type: String
+  Description: (Optional) Increase in percentage of the volume. The biggest net increase between VolumeExpansionGibIncrease and VolumeExpansionPercentageIncrease will be used.
 
-Description: (Optional) Increase in GiB of the volume. The biggest net
-increase between VolumeExpansionGibIncrease and
-VolumeExpansionPercentageIncrease will be used.
+  Allowed values: ^[0-9]{1,2}$
 
-Allowed values: ^[0-9]{1,4}$
+  Default: 20
++ AutomationAssumeRole
 
-Default: 20
+  Type: String
 
-- VolumeExpansionPercentageIncrease
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
 
-Type: String
-
-Description: (Optional) Increase in percentage of the volume. The biggest
-net increase between VolumeExpansionGibIncrease and
-VolumeExpansionPercentageIncrease will be used.
-
-Allowed values: ^[0-9]{1,2}$
-
-Default: 20
-
-- AutomationAssumeRole
-
-Type: String
-
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `ec2:DescribeVolumes`
++ `ec2:DescribeVolumesModifications`
++ `ec2:ModifyVolume`
++ `ec2:DescribeInstances`
++ `ec2:CreateImage`
++ `ec2:DescribeImages`
++ `ec2:DescribeTags`
++ `ec2:CreateTags`
++ `ec2:DeleteTags`
++ `ssm:StartAutomationExecution`
++ `ssm:GetAutomationExecution`
++ `ssm:DescribeAutomationStepExecutions`
++ `ssm:DescribeAutomationExecutions`
++ `ssm:SendCommand`
++ `ssm:DescribeInstanceInformation`
++ `ssm:ListCommands`
++ `ssm:ListCommandInvocations`
 
-- `ec2:DescribeVolumes`
-- `ec2:DescribeVolumesModifications`
-- `ec2:ModifyVolume`
-- `ec2:DescribeInstances`
-- `ec2:CreateImage`
-- `ec2:DescribeImages`
-- `ec2:DescribeTags`
-- `ec2:CreateTags`
-- `ec2:DeleteTags`
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ssm:DescribeAutomationStepExecutions`
-- `ssm:DescribeAutomationExecutions`
-- `ssm:SendCommand`
-- `ssm:DescribeInstanceInformation`
-- `ssm:ListCommands`
-- `ssm:ListCommandInvocations`
+ **Document Steps** 
 
-**Document Steps**
+1. `aws:assertAwsResourceProperty` - Check if the instance is managed by Systems Manager
 
-1. `aws:assertAwsResourceProperty` - Check if the instance is
-   managed by Systems Manager
-2. `aws:executeAwsApi` - Describes the instance to get the
-   platform.
-3. `aws:branch` - Branches automation based on the instance's
-   platform.
+1. `aws:executeAwsApi` - Describes the instance to get the platform.
+
+1. `aws:branch` - Branches automation based on the instance's platform.
 
    1. If the instance is Windows:
 
-      1. `aws:executeAutomation` - Run the
-         `AWSPremiumSupport-DiagnoseDiskUsageOnWindows`
-         runbook in order to diagnose disk usage issues on the
-         instance.
-      2. `aws:executeAwsApi` - Gets the output of the
-         previous automation.
-      3. `aws:branch` - Branches based on the output of
-         the diagnostics, and if there are volumes that can be
-         expanded to mitigate the alert.
+      1. `aws:executeAutomation` - Run the `AWSPremiumSupport-DiagnoseDiskUsageOnWindows` runbook in order to diagnose disk usage issues on the instance.
 
-         1. There are no volumes that need to be expanded: End
-            the automation.
-         2. There are volumes that need to be expanded:
+      1. `aws:executeAwsApi` - Gets the output of the previous automation.
 
-            1. `aws:executeAwsApi` - Create an
-               Amazon Machine Image (AMI) of the instance.
-            2. `aws:waitForAwsResourceProperty`
-            - Waits for the AMI state to be
-              `available`.
-            3. `aws:executeAutomation` - Run the
-               `AWSPremiumSupport-ExtendVolumesOnWindows`
-               runbook in order to perform the volume
-               modification as well as the required steps in the
-               operating system (OS) to make the new space
-               available.
+      1. `aws:branch` - Branches based on the output of the diagnostics, and if there are volumes that can be expanded to mitigate the alert.
 
-   2. (Platform is not windows) If the input instance is not
-      Windows:
+         1. There are no volumes that need to be expanded: End the automation.
 
-      1. `aws:executeAutomation` - Run the
-         `AWSPremiumSupport-DiagnoseDiskUsageOnLinux`
-         runbook in order to diagnose disk usage issues on the
-         instance.
-      2. `aws:executeAwsApi` - Gets the output of the
-         previous automation.
-      3. `aws:branch` - Branches based on the output of
-         the diagnostics, and if there are volumes that can be
-         expanded to mitigate the alert.
+         1. There are volumes that need to be expanded:
 
-         1. There are no volumes that need to be expanded: End
-            the automation.
-         2. There are volumes that need to be expanded:
+            1. `aws:executeAwsApi` - Create an Amazon Machine Image (AMI) of the instance.
 
-            1. `aws:executeAwsApi` - Create an
-               AMI of the instance.
-            2. `aws:waitForAwsResourceProperty`
-            - Waits for AMI state to be
-              `available`.
-            3. `aws:executeAutomation` - Run the
-               `AWSPremiumSupport-ExtendVolumesOnLinux`
-               runbook in order to perform the volume
-               modification as well as the required steps in the
-               OS to make the new space available.
+            1. `aws:waitForAwsResourceProperty` - Waits for the AMI state to be `available`.
 
-**Outputs**
+            1. `aws:executeAutomation` - Run the `AWSPremiumSupport-ExtendVolumesOnWindows` runbook in order to perform the volume modification as well as the required steps in the operating system (OS) to make the new space available.
+
+   1. (Platform is not windows) If the input instance is not Windows:
+
+      1. `aws:executeAutomation` - Run the `AWSPremiumSupport-DiagnoseDiskUsageOnLinux` runbook in order to diagnose disk usage issues on the instance.
+
+      1. `aws:executeAwsApi` - Gets the output of the previous automation.
+
+      1. `aws:branch` - Branches based on the output of the diagnostics, and if there are volumes that can be expanded to mitigate the alert.
+
+         1. There are no volumes that need to be expanded: End the automation.
+
+         1. There are volumes that need to be expanded:
+
+            1. `aws:executeAwsApi` - Create an AMI of the instance.
+
+            1. `aws:waitForAwsResourceProperty` - Waits for AMI state to be `available`.
+
+            1. `aws:executeAutomation` - Run the `AWSPremiumSupport-ExtendVolumesOnLinux` runbook in order to perform the volume modification as well as the required steps in the OS to make the new space available.
+
+ **Outputs** 
 
 diagnoseDiskUsageAlertOnWindows.Output
 
@@ -218,4 +164,4 @@ extendVolumesOnLinux.Output
 
 BackupAMILinux.ImageId
 
-BackupAMIWindows.ImageId
+BackupAMIWindows.ImageId 

@@ -1,10 +1,13 @@
-# `AWS-ConfigureCloudWatchOnEC2Instance`
 
-**Description**
+
+# `AWS-ConfigureCloudWatchOnEC2Instance`
+<a name="automation-aws-configurecloudwatchonec2instance"></a>
+
+ **Description** 
 
 Enable or disable Amazon CloudWatch detailed monitoring on managed instances.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ConfigureCloudWatchOnEC2Instance "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ConfigureCloudWatchOnEC2Instance")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ConfigureCloudWatchOnEC2Instance) 
 
 **Document type**
 
@@ -19,44 +22,33 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ InstanceId
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- InstanceId
+  Description: (Required) The ID of the Amazon EC2 instance on which you want to enable CloudWatch monitoring.
++ properties
 
-Type: String
+  Type: String
 
-Description: (Required) The ID of the Amazon EC2 instance on which you want to
-enable CloudWatch monitoring.
+  Description: (Optional) This parameter is not supported. It is listed here for backwards compatibility.
++ status
 
-- properties
+  Valid values: Enabled \| Disabled
 
-Type: String
+  Description: (Optional) Specifies whether to enable or disable CloudWatch.
 
-Description: (Optional) This parameter is not supported. It is listed here
-for backwards compatibility.
+  Default: Enabled
 
-- status
+ **Document Steps** 
 
-Valid values: Enabled | Disabled
+configureCloudWatch - Configures CloudWatch on the Amazon EC2 instance with the given status.
 
-Description: (Optional) Specifies whether to enable or disable
-CloudWatch.
-
-Default: Enabled
-
-**Document Steps**
-
-configureCloudWatch - Configures CloudWatch on the Amazon EC2 instance with the given
-status.
-
-**Outputs**
+ **Outputs** 
 
 This automation has no output.

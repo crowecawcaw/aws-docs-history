@@ -1,14 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableMultiAZOnRDSInstance`
+<a name="automation-aws-multi-az-rds"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableMultiAZOnRDSInstance` runbook changes
-your Amazon Relational Database Service (Amazon RDS) database (DB) instance to a Multi-AZ deployment. Changing
-this setting doesn't result in an outage. The change is applied during the next
-maintenance window unless you set the `ApplyImmediately` parameter to
-`true` .
+ The `AWSConfigRemediation-EnableMultiAZOnRDSInstance` runbook changes your Amazon Relational Database Service (Amazon RDS) database (DB) instance to a Multi-AZ deployment. Changing this setting doesn't result in an outage. The change is applied during the next maintenance window unless you set the `ApplyImmediately` parameter to `true` . 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableMultiAZOnRDSInstance "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableMultiAZOnRDSInstance")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableMultiAZOnRDSInstance) 
 
 **Document type**
 
@@ -23,54 +22,35 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ ApplyImmediately
 
-- ApplyImmediately
+  Type: Boolean
 
-Type: Boolean
+  Default: false
 
-Default: false
+   Description: (Optional) If you specify `true` for this parameter, the modifications in this request and any pending modifications are asynchronously applied as soon as possible, regardless of the `PreferredMaintenanceWindow` setting for the DB instance. 
++ AutomationAssumeRole
 
-Description: (Optional) If you specify `true` for this
-parameter, the modifications in this request and any pending modifications
-are asynchronously applied as soon as possible, regardless of the
-`PreferredMaintenanceWindow` setting for the DB instance.
+  Type: String
 
-- AutomationAssumeRole
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ DbiResourceId
 
-Type: String
+  Type: String
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+   Description: (Required) The AWS Region-unique, immutable identifier for the DB instance to enable the `MultiAZ` setting. 
 
-- DbiResourceId
-
-Type: String
-
-Description: (Required) The AWS Region-unique, immutable identifier for
-the DB instance to enable the `MultiAZ` setting.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `rds:DescribeDBInstances` 
++  `rds:ModifyDBInstance` 
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
 
-- `rds:DescribeDBInstances`
-- `rds:ModifyDBInstance`
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Retrieves the DB instance name using the
-  value provided in the `DBInstanceId` parameter.
-- `aws:executeAwsApi` - Verifies the `DBInstanceStatus`
-  is `available` .
-- `aws:branch` - Checks whether the `MultiAZ` is already
-  set to `true` on the DB instance you specify in the
-  `DbiResourceId` parameter.
-- `aws:executeAwsApi` - Changes the `MultiAZ` setting to
-  `true` on the DB instance you specify in the
-  `DbiResourceId` parameter.
-- `aws:assertAwsResourceProperty` - Verifies the
-  `MultiAZ` is set to `true` on the DB instance you
-  specify in the `DbiResourceId` parameter.
+ **Document Steps** 
++  `aws:executeAwsApi` - Retrieves the DB instance name using the value provided in the `DBInstanceId` parameter. 
++  `aws:executeAwsApi` - Verifies the `DBInstanceStatus` is `available` . 
++  `aws:branch` - Checks whether the `MultiAZ` is already set to `true` on the DB instance you specify in the `DbiResourceId` parameter. 
++  `aws:executeAwsApi` - Changes the `MultiAZ` setting to `true` on the DB instance you specify in the `DbiResourceId` parameter. 
++  `aws:assertAwsResourceProperty` - Verifies the `MultiAZ` is set to `true` on the DB instance you specify in the `DbiResourceId` parameter. 

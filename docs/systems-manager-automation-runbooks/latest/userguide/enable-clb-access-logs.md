@@ -1,11 +1,13 @@
+
+
 # `AWS-EnableCLBAccessLogs`
+<a name="enable-clb-access-logs"></a>
 
 **Description**
 
-The `AWS-EnableCLBAccessLogs` runbook enables access logs for a Classic
-Load Balancer.
+The `AWS-EnableCLBAccessLogs` runbook enables access logs for a Classic Load Balancer.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCLBAccessLogs "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCLBAccessLogs")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCLBAccessLogs)
 
 **Document type**
 
@@ -20,63 +22,46 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ EmitInterval
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: Integer
 
-- EmitInterval
+  Valid values: 5 \| 60
 
-Type: Integer
+  Default: 60
 
-Valid values: 5 | 60
+  Description: (Optional) The interval for publishing the access logs in minutes.
++ LoadBalancerNames
 
-Default: 60
+  Type: String
 
-Description: (Optional) The interval for publishing the access logs in
-minutes.
+  Description: (Required) A comma separated list of Classic Load Balancers you want to enable access logs for.
++ S3BucketName
 
-- LoadBalancerNames
+  Type: String
 
-Type: String
+  Description: (Required) The name of the Amazon Simple Storage Service (Amazon S3) bucket where the access logs are stored.
++ S3BucketPrefix
 
-Description: (Required) A comma separated list of Classic Load Balancers
-you want to enable access logs for.
+  Type: String
 
-- S3BucketName
+  Description: (Optional) The logical hierarchy you created for your Amazon S3 bucket, for example `my-bucket-prefix/prod`. If the prefix is not provided, the log is placed at the root level of the bucket.
 
-Type: String
-
-Description: (Required) The name of the Amazon Simple Storage Service (Amazon S3) bucket where the
-access logs are stored.
-
-- S3BucketPrefix
-
-Type: String
-
-Description: (Optional) The logical hierarchy you created for your Amazon S3
-bucket, for example `my-bucket-prefix/prod`. If the prefix is not
-provided, the log is placed at the root level of the bucket.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `elasticloadbalancing:ModifyLoadBalancerAttributes`
 
-- `elasticloadbalancing:ModifyLoadBalancerAttributes`
-  **Document Steps**
+**Document Steps**
++ `aws:executeAwsApi` - Enables access logs for the Classic Load Balancers you specify in the `LoadBalancerNames` parameter.
 
-- `aws:executeAwsApi` - Enables access logs for the Classic Load
-  Balancers you specify in the `LoadBalancerNames`
-  parameter.
-  **Outputs**
+**Outputs**
 
-EnableCLBAccessLogs.SuccessesLoadBalancers - List of load balancer names where
-access logs were successfully enabled.
+EnableCLBAccessLogs.SuccessesLoadBalancers - List of load balancer names where access logs were successfully enabled.
 
-EnableCLBAccessLogs.FailedLoadBalancers - MapList of load balancer names where
-enabling access logs failed and the reason for the failure.
+EnableCLBAccessLogs.FailedLoadBalancers - MapList of load balancer names where enabling access logs failed and the reason for the failure.

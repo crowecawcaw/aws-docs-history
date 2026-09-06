@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock`
+<a name="automation-aws-block-public-s3-bucket"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock` runbook
-configures the Amazon Simple Storage Service (Amazon S3) public access block settings for an Amazon S3 bucket based
-on the values you specify in the runbook parameters.
+ The `AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock` runbook configures the Amazon Simple Storage Service (Amazon S3) public access block settings for an Amazon S3 bucket based on the values you specify in the runbook parameters. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ConfigureS3BucketPublicAccessBlock) 
 
 **Document type**
 
@@ -21,79 +22,55 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ BlockPublicAcls
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: Boolean
 
-- BlockPublicAcls
+  Default: true
 
-Type: Boolean
+   Description: (Optional) If set to `true` , Amazon S3 blocks public access control lists (ACLs) for the S3 bucket, and objects stored in the S3 bucket you specify in the `BucketName` parameter. 
++ BlockPublicPolicy
 
-Default: true
+  Type: Boolean
 
-Description: (Optional) If set to `true` , Amazon S3 blocks public
-access control lists (ACLs) for the S3 bucket, and objects stored in the S3
-bucket you specify in the `BucketName` parameter.
+  Default: true
 
-- BlockPublicPolicy
+   Description: (Optional) If set to `true` , Amazon S3 blocks public bucket policies for the S3 bucket you specify in the `BucketName` parameter. 
++ BucketName
 
-Type: Boolean
+  Type: String
 
-Default: true
+  Description: (Required) The name of the S3 bucket you want to configure.
++ IgnorePublicAcls
 
-Description: (Optional) If set to `true` , Amazon S3 blocks public
-bucket policies for the S3 bucket you specify in the `BucketName`
-parameter.
+  Type: Boolean
 
-- BucketName
+  Default: true
 
-Type: String
+   Description: (Optional) If set to `true` , Amazon S3 ignores all public ACLs for the S3 bucket you specify in the `BucketName` parameter. 
++ RestrictPublicBuckets
 
-Description: (Required) The name of the S3 bucket you want to
-configure.
+  Type: Boolean
 
-- IgnorePublicAcls
+  Default: true
 
-Type: Boolean
+   Description: (Optional) If set to `true` , Amazon S3 restricts public bucket policies for the S3 bucket you specify in the `BucketName` parameter. 
 
-Default: true
-
-Description: (Optional) If set to `true` , Amazon S3 ignores all
-public ACLs for the S3 bucket you specify in the `BucketName`
-parameter.
-
-- RestrictPublicBuckets
-
-Type: Boolean
-
-Default: true
-
-Description: (Optional) If set to `true` , Amazon S3 restricts
-public bucket policies for the S3 bucket you specify in the
-`BucketName` parameter.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `s3:GetAccountPublicAccessBlock` 
++  `s3:PutAccountPublicAccessBlock` 
++  `s3:GetBucketPublicAccessBlock` 
++  `s3:PutBucketPublicAccessBlock` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `s3:GetAccountPublicAccessBlock`
-- `s3:PutAccountPublicAccessBlock`
-- `s3:GetBucketPublicAccessBlock`
-- `s3:PutBucketPublicAccessBlock`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Creates or modifies the
-  `PublicAccessBlock` configuration for the S3 bucket specified
-  in the `BucketName` parameter.
-- `aws:executeScript` - Returns the `PublicAccessBlock`
-  configuration for the S3 bucket specified in the `BucketName`
-  parameter, and verifies the changes were successfully made based on the
-  values specified in the runbook parameters.
+ **Document Steps** 
++  `aws:executeAwsApi` - Creates or modifies the `PublicAccessBlock` configuration for the S3 bucket specified in the `BucketName` parameter. 
++  `aws:executeScript` - Returns the `PublicAccessBlock` configuration for the S3 bucket specified in the `BucketName` parameter, and verifies the changes were successfully made based on the values specified in the runbook parameters. 

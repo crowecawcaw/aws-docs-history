@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteIAMRole`
+<a name="automation-aws-delete-iam-role"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteIAMRole` runbook deletes the AWS Identity and Access Management
-(IAM) role you specify. This automation does not delete instance profiles
-associated with the IAM role, or service-linked roles.
+ The `AWSConfigRemediation-DeleteIAMRole` runbook deletes the AWS Identity and Access Management (IAM) role you specify. This automation does not delete instance profiles associated with the IAM role, or service-linked roles. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteIAMRole "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteIAMRole")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteIAMRole) 
 
 **Document type**
 
@@ -21,43 +22,33 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ IAMRoleID
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- IAMRoleID
+  Description: (Required) The ID of the IAM role you want to delete.
 
-Type: String
-
-Description: (Required) The ID of the IAM role you want to
-delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `iam:DeleteRole` 
++  `iam:DeleteRolePolicy` 
++  `iam:GetRole` 
++  `iam:ListAttachedRolePolicies` 
++  `iam:ListInstanceProfilesForRole` 
++  `iam:ListRolePolicies` 
++  `iam:ListRoles` 
++  `iam:RemoveRoleFromInstanceProfile` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `iam:DeleteRole`
-- `iam:DeleteRolePolicy`
-- `iam:GetRole`
-- `iam:ListAttachedRolePolicies`
-- `iam:ListInstanceProfilesForRole`
-- `iam:ListRolePolicies`
-- `iam:ListRoles`
-- `iam:RemoveRoleFromInstanceProfile`
-
-**Document Steps**
-
-- `aws:executeScript` - Gathers the name of the IAM role you
-  specify in the `IAMRoleID` parameter.
-- `aws:executeScript` - Gathers policies and instance profiles
-  associated with the IAM role.
-- `aws:executeScript` - Deletes attached policies.
-- `aws:executeScript` - Deletes the IAM role and verifies the
-  role has been deleted.
+ **Document Steps** 
++  `aws:executeScript` - Gathers the name of the IAM role you specify in the `IAMRoleID` parameter. 
++  `aws:executeScript` - Gathers policies and instance profiles associated with the IAM role. 
++  `aws:executeScript` - Deletes attached policies. 
++  `aws:executeScript` - Deletes the IAM role and verifies the role has been deleted. 

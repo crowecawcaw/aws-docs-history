@@ -1,35 +1,20 @@
+
+
 # `AWSSupport-SetupIPMonitoringFromVPC`
+<a name="automation-awssupport-setupipmonitoringfromvpc"></a>
 
-**Description**
+ **Description** 
 
-`AWSSupport-SetupIPMonitoringFromVPC` creates a temporary Amazon Elastic Compute Cloud
-(Amazon EC2) instance running Amazon Linux 2023 in the specified subnet. The runbook
-continuously runs ping, MTR, traceroute, and tracetcp tests against the selected
-target IPs (IPv4 or IPv6). It stores the results in Amazon CloudWatch log groups and applies
-metric filters to quickly visualize latency and packet loss statistics in a CloudWatch
-dashboard.
+ `AWSSupport-SetupIPMonitoringFromVPC` creates a temporary Amazon Elastic Compute Cloud (Amazon EC2) instance running Amazon Linux 2023 in the specified subnet. The runbook continuously runs ping, MTR, traceroute, and tracetcp tests against the selected target IPs (IPv4 or IPv6). It stores the results in Amazon CloudWatch log groups and applies metric filters to quickly visualize latency and packet loss statistics in a CloudWatch dashboard. 
 
-###### Additional costs
+**Additional costs**  
+This runbook incurs additional AWS costs. It provisions an Amazon EC2 instance, CloudWatch log groups, and a CloudWatch dashboard in your account using AWS CloudFormation. The test instance runs continuously until you delete the CloudFormation stack. If you set `RetainDashboardAndLogsOnDeletion` to `True` (default), the CloudWatch dashboard and log groups remain after stack deletion. These resources continue to incur charges until you manually remove them. For pricing details, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/) and [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
-This runbook incurs additional AWS costs. It provisions an Amazon EC2 instance,
-CloudWatch log groups, and a CloudWatch dashboard in your account using AWS CloudFormation. The test
-instance runs continuously until you delete the CloudFormation stack. If you set
-`RetainDashboardAndLogsOnDeletion` to `True`
-(default), the CloudWatch dashboard and log groups remain after stack deletion. These
-resources continue to incur charges until you manually remove them. For pricing
-details, see [Amazon EC2
-Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") and [Amazon CloudWatch
-Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
+ **Additional Information** 
 
-**Additional Information**
+You can use the test results in Amazon CloudWatch Logs for network troubleshooting and analysis of patterns and trends. Additionally, you can configure CloudWatch alarms with Amazon Simple Notification Service notifications when packet loss or latency reaches a threshold. You can also use these results when opening a case with AWS Support, to help isolate an issue quickly and reduce time to resolution when investigating a network issue.
 
-You can use the test results in Amazon CloudWatch Logs for network troubleshooting and analysis
-of patterns and trends. Additionally, you can configure CloudWatch alarms with Amazon Simple Notification Service
-notifications when packet loss or latency reaches a threshold. You can also use
-these results when opening a case with AWS Support, to help isolate an issue quickly
-and reduce time to resolution when investigating a network issue.
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupIPMonitoringFromVPC) 
 
 **Document type**
 
@@ -44,272 +29,261 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ CloudWatchLogGroupNamePrefix
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- CloudWatchLogGroupNamePrefix
+   Default: `/AWSSupport-SetupIPMonitoringFromVPC` 
 
-Type: String
+  Description: (Optional) Prefix used for each CloudWatch log group created for the test results.
++ CloudWatchLogGroupRetentionInDays
 
-Default: `/AWSSupport-SetupIPMonitoringFromVPC`
+  Type: String
 
-Description: (Optional) Prefix used for each CloudWatch log group created for
-the test results.
+  Valid values: 1 \| 3 \| 5 \| 7 \| 14 \| 30 \| 60 \| 90 \| 120 \| 150 \| 180 \| 365 \| 400 \| 545 \| 731 \| 1827 \| 3653
 
-- CloudWatchLogGroupRetentionInDays
+  Default: 7
 
-Type: String
+  Description: (Optional) Number of days you want to keep the network monitoring results for.
++ InstanceType
 
-Valid values: 1 | 3 | 5 | 7 | 14 | 30 | 60 | 90 | 120 | 150 | 180 | 365 |
-400 | 545 | 731 | 1827 | 3653
+  Type: String
 
-Default: 7
+  Valid values: t2.micro \| t2.small \| t2.medium \| t2.large \| t3.micro \| t3.small \| t3.medium \| t3.large \| t4g.micro \| t4g.small \| t4g.medium \| t4g.large
 
-Description: (Optional) Number of days you want to keep the network
-monitoring results for.
+  Default: t3.micro
 
-- InstanceType
+  Description: (Optional) The Amazon EC2 instance type for the monitoring instance. Recommended size: t3.micro.
++ SubnetId
 
-Type: String
+  Type: String
 
-Valid values: t2.micro | t2.small | t2.medium | t2.large | t3.micro |
-t3.small | t3.medium | t3.large | t4g.micro | t4g.small | t4g.medium |
-t4g.large
+  Description: (Required) The subnet ID for the monitor instance. Be aware that if you specify a private subnet, then you must make sure there is internet access to allow the monitor instance to set up the test (for example, install the CloudWatch agent, interact with AWS Systems Manager and CloudWatch).
++ TargetIPs
 
-Default: t3.micro
+  Type: String
 
-Description: (Optional) The Amazon EC2 instance type for the monitoring instance.
-Recommended size: t3.micro.
+  Description: (Required) Comma-separated list of IPv4 or IPv6 addresses to monitor. No spaces allowed. Maximum size is 255 characters. Be aware that if you provide an invalid IP, then the automation will fail and roll back the test setup.
++ TestInstanceSecurityGroupId
 
-- SubnetId
+  Type: String
 
-Type: String
+  Description: (Optional) The security group ID for the test instance. If not specified, the automation creates one during the instance creation. Make sure the security group allows outbound access to the monitoring IPs.
++ TestInstanceProfileName
 
-Description: (Required) The subnet ID for the monitor instance. Be aware
-that if you specify a private subnet, then you must make sure there is
-internet access to allow the monitor instance to set up the test (for
-example, install the CloudWatch agent, interact with AWS Systems Manager and CloudWatch).
+  Type: String
 
-- TargetIPs
+  Description: (Optional) The name of an existing AWS Identity and Access Management instance profile for the test instance. If not specified, the automation creates one during the instance creation. The role must have the following permissions: `logs:CreateLogStream`, `logs:DescribeLogGroups`, `logs:DescribeLogStreams`, and `logs:PutLogEvents` and the AWS Managed Policy `AmazonSSMManagedInstanceCore`.
++ TestInterval
 
-Type: String
+  Type: String
 
-Description: (Required) Comma-separated list of IPv4 or IPv6 addresses to
-monitor. No spaces allowed. Maximum size is 255 characters. Be aware that if
-you provide an invalid IP, then the automation will fail and roll back the
-test setup.
+  Description: (Optional) The number of minutes between test intervals. The default value is `1` minute and the maximum is `10` minutes.
++ RetainDashboardAndLogsOnDeletion
 
-- TestInstanceSecurityGroupId
+  Type: String
 
-Type: String
+  Description: (Optional) Specify `False` to delete the CloudWatch dashboard and log groups when deleting the CloudFormation stack. The default value is `True`. By default, the runbook retains the dashboard and logs. You must manually delete them when they are no longer needed.
 
-Description: (Optional) The security group ID for the test instance. If
-not specified, the automation creates one during the instance creation. Make
-sure the security group allows outbound access to the monitoring IPs.
-
-- TestInstanceProfileName
-
-Type: String
-
-Description: (Optional) The name of an existing AWS Identity and Access Management instance profile for
-the test instance. If not specified, the automation creates one during the
-instance creation. The role must have the following permissions:
-`logs:CreateLogStream`, `logs:DescribeLogGroups`,
-`logs:DescribeLogStreams`, and `logs:PutLogEvents`
-and the AWS Managed Policy
-`AmazonSSMManagedInstanceCore`.
-
-- TestInterval
-
-Type: String
-
-Description: (Optional) The number of minutes between test intervals. The
-default value is `1` minute and the maximum is `10`
-minutes.
-
-- RetainDashboardAndLogsOnDeletion
-
-Type: String
-
-Description: (Optional) Specify `False` to delete the CloudWatch
-dashboard and log groups when deleting the CloudFormation stack. The default value
-is `True`. By default, the runbook retains the dashboard and
-logs. You must manually delete them when they are no longer needed.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-###### Warning
+**Warning**  
+ It is recommended to pass `TestInstanceProfileName` parameter or ensure security guardrails in place to prevent misuse of mutable IAM permissions. 
 
-It is recommended to pass `TestInstanceProfileName` parameter or
-ensure security guardrails in place to prevent misuse of mutable IAM
-permissions.
+ It is recommended that the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached. In addition, the user must have the following policy attached to their user account, group, or role:
 
-It is recommended that the user who runs the automation have the **AmazonSSMAutomationRole** IAM managed policy attached. In
-addition, the user must have the following policy attached to their user account,
-group, or role:
+------
+#### [ JSON ]
 
-JSON
+****  
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Action": [
- "iam:CreateRole",
- "iam:CreateInstanceProfile",
- "iam:GetRole",
- "iam:GetInstanceProfile",
- "iam:DetachRolePolicy",
- "iam:AttachRolePolicy",
- "iam:PassRole",
- "iam:AddRoleToInstanceProfile",
- "iam:GetRolePolicy",
- "iam:RemoveRoleFromInstanceProfile",
- "iam:DeleteRole",
- "iam:DeleteRolePolicy",
- "iam:DeleteInstanceProfile",
- "iam:PutRolePolicy",
- "iam:TagRole"
- ],
- "Resource": [
- "arn:aws:iam::`111122223333`:role/SetupIPMonitoringFromVPC*",
- "arn:aws:iam::`111122223333`:instance-profile/SetupIPMonitoringFromVPC*"
- ],
- "Effect": "Allow"
- },
- {
- "Action": [
- "cloudformation:CreateStack",
- "cloudformation:CreateChangeSet",
- "cloudformation:DeleteStack",
- "cloudformation:DescribeStacks",
- "cloudformation:DescribeStackEvents",
- "cloudwatch:PutDashboard",
- "cloudwatch:DeleteDashboards",
- "ec2:AuthorizeSecurityGroupEgress",
- "ec2:CreateSecurityGroup",
- "ec2:CreateLaunchTemplate",
- "ec2:DeleteSecurityGroup",
- "ec2:DescribeImages",
- "ec2:DescribeSubnets",
- "ec2:DescribeInstanceTypes",
- "ec2:DescribeVpcs",
- "ec2:DeleteLaunchTemplate",
- "ec2:DeleteSecurityGroup",
- "ec2:RunInstances",
- "ec2:TerminateInstances",
- "ec2:DescribeInstanceStatus",
- "ec2:CreateTags",
- "ec2:AssignIpv6Addresses",
- "ec2:DescribeTags",
- "ec2:DescribeInstances",
- "ec2:DescribeSecurityGroups",
- "ec2:DescribeLaunchTemplates",
- "ec2:RevokeSecurityGroupEgress",
- "logs:CreateLogGroup",
- "logs:DeleteLogGroup",
- "logs:PutMetricFilter",
- "logs:PutRetentionPolicy",
- "logs:TagResource",
- "ssm:DescribeInstanceInformation",
- "ssm:GetParameter",
- "ssm:GetParameters",
- "ssm:SendCommand",
- "ssm:ListCommands",
- "ssm:ListCommandInvocations"
- ],
- "Resource": [
- "*"
- ],
- "Effect": "Allow"
- }
- ]
-}`
-
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Action": [
+                "iam:CreateRole",
+                "iam:CreateInstanceProfile",
+                "iam:GetRole",
+                "iam:GetInstanceProfile",
+                "iam:DetachRolePolicy",
+                "iam:AttachRolePolicy",
+                "iam:PassRole",
+                "iam:AddRoleToInstanceProfile",
+                "iam:GetRolePolicy",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteRole",
+                "iam:DeleteRolePolicy",
+                "iam:DeleteInstanceProfile",
+                "iam:PutRolePolicy",
+                "iam:TagRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::{{111122223333}}:role/SetupIPMonitoringFromVPC*",
+                "arn:aws:iam::{{111122223333}}:instance-profile/SetupIPMonitoringFromVPC*"
+            ],
+            "Effect": "Allow"
+        },
+        {
+            "Action": [
+                "cloudformation:CreateStack",
+                "cloudformation:CreateChangeSet",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:DescribeStackEvents",
+                "cloudwatch:PutDashboard",
+                "cloudwatch:DeleteDashboards",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:CreateSecurityGroup",
+                "ec2:CreateLaunchTemplate",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeImages",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeInstanceTypes",
+                "ec2:DescribeVpcs",
+                "ec2:DeleteLaunchTemplate",
+                "ec2:DeleteSecurityGroup",
+                "ec2:RunInstances",
+                "ec2:TerminateInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:CreateTags",
+                "ec2:AssignIpv6Addresses",
+                "ec2:DescribeTags",
+                "ec2:DescribeInstances",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeLaunchTemplates",
+                "ec2:RevokeSecurityGroupEgress",
+                "logs:CreateLogGroup",
+                "logs:DeleteLogGroup",
+                "logs:PutMetricFilter",
+                "logs:PutRetentionPolicy",
+                "logs:TagResource",
+                "ssm:DescribeInstanceInformation",
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:SendCommand",
+                "ssm:ListCommands",
+                "ssm:ListCommandInvocations"
+            ],
+            "Resource": [
+                "*"
+            ],
+            "Effect": "Allow"
+        }
+    ]
+}
 ```
 
-If the `TestInstanceProfileName` parameter is provided, the following
-IAM permissions are not required to execute the runbook:
+------
 
-- iam:CreateRole
-- iam:CreateInstanceProfile
-- iam:DetachRolePolicy
-- iam:AttachRolePolicy
-- iam:AddRoleToInstanceProfile
-- iam:RemoveRoleFromInstanceProfile
-- iam:DeleteRole
-- iam:DeleteRolePolicy
-- iam:DeleteInstanceProfile
+If the `TestInstanceProfileName` parameter is provided, the following IAM permissions are not required to execute the runbook:
++ iam:CreateRole
++ iam:CreateInstanceProfile
++ iam:DetachRolePolicy
++ iam:AttachRolePolicy
++ iam:AddRoleToInstanceProfile
++ iam:RemoveRoleFromInstanceProfile
++ iam:DeleteRole
++ iam:DeleteRolePolicy
++ iam:DeleteInstanceProfile
 
-**Document Steps**
+ **Document Steps** 
 
-1. **`aws:executeAwsApi`** - describe the provided subnet to get the VPC ID and IPv6 CIDR block association state.
-2. **`aws:executeScript`** - validate the provided target IPs are syntactically correct IPv4 and/or IPv6 addresses, get the architecture of the selected instance type, and verify the subnet has an IPv6 pool association if any target IP is IPv6.
-3. **`aws:createStack`** - create a CloudFormation stack that provisions the test Amazon EC2 instance, IAM instance profile (if not provided), security group (if not provided), CloudWatch log groups, and CloudWatch dashboard.
+1.  ** `aws:executeAwsApi` ** - describe the provided subnet to get the VPC ID and IPv6 CIDR block association state. 
 
-(Cleanup) If the step fails:
+1.  ** `aws:executeScript` ** - validate the provided target IPs are syntactically correct IPv4 and/or IPv6 addresses, get the architecture of the selected instance type, and verify the subnet has an IPv6 pool association if any target IP is IPv6. 
 
-**`aws:executeScript`** - describe the CloudFormation stack events to identify the failure reason.
+1.  ** `aws:createStack` ** - create a CloudFormation stack that provisions the test Amazon EC2 instance, IAM instance profile (if not provided), security group (if not provided), CloudWatch log groups, and CloudWatch dashboard. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 4. **`aws:waitForAwsResourceProperty`** - wait for the CloudFormation stack to complete creation.
+   (Cleanup) If the step fails: 
 
-(Cleanup) If the step fails:
+    ** `aws:executeScript` ** - describe the CloudFormation stack events to identify the failure reason. 
 
-**`aws:executeScript`** - describe the CloudFormation stack events to identify the failure reason.
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 5. **`aws:executeScript`** - describe the CloudFormation stack resources to get the test instance ID, security group ID, IAM role, instance profile, and dashboard name.
+1.  ** `aws:waitForAwsResourceProperty` ** - wait for the CloudFormation stack to complete creation. 
 
-(Cleanup) If the step fails:
+   (Cleanup) If the step fails: 
 
-**`aws:executeScript`** - describe the CloudFormation stack events to identify the failure reason.
+    ** `aws:executeScript` ** - describe the CloudFormation stack events to identify the failure reason. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 6. **`aws:waitForAwsResourceProperty`** - wait for the test instance to become a managed instance.
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-(Cleanup) If the step fails:
+1.  ** `aws:executeScript` ** - describe the CloudFormation stack resources to get the test instance ID, security group ID, IAM role, instance profile, and dashboard name. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 7. **`aws:runCommand`** - install the CloudWatch agent, `mtr`, and `traceroute` on the test instance.
+   (Cleanup) If the step fails: 
 
-(Cleanup) If the step fails:
+    ** `aws:executeScript` ** - describe the CloudFormation stack events to identify the failure reason. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 8. **`aws:runCommand`** - define the network test scripts (MTR, ping, tracepath, and traceroute) for each of the provided IPs.
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-(Cleanup) If the step fails:
+1.  ** `aws:waitForAwsResourceProperty` ** - wait for the test instance to become a managed instance. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 9. **`aws:runCommand`** - start the network tests and schedule subsequent executions using systemd timers that run every TestInterval minutes.
+   (Cleanup) If the step fails: 
 
-(Cleanup) If the step fails:
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 10. **`aws:runCommand`** - configure the CloudWatch agent to push test results from `/home/ec2-user/logs/` to CloudWatch Logs.
+1.  ** `aws:runCommand` ** - install the CloudWatch agent, `mtr`, and `traceroute` on the test instance. 
 
-(Cleanup) If the step fails:
+   (Cleanup) If the step fails: 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 11. **`aws:runCommand`** - configure log rotation for the test results in `/home/ec2-user/logs/`. 12. **`aws:executeScript`** - set the retention policy for all CloudWatch log groups created by the CloudFormation stack. 13. **`aws:executeScript`** - create CloudWatch log group metric filters for ping latency and ping packet loss.
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-(Cleanup) If the step fails:
+1.  ** `aws:runCommand` ** - define the network test scripts (MTR, ping, tracepath, and traceroute) for each of the provided IPs. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 14. **`aws:executeScript`** - update the CloudWatch dashboard to include widgets for ping latency and ping packet loss statistics.
+   (Cleanup) If the step fails: 
 
-(Cleanup) If the step fails:
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-**`aws:executeAwsApi`** - delete the CloudWatch dashboard, if it exists.
+1.  ** `aws:runCommand` ** - start the network tests and schedule subsequent executions using systemd timers that run every TestInterval minutes. 
 
-**`aws:deleteStack`** - delete the CloudFormation stack and all associated resources. 15. **`aws:branch`** - evaluate the SleepTime parameter. If set to `0`, the automation ends without deleting the stack. 16. **`aws:sleep`** - wait for the specified SleepTime duration before deleting the CloudFormation stack. 17. **`aws:deleteStack`** - delete the CloudFormation stack. Based on the RetainDashboardAndLogsOnDeletion parameter, the CloudWatch dashboard and log groups are either retained or deleted.
+   (Cleanup) If the step fails: 
 
-(Cleanup) If the stack deletion fails:
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
 
-**`aws:executeScript`** - describe the CloudFormation stack events to identify the deletion failure reason.
+1.  ** `aws:runCommand` ** - configure the CloudWatch agent to push test results from `/home/ec2-user/logs/` to CloudWatch Logs. 
 
-**Outputs**
+   (Cleanup) If the step fails: 
+
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
+
+1.  ** `aws:runCommand` ** - configure log rotation for the test results in `/home/ec2-user/logs/`. 
+
+1.  ** `aws:executeScript` ** - set the retention policy for all CloudWatch log groups created by the CloudFormation stack. 
+
+1.  ** `aws:executeScript` ** - create CloudWatch log group metric filters for ping latency and ping packet loss. 
+
+   (Cleanup) If the step fails: 
+
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
+
+1.  ** `aws:executeScript` ** - update the CloudWatch dashboard to include widgets for ping latency and ping packet loss statistics. 
+
+   (Cleanup) If the step fails: 
+
+    ** `aws:executeAwsApi` ** - delete the CloudWatch dashboard, if it exists. 
+
+    ** `aws:deleteStack` ** - delete the CloudFormation stack and all associated resources. 
+
+1.  ** `aws:branch` ** - evaluate the SleepTime parameter. If set to `0`, the automation ends without deleting the stack. 
+
+1.  ** `aws:sleep` ** - wait for the specified SleepTime duration before deleting the CloudFormation stack. 
+
+1.  ** `aws:deleteStack` ** - delete the CloudFormation stack. Based on the RetainDashboardAndLogsOnDeletion parameter, the CloudWatch dashboard and log groups are either retained or deleted. 
+
+   (Cleanup) If the stack deletion fails: 
+
+    ** `aws:executeScript` ** - describe the CloudFormation stack events to identify the deletion failure reason. 
+
+ **Outputs** 
 
 updateCloudWatchDashboard.StackUrl - the URL of the CloudFormation stack.
 

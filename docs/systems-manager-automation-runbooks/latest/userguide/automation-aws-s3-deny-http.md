@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-RestrictBucketSSLRequestsOnly`
+<a name="automation-aws-s3-deny-http"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-RestrictBucketSSLRequestsOnly` runbook
-creates an Amazon Simple Storage Service (Amazon S3) bucket policy statement that explicitly denies HTTP
-requests to the Amazon S3 bucket you specify.
+ The `AWSConfigRemediation-RestrictBucketSSLRequestsOnly` runbook creates an Amazon Simple Storage Service (Amazon S3) bucket policy statement that explicitly denies HTTP requests to the Amazon S3 bucket you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RestrictBucketSSLRequestsOnly "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RestrictBucketSSLRequestsOnly")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RestrictBucketSSLRequestsOnly) 
 
 **Document type**
 
@@ -21,35 +22,26 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ BucketName
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- BucketName
+  Description: (Required) The name of the S3 bucket that you want to deny HTTP requests.
 
-Type: String
-
-Description: (Required) The name of the S3 bucket that you want to deny
-HTTP requests.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `s3:DeleteBucketPolicy` 
++  `s3:GetBucketPolicy` 
++  `s3:PutEncryptionConfiguration` 
++  `s3:PutBucketPolicy` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `s3:DeleteBucketPolicy`
-- `s3:GetBucketPolicy`
-- `s3:PutEncryptionConfiguration`
-- `s3:PutBucketPolicy`
-
-**Document Steps**
-
-- `aws:executeScript` - Creates a bucket policy for the S3 bucket
-  specified in the `BucketName` parameter that explicitly denies
-  HTTP requests.
+ **Document Steps** 
++  `aws:executeScript` - Creates a bucket policy for the S3 bucket specified in the `BucketName` parameter that explicitly denies HTTP requests. 

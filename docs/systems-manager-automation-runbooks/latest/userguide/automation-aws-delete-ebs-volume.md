@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteUnusedEBSVolume`
+<a name="automation-aws-delete-ebs-volume"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteUnusedEBSVolume` runbook deletes an
-unused Amazon Elastic Block Store (Amazon EBS) volume.
+ The `AWSConfigRemediation-DeleteUnusedEBSVolume` runbook deletes an unused Amazon Elastic Block Store (Amazon EBS) volume. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedEBSVolume "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedEBSVolume")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteUnusedEBSVolume) 
 
 **Document type**
 
@@ -20,52 +22,36 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ CreateSnapshot
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: Boolean
 
-- CreateSnapshot
+   Description: (Optional) If set to `true` , the automation creates a snapshot of the Amazon EBS volume before it is deleted. 
++ VolumeId
 
-Type: Boolean
+  Type: String
 
-Description: (Optional) If set to `true` , the automation
-creates a snapshot of the Amazon EBS volume before it is deleted.
+  Description: (Required) The ID of the Amazon EBS volume that you want to delete.
 
-- VolumeId
-
-Type: String
-
-Description: (Required) The ID of the Amazon EBS volume that you want to
-delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `ec2:CreateSnapshot` 
++  `ec2:DeleteVolume` 
++  `ec2:DescribeSnapshots` 
++  `ec2:DescribeVolumes` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ec2:CreateSnapshot`
-- `ec2:DeleteVolume`
-- `ec2:DescribeSnapshots`
-- `ec2:DescribeVolumes`
-
-**Document Steps**
-
-- `aws:executeScript` - Verifies the Amazon EBS volume you specify in
-  the `VolumeId` parameter is not in use, and creates a snapshot
-  depending on the value you choose for the `CreateSnapshot`
-  parameter.
-- `aws:branch` - Branches based on the value you chose for the
-  `CreateSnapshot` parameter.
-- `aws:waitForAwsResourceProperty` - Waits for the snapshot to
-  complete.
-- `aws:executeAwsApi` - Deletes the snapshot if the snapshot
-  creation failed.
-- `aws:executeAwsApi` - Deletes the Amazon EBS volume you specify in the
-  `VolumeId` parameter.
-- `aws:executeScript` - Verifies the Amazon EBS volume has been deleted.
+ **Document Steps** 
++  `aws:executeScript` - Verifies the Amazon EBS volume you specify in the `VolumeId` parameter is not in use, and creates a snapshot depending on the value you choose for the `CreateSnapshot` parameter. 
++  `aws:branch` - Branches based on the value you chose for the `CreateSnapshot` parameter. 
++  `aws:waitForAwsResourceProperty` - Waits for the snapshot to complete. 
++  `aws:executeAwsApi` - Deletes the snapshot if the snapshot creation failed. 
++  `aws:executeAwsApi` - Deletes the Amazon EBS volume you specify in the `VolumeId` parameter. 
++  `aws:executeScript` - Verifies the Amazon EBS volume has been deleted. 

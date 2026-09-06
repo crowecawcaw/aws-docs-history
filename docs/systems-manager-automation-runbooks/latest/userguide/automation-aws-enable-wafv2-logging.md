@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableWAFV2Logging`
+<a name="automation-aws-enable-wafv2-logging"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableWAFV2Logging` runbook enables logging
-for an AWS WAF (AWS WAFV2) web access control list (web ACL) with the specified
-Amazon Data Firehose (Firehose) delivery stream.
+ The `AWSConfigRemediation-EnableWAFV2Logging` runbook enables logging for an AWS WAF (AWS WAFV2) web access control list (web ACL) with the specified Amazon Data Firehose (Firehose) delivery stream. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableWAFV2Logging "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableWAFV2Logging")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableWAFV2Logging) 
 
 **Document type**
 
@@ -21,48 +22,32 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ LogDestinationConfigs
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- LogDestinationConfigs
+  Description: (Required) The Firehose delivery stream ARN that you want to associate with the web ACL.
+**Note**  
+ The Firehose delivery stream ARN must begin with the prefix `aws-waf-logs-` . For example, `aws-waf-logs-us-east-2-analytics` . For more information, see [Amazon Data Firehose](https://docs.aws.amazon.com/waf/latest/developerguide/logging-kinesis.html) . 
++ WebAclArn
 
-Type: String
+  Type: String
 
-Description: (Required) The Firehose delivery stream ARN that you want to
-associate with the web ACL.
+  Description: (Required) ARN of the web ACL for which logging will be enabled.
 
-###### Note
-
-The Firehose delivery stream ARN must begin with the prefix
-`aws-waf-logs-` . For example,
-`aws-waf-logs-us-east-2-analytics` . For more
-information, see [Amazon Data Firehose](../../../waf/latest/developerguide/logging-kinesis.md "../../../waf/latest/developerguide/logging-kinesis.md") .
-
-- WebAclArn
-
-Type: String
-
-Description: (Required) ARN of the web ACL for which logging will be
-enabled.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `firehose:DescribeDeliveryStream` 
++  `wafv2:PutLoggingConfiguration` 
++  `wafv2:GetLoggingConfiguration` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `firehose:DescribeDeliveryStream`
-- `wafv2:PutLoggingConfiguration`
-
-- `wafv2:GetLoggingConfiguration`
-
-**Document Steps**
-
-- `aws:executeScript` - Enables logging for the AWS WAFV2 web ACL and
-  verifies that the logging has the specified configuration.
+ **Document Steps** 
++  `aws:executeScript` - Enables logging for the AWS WAFV2 web ACL and verifies that the logging has the specified configuration. 

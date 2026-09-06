@@ -1,11 +1,13 @@
+
+
 # `AWS-ExportOpsDataToS3`
+<a name="automation-aws-exportopsdatatos3"></a>
 
-**Description**
+ **Description** 
 
-This runbook retrieves a list of OpsData summaries in AWS Systems Manager Explorer and
-exports them to an object in a specified Amazon Simple Storage Service (Amazon S3) bucket.
+This runbook retrieves a list of OpsData summaries in AWS Systems Manager Explorer and exports them to an object in a specified Amazon Simple Storage Service (Amazon S3) bucket.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ExportOpsDataToS3 "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ExportOpsDataToS3")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ExportOpsDataToS3) 
 
 **Document type**
 
@@ -20,66 +22,51 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ columnFields
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: StringList
 
-- columnFields
+  Description: (Required) Column fields to write to the output file.
++ filters
 
-Type: StringList
+  Type: String
 
-Description: (Required) Column fields to write to the output file.
+  Description: (Optional) Filters for the getOpsSummary request.
++ resultAttribute
 
-- filters
+  Type: String
 
-Type: String
+  Description: (Optional) The result attribute for getOpsSummary request.
++ s3BucketName
 
-Description: (Optional) Filters for the getOpsSummary request.
+  Type: String
 
-- resultAttribute
+  Description: (Required) S3 bucket where you want to download the output file.
++ snsSuccessMessage
 
-Type: String
+  Type: String
 
-Description: (Optional) The result attribute for getOpsSummary
-request.
+  Description: (Optional) Message to send when runbook finishes.
++ snsTopicArn
 
-- s3BucketName
+  Type: String
 
-Type: String
+  Description: (Required) Amazon Simple Notification Service (Amazon SNS) topic ARN to notify when the download completes.
++ syncName
 
-Description: (Required) S3 bucket where you want to download the output
-file.
+  Type: String
 
-- snsSuccessMessage
+  Description: (Optional) The name of the resource data sync.
 
-Type: String
+ **Document Steps** 
 
-Description: (Optional) Message to send when runbook finishes.
+getOpsSummaryStep – Retrieves up to 5,000 ops summaries to export in a CSV file now.
 
-- snsTopicArn
+ **Outputs** 
 
-Type: String
-
-Description: (Required) Amazon Simple Notification Service (Amazon SNS) topic ARN to notify when the
-download completes.
-
-- syncName
-
-Type: String
-
-Description: (Optional) The name of the resource data sync.
-
-**Document Steps**
-
-getOpsSummaryStep – Retrieves up to 5,000 ops summaries to export in a CSV
-file now.
-
-**Outputs**
-
-OpsData object – If the runbook runs successfully, you will find the
-exported OpsData object in your target S3 bucket.
+OpsData object – If the runbook runs successfully, you will find the exported OpsData object in your target S3 bucket.

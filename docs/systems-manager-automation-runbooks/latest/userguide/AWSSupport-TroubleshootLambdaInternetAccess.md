@@ -1,14 +1,13 @@
+
+
 # `AWSSupport-TroubleshootLambdaInternetAccess`
+<a name="AWSSupport-TroubleshootLambdaInternetAccess"></a>
 
-**Description**
+ **Description** 
 
-The `AWSSupport-TroubleshootLambdaInternetAccess` runbook helps you
-troubleshoot internet access issues for a AWS Lambda function that was launched into
-Amazon Virtual Private Cloud (Amazon VPC). Resources such as subnet routes, security groups rules, and
-network access control list (ACL) rules are reviewed to confirm outbound internet
-access is allowed.
+ The `AWSSupport-TroubleshootLambdaInternetAccess` runbook helps you troubleshoot internet access issues for a AWS Lambda function that was launched into Amazon Virtual Private Cloud (Amazon VPC). Resources such as subnet routes, security groups rules, and network access control list (ACL) rules are reviewed to confirm outbound internet access is allowed. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootLambdaInternetAccess "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootLambdaInternetAccess")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-TroubleshootLambdaInternetAccess) 
 
 **Document type**
 
@@ -23,82 +22,54 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ FunctionName
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- FunctionName
+  Description: (Required) The name of the Lambda function you want to troubleshoot internet access for.
++ destinationIp
 
-Type: String
+  Type: String
 
-Description: (Required) The name of the Lambda function you want to
-troubleshoot internet access for.
+  Description: (Required) The destination IP address you want to establish an outbound connection to.
++ destinationPort
 
-- destinationIp
+  Type: String
 
-Type: String
+  Default: 443
 
-Description: (Required) The destination IP address you want to establish
-an outbound connection to.
+  Description: (Optional) The destination port you want to establish an outbound connection on.
 
-- destinationPort
-
-Type: String
-
-Default: 443
-
-Description: (Optional) The destination port you want to establish an
-outbound connection on.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `lambda:GetFunction` 
++  `ec2:DescribeRouteTables` 
++  `ec2:DescribeNatGateways` 
++  `ec2:DescribeSecurityGroups` 
++  `ec2:DescribeNetworkAcls` 
 
-- `lambda:GetFunction`
-- `ec2:DescribeRouteTables`
-- `ec2:DescribeNatGateways`
-- `ec2:DescribeSecurityGroups`
-- `ec2:DescribeNetworkAcls`
+ **Document Steps** 
++  `aws:executeScript` - Verifies the configuration of various resources in your VPC where the Lambda function was launched. 
++  `aws:branch` - Branches based on whether the Lambda function specified is in a VPC or not. 
++  `aws:executeScript` - Reviews the route table routes for the subnet where the Lambda function was launched, and verifies that routes to a network address translation (NAT) gateway, and internet gateway are present. Confirms the Lambda function is not in a public subnet. 
++  `aws:executeScript` - Verifies the security group associated with the Lambda function allows outbound internet access based on the values specified for the `destinationIp` and `destinationPort` parameters. 
++  `aws:executeScript` - Verifies the ACL rules associated with the subnets of the Lambda function and the NAT gateway allow outbound internet access based on the values specified for the `destinationIp` and `destinationPort` parameters. 
 
-**Document Steps**
-
-- `aws:executeScript` - Verifies the configuration of various
-  resources in your VPC where the Lambda function was launched.
-- `aws:branch` - Branches based on whether the Lambda function
-  specified is in a VPC or not.
-- `aws:executeScript` - Reviews the route table routes for the
-  subnet where the Lambda function was launched, and verifies that routes to a
-  network address translation (NAT) gateway, and internet gateway are present.
-  Confirms the Lambda function is not in a public subnet.
-- `aws:executeScript` - Verifies the security group associated with
-  the Lambda function allows outbound internet access based on the values
-  specified for the `destinationIp` and
-  `destinationPort` parameters.
-- `aws:executeScript` - Verifies the ACL rules associated with the
-  subnets of the Lambda function and the NAT gateway allow outbound internet
-  access based on the values specified for the `destinationIp` and
-  `destinationPort` parameters.
-
-**Outputs**
+ **Outputs** 
 
 checkVpc.vpc - The ID of the VPC where your Lambda function was launched.
 
-checkVpc.subnet - The IDs of the subnets where your Lambda function was
-launched.
+checkVpc.subnet - The IDs of the subnets where your Lambda function was launched.
 
-checkVpc.securityGroups - Security groups associated with the Lambda
-function.
+checkVpc.securityGroups - Security groups associated with the Lambda function.
 
-checkNACL.NACL - Analysis message with resource names. `LambdaIp`
-refers to the private IP address of the elastic network interface for your Lambda
-function. The `LambdaIpRules` object is only generated for subnets that
-have a route to a NAT gateway. The following content is an example of the output.
+ checkNACL.NACL - Analysis message with resource names. `LambdaIp` refers to the private IP address of the elastic network interface for your Lambda function. The `LambdaIpRules` object is only generated for subnets that have a route to a NAT gateway. The following content is an example of the output. 
 
 ```
 {
@@ -124,8 +95,7 @@ have a route to a NAT gateway. The following content is an example of the output
 }
 ```
 
-checkSecurityGroups.secgrps - Analysis for the security group associated with your
-Lambda function. The following content is an example of the output.
+checkSecurityGroups.secgrps - Analysis for the security group associated with your Lambda function. The following content is an example of the output.
 
 ```
 {
@@ -136,8 +106,7 @@ Lambda function. The following content is an example of the output.
 }
 ```
 
-checkSubnet.subnets - Analysis for the subnets in your VPC associated with your
-Lambda function. The following content is an example of the output.
+checkSubnet.subnets - Analysis for the subnets in your VPC associated with your Lambda function. The following content is an example of the output.
 
 ```
 {

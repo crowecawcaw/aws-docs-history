@@ -1,12 +1,13 @@
+
+
 # `AWS-ChangeDDBRWCapacityMode`
+<a name="change-read-write-capacity"></a>
 
 **Description**
 
-The `AWS-ChangeDDBRWCapacityMode` runbook changes the read/write
-capacity mode for one or more Amazon DynamoDB (DynamoDB) tables to either on-demand mode, or
-provisioned mode.
+The `AWS-ChangeDDBRWCapacityMode` runbook changes the read/write capacity mode for one or more Amazon DynamoDB (DynamoDB) tables to either on-demand mode, or provisioned mode.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ChangeDDBRWCapacityMode "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ChangeDDBRWCapacityMode")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ChangeDDBRWCapacityMode)
 
 **Document type**
 
@@ -21,67 +22,49 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ CapacityMode
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- CapacityMode
+  Valid values: PROVISIONED \| PAY\_PER\_REQUEST
 
-Type: String
+  Description: (Required) The desired read/write capacity mode. When switching from on-demand(pay-per-request) to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.
++ ReadCapacityUnits
 
-Valid values: PROVISIONED | PAY\_PER\_REQUEST
+  Type: Integer
 
-Description: (Required) The desired read/write capacity mode. When
-switching from on-demand(pay-per-request) to provisioned capacity, initial
-provisioned capacity values must be set. The initial provisioned capacity
-values are estimated based on the consumed read and write capacity of your
-table and global secondary indexes over the past 30 minutes.
+  Default: 0
 
-- ReadCapacityUnits
+  Description: (Optional) The maximum number of strongly consistent reads consumed per second before DynamoDB returns a throttling exception.
++ TableNames
 
-Type: Integer
+  Type: String
 
-Default: 0
+  Description: (Required) Comma separated list of DynamoDB table names to change the read/write capacity mode for..
++ WriteCapacityUnits
 
-Description: (Optional) The maximum number of strongly consistent reads
-consumed per second before DynamoDB returns a throttling exception.
+  Type: Integer
 
-- TableNames
+  Default: 0
 
-Type: String
+  Description: (Optional) The maximum number of writes consumed per second before DynamoDB returns a throttling exception.
 
-Description: (Required) Comma separated list of DynamoDB table names to
-change the read/write capacity mode for..
-
-- WriteCapacityUnits
-
-Type: Integer
-
-Default: 0
-
-Description: (Optional) The maximum number of writes consumed per second
-before DynamoDB returns a throttling exception.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `dynamodb:DescribeTable`
++ `dynamodb:UpdateTable`
 
-- `dynamodb:DescribeTable`
-- `dynamodb:UpdateTable`
-  **Document Steps**
+**Document Steps**
++ `aws:executeScript` - Changes the read/write capacity mode for the DynamoDB tables specified in the `TableNames` parameter.
 
-- `aws:executeScript` - Changes the read/write capacity mode for
-  the DynamoDB tables specified in the `TableNames` parameter.
-  **Outputs**
+**Outputs**
 
-ChangeDDBRWCapacityMode.SuccessesTables - List of DynamoDB table names where the
-capacity mode was successfully changed
+ChangeDDBRWCapacityMode.SuccessesTables - List of DynamoDB table names where the capacity mode was successfully changed
 
-ChangeDDBRWCapacityMode.FailedTables - Maplist of DynamoDB table names where changing
-the capacity mode failed and the reason for the failure.
+ChangeDDBRWCapacityMode.FailedTables - Maplist of DynamoDB table names where changing the capacity mode failed and the reason for the failure.

@@ -1,15 +1,13 @@
+
+
 # `AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK`
+<a name="automation-aws-encrypt-lambda-variables"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK`
-runbook encrypts, at rest, the environment variables for the AWS Lambda (Lambda)
-function you specify using an AWS Key Management Service (AWS KMS) customer managed key. This runbook should only
-be used as a baseline to ensure that your Lambda function's environment variables are
-encrypted according to minimum recommended security best practices. We recommend
-encrypting multiple functions with different customer managed keys.
+ The `AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK` runbook encrypts, at rest, the environment variables for the AWS Lambda (Lambda) function you specify using an AWS Key Management Service (AWS KMS) customer managed key. This runbook should only be used as a baseline to ensure that your Lambda function's environment variables are encrypted according to minimum recommended security best practices. We recommend encrypting multiple functions with different customer managed keys. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EncryptLambdaEnvironmentVariablesWithCMK) 
 
 **Document type**
 
@@ -24,44 +22,31 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ FunctionName
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- FunctionName
+  Description: (Required) The name or ARN of the Lambda function whose environment variables you want to encrypt.
++ KMSKeyArn
 
-Type: String
+  Type: String
 
-Description: (Required) The name or ARN of the Lambda function whose
-environment variables you want to encrypt.
+  Description: (Required) The ARN of the AWS KMS customer managed key you want to use to encrypt your Lambda function's environment variables.
 
-- KMSKeyArn
-
-Type: String
-
-Description: (Required) The ARN of the AWS KMS customer managed key you want to use to
-encrypt your Lambda function's environment variables.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `lambda:GetFunctionConfiguration ` 
++  `lambda:UpdateFunctionConfiguration` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `lambda:GetFunctionConfiguration`
-- `lambda:UpdateFunctionConfiguration`
-
-**Document Steps**
-
-- `aws:waitForAwsResourceProperty` - Waits for the
-  `LastUpdateStatus` property to be `Successful` .
-- `aws:executeAwsApi` - Encrypts the environment variables for the
-  Lambda function you specify in the `FunctionName` parameter using
-  the AWS KMS customer managed key you specify in the `KMSKeyArn` parameter.
-- `aws:assertAwsResourceProperty` - Confirms encryption is enabled
-  on the environment variables for your Lambda function.
+ **Document Steps** 
++  `aws:waitForAwsResourceProperty` - Waits for the `LastUpdateStatus` property to be `Successful` . 
++  `aws:executeAwsApi` - Encrypts the environment variables for the Lambda function you specify in the `FunctionName` parameter using the AWS KMS customer managed key you specify in the `KMSKeyArn` parameter. 
++  `aws:assertAwsResourceProperty` - Confirms encryption is enabled on the environment variables for your Lambda function. 

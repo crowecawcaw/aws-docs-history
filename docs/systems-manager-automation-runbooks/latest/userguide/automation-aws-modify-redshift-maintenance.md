@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings`
+<a name="automation-aws-modify-redshift-maintenance"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings`
-runbook modifies the maintenance settings for the Amazon Redshift cluster you specify.
+ The `AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings` runbook modifies the maintenance settings for the Amazon Redshift cluster you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-ModifyRedshiftClusterMaintenanceSettings) 
 
 **Document type**
 
@@ -20,58 +22,42 @@ Amazon
 Databases
 
 **Parameters**
++ AllowVersionUpgrade
 
-- AllowVersionUpgrade
+  Type: Boolean
 
-Type: Boolean
+   Description: (Required) If set to `true` , major version upgrades are applied automatically to the cluster during the maintenance window. 
++ AutomationAssumeRole
 
-Description: (Required) If set to `true` , major version
-upgrades are applied automatically to the cluster during the maintenance
-window.
+  Type: String
 
-- AutomationAssumeRole
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ AutomatedSnapshotRetentionPeriod
 
-Type: String
+  Type: Integer
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Valid values: 1-35
 
-- AutomatedSnapshotRetentionPeriod
+  Description: (Required) The number of days automated snapshots are retained.
++ ClusterIdentifier
 
-Type: Integer
+  Type: String
 
-Valid values: 1-35
+  Description: (Required) The unique identifier of the cluster you want to enable enhanced VPC routing on.
++ PreferredMaintenanceWindow
 
-Description: (Required) The number of days automated snapshots are
-retained.
+  Type: String
 
-- ClusterIdentifier
+  Description: (Required) The weekly time range (in UTC) during which system maintenance can occur.
 
-Type: String
-
-Description: (Required) The unique identifier of the cluster you want to
-enable enhanced VPC routing on.
-
-- PreferredMaintenanceWindow
-
-Type: String
-
-Description: (Required) The weekly time range (in UTC) during which system
-maintenance can occur.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `redshift:DescribeClusters` 
++  `redshift:ModifyCluster` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `redshift:DescribeClusters`
-- `redshift:ModifyCluster`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Modifies the maintenance settings for the
-  cluster specified in the `ClusterIdentifier` parameter.
-- `aws:assertAwsResourceProperty` - Confirms the modified
-  maintenance settings were configured for the cluster.
+ **Document Steps** 
++  `aws:executeAwsApi` - Modifies the maintenance settings for the cluster specified in the `ClusterIdentifier` parameter. 
++  `aws:assertAwsResourceProperty` - Confirms the modified maintenance settings were configured for the cluster. 

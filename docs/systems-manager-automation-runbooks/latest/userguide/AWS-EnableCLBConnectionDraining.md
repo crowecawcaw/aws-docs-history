@@ -1,16 +1,13 @@
+
+
 # `AWS-EnableCLBConnectionDraining`
+<a name="AWS-EnableCLBConnectionDraining"></a>
 
-**Description**
+ **Description** 
 
-The `AWS-EnableCLBConnectionDraining` runbook enables connection
-draining on a Classic Load Balancer (CLB) to the specified timeout value. Connection drainings
-enables the CLB to complete in-flight requests made to instances that are
-deregistering or unhealthy with the specified timeout being the time it keeps
-connections alive before reporting the instance as deregistered. For more
-information about connection draining on CLBs, see [Configure connection draining for your
-Classic Load Balancer](url-elb-cg.md "url-elb-cg.md") in the _User Guide for Classic Load Balancers_.
+The `AWS-EnableCLBConnectionDraining` runbook enables connection draining on a Classic Load Balancer (CLB) to the specified timeout value. Connection drainings enables the CLB to complete in-flight requests made to instances that are deregistering or unhealthy with the specified timeout being the time it keeps connections alive before reporting the instance as deregistered. For more information about connection draining on CLBs, see [Configure connection draining for your Classic Load Balancer](url-elb-cg;config-conn-drain.html) in the *User Guide for Classic Load Balancers*.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCLBConnectionDraining "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCLBConnectionDraining")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-EnableCLBConnectionDraining) 
 
 **Document type**
 
@@ -25,51 +22,35 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ LoadBalancerName
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- LoadBalancerName
+  Description: (Required) The name of the load balancer you want to enable connection draining on.
++ ConnectionTimeout
 
-Type: String
+  Type: Integer
 
-Description: (Required) The name of the load balancer you want to enable
-connection draining on.
+  Valid values: 1-3600
 
-- ConnectionTimeout
+  Default: 300
 
-Type: Integer
+  Description: (Required) The connection timeout value for the load balancer. The timeout value can be set between 1 and 3600 seconds.
 
-Valid values: 1-3600
-
-Default: 300
-
-Description: (Required) The connection timeout value for the load
-balancer. The timeout value can be set between 1 and 3600 seconds.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++ `ssm:StartAutomationExecution`
++ `ssm:GetAutomationExecution`
++ `elasticloadbalancing:DescribeLoadBalancerAttributes`
++ `elasticloadbalancing:ModifyLoadBalancerAttributes`
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `elasticloadbalancing:DescribeLoadBalancerAttributes`
-- `elasticloadbalancing:ModifyLoadBalancerAttributes`
-
-**Document Steps**
-
-- ModifyLoadBalancerConnectionDraining (aws:executeAwsApi): Enables
-  connection draining and sets the specified timeout value for the load
-  balancer you specify.
-- VerifyLoadBalancerConnectionDrainingEnabled
-  (aws:assertAwsResourceProperty): Verifies that connection draining is
-  enabled for the load balancer.
-- VerifyLoadBalancerConnectionDrainingTimeout
-  (aws:assertAwsResourceProperty): Verifies that the connection timeout value
-  for the load balancer matches the value you specified.
+ **Document Steps** 
++ ModifyLoadBalancerConnectionDraining (aws:executeAwsApi): Enables connection draining and sets the specified timeout value for the load balancer you specify.
++ VerifyLoadBalancerConnectionDrainingEnabled (aws:assertAwsResourceProperty): Verifies that connection draining is enabled for the load balancer.
++ VerifyLoadBalancerConnectionDrainingTimeout (aws:assertAwsResourceProperty): Verifies that the connection timeout value for the load balancer matches the value you specified.

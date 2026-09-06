@@ -1,13 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteSecret`
+<a name="automation-aws-delete-secret"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteSecret` runbook deletes a secret and
-all of the versions stored in AWS Secrets Manager. You can optionally specify the recovery
-window during which you can restore the secret. If you don't specify a value for the
-`RecoveryWindowInDays` parameter, the operation defaults to 30 days.
+ The `AWSConfigRemediation-DeleteSecret` runbook deletes a secret and all of the versions stored in AWS Secrets Manager. You can optionally specify the recovery window during which you can restore the secret. If you don't specify a value for the `RecoveryWindowInDays` parameter, the operation defaults to 30 days. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteSecret "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteSecret")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteSecret) 
 
 **Document type**
 
@@ -22,45 +22,34 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ RecoveryWindowInDays
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: Integer
 
-- RecoveryWindowInDays
+  Valid values: 7-30
 
-Type: Integer
+  Default: 30
 
-Valid values: 7-30
+  Description: (Optional) The number of days which you can restore the secret.
++ SecretId
 
-Default: 30
+  Type: String
 
-Description: (Optional) The number of days which you can restore the
-secret.
+  Description: (Required) The Amazon Resource Name (ARN) of the secret you want to delete.
 
-- SecretId
-
-Type: String
-
-Description: (Required) The Amazon Resource Name (ARN) of the secret you
-want to delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `secretsmanager:DeleteSecret` 
++  `secretsmanager:DescribeSecret` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `secretsmanager:DeleteSecret`
-- `secretsmanager:DescribeSecret`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Deletes the secret you specify in the
-  `SecretId` parameter.
-- `aws:executeScript` - Verifies the secret has been scheduled for
-  deletion.
+ **Document Steps** 
++  `aws:executeAwsApi` - Deletes the secret you specify in the `SecretId` parameter. 
++  `aws:executeScript` - Verifies the secret has been scheduled for deletion. 

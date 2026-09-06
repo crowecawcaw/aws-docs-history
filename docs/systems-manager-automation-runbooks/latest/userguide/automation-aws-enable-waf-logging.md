@@ -1,12 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableWAFClassicLogging`
+<a name="automation-aws-enable-waf-logging"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableWAFClassicLogging` runbook enables
-logging to Amazon Data Firehose (Firehose) for the AWS WAF web access control list (web ACL) you
-specify.
+ The `AWSConfigRemediation-EnableWAFClassicLogging` runbook enables logging to Amazon Data Firehose (Firehose) for the AWS WAF web access control list (web ACL) you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableWAFClassicRegionalLogging "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableWAFClassicRegionalLogging")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableWAFClassicRegionalLogging) 
 
 **Document type**
 
@@ -21,46 +22,34 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ DeliveryStreamName
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- DeliveryStreamName
+  Description: (Required) The name of the Firehose delivery stream that you want to send logs to.
++ WebACLId
 
-Type: String
+  Type: String
 
-Description: (Required) The name of the Firehose delivery stream that you
-want to send logs to.
+  Description: (Required) The ID of the AWS WAF web ACL that you want to enable logging on.
 
-- WebACLId
-
-Type: String
-
-Description: (Required) The ID of the AWS WAF web ACL that you want to
-enable logging on.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `iam:CreateServiceLinkedRole` 
++  `waf:GetLoggingConfiguration` 
++  `waf:GetWebAcl ` 
++  `waf:PutLoggingConfiguration ` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `iam:CreateServiceLinkedRole`
-- `waf:GetLoggingConfiguration`
-- `waf:GetWebAcl`
-- `waf:PutLoggingConfiguration`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Confirms the delivery stream you specify in
-  the `DeliveryStreamName` exists.
-- `aws:executeAwsApi` - Gathers the ARN of the AWS WAF web ACL
-  specified in the `WebACLId` parameter.
-- `aws:executeAwsApi` - Enables logging for the web ACL.
-- `aws:assertAwsResourceProperty` - Verifies logging has been
-  enabled on the AWS WAF web ACL.
+ **Document Steps** 
++  `aws:executeAwsApi` - Confirms the delivery stream you specify in the `DeliveryStreamName` exists. 
++  `aws:executeAwsApi` - Gathers the ARN of the AWS WAF web ACL specified in the `WebACLId` parameter. 
++  `aws:executeAwsApi` - Enables logging for the web ACL. 
++  `aws:assertAwsResourceProperty` - Verifies logging has been enabled on the AWS WAF web ACL. 

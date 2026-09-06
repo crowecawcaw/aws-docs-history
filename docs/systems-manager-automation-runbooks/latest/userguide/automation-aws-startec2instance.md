@@ -1,10 +1,13 @@
+
+
 # `AWS-StartEC2Instance`
+<a name="automation-aws-startec2instance"></a>
 
 **Description**
 
 Start one or more Amazon Elastic Compute Cloud (Amazon EC2) instances.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StartEC2Instance "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StartEC2Instance")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-StartEC2Instance)
 
 **Document type**
 
@@ -19,27 +22,20 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ InstanceId
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: StringList
 
-- InstanceId
+  Description: (Required) EC2 instances to start.
++ FailOnUnexpectedStopped
 
-Type: StringList
+  Type: Boolean
 
-Description: (Required) EC2 instances to start.
+  Default: True
 
-- FailOnUnexpectedStopped
-
-Type: Boolean
-
-Default: True
-
-Description: (Optional) If set to true, the automation fails if the instance
-transitions to a stopped state during the start operation.
+  Description: (Optional) If set to true, the automation fails if the instance transitions to a stopped state during the start operation.

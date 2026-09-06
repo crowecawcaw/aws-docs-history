@@ -1,10 +1,13 @@
-# `AWS-CreateRdsSnapshot`
 
-**Description**
+
+# `AWS-CreateRdsSnapshot`
+<a name="automation-aws-createrdssnapshot"></a>
+
+ **Description** 
 
 Create an Amazon Relational Database Service (Amazon RDS) snapshot for an Amazon RDS instance.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateRdsSnapshot "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateRdsSnapshot")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateRdsSnapshot) 
 
 **Document type**
 
@@ -19,50 +22,38 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ DBInstanceIdentifier
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- DBInstanceIdentifier
+  Description: (Required) The DBInstanceId ID of the RDS Instance to create Snapshot from.
++ DBSnapshotIdentifier
 
-Type: String
+  Type: String
 
-Description: (Required) The DBInstanceId ID of the RDS Instance to create
-Snapshot from.
+  Description: (Optional) The DBSnapshotIdentifier ID of the RDS snapshot to create.
++ InstanceTags
 
-- DBSnapshotIdentifier
+  Type: String
 
-Type: String
+  Description: (Optional) Tags to create for instance.
++ SnapshotTags
 
-Description: (Optional) The DBSnapshotIdentifier ID of the RDS snapshot to
-create.
+  Type: String
 
-- InstanceTags
+  Description: (Optional) Tags to create for snapshot.
 
-Type: String
+ **Document Steps** 
 
-Description: (Optional) Tags to create for instance.
+createRDSSnapshot – Creates the RDS snapshot and returns the snapshot ID.
 
-- SnapshotTags
+verifyRDSSnapshot – Checks that the snapshot created in the previous step exists.
 
-Type: String
-
-Description: (Optional) Tags to create for snapshot.
-
-**Document Steps**
-
-createRDSSnapshot – Creates the RDS snapshot and returns the snapshot
-ID.
-
-verifyRDSSnapshot – Checks that the snapshot created in the previous step
-exists.
-
-**Outputs**
+ **Outputs** 
 
 createRDSSnapshot.SnapshotId – The ID of the created snapshot.

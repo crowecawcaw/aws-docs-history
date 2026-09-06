@@ -1,23 +1,16 @@
+
+
 # `AWSSupport-ActivateWindowsWithAmazonLicense`
+<a name="automation-awssupport-activatewindowswithamazonlicense"></a>
 
-**Description**
+ **Description** 
 
-The `AWSSupport-ActivateWindowsWithAmazonLicense` runbook activates an
-Amazon Elastic Compute Cloud (Amazon EC2) instance for Windows Server with a license provided by Amazon. The
-automation verifies and configures required key management service operating system
-settings and attempts activation. This includes operating system routes to Amazon's
-key management servers and key management service operating system settings. Setting
-the `AllowOffline` parameter to `true` allows the automation
-to successfully target instances that are not managed by AWS Systems Manager, but requires a
-stop and start of the instance.
+The `AWSSupport-ActivateWindowsWithAmazonLicense` runbook activates an Amazon Elastic Compute Cloud (Amazon EC2) instance for Windows Server with a license provided by Amazon. The automation verifies and configures required key management service operating system settings and attempts activation. This includes operating system routes to Amazon's key management servers and key management service operating system settings. Setting the `AllowOffline` parameter to `true` allows the automation to successfully target instances that are not managed by AWS Systems Manager, but requires a stop and start of the instance.
 
-###### Note
+**Note**  
+This runbook cannot be used on Bring Your Own License (BYOL) model Windows Server instances. For information about using your own license, see [Microsoft Licensing on AWS](https://aws.amazon.com/windows/resources/licensing/). 
 
-This runbook cannot be used on Bring Your Own License (BYOL) model Windows Server
-instances. For information about using your own license, see [Microsoft Licensing on
-AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/").
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ActivateWindowsWithAmazonLicense)
 
 **Document type**
 
@@ -32,105 +25,67 @@ Amazon
 Windows
 
 **Parameters**
++ AllowOffline
 
-- AllowOffline
+  Type: String
 
-Type: String
+  Valid values: true \| false
 
-Valid values: true | false
+  Default: false
 
-Default: false
+  Description: (Optional) Set it to `true` if you allow an offline Windows activation remediation in case the online troubleshooting fails, or if the provided instance is not a managed instance.
+**Important**  
+The offline method requires that the provided EC2 instance be stopped and then started. Data stored in instance store volumes will be lost. The public IP address will change if you are not using an Elastic IP.
++ AutomationAssumeRole
 
-Description: (Optional) Set it to `true` if you allow an
-offline Windows activation remediation in case the online troubleshooting
-fails, or if the provided instance is not a managed instance.
+  Type: String
 
-###### Important
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ ForceActivation
 
-The offline method requires that the provided EC2 instance be stopped
-and then started. Data stored in instance store volumes will be lost.
-The public IP address will change if you are not using an Elastic
-IP.
+  Type: String
 
-- AutomationAssumeRole
+  Valid values: true \| false
 
-Type: String
+  Default: false
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Description: (Optional) Set it to `true` if you want to proceed even if Windows is already activated.
++ InstanceId
 
-- ForceActivation
+  Type: String
 
-Type: String
+  Description: (Required) ID of your managed EC2 instance for Windows Server.
++ SubnetId
 
-Valid values: true | false
+  Type: String
 
-Default: false
+  Default: CreateNewVPC
 
-Description: (Optional) Set it to `true` if you want to proceed
-even if Windows is already activated.
+  Description: (Optional) Offline only - The subnet ID for the EC2Rescue instance used to perform the offline troubleshooting. Use `SelectedInstanceSubnet` to use the same subnet as your instance, or use `CreateNewVPC` to create a new VPC. IMPORTANT: The subnet must be in the same Availability Zone as InstanceId, and it must allow access to the SSM endpoints.
 
-- InstanceId
-
-Type: String
-
-Description: (Required) ID of your managed EC2 instance for
-Windows Server.
-
-- SubnetId
-
-Type: String
-
-Default: CreateNewVPC
-
-Description: (Optional) Offline only - The subnet ID for the EC2Rescue
-instance used to perform the offline troubleshooting. Use
-`SelectedInstanceSubnet` to use the same subnet as your
-instance, or use `CreateNewVPC` to create a new VPC. IMPORTANT:
-The subnet must be in the same Availability Zone as InstanceId, and it must
-allow access to the SSM endpoints.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-We recommend that the EC2 instance receiving the
-command has an IAM role with the **AmazonSSMManagedInstanceCore**
-Amazon managed policy attached. You must have at least
-**ssm:StartAutomationExecution** and
-**ssm:SendCommand** to run the automation and send the command
-to the instance, plus **ssm:GetAutomationExecution** to be able to
-read the automation output. For the offline remediation, see the permissions needed
-by `AWSSupport-StartEC2RescueWorkflow`.
+We recommend that the EC2 instance receiving the command has an IAM role with the **AmazonSSMManagedInstanceCore** Amazon managed policy attached. You must have at least **ssm:StartAutomationExecution** and **ssm:SendCommand** to run the automation and send the command to the instance, plus **ssm:GetAutomationExecution** to be able to read the automation output. For the offline remediation, see the permissions needed by `AWSSupport-StartEC2RescueWorkflow`.
 
-**Document Steps**
+ **Document Steps** 
 
-1. `aws:assertAwsResourceProperty` - Check the provided instance's
-   platform is Windows.
-2. `aws:assertAwsResourceProperty` - Confirm the provided instance
-   is a managed instance:
+1. `aws:assertAwsResourceProperty` - Check the provided instance's platform is Windows.
 
-   1. (Online activation fix) If the input instance is a managed
-      instance, then run `aws:runCommand` to run the PowerShell
-      script to attempt to fix Windows activation.
-   2. (Offline activation fix) If the input instance is not a managed
-      instance:
+1. `aws:assertAwsResourceProperty` - Confirm the provided instance is a managed instance:
 
-      1. `aws:assertAwsResourceProperty` - Verifies the
-         `AllowOffline` flag is set to
-         `true`. If so, the offline fix starts;
-         otherwise the automation ends.
-      2. `aws:executeAutomation` - Invoke
-         `AWSSupport-StartEC2RescueWorkflow` with the
-         Windows activation offline fix script. The script uses
-         either EC2Config or EC2Launch, depending on the OS
-         version.
-      3. `aws:executeAwsApi` - Read the result from
-         `AWSSupport-StartEC2RescueWorkflow`.
+   1. (Online activation fix) If the input instance is a managed instance, then run `aws:runCommand` to run the PowerShell script to attempt to fix Windows activation.
 
-**Outputs**
+   1. (Offline activation fix) If the input instance is not a managed instance:
+
+      1. `aws:assertAwsResourceProperty` - Verifies the `AllowOffline` flag is set to `true`. If so, the offline fix starts; otherwise the automation ends.
+
+      1. `aws:executeAutomation` - Invoke `AWSSupport-StartEC2RescueWorkflow` with the Windows activation offline fix script. The script uses either EC2Config or EC2Launch, depending on the OS version.
+
+      1. `aws:executeAwsApi` - Read the result from `AWSSupport-StartEC2RescueWorkflow`.
+
+ **Outputs** 
 
 activateWindows.Output
 

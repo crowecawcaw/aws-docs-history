@@ -1,13 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteRDSInstanceSnapshot`
+<a name="automation-aws-delete-rds-snapshot"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-DeleteRDSInstanceSnapshot` runbook deletes
-the Amazon Relational Database Service (Amazon RDS) instance snapshot you specify. Only snapshots in the
-`available` state are deleted. This runbook does not support deleting
-snapshots from Amazon Aurora database instances.
+ The `AWSConfigRemediation-DeleteRDSInstanceSnapshot` runbook deletes the Amazon Relational Database Service (Amazon RDS) instance snapshot you specify. Only snapshots in the `available` state are deleted. This runbook does not support deleting snapshots from Amazon Aurora database instances. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRDSInstanceSnapshot "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRDSInstanceSnapshot")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteRDSInstanceSnapshot) 
 
 **Document type**
 
@@ -22,36 +22,27 @@ Amazon
 Databases
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ DbSnapshotId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- DbSnapshotId
+  Description: (Required) The ID of the snapshot you want to delete.
 
-Type: String
-
-Description: (Required) The ID of the snapshot you want to delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `rds:DeleteDBSnapshot` 
++  `rds:DescribeDBSnapshots` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `rds:DeleteDBSnapshot`
-- `rds:DescribeDBSnapshots`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Gathers the state of the snapshot specified
-  in the `DbSnapshotId` parameter.
-- `aws:assertAwsResourceProperty` - Confirms the state of the
-  snapshot is `available` .
-- `aws:executeAwsApi` - Deletes the snapshot specified in the
-  `DbSnapshotId` parameter.
-- `aws:executeScript` - Verifies the snapshot has been deleted.
+ **Document Steps** 
++  `aws:executeAwsApi` - Gathers the state of the snapshot specified in the `DbSnapshotId` parameter. 
++  `aws:assertAwsResourceProperty` - Confirms the state of the snapshot is `available` . 
++  `aws:executeAwsApi` - Deletes the snapshot specified in the `DbSnapshotId` parameter. 
++  `aws:executeScript` - Verifies the snapshot has been deleted. 

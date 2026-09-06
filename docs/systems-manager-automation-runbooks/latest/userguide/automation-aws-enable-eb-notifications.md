@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications`
+<a name="automation-aws-enable-eb-notifications"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications`
-runbook enables notifications for the AWS Elastic Beanstalk (Elastic Beanstalk) environment you specify.
+ The `AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications` runbook enables notifications for the AWS Elastic Beanstalk (Elastic Beanstalk) environment you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableBeanstalkEnvironmentNotifications) 
 
 **Document type**
 
@@ -20,44 +22,32 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ EnvironmentId
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- EnvironmentId
+  Description: (Required) The ID of the Elastic Beanstalk environment that you want to enable notifications for.
++ TopicArn
 
-Type: String
+  Type: String
 
-Description: (Required) The ID of the Elastic Beanstalk environment that you want to
-enable notifications for.
+  Description: (Required) The ARN of the Amazon Simple Notification Service (Amazon SNS) topic you want to send notifications to.
 
-- TopicArn
-
-Type: String
-
-Description: (Required) The ARN of the Amazon Simple Notification Service (Amazon SNS) topic you want to
-send notifications to.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `elasticbeanstalk:DescribeConfigurationSettings` 
++  `elasticbeanstalk:DescribeEnvironments` 
++  `elasticbeanstalk:UpdateEnvironment` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `elasticbeanstalk:DescribeConfigurationSettings`
-- `elasticbeanstalk:DescribeEnvironments`
-- `elasticbeanstalk:UpdateEnvironment`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Enables notifications for the Elastic Beanstalk
-  environment you specify in the `EnvironmentId` parameter.
-- `aws:waitForAwsResourceProperty` - Waits for the status of the
-  environment to change to `Ready` .
-- `aws:executeScript` - Verifies notifications have been enabled
-  for the Elastic Beanstalk environment.
+ **Document Steps** 
++  `aws:executeAwsApi` - Enables notifications for the Elastic Beanstalk environment you specify in the `EnvironmentId` parameter. 
++  `aws:waitForAwsResourceProperty` - Waits for the status of the environment to change to `Ready` . 
++  `aws:executeScript` - Verifies notifications have been enabled for the Elastic Beanstalk environment. 

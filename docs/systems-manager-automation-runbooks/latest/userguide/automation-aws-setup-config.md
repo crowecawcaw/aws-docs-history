@@ -1,27 +1,13 @@
+
+
 # `AWSSupport-SetupConfig`
+<a name="automation-aws-setup-config"></a>
 
-**Description**
+ **Description** 
 
-The
-`AWSSupport-SetupConfig`
-runbook creates an AWS Identity and Access Management (IAM)
-service-linked role, a configuration recorder powered by AWS Config, and a delivery
-channel with an Amazon Simple Storage Service (Amazon S3) bucket where AWS Config sends configuration snapshots and
-configuration history files. If you specify values for the
-`AggregatorAccountId`
-and
-`AggregatorAccountRegion`
-parameters, the runbook also creates authorizations for data aggregation to collect
-AWS Config configuration and compliance data from multiple AWS accounts and multiple
-AWS Regions. To learn more about aggregating data from multiple accounts and
-Regions, see
-[Multi-Account Multi-Region
-Data Aggregation](../../../config/latest/developerguide/aggregate-data.md "../../../config/latest/developerguide/aggregate-data.md")
-in the
-_AWS Config Developer Guide_
-.
+ The `AWSSupport-SetupConfig` runbook creates an AWS Identity and Access Management (IAM) service-linked role, a configuration recorder powered by AWS Config, and a delivery channel with an Amazon Simple Storage Service (Amazon S3) bucket where AWS Config sends configuration snapshots and configuration history files. If you specify values for the `AggregatorAccountId` and `AggregatorAccountRegion` parameters, the runbook also creates authorizations for data aggregation to collect AWS Config configuration and compliance data from multiple AWS accounts and multiple AWS Regions. To learn more about aggregating data from multiple accounts and Regions, see [Multi-Account Multi-Region Data Aggregation](https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html) in the *AWS Config Developer Guide* . 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupConfig "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupConfig")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-SetupConfig) 
 
 **Document type**
 
@@ -36,112 +22,64 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ AggregatorAccountId
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- AggregatorAccountId
+  Description: (Optional) The ID of the AWS account where an aggregator will be added to aggregate AWS Config configuration and compliance data from multiple accounts and AWS Regions. This account is also used by the aggregator to authorize the source accounts.
++ AggregatorAccountRegion
 
-Type: String
+  Type: String
 
-Description: (Optional) The ID of the AWS account where an aggregator
-will be added to aggregate AWS Config configuration and compliance data from
-multiple accounts and AWS Regions. This account is also used by the
-aggregator to authorize the source accounts.
+  Description: (Optional) The Region where an aggregator will be added to aggregate AWS Config configuration and compliance data from multiple accounts and Regions.
++ IncludeGlobalResourcesRegion
 
-- AggregatorAccountRegion
+  Type: String
 
-Type: String
+  Default: us-east-1
 
-Description: (Optional) The Region where an aggregator will be added to
-aggregate AWS Config configuration and compliance data from multiple accounts and
-Regions.
+  Description: (Required) To avoid recording global resource data in each Region, specify one Region to record global resource data from.
++ Partition
 
-- IncludeGlobalResourcesRegion
+  Type: String
 
-Type: String
+   Default: `aws` 
 
-Default: us-east-1
+  Description: (Required) The partition you want to collect AWS Config configuration and compliance data from.
++ S3BucketName
 
-Description: (Required) To avoid recording global resource data in each
-Region, specify one Region to record global resource data from.
+  Type: String
 
-- Partition
+   Default: `aws-config-delivery-channel` 
 
-Type: String
+  Description: (Optional) The name you want to apply to the Amazon S3 bucket created for the delivery channel. The account ID is appended to the end of the name.
 
-Default:
-`aws`
-
-Description: (Required) The partition you want to collect AWS Config
-configuration and compliance data from.
-
-- S3BucketName
-
-Type: String
-
-Default:
-`aws-config-delivery-channel`
-
-Description: (Optional) The name you want to apply to the Amazon S3 bucket
-created for the delivery channel. The account ID is appended to the end of
-the name.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `config:DescribeConfigurationRecorders` 
++  `config:DescribeDeliveryChannels` 
++  `config:PutAggregationAuthorization` 
++  `config:PutConfigurationRecorder` 
++  `config:PutDeliveryChannel` 
++  `config:StartConfigurationRecorder` 
++  `iam:CreateServiceLinkedRole` 
++  `iam:PassRole` 
++  `s3:CreateBucket` 
++  `s3:ListAllMyBuckets` 
++  `s3:PutBucketPolicy` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `config:DescribeConfigurationRecorders`
-- `config:DescribeDeliveryChannels`
-- `config:PutAggregationAuthorization`
-- `config:PutConfigurationRecorder`
-- `config:PutDeliveryChannel`
-- `config:StartConfigurationRecorder`
-- `iam:CreateServiceLinkedRole`
-- `iam:PassRole`
-- `s3:CreateBucket`
-- `s3:ListAllMyBuckets`
-- `s3:PutBucketPolicy`
-
-**Document Steps**
-
-- `aws:executeScript`
-
-* Creates a service-linked IAM role for
-  AWS Config if one does not already exist.
-
-- `aws:executeScript`
-
-* Creates a configuration recorder if one
-  does not already exist.
-
-- `aws:executeScript`
-
-* Creates an Amazon S3 bucket to be used by the
-  delivery channel if one does not already exist.
-
-- `aws:executeScript`
-
-* Creates a delivery channel using the
-  resources created by the runbook.
-
-- `aws:executeAwsApi`
-
-* Starts the configuration recorder.
-
-- `aws:executeScript`
-
-* If you specified values for the
-  `AggregatorAccountId`
-  and
-  `AggregatorAccountRegion`
-  parameters, authorizations for
-  multi-account and multi-Region data aggregation are configured.
+ **Document Steps** 
++  `aws:executeScript` - Creates a service-linked IAM role for AWS Config if one does not already exist. 
++  `aws:executeScript` - Creates a configuration recorder if one does not already exist. 
++  `aws:executeScript` - Creates an Amazon S3 bucket to be used by the delivery channel if one does not already exist. 
++  `aws:executeScript` - Creates a delivery channel using the resources created by the runbook. 
++  `aws:executeAwsApi` - Starts the configuration recorder. 
++  `aws:executeScript` - If you specified values for the `AggregatorAccountId` and `AggregatorAccountRegion` parameters, authorizations for multi-account and multi-Region data aggregation are configured. 

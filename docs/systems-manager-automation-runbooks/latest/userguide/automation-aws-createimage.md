@@ -1,10 +1,13 @@
+
+
 # `AWS-CreateImage`
+<a name="automation-aws-createimage"></a>
 
 **Description**
 
 Create a new Amazon Machine Image (AMI) from an Amazon Elastic Compute Cloud (Amazon EC2) instance.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateImage "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateImage")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-CreateImage)
 
 **Document type**
 
@@ -19,50 +22,47 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ InstanceId
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- InstanceId
+  Description: (Required) The ID of the EC2 instance.
++ NoReboot
 
-Type: String
+  Type: Boolean
 
-Description: (Required) The ID of the EC2 instance.
+  Description: (Optional) Do not reboot the instance before creating the image.
 
-- NoReboot
-
-Type: Boolean
-
-Description: (Optional) Do not reboot the instance before creating the
-image.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ec2:CreateImage",
- "ec2:DescribeImages"
- ],
- "Resource": [
- "*"
- ]
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateImage",
+                "ec2:DescribeImages"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+------

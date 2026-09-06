@@ -1,12 +1,13 @@
+
+
 # `AWS-UpdateEKSManagedNodeGroup`
+<a name="aws-updateeksmanagednodegroup"></a>
 
-**Description**
+ **Description** 
 
-The `AWS-UpdateEKSManagedNodeGroup` runbook helps you update an
-Amazon Elastic Kubernetes Service (Amazon EKS) managed node group. You can either choose a `Version`
-or `Configuration` update.
+The `AWS-UpdateEKSManagedNodeGroup` runbook helps you update an Amazon Elastic Kubernetes Service (Amazon EKS) managed node group. You can either choose a `Version` or `Configuration` update.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateEKSManagedNodeGroup "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateEKSManagedNodeGroup")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-UpdateEKSManagedNodeGroup) 
 
 **Document type**
 
@@ -21,174 +22,127 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ ClusterName
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- ClusterName
+  Description: (Required) The name of the cluster whose node group you want to update.
++ NodeGroupName
 
-Type: String
+  Type: String
 
-Description: (Required) The name of the cluster whose node group you want
-to update.
+  Description: (Required) The name of the node group to update.
++ UpdateType
 
-- NodeGroupName
+  Type: String
 
-Type: String
+  Valid values: Update Node Group Version \| Update Node Group Configurations
 
-Description: (Required) The name of the node group to update.
+  Default: Update Node Group Version
 
-- UpdateType
+  Description: (Required) The type of update that you want to perform on the node group.
 
-Type: String
+The following parameters apply only to the `Version` update type:
++ AMIReleaseVersion
 
-Valid values: Update Node Group Version | Update Node Group
-Configurations
+  Type: String
 
-Default: Update Node Group Version
+  Description: (Optional) The version of the Amazon EKS optimized AMI that you want to use. By default, the latest version is used.
++ ForceUpdate
 
-Description: (Required) The type of update that you want to perform on the
-node group.
-The following parameters apply only to the `Version` update
-type:
+  Type: Boolean
 
-- AMIReleaseVersion
+  Description: (Optional) If true, the update won't fail in response to a pod disruption budget violation.
++ KubernetesVersion
 
-Type: String
+  Type: String
 
-Description: (Optional) The version of the Amazon EKS optimized AMI that you
-want to use. By default, the latest version is used.
+  Description: (Optional) The Kubernetes version to update the node group to.
++ LaunchTemplateId
 
-- ForceUpdate
+  Type: String
 
-Type: Boolean
+  Description: (Optional) The ID of the launch template.
++ LaunchTemplateName
 
-Description: (Optional) If true, the update won't fail in response to a
-pod disruption budget violation.
+  Type: String
 
-- KubernetesVersion
+  Description: (Optional) The name of the launch template.
++ LaunchTemplateVersion
 
-Type: String
+  Type: String
 
-Description: (Optional) The Kubernetes version to update the node group
-to.
+  Description: (Optional) The Amazon Elastic Compute Cloud (Amazon EC2) launch template version. This parameter is only valid if a node group was created from a launch template.
 
-- LaunchTemplateId
+The following parameters apply only to the `Configuration` update type:
++ AddOrUpdateNodeGroupLabels
 
-Type: String
+  Type: StringMap
 
-Description: (Optional) The ID of the launch template.
+  Description: (Optional) Kubernetes labels that you want to add or update.
++ AddOrUpdateKubernetesTaintsEffect
 
-- LaunchTemplateName
+  Type: StringList
 
-Type: String
+  Description: (Optional) The Kubernetes taints that you want to add or update.
++ MaxUnavailableNodeGroups
 
-Description: (Optional) The name of the launch template.
+  Type: Integer
 
-- LaunchTemplateVersion
+  Default: 0
 
-Type: String
+  Description: (Optional) The maximum number of nodes that are unavailable at once during a version update. Set to 0 (default) to retain the current setting.
++ MaxUnavailablePercentageNodeGroup
 
-Description: (Optional) The Amazon Elastic Compute Cloud (Amazon EC2) launch template version.
-This parameter is only valid if a node group was created from a launch
-template.
-The following parameters apply only to the `Configuration` update
-type:
+  Type: Integer
 
-- AddOrUpdateNodeGroupLabels
+  Default: 0
 
-Type: StringMap
+  Description: (Optional) The percentage of nodes that are unavailable during a version update. Set to 0 (default) to retain the current setting.
++ NodeGroupDesiredSize
 
-Description: (Optional) Kubernetes labels that you want to add or
-update.
+  Type: Integer
 
-- AddOrUpdateKubernetesTaintsEffect
+  Default: -1
 
-Type: StringList
+  Description: (Optional) The number of nodes that the managed node group should maintain. Set to -1 (default) to retain the current setting.
++ NodeGroupMaxSize
 
-Description: (Optional) The Kubernetes taints that you want to add or
-update.
+  Type: Integer
 
-- MaxUnavailableNodeGroups
+  Default: 0
 
-Type: Integer
+  Description: (Optional) The maximum number of nodes that the managed node group can scale out to. Set to 0 (default) to retain the current setting.
++ NodeGroupMinSize
 
-Default: 0
+  Type: Integer
 
-Description: (Optional) The maximum number of nodes that are unavailable
-at once during a version update. Set to 0 (default) to retain the current
-setting.
+  Default: -1
 
-- MaxUnavailablePercentageNodeGroup
+  Description: (Optional) The minimum number of nodes that the managed node group can scale in to. Set to -1 (default) to retain the current setting.
++ RemoveKubernetesTaintsEffect
 
-Type: Integer
+  Type: StringList
 
-Default: 0
+  Description: (Optional) The Kubernetes taints that you want to remove.
++ RemoveNodeGroupLabels
 
-Description: (Optional) The percentage of nodes that are unavailable
-during a version update. Set to 0 (default) to retain the current
-setting.
+  Type: StringList
 
-- NodeGroupDesiredSize
+  Description: (Optional) A comma-separated list of labels that you want to remove.
 
-Type: Integer
-
-Default: -1
-
-Description: (Optional) The number of nodes that the managed node group
-should maintain. Set to -1 (default) to retain the current setting.
-
-- NodeGroupMaxSize
-
-Type: Integer
-
-Default: 0
-
-Description: (Optional) The maximum number of nodes that the managed node
-group can scale out to. Set to 0 (default) to retain the current
-setting.
-
-- NodeGroupMinSize
-
-Type: Integer
-
-Default: -1
-
-Description: (Optional) The minimum number of nodes that the managed node
-group can scale in to. Set to -1 (default) to retain the current
-setting.
-
-- RemoveKubernetesTaintsEffect
-
-Type: StringList
-
-Description: (Optional) The Kubernetes taints that you want to
-remove.
-
-- RemoveNodeGroupLabels
-
-Type: StringList
-
-Description: (Optional) A comma-separated list of labels that you want to
-remove.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `eks:DescribeUpdate` 
++  `eks:UpdateNodegroupConfig` 
++  `eks:UpdateNodegroupVersion` 
 
-- `eks:DescribeUpdate`
-- `eks:UpdateNodegroupConfig`
-- `eks:UpdateNodegroupVersion`
-
-**Document Steps**
-
-- `aws:executeScript` - Updates an Amazon EKS cluster node group
-  according to the values that you specify for the runbook input parameters.
-- `aws:waitForAwsResourceProperty` - Waits for the cluster update
-  status to be `Successful`.
+ **Document Steps** 
++  `aws:executeScript` - Updates an Amazon EKS cluster node group according to the values that you specify for the runbook input parameters. 
++  `aws:waitForAwsResourceProperty` - Waits for the cluster update status to be `Successful`. 

@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing`
+<a name="automation-aws-enable-nlb-crosszone"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing` runbook
-enables cross zone load balancing for the network load balancer (NLB) you specify.
+ The `AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing` runbook enables cross zone load balancing for the network load balancer (NLB) you specify. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-EnableNLBCrossZoneLoadBalancing) 
 
 **Document type**
 
@@ -20,34 +22,25 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ LoadBalancerArn
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- LoadBalancerArn
+  Description: (Required) The Amazon Resource Name (ARN) of the NLB that you want to enable cross zone load balancing on.
 
-Type: String
-
-Description: (Required) The Amazon Resource Name (ARN) of the NLB that you
-want to enable cross zone load balancing on.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `elasticloadbalancing:DescribeLoadBalancerAttributes` 
++  `elasticloadbalancing:ModifyLoadBalancerAttributes` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `elasticloadbalancing:DescribeLoadBalancerAttributes`
-- `elasticloadbalancing:ModifyLoadBalancerAttributes`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Enables cross zone load balancing for the
-  NLB you specify in the `LoadBalancerArn` parameter.
-- `aws:executeScript` - Verifies cross zone load balancing has been
-  enabled on the NLB.
+ **Document Steps** 
++  `aws:executeAwsApi` - Enables cross zone load balancing for the NLB you specify in the `LoadBalancerArn` parameter. 
++  `aws:executeScript` - Verifies cross zone load balancing has been enabled on the NLB. 

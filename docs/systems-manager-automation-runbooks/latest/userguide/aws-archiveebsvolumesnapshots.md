@@ -1,13 +1,13 @@
+
+
 # `AWS-ArchiveEBSVolumeSnapshots`
+<a name="aws-archiveebsvolumesnapshots"></a>
 
-**Description**
+ **Description** 
 
-The `AWS-ArchiveEBSVolumeSnapshots` runbook helps you archive snapshots for
-Amazon Elastic Block Store (Amazon EBS) volumes by specifying the tag you've applied to your snapshots.
-Alternatively, you can provide the ID of a volume if your snapshots are not
-tagged.
+ The `AWS-ArchiveEBSVolumeSnapshots` runbook helps you archive snapshots for Amazon Elastic Block Store (Amazon EBS) volumes by specifying the tag you've applied to your snapshots. Alternatively, you can provide the ID of a volume if your snapshots are not tagged.
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSVolumeSnapshots "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSVolumeSnapshots")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-ArchiveEBSVolumeSnapshots) 
 
 **Document type**
 
@@ -22,87 +22,62 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ Description
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: String
 
-- Description
+  Description: (Optional) A description for the Amazon EBS snapshot.
++ DryRun
 
-Type: String
+  Type: String
 
-Description: (Optional) A description for the Amazon EBS snapshot.
+  Valid values: Yes \| No
 
-- DryRun
+  Description: (Required) Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
++ RetentionCount
 
-Type: String
+  Type: String
 
-Valid values: Yes | No
+  Description: (Optional) The number of snapshots you want to archive. Don't specify a value for this parameter if you specify a value for `RetentionDays`.
++ RetentionDays
 
-Description: (Required) Checks whether you have the required permissions
-for the action, without actually making the request, and provides an error
-response.
+  Type: String
 
-- RetentionCount
+  Description: (Optional) The number of previous days of snapshots you want to archive. Don't specify a value for this parameter if you specify a value for `RetentionCount`.
++ SnapshotWithTag
 
-Type: String
+  Type: String
 
-Description: (Optional) The number of snapshots you want to archive. Don't
-specify a value for this parameter if you specify a value for
-`RetentionDays`.
+  Valid values: Yes \| No
 
-- RetentionDays
+  Description: (Required) Specifies whether the snapshots you want to archive are tagged.
++ TagKey
 
-Type: String
+  Type: String
 
-Description: (Optional) The number of previous days of snapshots you want
-to archive. Don't specify a value for this parameter if you specify a value
-for `RetentionCount`.
+  Description: (Optional) The key of the tag assigned to the snapshots you want to archive.
++ TagValue
 
-- SnapshotWithTag
+  Type: String
 
-Type: String
+  Description: (Optional) The value of the tag assigned to the snapshots you want to archive.
++ VolumeId
 
-Valid values: Yes | No
+  Type: String
 
-Description: (Required) Specifies whether the snapshots you want to
-archive are tagged.
+  Description: (Optional) The ID of the volume whose snapshots you want to archive. Use this parameter if your snapshots are not tagged.
 
-- TagKey
-
-Type: String
-
-Description: (Optional) The key of the tag assigned to the snapshots you
-want to archive.
-
-- TagValue
-
-Type: String
-
-Description: (Optional) The value of the tag assigned to the snapshots you
-want to archive.
-
-- VolumeId
-
-Type: String
-
-Description: (Optional) The ID of the volume whose snapshots you want to
-archive. Use this parameter if your snapshots are not tagged.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ec2:ArchiveSnapshots` 
++  `ec2:DescribeSnapshots` 
 
-- `ec2:ArchiveSnapshots`
-- `ec2:DescribeSnapshots`
+ **Document Steps** 
 
-**Document Steps**
-
-`aws:executeScript` - Archives snapshots using the tag you specify
-using the `TagKey` and `TagValue` parameters, or the
-`VolumeId` parameter.
+`aws:executeScript` - Archives snapshots using the tag you specify using the `TagKey` and `TagValue` parameters, or the `VolumeId` parameter.

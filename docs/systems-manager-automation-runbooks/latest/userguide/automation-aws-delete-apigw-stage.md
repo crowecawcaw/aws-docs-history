@@ -1,14 +1,13 @@
+
+
 # `AWSConfigRemediation-DeleteAPIGatewayStage`
+<a name="automation-aws-delete-apigw-stage"></a>
 
-**Description**
+ **Description** 
 
-The
-`AWSConfigRemediation-DeleteAPIGatewayStage`
-runbook deletes an
-Amazon API Gateway (API Gateway) stage. AWS Config must be enabled in the AWS Region where you run this
-automation.
+ The `AWSConfigRemediation-DeleteAPIGatewayStage` runbook deletes an Amazon API Gateway (API Gateway) stage. AWS Config must be enabled in the AWS Region where you run this automation. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteAPIGatewayStage "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteAPIGatewayStage")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-DeleteAPIGatewayStage) 
 
 **Document type**
 
@@ -23,36 +22,25 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ StageArn
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: String
 
-- StageArn
+  Description: (Required) The Amazon Resource Name (ARN) of the API Gateway stage you want to delete.
 
-Type: String
-
-Description: (Required) The Amazon Resource Name (ARN) of the API Gateway stage
-you want to delete.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `config:GetResourceConfigHistory` 
++  `apigateway:GET` 
++  `apigateway:DELETE` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `config:GetResourceConfigHistory`
-- `apigateway:GET`
-- `apigateway:DELETE`
-
-**Document Steps**
-
-- `aws:executeScript`
-
-* Deletes the API Gateway stage specified in the
-  `StageArn`
-  parameter.
+ **Document Steps** 
++  `aws:executeScript` - Deletes the API Gateway stage specified in the `StageArn` parameter. 

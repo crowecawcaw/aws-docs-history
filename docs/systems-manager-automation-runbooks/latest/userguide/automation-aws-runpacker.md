@@ -1,28 +1,19 @@
+
+
 # `AWS-RunPacker`
+<a name="automation-aws-runpacker"></a>
 
-**Description**
+ **Description** 
 
-This runbook uses the HashiCorp [Packer](https://www.packer.io/ "https://www.packer.io/") tool to validate, fix, or build packer templates that are used
-to create machine images. This runbook uses Packer v1.11.2.
+ This runbook uses the HashiCorp [Packer](https://www.packer.io/) tool to validate, fix, or build packer templates that are used to create machine images. This runbook uses Packer v1.11.2. 
 
-###### Note
+**Note**  
+ If you specify a `vpc_id` value, you must also specify the `subnet_id` value of a public subnet. Unless you modify your subnet's IPv4 public addressing attribute, you must also set `associate_public_ip_address` to true. 
 
-If you specify a `vpc_id` value, you must also specify the
-`subnet_id` value of a public subnet. Unless you modify your
-subnet's IPv4 public addressing attribute, you must also set
-`associate_public_ip_address` to true.
+**Important**  
+Packer provisioners execute with root-level privileges on the temporary EC2 instance. Follow least-privilege practices when authoring Packer templates. Avoid granting provisioners access to sensitive instance metadata or local credential files. If you have added additional policies to the IAM role used by [Default Host Management Configuration](https://docs.aws.amazon.com/systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.html), be aware that any process running as root on the instance can access those expanded permissions. Review your Packer templates to ensure they contain only trusted commands.
 
-###### Important
-
-Packer provisioners execute with root-level privileges on the temporary EC2
-instance. Follow least-privilege practices when authoring Packer templates.
-Avoid granting provisioners access to sensitive instance metadata or local
-credential files. If you have added additional policies to the IAM role used
-by [Default Host Management Configuration](../../../systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.md "../../../systems-manager/latest/userguide/fleet-manager-default-host-management-configuration.md"), be aware that any process
-running as root on the instance can access those expanded permissions. Review
-your Packer templates to ensure they contain only trusted commands.
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker "https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWS-RunPacker) 
 
 **Document type**
 
@@ -37,56 +28,40 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ Force
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: Boolean
 
-- Force
+  Description: A Packer option to force a builder to run when artifacts from a previous build otherwise prevent a build from running. 
++ Mode
 
-Type: Boolean
+  Type: String
 
-Description: A Packer option to force a builder to run when artifacts from
-a previous build otherwise prevent a build from running.
+   Description: The mode, or command, in which to use Packer when validating against the template. Options include `Build` , `Validate` , and `Fix` . 
++ TemplateFileName
 
-- Mode
+  Type: String
 
-Type: String
+  Description: The name, or key, of the template file in the S3 bucket.
++ TemplateS3BucketName
 
-Description: The mode, or command, in which to use Packer when validating
-against the template. Options include `Build` ,
-`Validate` , and `Fix` .
+  Type: String
 
-- TemplateFileName
+  Description: The name of the S3 bucket containing the packer template.
 
-Type: String
+ **Document Steps** 
 
-Description: The name, or key, of the template file in the S3
-bucket.
+RunPackerProcessTemplate – Runs the selected mode against the template using the Packer tool.
 
-- TemplateS3BucketName
-
-Type: String
-
-Description: The name of the S3 bucket containing the packer
-template.
-
-**Document Steps**
-
-RunPackerProcessTemplate – Runs the selected mode against the template
-using the Packer tool.
-
-**Outputs**
+ **Outputs** 
 
 RunPackerProcessTemplate.output – The stdout from the Packer tool.
 
-RunPackerProcessTemplate.fixed\_template\_key – The name of the template
-stored in an S3 bucket to use only when running in "Fix" mode.
+RunPackerProcessTemplate.fixed\_template\_key – The name of the template stored in an S3 bucket to use only when running in "Fix" mode.
 
-RunPackerProcessTemplate.s3\_bucket – The name of the S3 bucket that
-contains the fixed template to use only when running in "Fix" mode.
+RunPackerProcessTemplate.s3\_bucket – The name of the S3 bucket that contains the fixed template to use only when running in "Fix" mode.

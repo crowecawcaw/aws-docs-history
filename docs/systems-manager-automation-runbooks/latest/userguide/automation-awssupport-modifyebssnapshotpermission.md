@@ -1,14 +1,13 @@
+
+
 # `AWSSupport-ModifyEBSSnapshotPermission`
+<a name="automation-awssupport-modifyebssnapshotpermission"></a>
 
-**Description**
+ **Description** 
 
-The `AWSSupport-ModifyEBSSnapshotPermission` runbook helps you to
-modify permissions for multiple Amazon Elastic Block Store (Amazon EBS) snapshots. Using this runbook, you
-can make snapshots `Public` or `Private` and share them with
-other AWS accounts. Snapshots encrypted with a default KMS key can't be shared
-with other accounts using this runbook.
+ The `AWSSupport-ModifyEBSSnapshotPermission` runbook helps you to modify permissions for multiple Amazon Elastic Block Store (Amazon EBS) snapshots. Using this runbook, you can make snapshots `Public` or `Private` and share them with other AWS accounts. Snapshots encrypted with a default KMS key can't be shared with other accounts using this runbook. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ModifyEBSSnapshotPermissions "https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ModifyEBSSnapshotPermissions")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSSupport-ModifyEBSSnapshotPermissions) 
 
 **Document type**
 
@@ -23,74 +22,59 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
++ AccountIds
 
-Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf. If no role is specified, Systems Manager Automation uses the permissions of
-the user that starts this runbook.
+  Type: StringList
 
-- AccountIds
+  Default: none
 
-Type: StringList
+   Description: (Optional) The IDs of the accounts you want to share snapshots with. This parameter is required if you enter `No` for the value of the `Private` parameter. 
++ AccountPermissionOperation
 
-Default: none
+  Type: String
 
-Description: (Optional) The IDs of the accounts you want to share
-snapshots with. This parameter is required if you enter `No` for
-the value of the `Private` parameter.
+  Valid values: add \| remove
 
-- AccountPermissionOperation
+  Default: none
 
-Type: String
+  Description: (Optional) The type of operation to perform.
++ Private
 
-Valid values: add | remove
+  Type: String
 
-Default: none
+  Valid values: Yes \| No
 
-Description: (Optional) The type of operation to perform.
+   Description: (Required) Enter `No` for the value if you want to share snapshots with specific accounts. 
++ SnapshotIds
 
-- Private
+  Type: StringList
 
-Type: String
+  Description: (Required) The IDs of Amazon EBS snapshots whose permission you want to modify.
 
-Valid values: Yes | No
-
-Description: (Required) Enter `No` for the value if you want
-to share snapshots with specific accounts.
-
-- SnapshotIds
-
-Type: StringList
-
-Description: (Required) The IDs of Amazon EBS snapshots whose permission you
-want to modify.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `ec2:DescribeSnapshots` 
++  `ec2:ModifySnapshotAttribute` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `ec2:DescribeSnapshots`
-- `ec2:ModifySnapshotAttribute`
+ **Document Steps** 
 
-**Document Steps**
+1.  `aws:executeScript` - Verifies the IDs of the snapshots provided in the `SnapshotIds` parameter. After verifying the IDs, the script checks for encrypted snapshots and outputs a list if any are found. 
 
-1. `aws:executeScript` - Verifies the IDs of the snapshots provided
-   in the `SnapshotIds` parameter. After verifying the IDs, the
-   script checks for encrypted snapshots and outputs a list if any are found.
-2. `aws:branch` - Branches the automation based on the value you
-   enter for the `Private` parameter.
-3. `aws:executeScript` - Modifies permissions of the snapshots
-   specified to share it with the accounts specified.
-4. `aws:executeScript` - Modifies permissions of the snapshots to
-   change them from `Public` to `Private` .
+1.  `aws:branch` - Branches the automation based on the value you enter for the `Private` parameter. 
 
-**Outputs**
+1.  `aws:executeScript` - Modifies permissions of the snapshots specified to share it with the accounts specified. 
+
+1.  `aws:executeScript` - Modifies permissions of the snapshots to change them from `Public` to `Private` . 
+
+ **Outputs** 
 
 ValidateSnapshots.EncryptedSnapshots
 

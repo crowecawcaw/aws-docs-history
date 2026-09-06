@@ -1,11 +1,13 @@
+
+
 # `AWSConfigRemediation-RotateSecret`
+<a name="automation-aws-rotate-secret"></a>
 
-**Description**
+ **Description** 
 
-The `AWSConfigRemediation-RotateSecret` runbook rotates a secret
-stored in AWS Secrets Manager.
+ The `AWSConfigRemediation-RotateSecret` runbook rotates a secret stored in AWS Secrets Manager. 
 
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RotateSecret "https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RotateSecret")
+ [Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSConfigRemediation-RotateSecret) 
 
 **Document type**
 
@@ -20,51 +22,38 @@ Amazon
 Linux, macOS, Windows
 
 **Parameters**
++ AutomationAssumeRole
 
-- AutomationAssumeRole
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf.
++ RotationInterval
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
-(IAM) role that allows Systems Manager Automation to perform the actions on your
-behalf.
+  Type: Interval
 
-- RotationInterval
+  Valid values: 1-365
 
-Type: Interval
+  Description: (Required) The number of days between rotations of the secret.
++ RotationLambdaArn
 
-Valid values: 1-365
+  Type: String
 
-Description: (Required) The number of days between rotations of the
-secret.
+  Description: (Required) The Amazon Resource Name (ARN) of the AWS Lambda funtion that can rotate the secret.
++ SecretId
 
-- RotationLambdaArn
+  Type: String
 
-Type: String
+  Description: (Required) The Amazon Resource Name (ARN) of the secret you want to rotate.
 
-Description: (Required) The Amazon Resource Name (ARN) of the AWS Lambda
-funtion that can rotate the secret.
-
-- SecretId
-
-Type: String
-
-Description: (Required) The Amazon Resource Name (ARN) of the secret you
-want to rotate.
 **Required IAM permissions**
 
-The `AutomationAssumeRole` parameter requires the following actions to
-use the runbook successfully.
+The `AutomationAssumeRole` parameter requires the following actions to use the runbook successfully.
++  `ssm:StartAutomationExecution` 
++  `ssm:GetAutomationExecution` 
++  `lambda:InvokeFunction` 
++  `secretsmanager:DescribeSecret` 
++  `secretsmanager:RotateSecret` 
 
-- `ssm:StartAutomationExecution`
-- `ssm:GetAutomationExecution`
-- `lambda:InvokeFunction`
-- `secretsmanager:DescribeSecret`
-- `secretsmanager:RotateSecret`
-
-**Document Steps**
-
-- `aws:executeAwsApi` - Rotates the secret you specify in the
-  `SecretId` parameter.
-- `aws:executeScript` - Verifies rotation has been enabled on the
-  secret.
+ **Document Steps** 
++  `aws:executeAwsApi` - Rotates the secret you specify in the `SecretId` parameter. 
++  `aws:executeScript` - Verifies rotation has been enabled on the secret. 

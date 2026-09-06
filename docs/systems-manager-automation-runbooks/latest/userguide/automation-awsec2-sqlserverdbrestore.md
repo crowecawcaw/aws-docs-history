@@ -1,28 +1,18 @@
+
+
 # `AWSEC2-SQLServerDBRestore`
+<a name="automation-awsec2-sqlserverdbrestore"></a>
 
 **Description**
 
-The `AWSEC2-SQLServerDBRestore` runbook restores Microsoft SQL Server
-database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud (EC2)
-Linux instance. You may provide your own EC2 instance running SQL Server 2017 Linux.
-If an EC2 instance is not provided, the automation launches and configures a new
-Ubuntu 16.04 EC2 instance with SQL Server 2017. The automation supports restoring
-full, differential, and transactional log backups. This automation accepts multiple
-database backup files and automatically restores the most recent valid backup of
-each database in the files provided.
+The `AWSEC2-SQLServerDBRestore` runbook restores Microsoft SQL Server database backups stored in Amazon S3 to SQL Server 2017 running on an Amazon Elastic Compute Cloud (EC2) Linux instance. You may provide your own EC2 instance running SQL Server 2017 Linux. If an EC2 instance is not provided, the automation launches and configures a new Ubuntu 16.04 EC2 instance with SQL Server 2017. The automation supports restoring full, differential, and transactional log backups. This automation accepts multiple database backup files and automatically restores the most recent valid backup of each database in the files provided.
 
-To automate both backup and restore of an on-premises SQL Server database to an
-EC2 instance running SQL Server 2017 Linux, you can use the AWS-signed PowerShell
-script [`MigrateSQLServerToEC2Linux`](https://awsec2-server-upgrade-prod.s3.us-west-1.amazonaws.com/MigrateSQLServerToEC2Linux.ps1 "https://awsec2-server-upgrade-prod.s3.us-west-1.amazonaws.com/MigrateSQLServerToEC2Linux.ps1").
+To automate both backup and restore of an on-premises SQL Server database to an EC2 instance running SQL Server 2017 Linux, you can use the AWS-signed PowerShell script [`MigrateSQLServerToEC2Linux`](https://awsec2-server-upgrade-prod.s3.us-west-1.amazonaws.com/MigrateSQLServerToEC2Linux.ps1).
 
-###### Important
+**Important**  
+This runbook resets the SQL Server server administrator (SA) user password every time the automation runs. After the automation is complete, you must set your own SA user password again before you connect to the SQL Server instance.
 
-This runbook resets the SQL Server server administrator (SA) user password
-every time the automation runs. After the automation is complete, you must set
-your own SA user password again before you connect to the SQL Server
-instance.
-
-[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-SQLServerDBRestore "https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-SQLServerDBRestore")
+[Run this Automation (console)](https://console.aws.amazon.com/systems-manager/automation/execute/AWSEC2-SQLServerDBRestore)
 
 **Document Type**
 
@@ -37,202 +27,169 @@ Amazon
 Linux
 
 ## Prerequisites
+<a name="sql-server-db-restore-prerequisites"></a>
 
 To run this automation, you must meet the following prerequisites:
-
-- The IAM user or role that runs this automation must have
-  an inline policy attached with the permissions outlined in
-  [Required IAM permissions](#sql-server-db-restore-policy "#sql-server-db-restore-policy").
-- If you provide your own EC2 instance:
-
-  - The EC2 instance that you provide must be a Linux instance
-    running Microsoft SQL Server 2017.
-  - The EC2 instance that you provide must be configured with an
-    AWS Identity and Access Management (IAM) instance profile that has the
-    `AmazonSSMManagedInstanceCore` managed policy attached.
-    For more information, see [Create an IAM
-    instance profile for Systems Manager](../../../systems-manager/latest/userguide/setup-instance-profile.md "../../../systems-manager/latest/userguide/setup-instance-profile.md").
-  - The SSM Agent must be installed on your EC2 instance. For more
-    information, see [Installing and
-    configuring SSM Agent on EC2 instances for Linux](../../../systems-manager/latest/userguide/sysman-install-ssm-agent.md "../../../systems-manager/latest/userguide/sysman-install-ssm-agent.md").
-  - The EC2 instance must have enough free disk space to
-    download and restore the SQL Server backups.
++ The IAM user or role that runs this automation must have an inline policy attached with the permissions outlined in [Required IAM permissions](#sql-server-db-restore-policy).
++ If you provide your own EC2 instance:
+  + The EC2 instance that you provide must be a Linux instance running Microsoft SQL Server 2017.
+  + The EC2 instance that you provide must be configured with an AWS Identity and Access Management (IAM) instance profile that has the `AmazonSSMManagedInstanceCore` managed policy attached. For more information, see [Create an IAM instance profile for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-instance-profile.html).
+  + The SSM Agent must be installed on your EC2 instance. For more information, see [Installing and configuring SSM Agent on EC2 instances for Linux](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html).
+  + The EC2 instance must have enough free disk space to download and restore the SQL Server backups.
 
 ## Limitations
+<a name="sql-server-db-restore-limitations"></a>
 
-This automation does not support restoring to SQL Server running on EC2 instances
-for Windows Server. This automation only restores database backups that are compatible
-with SQL Server Linux 2017. For more information, see [Editions and Supported Features of SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-editions-and-components-2017?view=sql-server-2017 "https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-editions-and-components-2017?view=sql-server-2017").
+This automation does not support restoring to SQL Server running on EC2 instances for Windows Server. This automation only restores database backups that are compatible with SQL Server Linux 2017. For more information, see [Editions and Supported Features of SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-editions-and-components-2017?view=sql-server-2017).
 
 ## Parameters
+<a name="sql-server-db-restore-parameters"></a>
 
 This automation has the following parameters:
++ **DatabaseNames**
 
-- **DatabaseNames**
+  Type: String
 
-Type: String
+  Description: (Optional) Comma-separated list of the names of databases to restore.
++ **DataDirectorySize**
 
-Description: (Optional) Comma-separated list of the names of databases to
-restore.
+  Type: String
 
-- **DataDirectorySize**
+  Description: (Optional) Desired volume size (GiB) of the SQL Server Data directory for the new EC2 instance.
 
-Type: String
+  Default value: 100
++ **KeyPair**
 
-Description: (Optional) Desired volume size (GiB) of the SQL Server Data
-directory for the new EC2 instance.
+  Type: String
 
-Default value: 100
+  Description: (Optional) Key pair to use when creating the new EC2 instance.
++ **IamInstanceProfileName**
 
-- **KeyPair**
+  Type: String
 
-Type: String
+  Description: (Optional) The IAM instance profile to attach to the new EC2 instance. The IAM instance profile must have the `AmazonSSMManagedInstanceCore` managed policy attached.
++ **InstanceId**
 
-Description: (Optional) Key pair to use when creating the new EC2
-instance.
+  Type: String
 
-- **IamInstanceProfileName**
+  Description: (Optional) The instance running SQL Server 2017 on Linux. If no InstanceId is provided, the automation launches a new EC2 instance using the InstanceType and SQLServerEdition provided.
++ **InstanceType**
 
-Type: String
+  Type: String
 
-Description: (Optional) The IAM instance profile to attach to the new
-EC2 instance. The IAM instance profile must have the
-`AmazonSSMManagedInstanceCore` managed policy
-attached.
+  Description: (Optional) The instance type of the EC2 instance to be launched.
++ **IsS3PresignedUrl**
 
-- **InstanceId**
+  Type: String
 
-Type: String
+  Description: (Optional) If S3Input is a pre-signed S3 URL, indicate `yes`.
 
-Description: (Optional) The instance running SQL Server 2017 on Linux. If
-no InstanceId is provided, the automation launches a new EC2 instance using
-the InstanceType and SQLServerEdition provided.
+  Default value: no
 
-- **InstanceType**
+  Valid values: yes \| no 
++ **LogDirectorySize**
 
-Type: String
+  Type: String
 
-Description: (Optional) The instance type of the EC2 instance to be
-launched.
+  Description: (Optional) Desired volume size (GiB) of the SQL Server Log directory for the new EC2 instance.
 
-- **IsS3PresignedUrl**
+  Default value: 100
++ **S3Input**
 
-Type: String
+  Type: String
 
-Description: (Optional) If S3Input is a pre-signed S3 URL, indicate
-`yes`.
+  Description: (Required) S3 bucket name, comma-separated list of S3 object keys, or comma-separated list of pre-signed S3 URLs containing the SQL backup files to be restored.
++ **SQLServerEdition**
 
-Default value: no
+  Type: String
 
-Valid values: yes | no
+  Description: (Optional) The edition of SQL Server 2017 to be installed on the newly created EC2 instance.
 
-- **LogDirectorySize**
+  Valid values: Standard \| Enterprise \| Web \| Express
++ **SubnetId**
 
-Type: String
+  Type: String
 
-Description: (Optional) Desired volume size (GiB) of the SQL Server Log
-directory for the new EC2 instance.
+  Description: (Optional) The subnet in which to launch the new EC2 instance. The subnet must have outbound connectivity to AWS services. If a value for SubnetId is not provided, the automation uses the default subnet.
++ **TempDbDirectorySize**
 
-Default value: 100
+  Type: String
 
-- **S3Input**
+  Description: (Optional) Desired volume size (GiB) of the SQL Server TempDB directory for the new EC2 instance.
 
-Type: String
-
-Description: (Required) S3 bucket name, comma-separated list of S3 object
-keys, or comma-separated list of pre-signed S3 URLs containing the SQL
-backup files to be restored.
-
-- **SQLServerEdition**
-
-Type: String
-
-Description: (Optional) The edition of SQL Server 2017 to be installed on
-the newly created EC2 instance.
-
-Valid values: Standard | Enterprise | Web | Express
-
-- **SubnetId**
-
-Type: String
-
-Description: (Optional) The subnet in which to launch the new EC2
-instance. The subnet must have outbound connectivity to AWS services. If a
-value for SubnetId is not provided, the automation uses the default
-subnet.
-
-- **TempDbDirectorySize**
-
-Type: String
-
-Description: (Optional) Desired volume size (GiB) of the SQL Server TempDB
-directory for the new EC2 instance.
-
-Default value: 100
+  Default value: 100
 
 ## Required IAM permissions
+<a name="sql-server-db-restore-policy"></a>
 
-The `AutomationAssumeRole` parameter requires the following actions to
-successfully use the runbook.
+The `AutomationAssumeRole` parameter requires the following actions to successfully use the runbook.
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ec2:CreateTags",
- "ec2:DescribeImages",
- "ec2:DescribeInstanceStatus",
- "ec2:DescribeInstances",
- "ec2:RebootInstances",
- "ec2:RunInstances",
- "ssm:DescribeInstanceInformation",
- "ssm:GetAutomationExecution",
- "ssm:ListCommandInvocations",
- "ssm:ListCommands",
- "ssm:SendCommand",
- "ssm:StartAutomationExecution"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": "iam:PassRole",
- "Resource": "arn:aws:iam::`111122223333`:role/`ROLENAME`"
- }
- ]
-}`
+****  
 
 ```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateTags",
+                "ec2:DescribeImages",
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeInstances",
+                "ec2:RebootInstances",
+                "ec2:RunInstances",
+                "ssm:DescribeInstanceInformation",
+                "ssm:GetAutomationExecution",
+                "ssm:ListCommandInvocations",
+                "ssm:ListCommands",
+                "ssm:SendCommand",
+                "ssm:StartAutomationExecution"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{ROLENAME}}"
+        }
+    ]
+}
+```
+
+------
 
 ## Document Steps
+<a name="sql-server-db-restore-steps"></a>
 
 To use this automation, follow the steps that apply to your instance type:
 
 **For new EC2 instances:**
 
-1. `aws:executeAwsApi` - Retrieve the AMI ID for SQL Server 2017 on Ubuntu
-   16.04.
-2. `aws:runInstances` - Launch a new EC2 instance for Linux.
-3. `aws:waitForAwsResourceProperty` - Wait for the newly created EC2 instance
-   to be ready.
-4. `aws:executeAwsApi` - Reboot the instance if the instance is not
-   ready.
-5. `aws:assertAwsResourceProperty` - Verify that SSM Agent is installed.
-6. `aws:runCommand` - Run the SQL Server restore script in PowerShell.
+1. `aws:executeAwsApi` - Retrieve the AMI ID for SQL Server 2017 on Ubuntu 16.04.
+
+1. `aws:runInstances` - Launch a new EC2 instance for Linux.
+
+1. `aws:waitForAwsResourceProperty` - Wait for the newly created EC2 instance to be ready.
+
+1. `aws:executeAwsApi` - Reboot the instance if the instance is not ready.
+
+1. `aws:assertAwsResourceProperty` - Verify that SSM Agent is installed.
+
+1. `aws:runCommand` - Run the SQL Server restore script in PowerShell.
 
 **For existing EC2 instances:**
 
-1. `aws:waitForAwsResourceProperty` - Verify that the EC2 instance is
-   ready.
-2. `aws:executeAwsApi` - Reboot the instance if the instance is not
-   ready.
-3. `aws:assertAwsResourceProperty` - Verify that SSM Agent is installed.
-4. `aws:runCommand` - Run the SQL Server restore script in PowerShell.
+1. `aws:waitForAwsResourceProperty` - Verify that the EC2 instance is ready.
+
+1. `aws:executeAwsApi` - Reboot the instance if the instance is not ready.
+
+1. `aws:assertAwsResourceProperty` - Verify that SSM Agent is installed.
+
+1. `aws:runCommand` - Run the SQL Server restore script in PowerShell.
 
 **Outputs**
 
