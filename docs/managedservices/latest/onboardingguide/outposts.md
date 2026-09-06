@@ -1,27 +1,20 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Outposts in your AMS account
+<a name="outposts"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access AWS Outposts capabilities directly in your AMS managed account. AWS Outposts is a fully managed service that extends AWS infrastructure, AWS services, APIs, and tools to virtually
-any datacenter, co-location space, or on-premises facility for a consistent hybrid experience.
-AWS Outposts is good for workloads that require low latency access to on-premises systems, local data processing,
-or local data storage.
-To learn more, see [AWS Outposts](https://aws.amazon.com/outposts/ "https://aws.amazon.com/outposts/").
+Use AMS Self-Service Provisioning (SSP) mode to access AWS Outposts capabilities directly in your AMS managed account. AWS Outposts is a fully managed service that extends AWS infrastructure, AWS services, APIs, and tools to virtually any datacenter, co-location space, or on-premises facility for a consistent hybrid experience. AWS Outposts is good for workloads that require low latency access to on-premises systems, local data processing, or local data storage. To learn more, see [AWS Outposts](https://aws.amazon.com/outposts/).
 
 ## AWS Outposts in AWS Managed Services FAQ
+<a name="set-outposts-faqs"></a>
 
 Common questions and answers:
 
 **Q: How do I request AWS Outposts to be set up in my AMS account?**
 
-Request access to AWS Outposts by submitting an RFC with the Management | AWS service | Self-provisioned
-service | Add (ct-1w8z66n899dct) change type.
-This RFC provisions the following IAM role to your account: `customer_outposts_role`.
-Once the role is provisioned in your account, you must onboard it in your
-federation solution.
+Request access to AWS Outposts by submitting an RFC with the Management \| AWS service \| Self-provisioned service \| Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM role to your account: `customer_outposts_role`. Once the role is provisioned in your account, you must onboard it in your federation solution.
 
 **Q: What are the restrictions to using AWS Outposts in my AMS account?**
 

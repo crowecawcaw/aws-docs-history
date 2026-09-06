@@ -1,62 +1,51 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Configuring federation to the AMS console (SALZ)
+<a name="fed-with-console"></a>
 
-The IAM roles and SAML identity provider (Trusted Entity) detailed in the following table have been provisioned as part of your
-account onboarding.
-These roles allow you to submit and monitor RFCs, service requests, and incident reports, as well as get information on your VPCs
-and stacks.
+The IAM roles and SAML identity provider (Trusted Entity) detailed in the following table have been provisioned as part of your account onboarding. These roles allow you to submit and monitor RFCs, service requests, and incident reports, as well as get information on your VPCs and stacks.
 
-| Role                              | Identity Provider | Permissions                                                                                                                                           |
-| --------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Customer\_ReadOnly\_Role          | SAML              | For standard AMS accounts. Allows you to submit RFCs to make changes to AMS-managed infrastructure, as well as create service requests and incidents. |
-| customer\_managed\_ad\_user\_role | SAML              | For AMS Managed Active Directory accounts. Allows you to login to the AMS Console to create service requests and incidents (no RFCs).                 |
 
-For the full list of the roles available under different accounts see
-[IAM user role in AMS](defaults-user-role.md "defaults-user-role.md").
 
-A member of the onboarding team uploads the metadata file from your federation solution to the pre-configured identity provider.
-You use a SAML identity provider when you want to establish trust between a SAML-compatible IdP (identity provider) such as Shibboleth or
-Active Directory Federation Services, so that users in your organization can access AWS resources. SAML identity providers in IAM are used
-as principals in an IAM trust policy with the above roles.
+| Role | Identity Provider | Permissions | 
+| --- | --- | --- | 
+| Customer\_ReadOnly\_Role | SAML | For standard AMS accounts. Allows you to submit RFCs to make changes to AMS-managed infrastructure, as well as create service requests and incidents. | 
+| customer\_managed\_ad\_user\_role | SAML | For AMS Managed Active Directory accounts. Allows you to login to the AMS Console to create service requests and incidents (no RFCs). | 
 
-While other federation solutions provide integration instructions for AWS, AMS has separate instructions.
-Using the following blog post, [Enabling Federation to AWS Using Windows Active Directory, AD FS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/ "https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/"), along with the
-amendments given below, will enable your corporate users to access multiple AWS accounts from a single browser.
+For the full list of the roles available under different accounts see [IAM user role in AMS](defaults-user-role.md).
+
+A member of the onboarding team uploads the metadata file from your federation solution to the pre-configured identity provider. You use a SAML identity provider when you want to establish trust between a SAML-compatible IdP (identity provider) such as Shibboleth or Active Directory Federation Services, so that users in your organization can access AWS resources. SAML identity providers in IAM are used as principals in an IAM trust policy with the above roles.
+
+While other federation solutions provide integration instructions for AWS, AMS has separate instructions. Using the following blog post, [ Enabling Federation to AWS Using Windows Active Directory, AD FS, and SAML 2.0](https://aws.amazon.com/blogs/security/enabling-federation-to-aws-using-windows-active-directory-adfs-and-saml-2-0/), along with the amendments given below, will enable your corporate users to access multiple AWS accounts from a single browser.
 
 After creating the relying party trust as per the blog post, configure the claims rules in the following way:
++ **NameId**: Follow the blog post.
++ **RoleSessionName**: Use the following values:
+  + **Claim rule name**: RoleSessionName
+  + **Attribute store**: Active Directory
+  + **LDAP Attribute**: SAM-Account-Name
+  + **Outgoing Claim Type**: https://aws.amazon.com/SAML/Attributes/RoleSessionName
++ Get AD Groups: Follow the blog post.
++ Role claim: Follow the blog post, but for the Custom rule, use this:
 
-- **NameId**: Follow the blog post.
-- **RoleSessionName**: Use the following values:
+  ```
+  c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([^d]{12})-"]
+   => issue(Type = "https://aws.amazon.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "AWS-([^d]{12})-", 
+   "arn:aws:iam::$1:saml-provider/customer-readonly-saml,arn:aws:iam::$1:role/"));
+  ```
 
-  - **Claim rule name**: RoleSessionName
-  - **Attribute store**: Active Directory
-  - **LDAP Attribute**: SAM-Account-Name
-  - **Outgoing Claim Type**: https://aws.amazon.com/SAML/Attributes/RoleSessionName
+When using AD FS, you must create Active Directory security groups for each role in the format shown in the following table (customer\_managed\_ad\_user\_role is for AMS Managed AD accounts only):
 
-- Get AD Groups: Follow the blog post.
-- Role claim: Follow the blog post, but for the Custom rule, use this:
 
-```
-c:[Type == "http://temp/variable", Value =~ "(?i)^AWS-([^d]{12})-"]
- => issue(Type = "https://aws.amazon.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "AWS-([^d]{12})-",
- "arn:aws:iam::$1:saml-provider/customer-readonly-saml,arn:aws:iam::$1:role/"));
 
-```
+| Group | Role | 
+| --- | --- | 
+| AWS-[AccountNo]-Customer\_ReadOnly\_Role | Customer\_ReadOnly\_Role | 
+| AWS-[AccountNo]-customer\_managed\_ad\_user\_role | customer\_managed\_ad\_user\_role | 
 
-When using AD FS, you must create Active Directory security groups for each
-role in the format shown in the following table (customer\_managed\_ad\_user\_role is for AMS Managed AD accounts only):
+For further information, see [ Configuring SAML Assertions for the Authentication Response](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html).
 
-| Group                                             | Role                              |
-| ------------------------------------------------- | --------------------------------- |
-| AWS-[AccountNo]-Customer\_ReadOnly\_Role          | Customer\_ReadOnly\_Role          |
-| AWS-[AccountNo]-customer\_managed\_ad\_user\_role | customer\_managed\_ad\_user\_role |
-
-For further information, see [Configuring SAML Assertions for the Authentication Response](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.md").
-
-###### Tip
-
+**Tip**  
 To help with troubleshooting, download the SAML tracer plugin for your browser.

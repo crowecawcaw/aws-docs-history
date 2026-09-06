@@ -1,20 +1,19 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # EC2 instance tag and defaults
+<a name="ec2-instance-tag-and-defaults"></a>
 
 The **EC2 stack backup tag** specifies whether the stack requires a snapshot of the attached EBS volumes or not.
 
-Tag`Key: Backup`
+Tag` Key: Backup`
 
-Tag`Value: True, False`
+Tag` Value: True, False`
 
-By default, the value is `False` the backup tag is not present, and the stack does not have scheduled backups.
+By default, the value is `False` the backup tag is not present, and the stack does not have scheduled backups. 
 
 Change the tag `Key: Backup` to `Value: True` to enable backups, which are then done on the schedule set with the VPC backup tag.
 
-###### Note
-
+**Note**  
 The casing for the tag value (Value only) is insensitive, so True/true or False/false are all acceptable.

@@ -1,14 +1,13 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Establish an Active Directory (AD) trust
+<a name="establish-ad-trust"></a>
 
 Before you begin to establish an Active Directory (AD) trust for your AWS Managed Services (AMS) account, make sure that the appropriate firewall ports are open.
 
-The trust from the AMS-managed Active Directory and your corporate directory service allows you to use your corporate-managed credentials
-to access AMS-managed instances to perform development, test, or administrative functions.
+The trust from the AMS-managed Active Directory and your corporate directory service allows you to use your corporate-managed credentials to access AMS-managed instances to perform development, test, or administrative functions.
 
 Creating a trust connection is a two-part exercise:
 

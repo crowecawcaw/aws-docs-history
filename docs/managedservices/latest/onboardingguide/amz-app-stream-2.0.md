@@ -1,92 +1,51 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision Amazon WorkSpaces Applications in your AMS account
+<a name="amz-app-stream-2.0"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access Amazon WorkSpaces Applications (WorkSpaces Applications) capabilities directly in your AMS managed account. WorkSpaces Applications lets you move your desktop applications
-to AWS, without rewriting them.
-You can install your applications on WorkSpaces Applications, set launch configurations, and make your
-applications available to users. WorkSpaces Applications offers a wide selection of virtual machine options
-so that you can select the instance type that best matches your application requirements,
-and set the auto-scale parameters so that you can easily meet the needs of your end users.
-WorkSpaces Applications enables you to launch applications in your own network, which means your applications
-can interact with your existing AWS resources.
+Use AMS Self-Service Provisioning (SSP) mode to access Amazon WorkSpaces Applications (WorkSpaces Applications) capabilities directly in your AMS managed account. WorkSpaces Applications lets you move your desktop applications to AWS, without rewriting them. You can install your applications on WorkSpaces Applications, set launch configurations, and make your applications available to users. WorkSpaces Applications offers a wide selection of virtual machine options so that you can select the instance type that best matches your application requirements, and set the auto-scale parameters so that you can easily meet the needs of your end users. WorkSpaces Applications enables you to launch applications in your own network, which means your applications can interact with your existing AWS resources.
 
-Amazon WorkSpaces Applications enables you to quickly and easily install, test, and update your applications
-using the image builder. Any application that runs on Microsoft Windows Server 2012 R2,
-Windows Server 2016, or Windows Server 2019 is supported, and you don’t need to make any
-modifications. When your testing is complete, you can set application launch configurations,
-default user settings, and publish your image for users to access.
+Amazon WorkSpaces Applications enables you to quickly and easily install, test, and update your applications using the image builder. Any application that runs on Microsoft Windows Server 2012 R2, Windows Server 2016, or Windows Server 2019 is supported, and you don’t need to make any modifications. When your testing is complete, you can set application launch configurations, default user settings, and publish your image for users to access.
 
-To learn more, see
-[WorkSpaces Applications](https://aws.amazon.com/appstream2/ "https://aws.amazon.com/appstream2/").
+To learn more, see [WorkSpaces Applications](https://aws.amazon.com/appstream2/).
 
 ## WorkSpaces Applications in AWS Managed Services FAQ
+<a name="set-amz-app-stream-2.0-faqs"></a>
 
 **Q: How do I request access to WorkSpaces Applications in my AMS account?**
 
-Request access to WorkSpaces Applications by submitting an RFC with the
-Management | AWS service | Self-provisioned service | Add (ct-3qe6io8t6jtny) change type.
-This RFC provisions the following IAM role to your account:
-`customer_appstream_console_role`.
+Request access to WorkSpaces Applications by submitting an RFC with the Management \| AWS service \| Self-provisioned service \| Add (ct-3qe6io8t6jtny) change type. This RFC provisions the following IAM role to your account: `customer_appstream_console_role`.
 
-A `customer_appstream_stream_role` is also deployed to stream applications
-that require users to be authenticated using their Active Directory login credentials.
+A `customer_appstream_stream_role` is also deployed to stream applications that require users to be authenticated using their Active Directory login credentials.
 
 Once provisioned in your account, you must onboard the roles in your federation solution.
 
 **Q: What are the restrictions to using WorkSpaces Applications in my AMS account?**
-
-- The following functionality must be configured by the AMS Support team, and requires
-  specific RFCs. Instruction on requesting additional functionality can be found in section 4.
-
-  - Creating and Streaming from Interface VPC Endpoints.
-  - Support for Amazon S3 endpoints for home folders and application setting persistence on a private network.
-  - Creating and choosing the IAM role that will be available on all fleet streaming instances.
-  - Joining WorkSpaces Applications fleets and image builders Microsoft Active Directory domains.
-  - Creating WorkSpaces Applications Custom Usage Reports.
-  - Custom branding is currently not supported.
++ The following functionality must be configured by the AMS Support team, and requires specific RFCs. Instruction on requesting additional functionality can be found in section 4.
+  + Creating and Streaming from Interface VPC Endpoints.
+  + Support for Amazon S3 endpoints for home folders and application setting persistence on a private network.
+  + Creating and choosing the IAM role that will be available on all fleet streaming instances.
+  + Joining WorkSpaces Applications fleets and image builders Microsoft Active Directory domains.
+  + Creating WorkSpaces Applications Custom Usage Reports.
+  + Custom branding is currently not supported. 
 
 **Q: What are the prerequisites or dependencies to using WorkSpaces Applications in my AMS account?**
 
-While submitting the RFC to onboard WorkSpaces Applications, include the Amazon S3 bucket name to be used for the WorkSpaces Applications usage report. The bucket name is added to the
-`customer-appstream-usagereports-policy` that is created when WorkSpaces Applications is onboarded.
+While submitting the RFC to onboard WorkSpaces Applications, include the Amazon S3 bucket name to be used for the WorkSpaces Applications usage report. The bucket name is added to the `customer-appstream-usagereports-policy` that is created when WorkSpaces Applications is onboarded.
 
 **Q: What WorkSpaces Applications functionality requires separate RFCs?**
++ In order to choose an interface VPC endpoint for WorkSpaces Applications, submit a Management \| Other \| Other \| Update change type RFC to create a VPC endpoint in your account. For steps to create custom endpoints for WorkSpaces Applications, see [ Creating and Streaming from Interface VPC Endpoints](https://docs.aws.amazon.com/appstream2/latest/developerguide/creating-streaming-from-interface-vpc-endpoints.html) in the WorkSpaces Applications user guide. 
++ Support for Amazon S3 endpoints for home folders and application setting persistence on a private network can be configured by requesting Amazon S3 VPC endpoints with a Management \| Other \| Other \| Create change type RFC. The RFC must include the target Amazon S3 bucket hosting the home folder contents, or application settings Amazon S3 buckets, respectively. This RFC will provide WorkSpaces Applications the permissions it needs to access Amazon S3 VPC endpoints. For steps to create custom endpoints for streams, see [ Using Amazon S3 VPC Endpoints for Home Folders and Application Settings Persistence](https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-network-vpce-iam-policy.html) in the WorkSpaces Applications user guide.
++ In order to create and choose an IAM role that will be available on all fleet streaming instances, submit a Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create entity or policy (managed automation) change type (ct-3dpd8mdd9jn1r) RFC requesting the IAM role with the required policy. The IAM role name should always start with prefix : "customer\_appstream". 
++ Amazon WorkSpaces Applications fleets and image builders can be joined to domains in Microsoft Active Directory by submitting a Management \| Other \| Other \| Update change type RFC for the Service Account creation in Active Directory (AD). Minimal permissions required to join Microsoft Active Directory are defined in the WorkSpaces Applications documentation at [ Granting Permissions to Create and Manage Active Directory Computer Objects](https://docs.aws.amazon.com/appstream2/latest/developerguide/active-directory-admin.html#active-directory-permissions).
++ In order to create custom WorkSpaces Applications Usage Reports, submit a Management \| Other \| Other \| Create change type RFC requesting following:
+  + "AppStreamUsageReports" CFN stack creation
+  + "customer\_appstream\_usagereports\_role" be provisioned in the account
+  + Also, provide the following details:
+    + Provide CRON expression to schedule Crawler run. By default it is 23:00 UTC everyday.
+    + Amazon S3 bucket ARN to be used for Athena query results. This bucket should have prefix: `aws-athena-query-results`
+    + Amazon S3 bucket ARN for WorkSpaces Applications Usage Reports Logs. 
 
-- In order to choose an interface VPC endpoint for WorkSpaces Applications, submit a Management | Other | Other |
-  Update change type RFC to create a VPC endpoint in your account. For
-  steps to create custom endpoints for WorkSpaces Applications, see
-  [Creating and Streaming from Interface VPC Endpoints](../../../appstream2/latest/developerguide/creating-streaming-from-interface-vpc-endpoints.md "../../../appstream2/latest/developerguide/creating-streaming-from-interface-vpc-endpoints.md") in the WorkSpaces Applications user guide.
-- Support for Amazon S3 endpoints for home folders and application setting persistence on a private
-  network can be configured by requesting Amazon S3 VPC endpoints with a
-  Management | Other | Other | Create change type RFC. The RFC must
-  include the target Amazon S3 bucket hosting the home folder contents, or
-  application settings Amazon S3 buckets, respectively. This RFC will provide
-  WorkSpaces Applications the permissions it needs to access Amazon S3 VPC endpoints.
-  For steps to create custom endpoints for streams, see
-  [Using Amazon S3 VPC Endpoints for Home Folders and Application Settings Persistence](../../../appstream2/latest/developerguide/managing-network-vpce-iam-policy.md "../../../appstream2/latest/developerguide/managing-network-vpce-iam-policy.md") in the WorkSpaces Applications user guide.
-- In order to create and choose an IAM role that will be available on all fleet streaming
-  instances, submit a Deployment | Advanced stack components | Identity and Access Management (IAM) | Create entity or policy (managed automation) change type (ct-3dpd8mdd9jn1r)
-  RFC requesting the IAM role with the required policy. The IAM role
-  name should always start with prefix : "customer\_appstream".
-- Amazon WorkSpaces Applications fleets and image builders can be joined to domains in
-  Microsoft Active Directory by submitting a Management | Other | Other | Update change type
-  RFC for the Service Account creation in Active Directory (AD). Minimal permissions
-  required to join Microsoft Active Directory are defined in the WorkSpaces Applications documentation at
-  [Granting Permissions to Create and Manage Active Directory Computer Objects](../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions "../../../appstream2/latest/developerguide/active-directory-admin.md#active-directory-permissions").
-- In order to create custom WorkSpaces Applications Usage Reports, submit a Management | Other | Other | Create
-  change type RFC requesting following:
-
-  - "AppStreamUsageReports" CFN stack creation
-  - "customer\_appstream\_usagereports\_role" be provisioned in the account
-  - Also, provide the following details:
-
-    - Provide CRON expression to schedule Crawler run. By default it is 23:00 UTC everyday.
-    - Amazon S3 bucket ARN to be used for Athena query results. This bucket should have prefix: `aws-athena-query-results`
-    - Amazon S3 bucket ARN for WorkSpaces Applications Usage Reports Logs.
-      After the role is provisioned, onboard the role into your federation solution and login, then access AWS GlueAWS Glue and Athena for generating
-      custom reports using the usage report role. For details about using WorkSpaces Applications Usage Reports see
-      [Create Custom Reports and Analyze WorkSpaces Applications Usage Data](../../../appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.md "../../../appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.md"), in the WorkSpaces Applications documentation.
+  After the role is provisioned, onboard the role into your federation solution and login, then access AWS GlueAWS Glue and Athena for generating custom reports using the usage report role. For details about using WorkSpaces Applications Usage Reports see [ Create Custom Reports and Analyze WorkSpaces Applications Usage Data](https://docs.aws.amazon.com/appstream2/latest/developerguide/configure-custom-reports-analyze-usage-data.html), in the WorkSpaces Applications documentation.

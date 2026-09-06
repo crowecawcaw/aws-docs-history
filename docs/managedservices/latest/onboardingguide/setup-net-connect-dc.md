@@ -1,23 +1,27 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Direct Connect setup in AMS
+<a name="setup-net-connect-dc"></a>
 
 Set up a Direct Connect to communicate between your AMS-managed VPC and your internal network.
 
-###### Note
-
-For information about using Direct Connect with AWS services, see
-[Getting Started at an Direct Connect Location](../../../directconnect/latest/UserGuide/getstarted.md "../../../directconnect/latest/UserGuide/getstarted.md").
+**Note**  
+For information about using Direct Connect with AWS services, see [Getting Started at an Direct Connect Location](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html).
 
 To set up a Direct Connect connection, complete the following steps:
 
 1. Sign up for Amazon Web Services (AWS)
-2. Submit an Direct Connect connection request.
-3. Complete the Cross Connect.
-4. (Optional) Configure redundant connections with Direct Connect.
-5. Performed by AMS: Create a virtual interface.
-6. Performed by AMS: Download router configuration.
-7. Verify your virtual interface.
+
+1. Submit an Direct Connect connection request.
+
+1. Complete the Cross Connect.
+
+1. (Optional) Configure redundant connections with Direct Connect.
+
+1. Performed by AMS: Create a virtual interface.
+
+1. Performed by AMS: Download router configuration.
+
+1. Verify your virtual interface.

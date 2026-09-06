@@ -1,37 +1,23 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Elemental MediaStore in your AMS account
+<a name="elemental-media-store"></a>
 
-###### Note
+**Note**  
+After careful consideration, AWS has made the decision to discontinue MediaStore, effective November 13, 2025. If you are an active customer of MediaStore, you can use MediaStore as normal until November 13, 2025, when support for the service will end. After this date, you will no longer be able to use MediaStore or any of the capabilities provided by this service.
 
-After careful consideration, AWS has made the decision to discontinue MediaStore, effective November 13, 2025. If you are an active customer of
-MediaStore, you can use MediaStore as normal until November 13, 2025, when support for the service will end. After this date, you will no longer be able to use
-MediaStore or any of the capabilities provided by this service.
-
-Use AMS Self-Service Provisioning (SSP) mode to access AWS Elemental MediaStore capabilities directly in your AMS managed account. AWS Elemental MediaStore is an AWS storage service optimized for media. It gives you the performance, consistency, and
-low latency required to deliver live streaming video content. AWS Elemental MediaStore acts as the origin store in your
-video workflow. Its high performance capabilities meet the needs of the most demanding media delivery
-workloads, combined with long-term, cost-effective storage.
-To learn more, see [AWS Elemental MediaStore](https://aws.amazon.com/mediastore/ "https://aws.amazon.com/mediastore/").
+Use AMS Self-Service Provisioning (SSP) mode to access AWS Elemental MediaStore capabilities directly in your AMS managed account. AWS Elemental MediaStore is an AWS storage service optimized for media. It gives you the performance, consistency, and low latency required to deliver live streaming video content. AWS Elemental MediaStore acts as the origin store in your video workflow. Its high performance capabilities meet the needs of the most demanding media delivery workloads, combined with long-term, cost-effective storage. To learn more, see [AWS Elemental MediaStore](https://aws.amazon.com/mediastore/).
 
 ## MediaStore in AWS Managed Services FAQ
+<a name="elemental-media-store-faqs"></a>
 
 **Q: How do I request access to MediaStore in my AMS account?**
 
-Request access to MediaStore by submitting an RFC with the Management | AWS
-service | Self-provisioned service | Add (ct-1w8z66n899dct) change type.
-This RFC provisions the following IAM role to your account:
-`customer_mediastore_author_role`. As a part of this RFC, a
-second role is deployed into your account; `MediaStoreAccessLogs`
-role, which is used by the MediaStore service to log activity in CloudWatch, if
-you choose to enable that feature. After it's provisioned in your account,
-you must onboard the roles in your federation solution.
+Request access to MediaStore by submitting an RFC with the Management \| AWS service \| Self-provisioned service \| Add (ct-1w8z66n899dct) change type. This RFC provisions the following IAM role to your account: `customer_mediastore_author_role`. As a part of this RFC, a second role is deployed into your account; `MediaStoreAccessLogs` role, which is used by the MediaStore service to log activity in CloudWatch, if you choose to enable that feature. After it's provisioned in your account, you must onboard the roles in your federation solution.
 
-At this time, AMS Operations will also deploy this service role in your account:
-`aws_code_pipeline_service_role_policy`.
+At this time, AMS Operations will also deploy this service role in your account: `aws_code_pipeline_service_role_policy`.
 
 **Q: What are the restrictions to using MediaStore in my AMS account?**
 

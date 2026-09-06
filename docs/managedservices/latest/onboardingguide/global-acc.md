@@ -1,36 +1,25 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Global Accelerator in your AMS account
+<a name="global-acc"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access Global Accelerator capabilities directly in your AMS managed account. Global Accelerator is a network layer service in which you create accelerators to improve availability
-and performance for internet applications used by a global audience. To learn more, see
-[Global Accelerator](https://aws.amazon.com/global-accelerator/ "https://aws.amazon.com/global-accelerator/").
+Use AMS Self-Service Provisioning (SSP) mode to access Global Accelerator capabilities directly in your AMS managed account. Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for internet applications used by a global audience. To learn more, see [Global Accelerator](https://aws.amazon.com/global-accelerator/).
 
 ## Global Accelerator in AWS Managed Services FAQ
+<a name="set-global-acc-faqs"></a>
 
 Common questions and answers:
 
 **Q: How do I request Global Accelerator to be set up in my AMS account?**
 
-Request access through the submission of the AWS Services RFC (Management |
-AWS service | Self-provisioned Service). Through this RFC, the following IAM roles will be
-provisioned in your account: `customer_global_accelerator_console_role`.
-Once provisioned in your account you must onboard the console role in your federation
-solution.
+Request access through the submission of the AWS Services RFC (Management \| AWS service \| Self-provisioned Service). Through this RFC, the following IAM roles will be provisioned in your account: `customer_global_accelerator_console_role`. Once provisioned in your account you must onboard the console role in your federation solution.
 
 **Q: What are the restrictions to using Global Accelerator in my AMS account?**
 
-Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which
-are listed in the
-[AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+Global Accelerator is a global service that supports endpoints in multiple AWS Regions, which are listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
 **Q: What are the prerequisites or dependencies to using Global Accelerator in my AMS account?**
 
-When you set up your accelerator with Global Accelerator, you associate the static IP addresses
-to regional endpoints in one or more AWS Regions. For standard accelerators, the endpoints
-are Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic
-IP addresses. For custom routing accelerators, endpoints are virtual private cloud (VPC)
-subnets with one or more EC2 instances.
+When you set up your accelerator with Global Accelerator, you associate the static IP addresses to regional endpoints in one or more AWS Regions. For standard accelerators, the endpoints are Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses. For custom routing accelerators, endpoints are virtual private cloud (VPC) subnets with one or more EC2 instances.

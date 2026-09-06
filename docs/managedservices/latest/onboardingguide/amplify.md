@@ -1,21 +1,20 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Use AMS SSP to provision AWS Amplify in your AMS account
+<a name="amplify"></a>
 
-Use AMS Self-Service Provisioning (SSP) mode to access AWS Amplify capabilities directly in your AMS managed account. The AWS Amplify is a complete solution that allows frontend web and mobile developers to easily build, connect, and host fullstack applications. Amplify provides flexibility to leverage the breadth of AWS services as your use cases evolve. Amplify provides products to build fullstack iOS, Android, Flutter, Web, and React Native apps.
-To learn more, see
-[AWS Amplify](https://docs.amplify.aws/console "https://docs.amplify.aws/console").
+Use AMS Self-Service Provisioning (SSP) mode to access AWS Amplify capabilities directly in your AMS managed account. The AWS Amplify is a complete solution that allows frontend web and mobile developers to easily build, connect, and host fullstack applications. Amplify provides flexibility to leverage the breadth of AWS services as your use cases evolve. Amplify provides products to build fullstack iOS, Android, Flutter, Web, and React Native apps. To learn more, see [AWS Amplify](https://docs.amplify.aws/console).
 
 ## AWS Amplify in AWS Managed Services FAQ
+<a name="set-amplify-faqs"></a>
 
 Common questions and answers:
 
 **Q: How do I request AWS Amplify to be set up in my AMS account?**
 
-Request access by submitting a Management | AWS service | Self-provisioned service | Add (managed automation) (ct-3qe6io8t6jtny) change type. This RFC provisions the following IAM role to your account: `customer_amplify_console_role`. After provisioned to your account, you must onboard the role in your federation solution.
+Request access by submitting a Management \| AWS service \| Self-provisioned service \| Add (managed automation) (ct-3qe6io8t6jtny) change type. This RFC provisions the following IAM role to your account: `customer_amplify_console_role`. After provisioned to your account, you must onboard the role in your federation solution.
 
 Additionally, you must provide a Risk Acceptance because AWS Amplify has infrastructure-mutating permissions. To do this, work with your Cloud Service Delivery Manager (CSDM).
 
@@ -23,8 +22,7 @@ Additionally, you must provide a Risk Acceptance because AWS Amplify has infrast
 
 You must use `'amplify*'` as the prefix for your buckets when working with Amplify, unless RA and specified otherwise.
 
-**Q: What are the prerequisites or dependencies to using AWS Amplify in my
-AMS account?**
+**Q: What are the prerequisites or dependencies to using AWS Amplify in my AMS account?**
 
 There are no prerequisites for the use of AWS Amplify in your AMS account.
 

@@ -1,21 +1,28 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Active Directory name suffix routing
+<a name="setup-net-federate-ad-routing"></a>
 
 After the one-way forest trust has been established, complete the following steps to validate suffix routing:
 
-1. Under **Start > All Programs > Administrative Tools**,
-   click **Active Directory Domains and Trusts**.
+1. Under **Start > All Programs > Administrative Tools**, click **Active Directory Domains and Trusts**.
 
-The Active Directory Domains and Trusts console opens. 2. Right-click your corporate domain and click **Properties**
+   The Active Directory Domains and Trusts console opens.
 
-The Properties dialog for that domain opens. 3. Click the **Trusts** tab.
+1. Right-click your corporate domain and click **Properties**
 
-The Trusts page opens. 4. Click the Amazon domain name and click **Properties**.
+   The Properties dialog for that domain opens.
 
-The Properties page for the Amazon domain trust opens. 5. Click **Name Suffix Routing** and click **Refresh**.
+1. Click the **Trusts** tab.
 
-Make sure there are no conflicts to ensure that the Service Principal Names (SPNs) can resolve over the trust.
+   The Trusts page opens.
+
+1. Click the Amazon domain name and click **Properties**.
+
+   The Properties page for the Amazon domain trust opens.
+
+1. Click **Name Suffix Routing** and click **Refresh**.
+
+   Make sure there are no conflicts to ensure that the Service Principal Names (SPNs) can resolve over the trust.

@@ -1,42 +1,29 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Access: Bastions, SSH and RDP
+<a name="core-questions-bastion"></a>
++ SSH Bastion settings
 
-- SSH Bastion settings
+  AMS provides SSH bastions in your Shared Services account to access hosts in the AMS environment. In order to access the AMS network as an SSH user, you must use SSH Bastions as the entry point. The network path originates from the On-Prem network, goes through DX/VPN to the transit gateway (TGW), and then is routed to the Shared Services VPC. Once you are able to access the bastion, you can jump to other hosts in your AMS environment, provided that the proper access request has been granted.
+  + Desired instance count (2 recommended)
+  + Maximum instances (4 recommended)
+  + Minimum instances (2 recommended)
+  + Instance type (m5.large recommended)
+  + Ingress CIDRs: IP address ranges from which users in your network will access SSH Bastions (ip range 1, ip range 2, ip range 3, ... etc)
++ RDP Bastion settings
 
-AMS provides SSH bastions in your Shared Services account to access hosts in the AMS environment.
-In order to access the AMS network as an SSH user, you must use SSH Bastions as the entry point.
-The network path originates from the On-Prem network, goes through DX/VPN to the transit gateway (TGW), and then is routed to the Shared Services VPC.
-Once you are able to access the bastion, you can jump to other hosts in your AMS environment, provided that the proper access request has been granted.
+  AMS optionally provides RDP bastions in your Shared Services account to access hosts in the AMS environment. In order to access the AMS network as an RDP user, you must use RDP Bastions as the entry point. The network path originates from the On-Prem network, goes through DX/VPN to the TGW, and then is routed to Shared Services VPC. Once you are able to access the bastion, you can jump to other hosts in the AMS environment, provided that the proper access request has been granted.
+  + Instance type (t3.medium recommended)
+  + Desired minimum sessions (2 recommended)
+  + Desired maximum sessions (10 recommended)
++ RDP Bastion Configuration Type, Shared Standard or Shared HA (default is Shared Standard)
 
-    + Desired instance count (2 recommended)
-    + Maximum instances (4 recommended)
-    + Minimum instances (2 recommended)
-    + Instance type (m5.large recommended)
-    + Ingress CIDRs: IP address ranges from which users in
-     your network will access SSH Bastions (ip range 1, ip range 2, ip range 3, ... etc)
+  SecureStandard = A user receives one bastion and only one user can connect to the bastion.
 
-- RDP Bastion settings
+  SecureHA = A user receives two bastions in two different AZ's to connect to and only one user can connect to the bastion.
 
-AMS optionally provides RDP bastions in your Shared Services account to access hosts in the AMS environment.
-In order to access the AMS network as an RDP user, you must use RDP Bastions as the entry point.
-The network path originates from the On-Prem network, goes through DX/VPN to the TGW, and then is routed to Shared Services VPC.
-Once you are able to access the bastion, you can jump to other hosts in the AMS environment, provided that the proper access request has been granted.
+  SharedStandard = A user receives one bastion to connect to and two users can connect to the same bastion at once.
 
-    + Instance type (t3.medium recommended)
-    + Desired minimum sessions (2 recommended)
-    + Desired maximum sessions (10 recommended)
-
-- RDP Bastion Configuration Type, Shared Standard or Shared HA (default is Shared Standard)
-
-SecureStandard = A user receives one bastion and only one user can connect to the bastion.
-
-SecureHA = A user receives two bastions in two different AZ's to connect to and only one user can connect to the bastion.
-
-SharedStandard = A user receives one bastion to connect to and two users can connect to the same bastion at once.
-
-SharedHA = A user receives two bastions in two different AZ's to connect to and two users
-can connect to the same bastion at once.
+  SharedHA = A user receives two bastions in two different AZ's to connect to and two users can connect to the same bastion at once.

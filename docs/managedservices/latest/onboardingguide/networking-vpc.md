@@ -1,25 +1,14 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Egress VPC
+<a name="networking-vpc"></a>
 
-The Egress VPC is primarily used for egress traffic to the Internet and is
-composed of public/private subnets in up to three availability zones (AZs).
-Network address translation (NAT) gateways are provisioned in the public subnets, and transit gateway (TGW)
-VPC attachments are created in the private subnets. Egress, or outbound, internet traffic from all networks enter
-through the private subnet via TGW, where it is then routed to a NAT via VPC route tables.
+The Egress VPC is primarily used for egress traffic to the Internet and is composed of public/private subnets in up to three availability zones (AZs). Network address translation (NAT) gateways are provisioned in the public subnets, and transit gateway (TGW) VPC attachments are created in the private subnets. Egress, or outbound, internet traffic from all networks enter through the private subnet via TGW, where it is then routed to a NAT via VPC route tables.
 
-For your VPCs that contain public-facing applications in a public subnet, traffic originating
-from the internet is contained within that VPC. Return traffic is not routed to the TGW or Egress VPC,
-but routed back through the internet gateway (IGW) in the VPC.
+For your VPCs that contain public-facing applications in a public subnet, traffic originating from the internet is contained within that VPC. Return traffic is not routed to the TGW or Egress VPC, but routed back through the internet gateway (IGW) in the VPC.
 
-###### Note
-
-Networking VPC CIDR range: When you create a VPC, you must specify a
-range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block;
-for example, 10.0.16.0/24. This is the primary CIDR block for your VPC.
-
-The AMS multi-account landing zone team recommends the range of 24 (with more IP address)
-to provide some buffer in case other resources/appliances, are deployed in the future.
+**Note**  
+Networking VPC CIDR range: When you create a VPC, you must specify a range of IPv4 addresses for the VPC in the form of a Classless Inter-Domain Routing (CIDR) block; for example, 10.0.16.0/24. This is the primary CIDR block for your VPC.  
+The AMS multi-account landing zone team recommends the range of 24 (with more IP address) to provide some buffer in case other resources/appliances, are deployed in the future.

@@ -1,15 +1,10 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Create change types
+<a name="ct-creates"></a>
 
-Create change types are matched version-to-version with the Update change types. That is, the change type
-version that you use to provision a resource must match the version of the Update change type that you would use
-later to modify that resource. For example, if you create an S3 bucket with the Create S3 Bucket change type version 2.0,
-and later want to submit an RFC to modify that S3 bucket, you must use the Update S3 Bucket change type version 2.0
-as well, even if there is an Update S3 Bucket change type with version 3.0.
+Create change types are matched version-to-version with the Update change types. That is, the change type version that you use to provision a resource must match the version of the Update change type that you would use later to modify that resource. For example, if you create an S3 bucket with the Create S3 Bucket change type version 2.0, and later want to submit an RFC to modify that S3 bucket, you must use the Update S3 Bucket change type version 2.0 as well, even if there is an Update S3 Bucket change type with version 3.0.
 
-We recommend keeping a record of the change type ID and version that you use when provisioning a resource
-with a Create change type in case you later want to use an Update change type to modify it.
+We recommend keeping a record of the change type ID and version that you use when provisioning a resource with a Create change type in case you later want to use an Update change type to modify it.

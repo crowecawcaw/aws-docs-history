@@ -1,74 +1,59 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Creating a service request
+<a name="serv-req-mgmt-examples"></a>
 
 To create a service request using the AWS Managed Services (AMS) console:
 
 1. From the left navigation, choose **Service requests**.
 
-The **Service requests** list opens.
+   The **Service requests** list opens.  
+![Service requests page with filter dropdown, table headers, and Create service request button.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiSrCreateOpenPnC.png)
 
-![Service requests page with filter dropdown, table headers, and Create service request button.](images/guiSrCreateOpenPnC.png)
+   If your service request list is empty, the **Clear filter** option resets the filter to **Any status**.  
+![Service requests list showing multiple resolved requests with subjects, IDs, and status.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiSRlist2.png)
 
-If your service request list is empty, the **Clear filter** option resets the filter to **Any status**.
+   If you know you want to use phone or chat, click **Create service request in Support Center** to open the service request **Create** page in the Support Center Console, auto-populated with the AMS service type.
+**Note**  
+Phone calls initiated with Support center are recorded, to better improve response. If the call drops, you must call back through the Support Center case, AWS has no mechanism for calling you back. 
+**Important**  
+Phone and chat support is designed to help with support cases, incidents and service requests. For RFC issues, use the correspondence option on the relevant RFC details page, to reach an AMS engineer.
 
-![Service requests list showing multiple resolved requests with subjects, IDs, and status.](images/guiSRlist2.png)
+1. If you want to find an existing service request, select a service request status filter in the drop-down list.    
+<a name="sr-filter-options"></a>[See the AWS documentation website for more details](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/serv-req-mgmt-examples.html)
 
-If you know you want to use phone or chat, click **Create service request in Support Center** to
-open the service request **Create** page in the Support Center Console, auto-populated with the AMS service type.
+1. Choose **Create**.
 
-###### Note
+   The **Create a service request** page opens.  
+![Create a service request form with fields for Category, Subject, CC Emails, Details, and attachment option.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiServiceRequestCreate.png)
 
-Phone calls initiated with Support center are recorded, to better improve response. If the call drops, you must
-call back through the Support Center case, AWS has no mechanism for calling you back.
+1. Select a **Category**.
+**Note**  
+If you are going to test service request functionality, add the no-action flag, `AMSTestNoOpsActionRequired`. to your service request title.
 
-###### Important
+1. Enter information for:
+   + **Subject**: This creates a link to the service request details on the list page.
+   + **CC emails**: These emails receive correspondence in addition to your default email contacts.
+   + **Details**: Provide as much information here as possible.
 
-Phone and chat support is designed to help with support cases, incidents and service requests.
-For RFC issues, use the correspondence option on the relevant RFC details page, to reach an AMS engineer. 2. If you want to find an existing service request, select a service request status filter in the drop-down list.
+   To add an attachment, choose **Add Attachment**, browse to the attachment you want, and click **Open**. To delete the attachment, click the Delete icon: ![](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/icon-delete-attachment.png).
 
-|                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dropdown menu showing ticket status options including Unassigned, Open, Reopened, and Resolved. | • All service requests that are not yet resolved.<br>• A new service request that is not yet assigned.<br>• A service request that has been assigned.<br>• A service request that you reopened.<br>• An assigned, complicated, service request.<br>• Service requests that require your feedback before the next step.<br>• Service requests to which you have recently submitted information.<br>• A service request that has concluded.<br>• All service requests in the account. |
+1. Choose **Submit**.
 
-3. Choose **Create**.
+   A details page opens with information on the service request--such as **Type**, **Subject**, **Created**, **ID**, and **Status**--and a **Correspondence** area that includes the description of the request you created.  
+![Service Request Detail page showing Type, Subject, Created date, ID, and Resolved status.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiSRdetail.png)
 
-The **Create a service request** page opens.
+   Additionally, your service request displays on the **Service Request** list page. Use this when you have an alert but have not yet heard from AMS.
 
-![Create a service request form with fields for Category, Subject, CC Emails, Details, and attachment option.](images/guiServiceRequestCreate.png) 4. Select a **Category**.
+   Click **Reply** to open a correspondence area and provide additional details or status updates.
 
-###### Note
+   Click **Resolve Case** when the service request has been resolved.
 
-If you are going to test service request functionality, add the no-action flag, `AMSTestNoOpsActionRequired`. to your service request title. 5. Enter information for:
+   Click **Load More** to view additional correspondences that do not fit on the inital page.
 
-    * **Subject**: This creates a link to the service request details on the list page.
-    * **CC emails**: These emails receive correspondence in addition to your default email contacts.
-    * **Details**: Provide as much information here as possible.
+   Don't forget to rate the communication\!  
+![Correspondence interface showing email exchange with star rating options for feedback.](http://docs.aws.amazon.com/managedservices/latest/onboardingguide/images/guiSRcorrespond.png)
 
-To add an attachment, choose **Add Attachment**, browse to the attachment you want, and
-click **Open**. To delete the attachment, click the Delete icon:
-![](images/icon-delete-attachment.png)
-. 6. Choose **Submit**.
-
-A details page opens with information on the service request--such as **Type**, **Subject**,
-**Created**, **ID**, and **Status**--and a **Correspondence** area
-that includes the description of the request you created.
-
-![Service Request Detail page showing Type, Subject, Created date, ID, and Resolved status.](images/guiSRdetail.png)
-
-Additionally, your service request displays on the **Service Request** list page. Use this when you have an alert but have not yet heard from AMS.
-
-Click **Reply** to open a correspondence area and provide additional details or status updates.
-
-Click **Resolve Case** when the service request has been resolved.
-
-Click **Load More** to view additional correspondences that do not fit on the inital page.
-
-Don't forget to rate the communication!
-
-![Correspondence interface showing email exchange with star rating options for feedback.](images/guiSRcorrespond.png)
-For billing-related queries, use the **Other** Category in the
-AMS console; the `ChangeTypeId ct-1e1xtak34nx76` in the AMS CM API, or the `IssueType=AMS` in the AWS Support API.
+For billing-related queries, use the **Other** Category in the AMS console; the `ChangeTypeId ct-1e1xtak34nx76` in the AMS CM API, or the `IssueType=AMS` in the AWS Support API.

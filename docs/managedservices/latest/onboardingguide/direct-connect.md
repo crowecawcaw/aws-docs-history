@@ -1,25 +1,27 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Direct Connect Setup
+<a name="direct-connect"></a>
 
-This section describes the basic steps for setting up a Direct Connect (DX) to communicate between your AMS-managed
-VPC and your internal network.
+This section describes the basic steps for setting up a Direct Connect (DX) to communicate between your AMS-managed VPC and your internal network.
 
-###### Note
-
-For information about using a DX with AWS services, see
-[Getting Started at an Direct Connect Location](../../../directconnect/latest/UserGuide/getstarted.md "../../../directconnect/latest/UserGuide/getstarted.md").
+**Note**  
+For information about using a DX with AWS services, see [Getting Started at an Direct Connect Location](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html).
 
 To set up a DX connection, you need to complete the following steps:
 
-1. [Sign Up for Amazon Web Services](../../../directconnect/latest/UserGuide/getstarted.md#signup "../../../directconnect/latest/UserGuide/getstarted.md#signup")
-2. [Submit AWS Direct Connect Connection Request](../../../directconnect/latest/UserGuide/getstarted.md#ConnectionRequest "../../../directconnect/latest/UserGuide/getstarted.md#ConnectionRequest")
-3. [Complete the Cross Connect](../../../directconnect/latest/UserGuide/getstarted.md#DedicatedConnection "../../../directconnect/latest/UserGuide/getstarted.md#DedicatedConnection")
-4. [(Optional) Configure Redundant Connections
-   with AWS Direct Connect](../../../directconnect/latest/UserGuide/getstarted.md#RedundantConnections "../../../directconnect/latest/UserGuide/getstarted.md#RedundantConnections")
-5. Performed by AMS: Create a Virtual Interface
-6. Performed by AMS: Download Router Configuration
-7. [Verify Your Virtual Interface](../../../directconnect/latest/UserGuide/getstarted.md#connected "../../../directconnect/latest/UserGuide/getstarted.md#connected")
+1. [Sign Up for Amazon Web Services](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html#signup)
+
+1. [Submit AWS Direct Connect Connection Request](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html#ConnectionRequest)
+
+1. [Complete the Cross Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html#DedicatedConnection)
+
+1. [(Optional) Configure Redundant Connections with AWS Direct Connect](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html#RedundantConnections)
+
+1. Performed by AMS: Create a Virtual Interface
+
+1. Performed by AMS: Download Router Configuration
+
+1. [Verify Your Virtual Interface](https://docs.aws.amazon.com/directconnect/latest/UserGuide/getstarted.html#connected)

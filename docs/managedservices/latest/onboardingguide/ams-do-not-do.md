@@ -1,41 +1,23 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # What we do, what we do not do
+<a name="ams-do-not-do"></a>
 
-AMS gives you a standardized approach to deploying AWS infrastructure and provides the necessary ongoing
-operational management. For a full description of roles, responsibilities, and supported services, see
-[Service Description](../userguide/ams-sd.md "../userguide/ams-sd.md").
+AMS gives you a standardized approach to deploying AWS infrastructure and provides the necessary ongoing operational management. For a full description of roles, responsibilities, and supported services, see [Service Description](https://docs.aws.amazon.com/managedservices/latest/userguide/ams-sd.html).
 
-###### Note
+**Note**  
+To request that AMS provide an additional AWS service, file a service request. For more information, see [Making Service Requests](https://docs.aws.amazon.com/managedservices/latest/userguide/mk-service-requests.html).
++ **What we do**:
 
-To request that AMS provide an additional AWS service, file a service request. For more information, see
-[Making Service Requests](../userguide/mk-service-requests.md "../userguide/mk-service-requests.md").
+  After you complete onboarding, the AMS environment is available to receive requests for change (RFCs), incidents, and service requests. Your interaction with the AMS service revolves around the lifecycle of an application stack. New stacks are ordered from a preconfigured list of templates, launched into specific virtual private cloud (VPC) subnets, modified during their operational life through requests for change (RFCs), and monitored for events and incidents 24/7. 
 
-- **What we do**:
+  Active application stacks are monitored and maintained by AMS, including patching, and require no further action for the life of the stack unless a change is required or the stack is decommissioned. Incidents detected by AMS that affect the health and function of the stack generate a notification and may or may not need your action to resolve or verify. How-to questions and other inquiries can be made by submitting a service request.
 
-After you complete onboarding, the AMS environment is available
-to receive requests for change (RFCs), incidents, and service requests. Your interaction with
-the AMS service revolves around the lifecycle of an application stack. New stacks
-are ordered from a preconfigured list of templates, launched into specific virtual
-private cloud (VPC) subnets, modified during their operational life through requests for change (RFCs),
-and monitored for events and incidents 24/7.
+  Additionally, AMS allows you to enable compatible AWS services that are not managed by AMS. For information about AWS-AMS compatible services, see [Self-service provisioning mode](https://docs.aws.amazon.com/managedservices/latest/userguide/setting-up-compatible.html).
 
-Active application stacks are monitored and maintained by AMS, including patching, and require no
-further action for the life of the stack unless a change is required or the stack
-is decommissioned. Incidents detected by AMS that affect the health and function
-of the stack generate a notification and may or may not need your action to resolve or verify.
-How-to questions and other inquiries can be made by submitting a service request.
+   
++ **What we DON'T do**:
 
-Additionally, AMS allows you to enable compatible AWS services that are not
-managed by AMS. For information about AWS-AMS compatible services, see
-[Self-service provisioning mode](../userguide/setting-up-compatible.md "../userguide/setting-up-compatible.md").
-
-- **What we DON'T do**:
-
-While AMS simplifies application deployment by providing a number of manual and automated options, you're responsible
-for the development, testing, updating, and management of your application. AMS provides troubleshooting assistance for
-infrastructure issues that impact applications, but AMS can't access or validate
-your application configurations.
+  While AMS simplifies application deployment by providing a number of manual and automated options, you're responsible for the development, testing, updating, and management of your application. AMS provides troubleshooting assistance for infrastructure issues that impact applications, but AMS can't access or validate your application configurations.
