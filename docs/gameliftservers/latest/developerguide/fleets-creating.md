@@ -72,7 +72,7 @@ managed EC2 fleet** to start the fleet creation workflow.
    clients use this certificate to authenticate a game
    server when connecting and encrypt all client/server
    communication. For each instance in a TLS-enabled
-   fleet. Amazon GameLift Servers also creates a new DNS entry with the
+   fleet, Amazon GameLift Servers also creates a new DNS entry with the
    certificate. This setting can't be changed after you
    create the fleet. 3. Amazon GameLift Servers emits metric data for each individual fleet. If you want to combine metric data for multiple fleets,
    specify a **Metric group** name. Use the same metric group
@@ -234,7 +234,7 @@ can update these fleet settings at any time.
 3. Open **EC2 port settings** to allow
    inbound traffic to access server processes on the fleet.
    These settings aren't required to create a fleet, but you do
-   need set them before players can connect to game sessions on
+   need to set them before players can connect to game sessions on
    the fleet.
 
 For each port setting, choose the
@@ -283,7 +283,7 @@ When you're ready to deploy the new fleet, choose
 **Create**. Amazon GameLift Servers immediately begins the fleet
 activation process, assigning a unique ID and placing the fleet in
 `NEW` status. Track the fleet's progress from the
-**Fleets** page.View the details page for the
+**Fleets** page. View the details page for the
 fleet and go to the **Events** tab.
 
 You can adjust a fleet's hosting capacity after the fleet reaches

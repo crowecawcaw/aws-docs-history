@@ -4,7 +4,7 @@ The fleet resource represents a set of compute machines that are deployed with a
 Depending on your hosting solution, you might have managed EC2 fleets, managed container fleets, Anywhere fleets,
 or a combination.
 
-View information about fleets in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+View information about fleets in the Amazon GameLift Servers console or using the AWS SDK for Amazon GameLift Servers.
 
 Console
 You can view information on all the fleets created to host your games on Amazon GameLift Servers under

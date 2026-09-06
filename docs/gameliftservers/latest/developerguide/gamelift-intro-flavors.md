@@ -48,7 +48,7 @@ hosting solution](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
 
 Amazon GameLift Servers provides a complete cloud hosting solution for containerized
 game servers, so you can take advantage of the core benefits of container usage, such as
-portability, agility, and fault tolerance. As with managed EC2 hosting , managed
+portability, agility, and fault tolerance. As with managed EC2 hosting, managed
 container hosting deploys and runs your containers on Amazon EC2 instances.
 
 [Start developing an Amazon GameLift Servers managed

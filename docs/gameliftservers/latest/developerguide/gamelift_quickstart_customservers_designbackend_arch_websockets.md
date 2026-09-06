@@ -5,7 +5,7 @@ with WebSockets and send push notifications for matchmaking completion using
 server-initiated messages. This architecture improves performance by having two-way
 communication between the client and the server.
 
-For more information about using API Gateway WebSock APIs, see [Working with
+For more information about using API Gateway WebSocket APIs, see [Working with
 WebSocket APIs](../../../apigateway/latest/developerguide/apigateway-websocket-api.md "../../../apigateway/latest/developerguide/apigateway-websocket-api.md").
 
 The following diagram shows a WebSocket-based backend architecture that uses API Gateway and

@@ -16,7 +16,7 @@ Tips on what to do before you start creating a container group definition:
   when deploying to a container fleet. See [Build a container image for Amazon GameLift Servers](containers-prepare-images.md "containers-prepare-images.md").
 - Create your container definitions as JSON files. A container group definition includes
   one or more container definitions. You can use the JSON files if you create a container
-  group definition using the AWS CLIfor Amazon GameLift Servers.
+  group definition using the AWS CLI for Amazon GameLift Servers.
 - Verify that your AWS user has IAM permissions to access the Amazon ECR repository. See
   [IAM permission examples for Amazon GameLift Servers](gamelift-iam-policy-examples.md "gamelift-iam-policy-examples.md").
 
@@ -92,7 +92,7 @@ definition.
    For more details, see [Configure network connections](containers-design-fleet.md#containers-custom-network "containers-design-fleet.md#containers-custom-network").
 5. Add more containers as needed to run additional support software. Additional
    containers are automatically designated support containers. A game server container
-   group can have only one game server containers and up to eight support containers.
+   group can have only one game server container and up to eight support containers.
    Provide the following minimal required settings:
 
    - Container definition **Name**
@@ -153,7 +153,7 @@ group. A container definition specifies the Amazon ECR repository where the cont
 stored, and optional configurations for network ports, limits for CPU and memory usage, and
 other settings. We recommend creating a single `JSON` file with the configurations
 for all the containers in a container group. Maintaining a file is useful for storing,
-sharing, version tracking these critical configurations. If you use the AWS CLI to create
+sharing, and version tracking these critical configurations. If you use the AWS CLI to create
 your container group definitions, you can reference the file in the command.
 
 ###### To create a container definition

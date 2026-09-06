@@ -153,7 +153,7 @@ image to a container fleet. This step requests the following information:
   uses by default. You can modify these or keep the default values
 
   - Game name is set to the name of your game project by default. All
-    AWS resources that the plugin creates references the game name value.
+    AWS resources that the plugin creates reference the game name value.
   - Port range, memory limit, and vCPU limit are configuration settings for
     the container fleet. For more information about customizing these values, see
     [Configure network connections](containers-design-fleet.md#containers-custom-network "containers-design-fleet.md#containers-custom-network")

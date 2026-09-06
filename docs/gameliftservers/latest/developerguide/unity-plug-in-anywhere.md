@@ -9,7 +9,7 @@ client and server components.
 
 - In the Unity editor main menu, choose **Amazon GameLift Servers** and select **Host
   with Anywhere**. This action opens the plugin page for setting up
-  your game with an @Anywhere fleet. The page presents a five-step process to
+  your game with an Anywhere fleet. The page presents a five-step process to
   integrate, build, and launch your game components.
 
 ## Set your profile
@@ -76,7 +76,7 @@ If you want to customize the sample server code, see these resources:
 If you’re using your own game project with custom scenes, then you need to
 integrate basic functionality into your game client. You also need to add UI
 elements so that players can sign in and join a game session. Use the service API for Amazon GameLift Servers (in the AWS SDK) to get game session information, create
-new game sessions, or join existing game sessions,
+new game sessions, or join existing game sessions.
 
 When building a client for local testing with an Anywhere fleet, you can add
 direct calls to the Amazon GameLift Servers service. When you develop your game for
@@ -99,7 +99,7 @@ resources as a guide.
 
 For game clients connecting to an Anywhere fleet, your game client
 needs the following information. The plugin automatically updates your game
-project to use the resources that your create in the plugin.
+project to use the resources that you create in the plugin.
 
 - FleetId - The unique identifier for your Anywhere fleet.
 - FleetLocation - The custom location of your Anywhere

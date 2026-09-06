@@ -90,7 +90,7 @@ the included readme files in each package.
 
 
     	- [Server SDK reference](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
-    	- [Integrate Amazon GameLift Serversinto an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
+    	- [Integrate Amazon GameLift Servers into an Unreal Engine project](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md")
     + [Server SDK for Unity](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity")
 
 
@@ -217,7 +217,7 @@ Use the following tools to create, update, and monitor your Amazon GameLift Serv
   use with most popular programming languages. [Get the AWS SDK.](https://aws.amazon.com/developer "https://aws.amazon.com/developer")
 - [AWS command line interface (CLI)](../../../cli.md "../../../cli.md") – The
   AWS CLI lets you interact with AWS services using a command-line shell. The
-  tools provides direct access to the public APIs for AWS services as well as
+  tools provide direct access to the public APIs for AWS services as well as
   customized commands that are available for a service. [Get the AWS CLI.](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
 - [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md") for
   Amazon GameLift Servers – The CloudFormation service helps you model and set up AWS resources to

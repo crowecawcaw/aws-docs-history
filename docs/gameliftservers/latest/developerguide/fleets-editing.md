@@ -9,15 +9,15 @@ build or instance type. Instead, you must replace the fleet.
 With managed EC2 fleets, to deploy a game server build update,
 you need to upload each new build to Amazon GameLift Servers and create a new fleet for it.
 
-The Fast Build Update Tool lets you can bypass these steps during development,
+The Fast Build Update Tool lets you bypass these steps during development,
 saving you time and allowing for faster development iteration. With this tool, you
 can quickly update your game build files across all computes in an existing fleet.
 The tool has several options; you can replace an entire game build or change
-6 specific files, and you can manage how to restart game server processes after
+specific files, and you can manage how to restart game server processes after
 the updates. You can also use it to update individual computes in a fleet.
 
 To get the Fast Build Update Tool and learn more about how to use it, visit the Amazon GameLift Servers Toolkit repo for
-[The Fast Build Update Tool](https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool "https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool") in Github.
+[The Fast Build Update Tool](https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool "https://github.com/aws/amazon-gamelift-toolkit/tree/main/fast-build-update-tool") in GitHub.
 
 You can update mutable fleet attributes, port settings, and runtime configurations
 using the Amazon GameLift Servers console or the AWS CLI. To change scaling limits, see [Auto-scale fleet capacity with Amazon GameLift Servers](fleets-autoscaling.md "fleets-autoscaling.md").

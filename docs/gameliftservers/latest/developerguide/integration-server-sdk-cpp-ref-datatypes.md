@@ -173,7 +173,7 @@ Name of callback function that the Amazon GameLift Servers service invokes to fo
 server process to shut down. After calling this function, Amazon GameLift Servers waits
 five minutes for the server process to shut down and respond with a
 [ProcessEnding()](integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending "integration-server-sdk-cpp-ref-actions.md#integration-server-sdk-cpp-ref-processending") call.
-If no response is receive, it shuts down the server process.
+If no response is received, it shuts down the server process.
 
 Type: `std::function<void()> onProcessTerminate`
 
@@ -184,7 +184,7 @@ Required: No
 Name of callback function that the Amazon GameLift Servers service invokes to request a
 health status report from the server process. Amazon GameLift Servers calls this function
 every 60 seconds. After calling this function Amazon GameLift Servers waits 60 seconds for
-a response, and if none is received. records the server process as
+a response, and if none is received, records the server process as
 unhealthy.
 
 Type: `std::function<bool()> onHealthCheck`
@@ -228,7 +228,7 @@ Required: Yes
 Unique identifier, in the form of an ARN, for the matchmaker to use
 for this request. To find the matchmaker that was used to create the
 original game session, look in the game session object, in the
-matchmaker data property. Learn more about matchmaker data in [Word with
+matchmaker data property. Learn more about matchmaker data in [Work with
 matchmaker data](../../../gamelift/latest/flexmatchguide/match-server.md#match-server-data "../../../gamelift/latest/flexmatchguide/match-server.md#match-server-data").
 
 Type: String

@@ -96,7 +96,7 @@ Linux](https://github.com/aws/amazon-gamelift-toolkit/tree/main/building-gamelif
    onto each hosting compute. Add your Linux-built game server and all
    dependent files.
 2. **Create a server build install script in the root of
-   your working directory.** If needed,create an
+   your working directory.** If needed, create an
    `install.sh` file and add any commands needed to
    properly install your game server build. Amazon GameLift Servers uses this file to install the
    server build onto each EC2 hosting resource.
@@ -171,7 +171,7 @@ In this step, you choose the game hosting solution that you want to deploy at th
 
 ## Step 4: Set game parameters
 
-In this step, you describe your game for uploading to AWS;
+In this step, you describe your game for uploading to AWS.
 
 - Server build name: Provide a meaningful name for your game server build. AWS uses this name to refer to the copy of your server build that's uploaded and used for deployments.
 - Server build OS: Enter the operating system that your server is built to run on. This tells AWS what type of compute resources to use to host your game.

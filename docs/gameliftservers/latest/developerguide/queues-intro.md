@@ -5,7 +5,7 @@ Game session placement is the process of finding available game servers to host 
 A well-configured game session queue ensures that players are connected to the best available game server, providing optimal performance while making efficient use of your hosting resources. Queues can span multiple fleets and AWS Regions to provide global coverage and redundancy.
 
 A game session queue is the primary mechanism that Amazon GameLift Servers uses to search for available game servers
-and choose them to host new game sessions. Queues offers a far more efficient way to process large numbers
+and choose them to host new game sessions. Queues offer a far more efficient way to process large numbers
 of game session requests and find placements for them across multiple fleets of hosting resources.
 If your hosting solution uses more than one fleet, and you're processing high volumes of requests,
 you probably need a queue.

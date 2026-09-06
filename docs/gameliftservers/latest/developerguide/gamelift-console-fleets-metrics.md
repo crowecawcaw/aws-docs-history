@@ -122,8 +122,8 @@ about changing limits and capacity, see [Scaling game hosting capacity with Amaz
   instances that must be deployed in the location.
 - **Desired instances** – The target number
   of active instances to maintain the location. When active instances and desired
-  instances aren't' the same, a scaling event is started to start or shut down
-  instances as needed until active instances equals desired instances.
+  instances aren't the same, a scaling event is started to start or shut down
+  instances as needed until active instances equal desired instances.
 - **Max size** – The most instances that can
   be deployed in the location.
 - **Available** – The service limit on

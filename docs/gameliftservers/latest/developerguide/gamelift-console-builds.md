@@ -3,7 +3,7 @@
 The build resource represents your game server software. You upload your build package to
 Amazon GameLift Servers for deployment to managed EC2 fleets.
 
-View information about game server builds in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+View information about game server builds in the Amazon GameLift Servers console or using the AWS SDK for Amazon GameLift Servers.
 
 Console
 On the **Builds** page of the [Amazon GameLift Servers

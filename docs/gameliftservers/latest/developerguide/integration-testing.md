@@ -109,7 +109,7 @@ development language. The server parameters are:
     * `fleetId` – Set this parameter to the ID of the
      Anywhere fleet.
     * `authToken` – Set this parameter to the token that
-     is returned in response to a request to retrieve an authenticaiton token
+     is returned in response to a request to retrieve an authentication token
      for a compute.
     * `processId` – Set this parameter to identify a game
      server process that's running on the local compute. Each concurrent game
@@ -155,7 +155,7 @@ of your game server build.
    `GameSession` after the game server stops sending health
    checks.
 2. **Generate a new game server build.** Make
-   changes to your game server and package an revised build.
+   changes to your game server and package a revised build.
 3. **Update the game server build on your local
    compute.** Your previous Anywhere fleet is still active and your
    laptop is still registered as a compute resource in the fleet.
@@ -194,7 +194,7 @@ following tasks:
 - **Create a managed fleet.** Create a fleet using
   the console or AWS CLI, specifying an EC2 managed fleet. This type of fleet
   requires additional configuration settings, including specifying the build
-  resource and instance types. You alls need to set up a runtime configuration to
+  resource and instance types. You also need to set up a runtime configuration to
   manage game server life cycle on each fleet compute. See [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md") for details on
   creating a managed fleet.
 - **Redirect fleet aliases (optional).** If you set

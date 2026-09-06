@@ -10,7 +10,7 @@ plugin to start a game client, connect to a game session, and play the game.
 This workflow assumes that you’ve completed the following tasks.
 
 - **Integrate your game server code with Amazon GameLift Servers
-  server SDK.** our hosted game server must be able to
+  server SDK.** Your hosted game server must be able to
   communicate with the Amazon GameLift Servers service so that it can respond to
   requests to start new game sessions and report game session status. If you
   haven’t completed this task, we recommend that you follow the plugin
@@ -224,7 +224,7 @@ image to a container fleet. This step requests the following information:
   uses by default. You can modify these or keep the default values
 
   - Game name is set to the name of your game project by default. All
-    AWS resources that the plugin creates references the game name value.
+    AWS resources that the plugin creates reference the game name value.
   - Port range, memory limit, and vCPU limit are configuration settings for
     the container fleet. For more information about customizing these values, see
     [Configure network connections](containers-design-fleet.md#containers-custom-network "containers-design-fleet.md#containers-custom-network")

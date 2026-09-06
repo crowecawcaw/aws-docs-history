@@ -41,7 +41,7 @@ and choose **Edit**.
      deployment). Unsafe deployments are useful during development and testing phases
      in order to reduce deployment time.
    - Minimum healthy percentage. You can manage how quickly the fleet's instances
-     are replaced. Use this setting to maintain a minimal amount of healthy tasks the
+     are replaced. Use this setting to maintain a minimal amount of healthy tasks
      during deployment. A low value prioritizes deployment speed, while a high value
      ensures that game server availability remains high throughout the deployment.
    - Deployment failure strategy. Decide what actions to take if a deployment

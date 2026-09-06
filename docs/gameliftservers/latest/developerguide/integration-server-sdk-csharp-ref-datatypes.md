@@ -61,7 +61,7 @@ is as follows:
 `arn:aws:gamelift:<region>::gamesession/fleet-<fleet
  ID>/<ID string>`. The value of <ID string> is
 either a custom ID string (if one was specified when the game session
-was created) a generated string.
+was created) or a generated string.
 
 Type: String
 
@@ -182,7 +182,7 @@ Required: Yes
 Name of callback function that the Amazon GameLift Servers service invokes to request a
 health status report from the server process. Amazon GameLift Servers calls this function
 every 60 seconds. After calling this function Amazon GameLift Servers waits 60 seconds for
-a response, and if none is received. records the server process as
+a response, and if none is received, records the server process as
 unhealthy.
 
 Type: `bool OnHealthCheckDelegate()`

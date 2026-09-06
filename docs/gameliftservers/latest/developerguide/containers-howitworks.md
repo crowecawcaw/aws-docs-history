@@ -79,7 +79,7 @@ Amazon GameLift Servers defines two types of containers:
 - A **support container** runs additional software to
   support your game server. It is similar to the concept of a "sidecar" container. It
   gives you the option to run and scale supporting software alongside your game
-  servers but manage as separate containers. In a game server container group, you can
+  servers but manage them as separate containers. In a game server container group, you can
   define zero or more support containers. In a per-instance container group, all
   containers are support containers. Any support container can be designated
   essential.
@@ -98,13 +98,13 @@ group per instance. With this architecture, each instance runs one game server p
 ![An example of a simple container architecture, with a single game server container in the game server container group.](images/container_architecture_simple.png)
 
 This second diagram illustrates a more complex container fleet architecture. In this
-structure, the fleet has a both a game server container group and a per-instance container
+structure, the fleet has both a game server container group and a per-instance container
 group. The game server container group has separate containers for the game server process and
 a support process. The fleet is configured to place three copies of the game server container
 group on each fleet instance. The per-instance container group is never replicated. In this
 example, the container fleet is configured to place three copies of the game server container
 group per instance. With this architecture, each instance runs three game server
-process.
+processes.
 
 ![An example of a container architecture with multiple containers in the game server container group and one container in the per-instance container group.](images/container_architecture_complex.png)
 
@@ -250,7 +250,7 @@ configure a container fleet to use one of several options to handle output strea
 - Save container output as an Amazon CloudWatch log stream. Each log stream references the
   fleet ID and container. If you choose this logging option for the fleet, you specify a
   CloudWatch log group, which organizes all the log streams from the fleet. You can then use
-  CloudWatch features to search and analyse log data as needed.
+  CloudWatch features to search and analyze log data as needed.
 - Save container output to an Amazon Simple Storage Service (Amazon S3) storage bucket. You can view, share, or
   download the content as needed.
 - Turn off logging. In this scenario, container output isn't saved.

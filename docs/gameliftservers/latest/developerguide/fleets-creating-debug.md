@@ -13,7 +13,7 @@ You can debug issues that prevent fleets from becoming active by identifying the
 creation phase where the issue occurred and reviewing fleet creation events and logs. If
 the logs do not offer useful information, it's possible that the problem is due to an
 internal service error. In this situation, try to create the fleet again. If the problem
-persists, try re-uploading the game build to resolve possible file corruption). You can
+persists, try re-uploading the game build to resolve possible file corruption. You can
 also contact Amazon GameLift Servers support or post a question on the forum.
 
 **Downloading and validating the build**
@@ -78,7 +78,7 @@ Possible issues include:
 
 - A VPC peering connection request failed. For fleets that are created with
   a VPC peering connection (see [To set up VPC peering with a new fleet](vpc-peering.md#fleets-creating-aws-cli-vpc "vpc-peering.md#fleets-creating-aws-cli-vpc")), VPC peering is
-  done during this **Activating** phases.
+  done during this **Activating** phase.
   If a VPC peering fails for any reason, the new fleet will fail to
   move to **Active** status. You can
   track the success or failure of the peering request by calling
@@ -112,7 +112,7 @@ sure to turn off auto scaling, which will counteract manual settings.
 **VPC actions are not authorized.**
 
 This issue only applies to fleets that you have specifically created VPC
-peering connections for (see [Set up VPC peering for Amazon GameLift Servers](vpc-peering.md "vpc-peering.md"). This scenario occurs because the process
+peering connections for (see [Set up VPC peering for Amazon GameLift Servers](vpc-peering.md "vpc-peering.md")). This scenario occurs because the process
 of deleting a fleet also includes deleting the fleet's VPC and any VPC
 peering connections. You must first get an authorization by calling the
 service API for Amazon GameLift Servers [CreateVpcPeeringAuthorization()](../../../gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.md "../../../gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.md") or use the AWS CLI command

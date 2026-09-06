@@ -161,7 +161,7 @@ communicates this information to Amazon GameLift Servers service in a [StopMatch
 ## GetFleetRoleCredentialsRequest
 
 The role credentials that extend limited access to your AWS resources to the game
-server. For more information see, [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md").
+server. For more information, see [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md").
 
 | Properties      | **Description**                                                                                                         |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------- |

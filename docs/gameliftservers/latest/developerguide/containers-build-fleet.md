@@ -87,7 +87,7 @@ _AWS General Reference_. See
 _AWS Local Zones User Guide_. 2. Select an **Instance configuration** for the fleet. The console
 automatically calculates the minimum vCPU and memory required (based on the total
 limits you set for each container group). It filters the complete list of available
-instance types base on resource requirements and the locations you entered. You can
+instance types based on resource requirements and the locations you entered. You can
 add additional filters as needed.
 
 ###### Note

@@ -98,7 +98,7 @@ maintain the runtime environment for your game servers. For guidance, see [Secur
 
 A managed fleet's instance type determines the kind of hardware that is deployed for
 all fleet instances, and instance types are generally available in various sizes. All
-Amazon GameLift Servers managed fleet use Amazon EC2 instances, and support a wide range of instance types that
+Amazon GameLift Servers managed fleets use Amazon EC2 instances, and support a wide range of instance types that
 offer different combinations of computing power, memory, storage, and networking
 capabilities. The availability of instance types varies depending on the locations you
 choose.

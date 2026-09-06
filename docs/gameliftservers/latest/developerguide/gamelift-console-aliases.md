@@ -4,11 +4,11 @@ The alias resource represents a pointer to a fleet or terminal destination. They
 traffic to specific hosting destinations. Use an alias to abstract a destination so that you can more easily
 redirect traffic when you update your hosting fleets.
 
-View information about aliases in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+View information about aliases in the Amazon GameLift Servers console or using the AWS SDK for Amazon GameLift Servers.
 
 Console
 The **Alias** page displays information about Amazon GameLift Servers aliases that direct
-traffic specific hosting destinations. To view aliases, choose **Hosting**,
+traffic to specific hosting destinations. To view aliases, choose **Hosting**,
 **Aliases** in the navigation pane.
 
 You can do the following on the aliases page:

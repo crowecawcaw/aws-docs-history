@@ -348,7 +348,7 @@ AwsStringOutcome GetGameSessionId()
 ### Return value
 
 If successful, returns the game session ID as an [AwsStringOutcome](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-awsstringoutcome "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-awsstringoutcome") object.
-If not successful, returns an error message."
+If not successful, returns an error message.
 
 ### Example
 

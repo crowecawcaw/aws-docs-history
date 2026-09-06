@@ -115,7 +115,7 @@ A fleet instance that is running but not currently hosting any active game sessi
 Network access rules that define which IP addresses and port ranges can be used to connect to fleet instances. Controls access to game servers and ensures secure connections.
 Both managed EC2 and managed container fleets require inbound permissions configuration.
 
-See [IpPermision](../apireference/API_IpPermission.md "../apireference/API_IpPermission.md") and
+See [IpPermission](../apireference/API_IpPermission.md "../apireference/API_IpPermission.md") and
 [Configure network connections](containers-design-fleet.md#containers-custom-network "containers-design-fleet.md#containers-custom-network").
 
 **Latency policy**

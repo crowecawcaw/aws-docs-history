@@ -165,7 +165,7 @@ The following example code shows how to add the minimum required elements for se
     + Initialize an Amazon GameLift Servers API client. The `InitSDK()` call with server
      parameters is required for an Amazon GameLift Servers Anywhere
      fleet. When you connect to an Anywhere fleet, the plugin
-     stores the server parameters as console arguments The sample
+     stores the server parameters as console arguments. The sample
      code can access the values at runtime.
     + Implement required callback functions to respond to requests from the Amazon GameLift Servers service,
      including `OnStartGameSession`,

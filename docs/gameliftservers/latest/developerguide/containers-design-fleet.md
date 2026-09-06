@@ -258,7 +258,7 @@ false for each container.
 
 ## Configure network connections
 
-You can customize network access to allow external traffic connect to any container in a
+You can customize network access to allow external traffic to connect to any container in a
 container fleet. For example, you must establish network connections to the container that
 runs your game server processes, so that game clients can join and play your game. Game
 clients connect to game servers using ports and IP addresses.
@@ -456,7 +456,7 @@ optimal fleet locations.
 
 **Choose an instance type and size for your fleet**
 
-Amazon GameLift Servers supports a wide range of Amazon EC2 instances types, all of which are available for use
+Amazon GameLift Servers supports a wide range of Amazon EC2 instance types, all of which are available for use
 with a container fleet. Instance type availability and price varies by location. You can view
 a list of supported instance types, filtered by location, in the Amazon GameLift Servers console (under
 **Resources, Instance and service quotas**).
@@ -471,7 +471,7 @@ to choose from. Consider the following issues when selecting an instance size:
 - What instance type sizes are a good fit for your container architecture?
   Ideally, you want to choose a size that can accommodate multiple copies of your game
   server container group with minimal wasted space.
-- What scaling granularity makes sense for your game? Scale fleet capacity
+- What scaling granularity makes sense for your game? Scaling fleet capacity
   involves adding or removing instances, and each instance represents the ability to
   host a specific number of game sessions. Consider how much capacity you want to add
   or remove with each instance. If player demand varies by thousands from minute to
@@ -479,7 +479,7 @@ to choose from. Consider the following issues when selecting an instance size:
   or thousands of game sessions. By contrast, you might prefer more fine-grained
   scaling control with smaller instance types.
 - Are there cost savings available based on size? You might find that the cost of
-  certain instance types vary by location due to availability.
+  certain instance types varies by location due to availability.
 
 **Set other optional fleet settings**
 You can use the following optional features when configuring a container fleet:

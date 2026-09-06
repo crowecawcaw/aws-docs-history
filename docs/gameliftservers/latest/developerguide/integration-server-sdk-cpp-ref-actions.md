@@ -169,7 +169,7 @@ server process, if the server process is active. The identifier is returned in A
 format: `arn:aws:gamelift:<region>::gamesession/fleet-<fleet
  ID>/<ID string>`.
 
-For idle process that are not yet activated with a game session, the call returns
+For idle processes that are not yet activated with a game session, the call returns
 `Success`=`True` and
 `GameSessionId`=`""` (an empty string).
 
@@ -334,7 +334,7 @@ in an event message that the process did not exit cleanly.
 
 Once the method exits with a code of 0, you can terminate the process with a
 successful exit code. You can also exit the process with an error code. If you exit with
-an error code, the fleet event will indicated the process terminated abnormally
+an error code, the fleet event will indicate the process terminated abnormally
 (`SERVER_PROCESS_TERMINATED_UNHEALTHY`).
 
 ### Syntax

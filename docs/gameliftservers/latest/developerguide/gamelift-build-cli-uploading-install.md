@@ -36,7 +36,7 @@ When creating an install script, keep in mind the following:
   As a best practice, make sure the script is idempotent and robust to
   being run multiple times.
 
-###### Example Windows install bash file
+###### Example Windows install batch file
 
 This example `install.bat` file installs Visual C++ runtime
 components required for the game server and writes the results to a log file. The

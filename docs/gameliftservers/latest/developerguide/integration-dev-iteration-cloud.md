@@ -61,7 +61,7 @@ The workflow covers the following tasks:
 - **Set up an Anywhere fleet for your hosting resources.**
   With an Anywhere fleet you can use the Amazon GameLift Servers service for hosting resources
   that aren't managed by Amazon GameLift Servers. In this step, you'll also configure the runtime
-  configuration, which instructs Amazon GameLift Servers Agent when and how to start game server
+  configuration, which instructs the Amazon GameLift Servers Agent when and how to start game server
   processes.
 - **Set up an Amazon EC2 instance.** This is your test environment for
   iterative testing. It is much faster to use a standard EC2 instance instead of a

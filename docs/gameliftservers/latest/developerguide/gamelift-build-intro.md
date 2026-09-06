@@ -1,7 +1,7 @@
 # Package a game server build for deployment
 
 Get your game server software ready for deployment on your hosting resources. Once deployed, the
-software is installed on each hosting resource, and then one or more game server process is launched
+software is installed on each hosting resource, and then one or more game server processes are launched
 and readied to host game sessions for players.
 
 Getting a game server build ready varies depending on the type of Amazon GameLift Servers

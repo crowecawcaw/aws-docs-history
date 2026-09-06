@@ -232,7 +232,7 @@ to join the game session.
    build process. In File, Build Settings, switch the platform to Windows, Mac,
    Linux. If you imported the sample game and initialized the settings, the
    build list and build target are automatically updated.
-3. Launch the newly build game client executable. To start playing the game,
+3. Launch the newly built game client executable. To start playing the game,
    start two to four client instances and use the UI in each to join a game
    session.
 

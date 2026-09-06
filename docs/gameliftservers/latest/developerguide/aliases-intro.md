@@ -22,7 +22,7 @@ If you use a queue for game session placement, you don't need an alias to redire
 when replacing a fleet. With a queue, you can simply add the new fleet and remove the old
 fleet. This action is not visible to players, because new game session requests are
 automatically fulfilled using the new fleet. It doesn't impact existing game sessions. You
-can identify queues destinations by using either a fleet ID or alias.
+can identify queue destinations by using either a fleet ID or alias.
 
 ###### Topics
 

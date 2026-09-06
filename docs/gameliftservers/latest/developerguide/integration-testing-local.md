@@ -235,7 +235,7 @@ following changes to your game client's setup, as described in [Set up the Amazo
 
 In the Local command prompt window, once you start the game client, log
 messages should indicate that it has initialized the `GameLiftClient`
-and is successfully communicated with the Amazon GameLift Servers service. 4. **Test game client calls to the Amazon GameLift Servers
+and is successfully communicating with the Amazon GameLift Servers service. 4. **Test game client calls to the Amazon GameLift Servers
 service.**
 
 Verify that your game client is successfully making any or all of the

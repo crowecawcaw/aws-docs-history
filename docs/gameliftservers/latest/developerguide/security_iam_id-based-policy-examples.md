@@ -122,7 +122,7 @@ permissions. For policy examples for these scenarios, see [Player user permissio
 ## Allow access to one Amazon GameLift Servers queue
 
 The following example provides a user with access to a specific Amazon GameLift Servers
-queues.
+queue.
 
 This policy grants the user permissions to add, update, and delete queue
 destinations with the following actions:

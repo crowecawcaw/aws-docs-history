@@ -93,7 +93,7 @@ resource usage to meet worldwide player demand.
 
 - Use services such as Amazon DynamoDB, Amazon Simple Storage Service, and Amazon Aurora DSQL for game state persistence.
 - Implement Amazon Cognito for player authentication.
-- Process game analytics with Amazon Kinesisand Amazon S3.
+- Process game analytics with Amazon Kinesis and Amazon S3.
 - Add voice chat with Amazon Chime SDK.
 - Create custom game features using AWS Lambda and Amazon API Gateway.
 
@@ -127,3 +127,9 @@ Use AWS CloudFormation to model, provision, and manage AWS resources for your ga
 solution by treating infrastructure as code. Create templates that describe the
 resources, and CloudFormation automates the tasks of configuring and deploying resources to the
 locations you specify.
+
+## Pricing
+
+For information about pricing, cost estimation, and strategies for reducing
+hosting costs, see [Amazon GameLift Servers pricing and cost planning](gamelift-intro-pricing.md "gamelift-intro-pricing.md") and
+[Amazon GameLift Servers Pricing](https://aws.amazon.com/gamelift/pricing/ "https://aws.amazon.com/gamelift/pricing/").

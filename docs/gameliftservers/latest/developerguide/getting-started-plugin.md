@@ -56,7 +56,7 @@ your game code.
    locally through the plugin, request a game session and connect to it, and play
    your game.
 
-When working in the plugin, you'll create and use AWS resources, These actions might
+When working in the plugin, you'll create and use AWS resources. These actions might
 incur charges to the AWS account in use. If you're new to AWS, these actions might
 be covered under the [AWS Free
 Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").

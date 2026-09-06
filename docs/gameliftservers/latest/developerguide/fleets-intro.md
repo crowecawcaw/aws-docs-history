@@ -13,7 +13,7 @@ players that it can support—depends on the number of compute resources that yo
 give it. All Amazon GameLift Servers fleets have the following characteristics:
 
 - The game server processes that run on all fleets are integrated with the
-  server SDK for Amazon GameLift Serversand communicate with the Amazon GameLift Servers service in the same way. Game servers
+  server SDK for Amazon GameLift Servers and communicate with the Amazon GameLift Servers service in the same way. Game servers
   report their availability to host game sessions and players, respond to prompts
   to start or stop game sessions, and other interactions.
 - Amazon GameLift Servers handles game session placement for all fleets in the same way. Amazon GameLift Servers keeps

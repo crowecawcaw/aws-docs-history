@@ -1,7 +1,7 @@
 # Add Amazon GameLift Servers to your game server with the server SDK
 
 This topic provides general guidance on the server SDK functionality that you need to add
-to your game server code/ This functionality enables game server processes to communicate
+to your game server code. This functionality enables game server processes to communicate
 with the Amazon GameLift Servers service. Use these instructions for game servers that you plan to deploy
 onto Amazon GameLift Servers managed EC2 fleets, managed container fleets, or Anywhere fleets.
 
@@ -67,7 +67,7 @@ with the following
 `ProcessReady()` only once.
 
     * The port number for the server process. When the server process starts
-     a game session, it provides the port to the Amazon GameLift Serversservice, which updates
+     a game session, it provides the port to the Amazon GameLift Servers service, which updates
      the game session information. Your game can retrieve this information
      and provide it to game clients, which use it to connect to the server
      process and join the game session.

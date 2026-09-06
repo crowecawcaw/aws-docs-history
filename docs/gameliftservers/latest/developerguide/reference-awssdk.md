@@ -104,10 +104,10 @@ Realtime configuration script.
 - [DescribeFleetCapacity](../../../gamelift/latest/apireference/API_DescribeFleetCapacity.md "../../../gamelift/latest/apireference/API_DescribeFleetCapacity.md") – Retrieve the current capacity
   settings for a fleet's home Region.
 - [DescribeFleetLocationCapacity](../../../gamelift/latest/apireference/API_DescribeFleetLocationCapacity.md "../../../gamelift/latest/apireference/API_DescribeFleetLocationCapacity.md") – Retrieve the current
-  capacity settings for each location a multi-location fleet.
+  capacity settings for each location in a multi-location fleet.
 - [UpdateFleetCapacity](../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md "../../../gamelift/latest/apireference/API_UpdateFleetCapacity.md") – Manually adjust capacity settings
   for a fleet.
-- Set up :
+- Set up:
 
   - [PutScalingPolicy](../../../gamelift/latest/apireference/API_PutScalingPolicy.md "../../../gamelift/latest/apireference/API_PutScalingPolicy.md") – Turn on target-based
     auto scaling or create a custom auto scaling policy, or update an

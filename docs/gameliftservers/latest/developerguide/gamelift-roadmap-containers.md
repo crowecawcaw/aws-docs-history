@@ -104,7 +104,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   container fleet hosting resources that you'll need for a production environment.
 
 - **Create container group definitions.** Container
-  group definitions describe the container architecture for a fleet. and
+  group definitions describe the container architecture for a fleet, and
   identify which container images to deploy. See [Create a container group definition for an Amazon GameLift Servers container fleet](containers-create-groups.md "containers-create-groups.md"). Create your container group
   definition in the same AWS Region where the container images are stored.
   For more on choosing a fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location"). At a minimum, do the
@@ -162,7 +162,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
     specific fleet](gamelift-sdk-client-api.md#gamelift-sdk-client-api-create "gamelift-sdk-client-api.md#gamelift-sdk-client-api-create").
 
   Calling `CreateGameSession()` is a convenient starting
-  point for requesting new game sessions, After you have a game session
+  point for requesting new game sessions. After you have a game session
   placement system in place (see Step 3), you'll replace this code with a
   call to `StartGameSessionPlacement()` (or
   `StartMatchmaking()` if you're using FlexMatch).
@@ -219,7 +219,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
 - Optimize your container fleet configuration.
   See [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md "containers-design-fleet.md").
 - Consider adding Spot fleets for cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md").
-- If your game server needs to communicate other AWS resources, set up
+- If your game server needs to communicate with other AWS resources, set up
   IAM roles to manage access. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position game servers. Add remote locations to your
   managed fleets. See [Hosting resource customizations](fleets-design.md "fleets-design.md").

@@ -167,7 +167,7 @@ Required: No
 Name of callback function that the Amazon GameLift Servers service invokes to request a
 health status report from the server process. Amazon GameLift Servers calls this function
 every 60 seconds. After calling this function Amazon GameLift Servers waits 60 seconds for
-a response, and if none is received. records the server process as
+a response, and if none is received, records the server process as
 unhealthy.
 
 Type: FOnHealthCheck

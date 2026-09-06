@@ -44,3 +44,6 @@ are no compute costs. Instead costs are based on:
 Use the **Pricing calculator for Amazon GameLift Servers** to estimate
 costs for different Amazon GameLift Servers configurations. Use the calculator when designing your game
 hosting solution or to forecast costs for configuration changes. See [Generate Amazon GameLift Servers pricing estimates](gamelift-calculator.md "gamelift-calculator.md").
+
+For information about tuning your fleet configuration, capacity scaling, and
+game session placement to reduce hosting costs, see [Cost optimization strategies](gamelift-pricing-cost-optimization.md "gamelift-pricing-cost-optimization.md").

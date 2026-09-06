@@ -3,7 +3,7 @@
 The queue resource represents your configuration of the game session placement component. It determines how
 Amazon GameLift Servers searches for and chooses the best possible compute resource to host a new game session, based on your configuration choices.
 
-View information about game session queues in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+View information about game session queues in the Amazon GameLift Servers console or using the AWS SDK for Amazon GameLift Servers.
 
 Console
 You can view information on all queues, which are used to process requests for new game sessions. The queues page
@@ -96,7 +96,7 @@ Configuration settings that customize the placement process for your game.
 ###### Player latency policies
 
 The **Player latency policies** section shows all policies that
-the queue uses. The tables lists the policies in the order they're enforced.
+the queue uses. The table lists the policies in the order they're enforced.
 
 ###### Locations
 
@@ -106,7 +106,7 @@ put a game session in.
 ###### Priority
 
 The **Priority** section shows the order that the queue evaluates
-a game sessions details.
+a game session's details.
 
 ###### Location order
 

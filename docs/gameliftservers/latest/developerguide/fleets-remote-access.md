@@ -33,7 +33,7 @@ To connect to an Amazon GameLift Servers managed EC2 fleet instance, you need th
 - the server SDK for Amazon GameLift Servers version being used on the instance. The server SDK is
   integrated with the game build that is running on the instance.
 
-The following instructions describe how complete these tasks using the AWS CLI.
+The following instructions describe how to complete these tasks using the AWS CLI.
 You must know the fleet ID for the instance you want to connect to.
 
 1. **Get the compute name.** Get a list of all

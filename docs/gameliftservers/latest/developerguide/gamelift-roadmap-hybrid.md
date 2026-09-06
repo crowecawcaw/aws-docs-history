@@ -127,7 +127,7 @@ managed fleet or an Anywhere fleet.
 
   Calling `CreateGameSession()` is
   a convenient starting point for requesting new
-  game sessions, After you have a game session
+  game sessions. After you have a game session
   placement system in place (see Step 3), you'll
   replace this code with a call to
   `StartGameSessionPlacement()` (or
@@ -307,7 +307,7 @@ more on choosing a fleet location, see [Geographic locations](gamelift-compute.m
   Recycling computes is useful to ensure that they are
   updated regularly, and shutting down computes can
   save costs when they're not needed.
-- If your game server needs to communicate other AWS
+- If your game server needs to communicate with other AWS
   resources, set up IAM roles to manage access. See
   [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position
@@ -316,7 +316,7 @@ more on choosing a fleet location, see [Geographic locations](gamelift-compute.m
 - For managed fleets, consider using Spot fleets for
   cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md").
 - Optimize fleet performance by selecting compute
-  resource configurations, then configure your the
+  resource configurations, then configure the
   runtime instructions to run the optimal number of
   server processes per compute. Do this for both
   Anywhere fleets and managed fleets. See [Optimize game server runtime configuration on managed Amazon GameLift Servers](fleets-multiprocess.md "fleets-multiprocess.md").

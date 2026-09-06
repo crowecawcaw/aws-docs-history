@@ -190,7 +190,7 @@ time.
 
 The following diagram illustrates this process.
 
-![Diagram shows how to you can use CloudFormation stacks to update game server builds.](images/resources-cf_updating_vsd.png)
+![Diagram shows how you can use CloudFormation stacks to update game server builds.](images/resources-cf_updating_vsd.png)
 
 ### How rollbacks work
 

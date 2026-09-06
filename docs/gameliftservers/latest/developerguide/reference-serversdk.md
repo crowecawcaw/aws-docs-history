@@ -50,7 +50,7 @@ Amazon GameLift Servers server SDK version 5.0.0 and above includes these update
 - Amazon GameLift Servers Anywhere support – With Anywhere fleets you can set up your own
   hosting resources to use Amazon GameLift Servers features (including matchmaking). Add the
   Amazon GameLift Servers Agent to automate game session life cycle management. Use Anywhere
-  fleets for production hosting with on- premises hardware, or set up test
+  fleets for production hosting with on-premises hardware, or set up test
   environments for fast iterative game development. See [Anywhere hosting](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-anywhere "gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-anywhere") and the [Amazon GameLift Servers
   Agent](https://github.com/aws/amazon-gamelift-agent "https://github.com/aws/amazon-gamelift-agent").
 - Updated testing tools – The Amazon GameLift Servers Anywhere feature lets you set up local or cloud-based
@@ -74,5 +74,5 @@ Amazon GameLift Servers server SDK version 5.0.0 and above includes these update
     `ComputeType`. This metric replaces the previous metric
     `ActiveInstances`.
 
-- Amazon EC2 Systems Manager (SSM )for remote access – For added security, use SSM instead of SSH when
+- Amazon EC2 Systems Manager (SSM) for remote access – For added security, use SSM instead of SSH when
   connecting to instances in Amazon GameLift Servers managed fleets. See [Connect to fleet instances](fleets-remote-access.md "fleets-remote-access.md").

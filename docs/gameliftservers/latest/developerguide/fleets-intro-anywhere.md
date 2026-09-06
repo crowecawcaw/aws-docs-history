@@ -42,5 +42,5 @@ processes to host game sessions.
 1. Amazon GameLift Servers creates the fleet resource in the fleet's home Region. Fleet status and
    custom location status are set to **New**.
 2. Amazon GameLift Servers begins writing events to the fleet event log.
-3. After the fleet resource is created. Amazon GameLift Servers sets the fleet status to **Active**. At this point, you can register new computes with
+3. After the fleet resource is created, Amazon GameLift Servers sets the fleet status to **Active**. At this point, you can register new computes with
    the fleet.

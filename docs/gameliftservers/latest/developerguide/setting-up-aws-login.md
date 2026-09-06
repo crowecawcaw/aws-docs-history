@@ -62,7 +62,7 @@ your Amazon GameLift Servers resources. As a best practice ( [Security best prac
 IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md")), apply least-privilege permissions for all users. For guidance on
 permissions syntax, see [IAM permission examples for Amazon GameLift Servers](gamelift-iam-policy-examples.md "gamelift-iam-policy-examples.md").
 
-Use following instructions to set user permissions based on how you manage the users
+Use the following instructions to set user permissions based on how you manage the users
 in your AWS account.
 
 To provide access, add permissions to your users, groups, or roles:

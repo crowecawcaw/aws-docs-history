@@ -195,7 +195,7 @@ aws gamelift create-game-session \
 
 ```
 
-You can also pass customized game properties to your server executable. See the Game Server Arguments in the README for details. When it receives the create-game-session call, the Amazon GameLift Servers inform the wrapper to launch the game server executable and start a game session. What is in the `config.yaml` affects the game server's configuration, and the launch parameters that are set in the console determine the configuration of the game session itself.
+You can also pass customized game properties to your server executable. See the Game Server Arguments in the README for details. When it receives the create-game-session call, Amazon GameLift Servers informs the wrapper to launch the game server executable and start a game session. What is in the `config.yaml` affects the game server's configuration, and the launch parameters that are set in the console determine the configuration of the game session itself.
 
 Example format for adding game properties:
 
@@ -251,7 +251,7 @@ To use target-based auto scaling
 
 Target-based autoscaling (target tracking) links fleet scaling to the percentage of available game sessions. As players surge to play your game and available game sessions decrease, it responds by automatically adding more instances to the fleet.
 
-1. Under **Target-based auto scaling policy**, choose **Add policy** and set the fleet's capacity to change automatically when it reaches the threshold of the percentage of available game sessions that you set. A larger buffer can better handle surges, getting new players get into games fast, but it may also lead to higher hosting costs.
+1. Under **Target-based auto scaling policy**, choose **Add policy** and set the fleet's capacity to change automatically when it reaches the threshold of the percentage of available game sessions that you set. A larger buffer can better handle surges, getting new players into games fast, but it may also lead to higher hosting costs.
 2. Choose **Confirm** to accept the changes.
 
 Rule-based auto scaling gives you more granular control, such as the ability to link scaling to other fleet metrics and set custom thresholds and scaling responses. It offers powerful options, but it also requires using the CLI and significant testing to understand how custom rules behave in action. This tutorial focuses on first setting up the target-based approach.

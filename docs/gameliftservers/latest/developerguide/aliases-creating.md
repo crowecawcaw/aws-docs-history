@@ -19,7 +19,7 @@ In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift
 
    1. If you choose a **Simple** routing strategy, select a fleet ID from the list
       to associate with this alias. The list includes all fleets in
-      eith currently selected AWS Region. You must create an alias
+      the currently selected AWS Region. You must create an alias
       in the same Region as the fleet.
    2. If you choose a **Terminal** routing strategy,
       enter a string value that you want Amazon GameLift Servers to return to a game client
@@ -35,7 +35,7 @@ In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift
 6. When you're ready to deploy the new fleet, choose **Create**.
 
 AWS CLI
-Use the [`create-alias`](../../../cli/latest/reference/gamelift/create-alias.md "../../../cli/latest/reference/gamelift/create-alias.md") command to create an alias. .Amazon GameLift Servers
+Use the [`create-alias`](../../../cli/latest/reference/gamelift/create-alias.md "../../../cli/latest/reference/gamelift/create-alias.md") command to create an alias. Amazon GameLift Servers
 creates the alias resource in your current default AWS Region (or you can add
 a --region tag to specify a different AWS Region).
 

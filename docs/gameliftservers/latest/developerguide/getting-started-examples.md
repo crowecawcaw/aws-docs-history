@@ -8,9 +8,9 @@ hosting using Realtime servers.
 
 ## Custom game server example
 
-This example demonstrates the process of deploying a sample game server to Amazon GameLift Servers
+This example demonstrates the process of deploying a sample game server to an Amazon GameLift Servers
 managed EC2 fleet for hosting. Use the sample game client to connect to a live game
-session. You can experience how to use Amazon GameLift Servers .tools, including the console and the AWS
+session. You can experience how to use Amazon GameLift Servers tools, including the console and the AWS
 CLI, to monitor the fleet's hosting performance and usage.
 
 The example walks you through the following steps:

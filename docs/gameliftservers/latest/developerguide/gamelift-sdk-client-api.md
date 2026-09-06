@@ -32,7 +32,7 @@ identifier for each player. For more information, see [Generate player IDs](play
     * **Target fleet** – If you're
      manually creating game sessions on a specific fleet, provide a fleet ID
      or an alias ID that points to the target fleet. If the fleet is
-     multi-location, specify a fleet location . As a best practice, use fleet
+     multi-location, specify a fleet location. As a best practice, use fleet
      aliases so that you can switch players from one fleet to another without
      having to update your backend service.
     * **Target queue** – For games that
@@ -55,7 +55,7 @@ identifier for each player. For more information, see [Generate player IDs](play
     	+ If you have long-term security credentials, configure your
     	 code to locate and use stored credentials. See [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in the
     	 *AWS SDKs and Tools Reference Guide*.
-    	 For information on storing credentials, see theAWS API
+    	 For information on storing credentials, see the AWS API
     	 references for [(C++)](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-core/html/class_aws_1_1_auth_1_1_a_w_s_credentials.html "https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-core/html/class_aws_1_1_auth_1_1_a_w_s_credentials.html") and [(.NET)](../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md "../../../sdk-for-net/v3/developer-guide/net-dg-config-creds.md").
     	+ If you have temporary security credentials, add code to
     	 regularly refresh the credentials using the AWS Security Token Service
@@ -159,7 +159,7 @@ are two ways to do this:
      the new game session.
     * To add players to an existing game session, call [CreatePlayerSession](../apireference/API_CreatePlayerSession.md "../apireference/API_CreatePlayerSession.md") or [CreatePlayerSessions](../apireference/API_CreatePlayerSessions.md "../apireference/API_CreatePlayerSessions.md") with a game session ID.
 
-A player session request must include a unique player ID . For more
+A player session request must include a unique player ID. For more
 information, see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md"). On receiving the
 request, Amazon GameLift Servers verifies that the game session is accepting new players and has
 available player slots. If successful, Amazon GameLift Servers reserves a slot for the player,

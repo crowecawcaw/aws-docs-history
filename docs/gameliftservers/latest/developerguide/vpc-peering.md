@@ -257,7 +257,7 @@ servers, consider these common root causes:
 - The CIDR blocks (see [Invalid VPC peering connection configurations](../../../vpc/latest/peering/invalid-peering-configurations.md#overlapping-cidr "../../../vpc/latest/peering/invalid-peering-configurations.md#overlapping-cidr")) of your two VPCs are
   overlapping. The IPv4 CIDR blocks that are assigned to peered VPCs cannot
   overlap. The CIDR block of the VPC for your Amazon GameLift Servers fleet is automatically
-  assigned and can't be changed, so you'll need to change the CIDR block for of
+  assigned and can't be changed, so you'll need to change the CIDR block of
   the VPC for your non-Amazon GameLift Servers resources. To resolve this issue:
 
   - Look up this CIDR block for your Amazon GameLift Servers fleet by calling

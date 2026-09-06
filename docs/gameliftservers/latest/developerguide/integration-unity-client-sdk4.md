@@ -58,7 +58,7 @@ other Amazon GameLift Servers functions.
 2. Generate a unique player id for each player to connect to a game session. For
    more information see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md").
 
-The following examples shows how to set up an Amazon GameLift Servers client.
+The following example shows how to set up an Amazon GameLift Servers client.
 
 ```
 public class GameLiftClient
@@ -156,7 +156,7 @@ a `GameSession` object, you can add players to it.
    3. Reference the player session ID. The player session ID is required if
       your game server validates incoming player connections.
 
-The following examples demonstrates how to reserve a player spot in a game session.
+The following example demonstrates how to reserve a player spot in a game session.
 
 ```
 public Amazon.GameLift.Model.PlayerSession CreatePlayerSession(Amazon.GameLift.Model.GameSession gsession)

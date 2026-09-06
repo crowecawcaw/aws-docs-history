@@ -185,7 +185,7 @@ other cleanup tasks (including shutting down the active game session) and before
 terminating the process. Depending on the result of `ProcessEnding()`, the
 process exits with success (0) or error (-1) and generates a fleet event. If the process
 terminates with an error, the fleet event generated is
-`SERVER_PROCESS_TERMINATED_UNHEALTHY`).
+`SERVER_PROCESS_TERMINATED_UNHEALTHY`.
 
 ### Syntax
 
@@ -300,7 +300,7 @@ This action has no parameters.
 ### Return value
 
 If successful, returns the game session ID as an [FGameLiftStringOutcome](integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome "integration-server-sdk5-unreal-datatypes.md#integration-server-sdk5-unreal-dataypes-awsstringoutcome") object.
-If not successful, returns an error message."
+If not successful, returns an error message.
 
 For idle processes that aren't activated with a game session, the call returns
 `Success`=`True` and

@@ -10,7 +10,7 @@ fleets. Open the Player session lookup tool using either of the following method
 - When viewing a fleet's game session details, choose **View player
   sessions**. The lookup tool opens with the game session with the
   game session ID filter preselected and the game session value filled in.
-  When using the lookup tool, you can provide any the following information:
+  When using the lookup tool, you can provide any of the following information:
 
 - A player session ID to get information on a specific player session.
 - A game session ID to get information on all player sessions for the requested
@@ -43,7 +43,7 @@ The following player session data is collected for each game session:
   following are possible statuses:
 
   - **Reserved** – Player session has been
-    reserved, but the players isn't connected.
+    reserved, but the player isn't connected.
   - **Active** – Player session is connected to
     the game server.
   - **Completed** – Player session has ended;

@@ -52,7 +52,7 @@ You can view your repositories and images IDs using the `docker images` command,
 example:
 
 This template contains the minimum instructions that a game server container needs to
-usable in an Amazon GameLift Servers fleet. Modify the content as needed for your game server.
+be usable in an Amazon GameLift Servers fleet. Modify the content as needed for your game server.
 
 ```
 # Base image
@@ -111,7 +111,7 @@ ENTRYPOINT ["/bin/sh", "-c", "./$GAME_EXECUTABLE", "$LAUNCH_PARAMS"]
 
 ## Push a container image to Amazon ECR
 
-After you've created a container image for deployment to Amazon GameLift Servers, store the image In a public or
+After you've created a container image for deployment to Amazon GameLift Servers, store the image in a public or
 private repository in Amazon ECR. This repository is assigned a URI value, which Amazon GameLift Servers uses to take
 a snapshot of the image for deployment to a container fleet.
 

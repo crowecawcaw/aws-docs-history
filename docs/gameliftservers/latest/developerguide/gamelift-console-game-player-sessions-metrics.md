@@ -1,6 +1,6 @@
 # Game and player sessions in the Amazon GameLift Servers console
 
-You can use the Amazon GameLift Servers console to work with games sessions and player sessions. For more
+You can use the Amazon GameLift Servers console to work with game sessions and player sessions. For more
 information about game sessions and player sessions, see [Amazon GameLift Servers and the player experience](game-sessions-intro.md "game-sessions-intro.md"). The Amazon GameLift Servers console provides information and tools to
 help you investigate issues with your game sessions.
 
@@ -57,7 +57,7 @@ The **Game sessions** detail include the following information:
 - **Location** – The location that Amazon GameLift Servers hosted the game
   session in.
 - **Creation time** – Date and time that Amazon GameLift Servers created
-  the stream session.
+  the game session.
 - **Ending time** – Date and time that the game session
   ended.
 - **DNS name** – The host name of the game

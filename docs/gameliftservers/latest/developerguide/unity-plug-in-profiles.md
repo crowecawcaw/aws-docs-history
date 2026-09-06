@@ -66,7 +66,7 @@ Bootstrapping involves creating new AWS resources and might incur costs.
 ###### To bootstrap your profile:
 
 1. On the **AWS Access Credentials** page, check the bootstrap
-   status of the user profile that you wan to use. If the profile's bootstrap
+   status of the user profile that you want to use. If the profile's bootstrap
    status is "Inactive" and there's no S3 bucket listed, you need to bootstrap
    the profile.
 2. Select the profile you want to use and choose **Bootstrap profile**.

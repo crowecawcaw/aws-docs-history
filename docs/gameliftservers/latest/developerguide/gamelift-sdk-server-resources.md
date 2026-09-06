@@ -39,7 +39,7 @@ In this step, you create an IAM role, with a set of permissions to control
 access to your AWS resources and a trust policy that gives Amazon GameLift Servers rights to use the
 role's permissions.
 
-For instructions on how to set up the IAM role , see [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md"). When creating the
+For instructions on how to set up the IAM role, see [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md"). When creating the
 permissions policy, choose specific services, resources, and actions that your
 applications need to work with. As a best practice, limit the scope of the
 permissions as much as possible.
@@ -50,7 +50,7 @@ need the role ARN during fleet creation.
 ### Modify applications to acquire credentials
 
 In this step, you configure your applications to acquire security credentials for
-the IAM role and use them when interacting with your AWS resources . See the
+the IAM role and use them when interacting with your AWS resources. See the
 following table to determine how to modify your applications based on (1) the type
 of application, and (2) the server SDK version your game uses to communicate with
 Amazon GameLift Servers.
@@ -129,7 +129,7 @@ data to your account. In this scenario, take the following steps:
 In the application code, before accessing an AWS resource, the
 application must call the AWS Security Token Service (AWS STS) `AssumeRole` API operation and specify the role ARN. This
 operation returns a set of temporary credentials that authorizes the
-application to access to the AWS resource. For more information, see
+application to access the AWS resource. For more information, see
 [Using
 temporary credentials with AWS resources](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md") in the
 _IAM User Guide_.

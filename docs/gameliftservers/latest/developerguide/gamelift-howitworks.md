@@ -82,7 +82,7 @@ You build your game server software. You integrate the server SDK for Amazon Gam
 
 ### Game hosting fleet
 
-The hosting fleet is a collection of computing resources that run your game servers. Fleet resources can be distributed across multiple geographic locations to provide low-latency gameplay to players wherever they are. Each fleet resource runs one or more game server processes, which communicates directly with Amazon GameLift Servers. Each game server process can host one game session at a time.
+The hosting fleet is a collection of computing resources that run your game servers. Fleet resources can be distributed across multiple geographic locations to provide low-latency gameplay to players wherever they are. Each fleet resource runs one or more game server processes, which communicate directly with Amazon GameLift Servers. Each game server process can host one game session at a time.
 
 Fleet characteristics and functionality vary based on the fleet's hosting type. Managed fleets deploy resources to the AWS Cloud and are managed by Amazon GameLift Servers. Anywhere fleets are customer-provided compute resources that are managed outside of Amazon GameLift Servers.
 

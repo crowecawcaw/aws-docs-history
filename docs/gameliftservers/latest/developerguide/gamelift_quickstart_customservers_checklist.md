@@ -20,7 +20,7 @@ months before conducting your first load test.
 - **[Critical]** Verify that you've completed all the
   [development roadmap steps](getting-started-intro.md "getting-started-intro.md")  
   for your hosting solution, and that you have all the required components in place, including
-  and integrated game server, a backend service for game clients, hosting fleets, and a game session placement
+  an integrated game server, a backend service for game clients, hosting fleets, and a game session placement
   method (such as a queue).
 - **[Critical]**
   [Create AWS Identity and Access Management (IAM) roles](setting-up-aws-login.md "setting-up-aws-login.md") that
@@ -85,7 +85,7 @@ months before conducting your first load test.
   rules](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md") or [add hosting
   locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location") based on player latency data and revised
   requirements.
-- Optimize the runtime configuration to run as many games sessions as possible
+- Optimize the runtime configuration to run as many game sessions as possible
   on each computing resource. Maximizing performance efficiency in this way can
   directly affect your fleet costs, because you might be able to run more server
   processes with the same compute resources.

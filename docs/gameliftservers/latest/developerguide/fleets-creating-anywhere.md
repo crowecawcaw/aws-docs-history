@@ -35,7 +35,7 @@ Before creating an Anywhere fleet, do the following tasks. For more detailed gui
   practice is to set up your local machine as an Anywhere fleet and use a command
   line interface to test your game server integration (see [Set up local testing with Amazon GameLift Servers Anywhere](integration-testing.md "integration-testing.md")). You
   can incorporate additional components (such as an Amazon GameLift Servers enabled game client) as
-  your develop them.
+  you develop them.
 - **Package your game server software for installation onto
   your Anywhere fleet computes.** The package should include your
   integrated game server build and all support software needed to run your game
@@ -272,7 +272,7 @@ is handled for you. The compute-specific values are as follows:
   value to the `authToken` server parameter.
 
 AWS CLI
-The following instructions describe how manually submit each request using
+The following instructions describe how to manually submit each request using
 the AWS CLI.
 
 **To register a compute**

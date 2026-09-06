@@ -25,7 +25,7 @@ Group definitions**. On the Container groups definition page, choose a
 container group definition and version to update.
 
 After you've saved your updates, you can use the new version to create a new
-container fleets or you can deploy the updates to an existing container fleet.
+container fleet or you can deploy the updates to an existing container fleet.
 
 ###### Step 1: Define container group definition details
 
@@ -85,7 +85,7 @@ CLI Command Reference_.
 You can specify a container group definition version when retrieving,
 updating, or deleting a container group definition, or when creating or updating
 a container fleet. Each container group definition has a version property. In
-addition, the and definition's ARN value specifies the version number.
+addition, the definition's ARN value specifies the version number.
 
 This example illustrates a request for a change to a game server container
 group definition. It assumes that you’ve created a JSON file with the container
@@ -115,7 +115,7 @@ You can use the Amazon GameLift Servers console to clone an existing container g
    button is active.
 3. Choose **Clone**. This action opens the container group creation wizard with
    pre-filled settings.
-4. Enter a new name for the cloned container group. Container group in the same region
+4. Enter a new name for the cloned container group. Container groups in the same region
    must have unique names.
 5. Step through the container group and container definition pages, review, and
    **Create** the new container group.

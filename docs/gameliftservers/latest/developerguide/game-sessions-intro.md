@@ -62,7 +62,7 @@ provides comprehensive session management and protection:
   Cloud** – With hosting managed by Amazon GameLift Servers, players get fast,
   reliable game servers that run on AWS computing infrastructure.
 - **Validate players when they connect** –
-  When you enable player sessions for your game, you can have Amazon GameLift Serversreserve player
+  When you enable player sessions for your game, you can have Amazon GameLift Servers reserve player
   slots in game sessions and validate players on connection.
 - **Players can reconnect and maintain game
   progress** – Amazon GameLift Servers supports reconnection for both server-side
@@ -77,7 +77,7 @@ Players expect games to work consistently and get better over time. Amazon GameL
 
 - **Players experience fewer disruptions** –
   Real-time monitoring of fleet performance, game sessions, and player activity
-  can identify issues before they significantly impact gameplay Customize graceful
+  can identify issues before they significantly impact gameplay. Customize graceful
   game session shutdowns and migrations.
 - **Players benefit from proactive server health monitoring** – Amazon GameLift Servers provides continuous server health monitoring and automatically replaces unhealthy game servers to minimize hardware or software failure impact. Configure health check parameters to support different game requirements.
 - **Players get data-driven improvements in gameplay** – Take advantage of game session logs and detailed analytics to reveal patterns in player behavior and server performance. Add custom logging support for game-specific events.

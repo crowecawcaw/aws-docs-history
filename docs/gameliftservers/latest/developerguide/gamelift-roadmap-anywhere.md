@@ -116,7 +116,7 @@ service when it's deployed for hosting.
     specific fleet](gamelift-sdk-client-api.md#gamelift-sdk-client-api-create "gamelift-sdk-client-api.md#gamelift-sdk-client-api-create").
 
   Calling `CreateGameSession()` is a convenient starting
-  point for requesting new game sessions, After you have a game session
+  point for requesting new game sessions. After you have a game session
   placement system in place (see Step 3), you'll replace this code with a
   call to `StartGameSessionPlacement()` (or
   `StartMatchmaking()` if you're using FlexMatch).
@@ -202,7 +202,7 @@ handling these tasks with scripts, you can remove them:
   including installing and running game server software. Recycling computes is
   useful to ensure that they are updated regularly, and shutting down computes
   can save costs when they're not needed.
-- If your game server needs to communicate other AWS resources, set up IAM
+- If your game server needs to communicate with other AWS resources, set up IAM
   roles to manage access. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position game servers. Add
   remote locations to your managed fleets. See [Hosting resource customizations](fleets-design.md "fleets-design.md").

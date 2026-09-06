@@ -1,6 +1,6 @@
 # Build a queue for Spot Instances
 
-You can achieve of potentially significant savings in hosting costs by using Spot fleets.
+You can achieve potentially significant savings in hosting costs by using Spot fleets.
 For more details about Spot fleets and how to use them, see [On-Demand Instances versus Spot Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
 
 If your game hosting solution includes Spot fleets, you must use a game session placement
@@ -95,7 +95,7 @@ Use the following best practices when creating fleets and queues for Spot instan
   coverage.** Amazon GameLift Servers evaluates Spot viability based on instance type,
   so having Spot fleets with a variety of instance types reduces the chance that
   multiple Spot fleets are nonviable at the same time. Include at least two Spot
-  fleets with different instances types each location.
+  fleets with different instance types in each location.
 
 ###### Note
 
@@ -110,7 +110,7 @@ Tips for grouping Spot instance types:
      `m6g.medium`, `m6g.large`, and
      `m6g.xlarge`. Larger instance types cost more, but can
      also host more game sessions at a time.
-    + Select widely available instances types. Typically, older generation
+    + Select widely available instance types. Typically, older generation
      families (such as C5, M5, and R5) and common sizes (such as .large,
      .xlarge, and .2xlarge) have better availability.
     + Check the 30-90 day pricing history in the Amazon GameLift Servers console. Look for

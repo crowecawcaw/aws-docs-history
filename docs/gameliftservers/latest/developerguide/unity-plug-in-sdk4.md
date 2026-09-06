@@ -171,7 +171,7 @@ the following resources:
 
 - An Amazon Cognito user pool for a player to authenticate and start a game.
 - An AWS Lambda handler to search for an existing game session with an open
-  player slot on the fleet. If it can't find a open slot, it creates a new game
+  player slot on the fleet. If it can't find an open slot, it creates a new game
   session.
 
 ###### Multi-Region fleet with a queue and custom matchmaker
@@ -273,7 +273,7 @@ For more information about Amazon S3 buckets, see [Creating, configuring, and wo
      your selection.
    - Choose **Create new Amazon S3 bucket** to create a new
      Amazon Simple Storage Service bucket, then choose a **Policy**. The
-     policy specifies when the Amazon S3 bucket will be expire. Choose
+     policy specifies when the Amazon S3 bucket will expire. Choose
      **Create** to create the bucket.
 
 ### Deploy a game scenario
@@ -428,7 +428,7 @@ Set up the game client files of the sample game.
    folder specifically for client files.
 
 Unity builds the sample game client, placing the executable and required
-assets in the specified client build folder. 4. You've no built the game server and client. In the next steps, you run the
+assets in the specified client build folder. 4. You've now built the game server and client. In the next steps, you run the
 game and see how it interacts with Amazon GameLift Servers.
 
 ### Test the sample game locally
@@ -449,7 +449,7 @@ Run the sample game you imported using Amazon GameLift Servers Local.
    name. For example,
    `C:/MyGame/GameServer/MyGameServer.exe`.
 4. Choose **Deploy and Run**. The plugin for Unity launches the
-   game server and opens an Amazon GameLift Servers Local log window. The windows contains log
+   game server and opens an Amazon GameLift Servers Local log window. The window contains log
    messages including messages sent between the game server and Amazon GameLift Servers Local.
 5. Launch the game client. Find the build location with the sample game
    client and choose the executable file .

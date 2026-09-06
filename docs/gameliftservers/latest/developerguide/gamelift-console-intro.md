@@ -18,7 +18,7 @@ console offers a graphical interface for most of the functionality of the servic
   metrics.
 - **Interact with game and player session activity.** You can track
   game session and player session activity by fleet, and use this information to
-  troubleshoot game session issues. View details on a game sessions, view player
+  troubleshoot game session issues. View details on a game session, view player
   sessions for each game session, and look up player activity across multiple game
   sessions. You can also shut down individual game sessions as needed.
 

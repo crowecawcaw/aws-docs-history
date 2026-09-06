@@ -1,52 +1,52 @@
 # Manage Scaling an Amazon GameLift Servers Fleet To/From Zero
 
 Amazon GameLift Servers supports automatic scaling to and from zero instances based on game session activity. This managed
-capacity option allows your Fleet locations to scale-in to zero instances following a defined period of no game
+capacity option allows your fleet locations to scale-in to zero instances following a defined period of no game
 session activity and automatically scale-out when game sessions are requested.
 
 Scaling to and from zero instances provides several advantages:
 
 - **Cost optimization** – Eliminate compute costs during periods
   of inactivity by running zero instances when there is no game session activity.
-- **Automatic reactive scale-out** – Fleets locations automatically
+- **Automatic reactive scale-out** – Fleet locations automatically
   scale-out to one instance when a game session is requested, eliminating the need for manual
   intervention.
-- **Simplified management** – No need to manually adjust Fleet
+- **Simplified management** – No need to manually adjust fleet
   capacity to/from zero based on anticipated player demand or development needs.
   When you enable Scale To/From Zero on a fleet, Amazon GameLift Servers monitors game session activity and
-  automatically adjusts Fleet capacity:
+  automatically adjusts fleet capacity:
 
 - **Scale-in to zero** – After a configured period with no
-  game sessions activity, Amazon GameLift Servers scales-in the Fleet location to zero instances.
+  game session activity, Amazon GameLift Servers scales-in the fleet location to zero instances.
 - **Scale-out from zero** – When a game session creation request
-  is received, Amazon GameLift Servers scales-out the Fleet location to one instance, allowing auto scaling to resume.
+  is received, Amazon GameLift Servers scales-out the fleet location to one instance, allowing auto scaling to resume.
 - **Continued scaling** – Following scale-out the fleet resumes
   using configured auto scaling policies to manage capacity.
 
 ## Scale-in behavior
 
-Amazon GameLift Servers begins the scale-in process for a Fleet location after the configured inactivity period has elapsed
-with no game session activity. This is defined as a period where::
+Amazon GameLift Servers begins the scale-in process for a fleet location after the configured inactivity period has elapsed
+with no game session activity. This is defined as a period where:
 
-- There are no active game sessions in the Fleet location.
-- No requests have been made to create new game sessions in the Fleet location.
+- There are no active game sessions in the fleet location.
+- No requests have been made to create new game sessions in the fleet location.
 
-During scale-in, Amazon GameLift Servers will set minimum and desired capacity for the Fleet location to zero, rapidly
+During scale-in, Amazon GameLift Servers will set minimum and desired capacity for the fleet location to zero, rapidly
 scaling-in for cost savings.
 
 ## Scale-out behavior
 
-When a game session creation request is received while the Fleet location is at zero instances:
+When a game session creation request is received while the fleet location is at zero instances:
 
 - Amazon GameLift Servers immediately initiates scale-out of one instance.
-- Attempted placement of the game session may continue with other Fleets or Fleet locations,
+- Attempted placement of the game session may continue with other fleets or fleet locations,
   depending on configuration of Queues (if used).
 
 ###### Note
 
 Scale-out from zero takes time to provision and initialize instances. Players may experience longer
 wait times for the first game session after a period of inactivity. For this reason this feature
-is best paired with multi-location Fleets and/or Queues.
+is best paired with multi-location fleets and/or queues.
 
 ## Configuring Scale To/From Zero
 
