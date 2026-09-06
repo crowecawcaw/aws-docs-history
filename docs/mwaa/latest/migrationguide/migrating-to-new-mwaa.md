@@ -1,33 +1,30 @@
+
+
 # Migrate to a new Amazon MWAA environment
+<a name="migrating-to-new-mwaa"></a>
 
-Explore the following steps to migrate your existing Apache Airflow workload to a new Amazon MWAA
-environment. You can use these steps to migrate from an older version of Amazon MWAA to a new
-version release, or migrate your self-managed Apache Airflow deployment to Amazon MWAA. This tutorial
-assumes you are migrating from an existing Apache Airflow v1.10.12 to a new Amazon MWAA running Apache Airflow v2.5.1, but
-you can use the same procedures to migrate from, or to different Apache Airflow versions.
+Explore the following steps to migrate your existing Apache Airflow workload to a new Amazon MWAA environment. You can use these steps to migrate from an older version of Amazon MWAA to a new version release, or migrate your self-managed Apache Airflow deployment to Amazon MWAA. This tutorial assumes you are migrating from an existing Apache Airflow v1.10.12 to a new Amazon MWAA running Apache Airflow v2.5.1, but you can use the same procedures to migrate from, or to different Apache Airflow versions. 
 
-###### Topics
-
-- [Prerequisites](#migrating-to-new-mwaa-prerequisites "#migrating-to-new-mwaa-prerequisites")
-- [Step one: Create a new Amazon MWAA environment running the latest supported Apache Airflow version](#migrating-to-new-mwaa-create-a-new-environment "#migrating-to-new-mwaa-create-a-new-environment")
-- [Step two: Migrate your workflow resources](#migrating-to-new-mwaa-workflows "#migrating-to-new-mwaa-workflows")
-- [Step three: Exporting the metadata from your existing environment](#migrating-to-new-mwaa-exporting-metadatadb "#migrating-to-new-mwaa-exporting-metadatadb")
-- [Step four: Importing the metadata to your new environment](#migrating-to-new-mwaa-importing-metadatadb "#migrating-to-new-mwaa-importing-metadatadb")
-- [Next steps](#migrating-to-new-mwaa-next-up "#migrating-to-new-mwaa-next-up")
+**Topics**
++ [Prerequisites](#migrating-to-new-mwaa-prerequisites)
++ [Step one: Create a new Amazon MWAA environment running the latest supported Apache Airflow version](#migrating-to-new-mwaa-create-a-new-environment)
++ [Step two: Migrate your workflow resources](#migrating-to-new-mwaa-workflows)
++ [Step three: Exporting the metadata from your existing environment](#migrating-to-new-mwaa-exporting-metadatadb)
++ [Step four: Importing the metadata to your new environment](#migrating-to-new-mwaa-importing-metadatadb)
++ [Next steps](#migrating-to-new-mwaa-next-up)
 
 ## Prerequisites
+<a name="migrating-to-new-mwaa-prerequisites"></a>
 
 To be able to complete the steps and migrate your environment, you'll need the following:
-
-- An Apache Airflow deployment. This can be a self-managed or existing Amazon MWAA environment.
-- [Docker installed](https://docs.docker.com/get-docker/ "https://docs.docker.com/get-docker/") for your local operating system.
-- [AWS Command Line Interface version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") installed.
++ An Apache Airflow deployment. This can be a self-managed or existing Amazon MWAA environment.
++  [Docker installed](https://docs.docker.com/get-docker/) for your local operating system. 
++  [AWS Command Line Interface version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install) installed. 
 
 ## Step one: Create a new Amazon MWAA environment running the latest supported Apache Airflow version
+<a name="migrating-to-new-mwaa-create-a-new-environment"></a>
 
-You can create an environment using the detailed steps in [Getting started with Amazon MWAA](../userguide/get-started.md "../userguide/get-started.md")
-in the _Amazon MWAA User Guide_, or by using an CloudFormation template. If you're migrating from an existing Amazon MWAA environment, and used an CloudFormation template to create your old environment, you can change the
-`AirflowVersion` property to specify the new version.
+ You can create an environment using the detailed steps in [Getting started with Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/get-started.html) in the *Amazon MWAA User Guide*, or by using an CloudFormation template. If you're migrating from an existing Amazon MWAA environment, and used an CloudFormation template to create your old environment, you can change the `AirflowVersion` property to specify the new version. 
 
 ```
 MwaaEnvironment:
@@ -37,7 +34,7 @@ MwaaEnvironment:
     Name: !Sub "${AWS::StackName}-MwaaEnvironment"
     SourceBucketArn: !GetAtt EnvironmentBucket.Arn
     ExecutionRoleArn: !GetAtt MwaaExecutionRole.Arn
-    AirflowVersion: `2.5.1`
+    AirflowVersion: {{2.5.1}}
     DagS3Path: dags
   NetworkConfiguration:
     SecurityGroupIds:
@@ -65,8 +62,10 @@ MwaaEnvironment:
       Enabled: true
 ```
 
-Alternatively, if migrating from an existing Amazon MWAA environment, you can copy the following Python script that uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html")
-to clone your environment. You can also [download the script](../userguide/samples/clone_environment.zip.md "../userguide/samples/clone_environment.zip.md").
+ Alternatively, if migrating from an existing Amazon MWAA environment, you can copy the following Python script that uses the [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) to clone your environment. You can also [download the script](../userguide/samples/clone_environment.zip). 
+
+### Python Script
+<a name="migrating-to-new-mwaa-clone-a-new-environment"></a>
 
 ```
 # This Python file uses the following encoding: utf-8
@@ -209,7 +208,7 @@ def create_new_env(env):
     return mwaa.create_environment(**env)
 
 def get_mwaa_env(input_env_name):
-
+ 
     # https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mwaa.html#MWAA.Client.get_environment
     mwaa = boto3.client('mwaa', region_name=REGION)
     environment = mwaa.get_environment(
@@ -283,225 +282,205 @@ if __name__ == '__main__':
         print('profile', PROFILE, 'does not exist; check the profile name')
     except IndexError as error:
         print("Error:", error)
-
-
 ```
 
 ## Step two: Migrate your workflow resources
+<a name="migrating-to-new-mwaa-workflows"></a>
 
-Apache Airflow v2 is a major version release. If you are migrating from Apache Airflow v1, you must prepare your workflow resources and verify the changes you make to your DAGs, requirements, and plugins. To do so,
-we recommend configuring a _bridge_ version of Apache Airflow on your local operating system using Docker and the [Amazon MWAA local runner](https://github.com/aws/aws-mwaa-local-runner "https://github.com/aws/aws-mwaa-local-runner").
-The Amazon MWAA local runner provides a command line interface (CLI) utility that replicates an Amazon MWAA environment locally.
+ Apache Airflow v2 is a major version release. If you are migrating from Apache Airflow v1, you must prepare your workflow resources and verify the changes you make to your DAGs, requirements, and plugins. To do so, we recommend configuring a *bridge* version of Apache Airflow on your local operating system using Docker and the [Amazon MWAA local runner](https://github.com/aws/aws-mwaa-local-runner). The Amazon MWAA local runner provides a command line interface (CLI) utility that replicates an Amazon MWAA environment locally. 
 
-Whenever you're changing Apache Airflow versions, ensure that you [reference the correct `--constraint`](../userguide/working-dags-dependencies.md#working-dags-dependencies-test-create "../userguide/working-dags-dependencies.md#working-dags-dependencies-test-create")
-URL in your `requirements.txt`.
+ Whenever you're changing Apache Airflow versions, ensure that you [reference the correct `--constraint`](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html#working-dags-dependencies-test-create) URL in your `requirements.txt`. 
 
-###### To migrate your workflow resources
+**To migrate your workflow resources**
 
-1. Create a fork of the [aws-mwaa-local-runner](https://github.com/aws/aws-mwaa-local-runner "https://github.com/aws/aws-mwaa-local-runner") repository, and clone a copy of the Amazon MWAA local runner.
-2. Checkout the `v1.10.15` branch of the aws-mwaa-local-runner repository. Apache Airflow released v1.10.15 as a _bridge release_ to assist in migrating to Apache Airflow v2, and although Amazon MWAA does not
-   support v1.10.15, you can use the Amazon MWAA local runner to test your resources.
-3. Use the Amazon MWAA local runner CLI tool to build the Docker image and run Apache Airflow locally. For more information, see the local runner
-   [README](https://github.com/aws/aws-mwaa-local-runner/tree/v1.10.15#readme "https://github.com/aws/aws-mwaa-local-runner/tree/v1.10.15#readme") in the GitHub repository.
-4. Using Apache Airflow running locally, follow the steps described in [Upgrading from 1.10 to 2](https://airflow.apache.org/docs/apache-airflow/stable/upgrading-from-1-10/index.html "https://airflow.apache.org/docs/apache-airflow/stable/upgrading-from-1-10/index.html") in the Apache Airflow documentation website.
+1.  Create a fork of the [aws-mwaa-local-runner](https://github.com/aws/aws-mwaa-local-runner) repository, and clone a copy of the Amazon MWAA local runner. 
 
-   1. To update your `requirements.txt`, follow the best practices we recommend in
-      [Managing Python dependencies](../userguide/best-practices-dependencies.md "../userguide/best-practices-dependencies.md"), in the _Amazon MWAA User Guide_.
-   2. If you have bundled your custom operators and sensors with your plugins for your existing Apache Airflow v1.10.12 environment, move them to your DAG folder. For more information on module management best practices for Apache Airflow v2+,
-      refer to [Module Management](https://airflow.apache.org/docs/apache-airflow/stable/modules_management.html "https://airflow.apache.org/docs/apache-airflow/stable/modules_management.html") in the Apache Airflow documentation website.
+1.  Checkout the `v1.10.15` branch of the aws-mwaa-local-runner repository. Apache Airflow released v1.10.15 as a *bridge release* to assist in migrating to Apache Airflow v2, and although Amazon MWAA does not support v1.10.15, you can use the Amazon MWAA local runner to test your resources. 
 
-5. After you have made the required changes to your workflow resources, checkout the `v2.5.1` branch of the aws-mwaa-local-runner repository, and test your updated workflow DAGs, requirements, and custom plugins
-   locally. If you're migrating to a different Apache Airflow version, you can use the appropriate local runner branch for your version, instead.
-6. After you have successfully tested your workflow resources, copy your DAGs, `requirements.txt`, and plugins to the Amazon S3 bucket you configured with your new Amazon MWAA environment.
+1.  Use the Amazon MWAA local runner CLI tool to build the Docker image and run Apache Airflow locally. For more information, see the local runner [README](https://github.com/aws/aws-mwaa-local-runner/tree/v1.10.15#readme) in the GitHub repository. 
+
+1.  Using Apache Airflow running locally, follow the steps described in [Upgrading from 1.10 to 2](https://airflow.apache.org/docs/apache-airflow/stable/upgrading-from-1-10/index.html) in the Apache Airflow documentation website. 
+
+   1.  To update your `requirements.txt`, follow the best practices we recommend in [Managing Python dependencies](https://docs.aws.amazon.com/mwaa/latest/userguide/best-practices-dependencies.html), in the *Amazon MWAA User Guide*. 
+
+   1.  If you have bundled your custom operators and sensors with your plugins for your existing Apache Airflow v1.10.12 environment, move them to your DAG folder. For more information on module management best practices for Apache Airflow v2\+, refer to [Module Management](https://airflow.apache.org/docs/apache-airflow/stable/modules_management.html) in the Apache Airflow documentation website. 
+
+1.  After you have made the required changes to your workflow resources, checkout the `v2.5.1` branch of the aws-mwaa-local-runner repository, and test your updated workflow DAGs, requirements, and custom plugins locally. If you're migrating to a different Apache Airflow version, you can use the appropriate local runner branch for your version, instead. 
+
+1.  After you have successfully tested your workflow resources, copy your DAGs, `requirements.txt`, and plugins to the Amazon S3 bucket you configured with your new Amazon MWAA environment. 
 
 ## Step three: Exporting the metadata from your existing environment
+<a name="migrating-to-new-mwaa-exporting-metadatadb"></a>
 
-Apache Airflow metadata tables such as `dag`, `dag_tag`, and `dag_code` automatically populate when you copy the updated DAG files to your environment's Amazon S3 bucket and the scheduler parses them.
-Permission related tables also populate automatically based on your IAM execution role permission. You do not need to migrate them.
+ Apache Airflow metadata tables such as `dag`, `dag_tag`, and `dag_code` automatically populate when you copy the updated DAG files to your environment's Amazon S3 bucket and the scheduler parses them. Permission related tables also populate automatically based on your IAM execution role permission. You do not need to migrate them. 
 
-You can migrate data related to DAG history, `variable`, `slot_pool`, `sla_miss`, and if needed, `xcom`, `job`, and `log` tables.
-Task instance logs are stored in CloudWatch Logs under the `airflow-`{environment_name}`-Task` log group. If you want to access logs for older runs in your new environment, use one of these options: use the same environment name when you create the new environment, or manually copy the logs to the new environment log group.
+ You can migrate data related to DAG history, `variable`, `slot_pool`, `sla_miss`, and if needed, `xcom`, `job`, and `log` tables. Task instance logs are stored in CloudWatch Logs under the `airflow-{{{environment_name}}}-Task` log group. If you want to access logs for older runs in your new environment, use one of these options: use the same environment name when you create the new environment, or manually copy the logs to the new environment log group. 
 
-If you're migrating from an existing Amazon MWAA environment, there is no direct access to the metadata database. You must run a DAG to export the metadata from your existing Amazon MWAA environment to an Amazon S3 bucket of your choice.
-The following steps can also be used to export Apache Airflow metadata if you're migrating from a self-managed environment.
+ If you're migrating from an existing Amazon MWAA environment, there is no direct access to the metadata database. You must run a DAG to export the metadata from your existing Amazon MWAA environment to an Amazon S3 bucket of your choice. The following steps can also be used to export Apache Airflow metadata if you're migrating from a self-managed environment. 
 
-After the data is exported, you can then run a DAG in your new environment to import the data. During the export and the import process, all other DAGs are paused.
+ After the data is exported, you can then run a DAG in your new environment to import the data. During the export and the import process, all other DAGs are paused. 
 
-###### To export the metadata from your existing environment
+**To export the metadata from your existing environment**
 
-1. Create an Amazon S3 bucket using the AWS CLI to store the exported data. Replace the `UUID` and `region` with your information.
+1.  Create an Amazon S3 bucket using the AWS CLI to store the exported data. Replace the `UUID` and `region` with your information. 
 
-```
-`aws s3api create-bucket \
---bucket mwaa-migration-`{UUID}`\
---region `{region}``
-```
+   ```
+   aws s3api create-bucket \
+   --bucket mwaa-migration-{{{UUID}}}\
+   --region {{{region}}}
+   ```
+**Note**  
+ If you are migrating sensitive data, such as connections you store in variables, we recommend that you [enable default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-bucket-encryption.html) for the Amazon S3 bucket. 
 
-###### Note
-
-If you are migrating sensitive data, such as connections you store in variables, we recommend that you
-[enable default encryption](../../../AmazonS3/latest/userguide/default-bucket-encryption.md "../../../AmazonS3/latest/userguide/default-bucket-encryption.md") for the Amazon S3 bucket. 2. ###### Note
-
+1. 
+**Note**  
 Does not apply to migration from a self-managed environment.
 
-Modify the execution role of the existing environment and add the following policy to grant write access to the bucket you created in step one.
+    Modify the execution role of the existing environment and add the following policy to grant write access to the bucket you created in step one. 
 
-JSON
+------
+#### [ JSON ]
 
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "s3:PutObject*"
- ],
- "Resource": [
- "arn:aws:s3:::mwaa-migration-`{UUID}`/*"
- ]
- }
- ]
-}`
+****  
 
-```
+   ```
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "s3:PutObject*"
+               ],
+               "Resource": [
+                   "arn:aws:s3:::mwaa-migration-{{{UUID}}}/*"
+               ]
+           }
+       ]
+   }
+   ```
 
-3. Clone the [amazon-mwaa-examples](https://github.com/aws-samples/amazon-mwaa-examples "https://github.com/aws-samples/amazon-mwaa-examples") repository, and navigate to the `metadata-migration` subdirectory for your migration scenario.
+------
 
-```
-`git clone https://github.com/aws-samples/amazon-mwaa-examples.git`
-`cd amazon-mwaa-examples/usecases/metadata-migration/`existing-version`-`new-version`/`
-```
+1.  Clone the [amazon-mwaa-examples](https://github.com/aws-samples/amazon-mwaa-examples) repository, and navigate to the `metadata-migration` subdirectory for your migration scenario. 
 
-4. In `export_data.py`, replace the string value for `S3_BUCKET` with the Amazon S3 bucket you created to store exported metadata.
+   ```
+   git clone https://github.com/aws-samples/amazon-mwaa-examples.git
+   cd amazon-mwaa-examples/usecases/metadata-migration/{{existing-version}}-{{new-version}}/
+   ```
 
-```
-S3_BUCKET = 'mwaa-migration-`{UUID}`'
-```
+1.  In `export_data.py`, replace the string value for `S3_BUCKET` with the Amazon S3 bucket you created to store exported metadata. 
 
-5. Locate the `requirements.txt` file in the `metadata-migration` directory. If you already have a requirements file for your existing environment,
-   add the additional requirements specified in `requirements.txt` to your file. If you do not have an existing requirements file, you can simply use the one provided
-   in the `metadata-migration` directory.
-6. Copy `export_data.py` to the DAG directory of the Amazon S3 bucket associated with your existing environment. If migrating from a self-managed environment, copy `export_data.py`
-   to your `/dags` folder.
-7. Copy your updated `requirements.txt` to the Amazon S3 bucket associated with your existing environment, then edit the environment to specify the new `requirements.txt` version.
-8. After the environment is updated, access the Apache Airflow UI, unpause the `db_export` DAG, and trigger the workflow to run.
-9. Verify that the metadata is exported to `data/migration/`existing-version`_to_`new-version`/export/` in the `mwaa-migration-`{UUID}`` Amazon S3 bucket,
-   with each table in it's own dedicated file.
+   ```
+   S3_BUCKET = 'mwaa-migration-{{{UUID}}}'
+   ```
+
+1.  Locate the `requirements.txt` file in the `metadata-migration` directory. If you already have a requirements file for your existing environment, add the additional requirements specified in `requirements.txt` to your file. If you do not have an existing requirements file, you can simply use the one provided in the `metadata-migration` directory. 
+
+1.  Copy `export_data.py` to the DAG directory of the Amazon S3 bucket associated with your existing environment. If migrating from a self-managed environment, copy `export_data.py` to your `/dags` folder. 
+
+1. Copy your updated `requirements.txt` to the Amazon S3 bucket associated with your existing environment, then edit the environment to specify the new `requirements.txt` version.
+
+1.  After the environment is updated, access the Apache Airflow UI, unpause the `db_export` DAG, and trigger the workflow to run. 
+
+1.  Verify that the metadata is exported to `data/migration/{{existing-version}}_to_{{new-version}}/export/` in the `mwaa-migration-{{{UUID}}}` Amazon S3 bucket, with each table in it's own dedicated file. 
 
 ### Migrating CloudWatch Logs
+<a name="migrating-to-new-mwaa-cloudwatch-logs"></a>
 
-Each Amazon MWAA environment writes logs to a CloudWatch Logs log group named
-`airflow-`{environment-name}`-`{component}``.
-The log group name is derived from the environment name at creation time. If you create a new
-environment with a different name during migration, the new environment creates a new log group.
-Logs from the original environment remain in the original log groups and are not copied or linked
-to the new environment.
+ Each Amazon MWAA environment writes logs to a CloudWatch Logs log group named `airflow-{{{environment-name}}}-{{{component}}}`. The log group name is derived from the environment name at creation time. If you create a new environment with a different name during migration, the new environment creates a new log group. Logs from the original environment remain in the original log groups and are not copied or linked to the new environment. 
 
 If you require access to historical logs after migration, consider the following options:
 
-Option 1: Export logs to Amazon S3
+Option 1: Export logs to Amazon S3  
+This option works well for large log volumes. Export logs from the original log group to Amazon S3 before decommissioning the old environment. For more information, see [Exporting log data to Amazon S3](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/S3Export.html).
 
-This option works well for large log volumes. Export logs from the original
-log group to Amazon S3 before decommissioning the old environment. For more
-information, see [Exporting log data to Amazon S3](../../../AmazonCloudWatch/latest/logs/S3Export.md "../../../AmazonCloudWatch/latest/logs/S3Export.md").
+Option 2: Keep old logs in place  
+Rather than exporting logs, you can retain the original log groups and query them directly. Set a retention policy on the old log groups so they expire naturally, and use CloudWatch Logs Insights to query across both old and new log groups simultaneously.
 
-Option 2: Keep old logs in place
-
-Rather than exporting logs, you can retain the original log groups and query
-them directly. Set a retention policy on the old log groups so they expire
-naturally, and use CloudWatch Logs Insights to query across both old and new log groups
-simultaneously.
-
-###### Important
-
-Changing the environment name during migration means historical task logs are not accessible
-from the new environment's Apache Airflow UI.
+**Important**  
+ Changing the environment name during migration means historical task logs are not accessible from the new environment's Apache Airflow UI. 
 
 ## Step four: Importing the metadata to your new environment
+<a name="migrating-to-new-mwaa-importing-metadatadb"></a>
 
-###### To import the metadata to your new environment
+**To import the metadata to your new environment**
 
-1. In `import_data.py`, replace the string values for the following with your information.
+1.  In `import_data.py`, replace the string values for the following with your information. 
+   + For migration from an existing Amazon MWAA environment:
 
-   - For migration from an existing Amazon MWAA environment:
+     ```
+     S3_BUCKET = 'mwaa-migration-{{{UUID}}}'
+     							OLD_ENV_NAME='{{{old_environment_name}}}'
+     							NEW_ENV_NAME='{{{new_environment_name}}}'
+     							TI_LOG_MAX_DAYS = {{{number_of_days}}}
+     ```
+
+      `MAX_DAYS` controls how many days worth of log files the workflow copies over to the new environment. 
+   + For migration from a self-managed environment:
+
+     ```
+     S3_BUCKET = 'mwaa-migration-{{{UUID}}}'
+     							NEW_ENV_NAME='{{{new_environment_name}}}'
+     ```
+
+1.  (Optional) `import_data.py` copies only failed task logs. If you want to copy all task logs, modify the `getDagTasks` function, and remove `ti.state = 'failed'` as shown in the following code snippet. 
 
    ```
-   S3_BUCKET = 'mwaa-migration-`{UUID}`'
-   							OLD_ENV_NAME='`{old_environment_name}`'
-   							NEW_ENV_NAME='`{new_environment_name}`'
-   							TI_LOG_MAX_DAYS = `{number_of_days}`
+   def getDagTasks():
+   					session = settings.Session()
+   					dagTasks = session.execute(f"select distinct ti.dag_id, ti.task_id, date(r.execution_date) as ed \
+   					from task_instance ti, dag_run r where r.execution_date > current_date - {TI_LOG_MAX_DAYS} and \
+   					ti.dag_id=r.dag_id and ti.run_id = r.run_id order by ti.dag_id, date(r.execution_date);").fetchall()
+   					return dagTasks
    ```
 
-   `MAX_DAYS` controls how many days worth of log files the workflow copies over to the new
-   environment.
-   - For migration from a self-managed environment:
+1.  Modify the execution role of your new environment and add the following policy. The permission policy allows Amazon MWAA to read from the Amazon S3 bucket where you exported the Apache Airflow metadata, and to copy task instance logs from existing log groups. Replace all placeholders with your information. 
+**Note**  
+ If you are migrating from a self-managed environment, you must remove CloudWatch Logs related permissions from the policy. 
+
+------
+#### [ JSON ]
+
+****  
 
    ```
-   S3_BUCKET = 'mwaa-migration-`{UUID}`'
-   							NEW_ENV_NAME='`{new_environment_name}`'
+   {
+       "Version":"2012-10-17",		 	 	 
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "logs:GetLogEvents",
+                   "logs:DescribeLogStreams"
+               ],
+               "Resource": [
+                "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:airflow-{{{old_environment_name}}}*"
+               ]
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "s3:GetObject",
+                   "s3:ListBucket"
+               ],
+               "Resource": [
+                   "arn:aws:s3:::mwaa-migration-{{{UUID}}}",
+                   "arn:aws:s3:::mwaa-migration-{{{UUID}}}/*"
+               ]
+           }
+       ]
+   }
    ```
 
-2. (Optional) `import_data.py` copies only failed task logs. If you want to copy all task logs, modify the `getDagTasks` function, and remove `ti.state = 'failed'`
-   as shown in the following code snippet.
+------
 
-```
-def getDagTasks():
-					session = settings.Session()
-					dagTasks = session.execute(f"select distinct ti.dag_id, ti.task_id, date(r.execution_date) as ed \
-					from task_instance ti, dag_run r where r.execution_date > current_date - {TI_LOG_MAX_DAYS} and \
-					ti.dag_id=r.dag_id and ti.run_id = r.run_id order by ti.dag_id, date(r.execution_date);").fetchall()
-					return dagTasks
-```
+1.  Copy `import_data.py` to the DAG directory of the Amazon S3 bucket associated with your new environment, then access the Apache Airflow UI to unpause the `db_import` DAG and trigger the workflow. The new DAG will appear in the Apache Airflow UI in a few minutes. 
 
-3. Modify the execution role of your new environment and add the following policy. The permission policy allows Amazon MWAA to read from the Amazon S3 bucket where you exported the Apache Airflow metadata, and to copy
-   task instance logs from existing log groups. Replace all placeholders with your information.
-
-###### Note
-
-If you are migrating from a self-managed environment, you must remove CloudWatch Logs related permissions from the
-policy.
-
-JSON
-
-```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "logs:GetLogEvents",
- "logs:DescribeLogStreams"
- ],
- "Resource": [
- "arn:aws:logs:`us-east-1`:`111122223333`:log-group:airflow-`{old_environment_name}`*"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "s3:GetObject",
- "s3:ListBucket"
- ],
- "Resource": [
- "arn:aws:s3:::mwaa-migration-`{UUID}`",
- "arn:aws:s3:::mwaa-migration-`{UUID}`/*"
- ]
- }
- ]
-}`
-
-```
-
-4. Copy `import_data.py` to the DAG directory of the Amazon S3 bucket associated with your new environment,
-   then access the Apache Airflow UI to unpause the `db_import` DAG and trigger the workflow. The new DAG will appear in the Apache Airflow UI in a few minutes.
-5. After the DAG run completes, verify that your DAG run history is copied over by accessing each individual DAG.
+1.  After the DAG run completes, verify that your DAG run history is copied over by accessing each individual DAG. 
 
 ## Next steps
-
-- For more information about available Amazon MWAA environment classes and capabilities, refer to [Amazon MWAA environment class](../userguide/environment-class.md "../userguide/environment-class.md") in the
-  _Amazon MWAA User Guide_.
-- For more information about how Amazon MWAA handles autoscaling workers, refer to [Amazon MWAA automatic scaling](../userguide/mwaa-autoscaling.md "../userguide/mwaa-autoscaling.md") in the
-  _Amazon MWAA User Guide_.
-- For more information about the Amazon MWAA REST API, refer to the [Amazon MWAA REST API](../API/Welcome.md "../API/Welcome.md").
+<a name="migrating-to-new-mwaa-next-up"></a>
++  For more information about available Amazon MWAA environment classes and capabilities, refer to [Amazon MWAA environment class](https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html) in the *Amazon MWAA User Guide*. 
++  For more information about how Amazon MWAA handles autoscaling workers, refer to [Amazon MWAA automatic scaling](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-autoscaling.html) in the *Amazon MWAA User Guide*. 
++  For more information about the Amazon MWAA REST API, refer to the [Amazon MWAA REST API](https://docs.aws.amazon.com/mwaa/latest/API/Welcome.html). 
