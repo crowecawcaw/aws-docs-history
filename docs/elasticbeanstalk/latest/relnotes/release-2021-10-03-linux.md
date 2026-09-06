@@ -1,95 +1,151 @@
-# Release: Elastic Beanstalk Amazon Linux 2 platform updates on October 3, 2021
 
-This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2. The release includes security updates.
-It also includes Go, .NET Core, Node.js, and Ruby updates.
+
+# Release: Elastic Beanstalk Amazon Linux 2 platform updates on October 3, 2021
+<a name="release-2021-10-03-linux"></a>
+
+This release provides new versions for AWS Elastic Beanstalk platforms based on Amazon Linux 2. The release includes security updates. It also includes Go, .NET Core, Node.js, and Ruby updates.
 
 **Release date:** October 3, 2021
 
 ## Changes
+<a name="release-2021-10-03-linux.changes"></a>
 
 The following table lists the changes included in this release.
 
-###### Note
+**Note**  
+Be aware that at the time these release notes are published, the new platform versions might not yet be available in all the AWS Regions that Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
-Be aware that at the time these release notes are published, the new platform versions might not yet be available in all the AWS Regions that
-Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
-| **Category**                  | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Security updates**          | Applied all security updates published in the [Amazon Linux Security Center](https://alas.aws.amazon.com/alas2.html "https://alas.aws.amazon.com/alas2.html") on or before *_September 15, 2021_<br>• to all released Amazon Linux 2 platforms.<br>The **Go**<br>release is a security release. For more information, see<br>*_Platform-specific updates_<br>• in this table.<br>ImportantThe operating system release addresses the expiration of the *Let's Encrypt<br>• cross-signed DST Root CA X3<br>certificate. The certificate expired on September 30, 2021. For more information, see [Elastic Beanstalk<br>Linux platforms](../dg/platforms-linux.md "../dg/platforms-linux.md") in the _AWS Elastic Beanstalk Developer Guide_. |
-| **Cross-platform updates**    | Made these cross-platform updates:<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | *_Component_<br>• | *_Update_<br>• | <br> | --<br>• | --<br>• | <br> | *_AMI_<br>• | Updated the base AMI to version **2.0.20210813**.                                                                                                                                                                                                                     |      |
-| **Platform-specific updates** | Made these platform-specific updates:<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | *_Platform_<br>•  | *_Update_<br>• | <br> | --<br>• | --<br>• | <br> | *_Go_<br>•  | Updated Go to release **1.17.1**. For details, see [go1.17](https://golang.org/doc/devel/release.html#go1.17 "https://golang.org/doc/devel/release.html#go1.17") in _The Go Programming Language Release<br>History_.<br>The Go 1.17.1 release is a security release. | <br> | *_.NET Core_<br>• | Updated .NET Core to releases<br>[5.0.10](https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0.10/5.0.10.md "https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0.10/5.0.10.md") and<br>[3.1.19](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.19/3.1.19.md "https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.19/3.1.19.md"). | <br> | *_Node.js_<br>• | Updated Node.js 14 to add support for Node version<br>[14.18.0](https://nodejs.org/en/blog/release/v14.18.0/ "https://nodejs.org/en/blog/release/v14.18.0/").<br>Updated Node.js 12 to add support for Node version<br>[12.22.6](https://nodejs.org/en/blog/release/v12.22.6/ "https://nodejs.org/en/blog/release/v12.22.6/"). | <br> | *_Ruby_<br>• | Updated Puma to version [5.5.0](https://github.com/puma/puma/releases/tag/v5.5.0 "https://github.com/puma/puma/releases/tag/v5.5.0"). |     |
+<table>
+<thead>
+  <tr><th><b>Category</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Security updates</b></td><td>Applied all security updates published in the <a href="https://alas.aws.amazon.com/alas2.html">Amazon Linux Security Center</a> on or before <b>September 15, 2021</b> to all released Amazon Linux 2 platforms.<br />The <b>Go</b> release is a security release. For more information, see <b>Platform-specific updates</b> in this table. The operating system release addresses the expiration of the <i>Let's Encrypt</i> cross-signed DST Root CA X3 certificate. The certificate expired on September 30, 2021. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/platforms-linux.html">Elastic Beanstalk Linux platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>. </td></tr>
+  <tr><td><b>Cross-platform updates</b></td><td>Made these cross-platform updates:
+<table>
+<thead>
+  <tr><th><b>Component</b></th><th><b>Update</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>AMI</b></td><td>Updated the base AMI to version <b>2.0.20210813</b>.</td></tr>
+</tbody>
+</table>
+</td></tr>
+  <tr><td><b>Platform-specific updates</b></td><td>Made these platform-specific updates:
+<table>
+<thead>
+  <tr><th><b>Platform</b></th><th><b>Update</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Go</b></td><td>Updated Go to release <b>1.17.1</b>. For details, see <a href="https://golang.org/doc/devel/release.html#go1.17">go1.17</a> in <i>The Go Programming Language Release History</i>.<br />The Go 1.17.1 release is a security release.</td></tr>
+  <tr><td><b>.NET Core</b></td><td>Updated .NET Core to releases <a href="https://github.com/dotnet/core/blob/master/release-notes/5.0/5.0.10/5.0.10.md">5.0.10</a> and <a href="https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.19/3.1.19.md">3.1.19</a>. </td></tr>
+  <tr><td><b>Node.js</b></td><td>Updated Node.js 14 to add support for Node version <a href="https://nodejs.org/en/blog/release/v14.18.0/">14.18.0</a>.<br />Updated Node.js 12 to add support for Node version <a href="https://nodejs.org/en/blog/release/v12.22.6/">12.22.6</a>.</td></tr>
+  <tr><td><b>Ruby</b></td><td>Updated Puma to version <a href="https://github.com/puma/puma/releases/tag/v5.5.0">5.5.0</a>.</td></tr>
+</tbody>
+</table>
+</td></tr>
+</tbody>
+</table>
+
 
 ## New platform versions
+<a name="release-2021-10-03-linux.platforms"></a>
 
-###### These platforms are updated:
-
-- [Docker](#release-2021-10-03-linux.platforms.docker "#release-2021-10-03-linux.platforms.docker")
-- [Go](#release-2021-10-03-linux.platforms.go "#release-2021-10-03-linux.platforms.go")
-- [Java SE](#release-2021-10-03-linux.platforms.javase "#release-2021-10-03-linux.platforms.javase")
-- [Tomcat](#release-2021-10-03-linux.platforms.java "#release-2021-10-03-linux.platforms.java")
-- [.NET Core on Linux](#release-2021-10-03-linux.platforms.dotnetlinux "#release-2021-10-03-linux.platforms.dotnetlinux")
-- [Node.js](#release-2021-10-03-linux.platforms.nodejs "#release-2021-10-03-linux.platforms.nodejs")
-- [PHP](#release-2021-10-03-linux.platforms.PHP "#release-2021-10-03-linux.platforms.PHP")
-- [Python](#release-2021-10-03-linux.platforms.python "#release-2021-10-03-linux.platforms.python")
-- [Ruby](#release-2021-10-03-linux.platforms.ruby "#release-2021-10-03-linux.platforms.ruby")
+**Topics**
++ [Docker](#release-2021-10-03-linux.platforms.docker)
++ [Go](#release-2021-10-03-linux.platforms.go)
++ [Java SE](#release-2021-10-03-linux.platforms.javase)
++ [Tomcat](#release-2021-10-03-linux.platforms.java)
++ [.NET Core on Linux](#release-2021-10-03-linux.platforms.dotnetlinux)
++ [Node.js](#release-2021-10-03-linux.platforms.nodejs)
++ [PHP](#release-2021-10-03-linux.platforms.PHP)
++ [Python](#release-2021-10-03-linux.platforms.python)
++ [Ruby](#release-2021-10-03-linux.platforms.ruby)
 
 ### Docker
+<a name="release-2021-10-03-linux.platforms.docker"></a>
 
-| Platform Version and _Solution Stack Name_                                   | AMI          | Docker  | Docker Compose | Proxy Server |
-| ---------------------------------------------------------------------------- | ------------ | ------- | -------------- | ------------ |
-| **Docker AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Docker_ | 2.0.20210813 | 20.10.7 | 1.29.2         | nginx 1.20.0 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Docker  |  Docker Compose  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | 
+|  ** Docker AL2 version 3.4.6** <br /> * 64bit Amazon Linux 2 v3.4.6 running Docker *  | 2.0.20210813 | 20.10.7 | 1.29.2 | nginx 1.20.0 | 
 
 ### Go
+<a name="release-2021-10-03-linux.platforms.go"></a>
 
-| Platform Version and _Solution Stack Name_                               | AMI          | Language  | AWS X-Ray | Proxy Server |
-| ------------------------------------------------------------------------ | ------------ | --------- | --------- | ------------ |
-| **Go 1 AL2 version 3.4.1**<br>_64bit Amazon Linux 2 v3.4.1 running Go 1_ | 2.0.20210813 | Go 1.17.1 | 3.2.0     | nginx 1.20.0 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | 
+|  ** Go 1 AL2 version 3.4.1** <br /> * 64bit Amazon Linux 2 v3.4.1 running Go 1 *  | 2.0.20210813 | Go 1.17.1 | 3.2.0 | nginx 1.20.0 | 
 
 ### Java SE
+<a name="release-2021-10-03-linux.platforms.javase"></a>
 
-| Platform Version and _Solution Stack Name_                                         | AMI          | Language             | Tools                                 | AWS X-Ray | Proxy Server |
-| ---------------------------------------------------------------------------------- | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
-| **Corretto 11 version 3.2.6**<br>_64bit Amazon Linux 2 v3.2.6 running Corretto 11_ | 2.0.20210813 | Corretto 11.0.12.7.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
-| **Corretto 8 version 3.2.6**<br>_64bit Amazon Linux 2 v3.2.6 running Corretto 8_   | 2.0.20210813 | Corretto 8.302.08.1  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Tools  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Corretto 11 version 3.2.6** <br /> * 64bit Amazon Linux 2 v3.2.6 running Corretto 11 *  | 2.0.20210813 | Corretto 11.0.12.7.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0 | nginx 1.20.0 | 
+|  ** Corretto 8 version 3.2.6** <br /> * 64bit Amazon Linux 2 v3.2.6 running Corretto 8 *  | 2.0.20210813 | Corretto 8.302.08.1 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0 | nginx 1.20.0 | 
 
 ### Tomcat
+<a name="release-2021-10-03-linux.platforms.java"></a>
 
-| Platform Version and _Solution Stack Name_                                                                        | AMI          | Language             | AWS X-Ray | Application Server | Proxy Server                          |
-| ----------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
-| **Corretto 11 with Tomcat 8.5 AL2 version 4.2.6**<br>_64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11_ | 2.0.20210813 | Corretto 11.0.12.7.1 | 3.2.0     | Tomcat 8.5.69      | nginx 1.20.0 (default), Apache 2.4.48 |
-| **Corretto 8 with Tomcat 8.5 AL2 version 4.2.6**<br>_64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8_   | 2.0.20210813 | Corretto 8.302.08.1  | 3.2.0     | Tomcat 8.5.69      | nginx 1.20.0 (default), Apache 2.4.48 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  AWS X-Ray  |  Application Server  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Corretto 11 with Tomcat 8.5 AL2 version 4.2.6** <br /> * 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11 *  | 2.0.20210813 | Corretto 11.0.12.7.1 | 3.2.0 | Tomcat 8.5.69 | nginx 1.20.0 (default), Apache 2.4.48 | 
+|  ** Corretto 8 with Tomcat 8.5 AL2 version 4.2.6** <br /> * 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8 *  | 2.0.20210813 | Corretto 8.302.08.1 | 3.2.0 | Tomcat 8.5.69 | nginx 1.20.0 (default), Apache 2.4.48 | 
 
 ### .NET Core on Linux
+<a name="release-2021-10-03-linux.platforms.dotnetlinux"></a>
 
-| Platform Version and _Solution Stack Name_                                            | Framework                                   | Proxy Server | AMI          | AWS X-Ray |
-| ------------------------------------------------------------------------------------- | ------------------------------------------- | ------------ | ------------ | --------- |
-| **.NET Core on AL2 version 2.2.6**<br>_64bit Amazon Linux 2 v2.2.6 running .NET Core_ | .NET 5.0.9, supports 5.0.10, 3.1.19, 2.1.30 | nginx 1.20.0 | 2.0.20210813 | 3.2.0     |
+
+
+|  Platform Version and *Solution Stack Name*   |  Framework  |  Proxy Server  |  AMI  |  AWS X-Ray  | 
+| --- | --- | --- | --- | --- | 
+|  ** .NET Core on AL2 version 2.2.6** <br /> * 64bit Amazon Linux 2 v2.2.6 running .NET Core *  | .NET 5.0.9, supports 5.0.10, 3.1.19, 2.1.30 | nginx 1.20.0 | 2.0.20210813 | 3.2.0 | 
 
 ### Node.js
+<a name="release-2021-10-03-linux.platforms.nodejs"></a>
 
-| Platform Version and _Solution Stack Name_                                           | AMI          | Node.js versions (npm versions)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Proxy Server                          | Git    | AWS X-Ray |
-| ------------------------------------------------------------------------------------ | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ------ | --------- |
-| **Node.js 14 AL2 version 5.4.6**<br>_64bit Amazon Linux 2 v5.4.6 running Node.js 14_ | 2.0.20210813 | 14.18.0 (6.14.15), 14.17.5 (6.14.14), 14.17.4 (6.14.14), 14.17.3 (6.14.13), 14.17.2 (6.14.13), 14.17.1 (6.14.13), 14.17.0 (6.14.13), 14.16.1 (6.14.12), 14.16.0 (6.14.11), 14.15.5 (6.14.11), 14.15.4 (6.14.10), 14.15.3 (6.14.9), 14.15.2 (6.14.9), 14.15.1 (6.14.8), 14.15.0 (6.14.8), 14.14.0 (6.14.8), 14.13.1 (6.14.8), 14.13.0 (6.14.8), 14.12.0 (6.14.8), 14.11.0 (6.14.8), 14.10.1 (6.14.8), 14.10.0 (6.14.8), 14.9.0 (6.14.8), 14.8.0 (6.14.7), 14.7.0 (6.14.7), 14.6.0 (6.14.6), 14.5.0 (6.14.5), 14.4.0 (6.14.5), 14.3.0 (6.14.5), 14.2.0 (6.14.4), 14.1.0 (6.14.4), 14.0.0 (6.14.4)<br>Default version: 14.18.0                                                                                                                                                                                                                               | nginx 1.20.0 (default), Apache 2.4.48 | 2.32.0 | 3.2.0     |
-| **Node.js 12 AL2 version 5.4.6**<br>_64bit Amazon Linux 2 v5.4.6 running Node.js 12_ | 2.0.20210813 | 12.22.6 (6.14.15), 12.22.5 (6.14.14), 12.22.4 (6.14.14), 12.22.3 (6.14.13), 12.22.2 (6.14.13), 12.22.1 (6.14.12), 12.22.0 (6.14.11), 12.21.0 (6.14.11), 12.20.2 (6.14.11), 12.20.1 (6.14.10), 12.20.0 (6.14.8), 12.19.1 (6.14.8), 12.19.0 (6.14.8), 12.18.4 (6.14.6), 12.18.3 (6.14.6), 12.18.2 (6.14.5), 12.18.1 (6.14.5), 12.18.0 (6.14.4), 12.17.0 (6.14.4), 12.16.3 (6.14.4), 12.16.2 (6.14.4), 12.16.1 (6.13.4), 12.16.0 (6.13.4), 12.15.0 (6.13.4), 12.14.1 (6.13.4), 12.14.0 (6.13.4), 12.13.1 (6.12.1), 12.13.0 (6.12.0), 12.12.0 (6.11.3), 12.11.1 (6.11.3), 12.11.0 (6.11.3), 12.10.0 (6.10.3), 12.9.1 (6.10.2), 12.9.0 (6.10.2), 12.8.1 (6.10.2), 12.8.0 (6.10.2), 12.7.0 (6.10.0), 12.6.0 (6.9.0), 12.5.0 (6.9.0), 12.4.0 (6.9.0), 12.3.1 (6.9.0), 12.3.0 (6.9.0), 12.2.0 (6.9.0), 12.1.0 (6.9.0), 12.0.0 (6.9.0)<br>Default version: 12.22.6 | nginx 1.20.0 (default), Apache 2.4.48 | 2.32.0 | 3.2.0     |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Node.js versions (npm versions)  |  Proxy Server  |  Git  |  AWS X-Ray  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Node.js 14 AL2 version 5.4.6** <br /> * 64bit Amazon Linux 2 v5.4.6 running Node.js 14 *  | 2.0.20210813 | 14.18.0 (6.14.15), 14.17.5 (6.14.14), 14.17.4 (6.14.14), 14.17.3 (6.14.13), 14.17.2 (6.14.13), 14.17.1 (6.14.13), 14.17.0 (6.14.13), 14.16.1 (6.14.12), 14.16.0 (6.14.11), 14.15.5 (6.14.11), 14.15.4 (6.14.10), 14.15.3 (6.14.9), 14.15.2 (6.14.9), 14.15.1 (6.14.8), 14.15.0 (6.14.8), 14.14.0 (6.14.8), 14.13.1 (6.14.8), 14.13.0 (6.14.8), 14.12.0 (6.14.8), 14.11.0 (6.14.8), 14.10.1 (6.14.8), 14.10.0 (6.14.8), 14.9.0 (6.14.8), 14.8.0 (6.14.7), 14.7.0 (6.14.7), 14.6.0 (6.14.6), 14.5.0 (6.14.5), 14.4.0 (6.14.5), 14.3.0 (6.14.5), 14.2.0 (6.14.4), 14.1.0 (6.14.4), 14.0.0 (6.14.4)<br /> Default version: 14.18.0 | nginx 1.20.0 (default), Apache 2.4.48 | 2.32.0 | 3.2.0 | 
+|  ** Node.js 12 AL2 version 5.4.6** <br /> * 64bit Amazon Linux 2 v5.4.6 running Node.js 12 *  | 2.0.20210813 | 12.22.6 (6.14.15), 12.22.5 (6.14.14), 12.22.4 (6.14.14), 12.22.3 (6.14.13), 12.22.2 (6.14.13), 12.22.1 (6.14.12), 12.22.0 (6.14.11), 12.21.0 (6.14.11), 12.20.2 (6.14.11), 12.20.1 (6.14.10), 12.20.0 (6.14.8), 12.19.1 (6.14.8), 12.19.0 (6.14.8), 12.18.4 (6.14.6), 12.18.3 (6.14.6), 12.18.2 (6.14.5), 12.18.1 (6.14.5), 12.18.0 (6.14.4), 12.17.0 (6.14.4), 12.16.3 (6.14.4), 12.16.2 (6.14.4), 12.16.1 (6.13.4), 12.16.0 (6.13.4), 12.15.0 (6.13.4), 12.14.1 (6.13.4), 12.14.0 (6.13.4), 12.13.1 (6.12.1), 12.13.0 (6.12.0), 12.12.0 (6.11.3), 12.11.1 (6.11.3), 12.11.0 (6.11.3), 12.10.0 (6.10.3), 12.9.1 (6.10.2), 12.9.0 (6.10.2), 12.8.1 (6.10.2), 12.8.0 (6.10.2), 12.7.0 (6.10.0), 12.6.0 (6.9.0), 12.5.0 (6.9.0), 12.4.0 (6.9.0), 12.3.1 (6.9.0), 12.3.0 (6.9.0), 12.2.0 (6.9.0), 12.1.0 (6.9.0), 12.0.0 (6.9.0)<br /> Default version: 12.22.6 | nginx 1.20.0 (default), Apache 2.4.48 | 2.32.0 | 3.2.0 | 
 
 ### PHP
+<a name="release-2021-10-03-linux.platforms.PHP"></a>
 
-| Platform Version and _Solution Stack Name_                                     | AMI          | Language   | Composer | Proxy Server                          |
-| ------------------------------------------------------------------------------ | ------------ | ---------- | -------- | ------------------------------------- |
-| **PHP 8.0 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running PHP 8.0_ | 2.0.20210813 | PHP 8.0.8  | 2.0.13   | nginx 1.20.0 (default), Apache 2.4.48 |
-| **PHP 7.4 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running PHP 7.4_ | 2.0.20210813 | PHP 7.4.21 | 1.10.22  | nginx 1.20.0 (default), Apache 2.4.48 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Composer  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | 
+|  ** PHP 8.0 AL2 version 3.3.6** <br /> * 64bit Amazon Linux 2 v3.3.6 running PHP 8.0 *  | 2.0.20210813 | PHP 8.0.8 | 2.0.13 | nginx 1.20.0 (default), Apache 2.4.48 | 
+|  ** PHP 7.4 AL2 version 3.3.6** <br /> * 64bit Amazon Linux 2 v3.3.6 running PHP 7.4 *  | 2.0.20210813 | PHP 7.4.21 | 1.10.22 | nginx 1.20.0 (default), Apache 2.4.48 | 
 
 ### Python
+<a name="release-2021-10-03-linux.platforms.python"></a>
 
-| Platform Version and _Solution Stack Name_                                           | AMI          | Language      | Package Manager  | Packager | meld3 | AWS X-Ray | Proxy Server                          |
-| ------------------------------------------------------------------------------------ | ------------ | ------------- | ---------------- | -------- | ----- | --------- | ------------------------------------- |
-| **Python 3.8 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Python 3.8_ | 2.0.20210813 | Python 3.8.5  | pipenv 2020.8.13 |          |       | 3.2.0     | nginx 1.20.0 (default), Apache 2.4.48 |
-| **Python 3.7 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Python 3.7_ | 2.0.20210813 | Python 3.7.10 | pipenv 2020.8.13 |          |       | 3.2.0     | nginx 1.20.0 (default), Apache 2.4.48 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Packager  |  meld3  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+|  ** Python 3.8 AL2 version 3.3.6** <br /> * 64bit Amazon Linux 2 v3.3.6 running Python 3.8 *  | 2.0.20210813 | Python 3.8.5 | pipenv 2020.8.13 |  |  | 3.2.0 | nginx 1.20.0 (default), Apache 2.4.48 | 
+|  ** Python 3.7 AL2 version 3.3.6** <br /> * 64bit Amazon Linux 2 v3.3.6 running Python 3.7 *  | 2.0.20210813 | Python 3.7.10 | pipenv 2020.8.13 |  |  | 3.2.0 | nginx 1.20.0 (default), Apache 2.4.48 | 
 
 ### Ruby
+<a name="release-2021-10-03-linux.platforms.ruby"></a>
 
-| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
-| **Ruby 2.7 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Ruby 2.7_ | 2.0.20210813 | Ruby 2.7.4-p191 | RubyGems 3.2.25 | Puma 5.5.0         | 3.2.0     | nginx 1.20.0 |
-| **Ruby 2.6 AL2 version 3.3.6**<br>_64bit Amazon Linux 2 v3.3.6 running Ruby 2.6_ | 2.0.20210813 | Ruby 2.6.8-p205 | RubyGems 3.2.25 | Puma 5.5.0         | 3.2.0     | nginx 1.20.0 |
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  Language  |  Package Manager  |  Application Server  |  AWS X-Ray  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | --- | 
+|  ** Ruby 2.7 AL2 version 3.3.6** <br /> * 64bit Amazon Linux 2 v3.3.6 running Ruby 2.7 *  | 2.0.20210813 | Ruby 2.7.4-p191 | RubyGems 3.2.25 | Puma 5.5.0 | 3.2.0 | nginx 1.20.0 | 
+|  ** Ruby 2.6 AL2 version 3.3.6** <br /> * 64bit Amazon Linux 2 v3.3.6 running Ruby 2.6 *  | 2.0.20210813 | Ruby 2.6.8-p205 | RubyGems 3.2.25 | Puma 5.5.0 | 3.2.0 | nginx 1.20.0 | 

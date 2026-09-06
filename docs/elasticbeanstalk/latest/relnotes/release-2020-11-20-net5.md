@@ -1,66 +1,98 @@
-# Release: Elastic Beanstalk introduces .NET 5 on Linux and Windows Server platforms on November 20, 2020
 
-This release introduces AWS Elastic Beanstalk support for .NET 5 on
-_both the Amazon Linux 2 and the Windows Server platforms._
-The new platform version for Windows Server also provides Windows security updates,
-additional framework updates and AWS component updates.
+
+# Release: Elastic Beanstalk introduces .NET 5 on Linux and Windows Server platforms on November 20, 2020
+<a name="release-2020-11-20-net5"></a>
+
+This release introduces AWS Elastic Beanstalk support for .NET 5 on *both the Amazon Linux 2 and the Windows Server platforms.* The new platform version for Windows Server also provides Windows security updates, additional framework updates and AWS component updates.
 
 **Release date:** November 20, 2020
 
 ## Changes
+<a name="release-2020-11-20-net5.changes"></a>
 
 In this latest release, we're adding AWS Elastic Beanstalk support for .NET 5 on the Amazon Linux 2 and Windows Server platforms.
 
-With this release, you can use Elastic Beanstalk to deploy your .NET 5 applications to your AWS Amazon Linux 2 and Windows environments. You can also take advantage of
-the toolkits, SDKs, and helper tools that AWS offers to help you develop, enhance, and modernize your .NET 5 applications. .NET 5 is supported on
-Windows Server 2016 and later. For more information about how AWS can help you leverage .NET 5 see [.NET 5 on AWS](https://aws.amazon.com/blogs/developer/net-5-on-aws/ "https://aws.amazon.com/blogs/developer/net-5-on-aws/") on the AWS Developer Blog.
+With this release, you can use Elastic Beanstalk to deploy your .NET 5 applications to your AWS Amazon Linux 2 and Windows environments. You can also take advantage of the toolkits, SDKs, and helper tools that AWS offers to help you develop, enhance, and modernize your .NET 5 applications. .NET 5 is supported on Windows Server 2016 and later. For more information about how AWS can help you leverage .NET 5 see [.NET 5 on AWS](https://aws.amazon.com/blogs/developer/net-5-on-aws/) on the AWS Developer Blog.
 
-For more information about .NET 5 features, see the Microsoft website [What's new in .NET
-5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five "https://docs.microsoft.com/en-us/dotnet/core/dotnet-five").
+For more information about .NET 5 features, see the Microsoft website [What's new in .NET 5](https://docs.microsoft.com/en-us/dotnet/core/dotnet-five).
 
-In addition to introducing .NET 5 on the Windows Server and Amazon Linux 2 platforms, some
-additional changes are included for the Windows platform in this release. They are listed
-in the following table.
+In addition to introducing .NET 5 on the Windows Server and Amazon Linux 2 platforms, some additional changes are included for the Windows platform in this release. They are listed in the following table.
 
-###### Note
+**Note**  
+Be aware that at the time that these release notes are published, the new platform versions might not yet be available in all the AWS Regions that Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
-Be aware that at the time that these release notes are published, the new platform versions might not yet be available in all the AWS Regions
-that Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
-| **Category**                 | **Description**                                                                                                                                                                                                             |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Windows security updates** | Applied November 2020 security updates for Windows.<br>See the Microsoft [Security<br>Update Guide](https://portal.msrc.microsoft.com/en-us/security-guidance "https://portal.msrc.microsoft.com/en-us/security-guidance"). |
-| **Framework updates**        |                                                                                                                                                                                                                             | *_Framework_<br>• | *_Details_<br>• | <br> | --<br>• | --<br>• | <br> | *_.NET Core_<br>•        | Introduced .NET 5.0.0 on Windows Server 2019 and 2016<br>platform versions.<br>Updated .NET Core 3 to version 3.1.10 on Windows Server<br>2019 and 2016 platform versions. |      |
-| **AWS component updates**    |                                                                                                                                                                                                                             | *_Component_<br>• | *_Details_<br>• | <br> | --<br>• | --<br>• | <br> | *_AWS SDK for .NET_<br>• | Updated the SDK to version 3.15.1160.                                                                                                                                      | <br> | *_AMI_<br>• | Updated the base AMI to version 2020.11.11. | <br> | *_CloudWatch Agent_<br>• | Updated the CloudWatch Agent to version<br>1.247346.1b249759. |     |
+<table>
+<thead>
+  <tr><th><b>Category</b></th><th><b>Description</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>Windows security updates</b></td><td>Applied November 2020 security updates for Windows.<br />See the Microsoft <a href="https://portal.msrc.microsoft.com/en-us/security-guidance">Security Update Guide</a>.</td></tr>
+  <tr><td><b>Framework updates</b></td><td> 
+<table>
+<thead>
+  <tr><th><b>Framework</b></th><th><b>Details</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>.NET Core</b></td><td>Introduced .NET 5.0.0 on Windows Server 2019 and 2016 platform versions.<br />Updated .NET Core 3 to version 3.1.10 on Windows Server 2019 and 2016 platform versions.</td></tr>
+</tbody>
+</table>
+ </td></tr>
+  <tr><td><b>AWS component updates</b></td><td> 
+<table>
+<thead>
+  <tr><th><b>Component</b></th><th><b>Details</b></th></tr>
+</thead>
+<tbody>
+  <tr><td><b>AWS SDK for .NET</b></td><td>Updated the SDK to version 3.15.1160.</td></tr>
+  <tr><td><b>AMI</b></td><td>Updated the base AMI to version 2020.11.11.</td></tr>
+  <tr><td><b>CloudWatch Agent</b></td><td>Updated the CloudWatch Agent to version 1.247346.1b249759.</td></tr>
+</tbody>
+</table>
+ </td></tr>
+</tbody>
+</table>
+
 
 ## New platform versions
+<a name="release-2020-11-20-net5.platforms"></a>
 
 ### .NET Core on Linux
+<a name="release-2020-11-20-net5.platforms.dotnetlinux"></a>
 
-| Platform Version and _Solution Stack Name_                                            | Framework                                  | Proxy Server | AMI          | AWS X‑Ray |
-| ------------------------------------------------------------------------------------- | ------------------------------------------ | ------------ | ------------ | --------- |
-| **.NET Core on AL2 version 2.1.0**<br>_64bit Amazon Linux 2 v2.1.0 running .NET Core_ | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.1.23 | nginx 1.18.0 | 2.0.20200917 | 3.2.0     |
+
+
+|  Platform Version and *Solution Stack Name*   |  Framework  |  Proxy Server  |  AMI  |  AWS X‑Ray  | 
+| --- | --- | --- | --- | --- | 
+|  ** .NET Core on AL2 version 2.1.0** <br /> * 64bit Amazon Linux 2 v2.1.0 running .NET Core *  | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.1.23 | nginx 1.18.0 | 2.0.20200917 | 3.2.0 | 
 
 ### .NET on Windows Server
+<a name="release-2020-11-20-net5.platforms.net"></a>
 
 #### Configuration basics
+<a name="platforms-supported.net.basics"></a>
 
-| Platform Version                                                  | Solution Stack Name                                        | Framework                                                                                       | Proxy Server |
-| ----------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ------------ |
-| **Windows Server 2019 with IIS 10.0 version 2.6.0**               | _64bit Windows Server 2019 v2.6.0 running IIS 10.0_        | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br>.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.0**          | _64bit Windows Server Core 2019 v2.6.0 running IIS 10.0_   | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br>.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.0**               | _64bit Windows Server 2016 v2.6.0 running IIS 10.0_        | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br>.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.0**          | _64bit Windows Server Core 2016 v2.6.0 running IIS 10.0_   | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br>.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.0**             | _64bit Windows Server 2012 R2 v2.6.0 running IIS 8.5_      | .NET Core 3.0.0, supports 3.0.0, 2.2.8, 2.1.23<br>.NET Framework 4.8, supports 4.x, 2.0, 1.x    | IIS 8.5      |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.0** | _64bit Windows Server Core 2012 R2 v2.6.0 running IIS 8.5_ | .NET Core 3.0.0, supports 3.0.0, 2.2.8, 2.1.23<br>.NET Framework 4.8, supports 4.x, 2.0, 1.x    | IIS 8.5      |
+
+
+|  Platform Version  |  Solution Stack Name  |  Framework  |  Proxy Server  | 
+| --- | --- | --- | --- | 
+|  ** Windows Server 2019 with IIS 10.0 version 2.6.0**  |  * 64bit Windows Server 2019 v2.6.0 running IIS 10.0 *  | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br />.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0 | 
+|  ** Windows Server Core 2019 with IIS 10.0 version 2.6.0**  |  * 64bit Windows Server Core 2019 v2.6.0 running IIS 10.0 *  | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br />.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0 | 
+|  ** Windows Server 2016 with IIS 10.0 version 2.6.0**  |  * 64bit Windows Server 2016 v2.6.0 running IIS 10.0 *  | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br />.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0 | 
+|  ** Windows Server Core 2016 with IIS 10.0 version 2.6.0**  |  * 64bit Windows Server Core 2016 v2.6.0 running IIS 10.0 *  | .NET 5.0.0, supports 5.0.0, 3.1.10, 2.2.8, 2.1.23<br />.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 10.0 | 
+|  ** Windows Server 2012 R2 with IIS 8.5 version 2.6.0**  |  * 64bit Windows Server 2012 R2 v2.6.0 running IIS 8.5 *  | .NET Core 3.0.0, supports 3.0.0, 2.2.8, 2.1.23<br />.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 8.5 | 
+|  ** Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.0**  |  * 64bit Windows Server Core 2012 R2 v2.6.0 running IIS 8.5 *  | .NET Core 3.0.0, supports 3.0.0, 2.2.8, 2.1.23<br />.NET Framework 4.8, supports 4.x, 2.0, 1.x | IIS 8.5 | 
 
 #### More details
+<a name="platforms-supported.net.details"></a>
 
-| Platform Version                                                  | AMI version | AWS SDK for .NET | EC2Config                                                                                                 | SSM Agent  | Web Deploy | AWS X‑Ray |
-| ----------------------------------------------------------------- | ----------- | ---------------- | --------------------------------------------------------------------------------------------------------- | ---------- | ---------- | --------- |
-| **Windows Server 2019 with IIS 10.0 version 2.6.0**               | 2020.11.11  | 3.15.1160        | _[SSM only](../../../systems-manager/latest/userguide.md "../../../systems-manager/latest/userguide.md")_ | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2019 with IIS 10.0 version 2.6.0**          | 2020.11.11  | 3.15.1160        | _[SSM only](../../../systems-manager/latest/userguide.md "../../../systems-manager/latest/userguide.md")_ | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server 2016 with IIS 10.0 version 2.6.0**               | 2020.11.11  | 3.15.1160        | _[SSM only](../../../systems-manager/latest/userguide.md "../../../systems-manager/latest/userguide.md")_ | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server Core 2016 with IIS 10.0 version 2.6.0**          | 2020.11.11  | 3.15.1160        | _[SSM only](../../../systems-manager/latest/userguide.md "../../../systems-manager/latest/userguide.md")_ | 2.3.1644.0 | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 with IIS 8.5 version 2.6.0**             | 2020.11.11  | 3.15.1160        | 4.9.4222                                                                                                  | 2.3.842.0  | 3.6        | 3.2.0     |
-| **Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.0** | 2020.11.11  | 3.15.1160        | 4.9.4222                                                                                                  | 2.3.842.0  | 3.6        | 3.2.0     |
+
+
+|  Platform Version  |  AMI version  |  AWS SDK for .NET  |  EC2Config  |  SSM Agent  |  Web Deploy  |  AWS X‑Ray  | 
+| --- | --- | --- | --- | --- | --- | --- | 
+|  ** Windows Server 2019 with IIS 10.0 version 2.6.0**  | 2020.11.11 | 3.15.1160 |  * [SSM only](https://docs.aws.amazon.com/systems-manager/latest/userguide/) *  | 2.3.1644.0 | 3.6 | 3.2.0 | 
+|  ** Windows Server Core 2019 with IIS 10.0 version 2.6.0**  | 2020.11.11 | 3.15.1160 |  * [SSM only](https://docs.aws.amazon.com/systems-manager/latest/userguide/) *  | 2.3.1644.0 | 3.6 | 3.2.0 | 
+|  ** Windows Server 2016 with IIS 10.0 version 2.6.0**  | 2020.11.11 | 3.15.1160 |  * [SSM only](https://docs.aws.amazon.com/systems-manager/latest/userguide/) *  | 2.3.1644.0 | 3.6 | 3.2.0 | 
+|  ** Windows Server Core 2016 with IIS 10.0 version 2.6.0**  | 2020.11.11 | 3.15.1160 |  * [SSM only](https://docs.aws.amazon.com/systems-manager/latest/userguide/) *  | 2.3.1644.0 | 3.6 | 3.2.0 | 
+|  ** Windows Server 2012 R2 with IIS 8.5 version 2.6.0**  | 2020.11.11 | 3.15.1160 | 4.9.4222 | 2.3.842.0 | 3.6 | 3.2.0 | 
+|  ** Windows Server 2012 R2 Server Core with IIS 8.5 version 2.6.0**  | 2020.11.11 | 3.15.1160 | 4.9.4222 | 2.3.842.0 | 3.6 | 3.2.0 | 
