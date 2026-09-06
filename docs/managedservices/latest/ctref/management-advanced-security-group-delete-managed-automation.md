@@ -1,183 +1,184 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Security Group | Delete (Managed Automation)
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Security Group \| Delete (Managed Automation)
+<a name="management-advanced-security-group-delete-managed-automation"></a>
 
 Disassociate a security group from the specified AWS resources and optionally delete the security group.
 
-**Full classification:** Management | Advanced stack components | Security group | Delete (managed automation)
+**Full classification:** Management \| Advanced stack components \| Security group \| Delete (managed automation)
 
 ## Change Type Details
+<a name="ct-3cp96z7r065e4-MASd-table"></a>
 
-|                             |                           |
-| --------------------------- | ------------------------- |
-| Change type ID              | ct-3cp96z7r065e4          |
-| Current version             | 1.0                       |
-| Expected execution duration | 240 minutes               |
-| AWS approval                | Required                  |
-| Customer approval           | Not required if submitter |
-| Execution mode              | Manual                    |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-3cp96z7r065e4 | 
+| Current version | 1.0 | 
+| Expected execution duration | 240 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required if submitter | 
+| Execution mode | Manual | 
 
 ## Additional Information
+<a name="management-advanced-security-group-delete-managed-automation-info"></a>
 
 ### Delete security group (Managed Automation)
+<a name="ex-sec-group-delete-rr-col"></a>
+
+#### Deleting an AMS Security Group with the Console (Managed Automation)
+<a name="sec-group-delete-rr-con"></a>
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for deleting or disassociating a security group from AWS resources.](images/guiSecGroupDeleteRrCT.png)
+![Change type details for deleting or disassociating a security group from AWS resources.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupDeleteRrCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Deleting an AMS Security Group with the CLI (Managed Automation)
+<a name="sec-group-delete-rr-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
+*INLINE CREATE*:
++ Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline) , and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+  To remove associated resources, you can issue a command similar to this that uses the Delete Security Group CT (note that `SecurityGroupID` and `DeleteSecurityGroup` are required parameters):
 
-_INLINE CREATE_:
+  ```
+  aws --profile saml amscm create-rfc --change-type-id "ct-3cp96z7r065e4" --change-type-version "1.0" --title "Remove-SG-Resources" --execution-parameters "{\"SecurityGroupId\":\"{{SG_ID}}\", \"DeleteSecurityGroup\":\{{false}}, \"DisassociatedResources\":\"{{IDS_OF_RESOURCES}}\"}"
+  ```
 
-- Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline) , and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+  (Optional) To delete the security group, you can issue a command similar to this that uses the Delete Security Group CT (note that `SecurityGroupID` and `DeleteSecurityGroup` are required parameters):
 
-To remove associated resources, you can issue a command similar to this that uses the Delete Security Group CT (note that `SecurityGroupID` and `DeleteSecurityGroup` are required parameters):
+  ```
+  aws --profile saml amscm create-rfc --change-type-id "ct-3cp96z7r065e4" --change-type-version "1.0" --title "Remove-SG" --execution-parameters "{\"SecurityGroupId\":\"{{SG_ID}}\", \"DeleteSecurityGroup\":\true, \"DisassociatedResources\":\"{{IDS_OF_RESOURCES}}\"}"
+  ```
 
-```
-aws --profile saml amscm create-rfc --change-type-id "ct-3cp96z7r065e4" --change-type-version "1.0" --title "Remove-SG-Resources" --execution-parameters "{\"SecurityGroupId\":\"`SG_ID`\", \"DeleteSecurityGroup\":\`false`, \"DisassociatedResources\":\"`IDS_OF_RESOURCES`\"}"
-```
+  A security group cannot be deleted until all of the associated resources have been removed; use the `DisassociatedResources` parameter in the Delete Security group CT to disassociate all of the associated resources. If all resources have been disassociated, use this `\"DisassociatedResources\":\"[]\"`.
 
-(Optional) To delete the security group, you can issue a command similar to this that uses the Delete Security Group CT (note that `SecurityGroupID` and `DeleteSecurityGroup` are required parameters):
-
-```
-aws --profile saml amscm create-rfc --change-type-id "ct-3cp96z7r065e4" --change-type-version "1.0" --title "Remove-SG" --execution-parameters "{\"SecurityGroupId\":\"`SG_ID`\", \"DeleteSecurityGroup\":\true, \"DisassociatedResources\":\"`IDS_OF_RESOURCES`\"}"
-```
-
-A security group cannot be deleted until all of the associated resources have been removed; use the `DisassociatedResources` parameter in
-the Delete Security group CT to disassociate all of the associated resources. If all resources have been disassociated, use this `\"DisassociatedResources\":\"[]\"`.
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it DeleteSGParams.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-3cp96z7r065e4" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteSGParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-3cp96z7r065e4" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > DeleteSGParams.json
+   ```
 
-2. Modify and save the DeleteSGParams file. For example, you can replace the contents with something like this:
+1. Modify and save the DeleteSGParams file. For example, you can replace the contents with something like this:
 
-```
-{
-  "SecurityGroupId": "`sg-1234abcd`",
-  "DisassociatedResources": [
-    "`i-1234abcd`",
-    "`i-234abcd1`",
-    "`i-567890abcdefg1234`"
-  ],
-  "DeleteSecurityGroup": true
-}
-```
+   ```
+   {
+     "SecurityGroupId": "{{sg-1234abcd}}",
+     "DisassociatedResources": [
+       "{{i-1234abcd}}",
+       "{{i-234abcd1}}",
+       "{{i-567890abcdefg1234}}"
+     ],
+     "DeleteSecurityGroup": true
+   }
+   ```
 
-3. Output the RFC template JSON file to a file named DeleteSGRfc.json:
+1. Output the RFC template JSON file to a file named DeleteSGRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > DeleteSGRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > DeleteSGRfc.json
+   ```
 
-4. Modify and save the DeleteSGRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the DeleteSGRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion":    "`1.0`",
-"ChangeTypeId":         "ct-3cp96z7r065e4",
-"Title":                "`SG-Delete-RFC`"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{1.0}}",
+   "ChangeTypeId":         "ct-3cp96z7r065e4",
+   "Title":                "{{SG-Delete-RFC}}"
+   }
+   ```
 
-5. Create the RFC, specifying the DeleteSG Rfc file and the eleteSGParams file:
+1. Create the RFC, specifying the DeleteSG Rfc file and the eleteSGParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://DeleteSGRfc.json  --execution-parameters file://DeleteSGParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://DeleteSGRfc.json  --execution-parameters file://DeleteSGParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. (Optional) To add inbound or outbound rules, you can issue a command similar to this that uses the Update Security Group CT:
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-```
-aws --profile saml amscm create-rfc --change-type-id "ct-3memthlcmvc1b" --change-type-version "1.0" --title "Add-SG-Rules" --execution-parameters "{\"SecurityGroupId\":\"`SG_ID`\", \"AddInboundRules\":{\"Protocol\":\"`TCP`\", \"PortRange\":\"`49152-65535`\, \"Source\":\"`203.0.113.5/32`\"}, \"AddOutboundRules\":{\"Protocol\":\"`TCP`\", \"PortRange\":\"`49152-65535`\, \"Destination\":\"`203.0.113.5/32`\"}}"
-```
+1. (Optional) To add inbound or outbound rules, you can issue a command similar to this that uses the Update Security Group CT:
 
-7. (Optional) To remove inbound or outbound rules, you can issue a command similar to this that uses the Update Security Group CT:
+   ```
+   aws --profile saml amscm create-rfc --change-type-id "ct-3memthlcmvc1b" --change-type-version "1.0" --title "Add-SG-Rules" --execution-parameters "{\"SecurityGroupId\":\"{{SG_ID}}\", \"AddInboundRules\":{\"Protocol\":\"{{TCP}}\", \"PortRange\":\"{{49152-65535}}\, \"Source\":\"{{203.0.113.5/32}}\"}, \"AddOutboundRules\":{\"Protocol\":\"{{TCP}}\", \"PortRange\":\"{{49152-65535}}\, \"Destination\":\"{{203.0.113.5/32}}\"}}"
+   ```
 
-```
-aws --profile saml amscm create-rfc --change-type-id "ct-3memthlcmvc1b" --change-type-version "1.0" --title "Remove-SG-Rules" --execution-parameters "{\"SecurityGroupId\":\"`SG_ID`\", \"Name\":\"`MA-Test-SG-QC`\", \"RemoveInboundRules\":{\"Protocol\":\"`TCP`\", \"PortRange\":\"`49152-65535`\, \"Source\":\"`203.0.113.5/32`\"}, \"RemoveOutboundRules\":{\"Protocol\":\"`TCP`\", \"PortRange\":\"`49152-65535`\, \"Destination\":\"`203.0.113.5/32`\"}}"
-```
+1. (Optional) To remove inbound or outbound rules, you can issue a command similar to this that uses the Update Security Group CT:
 
-8. (Optional) To add associated resources, you can issue a command similar to this that uses the Update Security Group CT:
+   ```
+   aws --profile saml amscm create-rfc --change-type-id "ct-3memthlcmvc1b" --change-type-version "1.0" --title "Remove-SG-Rules" --execution-parameters "{\"SecurityGroupId\":\"{{SG_ID}}\", \"Name\":\"{{MA-Test-SG-QC}}\", \"RemoveInboundRules\":{\"Protocol\":\"{{TCP}}\", \"PortRange\":\"{{49152-65535}}\, \"Source\":\"{{203.0.113.5/32}}\"}, \"RemoveOutboundRules\":{\"Protocol\":\"{{TCP}}\", \"PortRange\":\"{{49152-65535}}\, \"Destination\":\"{{203.0.113.5/32}}\"}}"
+   ```
 
-```
-aws --profile saml amscm create-rfc --change-type-id "ct-3memthlcmvc1b" --change-type-version "1.0" --title "Add-SG-Resources" --execution-parameters "{\"SecurityGroupId\":\"`SG_ID`\", \"AssociatedResources\":\"`IDS_OF_RESOURCES`\"}"
-```
+1. (Optional) To add associated resources, you can issue a command similar to this that uses the Update Security Group CT:
 
-9. (Optional) To remove associated resources, you can issue a command similar to this that uses the Delete Security Group CT (note that `SecurityGroupID` and `DeleteSecurityGroup` are required parameters):
+   ```
+   aws --profile saml amscm create-rfc --change-type-id "ct-3memthlcmvc1b" --change-type-version "1.0" --title "Add-SG-Resources" --execution-parameters "{\"SecurityGroupId\":\"{{SG_ID}}\", \"AssociatedResources\":\"{{IDS_OF_RESOURCES}}\"}"
+   ```
 
-```
-aws --profile saml amscm create-rfc --change-type-id "ct-3cp96z7r065e4" --change-type-version "1.0" --title "Remove-SG-Resources" --execution-parameters "{\"SecurityGroupId\":\"`SG_ID`\", \"DeleteSecurityGroup\":\`false`, \"DisassociatedResources\":\"`IDS_OF_RESOURCES`\"}"
-```
+1. (Optional) To remove associated resources, you can issue a command similar to this that uses the Delete Security Group CT (note that `SecurityGroupID` and `DeleteSecurityGroup` are required parameters):
 
-###### Note
+   ```
+   aws --profile saml amscm create-rfc --change-type-id "ct-3cp96z7r065e4" --change-type-version "1.0" --title "Remove-SG-Resources" --execution-parameters "{\"SecurityGroupId\":\"{{SG_ID}}\", \"DeleteSecurityGroup\":\{{false}}, \"DisassociatedResources\":\"{{IDS_OF_RESOURCES}}\"}"
+   ```
 
-There is an automated change type for deleting a security group,
-Deployment | Advanced stack components | Security group | Delete (no managed automation) (ct-18r16ldqil6w9) that may execute more
-quickly than this change type. For details, see
-[Delete security group](management-advanced-security-group-delete.md#ex-sec-group-delete-col "management-advanced-security-group-delete.md#ex-sec-group-delete-col").
+#### Tips
+<a name="ex-sec-group-delete-rr-tip"></a>
 
-###### Note
+**Note**  
+There is an automated change type for deleting a security group, Deployment \| Advanced stack components \| Security group \| Delete (no managed automation) (ct-18r16ldqil6w9) that may execute more quickly than this change type. For details, see [Delete security group](management-advanced-security-group-delete.md#ex-sec-group-delete-col).
 
+**Note**  
 You must first separate the security group from any resources associated with it or the RFC fails.
 
-This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer
-to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC,
-be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically.
+This is a manual change type (an AMS operator must review and run the CT), which means that the RFC can take longer to run and you might have to communicate with AMS through the RFC details page correspondance option. Additionally, if you schedule a manual change type RFC, be sure to allow at least 24 hours, if approval does not happen before the scheduled start time, the RFC is rejected automatically.
 
 ## Execution Input Parameters
+<a name="management-advanced-security-group-delete-managed-automation-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3cp96z7r065e4](schemas.md#ct-3cp96z7r065e4-schema-section "schemas.md#ct-3cp96z7r065e4-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-3cp96z7r065e4](schemas.md#ct-3cp96z7r065e4-schema-section).
 
 ## Example: Required Parameters
+<a name="management-advanced-security-group-delete-managed-automation-ex-min"></a>
 
 ```
 {
@@ -197,10 +198,10 @@ For detailed information about the execution input parameters, see
   "DeleteSecurityGroup": false,
   "Priority": "Medium"
 }
-
 ```
 
 ## Example: All Parameters
+<a name="management-advanced-security-group-delete-managed-automation-ex-max"></a>
 
 ```
 {
@@ -220,5 +221,4 @@ For detailed information about the execution input parameters, see
   "DeleteSecurityGroup": true,
   "Priority": "Medium"
 }
-
 ```

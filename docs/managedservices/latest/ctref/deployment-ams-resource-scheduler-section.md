@@ -1,10 +1,9 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # AMS Resource Scheduler Subcategory
+<a name="deployment-ams-resource-scheduler-section"></a>
 
-###### Change Type Items and Operations in the AMS Resource Scheduler Subcategory
-
-- [Solution | Deploy](deployment-ams-solution-deploy.md "deployment-ams-solution-deploy.md")
+**Topics**
++ [Solution \| Deploy](deployment-ams-solution-deploy.md)

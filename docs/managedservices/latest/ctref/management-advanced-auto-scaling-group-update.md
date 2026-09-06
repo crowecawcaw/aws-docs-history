@@ -1,152 +1,157 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Auto Scaling Group | Update
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Auto Scaling Group \| Update
+<a name="management-advanced-auto-scaling-group-update"></a>
 
 Update an Auto Scaling Group and associated launch configuration created with CT ct-2tylseo8rxfsc, version 2.0.
 
-**Full classification:** Management | Advanced stack components | Auto scaling group | Update
+**Full classification:** Management \| Advanced stack components \| Auto scaling group \| Update
 
 ## Change Type Details
+<a name="ct-3fi2cx8b83iua-MAAu-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-3fi2cx8b83iua |
-| Current version             | 2.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-3fi2cx8b83iua | 
+| Current version | 2.0 | 
+| Expected execution duration | 60 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="management-advanced-auto-scaling-group-update-info"></a>
 
 ### Update Auto Scaling groups
+<a name="ex-asg-update-col"></a>
+
+#### Updating an Auto Scaling group with the console
+<a name="asg-update-con"></a>
 
 The following shows this change type in the AMS console.
 
-![Change type details showing Auto Scaling Group update with ID, version 3.0, and automated execution mode.](images/guiAsgUpdateCT.png)
+![Change type details showing Auto Scaling Group update with ID, version 3.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAsgUpdateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Updating an Auto Scaling group with the CLI
+<a name="asg-update-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm  --profile saml --region us-east-1 create-rfc --change-type-id "ct-3fi2cx8b83iua" --change-type-version "2.0" --title "`Test-Update ASG`" --description "`Test Update`"  --execution-parameters "{\"VpcId\":\"`VPC_ID`\",\"StackId\":\"`STACK_ID`\",\"Parameters\":{\"ASGAmiId\":\"`AMI_ID`\",\"ASGInstanceType\":\"`m3.medium`\"}}"
+aws amscm  --profile saml --region us-east-1 create-rfc --change-type-id "ct-3fi2cx8b83iua" --change-type-version "2.0" --title "{{Test-Update ASG}}" --description "{{Test Update}}"  --execution-parameters "{\"VpcId\":\"{{VPC_ID}}\",\"StackId\":\"{{STACK_ID}}\",\"Parameters\":{\"ASGAmiId\":\"{{AMI_ID}}\",\"ASGInstanceType\":\"{{m3.medium}}\"}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters JSON schema for this change type to a file in your current folder; this example names it UpdateAsgParams.json:
 
-```
-aws amscm get-change-type-version --change-type-id "ct-3fi2cx8b83iua" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > UpdateAsgParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-3fi2cx8b83iua" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > UpdateAsgParams.json
+   ```
+**Note**  
+Scripts are newline-delimited (separate with literal: "\\n"), also, scripts entered as UserData are executed as the "root" user and do not need to use the "sudo" command.  
+The RFC waits up to six hours for all of the UserData script commands to execute before returning a final status of success or failure.
 
-###### Note
+1. Modify and save the file. For example, you can replace the contents with something like this:
 
-Scripts are newline-delimited (separate with literal: "\n"), also, scripts entered as UserData are executed as the "root" user and do not need to use the "sudo" command.
+   ```
+   {
+     "VpcId": "{{VPC_ID}}",
+     "StackId": "{{STACK_ID}}",
+     "Parameters": {
+       "ASGAmiId": "{{AMI_ID}}",
+       "ASGInstanceType": "{{m3.medium}}"
+     }
+   }
+   ```
 
-The RFC waits up to six hours for all of the UserData script commands to execute before returning a final status of success or failure. 2. Modify and save the file. For example, you can replace the contents with something like this:
+1. Output the JSON template for UpdateRfc to a file in your current folder; example names it UpdateAsgRfc.json:
 
-```
-{
-  "VpcId": "`VPC_ID`",
-  "StackId": "`STACK_ID`",
-  "Parameters": {
-    "ASGAmiId": "`AMI_ID`",
-    "ASGInstanceType": "`m3.medium`"
-  }
-}
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > UpdateAsgRfc.json
+   ```
 
-3. Output the JSON template for UpdateRfc to a file in your current folder; example names it UpdateAsgRfc.json:
+1. Modify and save the JSON file as follows. For example, you can replace the contents with something like this:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > UpdateAsgRfc.json
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{2.0}}",
+   "ChangeTypeId":         "ct-3fi2cx8b83iua",
+   "Title":                "{{ASG-Update-Stack-RFC}}"
+   }
+   ```
 
-4. Modify and save the JSON file as follows. For example, you can replace the contents with something like this:
+1. Create the RFC, specifying the UpdateAsgRfc file and the execution parameters file:
 
-```
-{
-"ChangeTypeVersion":    "`2.0`",
-"ChangeTypeId":         "ct-3fi2cx8b83iua",
-"Title":                "`ASG-Update-Stack-RFC`"
-}
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://UpdateAsgRfc.json --execution-parameters file://UpdateAsgParams.json
+   ```
 
-5. Create the RFC, specifying the UpdateAsgRfc file and the execution parameters file:
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-```
-aws amscm create-rfc --cli-input-json file://UpdateAsgRfc.json --execution-parameters file://UpdateAsgParams.json
-```
+#### Tips
+<a name="ex-asg-update-tip"></a>
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+**Note**  
+This is a version 2.0 change type and can be used to update Auto Scaling groups A(SG) created with the corresponding version 2.0 create change type, ct-2tylseo8rxfsc.
 
-###### Note
-
-This is a version 2.0 change type and can be used to update Auto Scaling groups
-A(SG) created with the corresponding version 2.0 create change type, ct-2tylseo8rxfsc.
-
-To learn more, see [Amazon Auto Scaling](https://aws.amazon.com/autoscaling/ "https://aws.amazon.com/autoscaling/").
+To learn more, see [Amazon Auto Scaling](https://aws.amazon.com/autoscaling/).
 
 ## Execution Input Parameters
+<a name="management-advanced-auto-scaling-group-update-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3fi2cx8b83iua](schemas.md#ct-3fi2cx8b83iua-schema-section "schemas.md#ct-3fi2cx8b83iua-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-3fi2cx8b83iua](schemas.md#ct-3fi2cx8b83iua-schema-section).
 
 ## Example: Required Parameters
+<a name="management-advanced-auto-scaling-group-update-ex-min"></a>
 
 ```
 Example not available.
 ```
 
 ## Example: All Parameters
+<a name="management-advanced-auto-scaling-group-update-ex-max"></a>
 
 ```
 {
@@ -186,5 +191,4 @@ Example not available.
     "ASGUserData": "#!/bin/bash\npwd\nls -ltrh\necho \"Hello, World\""
   }
 }
-
 ```

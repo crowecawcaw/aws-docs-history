@@ -1,181 +1,191 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# RDS Database Stack | Create
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# RDS Database Stack \| Create
+<a name="deployment-advanced-rds-database-stack-create"></a>
 
 Create an Amazon Relational Database Service (RDS) DB instance. To provision an Aurora single instance or multi-AZ instances, use CT ct-2jvzjwunghrhy.
 
-**Full classification:** Deployment | Advanced stack components | RDS database stack | Create
+**Full classification:** Deployment \| Advanced stack components \| RDS database stack \| Create
 
 ## Change Type Details
+<a name="ct-2z60dyvto9g6c-DARc-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-2z60dyvto9g6c |
-| Current version             | 3.0              |
-| Expected execution duration | 360 minutes      |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-2z60dyvto9g6c | 
+| Current version | 3.0 | 
+| Expected execution duration | 360 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="deployment-advanced-rds-database-stack-create-info"></a>
 
 ### Create DB stack
+<a name="ex-rds-create-stack-col"></a>
+
+#### Creating an RDS Stack with the Console
+<a name="rds-create-con"></a>
 
 Screenshot of this change type in the AMS console:
 
-![Change type details showing ID, version 2.0, and automated execution mode for RDS database.](images/guiRdsStackCreateCT.png)
+![Change type details showing ID, version 2.0, and automated execution mode for RDS database.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiRdsStackCreateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Creating an RDS Stack with the CLI
+<a name="rds-create-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
 
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-create-rfc --change-type-id "ct-2z60dyvto9g6c" --change-type-version "3.0" --title "`RDS-Create-QC-RFC`" --execution-parameters "{\"Description\":\"`My RDS DB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\":\"stm-sl81ze00000000000\", \"Name\":\"`RDS-Create-QC`\", \"TimeoutInMinutes\":60, \"Parameters\":{\"RDSAllocatedStorage\":`100`, \"RDSDBEngine\":\"`MySQL`\", \"RDSDBName\":\"`MyDB`\", \"RDSEngineVersion\":\"`8.0.20`\", \"RDSLicenseModel\":\"`bring-your-own-license`\", \"RDSMasterUsername\":\"`myUser`\", \"RDSMasterUserPassword\":\"`myPassWord`\", \"RDSSubnetIds\":[\"`SUBNET_ID`\",\"`SUBNET_ID`\"]}}"
+create-rfc --change-type-id "ct-2z60dyvto9g6c" --change-type-version "3.0" --title "{{RDS-Create-QC-RFC}}" --execution-parameters "{\"Description\":\"{{My RDS DB}}\", \"VpcId\":\"{{VPC_ID}}\", \"StackTemplateId\":\"stm-sl81ze00000000000\", \"Name\":\"{{RDS-Create-QC}}\", \"TimeoutInMinutes\":60, \"Parameters\":{\"RDSAllocatedStorage\":{{100}}, \"RDSDBEngine\":\"{{MySQL}}\", \"RDSDBName\":\"{{MyDB}}\", \"RDSEngineVersion\":\"{{8.0.20}}\", \"RDSLicenseModel\":\"{{bring-your-own-license}}\", \"RDSMasterUsername\":\"{{myUser}}\", \"RDSMasterUserPassword\":\"{{myPassWord}}\", \"RDSSubnetIds\":[\"{{SUBNET_ID}}\",\"{{SUBNET_ID}}\"]}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters for this change type to a JSON file named CreateRdsParams.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-2z60dyvto9g6c" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateRdsParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-2z60dyvto9g6c" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateRdsParams.json
+   ```
 
-2. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
+1. Modify and save the execution parameters JSON file. For example, you can replace the contents with something like this:
 
-Oracle example:
+   Oracle example:
 
-```
-{
-"Description":          "`Create-RDS-DB`",
-"VpcId":                "`VPC_ID`",
-"StackTemplateId":      "stm-sl81ze00000000000",
-"Name":                 "`My-RDS-DB`",
-"TimeoutInMinutes":     `60`,
-"Parameters":   {
-    "RDSAllocatedStorage":      `50`,
-    "RDSDBEngine":              "`oracle-se1`",
-    "RDSDBName":                "`MyRds`",
-    "RDSEngineVersion":         "`11.2.0.4.v13`",
-    "RDSInstanceType":          "`db.m1.small`",
-    "RDSLicenseModel":          "`license-included`",
-    "RDSMasterUsername":        "`dbadmin`",
-    "RDSMasterUserPassword":    "`p4ssw0rd`",
-    "RDSSubnetIds":             ["`PRIVATE_AZ1_SUBNET`", "`PRIVATE_AZ2_SUBNET`"]
-    }
-}
-```
+   ```
+   {
+   "Description":          "{{Create-RDS-DB}}",
+   "VpcId":                "{{VPC_ID}}",
+   "StackTemplateId":      "stm-sl81ze00000000000",
+   "Name":                 "{{My-RDS-DB}}",
+   "TimeoutInMinutes":     {{60}},
+   "Parameters":   {
+       "RDSAllocatedStorage":      {{50}},
+       "RDSDBEngine":              "{{oracle-se1}}",
+       "RDSDBName":                "{{MyRds}}",
+       "RDSEngineVersion":         "{{11.2.0.4.v13}}",
+       "RDSInstanceType":          "{{db.m1.small}}",
+       "RDSLicenseModel":          "{{license-included}}",
+       "RDSMasterUsername":        "{{dbadmin}}",
+       "RDSMasterUserPassword":    "{{p4ssw0rd}}",
+       "RDSSubnetIds":             ["{{PRIVATE_AZ1_SUBNET}}", "{{PRIVATE_AZ2_SUBNET}}"]
+       }
+   }
+   ```
 
-MySQL example:
+   MySQL example:
 
-```
-{
-"Description":          "`Create-RDS-DB`",
-"VpcId":                "`VPC_ID`",
-"StackTemplateId":      "stm-sl81ze00000000000",
-"Name":                 "`My-RDS-DB`",
-"TimeoutInMinutes":     `60`,
-"Parameters":   {
-    "RDSAllocatedStorage":      `50`,
-    "RDSDBEngine":              "`MySQL`",
-    "RDSDBName":                "`MyRds`",
-    "RDSEngineVersion":         "`8.0.20`",
-    "RDSInstanceType":          "`db.m1.small`",
-    "RDSLicenseModel":          "`general-public-license`",
-    "RDSMasterUsername":        "`dbadmin`",
-    "RDSMasterUserPassword":    "`p4ssw0rd`",
-    "RDSSubnetIds":             ["`PRIVATE_AZ1_SUBNET`", "`PRIVATE_AZ2_SUBNET`"]
-    }
-}
-```
+   ```
+   {
+   "Description":          "{{Create-RDS-DB}}",
+   "VpcId":                "{{VPC_ID}}",
+   "StackTemplateId":      "stm-sl81ze00000000000",
+   "Name":                 "{{My-RDS-DB}}",
+   "TimeoutInMinutes":     {{60}},
+   "Parameters":   {
+       "RDSAllocatedStorage":      {{50}},
+       "RDSDBEngine":              "{{MySQL}}",
+       "RDSDBName":                "{{MyRds}}",
+       "RDSEngineVersion":         "{{8.0.20}}",
+       "RDSInstanceType":          "{{db.m1.small}}",
+       "RDSLicenseModel":          "{{general-public-license}}",
+       "RDSMasterUsername":        "{{dbadmin}}",
+       "RDSMasterUserPassword":    "{{p4ssw0rd}}",
+       "RDSSubnetIds":             ["{{PRIVATE_AZ1_SUBNET}}", "{{PRIVATE_AZ2_SUBNET}}"]
+       }
+   }
+   ```
 
-3. Output the JSON template to a file in your current folder; this example names it CreateRdsRfc.json:
+1. Output the JSON template to a file in your current folder; this example names it CreateRdsRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > CreateRdsRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > CreateRdsRfc.json
+   ```
 
-4. Modify and save the CreateRdsRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the CreateRdsRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion":    "`3.0`",
-"ChangeTypeId":         "ct-2z60dyvto9g6c",
-"Title":                "`RDS-Create-RFC`"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{3.0}}",
+   "ChangeTypeId":         "ct-2z60dyvto9g6c",
+   "Title":                "{{RDS-Create-RFC}}"
+   }
+   ```
 
-5. Create the RFC, specifying the execution parameters file and the CreateRdsRfc file:
+1. Create the RFC, specifying the execution parameters file and the CreateRdsRfc file:
 
-```
-aws amscm create-rfc --cli-input-json file://CreateRdsRfc.json --execution-parameters file://CreateRdsParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://CreateRdsRfc.json --execution-parameters file://CreateRdsParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the RDS, look in the execution output: Use the "stack\_id" to view the RDS in the Cloud Formation Console. To create a Delete Stack or Update RDS RFC,
-use the first part of the DatabaseEndpoint (the DB instance ID) to create a Reboot RDS RFC, use the entire DatabaseEndpoint to programmatically access the RDS DB. 7. You are now able to manage the database via a database management tool such as SQL server management studio. You do not have to request access from AMS.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
+1. To view the RDS, look in the execution output: Use the "stack\_id" to view the RDS in the Cloud Formation Console. To create a Delete Stack or Update RDS RFC, use the first part of the DatabaseEndpoint (the DB instance ID) to create a Reboot RDS RFC, use the entire DatabaseEndpoint to programmatically access the RDS DB.
 
+1. You are now able to manage the database via a database management tool such as SQL server management studio. You do not have to request access from AMS.
+
+#### Tips
+<a name="ex-rds-create-stack-tip"></a>
+
+**Note**  
 The **RDSDBEngine** parameter has a new value available: **mariadb**.
 
-###### Note
-
+**Note**  
 You can add up to 50 tags, but to do so you must enable the **Additional configuration** view.
 
-To learn more about Amazon RDS, including size recommendations, see
-[Amazon Relational Database Service Documentation](https://aws.amazon.com/documentation/rds/ "https://aws.amazon.com/documentation/rds/").
+To learn more about Amazon RDS, including size recommendations, see [Amazon Relational Database Service Documentation](https://aws.amazon.com/documentation/rds/).
 
-To create an Aurora RDS stack, see
-[Create DB stack (for Aurora)](deployment-advanced-rds-database-stack-create-for-aurora.md#ex-rds-create-aurora-stack-col "deployment-advanced-rds-database-stack-create-for-aurora.md#ex-rds-create-aurora-stack-col").
+To create an Aurora RDS stack, see [Create DB stack (for Aurora)](deployment-advanced-rds-database-stack-create-for-aurora.md#ex-rds-create-aurora-stack-col).
 
-To create an RDS stack from a snapshot, see
-[Create DB from snapshot](deployment-advanced-rds-database-stack-create-from-snapshot.md#ex-rds-create-stack-frm-snpsht-col "deployment-advanced-rds-database-stack-create-from-snapshot.md#ex-rds-create-stack-frm-snpsht-col").
+To create an RDS stack from a snapshot, see [Create DB from snapshot](deployment-advanced-rds-database-stack-create-from-snapshot.md#ex-rds-create-stack-frm-snpsht-col).
 
 ## Execution Input Parameters
+<a name="deployment-advanced-rds-database-stack-create-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-2z60dyvto9g6c](schemas.md#ct-2z60dyvto9g6c-schema-section "schemas.md#ct-2z60dyvto9g6c-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-2z60dyvto9g6c](schemas.md#ct-2z60dyvto9g6c-schema-section).
 
 ## Example: Required Parameters
+<a name="deployment-advanced-rds-database-stack-create-ex-min"></a>
 
 ```
 {
@@ -195,10 +205,10 @@ For detailed information about the execution input parameters, see
     "RDSSubnetIds": ["subnet-1234567890abcdef0", "subnet-1234567890abcdef1"]
   }
 }
-
 ```
 
 ## Example: All Parameters
+<a name="deployment-advanced-rds-database-stack-create-ex-max"></a>
 
 ```
 {
@@ -247,5 +257,4 @@ For detailed information about the execution input parameters, see
     "RDSTimezone": "Eastern Standard Time"
   }
 }
-
 ```

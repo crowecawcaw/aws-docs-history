@@ -1,168 +1,167 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Security Group | Associate
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Security Group \| Associate
+<a name="management-advanced-security-group-associate"></a>
 
 Associate security groups with an AWS resource.
 
-**Full classification:** Management | Advanced stack components | Security group | Associate
+**Full classification:** Management \| Advanced stack components \| Security group \| Associate
 
 ## Change Type Details
+<a name="ct-12lyw7otiyr6f-MASa-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-12lyw7otiyr6f |
-| Current version             | 3.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-12lyw7otiyr6f | 
+| Current version | 3.0 | 
+| Expected execution duration | 60 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="management-advanced-security-group-associate-info"></a>
 
 ### Associate security group to resource
+<a name="ex-sec-group-associate-col"></a>
+
+#### Associating a Security Group to Resources with the Console
+<a name="sec-group-associate-con"></a>
 
 Screenshot of this change type in the AMS console:
 
-![Associate Security Group change type details showing ID, execution mode, version, and classification.](images/guiSecGroupAssociateCT.png)
+![Associate Security Group change type details showing ID, execution mode, version, and classification.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupAssociateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Associating a Security Group to Resources with the CLI
+<a name="sec-group-associate-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-12lyw7otiyr6f" --change-type-version "3.0" --title "`Associate Security Groups`" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AttachSecurityGroupsV2\", \"Region\": \"`us-east-1`\", \"Parameters\": {\"ResourceType\": \"`EC2Instance`\", \"ResourceId\": \"`i-xxxxxxxxxxxxxxxxx`\", \"SecurityGroupIds\": [\"`sg-xxxxxxxxxxxxxxxxx`\"]}}"
+aws amscm create-rfc --change-type-id "ct-12lyw7otiyr6f" --change-type-version "3.0" --title "{{Associate Security Groups}}" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AttachSecurityGroupsV2\", \"Region\": \"{{us-east-1}}\", \"Parameters\": {\"ResourceType\": \"{{EC2Instance}}\", \"ResourceId\": \"{{i-xxxxxxxxxxxxxxxxx}}\", \"SecurityGroupIds\": [\"{{sg-xxxxxxxxxxxxxxxxx}}\"]}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it AssociateSGParams.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-12lyw7otiyr6f" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AssociateSGParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-12lyw7otiyr6f" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AssociateSGParams.json
+   ```
 
-2. Modify and save the AssociateSGParams file. For example, you can replace the contents with something like this:
+1. Modify and save the AssociateSGParams file. For example, you can replace the contents with something like this:
 
-```
-{
-    "DocumentName": "AWSManagedServices-AttachSecurityGroupsV2",
-    "Region": "`us-east-1`",
-    "Parameters": {
-        "ResourceType": [
-            "`EC2Instance`"
-        ],
-        "ResourceId": [
-            "`i-xxxxxxxxxxxxxxxxx`"
-        ],
-        "SecurityGroupIds": [
-            "`sg-xxxxxxxxxxxxxxxxx`"
-        ]
-    }
-}
-```
+   ```
+   {
+       "DocumentName": "AWSManagedServices-AttachSecurityGroupsV2",
+       "Region": "{{us-east-1}}",
+       "Parameters": {
+           "ResourceType": [
+               "{{EC2Instance}}"
+           ],
+           "ResourceId": [
+               "{{i-xxxxxxxxxxxxxxxxx}}"
+           ],
+           "SecurityGroupIds": [
+               "{{sg-xxxxxxxxxxxxxxxxx}}"
+           ]
+       }
+   }
+   ```
 
-3. Output the RFC template JSON file to a file named AssociateSGRfc.json:
+1. Output the RFC template JSON file to a file named AssociateSGRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > AssociateSGRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > AssociateSGRfc.json
+   ```
 
-4. Modify and save the AssociateSGRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the AssociateSGRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion":    "`3.0`",
-"ChangeTypeId":         "ct-12lyw7otiyr6f",
-"Title":                "`SG-Associate-RFC`"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{3.0}}",
+   "ChangeTypeId":         "ct-12lyw7otiyr6f",
+   "Title":                "{{SG-Associate-RFC}}"
+   }
+   ```
 
-5. Create the RFC, specifying the AssociateSG Rfc file and the AssociateSGParams file:
+1. Create the RFC, specifying the AssociateSG Rfc file and the AssociateSGParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://AssociateSGRfc.json  --execution-parameters file://AssociateSGParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://AssociateSGRfc.json  --execution-parameters file://AssociateSGParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
+#### Tips
+<a name="ex-sec-group-associate-tip"></a>
 
-This change type is now at version 3.0. The schema is changed to use an SSM document and new resource types are now
-supported.
+**Note**  
+This change type is now at version 3.0. The schema is changed to use an SSM document and new resource types are now supported.
 
-###### Important
+**Important**  
+For AutoScalingGroupCurrentInstancesOnly, security groups are only attached to individual instances currently part of the ASG. LaunchTemplate or LaunchConfiguration are not updated. Bes sure to update LaunchTemplate / LaunchConfiguration before updating security groups to AutoScalingGroup Instances.
 
-For AutoScalingGroupCurrentInstancesOnly, security groups are only attached to individual instances
-currently part of the ASG. LaunchTemplate or LaunchConfiguration are not updated. Bes sure to update LaunchTemplate /
-LaunchConfiguration before updating security groups to AutoScalingGroup Instances.
+**Important**  
+If true, any access allowed by existing security groups is removed and only the new security groups are in effect.
 
-###### Important
-
-If true, any access allowed by existing security groups is removed and only the new
-security groups are in effect.
-
-To learn more about associating security groups to resources, see
-[Amazon EC2 Security Groups for Linux Instances](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md")
-and/or [Security Groups for Your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md").
+To learn more about associating security groups to resources, see [Amazon EC2 Security Groups for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) and/or [Security Groups for Your VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html).
 
 ## Execution Input Parameters
+<a name="management-advanced-security-group-associate-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-12lyw7otiyr6f](schemas.md#ct-12lyw7otiyr6f-schema-section "schemas.md#ct-12lyw7otiyr6f-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-12lyw7otiyr6f](schemas.md#ct-12lyw7otiyr6f-schema-section).
 
 ## Example: Required Parameters
+<a name="management-advanced-security-group-associate-ex-min"></a>
 
 ```
 Example not available.
 ```
 
 ## Example: All Parameters
+<a name="management-advanced-security-group-associate-ex-max"></a>
 
 ```
 {
@@ -175,5 +174,4 @@ Example not available.
       "OverwriteSecurityGroups": "true"
     }
 }
-
 ```

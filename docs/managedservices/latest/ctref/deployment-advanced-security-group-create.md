@@ -1,161 +1,160 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Security Group | Create
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Security Group \| Create
+<a name="deployment-advanced-security-group-create"></a>
 
 Create a security group with limited scope. For complex security groups, use the manual Security group Create change type (ct-1oxx2g2d7hc90).
 
-**Full classification:** Deployment | Advanced stack components | Security group | Create
+**Full classification:** Deployment \| Advanced stack components \| Security group \| Create
 
 ## Change Type Details
+<a name="ct-3pc215bnwb6p7-DASc-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-3pc215bnwb6p7 |
-| Current version             | 1.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-3pc215bnwb6p7 | 
+| Current version | 1.0 | 
+| Expected execution duration | 60 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="deployment-advanced-security-group-create-info"></a>
 
 ### Create security group
+<a name="ex-sec-group-create-col"></a>
+
+#### Creating a Security Group with the Console
+<a name="sec-group-create-con"></a>
 
 Screenshot of this change type in the AMS console:
 
-![Change type details for creating a security group with limited scope, including ID and version.](images/guiSecGroupCreateCT.png)
+![Change type details for creating a security group with limited scope, including ID and version.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupCreateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Creating a Security Group with the CLI
+<a name="sec-group-create-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws --profile saml amscm create-rfc --change-type-id "ct-3pc215bnwb6p7" --change-type-version "1.0" --title "`Test-SG-Auto`" --execution-parameters "{\"VpcId\":\"`VPC_ID`\", \"Description\":\"`Test-SG-Auto`\", \"SecurityGroupName\":\"`Test-SG-Auto`\", \"TcpUdpIngressRules\":{\"Protocol\":\"`TCP`\", \"FromPort\":\"`PORT`\, \"ToPort\":\"`PORT`\"}, \"TcpUdpEgressRules\":{\"Protocol\":\"`TCP`\", \"FromPort\":\"`PORT`\, \"ToPort\":\"`PORT`\"}}"
+aws --profile saml amscm create-rfc --change-type-id "ct-3pc215bnwb6p7" --change-type-version "1.0" --title "{{Test-SG-Auto}}" --execution-parameters "{\"VpcId\":\"{{VPC_ID}}\", \"Description\":\"{{Test-SG-Auto}}\", \"SecurityGroupName\":\"{{Test-SG-Auto}}\", \"TcpUdpIngressRules\":{\"Protocol\":\"{{TCP}}\", \"FromPort\":\"{{PORT}}\, \"ToPort\":\"{{PORT}}\"}, \"TcpUdpEgressRules\":{\"Protocol\":\"{{TCP}}\", \"FromPort\":\"{{PORT}}\, \"ToPort\":\"{{PORT}}\"}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it CreateSGAParams.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-3pc215bnwb6p7" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateSGAParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-3pc215bnwb6p7" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateSGAParams.json
+   ```
 
-2. Modify and save the CreateSGAParams file. For example, you can replace the contents with something like this:
+1. Modify and save the CreateSGAParams file. For example, you can replace the contents with something like this:
 
-```
-{
-"SecurityGroupName":             "`My-WEB-SG`",
-"SecurityGroupDescription":      "`SG_DESCRIPTION`",
-"TcpUdpIngressRules":   {
-    "Protocol":      "`PROTOCOL`",
-    "FromPortRange": "`PORT_RANGE`",
-    "ToPort":        "`TRAFFIC_SOURCE`"
-    },
-"TcpUdpEgressRules":   {
-    "Protocol":     "`PROTOCOL`",
-    "FromPort":     "`PORT`",
-    "ToPort":       "`PORT`"
-    }
-}
-```
+   ```
+   {
+   "SecurityGroupName":             "{{My-WEB-SG}}",
+   "SecurityGroupDescription":      "{{SG_DESCRIPTION}}",
+   "TcpUdpIngressRules":   {
+       "Protocol":      "{{PROTOCOL}}",
+       "FromPortRange": "{{PORT_RANGE}}",
+       "ToPort":        "{{TRAFFIC_SOURCE}}"
+       },
+   "TcpUdpEgressRules":   {
+       "Protocol":     "{{PROTOCOL}}",
+       "FromPort":     "{{PORT}}",
+       "ToPort":       "{{PORT}}"
+       }
+   }
+   ```
 
-3. Output the RFC template JSON file to a file named CreateSGARfc.json:
+1. Output the RFC template JSON file to a file named CreateSGARfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > CreateSGARfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > CreateSGARfc.json
+   ```
 
-4. Modify and save the CreateSGARfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the CreateSGARfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion":    "`1.0`",
-"ChangeTypeId":         "ct-3pc215bnwb6p7",
-"Title":                "`SG-Create-Auto-RFC`"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{1.0}}",
+   "ChangeTypeId":         "ct-3pc215bnwb6p7",
+   "Title":                "{{SG-Create-Auto-RFC}}"
+   }
+   ```
 
-5. Create the RFC, specifying the CreateSGARfc file and the CreateSGAParams file:
+1. Create the RFC, specifying the CreateSGARfc file and the CreateSGAParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://CreateSGARfc.json  --execution-parameters file://CreateSGAParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://CreateSGARfc.json  --execution-parameters file://CreateSGAParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. Once the security group is created, use [Associate security group to resource](management-advanced-security-group-associate.md#ex-sec-group-associate-col "management-advanced-security-group-associate.md#ex-sec-group-associate-col") to
-associate the security group with your AMS resources.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
+1. Once the security group is created, use [Associate security group to resource](management-advanced-security-group-associate.md#ex-sec-group-associate-col) to associate the security group with your AMS resources.
 
-After the security group is created, use [Associate security group to resource](management-advanced-security-group-associate.md#ex-sec-group-associate-col "management-advanced-security-group-associate.md#ex-sec-group-associate-col") to
-associate the security group with your AMS resources.
-To delete a security group, the security group must \*not\* have associated resources.
+#### Tips
+<a name="ex-sec-group-create-tip"></a>
 
-To learn more about AWS security groups and creating security groups, see
-[Security Group Rules Reference](../../../AWSEC2/latest/UserGuide/security-group-rules-reference.md "../../../AWSEC2/latest/UserGuide/security-group-rules-reference.md"). This page
-helps you determine the rules you want and, importantly, how to name your security group so choosing it when
-creating other resources is intuitive. Also see
-[Amazon EC2 Security Groups for Linux Instances](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md")
-and [Security Groups for Your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md").
+**Note**  
+After the security group is created, use [Associate security group to resource](management-advanced-security-group-associate.md#ex-sec-group-associate-col) to associate the security group with your AMS resources. To delete a security group, the security group must \*not\* have associated resources.
+
+To learn more about AWS security groups and creating security groups, see [ Security Group Rules Reference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html). This page helps you determine the rules you want and, importantly, how to name your security group so choosing it when creating other resources is intuitive. Also see [ Amazon EC2 Security Groups for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) and [ Security Groups for Your VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html).
 
 Only the following IP address ranges are allowed in ingress rules:
-
-- 10.0.0.0/8
-- 172.16.0.0/12
-- 192.168.0.0/16
++ 10.0.0.0/8
++ 172.16.0.0/12
++ 192.168.0.0/16
 
 ## Execution Input Parameters
+<a name="deployment-advanced-security-group-create-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3pc215bnwb6p7](schemas.md#ct-3pc215bnwb6p7-schema-section "schemas.md#ct-3pc215bnwb6p7-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-3pc215bnwb6p7](schemas.md#ct-3pc215bnwb6p7-schema-section).
 
 ## Example: Required Parameters
+<a name="deployment-advanced-security-group-create-ex-min"></a>
 
 ```
 {
@@ -163,10 +162,10 @@ For detailed information about the execution input parameters, see
   "SecurityGroupName": "app1-webserver",
   "SecurityGroupDescription": "App1 group"
 }
-
 ```
 
 ## Example: All Parameters
+<a name="deployment-advanced-security-group-create-ex-max"></a>
 
 ```
 {
@@ -198,5 +197,4 @@ For detailed information about the execution input parameters, see
     { "Key": "E", "Value": "ee" }
   ]
 }
-
 ```

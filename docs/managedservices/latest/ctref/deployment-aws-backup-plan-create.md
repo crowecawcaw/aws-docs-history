@@ -1,172 +1,167 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Backup Plan | Create
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Backup Plan \| Create
+<a name="deployment-aws-backup-plan-create"></a>
 
 Create an AWS Backup plan, a policy expression that defines when and how you want to back up your AWS resources.
 
-**Full classification:** Deployment | AWS Backup | Backup plan | Create
+**Full classification:** Deployment \| AWS Backup \| Backup plan \| Create
 
 ## Change Type Details
+<a name="ct-2hyozbpa0sx0m-DABc-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-2hyozbpa0sx0m |
-| Current version             | 2.0              |
-| Expected execution duration | 360 minutes      |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-2hyozbpa0sx0m | 
+| Current version | 2.0 | 
+| Expected execution duration | 360 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="deployment-aws-backup-plan-create-info"></a>
 
 ### Create AWS Backup plan
+<a name="ex-backup-backup-plan-create-col"></a>
+
+#### Creating an AWS Backup plan with the console
+<a name="backup-backup-plan-create-con"></a>
 
 The following shows this change type in the AMS console.
 
-![AWS Backup plan creation interface showing description, ID, and version fields.](images/guiAwsBackupPlanCreateCT.png)
+![AWS Backup plan creation interface showing description, ID, and version fields.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiAwsBackupPlanCreateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Creating an AWS Backup plan with the CLI
+<a name="backup-backup-plan-create-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
+*INLINE CREATE*:
 
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
-
-Issue the create RFC command with execution parameters provided inline (escape quotes
-when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
+Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 With all parameters for one rule:
 
 ```
-aws amscm create-rfc --change-type-id "ct-2hyozbpa0sx0m" --change-type-version "2.0" --title "`AWS Backup custom backup plan for` AMS" \
-  --description "`RFC_DESCRIPTION`" \
-  --execution-parameters "{\"VpcId\":\"`VPC_ID`\",\"Description\":\"`PLAN_DESCRIPTION`\",\"Parameters\":{\"BackupPlanName\":\"`PLAN_NAME`\",\"ResourceTagKey\":\"`TAG_KEY`\",\"ResourceTagValue\":\"`TAG_VALUE`\",\"BackupRule1Name\":\"`RULE_NAME`\",\"BackupRule1Vault\":\"`VAULT`\",\"BackupRule1CompletionWindowMinutes\":`120`,\"BackupRule1ScheduleExpression\":\"cron(`0 1 ? * * *`)\",\"BackupRule1DeleteAfterDays\":`90`,\"BackupRule1MoveToColdStorageAfterDays\":`365`,\"BackupRule1StartWindowMinutes\":`60`,\"BackupRule1RecoveryPointTagKey\":\"`TAG_KEY`\",\"BackupRule1RecoveryPointTagValue\":\"`TAG_VALUE`\,\"BackupRule1EnableContinuousBackup\":\"`false`\",\"BackupRule1CopyActionsDestVaultArn\":\"`VAULT`\",\"BackupRule1CAMoveToColdStorageAfterDays\":`0`,\"BackupRule1CopyActionsDeleteAfterDays\":`90`},\"StackTemplateId\":\"stm-sc68a620000000000\",\"TimeoutInMinutes\":`60`,\"Name\":\"`TEST_STACK`\"}"
+aws amscm create-rfc --change-type-id "ct-2hyozbpa0sx0m" --change-type-version "2.0" --title "{{AWS Backup custom backup plan for }}AMS" \
+  --description "{{RFC_DESCRIPTION}}" \
+  --execution-parameters "{\"VpcId\":\"{{VPC_ID}}\",\"Description\":\"{{PLAN_DESCRIPTION}}\",\"Parameters\":{\"BackupPlanName\":\"{{PLAN_NAME}}\",\"ResourceTagKey\":\"{{TAG_KEY}}\",\"ResourceTagValue\":\"{{TAG_VALUE}}\",\"BackupRule1Name\":\"{{RULE_NAME}}\",\"BackupRule1Vault\":\"{{VAULT}}\",\"BackupRule1CompletionWindowMinutes\":{{120}},\"BackupRule1ScheduleExpression\":\"cron({{0 1 ? * * *}})\",\"BackupRule1DeleteAfterDays\":{{90}},\"BackupRule1MoveToColdStorageAfterDays\":{{365}},\"BackupRule1StartWindowMinutes\":{{60}},\"BackupRule1RecoveryPointTagKey\":\"{{TAG_KEY}}\",\"BackupRule1RecoveryPointTagValue\":\"{{TAG_VALUE}}\,\"BackupRule1EnableContinuousBackup\":\"{{false}}\",\"BackupRule1CopyActionsDestVaultArn\":\"{{VAULT}}\",\"BackupRule1CAMoveToColdStorageAfterDays\":{{0}},\"BackupRule1CopyActionsDeleteAfterDays\":{{90}}},\"StackTemplateId\":\"stm-sc68a620000000000\",\"TimeoutInMinutes\":{{60}},\"Name\":\"{{TEST_STACK}}\"}"
 ```
 
 With only required parameters for one rule:
 
 ```
-aws amscm create-rfc --change-type-id "ct-2hyozbpa0sx0m" --change-type-version "2.0" --title "`AWS Backup custom backup plan for AMS`" \
-  --description "`RFC_DESCRIPTION`" \
-  --execution-parameters "{\"VpcId\":\"`VPC_ID`\",\"Description\":\"`PLAN_DESCRIPTION`\",\"Parameters\":{\"BackupPlanName\":\"`PLAN_NAME`\",\"ResourceTagKey\":\"`TAG_KEY`\",\"ResourceTagValue\":\"`TAG_VALUE`\",\"BackupRule1Name\":\"`RULE_NAME`\",\"BackupRule1Vault\":\"`VAULT`\",\"BackupRule1ScheduleExpression\":\"`cron(0 1 ? * * *)`\"},\"StackTemplateId\":\"stm-sc68a620000000000\",\"TimeoutInMinutes\":`60`,\"Name\":\"`TEST_STACK`\"}"
+aws amscm create-rfc --change-type-id "ct-2hyozbpa0sx0m" --change-type-version "2.0" --title "{{AWS Backup custom backup plan for AMS}}" \
+  --description "{{RFC_DESCRIPTION}}" \
+  --execution-parameters "{\"VpcId\":\"{{VPC_ID}}\",\"Description\":\"{{PLAN_DESCRIPTION}}\",\"Parameters\":{\"BackupPlanName\":\"{{PLAN_NAME}}\",\"ResourceTagKey\":\"{{TAG_KEY}}\",\"ResourceTagValue\":\"{{TAG_VALUE}}\",\"BackupRule1Name\":\"{{RULE_NAME}}\",\"BackupRule1Vault\":\"{{VAULT}}\",\"BackupRule1ScheduleExpression\":\"{{cron(0 1 ? * * *)}}\"},\"StackTemplateId\":\"stm-sc68a620000000000\",\"TimeoutInMinutes\":{{60}},\"Name\":\"{{TEST_STACK}}\"}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
-1. Output the execution parameters JSON schema for this change type to a JSON file;
-   this example names it CreateBackupPlanParams.json:
+1. Output the execution parameters JSON schema for this change type to a JSON file; this example names it CreateBackupPlanParams.json:
 
-```
-aws amscm get-change-type-version --change-type-id "ct-2hyozbpa0sx0m" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateBackupPlanParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-2hyozbpa0sx0m" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateBackupPlanParams.json
+   ```
 
-2. Modify and save the CreateBackupPlanParams file. Note that the **BackupRule1EnableContinuousBackup** parameter set to **true**
-   causes AWS Backup to create continuous backups capable of point-in-time restore (PITR); the default for this parameter is **false**.
+1. Modify and save the CreateBackupPlanParams file. Note that the **BackupRule1EnableContinuousBackup** parameter set to **true** causes AWS Backup to create continuous backups capable of point-in-time restore (PITR); the default for this parameter is **false**.
 
-```
-{
-    "VpcId": "`VPC_ID`",
-    "Description": "`PLAN_DESCRIPTION`",
-    "Parameters": {
-      "BackupPlanName" : "`PLAN_NAME`",
-      "ResourceTagKey" : "`TAG_KEY`",
-      "ResourceTagValue" : "`TAG_VALUE`",
-      "BackupRule1Name" : "`RULE_NAME`",
-      "BackupRule1Vault" : "`VAULT`",
-      "BackupRule1EnableContinuousBackup" : "`true`",
-      "BackupRule1ScheduleExpression" : "`cron(0 1 ? * * *)`"
-    },
-    "StackTemplateId": "stm-sc68a620000000000",
-    "TimeoutInMinutes": `60`,
-    "Name": "`TEST_STACK`"
-}
-```
+   ```
+   {
+       "VpcId": "{{VPC_ID}}",
+       "Description": "{{PLAN_DESCRIPTION}}",
+       "Parameters": {
+         "BackupPlanName" : "{{PLAN_NAME}}",
+         "ResourceTagKey" : "{{TAG_KEY}}",
+         "ResourceTagValue" : "{{TAG_VALUE}}",
+         "BackupRule1Name" : "{{RULE_NAME}}",
+         "BackupRule1Vault" : "{{VAULT}}",
+         "BackupRule1EnableContinuousBackup" : "{{true}}",
+         "BackupRule1ScheduleExpression" : "{{cron(0 1 ? * * *)}}"
+       },
+       "StackTemplateId": "stm-sc68a620000000000",
+       "TimeoutInMinutes": {{60}},
+       "Name": "{{TEST_STACK}}"
+   }
+   ```
 
-3. Output the RFC template to a file in your current folder; this example names it CreateBackupPlanRfc.json:
+1. Output the RFC template to a file in your current folder; this example names it CreateBackupPlanRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > CreateBackupPlanRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > CreateBackupPlanRfc.json
+   ```
 
-4. Modify and save the CreateBackupPlanRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the CreateBackupPlanRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-  "ChangeTypeId" : "ct-2hyozbpa0sx0m",
-  "Version" : "2.0",
-   "Title": "`AWS Backup create backup plan`"
-}
-```
+   ```
+   {
+     "ChangeTypeId" : "ct-2hyozbpa0sx0m",
+     "Version" : "2.0",
+      "Title": "{{AWS Backup create backup plan}}"
+   }
+   ```
 
-5. Create the RFC, specifying the CreateBackupPlanRfc file and the CreateBackupPlanParams file:
+1. Create the RFC, specifying the CreateBackupPlanRfc file and the CreateBackupPlanParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://CreateBackupPlanRfc.json --execution-parameters file://CreateBackupPlanParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://CreateBackupPlanRfc.json --execution-parameters file://CreateBackupPlanParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-- The continuous backup configuration requires some additional knowledge. With continuous backups, you can restore your AWS Backup-supported
-  resource by rewinding it back to a specific time that you choose, within 1 second of precision (going back a maximum of 35 days).
-  In AMS Advanced, you configure this with the **BackupRule1EnableContinuousBackup** parameter set to **true**,
-  which causes AWS Backup to create continuous backups capable of point-in-time restore (PITR). To learn more, see
-  [Restoring to a specified time using Point-In-Time Recovery (PITR)](../../../aws-backup/latest/devguide/point-in-time-recovery.md "../../../aws-backup/latest/devguide/point-in-time-recovery.md").
-- Not all resource types supported by AWS Backup are enabled by default. Review the enabled resource types in your account using
-  [Getting Started 1: Service Opt-In](../../../aws-backup/latest/devguide/service-opt-in.md "../../../aws-backup/latest/devguide/service-opt-in.md").
-- If you need to change your backup plan, open an RFC using the
-  [Other | Create (Review Required)](management-other-other-create-review-required.md "management-other-other-create-review-required.md") CT (ct-1e1xtak34nx76).
-- To learn more about AWS Backup, see
-  [AWS Backup: How It Works](../../../aws-backup/latest/devguide/how-it-works.md "../../../aws-backup/latest/devguide/how-it-works.md").
-- Before creating backup plans, confirm supported resources at
-  [Feature availability by resource](../../../aws-backup/latest/devguide/whatisbackup.md#features-by-resource "../../../aws-backup/latest/devguide/whatisbackup.md#features-by-resource").
+#### Tips
+<a name="ex-backup-backup-plan-create-tip"></a>
++ The continuous backup configuration requires some additional knowledge. With continuous backups, you can restore your AWS Backup-supported resource by rewinding it back to a specific time that you choose, within 1 second of precision (going back a maximum of 35 days). In AMS Advanced, you configure this with the **BackupRule1EnableContinuousBackup** parameter set to **true**, which causes AWS Backup to create continuous backups capable of point-in-time restore (PITR). To learn more, see [ Restoring to a specified time using Point-In-Time Recovery (PITR)](https://docs.aws.amazon.com/aws-backup/latest/devguide/point-in-time-recovery.html).
++ Not all resource types supported by AWS Backup are enabled by default. Review the enabled resource types in your account using [Getting Started 1: Service Opt-In](https://docs.aws.amazon.com/aws-backup/latest/devguide/service-opt-in.html).
++ If you need to change your backup plan, open an RFC using the [Other \| Create (Review Required)](https://docs.aws.amazon.com/managedservices/latest/ctref/management-other-other-create-review-required.html) CT (ct-1e1xtak34nx76).
++ To learn more about AWS Backup, see [AWS Backup: How It Works](https://docs.aws.amazon.com/aws-backup/latest/devguide/how-it-works.html).
++ Before creating backup plans, confirm supported resources at [Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource).
 
 ## Execution Input Parameters
+<a name="deployment-aws-backup-plan-create-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-2hyozbpa0sx0m](schemas.md#ct-2hyozbpa0sx0m-schema-section "schemas.md#ct-2hyozbpa0sx0m-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-2hyozbpa0sx0m](schemas.md#ct-2hyozbpa0sx0m-schema-section).
 
 ## Example: Required Parameters
+<a name="deployment-aws-backup-plan-create-ex-min"></a>
 
 ```
 {
@@ -190,10 +185,10 @@ For detailed information about the execution input parameters, see
   "TimeoutInMinutes": 60,
   "StackTemplateId": "stm-sc68a620000000000"
 }
-
 ```
 
 ## Example: All Parameters
+<a name="deployment-aws-backup-plan-create-ex-max"></a>
 
 ```
 {
@@ -276,5 +271,4 @@ For detailed information about the execution input parameters, see
   "TimeoutInMinutes": 60,
   "StackTemplateId": "stm-sc68a620000000000"
 }
-
 ```

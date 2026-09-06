@@ -1,181 +1,179 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Security Group | Authorize Ingress Rule
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Security Group \| Authorize Ingress Rule
+<a name="management-advanced-security-group-authorize-ingress-rule"></a>
 
 Authorize multiple ingress rules for the specified security group (SG). You must specify the configurations of the ingress rule that you are authorizing. Note that adding an ingress rule to the specified SG does not modify any existing ingress rules.
 
-**Full classification:** Management | Advanced stack components | Security group | Authorize ingress rule
+**Full classification:** Management \| Advanced stack components \| Security group \| Authorize ingress rule
 
 ## Change Type Details
+<a name="ct-3j2zstluz6dxq-MASa-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-3j2zstluz6dxq |
-| Current version             | 4.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-3j2zstluz6dxq | 
+| Current version | 4.0 | 
+| Expected execution duration | 60 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="management-advanced-security-group-authorize-ingress-rule-info"></a>
 
 ### Authorize security group ingress rule
+<a name="ex-sec-group-ingress-rule-auth-col"></a>
+
+#### Authorizing a security group ingress rule with the Console
+<a name="sec-group-ingress-rule-auth-con"></a>
 
 The following is a screenshot of this change type in the AMS console:
 
-![Authorize Multiple Ingress Rules change type showing ID, execution mode, version, and classification path.](images/guiSecGroupIngressAuthorizeCT.png)
+![Authorize Multiple Ingress Rules change type showing ID, execution mode, version, and classification path.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiSecGroupIngressAuthorizeCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Authorizing a security group ingress rule with the CLI
+<a name="sec-group-ingress-rule-auth-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-3j2zstluz6dxq" --change-type-version "4.0" --title "`AWSManagedServices-AuthorizeSecurityGroupIngressRulesV4`" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AuthorizeSecurityGroupIngressRulesV4\",\"Region\": \"`us-east-1`\",\"Parameters\": {\"SecurityGroupId\": [
-\"`sg-03b5e3a1ad874bdd7`\"],\"InboundRules\": [{\"IpProtocol\": \"`tcp`\",\"FromPort\": \"`80`\",\"ToPort\": \"`80`\",\"Source\": \"`192.168.1.0/24`\"},{\"IpProtocol\": \"`tcp`\",\"FromPort\": \"`99`\",\"ToPort\": \"`99`\",\"Source\": \"`172.16.0.0/24`\", \"Description\": \"`On-prem IP`\"}]}}"
+aws amscm create-rfc --change-type-id "ct-3j2zstluz6dxq" --change-type-version "4.0" --title "{{AWSManagedServices-AuthorizeSecurityGroupIngressRulesV4}}" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AuthorizeSecurityGroupIngressRulesV4\",\"Region\": \"{{us-east-1}}\",\"Parameters\": {\"SecurityGroupId\": [
+\"{{sg-03b5e3a1ad874bdd7}}\"],\"InboundRules\": [{\"IpProtocol\": \"{{tcp}}\",\"FromPort\": \"{{80}}\",\"ToPort\": \"{{80}}\",\"Source\": \"{{192.168.1.0/24}}\"},{\"IpProtocol\": \"{{tcp}}\",\"FromPort\": \"{{99}}\",\"ToPort\": \"{{99}}\",\"Source\": \"{{172.16.0.0/24}}\", \"Description\": \"{{On-prem IP}}\"}]}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it AuthSGIngressParams.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-3j2zstluz6dxq" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AuthSGIngressParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-3j2zstluz6dxq" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AuthSGIngressParams.json
+   ```
 
-2. Modify and save the AuthSGIngressParams file. For example, you can replace the contents with something like this:
+1. Modify and save the AuthSGIngressParams file. For example, you can replace the contents with something like this:
 
-```
-{
-"DocumentName": "AWSManagedServices-AuthorizeSecurityGroupIngressRulesV4",
-"Region": "`us-east-1`",
-"Parameters": {
-{
-"SecurityGroupId": [
-"`sg-03b5e3a1ad874bdd7`"
-],
-"InboundRules": [
-{
-"IpProtocol": "`tcp`",
-"FromPort": "`80`",
-"ToPort": "`80`",
-"Source": "`192.168.1.0/24`",
-},
-{
-"IpProtocol": "`tcp`",
-"FromPort": "`99`",
-"ToPort": "`99`",
-"Source": "`172.16.0.0/24`",
-"Description": "`On-prem IP`"
-}
-]
-}
-}
-}
-```
+   ```
+   {
+   "DocumentName": "AWSManagedServices-AuthorizeSecurityGroupIngressRulesV4",
+   "Region": "{{us-east-1}}",
+   "Parameters": {
+   {
+   "SecurityGroupId": [
+   "{{sg-03b5e3a1ad874bdd7}}"
+   ],
+   "InboundRules": [
+   {
+   "IpProtocol": "{{tcp}}",
+   "FromPort": "{{80}}",
+   "ToPort": "{{80}}",
+   "Source": "{{192.168.1.0/24}}",
+   },
+   {
+   "IpProtocol": "{{tcp}}",
+   "FromPort": "{{99}}",
+   "ToPort": "{{99}}",
+   "Source": "{{172.16.0.0/24}}",
+   "Description": "{{On-prem IP}}"
+   }
+   ]
+   }
+   }
+   }
+   ```
 
-3. Output the RFC template JSON file to a file named AuthSGIngressRfc.json:
+1. Output the RFC template JSON file to a file named AuthSGIngressRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > AuthSGIngressRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > AuthSGIngressRfc.json
+   ```
 
-4. Modify and save the AuthSGIngressRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the AuthSGIngressRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion": "4.0",
-"ChangeTypeId": "ct-3j2zstluz6dxq",
-"Title": "Authorize Multiple Ingress Rules"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion": "4.0",
+   "ChangeTypeId": "ct-3j2zstluz6dxq",
+   "Title": "Authorize Multiple Ingress Rules"
+   }
+   ```
 
-5. Create the RFC, specifying the AuthSGIngressRfc file and the AuthSGIngressParams file:
+1. Create the RFC, specifying the AuthSGIngressRfc file and the AuthSGIngressParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://AuthSGIngressRfc.json  --execution-parameters file://AuthSGIngressParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://AuthSGIngressRfc.json  --execution-parameters file://AuthSGIngressParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
+#### Tips
+<a name="ex-sec-group-ingress-rule-auth-tip"></a>
 
-This change type is at version 2.0. The two separate, optional source parameters, **CidrIp** and **SourceSecurityGroupId**,
-are combined into one required parameter, **Source**, with two options. This change helps make sure that a source is provided. Without a source,
-the RFC fails.
+**Note**  
+This change type is at version 2.0. The two separate, optional source parameters, **CidrIp ** and **SourceSecurityGroupId**, are combined into one required parameter, **Source**, with two options. This change helps make sure that a source is provided. Without a source, the RFC fails.  
+There are two ways to authorize a new ingress rule:  
+**Security group \| Update change type (ct-3memthlcmvc1b):** This is a manual change type and takes longer to implement because AMS Operations must review it for safety. Additional communication with you might be required.
+**Security Group \| Authorize Ingress Rule (ct-3j2zstluz6dxq):** This is an automated change type so is implemented more quickly. This change type provides options for deleting standard TCP/UDP or ICMP ingress rules.
+If the **Source** is **public IP**, then the RFC fails. To add a new ingress rule with a public IP, use the Security group \| Update change type (ct-3memthlcmvc1b).
 
-There are two ways to authorize a new ingress rule:
+To learn more about AWS security groups and security group rules, see [Security Group Rules Reference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html). This information helps you determine the rules that you want and, importantly, how to name your security group so that choosing it when creating other resources is intuitive. Also, see [Amazon EC2 Security Groups for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html) [Security Groups for Your VPC](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html).
 
-- **Security group | Update change type (ct-3memthlcmvc1b):** This is a manual change type and takes longer to implement because AMS Operations must review it for safety. Additional communication with you might be required.
-- **Security Group | Authorize Ingress Rule (ct-3j2zstluz6dxq):** This is an automated change type so is implemented more quickly. This change type provides options for deleting standard TCP/UDP or ICMP ingress rules.
-  If the **Source** is **public IP**, then the RFC fails. To add a new ingress rule with a public IP, use the Security group | Update change type (ct-3memthlcmvc1b).
-
-To learn more about AWS security groups and security group rules, see
-[Security Group Rules Reference](../../../AWSEC2/latest/UserGuide/security-group-rules-reference.md "../../../AWSEC2/latest/UserGuide/security-group-rules-reference.md"). This information
-helps you determine the rules that you want and, importantly, how to name your security group so that choosing it when creating other resources is intuitive. Also, see
-[Amazon EC2 Security Groups for Linux Instances](../../../AWSEC2/latest/UserGuide/using-network-security.md "../../../AWSEC2/latest/UserGuide/using-network-security.md")
-[Security Groups for Your VPC](../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md "../../../AmazonVPC/latest/UserGuide/VPC_SecurityGroups.md").
-
-After the security group is created, use
-[Associate security group to resource](management-advanced-security-group-associate.md#ex-sec-group-associate-col "management-advanced-security-group-associate.md#ex-sec-group-associate-col") to associate the security group with your AMS resources. To delete a security group, it must have associated resources.
+After the security group is created, use [Associate security group to resource](management-advanced-security-group-associate.md#ex-sec-group-associate-col) to associate the security group with your AMS resources. To delete a security group, it must have associated resources.
 
 ## Execution Input Parameters
+<a name="management-advanced-security-group-authorize-ingress-rule-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3j2zstluz6dxq](schemas.md#ct-3j2zstluz6dxq-schema-section "schemas.md#ct-3j2zstluz6dxq-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-3j2zstluz6dxq](schemas.md#ct-3j2zstluz6dxq-schema-section).
 
 ## Example: Required Parameters
+<a name="management-advanced-security-group-authorize-ingress-rule-ex-min"></a>
 
 ```
 Example not available.
 ```
 
 ## Example: All Parameters
+<a name="management-advanced-security-group-authorize-ingress-rule-ex-max"></a>
 
 ```
 Example not available.

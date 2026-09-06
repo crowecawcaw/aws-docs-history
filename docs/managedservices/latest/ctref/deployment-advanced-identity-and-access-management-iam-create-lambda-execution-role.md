@@ -1,142 +1,148 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Identity and Access Management (IAM) | Create Lambda Execution Role
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Identity and Access Management (IAM) \| Create Lambda Execution Role
+<a name="deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role"></a>
 
 Create an Lambda execution role to use with Lambda Function. Each ARN specified in the parameters creates a part of the IAM policy. Use the Preview option to see what the completed, generated, policy looks like before it is created and implemented.
 
-**Full classification:** Deployment | Advanced stack components | Identity and Access Management (IAM) | Create Lambda execution role
+**Full classification:** Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create Lambda execution role
 
 ## Change Type Details
+<a name="ct-1k3oui719dcju-DAIc-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-1k3oui719dcju |
-| Current version             | 2.0              |
-| Expected execution duration | 360 minutes      |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-1k3oui719dcju | 
+| Current version | 2.0 | 
+| Expected execution duration | 360 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role-info"></a>
 
 ### Create IAM Lambda execution role
+<a name="ex-iam-lambda-ex-role-create-col"></a>
 
-![Create Lambda Execution Role interface with ID, execution mode, and version details.](images/guiIamLambdaExeRoleCreateCT.png)
+#### Creating IAM Lambda execution roles with the console
+<a name="iam-lambda-ex-role-create-con"></a>
+
+![Create Lambda Execution Role interface with ID, execution mode, and version details.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiIamLambdaExeRoleCreateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Creating IAM Lambda execution roles with the CLI
+<a name="iam-lambda-ex-role-create-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE (required parameters only)_:
+*INLINE CREATE (required parameters only)*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-1k3oui719dcju" --change-type-version "2.0" --title "`Create IAM Lambda Execution Role`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-HandleCreateIAMRole-Admin\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"ServicePrincipal\":[\"`lambda.amazonaws.com`\"],\"RoleName\":[\"`test-application-ec2-instance-profile`\"],\"LambdaFunctionArns": [\"`arn:aws:lambda:us-east-1:123456789012:function:testing`\"}}"
+aws amscm create-rfc --change-type-id "ct-1k3oui719dcju" --change-type-version "2.0" --title "{{Create IAM Lambda Execution Role}}" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-HandleCreateIAMRole-Admin\",\"Region\":\"{{us-east-1}}\",\"Parameters\":{\"ServicePrincipal\":[\"{{lambda.amazonaws.com}}\"],\"RoleName\":[\"{{test-application-ec2-instance-profile}}\"],\"LambdaFunctionArns": [\"{{arn:aws:lambda:us-east-1:123456789012:function:testing}}\"}}"
 ```
 
-_TEMPLATE CREATE (all parameters)_:
+*TEMPLATE CREATE (all parameters)*:
 
 1. Output the execution parameters JSON schema for this change type to a file; example names it CreateIamLambdaExeRoleParams.json:
 
-```
-aws amscm get-change-type-version --change-type-id "ct-1k3oui719dcju" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateIamLambdaExeRoleParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-1k3oui719dcju" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateIamLambdaExeRoleParams.json
+   ```
 
-2. Modify and save the CreateIamLambdaExeRoleParams file; example creates an IAM Role with policy documents pasted inline.
+1. Modify and save the CreateIamLambdaExeRoleParams file; example creates an IAM Role with policy documents pasted inline.
 
-```
-{
-  "DocumentName": "AWSManagedServices-HandleCreateIAMRole-Admin",
-  "Region": "`us-east-1`",
-  "Parameters": {
-     "ServicePrincipal" : "`lambda.amazonaws.com`",
-     "RoleName" : "`customer_lambda_execution_role`",
-     "VPCAccess" : "`No`",
-     "Preview" : "`No`",
-     "LambdaFunctionArns": ["`arn:aws:lambda:us-east-1:123456789012:function:dabba`"]
-  }
-}
-```
+   ```
+   {
+     "DocumentName": "AWSManagedServices-HandleCreateIAMRole-Admin",
+     "Region": "{{us-east-1}}",
+     "Parameters": {
+        "ServicePrincipal" : "{{lambda.amazonaws.com}}",
+        "RoleName" : "{{customer_lambda_execution_role}}",
+        "VPCAccess" : "{{No}}",
+        "Preview" : "{{No}}",
+        "LambdaFunctionArns": ["{{arn:aws:lambda:us-east-1:123456789012:function:dabba}}"]
+     }
+   }
+   ```
 
-3. Output the RFC template JSON file to a file named CreateIamLambdaExeRoleRfc.json:
+1. Output the RFC template JSON file to a file named CreateIamLambdaExeRoleRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > CreateIamLambdaExeRoleRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > CreateIamLambdaExeRoleRfc.json
+   ```
 
-4. Modify and save the CreateIamLambdaExeRoleRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the CreateIamLambdaExeRoleRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion": "2.0",
-"ChangeTypeId": "ct-1k3oui719dcju",
-"Title": "``Create IAM Lambda Execution Role``"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion": "2.0",
+   "ChangeTypeId": "ct-1k3oui719dcju",
+   "Title": "{{{{Create IAM Lambda Execution Role}}}}"
+   }
+   ```
 
-5. Create the RFC, specifying the CreateIamLambdaExeRoleRfc file and the CreateIamLambdaExeRoleParams file:
+1. Create the RFC, specifying the CreateIamLambdaExeRoleRfc file and the CreateIamLambdaExeRoleParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://CreateIamLambdaExeRoleRfc.json  --execution-parameters file://CreateIamLambdaExeRoleParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://CreateIamLambdaExeRoleRfc.json  --execution-parameters file://CreateIamLambdaExeRoleParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
+#### Tips
+<a name="ex-iam-lambda-ex-role-create-tip"></a>
 
+**Note**  
 This change type is now at version 2.0 with improvements in the create RFC Console experience and the change makes it easier to copy and paste JSON.
 
-For more information about AWS Identity and Access Management, see [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/").
+For more information about AWS Identity and Access Management, see [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/).
 
 ## Execution Input Parameters
+<a name="deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1k3oui719dcju](schemas.md#ct-1k3oui719dcju-schema-section "schemas.md#ct-1k3oui719dcju-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-1k3oui719dcju](schemas.md#ct-1k3oui719dcju-schema-section).
 
 ## Example: Required Parameters
+<a name="deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role-ex-min"></a>
 
 ```
 {
@@ -153,6 +159,7 @@ For detailed information about the execution input parameters, see
 ```
 
 ## Example: All Parameters
+<a name="deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role-ex-max"></a>
 
 ```
 {
@@ -192,5 +199,4 @@ For detailed information about the execution input parameters, see
     "AdditionalPolicy" : "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Action\":[\"iam:ListRoles\",\"iam:ListAccountAliases\"],\"Resource\":\"*\"}]}"
   }
 }
-
 ```

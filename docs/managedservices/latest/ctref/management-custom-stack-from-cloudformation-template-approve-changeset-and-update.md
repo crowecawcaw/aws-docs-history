@@ -1,115 +1,116 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Stack from CloudFormation Template | Approve Changeset and Update
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Stack from CloudFormation Template \| Approve Changeset and Update
+<a name="management-custom-stack-from-cloudformation-template-approve-changeset-and-update"></a>
 
 Approve and execute an existing ChangeSet to update a CloudFormation stack. This ChangeType is used primarily to approve and apply changes requested using the "Update CloudFormation stack" CT that would cause removal or replacement of resources, but can also be used to execute any existing ChangeSet to update CloudFormation stacks.
 
-**Full classification:** Management | Custom Stack | Stack from CloudFormation Template | Approve Changeset and Update
+**Full classification:** Management \| Custom Stack \| Stack from CloudFormation Template \| Approve Changeset and Update
 
 ## Change Type Details
+<a name="ct-1404e21baa2ox-MCSa-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-1404e21baa2ox |
-| Current version             | 1.0              |
-| Expected execution duration | 360 minutes      |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-1404e21baa2ox | 
+| Current version | 1.0 | 
+| Expected execution duration | 360 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="management-custom-stack-from-cloudformation-template-approve-changeset-and-update-info"></a>
 
 ### Approve a CloudFormation ingest stack changeset
+<a name="ex-cfn-ingest-approve-and-update-col"></a>
 
-![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](images/guiCfnStackApproveAndUpdateCT.png)
-**To approve and update a CloudFormation ingest stack using
-the console**
+#### Approving and updating a CloudFormation ingest stack using the console
+<a name="cfn-ingest-approve-update-con"></a>
+
+![ChangeSet details showing ID ct-1404e21baa2ox, Automated execution mode, and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiCfnStackApproveAndUpdateCT.png)
+
+
+**To approve and update a CloudFormation ingest stack using the console**
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
-**To approve and update a CloudFormation ingest stack using
-the CLI**
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Approving and updating a CloudFormation ingest stack using the CLI
+<a name="cfn-ingest-approve-update-cli"></a>
+
+**To approve and update a CloudFormation ingest stack using the CLI**
+
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
+
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
+1. Output the execution parameters JSON schema for this change type to a file in your current folder. This example names it CreateAsgParams.json:
 
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
+   ```
+   aws amscm create-rfc --change-type-id "ct-1404e21baa2ox" --change-type-version "1.0" --title "{{Approve Update}}" --execution-parameters file://{{PATH_TO_EXECUTION_PARAMETERS}} --profile saml
+   ```
 
-1. Output the execution parameters JSON schema for this change type to a
-   file in your current folder. This example names it CreateAsgParams.json:
+1. Modify and save the schema as follows:
 
-```
-aws amscm create-rfc --change-type-id "ct-1404e21baa2ox" --change-type-version "1.0" --title "`Approve Update`" --execution-parameters file://`PATH_TO_EXECUTION_PARAMETERS` --profile saml
-```
+   ```
+   {
+     "StackId": "{{STACK_ID}}",
+     "VpcId": "{{VPC_ID}}",
+     "ChangeSetName": "{{UPDATE-ef81e2bc-03f6-4b17-a3c7-feb700e78faa}}",
+     "TimeoutInMinutes": {{1080}}
+   }
+   ```
 
-2. Modify and save the schema as follows:
+#### Tips
+<a name="ex-cfn-ingest-approve-and-update-tip"></a>
 
-```
-{
-  "StackId": "`STACK_ID`",
-  "VpcId": "`VPC_ID`",
-  "ChangeSetName": "`UPDATE-ef81e2bc-03f6-4b17-a3c7-feb700e78faa`",
-  "TimeoutInMinutes": `1080`
-}
+**Note**  
+If there are multiple resources in a stack, and you want to delete only a subset of the stack resources, use the CloudFormation Update CT; see [CloudFormation Ingest Stack: Updating](https://docs.aws.amazon.com/managedservices/latest/appguide/ex-cfn-ingest-update-col.html). You can also submit a Service request case and AMS engineers can help you craft the changeset, if needed.
 
-```
-
-###### Note
-
-If there are multiple resources in a stack, and you want to delete only a subset
-of the stack resources, use the CloudFormation Update CT; see
-[CloudFormation Ingest Stack: Updating](../appguide/ex-cfn-ingest-update-col.md "../appguide/ex-cfn-ingest-update-col.md"). You can also submit a Service request case and AMS engineers can help you craft the changeset, if needed.
-
-To learn more about AWS CloudFormation, see [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").
+To learn more about AWS CloudFormation, see [AWS CloudFormation](https://aws.amazon.com/cloudformation/).
 
 ## Execution Input Parameters
+<a name="management-custom-stack-from-cloudformation-template-approve-changeset-and-update-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1404e21baa2ox](schemas.md#ct-1404e21baa2ox-schema-section "schemas.md#ct-1404e21baa2ox-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-1404e21baa2ox](schemas.md#ct-1404e21baa2ox-schema-section).
 
 ## Example: Required Parameters
+<a name="management-custom-stack-from-cloudformation-template-approve-changeset-and-update-ex-min"></a>
 
 ```
 Example not available.
 ```
 
 ## Example: All Parameters
+<a name="management-custom-stack-from-cloudformation-template-approve-changeset-and-update-ex-max"></a>
 
 ```
 Example not available.

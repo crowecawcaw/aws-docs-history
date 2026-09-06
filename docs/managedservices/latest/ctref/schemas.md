@@ -1,17 +1,17 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
+
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
 
 # Change Type Schemas
+<a name="schemas"></a>
 
 Change type schemas specify the execution input parameters for a change type.
 
 ## Schema for Change Type ct-00tlkda4242x7
+<a name="ct-00tlkda4242x7-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Applications | CodeDeploy deployment group | Create (for EC2 instance)](deployment-applications-codedeploy-deployment-group-create-for-ec2-instance.md "deployment-applications-codedeploy-deployment-group-create-for-ec2-instance.md")
+**Classifications:**
++ [Deployment \| Applications \| CodeDeploy deployment group \| Create (for EC2 instance)](deployment-applications-codedeploy-deployment-group-create-for-ec2-instance.md)
 
 ```
 {
@@ -178,10 +178,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-00zr0b0ozlcn3
+<a name="ct-00zr0b0ozlcn3-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Receive replication replica](management-advanced-s3-storage-receive-replication-replica.md "management-advanced-s3-storage-receive-replication-replica.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Receive replication replica](management-advanced-s3-storage-receive-replication-replica.md)
 
 ```
 {
@@ -296,10 +296,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0176f0n99vcps
+<a name="ct-0176f0n99vcps-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Tag | Create (managed automation)](deployment-advanced-tag-create-managed-automation.md "deployment-advanced-tag-create-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Tag \| Create (managed automation)](deployment-advanced-tag-create-managed-automation.md)
 
 ```
 {
@@ -395,10 +395,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-01zl37gmuk4q2
+<a name="ct-01zl37gmuk4q2-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Delete SAML identity provider](management-advanced-identity-and-access-management-iam-delete-saml-identity-provider.md "management-advanced-identity-and-access-management-iam-delete-saml-identity-provider.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete SAML identity provider](management-advanced-identity-and-access-management-iam-delete-saml-identity-provider.md)
 
 ```
 {
@@ -477,10 +477,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-02ocqy2i0jx3t
+<a name="ct-02ocqy2i0jx3t-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Start Aurora cluster](management-advanced-rds-database-stack-start-aurora-cluster.md "management-advanced-rds-database-stack-start-aurora-cluster.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Start Aurora cluster](management-advanced-rds-database-stack-start-aurora-cluster.md)
 
 ```
 {
@@ -566,10 +566,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-02u0hoaa9grat
+<a name="ct-02u0hoaa9grat-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standard stacks | Stack | Reboot](management-standard-stack-reboot.md "management-standard-stack-reboot.md")
+**Classifications:**
++ [Management \| Standard stacks \| Stack \| Reboot](management-standard-stack-reboot.md)
 
 ```
 {
@@ -592,10 +592,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-03ms1d7xrck8w
+<a name="ct-03ms1d7xrck8w-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update termination protection](management-advanced-ec2-instance-stack-update-termination-protection.md "management-advanced-ec2-instance-stack-update-termination-protection.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update termination protection](management-advanced-ec2-instance-stack-update-termination-protection.md)
 
 ```
 {
@@ -672,10 +672,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-03mv2mypai537
+<a name="ct-03mv2mypai537-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standard stacks | Stack | Remove stack resources](management-standard-stack-remove-stack-resources.md "management-standard-stack-remove-stack-resources.md")
+**Classifications:**
++ [Management \| Standard stacks \| Stack \| Remove stack resources](management-standard-stack-remove-stack-resources.md)
 
 ```
 {
@@ -757,10 +757,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-03t7kvuwx6rgr
+<a name="ct-03t7kvuwx6rgr-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Start](management-advanced-ec2-instance-stack-start.md "management-advanced-ec2-instance-stack-start.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Start](management-advanced-ec2-instance-stack-start.md)
 
 ```
 {
@@ -825,10 +825,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-03ytgoevfebjr
+<a name="ct-03ytgoevfebjr-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Update cluster permissions](management-directory-dns-update-cluster-permissions.md "management-directory-dns-update-cluster-permissions.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Update cluster permissions](management-directory-dns-update-cluster-permissions.md)
 
 ```
 {
@@ -904,10 +904,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-042luqo63j4mx
+<a name="ct-042luqo63j4mx-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Period | Delete](management-ams-period-delete.md "management-ams-period-delete.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Period \| Delete](management-ams-period-delete.md)
 
 ```
 {
@@ -986,10 +986,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-046aizcwg5idf
+<a name="ct-046aizcwg5idf-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | AMI | Copy](deployment-advanced-ami-copy.md "deployment-advanced-ami-copy.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| AMI \| Copy](deployment-advanced-ami-copy.md)
 
 ```
 {
@@ -1104,10 +1104,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-04gzyy008v1bg
+<a name="ct-04gzyy008v1bg-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | KMS alias | Delete](management-advanced-kms-alias-delete.md "management-advanced-kms-alias-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| KMS alias \| Delete](management-advanced-kms-alias-delete.md)
 
 ```
 {
@@ -1171,10 +1171,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-054ysptoo4gyk
+<a name="ct-054ysptoo4gyk-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Resource Access Manager (RAM) | Create resource share (review required)](deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md "deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Resource Access Manager (RAM) \| Create resource share (review required)](deployment-advanced-resource-access-manager-ram-create-resource-share-review-required.md)
 
 ```
 {
@@ -1294,10 +1294,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-059ewa92tc2i1
+<a name="ct-059ewa92tc2i1-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS snapshot | Archive](management-advanced-ebs-snapshot-archive.md "management-advanced-ebs-snapshot-archive.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS snapshot \| Archive](management-advanced-ebs-snapshot-archive.md)
 
 ```
 {
@@ -1361,10 +1361,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-05muqzievnxk5
+<a name="ct-05muqzievnxk5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create target endpoint (S3)](deployment-advanced-database-migration-service-dms-create-target-endpoint-s3.md "deployment-advanced-database-migration-service-dms-create-target-endpoint-s3.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create target endpoint (S3)](deployment-advanced-database-migration-service-dms-create-target-endpoint-s3.md)
 
 ```
 {
@@ -1541,10 +1541,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-05yb337abq3x5
+<a name="ct-05yb337abq3x5-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | KMS key | Share (managed automation)](management-advanced-kms-key-share-managed-automation.md "management-advanced-kms-key-share-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| KMS key \| Share (managed automation)](management-advanced-kms-key-share-managed-automation.md)
 
 ```
 {
@@ -1602,10 +1602,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-063qsm82cfxu6
+<a name="ct-063qsm82cfxu6-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | EBS Volume | Create from backup](deployment-advanced-ebs-volume-create-from-backup.md "deployment-advanced-ebs-volume-create-from-backup.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| EBS Volume \| Create from backup](deployment-advanced-ebs-volume-create-from-backup.md)
 
 ```
 {
@@ -1731,10 +1731,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-06bwg93ukgg8t
+<a name="ct-06bwg93ukgg8t-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | VPC | Add static route (managed automation)](deployment-advanced-vpc-add-static-route-managed-automation.md "deployment-advanced-vpc-add-static-route-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| VPC \| Add static route (managed automation)](deployment-advanced-vpc-add-static-route-managed-automation.md)
 
 ```
 {
@@ -1786,10 +1786,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-06mjngx5flwto
+<a name="ct-06mjngx5flwto-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Standard stacks | High availability two-tier stack | Create](deployment-standard-high-availability-two-tier-stack-create.md "deployment-standard-high-availability-two-tier-stack-create.md")
+**Classifications:**
++ [Deployment \| Standard stacks \| High availability two-tier stack \| Create](deployment-standard-high-availability-two-tier-stack-create.md)
 
 ```
 {
@@ -2327,10 +2327,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-07jzw8bzd2on7
+<a name="ct-07jzw8bzd2on7-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | GuardDuty IP set | Update (managed automation)](management-monitoring-guardduty-ip-set-update-managed-automation.md "management-monitoring-guardduty-ip-set-update-managed-automation.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| GuardDuty IP set \| Update (managed automation)](management-monitoring-guardduty-ip-set-update-managed-automation.md)
 
 ```
 {
@@ -2399,10 +2399,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-08avsj2e9mc7g
+<a name="ct-08avsj2e9mc7g-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Monitoring and notification | GuardDuty IP set | Create (managed automation)](deployment-monitoring-guardduty-ip-set-create-managed-automation.md "deployment-monitoring-guardduty-ip-set-create-managed-automation.md")
+**Classifications:**
++ [Deployment \| Monitoring and notification \| GuardDuty IP set \| Create (managed automation)](deployment-monitoring-guardduty-ip-set-create-managed-automation.md)
 
 ```
 {
@@ -2480,10 +2480,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-08sgdn5zowyyl
+<a name="ct-08sgdn5zowyyl-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Trend Micro DSM | Scan and get results (managed automation)](management-host-trend-micro-dsm-scan-and-get-results-managed-automation.md "management-host-trend-micro-dsm-scan-and-get-results-managed-automation.md")
+**Classifications:**
++ [Management \| Host security \| Trend Micro DSM \| Scan and get results (managed automation)](management-host-trend-micro-dsm-scan-and-get-results-managed-automation.md)
 
 ```
 {
@@ -2547,10 +2547,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-09qbhy7kvtxqw
+<a name="ct-09qbhy7kvtxqw-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Reboot](management-advanced-ec2-instance-stack-reboot.md "management-advanced-ec2-instance-stack-reboot.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Reboot](management-advanced-ec2-instance-stack-reboot.md)
 
 ```
 {
@@ -2573,10 +2573,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-09t6q7j9v5hrn
+<a name="ct-09t6q7j9v5hrn-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Standard stacks | High availability one-tier stack | Create](deployment-standard-high-availability-one-tier-stack-create.md "deployment-standard-high-availability-one-tier-stack-create.md")
+**Classifications:**
++ [Deployment \| Standard stacks \| High availability one-tier stack \| Create](deployment-standard-high-availability-one-tier-stack-create.md)
 
 ```
 {
@@ -3032,10 +3032,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ah3gwb9seqk2
+<a name="ct-0ah3gwb9seqk2-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Applications | CodeDeploy application | Create](deployment-applications-codedeploy-application-create.md "deployment-applications-codedeploy-application-create.md")
+**Classifications:**
++ [Deployment \| Applications \| CodeDeploy application \| Create](deployment-applications-codedeploy-application-create.md)
 
 ```
 {
@@ -3131,10 +3131,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0akjahmgqhu4u
+<a name="ct-0akjahmgqhu4u-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Target group | Delete (managed automation)](management-advanced-target-group-delete-managed-automation.md "management-advanced-target-group-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Target group \| Delete (managed automation)](management-advanced-target-group-delete-managed-automation.md)
 
 ```
 {
@@ -3185,10 +3185,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0aqx5t0pgfzbg
+<a name="ct-0aqx5t0pgfzbg-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Load balancer (ELB) stack | Replace listener certificate](management-advanced-load-balancer-elb-stack-replace-listener-certificate.md "management-advanced-load-balancer-elb-stack-replace-listener-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Load balancer (ELB) stack \| Replace listener certificate](management-advanced-load-balancer-elb-stack-replace-listener-certificate.md)
 
 ```
 {
@@ -3290,10 +3290,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ary07xiajwx4
+<a name="ct-0ary07xiajwx4-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Load balancer (ELB) stack | Create (with additional listeners)](deployment-advanced-load-balancer-elb-stack-create-with-additional-listeners.md "deployment-advanced-load-balancer-elb-stack-create-with-additional-listeners.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Load balancer (ELB) stack \| Create (with additional listeners)](deployment-advanced-load-balancer-elb-stack-create-with-additional-listeners.md)
 
 ```
 {
@@ -3870,10 +3870,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0attesnjqy2cx
+<a name="ct-0attesnjqy2cx-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create source endpoint](deployment-advanced-database-migration-service-dms-create-source-endpoint.md "deployment-advanced-database-migration-service-dms-create-source-endpoint.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create source endpoint](deployment-advanced-database-migration-service-dms-create-source-endpoint.md)
 
 ```
 {
@@ -4075,10 +4075,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0biqnokj25gkd
+<a name="ct-0biqnokj25gkd-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Trend Micro DSM | Update agent status (managed automation)](management-host-trend-micro-dsm-update-agent-status-managed-automation.md "management-host-trend-micro-dsm-update-agent-status-managed-automation.md")
+**Classifications:**
++ [Management \| Host security \| Trend Micro DSM \| Update agent status (managed automation)](management-host-trend-micro-dsm-update-agent-status-managed-automation.md)
 
 ```
 {
@@ -4148,10 +4148,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0bpxsrtu16igp
+<a name="ct-0bpxsrtu16igp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Reboot](management-advanced-rds-database-stack-reboot.md "management-advanced-rds-database-stack-reboot.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Reboot](management-advanced-rds-database-stack-reboot.md)
 
 ```
 {
@@ -4179,10 +4179,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0c2g2npbyyrny
+<a name="ct-0c2g2npbyyrny-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | VPC | Associate DHCP Option Set](management-advanced-vpc-associate-dhcp-option-set.md "management-advanced-vpc-associate-dhcp-option-set.md")
+**Classifications:**
++ [Management \| Advanced stack components \| VPC \| Associate DHCP Option Set](management-advanced-vpc-associate-dhcp-option-set.md)
 
 ```
 {
@@ -4248,10 +4248,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0c38gftq56zj6
+<a name="ct-0c38gftq56zj6-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | DNS (private) | Create](deployment-advanced-dns-private-create.md "deployment-advanced-dns-private-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| DNS (private) \| Create](deployment-advanced-dns-private-create.md)
 
 ```
 {
@@ -4341,10 +4341,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0cupn1txog5tk
+<a name="ct-0cupn1txog5tk-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Storage Gateway | Create from Backup](deployment-advanced-storage-gateway-create-from-backup.md "deployment-advanced-storage-gateway-create-from-backup.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Storage Gateway \| Create from Backup](deployment-advanced-storage-gateway-create-from-backup.md)
 
 ```
 {
@@ -4507,10 +4507,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0cyqd7laxyhlm
+<a name="ct-0cyqd7laxyhlm-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Monitoring and notification | CloudWatch | Create LogGroup](deployment-monitoring-cloudwatch-create-loggroup.md "deployment-monitoring-cloudwatch-create-loggroup.md")
+**Classifications:**
++ [Deployment \| Monitoring and notification \| CloudWatch \| Create LogGroup](deployment-monitoring-cloudwatch-create-loggroup.md)
 
 ```
 {
@@ -4887,10 +4887,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0el2j07llrxs7
+<a name="ct-0el2j07llrxs7-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Patching | SSM patch window | Create](deployment-patching-ssm-patch-window-create.md "deployment-patching-ssm-patch-window-create.md")
+**Classifications:**
++ [Deployment \| Patching \| SSM patch window \| Create](deployment-patching-ssm-patch-window-create.md)
 
 ```
 {
@@ -5019,10 +5019,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0erkoad6uyvvg
+<a name="ct-0erkoad6uyvvg-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | CloudWatch | Enable Non-Root Volumes Monitoring](management-monitoring-cloudwatch-enable-non-root-volumes-monitoring.md "management-monitoring-cloudwatch-enable-non-root-volumes-monitoring.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| CloudWatch \| Enable Non-Root Volumes Monitoring](management-monitoring-cloudwatch-enable-non-root-volumes-monitoring.md)
 
 ```
 {
@@ -5086,10 +5086,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ffvihqwjvqj1
+<a name="ct-0ffvihqwjvqj1-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Restore volumes](management-advanced-ec2-instance-stack-restore-volumes.md "management-advanced-ec2-instance-stack-restore-volumes.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Restore volumes](management-advanced-ec2-instance-stack-restore-volumes.md)
 
 ```
 {
@@ -5203,10 +5203,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0fpjlxa808sh2
+<a name="ct-0fpjlxa808sh2-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Update policy (managed automation)](management-advanced-s3-storage-update-policy-managed-automation.md "management-advanced-s3-storage-update-policy-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Update policy (managed automation)](management-advanced-s3-storage-update-policy-managed-automation.md)
 
 ```
 {
@@ -5271,10 +5271,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0fqo03yizfnw6
+<a name="ct-0fqo03yizfnw6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS Backup | Backup plan | Enable cross region copy](management-aws-backup-plan-enable-cross-region-copy.md "management-aws-backup-plan-enable-cross-region-copy.md")
+**Classifications:**
++ [Management \| AWS Backup \| Backup plan \| Enable cross region copy](management-aws-backup-plan-enable-cross-region-copy.md)
 
 ```
 {
@@ -5403,10 +5403,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0g690ekkyfm79
+<a name="ct-0g690ekkyfm79-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Elastic File System (EFS) | Create from backup](deployment-advanced-elastic-file-system-efs-create-from-backup.md "deployment-advanced-elastic-file-system-efs-create-from-backup.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Elastic File System (EFS) \| Create from backup](deployment-advanced-elastic-file-system-efs-create-from-backup.md)
 
 ```
 {
@@ -5542,10 +5542,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0h3p576mj4rqm
+<a name="ct-0h3p576mj4rqm-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Change hostname (Windows)](management-advanced-ec2-instance-stack-change-hostname-windows.md "management-advanced-ec2-instance-stack-change-hostname-windows.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Change hostname (Windows)](management-advanced-ec2-instance-stack-change-hostname-windows.md)
 
 ```
 {
@@ -5636,10 +5636,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0hahohe17csnc
+<a name="ct-0hahohe17csnc-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Encrypt instance volumes](management-advanced-ec2-instance-stack-encrypt-instance-volumes.md "management-advanced-ec2-instance-stack-encrypt-instance-volumes.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Encrypt instance volumes](management-advanced-ec2-instance-stack-encrypt-instance-volumes.md)
 
 ```
 {
@@ -5758,10 +5758,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0hi7z7tyikjf6
+<a name="ct-0hi7z7tyikjf6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | SQS | Update](management-monitoring-sqs-update.md "management-monitoring-sqs-update.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| SQS \| Update](management-monitoring-sqs-update.md)
 
 ```
 {
@@ -5838,10 +5838,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0hu3q3957aghj
+<a name="ct-0hu3q3957aghj-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | ACM | Create private certificate](deployment-advanced-acm-create-private-certificate.md "deployment-advanced-acm-create-private-certificate.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| ACM \| Create private certificate](deployment-advanced-acm-create-private-certificate.md)
 
 ```
 {
@@ -5937,10 +5937,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0idxb0xsg1ui6
+<a name="ct-0idxb0xsg1ui6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS snapshot | Delete](management-advanced-rds-snapshot-delete.md "management-advanced-rds-snapshot-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS snapshot \| Delete](management-advanced-rds-snapshot-delete.md)
 
 ```
 {
@@ -6004,10 +6004,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ikpop8zqhkxg
+<a name="ct-0ikpop8zqhkxg-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Access | Stack admin access | Update](management-access-stack-admin-access-update.md "management-access-stack-admin-access-update.md")
+**Classifications:**
++ [Management \| Access \| Stack admin access \| Update](management-access-stack-admin-access-update.md)
 
 ```
 {
@@ -6073,10 +6073,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ixp4ch2tiu04
+<a name="ct-0ixp4ch2tiu04-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Applications | IAM instance profile | Create (managed automation)](management-applications-iam-instance-profile-create-managed-automation.md "management-applications-iam-instance-profile-create-managed-automation.md")
+**Classifications:**
++ [Management \| Applications \| IAM instance profile \| Create (managed automation)](management-applications-iam-instance-profile-create-managed-automation.md)
 
 ```
 {
@@ -6134,10 +6134,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0jb01cofkhwk1
+<a name="ct-0jb01cofkhwk1-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed account | Stack access duration | Override (managed automation)](management-managed-stack-access-duration-override-managed-automation.md "management-managed-stack-access-duration-override-managed-automation.md")
+**Classifications:**
++ [Management \| Managed account \| Stack access duration \| Override (managed automation)](management-managed-stack-access-duration-override-managed-automation.md)
 
 ```
 {
@@ -6177,10 +6177,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0k4b96aatyqgl
+<a name="ct-0k4b96aatyqgl-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Tag | Bulk update (managed automation)](management-advanced-tag-bulk-update-managed-automation.md "management-advanced-tag-bulk-update-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Tag \| Bulk update (managed automation)](management-advanced-tag-bulk-update-managed-automation.md)
 
 ```
 {
@@ -6227,10 +6227,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0kbey7hb00atp
+<a name="ct-0kbey7hb00atp-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Patching | SSM patch baseline | Create (Windows)](deployment-patching-ssm-patch-baseline-create-windows.md "deployment-patching-ssm-patch-baseline-create-windows.md")
+**Classifications:**
++ [Deployment \| Patching \| SSM patch baseline \| Create (Windows)](deployment-patching-ssm-patch-baseline-create-windows.md)
 
 ```
 {
@@ -6421,10 +6421,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0loed9dzig1ze
+<a name="ct-0loed9dzig1ze-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update Storage](management-advanced-rds-database-stack-update-storage.md "management-advanced-rds-database-stack-update-storage.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update Storage](management-advanced-rds-database-stack-update-storage.md)
 
 ```
 {
@@ -6546,10 +6546,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0lqruajvhwsbk
+<a name="ct-0lqruajvhwsbk-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Authorize egress rule](management-advanced-security-group-authorize-egress-rule.md "management-advanced-security-group-authorize-egress-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Authorize egress rule](management-advanced-security-group-authorize-egress-rule.md)
 
 ```
 {
@@ -6670,10 +6670,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ltm873rsebx9
+<a name="ct-0ltm873rsebx9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Load balancer (ELB) stack | Update](management-advanced-load-balancer-elb-stack-update.md "management-advanced-load-balancer-elb-stack-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Load balancer (ELB) stack \| Update](management-advanced-load-balancer-elb-stack-update.md)
 
 ```
 {
@@ -6893,10 +6893,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ntpkt9wntdfs
+<a name="ct-0ntpkt9wntdfs-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Custom Stack | Stack From CloudFormation Template | Delete Failed Stack (managed automation)](management-custom-stack-from-cloudformation-template-delete-failed-stack-managed-automation.md "management-custom-stack-from-cloudformation-template-delete-failed-stack-managed-automation.md")
+**Classifications:**
++ [Management \| Custom Stack \| Stack From CloudFormation Template \| Delete Failed Stack (managed automation)](management-custom-stack-from-cloudformation-template-delete-failed-stack-managed-automation.md)
 
 ```
 {
@@ -6963,10 +6963,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0o4zi9bzg74lp
+<a name="ct-0o4zi9bzg74lp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Add event notification](management-advanced-s3-storage-add-event-notification.md "management-advanced-s3-storage-add-event-notification.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Add event notification](management-advanced-s3-storage-add-event-notification.md)
 
 ```
 {
@@ -7094,10 +7094,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0p1oqt4xcp1cv
+<a name="ct-0p1oqt4xcp1cv-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update parameter group](management-advanced-rds-database-stack-update-parameter-group.md "management-advanced-rds-database-stack-update-parameter-group.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update parameter group](management-advanced-rds-database-stack-update-parameter-group.md)
 
 ```
 {
@@ -7163,10 +7163,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0pgvtw5rpcsb6
+<a name="ct-0pgvtw5rpcsb6-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create from backup](deployment-advanced-rds-database-stack-create-from-backup.md "deployment-advanced-rds-database-stack-create-from-backup.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create from backup](deployment-advanced-rds-database-stack-create-from-backup.md)
 
 ```
 {
@@ -7348,11 +7348,11 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0q0bic0ywqk6c
+<a name="ct-0q0bic0ywqk6c-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Stack | Delete](management-advanced-stack-delete.md "management-advanced-stack-delete.md")
-- [Management | Standard stacks | Stack | Delete](management-standard-stack-delete.md "management-standard-stack-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Stack \| Delete](management-advanced-stack-delete.md)
++ [Management \| Standard stacks \| Stack \| Delete](management-standard-stack-delete.md)
 
 ```
 {
@@ -7381,10 +7381,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0q43l40hxrzum
+<a name="ct-0q43l40hxrzum-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Redshift | Create (cluster subnet group)](deployment-advanced-redshift-create-cluster-subnet-group.md "deployment-advanced-redshift-create-cluster-subnet-group.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Redshift \| Create (cluster subnet group)](deployment-advanced-redshift-create-cluster-subnet-group.md)
 
 ```
 {
@@ -7515,10 +7515,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0qbikxr9okwvy
+<a name="ct-0qbikxr9okwvy-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | VPN Gateway | Create](deployment-advanced-vpn-gateway-create.md "deployment-advanced-vpn-gateway-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| VPN Gateway \| Create](deployment-advanced-vpn-gateway-create.md)
 
 ```
 {
@@ -7650,10 +7650,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0rmgrnr9w8mzh
+<a name="ct-0rmgrnr9w8mzh-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Networking account | Remove TGW static route](management-managed-networking-account-remove-tgw-static-route.md "management-managed-networking-account-remove-tgw-static-route.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Networking account \| Remove TGW static route](management-managed-networking-account-remove-tgw-static-route.md)
 
 ```
 {
@@ -7754,10 +7754,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0tmpmp1wpgkr9
+<a name="ct-0tmpmp1wpgkr9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update instance detailed monitoring](management-advanced-ec2-instance-stack-update-instance-detailed-monitoring.md "management-advanced-ec2-instance-stack-update-instance-detailed-monitoring.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update instance detailed monitoring](management-advanced-ec2-instance-stack-update-instance-detailed-monitoring.md)
 
 ```
 {
@@ -7835,10 +7835,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0tpbr6lfa3zng
+<a name="ct-0tpbr6lfa3zng-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Application Load Balancer | Remove listener certificate](management-advanced-application-load-balancer-remove-listener-certificate.md "management-advanced-application-load-balancer-remove-listener-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Application Load Balancer \| Remove listener certificate](management-advanced-application-load-balancer-remove-listener-certificate.md)
 
 ```
 {
@@ -7929,10 +7929,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ttx8eh3ice91
+<a name="ct-0ttx8eh3ice91-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Delete policy (managed automation)](management-advanced-s3-storage-delete-policy-managed-automation.md "management-advanced-s3-storage-delete-policy-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Delete policy (managed automation)](management-advanced-s3-storage-delete-policy-managed-automation.md)
 
 ```
 {
@@ -7981,10 +7981,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ulaleq7ohuyq
+<a name="ct-0ulaleq7ohuyq-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Directory Service | Computer object | Create service principal name (SPN)](deployment-directory-computer-object-create-service-principal-name-spn.md "deployment-directory-computer-object-create-service-principal-name-spn.md")
+**Classifications:**
++ [Deployment \| Directory Service \| Computer object \| Create service principal name (SPN)](deployment-directory-computer-object-create-service-principal-name-spn.md)
 
 ```
 {
@@ -8052,7 +8052,7 @@ Change type schemas specify the execution input parameters for a change type.
             ]
           },
           "default": [
-
+            
           ]
         },
         "ApplicationAccountId": {
@@ -8095,10 +8095,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0vdiy51oyrhhm
+<a name="ct-0vdiy51oyrhhm-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Management account | Offboard application account](management-managed-management-account-offboard-application-account.md "management-managed-management-account-offboard-application-account.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Management account \| Offboard application account](management-managed-management-account-offboard-application-account.md)
 
 ```
 {
@@ -8170,10 +8170,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0vevjppj9eta4
+<a name="ct-0vevjppj9eta4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS Volume | Encrypt EBS by default](management-advanced-ebs-volume-encrypt-ebs-by-default.md "management-advanced-ebs-volume-encrypt-ebs-by-default.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS Volume \| Encrypt EBS by default](management-advanced-ebs-volume-encrypt-ebs-by-default.md)
 
 ```
 {
@@ -8211,10 +8211,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0vfx8rwd1mcnn
+<a name="ct-0vfx8rwd1mcnn-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | CloudWatch | Modify log retention period](management-monitoring-cloudwatch-modify-log-retention-period.md "management-monitoring-cloudwatch-modify-log-retention-period.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| CloudWatch \| Modify log retention period](management-monitoring-cloudwatch-modify-log-retention-period.md)
 
 ```
 {
@@ -8301,10 +8301,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0vzsr2nyraedl
+<a name="ct-0vzsr2nyraedl-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | DNS (public) | Create](deployment-advanced-dns-public-create.md "deployment-advanced-dns-public-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| DNS (public) \| Create](deployment-advanced-dns-public-create.md)
 
 ```
 {
@@ -8387,10 +8387,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0wglhholzo0uw
+<a name="ct-0wglhholzo0uw-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Network Load Balancer | Update](management-advanced-network-load-balancer-update.md "management-advanced-network-load-balancer-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Network Load Balancer \| Update](management-advanced-network-load-balancer-update.md)
 
 ```
 {
@@ -8565,10 +8565,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0wspy4o646g9p
+<a name="ct-0wspy4o646g9p-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Trend Micro DSM | Add login (read-only)](management-host-trend-micro-dsm-add-login-read-only.md "management-host-trend-micro-dsm-add-login-read-only.md")
+**Classifications:**
++ [Management \| Host security \| Trend Micro DSM \| Add login (read-only)](management-host-trend-micro-dsm-add-login-read-only.md)
 
 ```
 {
@@ -8654,10 +8654,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0x6dylrnfjgz5
+<a name="ct-0x6dylrnfjgz5-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Directory | Create AD trust](management-directory-directory-create-ad-trust.md "management-directory-directory-create-ad-trust.md")
+**Classifications:**
++ [Management \| Directory Service \| Directory \| Create AD trust](management-directory-directory-create-ad-trust.md)
 
 ```
 {
@@ -8774,10 +8774,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0xdawir96cy7k
+<a name="ct-0xdawir96cy7k-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Other | Other | Update (review required)](management-other-other-update-review-required.md "management-other-other-update-review-required.md")
+**Classifications:**
++ [Management \| Other \| Other \| Update (review required)](management-other-other-update-review-required.md)
 
 ```
 {
@@ -8826,10 +8826,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0xi6q7uwuwrqe
+<a name="ct-0xi6q7uwuwrqe-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Cache (ElastiCache Memcached) stack | Create](deployment-advanced-cache-elasticache-memcached-stack-create.md "deployment-advanced-cache-elasticache-memcached-stack-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Cache (ElastiCache Memcached) stack \| Create](deployment-advanced-cache-elasticache-memcached-stack-create.md)
 
 ```
 {
@@ -9016,10 +9016,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0xqwmtn1hfh8u
+<a name="ct-0xqwmtn1hfh8u-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Tag | Update](management-advanced-tag-update.md "management-advanced-tag-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Tag \| Update](management-advanced-tag-update.md)
 
 ```
 {
@@ -9110,10 +9110,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0ywnhc8e5k9z5
+<a name="ct-0ywnhc8e5k9z5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | AMS Resource Scheduler | Solution | Deploy](deployment-ams-solution-deploy.md "deployment-ams-solution-deploy.md")
+**Classifications:**
++ [Deployment \| AMS Resource Scheduler \| Solution \| Deploy](deployment-ams-solution-deploy.md)
 
 ```
 {
@@ -9722,10 +9722,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0z8w5t4t1ti5m
+<a name="ct-0z8w5t4t1ti5m-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Update public access](management-advanced-s3-storage-update-public-access.md "management-advanced-s3-storage-update-public-access.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Update public access](management-advanced-s3-storage-update-public-access.md)
 
 ```
 {
@@ -9813,10 +9813,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0zko7t3rk2efb
+<a name="ct-0zko7t3rk2efb-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Tag | Update (managed automation)](management-advanced-tag-update-managed-automation.md "management-advanced-tag-update-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Tag \| Update (managed automation)](management-advanced-tag-update-managed-automation.md)
 
 ```
 {
@@ -9925,10 +9925,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-0zzf0fjz76jmb
+<a name="ct-0zzf0fjz76jmb-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | SNS | Update (managed automation)](management-monitoring-sns-update-managed-automation.md "management-monitoring-sns-update-managed-automation.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| SNS \| Update (managed automation)](management-monitoring-sns-update-managed-automation.md)
 
 ```
 {
@@ -10031,10 +10031,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1078jhyxq32dp
+<a name="ct-1078jhyxq32dp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Computer object | Remove SPN](management-directory-computer-object-remove-spn.md "management-directory-computer-object-remove-spn.md")
+**Classifications:**
++ [Management \| Directory Service \| Computer object \| Remove SPN](management-directory-computer-object-remove-spn.md)
 
 ```
 {
@@ -10145,10 +10145,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-10nh4ztyxu8kz
+<a name="ct-10nh4ztyxu8kz-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Trusted Remediator | State | Enable or disable](management-trusted-state-enable-or-disable.md "management-trusted-state-enable-or-disable.md")
+**Classifications:**
++ [Management \| Trusted Remediator \| State \| Enable or disable](management-trusted-state-enable-or-disable.md)
 
 ```
 {
@@ -10210,10 +10210,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-10yi1sd9nst1c
+<a name="ct-10yi1sd9nst1c-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create option group (managed automation)](deployment-advanced-rds-database-stack-create-option-group-managed-automation.md "deployment-advanced-rds-database-stack-create-option-group-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create option group (managed automation)](deployment-advanced-rds-database-stack-create-option-group-managed-automation.md)
 
 ```
 {
@@ -10277,10 +10277,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-111fhplhx9axe
+<a name="ct-111fhplhx9axe-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Revoke egress rule](management-advanced-security-group-revoke-egress-rule.md "management-advanced-security-group-revoke-egress-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Revoke egress rule](management-advanced-security-group-revoke-egress-rule.md)
 
 ```
 {
@@ -10392,10 +10392,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-111r1yayblnw4
+<a name="ct-111r1yayblnw4-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Application Load Balancer | Create](deployment-advanced-application-load-balancer-create.md "deployment-advanced-application-load-balancer-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Application Load Balancer \| Create](deployment-advanced-application-load-balancer-create.md)
 
 ```
 {
@@ -10927,10 +10927,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-117rmp64d5mvb
+<a name="ct-117rmp64d5mvb-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create EC2 instance profile](deployment-advanced-identity-and-access-management-iam-create-ec2-instance-profile.md "deployment-advanced-identity-and-access-management-iam-create-ec2-instance-profile.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create EC2 instance profile](deployment-advanced-identity-and-access-management-iam-create-ec2-instance-profile.md)
 
 ```
 {
@@ -11251,10 +11251,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-128mp7mbxobd0
+<a name="ct-128mp7mbxobd0-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | VPC endpoint | Update policy (managed automation)](management-advanced-vpc-endpoint-update-policy-managed-automation.md "management-advanced-vpc-endpoint-update-policy-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| VPC endpoint \| Update policy (managed automation)](management-advanced-vpc-endpoint-update-policy-managed-automation.md)
 
 ```
 {
@@ -11318,10 +11318,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-128svy9nn2yj8
+<a name="ct-128svy9nn2yj8-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Update encryption](management-advanced-s3-storage-update-encryption.md "management-advanced-s3-storage-update-encryption.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Update encryption](management-advanced-s3-storage-update-encryption.md)
 
 ```
 {
@@ -11406,10 +11406,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-12amsdz909cfh
+<a name="ct-12amsdz909cfh-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Load balancer (ELB) stack | Create](deployment-advanced-load-balancer-elb-stack-create.md "deployment-advanced-load-balancer-elb-stack-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Load balancer (ELB) stack \| Create](deployment-advanced-load-balancer-elb-stack-create.md)
 
 ```
 {
@@ -11727,10 +11727,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-12lyw7otiyr6f
+<a name="ct-12lyw7otiyr6f-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Associate](management-advanced-security-group-associate.md "management-advanced-security-group-associate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Associate](management-advanced-security-group-associate.md)
 
 ```
 {
@@ -11831,10 +11831,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-12w49boaiwtzp
+<a name="ct-12w49boaiwtzp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update](management-advanced-rds-database-stack-update.md "management-advanced-rds-database-stack-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update](management-advanced-rds-database-stack-update.md)
 
 ```
 {
@@ -12008,10 +12008,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-13lk0noacn6ua
+<a name="ct-13lk0noacn6ua-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Disassociate](management-advanced-security-group-disassociate.md "management-advanced-security-group-disassociate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Disassociate](management-advanced-security-group-disassociate.md)
 
 ```
 {
@@ -12190,10 +12190,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-13swbwdxg106z
+<a name="ct-13swbwdxg106z-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update instance type](management-advanced-rds-database-stack-update-instance-type.md "management-advanced-rds-database-stack-update-instance-type.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update instance type](management-advanced-rds-database-stack-update-instance-type.md)
 
 ```
 {
@@ -12279,11 +12279,11 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-13xvbj5pqg253
+<a name="ct-13xvbj5pqg253-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Directory Service | Accept sharing](management-advanced-directory-service-accept-sharing.md "management-advanced-directory-service-accept-sharing.md")
-- [Management | Directory Service | Directory | Accept sharing](management-directory-directory-accept-sharing.md "management-directory-directory-accept-sharing.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Directory Service \| Accept sharing](management-advanced-directory-service-accept-sharing.md)
++ [Management \| Directory Service \| Directory \| Accept sharing](management-directory-directory-accept-sharing.md)
 
 ```
 {
@@ -12357,10 +12357,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-14027q0sjyt1h
+<a name="ct-14027q0sjyt1h-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | EC2 stack | Create](deployment-advanced-ec2-stack-create.md "deployment-advanced-ec2-stack-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| EC2 stack \| Create](deployment-advanced-ec2-stack-create.md)
 
 ```
 {
@@ -12571,10 +12571,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1404e21baa2ox
+<a name="ct-1404e21baa2ox-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Custom Stack | Stack from CloudFormation Template | Approve Changeset and Update](management-custom-stack-from-cloudformation-template-approve-changeset-and-update.md "management-custom-stack-from-cloudformation-template-approve-changeset-and-update.md")
+**Classifications:**
++ [Management \| Custom Stack \| Stack from CloudFormation Template \| Approve Changeset and Update](management-custom-stack-from-cloudformation-template-approve-changeset-and-update.md)
 
 ```
 {
@@ -12626,10 +12626,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-14v49adibs4db
+<a name="ct-14v49adibs4db-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | State | Disable](management-ams-state-disable.md "management-ams-state-disable.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| State \| Disable](management-ams-state-disable.md)
 
 ```
 {
@@ -12706,10 +12706,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-14yjom3kvpinu
+<a name="ct-14yjom3kvpinu-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Listener | Create (for ALB or NLB)](deployment-advanced-listener-create-for-alb-or-nlb.md "deployment-advanced-listener-create-for-alb-or-nlb.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Listener \| Create (for ALB or NLB)](deployment-advanced-listener-create-for-alb-or-nlb.md)
 
 ```
 {
@@ -12927,10 +12927,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-15gyrpzjx1yac
+<a name="ct-15gyrpzjx1yac-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Update group managed service account](management-directory-dns-update-group-managed-service-account.md "management-directory-dns-update-group-managed-service-account.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Update group managed service account](management-directory-dns-update-group-managed-service-account.md)
 
 ```
 {
@@ -13038,10 +13038,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-15mazjj88xc69
+<a name="ct-15mazjj88xc69-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Resize](management-advanced-ec2-instance-stack-resize.md "management-advanced-ec2-instance-stack-resize.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Resize](management-advanced-ec2-instance-stack-resize.md)
 
 ```
 {
@@ -13126,10 +13126,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-16c7yzpkb2a6n
+<a name="ct-16c7yzpkb2a6n-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed firewall | Network firewall | Create firewall policy (managed automation)](management-managed-network-firewall-create-firewall-policy-managed-automation.md "management-managed-network-firewall-create-firewall-policy-managed-automation.md")
+**Classifications:**
++ [Management \| Managed firewall \| Network firewall \| Create firewall policy (managed automation)](management-managed-network-firewall-create-firewall-policy-managed-automation.md)
 
 ```
 {
@@ -13286,10 +13286,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-16pknsfa8lul7
+<a name="ct-16pknsfa8lul7-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create StackSets stack (managed automation)](deployment-managed-management-account-create-stacksets-stack-managed-automation.md "deployment-managed-management-account-create-stacksets-stack-managed-automation.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create StackSets stack (managed automation)](deployment-managed-management-account-create-stacksets-stack-managed-automation.md)
 
 ```
 {
@@ -13439,10 +13439,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-16xg8qguovg2w
+<a name="ct-16xg8qguovg2w-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | EBS Volume | Create](deployment-advanced-ebs-volume-create.md "deployment-advanced-ebs-volume-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| EBS Volume \| Create](deployment-advanced-ebs-volume-create.md)
 
 ```
 {
@@ -13824,10 +13824,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1706xvvk6j9hf
+<a name="ct-1706xvvk6j9hf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed account | Automated IAM provisioning with read-write permissions | Enable (managed automation)](management-managed-automated-iam-provisioning-with-read-write-permissions-enable-managed-automation.md "management-managed-automated-iam-provisioning-with-read-write-permissions-enable-managed-automation.md")
+**Classifications:**
++ [Management \| Managed account \| Automated IAM provisioning with read-write permissions \| Enable (managed automation)](management-managed-automated-iam-provisioning-with-read-write-permissions-enable-managed-automation.md)
 
 ```
 {
@@ -13884,10 +13884,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-17cj84y7632o6
+<a name="ct-17cj84y7632o6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Delete entity or policy (read-write permissions)](management-advanced-identity-and-access-management-iam-delete-entity-or-policy-read-write-permissions.md "management-advanced-identity-and-access-management-iam-delete-entity-or-policy-read-write-permissions.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete entity or policy (read-write permissions)](management-advanced-identity-and-access-management-iam-delete-entity-or-policy-read-write-permissions.md)
 
 ```
 {
@@ -13988,10 +13988,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-17vnu10suy631
+<a name="ct-17vnu10suy631-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Cache (ElastiCache Redis) stack | Create](deployment-advanced-cache-elasticache-redis-stack-create.md "deployment-advanced-cache-elasticache-redis-stack-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Cache (ElastiCache Redis) stack \| Create](deployment-advanced-cache-elasticache-redis-stack-create.md)
 
 ```
 {
@@ -14185,10 +14185,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-17w6f6kzf6w51
+<a name="ct-17w6f6kzf6w51-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create DB subnet group](deployment-advanced-rds-database-stack-create-db-subnet-group.md "deployment-advanced-rds-database-stack-create-db-subnet-group.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create DB subnet group](deployment-advanced-rds-database-stack-create-db-subnet-group.md)
 
 ```
 {
@@ -14324,10 +14324,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1895yr1p87noq
+<a name="ct-1895yr1p87noq-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS Backup | Backup job | Stop](management-aws-backup-job-stop.md "management-aws-backup-job-stop.md")
+**Classifications:**
++ [Management \| AWS Backup \| Backup job \| Stop](management-aws-backup-job-stop.md)
 
 ```
 {
@@ -14390,10 +14390,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-18fzkt86jmw1s
+<a name="ct-18fzkt86jmw1s-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Patching | SSM patch baseline | Create (Amazon Linux 2)](deployment-patching-ssm-patch-baseline-create-amazon-linux-2.md "deployment-patching-ssm-patch-baseline-create-amazon-linux-2.md")
+**Classifications:**
++ [Deployment \| Patching \| SSM patch baseline \| Create (Amazon Linux 2)](deployment-patching-ssm-patch-baseline-create-amazon-linux-2.md)
 
 ```
 {
@@ -14576,10 +14576,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-18r16ldqil6w9
+<a name="ct-18r16ldqil6w9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Delete](management-advanced-security-group-delete.md "management-advanced-security-group-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Delete](management-advanced-security-group-delete.md)
 
 ```
 {
@@ -14659,10 +14659,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-18rsjua1zosvo
+<a name="ct-18rsjua1zosvo-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | VPC | Create DHCP option set](deployment-advanced-vpc-create-dhcp-option-set.md "deployment-advanced-vpc-create-dhcp-option-set.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| VPC \| Create DHCP option set](deployment-advanced-vpc-create-dhcp-option-set.md)
 
 ```
 {
@@ -14761,7 +14761,7 @@ Change type schemas specify the execution input parameters for a change type.
         ]
       },
       "required": [
-
+        
       ]
     }
   },
@@ -14782,10 +14782,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-18weo4vv83ynk
+<a name="ct-18weo4vv83ynk-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Load balancer (ELB) stack | Create listener rule](deployment-advanced-load-balancer-elb-stack-create-listener-rule.md "deployment-advanced-load-balancer-elb-stack-create-listener-rule.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Load balancer (ELB) stack \| Create listener rule](deployment-advanced-load-balancer-elb-stack-create-listener-rule.md)
 
 ```
 {
@@ -15013,10 +15013,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1962s5oczal9z
+<a name="ct-1962s5oczal9z-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Bastions | Update instance or session counts (managed automation)](management-advanced-bastions-update-instance-or-session-counts-managed-automation.md "management-advanced-bastions-update-instance-or-session-counts-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Bastions \| Update instance or session counts (managed automation)](management-advanced-bastions-update-instance-or-session-counts-managed-automation.md)
 
 ```
 {
@@ -15083,10 +15083,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1976sir132k22
+<a name="ct-1976sir132k22-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Period | Add](management-ams-period-add.md "management-ams-period-add.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Period \| Add](management-ams-period-add.md)
 
 ```
 {
@@ -15231,10 +15231,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-199h35t7uz6jl
+<a name="ct-199h35t7uz6jl-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Access | Stack read-only access | Grant](management-access-stack-read-only-access-grant.md "management-access-stack-read-only-access-grant.md")
+**Classifications:**
++ [Management \| Access \| Stack read-only access \| Grant](management-access-stack-read-only-access-grant.md)
 
 ```
 {
@@ -15300,10 +15300,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-19f40lfm5umy8
+<a name="ct-19f40lfm5umy8-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Gather log4j information](management-advanced-ec2-instance-stack-gather-log4j-information.md "management-advanced-ec2-instance-stack-gather-log4j-information.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Gather log4j information](management-advanced-ec2-instance-stack-gather-log4j-information.md)
 
 ```
 {
@@ -15434,10 +15434,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-19fdy7np55xiu
+<a name="ct-19fdy7np55xiu-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS snapshot | Copy (for Aurora)](deployment-advanced-rds-snapshot-copy-for-aurora.md "deployment-advanced-rds-snapshot-copy-for-aurora.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS snapshot \| Copy (for Aurora)](deployment-advanced-rds-snapshot-copy-for-aurora.md)
 
 ```
 {
@@ -15535,10 +15535,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1a1zzgi2nb83d
+<a name="ct-1a1zzgi2nb83d-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Application Load Balancer | Update](management-advanced-application-load-balancer-update.md "management-advanced-application-load-balancer-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Application Load Balancer \| Update](management-advanced-application-load-balancer-update.md)
 
 ```
 {
@@ -15776,10 +15776,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1a68ck03fn98r
+<a name="ct-1a68ck03fn98r-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | S3 storage | Create](deployment-advanced-s3-storage-create.md "deployment-advanced-s3-storage-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| S3 storage \| Create](deployment-advanced-s3-storage-create.md)
 
 ```
 {
@@ -15940,10 +15940,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1aqsjf86w6vxg
+<a name="ct-1aqsjf86w6vxg-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | EC2 stack | Create (with additional volumes)](deployment-advanced-ec2-stack-create-with-additional-volumes.md "deployment-advanced-ec2-stack-create-with-additional-volumes.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| EC2 stack \| Create (with additional volumes)](deployment-advanced-ec2-stack-create-with-additional-volumes.md)
 
 ```
 {
@@ -16471,10 +16471,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1ax768xtu8c9q
+<a name="ct-1ax768xtu8c9q-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Manage lifecycle configuration](management-advanced-s3-storage-manage-lifecycle-configuration.md "management-advanced-s3-storage-manage-lifecycle-configuration.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Manage lifecycle configuration](management-advanced-s3-storage-manage-lifecycle-configuration.md)
 
 ```
 {
@@ -16592,10 +16592,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1ay83wy4vxa3k
+<a name="ct-1ay83wy4vxa3k-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS Backup | Backup plan | Update (managed automation)](management-aws-backup-plan-update-managed-automation.md "management-aws-backup-plan-update-managed-automation.md")
+**Classifications:**
++ [Management \| AWS Backup \| Backup plan \| Update (managed automation)](management-aws-backup-plan-update-managed-automation.md)
 
 ```
 {
@@ -16749,10 +16749,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1b8fudnqq7m8r
+<a name="ct-1b8fudnqq7m8r-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | GuardDuty IP set | Delete (managed automation)](management-monitoring-guardduty-ip-set-delete-managed-automation.md "management-monitoring-guardduty-ip-set-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| GuardDuty IP set \| Delete (managed automation)](management-monitoring-guardduty-ip-set-delete-managed-automation.md)
 
 ```
 {
@@ -16803,10 +16803,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1bw3q0obl5y75
+<a name="ct-1bw3q0obl5y75-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | PrefixList | Create](deployment-advanced-prefixlist-create.md "deployment-advanced-prefixlist-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| PrefixList \| Create](deployment-advanced-prefixlist-create.md)
 
 ```
 {
@@ -16895,7 +16895,7 @@ Change type schemas specify the execution input parameters for a change type.
           },
           "maxItems": 1000,
           "default": [
-
+            
           ]
         },
         "CIDRBlockIPv6": {
@@ -16926,7 +16926,7 @@ Change type schemas specify the execution input parameters for a change type.
           },
           "maxItems": 1000,
           "default": [
-
+            
           ]
         },
         "Tags": {
@@ -16961,7 +16961,7 @@ Change type schemas specify the execution input parameters for a change type.
           },
           "maxItems": 25,
           "default": [
-
+            
           ]
         }
       },
@@ -17000,10 +17000,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1c0jrxd3su5oe
+<a name="ct-1c0jrxd3su5oe-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS snapshot | Copy](deployment-advanced-rds-snapshot-copy.md "deployment-advanced-rds-snapshot-copy.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS snapshot \| Copy](deployment-advanced-rds-snapshot-copy.md)
 
 ```
 {
@@ -17113,10 +17113,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1c7ch8z5phrjp
+<a name="ct-1c7ch8z5phrjp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Trusted Remediator | Finding | Remediate](management-trusted-finding-remediate.md "management-trusted-finding-remediate.md")
+**Classifications:**
++ [Management \| Trusted Remediator \| Finding \| Remediate](management-trusted-finding-remediate.md)
 
 ```
 {
@@ -17187,10 +17187,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1d2fml15b9eth
+<a name="ct-1d2fml15b9eth-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create replication task](deployment-advanced-database-migration-service-dms-create-replication-task.md "deployment-advanced-database-migration-service-dms-create-replication-task.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create replication task](deployment-advanced-database-migration-service-dms-create-replication-task.md)
 
 ```
 {
@@ -17360,10 +17360,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1d55pi44ff21u
+<a name="ct-1d55pi44ff21u-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | DNS (private) | Update](management-advanced-dns-private-update.md "management-advanced-dns-private-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| DNS (private) \| Update](management-advanced-dns-private-update.md)
 
 ```
 {
@@ -17440,10 +17440,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1d84keiri1jhg
+<a name="ct-1d84keiri1jhg-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | KMS key | Create](deployment-advanced-kms-key-create.md "deployment-advanced-kms-key-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| KMS key \| Create](deployment-advanced-kms-key-create.md)
 
 ```
 {
@@ -17625,10 +17625,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1dmlg9g1l91h6
+<a name="ct-1dmlg9g1l91h6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Access | Stack admin access | Grant](management-access-stack-admin-access-grant.md "management-access-stack-admin-access-grant.md")
+**Classifications:**
++ [Management \| Access \| Stack admin access \| Grant](management-access-stack-admin-access-grant.md)
 
 ```
 {
@@ -17694,10 +17694,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1e0xmuy1diafq
+<a name="ct-1e0xmuy1diafq-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Update entity or policy (read-write permissions)](management-advanced-identity-and-access-management-iam-update-entity-or-policy-read-write-permissions.md "management-advanced-identity-and-access-management-iam-update-entity-or-policy-read-write-permissions.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update entity or policy (read-write permissions)](management-advanced-identity-and-access-management-iam-update-entity-or-policy-read-write-permissions.md)
 
 ```
 {
@@ -17910,10 +17910,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1e1xtak34nx76
+<a name="ct-1e1xtak34nx76-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Other | Other | Create (review required)](management-other-other-create-review-required.md "management-other-other-create-review-required.md")
+**Classifications:**
++ [Management \| Other \| Other \| Create (review required)](management-other-other-create-review-required.md)
 
 ```
 {
@@ -17962,10 +17962,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1eft8s6vdhz0w
+<a name="ct-1eft8s6vdhz0w-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Update record permission](management-directory-dns-update-record-permission.md "management-directory-dns-update-record-permission.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Update record permission](management-directory-dns-update-record-permission.md)
 
 ```
 {
@@ -18029,10 +18029,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1eiczxw8ihc18
+<a name="ct-1eiczxw8ihc18-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | AMI | Share](management-advanced-ami-share.md "management-advanced-ami-share.md")
+**Classifications:**
++ [Management \| Advanced stack components \| AMI \| Share](management-advanced-ami-share.md)
 
 ```
 {
@@ -18109,10 +18109,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1elb1vtam0ka5
+<a name="ct-1elb1vtam0ka5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | S3 Access Point | Create Access Point (managed automation)](deployment-advanced-s3-access-point-create-access-point-managed-automation.md "deployment-advanced-s3-access-point-create-access-point-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| S3 Access Point \| Create Access Point (managed automation)](deployment-advanced-s3-access-point-create-access-point-managed-automation.md)
 
 ```
 {
@@ -18180,10 +18180,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1erytvmumckoa
+<a name="ct-1erytvmumckoa-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Tag | Delete (managed automation)](management-advanced-tag-delete-managed-automation.md "management-advanced-tag-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Tag \| Delete (managed automation)](management-advanced-tag-delete-managed-automation.md)
 
 ```
 {
@@ -18264,10 +18264,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1ezarc5xph3tq
+<a name="ct-1ezarc5xph3tq-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Rotate DB certificate](management-advanced-rds-database-stack-rotate-db-certificate.md "management-advanced-rds-database-stack-rotate-db-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Rotate DB certificate](management-advanced-rds-database-stack-rotate-db-certificate.md)
 
 ```
 {
@@ -18365,10 +18365,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1f9hi4bephqa9
+<a name="ct-1f9hi4bephqa9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Networking account | Enable TGW propagation](management-managed-networking-account-enable-tgw-propagation.md "management-managed-networking-account-enable-tgw-propagation.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Networking account \| Enable TGW propagation](management-managed-networking-account-enable-tgw-propagation.md)
 
 ```
 {
@@ -18444,10 +18444,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1fzddqrr20c2i
+<a name="ct-1fzddqrr20c2i-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Update MaxSessionDuration](management-advanced-identity-and-access-management-iam-update-maxsessionduration.md "management-advanced-identity-and-access-management-iam-update-maxsessionduration.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update MaxSessionDuration](management-advanced-identity-and-access-management-iam-update-maxsessionduration.md)
 
 ```
 {
@@ -18524,10 +18524,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1g6x4ev0hnvfn
+<a name="ct-1g6x4ev0hnvfn-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Period | Describe](management-ams-period-describe.md "management-ams-period-describe.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Period \| Describe](management-ams-period-describe.md)
 
 ```
 {
@@ -18594,10 +18594,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1gi93jhvj28eg
+<a name="ct-1gi93jhvj28eg-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Update](management-advanced-s3-storage-update.md "management-advanced-s3-storage-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Update](management-advanced-s3-storage-update.md)
 
 ```
 {
@@ -18763,10 +18763,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1h1tuxn2oxrtf
+<a name="ct-1h1tuxn2oxrtf-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | DynamoDB | Create from backup](deployment-advanced-dynamodb-create-from-backup.md "deployment-advanced-dynamodb-create-from-backup.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| DynamoDB \| Create from backup](deployment-advanced-dynamodb-create-from-backup.md)
 
 ```
 {
@@ -18851,10 +18851,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1h5xgl9cr4bzy
+<a name="ct-1h5xgl9cr4bzy-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standard stacks | Stack | Start](management-standard-stack-start.md "management-standard-stack-start.md")
+**Classifications:**
++ [Management \| Standard stacks \| Stack \| Start](management-standard-stack-start.md)
 
 ```
 {
@@ -18877,10 +18877,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1hzofpphabs3i
+<a name="ct-1hzofpphabs3i-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | DNS (public) | Update](management-advanced-dns-public-update.md "management-advanced-dns-public-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| DNS (public) \| Update](management-advanced-dns-public-update.md)
 
 ```
 {
@@ -18957,10 +18957,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1i20abktsm05v
+<a name="ct-1i20abktsm05v-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Users and groups | Add group to group](management-directory-users-and-groups-add-group-to-group.md "management-directory-users-and-groups-add-group-to-group.md")
+**Classifications:**
++ [Management \| Directory Service \| Users and groups \| Add group to group](management-directory-users-and-groups-add-group-to-group.md)
 
 ```
 {
@@ -19048,10 +19048,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1icghmq38rnsn
+<a name="ct-1icghmq38rnsn-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Delete conditional forwarder](management-directory-dns-delete-conditional-forwarder.md "management-directory-dns-delete-conditional-forwarder.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Delete conditional forwarder](management-directory-dns-delete-conditional-forwarder.md)
 
 ```
 {
@@ -19115,10 +19115,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1icrtx8ydvdwe
+<a name="ct-1icrtx8ydvdwe-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Remove record](management-directory-dns-remove-record.md "management-directory-dns-remove-record.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Remove record](management-directory-dns-remove-record.md)
 
 ```
 {
@@ -19210,10 +19210,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1j3503fres5a5
+<a name="ct-1j3503fres5a5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Application account | Create VPC](deployment-managed-application-account-create-vpc.md "deployment-managed-application-account-create-vpc.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Application account \| Create VPC](deployment-managed-application-account-create-vpc.md)
 
 ```
 {
@@ -19557,10 +19557,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1jy64y7yt71m4
+<a name="ct-1jy64y7yt71m4-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Resource Access Manager (RAM) | Create resolver rule share](deployment-advanced-resource-access-manager-ram-create-resolver-rule-share.md "deployment-advanced-resource-access-manager-ram-create-resolver-rule-share.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Resource Access Manager (RAM) \| Create resolver rule share](deployment-advanced-resource-access-manager-ram-create-resolver-rule-share.md)
 
 ```
 {
@@ -19638,10 +19638,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1k3oui719dcju
+<a name="ct-1k3oui719dcju-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create Lambda execution role](deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role.md "deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create Lambda execution role](deployment-advanced-identity-and-access-management-iam-create-lambda-execution-role.md)
 
 ```
 {
@@ -20025,10 +20025,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1ksyoxreh35tu
+<a name="ct-1ksyoxreh35tu-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create custom OUs](deployment-managed-management-account-create-custom-ous.md "deployment-managed-management-account-create-custom-ous.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create custom OUs](deployment-managed-management-account-create-custom-ous.md)
 
 ```
 {
@@ -20061,10 +20061,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1malj7snzxrkr
+<a name="ct-1malj7snzxrkr-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Redshift | Create (cluster)](deployment-advanced-redshift-create-cluster.md "deployment-advanced-redshift-create-cluster.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Redshift \| Create (cluster)](deployment-advanced-redshift-create-cluster.md)
 
 ```
 {
@@ -20314,10 +20314,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1mrqxscu15apz
+<a name="ct-1mrqxscu15apz-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create target endpoint (kafka)](deployment-advanced-database-migration-service-dms-create-target-endpoint-kafka.md "deployment-advanced-database-migration-service-dms-create-target-endpoint-kafka.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create target endpoint (kafka)](deployment-advanced-database-migration-service-dms-create-target-endpoint-kafka.md)
 
 ```
 {
@@ -20460,10 +20460,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1n323w7eu27u9
+<a name="ct-1n323w7eu27u9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Redshift | Pause cluster](management-advanced-redshift-pause-cluster.md "management-advanced-redshift-pause-cluster.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Redshift \| Pause cluster](management-advanced-redshift-pause-cluster.md)
 
 ```
 {
@@ -20529,10 +20529,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1n9gfnog5x7fl
+<a name="ct-1n9gfnog5x7fl-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create entity or policy (read-write permissions)](deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-read-write-permissions.md "deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-read-write-permissions.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create entity or policy (read-write permissions)](deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-read-write-permissions.md)
 
 ```
 {
@@ -20783,10 +20783,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1nusoameibz5p
+<a name="ct-1nusoameibz5p-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | VPC | Delete route](management-advanced-vpc-delete-route.md "management-advanced-vpc-delete-route.md")
+**Classifications:**
++ [Management \| Advanced stack components \| VPC \| Delete route](management-advanced-vpc-delete-route.md)
 
 ```
 {
@@ -20857,10 +20857,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1o1x2itfd6rk8
+<a name="ct-1o1x2itfd6rk8-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update (with additional volumes)](management-advanced-ec2-instance-stack-update-with-additional-volumes.md "management-advanced-ec2-instance-stack-update-with-additional-volumes.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update (with additional volumes)](management-advanced-ec2-instance-stack-update-with-additional-volumes.md)
 
 ```
 {
@@ -21163,10 +21163,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1opjmhuddw194
+<a name="ct-1opjmhuddw194-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Management account | Enable developer mode](management-managed-management-account-enable-developer-mode.md "management-managed-management-account-enable-developer-mode.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Management account \| Enable developer mode](management-managed-management-account-enable-developer-mode.md)
 
 ```
 {
@@ -21194,10 +21194,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1oxx2g2d7hc90
+<a name="ct-1oxx2g2d7hc90-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Security group | Create (managed automation)](deployment-advanced-security-group-create-managed-automation.md "deployment-advanced-security-group-create-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Security group \| Create (managed automation)](deployment-advanced-security-group-create-managed-automation.md)
 
 ```
 {
@@ -21396,10 +21396,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1pqxczuw5uwu6
+<a name="ct-1pqxczuw5uwu6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | VPC | Manage subnet public IPv4 auto assignment](management-advanced-vpc-manage-subnet-public-ipv4-auto-assignment.md "management-advanced-vpc-manage-subnet-public-ipv4-auto-assignment.md")
+**Classifications:**
++ [Management \| Advanced stack components \| VPC \| Manage subnet public IPv4 auto assignment](management-advanced-vpc-manage-subnet-public-ipv4-auto-assignment.md)
 
 ```
 {
@@ -21479,10 +21479,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1pvlhug439gl2
+<a name="ct-1pvlhug439gl2-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Associate private IP addresses (managed automation)](management-advanced-ec2-instance-stack-associate-private-ip-addresses-managed-automation.md "management-advanced-ec2-instance-stack-associate-private-ip-addresses-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Associate private IP addresses (managed automation)](management-advanced-ec2-instance-stack-associate-private-ip-addresses-managed-automation.md)
 
 ```
 {
@@ -21532,10 +21532,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1pybwg08h8qsz
+<a name="ct-1pybwg08h8qsz-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Malware full system scan | Disable (managed automation)](management-host-malware-full-system-scan-disable-managed-automation.md "management-host-malware-full-system-scan-disable-managed-automation.md")
+**Classifications:**
++ [Management \| Host security \| Malware full system scan \| Disable (managed automation)](management-host-malware-full-system-scan-disable-managed-automation.md)
 
 ```
 {
@@ -21573,10 +21573,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1q8q56cmwqj9m
+<a name="ct-1q8q56cmwqj9m-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | ACM | Delete certificate](management-advanced-acm-delete-certificate.md "management-advanced-acm-delete-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| ACM \| Delete certificate](management-advanced-acm-delete-certificate.md)
 
 ```
 {
@@ -21639,10 +21639,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1r19m51jeijlk
+<a name="ct-1r19m51jeijlk-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Target Group | Create (for ALB)](deployment-advanced-target-group-create-for-alb.md "deployment-advanced-target-group-create-for-alb.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Target Group \| Create (for ALB)](deployment-advanced-target-group-create-for-alb.md)
 
 ```
 {
@@ -22068,10 +22068,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1r1vbr8ahr156
+<a name="ct-1r1vbr8ahr156-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS Backup | Recovery point | Delete](management-aws-recovery-point-delete.md "management-aws-recovery-point-delete.md")
+**Classifications:**
++ [Management \| AWS Backup \| Recovery point \| Delete](management-aws-recovery-point-delete.md)
 
 ```
 {
@@ -22148,10 +22148,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1rexstryxye1b
+<a name="ct-1rexstryxye1b-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | NAT gateway | Delete (managed automation)](management-advanced-nat-gateway-delete-managed-automation.md "management-advanced-nat-gateway-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| NAT gateway \| Delete (managed automation)](management-advanced-nat-gateway-delete-managed-automation.md)
 
 ```
 {
@@ -22202,10 +22202,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1urj94c3hdfu5
+<a name="ct-1urj94c3hdfu5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Networking account | Create application route table (managed automation)](deployment-managed-networking-account-create-application-route-table-managed-automation.md "deployment-managed-networking-account-create-application-route-table-managed-automation.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Networking account \| Create application route table (managed automation)](deployment-managed-networking-account-create-application-route-table-managed-automation.md)
 
 ```
 {
@@ -22248,10 +22248,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1v9g9n30woc8h
+<a name="ct-1v9g9n30woc8h-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Management account | Update StackSets stack (managed automation)](management-managed-management-account-update-stacksets-stack-managed-automation.md "management-managed-management-account-update-stacksets-stack-managed-automation.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Management account \| Update StackSets stack (managed automation)](management-managed-management-account-update-stacksets-stack-managed-automation.md)
 
 ```
 {
@@ -22400,10 +22400,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1vbv99ko7bsrq
+<a name="ct-1vbv99ko7bsrq-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Monitoring and notification | SQS | Create](deployment-monitoring-sqs-create.md "deployment-monitoring-sqs-create.md")
+**Classifications:**
++ [Deployment \| Monitoring and notification \| SQS \| Create](deployment-monitoring-sqs-create.md)
 
 ```
 {
@@ -22536,10 +22536,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1vd3y4ygbqmfk
+<a name="ct-1vd3y4ygbqmfk-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Database Migration Service (DMS) | Stop replication task](management-advanced-database-migration-service-dms-stop-replication-task.md "management-advanced-database-migration-service-dms-stop-replication-task.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Database Migration Service (DMS) \| Stop replication task](management-advanced-database-migration-service-dms-stop-replication-task.md)
 
 ```
 {
@@ -22603,10 +22603,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1vjbacfr4ufdv
+<a name="ct-1vjbacfr4ufdv-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Revoke ingress rule](management-advanced-security-group-revoke-ingress-rule.md "management-advanced-security-group-revoke-ingress-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Revoke ingress rule](management-advanced-security-group-revoke-ingress-rule.md)
 
 ```
 {
@@ -22718,10 +22718,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1vq0f289r36ay
+<a name="ct-1vq0f289r36ay-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Management account | Move account to OU](management-managed-management-account-move-account-to-ou.md "management-managed-management-account-move-account-to-ou.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Management account \| Move account to OU](management-managed-management-account-move-account-to-ou.md)
 
 ```
 {
@@ -22756,10 +22756,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1vrnixswq1uwf
+<a name="ct-1vrnixswq1uwf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS snapshot | Delete (managed automation)](management-advanced-ebs-snapshot-delete-managed-automation.md "management-advanced-ebs-snapshot-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS snapshot \| Delete (managed automation)](management-advanced-ebs-snapshot-delete-managed-automation.md)
 
 ```
 {
@@ -22828,10 +22828,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1w8z66n899dct
+<a name="ct-1w8z66n899dct-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS service | Self-provisioned service | Add](management-aws-self-provisioned-service-add.md "management-aws-self-provisioned-service-add.md")
+**Classifications:**
++ [Management \| AWS service \| Self-provisioned service \| Add](management-aws-self-provisioned-service-add.md)
 
 ```
 {
@@ -22989,10 +22989,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1wle0ai4en6km
+<a name="ct-1wle0ai4en6km-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS Volume | Modify](management-advanced-ebs-volume-modify.md "management-advanced-ebs-volume-modify.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS Volume \| Modify](management-advanced-ebs-volume-modify.md)
 
 ```
 {
@@ -23139,10 +23139,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1x66wvkjw2zp5
+<a name="ct-1x66wvkjw2zp5-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Target group | Update (for NLB)](management-advanced-target-group-update-for-nlb.md "management-advanced-target-group-update-for-nlb.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Target group \| Update (for NLB)](management-advanced-target-group-update-for-nlb.md)
 
 ```
 {
@@ -23380,10 +23380,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1xymw2hi94k1k
+<a name="ct-1xymw2hi94k1k-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update IMDS version (managed automation)](management-advanced-ec2-instance-stack-update-imds-version-managed-automation.md "management-advanced-ec2-instance-stack-update-imds-version-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update IMDS version (managed automation)](management-advanced-ec2-instance-stack-update-imds-version-managed-automation.md)
 
 ```
 {
@@ -23453,10 +23453,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1yq7hhqse71yg
+<a name="ct-1yq7hhqse71yg-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Database Migration Service (DMS) | Start replication task](management-advanced-database-migration-service-dms-start-replication-task.md "management-advanced-database-migration-service-dms-start-replication-task.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Database Migration Service (DMS) \| Start replication task](management-advanced-database-migration-service-dms-start-replication-task.md)
 
 ```
 {
@@ -23556,10 +23556,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1yqy4frl5s8y8
+<a name="ct-1yqy4frl5s8y8-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Management account | Delete StackSets stack (managed automation)](management-managed-management-account-delete-stacksets-stack-managed-automation.md "management-managed-management-account-delete-stacksets-stack-managed-automation.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Management account \| Delete StackSets stack (managed automation)](management-managed-management-account-delete-stacksets-stack-managed-automation.md)
 
 ```
 {
@@ -23605,10 +23605,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-1zdasmc2ewzrs
+<a name="ct-1zdasmc2ewzrs-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create application account (with VPC)](deployment-managed-management-account-create-application-account-with-vpc.md "deployment-managed-management-account-create-application-account-with-vpc.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create application account (with VPC)](deployment-managed-management-account-create-application-account-with-vpc.md)
 
 ```
 {
@@ -24156,10 +24156,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2019s9y3nfml4
+<a name="ct-2019s9y3nfml4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Users and groups | Remove user from group](management-directory-users-and-groups-remove-user-from-group.md "management-directory-users-and-groups-remove-user-from-group.md")
+**Classifications:**
++ [Management \| Directory Service \| Users and groups \| Remove user from group](management-directory-users-and-groups-remove-user-from-group.md)
 
 ```
 {
@@ -24247,10 +24247,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2052miu12d8fn
+<a name="ct-2052miu12d8fn-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update master user password](management-advanced-rds-database-stack-update-master-user-password.md "management-advanced-rds-database-stack-update-master-user-password.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update master user password](management-advanced-rds-database-stack-update-master-user-password.md)
 
 ```
 {
@@ -24330,10 +24330,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-20san5sgtwd9e
+<a name="ct-20san5sgtwd9e-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create from snapshot](deployment-advanced-rds-database-stack-create-from-snapshot.md "deployment-advanced-rds-database-stack-create-from-snapshot.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create from snapshot](deployment-advanced-rds-database-stack-create-from-snapshot.md)
 
 ```
 {
@@ -24574,10 +24574,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-211l2gxvsrrhy
+<a name="ct-211l2gxvsrrhy-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Enable detailed monitoring (managed automation)](management-advanced-ec2-instance-stack-enable-detailed-monitoring-managed-automation.md "management-advanced-ec2-instance-stack-enable-detailed-monitoring-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Enable detailed monitoring (managed automation)](management-advanced-ec2-instance-stack-enable-detailed-monitoring-managed-automation.md)
 
 ```
 {
@@ -24621,10 +24621,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-220bdb8blaixf
+<a name="ct-220bdb8blaixf-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | S3 storage | Create policy (managed automation)](deployment-advanced-s3-storage-create-policy-managed-automation.md "deployment-advanced-s3-storage-create-policy-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| S3 storage \| Create policy (managed automation)](deployment-advanced-s3-storage-create-policy-managed-automation.md)
 
 ```
 {
@@ -24680,10 +24680,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-22cbvc1yujhec
+<a name="ct-22cbvc1yujhec-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Reset service-specific credentials](management-advanced-identity-and-access-management-iam-reset-service-specific-credentials.md "management-advanced-identity-and-access-management-iam-reset-service-specific-credentials.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Reset service-specific credentials](management-advanced-identity-and-access-management-iam-reset-service-specific-credentials.md)
 
 ```
 {
@@ -24771,10 +24771,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-24pi85mjtza8k
+<a name="ct-24pi85mjtza8k-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Users and groups | Add user to group](management-directory-users-and-groups-add-user-to-group.md "management-directory-users-and-groups-add-user-to-group.md")
+**Classifications:**
++ [Management \| Directory Service \| Users and groups \| Add user to group](management-directory-users-and-groups-add-user-to-group.md)
 
 ```
 {
@@ -24862,10 +24862,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-24rl68y07m769
+<a name="ct-24rl68y07m769-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Trend Micro DSM | Add user (managed automation)](management-host-trend-micro-dsm-add-user-managed-automation.md "management-host-trend-micro-dsm-add-user-managed-automation.md")
+**Classifications:**
++ [Management \| Host security \| Trend Micro DSM \| Add user (managed automation)](management-host-trend-micro-dsm-add-user-managed-automation.md)
 
 ```
 {
@@ -24922,10 +24922,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-257p9zjk14ija
+<a name="ct-257p9zjk14ija-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Ingestion | Stack from migration partner migrated instance | Create](deployment-ingestion-stack-from-migration-partner-migrated-instance-create.md "deployment-ingestion-stack-from-migration-partner-migrated-instance-create.md")
+**Classifications:**
++ [Deployment \| Ingestion \| Stack from migration partner migrated instance \| Create](deployment-ingestion-stack-from-migration-partner-migrated-instance-create.md)
 
 ```
 {
@@ -25059,10 +25059,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-25v6r7t8gvkq5
+<a name="ct-25v6r7t8gvkq5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Monitoring and notification | GuardDuty threat intel set | Create (managed automation)](deployment-monitoring-guardduty-threat-intel-set-create-managed-automation.md "deployment-monitoring-guardduty-threat-intel-set-create-managed-automation.md")
+**Classifications:**
++ [Deployment \| Monitoring and notification \| GuardDuty threat intel set \| Create (managed automation)](deployment-monitoring-guardduty-threat-intel-set-create-managed-automation.md)
 
 ```
 {
@@ -25140,10 +25140,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-26swglg6rodzt
+<a name="ct-26swglg6rodzt-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | GuardDuty suppression rules | Create (managed automation)](management-monitoring-guardduty-suppression-rules-create-managed-automation.md "management-monitoring-guardduty-suppression-rules-create-managed-automation.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| GuardDuty suppression rules \| Create (managed automation)](management-monitoring-guardduty-suppression-rules-create-managed-automation.md)
 
 ```
 {
@@ -25241,10 +25241,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-26vhhlj9jmlpf
+<a name="ct-26vhhlj9jmlpf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | AMI | Deregister](management-advanced-ami-deregister.md "management-advanced-ami-deregister.md")
+**Classifications:**
++ [Management \| Advanced stack components \| AMI \| Deregister](management-advanced-ami-deregister.md)
 
 ```
 {
@@ -25319,10 +25319,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2781aqd6f6svs
+<a name="ct-2781aqd6f6svs-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Change hostname (Linux)](management-advanced-ec2-instance-stack-change-hostname-linux.md "management-advanced-ec2-instance-stack-change-hostname-linux.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Change hostname (Linux)](management-advanced-ec2-instance-stack-change-hostname-linux.md)
 
 ```
 {
@@ -25412,10 +25412,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-27apldkhqr0ol
+<a name="ct-27apldkhqr0ol-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create replication instance](deployment-advanced-database-migration-service-dms-create-replication-instance.md "deployment-advanced-database-migration-service-dms-create-replication-instance.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create replication instance](deployment-advanced-database-migration-service-dms-create-replication-instance.md)
 
 ```
 {
@@ -25614,10 +25614,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-27jjy5wnrfef2
+<a name="ct-27jjy5wnrfef2-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update maintenance window (managed automation)](management-advanced-rds-database-stack-update-maintenance-window-managed-automation.md "management-advanced-rds-database-stack-update-maintenance-window-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update maintenance window (managed automation)](management-advanced-rds-database-stack-update-maintenance-window-managed-automation.md)
 
 ```
 {
@@ -25662,10 +25662,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-27tuth19k52b4
+<a name="ct-27tuth19k52b4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Update entity or policy (managed automation)](management-advanced-identity-and-access-management-iam-update-entity-or-policy-managed-automation.md "management-advanced-identity-and-access-management-iam-update-entity-or-policy-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update entity or policy (managed automation)](management-advanced-identity-and-access-management-iam-update-entity-or-policy-managed-automation.md)
 
 ```
 {
@@ -25962,10 +25962,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-281et7bs9ep4s
+<a name="ct-281et7bs9ep4s-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | OpenSearch | Create domain](deployment-advanced-opensearch-create-domain.md "deployment-advanced-opensearch-create-domain.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| OpenSearch \| Create domain](deployment-advanced-opensearch-create-domain.md)
 
 ```
 {
@@ -26543,10 +26543,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-28yh0fnzhubnh
+<a name="ct-28yh0fnzhubnh-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Load Balancer (ELB) stack | Update deletion protection](management-advanced-load-balancer-elb-stack-update-deletion-protection.md "management-advanced-load-balancer-elb-stack-update-deletion-protection.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Load Balancer (ELB) stack \| Update deletion protection](management-advanced-load-balancer-elb-stack-update-deletion-protection.md)
 
 ```
 {
@@ -26620,10 +26620,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2aaaqid7asjy6
+<a name="ct-2aaaqid7asjy6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update DeleteOnTermination (managed automation)](management-advanced-ec2-instance-stack-update-deleteontermination-managed-automation.md "management-advanced-ec2-instance-stack-update-deleteontermination-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update DeleteOnTermination (managed automation)](management-advanced-ec2-instance-stack-update-deleteontermination-managed-automation.md)
 
 ```
 {
@@ -26685,10 +26685,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2bxelbn765ive
+<a name="ct-2bxelbn765ive-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Schedule | Add](management-ams-schedule-add.md "management-ams-schedule-add.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Schedule \| Add](management-ams-schedule-add.md)
 
 ```
 {
@@ -27341,10 +27341,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2c7ve50jost1v
+<a name="ct-2c7ve50jost1v-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Solution | Update](management-ams-solution-update.md "management-ams-solution-update.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Solution \| Update](management-ams-solution-update.md)
 
 ```
 {
@@ -27959,10 +27959,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2d55p1d7z6w3d
+<a name="ct-2d55p1d7z6w3d-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS Volume | Detach](management-advanced-ebs-volume-detach.md "management-advanced-ebs-volume-detach.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS Volume \| Detach](management-advanced-ebs-volume-detach.md)
 
 ```
 {
@@ -28041,10 +28041,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2dphvdy1krpj6
+<a name="ct-2dphvdy1krpj6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update (for Aurora)](management-advanced-rds-database-stack-update-for-aurora.md "management-advanced-rds-database-stack-update-for-aurora.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update (for Aurora)](management-advanced-rds-database-stack-update-for-aurora.md)
 
 ```
 {
@@ -28271,10 +28271,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2edc3sd1sqmrb
+<a name="ct-2edc3sd1sqmrb-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Applications | CodeDeploy application | Deploy](deployment-applications-codedeploy-application-deploy.md "deployment-applications-codedeploy-application-deploy.md")
+**Classifications:**
++ [Deployment \| Applications \| CodeDeploy application \| Deploy](deployment-applications-codedeploy-application-deploy.md)
 
 ```
 {
@@ -28446,10 +28446,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2eof6j3mlcwhf
+<a name="ct-2eof6j3mlcwhf-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create Service-Linked role](deployment-advanced-identity-and-access-management-iam-create-service-linked-role.md "deployment-advanced-identity-and-access-management-iam-create-service-linked-role.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create Service-Linked role](deployment-advanced-identity-and-access-management-iam-create-service-linked-role.md)
 
 ```
 {
@@ -28537,10 +28537,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2epp05svrlwod
+<a name="ct-2epp05svrlwod-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | KMS key | Create (managed automation)](deployment-advanced-kms-key-create-managed-automation.md "deployment-advanced-kms-key-create-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| KMS key \| Create (managed automation)](deployment-advanced-kms-key-create-managed-automation.md)
 
 ```
 {
@@ -28647,10 +28647,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2fqmbyud166z9
+<a name="ct-2fqmbyud166z9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Update conditional forwarder](management-directory-dns-update-conditional-forwarder.md "management-directory-dns-update-conditional-forwarder.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Update conditional forwarder](management-directory-dns-update-conditional-forwarder.md)
 
 ```
 {
@@ -28727,10 +28727,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2fuzb2l7hckrj
+<a name="ct-2fuzb2l7hckrj-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standalone resources | Load Balancer | Delete](management-standalone-load-balancer-delete.md "management-standalone-load-balancer-delete.md")
+**Classifications:**
++ [Management \| Standalone resources \| Load Balancer \| Delete](management-standalone-load-balancer-delete.md)
 
 ```
 {
@@ -28795,10 +28795,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2gd0u847qd9d2
+<a name="ct-2gd0u847qd9d2-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Applications | CodeDeploy deployment group | Create](deployment-applications-codedeploy-deployment-group-create.md "deployment-applications-codedeploy-deployment-group-create.md")
+**Classifications:**
++ [Deployment \| Applications \| CodeDeploy deployment group \| Create](deployment-applications-codedeploy-deployment-group-create.md)
 
 ```
 {
@@ -28930,10 +28930,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2ha68tpd7nr3y
+<a name="ct-2ha68tpd7nr3y-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Application account | Create VPC Additional CIDR and Subnets](deployment-managed-application-account-create-vpc-additional-cidr-and-subnets.md "deployment-managed-application-account-create-vpc-additional-cidr-and-subnets.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Application account \| Create VPC Additional CIDR and Subnets](deployment-managed-application-account-create-vpc-additional-cidr-and-subnets.md)
 
 ```
 {
@@ -29475,10 +29475,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2hh93eyzmwbkd
+<a name="ct-2hh93eyzmwbkd-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Update versioning](management-advanced-s3-storage-update-versioning.md "management-advanced-s3-storage-update-versioning.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Update versioning](management-advanced-s3-storage-update-versioning.md)
 
 ```
 {
@@ -29552,10 +29552,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2hhqzgxvkcig8
+<a name="ct-2hhqzgxvkcig8-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create access key](deployment-advanced-identity-and-access-management-iam-create-access-key.md "deployment-advanced-identity-and-access-management-iam-create-access-key.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create access key](deployment-advanced-identity-and-access-management-iam-create-access-key.md)
 
 ```
 {
@@ -29641,10 +29641,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2hhud2lx01tq7
+<a name="ct-2hhud2lx01tq7-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS Backup | Backup job | Start](management-aws-backup-job-start.md "management-aws-backup-job-start.md")
+**Classifications:**
++ [Management \| AWS Backup \| Backup job \| Start](management-aws-backup-job-start.md)
 
 ```
 {
@@ -29748,10 +29748,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2hxcllf1b4ey0
+<a name="ct-2hxcllf1b4ey0-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create source endpoint (MongoDB)](deployment-advanced-database-migration-service-dms-create-source-endpoint-mongodb.md "deployment-advanced-database-migration-service-dms-create-source-endpoint-mongodb.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create source endpoint (MongoDB)](deployment-advanced-database-migration-service-dms-create-source-endpoint-mongodb.md)
 
 ```
 {
@@ -29992,10 +29992,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2hyozbpa0sx0m
+<a name="ct-2hyozbpa0sx0m-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | AWS Backup | Backup plan | Create](deployment-aws-backup-plan-create.md "deployment-aws-backup-plan-create.md")
+**Classifications:**
++ [Deployment \| AWS Backup \| Backup plan \| Create](deployment-aws-backup-plan-create.md)
 
 ```
 {
@@ -30664,10 +30664,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2iz9nvw8zlhst
+<a name="ct-2iz9nvw8zlhst-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Trend Micro DSM | Remove Trend Micro EPS agent (managed automation)](management-host-trend-micro-dsm-remove-trend-micro-eps-agent-managed-automation.md "management-host-trend-micro-dsm-remove-trend-micro-eps-agent-managed-automation.md")
+**Classifications:**
++ [Management \| Host security \| Trend Micro DSM \| Remove Trend Micro EPS agent (managed automation)](management-host-trend-micro-dsm-remove-trend-micro-eps-agent-managed-automation.md)
 
 ```
 {
@@ -30724,10 +30724,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2j7q1hgf26x5c
+<a name="ct-2j7q1hgf26x5c-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create tools account (with VPC)](deployment-managed-management-account-create-tools-account-with-vpc.md "deployment-managed-management-account-create-tools-account-with-vpc.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create tools account (with VPC)](deployment-managed-management-account-create-tools-account-with-vpc.md)
 
 ```
 {
@@ -30955,10 +30955,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2jndrh7uit8uf
+<a name="ct-2jndrh7uit8uf-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | AMS patterns | Solution | Deploy (managed automation)](deployment-ams-solution-deploy-managed-automation.md "deployment-ams-solution-deploy-managed-automation.md")
+**Classifications:**
++ [Deployment \| AMS patterns \| Solution \| Deploy (managed automation)](deployment-ams-solution-deploy-managed-automation.md)
 
 ```
 {
@@ -31111,10 +31111,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2jvzjwunghrhy
+<a name="ct-2jvzjwunghrhy-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create (for Aurora)](deployment-advanced-rds-database-stack-create-for-aurora.md "deployment-advanced-rds-database-stack-create-for-aurora.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create (for Aurora)](deployment-advanced-rds-database-stack-create-for-aurora.md)
 
 ```
 {
@@ -31477,10 +31477,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2lo1hs6ks7chl
+<a name="ct-2lo1hs6ks7chl-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed firewall | Network firewall | Manage firewall rules (managed automation)](management-managed-network-firewall-manage-firewall-rules-managed-automation.md "management-managed-network-firewall-manage-firewall-rules-managed-automation.md")
+**Classifications:**
++ [Management \| Managed firewall \| Network firewall \| Manage firewall rules (managed automation)](management-managed-network-firewall-manage-firewall-rules-managed-automation.md)
 
 ```
 {
@@ -31572,14 +31572,13 @@ Change type schemas specify the execution input parameters for a change type.
     "Operation"
   ]
 }
-
 ```
 
 ## Schema for Change Type ct-2lt0jeydeumpe
+<a name="ct-2lt0jeydeumpe-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | KMS key | Enable rotation](management-advanced-kms-key-enable-rotation.md "management-advanced-kms-key-enable-rotation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| KMS key \| Enable rotation](management-advanced-kms-key-enable-rotation.md)
 
 ```
 {
@@ -31643,10 +31642,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2murl5xzbxoxf
+<a name="ct-2murl5xzbxoxf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Add CNAME record](management-directory-dns-add-cname-record.md "management-directory-dns-add-cname-record.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Add CNAME record](management-directory-dns-add-cname-record.md)
 
 ```
 {
@@ -31722,10 +31721,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2ni31oyto1i5k
+<a name="ct-2ni31oyto1i5k-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create service-specific credentials](deployment-advanced-identity-and-access-management-iam-create-service-specific-credentials.md "deployment-advanced-identity-and-access-management-iam-create-service-specific-credentials.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create service-specific credentials](deployment-advanced-identity-and-access-management-iam-create-service-specific-credentials.md)
 
 ```
 {
@@ -31803,10 +31802,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2nyeguspp2g1l
+<a name="ct-2nyeguspp2g1l-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Patching | SSM patch baseline | Create (CentOS)](deployment-patching-ssm-patch-baseline-create-centos.md "deployment-patching-ssm-patch-baseline-create-centos.md")
+**Classifications:**
++ [Deployment \| Patching \| SSM patch baseline \| Create (CentOS)](deployment-patching-ssm-patch-baseline-create-centos.md)
 
 ```
 {
@@ -31990,10 +31989,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2o1knqxw39mkc
+<a name="ct-2o1knqxw39mkc-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update IMDS region-level default settings (managed automation)](management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation.md "management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update IMDS region-level default settings (managed automation)](management-advanced-ec2-instance-stack-update-imds-region-level-default-settings-managed-automation.md)
 
 ```
 {
@@ -32071,10 +32070,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2oxl37nphsrjz
+<a name="ct-2oxl37nphsrjz-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create source endpoint (S3)](deployment-advanced-database-migration-service-dms-create-source-endpoint-s3.md "deployment-advanced-database-migration-service-dms-create-source-endpoint-s3.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create source endpoint (S3)](deployment-advanced-database-migration-service-dms-create-source-endpoint-s3.md)
 
 ```
 {
@@ -32253,10 +32252,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2p93tyd5angmi
+<a name="ct-2p93tyd5angmi-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create Accelerate account](deployment-managed-management-account-create-accelerate-account.md "deployment-managed-management-account-create-accelerate-account.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create Accelerate account](deployment-managed-management-account-create-accelerate-account.md)
 
 ```
 {
@@ -32327,10 +32326,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2paw0y79kvr3l
+<a name="ct-2paw0y79kvr3l-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Application account | Delete VPC](management-managed-application-account-delete-vpc.md "management-managed-application-account-delete-vpc.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Application account \| Delete VPC](management-managed-application-account-delete-vpc.md)
 
 ```
 {
@@ -32358,10 +32357,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2pbqoffhclpek
+<a name="ct-2pbqoffhclpek-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Route 53 Resolver | Associate VPC with resolver rule](management-advanced-route-53-resolver-associate-vpc-with-resolver-rule.md "management-advanced-route-53-resolver-associate-vpc-with-resolver-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Route 53 Resolver \| Associate VPC with resolver rule](management-advanced-route-53-resolver-associate-vpc-with-resolver-rule.md)
 
 ```
 {
@@ -32434,10 +32433,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2pfarpvczsstr
+<a name="ct-2pfarpvczsstr-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Route 53 Resolver | Disassociate resolver rules from VPC](management-advanced-route-53-resolver-disassociate-resolver-rules-from-vpc.md "management-advanced-route-53-resolver-disassociate-resolver-rules-from-vpc.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Route 53 Resolver \| Disassociate resolver rules from VPC](management-advanced-route-53-resolver-disassociate-resolver-rules-from-vpc.md)
 
 ```
 {
@@ -32508,10 +32507,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2pkdckieh62ps
+<a name="ct-2pkdckieh62ps-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Period | Update](management-ams-period-update.md "management-ams-period-update.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Period \| Update](management-ams-period-update.md)
 
 ```
 {
@@ -32656,10 +32655,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2ptn20pq7ur3x
+<a name="ct-2ptn20pq7ur3x-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Schedule | Describe](management-ams-schedule-describe.md "management-ams-schedule-describe.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Schedule \| Describe](management-ams-schedule-describe.md)
 
 ```
 {
@@ -32726,10 +32725,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2pxyajek47am2
+<a name="ct-2pxyajek47am2-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Networking account | Disable TGW propagation](management-managed-networking-account-disable-tgw-propagation.md "management-managed-networking-account-disable-tgw-propagation.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Networking account \| Disable TGW propagation](management-managed-networking-account-disable-tgw-propagation.md)
 
 ```
 {
@@ -32805,10 +32804,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2q5azjd8p1ag5
+<a name="ct-2q5azjd8p1ag5-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create replication subnet group](deployment-advanced-database-migration-service-dms-create-replication-subnet-group.md "deployment-advanced-database-migration-service-dms-create-replication-subnet-group.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create replication subnet group](deployment-advanced-database-migration-service-dms-create-replication-subnet-group.md)
 
 ```
 {
@@ -32940,10 +32939,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2qhl8j1pjnbgn
+<a name="ct-2qhl8j1pjnbgn-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Directory Service | DNS | Create group managed service account](deployment-directory-dns-create-group-managed-service-account.md "deployment-directory-dns-create-group-managed-service-account.md")
+**Classifications:**
++ [Deployment \| Directory Service \| DNS \| Create group managed service account](deployment-directory-dns-create-group-managed-service-account.md)
 
 ```
 {
@@ -33063,10 +33062,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2qjqju7h67s7w
+<a name="ct-2qjqju7h67s7w-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | GuardDuty threat intel set | Delete (managed automation)](management-monitoring-guardduty-threat-intel-set-delete-managed-automation.md "management-monitoring-guardduty-threat-intel-set-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| GuardDuty threat intel set \| Delete (managed automation)](management-monitoring-guardduty-threat-intel-set-delete-managed-automation.md)
 
 ```
 {
@@ -33117,10 +33116,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2qldv4h9osmau
+<a name="ct-2qldv4h9osmau-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Network Load Balancer | Create](deployment-advanced-network-load-balancer-create.md "deployment-advanced-network-load-balancer-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Network Load Balancer \| Create](deployment-advanced-network-load-balancer-create.md)
 
 ```
 {
@@ -33433,10 +33432,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2qsgbfmrw92zw
+<a name="ct-2qsgbfmrw92zw-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Load balancer (ELB) stack | Delete listener rule](management-advanced-load-balancer-elb-stack-delete-listener-rule.md "management-advanced-load-balancer-elb-stack-delete-listener-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Load balancer (ELB) stack \| Delete listener rule](management-advanced-load-balancer-elb-stack-delete-listener-rule.md)
 
 ```
 {
@@ -33500,10 +33499,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2r2bffv9u6q4m
+<a name="ct-2r2bffv9u6q4m-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Stop DB instance](management-advanced-rds-database-stack-stop-db-instance.md "management-advanced-rds-database-stack-stop-db-instance.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Stop DB instance](management-advanced-rds-database-stack-stop-db-instance.md)
 
 ```
 {
@@ -33567,10 +33566,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2r9xvd3sdsic0
+<a name="ct-2r9xvd3sdsic0-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed account | Automated IAM provisioning with read-write permissions | Update custom deny list (managed automation)](management-managed-automated-iam-provisioning-with-read-write-permissions-update-custom-deny-list-managed-automation.md "management-managed-automated-iam-provisioning-with-read-write-permissions-update-custom-deny-list-managed-automation.md")
+**Classifications:**
++ [Management \| Managed account \| Automated IAM provisioning with read-write permissions \| Update custom deny list (managed automation)](management-managed-automated-iam-provisioning-with-read-write-permissions-update-custom-deny-list-managed-automation.md)
 
 ```
 {
@@ -33610,10 +33609,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2rfzmkm6ugigh
+<a name="ct-2rfzmkm6ugigh-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Delete account alias](management-advanced-identity-and-access-management-iam-delete-account-alias.md "management-advanced-identity-and-access-management-iam-delete-account-alias.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete account alias](management-advanced-identity-and-access-management-iam-delete-account-alias.md)
 
 ```
 {
@@ -33677,10 +33676,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2rnjx5yd6jgpt
+<a name="ct-2rnjx5yd6jgpt-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | GuardDuty threat intel set | Update (managed automation)](management-monitoring-guardduty-threat-intel-set-update-managed-automation.md "management-monitoring-guardduty-threat-intel-set-update-managed-automation.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| GuardDuty threat intel set \| Update (managed automation)](management-monitoring-guardduty-threat-intel-set-update-managed-automation.md)
 
 ```
 {
@@ -33749,10 +33748,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2s1q5tjl0416n
+<a name="ct-2s1q5tjl0416n-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | PrefixList | Modify](management-advanced-prefixlist-modify.md "management-advanced-prefixlist-modify.md")
+**Classifications:**
++ [Management \| Advanced stack components \| PrefixList \| Modify](management-advanced-prefixlist-modify.md)
 
 ```
 {
@@ -33814,7 +33813,7 @@ Change type schemas specify the execution input parameters for a change type.
             }
           },
           "default": [
-
+            
           ]
         },
         "RemoveCIDRBlock": {
@@ -33825,7 +33824,7 @@ Change type schemas specify the execution input parameters for a change type.
             "pattern": "^((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(3[0-2]|[1-2][0-9]|[0-9]))|((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(\\/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])))$"
           },
           "default": [
-
+            
           ]
         },
         "AddTags": {
@@ -33860,7 +33859,7 @@ Change type schemas specify the execution input parameters for a change type.
           },
           "maxItems": 25,
           "default": [
-
+            
           ]
         },
         "RemoveTags": {
@@ -33871,7 +33870,7 @@ Change type schemas specify the execution input parameters for a change type.
             "pattern": "^(?!([aA][wW][sS]:|[mM][cC]-|[aA][mM][sS]))[a-zA-Z0-9 _.:/=+\\-@]{1,128}$"
           },
           "default": [
-
+            
           ]
         },
         "ResizeMaxEntries": {
@@ -33922,10 +33921,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2sav5hzk5twk4
+<a name="ct-2sav5hzk5twk4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Site-to-Site VPN | Replace tunnel (managed automation)](management-advanced-site-to-site-vpn-replace-tunnel-managed-automation.md "management-advanced-site-to-site-vpn-replace-tunnel-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Site-to-Site VPN \| Replace tunnel (managed automation)](management-advanced-site-to-site-vpn-replace-tunnel-managed-automation.md)
 
 ```
 {
@@ -33984,10 +33983,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2svg4k2fqi4ak
+<a name="ct-2svg4k2fqi4ak-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | KMS alias | Create](deployment-advanced-kms-alias-create.md "deployment-advanced-kms-alias-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| KMS alias \| Create](deployment-advanced-kms-alias-create.md)
 
 ```
 {
@@ -34063,10 +34062,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2syhk4sr7cvyw
+<a name="ct-2syhk4sr7cvyw-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update deletion protection](management-advanced-rds-database-stack-update-deletion-protection.md "management-advanced-rds-database-stack-update-deletion-protection.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update deletion protection](management-advanced-rds-database-stack-update-deletion-protection.md)
 
 ```
 {
@@ -34131,10 +34130,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2taqdgegqthjr
+<a name="ct-2taqdgegqthjr-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Patching | SSM patch baseline | Create (Amazon Linux)](deployment-patching-ssm-patch-baseline-create-amazon-linux.md "deployment-patching-ssm-patch-baseline-create-amazon-linux.md")
+**Classifications:**
++ [Deployment \| Patching \| SSM patch baseline \| Create (Amazon Linux)](deployment-patching-ssm-patch-baseline-create-amazon-linux.md)
 
 ```
 {
@@ -34317,10 +34316,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2tqi3kjcusen4
+<a name="ct-2tqi3kjcusen4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed account | DNS | Migrate to Route 53 (managed automation)](management-managed-dns-migrate-to-route-53-managed-automation.md "management-managed-dns-migrate-to-route-53-managed-automation.md")
+**Classifications:**
++ [Management \| Managed account \| DNS \| Migrate to Route 53 (managed automation)](management-managed-dns-migrate-to-route-53-managed-automation.md)
 
 ```
 {
@@ -34346,16 +34345,16 @@ Change type schemas specify the execution input parameters for a change type.
     ]
   },
   "required": [
-
+    
   ]
 }
 ```
 
 ## Schema for Change Type ct-2tylseo8rxfsc
+<a name="ct-2tylseo8rxfsc-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Auto Scaling group | Create](deployment-advanced-auto-scaling-group-create.md "deployment-advanced-auto-scaling-group-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Auto Scaling group \| Create](deployment-advanced-auto-scaling-group-create.md)
 
 ```
 {
@@ -34754,10 +34753,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2u5rcyv5h34zn
+<a name="ct-2u5rcyv5h34zn-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS snapshot | Share](management-advanced-rds-snapshot-share.md "management-advanced-rds-snapshot-share.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS snapshot \| Share](management-advanced-rds-snapshot-share.md)
 
 ```
 {
@@ -34833,10 +34832,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2uimt36z7j6vn
+<a name="ct-2uimt36z7j6vn-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Restore to point in time](management-advanced-rds-database-stack-restore-to-point-in-time.md "management-advanced-rds-database-stack-restore-to-point-in-time.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Restore to point in time](management-advanced-rds-database-stack-restore-to-point-in-time.md)
 
 ```
 {
@@ -34960,10 +34959,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2utx36abv83pv
+<a name="ct-2utx36abv83pv-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Patching | Patch window | Update](management-patching-patch-window-update.md "management-patching-patch-window-update.md")
+**Classifications:**
++ [Management \| Patching \| Patch window \| Update](management-patching-patch-window-update.md)
 
 ```
 {
@@ -35136,10 +35135,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2uw99b8hpncnu
+<a name="ct-2uw99b8hpncnu-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Elastic File System (EFS) | Create](deployment-advanced-elastic-file-system-efs-create.md "deployment-advanced-elastic-file-system-efs-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Elastic File System (EFS) \| Create](deployment-advanced-elastic-file-system-efs-create.md)
 
 ```
 {
@@ -35304,10 +35303,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2uzbqr7x7mekd
+<a name="ct-2uzbqr7x7mekd-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standard stacks | Stack | Update termination protection](management-standard-stack-update-termination-protection.md "management-standard-stack-update-termination-protection.md")
+**Classifications:**
++ [Management \| Standard stacks \| Stack \| Update termination protection](management-standard-stack-update-termination-protection.md)
 
 ```
 {
@@ -35384,10 +35383,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2v82sp4np40ki
+<a name="ct-2v82sp4np40ki-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Target group | Update (for ALB)](management-advanced-target-group-update-for-alb.md "management-advanced-target-group-update-for-alb.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Target group \| Update (for ALB)](management-advanced-target-group-update-for-alb.md)
 
 ```
 {
@@ -35671,10 +35670,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2w3rbmnny1qpo
+<a name="ct-2w3rbmnny1qpo-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Add A record](management-directory-dns-add-a-record.md "management-directory-dns-add-a-record.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Add A record](management-directory-dns-add-a-record.md)
 
 ```
 {
@@ -35762,10 +35761,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2wlfo2jxj2rkj
+<a name="ct-2wlfo2jxj2rkj-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Application account | Confirm offboarding](management-managed-application-account-confirm-offboarding.md "management-managed-application-account-confirm-offboarding.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Application account \| Confirm offboarding](management-managed-application-account-confirm-offboarding.md)
 
 ```
 {
@@ -35824,10 +35823,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2wllq61djysxz
+<a name="ct-2wllq61djysxz-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create from backup (for Aurora)](deployment-advanced-rds-database-stack-create-from-backup-for-aurora.md "deployment-advanced-rds-database-stack-create-from-backup-for-aurora.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create from backup (for Aurora)](deployment-advanced-rds-database-stack-create-from-backup-for-aurora.md)
 
 ```
 {
@@ -36140,10 +36139,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2wrvu4kca9xky
+<a name="ct-2wrvu4kca9xky-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | State | Enable](management-ams-state-enable.md "management-ams-state-enable.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| State \| Enable](management-ams-state-enable.md)
 
 ```
 {
@@ -36220,10 +36219,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2x14cv67uym46
+<a name="ct-2x14cv67uym46-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Bastions | Update instance size (managed automation)](management-advanced-bastions-update-instance-size-managed-automation.md "management-advanced-bastions-update-instance-size-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Bastions \| Update instance size (managed automation)](management-advanced-bastions-update-instance-size-managed-automation.md)
 
 ```
 {
@@ -36272,10 +36271,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2xd2anlb5hbzo
+<a name="ct-2xd2anlb5hbzo-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Directory | Unshare directory](management-directory-directory-unshare-directory.md "management-directory-directory-unshare-directory.md")
+**Classifications:**
++ [Management \| Directory Service \| Directory \| Unshare directory](management-directory-directory-unshare-directory.md)
 
 ```
 {
@@ -36351,10 +36350,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2y6q4vco4miyp
+<a name="ct-2y6q4vco4miyp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS Volume | Update](management-advanced-ebs-volume-update.md "management-advanced-ebs-volume-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS Volume \| Update](management-advanced-ebs-volume-update.md)
 
 ```
 {
@@ -36560,10 +36559,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2yja7ihh30ply
+<a name="ct-2yja7ihh30ply-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS Backup | Backup plan | Enable cross account copy (Management account)](management-aws-backup-plan-enable-cross-account-copy-management-account.md "management-aws-backup-plan-enable-cross-account-copy-management-account.md")
+**Classifications:**
++ [Management \| AWS Backup \| Backup plan \| Enable cross account copy (Management account)](management-aws-backup-plan-enable-cross-account-copy-management-account.md)
 
 ```
 {
@@ -36637,10 +36636,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2z60dyvto9g6c
+<a name="ct-2z60dyvto9g6c-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create](deployment-advanced-rds-database-stack-create.md "deployment-advanced-rds-database-stack-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create](deployment-advanced-rds-database-stack-create.md)
 
 ```
 {
@@ -36970,10 +36969,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2zebb2czoxpjd
+<a name="ct-2zebb2czoxpjd-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Tag | Delete](management-advanced-tag-delete.md "management-advanced-tag-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Tag \| Delete](management-advanced-tag-delete.md)
 
 ```
 {
@@ -37053,10 +37052,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2zqwr34epwzx1
+<a name="ct-2zqwr34epwzx1-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS snapshot | Create (for cluster)](deployment-advanced-rds-snapshot-create-for-cluster.md "deployment-advanced-rds-snapshot-create-for-cluster.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS snapshot \| Create (for cluster)](deployment-advanced-rds-snapshot-create-for-cluster.md)
 
 ```
 {
@@ -37132,10 +37131,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-2zxya20wmf5bf
+<a name="ct-2zxya20wmf5bf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | KMS key | Delete (managed automation)](management-advanced-kms-key-delete-managed-automation.md "management-advanced-kms-key-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| KMS key \| Delete (managed automation)](management-advanced-kms-key-delete-managed-automation.md)
 
 ```
 {
@@ -37192,10 +37191,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3047c34zuvswh
+<a name="ct-3047c34zuvswh-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Tag | Bulk update](management-advanced-tag-bulk-update.md "management-advanced-tag-bulk-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Tag \| Bulk update](management-advanced-tag-bulk-update.md)
 
 ```
 {
@@ -37261,10 +37260,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-30bfiwxjku1nu
+<a name="ct-30bfiwxjku1nu-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS snapshot | Delete](management-advanced-ebs-snapshot-delete.md "management-advanced-ebs-snapshot-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS snapshot \| Delete](management-advanced-ebs-snapshot-delete.md)
 
 ```
 {
@@ -37392,10 +37391,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-30ecvfi3tq4k3
+<a name="ct-30ecvfi3tq4k3-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create OpenID Connect provider](deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider.md "deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create OpenID Connect provider](deployment-advanced-identity-and-access-management-iam-create-openid-connect-provider.md)
 
 ```
 {
@@ -37459,10 +37458,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-30j78u6li9aqr
+<a name="ct-30j78u6li9aqr-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Delete entity or policy (managed automation)](management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation.md "management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete entity or policy (managed automation)](management-advanced-identity-and-access-management-iam-delete-entity-or-policy-managed-automation.md)
 
 ```
 {
@@ -37542,10 +37541,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-31eb7rrxb7qju
+<a name="ct-31eb7rrxb7qju-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | S3 storage | Add replication rule](management-advanced-s3-storage-add-replication-rule.md "management-advanced-s3-storage-add-replication-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| S3 storage \| Add replication rule](management-advanced-s3-storage-add-replication-rule.md)
 
 ```
 {
@@ -37713,10 +37712,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-31eyj2hlvqjwu
+<a name="ct-31eyj2hlvqjwu-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update Performance Insights (managed automation)](management-advanced-rds-database-stack-update-performance-insights-managed-automation.md "management-advanced-rds-database-stack-update-performance-insights-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update Performance Insights (managed automation)](management-advanced-rds-database-stack-update-performance-insights-managed-automation.md)
 
 ```
 {
@@ -37803,10 +37802,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-32r1igwrwag4i
+<a name="ct-32r1igwrwag4i-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Custom Stack | Stack From CloudFormation Template | Continue update rollback (managed automation)](management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation.md "management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation.md")
+**Classifications:**
++ [Management \| Custom Stack \| Stack From CloudFormation Template \| Continue update rollback (managed automation)](management-custom-stack-from-cloudformation-template-continue-update-rollback-managed-automation.md)
 
 ```
 {
@@ -37851,10 +37850,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-33ste5yc7hprs
+<a name="ct-33ste5yc7hprs-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create custom SCP (managed automation)](deployment-managed-management-account-create-custom-scp-managed-automation.md "deployment-managed-management-account-create-custom-scp-managed-automation.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create custom SCP (managed automation)](deployment-managed-management-account-create-custom-scp-managed-automation.md)
 
 ```
 {
@@ -37904,10 +37903,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-34alumbtv2b9p
+<a name="ct-34alumbtv2b9p-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Stack patching configuration | Update](management-advanced-stack-patching-configuration-update.md "management-advanced-stack-patching-configuration-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Stack patching configuration \| Update](management-advanced-stack-patching-configuration-update.md)
 
 ```
 {
@@ -37973,10 +37972,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-34jldf2qihaic
+<a name="ct-34jldf2qihaic-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS Volume | Attach](management-advanced-ebs-volume-attach.md "management-advanced-ebs-volume-attach.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS Volume \| Attach](management-advanced-ebs-volume-attach.md)
 
 ```
 {
@@ -38079,10 +38078,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-35p977vul06df
+<a name="ct-35p977vul06df-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Network Load Balancer | Add listener certificate](management-advanced-network-load-balancer-add-listener-certificate.md "management-advanced-network-load-balancer-add-listener-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Network Load Balancer \| Add listener certificate](management-advanced-network-load-balancer-add-listener-certificate.md)
 
 ```
 {
@@ -38188,10 +38187,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-361tlo1k7339x
+<a name="ct-361tlo1k7339x-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Custom Stack | Stack from CloudFormation Template | Update](management-custom-stack-from-cloudformation-template-update.md "management-custom-stack-from-cloudformation-template-update.md")
+**Classifications:**
++ [Management \| Custom Stack \| Stack from CloudFormation Template \| Update](management-custom-stack-from-cloudformation-template-update.md)
 
 ```
 {
@@ -38297,10 +38296,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-361vpyun9a9dd
+<a name="ct-361vpyun9a9dd-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Monitoring and notification | CloudWatch | Create alarms](deployment-monitoring-cloudwatch-create-alarms.md "deployment-monitoring-cloudwatch-create-alarms.md")
+**Classifications:**
++ [Deployment \| Monitoring and notification \| CloudWatch \| Create alarms](deployment-monitoring-cloudwatch-create-alarms.md)
 
 ```
 {
@@ -38566,10 +38565,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-369odosk0pd9w
+<a name="ct-369odosk0pd9w-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Directory | Share directory](management-directory-directory-share-directory.md "management-directory-directory-share-directory.md")
+**Classifications:**
++ [Management \| Directory Service \| Directory \| Share directory](management-directory-directory-share-directory.md)
 
 ```
 {
@@ -38645,10 +38644,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-36cn2avfrrj9v
+<a name="ct-36cn2avfrrj9v-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Ingestion | Stack from CloudFormation Template | Create](deployment-ingestion-stack-from-cloudformation-template-create.md "deployment-ingestion-stack-from-cloudformation-template-create.md")
+**Classifications:**
++ [Deployment \| Ingestion \| Stack from CloudFormation Template \| Create](deployment-ingestion-stack-from-cloudformation-template-create.md)
 
 ```
 {
@@ -38781,10 +38780,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-36emj2uapfbu8
+<a name="ct-36emj2uapfbu8-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Standalone resources | EC2 instance | Create for WIGS (managed automation)](deployment-standalone-ec2-instance-create-for-wigs-managed-automation.md "deployment-standalone-ec2-instance-create-for-wigs-managed-automation.md")
+**Classifications:**
++ [Deployment \| Standalone resources \| EC2 instance \| Create for WIGS (managed automation)](deployment-standalone-ec2-instance-create-for-wigs-managed-automation.md)
 
 ```
 {
@@ -38862,10 +38861,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-36jq7gvwyty8h
+<a name="ct-36jq7gvwyty8h-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update MultiAZ setting](management-advanced-rds-database-stack-update-multiaz-setting.md "management-advanced-rds-database-stack-update-multiaz-setting.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update MultiAZ setting](management-advanced-rds-database-stack-update-multiaz-setting.md)
 
 ```
 {
@@ -38949,10 +38948,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-36x3u7v2oklwd
+<a name="ct-36x3u7v2oklwd-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create account alias](deployment-advanced-identity-and-access-management-iam-create-account-alias.md "deployment-advanced-identity-and-access-management-iam-create-account-alias.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create account alias](deployment-advanced-identity-and-access-management-iam-create-account-alias.md)
 
 ```
 {
@@ -39016,10 +39015,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-36zubwzxp44a4
+<a name="ct-36zubwzxp44a4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Bastions | Add CIDR ingress (managed automation)](management-advanced-bastions-add-cidr-ingress-managed-automation.md "management-advanced-bastions-add-cidr-ingress-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Bastions \| Add CIDR ingress (managed automation)](management-advanced-bastions-add-cidr-ingress-managed-automation.md)
 
 ```
 {
@@ -39072,10 +39071,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-379uwo67vbvng
+<a name="ct-379uwo67vbvng-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Update SAML identity provider](management-advanced-identity-and-access-management-iam-update-saml-identity-provider.md "management-advanced-identity-and-access-management-iam-update-saml-identity-provider.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update SAML identity provider](management-advanced-identity-and-access-management-iam-update-saml-identity-provider.md)
 
 ```
 {
@@ -39166,10 +39165,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-37bq2l9c8fzxv
+<a name="ct-37bq2l9c8fzxv-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Target group | Detach instances](management-advanced-target-group-detach-instances.md "management-advanced-target-group-detach-instances.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Target group \| Detach instances](management-advanced-target-group-detach-instances.md)
 
 ```
 {
@@ -39263,10 +39262,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-37kcp2v1mriu6
+<a name="ct-37kcp2v1mriu6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Replace instance profile](management-advanced-ec2-instance-stack-replace-instance-profile.md "management-advanced-ec2-instance-stack-replace-instance-profile.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Replace instance profile](management-advanced-ec2-instance-stack-replace-instance-profile.md)
 
 ```
 {
@@ -39342,10 +39341,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-37qquo9wbpa8x
+<a name="ct-37qquo9wbpa8x-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Delete or deactivate access key](management-advanced-identity-and-access-management-iam-delete-or-deactivate-access-key.md "management-advanced-identity-and-access-management-iam-delete-or-deactivate-access-key.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Delete or deactivate access key](management-advanced-identity-and-access-management-iam-delete-or-deactivate-access-key.md)
 
 ```
 {
@@ -39449,10 +39448,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-37vqa0oggka3q
+<a name="ct-37vqa0oggka3q-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Stop Aurora cluster](management-advanced-rds-database-stack-stop-aurora-cluster.md "management-advanced-rds-database-stack-stop-aurora-cluster.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Stop Aurora cluster](management-advanced-rds-database-stack-stop-aurora-cluster.md)
 
 ```
 {
@@ -39538,10 +39537,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-38s4s4tm4ic4u
+<a name="ct-38s4s4tm4ic4u-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Update](management-advanced-ec2-instance-stack-update.md "management-advanced-ec2-instance-stack-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Update](management-advanced-ec2-instance-stack-update.md)
 
 ```
 {
@@ -39618,10 +39617,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-38xcr0q86k9lh
+<a name="ct-38xcr0q86k9lh-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create developer mode account (with VPC)](deployment-managed-management-account-create-developer-mode-account-with-vpc.md "deployment-managed-management-account-create-developer-mode-account-with-vpc.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create developer mode account (with VPC)](deployment-managed-management-account-create-developer-mode-account-with-vpc.md)
 
 ```
 {
@@ -40175,10 +40174,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3929xwf222jri
+<a name="ct-3929xwf222jri-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Network Load Balancer | Remove listener certificate](management-advanced-network-load-balancer-remove-listener-certificate.md "management-advanced-network-load-balancer-remove-listener-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Network Load Balancer \| Remove listener certificate](management-advanced-network-load-balancer-remove-listener-certificate.md)
 
 ```
 {
@@ -40269,10 +40268,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-393q3yaq9ewlm
+<a name="ct-393q3yaq9ewlm-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS snapshot | Create](deployment-advanced-rds-snapshot-create.md "deployment-advanced-rds-snapshot-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS snapshot \| Create](deployment-advanced-rds-snapshot-create.md)
 
 ```
 {
@@ -40348,10 +40347,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-39c5qiasbe4he
+<a name="ct-39c5qiasbe4he-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Redshift | Resume cluster](management-advanced-redshift-resume-cluster.md "management-advanced-redshift-resume-cluster.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Redshift \| Resume cluster](management-advanced-redshift-resume-cluster.md)
 
 ```
 {
@@ -40417,10 +40416,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3cp96z7r065e4
+<a name="ct-3cp96z7r065e4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Delete (managed automation)](management-advanced-security-group-delete-managed-automation.md "management-advanced-security-group-delete-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Delete (managed automation)](management-advanced-security-group-delete-managed-automation.md)
 
 ```
 {
@@ -40479,10 +40478,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3cx7we852p3af
+<a name="ct-3cx7we852p3af-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Tag | Create](deployment-advanced-tag-create.md "deployment-advanced-tag-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Tag \| Create](deployment-advanced-tag-create.md)
 
 ```
 {
@@ -40560,10 +40559,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3d0lrfb8eckuu
+<a name="ct-3d0lrfb8eckuu-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Computer object | Remove](management-directory-computer-object-remove.md "management-directory-computer-object-remove.md")
+**Classifications:**
++ [Management \| Directory Service \| Computer object \| Remove](management-directory-computer-object-remove.md)
 
 ```
 {
@@ -40627,10 +40626,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3da2lxapopb86
+<a name="ct-3da2lxapopb86-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | RDS database stack | Create parameter group (managed automation)](deployment-advanced-rds-database-stack-create-parameter-group-managed-automation.md "deployment-advanced-rds-database-stack-create-parameter-group-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| RDS database stack \| Create parameter group (managed automation)](deployment-advanced-rds-database-stack-create-parameter-group-managed-automation.md)
 
 ```
 {
@@ -40720,10 +40719,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3dfnglm4ombbs
+<a name="ct-3dfnglm4ombbs-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Monitoring and notification | SNS | Create (topic and subscription)](deployment-monitoring-sns-create-topic-and-subscription.md "deployment-monitoring-sns-create-topic-and-subscription.md")
+**Classifications:**
++ [Deployment \| Monitoring and notification \| SNS \| Create (topic and subscription)](deployment-monitoring-sns-create-topic-and-subscription.md)
 
 ```
 {
@@ -41002,10 +41001,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3dfubbpesm2v9
+<a name="ct-3dfubbpesm2v9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standalone resources | EC2 instance | Terminate](management-standalone-ec2-instance-terminate.md "management-standalone-ec2-instance-terminate.md")
+**Classifications:**
++ [Management \| Standalone resources \| EC2 instance \| Terminate](management-standalone-ec2-instance-terminate.md)
 
 ```
 {
@@ -41077,10 +41076,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3dgbnh6gpst4d
+<a name="ct-3dgbnh6gpst4d-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standard stacks | Stack | Stop](management-standard-stack-stop.md "management-standard-stack-stop.md")
+**Classifications:**
++ [Management \| Standard stacks \| Stack \| Stop](management-standard-stack-stop.md)
 
 ```
 {
@@ -41103,10 +41102,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3dpd8mdd9jn1r
+<a name="ct-3dpd8mdd9jn1r-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create entity or policy (managed automation)](deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-managed-automation.md "deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-managed-automation.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create entity or policy (managed automation)](deployment-advanced-identity-and-access-management-iam-create-entity-or-policy-managed-automation.md)
 
 ```
 {
@@ -41455,10 +41454,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3dscwaeyi6cup
+<a name="ct-3dscwaeyi6cup-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Networking account | Create transit gateway route table](deployment-managed-networking-account-create-transit-gateway-route-table.md "deployment-managed-networking-account-create-transit-gateway-route-table.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Networking account \| Create transit gateway route table](deployment-managed-networking-account-create-transit-gateway-route-table.md)
 
 ```
 {
@@ -41535,10 +41534,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3e3h8u0sp5z80
+<a name="ct-3e3h8u0sp5z80-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS Volume | Delete](management-advanced-ebs-volume-delete.md "management-advanced-ebs-volume-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS Volume \| Delete](management-advanced-ebs-volume-delete.md)
 
 ```
 {
@@ -41617,10 +41616,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3e3prksxmdhw8
+<a name="ct-3e3prksxmdhw8-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | AMI | Create from Auto Scaling group](deployment-advanced-ami-create-from-auto-scaling-group.md "deployment-advanced-ami-create-from-auto-scaling-group.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| AMI \| Create from Auto Scaling group](deployment-advanced-ami-create-from-auto-scaling-group.md)
 
 ```
 {
@@ -41716,10 +41715,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3ebotglihggse
+<a name="ct-3ebotglihggse-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Patching | SSM patch baseline | Create (Red Hat)](deployment-patching-ssm-patch-baseline-create-red-hat.md "deployment-patching-ssm-patch-baseline-create-red-hat.md")
+**Classifications:**
++ [Deployment \| Patching \| SSM patch baseline \| Create (Red Hat)](deployment-patching-ssm-patch-baseline-create-red-hat.md)
 
 ```
 {
@@ -41903,10 +41902,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3eutt7grkict4
+<a name="ct-3eutt7grkict4-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | Users and groups | Add group](management-directory-users-and-groups-add-group.md "management-directory-users-and-groups-add-group.md")
+**Classifications:**
++ [Management \| Directory Service \| Users and groups \| Add group](management-directory-users-and-groups-add-group.md)
 
 ```
 {
@@ -41998,10 +41997,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3fh88p7t5k5gi
+<a name="ct-3fh88p7t5k5gi-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | PrefixList | Delete](management-advanced-prefixlist-delete.md "management-advanced-prefixlist-delete.md")
+**Classifications:**
++ [Management \| Advanced stack components \| PrefixList \| Delete](management-advanced-prefixlist-delete.md)
 
 ```
 {
@@ -42065,10 +42064,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3fi2cx8b83iua
+<a name="ct-3fi2cx8b83iua-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Auto scaling group | Update](management-advanced-auto-scaling-group-update.md "management-advanced-auto-scaling-group-update.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Auto scaling group \| Update](management-advanced-auto-scaling-group-update.md)
 
 ```
 {
@@ -42370,10 +42369,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3g6fq83nxg1a7
+<a name="ct-3g6fq83nxg1a7-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Application Load Balancer | Add listener certificate](management-advanced-application-load-balancer-add-listener-certificate.md "management-advanced-application-load-balancer-add-listener-certificate.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Application Load Balancer \| Add listener certificate](management-advanced-application-load-balancer-add-listener-certificate.md)
 
 ```
 {
@@ -42479,10 +42478,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3g9dbtun44mal
+<a name="ct-3g9dbtun44mal-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Change time zone](management-advanced-ec2-instance-stack-change-time-zone.md "management-advanced-ec2-instance-stack-change-time-zone.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Change time zone](management-advanced-ec2-instance-stack-change-time-zone.md)
 
 ```
 {
@@ -42995,10 +42994,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3gf8dolbo8x9p
+<a name="ct-3gf8dolbo8x9p-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Database Migration Service (DMS) | Create target endpoint](deployment-advanced-database-migration-service-dms-create-target-endpoint.md "deployment-advanced-database-migration-service-dms-create-target-endpoint.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Database Migration Service (DMS) \| Create target endpoint](deployment-advanced-database-migration-service-dms-create-target-endpoint.md)
 
 ```
 {
@@ -43221,10 +43220,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3gg0id58rn82h
+<a name="ct-3gg0id58rn82h-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EBS snapshot | Share](management-advanced-ebs-snapshot-share.md "management-advanced-ebs-snapshot-share.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EBS snapshot \| Share](management-advanced-ebs-snapshot-share.md)
 
 ```
 {
@@ -43300,10 +43299,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3gjfayulf5hhs
+<a name="ct-3gjfayulf5hhs-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed account | Developer mode | Enable (managed automation)](management-managed-developer-mode-enable-managed-automation.md "management-managed-developer-mode-enable-managed-automation.md")
+**Classifications:**
++ [Management \| Managed account \| Developer mode \| Enable (managed automation)](management-managed-developer-mode-enable-managed-automation.md)
 
 ```
 {
@@ -43343,10 +43342,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3glr80c15rp7z
+<a name="ct-3glr80c15rp7z-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Standalone resources | RDS instance | Terminate](management-standalone-rds-instance-terminate.md "management-standalone-rds-instance-terminate.md")
+**Classifications:**
++ [Management \| Standalone resources \| RDS instance \| Terminate](management-standalone-rds-instance-terminate.md)
 
 ```
 {
@@ -43433,10 +43432,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3hox8uwjgze1f
+<a name="ct-3hox8uwjgze1f-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Identity and Access Management (IAM) | Create SAML identity provider](deployment-advanced-identity-and-access-management-iam-create-saml-identity-provider.md "deployment-advanced-identity-and-access-management-iam-create-saml-identity-provider.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Identity and Access Management (IAM) \| Create SAML identity provider](deployment-advanced-identity-and-access-management-iam-create-saml-identity-provider.md)
 
 ```
 {
@@ -43512,10 +43511,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3j2zstluz6dxq
+<a name="ct-3j2zstluz6dxq-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Authorize ingress rule](management-advanced-security-group-authorize-ingress-rule.md "management-advanced-security-group-authorize-ingress-rule.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Authorize ingress rule](management-advanced-security-group-authorize-ingress-rule.md)
 
 ```
 {
@@ -43636,10 +43635,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3jo8yccbin4it
+<a name="ct-3jo8yccbin4it-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Networking account | Disassociate TGW attachment](management-managed-networking-account-disassociate-tgw-attachment.md "management-managed-networking-account-disassociate-tgw-attachment.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Networking account \| Disassociate TGW attachment](management-managed-networking-account-disassociate-tgw-attachment.md)
 
 ```
 {
@@ -43713,10 +43712,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3jrqmeq7j0wke
+<a name="ct-3jrqmeq7j0wke-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Redshift | Create (cluster from snapshot)](deployment-advanced-redshift-create-cluster-from-snapshot.md "deployment-advanced-redshift-create-cluster-from-snapshot.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Redshift \| Create (cluster from snapshot)](deployment-advanced-redshift-create-cluster-from-snapshot.md)
 
 ```
 {
@@ -43933,10 +43932,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3jx80fquylzhf
+<a name="ct-3jx80fquylzhf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Update enhanced monitoring](management-advanced-rds-database-stack-update-enhanced-monitoring.md "management-advanced-rds-database-stack-update-enhanced-monitoring.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Update enhanced monitoring](management-advanced-rds-database-stack-update-enhanced-monitoring.md)
 
 ```
 {
@@ -44017,10 +44016,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3k67klld7cimj
+<a name="ct-3k67klld7cimj-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Directory Service | DNS | Remediate DNS scavenging issue](management-directory-dns-remediate-dns-scavenging-issue.md "management-directory-dns-remediate-dns-scavenging-issue.md")
+**Classifications:**
++ [Management \| Directory Service \| DNS \| Remediate DNS scavenging issue](management-directory-dns-remediate-dns-scavenging-issue.md)
 
 ```
 {
@@ -44107,10 +44106,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3kh1wiizlne1i
+<a name="ct-3kh1wiizlne1i-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Access | Stack read-only access | Update](management-access-stack-read-only-access-update.md "management-access-stack-read-only-access-update.md")
+**Classifications:**
++ [Management \| Access \| Stack read-only access \| Update](management-access-stack-read-only-access-update.md)
 
 ```
 {
@@ -44176,11 +44175,11 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3kinq0u4l33zf
+<a name="ct-3kinq0u4l33zf-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Custom Stack | Stack from CloudFormation Template | Remediate drift](management-custom-stack-from-cloudformation-template-remediate-drift.md "management-custom-stack-from-cloudformation-template-remediate-drift.md")
-- [Management | Standard stacks | Stack | Remediate drift](management-standard-stack-remediate-drift.md "management-standard-stack-remediate-drift.md")
+**Classifications:**
++ [Management \| Custom Stack \| Stack from CloudFormation Template \| Remediate drift](management-custom-stack-from-cloudformation-template-remediate-drift.md)
++ [Management \| Standard stacks \| Stack \| Remediate drift](management-standard-stack-remediate-drift.md)
 
 ```
 {
@@ -44259,10 +44258,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3kl2d1u40lrj8
+<a name="ct-3kl2d1u40lrj8-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Trusted Remediator | Remediation configuration | Update](management-trusted-remediation-configuration-update.md "management-trusted-remediation-configuration-update.md")
+**Classifications:**
++ [Management \| Trusted Remediator \| Remediation configuration \| Update](management-trusted-remediation-configuration-update.md)
 
 ```
 {
@@ -44363,10 +44362,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3l14e139i5p50
+<a name="ct-3l14e139i5p50-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | ACM Certificate with additional SANs | Create](deployment-advanced-acm-certificate-with-additional-sans-create.md "deployment-advanced-acm-certificate-with-additional-sans-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| ACM Certificate with additional SANs \| Create](deployment-advanced-acm-certificate-with-additional-sans-create.md)
 
 ```
 {
@@ -44561,10 +44560,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3lkbpansfv69k
+<a name="ct-3lkbpansfv69k-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | EBS snapshot | Copy](deployment-advanced-ebs-snapshot-copy.md "deployment-advanced-ebs-snapshot-copy.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| EBS snapshot \| Copy](deployment-advanced-ebs-snapshot-copy.md)
 
 ```
 {
@@ -44663,10 +44662,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3ll9hnadql9s1
+<a name="ct-3ll9hnadql9s1-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | ACM | Create public certificate](deployment-advanced-acm-create-public-certificate.md "deployment-advanced-acm-create-public-certificate.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| ACM \| Create public certificate](deployment-advanced-acm-create-public-certificate.md)
 
 ```
 {
@@ -44773,10 +44772,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3memthlcmvc1b
+<a name="ct-3memthlcmvc1b-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Security group | Update (managed automation)](management-advanced-security-group-update-managed-automation.md "management-advanced-security-group-update-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Security group \| Update (managed automation)](management-advanced-security-group-update-managed-automation.md)
 
 ```
 {
@@ -45041,10 +45040,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3mlsibqhugrf1
+<a name="ct-3mlsibqhugrf1-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | EBS snapshot | Create](deployment-advanced-ebs-snapshot-create.md "deployment-advanced-ebs-snapshot-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| EBS snapshot \| Create](deployment-advanced-ebs-snapshot-create.md)
 
 ```
 {
@@ -45120,10 +45119,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3mvvt2zkyveqj
+<a name="ct-3mvvt2zkyveqj-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | EC2 instance stack | Stop](management-advanced-ec2-instance-stack-stop.md "management-advanced-ec2-instance-stack-stop.md")
+**Classifications:**
++ [Management \| Advanced stack components \| EC2 instance stack \| Stop](management-advanced-ec2-instance-stack-stop.md)
 
 ```
 {
@@ -45216,10 +45215,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3nba0wtdugnan
+<a name="ct-3nba0wtdugnan-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Directory Service | DNS | Create conditional forwarder](deployment-directory-dns-create-conditional-forwarder.md "deployment-directory-dns-create-conditional-forwarder.md")
+**Classifications:**
++ [Deployment \| Directory Service \| DNS \| Create conditional forwarder](deployment-directory-dns-create-conditional-forwarder.md)
 
 ```
 {
@@ -45296,10 +45295,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3nmhh0qr338q6
+<a name="ct-3nmhh0qr338q6-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed landing zone | Networking account | Associate TGW attachment](management-managed-networking-account-associate-tgw-attachment.md "management-managed-networking-account-associate-tgw-attachment.md")
+**Classifications:**
++ [Management \| Managed landing zone \| Networking account \| Associate TGW attachment](management-managed-networking-account-associate-tgw-attachment.md)
 
 ```
 {
@@ -45373,10 +45372,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3oafsdbzjtuqp
+<a name="ct-3oafsdbzjtuqp-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | VPC endpoint (interface) | Create](deployment-advanced-vpc-endpoint-interface-create.md "deployment-advanced-vpc-endpoint-interface-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| VPC endpoint (interface) \| Create](deployment-advanced-vpc-endpoint-interface-create.md)
 
 ```
 {
@@ -45533,10 +45532,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3ovo7px2vsa6n
+<a name="ct-3ovo7px2vsa6n-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | KMS key | Update (managed automation)](management-advanced-kms-key-update-managed-automation.md "management-advanced-kms-key-update-managed-automation.md")
+**Classifications:**
++ [Management \| Advanced stack components \| KMS key \| Update (managed automation)](management-advanced-kms-key-update-managed-automation.md)
 
 ```
 {
@@ -45662,10 +45661,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3oy53m1qzl2s5
+<a name="ct-3oy53m1qzl2s5-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Patching | On demand patching | Run](management-patching-on-demand-patching-run.md "management-patching-on-demand-patching-run.md")
+**Classifications:**
++ [Management \| Patching \| On demand patching \| Run](management-patching-on-demand-patching-run.md)
 
 ```
 {
@@ -45774,10 +45773,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3pc215bnwb6p7
+<a name="ct-3pc215bnwb6p7-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Security group | Create](deployment-advanced-security-group-create.md "deployment-advanced-security-group-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Security group \| Create](deployment-advanced-security-group-create.md)
 
 ```
 {
@@ -46127,10 +46126,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3pwbixz27n3tn
+<a name="ct-3pwbixz27n3tn-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Management account | Create customer-managed application account](deployment-managed-management-account-create-customer-managed-application-account.md "deployment-managed-management-account-create-customer-managed-application-account.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Management account \| Create customer-managed application account](deployment-managed-management-account-create-customer-managed-application-account.md)
 
 ```
 {
@@ -46171,10 +46170,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3qe6io8t6jtny
+<a name="ct-3qe6io8t6jtny-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AWS service | Self-provisioned service | Add (managed automation)](management-aws-self-provisioned-service-add-managed-automation.md "management-aws-self-provisioned-service-add-managed-automation.md")
+**Classifications:**
++ [Management \| AWS service \| Self-provisioned service \| Add (managed automation)](management-aws-self-provisioned-service-add-managed-automation.md)
 
 ```
 {
@@ -46309,10 +46308,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3r2ckznmt0a59
+<a name="ct-3r2ckznmt0a59-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Managed landing zone | Networking account | Add static route](deployment-managed-networking-account-add-static-route.md "deployment-managed-networking-account-add-static-route.md")
+**Classifications:**
++ [Deployment \| Managed landing zone \| Networking account \| Add static route](deployment-managed-networking-account-add-static-route.md)
 
 ```
 {
@@ -46407,10 +46406,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3rcl9u1k017wu
+<a name="ct-3rcl9u1k017wu-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Monitoring and notification | SNS | Subscribe to DirectCustomerAlerts](management-monitoring-sns-subscribe-to-directcustomeralerts.md "management-monitoring-sns-subscribe-to-directcustomeralerts.md")
+**Classifications:**
++ [Management \| Monitoring and notification \| SNS \| Subscribe to DirectCustomerAlerts](management-monitoring-sns-subscribe-to-directcustomeralerts.md)
 
 ```
 {
@@ -46445,10 +46444,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3rd4781c2nnhp
+<a name="ct-3rd4781c2nnhp-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Managed account | Direct Change mode | Enable](management-managed-direct-change-mode-enable.md "management-managed-direct-change-mode-enable.md")
+**Classifications:**
++ [Management \| Managed account \| Direct Change mode \| Enable](management-managed-direct-change-mode-enable.md)
 
 ```
 {
@@ -46494,10 +46493,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3rk1nl1ufn5g3
+<a name="ct-3rk1nl1ufn5g3-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Schedule | Delete](management-ams-schedule-delete.md "management-ams-schedule-delete.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Schedule \| Delete](management-ams-schedule-delete.md)
 
 ```
 {
@@ -46576,10 +46575,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3rqqu43krekby
+<a name="ct-3rqqu43krekby-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | AMI | Create](deployment-advanced-ami-create.md "deployment-advanced-ami-create.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| AMI \| Create](deployment-advanced-ami-create.md)
 
 ```
 {
@@ -46649,10 +46648,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3s3ik03uzw19t
+<a name="ct-3s3ik03uzw19t-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | RDS database stack | Start DB instance](management-advanced-rds-database-stack-start-db-instance.md "management-advanced-rds-database-stack-start-db-instance.md")
+**Classifications:**
++ [Management \| Advanced stack components \| RDS database stack \| Start DB instance](management-advanced-rds-database-stack-start-db-instance.md)
 
 ```
 {
@@ -46716,10 +46715,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3sk74t8igor0s
+<a name="ct-3sk74t8igor0s-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Target group | Attach instances](management-advanced-target-group-attach-instances.md "management-advanced-target-group-attach-instances.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Target group \| Attach instances](management-advanced-target-group-attach-instances.md)
 
 ```
 {
@@ -46804,10 +46803,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3skaisgnq0pf8
+<a name="ct-3skaisgnq0pf8-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | Identity and Access Management (IAM) | Update account alias](management-advanced-identity-and-access-management-iam-update-account-alias.md "management-advanced-identity-and-access-management-iam-update-account-alias.md")
+**Classifications:**
++ [Management \| Advanced stack components \| Identity and Access Management (IAM) \| Update account alias](management-advanced-identity-and-access-management-iam-update-account-alias.md)
 
 ```
 {
@@ -46886,10 +46885,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3t4lifos8tu58
+<a name="ct-3t4lifos8tu58-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Advanced stack components | Target Group | Create (for NLB)](deployment-advanced-target-group-create-for-nlb.md "deployment-advanced-target-group-create-for-nlb.md")
+**Classifications:**
++ [Deployment \| Advanced stack components \| Target Group \| Create (for NLB)](deployment-advanced-target-group-create-for-nlb.md)
 
 ```
 {
@@ -47254,10 +47253,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3u61cd4edns0x
+<a name="ct-3u61cd4edns0x-schema-section"></a>
 
-###### Classifications:
-
-- [Management | AMS Resource Scheduler | Schedule | Update](management-ams-schedule-update.md "management-ams-schedule-update.md")
+**Classifications:**
++ [Management \| AMS Resource Scheduler \| Schedule \| Update](management-ams-schedule-update.md)
 
 ```
 {
@@ -47910,10 +47909,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3u9yd8jznb2zd
+<a name="ct-3u9yd8jznb2zd-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Advanced stack components | AMI | Encrypt](management-advanced-ami-encrypt.md "management-advanced-ami-encrypt.md")
+**Classifications:**
++ [Management \| Advanced stack components \| AMI \| Encrypt](management-advanced-ami-encrypt.md)
 
 ```
 {
@@ -47949,10 +47948,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3va4bkrxb9z42
+<a name="ct-3va4bkrxb9z42-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Host security | Trend Micro DSM | Exclude files and folders (managed automation)](management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation.md "management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation.md")
+**Classifications:**
++ [Management \| Host security \| Trend Micro DSM \| Exclude files and folders (managed automation)](management-host-trend-micro-dsm-exclude-files-and-folders-managed-automation.md)
 
 ```
 {
@@ -48035,10 +48034,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3vfxkiudtovm9
+<a name="ct-3vfxkiudtovm9-schema-section"></a>
 
-###### Classifications:
-
-- [Management | Patching | Patch window | Set status](management-patching-patch-window-set-status.md "management-patching-patch-window-set-status.md")
+**Classifications:**
++ [Management \| Patching \| Patch window \| Set status](management-patching-patch-window-set-status.md)
 
 ```
 {
@@ -48113,10 +48112,10 @@ Change type schemas specify the execution input parameters for a change type.
 ```
 
 ## Schema for Change Type ct-3w4lxdl3pqxob
+<a name="ct-3w4lxdl3pqxob-schema-section"></a>
 
-###### Classifications:
-
-- [Deployment | Standard stacks | High availability one-tier stack | Create (with ELB)](deployment-standard-high-availability-one-tier-stack-create-with-elb.md "deployment-standard-high-availability-one-tier-stack-create-with-elb.md")
+**Classifications:**
++ [Deployment \| Standard stacks \| High availability one-tier stack \| Create (with ELB)](deployment-standard-high-availability-one-tier-stack-create-with-elb.md)
 
 ```
 {

@@ -1,142 +1,147 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Networking Account | Associate TGW Attachment
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Networking Account \| Associate TGW Attachment
+<a name="management-managed-networking-account-associate-tgw-attachment"></a>
 
 Associate transit gateway (TGW) attachment to the transit gateway (TGW) route table. Use this change type for multi-account landing zone (MALZ) in Networking account only.
 
-**Full classification:** Management | Managed landing zone | Networking account | Associate TGW attachment
+**Full classification:** Management \| Managed landing zone \| Networking account \| Associate TGW attachment
 
 ## Change Type Details
+<a name="ct-3nmhh0qr338q6-MMNa-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-3nmhh0qr338q6 |
-| Current version             | 1.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-3nmhh0qr338q6 | 
+| Current version | 1.0 | 
+| Expected execution duration | 60 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="management-managed-networking-account-associate-tgw-attachment-info"></a>
 
 ### Associate TGW attachment
+<a name="ex-man-lz-net-acct-associate-tgw-attachment-col"></a>
+
+#### Networking account: Associate a TGW attachment with the Console
+<a name="ex-man-lz-net-acct-associate-tgw-attachment-con"></a>
 
 Screenshot of this change type in the AMS console:
 
-![Associate Transit Gateway Attachment page showing ID ct-3nmhh0qr338q6 and version 1.0.](images/guiManLzNetAcctAsscTgwAttachCT.png)
+![Associate Transit Gateway Attachment page showing ID ct-3nmhh0qr338q6 and version 1.0.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiManLzNetAcctAsscTgwAttachCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Networking account: Associate a TGW attachment with the CLI
+<a name="man-lz-net-acct-associate-tgw-attachment-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotes when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-3nmhh0qr338q6" --change-type-version "1.0" --title "`Associate Transit Gateway Attachment`" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AssociateTGWAttachment\",\"Region\": \"`us-east-1`\",\"Parameters\": {\"TransitGatewayAttachmentId\": [\"`tgw-attach-0878cf82a40721d19`\"],\"TransitGatewayRouteTableId\": [\"`tgw-rtb-06ddc751c0c0c881c`\"]}}"
+aws amscm create-rfc --change-type-id "ct-3nmhh0qr338q6" --change-type-version "1.0" --title "{{Associate Transit Gateway Attachment}}" --execution-parameters "{\"DocumentName\": \"AWSManagedServices-AssociateTGWAttachment\",\"Region\": \"{{us-east-1}}\",\"Parameters\": {\"TransitGatewayAttachmentId\": [\"{{tgw-attach-0878cf82a40721d19}}\"],\"TransitGatewayRouteTableId\": [\"{{tgw-rtb-06ddc751c0c0c881c}}\"]}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters JSON schema for this change type to a file; this example names it AssociateTgwAttachmentParams.json:
 
-```
-aws amscm get-change-type-version --change-type-id "ct-3nmhh0qr338q6" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AssociateTgwAttachmentParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-3nmhh0qr338q6" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > AssociateTgwAttachmentParams.json
+   ```
 
-2. Modify and save the AssociateTgwAttachmentParams file. For example, you can replace the contents with something like this:
+1. Modify and save the AssociateTgwAttachmentParams file. For example, you can replace the contents with something like this:
 
-```
-{
-  "DocumentName": "AWSManagedServices-AssociateTGWAttachment",
-  "Region": "`us-east-1`",
-  "Parameters": {
-    "TransitGatewayAttachmentId": [ "`tgw-attach-0878cf82a40721d19`" ],
-    "TransitGatewayRouteTableId": [ "`tgw-rtb-06ddc751c0c0c881c`" ]
-  }
-}
-```
+   ```
+   {
+     "DocumentName": "AWSManagedServices-AssociateTGWAttachment",
+     "Region": "{{us-east-1}}",
+     "Parameters": {
+       "TransitGatewayAttachmentId": [ "{{tgw-attach-0878cf82a40721d19}}" ],
+       "TransitGatewayRouteTableId": [ "{{tgw-rtb-06ddc751c0c0c881c}}" ]
+     }
+   }
+   ```
 
-3. Output the RFC template JSON file to a file; this example names it AssociateTgwAttachmentRfc.json:
+1. Output the RFC template JSON file to a file; this example names it AssociateTgwAttachmentRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > AssociateTgwAttachmentRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > AssociateTgwAttachmentRfc.json
+   ```
 
-4. Modify and save the AssociateTgwAttachmentRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the AssociateTgwAttachmentRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-  "ChangeTypeVersion": "1.0",
-  "ChangeTypeId": "ct-3nmhh0qr338q6",
-  "Title": "`Associate Transit Gateway Attachment`"
-}
-```
+   ```
+   {
+     "ChangeTypeVersion": "1.0",
+     "ChangeTypeId": "ct-3nmhh0qr338q6",
+     "Title": "{{Associate Transit Gateway Attachment}}"
+   }
+   ```
 
-5. Create the RFC, specifying the AssociateTgwAttachmentRfc file and the AssociateTgwAttachmentParams file:
+1. Create the RFC, specifying the AssociateTgwAttachmentRfc file and the AssociateTgwAttachmentParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://AssociateTgwAttachmentRfc.json  --execution-parameters file://AssociateTgwAttachmentParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://AssociateTgwAttachmentRfc.json  --execution-parameters file://AssociateTgwAttachmentParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-###### Note
+#### Tips
+<a name="ex-man-lz-net-acct-associate-tgw-attachment-tip"></a>
 
+**Note**  
 This Change Type is only valid in Multi-account Landing Zone (MALZ) Networking accounts.
 
-To learn more about AMS multi-account landing zone, see
-[AWS Managed Services (AMS) Now Offers Managed Landing Zones](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-managed-services-now-offers-managed-landing-zones/ "https://aws.amazon.com/about-aws/whats-new/2019/10/aws-managed-services-now-offers-managed-landing-zones/").
+To learn more about AMS multi-account landing zone, see [AWS Managed Services (AMS) Now Offers Managed Landing Zones](https://aws.amazon.com/about-aws/whats-new/2019/10/aws-managed-services-now-offers-managed-landing-zones/).
 
 ## Execution Input Parameters
+<a name="management-managed-networking-account-associate-tgw-attachment-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-3nmhh0qr338q6](schemas.md#ct-3nmhh0qr338q6-schema-section "schemas.md#ct-3nmhh0qr338q6-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-3nmhh0qr338q6](schemas.md#ct-3nmhh0qr338q6-schema-section).
 
 ## Example: Required Parameters
+<a name="management-managed-networking-account-associate-tgw-attachment-ex-min"></a>
 
 ```
 {
@@ -150,6 +155,7 @@ For detailed information about the execution input parameters, see
 ```
 
 ## Example: All Parameters
+<a name="management-managed-networking-account-associate-tgw-attachment-ex-max"></a>
 
 ```
 {

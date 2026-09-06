@@ -1,144 +1,150 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# EC2 Instance Stack | Restore Volumes
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# EC2 Instance Stack \| Restore Volumes
+<a name="management-advanced-ec2-instance-stack-restore-volumes"></a>
 
 Replace the instance volumes from an existing backup image of the instance. To restore from snapshot, use version 1.0 of this Change Type.
 
-**Full classification:** Management | Advanced stack components | EC2 instance stack | Restore volumes
+**Full classification:** Management \| Advanced stack components \| EC2 instance stack \| Restore volumes
 
 ## Change Type Details
+<a name="ct-0ffvihqwjvqj1-MAEr-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-0ffvihqwjvqj1 |
-| Current version             | 3.0              |
-| Expected execution duration | 60 minutes       |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-0ffvihqwjvqj1 | 
+| Current version | 3.0 | 
+| Expected execution duration | 60 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="management-advanced-ec2-instance-stack-restore-volumes-info"></a>
 
 ### Restore stack volumes
+<a name="ex-ec2-restore-vols-col"></a>
+
+#### Restoring EC2 instance volumes with the console
+<a name="ec2-restore-vols-con"></a>
 
 The following shows this change type in the AMS console.
 
-![Change type details showing ID, automated execution mode, and version 3.0 with description.](images/guiEc2RestoreVolsCT.png)
+![Change type details showing ID, automated execution mode, and version 3.0 with description.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiEc2RestoreVolsCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Restoring EC2 instance volumes with the CLI
+<a name="ec2-restore-vols-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 ```
-aws amscm create-rfc --change-type-id "ct-0ffvihqwjvqj1" --change-type-version "3.0" --title "`Restore EC2 Volumes From Backup`" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-ReplaceInstanceVolumesFromSnapshotsWithContext\",\"Region\":\"`us-east-1`\",\"Parameters\":{\"InstanceId\":[\"`INSTANCE_ID`\"],\"Backup\":[\"`BACKUP`\"]}}"
+aws amscm create-rfc --change-type-id "ct-0ffvihqwjvqj1" --change-type-version "3.0" --title "{{Restore EC2 Volumes From Backup}}" --execution-parameters "{\"DocumentName\":\"AWSManagedServices-ReplaceInstanceVolumesFromSnapshotsWithContext\",\"Region\":\"{{us-east-1}}\",\"Parameters\":{\"InstanceId\":[\"{{INSTANCE_ID}}\"],\"Backup\":[\"{{BACKUP}}\"]}}"
 ```
 
-_TEMPLATE CREATE_:
+*TEMPLATE CREATE*:
 
 1. Output the execution parameters for this change type to a JSON file; this example names it RestoreEC2VolsParams.json:
 
-```
-aws amscm get-change-type-version --change-type-id "ct-0ffvihqwjvqj1" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RestoreEC2VolsParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-0ffvihqwjvqj1" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > RestoreEC2VolsParams.json
+   ```
 
-2. Modify and save the RestoreEC2VolsParams file, retaining only the parameters that you want to change. For example, you can replace the contents with something like this:
+1. Modify and save the RestoreEC2VolsParams file, retaining only the parameters that you want to change. For example, you can replace the contents with something like this: 
 
-```
-{
-  "DocumentName": "AWSManagedServices-ReplaceInstanceVolumesFromSnapshotsWithContext",
-  "Region": "`us-east-1`",
-  "Parameters": {
-    "InstanceId": [
-      "`INSTANCE_ID`"
-    ],
-    "Backup": [
-      "`EC2_BACKUP_ARN`"
-    ]
-  }
-}
-```
+   ```
+   {
+     "DocumentName": "AWSManagedServices-ReplaceInstanceVolumesFromSnapshotsWithContext",
+     "Region": "{{us-east-1}}",
+     "Parameters": {
+       "InstanceId": [
+         "{{INSTANCE_ID}}"
+       ],
+       "Backup": [
+         "{{EC2_BACKUP_ARN}}"
+       ]
+     }
+   }
+   ```
 
-3. Output the RFC template to a file in your current folder; this example names it RestoreEC2VolsRfc.json:
+1. Output the RFC template to a file in your current folder; this example names it RestoreEC2VolsRfc.json:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > RestoreEC2VolsRfc.json
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > RestoreEC2VolsRfc.json
+   ```
 
-4. Modify and save the RestoreEC2VolsRfc.json file. For example, you can replace the contents with something like this:
+1. Modify and save the RestoreEC2VolsRfc.json file. For example, you can replace the contents with something like this:
 
-```
-{
-"ChangeTypeVersion":    "`3.0`",
-"ChangeTypeId":         "ct-0ffvihqwjvqj1",
-"Title":                "`EC2-Restore-Volume-RFC`"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{3.0}}",
+   "ChangeTypeId":         "ct-0ffvihqwjvqj1",
+   "Title":                "{{EC2-Restore-Volume-RFC}}"
+   }
+   ```
 
-5. Create the RFC, specifying the RestoreEC2VolsRfc file and the RestoreEC2VolsParams file:
+1. Create the RFC, specifying the RestoreEC2VolsRfc file and the RestoreEC2VolsParams file:
 
-```
-aws amscm create-rfc --cli-input-json file://RestoreEC2VolsRfc.json  --execution-parameters file://RestoreEC2VolsParams.json
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://RestoreEC2VolsRfc.json  --execution-parameters file://RestoreEC2VolsParams.json
+   ```
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
-For more information about Amazon EC2, including size recommendations, see
-[Amazon Elastic Compute Cloud Documentation](https://aws.amazon.com/documentation/ec2/ "https://aws.amazon.com/documentation/ec2/").
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-For information on the automatic troubleshooting RFC created if this RFC fails, see
-[EC2 instance volume restore fail](../userguide/rfc-troubleshoot.md#rfc-ec2-vol-restore-ec2-fail "../userguide/rfc-troubleshoot.md#rfc-ec2-vol-restore-ec2-fail")
+#### Tips
+<a name="ex-ec2-restore-vols-tip"></a>
+
+For more information about Amazon EC2, including size recommendations, see [Amazon Elastic Compute Cloud Documentation](https://aws.amazon.com/documentation/ec2/).
+
+For information on the automatic troubleshooting RFC created if this RFC fails, see [EC2 instance volume restore fail](https://docs.aws.amazon.com/managedservices/latest/userguide/rfc-troubleshoot.html#rfc-ec2-vol-restore-ec2-fail) 
 
 ## Execution Input Parameters
+<a name="management-advanced-ec2-instance-stack-restore-volumes-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-0ffvihqwjvqj1](schemas.md#ct-0ffvihqwjvqj1-schema-section "schemas.md#ct-0ffvihqwjvqj1-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-0ffvihqwjvqj1](schemas.md#ct-0ffvihqwjvqj1-schema-section).
 
 ## Example: Required Parameters
+<a name="management-advanced-ec2-instance-stack-restore-volumes-ex-min"></a>
 
 ```
 {
@@ -156,6 +162,7 @@ For detailed information about the execution input parameters, see
 ```
 
 ## Example: All Parameters
+<a name="management-advanced-ec2-instance-stack-restore-volumes-ex-max"></a>
 
 ```
 {

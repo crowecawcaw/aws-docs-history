@@ -1,192 +1,191 @@
-End of support notice: On June 30, 2027, AWS
-will end support for AMS Advanced. After June 30, 2027, you will
-no longer be able to access the AMS Advanced console or AMS Advanced resources.
-For more information, see [AMS Advanced end of support](../userguide/SunsetPlan.md "../userguide/SunsetPlan.md").
 
-# Target Group | Create (For ALB)
+
+End of support notice: On June 30, 2027, AWS will end support for AMS Advanced. After June 30, 2027, you will no longer be able to access the AMS Advanced console or AMS Advanced resources. For more information, see [AMS Advanced end of support](https://docs.aws.amazon.com/managedservices/latest/userguide/SunsetPlan.html). 
+
+# Target Group \| Create (For ALB)
+<a name="deployment-advanced-target-group-create-for-alb"></a>
 
 Use to create a target group for an Application Load Balancer.
 
-**Full classification:** Deployment | Advanced stack components | Target Group | Create (for ALB)
+**Full classification:** Deployment \| Advanced stack components \| Target Group \| Create (for ALB)
 
 ## Change Type Details
+<a name="ct-1r19m51jeijlk-DATc-table"></a>
 
-|                             |                  |
-| --------------------------- | ---------------- |
-| Change type ID              | ct-1r19m51jeijlk |
-| Current version             | 2.0              |
-| Expected execution duration | 360 minutes      |
-| AWS approval                | Required         |
-| Customer approval           | Not required     |
-| Execution mode              | Automated        |
+
+
+|  |  | 
+| --- |--- |
+| Change type ID | ct-1r19m51jeijlk | 
+| Current version | 2.0 | 
+| Expected execution duration | 360 minutes | 
+| AWS approval | Required | 
+| Customer approval | Not required | 
+| Execution mode | Automated | 
 
 ## Additional Information
+<a name="deployment-advanced-target-group-create-for-alb-info"></a>
 
 ### Create ALB target group
+<a name="ex-tar-group-alb-create-col"></a>
+
+#### Creating a Target Group for an Application Load Balancer with the Console
+<a name="tar-group-alb-create-con"></a>
 
 The following shows this change type in the AMS console.
 
-![Change type details showing ID ct-1r19m51jejlk, version 2.0, and automated execution mode.](images/guiTarGroupAlbCreateCT.png)
+![Change type details showing ID ct-1r19m51jejlk, version 2.0, and automated execution mode.](http://docs.aws.amazon.com/managedservices/latest/ctref/images/guiTarGroupAlbCreateCT.png)
+
+
 How it works:
 
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
-2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
-   **Choose by category** view.
 
-   - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
-     **Run RFC** page. Note that you cannot choose an older CT version with quick create.
+1. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the **Choose by category** view.
+   + **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
-   To sort CTs, use the **All change types** area in either the **Card** or **Table** view.
-   In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable,
-   a **Create with older version** option appears next to the **Create RFC** button.
-   - **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to
-     **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
+     To sort CTs, use the **All change types** area in either the **Card** or **Table** view. In either view, select a CT and then click **Create RFC** to open the **Run RFC** page. If applicable, a **Create with older version** option appears next to the **Create RFC** button.
+   + **Choose by category**: Select a category, subcategory, item, and operation and the CT details box opens with an option to **Create with older version** if applicable. Click **Create RFC** to open the **Run RFC** page.
 
-3. On the **Run RFC** page, open the CT name area to see the CT details box.
-   A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the
-   **Additional configuration** area to add information about the RFC.
+1. On the **Run RFC** page, open the CT name area to see the CT details box. A **Subject** is required (this is filled in for you if you choose your CT in the **Browse change types** view). Open the **Additional configuration** area to add information about the RFC.
 
-In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure
-optional execution parameters, open the **Additional configuration** area. 4. When finished, click **Run**. If there are no errors, the **RFC successfully created**
-page displays with the submitted RFC details, and the initial **Run output**. 5. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status.
-Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+   In the **Execution configuration** area, use available drop-down lists or enter values for the required parameters. To configure optional execution parameters, open the **Additional configuration** area.
+
+1. When finished, click **Run**. If there are no errors, the **RFC successfully created** page displays with the submitted RFC details, and the initial **Run output**. 
+
+1. Open the **Run parameters** area to see the configurations you submitted. Refresh the page to update the RFC execution status. Optionally, cancel the RFC or create a copy of it with the options at the top of the page.
+
+#### Creating a Target Group for an Application Load Balancer with the CLI
+<a name="tar-group-alb-create-cli"></a>
+
 How it works:
 
-1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or
-   Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc`
-   command with the two files as input. Both methods are described here.
-2. Submit the RFC: `aws amscm submit-rfc --rfc-id `ID`` command with the returned RFC ID.
+1. Use either the Inline Create (you issue a `create-rfc` command with all RFC and execution parameters included), or Template Create (you create two JSON files, one for the RFC parameters and one for the execution parameters) and issue the `create-rfc` command with the two files as input. Both methods are described here.
 
-Monitor the RFC: `aws amscm get-rfc --rfc-id `ID`` command.
+1. Submit the RFC: `aws amscm submit-rfc --rfc-id {{ID}}` command with the returned RFC ID.
+
+   Monitor the RFC: `aws amscm get-rfc --rfc-id {{ID}}` command.
+
 To check the change type version, use this command:
 
 ```
-aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CT_ID`
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value={{CT_ID}}
 ```
+**Note**  
+You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the [AMS Change Management API Reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_CreateRfc.html).
 
-###### Note
-
-You can use any `CreateRfc` parameters with any RFC whether or not they are part of the schema for the
-change type. For example, to get notifications when the RFC status changes, add this line, `--notification "{\"Email\": {\"EmailRecipients\" : [\"email@example.com\"]}}"` to the
-RFC parameters part of the request (not the execution parameters). For a list of all CreateRfc parameters, see the
-[AMS Change Management API Reference](../ApiReference-cm/API_CreateRfc.md "../ApiReference-cm/API_CreateRfc.md").
-
-_INLINE CREATE_:
+*INLINE CREATE*:
 
 Issue the create RFC command with execution parameters provided inline (escape quotation marks when providing execution parameters inline), and then submit the returned RFC ID. For example, you can replace the contents with something like this:
 
 Version 1.0:
 
 ```
-aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-1r19m51jeijlk" --change-type-version "1.0" --title "`TITLE`" --execution-parameters "{\"Description\":\"`TargetGroup-ALB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\": \"stm-9c1t8maqho0os5k21\", \"Name\":\"`TG-ALB`\", \"TimeoutInMinutes\":60, \"Parameters\": {\"InstancePort\":\"`80`\",\"InstanceProtocol\":\"`HTTP`\"}}"
+aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-1r19m51jeijlk" --change-type-version "1.0" --title "{{TITLE}}" --execution-parameters "{\"Description\":\"{{TargetGroup-ALB}}\", \"VpcId\":\"{{VPC_ID}}\", \"StackTemplateId\": \"stm-9c1t8maqho0os5k21\", \"Name\":\"{{TG-ALB}}\", \"TimeoutInMinutes\":60, \"Parameters\": {\"InstancePort\":\"{{80}}\",\"InstanceProtocol\":\"{{HTTP}}\"}}"
 ```
 
 Version 2.0:
 
 ```
-aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-1r19m51jeijlk" --change-type-version "2.0" --title "`TITLE`" --execution-parameters "{\"Description\":\"`TargetGroup-ALB`\", \"VpcId\":\"`VPC_ID`\", \"StackTemplateId\": \"stm-9c1t8maqho0os5k22\", \"Name\":\"`TG-ALB`\", \"TimeoutInMinutes\":60, \"Parameters\": {\"ApplicationLoadBalancerArn\":\"`ARN`\",\"InstancePort\":\"`80`\",\"InstanceProtocol\":\"`HTTP`\"}}"
+aws --profile saml --region us-east-1 amscm create-rfc --change-type-id "ct-1r19m51jeijlk" --change-type-version "2.0" --title "{{TITLE}}" --execution-parameters "{\"Description\":\"{{TargetGroup-ALB}}\", \"VpcId\":\"{{VPC_ID}}\", \"StackTemplateId\": \"stm-9c1t8maqho0os5k22\", \"Name\":\"{{TG-ALB}}\", \"TimeoutInMinutes\":60, \"Parameters\": {\"ApplicationLoadBalancerArn\":\"{{ARN}}\",\"InstancePort\":\"{{80}}\",\"InstanceProtocol\":\"{{HTTP}}\"}}"
 ```
 
 TEMPLATE CREATE:
 
 1. Output the execution parameters JSON schema for this change type to a JSON file; this example names it CreateTgAlbParams.json.
 
-```
-aws amscm get-change-type-version --change-type-id "ct-1r19m51jeijlk" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateTgAlbParams.json
-```
+   ```
+   aws amscm get-change-type-version --change-type-id "ct-1r19m51jeijlk" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateTgAlbParams.json
+   ```
 
-2. Modify and save the CreateTgAlbParams file. For example, you can replace the contents with something like this:
+1. Modify and save the CreateTgAlbParams file. For example, you can replace the contents with something like this:
 
-Version 1.0:
+   Version 1.0:
 
-```
-{
-"Description":      "`Target-Group-ALB-Create`",
-"VpcId":            "`VPC_ID`",
-"StackTemplateId":  "stm-9c1t8maqho0os5k21",
-"Name":             "`My-ALB-Target-Group`",
+   ```
+   {
+   "Description":      "{{Target-Group-ALB-Create}}", 
+   "VpcId":            "{{VPC_ID}}", 
+   "StackTemplateId":  "stm-9c1t8maqho0os5k21", 
+   "Name":             "{{My-ALB-Target-Group}}",
+   
+   "Parameters":   {
+       "LoadBalancerArn":               {{ARN}},
+       "DefaultActionTargetGroupArn":   {{ARN}},
+       "Port":                          {{PORT}},
+       "Protocol":                     {{Protocol}}"
+       }
+   }
+   ```
 
-"Parameters":   {
-    "LoadBalancerArn":               `ARN`,
-    "DefaultActionTargetGroupArn":   `ARN`,
-    "Port":                          `PORT`,
-    "Protocol":                     `Protocol`"
-    }
-}
-```
+   Version 2.0:
 
-Version 2.0:
+   ```
+   {
+   "Description":      "{{Target-Group-ALB-Create}}", 
+   "VpcId":            "{{VPC_ID}}", 
+   "StackTemplateId":  "stm-9c1t8maqho0os5k22", 
+   "Name":             "{{My-ALB-Target-Group}}",
+   
+   "Parameters":   {
+       "ApplicationLoadBalancerArn":           {{ARN}},
+       "InstancePort":                         {{PORT}},
+       "InstanceProtocol":                     {{Protocol}}"
+       }
+   }
+   ```
 
-```
-{
-"Description":      "`Target-Group-ALB-Create`",
-"VpcId":            "`VPC_ID`",
-"StackTemplateId":  "stm-9c1t8maqho0os5k22",
-"Name":             "`My-ALB-Target-Group`",
+1. Output the RFC template to a file in your current folder named CreateTgAlbRfc.json:
 
-"Parameters":   {
-    "ApplicationLoadBalancerArn":           `ARN`,
-    "InstancePort":                         `PORT`,
-    "InstanceProtocol":                     `Protocol`"
-    }
-}
-```
+   ```
+   aws amscm create-rfc --generate-cli-skeleton > CreateTgAlbRfc.json
+   ```
 
-3. Output the RFC template to a file in your current folder named CreateTgAlbRfc.json:
+1. Modify and save the CreateTgAlbRfc.json file. For example, you can replace the contents with something like this:
 
-```
-aws amscm create-rfc --generate-cli-skeleton > CreateTgAlbRfc.json
-```
+   Version 1.0:
 
-4. Modify and save the CreateTgAlbRfc.json file. For example, you can replace the contents with something like this:
+   ```
+   {
+   "ChangeTypeVersion":    "{{1.0}}",	
+   "ChangeTypeId":         "ct-1r19m51jeijlk",
+   "Title":                "{{Target-Group-ALB-Create-RFC}}"
+   }
+   ```
 
-Version 1.0:
+   Version 2.0:
 
-```
-{
-"ChangeTypeVersion":    "`1.0`",
-"ChangeTypeId":         "ct-1r19m51jeijlk",
-"Title":                "`Target-Group-ALB-Create-RFC`"
-}
-```
+   ```
+   {
+   "ChangeTypeVersion":    "{{2.0}}",	
+   "ChangeTypeId":         "ct-1r19m51jeijlk",
+   "Title":                "{{Target-Group-ALB-Create-RFC}}"
+   }
+   ```
 
-Version 2.0:
+1.  Create the RFC, specifying the CreateTgAlbRfc file and the CreateTgAlbParams file: 
 
-```
-{
-"ChangeTypeVersion":    "`2.0`",
-"ChangeTypeId":         "ct-1r19m51jeijlk",
-"Title":                "`Target-Group-ALB-Create-RFC`"
-}
-```
+   ```
+   aws amscm create-rfc --cli-input-json file://CreateTgAlbRfc.json --execution-parameters file://CreateTgAlbParams.json
+   ```
 
-5. Create the RFC, specifying the CreateTgAlbRfc file and the CreateTgAlbParams file:
+   You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
 
-```
-aws amscm create-rfc --cli-input-json file://CreateTgAlbRfc.json --execution-parameters file://CreateTgAlbParams.json
-```
+    Next, create a listener for the Application Load Balancer. For more information,see [ALB listeners](https://docs.aws.amazon.com/managedservices/latest/userguide/ex-alb-listener-listener.html). To open ports and associate security groups, submit a Management \| Other \| Other \| Update change type. For more information, see [Other \| Other requests](https://docs.aws.amazon.com/managedservices/latest/ctref/ex-other-other.html). 
 
-You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+#### Tips
+<a name="ex-tar-group-alb-create-tip"></a>
 
-Next, create a listener for the Application Load Balancer. For more information,see
-[ALB listeners](../userguide/ex-alb-listener-listener.md "../userguide/ex-alb-listener-listener.md").
-To open ports and associate security groups, submit a Management | Other | Other | Update change type.
-For more information, see
-[Other | Other requests](ex-other-other.md "ex-other-other.md").
-
-###### Note
-
-The 2.0 version of this change type uses a different
-StackTemplateId (stm-9c1t8maqho0os5k22) from the 1.0 version. This is important if you are submitting the
-RFC with this change type version at the command line. The new version includes a new, required,
-parameter: **ApplicationLoadBalancer**.
+**Note**  
+The 2.0 version of this change type uses a different StackTemplateId (stm-9c1t8maqho0os5k22) from the 1.0 version. This is important if you are submitting the RFC with this change type version at the command line. The new version includes a new, required, parameter: **ApplicationLoadBalancer**.
 
 ## Execution Input Parameters
+<a name="deployment-advanced-target-group-create-for-alb-input"></a>
 
-For detailed information about the execution input parameters, see
-[Schema for Change Type ct-1r19m51jeijlk](schemas.md#ct-1r19m51jeijlk-schema-section "schemas.md#ct-1r19m51jeijlk-schema-section").
+For detailed information about the execution input parameters, see [Schema for Change Type ct-1r19m51jeijlk](schemas.md#ct-1r19m51jeijlk-schema-section).
 
 ## Example: Required Parameters
+<a name="deployment-advanced-target-group-create-for-alb-ex-min"></a>
 
 ```
 {
@@ -201,10 +200,10 @@ For detailed information about the execution input parameters, see
     "ApplicationLoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-app-load-balancer/abcdefghij"
   }
 }
-
 ```
 
 ## Example: All Parameters
+<a name="deployment-advanced-target-group-create-for-alb-ex-max"></a>
 
 ```
 {
@@ -256,5 +255,4 @@ For detailed information about the execution input parameters, see
     "Target8AvailabilityZone": ""
   }
 }
-
 ```
