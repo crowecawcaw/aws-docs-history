@@ -1,17 +1,17 @@
+
+
 # Using the ARM64 GPU PyTorch DLAMI
+<a name="tutorial-arm64-pytorch"></a>
 
-The AWS Deep Learning AMIs is ready to use with Arm64 processor-based GPUs, and comes optimized
-for PyTorch. The ARM64 GPU PyTorch DLAMI includes a Python environment pre-configured
-with [PyTorch](https://aws.amazon.com/pytorch "https://aws.amazon.com/pytorch"), [TorchVision](https://pytorch.org/vision/stable/index.html "https://pytorch.org/vision/stable/index.html"), and [TorchServe](https://pytorch.org/serve/ "https://pytorch.org/serve/") for deep learning training and
-inference use cases.
+The AWS Deep Learning AMIs is ready to use with Arm64 processor-based GPUs, and comes optimized for PyTorch. The ARM64 GPU PyTorch DLAMI includes a Python environment pre-configured with [PyTorch](https://aws.amazon.com/pytorch), [TorchVision](https://pytorch.org/vision/stable/index.html), and [TorchServe](https://pytorch.org/serve/) for deep learning training and inference use cases.
 
-###### Contents
-
-- [Verify PyTorch Python Environment](#tutorial-arm64-pytorch-environment "#tutorial-arm64-pytorch-environment")
-- [Run Training Sample with PyTorch](#tutorial-arm64-pytorch-training "#tutorial-arm64-pytorch-training")
-- [Run Inference Sample with PyTorch](#tutorial-arm64-pytorch-inference "#tutorial-arm64-pytorch-inference")
+**Topics**
++ [Verify PyTorch Python Environment](#tutorial-arm64-pytorch-environment)
++ [Run Training Sample with PyTorch](#tutorial-arm64-pytorch-training)
++ [Run Inference Sample with PyTorch](#tutorial-arm64-pytorch-inference)
 
 ## Verify PyTorch Python Environment
+<a name="tutorial-arm64-pytorch-environment"></a>
 
 Connect to your G5g instance and activate the base Conda environment with the following command:
 
@@ -19,8 +19,7 @@ Connect to your G5g instance and activate the base Conda environment with the fo
 source activate base
 ```
 
-Your command prompt should indicate that you are working in the base Conda
-environment, which contains PyTorch, TorchVision, and other libraries.
+Your command prompt should indicate that you are working in the base Conda environment, which contains PyTorch, TorchVision, and other libraries.
 
 ```
 (base) $
@@ -42,6 +41,7 @@ Verify the default tool paths of the PyTorch environment:
 ```
 
 ## Run Training Sample with PyTorch
+<a name="tutorial-arm64-pytorch-training"></a>
 
 Run a sample MNIST training job:
 
@@ -65,9 +65,9 @@ Test set: Average loss: 0.0275, Accuracy: 9916/10000 (99%)
 ```
 
 ## Run Inference Sample with PyTorch
+<a name="tutorial-arm64-pytorch-inference"></a>
 
-Use the following commands to download a pre-trained densenet161 model and run
-inference using TorchServe:
+Use the following commands to download a pre-trained densenet161 model and run inference using TorchServe:
 
 ```
 # Set up TorchServe
@@ -86,7 +86,7 @@ torch-model-archiver --model-name densenet161 \
     --serialized-file densenet161-8d451a50.pth \
     --handler image_classifier \
     --extra-files examples/image_classifier/index_to_name.json  \
-    --export-path model_store
+    --export-path model_store 
 
 # Start the model server
 torchserve --start --no-config-snapshots \
@@ -112,8 +112,7 @@ Your output should look similar to the following:
 }
 ```
 
-Use the following commands to unregister the densenet161 model and stop the
-server:
+Use the following commands to unregister the densenet161 model and stop the server:
 
 ```
 curl -X DELETE http://localhost:8081/models/densenet161/1.0

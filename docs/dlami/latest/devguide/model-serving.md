@@ -1,8 +1,10 @@
+
+
 # Model Serving
+<a name="model-serving"></a>
 
 The following are model serving options installed on the Deep Learning AMI with Conda. Choose one of the options to learn how to use it.
 
-###### Topics
-
-- [TensorFlow Serving](tutorial-tfserving.md "tutorial-tfserving.md")
-- [TorchServe](tutorial-torchserve.md "tutorial-torchserve.md")
+**Topics**
++ [TensorFlow Serving](tutorial-tfserving.md)
++ [TorchServe](tutorial-torchserve.md)

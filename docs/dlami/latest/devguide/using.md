@@ -1,13 +1,12 @@
-# Tutorials
 
-The following are tutorials on how to use the Deep Learning AMI with Conda's software.
 
-###### Topics
+# Using a DLAMI
+<a name="using"></a>
 
-- [Activating Frameworks](activating.md "activating.md")
-- [Distributed training using Elastic Fabric Adapter](tutorial-efa.md "tutorial-efa.md")
-- [GPU Monitoring and Optimization](tutorial-gpu.md "tutorial-gpu.md")
-- [The AWS Inferentia Chip With DLAMI](tutorial-inferentia.md "tutorial-inferentia.md")
-- [The ARM64 DLAMI](tutorial-arm64.md "tutorial-arm64.md")
-- [Inference](tutorial-inference.md "tutorial-inference.md")
-- [Model Serving](model-serving.md "model-serving.md")
+**Topics**
++ [Using the Deep Learning AMI with Conda](tutorial-conda.md)
++ [Using the Deep Learning Base AMI](tutorial-base.md)
++ [Running Jupyter Notebook Tutorials](tutorial-jupyter.md)
++ [Tutorials](tutorials.md)
+
+The following sections describe how the Deep Learning AMI with Conda can be used to switch environments, run sample code from each of the frameworks, and run Jupyter so you can try out different notebook tutorials.

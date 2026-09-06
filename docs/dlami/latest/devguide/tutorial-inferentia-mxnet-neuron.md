@@ -1,52 +1,46 @@
+
+
 # Using MXNet-Neuron and the AWS Neuron Compiler
+<a name="tutorial-inferentia-mxnet-neuron"></a>
 
-The MXNet-Neuron compilation API provides a method to compile a model graph that you can
-run on an AWS Inferentia device.
+The MXNet-Neuron compilation API provides a method to compile a model graph that you can run on an AWS Inferentia device. 
 
-In this example, you use the API to compile a ResNet-50 model and use it to run
-inference.
+ In this example, you use the API to compile a ResNet-50 model and use it to run inference. 
 
-For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/mxnet-neuron/index.html "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/mxnet-neuron/index.html").
+ For more information about the Neuron SDK, see the [AWS Neuron SDK documentation](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/neuron-guide/neuron-frameworks/mxnet-neuron/index.html). 
 
-###### Contents
-
-- [Prerequisites](#tutorial-inferentia-mxnet-neuron-prerequisites "#tutorial-inferentia-mxnet-neuron-prerequisites")
-- [Activate the Conda Environment](#tutorial-inferentia-mxnet-neuron-activate "#tutorial-inferentia-mxnet-neuron-activate")
-- [Resnet50 Compilation](#tutorial-inferentia-mxnet-neuron-compilation "#tutorial-inferentia-mxnet-neuron-compilation")
-- [ResNet50 Inference](#tutorial-inferentia-mxnet-neuron-inference "#tutorial-inferentia-mxnet-neuron-inference")
+**Topics**
++ [Prerequisites](#tutorial-inferentia-mxnet-neuron-prerequisites)
++ [Activate the Conda Environment](#tutorial-inferentia-mxnet-neuron-activate)
++ [Resnet50 Compilation](#tutorial-inferentia-mxnet-neuron-compilation)
++ [ResNet50 Inference](#tutorial-inferentia-mxnet-neuron-inference)
 
 ## Prerequisites
+<a name="tutorial-inferentia-mxnet-neuron-prerequisites"></a>
 
-Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md "tutorial-inferentia-launching.md"). You should also have a familiarity
-with deep learning and using the DLAMI.
+ Before using this tutorial, you should have completed the set up steps in [Launching a DLAMI Instance with AWS Neuron](tutorial-inferentia-launching.md). You should also have a familiarity with deep learning and using the DLAMI. 
 
 ## Activate the Conda Environment
+<a name="tutorial-inferentia-mxnet-neuron-activate"></a>
 
-Activate the MXNet-Neuron conda environment using the following
-command:
+ Activate the MXNet-Neuron conda environment using the following command: 
 
 ```
-
 source activate aws_neuron_mxnet_p36
-
 ```
 
-To exit the current conda environment, run:
+To exit the current conda environment, run: 
 
 ```
-
 source deactivate
-
 ```
 
 ## Resnet50 Compilation
+<a name="tutorial-inferentia-mxnet-neuron-compilation"></a>
 
-Create a Python script called `mxnet_compile_resnet50.py` with the
-following content. This script uses the MXNet-Neuron compilation Python API to compile a
-ResNet-50 model.
+Create a Python script called **mxnet\_compile\_resnet50.py** with the following content. This script uses the MXNet-Neuron compilation Python API to compile a ResNet-50 model. 
 
 ```
-
 import mxnet as mx
 import numpy as np
 
@@ -65,37 +59,29 @@ sym, args, aux = mx.contrib.neuron.compile(sym, args, aux, inputs)
 
 print("save compiled model...")
 mx.model.save_checkpoint("compiled_resnet50", 0, sym, args, aux)
-
 ```
 
-Compile the model using the following command:
+ Compile the model using the following command: 
 
 ```
-
 python mxnet_compile_resnet50.py
-
 ```
 
-Compilation will take a few minutes. When compilation has
-finished, the following files will be in your current directory:
+ Compilation will take a few minutes. When compilation has finished, the following files will be in your current directory: 
 
 ```
-
 resnet-50-0000.params
 resnet-50-symbol.json
 compiled_resnet50-0000.params
 compiled_resnet50-symbol.json
-
 ```
 
 ## ResNet50 Inference
+<a name="tutorial-inferentia-mxnet-neuron-inference"></a>
 
-Create a Python script called `mxnet_infer_resnet50.py` with the
-following content. This script downloads a sample image and uses it to run inference
-with the compiled model.
+Create a Python script called **mxnet\_infer\_resnet50.py** with the following content. This script downloads a sample image and uses it to run inference with the compiled model. 
 
 ```
-
 import mxnet as mx
 import numpy as np
 
@@ -132,30 +118,23 @@ prob = np.squeeze(prob)
 a = np.argsort(prob)[::-1] 
 for i in a[0:5]:
     print('probability=%f, class=%s' %(prob[i], labels[i]))
-
 ```
 
-Run inference with the compiled model using the following
-command:
+ Run inference with the compiled model using the following command: 
 
 ```
-
 python mxnet_infer_resnet50.py
-
 ```
 
-Your output should look like the following:
+ Your output should look like the following: 
 
 ```
-
 probability=0.642454, class=n02123045 tabby, tabby cat
 probability=0.189407, class=n02123159 tiger cat
 probability=0.100798, class=n02124075 Egyptian cat
 probability=0.030649, class=n02127052 lynx, catamount
 probability=0.016278, class=n02129604 tiger, Panthera tigris
-
 ```
 
-###### Next Step
-
-[Using MXNet-Neuron Model Serving](tutorial-inferentia-mxnet-neuron-serving.md "tutorial-inferentia-mxnet-neuron-serving.md")
+**Next Step**  
+[Using MXNet-Neuron Model Serving](tutorial-inferentia-mxnet-neuron-serving.md)

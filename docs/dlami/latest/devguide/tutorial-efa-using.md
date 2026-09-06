@@ -1,66 +1,64 @@
-# Using EFA on the DLAMI
 
-The following section describes how to use EFA to run multi-node applications on the
-AWS Deep Learning AMIs.
+
+# Using EFA on the DLAMI
+<a name="tutorial-efa-using"></a>
+
+The following section describes how to use EFA to run multi-node applications on the AWS Deep Learning AMIs.
 
 ## Running Multi-Node Applications with EFA
+<a name="tutorial-efa-using-multi-node"></a>
 
 To run an application across a cluster of nodes the following configuration is required
 
-###### Topics
-
-- [Enable Passwordless SSH](#tutorial-efa-using-multi-node-ssh "#tutorial-efa-using-multi-node-ssh")
-- [Create Hosts File](#tutorial-efa-using-multi-node-hosts "#tutorial-efa-using-multi-node-hosts")
-- [NCCL Tests](#tutorial-efa-using-2node "#tutorial-efa-using-2node")
+**Topics**
++ [Enable Passwordless SSH](#tutorial-efa-using-multi-node-ssh)
++ [Create Hosts File](#tutorial-efa-using-multi-node-hosts)
++ [NCCL Tests](#tutorial-efa-using-2node)
 
 ### Enable Passwordless SSH
+<a name="tutorial-efa-using-multi-node-ssh"></a>
 
-Select one node in your cluster as the leader node. The remaining nodes are referred to
-as the member nodes.
+Select one node in your cluster as the leader node. The remaining nodes are referred to as the member nodes. 
 
 1. On the leader node, generate the RSA keypair.
 
-```
-ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-```
+   ```
+   ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+   ```
 
-2. Change the permissions of the private key on the leader node.
+1. Change the permissions of the private key on the leader node.
 
-```
-chmod 600 ~/.ssh/id_rsa
-```
+   ```
+   chmod 600 ~/.ssh/id_rsa
+   ```
 
-3. Copy the public key `~/.ssh/id_rsa.pub` to and append it
-   to `~/.ssh/authorized_keys` of the member nodes in the cluster.
-4. You should now be able to directly login to the member nodes from
-   the leader node using the private ip.
+1. Copy the public key `~/.ssh/id_rsa.pub` to and append it to `~/.ssh/authorized_keys` of the member nodes in the cluster. 
 
-```
-ssh <member private ip>
-```
+1. You should now be able to directly login to the member nodes from the leader node using the private ip.
 
-5. Disable strictHostKeyChecking and enable agent forwarding on the
-   leader node by adding the following to the ~/.ssh/config file on the leader node:
+   ```
+   ssh <member private ip>
+   ```
 
-```
-Host *
-    ForwardAgent yes
-Host *
-    StrictHostKeyChecking no
-```
+1. Disable strictHostKeyChecking and enable agent forwarding on the leader node by adding the following to the \~/.ssh/config file on the leader node: 
 
-6. On Amazon Linux 2 instances, run the following command on the leader node to provide correct
-   permissions to the config file:
+   ```
+   Host *
+       ForwardAgent yes
+   Host *
+       StrictHostKeyChecking no
+   ```
 
-```
-chmod 600 ~/.ssh/config
-```
+1. On Amazon Linux 2 instances, run the following command on the leader node to provide correct permissions to the config file:
+
+   ```
+   chmod 600 ~/.ssh/config
+   ```
 
 ### Create Hosts File
+<a name="tutorial-efa-using-multi-node-hosts"></a>
 
-On the leader node, create a hosts file to identify the nodes in the cluster. The hosts
-file must have an entry for each node in the cluster. Create a file ~/hosts and add each
-node using the private ip as follows:
+On the leader node, create a hosts file to identify the nodes in the cluster. The hosts file must have an entry for each node in the cluster. Create a file \~/hosts and add each node using the private ip as follows: 
 
 ```
 localhost slots=8
@@ -69,57 +67,52 @@ localhost slots=8
 ```
 
 ### NCCL Tests
+<a name="tutorial-efa-using-2node"></a>
 
-###### Note
-
+**Note**  
 These tests have been run using EFA version 1.38.0 and OFI NCCL Plugin 1.13.2.
 
-Listed below are a subset of NCCL Tests provided by Nvidia to test both functionality and performance over multiple compute nodes
+ Listed below are a subset of NCCL Tests provided by Nvidia to test both functionality and performance over multiple compute nodes 
 
-**Supported Instances: P3dn, P4, P5, P5e, P5en**
+ **Supported Instances: P3dn, P4, P5, P5e, P5en** 
+
+#### Performance Tests
+<a name="tutorial-efa-using-multinode"></a>
 
 ##### Multi-node NCCL Performance Test on P4d.24xlarge
+<a name="tutorial-efa-using-multi-node-performance"></a>
 
-To check NCCL Performance with EFA, run the standard NCCL Performance test that is
-available on the official [NCCL-Tests Repo](https://github.com/NVIDIA/nccl-tests.git "https://github.com/NVIDIA/nccl-tests.git"). The DLAMI comes with this test already built for CUDA
-XX.X. You can similarly run your own script with EFA.
+To check NCCL Performance with EFA, run the standard NCCL Performance test that is available on the official [NCCL-Tests Repo](https://github.com/NVIDIA/nccl-tests.git). The DLAMI comes with this test already built for CUDA XX.X. You can similarly run your own script with EFA.
 
 When constructing your own script, refer to the following guidance:
++ Use the complete path to mpirun as shown in the example while running NCCL applications with EFA.
++ Change the params np and N based on the number of instances and GPUs in your cluster.
++ Add the NCCL\_DEBUG=INFO flag and make sure that the logs indicate EFA usage as "Selected Provider is EFA".
++  Set the Training Log Location to parse for validation 
 
-- Use the complete path to mpirun as shown in the example while running NCCL applications with EFA.
-- Change the params np and N based on the number of instances and GPUs in your cluster.
-- Add the NCCL\_DEBUG=INFO flag and make sure that the logs indicate EFA usage as
-  "Selected Provider is EFA".
-- Set the Training Log Location to parse for validation
+  ```
+  TRAINING_LOG="testEFA_$(date +"%N").log"
+  ```
 
-```
-TRAINING_LOG="testEFA_$(date +"%N").log"
-```
+Use the command `watch nvidia-smi` on any of the member nodes to monitor GPU usage. The following `watch nvidia-smi` commands are for a generic CUDA xx.x version and depend on the Operating System of your instance. You can run the commands for any available CUDA version in your Amazon EC2 instance by replacing the CUDA version in the script.
++ Amazon Linux 2, Amazon Linux 2023:
 
-Use the command `watch nvidia-smi` on any of the member nodes to monitor
-GPU usage. The following `watch nvidia-smi` commands are for a generic CUDA xx.x version and
-depend on the Operating System of your instance.
-You can run the commands for any available CUDA version in your Amazon EC2 instance by replacing the CUDA version in the script.
+  ```
+   $ /opt/amazon/openmpi/bin/mpirun -n 16 -N 8 \
+  -x NCCL_DEBUG=INFO --mca pml ^cm \
+  -x LD_LIBRARY_PATH=/usr/local/{{cuda-xx.x}}/efa/lib:/usr/local/{{cuda-xx.x}}/lib:/usr/local/{{cuda-xx.x}}/lib64:/usr/local/{{cuda-xx.x}}:/opt/amazon/efa/lib64:/opt/amazon/openmpi/lib64:$LD_LIBRARY_PATH \
+  --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+  /usr/local/{{cuda-xx.x}}/efa/test-{{cuda-xx.x}}/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100 | tee ${TRAINING_LOG}
+  ```
++ Ubuntu 20.04, Ubuntu 20.04:
 
-- Amazon Linux 2, Amazon Linux 2023:
-
-```
- $ /opt/amazon/openmpi/bin/mpirun -n 16 -N 8 \
--x NCCL_DEBUG=INFO --mca pml ^cm \
--x LD_LIBRARY_PATH=/usr/local/`cuda-xx.x`/efa/lib:/usr/local/`cuda-xx.x`/lib:/usr/local/`cuda-xx.x`/lib64:/usr/local/`cuda-xx.x`:/opt/amazon/efa/lib64:/opt/amazon/openmpi/lib64:$LD_LIBRARY_PATH \
---hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
-/usr/local/`cuda-xx.x`/efa/test-`cuda-xx.x`/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100 | tee ${TRAINING_LOG}
-```
-
-- Ubuntu 20.04, Ubuntu 20.04:
-
-```
-$ /opt/amazon/openmpi/bin/mpirun -n 16 -N 8 \
--x NCCL_DEBUG=INFO --mca pml ^cm \
--x LD_LIBRARY_PATH=/usr/local/`cuda-xx.x`/efa/lib:/usr/local/`cuda-xx.x`/lib:/usr/local/`cuda-xx.x`/lib64:/usr/local/`cuda-xx.x`:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH \
---hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
-/usr/local/`cuda-xx.x`/efa/test-`cuda-xx.x`/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100 | tee ${TRAINING_LOG}
-```
+  ```
+  $ /opt/amazon/openmpi/bin/mpirun -n 16 -N 8 \
+  -x NCCL_DEBUG=INFO --mca pml ^cm \
+  -x LD_LIBRARY_PATH=/usr/local/{{cuda-xx.x}}/efa/lib:/usr/local/{{cuda-xx.x}}/lib:/usr/local/{{cuda-xx.x}}/lib64:/usr/local/{{cuda-xx.x}}:/opt/amazon/efa/lib:/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH \
+  --hostfile hosts --mca btl tcp,self --mca btl_tcp_if_exclude lo,docker0 --bind-to none \
+  /usr/local/{{cuda-xx.x}}/efa/test-{{cuda-xx.x}}/all_reduce_perf -b 8 -e 1G -f 2 -g 1 -c 1 -n 100 | tee ${TRAINING_LOG}
+  ```
 
 Your output should look like the following:
 
@@ -158,9 +151,9 @@ ip-172-31-42-25:33384:33451 [6] NCCL INFO NET/OFI Setting NCCL_NVLS_CHUNKSIZE to
 ip-172-31-42-25:33384:33451 [6] NCCL INFO NET/OFI Running on p4d.24xlarge platform, Setting NCCL_TOPO_FILE environment variable to /opt/amazon/ofi-nccl/share/aws-ofi-nccl/xml/p4d-24xl-topo.xml
 ...
 -----------------------------some output truncated-----------------------------------
-#                                                              out-of-place                       in-place
+#                                                              out-of-place                       in-place          
 #       size         count      type   redop    root     time   algbw   busbw #wrong     time   algbw   busbw #wrong
-#        (B)    (elements)                               (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)
+#        (B)    (elements)                               (us)  (GB/s)  (GB/s)            (us)  (GB/s)  (GB/s)       
            8             2     float     sum      -1    180.3    0.00    0.00      0    179.3    0.00    0.00      0
           16             4     float     sum      -1    178.1    0.00    0.00      0    177.6    0.00    0.00      0
           32             8     float     sum      -1    178.5    0.00    0.00      0    177.9    0.00    0.00      0
@@ -194,74 +187,72 @@ ip-172-31-42-25:33384:33451 [6] NCCL INFO NET/OFI Running on p4d.24xlarge platfo
 # Avg bus bandwidth    : 15.5514
 ```
 
-To Validate that the EFA tests returned a valid result, please use the following tests to confirm:
+#### Validation Tests
+<a name="tutorial-efa-validation"></a>
 
-- Get the instance type using EC2 Instance Metadata:
+To Validate that the EFA tests returned a valid result, please use the following tests to confirm: 
++ Get the instance type using EC2 Instance Metadata:
 
-```
-TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
-INSTANCE_TYPE=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/instance-type)
-```
+  ```
+  TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+  INSTANCE_TYPE=$(curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/meta-data/instance-type)
+  ```
++ Run the [Performance Tests](#tutorial-efa-using-multinode) 
++  Set the Following Parameters 
 
-- Run the [Performance Tests](#tutorial-efa-using-multinode "#tutorial-efa-using-multinode")
-- Set the Following Parameters
+  ```
+  CUDA_VERSION
+  CUDA_RUNTIME_VERSION
+  NCCL_VERSION
+  ```
++  Validate the Results as shown: 
 
-```
-CUDA_VERSION
-CUDA_RUNTIME_VERSION
-NCCL_VERSION
-```
+  ```
+  RETURN_VAL=`echo $?`
+  if [ ${RETURN_VAL} -eq 0 ]; then
+  
+      # [0] NCCL INFO NET/OFI Initializing aws-ofi-nccl 1.13.2-aws
+      # [0] NCCL INFO NET/OFI Using CUDA driver version 12060 with runtime 12010
+  
+      # cudaDriverVersion 12060  --> This is max supported cuda version by nvidia driver
+      # NCCL version 2.23.4+cuda12.5 --> This is NCCL version compiled with cuda version
+  
+      # Validation of logs
+      grep "NET/OFI Configuring AWS-specific options" ${TRAINING_LOG} || { echo "AWS-specific options text not found"; exit 1; } 
+      grep "busbw" ${TRAINING_LOG} || { echo "busbw text not found"; exit 1; } 
+      grep "Avg bus bandwidth " ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; } 
+      grep "NCCL version $NCCL_VERSION" ${TRAINING_LOG} || { echo "Text not found: NCCL version $NCCL_VERSION"; exit 1; }
+      if [[ ${INSTANCE_TYPE} == "p4d.24xlarge" ]]; then
+          grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Text not found: NET/Libfabric/0/GDRDMA"; exit 1; }  
+          grep "NET/OFI Selected Provider is efa (found 4 nics)" ${TRAINING_LOG} || { echo "Selected Provider is efa text not found"; exit 1; }   
+      elif [[ ${INSTANCE_TYPE} == "p4de.24xlarge" ]]; then
+          grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+          grep "NET/OFI Selected Provider is efa (found 4 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+      elif [[ ${INSTANCE_TYPE} == "p5.48xlarge" ]]; then
+          grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+          grep "NET/OFI Selected Provider is efa (found 32 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; } 
+      elif [[ ${INSTANCE_TYPE} == "p5e.48xlarge" ]]; then
+          grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+          grep "NET/OFI Selected Provider is efa (found 32 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+      elif [[ ${INSTANCE_TYPE} == "p5en.48xlarge" ]]; then
+          grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+          grep "NET/OFI Selected Provider is efa (found 16 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
+      elif [[ ${INSTANCE_TYPE} == "p3dn.24xlarge" ]]; then
+          grep "NET/OFI Selected Provider is efa (found 4 nics)" ${TRAINING_LOG} || { echo "Selected Provider is efa text not found"; exit 1; }  
+      fi
+      echo "***************************** check_efa_nccl_all_reduce passed for cuda version ${CUDA_VERSION} *****************************"
+  else
+      echo "***************************** check_efa_nccl_all_reduce failed for cuda version ${CUDA_VERSION} *****************************"
+  fi
+  ```
++ To access the benchmark data, we can parse the final row of table output from the Multi Node all\_reduce test: 
 
-- Validate the Results as shown:
-
-```
-RETURN_VAL=`echo $?`
-if [ ${RETURN_VAL} -eq 0 ]; then
-
-    # [0] NCCL INFO NET/OFI Initializing aws-ofi-nccl 1.13.2-aws
-    # [0] NCCL INFO NET/OFI Using CUDA driver version 12060 with runtime 12010
-
-    # cudaDriverVersion 12060  --> This is max supported cuda version by nvidia driver
-    # NCCL version 2.23.4+cuda12.5 --> This is NCCL version compiled with cuda version
-
-    # Validation of logs
-    grep "NET/OFI Configuring AWS-specific options" ${TRAINING_LOG} || { echo "AWS-specific options text not found"; exit 1; }
-    grep "busbw" ${TRAINING_LOG} || { echo "busbw text not found"; exit 1; }
-    grep "Avg bus bandwidth " ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-    grep "NCCL version $NCCL_VERSION" ${TRAINING_LOG} || { echo "Text not found: NCCL version $NCCL_VERSION"; exit 1; }
-    if [[ ${INSTANCE_TYPE} == "p4d.24xlarge" ]]; then
-        grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Text not found: NET/Libfabric/0/GDRDMA"; exit 1; }
-        grep "NET/OFI Selected Provider is efa (found 4 nics)" ${TRAINING_LOG} || { echo "Selected Provider is efa text not found"; exit 1; }
-    elif [[ ${INSTANCE_TYPE} == "p4de.24xlarge" ]]; then
-        grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-        grep "NET/OFI Selected Provider is efa (found 4 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-    elif [[ ${INSTANCE_TYPE} == "p5.48xlarge" ]]; then
-        grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-        grep "NET/OFI Selected Provider is efa (found 32 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-    elif [[ ${INSTANCE_TYPE} == "p5e.48xlarge" ]]; then
-        grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-        grep "NET/OFI Selected Provider is efa (found 32 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-    elif [[ ${INSTANCE_TYPE} == "p5en.48xlarge" ]]; then
-        grep "NET/Libfabric/0/GDRDMA" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-        grep "NET/OFI Selected Provider is efa (found 16 nics)" ${TRAINING_LOG} || { echo "Avg bus bandwidth text not found"; exit 1; }
-    elif [[ ${INSTANCE_TYPE} == "p3dn.24xlarge" ]]; then
-        grep "NET/OFI Selected Provider is efa (found 4 nics)" ${TRAINING_LOG} || { echo "Selected Provider is efa text not found"; exit 1; }
-    fi
-    echo "***************************** check_efa_nccl_all_reduce passed for cuda version ${CUDA_VERSION} *****************************"
-else
-    echo "***************************** check_efa_nccl_all_reduce failed for cuda version ${CUDA_VERSION} *****************************"
-fi
-
-```
-
-- To access the benchmark data, we can parse the final row of table output from the Multi Node all\_reduce test:
-
-```
-benchmark=$(sudo cat ${TRAINING_LOG} | grep '1073741824' | tail -n1 | awk -F " " '{{print $12}}' | sed 's/ //' | sed  's/  5e-07//')
-if [[ -z "${benchmark}" ]]; then
-  echo "benchmark variable is empty"
-  exit 1
-fi
-
-echo "Benchmark throughput: ${benchmark}"
-```
+  ```
+  benchmark=$(sudo cat ${TRAINING_LOG} | grep '1073741824' | tail -n1 | awk -F " " '{{print $12}}' | sed 's/ //' | sed  's/  5e-07//')
+  if [[ -z "${benchmark}" ]]; then
+    echo "benchmark variable is empty"
+    exit 1
+  fi
+  
+  echo "Benchmark throughput: ${benchmark}"
+  ```

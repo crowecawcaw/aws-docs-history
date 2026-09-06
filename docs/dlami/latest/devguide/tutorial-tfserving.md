@@ -1,20 +1,19 @@
+
+
 # TensorFlow Serving
+<a name="tutorial-tfserving"></a>
 
-[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving "https://www.tensorflow.org/tfx/guide/serving") is a flexible, high-performance serving system for machine learning models.
+[TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving) is a flexible, high-performance serving system for machine learning models.
 
-The `tensorflow-serving-api` is pre-installed with single framwork DLAMI.
-To use tensorflow serving, first activate the TensorFlow environment.
-
-```
-`$` source /opt/tensorflow/bin/activate
-```
-
-Then use your preferred text editor to
-create a script that has the following content. Name it `test_train_mnist.py`.
-This script is referenced from [TensorFlow Tutorial](https://github.com/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb "https://github.com/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb") which will train and evaluate a neural network machine learning model that classifies images.
+The `tensorflow-serving-api` is pre-installed with single framwork DLAMI. To use tensorflow serving, first activate the TensorFlow environment.
 
 ```
+$ source /opt/tensorflow/bin/activate
+```
 
+Then use your preferred text editor to create a script that has the following content. Name it `test_train_mnist.py`. This script is referenced from [TensorFlow Tutorial](https://github.com/tensorflow/docs/blob/master/site/en/tutorials/quickstart/beginner.ipynb) which will train and evaluate a neural network machine learning model that classifies images.
+
+```
 import tensorflow as tf
 mnist = tf.keras.datasets.mnist
 
@@ -34,21 +33,19 @@ model.compile(optimizer='adam',
 
 model.fit(x_train, y_train, epochs=5)
 model.evaluate(x_test, y_test)
-
 ```
 
 Now run the script passing the server location and port and the husky photo's filename as the parameters.
 
 ```
-`$` /opt/tensorflow/bin/python3 test_train_mnist.py
+$ /opt/tensorflow/bin/python3 test_train_mnist.py
 ```
 
-Be patient, as this script may take a while before providing any output.
-When the training is complete you should see the following:
+ Be patient, as this script may take a while before providing any output. When the training is complete you should see the following: 
 
 ```
 I0000 00:00:1739482012.389276    4284 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
-1875/1875 [==============================] - 24s 2ms/step - loss: 0.2973 - accuracy: 0.9134
+1875/1875 [==============================] - 24s 2ms/step - loss: 0.2973 - accuracy: 0.9134 
 Epoch 2/5
 1875/1875 [==============================] - 3s 2ms/step - loss: 0.1422 - accuracy: 0.9582
 Epoch 3/5
@@ -58,10 +55,9 @@ Epoch 4/5
 Epoch 5/5
 1875/1875 [==============================] - 3s 1ms/step - loss: 0.0731 - accuracy: 0.9771
 313/313 [==============================] - 0s 1ms/step - loss: 0.0749 - accuracy: 0.9780
-
 ```
 
 ## More Features and Examples
+<a name="tutorial-tfserving-project"></a>
 
-If you are interested in learning more about TensorFlow Serving, check out the
-[TensorFlow website](https://www.tensorflow.org/serving/ "https://www.tensorflow.org/serving/").
+If you are interested in learning more about TensorFlow Serving, check out the [TensorFlow website](https://www.tensorflow.org/serving/).
