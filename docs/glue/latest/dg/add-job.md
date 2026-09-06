@@ -47,6 +47,7 @@ available to the job, as specified in the following table.
 
 | AWS Glue version | Supported Spark and Python versions |
 | ---------------- | ----------------------------------- |
+| 6.0              | • Spark 4.1.1<br>• Python 3.13      |
 | 5.1              | • Spark 3.5.6<br>• Python 3.11      |
 | 5.0              | • Spark 3.5.4<br>• Python 3.11      |
 | 4.0              | • Spark 3.3.0<br>• Python 3.10      |

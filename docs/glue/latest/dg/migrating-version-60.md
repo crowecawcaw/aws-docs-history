@@ -150,7 +150,7 @@ To help migrate your jobs, you can use [Generative AI upgrades for
 Apache Spark](upgrade-analysis.md "upgrade-analysis.md") to upgrade your AWS Glue ETL jobs
 from older AWS Glue versions (2.0 and later) to the latest AWS Glue version.
 
-###### Troubleshooting
+###### Note
 
 You can use the [Spark Troubleshooting Agent](../../../emr/latest/ReleaseGuide/spark-troubleshoot.md "../../../emr/latest/ReleaseGuide/spark-troubleshoot.md") to troubleshoot your
 AWS Glue ETL jobs.
@@ -319,7 +319,7 @@ The following are connector upgrades:
 | Spark Redshift         | 6.7.0                   | 6.4.2                   | 6.4.0                   |
 | Spark SQL Kinesis      | 2.1.0                   | N/A                     | N/A                     |
 | MongoDB                | 11.0.1                  | 10.3.0                  | 10.3.0                  |
-| Snowflake              | 3.17.0                  | 3.1.1                   | 3.0.0                   |
+| Snowflake              | 3.1.8                   | 3.1.1                   | 3.0.0                   |
 | OpenSearch             | 2.0.0                   | 1.2.0                   | 1.2.0                   |
 | EMR DynamoDB connector | 6.1.0                   | 5.7.0                   | 5.6.0                   |
 

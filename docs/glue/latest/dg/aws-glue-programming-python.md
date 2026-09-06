@@ -12,6 +12,7 @@ how to use Python in ETL scripts and with the AWS Glue API.
 - [Setting up to use Python with AWS Glue](aws-glue-programming-python-setup.md "aws-glue-programming-python-setup.md")
 - [Calling AWS Glue APIs in Python](aws-glue-programming-python-calling.md "aws-glue-programming-python-calling.md")
 - [Using Python libraries with AWS Glue](aws-glue-programming-python-libraries.md "aws-glue-programming-python-libraries.md")
+- [Using Python virtual environments with AWS Glue](aws-glue-programming-python-virtual-environments.md "aws-glue-programming-python-virtual-environments.md")
 - [AWS Glue Python code samples](aws-glue-programming-python-samples.md "aws-glue-programming-python-samples.md")
 
 ## AWS Glue PySpark extensions
