@@ -1,120 +1,117 @@
+
+
 # Enabling session storage
+<a name="manage-storage"></a>
 
-Session storage is a folder on the Amazon DCV server that clients can access when they're connected to a specific Amazon DCV session. When you enable session
-storage for a session, clients can download files from, and upload files to, the specified folder. This feature enables clients to share files
-while connected to a session.
+Session storage is a folder on the Amazon DCV server that clients can access when they're connected to a specific Amazon DCV session. When you enable session storage for a session, clients can download files from, and upload files to, the specified folder. This feature enables clients to share files while connected to a session.
 
-###### Topics
-
-- [Enabling session storage on Windows](#manage-storage-windows "#manage-storage-windows")
-- [Enabling session storage on Linux](#manage-storage-linux "#manage-storage-linux")
-- [Enabling session storage on macOS](#manage-storage-macos "#manage-storage-macos")
+**Topics**
++ [Enabling session storage on Windows](#manage-storage-windows)
++ [Enabling session storage on Linux](#manage-storage-linux)
++ [Enabling session storage on macOS](#manage-storage-macos)
 
 ## Enabling session storage on a Windows Amazon DCV Server
+<a name="manage-storage-windows"></a>
 
-To enable session storage, first create the folder to use for session storage. Then, configure the `storage-root` parameter using
-the Windows Registry Editor.
+To enable session storage, first create the folder to use for session storage. Then, configure the `storage-root` parameter using the Windows Registry Editor.
 
-###### To enable session storage on Windows
+**To enable session storage on Windows**
 
 1. Create the folder to use for session storage (for example, `c:\session-storage`).
-2. Configure the `storage-root` parameter.
+
+1. Configure the `storage-root` parameter.
 
    1. Open the Windows Registry Editor.
-   2. Navigate to the
-      **HKEY\_USERS\S-1-5-18\Software\GSettings\com\nicesoftware\dcv\session-management\automatic-console-session** key and select
-      the **storage-root** parameter.
 
-   If there's no `storage-root` parameter in the registry key, create one as follows:
+   1. Navigate to the **HKEY\_USERS\\S-1-5-18\\Software\\GSettings\\com\\nicesoftware\\dcv\\session-management\\automatic-console-session** key and select the **storage-root** parameter.
 
-        1. In the navigation pane, open the context (right-click) menu for the **session-management/automatic-console-session**
-         key. Then, choose **New**, **String**.
-        2. For **Name**, enter `storage-root` and press **Enter**.
+      If there's no `storage-root` parameter in the registry key, create one as follows:
 
-   3. Open the **storage-root** parameter. For **Value data**, enter the full path to the folder that's
-   created in step 1.
+      1. In the navigation pane, open the context (right-click) menu for the **session-management/automatic-console-session** key. Then, choose **New**, **String**.
 
-   You can also use `%home%` in the path to specify the home directory of the user who's currently signed in. For example, the
-   following path uses `c:\Users\`username`\storage\` as the session storage directory.
+      1. For **Name**, enter `storage-root` and press **Enter**.
 
-   ```
-   %home%/storage/
-   ```
+   1. Open the **storage-root** parameter. For **Value data**, enter the full path to the folder that's created in step 1.
 
-   ###### Note
+      You can also use `%home%` in the path to specify the home directory of the user who's currently signed in. For example, the following path uses `c:\Users\{{username}}\storage\` as the session storage directory.
 
-   If the specified subdirectory doesn't exist, then session storage is disabled. 4. Choose **OK** and close the Windows Registry Editor. 5. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+      ```
+      %home%/storage/
+      ```
+**Note**  
+If the specified subdirectory doesn't exist, then session storage is disabled.
 
-3. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
+   1. Choose **OK** and close the Windows Registry Editor.
+
+   1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
+
+1. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md).
 
 ## Enabling session storage on a Linux Amazon DCV Server
+<a name="manage-storage-linux"></a>
 
-To enable session storage, create the folder to use for session storage and then configure the `storage-root` parameter in the
-`dcv.conf` file.
+To enable session storage, create the folder to use for session storage and then configure the `storage-root` parameter in the `dcv.conf` file.
 
-###### To enable session storage on Linux
+**To enable session storage on Linux**
 
 1. Create the folder to use for session storage (for example, `/opt/session-storage/`).
-2. Configure the `storage-root` parameter.
+
+1. Configure the `storage-root` parameter.
 
    1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
-   2. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the
-      existing path with the full path to the folder that you created in step 1.
 
-   If there's no `storage-root` parameter in the `[session-management/automatic-console-session]` section, add it
-   manually using the following format.
+   1. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the existing path with the full path to the folder that you created in step 1.
 
-   ```
-   [session-management/automatic-console-session]
-   storage-root="`/opt/session-storage/`"
-   ```
+      If there's no `storage-root` parameter in the `[session-management/automatic-console-session]` section, add it manually using the following format.
 
-   You can also use `%home%` in the path to specify the home directory of the user who's currently signed in. For example, the
-   following parameter uses the `$HOME/storage/` directory for session storage.
+      ```
+      [session-management/automatic-console-session]
+      storage-root="{{/opt/session-storage/}}"
+      ```
 
-   ```
-   [session-management/automatic-console-session]
-   storage-root="`%home%/storage/`"
-   ```
+      You can also use `%home%` in the path to specify the home directory of the user who's currently signed in. For example, the following parameter uses the `$HOME/storage/` directory for session storage.
 
-   ###### Note
+      ```
+      [session-management/automatic-console-session]
+      storage-root="{{%home%/storage/}}"
+      ```
+**Note**  
+If the specified subdirectory doesn't exist, then session storage is disabled.
 
-   If the specified subdirectory doesn't exist, then session storage is disabled.
+1. Save and close the file.
 
-3. Save and close the file.
-4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
-5. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
+1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
+
+1. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md).
 
 ## Enabling session storage on a macOS Amazon DCV Server
+<a name="manage-storage-macos"></a>
 
-To enable session storage, create the folder to use for session storage and then configure the `storage-root` parameter in the
-`dcv.conf` file.
+To enable session storage, create the folder to use for session storage and then configure the `storage-root` parameter in the `dcv.conf` file.
 
-###### To enable session storage on macOS
+**To enable session storage on macOS**
 
 1. Create the folder to use for session storage (for example, `/opt/session-storage/`).
-2. Configure the `storage-root` parameter.
+
+1. Configure the `storage-root` parameter.
 
    1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor.
-   2. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the
-      existing path with the full path to the folder that you created in step 1.
 
-   If there's no `storage-root` parameter in the `[session-management/automatic-console-session]` section, add it
-   manually using the following format.
+   1. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section. Replace the existing path with the full path to the folder that you created in step 1.
 
-   ```
-   [session-management/automatic-console-session]
-   storage-root="`/opt/session-storage/`"
-   ```
+      If there's no `storage-root` parameter in the `[session-management/automatic-console-session]` section, add it manually using the following format.
 
-   ###### Note
+      ```
+      [session-management/automatic-console-session]
+      storage-root="{{/opt/session-storage/}}"
+      ```
+**Note**  
+If the specified subdirectory doesn't exist, then session storage is disabled.
+**Note**  
+The `storage-root` value must be an absolute path on macOS.
 
-   If the specified subdirectory doesn't exist, then session storage is disabled.
+1. Save and close the file.
 
-   ###### Note
+1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
-   The `storage-root` value must be an absolute path on macOS.
-
-3. Save and close the file.
-4. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
-5. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md "managing-sessions-start.md").
+1. Start the session and specify the `--storage-root` option. For more information, see [Starting Amazon DCV sessions](managing-sessions-start.md).

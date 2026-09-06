@@ -1,120 +1,138 @@
+
+
 # Configuring WebAuthn redirection on Linux hosts
+<a name="webauth-linux"></a>
 
-DCV Linux server currently support Standard WebAuthn. Standard WebAuthn requires a browser extension to facilitate the redirection of WebAuthn prompts onto the
-client. WebAuthn can be enabled or disabled using the webauthn-redirection permission. For more information, see [Working with permissions files](security-authorization-file-create.md "security-authorization-file-create.md").
+DCV Linux server currently support Standard WebAuthn. Standard WebAuthn requires a browser extension to facilitate the redirection of WebAuthn prompts onto the client. WebAuthn can be enabled or disabled using the webauthn-redirection permission. For more information, see [Working with permissions files](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization-file-create.html).
 
-###### Prerequisites
-
-- DCV server version 2025.0 or higher
-- DCV native clients for Windows, Linux and Mac
-- Root access (sudo) on the Linux server instance
-- Internet access to download browser extensions
+**Prerequisites**
++ DCV server version 2025.0 or higher
++ DCV native clients for Windows, Linux and Mac
++ Root access (sudo) on the Linux server instance
++ Internet access to download browser extensions
 
 ## Configuring WebAuthn Redirection
+<a name="configuring-webauth-linux"></a>
 
 WebAuthn is enabled on DCV by default. You can enable or disable WebAuthn by enabling the “[webauthn]” setting in the DCV configuration file:
 
 ```
 /etc/dcv/dcv.conf
 
-[webauthn]
+[webauthn] 
 enabled=true
 ```
 
-###### Configuring Webauthn for Linux
+**Configuring Webauthn for Linux**
 
 1. Create a symbolic link to the native messaging host manifest file for each supported browser.
 
-Google Chrome
-Use the following commands:
+------
+#### [ Google Chrome ]
 
-```
-sudo mkdir -p /etc/opt/chrome/native-messaging-hosts
-```
+   Use the following commands:
 
-```
-sudo ln -s -f /usr/share/dcv/webauthn/com.dcv.webauthnredirection.nativemessagehost.json /etc/opt/chrome/native-messaging-hosts/
-```
+   ```
+   sudo mkdir -p /etc/opt/chrome/native-messaging-hosts
+   ```
 
-Chromium
-Use the following commands:
+   ```
+   sudo ln -s -f /usr/share/dcv/webauthn/com.dcv.webauthnredirection.nativemessagehost.json /etc/opt/chrome/native-messaging-hosts/
+   ```
 
-```
-sudo mkdir -p /etc/chromium/native-messaging-hosts
-```
+------
+#### [ Chromium ]
 
-```
-sudo ln -s -f /usr/share/dcv/webauthn/com.dcv.webauthnredirection.nativemessagehost.json /etc/chromium/native-messaging-hosts/
-```
+   Use the following commands:
 
-Microsoft Edge
-Use the following commands:
+   ```
+   sudo mkdir -p /etc/chromium/native-messaging-hosts
+   ```
 
-```
-sudo mkdir -p /etc/opt/edge/native-messaging-hosts
-```
+   ```
+   sudo ln -s -f /usr/share/dcv/webauthn/com.dcv.webauthnredirection.nativemessagehost.json /etc/chromium/native-messaging-hosts/
+   ```
 
-```
-sudo ln -s -f /usr/share/dcv/webauthn/com.dcv.webauthnredirection.nativemessagehost.json /etc/opt/edge/native-messaging-hosts/
-```
+------
+#### [ Microsoft Edge ]
 
-2. Install the browser extension for WebAuthn redirection. This can be done manually or through enterprise policies.
+   Use the following commands:
 
-Google Chrome
-Use the following commands:
+   ```
+   sudo mkdir -p /etc/opt/edge/native-messaging-hosts
+   ```
 
-```
-sudo mkdir -p /usr/share/google-chrome/extensions/
-```
+   ```
+   sudo ln -s -f /usr/share/dcv/webauthn/com.dcv.webauthnredirection.nativemessagehost.json /etc/opt/edge/native-messaging-hosts/
+   ```
 
-```
-echo '{"external_update_url": "https://clients2.google.com/service/update2/crx"}' | \
-```
+------
 
-```
-sudo tee /usr/share/google-chrome/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
-```
+1. Install the browser extension for WebAuthn redirection. This can be done manually or through enterprise policies.
 
-```
-sudo chmod a+r /usr/share/google-chrome/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
-```
+------
+#### [ Google Chrome ]
 
-Chromium
-Use the following commands:
+   Use the following commands:
 
-```
-sudo mkdir -p /usr/share/chromium/extensions/
-```
+   ```
+   sudo mkdir -p /usr/share/google-chrome/extensions/
+   ```
 
-```
-echo '{"external_update_url": "https://clients2.google.com/service/update2/crx"}' | \
-```
+   ```
+   echo '{"external_update_url": "https://clients2.google.com/service/update2/crx"}' | \
+   ```
 
-```
-sudo tee /usr/share/chromium/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
-```
+   ```
+   sudo tee /usr/share/google-chrome/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
+   ```
 
-```
-sudo chmod a+r /usr/share/chromium/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
-```
+   ```
+   sudo chmod a+r /usr/share/google-chrome/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
+   ```
 
-Microsoft Edge
-Use the following commands:
+------
+#### [ Chromium ]
 
-```
-sudo mkdir -p /usr/share/microsoft-edge/extensions/
-```
+   Use the following commands:
 
-```
-echo '{"external_update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"}' | \
-```
+   ```
+   sudo mkdir -p /usr/share/chromium/extensions/
+   ```
 
-```
-sudo tee /usr/share/microsoft-edge/extensions/ihejeaahjpbegmaaegiikmlphghlfmeh.json
-```
+   ```
+   echo '{"external_update_url": "https://clients2.google.com/service/update2/crx"}' | \
+   ```
 
-```
-sudo chmod a+r /usr/share/microsoft-edge/extensions/ihejeaahjpbegmaaegiikmlphghlfmeh.json
-```
+   ```
+   sudo tee /usr/share/chromium/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
+   ```
 
-3. Restart the browser.
+   ```
+   sudo chmod a+r /usr/share/chromium/extensions/mmiioagbgnbojdbcjoddlefhmcocfpmn.json
+   ```
+
+------
+#### [ Microsoft Edge ]
+
+   Use the following commands:
+
+   ```
+   sudo mkdir -p /usr/share/microsoft-edge/extensions/
+   ```
+
+   ```
+   echo '{"external_update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx"}' | \
+   ```
+
+   ```
+   sudo tee /usr/share/microsoft-edge/extensions/ihejeaahjpbegmaaegiikmlphghlfmeh.json
+   ```
+
+   ```
+   sudo chmod a+r /usr/share/microsoft-edge/extensions/ihejeaahjpbegmaaegiikmlphghlfmeh.json
+   ```
+
+------
+
+1. Restart the browser.
