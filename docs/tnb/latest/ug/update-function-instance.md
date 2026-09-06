@@ -1,28 +1,39 @@
+
+
 # Update a function instance in AWS TNB
+<a name="update-function-instance"></a>
 
-After a network instance is instantiated, you can update a function package in the
-network instance.
+After a network instance is instantiated, you can update a function package in the network instance.
 
-Console
+------
+#### [ Console ]
 
-###### To update a function instance using the console
+**To update a function instance using the console**
 
-1. Open the AWS TNB console at [https://console.aws.amazon.com/tnb/](https://console.aws.amazon.com/tnb/ "https://console.aws.amazon.com/tnb/").
-2. In the navigation pane, choose **Networks**.
-3. Select the network instance. You can update a network instance only if
-   its state is `Instantiated`.
+1. Open the AWS TNB console at [https://console.aws.amazon.com/tnb/](https://console.aws.amazon.com/tnb/).
 
-The network instance page appears. 4. From the **Functions** tab, select the function instance
-to update. 5. Choose **Update**. 6. Enter your update overrides. 7. Choose **Update**.
+1. In the navigation pane, choose **Networks**.
 
-AWS CLI
+1. Select the network instance. You can update a network instance only if its state is `Instantiated`.
 
-###### Use the CLI to update a function instance
+   The network instance page appears.
 
-Use the [update-sol-network-instance](../../../cli/latest/reference/tnb/update-sol-network-instance.md "../../../cli/latest/reference/tnb/update-sol-network-instance.md") command with the
-`MODIFY_VNF_INFORMATION` update type to update a function
-instance in a network instance.
+1. From the **Functions** tab, select the function instance to update.
+
+1. Choose **Update**.
+
+1. Enter your update overrides.
+
+1. Choose **Update**.
+
+------
+#### [ AWS CLI ]
+
+**Use the CLI to update a function instance**  
+Use the [update-sol-network-instance](https://docs.aws.amazon.com/cli/latest/reference/tnb/update-sol-network-instance.html) command with the `MODIFY_VNF_INFORMATION` update type to update a function instance in a network instance.
 
 ```
-aws tnb update-sol-network-instance --ns-instance-id `^ni-[a-f0-9]{17}$` --update-type MODIFY_VNF_INFORMATION --modify-vnf-info ...
+aws tnb update-sol-network-instance --ns-instance-id {{^ni-[a-f0-9]{17}$}} --update-type MODIFY_VNF_INFORMATION --modify-vnf-info ...
 ```
+
+------

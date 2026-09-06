@@ -1,96 +1,79 @@
+
+
 # AWS TNB concepts
+<a name="tnb-concepts"></a>
 
 This topic describes essential concepts to help you start using AWS TNB.
 
-###### Contents
-
-- [Lifecycle of a network function](#nf-lifecycle "#nf-lifecycle")
-- [Use standardized interfaces](#use-standardized-interfaces "#use-standardized-interfaces")
-- [Function package](#nf-packages "#nf-packages")
-- [Network package](#network-package "#network-package")
-- [Management and operations for AWS TNB](#network-service-operations "#network-service-operations")
+**Topics**
++ [Lifecycle of a network function](#nf-lifecycle)
++ [Use standardized interfaces](#use-standardized-interfaces)
++ [Function package](#nf-packages)
++ [Network package](#network-package)
++ [Management and operations for AWS TNB](#network-service-operations)
 
 ## Lifecycle of a network function
+<a name="nf-lifecycle"></a>
 
-AWS TNB helps you throughout the lifecycle of your network functions. The network
-function lifecycle includes the following stages and activities:
+AWS TNB helps you throughout the lifecycle of your network functions. The network function lifecycle includes the following stages and activities:
 
-**Planning**
+**Planning**  
 
 1. Plan your network by identifying the network functions to deploy.
-2. Put the network function software images in a container image
-   repository.
-3. Create the CSAR packages to deploy or upgrade.
-4. Use AWS TNB to upload the CSAR package that defines your network
-   function (for example, CU AMF, and UPF), and integrate with a continuous
-   integration and continuous delivery (CI/CD)
-   pipeline
-   that can help you create new versions of your CSAR package as new network
-   function software images, or
-   customer
-   scripts, are available.
 
-**Configuration**
+1. Put the network function software images in a container image repository.
 
-1. Identify the information required for the deployment, such as compute
-   type, network function version, IP information, and names of
-   resources.
-2. Use the information to create your network service descriptor
-   (NSD).
-3. Ingest NSDs that define your network functions and the resources required
-   for the network function to instantiate.
+1. Create the CSAR packages to deploy or upgrade.
 
-**Instantiation**
+1. Use AWS TNB to upload the CSAR package that defines your network function (for example, CU AMF, and UPF), and integrate with a continuous integration and continuous delivery (CI/CD) pipeline that can help you create new versions of your CSAR package as new network function software images, or customer scripts, are available.
+
+**Configuration**  
+
+1. Identify the information required for the deployment, such as compute type, network function version, IP information, and names of resources.
+
+1. Use the information to create your network service descriptor (NSD).
+
+1. Ingest NSDs that define your network functions and the resources required for the network function to instantiate.
+
+**Instantiation**  
 
 1. Create the infrastructure required by the network functions.
-2. Instantiate (or provision) the network function as defined in its NSD and
-   start carrying traffic.
-3. Validate the assets.
 
-**Production**
+1. Instantiate (or provision) the network function as defined in its NSD and start carrying traffic.
 
-During the lifecycle of the network function, you'll complete production
-operations, such as:
+1. Validate the assets.
 
-- Update the network function configuration, for example, update a value in
-  the deployed network function.
-- Update the network instance with a new network package and parameter values. For example, update the Amazon EKS `version` parameter in the network package.
+**Production**  
+During the lifecycle of the network function, you'll complete production operations, such as:  
++ Update the network function configuration, for example, update a value in the deployed network function.
++ Update the network instance with a new network package and parameter values. For example, update the Amazon EKS `version` parameter in the network package.
 
 ## Use standardized interfaces
+<a name="use-standardized-interfaces"></a>
 
-AWS TNB integrates with European Telecommunications Standards Institute (ETSI)
-compliant service orchestrators allowing you to simplify the deployment of your network
-services. Service orchestrators can use AWS TNB SDKs, the CLI, or the APIs to initiate
-operations, such as instantiating or upgrading an network function to a new version.
+AWS TNB integrates with European Telecommunications Standards Institute (ETSI) compliant service orchestrators allowing you to simplify the deployment of your network services. Service orchestrators can use AWS TNB SDKs, the CLI, or the APIs to initiate operations, such as instantiating or upgrading an network function to a new version.
 
 AWS TNB supports the following specifications.
 
-| Specification | Release                                                                                                                                                                                                   | Description                                                                                |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| ETSI SOL001   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf") | Defines standards for allowing TOSCA-based network function<br>descriptors.                |
-| ETSI SOL002   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf") | Defines models around network function management.                                         |
-| ETSI SOL003   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf") | Defines standards for network function lifecycle management.                               |
-| ETSI SOL004   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf") | Defines CSAR standards for network function packages.                                      |
-| ETSI SOL005   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf") | Defines standards for network service package and network service<br>lifecycle management. |
-| ETSI SOL007   | [v3.5.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf") | Defines standards for allowing TOSCA-based network service<br>descriptors.                 |
+
+| Specification | Release | Description | 
+| --- | --- | --- | 
+| ETSI SOL001 |  [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf)  | Defines standards for allowing TOSCA-based network function descriptors. | 
+| ETSI SOL002 |  [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf)  | Defines models around network function management. | 
+| ETSI SOL003 |  [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf)  | Defines standards for network function lifecycle management. | 
+| ETSI SOL004 |  [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf)  | Defines CSAR standards for network function packages. | 
+| ETSI SOL005 |  [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf)  | Defines standards for network service package and network service lifecycle management. | 
+| ETSI SOL007 |  [v3.5.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf)  | Defines standards for allowing TOSCA-based network service descriptors. | 
 
 ## Function package
+<a name="nf-packages"></a>
 
-With AWS TNB, you can store function packages that comply with ETSI SOL001/SOL004
-into a functions catalog. Then, you can upload Cloud Service Archive (CSAR) packages that
-contain artifacts describing your virtual network function.
+With AWS TNB, you can store function packages that comply with ETSI SOL001/SOL004 into a functions catalog. Then, you can upload Cloud Service Archive (CSAR) packages that contain artifacts describing your virtual network function.
++ Virtual network function descriptor – Defines metadata for package onboarding and virtual network function management. You must name this file `vnfd.yaml`.
++ Software Images – References virtual network function Container Images. Amazon Elastic Container Registry (Amazon ECR) can act as your virtual network function images repository.
++ Additional Files – Use to manage the virtual network function; for example, scripts and Helm charts.
 
-- Virtual network function descriptor –
-  Defines
-  metadata for package onboarding and virtual network function management. You must name this file `vnfd.yaml`.
-- Software Images – References virtual network function Container Images. Amazon Elastic Container Registry (Amazon ECR)
-  can act as your virtual network function images repository.
-- Additional Files – Use to manage the virtual network function; for example, scripts and
-  Helm charts.
-
-The CSAR is a package defined by the OASIS TOSCA standard and includes a network/service
-descriptor that complies with the OASIS TOSCA YAML specification. For information about
-the required YAML specification, see [TOSCA reference for AWS TNB](tosca-reference.md "tosca-reference.md").
+The CSAR is a package defined by the OASIS TOSCA standard and includes a network/service descriptor that complies with the OASIS TOSCA YAML specification. For information about the required YAML specification, see [TOSCA reference for AWS TNB](tosca-reference.md).
 
 The following is an example virtual network function descriptor.
 
@@ -118,118 +101,90 @@ topology_template:
 ```
 
 ## Network package
+<a name="network-package"></a>
 
-A network package is a `.zip` file in CSAR (Cloud Service Archive) format. It defines the
-function packages you want to deploy and the AWS infrastructure you want to deploy them
-on.​
+A network package is a `.zip` file in CSAR (Cloud Service Archive) format. It defines the function packages you want to deploy and the AWS infrastructure you want to deploy them on.​
 
 The network package contains the following files:
++ A network descriptor file (`nsd.yaml`) in TOSCA format as described by ETSI SOL007.
 
-- A network descriptor file (`nsd.yaml`) in TOSCA format as described by
-  ETSI SOL007.
+  The `nsd.yaml` file contains references to uploaded [function packages](https://docs.aws.amazon.com/tnb/latest/ug/tnb-concepts.html#nf-packages) with their descriptor IDs.
++ User data scripts, if any.
++ Lifecycle hook scripts, if any.
++ Plugins' `values.yaml` configuration files, if any.
 
-The `nsd.yaml` file contains references to uploaded [function
-packages](tnb-concepts.md#nf-packages "tnb-concepts.md#nf-packages") with their descriptor IDs.
-
-- User data scripts, if any.
-- Lifecycle hook scripts, if any.
-- Plugins' `values.yaml` configuration files, if any.
-
-AWS TNB supports ETSI standards for the modeling of resources, such as network, service,
-and function, in the TOSCA language. AWS TNB makes it more efficient for you to use
-AWS services by modeling them in a way that your ETSI-compliant service orchestrator can
-understand.
+AWS TNB supports ETSI standards for the modeling of resources, such as network, service, and function, in the TOSCA language. AWS TNB makes it more efficient for you to use AWS services by modeling them in a way that your ETSI-compliant service orchestrator can understand.
 
 ### Network service descriptors for AWS TNB
+<a name="tnb-descriptors"></a>
 
-A network service descriptor (NSD) is a `.yaml` file in a network package that
-uses the TOSCA standard to describe the network functions that you want to deploy, and the AWS
-infrastructure that you want to deploy the network functions on. To define your NSD and
-configure your underlying resources and network lifecycle operations, you must understand the
-NSD TOSCA Schema supported by AWS TNB.
+A network service descriptor (NSD) is a `.yaml` file in a network package that uses the TOSCA standard to describe the network functions that you want to deploy, and the AWS infrastructure that you want to deploy the network functions on. To define your NSD and configure your underlying resources and network lifecycle operations, you must understand the NSD TOSCA Schema supported by AWS TNB.
 
 Your NSD file is divided into the following parts:
 
-1. TOSCA definition version – This is the first line
-   of your NSD YAML file and contains the version information, shown in the following
-   example.
+1. **TOSCA definition version** – This is the first line of your NSD YAML file and contains the version information, shown in the following example.
 
-```
-tosca_definitions_version: tnb_simple_yaml_1_0
-```
+   ```
+   tosca_definitions_version: tnb_simple_yaml_1_0
+   ```
 
-2. VNFD – The NSD contains the definition of the
-   network function on which to perform lifecycle operations. Each network function must be
-   identified by the following values:
+1. **VNFD** – The NSD contains the definition of the network function on which to perform lifecycle operations. Each network function must be identified by the following values:
+   + A unique ID for `descriptor_id`. The ID must match the ID in the network function CSAR package.
+   + A unique name for `namespace`. The name must be associated with a unique ID to more easily reference throughout your NSD YAML file, shown in the following example.
 
-   - A unique ID for `descriptor_id`. The ID must match the ID in the network function
-     CSAR package.
-   - A unique name for `namespace`. The name must be associated with a unique ID to more easily reference
-     throughout your NSD YAML file, shown in the following example.
+   ```
+   vnfds:
+     - descriptor_id: "61465757-cb8f-44d8-92c2-b69ca0de025b"
+       namespace: "amf"
+   ```
 
-```
-vnfds:
-  - descriptor_id: "61465757-cb8f-44d8-92c2-b69ca0de025b"
-    namespace: "amf"
-```
+1. **Topology template** – Defines the resources to be deployed, the network function deployment, and any customized scripts, such as lifecycle hooks. This is shown in the following example.
 
-3. Topology template – Defines the resources to be
-   deployed, the network function deployment, and any customized scripts, such as lifecycle
-   hooks. This is shown in the following example.
+   ```
+   topology_template:
+   
+     node_templates:
+   
+       SampleNS:
+         type: tosca.nodes.AWS.NS
+         properties:
+           descriptor_id: "<Sample Identifier>"
+           descriptor_version: "<Sample nversion>"
+           descriptor_name: "<Sample name>"
+   ```
 
-```
-topology_template:
+1. **Additional nodes** – Each modeled resource has sections for properties and requirements. The properties describe optional or mandatory attributes for a resource, such as the version. The requirements describe dependencies that must be provided as arguments. For example, to create an Amazon EKS Node Group Resource, it must be created within an Amazon EKS Cluster. This is shown in the following example.
 
-  node_templates:
-
-    SampleNS:
-      type: tosca.nodes.AWS.NS
-      properties:
-        descriptor_id: "<Sample Identifier>"
-        descriptor_version: "<Sample nversion>"
-        descriptor_name: "<Sample name>"
-```
-
-4. Additional nodes – Each modeled resource has
-   sections for properties and requirements. The properties describe optional or mandatory
-   attributes for a
-   resource,
-   such as the version. The requirements describe dependencies that must be provided as
-   arguments. For example, to create an Amazon EKS Node Group Resource, it must be created within an
-   Amazon EKS Cluster. This is shown in the following example.
-
-```
-SampleEKSNode:
-  type: tosca.nodes.AWS.Compute.EKSManagedNode
-  properties:
-    node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleRole`"
-  capabilities:
-    compute:
-      properties:
-        ami_type: "AL2_x86_64"
-        instance_types:
-          - "t3.xlarge"
-        key_pair: "SampleKeyPair"
-    scaling:
-      properties:
-        desired_size: 1
-        min_size: 1
-        max_size: 1
-  requirements:
-    cluster: SampleEKS
-    subnets:
-      - SampleSubnet
-    network_interfaces:
-      - SampleENI01
-      - SampleENI02
-```
+   ```
+   SampleEKSNode:
+     type: tosca.nodes.AWS.Compute.EKSManagedNode
+     properties:
+       node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/{{SampleRole}}"
+     capabilities:
+       compute:
+         properties:
+           ami_type: "AL2_x86_64"
+           instance_types:
+             - "t3.xlarge"
+           key_pair: "SampleKeyPair"
+       scaling:
+         properties:
+           desired_size: 1
+           min_size: 1
+           max_size: 1
+     requirements:
+       cluster: SampleEKS
+       subnets:
+         - SampleSubnet
+       network_interfaces:
+         - SampleENI01
+         - SampleENI02
+   ```
 
 #### Example NSD
+<a name="w2aab9c13c11b9"></a>
 
-The following is a snippet of an NSD showing how to model AWS services. The network
-function will be deployed on an Amazon EKS cluster with Kubernetes version 1.27. The subnets for the
-applications are Subnet01 and Subnet02. You can then define the NodeGroups for your applications
-with an Amazon Machine Image (AMI), instance type, and autoscaling configuration.
+The following is a snippet of an NSD showing how to model AWS services. The network function will be deployed on an Amazon EKS cluster with Kubernetes version 1.27. The subnets for the applications are Subnet01 and Subnet02. You can then define the NodeGroups for your applications with an Amazon Machine Image (AMI), instance type, and autoscaling configuration.
 
 ```
 tosca_definitions_version: tnb_simple_yaml_1_0
@@ -239,7 +194,7 @@ SampleNFEKS:
   properties:
     version: "1.27"
     access: "ALL"
-    cluster_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleClusterRole`"
+    cluster_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/{{SampleClusterRole}}"
   capabilities:
     multus:
       properties:
@@ -252,7 +207,7 @@ SampleNFEKS:
 SampleNFEKSNode01:
   type: tosca.nodes.AWS.Compute.EKSManagedNode
   properties:
-    node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleNodeRole`"
+    node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/{{SampleNodeRole}}"
   capabilities:
     compute:
       properties:
@@ -275,15 +230,13 @@ SampleNFEKSNode01:
 ```
 
 ## Management and operations for AWS TNB
+<a name="network-service-operations"></a>
 
-With AWS TNB, you can manage your network using standardized management operations in
-accordance with ETSI SOL003 and SOL005. You can use the AWS TNB APIs to perform lifecycle
-operations such as:
-
-- Instantiating your network functions.
-- Terminating your network functions.
-- Updating your network functions to override Helm deployments.
-- Updating an instantiated or updated network instance with a new network package and parameter values.
-- Managing versions of your network functions packages.
-- Managing versions of your NSDs.
-- Retrieving information about your deployed network functions.
+With AWS TNB, you can manage your network using standardized management operations in accordance with ETSI SOL003 and SOL005. You can use the AWS TNB APIs to perform lifecycle operations such as:
++ Instantiating your network functions.
++ Terminating your network functions.
++ Updating your network functions to override Helm deployments.
++ Updating an instantiated or updated network instance with a new network package and parameter values.
++ Managing versions of your network functions packages.
++ Managing versions of your NSDs.
++ Retrieving information about your deployed network functions.

@@ -1,72 +1,63 @@
-# AWS.Compute.EKS.AuthRole
 
-An AuthRole allows you to add IAM roles to the Amazon EKS cluster `aws-auth`
-`ConfigMap` so that users can access the Amazon EKS cluster using an IAM role.
+
+# AWS.Compute.EKS.AuthRole
+<a name="node-eks-authrole"></a>
+
+An AuthRole allows you to add IAM roles to the Amazon EKS cluster `aws-auth` `ConfigMap` so that users can access the Amazon EKS cluster using an IAM role.
 
 ## Syntax
+<a name="node-eks-authrole-syntax"></a>
 
 ```
 tosca.nodes.AWS.Compute.EKS.AuthRole:
   properties:
-    role_mappings: List
+    role\_mappings: List
       arn: String
-      groups: List
+      groups: List  
   requirements:
     clusters: List
 ```
 
 ## Properties
+<a name="node-eks-authrole-properties"></a>
 
-`role_mappings`
-
-List of mappings that define IAM roles that need to be added to the Amazon EKS
-cluster `aws-auth`
-`ConfigMap`.
-
-`arn`
-
-The ARN of the IAM role.
-
-Required: Yes
-
-Type: String
-
-`groups`
-
-Kubernetes groups to assign to the role defined in
-`arn`.
-
-Required: No
-
+ `role_mappings`    
+List of mappings that define IAM roles that need to be added to the Amazon EKS cluster `aws-auth` `ConfigMap`.    
+ `arn`    
+The ARN of the IAM role.  
+Required: Yes  
+Type: String  
+ `groups`    
+Kubernetes groups to assign to the role defined in `arn`.  
+Required: No  
 Type: List
 
 ## Requirements
+<a name="node-eks-authrole-requirements"></a>
 
-`clusters`
-
-An [AWS.Compute.EKS](node-eks.md "node-eks.md") node.
-
-Required: Yes
-
+ `clusters`    
+An [AWS.Compute.EKS](node-eks.md) node.  
+Required: Yes  
 Type: List
 
 ## Example
+<a name="node-eks-authrole-example"></a>
 
 ```
 EKSAuthMapRoles:
     type: tosca.nodes.AWS.Compute.EKS.AuthRole
     properties:
         role_mappings:
-        - arn: arn:aws:iam::${AWS::TNB::AccountId}:role/`TNBHookRole1`
+        - arn: arn:aws:iam::${AWS::TNB::AccountId}:role/{{TNBHookRole1}}
           groups:
           - system:nodes
           - system:bootstrappers
-        - arn: arn:aws:iam::${AWS::TNB::AccountId}:role/`TNBHookRole2`
+        - arn: arn:aws:iam::${AWS::TNB::AccountId}:role/{{TNBHookRole2}}
           groups:
           - system:nodes
           - system:bootstrappers
     requirements:
-         clusters:
-         - `Free5GCEKS1`
-         - `Free5GCEKS2`
+         clusters: 
+         - {{Free5GCEKS1}}
+         - {{Free5GCEKS2}}
 ```
