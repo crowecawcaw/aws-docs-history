@@ -1,13 +1,15 @@
+
+
 # Get a Secrets Manager secret value using the Java AWS SDK
+<a name="retrieving-secrets-java-sdk"></a>
 
 In applications, you can retrieve your secrets by calling `GetSecretValue` or `BatchGetSecretValue`in any of the AWS SDKs. However, we recommend that you cache your secret values by using client-side caching. Caching secrets improves speed and reduces your costs.
++ If you store database credentials in the secret, use the [Secrets Manager SQL connection drivers](retrieving-secrets_jdbc.md) to connect to a database using the credentials in the secret. 
++ For other types of secrets, use the [Secrets Manager Java-based caching component](retrieving-secrets_cache-java.md) or call the SDK directly with [`GetSecretValue`](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/model/GetSecretValueResult.html) or [`BatchGetSecretValue`](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/model/BatchGetSecretValueResult.html).
 
-- If you store database credentials in the secret, use the [Secrets Manager SQL connection drivers](retrieving-secrets_jdbc.md "retrieving-secrets_jdbc.md") to connect to a
-  database using the credentials in the secret.
-- For other types of secrets, use the [Secrets Manager Java-based caching component](retrieving-secrets_cache-java.md "retrieving-secrets_cache-java.md") or call the SDK directly with [`GetSecretValue`](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/model/GetSecretValueResult.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/model/GetSecretValueResult.md") or [`BatchGetSecretValue`](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/model/BatchGetSecretValueResult.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/secretsmanager/model/BatchGetSecretValueResult.md").
-  The following code examples show how to use `GetSecretValue`.
+The following code examples show how to use `GetSecretValue`.
 
-**Required permissions:** `secretsmanager:GetSecretValue`
+**Required permissions: **`secretsmanager:GetSecretValue`
 
 ```
 import software.amazon.awssdk.regions.Region;
@@ -73,5 +75,4 @@ public class GetSecretValue {
         }
     }
 }
-
 ```

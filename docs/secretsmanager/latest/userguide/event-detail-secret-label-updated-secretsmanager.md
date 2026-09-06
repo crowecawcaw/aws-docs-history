@@ -1,13 +1,13 @@
+
+
 # Secret Label Updated event
+<a name="event-detail-secret-label-updated-secretsmanager"></a>
 
-Secrets Manager sends a `Secret Label Updated` event when a staging label moves to a
-new version of a secret, for all labels except `AWSPENDING` and `AWSPREVIOUS`.
+Secrets Manager sends a `Secret Label Updated` event when a staging label moves to a new version of a secret, for all labels except `AWSPENDING` and `AWSPREVIOUS`.
 
-The following example shows the structure of the `Secret Label Updated`
-event. For descriptions of each field, see the list that follows.
+The following example shows the structure of the `Secret Label Updated` event. For descriptions of each field, see the list that follows.
 
-The `source` and `detail-type` fields are included below because they contain specific values for Secrets Manager events. For
-definitions of the other metadata fields that are included in all events, see [Event structure](../../../eventbridge/latest/ref/overview-event-structure.md "../../../eventbridge/latest/ref/overview-event-structure.md") in the _Amazon EventBridge Events Reference_.
+The `source` and `detail-type` fields are included below because they contain specific values for Secrets Manager events. For definitions of the other metadata fields that are included in all events, see [Event structure](https://docs.aws.amazon.com/eventbridge/latest/ref/overview-event-structure.html) in the *Amazon EventBridge Events Reference*.
 
 ```
 {
@@ -21,42 +21,25 @@ definitions of the other metadata fields that are included in all events, see [E
 }
 ```
 
-`detail-type`
-
-Identifies the type of event.
-
+`detail-type`  <a name="secret-label-updated-detail-type"></a>
+Identifies the type of event.  
 For this event, this value is `Secret Label Updated`.
 
-`source`
+`source`  <a name="secret-label-updated-source"></a>
+Identifies the service that generated the event. For Secrets Manager events, this value is `aws.secretsmanager`.
 
-Identifies the service that generated the event. For Secrets Manager events,
-this value is `aws.secretsmanager`.
+`detail`  <a name="secret-label-updated-detail"></a>
+A JSON object that contains information about the event. The service generating the event determines the content of this field.  
+For this event, this data includes:    
+`name`  <a name="secret-label-updated-name"></a>
+The friendly name of the secret.  
+`labelUpdated`  <a name="secret-label-updated-labelUpdated"></a>
+The staging label that was attached to the new version.  
+`versionId`  <a name="secret-label-updated-versionId"></a>
+The unique identifier of the new version of the secret.
 
-`detail`
-
-A JSON object that contains information about the event. The service
-generating the event determines the content of this field.
-
-For this event, this data includes:
-
-`name`
-
-The friendly name of the secret.
-
-`labelUpdated`
-
-The staging label that was attached to the new
-version.
-
-`versionId`
-
-The unique identifier of the new version of the
-secret.
-
-###### Example Secret Label Updated event
-
-The following example shows a `Secret Label Updated` event for a
-secret whose `AWSCURRENT` label moved to a new version.
+**Example Secret Label Updated event**  <a name="event-detail-secret-label-updated.example"></a>
+The following example shows a `Secret Label Updated` event for a secret whose `AWSCURRENT` label moved to a new version.  
 
 ```
 {

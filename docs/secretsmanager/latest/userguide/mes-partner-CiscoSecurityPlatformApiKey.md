@@ -1,32 +1,32 @@
+
+
 # Cisco Security Platform API Key
+<a name="mes-partner-CiscoSecurityPlatformApiKey"></a>
 
 ## Secret Value Fields
+<a name="w2aac27c11c15b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
 ```
 {
-  "refreshToken": "`refresh token value`",
-  "organizationId": "`organization ID`",
-  "apiKeyId": "`API key ID`",
+  "refreshToken": "{{refresh token value}}",
+  "organizationId": "{{organization ID}}",
+  "apiKeyId": "{{API key ID}}",
   "apiBaseUrl": "https://api.security.cisco.com"
 }
 ```
 
-refreshToken
-
+refreshToken  
 The Cisco API key, which is an OAuth refresh token with a 60-day life. The rotation process updates this field. Your application exchanges this token for a short-lived access token.
 
-organizationId
-
+organizationId  
 The Cisco Security Cloud Control organization that owns the API key. This value is the `enterpriseId` shown in the URL of the API Keys page. Do not use the organization ID embedded in the token.
 
-apiKeyId
-
+apiKeyId  
 The identifier of the API key that rotates. You can find this value on the same API Keys page as the organization ID.
 
-apiBaseUrl
-
+apiBaseUrl  
 The Cisco API base URL, for example `https://api.security.cisco.com`. The value must be an HTTPS origin with no path, port, query string, or user information.
 
 Rotation also writes an `expiresDate` field into the secret value. This field records the expiry of the current refresh token in ISO 8601 format. It is not a field that you provide.
@@ -34,14 +34,16 @@ Rotation also writes an `expiresDate` field into the secret value. This field re
 Secrets Manager does not store the access token. An access token lives about 18 hours, so a stored copy would be invalid most of the time. Your application mints an access token from the refresh token when it needs one.
 
 ## Secret Metadata Fields
+<a name="w2aac27c11c15b5"></a>
 
 This secret type requires no rotation metadata fields. Secrets Manager reads the routing values from the secret itself, and this secret type uses no admin secret.
 
 ## Usage Flow
+<a name="w2aac27c11c15b7"></a>
 
 This rotation uses a single-secret architecture. No admin secret is required. The stored refresh token authenticates its own rotation call.
 
-To create your secret, use the [CreateSecret](../apireference/API_CreateSecret.md "../apireference/API_CreateSecret.md") API call. Set the secret value to the fields described above and set the secret type to CiscoSecurityPlatformApiKey. To configure rotation, use the [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") API call. In the RotateSecret call, provide a role ARN that grants the service permission to rotate the secret. For an example permissions policy, see [Security and Permissions](mes-security.md "mes-security.md").
+To create your secret, use the [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html) API call. Set the secret value to the fields described above and set the secret type to CiscoSecurityPlatformApiKey. To configure rotation, use the [RotateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html) API call. In the RotateSecret call, provide a role ARN that grants the service permission to rotate the secret. For an example permissions policy, see [Security and Permissions](mes-security.md).
 
 During rotation, Secrets Manager calls the Cisco token refresh endpoint with the current refresh token. Cisco returns an access token, and after day 45 of the 60-day cycle it also returns a new refresh token. Secrets Manager stores the most recent refresh token as the pending version and discards the access token. It then verifies the pending token against the Cisco API and promotes it to current. There is no revoke step, because Cisco provides no API to invalidate a refresh token.
 

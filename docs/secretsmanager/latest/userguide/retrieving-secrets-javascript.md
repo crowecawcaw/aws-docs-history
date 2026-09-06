@@ -1,10 +1,13 @@
-# Get a Secrets Manager secret value using the JavaScript AWS SDK
 
-For JavaScript applications, call the SDK directly with [`getSecretValue`](../../../AWSJavaScriptSDK/latest/AWS/SecretsManager.md#getSecretValue-property "../../../AWSJavaScriptSDK/latest/AWS/SecretsManager.md#getSecretValue-property") or [`batchGetSecretValue`](../../../AWSJavaScriptSDK/latest/AWS/SecretsManager.md#batchGetSecretValue-property "../../../AWSJavaScriptSDK/latest/AWS/SecretsManager.md#batchGetSecretValue-property").
+
+# Get a Secrets Manager secret value using the JavaScript AWS SDK
+<a name="retrieving-secrets-javascript"></a>
+
+For JavaScript applications, call the SDK directly with [`getSecretValue`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SecretsManager.html#getSecretValue-property) or [`batchGetSecretValue`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SecretsManager.html#batchGetSecretValue-property).
 
 The following code example shows how to get a Secrets Manager secret value.
 
-**Required permissions:** `secretsmanager:GetSecretValue`
+**Required permissions: **`secretsmanager:GetSecretValue`
 
 ```
 import {
@@ -49,5 +52,4 @@ export const getSecretValue = async (secretName = "SECRET_NAME") => {
     return response.SecretBinary;
   }
 };
-
 ```

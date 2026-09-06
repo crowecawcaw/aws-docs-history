@@ -1,16 +1,18 @@
+
+
 # Get a batch of Secrets Manager secret values using the Python AWS SDK
+<a name="retrieving-secrets-python-batch"></a>
 
 The following code example shows how to get a batch of Secrets Manager secret values.
 
-**Required permissions:**
+**Required permissions: **
++ `secretsmanager:BatchGetSecretValue` 
++ `secretsmanager:GetSecretValue` permission for each secret you want to retrieve.
++ If you use filters, you must also have `secretsmanager:ListSecrets`. 
 
-- `secretsmanager:BatchGetSecretValue`
-- `secretsmanager:GetSecretValue` permission for each secret you want to retrieve.
-- If you use filters, you must also have `secretsmanager:ListSecrets`.
-  For an example permissions policy, see [Example: Permission to retrieve a group of secret values in a batch](auth-and-access_iam-policies.md#auth-and-access_examples_batch "auth-and-access_iam-policies.md#auth-and-access_examples_batch").
+For an example permissions policy, see [Example: Permission to retrieve a group of secret values in a batch](auth-and-access_iam-policies.md#auth-and-access_examples_batch).
 
-###### Important
-
+**Important**  
 If you have a VPCE policy that denies permission to retrieve an individual secret in the group you are retrieving, `BatchGetSecretValue` will not return any secret values, and it will return an error.
 
 ```
@@ -47,7 +49,4 @@ class BatchGetSecretsWrapper:
         except Exception as e:
             logger.error(f"An unknown error occurred:\n{str(e)}.")
             raise
-
-
-
 ```

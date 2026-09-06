@@ -1,26 +1,18 @@
+
+
 # Match AWS Secrets Manager events with Amazon EventBridge
+<a name="monitoring-eventbridge"></a>
 
-In Amazon EventBridge, you can match Secrets Manager events from CloudTrail log entries. You can configure EventBridge rules that look for these events and then send new generated events to a target to take action. For a list of CloudTrail entries that Secrets Manager logs, see [CloudTrail entries](cloudtrail_log_entries.md "cloudtrail_log_entries.md"). For instructions to set up EventBridge, see [Getting started with EventBridge](../../../eventbridge/latest/userguide/eb-get-started.md "../../../eventbridge/latest/userguide/eb-get-started.md") in the _EventBridge User Guide_.
+In Amazon EventBridge, you can match Secrets Manager events from CloudTrail log entries. You can configure EventBridge rules that look for these events and then send new generated events to a target to take action. For a list of CloudTrail entries that Secrets Manager logs, see [CloudTrail entries](cloudtrail_log_entries.md). For instructions to set up EventBridge, see [Getting started with EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *EventBridge User Guide*.
 
-###### Note
-
-This topic describes matching Secrets Manager events that EventBridge derives from CloudTrail log entries.
-Secrets Manager also publishes native events directly to EventBridge, such as the `Secret Label
- Updated` event, which don't require CloudTrail. For more information about native events,
-see [Secret event
-notifications](secret-event-notifications.md "secret-event-notifications.md").
+**Note**  
+This topic describes matching Secrets Manager events that EventBridge derives from CloudTrail log entries. Secrets Manager also publishes native events directly to EventBridge, such as the `Secret Label Updated` event, which don't require CloudTrail. For more information about native events, see [Secret event notifications](secret-event-notifications.md).
 
 ## Match all changes to a specified secret
+<a name="monitoring-eventbridge_examples-all-changes"></a>
 
-###### Note
-
-Because [some Secrets Manager events](cloudtrail_log_entries.md "cloudtrail_log_entries.md") return the ARN of the
-secret with different capitalization, in event patterns that match more than one
-action, to specify a secret by ARN, you may need to include both the keys
-`arn` and `aRN`.
-For
-more information, see [AWS
-re:Post](https://repost.aws/knowledge-center/secrets-manager-arn "https://repost.aws/knowledge-center/secrets-manager-arn").
+**Note**  
+Because [some Secrets Manager events](cloudtrail_log_entries.md) return the ARN of the secret with different capitalization, in event patterns that match more than one action, to specify a secret by ARN, you may need to include both the keys `arn` and `aRN`. For more information, see [AWS re:Post](https://repost.aws/knowledge-center/secrets-manager-arn).
 
 The following example shows an EventBridge event pattern that matches log entries for changes to a secret.
 
@@ -39,14 +31,9 @@ The following example shows an EventBridge event pattern that matches log entrie
 ```
 
 ## Match events when a secret value rotates
+<a name="monitoring-eventbridge_examples-rotations"></a>
 
-To detect when the active value of a secret changes, we recommend that you match
-the native `Secret Label Updated` event for the `AWSCURRENT` staging
-label. Secrets Manager moves the `AWSCURRENT` label to the new version whenever the active
-secret value changes, whether from a manual update or automatic rotation. This event
-is enabled by default for all secrets and routed to the default EventBridge event bus. To
-consume it, you add an event pattern that matches it, as shown in the following
-example.
+To detect when the active value of a secret changes, we recommend that you match the native `Secret Label Updated` event for the `AWSCURRENT` staging label. Secrets Manager moves the `AWSCURRENT` label to the new version whenever the active secret value changes, whether from a manual update or automatic rotation. This event is enabled by default for all secrets and routed to the default EventBridge event bus. To consume it, you add an event pattern that matches it, as shown in the following example.
 
 ```
 {
@@ -58,14 +45,9 @@ example.
 }
 ```
 
-For more information about the `Secret Label Updated` event, see [Secret event
-notifications](secret-event-notifications.md "secret-event-notifications.md").
+For more information about the `Secret Label Updated` event, see [Secret event notifications](secret-event-notifications.md).
 
-Alternatively, you can match CloudTrail log entries for the operations that change a
-secret value. Some of these events are from Secrets Manager operations and some are generated
-by the Secrets Manager service. You must include the `detail-type` for both. The
-following example shows an EventBridge event pattern that matches these CloudTrail log
-entries.
+Alternatively, you can match CloudTrail log entries for the operations that change a secret value. Some of these events are from Secrets Manager operations and some are generated by the Secrets Manager service. You must include the `detail-type` for both. The following example shows an EventBridge event pattern that matches these CloudTrail log entries.
 
 ```
 {

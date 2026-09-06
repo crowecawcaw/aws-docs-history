@@ -1,12 +1,15 @@
+
+
 # Get a Secrets Manager secret value using the SDK for .NET
+<a name="retrieving-secrets-net-sdk"></a>
 
 In applications, you can retrieve your secrets by calling `GetSecretValue` or `BatchGetSecretValue`in any of the AWS SDKs. However, we recommend that you cache your secret values by using client-side caching. Caching secrets improves speed and reduces your costs.
 
-For .NET applications, use the [Secrets Manager .NET-based caching component](retrieving-secrets_cache-net.md "retrieving-secrets_cache-net.md") or call the SDK directly with [`GetSecretValue`](../../../sdkfornet/v3/apidocs/items/SecretsManager/TGetSecretValueRequest.md "../../../sdkfornet/v3/apidocs/items/SecretsManager/TGetSecretValueRequest.md") or [`BatchGetSecretValue`](../../../sdkfornet/v3/apidocs/items/SecretsManager/TBatchGetSecretValueRequest.md "../../../sdkfornet/v3/apidocs/items/SecretsManager/TBatchGetSecretValueRequest.md").
+For .NET applications, use the [Secrets Manager .NET-based caching component](retrieving-secrets_cache-net.md) or call the SDK directly with [`GetSecretValue`](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/SecretsManager/TGetSecretValueRequest.html) or [`BatchGetSecretValue`](https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/SecretsManager/TBatchGetSecretValueRequest.html).
 
 The following code examples show how to use `GetSecretValue`.
 
-**Required permissions:** `secretsmanager:GetSecretValue`
+**Required permissions: **`secretsmanager:GetSecretValue`
 
 ```
     using System;
@@ -115,6 +118,4 @@ The following code examples show how to use `GetSecretValue`.
             }
         }
     }
-
-
 ```

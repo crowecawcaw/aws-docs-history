@@ -1,10 +1,13 @@
-# Get a Secrets Manager secret value using the C++ AWS SDK
 
-For C++ applications, call the SDK directly with [GetSecretValue](../../../goto/SdkForCpp/secretsmanager-2017-10-17/GetSecretValue.md "../../../goto/SdkForCpp/secretsmanager-2017-10-17/GetSecretValue.md") or [BatchGetSecretValue](../../../goto/SdkForCpp/secretsmanager-2017-10-17/BatchGetSecretValue.md "../../../goto/SdkForCpp/secretsmanager-2017-10-17/BatchGetSecretValue.md").
+
+# Get a Secrets Manager secret value using the C\+\+ AWS SDK
+<a name="retrieving-secrets-cpp"></a>
+
+For C\+\+ applications, call the SDK directly with [GetSecretValue](https://docs.aws.amazon.com/goto/SdkForCpp/secretsmanager-2017-10-17/GetSecretValue) or [BatchGetSecretValue](https://docs.aws.amazon.com/goto/SdkForCpp/secretsmanager-2017-10-17/BatchGetSecretValue).
 
 The following code example shows how to get a Secrets Manager secret value.
 
-**Required permissions:** `secretsmanager:GetSecretValue`
+**Required permissions: **`secretsmanager:GetSecretValue`
 
 ```
 //! Retrieve an AWS Secrets Manager encrypted secret.
@@ -32,5 +35,4 @@ bool AwsDoc::SecretsManager::getSecretValue(const Aws::String &secretID,
 
     return getSecretValueOutcome.IsSuccess();
 }
-
 ```

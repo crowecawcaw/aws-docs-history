@@ -1,21 +1,24 @@
-# Create an AWS Secrets Manager secret with CloudFormation
 
-This example creates a secret named `CloudFormationCreatedSecret-`a1b2c3d4e5f6``.
-The secret value is the following JSON, with a 32-character password that is generated when the secret is created.
+
+# Create an AWS Secrets Manager secret with CloudFormation
+<a name="cfn-example_secret"></a>
+
+This example creates a secret named **CloudFormationCreatedSecret-{{a1b2c3d4e5f6}}**. The secret value is the following JSON, with a 32-character password that is generated when the secret is created.
 
 ```
 {
-    "password": "`EXAMPLE-PASSWORD`",
+    "password": "{{EXAMPLE-PASSWORD}}",
     "username": "saanvi"
 }
 ```
 
 This example uses the following CloudFormation resource:
++ [`AWS::SecretsManager::Secret`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html)
 
-- [`AWS::SecretsManager::Secret`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md")
-  For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md") in the CloudFormation User Guide.
+For information about creating resources with CloudFormation, see [Learn template basics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html) in the CloudFormation User Guide.
 
 ## JSON
+<a name="cfn-example_secret.json"></a>
 
 ```
 {
@@ -36,6 +39,7 @@ This example uses the following CloudFormation resource:
 ```
 
 ## YAML
+<a name="cfn-example_secret.yaml"></a>
 
 ```
 Resources:

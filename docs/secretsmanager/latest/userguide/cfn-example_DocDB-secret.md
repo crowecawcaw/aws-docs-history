@@ -1,20 +1,19 @@
-# Create an AWS Secrets Manager secret and an Amazon DocumentDB instance with CloudFormation
 
-This example creates a secret and an Amazon DocumentDB instance using the credentials in the secret
-as the user and password. The secret has a resource-based policy attached that defines who can
-access the secret. The template also creates a Lambda rotation function from the [Rotation function
-templates](reference_available-rotation-templates.md "reference_available-rotation-templates.md") and configures the secret to
-automatically rotate between 8:00 AM and 10:00 AM UTC on the first day of every month. As a
-security best practice, the instance is in an Amazon VPC.
+
+# Create an AWS Secrets Manager secret and an Amazon DocumentDB instance with CloudFormation
+<a name="cfn-example_DocDB-secret"></a>
+
+This example creates a secret and an Amazon DocumentDB instance using the credentials in the secret as the user and password. The secret has a resource-based policy attached that defines who can access the secret. The template also creates a Lambda rotation function from the [Rotation function templates](reference_available-rotation-templates.md) and configures the secret to automatically rotate between 8:00 AM and 10:00 AM UTC on the first day of every month. As a security best practice, the instance is in an Amazon VPC. 
 
 This example uses the following CloudFormation resources for Secrets Manager:
++ [`AWS::SecretsManager::Secret`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html)
++ [`AWS::SecretsManager::SecretTargetAttachment`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html)
++ [`AWS::SecretsManager::RotationSchedule`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html)
 
-- [`AWS::SecretsManager::Secret`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.md")
-- [`AWS::SecretsManager::SecretTargetAttachment`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.md")
-- [`AWS::SecretsManager::RotationSchedule`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.md")
-  For information about creating resources with CloudFormation, see [Learn template basics](../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md "../../../AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.md") in the CloudFormation User Guide.
+For information about creating resources with CloudFormation, see [Learn template basics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/gettingstarted.templatebasics.html) in the CloudFormation User Guide.
 
 ## JSON
+<a name="cfn-example_DocDB-secret.json"></a>
 
 ```
 {
@@ -211,6 +210,7 @@ This example uses the following CloudFormation resources for Secrets Manager:
 ```
 
 ## YAML
+<a name="cfn-example_DocDB-secret.yaml"></a>
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'
@@ -305,5 +305,4 @@ Resources:
       RotationRules:
         Duration: 2h
         ScheduleExpression: cron(0 8 1 * ? *)
-
 ```
