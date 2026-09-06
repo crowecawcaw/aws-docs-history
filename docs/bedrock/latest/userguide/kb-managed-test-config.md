@@ -34,7 +34,7 @@ return:
 
 ```
 "retrievalConfiguration": {
-    "vectorSearchConfiguration": {
+    "managedSearchConfiguration": {
         "numberOfResults": number
     }
 }
@@ -247,7 +247,7 @@ The following JSON objects show the minimal fields required in the
 
 ```
 "retrievalConfiguration": {
-    "vectorSearchConfiguration": {
+    "managedSearchConfiguration": {
         "filter": {
             "`<filter-type>`": {
                 "key": "string",
@@ -264,7 +264,7 @@ The following JSON objects show the minimal fields required in the
 
 ```
 "retrievalConfiguration": {
-    "vectorSearchConfiguration": {
+    "managedSearchConfiguration": {
         "filter": {
             "`andAll | orAll`": [
                 "`<filter-type>`": {
@@ -289,7 +289,7 @@ The following JSON objects show the minimal fields required in the
 
 ```
 "retrievalConfiguration": {
-    "vectorSearchConfiguration": {
+    "managedSearchConfiguration": {
         "filter": {
             "`andAll | orAll`": [
                 "`andAll | orAll`": [
@@ -319,7 +319,7 @@ The following JSON objects show the minimal fields required in the
 
 ```
 "retrievalConfiguration": {
-    "vectorSearchConfiguration": {
+    "managedSearchConfiguration": {
         "filter": {
             "`andAll | orAll`": [
                 "`andAll | orAll`": [

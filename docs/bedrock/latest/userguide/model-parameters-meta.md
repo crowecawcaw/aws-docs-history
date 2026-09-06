@@ -20,8 +20,11 @@ For Meta Llama specific prompt information, see the [Meta Llama prompt enginee
 
 ###### Note
 
-Llama 3.2 Instruct and Llama 3.3 Instruct models use geofencing. This means that these models cannot be used outside
-the AWS Regions available for these models listed in the Regions table.
+Llama 3.2 11B Instruct, Llama 3.2 90B Instruct, Llama 4 Scout 17B Instruct, and
+Llama 4 Maverick 17B Instruct models use geofencing. Access to these models is restricted
+based on the country associated with your AWS account and the country associated with
+the request's source IP address. For information about supported countries and
+territories, see [Serverless Third-Party Model License Agreements](https://aws.amazon.com/legal/bedrock/third-party-models/ "https://aws.amazon.com/legal/bedrock/third-party-models/").
 
 This section provides information for using the following models from Meta.
 

@@ -106,7 +106,7 @@ Availability differs by endpoint.
 
 ## Data retention
 
-To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share`. You can configure this in the Amazon Bedrock console or via the Data Retention API. For more information, see [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md").
+To use this model, you must opt in to provider data sharing by setting your data retention mode to `provider_data_share` via the Data Retention API. For more information, see [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md").
 
 ## Quotas and Limits
 

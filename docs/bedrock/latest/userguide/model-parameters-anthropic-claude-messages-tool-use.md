@@ -248,6 +248,17 @@ For the underlying tool protocol, the full action vocabulary, and prompt-enginee
 guidance, see [Computer
 use](https://docs.anthropic.com/en/docs/build-with-claude/computer-use "https://docs.anthropic.com/en/docs/build-with-claude/computer-use") in the Anthropic documentation.
 
+### Client toolsets
+
+Some Claude models accept two bundled client toolsets as `tools[].type` values. A toolset bundles a related group of client tools under a single type, so you don't have to declare each tool individually. No `anthropic_beta` value is required.
+
+| **Toolset type**            | **Description**                                     |
+| --------------------------- | --------------------------------------------------- |
+| `computer_toolset_20260801` | Bundled computer-use tools for desktop interaction. |
+| `browser_toolset_20260801`  | Bundled browser-automation tools.                   |
+
+As with individual client tools, the model requests actions but does not run them. You execute each requested action and return a `tool_result`. Submitting a toolset type that a model does not support returns a `400 invalid_request_error`. To confirm which toolsets a model accepts, see the **Capabilities and Features** section in the model's model card.
+
 ## Anthropic defined tools
 
 Anthropic provides a set of pre-defined tools that Claude models can use to
@@ -1047,3 +1058,13 @@ The `tool` field is a discriminated union on `type`:
 ###### Note
 
 `mcp_tool_reference` in a `tool_removal` is lenient — if the server has since dropped that tool, the removal is a no-op (so historical conversations remain replayable).
+
+## Forced tool use
+
+Claude Fable 5.1 and Claude Mythos 5.1 do not support forced tool use. A request that sets `tool_choice` to `{"type": "any"}` or `{"type": "tool", "name": "..."}` returns a `400 invalid_request_error`:
+
+```
+tool_choice: type "tool" and "any" are not supported for this model.
+```
+
+This applies to the `InvokeModel`, `InvokeModelWithResponseStream`, and `CountTokens` operations. The default `tool_choice` values `{"type": "auto"}` and `{"type": "none"}` are unaffected and work as before. In the Converse API, the equivalent `toolChoice` settings (`tool` and `any`) surface the same error.

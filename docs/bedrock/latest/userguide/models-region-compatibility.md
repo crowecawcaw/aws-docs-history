@@ -238,6 +238,80 @@ Rerank| Region | In-Region | Geo | Global |
 
 ## Anthropic
 
+[Claude Fable 5.1](model-card-anthropic-claude-fable-5-1.md "model-card-anthropic-claude-fable-5-1.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-1` (N. Virginia) | not-supported | supported | supported |
+| `us-east-2` (Ohio) | not-supported | supported | supported |
+| `us-west-1` (N. California) | not-supported | supported | supported |
+| `us-west-2` (Oregon) | not-supported | supported | supported |
+| `ca-central-1` (Canada) | not-supported | supported | supported |
+| `ca-west-1` (Calgary) | not-supported | supported | supported |
+| `eu-central-1` (Frankfurt) | not-supported | not-supported | supported |
+| `eu-central-2` (Zurich) | not-supported | not-supported | supported |
+| `eu-north-1` (Stockholm) | not-supported | not-supported | supported |
+| `eu-south-1` (Milan) | not-supported | not-supported | supported |
+| `eu-south-2` (Spain) | not-supported | not-supported | supported |
+| `eu-west-1` (Ireland) | not-supported | not-supported | supported |
+| `eu-west-2` (London) | not-supported | not-supported | supported |
+| `eu-west-3` (Paris) | not-supported | not-supported | supported |
+| `ap-east-2` (Taipei) | not-supported | not-supported | supported |
+| `ap-northeast-1` (Tokyo) | not-supported | not-supported | supported |
+| `ap-northeast-2` (Seoul) | not-supported | not-supported | supported |
+| `ap-northeast-3` (Osaka) | not-supported | not-supported | supported |
+| `ap-south-1` (Mumbai) | not-supported | not-supported | supported |
+| `ap-south-2` (Hyderabad) | not-supported | not-supported | supported |
+| `ap-southeast-1` (Singapore) | not-supported | not-supported | supported |
+| `ap-southeast-2` (Sydney) | not-supported | not-supported | supported |
+| `ap-southeast-3` (Jakarta) | not-supported | not-supported | supported |
+| `ap-southeast-4` (Melbourne) | not-supported | not-supported | supported |
+| `ap-southeast-5` (Malaysia) | not-supported | not-supported | supported |
+| `ap-southeast-6` (New Zealand) | not-supported | not-supported | supported |
+| `ap-southeast-7` (Thailand) | not-supported | not-supported | supported |
+| `il-central-1` (Tel Aviv) | not-supported | not-supported | supported |
+| `me-central-1` (UAE) | not-supported | not-supported | supported |
+| `me-south-1` (Bahrain) | not-supported | not-supported | supported |
+| `af-south-1` (Cape Town) | not-supported | not-supported | supported |
+| `sa-east-1` (São Paulo) | not-supported | not-supported | supported |
+| `mx-central-1` (Mexico) | not-supported | not-supported | supported |
+| `us-gov-east-1` (GovCloud East) | not-supported | supported | not-supported |
+| `us-gov-west-1` (GovCloud West) | supported | supported | not-supported |
+
+[Claude Mythos 5.1](model-card-anthropic-claude-mythos-5-1.md "model-card-anthropic-claude-mythos-5-1.md")| Region | In-Region | Geo | Global |
+| --- | --- | --- | --- |
+| `us-east-1` (N. Virginia) | not-supported | supported | supported |
+| `us-east-2` (Ohio) | not-supported | supported | supported |
+| `us-west-1` (N. California) | not-supported | supported | supported |
+| `us-west-2` (Oregon) | not-supported | supported | supported |
+| `ca-central-1` (Canada) | not-supported | supported | supported |
+| `ca-west-1` (Calgary) | not-supported | supported | supported |
+| `eu-central-1` (Frankfurt) | not-supported | not-supported | supported |
+| `eu-central-2` (Zurich) | not-supported | not-supported | supported |
+| `eu-north-1` (Stockholm) | not-supported | not-supported | supported |
+| `eu-south-1` (Milan) | not-supported | not-supported | supported |
+| `eu-south-2` (Spain) | not-supported | not-supported | supported |
+| `eu-west-1` (Ireland) | not-supported | not-supported | supported |
+| `eu-west-2` (London) | not-supported | not-supported | supported |
+| `eu-west-3` (Paris) | not-supported | not-supported | supported |
+| `ap-east-2` (Taipei) | not-supported | not-supported | supported |
+| `ap-northeast-1` (Tokyo) | not-supported | not-supported | supported |
+| `ap-northeast-2` (Seoul) | not-supported | not-supported | supported |
+| `ap-northeast-3` (Osaka) | not-supported | not-supported | supported |
+| `ap-south-1` (Mumbai) | not-supported | not-supported | supported |
+| `ap-south-2` (Hyderabad) | not-supported | not-supported | supported |
+| `ap-southeast-1` (Singapore) | not-supported | not-supported | supported |
+| `ap-southeast-2` (Sydney) | not-supported | not-supported | supported |
+| `ap-southeast-3` (Jakarta) | not-supported | not-supported | supported |
+| `ap-southeast-4` (Melbourne) | not-supported | not-supported | supported |
+| `ap-southeast-5` (Malaysia) | not-supported | not-supported | supported |
+| `ap-southeast-6` (New Zealand) | not-supported | not-supported | supported |
+| `ap-southeast-7` (Thailand) | not-supported | not-supported | supported |
+| `il-central-1` (Tel Aviv) | not-supported | not-supported | supported |
+| `me-central-1` (UAE) | not-supported | not-supported | supported |
+| `me-south-1` (Bahrain) | not-supported | not-supported | supported |
+| `af-south-1` (Cape Town) | not-supported | not-supported | supported |
+| `sa-east-1` (São Paulo) | not-supported | not-supported | supported |
+| `mx-central-1` (Mexico) | not-supported | not-supported | supported |
+
 [Claude Opus 5](model-card-anthropic-claude-opus-5.md "model-card-anthropic-claude-opus-5.md")| Region | In-Region | Geo | Global |
 | --- | --- | --- | --- |
 | `us-east-1` (N. Virginia) | supported | supported | supported |
@@ -1736,6 +1810,8 @@ Stable Image Ultra V1:1| Region | In-Region | Geo | Global |
 | `us-east-2` (Ohio) | not-supported | supported | supported |
 | `us-west-1` (N. California) | not-supported | supported | supported |
 | `us-west-2` (Oregon) | not-supported | supported | supported |
+| `us-gov-west-1` (GovCloud West) | not-supported | supported | not-supported |
+| `us-gov-east-1` (GovCloud East) | supported | supported | not-supported |
 | `ca-central-1` (Canada) | not-supported | not-supported | supported |
 | `ca-west-1` (Calgary) | not-supported | not-supported | supported |
 | `eu-central-1` (Frankfurt) | not-supported | not-supported | supported |

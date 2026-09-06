@@ -82,3 +82,118 @@ knowledge base that the data is being ingested to.
   number you set, the response returns a `nextToken` that you
   can send in another [ListIngestionJobs](../APIReference/API_agent_ListIngestionJobs.md "../APIReference/API_agent_ListIngestionJobs.md") request to see the next batch of
   jobs.
+
+## Set a sync schedule for a data source
+
+Instead of manually starting a sync each time your content changes, you can set a
+sync schedule so that Amazon Bedrock automatically syncs a data source at a recurring
+frequency. Scheduled syncs help keep your knowledge base up to date without manual
+action. You set the sync schedule when you connect a data source, and you can change
+it later by editing the data source.
+
+You can choose one of the following frequencies:
+
+On-demand
+
+Content syncs only when you manually start a sync. No automatic
+scheduling occurs. This is the default frequency.
+
+Daily
+
+Content syncs once daily at an automatically scheduled time, which
+might vary.
+
+Weekly
+
+Content syncs once weekly, on a day of the week that you specify, at
+an automatically scheduled time.
+
+Monthly
+
+Content syncs once monthly, on a day of the month that you specify, at
+an automatically scheduled time. Choose a specific day from 1 to 28, or
+choose the end of the month.
+
+To set a sync schedule for a data source, choose the tab for your preferred method, and then follow the steps:
+
+Console
+When you connect a data source, or when you edit an existing data
+source, find the **Sync schedule** section and choose a
+**Frequency**:
+
+- If you choose **Weekly**, select the day of
+  the week on which the sync runs.
+- If you choose **Monthly**, select a specific
+  day of the month (1–28), or select the end of the
+  month.
+
+For more information about connecting a data source, see
+[Connect a data source](kb-managed-connect-ds.md "kb-managed-connect-ds.md").
+
+API
+To set a sync schedule with the API, an AWS SDK, or the AWS CLI,
+include a `syncSchedule` object in the
+`managedKnowledgeBaseConnectorConfiguration` (within
+`dataSourceConfiguration`) when you send a [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") or
+[UpdateDataSource](../APIReference/API_agent_UpdateDataSource.md "../APIReference/API_agent_UpdateDataSource.md") request with a [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"). To use on-demand syncing, omit
+`syncSchedule`.
+
+In `syncSchedule`, specify exactly one of the following
+frequency fields:
+
+- `daily` – An empty object
+  (`{}`). Content syncs once per day at a system-chosen
+  off-peak time.
+- `weekly` – An object with a required
+  `dayOfWeek` field. Valid values are
+  `SUNDAY`, `MONDAY`, `TUESDAY`,
+  `WEDNESDAY`, `THURSDAY`,
+  `FRIDAY`, and `SATURDAY`.
+- `monthly` – An object with a required
+  `dayOfMonth` field. In `dayOfMonth`,
+  specify exactly one of the following:
+
+  - `dayNumber` – A specific day of the
+    month, from `1` to `28`.
+  - `lastDayOfMonth` – An empty object
+    (`{}`) that runs the sync on the last calendar
+    day of each month.
+
+The following example shows a `dataSourceConfiguration` that
+schedules a weekly sync on Mondays:
+
+```
+"dataSourceConfiguration": {
+    "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+    "managedKnowledgeBaseConnectorConfiguration": {
+        "connectorParameters": {
+            "type": "`CONNECTOR_TYPE`",
+            "version": "1"
+        },
+        "syncSchedule": {
+            "weekly": {
+                "dayOfWeek": "MONDAY"
+            }
+        }
+    }
+}
+```
+
+To sync on the 15th of each month, replace the
+`syncSchedule` value with the following:
+
+```
+"syncSchedule": {
+    "monthly": {
+        "dayOfMonth": {
+            "dayNumber": 15
+        }
+    }
+}
+```
+
+After you set a schedule, Amazon Bedrock runs syncs automatically at the frequency that you
+chose. You can still start a manual sync at any time. To track scheduled and manual
+sync jobs, view the **Sync history** on the data source details
+page. For more information, see [View data source
+information for your Amazon Bedrock knowledge base](kb-managed-ds-info.md "kb-managed-ds-info.md").

@@ -146,6 +146,19 @@ This section provides detailed information about the common errors you might enc
 
 If you experience frequent 503 errors or if they significantly impact your operations, please contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support")for further assistance and guidance tailored to your specific use case.
 
+## overloaded\_error
+
+**HTTP Status Code:** 529
+
+**Cause:** The model is temporarily unable to process the request because of high demand or insufficient serving capacity. This is a transient capacity error and is different from a 429 `ThrottlingException`, which indicates that the request exceeded an account quota.
+
+**Solution:**
+
+- Retry the request using [exponential backoff](../../../prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.md "../../../prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.md") and random [jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/ "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/"). If the response includes a `Retry-After` header, wait for the specified time before retrying.
+- Avoid immediate or synchronized retries from multiple clients, which can increase load and delay recovery.
+- If the model supports it, use [cross-Region inference](cross-region-inference.md "cross-region-inference.md") to route requests across multiple AWS Regions.
+- If the error persists, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") and provide the request ID, model ID, AWS Region, and approximate timestamp for the failed request.
+
 ## ThrottlingException
 
 **HTTP Status Code:** 429

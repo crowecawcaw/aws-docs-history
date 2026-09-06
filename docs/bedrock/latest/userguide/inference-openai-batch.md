@@ -19,7 +19,7 @@ You can call the OpenAI Create batch API in the following ways:
 
 ## Supported models and Regions for the OpenAI batch API
 
-You can use the OpenAI Create batch API with all OpenAI models supported in Amazon Bedrock and in the AWS Regions that support these models. For more information about supported models and regions, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+You can use the OpenAI Create batch API with supported OpenAI models in Amazon Bedrock. For a list of supported models and Regions, see [Supported Regions and models for batch inference](batch-inference-supported.md "batch-inference-supported.md").
 
 ## Prerequisites to use the OpenAI batch API
 

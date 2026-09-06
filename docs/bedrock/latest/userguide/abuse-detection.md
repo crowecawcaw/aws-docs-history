@@ -13,9 +13,19 @@ However, for specific abuse detection purposes related to the following models, 
 required to store inputs and outputs:
 
 - For OpenAI GPT-5.4, GPT-5.5, GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, Daybreak Red: GPT-5.6 Cyber, and Daybreak Blue: GPT-5.6 Sol, classifier-flagged traffic will be retained for up to 30
-  days for automated offline abuse detection.
-- For Anthropic Claude Fable 5, inputs and outputs will be retained for up to 30 days. In order to use Claude Fable 5, as required by Anthropic, you must opt in to sharing retained traffic with Anthropic for abuse detection and potential human review.
-  Retained inputs and outputs are stored and processed by AWS and are not shared with third-party model providers, unless you opt in to sharing with the model provider. If cross-region inference is enabled for these models, retained inputs and outputs are stored in destination regions (i.e., the region where your inference request is processed). For these models, eligible customers may request full ZDR through their AWS account team.
+  days for automated offline abuse detection. Eligible customers may request full ZDR
+  through their AWS account team.
+- For Anthropic Claude Fable 5 and Claude Fable 5.1, all traffic will be retained
+  for up to 30 days for automated offline abuse detection. Classifier-flagged traffic
+  will be subject to potential human review performed by AWS.
+
+  - Customers that are eligible for the Enterprise Frontier Safeguards
+    program will receive ZDR through December 31, 2026. After ZDR ends, all
+    traffic will be retained for up to 30 days for automated offline abuse
+    detection. The Enterprise Frontier Safeguards program plans to enable
+    customer-managed encryption keys and bring your own bucket for storage for
+    automated offline abuse detection.
+    Retained inputs and outputs are stored and processed by AWS and are not shared with third-party model providers. If cross-region inference is enabled for these models, retained inputs and outputs are stored in destination regions (i.e., the region where your inference request is processed).
 
 You are responsible for the content you (and your end users) upload to Amazon Bedrock. To help
 stop the dissemination of child sexual abuse material ("CSAM"), Amazon Bedrock may use

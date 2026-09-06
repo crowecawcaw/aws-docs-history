@@ -232,7 +232,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
-    modelId='anthropic.claude-sonnet-4-6',
+    modelId='global.anthropic.claude-sonnet-4-6',
     body=json.dumps({
             'anthropic_version': 'bedrock-2023-05-31',
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
@@ -249,7 +249,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.converse(
-    modelId='anthropic.claude-sonnet-4-6',
+    modelId='global.anthropic.claude-sonnet-4-6',
     messages=[
         {
             'role': 'user',

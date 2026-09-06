@@ -1,11 +1,13 @@
 # Adaptive thinking
 
-Adaptive thinking is the recommended way to use [Extended thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md") with Claude Opus 4.6. Instead of manually setting a thinking token budget, adaptive thinking lets Claude dynamically decide when and how much to think based on the complexity of each request. Adaptive thinking reliably drives better performance than extended thinking with a fixed `budget_tokens`, and we recommend moving to adaptive thinking to get the most intelligent responses from Claude Opus 4.6. No beta header is required.
+Adaptive thinking lets Claude dynamically decide when and how much to think based on the complexity of each request, instead of requiring a fixed thinking token budget. It is supported on Claude Fable 5.1, Claude Mythos 5.1, Claude Opus 5, Claude Sonnet 5, and other thinking-capable models. Adaptive thinking reliably drives better performance than extended thinking with a fixed `budget_tokens`. No beta header is required.
 
 The supported models are as follows:
 
 | Model                 | Model ID                          |
 | --------------------- | --------------------------------- |
+| Claude Fable 5.1      | `anthropic.claude-fable-5-1`      |
+| Claude Mythos 5.1     | `anthropic.claude-mythos-5-1`     |
 | Claude Opus 5         | `anthropic.claude-opus-5`         |
 | Claude Sonnet 5       | `anthropic.claude-sonnet-5`       |
 | Claude Mythos 5       | `anthropic.claude-mythos-5`       |
@@ -17,7 +19,9 @@ The supported models are as follows:
 
 ###### Note
 
-Claude Mythos 5, Claude Fable 5, Claude Opus 4.7, and Claude Mythos Preview _only_ support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) and disabled thinking (`thinking.type: "disabled"`) are not supported on these models and will return a 400 error. Use `thinking.type: "adaptive"` with `output_config.effort` to control thinking behavior.
+Claude Fable 5.1, Claude Mythos 5.1, Claude Mythos 5, Claude Fable 5, and Claude Mythos Preview _only_ support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) and disabled thinking (`thinking.type: "disabled"`) are not supported on these models and will return a 400 error. Use `thinking.type: "adaptive"` with `output_config.effort` to control thinking behavior.
+
+Claude Opus 4.7 supports adaptive and disabled thinking. To turn thinking off, use `thinking.type: "disabled"`. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not supported and will return a 400 error.
 
 `thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.
 
@@ -138,13 +142,13 @@ main().catch(console.error);
 
 You can combine adaptive thinking with the effort parameter to guide how much thinking Claude does. The effort level acts as soft guidance for Claude's thinking allocation:
 
-| Effort level     | Thinking behavior                                                                                                                                               |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `max`            | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6 and Claude Opus 5 only — requests using `max` on other models will return an error. |
-| `xhigh`          | Claude always thinks with extended depth. Claude Opus 5 and Claude Opus 4.6 only.                                                                               |
-| `high` (default) | Claude always thinks. Provides deep reasoning on complex tasks.                                                                                                 |
-| `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                                       |
-| `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                                            |
+| Effort level     | Thinking behavior                                                                                                                                                                            |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `max`            | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6, Claude Sonnet 4.6, and Claude Opus 5 support `max`. Requests using `max` on unsupported models return an error. |
+| `xhigh`          | Claude always thinks with extended depth. Claude Opus 5 and Claude Opus 4.6 only.                                                                                                            |
+| `high` (default) | Claude always thinks. Provides deep reasoning on complex tasks.                                                                                                                              |
+| `medium`         | Claude uses moderate thinking. May skip thinking for very simple queries.                                                                                                                    |
+| `low`            | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most.                                                                                                         |
 
 ###### Important
 
@@ -217,6 +221,31 @@ response = bedrock_runtime.converse(
     }
 )
 ```
+
+## Setting effort per turn (beta)
+
+This feature is a Beta Service as defined in the AWS Service Terms. On Claude Fable 5.1 and Claude Mythos 5.1, you can change the effort level partway through a conversation instead of setting it once for the whole request. Insert a system message that carries an `output_config.effort` value at any point in the `messages` array. The new effort level applies to the turns that follow it. The request returns 200 with no change to the response shape.
+
+To use per-turn effort, include one of the following `anthropic_beta` values: `mid-conversation-output-config-2026-07-01`, `mid-conversation-effort-2026-08-01`, `per-turn-control-2026-07-01`, or `per-message-effort-2026-07-01`.
+
+```
+{
+    "anthropic_version": "bedrock-2023-05-31",
+    "anthropic_beta": ["mid-conversation-effort-2026-08-01"],
+    "max_tokens": 16000,
+    "output_config": {"effort": "high"},
+    "messages": [
+        {"role": "user", "content": "First question"},
+        {"role": "assistant", "content": "First answer"},
+        {"role": "system", "content": [], "output_config": {"effort": "low"}},
+        {"role": "user", "content": "A simpler follow-up question"}
+    ]
+}
+```
+
+###### Note
+
+Without one of the listed beta values — or on a model that does not support per-turn effort — a request that includes `output_config` on a system message returns `400 messages.N.output_config: Extra inputs are not permitted`. A per-turn `task_budget` is not supported and also returns a 400.
 
 ## Prompt caching
 

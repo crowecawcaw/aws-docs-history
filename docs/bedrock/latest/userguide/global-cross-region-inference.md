@@ -138,30 +138,53 @@ implications:
   explicit deny will take precedence. The deny policy should use a
   `StringEquals` condition matching the pattern
   `"aws:RequestedRegion": "unspecified"`. This pattern
-  specifically targets inference profiles with the `global`
-  prefix.
+  targets the Region-agnostic global foundation model resource evaluation
+  required by Global cross-Region inference.
 
 When implementing deny policies, it's crucial to understand that global CRIS
 changes how the `aws:RequestedRegion` field behaves. Traditional
 AWS Region-based deny policies that use `StringEquals` conditions
 with specific AWS Region names such as `"aws:RequestedRegion":
- "us-west-2"` will not work as expected with global CRIS. The service
-sets this field to `global` rather than the actual
-destination AWS Region. However, as mentioned earlier,
-`"aws:RequestedRegion": "unspecified"` will result in the deny
-effect.
+ "us-west-2"` don't target the Region-agnostic global foundation model
+resource evaluation. For this evaluation, the service sets
+`aws:RequestedRegion` to `unspecified` rather than the
+actual destination AWS Region. Therefore, a condition that matches
+`"aws:RequestedRegion": "unspecified"` can deny global
+CRIS.
 
 ## Service Control Policy requirements for Global cross-Region inference
 
 For Global cross-Region inference, if your organization's security policy uses
-SCPs to block unused Regions, you must update your region-specific SCP conditions to
-allow access with `"aws:RequestedRegion": "unspecified"`. This condition
-is specific to Amazon Bedrock Global cross-Region inference and ensures that requests can be
-routed to all supported AWS commercial Regions.
+SCPs to block unused Regions, you can either update your Region-specific SCP
+conditions to allow access with
+`"aws:RequestedRegion": "unspecified"` or add an inference-profile
+exception as described in the following note. Allowing `unspecified`
+ensures that requests can be routed to all supported AWS commercial
+Regions.
 
-The following example SCP blocks all AWS API calls outside of approved Regions
-while allowing Amazon Bedrock Global cross-Region inference calls that use
-`"unspecified"` as the Region for global routing:
+###### Note
+
+When a request uses a Global cross-Region inference profile, Amazon Bedrock evaluates
+authorization for the inference profile resource, the foundation model in the
+source Region, and the Region-agnostic global foundation model ARN
+`arn:aws:bedrock:::foundation-model/...`, for which
+`aws:RequestedRegion` is `unspecified`. The
+`bedrock:InferenceProfileArn` condition key is populated for the
+foundation model resource evaluations, but not for the inference profile
+resource evaluation.
+
+Because the global foundation model resource evaluation carries
+`unspecified`, you can use
+`bedrock:InferenceProfileArn` in a Region-deny SCP to exempt
+cross-Region routing without adding `unspecified` to the Region
+allowlist for other services and actions. This exemption can't bypass the
+Region restriction on the originating call. The inference profile resource
+evaluation carries the source Region and doesn't include
+`bedrock:InferenceProfileArn`.
+
+The following example shows the first approach. The SCP blocks all AWS API
+calls outside of approved Regions while allowing Amazon Bedrock Global cross-Region inference
+calls that use `"unspecified"` as the Region for global routing:
 
 ```
 {

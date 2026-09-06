@@ -54,9 +54,9 @@ For pricing information, see the [Amazon Bedrock Pricing](https://aws.amazon.com
 
 Use the following model IDs and endpoint URLs to access this model programmatically. For more information about the available APIs and endpoints, see [APIs supported](apis.md "apis.md") and [Endpoints supported](endpoints.md "endpoints.md").
 
-| **Endpoint**      | **Model ID**           | **In-Region endpoint URL**                       | **Geo inference ID**                               | **Global inference ID** |
-| ----------------- | ---------------------- | ------------------------------------------------ | -------------------------------------------------- | ----------------------- |
-| `bedrock-runtime` | `amazon.nova-pro-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.amazon.nova-pro-v1:0``eu.amazon.nova-pro-v1:0` | Not supported           |
+| **Endpoint**      | **Model ID**           | **In-Region endpoint URL**                       | **Geo inference ID**                                                          | **Global inference ID** |
+| ----------------- | ---------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------- | ----------------------- |
+| `bedrock-runtime` | `amazon.nova-pro-v1:0` | `https://bedrock-runtime.{region}.amazonaws.com` | `us.amazon.nova-pro-v1:0``eu.amazon.nova-pro-v1:0``apac.amazon.nova-pro-v1:0` | Not supported           |
 
 _For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1"._
 
@@ -123,6 +123,12 @@ Geo Inference ID: `eu.amazon.nova-pro-v1:0`
 | eu-west-1 (Ireland)      | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-west-1 (Ireland), eu-west-3 (Paris)                                              |
 | eu-west-3 (Paris)        | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-west-1 (Ireland), eu-west-3 (Paris)                                              |
 | il-central-1 (Tel Aviv)  | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-west-1 (Ireland), eu-west-3 (Paris), il-central-1 (Tel Aviv) |
+
+**Geo: APAC**
+
+Geo Inference ID: `apac.amazon.nova-pro-v1:0`
+
+To retrieve current details for this inference profile, use the [GetInferenceProfile](../APIReference/API_GetInferenceProfile.md "../APIReference/API_GetInferenceProfile.md") operation.
 
 ## Quotas and Limits
 

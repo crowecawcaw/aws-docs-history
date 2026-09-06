@@ -10,6 +10,15 @@ After you create the knowledge base, connect it to a data source and start inges
 For details on connecting a data source, see [Connect a data source](kb-managed-connect-ds.md "kb-managed-connect-ds.md"). To sync a data source,
 use the `StartIngestionJob` API. For details, see [Sync your data with your Amazon Bedrock knowledge base](kb-data-source-sync-ingest.md "kb-data-source-sync-ingest.md").
 
+###### Note
+
+After you create and sync a managed knowledge base, use the
+`Retrieve` API to query it. In the
+`retrievalConfiguration` field, specify
+`managedSearchConfiguration`. The
+`vectorSearchConfiguration` field applies only to custom knowledge bases.
+For request examples and additional considerations, see [Query a knowledge base and retrieve data](kb-test-retrieve.md "kb-test-retrieve.md").
+
 To learn how to create a managed knowledge base, choose the tab for your
 preferred method:
 
@@ -222,10 +231,13 @@ create your knowledge base with the default managed embedding model.
 Managed knowledge bases support the following data source connectors:
 
 - Amazon S3
-- Confluence
-- Microsoft SharePoint
+- Box
+- Confluence Cloud
+- Confluence Data Center
+- Microsoft SharePoint Online
 - Google Drive
 - Microsoft OneDrive
+- ServiceNow
 - Web Crawler
 - Custom connector
 

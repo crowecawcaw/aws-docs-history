@@ -4,15 +4,23 @@ Web Search is a built-in tool that provides web search capability in Amazon Bedr
 enable it, supported models can retrieve current information from the web during a request and
 use it to ground their answers, instead of relying only on the data they were trained on.
 Responses include citations to the sources the model used. Web Search is hosted and built by
-AWS, and your data stays within the AWS boundary by default.
+AWS. Retrieval from the external web occurs only when both your request and your IAM
+permissions allow it.
 
 ## Data governance
 
-By default, when using the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") policy, Web Search is served from the Amazon Bedrock web index and
-cache, and your request data does not leave the AWS boundary for retrieval. You can also use
-IAM to enforce this at the policy level. Depending on the model you are using, your data is
-subject to the automated [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md")
-mechanisms.
+To keep retrieval within the AWS boundary while still allowing cached page content, set
+`external_web_access` to `false`. Search is then served from the
+Amazon Bedrock web index and Fetch is served from the Amazon Bedrock cache.
+
+The [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") policy grants Search and Fetch but not
+`bedrock-websearch:ExternalWebAccess`. Because
+`external_web_access` defaults to `true`, omitting the parameter with this
+policy causes each Fetch attempt to fail its backend authorization check before the cache is
+read. The overall Responses API request can still complete using Search observations, but Fetch
+contributes no page content. Explicitly setting the parameter to `false` avoids this
+failure and keeps retrieval within the AWS boundary. Depending on the model you are using, your
+data is subject to the automated [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md") mechanisms.
 
 ## When to use Web Search
 
@@ -48,26 +56,27 @@ Web Search is built from two operations:
 
 - **Search** – Returns titles, URLs, and snippets from
   the Amazon Bedrock web index and knowledge graph for high-confidence facts.
-- **Fetch** – Retrieves cached page content for a
-  specific URL from the Amazon Bedrock cache. If the result is unavailable in the cache, the model
-  may choose to either notify you or build a response based on the best information it
-  has.
+- **Fetch** – Retrieves page content for a specific
+  URL. With `external_web_access` set to `false`, Fetch uses the
+  Amazon Bedrock cache only. With the parameter set to `true` and the required IAM
+  permission granted, Fetch checks the cache first and accesses the external web only on a
+  cache miss.
 
-By default, both operations are served entirely from within the AWS service boundary
-using the Amazon Bedrock web index and cache, a snapshot of web content hosted inside AWS, rather
-than fetching from the live web at request time. The `external_web_access`
-parameter in the Responses API and the `bedrock-websearch:ExternalWebAccess` IAM
-permission govern whether search and fetch may reach the external web directly. For details,
-see [Controlling external web access](#web-search-controlling-external "#web-search-controlling-external").
+Search is always served from the Amazon Bedrock web index. The
+`external_web_access` parameter in the Responses API and the
+`bedrock-websearch:ExternalWebAccess` IAM permission govern whether Fetch can use
+the external web after a cache miss. For details, see [Controlling external web access](#web-search-controlling-external "#web-search-controlling-external").
 
 ### Supported models
 
 Web Search is available for OpenAI GPT models served through the Amazon Bedrock
-`bedrock-mantle` endpoint, using the Responses API. It is currently supported on
-the GPT-5.6 family — `openai.gpt-5.6-sol`,
+`bedrock-mantle` endpoint, using the Responses API. In the commercial US Regions, it
+is supported on the GPT-5.6 family — `openai.gpt-5.6-sol`,
 `openai.gpt-5.6-terra`, and `openai.gpt-5.6-luna` — as well as the
-earlier `openai.gpt-5.4` and `openai.gpt-5.5`. Examples in this guide
-use `openai.gpt-5.6-terra`. For Web Search pricing, refer to the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
+earlier `openai.gpt-5.4` and `openai.gpt-5.5`. In AWS GovCloud (US), it
+is supported on `openai.gpt-5.6-terra`, `openai.gpt-5.6-luna`, and
+`openai.gpt-5.4`. Examples in this guide use `openai.gpt-5.6-terra`. For
+Web Search pricing, refer to the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/").
 
 ###### Note
 
@@ -77,13 +86,21 @@ the `bedrock-runtime` endpoint. To use it, call the Responses API on
 
 ### Regional availability
 
-Web Search processes queries in-Region in three US Regions:
+Web Search processes queries in-Region. See current availability below.
+
+#### United States
 
 | **Region**            | **Region code** |
 | --------------------- | --------------- |
 | US East (N. Virginia) | `us-east-1`     |
 | US East (Ohio)        | `us-east-2`     |
 | US West (Oregon)      | `us-west-2`     |
+
+#### AWS GovCloud (US)
+
+| **Region**             | **Region code** |
+| ---------------------- | --------------- |
+| AWS GovCloud (US-West) | `us-gov-west-1` |
 
 Web Search is strictly regional. Each Region operates its own search and fetch tier, and
 queries, fetches, index data, and results are not routed across Regions. A query issued in a
@@ -109,11 +126,34 @@ To enable Web Search, add a tool of type `web_search` to the
 `tools` array in your request. The model uses the tool only when it determines the
 request needs current information. For runnable examples, see [Code examples](#web-search-code-examples "#web-search-code-examples").
 
+### Control search context size
+
+Use `search_context_size` to control how much context each Search call can
+return to the model. The supported values are:
+
+| **Value** | **Observation budget** | **When to use**                                                                              |
+| --------- | ---------------------- | -------------------------------------------------------------------------------------------- |
+| `low`     | Up to 5                | Smaller context and lower input-token usage for straightforward questions.                   |
+| `medium`  | Up to 11               | The default. Balances result coverage and input-token usage.                                 |
+| `high`    | Up to 25               | More context for complex or multi-hop questions, with higher potential input-token<br>usage. |
+
+An observation contains a title, URL, and content snippet. The budget is shared when a
+Search call contains multiple queries, and the service can return fewer observations than the
+maximum. Larger settings can increase the model input tokens and associated inference cost.
+This parameter does not limit how many Search calls the model can make.
+
+```
+tools=[{
+    "type": "web_search",
+    "search_context_size": "low",
+    "external_web_access": False,
+}]
+```
+
 ## Controlling external web access
 
-By default, Web Search is served entirely from the Amazon Bedrock web index and cache, and no
-request data leaves the AWS boundary for retrieval. Whether search and fetch may reach the
-external web is governed by two controls that work together: the
+Search is served from the Amazon Bedrock web index. Whether Fetch can retrieve page content from
+the external web after a cache miss is governed by two controls that work together: the
 `external_web_access` parameter in the Responses API and the
 `bedrock-websearch:ExternalWebAccess` IAM permission.
 
@@ -123,12 +163,15 @@ grants the basic Web Search actions — `bedrock-websearch:InvokeSearch` and
 `bedrock-websearch:InvokeFetch` — but does not grant
 `bedrock-websearch:ExternalWebAccess`. As a result, a request that leaves
 `external_web_access` at `true` from an identity that does not hold
-`ExternalWebAccess` returns a `403 AccessDenied` on the authorization
-check. The model does not fail the request: it grounds its answer in Search but fails all
-Fetch requests and reports that it could not obtain external web access.
+`ExternalWebAccess` fails the backend authorization check for each Fetch attempt
+before the cache is read. The caller's Responses API request can still return HTTP
+`200`: the model can continue using Search observations and return
+`url_citation` annotations. The model response is not guaranteed to disclose the
+Fetch failure, and the presence of a citation does not mean the cited page was fetched. The
+denied `InvokeFetch` call is visible in CloudTrail when Web Search data event logging is
+enabled. For details, see [Monitor Web Search](monitoring-web-search.md "monitoring-web-search.md").
 
-To make a request that does not hit this error, use one of the two approaches
-below.
+Choose one of the following configurations for Fetch.
 
 ### Keep requests within the AWS boundary
 
@@ -136,7 +179,9 @@ Set `"external_web_access": false` on the tool. This does not require the
 `ExternalWebAccess` permission, retrieval is served entirely from the Amazon Bedrock web
 index and cache, and your request data does not leave the AWS boundary. Because
 [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess")
-does not grant `ExternalWebAccess`, this configuration is safe by default.
+grants `InvokeFetch`, cached Fetch continues to work. Set the parameter explicitly;
+don't rely on omitting the permission while leaving the parameter at its default of
+`true`, because that configuration causes Fetch attempts to fail.
 
 ```
 response = client.responses.create(
@@ -160,12 +205,17 @@ curl "https://bedrock-mantle.us-west-2.api.aws/openai/v1/responses" \
 ### Enable external web access
 
 Grant `bedrock-websearch:ExternalWebAccess` to the request identity and set
-`external_web_access` to `true`. With this configuration, search and
-fetch may reach the live external web directly. When a request reaches the external web, your
-request data may leave the AWS boundary. External web access is disabled by default (that
-is, `bedrock-websearch:ExternalWebAccess` is disallowed), external web access takes
-effect only after you explicitly allow that permission. External web access remains under your
-control. It applies only when you grant the permission and leave the parameter enabled.
+`external_web_access` to `true`. The simplest managed-policy path is to
+attach either `AmazonBedrockExternalWebSearchReadOnly` or
+`AmazonBedrockExternalWebSearchFullAccess`. The current versions of these policies
+grant the same three Web Search actions on the same resources, so either policy enables
+external retrieval. For details, see [Managed policies](security-web-search.md#security-web-search-managed-policies "security-web-search.md#security-web-search-managed-policies").
+
+With this configuration, Search continues to use the Amazon Bedrock web index. Fetch checks the
+Amazon Bedrock cache first and retrieves from the external web only when suitable page content is not
+in the cache. When Fetch reaches the external web, your request data may leave the AWS
+boundary. External retrieval takes effect only when you both grant the permission and leave the
+parameter enabled.
 
 ###### Note
 
@@ -275,6 +325,11 @@ curl "https://bedrock-mantle.us-west-2.api.aws/openai/v1/responses" \
 Web Search returns citations as `url_citation` annotations attached to the
 text. Each annotation carries the source title and URL and the character span in the answer
 it supports. Retain and display these to end users.
+
+A citation can be based on a Search observation even when Fetch did not retrieve the full
+page. Don't use the presence of a citation to determine whether content came from the
+Amazon Bedrock cache or the external web. To audit Fetch outcomes and retrieval sources, use the
+`fetchedSources` field in CloudTrail. For details, see [Monitor Web Search](monitoring-web-search.md "monitoring-web-search.md").
 
 ```
 from openai import OpenAI

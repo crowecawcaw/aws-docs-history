@@ -13,7 +13,7 @@ When you run model inference, there are quotas on the number of tokens that can 
 | `max_tokens`            | A parameter you provide in your request to set a maximum amount of output tokens the model can generate.                                                                                                                                                                         |
 | Burndown rate           | The rate at which input and output tokens are converted into token quota usage for the throttling system.                                                                                                                                                                        |
 
-The burndown rate for Anthropic Claude models version 4.8 is **15x for output tokens** (1 output token consumes 15 tokens from your quotas) and the burndown rate for Anthropic Claude Sonnet 5 is **10x for output tokens**. The burndown rate for Anthropic Claude Opus 5 is **10x for output tokens**. For all other Anthropic models version 4.7 and below, the burndown is **5x for output tokens** (1 output token consumes 5 tokens from your quotas).
+The burndown rate for Anthropic Claude models version 4.8 is **15x for output tokens** (1 output token consumes 15 tokens from your quotas) and the burndown rate for Anthropic Claude Sonnet 5, Claude Opus 5, and Claude Fable 5.1 is **10x for output tokens**. For all other Anthropic models version 4.7 and below, the burndown is **5x for output tokens** (1 output token consumes 5 tokens from your quotas).
 
 The burndown rate for OpenAI GPT-5.6 Sol, GPT-5.6 Terra, and GPT-5.6 Luna on the `bedrock-runtime` endpoint is **10x for output tokens** (1 output token consumes 10 tokens from your quotas).
 

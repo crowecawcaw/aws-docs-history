@@ -344,7 +344,7 @@ Console
         table or the column display in the table, select
         the settings icon (
 
-      ![Gear icon representing settings or configuration options.](/images/bedrock/latest/userguide/images/icons/settings.png)
+      ![Gear icon representing settings or configuration options.](images/icons/settings.png)
 
       ). Set your
       preferences and then select
@@ -385,7 +385,7 @@ Console
         table or the column display in the table, select
         the settings icon (
 
-      ![Gear icon representing settings or configuration options.](/images/bedrock/latest/userguide/images/icons/settings.png)
+      ![Gear icon representing settings or configuration options.](images/icons/settings.png)
 
       ). Set your
       preferences and then select
