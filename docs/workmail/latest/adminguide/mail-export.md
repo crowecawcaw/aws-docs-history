@@ -68,7 +68,10 @@ JSON
  "kms:ViaService": "s3.`us-east-1`.amazonaws.com"
  },
  "StringLike": {
- "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3:::`amzn-s3-demo-bucket`/`S3-PREFIX`*"
+ "kms:EncryptionContext:aws:s3:arn": [
+ "arn:aws:s3:::`amzn-s3-demo-bucket`",
+ "arn:aws:s3:::`amzn-s3-demo-bucket`/`S3-PREFIX`*"
+ ]
  }
  }
  }
